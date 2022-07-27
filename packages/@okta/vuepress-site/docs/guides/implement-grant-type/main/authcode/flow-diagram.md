@@ -1,6 +1,10 @@
 ### Authorization Code flow
 
-![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow"](/img/authorization/oauth-auth-code-grant-flow.png "Authorization Code flow")
+<div class="full">
+
+![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow"](/img/authorization/oauth-auth-code-grant-flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 

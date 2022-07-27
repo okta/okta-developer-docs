@@ -249,6 +249,10 @@ HTTP 204:
 ### Get applications
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
 
+Retrieves a list of applications mapped to a policy
+
+> **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+
 ##### Request parameters
 
 The Policy ID described in the [Policy object](#policy-object) is required.
@@ -491,7 +495,7 @@ Policies that have no Rules aren't considered during evaluation and are never ap
 
 Different Policy types control settings for different operations. All Policy types share a common framework, message structure, and API, but have different Policy settings and Rule data. The data structures specific to each Policy type are discussed in the various sections below.
 
-[Global Session Policy](#global-session-policy)
+[Global session policy](#global-session-policy)
 
 [Okta MFA Policy](#multifactor-mfa-enrollment-policy)
 
@@ -528,7 +532,7 @@ For example, assume the following Policies exist.
 
 When a Policy is evaluated for a user, Policy "A" is evaluated first. If the user is a member of the "Administrators" group, then the Rules associated with Policy "A" are evaluated. If a match is found, then the Policy settings are applied. If the user isn't a member of the "Administrators" group, then Policy B is evaluated.
 
-### Policy JSON example (Global Session Policy)
+### Policy JSON example (global session policy)
 
 ```json
   {
@@ -1080,25 +1084,25 @@ See [Okta Expression Language in Identity Engine](/docs/references/okta-expressi
 
 ## Type-Specific Policy data structures
 
-## Global Session Policy
+## Global session policy
 
-> **Note:** In Identity Engine, the Okta Sign On Policy name has changed to Global Session Policy. The policy type of `OKTA_SIGN_ON` remains unchanged.
+> **Note:** In Identity Engine, the Okta Sign On Policy name has changed to global session policy. The policy type of `OKTA_SIGN_ON` remains unchanged.
 
-Global Session Policy controls the manner in which a user is allowed to sign in to Okta, including whether they are challenged for multifactor authentication (MFA) and how long they are allowed to remain signed in before re-authenticating.
+Global session policy controls the manner in which a user is allowed to sign in to Okta, including whether they are challenged for multifactor authentication (MFA) and how long they are allowed to remain signed in before re-authenticating.
 
-> **Note:** Global Session Policy is different from an application-level authentication policy. An authentication policy determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked.
+> **Note:** Global session policy is different from an application-level authentication policy. An authentication policy determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked.
 
 ### Policy Settings data
 
-The Global Session Policy doesn't contain Policy Settings data. All of the data is contained in the Rules.
+The global session policy doesn't contain Policy Settings data. All of the data is contained in the Rules.
 
 ### Policy conditions
 
-The following conditions may be applied to the Global Session Policy.
+The following conditions may be applied to the global session policy.
 
 [People Condition](#people-condition-object)
 
-### Global Session Policy Rules action data
+### Global session policy Rules action data
 
 #### Signon Action example
 
@@ -1141,7 +1145,7 @@ The following conditions may be applied to the Global Session Policy.
 
 ### Rules conditions
 
-You can apply the following conditions to the Rules associated with a Global Session Policy:
+You can apply the following conditions to the Rules associated with a global session policy:
 
 * [People condition](#people-condition-object)
 
@@ -1829,7 +1833,7 @@ refers to the user's `username`. If the user is signing in with the username `jo
 
 > **Note:** The app sign-on policy name has changed to authentication policy. The policy type of `ACCESS_POLICY` remains unchanged.
 
-An authentication policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. The Identity Engine always evaluates both the Global Session Policy and the authentication policy for the app. The resulting user experience is the union of both policies. Authentication policies have a policy type of `ACCESS_POLICY`.
+An authentication policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. This policy is always associated with an app through a mapping. Identity Engine always evaluates both the global session policy and the authentication policy for the app. The resulting user experience is the union of both policies. Authentication policies have a policy type of `ACCESS_POLICY`.
 
 When you create a new application, the shared default authentication policy is associated with it. You can [create a different authentication policy for the app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) or [add additional rules to the default authentication policy](/docs/guides/configure-signon-policy/#select-the-policy-and-add-a-rule) to meet your needs. Remember that any rules that you add to the shared authentication policy are automatically assigned to any new application that you create in your org.
 

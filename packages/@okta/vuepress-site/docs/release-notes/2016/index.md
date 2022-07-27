@@ -32,7 +32,11 @@ By defining flexible security domains, scopes, claims, and access policies, you 
 With this solution, you can create one or more authorization servers, configure scopes, set access policies and have a fully operational OAuth Authorization Service in minutes.
 We support the full set of core OAuth and OIDC flows (code, implicit, password, client credential, hybrid, and refresh) and are fully spec compliant.
 
-![Authorization Server page](/img/auth_server2.png "Authorization Server page")
+<div class="three-quarter border">
+
+![Authorization Server page](/img/release_notes/auth_server2.png)
+
+</div>
 
 To get started with API Access Management, visit [API Access Management](/docs/concepts/api-access-management/).
 
@@ -540,7 +544,11 @@ To improve usability, we've moved some of the panels in the administrator UI rel
 * The **Signing credentials rotation** option was on the **Client Registration** panel, but since it helps you configure tokens, we've
  moved it to the **Authorization Server** tab.
 
-![New Tab for Managing OAuth-Related Configuration](/img/changed_tabs.png "New Tab for Managing OAuth-Related Configuration")
+<div class="three-quarter border">
+
+![New Tab for Managing OAuth-Related Configuration](/img/release_notes/changed_tabs.png)
+
+</div>
 
 #### Okta Sign-In Widget Updated
 

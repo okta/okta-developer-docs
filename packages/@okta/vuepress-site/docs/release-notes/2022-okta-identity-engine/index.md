@@ -6,6 +6,23 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## July
 
+### Weekly release 2022.07.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Dynamic issuer mode for Identity Providers](#dynamic-issuer-mode-for-identity-providers)                    | July 13, 2022            |
+| [Bugs fixed in 2022.07.1](#bugs-fixed-in-2022-07-1)                        | July 13, 2022            |
+
+#### Dynamic issuer mode for Identity Providers
+
+You can configure the dynamic issuer mode for an Identity Provider using the Identity Provider API. When you set the`issuerMode` parameter to `DYNAMIC`, Okta uses the domain from the Authorize URL as the domain for the redirect URI when returning the authentication response. <!--OKTA-506807-->
+
+#### Bugs fixed in 2022.07.1
+
+- When the `/api/v1/users/${userId}/roles` or
+`/api/v1/groups/${groupId}/roles` endpoints were called to assign a custom role and resource set to a user or group, and those assignments already existed, the calls didn’t receive an HTTP 409 Conflict error. (OKTA-507683)
+- Sometimes Identity Engine users couldn't sign in using the Classic Engine `/authn` API. (OKTA-500649)
+
 ### Monthly release 2022.07.0
 
 | Change | Expected in Preview Orgs |
@@ -123,7 +140,7 @@ The mandatory `profileAttributes` parameter wasn't validated and the primary `em
 
 * When the `factorType` parameter was set to `token:software:totp`, the `amr` claim was missing MFA factors (Okta Verify/Challenge or Google Authenticator). (OKTA-499718)
 
-* The Max Okta session lifetime setting for Global Session Policy was ignored. (OKTA-480442)
+* The Max Okta session lifetime setting for global session policy was ignored. (OKTA-480442)
 
 * When token inline hooks were used in embedded flows, the hook request URL didn’t contain the complete path. When token inline hooks were used in redirect flows, the hook request didn't always contain the user object. (OKTA-499597)
 
@@ -472,7 +489,7 @@ Admins can now manage authentication policies using a centralized view. While au
 
 On the new Authentication Policies page, admins can create new policies, apply those policies to multiple applications, and assess what application access decisions are impacted by each policy.
 
-Two policy name changes are included in this release: app sign-on policy is renamed authentication policy, and Okta sign-on policy is renamed Global Session Policy. See [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/) and [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
+Two policy name changes are included in this release: app sign-on policy is renamed authentication policy, and Okta sign-on policy is renamed global session policy. See [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/) and [Authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
 #### Signed request support for generic OIDC IdP is EA in Preview
 

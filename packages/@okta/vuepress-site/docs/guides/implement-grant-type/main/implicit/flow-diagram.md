@@ -1,6 +1,10 @@
 ### Implicit flow
 
-![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Implicit grant flow](/img/authorization/oauth-implicit-grant-flow.png "Implicit flow")
+<div class="full">
+
+![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Implicit grant flow](/img/authorization/oauth-implicit-grant-flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 

@@ -344,7 +344,3 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 - [Risk Providers API](/docs/references/api/risk-providers/)
 - [Risk Events API](/docs/references/api/risk-events/)
 - [Risk Scoring and Risk Based Authentication](https://help.okta.com/okta_help.htm?id=csh-risk-scoring)
-
-<!-- ## Support
-
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).-->

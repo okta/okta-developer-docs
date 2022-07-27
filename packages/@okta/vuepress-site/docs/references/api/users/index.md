@@ -3926,7 +3926,11 @@ The `type` property is a map that identifies the User Type of the user (see [Use
 
 The following diagram shows the state object for a user:
 
-![STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED](/img/okta-user-status.png "STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED")
+<div class="full">
+
+![STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED](/img/users-api/okta-user-status.png)
+
+</div>
 
 ### Understanding User status values
 

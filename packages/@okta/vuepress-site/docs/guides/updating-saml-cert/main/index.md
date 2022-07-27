@@ -244,7 +244,14 @@ curl -v -X PUT \
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select your app integration.
 1. Select **Sign-On Options**.
-1. Click **View Setup Instructions**, as shown below.<br/>![Accessing SAML Setup Instructions](/img/saml_setup_link.png)
+1. Click **View Setup Instructions**, as shown below.
+
+   <div class="three-quarter">
+
+   ![Accessing SAML Setup Instructions](/img/admin/saml_setup_link.png)
+
+   </div>
+
 1. Perform the setup for your app integration again by using the instructions provided. During this setup, you can upload the certificate in a specified format, the metadata, or the certificate fingerprint.
 
 ## Revert to a SHA1 certificate
@@ -318,7 +325,14 @@ This step is the same as
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select your app integration.
 1. Select **Sign-On Options**.
-1. Click **View Setup Instructions**, as shown below.<br/>![Accessing SAML Setup Instructions](/img/saml_setup_link.png)
+1. Click **View Setup Instructions**, as shown below.
+
+   <div class="three-quarter">
+
+   ![Accessing SAML Setup Instructions](/img/admin/saml_setup_link.png)
+
+   </div>
+
 1. Perform the setup for your app integration again by using the instructions provided. During this setup, you can upload the certificate in a specified format, the metadata, or the certificate fingerprint.
 
 ## See also

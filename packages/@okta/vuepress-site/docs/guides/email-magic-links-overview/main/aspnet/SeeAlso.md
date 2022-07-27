@@ -1,0 +1,2 @@
+* [Okta Email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/)
+* [Custom password recovery guide](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/aspnet/main/)

@@ -1,4 +1,4 @@
-To enable persistent SSO for iOS apps, you need to update the [`usePersistentCookie`](/docs/references/api/policy/#signon-action-object) parameter in the appropriate Global Session Policy. These steps use the Okta [Policy Postman collection](/docs/references/postman-collections/) to enable the parameter.
+To enable persistent SSO for iOS apps, you need to update the [`usePersistentCookie`](/docs/reference/api/policy/#signon-action-object) parameter in the appropriate global session policy. These steps use the Okta [Policy Postman collection](/docs/reference/postman-collections/) to enable the parameter.
 
 Before you begin, be sure to:
 

@@ -343,6 +343,3 @@ The source code for this guide can be found in [in the Vue Samples](https://gith
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/references/api/oidc/).
 
 Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa-redirect/vue/main' data-proofer-ignore>Vue How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
-
-## Support
-Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

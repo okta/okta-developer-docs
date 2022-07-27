@@ -201,17 +201,18 @@ Create an app integration in the Okta org that represents the application you wa
         <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
       </div>
       <script type="text/javascript">
-         const oktaSignIn = new OktaSignIn({
-            issuer: "https://${yourOktaDomain}/oauth2/default",
-            redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
-            clientId: "${yourClientId}",
-            useInteractionCodeFlow: true
-         });
-
-         // Search for URL Parameters to see if a user is being routed to the application to recover password
-         var searchParams = new URL(window.location.href).searchParams;
-         oktaSignIn.otp = searchParams.get('otp');
-         oktaSignIn.state = searchParams.get('state');
+        var oktaConfig = {
+          issuer: "https://${yourOktaDomain}/oauth2/default",
+          redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
+          clientId: "${yourClientId}",
+          useInteractionCodeFlow: true
+        }
+        // Search for URL Parameters to see if a user is being routed to the application to recover password
+        var searchParams = new URL(window.location.href).searchParams;
+        oktaConfig.otp = searchParams.get('otp');
+        oktaConfig.state = searchParams.get('state');
+         
+       const oktaSignIn = new OktaSignIn(oktaConfig);
 
         oktaSignIn.authClient.token.getUserInfo().then(function(user) {
           document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";

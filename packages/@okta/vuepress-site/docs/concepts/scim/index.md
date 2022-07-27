@@ -19,7 +19,11 @@ The goal of SCIM is to securely automate the exchange of user identity data betw
 
 Managing user lifecycles in your organization is a fundamental business problem. Hiring new employees is just the first step - you also need to provision the applications that they need for their job, enforce the corporate security policies, and update their user accounts as they advance through their time with your company. At the end of their employment period, you need to make sure that all access is quickly and thoroughly revoked across all applications. Handling all of this can be a time-consuming and error-prone process if done manually.
 
-![SCIM Lifecycle](/img/oin/scim_lifecycle.png "User lifecycle diagram: 1 - new employee 2 - provision applications 3 - enforce security 4 - update user information 5 - off-board")
+<div class="three-quarter">
+
+![SCIM user lifecycle diagram](/img/oin/scim_lifecycle.png)
+
+</div>
 
 As your company grows, the number of user accounts and provisioned software applications increases exponentially. Requests to add and remove users, reset passwords, change permissions, and add new types of accounts all take up valuable IT department time.
 

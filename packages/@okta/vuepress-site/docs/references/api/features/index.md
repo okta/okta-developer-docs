@@ -212,7 +212,11 @@ Updates a Feature's status. Use this endpoint to enable or disable a Feature for
 
 The following chart shows the different state transitions for a Feature:
 
-[![Update Feature Flowchart](/img/update-ssfeat-flowchart.png "Update Feature Flowchart")](/img/update-ssfeat-flowchart.png)
+<div class="full">
+
+![Update Feature Flowchart](/img/features-api/update-ssfeat-flowchart.png)
+
+</div>
 
 #### Request path parameters
 

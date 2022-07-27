@@ -1024,7 +1024,12 @@ The device model defines several read-only properties:
 > More details on [Device Lifecycle](https://help.okta.com/okta_help.htm?type=oie&id=ext-devices-lifecycle)
 
 The following diagram shows the state object for a Device:
-![Device lifecycle flow](/img/okta-device-status.png "Device lifecycle flow")
+
+<div class="three-quarter">
+
+![Device lifecycle flow](/img/devices-api/okta-device-status.png)
+
+</div>
 
 > **Note:**
 > 1. Okta Verify enrollment results in a device being created in device inventory. The newly-created device has an `ACTIVE` status.

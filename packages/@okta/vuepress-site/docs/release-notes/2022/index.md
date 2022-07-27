@@ -4,6 +4,22 @@ title: Okta API Products release notes 2022
 
 ## July
 
+### Weekly release 2022.07.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Dynamic issuer mode for Identity Providers](#dynamic-issuer-mode-for-identity-providers)                    | July 13, 2022            |
+| [Bug fixed in 2022.07.1](#bug-fixed-in-2022-07-1)                        | July 13, 2022            |
+
+#### Dynamic issuer mode for Identity Providers
+
+You can configure the dynamic issuer mode for an Identity Provider using the Identity Provider API. When you set the`issuerMode` parameter to `DYNAMIC`, Okta uses the domain from the Authorize URL as the domain for the redirect URI when returning the authentication response. <!--OKTA-506807-->
+
+#### Bug fixed in 2022.07.1
+
+When the `/api/v1/users/${userId}/roles` or
+`/api/v1/groups/${groupId}/roles` endpoints were called to assign a custom role and resource set to a user or group, and those assignments already existed, the calls didn’t receive an HTTP 409 Conflict error. (OKTA-507683)
+
 ### Monthly release 2022.07.0
 
 | Change | Expected in Preview Orgs |
@@ -62,6 +78,8 @@ You can now choose which origins can embed Okta sign-in pages and the Okta End-U
 * A `Number` type schema property could erroneously be made unique. This resulted in inconsistent behavior and is no longer supported. Use `Integer` or `String` properties instead. (OKTA-506002)
 
 * Sometimes an error occurred when an admin attempted to edit a resource set that included a deleted app. (OKTA-510483)
+
+* When an app user property was set to `NON-SENSITIVE`, sometimes it was still mapped from a sensitive property.(OKTA-508820)
 
 * When the Enroll Okta Call Factor lifecycle operation (`/users/{userId}/factors`) was executed, an internal server error sometimes occurred. (OKTA-482674)
 

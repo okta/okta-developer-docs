@@ -88,6 +88,35 @@ export const concepts = [
         path: "/docs/concepts/user-profiles/",
       },
       {
+        title: "Understanding IAM",
+        subLinks: [
+          {
+            title: "IAM overview",
+            path: "/docs/concepts/iam-overview/"
+          },
+          {
+            title: "Identity management factors",
+            path: "/docs/concepts/iam-overview-identity-management-factors/"
+          },
+          {
+            title: "Authentication factors",
+            path: "/docs/concepts/iam-overview-authentication-factors/"
+          },
+          {
+            title: "Authorization factors",
+            path: "/docs/concepts/iam-overview-authorization-factors/"
+          },
+          {
+            title: "Architectural factors",
+            path: "/docs/concepts/iam-overview-architectural-factors/"
+          },
+          {
+            title: "IAM terminology",
+            path: "/docs/concepts/iam-overview-iam-terminology/"
+          }
+        ]
+      },
+      {
         title: "Understanding SAML",
         path: "/docs/concepts/saml/",
         subLinks: [
@@ -272,6 +301,10 @@ export const guides = [
             title: "Advanced use cases",
             subLinks: [
               {
+                title: "Email Magic Links",
+                guideName: "email-magic-links-overview"
+              },
+              {
                 title: "Custom password recovery",
                 guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa",
               },
@@ -302,11 +335,8 @@ export const guides = [
             title: "Configure an access policy",
             guideName: "configure-access-policy",
           },
-          {
-            title:
-              "Configure a Global Session Policy and authentication policies",
-            guideName: "configure-signon-policy",
-          },
+          { title: "Configure a global session policy and authentication policies",
+            guideName: "configure-signon-policy" },
           {
             title: "Add an external Identity Provider",
             path: "/docs/guides/identity-providers/",

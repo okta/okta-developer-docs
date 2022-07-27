@@ -44,6 +44,8 @@ There are three steps necessary to configure the Identity Provider at Apple:
 
     For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
+    Include all base domains (Okta domain and custom domain) that your users will interact with in the allowed redirect URI list.
+
 10. Click **Next**, **Done**, **Continue**, and then **Save**.
 
 ### Create a private key for client authentication

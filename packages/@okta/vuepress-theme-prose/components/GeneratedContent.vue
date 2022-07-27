@@ -28,7 +28,6 @@
     },
     mounted() {
       this.getContent(this.appContext.treeNavDocs);
-      console.log('links', this.links)
     },
     watch: {
       $route(to, from) {

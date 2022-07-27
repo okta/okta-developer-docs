@@ -8372,13 +8372,21 @@ Application User profiles are app-specific, but may be customized by the Profile
 
 ##### Profile Editor
 
-![Profile Editor UI](/img/okta-admin-ui-profile-editor.png "Profile Editor UI")
+<div class="three-quarter border">
+
+![Profile Editor UI](/img/admin/okta-admin-ui-profile-editor.png)
+
+</div>
 
 > **Note:** Managing profiles for applications is restricted to specific editions and requires access to the Universal Directory <ApiLifecycle access="ea" /> feature.
 
 ##### Example application assignment
 
-![App Assignment UI](/img/okta-admin-ui-app-assignment.png "App Assignment UI")
+<div class="three-quarter">
+
+![App Assignment UI](/img/admin/okta-admin-ui-app-assignment.png)
+
+</div>
 
 ##### Example Profile object
 

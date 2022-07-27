@@ -17,7 +17,7 @@ This second suite of [Runscope](https://www.runscope.com) tests checks that your
 
 ## Profile Sourcing activation
 
-The Profile Sourcing capability (formerly known as Profile Mastering) must be activated for developer orgs by Okta Developer Support. If you are testing this feature in your SCIM app integration, contact your Okta rep or post on our [forum](https://devforum.okta.com/) to request that Profile Sourcing be temporarily activated for your org. Developer Support automatically removes the access after two weeks. If you need a longer period to test your integration, include your time requirements in your email.
+The Profile Sourcing capability (formerly known as Profile Mastering) must be activated for developer orgs by Okta Developer Support. If you are testing this feature in your SCIM app integration, contact your Okta account team or post on our [forum](https://devforum.okta.com/) to request that Profile Sourcing be temporarily activated for your org. Developer Support automatically removes the access after two weeks. If you need a longer period to test your integration, include your time requirements in your email.
 
 ## Runscope tests for CRUD
 
