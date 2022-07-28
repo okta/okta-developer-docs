@@ -47,6 +47,8 @@ The Authenticators Administration API has the following CRUD operations:
 
 Create an Authenticator
 
+> **Note:** You can use this operation as part of the "Create a custom authenticator" flow. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/android/main/).
+
 #### Request path parameters
 
 N/A
