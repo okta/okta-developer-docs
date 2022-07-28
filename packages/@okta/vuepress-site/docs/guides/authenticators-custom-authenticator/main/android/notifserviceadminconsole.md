@@ -7,6 +7,6 @@
    You can use the Google Cloud Console, Google Cloud CLI, or one of the client libraries to create your service account key. See [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 5. Click **Add**.
 
-After you have added a notification service, you can check for successful and failed push notifications sent to users in the System Log. See [View push notification events]().
+After you have added a notification service, you can check for successful and failed push notifications sent to users in the System Log. See [View push notification events](https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
 
 Alternatively, you can create an authenticator using the [Create Authenticator](/docs/reference/api/authenticators-admin/#create-authenticator) operation of the Authenticators Admin API.
