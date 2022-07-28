@@ -251,7 +251,7 @@ HTTP 204:
 
 Retrieves a list of applications mapped to a policy
 
-> **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+> **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/references/api/apps/#update-application-policy) operation of the Apps API.
 
 ##### Request parameters
 

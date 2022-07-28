@@ -44,7 +44,7 @@ To add <StackSnippet snippet="idp" inline /> as an Identity Provider in Okta:
 
 5. Click **Finish**. A page appears that displays the IdP's configuration.
 
-> **Note:** If you want to use a specific **Redirect Domain** instead of the **Dynamic** default, you can use either **Org URL** or **Custom URL**. See `issuerMode` in the [Identity Provider attributes](/docs/reference/api/idps/#identity-provider-attributes) section.
+> **Note:** If you want to use a specific **Redirect Domain** instead of the **Dynamic** default, you can use either **Org URL** or **Custom URL**. See `issuerMode` in the [Identity Provider attributes](/docs/references/api/idps/#identity-provider-attributes) section.
 
 <StackSnippet snippet="afterappidpinokta" />
 

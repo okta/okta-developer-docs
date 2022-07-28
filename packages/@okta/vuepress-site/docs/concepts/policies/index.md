@@ -37,7 +37,7 @@ Okta Identity Engine requires that an assurance specified in the global session 
 
 A global session policy and an authentication policy control the authentication assurance part of your requirements. Other policies, such as an MFA enrollment policy, password policy, profile policy, and so on, work together to determine the overall authentication experience.
 
-* [Global session policy](/docs/reference/api/policy/#global-session-policy): Supplies the context necessary for the user to advance to the next authentication step after they are identified by Okta. Global Session Policies control who can have access, and how a user gains access to Okta, including whether they are challenged for additional factors and how long they are allowed to remain signed in before re-authenticating.
+* [Global session policy](/docs/references/api/policy/#global-session-policy): Supplies the context necessary for the user to advance to the next authentication step after they are identified by Okta. Global Session Policies control who can have access, and how a user gains access to Okta, including whether they are challenged for additional factors and how long they are allowed to remain signed in before re-authenticating.
 
   All orgs have a default global session policy that applies to all users. The policy allows access with a password, IdP, or any factor allowed by the authentication policies. You can change this condition or add higher priority rules to the default policy. You can also create new policies and prioritize them over the default. See [Configure a global session policy and an authentication policy](/docs/guides/configure-signon-policy/main/).
 
@@ -69,7 +69,7 @@ A global session policy and an authentication policy control the authentication 
 
 **Control who can access your app**
 
-The global session policy controls the manner in which a user is allowed to sign in to Okta. It identifies the user and specifies the length of their session. You can [configure a global session policy](/docs/guides/configure-signon-policy/main/) to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for additional factors when you want only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) to have access.
+The global session policy controls the manner in which a user is allowed to sign in to Okta. It identifies the user and specifies the length of their session. You can [configure a global session policy](/docs/guides/configure-signon-policy/main/) to require any of the [factors that you set up](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators). Then use the primary and secondary factor conditions in a rule to define which factors are evaluated. For example, add a rule that prompts for additional factors when you want only users who are inside your [corporate network](/docs/references/api/policy/#network-condition-object) to have access.
 
 **Control how users access your app**
 

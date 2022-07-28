@@ -41,7 +41,7 @@ The Brands API allows you to customize the look and feel of pages and templates,
 
 > **Note:** If you change any email code using the [Admin Console](#edit-a-default-email-template), your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings.
 
-See [Email template operations](/docs/reference/api/brands/#email-template-operations) and [Email template resources](/docs/reference/api/brands/#email-template-resources) for details about email templates and the Brands API.
+See [Email template operations](/docs/references/api/brands/#email-template-operations) and [Email template resources](/docs/references/api/brands/#email-template-resources) for details about email templates and the Brands API.
 
 ### Caveats
 
@@ -73,7 +73,7 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 The following table provides a list of all available email templates in an Okta org, along with:
 
 - the default subject line for the email template
-- the corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/reference/api/brands/#email-template-operations))
+- the corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/references/api/brands/#email-template-operations))
 - the required validation fields for templates created using the API
 - a description of the template
 
@@ -156,7 +156,7 @@ To delete all custom translations and revert to the Okta template, click **Reset
 [Velocity Templating Language (VTL)](https://velocity.apache.org/engine/2.3/user-guide.html) allows you to customize your org's email templates so that you can use:
 
 - Enhanced conditional logic.
-- All of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object).
+- All of the attributes in the Okta [User Profile object](/docs/references/api/users/#profile-object).
 - Some of the org attributes in these variables.
 
 Email templates use common and unique VTL variables. When you interpolate variables in the template content, precede them with a dollar sign. Use dot notation to reference sub-objects. For example, reference the first name of a user with `${user.profile.firstName}`.

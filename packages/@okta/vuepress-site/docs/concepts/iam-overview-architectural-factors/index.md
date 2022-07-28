@@ -141,7 +141,7 @@ Okta provides a customizable, secure drop-in solution for managing users, authen
 
 - It supports a Zero Trust security architecture. See [What is Zero Trust Security?](http://okta.com/blog/2019/01/what-is-zero-trust-security/)
 
-- It logs events related to your organization to provide an audit trail that you can export to a SIEM system. You can then use this data for monitoring, troubleshooting, event analysis, and audit. See [System Log API](/docs/reference/api/system-log/).
+- It logs events related to your organization to provide an audit trail that you can export to a SIEM system. You can then use this data for monitoring, troubleshooting, event analysis, and audit. See [System Log API](/docs/references/api/system-log/).
 
 - You can configure it to provide notifications of user authorization issues and proactively respond to such events by temporarily blocking suspicious accounts.
 
@@ -149,11 +149,11 @@ Okta provides a customizable, secure drop-in solution for managing users, authen
 
 - You can allow users to register an identity, reset their password, request an app, and perform other self-service functions.
 
-- Okta bases its identity storage, management, and communications on the SCIM standard. It provides a SCIM API for Okta and your apps to securely exchange user identity data with compatible Service and Identity Providers. See [SCIM](/docs/concepts/scim/) and [SCIM Protocol](/docs/reference/scim/).
+- Okta bases its identity storage, management, and communications on the SCIM standard. It provides a SCIM API for Okta and your apps to securely exchange user identity data with compatible Service and Identity Providers. See [SCIM](/docs/concepts/scim/) and [SCIM Protocol](/docs/references/scim/).
 
 - With our Terraform Okta Provider, your team can introduce or add to our Infrastructure as Code codebase and automated pipeline. See [What is Terraform?](https://www.terraform.io/intro) and [Okta Provider](https://registry.terraform.io/providers/okta/okta/latest/docs).
 
-- You can use Okta's drop-in solutions and event-driven APIs and SDKs to integrate features with a wide range of applications in different ways and usage models. Tightly integrate Okta functions with your apps for optimal performance, flexibility, and user experience. See the [Reference](/docs/reference/) section in the Okta Developer Portal.
+- You can use Okta's drop-in solutions and event-driven APIs and SDKs to integrate features with a wide range of applications in different ways and usage models. Tightly integrate Okta functions with your apps for optimal performance, flexibility, and user experience. See the [Reference](/docs/references/) section in the Okta Developer Portal.
 
 - Its online technical documentation helps your application developers use its APIs and SDKs.
 
