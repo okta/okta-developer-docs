@@ -1,7 +1,5 @@
 Use the Devices SDK to add custom push verification functionality to your Android app.
 
-See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/android/main/) for general information about mobile authentication at Okta.
-
 > **Note:** The following sample code assumes that suspend functions are called in a coroutine scope. See [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for more information.
 
 <!-- Data flow DIAGRAM -->
@@ -14,7 +12,7 @@ Add the Okta Devices SDK dependency to your `build.gradle` file:
 implementation("com.okta.devices:devices-push:$okta.sdk.version")
 ```
 
-where `$okta.sdk.version` is the latest release version. See [Release Status]() for the latest Okta Devices SDK version.
+where `$okta.sdk.version` is the latest release version. See [Release Status](https://github.com/okta/okta-devices-kotlin/releases) for the latest Okta Devices SDK version.
 
 ### Initialize the client
 
