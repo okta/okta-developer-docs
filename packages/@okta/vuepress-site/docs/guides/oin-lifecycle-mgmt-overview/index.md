@@ -15,8 +15,6 @@ Lifecycle management refers to the process of provisioning and deprovisioning ap
 
 Okta provides two methods to integrate lifecycle management to your application. You can use the [System for Cross-domain Identity Management](/docs/reference/scim/) (SCIM) protocol to manage user accounts from Okta, or you can use the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) to create automated identity processes in [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf).
 
-After completing your Okta lifecycle management integration, add it to the Okta Integration Network (OIN) for your customers to benefit with secure provisioning automation, as well as with compliance requirements. The OIN is a collection of pre-built app integrations, with over 200 of these being lifecycle management integrations. Join the community that customers trust to exchange secure authentication between users, devices, and applications.
-
 #### Ready to get started?
 
 Choose how you want to implement your lifecycle management integration.
@@ -31,11 +29,11 @@ Choose how you want to implement your lifecycle management integration.
 
 <br>
 
-Read further for reasons [why you want to build a lifecycle management integration](#why-build-a-lifecycle-management-integration-with-okta) for the OIN, [choosing the right implementation](#choose-how-you-implement-your-integration), and [use case examples](#use-case-examples).
+Read further for reasons [why you want to build a lifecycle management integration](#why-build-a-lifecycle-management-integration-with-okta) for the OIN, [choosing the right implementation](#choose-how-to-implement-your-integration), and [use case examples](#use-case-examples).
 
 #### Ready to submit an integration?
 
-Your lifecycle management app integration is built and tested. Submit your integration to the Okta OIN team for verification.
+After completing your Okta lifecycle management integration, publish it in the Okta Integration Network (OIN) for your customers to benefit secure provisioning automation and meet compliance requirements. The OIN is a collection of pre-built app integrations, with over 200 of these being lifecycle management integrations. Join the community that customers trust to exchange secure authentication between users, devices, and applications.
 
 <Cards>
 <Card href="/docs/guides/submit-app/scim/main/" headerImage="/img/icons/provisioning--blue.svg" cardTitle="OIN Manager" :showFooter=false>Publish an OIN integration</Card>
@@ -52,13 +50,13 @@ Your lifecycle management app integration is built and tested. Submit your integ
 | **Meet compliance requirements** | Help your customers generate logs of access changes in order to comply with security policies and audits. |
 | **Increase adoption of your product and sell more licenses** | Okta lifecycle management integration helps your customers utilize SaaS licenses and ultimately purchase more as the organization grows or usage expands. |
 
-## Choose how you implement your integration
+## Choose how to implement your integration
 
 | &nbsp; | System for Cross-domain Identity Management (SCIM) |  Workflows Connector |
 | ------ | :------------------- | :----------------------- |
-| **Description** | [SCIM](http://www.simplecloud.info) is the industry standard protocol for managing users and groups in cloud-based systems. It handles basic operations like create, read, update, delete, and search. | [Okta Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) is a no-code if-this-then-that logic builder that Okta customers can use to automate custom or complex employee onboarding and offboarding flows in your application. Publishing a Workflows Connector with Okta allows your customers to deeply integrate with your product as part of their lifecycle management flows. |
-| **Technology** | <ul><li>JSON-based REST API server implementation</li> <li>See [SCIM Protocol](/docs/reference/scim/)</li></ul> | <ul><li>Low code development environment</li> <li>See [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf)</li></ul>|
-| **Benefits** | <ul><li>Covers the most common lifecycle management needs related to onboarding/offboarding</li> <li>SCIM standard is throughout the industry</li> </ul> | <ul><li>Customers can create highly custom automation with your product without writing code</li> <li>Deep and sticky integration with Okta</li> </ul>|
+| **Description** | [SCIM](http://www.simplecloud.info) is the industry standard protocol for managing users and groups in cloud-based systems. It handles basic operations like create, read, update, delete, and search. | [Okta Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) is a no-code, if-this-then-that logic builder that Okta customers can use to automate custom or complex employee onboarding and offboarding flows in your application. Publishing a Workflows Connector with Okta allows your customers to deeply integrate your product as part of their lifecycle management flows. |
+| **Technology** | <ul><li>JSON-based REST API server implementation</li> <li>Okta supports outbound SCIM requests to your SCIM API service</li> <li>See [SCIM Protocol](/docs/reference/scim/)</li></ul> | <ul><li>Low code development environment</li> <li>See [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf)</li></ul>|
+| **Benefits** | <ul><li>Covers the most common lifecycle management needs related to onboarding/offboarding</li> <li>SCIM standard is throughout the industry</li> </ul> | <ul><li>Customers can create highly custom automation with your product without writing code</li> <li>Tight integration with Okta</li> </ul>|
 | **Ease of Implementation** | <span style="width: 150px;display:block">![Low](/img/ratings/high.png)</span> | <span style="width: 150px;display:block">![Medium](/img/ratings/medium.png)</span> |
 | **Get started** | [Build a SCIM Provisioning Integration](/docs/guides/scim-provisioning-integration-overview/) | [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) |
 
