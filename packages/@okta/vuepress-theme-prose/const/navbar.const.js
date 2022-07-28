@@ -570,7 +570,7 @@ export const guides = [
                 path: "/docs/guides/scim-provisioning-integration-prepare/main/"
               },
               {
-                title: "Configure Okta for your SCIM API service",
+                title: "Configure Okta to your SCIM API service",
                 guideName: "scim-provisioning-integration-connect"
               },
               { title: "Test your SCIM Okta integration",
