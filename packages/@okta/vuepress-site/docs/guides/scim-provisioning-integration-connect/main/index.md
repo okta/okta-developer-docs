@@ -31,7 +31,7 @@ Make sure your SCIM implementation passes all the Runscope tests before integrat
 Begin by signing in to your Okta Developer Edition org. If you don't have one, sign up for an [Okta developer account](https://developer.okta.com/signup/).
 
 1. Sign in to your [Okta org](https://developer.okta.com/login/) with your administrator account.
-1. Click the **Admin** button on the top right of the page.
+1. Click **Admin** in the upper-right right corner of the page.
 1. Select **Applications** > **Applications**.
 1. Click **Browse App Catalog**.
 1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. After searching you see template applications for each of the three authentication methods used to connect to your SCIM implementation: Basic Auth, Header Auth, or OAuth Bearer Token.
