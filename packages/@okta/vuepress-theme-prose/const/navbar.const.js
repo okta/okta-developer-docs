@@ -145,7 +145,10 @@ export const guides = [
     title: "Guides",
     path: "/docs/guides/",
     subLinks: [
-      { title: "Quickstart", guideName: "quickstart" },
+      {
+        title: "Quickstart",
+        guideName: "quickstart"
+      },
       {
         title: "Sign users in",
         guideName: "sign-in-overview/main",
