@@ -1,9 +1,9 @@
 ---
 title: Configure Okta for your SCIM API service
-excerpt: Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Okta Admin Console.
+excerpt: Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Admin Console.
 meta:
   - name: description
-    content: Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Okta Admin Console.
+    content: Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Admin Console.
 layout: Guides
 ---
 
