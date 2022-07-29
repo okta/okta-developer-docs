@@ -5,7 +5,7 @@ excerpt: Customize tokens returned by the Okta API Access Management process flo
 
 # Token Inline Hook Reference
 
-This page provides reference documentation for:
+This page provides reference documentation for Token Inline Hooks.
 
 - JSON objects that are contained in the outbound request from Okta to your external service
 

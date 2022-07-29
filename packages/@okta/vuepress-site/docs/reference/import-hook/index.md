@@ -7,7 +7,7 @@ excerpt: Add custom logic to the user import process.
 
 <ApiLifecycle access="ea" />
 
-This page provides reference documentation for:
+This page provides reference documentation for User Import Inline Hooks.
 
 - JSON objects contained in the outbound request from Okta to your external service
 
