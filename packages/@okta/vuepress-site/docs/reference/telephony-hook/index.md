@@ -6,7 +6,7 @@ excerpt: Customizes Okta's flows that send SMS or Voice messages
 
 # Telephony Inline Hook Reference
 
-This page provides reference documentation for:
+This page provides reference documentation for Telephony Inline Hooks.
 
 - JSON objects that are contained in the outbound request from Okta to your external service
 

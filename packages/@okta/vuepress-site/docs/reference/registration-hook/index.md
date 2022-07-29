@@ -5,7 +5,7 @@ excerpt: Customize handling of user registration requests in Profile Enrollment
 
 # Registration Inline Hook Reference
 
-This page provides reference documentation for:
+This page provides reference documentation for Registration Inline Hooks.
 
 - JSON objects contained in the outbound request from Okta to your external service
 

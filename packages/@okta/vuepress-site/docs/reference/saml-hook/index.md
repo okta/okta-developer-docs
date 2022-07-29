@@ -5,7 +5,7 @@ excerpt: Customize SAML assertions returned by Okta.
 
 # SAML Assertion Inline Hook Reference
 
-This page provides reference documentation for:
+This page provides reference documentation for SAML Assertion Inline Hooks.
 
 - JSON objects contained in the outbound request from Okta to your external service
 

@@ -5,7 +5,7 @@ excerpt: Verify a user-supplied password during migration of the user to Okta
 
 # Password Import Inline Hook Reference
 
-This page provides reference documentation for:
+This page provides reference documentation for Password Import Inline Hooks.
 
 - JSON objects contained in the outbound request from Okta to your external service
 
