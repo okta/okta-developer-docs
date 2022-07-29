@@ -59,6 +59,8 @@ The simplest way to integrate authentication in your app is with OIDC through a 
 
 ### Grant the required scopes
 
+> **Note:** You must use an Org Authorization Server to grant the scopes needed to create a custom authenticator. Custom Authorization Servers (including the Default Custom Authorization Server) don't work.
+
 When you are ready to grant the required scopes, follow these steps:
 
 1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
