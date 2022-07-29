@@ -28,7 +28,7 @@ meta:
 
 ## Get started with ASP.NET Core + Okta
 
-New to Okta? Our resources walk you through adding user authentication to your ASP.NET Core app in minutes.
+These resources walk you through adding user authentication to your ASP.NET Core app in minutes.
 
 <ul class='language-ctas'>
 	<li>
