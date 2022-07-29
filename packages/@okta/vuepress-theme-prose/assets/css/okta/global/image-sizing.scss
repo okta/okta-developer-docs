@@ -59,3 +59,15 @@
     border-radius: 20px;
   }
 }
+
+/* optional border class for adding a "sketchy" border to wireframe diagrams */
+
+.content__default div.wireframe-border {
+  img {
+    border-width: 5px;
+    border-style: solid;
+    border-image-source: url('/img/ui/wireframe-border-image.png');
+    border-image-slice: 10;
+    border-image-repeat: stretch;
+  }
+}
