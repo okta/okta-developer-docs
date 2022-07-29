@@ -105,6 +105,17 @@ Create both the OIDC client app (with a custom `client_id`) and the custom authe
 
 Alternatively, you can call the `api/v1/apps` endpoint to create the OIDC app and `custom client_id`, and call the `api/v1/authenticators` endpoint to create a custom authenticator.
 
+## Troubleshoot
+
+If your push notifications aren't delivering:
+
+1. Follow the steps to [view push notification events]((https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
+2. To further narrow your search, enter the following: `eventType eq "device.push.provider.update" and displayMessage eq "Push Provider Configuration verification failed"`. See [Event types](/docs/reference/api/event-types/) for more details.
+3. In the **Reason** section, locate the error message from your push provider. Consult the push provider documentation, if necessary.
+4. You might need to upload a new JSON file if it has small errors, like typos.
+5. Click **Save**.
+6. If your push notifications still aren't delivering, repeat steps 1-5.
+
 ## See also
 
 [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/android/main/)
