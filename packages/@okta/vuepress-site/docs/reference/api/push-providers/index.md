@@ -501,7 +501,7 @@ The Push Provider object has the following properties:
 | ----------------- | -------------------------------------- | -------------------------------------------------- |
 | `configuration`   | [Configuration](#configuration-object) | Object that contains `providerType` specific configurations |
 | `name`            | String                                 | Display name of the Push Provider                  |
-| `providerType`    | String                                 | Provider type for the Push Provider. One of `APNS`, `FCM` |
+| `providerType`    | String                                 | Provider type for the Push Provider. Supported values: `APNS` or `FCM` |
 
 #### Configuration object
 
