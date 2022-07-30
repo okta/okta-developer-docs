@@ -221,7 +221,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/push-providers/${pushProviderId}" />
 
-Fetches a Push Provider by its `id`. If you do not know the `id`, you can [List Push Providers](#list-push-providers).
+Fetches a Push Provider by its `id`. If you don't know the `id`, you can [List Push Providers](#list-push-providers).
 
 #### Permitted OAuth 2.0 scopes
 `okta.pushProviders.read`
