@@ -84,7 +84,7 @@ Alternatively, you can grant scopes using the [Grant consent to scope for applic
 
 ### Set up a global session policy and authentication policy
 
-You need to set up a Global Session Policy and an authentication policy to integrate with the Devices SDK. See [Configure a Global Session Policy and authentication policy](/docs/guides/configure-signon-policy/main/).
+You need to set up a global session policy and an authentication policy to integrate with the Devices SDK. See [Configure a global session policy and authentication policy](/docs/guides/configure-signon-policy/main/).
 
 ## Install and configure the Okta Devices SDK
 
