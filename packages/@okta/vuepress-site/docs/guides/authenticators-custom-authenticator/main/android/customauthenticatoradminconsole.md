@@ -2,7 +2,7 @@
 2. On the **Setup** tab, click **Add Authenticator**.
 3. Click **Add** on the **Custom Authenticator** tile.
 4. Configure the following settings:
-   * **Authenticator name:** Type a name for the custom authenticator; this is the name that will be used when you sign in using the authenticator.
+   * **Authenticator name:** Type a name for the custom authenticator. This is the name that is used when you sign in using the authenticator.
    * **Add to existing application:** Select the application that will receive the push MFA prompt.
    * **User Verification:** Select option to determine whether users must provide a PIN or biometric verification during authentication.
       * **Preferred** - User verification is optional.
