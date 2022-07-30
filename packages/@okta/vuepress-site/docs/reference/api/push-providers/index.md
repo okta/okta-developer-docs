@@ -565,7 +565,7 @@ The Push Provider response object has the following properties:
 | `id`              | String                                 | Unique key for the Push Provider                   |
 | `lastUpdatedDate` | String (ISO-8601)                      | Timestamp when the Push Provider was last modified |
 | `name`            | String                                 | Display name of the Push Provider                  |
-| `providerType`    | String                                 | Provider type for the Push Provider. One of `APNS`, `FCM` |
+| `providerType`    | String                                 | Provider type for the Push Provider. Supported values: `APNS` or `FCM` |
 
 #### Link object
 
