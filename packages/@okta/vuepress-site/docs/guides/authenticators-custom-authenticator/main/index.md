@@ -112,7 +112,7 @@ Alternatively, you can call the `api/v1/apps` endpoint to create the OIDC app an
 If your push notifications aren't delivering:
 
 1. Follow the steps to [view push notification events](https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
-2. To narrow your search parameters, enter the following: `eventType eq "device.push.provider.update" and displayMessage eq "Push Provider Configuration verification failed"`. See [Event types](/docs/reference/api/event-types/) for more details.
+2. To narrow your search parameters, enter the following: `eventType eq "device.push.provider.update" and displayMessage eq "Push Provider Configuration verification failed"`. See [Event types](/docs/reference/api/event-types/).
 3. In the **Reason** section, locate the error message from your push provider. Consult the push provider documentation, if necessary.
 4. Verify that your notification services configuration is valid. See [Edit a notification service](https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
 5. Click **Save** to allow push providers to attempt to send notifications again.
