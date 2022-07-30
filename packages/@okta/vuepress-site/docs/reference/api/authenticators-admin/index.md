@@ -744,7 +744,7 @@ The Authenticator object defines the following properties:
 | `provider.configuration.integrationKey` | String | The Duo Security integration key | `duo` |
 | `provider.configuration.secretKey` | String | The Duo Security secret key | `duo` |
 | `provider.configuration.userNameTemplate.template` | String | The Duo Security user template name | `duo` |
-| `provider.configuration.apns.id`| String | Id of the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `provider.configuration.apns.id`| String | ID of the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.apns.id`| String | AppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.apns.id`| String | DebugAppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.fcm.id` | String  | Id of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
