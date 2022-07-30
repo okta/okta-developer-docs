@@ -55,7 +55,7 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 
 ### Create an OIDC web authentication client
 
-The simplest way to integrate authentication in your app is with OIDC through a web browser, using the Authorization Code Flow grant. You need an access token to start the enrollment flow for the Devices SDK. For future logins, consider using refresh tokens. <StackSnippet snippet="samplecode" inline />
+The simplest way to integrate authentication in your app is with OIDC through a web browser, using the [Authorization Code flow grant type](/docs/guides/implement-grant-type/authcode/main/). You need an access token to start the enrollment flow for the Devices SDK. For future sign-in attempts, consider using refresh tokens. <StackSnippet snippet="samplecode" inline />
 
 ### Grant the required scopes
 
