@@ -96,7 +96,7 @@ You need to set up a global session policy and an authentication policy to integ
 
 #### Description
 
-Use cases that meet the following conditions receive an error message in the Admin Console UI:
+Use cases that meet the following conditions receive an error message in the Admin Console:
 
 * Call the `api/v1/apps` endpoint to create an OIDC app with a custom `client_id`.
 * Use the Admin Console to create a custom authenticator.
