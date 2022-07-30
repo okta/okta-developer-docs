@@ -747,7 +747,7 @@ The Authenticator object defines the following properties:
 | `provider.configuration.apns.id`| String | ID of the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.apns.id`| String | AppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.apns.id`| String | DebugAppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
-| `provider.configuration.fcm.id` | String  | Id of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `provider.configuration.fcm.id` | String  | ID of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `methods.type` | String  | Method type. Supported value for `custom_app`: `push`.  Supported values for `okta_verify`: `push`, `otp`, `signed_nonce`| `custom_app`, `okta_verify` |
 | `methods.status` | `ACTIVE`,`INACTIVE` | Status of the authenticator method | `custom_app`, `okta_verify`|
 | `methods.settings.algorithms` | String (Enum) | Algorithms supported. Supported values: `RS256`, `ES256` | `custom_app`, `okta_verify` |
