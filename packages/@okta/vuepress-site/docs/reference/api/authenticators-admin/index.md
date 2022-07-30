@@ -752,7 +752,7 @@ The Authenticator object defines the following properties:
 | `methods.status` | `ACTIVE`,`INACTIVE` | Status of the authenticator method | `custom_app`, `okta_verify`|
 | `methods.settings.algorithms` | String (Enum) | Algorithms supported. Allowed values: `RS256`, `ES256` | `custom_app`, `okta_verify` |
 | `methods.settings.keyProtection` | String (Enum) | Key Protection. Allowed values: `ANY`, `HARDWARE` | `custom_app`, `okta_verify` |
-| `agreeToTerms` | Boolean | A value of `true` indicates that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator. It is required for the terms to be accepted when creating a new `custom_app` authenticator. Other authenticators do not require this field. | `custom_app`|
+| `agreeToTerms` | Boolean | A value of `true` indicates that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator. Okta requires that you accept the terms when creating a new `custom_app` authenticator. Other authenticators don't require this field. | `custom_app`|
 
 
 #### Example Email Authenticator
