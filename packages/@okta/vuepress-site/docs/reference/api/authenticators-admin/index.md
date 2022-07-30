@@ -55,6 +55,8 @@ N/A
 
 #### Request query parameters
 
+> **Note:** The `activate` parameter is optional. If you don't include the `activate` parameter with a value of `TRUE` when creating an authenticator, you need to activate the authenticator later in the Admin Console or by using the [Activate an Authenticator](#activate-an-authenticator) operation.
+
 | Parameter | Description                                                                                           | Param Type | DataType      | Required | Default |
 | --------- | ----------------------------------------------------------------------------------------------------- | ---------- | ------------- | -------- | ------- |
 | activate  | Executes [activation lifecycle](#activate-an-authenticator) operation when creating the authenticator | Query      | Boolean       | FALSE    | TRUE    |
