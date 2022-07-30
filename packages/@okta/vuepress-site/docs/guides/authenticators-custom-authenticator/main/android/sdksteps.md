@@ -129,7 +129,7 @@ After you receive a challenge, your app should resolve them to proceed with the 
 * `UserConsent`: Asks the user to approve or deny the challenge.
 * `UserVerification`: Notifies the app that a biometric verification is required to proceed.
 
-See the [Devices SDK sample app]() for complete details about resolving a push challenge.
+See the [Devices SDK sample app](https://github.com/okta/okta-devices-kotlin/tree/master/push-sample-app) for complete details about resolving a push challenge.
 
 ```kotlin
 val fcmRemoteMessage = "PushChallengeString" // fcm challenge
