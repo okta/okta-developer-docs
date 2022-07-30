@@ -8,7 +8,7 @@
       * **Preferred** - User verification is optional.
       * **Required** - User verification is required.
    * **Authenticator logo:** Select the logo that users see on authentication screens.
-      * **Browse files** - Click this button and select an SVG file from the file selection screen.
+      * **Browse files** - Click this button and select an SVG file from the file selection dialog.
       * **Use default logo** - Click the lock icon to use the default logo.
 5. Configure the connection to the push notification service:
    * **FCM configuration:** Select the connection to the FCM service that you want the custom authenticator to use.
