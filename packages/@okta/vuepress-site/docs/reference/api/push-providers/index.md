@@ -569,7 +569,7 @@ The Push Provider response object has the following properties:
 
 #### Link object
 
-For a Push Provider result, the `_links` is read-only and contains a full set of available operations using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. The `hints` property provides information on allowed HTTP verbs for the `href` property. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
+For a Push Provider result, the `_links` is read-only and contains a full set of available operations using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. The `hints` property provides information on allowed HTTP verbs for the `href` property. See [Web Linking](https://tools.ietf.org/html/rfc8288) for more information on link relations.
 
 #### Configuration response object
 | Property             | Type      | Description                                        | `providerType` |
