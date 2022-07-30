@@ -61,7 +61,7 @@ N/A
 
 #### Request body
 
-An [Authenticator Object](#authenticator-object) that needs to be created
+An [Authenticator Object](#authenticator-object) that you need created
 
 #### Response body
 
