@@ -12,7 +12,7 @@ category: management
 
 The Okta Push Providers API provides a centralized integration platform to fetch and manage push provider configurations. Okta administrators can use these APIs to provide their push provider credentials, for example from APNs and FCM, so that Okta can send push notifications to their own custom app authenticator applications.
 
-The Push Providers API supports the following **Authorization Schemes**:
+The Push Providers API supports the following Authorization Schemes:
 * SSWS - [API tokens](/docs/reference/core-okta-api/#authentication)
 * Bearer - [OAuth2.0 and OpenID Connect](/docs/concepts/oauth-openid/)
 
