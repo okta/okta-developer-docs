@@ -750,7 +750,7 @@ The Authenticator object defines the following properties:
 | `provider.configuration.fcm.id` | String  | Id of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `methods.type` | String  | Method type. For `custom_app`, it is `push`. For `okta_verify`, allowed values: `push`, `otp`, `signed_nonce`| `custom_app`, `okta_verify` |
 | `methods.status` | `ACTIVE`,`INACTIVE` | Status of the authenticator method | `custom_app`, `okta_verify`|
-| `methods.settings.algorithms` | String (Enum) | Algorithms supported. Allowed values: `RS256`, `ES256` | `custom_app`, `okta_verify` |
+| `methods.settings.algorithms` | String (Enum) | Algorithms supported. Supported values: `RS256`, `ES256` | `custom_app`, `okta_verify` |
 | `methods.settings.keyProtection` | String (Enum) | Key Protection. Supported values: `ANY`, `HARDWARE` | `custom_app`, `okta_verify` |
 | `agreeToTerms` | Boolean | A value of `true` indicates that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator. Okta requires that you accept the terms when creating a new `custom_app` authenticator. Other authenticators don't require this field. | `custom_app`|
 
