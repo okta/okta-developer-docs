@@ -59,7 +59,7 @@ N/A
 
 | Parameter | Description                                                                                           | Param Type | DataType      | Required | Default |
 | --------- | ----------------------------------------------------------------------------------------------------- | ---------- | ------------- | -------- | ------- |
-| activate  | Executes [activation lifecycle](#activate-an-authenticator) operation when creating the authenticator | Query      | Boolean       | FALSE    | TRUE    |
+| activate  | Executes the [activation lifecycle](#activate-an-authenticator) operation when Okta creates the authenticator | Query      | Boolean       | FALSE    | TRUE    |
 
 #### Request body
 
