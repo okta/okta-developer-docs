@@ -30,7 +30,7 @@ val authenticator: PushAuthenticator = PushAuthenticatorBuilder.create(
 
 ### Enroll the device
 
-Before enrolling the device, ensure you have the following:
+Before enrolling the device, ensure that you have the following:
 
 * An OIDC application. See [Create an OAuth 2.0 app integration]().
 * A custom authenticator. See [Add a custom authenticator]().
