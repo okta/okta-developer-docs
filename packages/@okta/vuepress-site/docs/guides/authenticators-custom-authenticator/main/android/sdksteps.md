@@ -124,7 +124,7 @@ When a user attempts to sign in to the enrolled account through an app or a web 
 
 #### Resolve delivered challenges
 
-Once you receive a challenge, your app should resolve them in order to proceed with the login. The SDK may request remediation steps to resolve the challenge:
+After you receive a challenge, your app should resolve them to proceed with the sign-in flow. The SDK may request remediation steps to resolve the challenge:
 
 * `UserConsent`: Asks the user to approve or deny the challenge.
 * `UserVerification`: Notifies the app that a biometric verification is required to proceed.
