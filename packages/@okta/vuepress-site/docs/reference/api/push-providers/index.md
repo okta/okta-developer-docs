@@ -140,7 +140,7 @@ None
 
 | Parameter | Type   | Description | Required |
 | --------- | ------ | -------- | ---- |
-| `type`    |  String | Returns a list of Push Providers that match the specific `providerType` in the [Push Provider object](#push-provider-object). One of: `APNS`, `FCM` | FALSE |
+| `type`    |  String | Returns a list of Push Providers that match the specific `providerType` in the [Push Provider object](#push-provider-object). Supported values: `APNS` or `FCM` | FALSE |
 
 #### Request body
 
