@@ -48,7 +48,7 @@ if (result.isSuccess) {
 
 #### Retrieve enrollments
 
-In order to retrieve information about existing enrollments, use `allEnrollments()`. This can be used to display attributes for a list of accounts or find a specific account in order to update or delete it. Retrieve all previously enrolled `PushEnrollment`:
+To retrieve information about existing enrollments, use `allEnrollments()`. You can use this to display attributes for a list of accounts or find a specific account to update or delete it. Retrieve all previously enrolled `PushEnrollment`:
 
 ```kotlin
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
