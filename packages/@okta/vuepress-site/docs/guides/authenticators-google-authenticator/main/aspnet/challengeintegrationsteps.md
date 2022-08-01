@@ -1,4 +1,4 @@
-### 1 - 4: Sign-in and Select Authenticator
+### 1 - 4: Start flow and display authenticator list
 
 The challenge flow follows the same first four steps as the [enrollment flow](#integrate-sdk-for-authenticator-enrollment):
 
@@ -53,7 +53,7 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 The user’s copy of Google Authenticator now displays the time-based one-time password for the newly added account which they will enter into a challenge page.
 
-<div class="common-image-format">
+<div class="half">
 
 ![A one-time password being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
 

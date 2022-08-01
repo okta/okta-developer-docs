@@ -46,7 +46,7 @@ Use the `value` and `label` properties to show the available list of authenticat
 
 UI showing the Google Authenticator option:
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Google Authenticator option shown in UI](/img/authenticators/authenticators-google-dropdown-selection.png)
 
@@ -112,7 +112,7 @@ The following [Mustache](https://mustache.github.io/) template snippet shows how
 
 Example UI showing the Google Authenticator in the dropdown list:
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Shared secret shown in UI](/img/authenticators/authenticators-google-shared-secret.png)
 
@@ -122,7 +122,7 @@ Example UI showing the Google Authenticator in the dropdown list:
 
 After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering in the secret string. After it's added, Google Authenticator displays the time-based one-time password for the newly added account.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Shared secret shown in UI](/img/authenticators/authenticators-google-one-time-password.png)
 

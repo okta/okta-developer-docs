@@ -111,7 +111,7 @@ This call initiates the following steps:
 
 2. If the validations are successful, the authenticator prompts the user for consent. In the example below the **Touch ID** authenticator is prompting the user for a fingerprint to confirm consent.
 
-    <div class="common-image-format">
+    <div class="half">
 
       ![UI showing user consent through fingerprint verification](/img/authenticators/authenticators-webauthn-user-consent.png)
 

@@ -380,6 +380,8 @@ Array of the [Theme Response](#theme-response-object)
 
 Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
 
+> **Note:** The `loadingPageTouchPointVariant` property is returned in the response body only if the **Loading Page Animation** feature is enabled. <ApiLifecycle access="ea" />
+
 #### Use examples
 
 The following example returns all Themes in the Brand.
@@ -416,6 +418,7 @@ Content-Type: application/json
     "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
     "errorPageTouchPointVariant": "OKTA_DEFAULT",
     "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+    "loadingPageTouchPointVariant": "OKTA_DEFAULT",
     "_links": {
       "favicon": {
         "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
@@ -477,6 +480,8 @@ The requested [Theme Response](#theme-response-object)
 
 Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
+> **Note:** The response body includes the `loadingPageTouchPointVariant` property only if the the **Loading Page Animation** feature is enabled. <ApiLifecycle access="ea" />
+
 #### Use examples
 
 The following example returns a Theme object:
@@ -512,6 +517,7 @@ Content-Type: application/json
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
       "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
@@ -574,10 +580,13 @@ The [Theme](#theme-object)
 
 Returns an updated [Theme Response](#theme-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+* Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 
-Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
+* Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
+
+
+* Passing the optional `loadingPageTouchPointVariant` body parameter without having the the **Loading Page Animation** feature enabled returns a `401 Unauthorized` with error code `E0000015`. <ApiLifecycle access="ea" />
 
 #### Use examples
 
@@ -596,7 +605,8 @@ curl -v -X PUT \
     "signInPageTouchPointVariant": "OKTA_DEFAULT",
     "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
     "errorPageTouchPointVariant": "OKTA_DEFAULT",
-    "emailTemplateTouchPointVariant": "OKTA_DEFAULT"
+    "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+    "loadingPageTouchPointVariant": "OKTA_DEFAULT"
 }' "https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
 ```
 
@@ -621,6 +631,7 @@ Content-Type: application/json
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
       "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
@@ -677,7 +688,8 @@ curl -v -X PUT \
     "signInPageTouchPointVariant": "OKTA_DEFAULT_RANDOM",
     "endUserDashboardTouchPointVariant": "OKTA_DEFAULT_RANDOM",
     "errorPageTouchPointVariant": "OKTA_DEFAULT_RANDOM",
-    "emailTemplateTouchPointVariant": "OKTA_DEFAULT_RANDOM"
+    "emailTemplateTouchPointVariant": "OKTA_DEFAULT_RANDOM",
+    "loadingPageTouchPointVariant": "OKTA_DEFAULT_RANDOM"
 }' "https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
 ```
 
@@ -712,6 +724,9 @@ Content-Type: application/json
         },
         {
             "errorSummary": "endUserDashboardTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, WHITE_LOGO_BACKGROUND, FULL_THEME, LOGO_ON_FULL_WHITE_BACKGROUND]."
+        },
+        {
+            "errorSummary": "loadingPageTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, NONE]."
         }
     ]
 }
@@ -2203,7 +2218,7 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-  "recipients": "NO_USERS",
+  "recipients": "NO_USERS"
 }' \
 'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
 ```
@@ -2334,6 +2349,7 @@ The Theme object defines the following properties:
 | `endUserDashboardTouchPointVariant`   | Enum     | Variant for the Okta End-User Dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`.                    | `OKTA_DEFAULT`    |
 | `errorPageTouchPointVariant`          | Enum     | Variant for the error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
+| `loadingPageTouchPointVariant` <ApiLifecycle access="ea" />       | Enum     | (Optional) Variant for the Okta loading page. Applicable only if the **Loading Page Animation** feature is enabled. Accepted values: `OKTA_DEFAULT`, `NONE`.                                 | `OKTA_DEFAULT`    |
 
 > **Note:** `primaryColorContrastHex` and `secondaryColorContrastHex` are automatically optimized for the highest possible contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
 
@@ -2382,6 +2398,19 @@ You can publish a theme for a page or email template with different combinations
 | `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` as the background color for buttons.      |
 
 
+
+#### Variants for the Okta loading page:
+
+<ApiLifecycle access="ea" />
+
+> **Note:** Okta loading page variants are only available if the **Loading Page Animation** Early Access feature is enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
+| Enum Value                      | Description                                                                     |
+| ------------------------------- | ------------------------------------------------------------------------------- |
+| `OKTA_DEFAULT`                  | Use the default Okta loading page animation during the redirect.    |
+| `NONE`                          | Use no loading page animation during the redirect.      |
+
+
 ##### Theme example
 
 ```json
@@ -2393,7 +2422,8 @@ You can publish a theme for a page or email template with different combinations
   "signInPageTouchPointVariant": "OKTA_DEFAULT",
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
-  "emailTemplateTouchPointVariant": "OKTA_DEFAULT"
+  "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT"
 }
 ```
 
@@ -2413,10 +2443,11 @@ The Theme Response object defines the following properties:
 | `primaryColorContrastHex`             | String                  | Primary color contrast hex code             |
 | `secondaryColorHex`                   | String                  | Secondary color hex code                    |
 | `secondaryColorContrastHex`           | String                  | Secondary color contrast hex code           |
-| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta Sign-In Page                    |
-| `endUserDashboardTouchPointVariant`   | Enum                    | Variant for the Okta End-User Dashboard              |
-| `errorPageTouchPointVariant`          | Enum                    | Variant for the error page                      |
+| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta Sign-In Page           |
+| `endUserDashboardTouchPointVariant`   | Enum                    | Variant for the Okta End-User Dashboard     |
+| `errorPageTouchPointVariant`          | Enum                    | Variant for the error page                  |
 | `emailTemplateTouchPointVariant`      | Enum                    | Variant for email templates                 |
+| `loadingPageTouchPointVariant` <ApiLifecycle access="ea" />       | Enum                    | Variant for the Okta loading page           |
 | `_links`                              | [Links](#links-object)  | Link relations for this object              |
 
 ##### Theme Response example
@@ -2435,6 +2466,7 @@ The Theme Response object defines the following properties:
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
       "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
@@ -2508,7 +2540,12 @@ Initial Theme variant values are different for existing orgs with customizations
 | `errorPageTouchPointVariant`          | yes                   | yes                        | `BACKGROUND_IMAGE`              |
 | `endUserDashboardTouchPointVariant`   | no                    | n/a                        | `OKTA_DEFAULT`                  |
 | `endUserDashboardTouchPointVariant`   | yes                   | n/a                        | `LOGO_ON_FULL_WHITE_BACKGROUND` |
+| `loadingPageTouchPointVariant` <ApiLifecycle access="ea" />       | n/a                   | n/a                        | `OKTA_DEFAULT` or `NONE` |
 
+> **Note:**
+> For existing orgs, the `loadingPageTouchPointVariant` property is initialized to `OKTA_DEFAULT` if the **Okta Interstitial
+> Page** setting under **Customizations** > **Other** is enabled in the Admin Console. Otherwise, this property is initialized to `NONE`. <ApiLifecycle access="ea" />
+>
 ### Logo scenarios
 
 The following scenarios explain which logo is used when based on the `THEME_BUILDER` flag.
@@ -2581,7 +2618,7 @@ The Email Template Settings Object resource defines the following properties:
 
 > **Note:** The following is a list of the email templates with certain Enum values:
 > * `NO_USERS, ALL_USERS`: `NewSignOnNotification`, `PasswordChanged`, `AuthenticatorEnrolled`, and `AuthenticatorReset`
-> * `ALL_USERS, ADMIN ONLY`: `ChangeEmailConfirmation`
+> * `ALL_USERS, ADMINS_ONLY`: `ChangeEmailConfirmation`
 
 ## Links object
 

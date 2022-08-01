@@ -4,7 +4,7 @@
 
 The self-registration flow begins when the user clicks the **Sign Up** link (or **Register** from the SDK sample application home page). On the sign-in page, create a **Sign Up** link that links to the create account page that you create in the next step, as shown in the following example.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a sign-up link that directs to a sign-up page. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
@@ -14,7 +14,7 @@ The self-registration flow begins when the user clicks the **Sign Up** link (or 
 
 The next step is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information. The following example shows a create account page.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a Self-Service Registration page that includes fields for the first name, last name, and email address. Also displays a Register button that starts the self-registration flow. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-user-nodejs.png)
 
@@ -57,7 +57,7 @@ If the org's application is properly configured with multiple factors, `idx.regi
 
 Create a page that displays an authenticator enrollment selection. In this example, the password is configured.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a Select authenticator page that includes a selection for the password. Also displays a Select button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-pwd-auth-nodejs.png)
 
@@ -65,7 +65,7 @@ Create a page that displays an authenticator enrollment selection. In this examp
 
 After the user enters the password authenticator value, and `idx.register` is called with this value, the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires the user to enter a password value. The user is directed to a page to set up a password value, as shown in the SDK sample application route to `/enroll-authenticator`.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a Set up password page that includes fields for password and re-enter password. Also displays a Next button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-set-up-pwd-nodejs.png)
 
@@ -77,7 +77,7 @@ After the user submits a password, call `idx.register` and pass in this value fo
 
 See [`idx.register`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister) for more details on the self-registration flow.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a Select authenticator page that includes a selection for email. Also displays a Select button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-email-auth-nodejs.png)
 
@@ -89,7 +89,7 @@ In this use case, the user selects the **Email** as the authenticator to verify.
 
  If the call is successful, the method returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires verification, which indicates that the SDK is ready for the email verification code. The next step is to redirect the user to the email verification code page, as shown in the SDK sample application route to `/enroll-authenticator`.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays an Enroll email authenticator page that includes the field for the email verification code. Also displays a Verify button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-email-verify-nodejs.png)
 
@@ -101,7 +101,7 @@ The next step is to call `idx.register`, again passing in the verification code.
 
 Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the app in this use case is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional. In this step, the `nextStep` field can include `canSkip` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone authenticator.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays a Select authenticator page that includes a selection for Phone authentication. Also displays a Select button that continues the flow and a Skip button that skips the phone authentication flow. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-phone-auth-and-skip-nodejs.png)
 
@@ -132,7 +132,7 @@ If the request to skip the optional authenticator is successful, the SDK returns
 
 After the user selects the phone authenticator value, and `idx.register` is called with this authenticator key (`Authenticator: AuthenticatorKey.PHONE_NUMBER`), the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires phone registration data, which includes the phone number and verification method (SMS or voice). The user is directed to a page to enroll the phone data:
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays an Enroll phone authenticator page screenshot that includes a selection for Phone verification method (SMS) and a field for the phone number. Also displays a Next button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-auth-nodejs.png)
 
@@ -146,7 +146,7 @@ The user can select SMS or voice verification to receive the phone verification 
 
 The SDK sends the phone authenticator data to Okta, processes the request, and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `Idx.Status:PENDING` and the `nextStep` field requiring verification. This status indicates that the user needs to provide the verification code for the phone authenticator:
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays an Enroll phone authenticator page screenshot that includes a field to enter the phone (SMS) verification code. Also displays a Verify button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-verify-nodejs.png)
 

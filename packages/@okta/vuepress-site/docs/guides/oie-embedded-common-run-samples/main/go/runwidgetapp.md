@@ -11,13 +11,17 @@ The sample app is located here in the [Golang embedded Sign-In Widget sample app
 1. From the command line, execute the following command to start the application: `go run main.go`
 1. In a web browser, navigate to `http://localhost:8000/`. The Go embedded Widget app landing page appears:
 
+    <div class="three-quarter">
+
     ![The home page of the Golang Widget sample application](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-home-page.png)
+
+    </div>
 
 1. Click **Login**.
 1. On the sign-in page, enter the username (email) and password that you've used in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/go/main/#create-your-okta-account).
 1. If you successfully sign in, the following screen appears with the user name:
 
-   <div class="common-image-format">
+   <div class="three-quarter">
 
     ![The default page showing the user profile information](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-user-default-page.png)
 

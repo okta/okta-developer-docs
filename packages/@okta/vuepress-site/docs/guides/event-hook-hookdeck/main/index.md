@@ -66,7 +66,11 @@ Complete the following interactive session to define the information about the H
 
 With this data, Hookdeck creates a session and URL to use for sending requests. If you see the following content in your terminal, Hookdeck is running successfully:
 
-![A screen shot of a terminal that displays a Hookdeck session status. The session status contains urls that tunnel into the local port.](/img/hookdeck-and-event-hooks-session.png)
+<div class="three-quarter">
+
+![A screen shot of a terminal that displays a Hookdeck session status. The session status contains urls that tunnel into the local port.](/img/hooks/hookdeck-and-event-hooks-session.png)
+
+</div>
 
 > **Note:** You'll use the **Webhook URL** that is available from the Hookdeck terminal session when setting up your Event Hook. For example, `https://events.hookdeck.com/e/src_jHlvbIjGsgY2xhYZeCGxohK4`.
 
@@ -78,7 +82,11 @@ The Hookdeck dashboard provides an opportunity to review all calls to your local
 
 Each call to your local application appears in the dashboard and includes the response body, header, and other details:
 
-![A screen shot of the Hookdeck web dashboard that includes the response body, header, and other details.](/img/hookdeck-dashboard.png)
+<div class="full border">
+
+![A screen shot of the Hookdeck web dashboard that includes the response body, header, and other details.](/img/hooks/hookdeck-dashboard.png)
+
+</div>
 
 ### Hookdeck development workflow
 
@@ -148,15 +156,27 @@ To run a preview call of your Event Hook:
 1. Ensure that both your Hookdeck session and local sample application are running.
 1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Review your local application console to view the output of the Event Hook body. For example:
 
-   ![A screen shot of the application terminal with response body output to the console.](/img/hookdeck-application-console-output.png)
+   <div class="three-quarter">
+
+   ![A screen shot of the application terminal with response body output to the console.](/img/hooks/hookdeck-application-console-output.png)
+
+   </div>
 
 1. Review your Hookdeck terminal output for a line item reference to the specific call and a unique dashboard URL to the details on the call.
 
-   ![A screen shot of the Hookdeck terminal with response line item output to console.](/img/hookdeck-terminal-output.png)
+   <div class="full">
+
+   ![A screen shot of the Hookdeck terminal with response line item output to console.](/img/hooks/hookdeck-terminal-output.png)
+
+   </div>
 
 1. Review your Hookdeck dashboard (`https://dashboard.hookdeck.com/cli/events`). Each call recorded by Hookdeck appears in the interface from which you can review the complete call response body, header, and other details.
 
-    ![A screen shot of the Hookdeck dashboard that includes body details.](/img/hookdeck-dashboard-small.png)
+    <div class="half border">
+
+    ![A screen shot of the Hookdeck dashboard that includes body details.](/img/hooks/hookdeck-dashboard-small.png)
+
+    </div>
 
 ### Test
 
@@ -177,7 +197,11 @@ To run a test of your Event Hook:
 
 1. Review the unique dashboard URL (for example, `https://dashboard.hookdeck.com/cli/events/evt_x3H5QdAL2JGvxMbvqcvwK8UF`). Scroll to the **Body** section and open the **"Root"** > **"Data"** sections. Your new user's name and username appear under the **"target"** property.
 
- ![A screen shot of the Hookdeck dashboard that includes body details.](/img/hookdeck-body-detail.png)
+<div class="three-quarter">
+
+![A screen shot of the Hookdeck dashboard that includes body details.](/img/hooks/hookdeck-body-detail.png)
+
+</div>
 
 ## See also
 

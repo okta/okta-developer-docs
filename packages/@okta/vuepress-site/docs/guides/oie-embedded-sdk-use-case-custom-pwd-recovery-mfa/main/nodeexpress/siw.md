@@ -8,7 +8,7 @@ Before sending the email, Okta builds the message based on the **Forgot Password
 
 The next step is to open the Okta email and click its reset password link.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Screenshot of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png)
 
@@ -47,7 +47,7 @@ Call `OktaAuth.idx.canProceed()` and pass in the`state` parameter to verify that
 
 ### 5: Set up and render widget with otp and state
 
-After you validate the `state` parameter, the final step is to set up the `otp` and `state` in the widget configurations. Set up the configurations based on the following snippet:
+After you validate the `state` parameter, the final step is to set up the `otp` and `state` in the widget configurations. Set up the configurations based on the following snippet. Replace `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-).
 
 ```javascript
     const widgetConfig = {
@@ -62,7 +62,7 @@ After you validate the `state` parameter, the final step is to set up the `otp` 
       otp
     };
     res.render('login', {
-      siwVersion: '6.0.0',
+      siwVersion: '${widgetVersion}',
       widgetConfig: JSON.stringify(widgetConfig),
       selfHosted: !!process.env.SELF_HOSTED_WIDGET
     });
@@ -86,9 +86,9 @@ After set up, render the client site page and pass the configurations to the wid
 
 ### 6: Display password reset page and continue the password recovery flow
 
-After the widget is loaded, the following reset page is appears:
+After the widget is loaded, the following reset page appears:
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot of password reset page](/img/advanced-use-cases/custom-pwd-recovery-custom-siw-reset-pwd-page.png)
 

@@ -1,0 +1,61 @@
+/* Basic styling to be applied to all images inside the main content column */
+
+.content__default div img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+/* Mobile-first sizing, applied by default if below media query does not kick in (i.e. it's a narrow screen) */
+
+.content__default div.full, .content__default div.three-quarter {
+  img {
+    width: 100%;
+  }
+}
+
+.content__default div.half {
+  img {
+    width: 75%;
+    max-width: 350px;
+  }
+}
+
+.content__default div.quarter {
+  img {
+    width: 50%;
+  }
+}
+
+/* On wider screens, overwrite the width for the half and quarter-size images so they appear smaller */
+
+@media (min-width: 768px) {
+  .content__default div.three-quarter {
+    img {
+      width: 75%;
+    }
+  }
+
+  .content__default div.half {
+    img {
+      width: 50%;
+    }
+  }
+  
+  .content__default div.quarter {
+    img {
+      width: 25%;
+    }
+  }
+}
+
+/* optional border class that can be used to apply a gray border to the image if required as per the guidelines */
+
+.content__default div.border {
+  img {
+    border: 1px solid cv('gray', '200');
+    border-radius: 20px;
+  }
+}

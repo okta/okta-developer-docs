@@ -8,7 +8,7 @@ When the user clicks this link, they are sent to the Facebook login screen.
 
 The user enters their email and password, and clicks **Log In**. This page is hosted by Facebook. The user information that you enter originates from a test user that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to support this step.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 

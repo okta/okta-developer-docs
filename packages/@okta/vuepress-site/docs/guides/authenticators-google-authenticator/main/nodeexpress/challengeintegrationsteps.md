@@ -62,7 +62,7 @@ Use the `IdxTransaction` properties to show a challenge page that displays a one
 
 UI showing the one-time password input field.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Google Authenticator input field in UI](/img/authenticators/authenticators-google-challenge-password.png)
 
@@ -72,7 +72,7 @@ UI showing the one-time password input field.
 
 Next, the user opens Google Authenticator on their mobile device and finds the one-time password for their account.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Challenge google authenticator UI](/img/authenticators/authenticators-google-one-time-password-fetch.png)
 

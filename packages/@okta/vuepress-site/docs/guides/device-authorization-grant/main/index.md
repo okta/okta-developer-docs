@@ -31,8 +31,6 @@ The Device Authorization feature is an OAuth 2.0 grant type. It allows users to 
 
 The Device Authorization feature is available for both Okta Classic Engine and Okta Identity Engine orgs.
 
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
-
 ## Before you begin
 
 This guide assumes that you:
@@ -110,7 +108,11 @@ The `user_code` and `verification_uri` must appear on the smart device for the u
 
 #### Example of the display on a smart device
 
-![Verification on the smart device](/img/QRActivate.png)
+<div class="three-quarter">
+
+![Verification on the smart device](/img/authorization/QRActivate.png)
+
+</div>
 
 ### Request access, ID, and refresh tokens
 

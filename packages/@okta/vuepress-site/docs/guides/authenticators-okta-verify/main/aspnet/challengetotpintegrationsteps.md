@@ -1,4 +1,4 @@
-#### 1. Initiate sign-in flow and return a list of authenticators
+#### 1. Start challenge, retrieve and display a list of authenticators
 
 The user signs in with a username and password, and then chooses Okta Verify from a list of authenticators. This is covered in the earlier [Shared Code](#initiate-sign-in-and-return-a-list-of-authenticators) section.
 
@@ -14,7 +14,7 @@ When the user selects the challenge method type and clicks **Submit**, the chall
 
 The code for this is shared with Step 4 of [Integrate Challenge using push notification](#integrate-challenge-using-push-notification-option).
 
-#### 5. Prompt the user for the TOTP in Okta Verify
+#### 5. Prompt user to use Okta Verify
 
 Build a page that allows the user to enter the TOTP they have received from Okta Verify.
 
@@ -53,7 +53,7 @@ The user sees the following:
 
 The user opens Okta Verify on their device, copies the TOTP that appears into the challenge box and clicks **Submit**.
 
-#### 7. Process the one-time password
+#### 7. Process the TOTP
 
 Create a `OktaVerifyVerifyAuthenticatorOptions` object and set its `TotpCode` property to the password entered by the user. Pass this object as a parameter to the `IdxClient.VerifyAuthenticatorAsync` method.
 
@@ -92,5 +92,7 @@ switch (authenticationResponse?.AuthenticationStatus)
         return View("Login");
 }
 ```
+
+#### 8. Complete challenge and sign user in
 
 On success, call `AuthenticationHelper.GetIdentityFromTokenResponseAsync` to retrieve the OIDC claims information about the user and pass them into your application. The user is now signed in.

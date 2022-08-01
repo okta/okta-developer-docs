@@ -342,7 +342,7 @@ To preserve cross-site functionality in light of upcoming updates to [Chrome](ht
 
 #### LinkedIn API V2 is now supported
 
-Okta now supports LinkedIn API V2. Creation of [LinkedIn Identity Providers](/docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/) has been re-enabled in all Production orgs. <!-- OKTA-237649 -->
+Okta now supports LinkedIn API V2. Creation of [LinkedIn Identity Providers](/docs/guides/social-login/linkedin/main/) has been re-enabled in all Production orgs. <!-- OKTA-237649 -->
 
 #### Mappings API is now GA in Preview
 
@@ -392,7 +392,7 @@ The [Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) is now
 
 #### LinkedIn IdP creation re-enabled in Preview
 
-Creation of [LinkedIn Identity Providers](/docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/) has been re-enabled in all Preview orgs. <!-- OKTA-226772 -->
+Creation of [LinkedIn Identity Providers](/docs/guides/social-login/linkedin/main/) has been re-enabled in all Preview orgs. <!-- OKTA-226772 -->
 
 #### Email Customization disabled for free orgs
 
@@ -728,7 +728,7 @@ Template WS-Fed applications can now choose between SHA1 and SHA256 options for 
 
 #### Google Integration Updated
 
-Okta's [Google social login integration](/docs/guides/add-an-external-idp/google/before-you-begin/) has been updated to account for the deprecation of the Google+ API. More information can be found in our [Knowledge Base](https://support.okta.com/help/Documentation/Knowledge_Article/Google-API-Deprecation-and-Okta/).
+Okta's [Google social login integration](/docs/guides/social-login/google/main/) has been updated to account for the deprecation of the Google+ API. More information can be found in our [Knowledge Base](https://support.okta.com/help/Documentation/Knowledge_Article/Google-API-Deprecation-and-Okta/).
 
 #### High Capacity Rate Limits
 

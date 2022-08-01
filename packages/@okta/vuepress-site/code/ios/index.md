@@ -10,7 +10,7 @@ meta:
 
 ## Get started with iOS + Okta
 
-New to Okta? Our resources walk you through adding user authentication to your iOS app in minutes.
+These resources walk you through adding user authentication to your iOS app in minutes.
 
 <ul class='language-ctas'>
 	<li>

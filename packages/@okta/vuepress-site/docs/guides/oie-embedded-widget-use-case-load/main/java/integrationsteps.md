@@ -1,21 +1,20 @@
 ### 1: Source the Sign-In Widget in your sign-in page
 
-Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta content delivery network (CDN):
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
-```javascript
-<script src="https://global.oktacdn.com/okta-signin-widget/5.8.2/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/5.8.2/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+```html
+<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-> **Note:** The previous snippet example uses Sign-In Widget, version `5.8.2`. Use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget in your app.
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 ### 2: Add JavaScript to initialize and load the Widget
 
 Initialize the Widget in the sign-in page, similar to the following snippet:
 
-```javascript
+```html
 <script th:inline="javascript">
-
     var config = {};
 
     config.baseUrl = /*[[${oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
@@ -34,10 +33,18 @@ Initialize the Widget in the sign-in page, similar to the following snippet:
         scopes: /*[[${scopes}]]*/ '[scopes]',
     };
 
-    new OktaSignIn(config).showSignInAndRedirect(
-        { el: '#sign-in-widget' },
-        function (res) {}
+    var signIn = new OktaSignIn(config);
+
+   // Search for URL Parameters to see if a user is being routed to the application to recover password
+   var searchParams = new URL(window.location.href).searchParams;
+   signIn.otp = searchParams.get('otp');
+   signIn.state = searchParams.get('state');
+
+    signIn.showSignInAndRedirect(
+      { el: '#sign-in-widget' },
+      function (res) {}
     );
+
 </script>
 ```
 
@@ -47,7 +54,7 @@ The Okta Sign-In Widget renders in the sign-in page when your app's sign-in page
 
 The final step is to run your app. If the Widget and your Okta org are properly configured, then the Okta Sign-In Widget displays in your sign-in page:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Okta Sign-In Widget](/img/oie-embedded-sdk/oie-embedded-widget-use-case-load-screen-signin-java.png)
 

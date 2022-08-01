@@ -2,7 +2,7 @@
 
 Build a sign-in page that captures the user's name and password, as shown in the following example.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
 
@@ -50,7 +50,7 @@ switch (authnResponse?.AuthenticationStatus)
 
 The next step is to show the phone factor in an authenticator list page. Build a page to display the list of authenticators from the previous step. In this use case, only the phone factor appears, as shown in the following sample screenshot.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example Verify phone form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone.png)
 
@@ -80,7 +80,7 @@ switch (enrollResponse?.AuthenticationStatus)
 
 Build the phone number entry page that accepts the phone number that the user will enroll and verify.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example enter phone number form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
 
@@ -132,7 +132,7 @@ if (enrollResponse.AuthenticationStatus ==
 
 Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, this page can be the same page that verifies the email code or a different page. The sample app reuses the same page for both the email and phone verifications.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays an example verify phone form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
 
