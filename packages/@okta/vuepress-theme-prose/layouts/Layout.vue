@@ -26,6 +26,7 @@
             <MobileOnThisPage />
             <PageTitle />
             <ContentPage />
+            <CustomLandingPage v-if="$page.frontmatter.customLandingPage" />
             <GeneratedContent v-if="$page.frontmatter.generated" />
             <div class="edit-on-github">
               <span class="fa fa-github"></span>
@@ -71,6 +72,7 @@ export default {
     PageTitle: () => import("../components/PageTitle.vue"),
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
+    CustomLandingPage: () => import("../components/CustomLandingPage.vue"),
     GeneratedContent: () => import("../components/GeneratedContent.vue"),
     Footer: () => import("../components/Footer.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),

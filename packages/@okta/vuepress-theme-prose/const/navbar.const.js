@@ -708,6 +708,10 @@ export const guides = [
           },
         ],
       },
+      {
+        title: 'Okta Integration Network',
+        customLandingPage: true
+      }
     ],
   },
 ];

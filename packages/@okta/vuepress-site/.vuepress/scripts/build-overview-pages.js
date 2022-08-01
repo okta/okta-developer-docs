@@ -44,13 +44,17 @@ function generatedLinks(arr, parent = null) {
           } else {
             path = parent.path + sanitizeTitle(el) + "/"
           }
-          generatedPages.push({
-            path: path,
+          const page = {
+            path,
             title: el.title,
-            frontmatter: {
-              generated: true,
-            },
-          });
+            frontmatter: {}
+          }
+          if (el.customLandingPage) {
+            page.frontmatter.customLandingPage = true
+          } else {
+            page.frontmatter.generated = true
+          }
+          generatedPages.push(page);
           el.path = path;
         }
         if (!el.path) {
