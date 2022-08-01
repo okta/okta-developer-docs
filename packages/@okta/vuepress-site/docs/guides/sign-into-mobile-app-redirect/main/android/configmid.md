@@ -27,4 +27,14 @@
     }
     ```
 
+1. Add the following code to the dependencies block of the app's build file, `app/build.gradle`:
+
+    ```groovy
+    dependencies {
+        // Used from Okta Mobile SDK code snippets.
+        implementation('androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1')
+        implementation('androidx.activity:activity-ktx:1.5.1')
+    }
+    ```
+
 1. Update Android Studio with the changes by performing a gradle sync. For more information on performing a gradle sync, see the [Android Studio Documentation](https://developer.android.com/studio/build#sync-files).

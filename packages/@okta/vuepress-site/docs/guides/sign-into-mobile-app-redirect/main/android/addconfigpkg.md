@@ -5,5 +5,6 @@ Add the latest [Okta Mobile Kotlin library](https://github.com/okta/okta-mobile-
 implementation(platform('com.okta.kotlin:bom:1.0.0'))
 
 // Add the web-authentication-ui SDK to the project.
+implementation('com.okta.kotlin:auth-foundation-bootstrap')
 implementation('com.okta.kotlin:web-authentication-ui')
 ```
