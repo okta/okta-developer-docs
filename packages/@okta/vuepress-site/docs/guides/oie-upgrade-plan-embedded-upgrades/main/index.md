@@ -27,8 +27,6 @@ See [Roll the upgrade out to your users](#roll-the-upgrade-out-to-your-users) fo
 
 When you are redirecting to the Okta-hosted widget, make sure that your user experience is preserved both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/). Be sure to check your `config.idps` [settings](https://github.com/okta/okta-signin-widget#openid-connect) for customizations that may not be compatible with Identity Engine.
 
-> **Note:** See the **Remember me** section of the [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new) for more information on functionality changes in the Admin Console.
-
 ## Update the Embedded Sign-In Widget
 
 When you are embedding the widget, consider and plan for the following steps, depending on your needs:
@@ -75,9 +73,9 @@ When you are embedding your authentication with our SDKs, consider the steps tha
 
     * **Authentication**
 
-        * **Sign In:** In your new Identity Engine org, the Organization Sign-On Policy and App Sign-On Rules are mapped to a Global Session Policy and [corresponding authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop) respectively. Test and make sure that your user experience still works the same as what was configured in Classic Engine. If you have applications that employ Multifactor Authentication, make sure that they still authenticate in the same way. Applications should still work after the policies are upgraded.
+        * **Sign In:** In your new Identity Engine org, the Organization Sign-On Policy and App Sign-On Rules are mapped to a global session policy and [corresponding authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop) respectively. Test and make sure that your user experience still works the same as what was configured in Classic Engine. If you have applications that employ Multifactor Authentication, make sure that they still authenticate in the same way. Applications should still work after the policies are upgraded.
 
-        > **Note:** Changing the Global Session Policy affects all apps in an org.
+        > **Note:** Changing the global session policy affects all apps in an org.
 
         * **Sign Out:** Use the `revoke()` method in the SDKs rather than make calls to the Sessions API to manage Okta sessions. See [Revoke the access token](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/#_2-revoke-the-access-token).
 

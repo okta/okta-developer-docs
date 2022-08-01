@@ -21,7 +21,7 @@ When the user clicks on the **Recover password** link on your site, send the
 user to a page where they can enter their email and start the password
 recovery flow.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays the first page in the password recovery flow that shows the email field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-first.png)
 
@@ -74,7 +74,7 @@ s.cache.Set("resetPasswordFlow", rpr, time.Minute*5)
 The next step is for the user to enter the verification code from their email.
 Build a page that captures this code.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays the second page in the password recovery flow that shows the verification code field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-second.png)
 
@@ -109,7 +109,7 @@ return
 After the code has been confirmed, the next step is to send the user
 to a page that allows them to enter their new password.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half">
 
 ![Displays the third page in the password recovery flow that shows the password fields](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-third.png)
 

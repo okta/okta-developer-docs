@@ -2,7 +2,7 @@
 
 Build a sign-in page for your app that captures both the username and the password.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-java.png)
 
@@ -35,7 +35,7 @@ If the password is validated, the `IDXAuthenticationWrapper.authenticate()` meth
 
 After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In the following example, the email address is the only authenticator:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the verify email authenticator selection page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify-java.png)
 
@@ -53,7 +53,7 @@ val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(procee
 
 The Java SDK sends this selection to Okta. Okta sends a code to the user's email and the Java SDK returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION`. This status indicates that the authentication flow is waiting for an authenticator verification, in this case, an email verification code. You need to build a form to capture the code from the user.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the email verification code input form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code-java.png)
 

@@ -28,7 +28,7 @@ If email enrollment is enabled for your org's application, and the user hasn't y
 
 Use this response to display a page of available authenticators, including Email.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot of authenticator list](/img/authenticators/authenticators-email-enroll-auth-list.png)
 
@@ -81,7 +81,7 @@ The `OktaAuth.idx.proceed()` returns a `IdxTransaction` response with a `status`
 
 Using this response, display a page to input the OTP.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot of enroll OTP](/img/authenticators/authenticators-email-enroll-enter-code.png)
 
@@ -91,7 +91,7 @@ Using this response, display a page to input the OTP.
 
 Next, the user opens the email and copies the OTP. The following screenshot shows the OTP in an email generated from the **Email Factor Verification** template.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Screenshot of OTP in enrollment page](/img/authenticators/authenticators-email-enroll-otp.png)
 

@@ -1,16 +1,18 @@
 ### 1: Initiate password recovery
 
-The first step is to initiate the password recovery flow and choose email as the authenticator. After the user submits the email as an authenticator, Okta sends an email to their email address. These initial steps are described in detail in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
+The first step is to initiate the password recovery flow and choose email as the authenticator. After the user submits the email as an authenticator, Okta verifies that an account exists for the user using the information that they entered in step 2 above. If the account exists, Okta then sends a recovery email that matches the Forgot Password template that was altered earlier to the associated email address.
 
-Before sending the email, Okta builds the message based on the **Forgot Password** template. The `otp` and `request.relayState` variables are translated into actual values. For example,`http://localhost:8080/login/callback?otp=${oneTimePassword}&state=${request.relayState}` becomes `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`.
+The email's **Reset Password** link includes the `otp` and `request.relayState` variables sent back as query parameters to the application. For instance, the URL in the email template, `http://localhost:8080/magic-link/callback?otp=${oneTimePassword}&state=${request.relayState}`, might be rendered as `http://localhost:8080/magic-link/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32` in the email sent to the user.
+
+These initial steps are described in detail in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
 
 ### 2: Click the email magic link
 
 The next step is to open the Okta email and click its reset password link.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
-![Screenshot of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png)
+![Example of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png "Password recovery email")
 
 </div>
 
@@ -75,7 +77,7 @@ If the `otp` and `state` are valid, `OktaAuth.idx.handleEmailVerifyCallback()` r
 
 Based on the `IdxTransaction` response, display the password reset page and continue the password recovery flow described in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/).
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot of password reset page](/img/advanced-use-cases/custom-pwd-recovery-custom-sdk-reset-pwd-page.png)
 

@@ -52,7 +52,11 @@ Without the client-based rate limit framework, Bob consumes all of the total all
 
 With the client-based rate limit framework enabled, after Bob exceeds his individual limit of 60 requests per minute, HTTP 429 errors are sent. Requests that originate from Bob's IP address, and the specific device from which the requests are made, start receiving the errors. Alice continues to access the application without any issues.
 
-![Client-based isolation for a unique IP address](/img/clientbasedRL1.png "Displays Bob as portal123 IP1 and Alice as portal123 IP2, both making authorize requests")
+<div class="three-quarter border">
+
+![Client-based isolation for a unique IP address](/img/rate-limits/clientbasedRL1.png)
+
+</div>
 
 ##### Example of using the /login/login.htm request
 
@@ -64,7 +68,11 @@ If the request quota isn't set, Bob or Alice would have the ability to make the 
 
 Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares the same IP address. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate limit framework creates a unique per minute request quota from the combination of every user's IP address, OAuth 2.0 client ID of the application, and the device identifier set by Okta in each user's browser.
 
-![Client-based isolation for users accessing the authorize endpoint from a NAT IP](/img/clientbasedRL2.png "Displays Alice as portal123 Device1, Bob as portal123 Device2, Lisa as portal123 Device3, all making authorize requests that are a combination of the shared IP address")
+<div class="three-quarter border">
+
+![Client-based isolation for users accessing the authorize endpoint from a NAT IP](/img/rate-limits/clientbasedRL2.png)
+
+</div>
 
 * Alice: (NAT IP + portal123 + Device1 ID) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
 * Bob: (NAT IP + portal123 + Device2 ID) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
@@ -76,7 +84,11 @@ Alice, Bob, and Lisa all work from the same office. Since they access Okta throu
 
 Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares the same IP address. When they navigate to an application and the application sends them to the Okta-hosted login page, a request is made to `https://okta.okta.com/login/login.htm`.
 
-![Client-based isolation for users accessing the /login/login.htm endpoint from a NAT IP](/img/clientbasedRL3.png "Displays Alice as Device1, Bob as Device2, Lisa as Device3, all making authorize requests that are a combination of the shared IP address")
+<div class="three-quarter border">
+
+![Client-based isolation for users accessing the /login/login.htm endpoint from a NAT IP](/img/rate-limits/clientbasedRL3.png)
+
+</div>
 
 * Alice: (NAT IP + Device1 ID) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests
 * Bob: (NAT IP + Device2 ID) Gets a quota of 60 total requests per minute and a maximum of five concurrent requests

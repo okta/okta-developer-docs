@@ -4,5 +4,3 @@
 * [Load the widget](/docs/guides/oie-embedded-widget-use-case-load/) for web apps that use the embedded authentication deployment model
 * [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/) for a web app that uses the embedded authentication deployment model
 * [Blog: A Quick Guide to React Login Options](https://developer.okta.com/blog/2020/12/16/react-login) for React app authentication options with the Okta Classic Engine
-
-Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

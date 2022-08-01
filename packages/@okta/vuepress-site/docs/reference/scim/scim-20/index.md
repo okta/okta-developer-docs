@@ -25,7 +25,11 @@ To better understand SCIM and the specific implementation of SCIM using Okta, se
 
 ### Create Users
 
-![Flowchart - create User](/img/oin/scim_flow-user-create.png "Simple flow diagram for create User process")
+<div class="three-quarter">
+
+![Simple flow diagram for create User process](/img/oin/scim_flow-user-create.png)
+
+</div>
 
 The User creation operation brings the user's application profile from Okta over to the Service Provider as a User object. A user's application profile represents the key-value attributes defined on the **Profile** tab when a User object is added.
 
@@ -125,6 +129,8 @@ Authorization: <Authorization credentials>
     "active": true
 }
 ```
+
+> **Note:** Okta sends the `password` parameter in a create user request, even if password sync isn't enabled. This parameter acts as a placeholder for legacy provisioning platforms and its value isn't relevant or sensitive in nature.
 
 The response from the SCIM server contains the created User object:
 
@@ -304,7 +310,11 @@ Content-Type: text/json;charset=UTF-8
 
 ### Update a specific User (PUT)
 
-![Flowchart - update User (PUT)](/img/oin/scim_flow-user-update-put.png "Simple flow diagram for updating a User with a PUT method request")
+<div class="three-quarter">
+
+![Simple flow diagram for updating a User with a PUT method request](/img/oin/scim_flow-user-update-put.png)
+
+</div>
 
 Updating a User object refers to modifying an attribute in the Okta user's application profile that is mapped to an attribute in the SCIM application.
 
@@ -427,7 +437,11 @@ Content-Type: text/json;charset=UTF-8
 
 ### Update a specific User (PATCH)
 
-![Flowchart - update User (PATCH)](/img/oin/scim_flow-user-update-patch.png "Simple flow diagram for updating a User with a PATCH method request")
+<div class="three-quarter">
+
+![Simple flow diagram for updating a User with a PATCH method request](/img/oin/scim_flow-user-update-patch.png)
+
+</div>
 
 **PATCH** /Users/*$userID*
 
@@ -501,7 +515,11 @@ Content-Type: text/json;charset=UTF-8
 
 ### Delete Users
 
-![Flowchart - deprovision User](/img/oin/scim_flow-user-deprovision.png "Simple flow diagram for deprovisioning a User")
+<div class="three-quarter">
+
+![Simple flow diagram for deprovisioning a User](/img/oin/scim_flow-user-deprovision.png)
+
+</div>
 
 **DELETE** /Users/*$userID*
 

@@ -1,0 +1,1 @@
+> **Note:** This guide uses the [Email Verification Experience](/docs/guides/email-magic-links-overview/nodeexpress/main/#use-the-email-verification-experience) setting to configure magic links. For an alternative solution, see [use custom email templates](/docs/guides/email-magic-links-overview/nodeexpress/main/#use-custom-email-templates).

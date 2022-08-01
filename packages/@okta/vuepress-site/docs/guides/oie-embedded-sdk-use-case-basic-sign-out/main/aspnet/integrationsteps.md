@@ -3,7 +3,7 @@
 The first step is to create a link, button, or another similar UI
 element that allows the user to sign out of the app.
 
-<div class="common-image-format">
+<div class="quarter border">
 
 ![Displays an example sign-out link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-out-link.png)
 

@@ -1,36 +1,42 @@
-Check for an existing session in two steps.
+When you check for an existing session, it may take two steps:
 
-1. Initialize the authorization state manager (`authStateManager`) from a saved session.
-2. Verify that the access token is still valid by checking the expiry.
+- Check for an existing valid token.
+- Refresh the token if it's expired.
 
-The state manager session and its associated token are already saved by the `signIn` function calling `writeToSecureStorage`.
+The `Credential` class manages the tokens for a user. The `signIn()` function that you wrote in [Open the sign-in page](#open-the-sign-in-page) calls `store(_:)` to save the user's credentials. A session exists if there's a default credential. Although there are calls to check if a credential is expired and to request a refresh, this code uses `refreshIfNeeded()` that only tries to refresh the token if it's expired.
 
-1. Check for an expired token by updating the `tokenExpired` utility function:
+Check for an existing session by adding an `.onAppear` modifier above the `.alert` modifier of the main content view:
 
-   ```swift
-   func tokenExpired(_ tokenString: String?) -> Bool {
-     guard let accessToken = tokenString,
-     let tokenInfo = OKTIDToken.init(idTokenString: accessToken) else {
-       return false
-     }
-      
-     return Date() > tokenInfo.expiresAt
-   }
-   ```
-
-2. Initialize the state manager from a saved session if the token is valid by adding this code to the end of `configureSDK`.
-
-   ```swift
-   func configureSDK () {
-       ...
-     // Check for an existing session
-     self.authStateManager = OktaOidcStateManager.readFromSecureStorage(for: config)
-     if let authStateManager = self.authStateManager,
-       let tokenString = authStateManager.accessToken,
-       !tokenExpired(tokenString) {
-         updateStatus("Signed In.", infoText: "", signedInStatus: true)
-       }
-   }
-   ```
-
-The `if let` assigments for both `authStateManager` and `tokenString` ensure that both are valid before updating the status of the app.
+```swift
+var body: some View {
+   ZStack {
+      ...
+            ProgressView("Waiting")
+         }
+      }
+      .onAppear() {
+         busy = true
+         // Check for an existing valid token.
+         if let credential = Credential.default {
+            Task {
+               do {
+                  // Make sure the token is valid.
+                  try await credential.refreshIfNeeded()
+                  // The token is valid, update the app state.
+                  isSignedIn = true
+               }
+               catch {
+                  // The user wasn't signed in or the token couldn't be refreshed.
+                  // No action is required.
+               }
+               // The token is invalid, hide the activity indicator.
+               busy = false
+            }
+         } else {
+            // There is no existing session, hide the activity indicator.
+            busy = false
+         }
+      }
+      .alert {
+   ...
+```

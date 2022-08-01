@@ -203,7 +203,11 @@ This section discusses the customization options that you have when you are self
 
 You can modify the look of the initial sign-in page using parameters in the `config` section of the main Widget initialization block.
 
-![Screenshot of basic Okta Sign-In Widget](/img/widget_theming.png "Screenshot of basic Okta Sign-In Widget")
+<div class="three-quarter">
+
+![Screenshot of basic Okta Sign-In Widget](/img/siw/widget_theming.png)
+
+</div>
 
 ### Logo
 
@@ -360,7 +364,11 @@ Position:
 
 For a more in-depth look at styling the widget, you can watch this video:
 
+<div style="text-align: center">
+
 <iframe width="100%" class="video-tutorial" height="315" src="https://www.youtube.com/embed/Q__ugprsOWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</div>
 
 ### Modify strings
 

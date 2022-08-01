@@ -39,7 +39,3 @@ Before you can implement authorization, you need to register your app in Okta by
 ## Next steps
 
 <StackSnippet snippet="nextsteps" />
-
-<br>
-
-> **Note:** If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).

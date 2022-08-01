@@ -191,7 +191,7 @@ Searches for devices based on the properties specified in the `search` parameter
 This operation:
 
 * Supports pagination (to a maximum of 200 results).
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=profile.displayName eq "Bob"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`. Examples use cURL-style escaping instead of URL encoding to make them easier to read.
+* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=profile.displayName eq "Bob"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`.
 
 Searches include all Device profile properties, as well as the Device `id`, `status` and `lastUpdated` properties.
 
@@ -376,7 +376,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
+"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+%22Eng-dev%22+and+status+eq+%22ACTIVE%22"
 ```
 
 ##### Bearer token request
@@ -386,7 +386,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer ${oauth_token}" \
-"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
+"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+%22Eng-dev%22+and+status+eq+%22ACTIVE%22"
 ```
 
 ##### Response
@@ -1024,7 +1024,12 @@ The device model defines several read-only properties:
 > More details on [Device Lifecycle](https://help.okta.com/okta_help.htm?type=oie&id=ext-devices-lifecycle)
 
 The following diagram shows the state object for a Device:
-![Device lifecycle flow](/img/okta-device-status.png "Device lifecycle flow")
+
+<div class="three-quarter">
+
+![Device lifecycle flow](/img/devices-api/okta-device-status.png)
+
+</div>
 
 > **Note:**
 > 1. Okta Verify enrollment results in a device being created in device inventory. The newly-created device has an `ACTIVE` status.
