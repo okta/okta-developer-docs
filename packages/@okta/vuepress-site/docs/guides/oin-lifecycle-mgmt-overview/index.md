@@ -92,19 +92,19 @@ Key terms for lifecycle management in this workforce journey:
 
 ### Example of partner lifecycle management integration journey with Okta
 
-Tom is an internal developer at RewardMe, an HR employee rewards app that is a partner with Okta. RewardMe is already in the OIN with an SSO integration. RewardMe is looking to add lifecycle management integration with Okta as a value-added feature for their customers.
+Tom is an internal developer at OktReward, an HR employee rewards app that is a partner with Okta. OktReward is already in the OIN with an SSO integration. OktReward is looking to add lifecycle management integration with Okta as a value-added feature for their customers.
 
 #### Customer admin perspective before a lifecycle management integration
 
-Acme is a company that is using Okta to manage identity for their workforce. Acme is considering adding RewardMe into their HR suite. Since RewardMe is in the OIN, Acme knows that when they deploy RewardMe, they can easily configure SSO and various access privileges for their employees. However, adding employee profiles to the RewardsMe app will still be a manual process for their HR and IT staff. In addition, onboarding, role changes, and offboarding processes will need to be addressed. Acme is worried about the security issues around adding personnel information manually and the additional workload for their staff. Acme will need a thorough project plan to rollout RewardMe without a lifecycle management integration feature.
+Acme is a company that is using Okta to manage identity for their workforce. Acme is considering adding OktReward into their HR suite. Since OktReward is in the OIN, Acme knows that when they deploy OktReward, they can easily configure SSO and various access privileges for their employees. However, adding employee profiles to the RewardsMe app will still be a manual process for their HR and IT staff. In addition, onboarding, role changes, and offboarding processes will need to be addressed. Acme is worried about the security issues around adding personnel information manually and the additional workload for their staff. Acme will need a thorough project plan to rollout OktReward without a lifecycle management integration feature.
 
 #### Partner integration actions
 
-1. Tom builds the RewardMe-Okta lifecycle management integration by using the SCIM protocol so that their customers don’t need to worry about manual employee profile processes, such as onboarding or offboarding.
+1. Tom builds the OktReward-Okta lifecycle management integration by using the SCIM protocol so that their customers don’t need to worry about manual employee profile processes, such as onboarding or offboarding.
 1. Tom documents the required configuration steps for the customer admin.
 1. Tom submits the integration and corresponding documentation for Okta to verify and review.
-1. After approval, the RewardMe app is published as a lifecycle management integration (in addition to an SSO integration) in the OIN.
+1. After approval, the OktReward app is published as a lifecycle management integration (in addition to an SSO integration) in the OIN.
 
 #### Customer admin perspective after a lifecycle management integration
 
-Now that RewardMe is in the OIN as an SSO and lifecycle management integration app, Acme knows that they can deploy RewardMe with minimal effort. When new employees join Acme, their HR staff adds user profiles in one Okta source, as usual. The profiles are automatically provisioned to the apps with lifecycle management support, which now includes RewardMe. This will alleviate Acme's resource efficiency and security concerns with RewardMe. Acme is more compelled to adopt RewardMe into their HR suite.
+Now that OktReward is in the OIN as an SSO and lifecycle management integration app, Acme knows that they can deploy OktReward with minimal effort. When new employees join Acme, their HR staff adds user profiles in one Okta source, as usual. The profiles are automatically provisioned to the apps with lifecycle management support, which now includes OktReward. This will alleviate Acme's resource efficiency and security concerns with OktReward. Acme is more compelled to adopt OktReward into their HR suite.
