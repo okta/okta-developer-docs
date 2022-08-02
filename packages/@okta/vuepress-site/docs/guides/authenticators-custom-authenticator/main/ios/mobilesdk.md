@@ -1,1 +1,0 @@
-See [Web authentication using OIDC redirect](https://github.com/okta/okta-mobile-kotlin#web-authentication-using-oidc-redirect).
