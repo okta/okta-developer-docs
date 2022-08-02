@@ -18,7 +18,7 @@ title: Okta API Products release notes 2022
 
 #### PKCE validation for OIDC app integrations is GA in Preview
 
-You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` property with the Apps API to require PKCE for your app. <!-- OKTA-518333 -->
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-518333 -->
 
 #### Configurable API token rate limits is GA in Production
 
