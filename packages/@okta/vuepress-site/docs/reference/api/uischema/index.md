@@ -3,7 +3,7 @@ title: UI Schema API
 category: management
 ---
 
-# UiSchema API
+# UI Schema API
 
 <ApiLifecycle access="ie" />
 
@@ -20,10 +20,10 @@ Explore the UI Schema API: [![Run in Postman](https://run.pstmn.io/button.svg)](
 The UI Schema API has the following CRUD operations:
 
 - [Create a UI Schema](#create-a-ui-schema)
-- [Get UI Schemas](#get-`)
-- [Get a UI Schema by id](#get-a-ui-schema-by-id%)
-- [Update a UI Schema](#update-a-ui-schema%)
-- [Delete a UI Schema](#delete-%)
+- [Get UI Schemas](#get-ui-schemas)
+- [Get a UI Schema by ID](#get-a-ui-schema-by-id)
+- [Update a UI Schema](#update-a-ui-schema)
+- [Delete a UI Schema](#delete-a-ui-schema)
 
 ### Create a UI Schema
 
@@ -43,15 +43,15 @@ N/A
 
 #### Request body
 
-This API requires a [UI Schema object](#ui-schema-object) as its request body.
+This API requires a [UI Schema Object](#ui-schema-object) as its request body.
 
 #### Response body
 
-The request [UI Schema Request object](#ui-schema-request-object)
+This API returns the created [UI Schema Request object](#ui-schema-request-object)
 
 #### Use example
 
-This request creates a UI Schema object:
+This request creates a UI Schema Object:
 
 ##### Request
 
@@ -136,15 +136,225 @@ curl -v -X POST \
     "self": {
       "href": "https://dev-jake-2.trexcloud.com/api/v1/meta/uischemas/uis4abjqkkKXVPGAU0g7",
       "hints": {
-        "allow": [
-          "GET",
-          "PUT",
-          "DELETE"
-        ]
+        "allow": ["GET", "PUT", "DELETE"]
       }
     }
   }
 }
+```
+
+### Get all UI Schemas
+
+<ApiOperation method="get" url="/api/v1/meta/uischemas" />
+
+Fetches all UI Schemas in your org.
+
+#### Required scope and role
+
+An Okta scope of `okta.uischemas.manage` or `okta.uischemas.read` is required to use this endpoint.
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+A list of [UI Schema Response Objects](#ui-schema-response-object)
+
+#### Use example
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/meta/uischemas"
+```
+
+##### Response
+
+```json
+[
+  {
+    "id": "uis4a7liocgcRgcxZ0g7",
+    "uiSchema": {
+      "type": "Group",
+      "label": "Sign in",
+      "buttonLabel": "Submit",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/firstName",
+          "label": "First name",
+          "options": {
+            "format": "text"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/lastName",
+          "label": "Last name",
+          "options": {
+            "format": "text"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/email",
+          "label": "Email",
+          "options": {
+            "format": "text"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/countryCode",
+          "label": "Country code",
+          "options": {
+            "format": "select"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/bool2",
+          "label": "bool2",
+          "options": {
+            "format": "checkbox"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/date",
+          "label": "date"
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/enum",
+          "label": "enum",
+          "options": {
+            "format": "radio"
+          }
+        }
+      ]
+    },
+    "created": "2022-07-25T12:56:31.000Z",
+    "lastUpdated": "2022-07-26T11:53:59.000Z",
+    "_links": {
+      "self": {
+        "href": "https://dev-jake-2.trexcloud.com/api/v1/meta/uischemas/uis4a7liocgcRgcxZ0g7",
+        "hints": {
+          "allow": ["GET", "PUT", "DELETE"]
+        }
+      }
+    }
+  },
+  {
+    "id": "uis4aagqfbqTyeMNB0g7",
+    "uiSchema": {
+      "type": "Group",
+      "label": "Sign in",
+      "buttonLabel": "Submit",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/firstName",
+          "label": "First name",
+          "options": {
+            "format": "text"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/lastName",
+          "label": "Last name",
+          "options": {
+            "format": "text"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/email",
+          "label": "Primary email",
+          "options": {
+            "format": "text"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/bool2",
+          "label": "bool2",
+          "options": {
+            "format": "radio_yes_no"
+          }
+        }
+      ]
+    },
+    "created": "2022-08-01T19:15:47.000Z",
+    "lastUpdated": "2022-08-01T19:15:58.000Z",
+    "_links": {
+      "self": {
+        "href": "https://dev-jake-2.trexcloud.com/api/v1/meta/uischemas/uis4aagqfbqTyeMNB0g7",
+        "hints": {
+          "allow": ["GET", "PUT", "DELETE"]
+        }
+      }
+    }
+  },
+  {
+    "id": "uis4abjqkkKXVPGAU0g7",
+    "uiSchema": {
+      "type": "Group",
+      "label": "Sign in2",
+      "buttonLabel": "Submit",
+      "elements": [
+        {
+          "type": "Control",
+          "scope": "#/properties/firstName",
+          "label": "First name",
+          "options": {
+            "format": "text"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/lastName",
+          "label": "Last name",
+          "options": {
+            "format": "text"
+          }
+        },
+        {
+          "type": "Control",
+          "scope": "#/properties/email",
+          "label": "Primary email",
+          "options": {
+            "format": "text"
+          }
+        }
+      ]
+    },
+    "created": "2022-08-03T14:09:24.000Z",
+    "lastUpdated": "2022-08-03T14:15:11.000Z",
+    "_links": {
+      "self": {
+        "href": "https://dev-jake-2.trexcloud.com/api/v1/meta/uischemas/uis4abjqkkKXVPGAU0g7",
+        "hints": {
+          "allow": ["GET", "PUT", "DELETE"]
+        }
+      }
+    }
+  }
+]
 ```
 
 ### Get a UI Schema by ID
@@ -176,8 +386,6 @@ N/A
 The requested [UI Schema Request Object](#ui-schema-request-object)
 
 #### Use example
-
-This request...:
 
 ##### Request
 
@@ -370,11 +578,7 @@ curl -v -X PUT \
     "self": {
       "href": "https://dev-jake-2.trexcloud.com/api/v1/meta/uischemas/uis4abjqkkKXVPGAU0g7",
       "hints": {
-        "allow": [
-          "GET",
-          "PUT",
-          "DELETE"
-        ]
+        "allow": ["GET", "PUT", "DELETE"]
       }
     }
   }
@@ -420,7 +624,7 @@ The following request deletes a UI Schema with an `id` value of `uis4a97f4pmZsdx
 ```bash
 curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/meta/uischemas/{id}"
+"https://${yourOktaDomain}/api/v1/meta/uischemas/uis4a97f4pmZsdxKu0g7"
 ```
 
 ##### Response
@@ -474,7 +678,7 @@ If an invalid UI Schema ID is passed to the request, the response returns a 404 
 }
 ```
 
-### UI Schema object
+### UI Schema Object
 
 #### UI Schema properties
 
