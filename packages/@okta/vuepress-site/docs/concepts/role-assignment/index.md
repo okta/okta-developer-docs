@@ -184,7 +184,7 @@ their associated roles. Standard resource sets and roles are always identified u
 | :---------------------------------------------------------------- | :------------------------- | ------------------------------------------------------ |
 | `ACCESS_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `ACCESS_CERTIFICATIONS_ADMIN` | All Users, All Groups, All Apps, All Access Certifications    |
 | `ACCESS_REQUESTS_IAM_POLICY`       <ApiLifecycle access="ea" /> | `ACCESS_REQUESTS_ADMIN`       | All Users, All Groups, All Access Requests, Access Request App |
-Standard resource sets are managed by Okta only and cannot be updated or deleted.
+Standard resource sets are managed by Okta only and can't be updated or deleted.
 
 ## Custom vs. standard
 
