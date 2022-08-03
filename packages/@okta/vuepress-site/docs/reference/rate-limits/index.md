@@ -58,7 +58,7 @@ On the rate limit dashboard, the trendline can now exceed 100% of the org's defa
 
 <div class="three-quarter">
 
-![Displays the rate limits dashboard to show the trendline with burst rate limits.](/img/rate-limits/rl_BRLdashboard1.png)
+![Displays the rate limits dashboard to show the trendline with burst rate limits.](/img/rate-limits/rl_usage_over_time.png)
 
 </div>
 
