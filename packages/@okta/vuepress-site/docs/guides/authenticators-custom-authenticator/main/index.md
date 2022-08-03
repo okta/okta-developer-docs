@@ -49,7 +49,7 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 
 The following image shows what the Devices SDK enables for end users:
 
-<div class="full">
+<div class="three-quarter">
 
 ![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
 
@@ -59,9 +59,9 @@ The following image shows what the Devices SDK enables for end users:
 
 The following image shows the Devices SDK setup in the Admin Console:
 
-<div class="full">
+<div class="three-quarter">
 
-![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-admin-console.png)
+![Custom authenticator Admin Console](/img/authenticators/authenticators-custom-authenticator-admin-console.png)
 
 </div>
 
