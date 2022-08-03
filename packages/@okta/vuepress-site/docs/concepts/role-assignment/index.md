@@ -68,7 +68,7 @@ Therefore, when dealing with Custom Roles, these three entities always exist:
 <ApiLifecycle access="ea" />
 When using IAM-based Standard Roles the same concepts as Custom Roles apply with the following distinctions:
 1. IAM-based standard roles can only be used with predefined Resource Sets.
-2. For both IAM-based Standard Roles and Resource Sets, there is a predefined constant `id`. This `id` will always be the `type` of the Role or Resource Set.
+2. For both IAM-based Standard Roles and Resource Sets, there is a predefined constant `id`. This `id` is always the `type` of the Role or Resource Set.
 
 | Role id (type)                                          | Applicable Resource Set id (type)    |
 | :------------------------------------------------------ | :----------------------------------- |
