@@ -34,7 +34,7 @@ We also support the following IAM-based standard roles:
 | `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Administrator | `okta.governance.accessCertifications.manage` |
 | `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Administrator       | `okta.governance.accessRequests.manage`       |
 IAM-based standard roles could be assigned using [standard](#standard-role-assignment-steps) or [custom role](#custom-role-assignment) assignment operations.
-Similar to other standard roles, these roles are also immutable and cannot be updated or deleted.
+Similar to other standard roles, these roles are also immutable and can't be updated or deleted.
 
 ### Standard Role Assignment steps
 Perform standard role assignment in two steps:
