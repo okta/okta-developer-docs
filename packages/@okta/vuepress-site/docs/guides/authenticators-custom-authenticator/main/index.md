@@ -109,4 +109,4 @@ Alternatively, you can call the `api/v1/apps` endpoint to create the OIDC app an
 
 ## See also
 
-[Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/android/main/)
+<StackSnippet snippet="mobilesdk" />

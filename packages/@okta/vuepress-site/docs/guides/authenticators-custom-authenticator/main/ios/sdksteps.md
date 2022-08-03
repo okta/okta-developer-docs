@@ -12,7 +12,8 @@ If needed, you can also unenroll the device, either locally, or both locally and
 
 ### Add sign-in to your app
 
-Add sign in using the [Okta mobile Swift SDK](https://github.com/okta/okta-mobile-swift) or the [Okta IDX SDK](https://github.com/okta/okta-idx-swift). For more information on signing users in to your app, see [Sign users in to your mobile app using the redirect model](https://developer.okta.com/docs/guides/sign-into-mobile-app-redirect/ios/main/).
+Add sign in using the [Okta mobile Swift SDK](https://github.com/okta/okta-mobile-swift)
+or if you're already using it, the [Okta IDX SDK](https://github.com/okta/okta-idx-swift). For more information on signing users in to your app, see [Sign users in to your mobile app using the redirect model](https://developer.okta.com/docs/guides/sign-into-mobile-app-redirect/ios/main/).
 
 Add the following strings to the space-delimited list of scopes in the `Okta.plist` file after you've configured your app to enable sign-in. These scopes request the additional permissions for the access token that are required by the Devices SDK:
 - `okta.authenticators.manage.self`
@@ -29,9 +30,13 @@ target 'MyApplicationTarget' do
 end
 ```
 
-Configure your app to use APNs by adding the Push Notification Capability, registering your app, and retrieving your current token. You'll use the APNs token in the next step. For more information, see [Registering Your App with APNs](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) in Apple developer documentation.
+You're app receives notifications from a custom authenticator in two possible ways.
+- As a push notification that's delivered whether your app is closed, in the background, or in the foreground.
+- By requesting any queued notifications when your app is in the foreground.
 
-Cache the APNs token for the duration of the session. The token is returned by the system in [`application(_:didRegisterForRemoteNotificationsWithDeviceToken:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622958-application). Don't save the token between app launches as it can change. You also must handle the case of failing to register for notifications if the system calls [`application(_:didFailToRegisterForRemoteNotificationsWithError:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622962-application).
+Although you don't need to receive push notifications to use Devices SDK, we suggest that you do this for the best user experience. Configure your app to use receive notifications by adding the Push Notification Capability, registering your app, and retrieving your current token. You'll use the APNs token in the next step. For more information, see [Registering Your App with APNs](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) in Apple developer documentation. The examples in this guide assume that the app is registered to receive notifications.
+
+The token is returned by the system in [`application(_:didRegisterForRemoteNotificationsWithDeviceToken:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622958-application). Use a property to store the token, though don't save the token between app launches as it can change. If there's an error registering for notifications, the system calls [`application(_:didFailToRegisterForRemoteNotificationsWithError:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622962-application). In this case, your app can still [load undelivered challenges](#_load_undelivered_challenges).
 
 Add an App Group Capability to your app if it doesn't already have one. You'll use the group identifier in the next step. For more information on adding and configuring an App Group, see [Configuring App Groups](https://developer.apple.com/documentation/xcode/configuring-app-groups/) in Apple developer documentation.
 
@@ -69,9 +74,9 @@ To use the device to verify the identity of a user it must be registered, or *en
 To enroll a device you need:
 - An app that supports user sign-in and that requests the appropriate scopes. See [Add sign-in to your app](#_add_sign-in_to_your_app).
 - A configured and enabled custom authenticator in your Okta org.
-- The current APNs token .
+- The current APNs token if your app is registered for push notifications.
 
-There are many differnt ways that your app may start the flow for enrolling a device, such as the user setting a preference or adding an authentication method. No matter how enrollment flow is started it follows the same flow:
+There are many different ways that your app may start the flow for enrolling a device, such as the user setting a preference or adding an authentication method. No matter how enrollment flow is started it follows the same flow:
 - Sign-in the user if they are currently signed out.
 - Create the configuration for the authenticator.
 - Create the enrollment details.
@@ -116,6 +121,8 @@ func enrollDevice() {
 }
 ```
 
+If your app isn't configured to receive push notifications, use a value of `DeviceToken.empty` for the `deviceToken` argument of `EnrollmentParameters`.
+
 ### Update the push notification token
 
 A valid APNs token is required for the custom authenticator to send a notification to the device. Update any existing enrolled devices each time you recieve the APNs token as it may have changed. This is an example function that updates the tokens. Call it from [`application(_:didRegisterForRemoteNotificationsWithDeviceToken:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622958-application):
@@ -146,12 +153,14 @@ The function assumes that the user is signed-in using the Mobile Swift SDK. In a
 
 ### Unenroll the device
 
-You may need to unenroll the device, such as the user turning off notifications using a setting. It's also possible for the device to be unenrolled by on the server by an administrator or some other method. One way to detect if the device is unenrolled on the server is that a call to either unenroll the device or to retrieve undelivered notifications results in an error of type `serverAPIError`.
+You may need to unenroll the device from a user account, such as the user turning off notifications using a setting. It's also possible to unenroll the device on the server, such as an administrator removing an account. One way to detect if the device is unenrolled on the server is that a call to either unenroll the device or to retrieve undelivered notifications results in an error of type `serverAPIError`.
+
+When you unenroll a device their may be pending challenges or challenges that occur between the time of the request and deactivating the device on the server.
 
 The following function is an example of unenrolling the device either localy or both locally and on the server and assumes the user is signed-in:
 
 ```swift
-func unenrollDevice(_ device: AuthenticatorEnrollmentProtocol, localOnly: Bool) {
+func unenrollDevice(_ enrollment: AuthenticatorEnrollmentProtocol, localOnly: Bool) {
     guard let userCredential = Credential.default?,
           let authenticatorClient = self.authenticatorClient?
     else {
@@ -162,12 +171,12 @@ func unenrollDevice(_ device: AuthenticatorEnrollmentProtocol, localOnly: Bool) 
 
     if localOnly {
         do {
-            device.deleteFromDevice()
+            enrollment.deleteFromDevice()
         } catch {
             // Handle a problem with a local unenrollment.
         }
     } else {
-        authenticatorClient.delete(enrollment: device, authenticationToken: userToken)
+        authenticatorClient.delete(enrollment: enrollment, authenticationToken: userToken)
         { [weak self] error in
             if let error = error {
                 // Handle the error which may be `DeviceAuthenticatorError.serverAPIError`.
@@ -183,7 +192,7 @@ func unenrollDevice(_ device: AuthenticatorEnrollmentProtocol, localOnly: Bool) 
 
 When the custom authenticator is used during a sign-in attempt, Okta creates a *push challenge*, a notification that requests the user to verify their identity. This challenge is sent to the user's enrolled devices.
 
-You can enable APNs quick actions for notifications by providing action titles when you initialize the client. The titles are the names of the different selections that appear when a user long-presses a notification. The following code shows the additional lines for the `initOktaDeviceAuthenticator()` shown in [Initialize the client](#_initialize_the_client):
+You can enable Notification Actions by providing action titles when you initialize the client. The titles are the names of the different selections that appear when a user long-presses a notification. The following code shows the additional lines for the `initOktaDeviceAuthenticator()` shown in [Initialize the client](#_initialize_the_client):
 
 ```swift
 func initOktaDeviceAuthenticator() {
@@ -192,24 +201,26 @@ func initOktaDeviceAuthenticator() {
                                                   applicationVersion: "Your-app-version",
                                                   applicationGroupId: "com.your.group.id",
                                                   )
-        applicationConfig.approveActionTitle =
-        applicationConfig.denyActionTitle =
-        applicationConfig.userVerificationActionTitle =
+        applicationConfig.approveActionTitle = "Approved"
+        applicationConfig.denyActionTitle =  "Denied"
+        applicationConfig.userVerificationActionTitle = "Verify in YourAppName"
         ...
 ```
+
+The first two titles are the actions in the notification that requests a user confirms they're trying to sign-in. The second is the action for a biometric verification. Replace `YourAppName` with the name of your app which you can read from the `CFBundleName` key of the `Info.plist` file in your main bundle.
 
 #### Check for a challenge
 
 When a notification arrives the first step is to check if it's a Devices SDK challenge. Call the appropriate Devices SDK function to create a `PushChallengeProtocol` from the notification. If the result is an object, continue processing the challenge. If it's `nil` then the notification is not part of the Devices SDK.
 
-Call `parsePushNotificationResponse(_:allowedClockSkewInSeconds:)` if you added quick action titles, otherwise call `parsePushNotification(_:allowedClockSkewInSeconds:)` to create the push challenge. `allowedClockSkewInSeconds` is optional. The following code shows handling a notification that's sent when the app isn't active:
+Call `parsePushNotificationResponse(_:allowedClockSkewInSeconds:)` if you added action titles, otherwise call `parsePushNotification(_:allowedClockSkewInSeconds:)` to create the push challenge. `allowedClockSkewInSeconds` is optional. The following code shows handling a notification that's sent when the app is inactive:
 
 ```swift
 func userNotificationCenter(_ center: UNUserNotificationCenter,
-                            willPresentNotification notification: UNNotification,
+                            willPresent notification: UNNotification,
                             withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
     // Check if it's a Devices SDK notification.
-    if let pushChallenge = try? authenticatorClient.parsePushNotification(response) {
+    if let pushChallenge = try? authenticatorClient.parsePushNotification(notification) {
         // Handle the Devices SDK notification.
     } else {
         // Handle you're own notifications, if any.
@@ -232,7 +243,7 @@ The consent step is represented by an object of type `RemediationStepUserConsent
 ```swift
 func resolvePushChallenge(_ challenge: PushChallengeProtocol) {
     // Handle each remediation step in order.
-    challenge.resolve { remediationStep in
+    challenge.resolve(onRemediationStep: { remediationStep in
         switch remediationStep {
             case let consentStep as RemediationStepUserConsent:
                 // Handle checking for user consent.
@@ -243,23 +254,26 @@ func resolvePushChallenge(_ challenge: PushChallengeProtocol) {
                 // Let the SDK handle the unknown step.
                 remediationStep.defaultProcess()
         }
-    }
+    }) { error in
+            if let error = error {
+            // Handle the error resolving the challenge.
+            }
+        }
 }
 ```
 
-Your app must implement a UI for the user to respond to a user consent notification even if you provide titles for the quick actions. For example, a user may only tap the notification to go directly to your app instead of a selecting an action. However you determine the user's choice, the last step is to enable the Devices SDK to inform the server by calling `provide(_)`:
+If you specified action titles and the user selected one, the SDK handles the rest of the step when you call `resolve` and returns a result that triggers the `default` case in the switch statement.
 
-```
+Your app must implement a UI for the user to respond to a user consent notification even if you provide titles for the notification actions. For example, a user may only tap the notification to go directly to your app instead of a selecting an action. However you determine the user's choice, the last step is to enable the Devices SDK to inform the server by calling `provide(_)`:
+
+```swift
 func handleUserConsent(_ consentStep: RemediationStepUserConsent,
                          challenge: PushChallengeProtocol) {
     var response: UserConsentResponse = .none
 
-    // Check for a quick response if you provide titles for Quick Actions.
-    if challenge.userResponse != .userNotResponded {
-        response = (challenge.userResponse == .userApproved) ? .approved : .denied
-    } else {
-        // Present a UI and continue handle the choice.
-    }
+    // Present a UI and continue handle the choice and set a value for the response.
+
+    // Call the SDK to send the result to the server.
     consentStep.provide(response)
 }
 ```
