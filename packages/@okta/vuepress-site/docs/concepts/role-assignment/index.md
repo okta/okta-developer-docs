@@ -179,7 +179,7 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
 ### Standard Resource Sets
 <ApiLifecycle access="ea" />
 The following resource sets are currently supported out of the box and can be used to assign admins only when used with
-their associated roles. Standard resource sets and roles are always identified using their type as id.
+their associated roles. Standard resource sets and roles are always identified using their type as `id`.
 | Resource Set id/type                                              | Applicable Role id/type    | Resources                                              |
 | :---------------------------------------------------------------- | :------------------------- | ------------------------------------------------------ |
 | `ACCESS_CERTIFICATIONS_IAM_POLICY` <ApiLifecycle access="ea" /> | `ACCESS_CERTIFICATIONS_ADMIN` | All Users, All Groups, All Apps, All Access Certifications    |
