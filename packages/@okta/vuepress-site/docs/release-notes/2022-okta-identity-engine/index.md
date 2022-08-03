@@ -4,6 +4,68 @@ title: Okta Identity Engine API Products release notes 2022
 
 <ApiLifecycle access="ie" />
 
+## August
+
+### Monthly release 2022.08.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [PKCE validation for OIDC app integrations is GA in Preview](#pkce-validation-for-oidc-app-integrations-is-ga-in-preview) | July 7, 2022|
+| [Configurable API token rate limits is GA in Production](#configurable-api-token-rate-limits-is-ga-in-production) | July 7, 2022|
+| [Rate Limits dashboard includes API Token data](#rate-limits-dashboard-includes-api-token-data) | August 3, 2022|
+| [Telephony Inline Hook is LGA in Production](#telephony-inline-hook-is-lga-in-production) | March 30, 2022|
+| [System Log updates for telephony operations](#system-log-updates-for-telephony-operations) | August 3, 2022|
+| [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
+| [Updates to default global session policy](#updates-to-default-global-session-policy) | August 3, 2022|
+| [Improved error messages for MyAccount API](#improved-error-messages-for-myaccount-api) | August 3, 2022|
+| [New custom authenticator for push notifications](#new-custom-authenticator-for-push-notifications) | August 3, 2022|
+| [Developer Documentation updates in 2022.08.0](#developer-documentation-updates-in-2022-08-0) | August 3, 2022|
+| [Bug fixed in 2022.08.0](#bug-fixed-in-2022-08-0) | August 3, 2022|
+
+#### PKCE validation for OIDC app integrations is GA in Preview
+
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-518333 -->
+
+#### Configurable API token rate limits is GA in Production
+
+Admins can now configure a percentage rate limit capacity for individual API tokens. Previously, when a token rate limit violation occurred, it wasn’t clear which token consumed the limit. Setting a maximum capacity for each token solves this problem and gives admins a new tool to investigate rate limit violations and plan for future deployments. See [API token management](https://help.okta.com/okta_help.htm?id=csh-api). <!-- OKTA-517890 -->
+
+#### Rate Limits dashboard includes API Token data
+
+The Rate Limits dashboard now includes API Token data on the Rate limit usage over time graph. You can view bar graph data from API tokens or by IP address to review any spike in traffic. See [bar graph](/docs/reference/rl-dashboard/#bar-graph) and [API rate limits by token](/docs/reference/rate-limits/#api-rate-limits-by-token). <!-- OKTA-498252 -->
+
+#### Telephony Inline Hook is LGA in Production
+
+While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The Telephony Inline Hook allows customers to generate One-Time Passcodes within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/). <!-- OKTA-518233 -->
+
+#### System Log updates for telephony operations
+
+The `system.operation.rate_limit.violation` event is no longer triggered when SMS or Voice messages are blocked due to telephony operational rate limit violations. Instead, telephony `system.sms.send.*` and `system.voice.send.*` events are issued as a `DENY` System Log message. <!-- OKTA-517838 -->
+
+#### Trusted Origins for iFrame embedding is GA in Production
+
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-514609 -->
+
+#### Updates to default global session policy
+
+You can now edit the secondary factor in the default rule of the global session policy default policy. <!-- OKTA-510082-->
+
+#### Improved error messages for MyAccount API
+
+The [MyAccount API](/docs/reference/api/myaccount/) includes improved error messages for end users to identify why email and phone operations couldn’t be completed or accessed. <!-- OKTA-484080 -->
+
+#### New custom authenticator for push notifications
+
+Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization’s mobile apps. Your users are presented with a push and biometric experience within your organization’s apps, with your organization’s branding on it. They never have to leave your app, and they don’t need to download a third-party app, such as Okta Verify, to complete their verification. See [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/android/main/). <!-- OKTA-517891 -->
+
+#### Developer documentation updates in 2022.08.0
+
+A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-overview/aspnet/main/ ) feature in Identity Engine has been added. This covers the differences between using EML and one-time passwords, and how to integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK. <!-- OKTA-507346 -->
+
+#### Bug fixed in 2022.08.0
+
+When a client used either the `private_key_jwt` or `client_secret_jwt` client authentication methods, an error occurred if the `client_id` was included in the body of the token request. (OKTA-478059)
+
 ## July
 
 ### Weekly release 2022.07.2
