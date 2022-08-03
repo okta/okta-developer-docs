@@ -32,7 +32,7 @@ Admins can now configure a percentage rate limit capacity for individual API tok
 
 #### Rate Limits dashboard includes API Token data
 
-The Rate Limits dashboard now includes API Token data on the Rate limit usage over time graph. You can select to view bar graph data from API tokens or by IP address to review any spike in traffic. See [bar graph](/docs/reference/rl-dashboard/#bar-graph) and [API rate limits by token](/docs/reference/rate-limits/#api-rate-limits-by-token). <!-- OKTA-498252 -->
+The Rate Limits dashboard now includes API Token data on the Rate limit usage over time graph. You can view bar graph data from API tokens or by IP address to review any spike in traffic. See [bar graph](/docs/reference/rl-dashboard/#bar-graph) and [API rate limits by token](/docs/reference/rate-limits/#api-rate-limits-by-token). <!-- OKTA-498252 -->
 
 #### Telephony Inline Hook is LGA in Production
 
@@ -52,7 +52,7 @@ You can now edit the secondary factor in the default rule of the global session 
 
 #### Improved error messages for MyAccount API
 
-The [MyAccount API](/docs/reference/api/myaccount/) includes improved error messages for end-users to identify why email and phone operations couldn’t be completed or accessed. <!-- OKTA-484080 -->
+The [MyAccount API](/docs/reference/api/myaccount/) includes improved error messages for end users to identify why email and phone operations couldn’t be completed or accessed. <!-- OKTA-484080 -->
 
 #### New custom authenticator for push notifications
 
@@ -64,7 +64,7 @@ A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-o
 
 #### Bug fixed in 2022.08.0
 
-When a client was using either the `private_key_jwt` or `client_secret_jwt` client authentication methods, an error occurred if the `client_id` was included in the body of the token request. (OKTA-478059)
+When a client used either the `private_key_jwt` or `client_secret_jwt` client authentication methods, an error occurred if the `client_id` was included in the body of the token request. (OKTA-478059)
 
 ## July
 
