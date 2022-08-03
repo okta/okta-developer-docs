@@ -30,7 +30,7 @@ The Rate Limits dashboard now includes API Token data on the Rate limit usage ov
 
 #### System Log updates for telephony operations
 
-The `system.operation.rate_limit.violation` event is no longer fired when SMS or Voice messages are blocked due to telephony operational rate limit violations. <!-- OKTA-517838 -->
+The `system.operation.rate_limit.violation` event is no longer triggered when SMS or Voice messages are blocked due to telephony operational rate limit violations. Instead, telephony `system.sms.send.*` and `system.voice.send.*` events are issued as a `DENY` System Log message. <!-- OKTA-517838 -->
 
 #### Trusted Origins for iFrame embedding is GA in Production
 
