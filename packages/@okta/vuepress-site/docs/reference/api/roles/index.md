@@ -3261,7 +3261,7 @@ The following are the supported resources.
 
 The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 
-> **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](/docs/concepts/role-assignment/#standard-resource-sets). These cannot be used to create or update other resource sets.
+> **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](/docs/concepts/role-assignment/#standard-resource-sets). You can't use these to create or update other resource sets.
 #### Resource examples
 
 ##### Group as resource
