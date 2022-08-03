@@ -20,7 +20,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Improved error messages for MyAccount API](#improved-error-messages-for-myaccount-api) | August 3, 2022|
 | [New custom authenticator for push notifications](#new-custom-authenticator-for-push-notifications) | August 3, 2022|
 | [Developer Documentation updates in 2022.08.0](#developer-documentation-updates-in-2022-08-0) | August 3, 2022|
-| [Bugs fixed in 2022.08.0](#bugs-fixed-in-2022-08-0) | August 3, 2022|
+| [Bug fixed in 2022.08.0](#bug-fixed-in-2022-08-0) | August 3, 2022|
 
 #### PKCE validation for OIDC app integrations is GA in Preview
 
@@ -62,10 +62,9 @@ Before now, Okta Verify was the only solution for using push notifications and b
 
 A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-overview/aspnet/main/ ) feature in Identity Engine has been added. This covers the differences between using EML and one-time passwords, and how to integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK. <!-- OKTA-507346 -->
 
-#### Bugs fixed in 2022.08.0
+#### Bug fixed in 2022.08.0
 
-* When a client was using either the `private_key_jwt` or `client_secret_jwt` client authentication methods, an error occurred if the `client_id` was included in the body of the token request. (OKTA-478059)
-* When the Disable Security Question for Recovery feature was enabled and an admin used the [Users API](/docs/reference/api/users/#create-user-with-password) to create a user with a pre-assigned password, the magic link sent in the activation email didn't expire after the first use. (OKTA-502692)
+When a client was using either the `private_key_jwt` or `client_secret_jwt` client authentication methods, an error occurred if the `client_id` was included in the body of the token request. (OKTA-478059)
 
 ## July
 
