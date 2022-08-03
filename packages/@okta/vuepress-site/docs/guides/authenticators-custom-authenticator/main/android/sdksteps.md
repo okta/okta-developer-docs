@@ -2,7 +2,13 @@ Use the Devices SDK to add custom push verification functionality to your Androi
 
 > **Note:** The following sample code assumes that suspend functions are called in a coroutine scope. See [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for more information.
 
-<!-- Data flow DIAGRAM -->
+The following image shows how data flows through the Devices SDK:
+
+<div class="full">
+
+![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
+
+</div>
 
 ### Install the dependency
 
