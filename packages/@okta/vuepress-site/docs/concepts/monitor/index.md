@@ -9,16 +9,16 @@ meta:
 
 Okta offers monitoring and alerting capabilities through Okta's APIs, SDKs, and Admin Console. All [supported eventful](/docs/reference/api/event-types/) activities within your Okta organization (org) are captured and available through system logs and allow you to:
 
-* determine connectivity status from global internet locations to your Okta org
-* identify trends related to Users, Apps, Policies, and other Okta entities
-* detect tasks that require action, such as unlocking a User or restarting an agent
-* detect suspicious activities
-* review user-reported suspicious activities
-* detect and augment certain events
-* avoid exceeding API usage limits
-* view and block IP addresses identified by the greater Okta community as threatening
-* determine the risk of an anomalous sign-in event
-* confirm that validation is working
+- determine connectivity status from global internet locations to your Okta org
+- identify trends related to Users, Apps, Policies, and other Okta entities
+- detect tasks that require action, such as unlocking a User or restarting an agent
+- detect suspicious activities
+- review user-reported suspicious activities
+- detect and augment certain events
+- avoid exceeding API usage limits
+- view and block IP addresses identified by the greater Okta community as threatening
+- determine the risk of an anomalous sign-in event
+- confirm that validation is working
 
 The Admin Console contains predefined reports, system log filters, and notification tools to achieve most of these tasks. If you have external commercial or custom monitoring tools, you can integrate them with your Okta org. Okta sends the integrated tools a continuous flow of event logs or alerts for specific configured events.
 
@@ -28,11 +28,11 @@ The Admin Console contains predefined reports, system log filters, and notificat
 
 The Okta Admin Console provides a rich set of visuals and tools for you to monitor your Okta org.
 
-* Use the [Dashboard](https://help.okta.com/okta_help.htm?id=ext_Dashboard) to [view your org at a glance](https://help.okta.com/okta_help.htm?id=ext-view-your-org), including the number of active users, active groups, and active SSO apps. You can also view your [org agents' status](https://help.okta.com/okta_help.htm?id=ext-view-org-agent-status), [your tasks](https://help.okta.com/okta_help.htm?id=ext-monitor-your-tasks) list, recent org changes, as well as security tips.
-* Use the [Reports](https://help.okta.com/okta_help.htm?id=ext-report-types) page to view predefined system log reports or visuals
-* Use the [System Logs](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog ) page to filter for specific events and to view trends over time
-* Use [HealthInsight](https://help.okta.com/okta_help.htm?id=ext-healthinsight) to view recommendations from a recent Okta org security audit
-* Use [ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) to view IP addresses identified by the greater Okta community as threatening
+- Use the [Dashboard](https://help.okta.com/okta_help.htm?id=ext_Dashboard) to [view your org at a glance](https://help.okta.com/okta_help.htm?id=ext-view-your-org), including the number of active users, active groups, and active SSO apps. You can also view your [org agents' status](https://help.okta.com/okta_help.htm?id=ext-view-org-agent-status), [your tasks](https://help.okta.com/okta_help.htm?id=ext-monitor-your-tasks) list, recent org changes, as well as security tips.
+- Use the [Reports](https://help.okta.com/okta_help.htm?id=ext-report-types) page to view predefined system log reports or visuals
+- Use the [System Logs](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) page to filter for specific events and to view trends over time
+- Use [HealthInsight](https://help.okta.com/okta_help.htm?id=ext-healthinsight) to view recommendations from a recent Okta org security audit
+- Use [ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) to view IP addresses identified by the greater Okta community as threatening
 
 ## Integrate with external monitoring tools
 
@@ -42,20 +42,21 @@ At a high level, the API integration process includes:
 1. Obtaining an API token from your Okta org
 2. Creating an Okta API service account for external integration (not required for all tools)
 3. In the external monitoring tool, configuring your integration properties to Okta, along with the following information:
-   * Okta org domain
-   * Okta API token
-   * Okta API service account username and credentials (not required for all integrated tools)
+   - Okta org domain
+   - Okta API token
+   - Okta API service account username and credentials (not required for all integrated tools)
 
 These configuration properties allow the external tool to request system logs from the Okta [System Log API](/docs/reference/api/system-log/).
 See [Exporting Okta Log Data](https://support.okta.com/help/s/article/Exporting-Okta-Log-Data) for details.
 
 For external integration examples, refer to:
 
-* [Splunk Add-on for Okta](https://www.okta.com/integrations/splunk-add-on-for-okta/)
-* [Datadog Log Management integration](https://www.okta.com/integrations/datadog/)
-* [Sumo Logic integration with Okta](https://www.okta.com/integrations/sumologic/)
+- [Splunk Add-on for Okta](https://www.okta.com/integrations/splunk-add-on-for-okta/)
+- [Datadog Log Management integration](https://www.okta.com/integrations/datadog/)
+- [Sumo Logic integration with Okta](https://www.okta.com/integrations/sumologic/)
+- [New Relic integration with Okta](https://www.okta.com/integrations/new-relic-by-organization/)
 
-> **NOTE**: During the integration setup, use the Admin Console for verification or troubleshooting purposes. Compare the system logs from the Admin Console with the system logs received in your external monitoring tool.
+  > **NOTE**: During the integration setup, use the Admin Console for verification or troubleshooting purposes. Compare the system logs from the Admin Console with the system logs received in your external monitoring tool.
 
 ## Send alerts to an external service
 
@@ -67,9 +68,9 @@ For a working example of an end-to-end Event Hook setup, see the [Event Hooks gu
 
 You can build custom applications to monitor and analyze events in Okta using Okta SDKs and APIs.
 
-* For a [REST API](https://developer.okta.com/code/rest/) implementation, use the [System Log API](/docs/reference/api/system-log/) to retrieve any of the system logs in your Okta org for the last 90 days
-* For a [Node.js](https://github.com/okta/okta-sdk-nodejs) implementation, use the [getLog()](https://github.com/okta/okta-sdk-nodejs#get-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
-* For an [okta-sdk-java](https://github.com/okta/okta-sdk-java) implementation, use the [getLogs()](https://github.com/okta/okta-sdk-java#list-system-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
+- For a [REST API](https://developer.okta.com/code/rest/) implementation, use the [System Log API](/docs/reference/api/system-log/) to retrieve any of the system logs in your Okta org for the last 90 days
+- For a [Node.js](https://github.com/okta/okta-sdk-nodejs) implementation, use the [getLog()](https://github.com/okta/okta-sdk-nodejs#get-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
+- For an [okta-sdk-java](https://github.com/okta/okta-sdk-java) implementation, use the [getLogs()](https://github.com/okta/okta-sdk-java#list-system-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
 
 Refer to the supported [Event Types catalog](/docs/reference/api/event-types/#catalog) for the list of events you can use to filter for the system logs you are interested in.
 
