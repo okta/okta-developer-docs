@@ -7,13 +7,7 @@ excerpt: Add custom logic to the user import process.
 
 <ApiLifecycle access="ea" />
 
-This page provides reference documentation for:
-
-- JSON objects contained in the outbound request from Okta to your external service
-
-- JSON objects you can include in your response
-
-This information is specific to the User Import Inline Hook, one type of Inline Hook supported by Okta.
+This page provides reference documentation for User Import Inline Hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta, and sample JSON objects that you can include in your response.
 
 ## See also
 

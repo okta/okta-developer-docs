@@ -11,6 +11,7 @@ The rate limit dashboard is a tool that helps you understand the use of each API
 * The ability to track the rate limit's consumption.
 * The ability to change rate limit settings and customize the warning threshold.
 * Notification alerts when you're about to hit or have hit the rate limit or exceeded the rate limit (burst rate limits).
+* The ability to track rate limits by API token or IP address.
 * The ability for you to investigate the issue when an API has reached the rate limit.
 
 The following describes some typical reasons for viewing the dashboard:
@@ -42,7 +43,11 @@ The following describes typical uses of the functions in the Rate limits report:
 
 In the Admin Console, go to **Reports** > **Rate Limits**. The rate limits report opens in the **Overview** tab.
 
-![Displays the rate limits dashboard to monitor and browse rate limit usage.](/img/rl_dashboard6.png)
+<div >
+
+![Displays the rate limits dashboard to monitor and browse rate limit usage.](/img/rate-limits/rl_dashboard6.png)
+
+</div>
 
 The **Overview** tab provides you with graphs that plot the number of events (violations, bursts, and warnings) over a period of time and is based on system log events. Use the **Filters** dropdown menu to select the time period and events that you want to view. The tab also provides a table that lists your org's APIs and their corresponding current rate limits, violations, bursts, and warnings. See [Browse and monitor rate limit usage](#browse-and-monitor-rate-limit-usage).
 
@@ -54,17 +59,29 @@ The **Settings** tab allows you to change the per client rate limit settings and
 
 The Event Count graph plots the number of violations, bursts, and warnings over the selected time period, which can be the last 24 hours, last 7 days, last month, or last 3 months. The Events per API bar graph shows the top five number of events by API over the same time period.
 
-![Displays the events (violations, bursts, and warnings) over a period of time graph and the top five endpoint events bar graph.](/img/rl_dashboard7.png)
+<div class="three-quarter">
+
+![Displays the events (violations, bursts, and warnings) over a period of time graph and the top five endpoint events bar graph.](/img/rate-limits/rl_dashboard7.png)
+
+</div>
 
 You can hover over the line graph or bar graph to get more details. The details also include a link to the system log where you can view filtered events specific to that API and time period.
 
-![Displays details on the violations graph.](/img/rl_dashboard8.png)
+<div class="half">
+
+![Displays details on the violations graph.](/img/rate-limits/rl_dashboard8.png)
+
+</div>
 
 #### APIs table
 
 The APIs table shows each API and its corresponding rate limit for your org. The rate limits include all overrides, dynamic scale, or Workforce multipliers. The table also shows the number of violations, bursts, and warnings for each API in the last hour, and includes a trendline of use in the last hour.
 
-![Displays the APIs table with corresponding rate limits for each API.](/img/rl_dashboard9.png)
+<div class="three-quarter">
+
+![Displays the APIs table with corresponding rate limits for each API.](/img/rate-limits/rl_dashboard9.png)
+
+</div>
 
 You can sort on all the columns. The Trendline is sorted by the current usage.
 
@@ -106,13 +123,21 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 * You receive a rate limit email that informs you that you've hit a rate limit for an API. Click **View usage** in the email to navigate to the rate limits dashboard and System Log for that particular API.
 
-![Displays the email notification of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard1.png)
+<div class="half">
+
+![Displays the email notification of a rate limit violation with the link to the API's rate limit dashboard](/img/rate-limits/rl_dashboard1.png)
+
+</div>
 
 * You've hit a rate limit when you're in the Admin Console and the Rate Limit Monitoring widget informs you. Click **View** in the widget to open the rate limits dashboard or select the particular API in the widget, which opens to the rate limits dashboard with usage details for that API.
 
 * You've hit a rate limit warning, burst, or violation, and a rate limit event (warning, burst, or violation) is created in the System Log. In the log, you can click **View Usage** under **Event info** to go to the rate limits dashboard. All rate limit events in the System Log (warnings, bursts, and violations) have a link to the rate limit dashboard.
 
-![Displays the event in the System Log that notifies you of a rate limit violation with the link to the API's rate limit dashboard](/img/rl_dashboard3.png)
+<div class="three-quarter">
+
+![Displays the event in the System Log that notifies you of a rate limit violation with the link to the API's rate limit dashboard](/img/rate-limits/rl_dashboard3.png)
+
+</div>
 
 ### Key components of the dashboard
 
@@ -131,7 +156,11 @@ The Usage pane provides a summary of the data use for the specified API:
 
 A customer can additionally purchase the rate limit multiplier, which is an add-on feature that allows the customer to multiply an existing rate limit. For example, three times the current rate limit.
 
-![Displays the line graph, bar graph, and timeline graph in the Rate limit usage over time pane](/img/rl_dashboard4.png)
+<div class="half">
+
+![Displays the line graph, bar graph, and timeline graph in the Rate limit usage over time pane](/img/rate-limits/rl_dashboard4.png)
+
+</div>
 
 The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the Overview pane indicates which tier was purchased, and the graphs in the [Rate limit usage over time pane] reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
 
@@ -139,7 +168,11 @@ The key benefit of purchasing the rate limit multiplier, therefore getting an in
 
 The Rate limit usage over time pane comprises the line graph, bar graph, and timeline graph.
 
-![Displays the line graph, bar graph, and timeline graph](/img/rl_usage_over_time.png)
+<div class="three-quarter">
+
+![Displays the line graph, bar graph, and timeline graph](/img/rate-limits/rl_usage_over_time.png)
+
+</div>
 
 ##### Line graph
 
@@ -153,9 +186,17 @@ The timeline graph shows use over the last week. When a rate violation occurs, y
 
 ##### Bar graph
 
-The **Top Requests by IP** bar graph shows the top 10 IP addresses that are consuming the most traffic for the API. This view enables you to check if there is a single IP or multiple IPs that are creating the spike in traffic.
+The bar graph shows either the top 10 IP addresses or top 10 API tokens that are consuming the most traffic for the API. This view enables you to check if there are IP addresses or API tokens that are creating the spike in traffic.
 
-Click an IP address bar once to view the traffic for that IP address on the line graph. Double-click any IP address bar to view the traffic for all the IP addresses on the line graph.
+Display the desired bar graph by selecting **Top Requests by IP** or **Top Requests by API Token** in the dropdown menu.
+
+Click an IP address or API token bar once to view the traffic for that IP address or API token on the line graph. 
+
+<div class="three-quarter">
+
+![Displays the RL usage over time and bar graph dropdown](/img/rate-limits/rl_usage_over_time-bar-dropdown.png)
+
+</div>
 
 ### Investigate the rate limit violation
 

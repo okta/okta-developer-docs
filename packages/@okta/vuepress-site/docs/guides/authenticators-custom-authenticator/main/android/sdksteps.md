@@ -1,7 +1,5 @@
 Use the Devices SDK to add custom push verification functionality to your Android app.
 
-See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/android/main/) for general information about mobile authentication at Okta.
-
 > **Note:** The following sample code assumes that suspend functions are called in a coroutine scope. See [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for more information.
 
 The following image shows how data flows through the Devices SDK:
@@ -32,7 +30,7 @@ Create the SDK object to work with your Okta authenticator configuration. Use th
 val authenticator: PushAuthenticator = PushAuthenticatorBuilder.create(
     ApplicationConfig(context, appName = "MyApp", appVersion = BuildConfig.VERSION_NAME)
 ) {
-    passphrase = "SecretPassphrase".toByteArray() // Secret must be stored securely
+    passphrase = "SecretPassphrase".toByteArray() // Secret must be stored securely 
 }.getOrThrow()
 ```
 
@@ -156,7 +154,7 @@ private fun remediate(remediation: PushRemediation) = runCatching {
         is UserVerification -> println("Show a biometric prompt")
         is UserVerificationError -> println("Biometric failure")
     }
-}.getOrElse { // handle error
+}.getOrElse { // handle error 
 }
 ```
 

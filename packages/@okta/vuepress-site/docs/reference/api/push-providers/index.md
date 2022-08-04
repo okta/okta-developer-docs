@@ -8,13 +8,15 @@ category: management
 <ApiLifecycle access="ea" /></br>
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of Okta Identity Engine. Contact your Okta account team or ask us on our [forum](https://devforum.okta.com/) for further information.
 
 The Okta Push Providers API provides a centralized integration platform to fetch and manage push provider configurations. Okta administrators can use these APIs to provide their push provider credentials, for example from APNs and FCM, so that Okta can send push notifications to their own custom app authenticator applications.
 
-The Push Providers API supports the following **Authorization Schemes**:
+The Push Providers API supports the following Authorization Schemes:
 * SSWS - [API tokens](/docs/reference/core-okta-api/#authentication)
 * Bearer - [OAuth2.0 and OpenID Connect](/docs/concepts/oauth-openid/)
+
+> **Note:** You can use the Push Providers API as part of the "Create a custom authenticator" flow. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/android/main/).
 
 ## Get started
 
@@ -138,7 +140,7 @@ None
 
 | Parameter | Type   | Description | Required |
 | --------- | ------ | -------- | ---- |
-| `type`    |  String | Returns a list of Push Providers that match the specific `providerType` in the [Push Provider object](#push-provider-object). One of: `APNS`, `FCM` | FALSE |
+| `type`    |  String | Returns a list of Push Providers that match the specific `providerType` in the [Push Provider object](#push-provider-object). Supported values: `APNS` or `FCM` | FALSE |
 
 #### Request body
 
@@ -219,7 +221,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/push-providers/${pushProviderId}" />
 
-Fetches a Push Provider by its `id`. If you do not know the `id`, you can [List Push Providers](#list-push-providers).
+Fetches a Push Provider by its `id`. If you don't know the `id`, you can [List Push Providers](#list-push-providers).
 
 #### Permitted OAuth 2.0 scopes
 `okta.pushProviders.read`
@@ -499,7 +501,7 @@ The Push Provider object has the following properties:
 | ----------------- | -------------------------------------- | -------------------------------------------------- |
 | `configuration`   | [Configuration](#configuration-object) | Object that contains `providerType` specific configurations |
 | `name`            | String                                 | Display name of the Push Provider                  |
-| `providerType`    | String                                 | Provider type for the Push Provider. One of `APNS`, `FCM` |
+| `providerType`    | String                                 | Provider type for the Push Provider. Supported values: `APNS` or `FCM` |
 
 #### Configuration object
 
@@ -507,7 +509,7 @@ The Push Provider object has the following properties:
 | -------------------- | --------------- | -------------------------------------------------- | ---------------------------------------- |
 | `fileName`           | String          | (Optional) File name for Admin Console display     | All
 | `keyId`              | String          | 10-character Key ID obtained from the Apple developer account                   | `APNS`                                   |
-| `serviceAccountJson` | JSON            | JSON containing the private service account key and service account details. See [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) for more information on creating service account keys in JSON.           | `FCM`                                    |
+| `serviceAccountJson` | JSON            | JSON that contains the private service account key and service account details. See [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).           | `FCM`                                    |
 | `teamId`             | String          | 10-character Team ID used to develop the iOS app   | `APNS`                                   |
 | `tokenSingingKey`    | String          | APNs private authentication token signing key      | `APNS`                                   |
 
@@ -563,11 +565,11 @@ The Push Provider response object has the following properties:
 | `id`              | String                                 | Unique key for the Push Provider                   |
 | `lastUpdatedDate` | String (ISO-8601)                      | Timestamp when the Push Provider was last modified |
 | `name`            | String                                 | Display name of the Push Provider                  |
-| `providerType`    | String                                 | Provider type for the Push Provider. One of `APNS`, `FCM` |
+| `providerType`    | String                                 | Provider type for the Push Provider. Supported values: `APNS` or `FCM` |
 
 #### Link object
 
-For a Push Provider result, the `_links` is read-only and contains a full set of available operations using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. The `hints` property provides information on allowed HTTP verbs for the `href` property. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
+For a Push Provider result, the `_links` is read-only and contains a full set of available operations using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. The `hints` property provides information on allowed HTTP verbs for the `href` property. See [Web Linking](https://tools.ietf.org/html/rfc8288) for more information on link relations.
 
 #### Configuration response object
 | Property             | Type      | Description                                        | `providerType` |

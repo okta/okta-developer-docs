@@ -11,7 +11,7 @@ meta:
 
 ## Get started with Android + Okta
 
-New to Okta? Our resources walk you through adding user authentication to your Android app in minutes.
+These resources walk you through adding user authentication to your Android app in minutes.
 
 <ul class='language-ctas'>
 	<li>

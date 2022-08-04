@@ -91,6 +91,35 @@ export const concepts = [
         path: "/docs/concepts/user-profiles/"
       },
       {
+        title: "Understanding IAM",
+        subLinks: [
+          {
+            title: "IAM overview",
+            path: "/docs/concepts/iam-overview/"
+          },
+          {
+            title: "Identity management factors",
+            path: "/docs/concepts/iam-overview-identity-management-factors/"
+          },
+          {
+            title: "Authentication factors",
+            path: "/docs/concepts/iam-overview-authentication-factors/"
+          },
+          {
+            title: "Authorization factors",
+            path: "/docs/concepts/iam-overview-authorization-factors/"
+          },
+          {
+            title: "Architectural factors",
+            path: "/docs/concepts/iam-overview-architectural-factors/"
+          },
+          {
+            title: "IAM terminology",
+            path: "/docs/concepts/iam-overview-iam-terminology/"
+          }
+        ]
+      },
+      {
         title: "Understanding SAML",
         subLinks: [
           {
@@ -292,6 +321,10 @@ export const guides = [
                 guideName: "advanced-use-case-overview"
               },
               {
+                title: "Email Magic Links",
+                guideName: "email-magic-links-overview"
+              },
+              {
                 title: "Custom password recovery",
                 guideName: "oie-embedded-sdk-use-case-custom-pwd-recovery-mfa"
               }
@@ -334,10 +367,6 @@ export const guides = [
               {
                 title: "Enterprise Identity Provider",
                 guideName: "add-an-external-idp"
-              },
-              {
-                title: "Smart Card",
-                path: "/docs/guides/add-an-external-idp/smartcard/"
               },
               {
                 title: "Social Login",
@@ -545,8 +574,8 @@ export const guides = [
                 path: "/docs/guides/scim-provisioning-integration-prepare/main/"
               },
               {
-                title: "Connect your SCIM API service to Okta",
-                path: "/docs/guides/scim-provisioning-integration-connect/main/"
+                title: "Configure Okta to your SCIM API service",
+                guideName: "scim-provisioning-integration-connect"
               },
               { title: "Test your SCIM Okta integration",
                 path: "/docs/guides/scim-provisioning-integration-test/main/"

@@ -40,13 +40,24 @@ The following code from the sample app shows the loop of Identity Providers that
 
 #### Sample page for the sign-in with Facebook link
 
-The following sample shows the button to sign in with Facebook.
+The following wireframe shows a typical sign-in form with Facebook sign-in button.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example social sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link.png)
+![Displays an example social sign-in form](/img/oie-embedded-sdk/wireframes/oie-embedded-sdk-signin-idp-options-g1r12.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 1, row 12
+
+
+-->
 
 ### 3: The user selects the Facebook Identity Provider
 
