@@ -230,6 +230,10 @@ export const guides = [
                   {
                     title: "Sign in with email only",
                     guideName: "pwd-optional-sign-in-email"
+                  },
+                  {
+                    title: "Change your primary email address",
+                    guideName: "pwd-optional-change-email"
                   }
                 ]
               },
