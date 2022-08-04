@@ -131,6 +131,7 @@ spring:
     saml2:
       relyingparty:
         registration:
+          okta:
             assertingparty:
               metadata-uri: <your-metadata-uri>
 ```
