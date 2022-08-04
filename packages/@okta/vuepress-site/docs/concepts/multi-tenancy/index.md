@@ -367,7 +367,6 @@ A diagram illustrating the hub-and-spoke configuration is shown below:
 
 To discover more about the hub-and-spoke architecture visit the following links:
 
-* [Okta Multi Tenant Admin](https://docs.idp.rocks/)
 * [Okta for Global, Distributed Organizations](https://www.okta.com/resources/whitepaper/okta-for-global-distributed-organizations/)
 * [An Identity Framework for Higher Education Systems](https://www.okta.com/resources/whitepaper/an-identity-framework-for-higher-education-systems/)
 
