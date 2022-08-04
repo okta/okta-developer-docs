@@ -66,8 +66,16 @@
   img {
     border-width: 5px;
     border-style: solid;
-    border-image-source: url('/img/ui/wireframe-border-image.png');
+    border-image-source: url('/img/ui/wireframe-border-image-black.png');
     border-image-slice: 10;
     border-image-repeat: stretch;
+  }
+}
+
+/* swap out border image when dark mode is enabled */
+
+.dark-theme .content__default div.wireframe-border {
+  img {
+    border-image-source: url('/img/ui/wireframe-border-image-white.png');
   }
 }
