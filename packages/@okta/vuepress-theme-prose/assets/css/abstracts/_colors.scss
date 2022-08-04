@@ -60,6 +60,7 @@
   --c-blue-aside: #f7faff;
   --c-blue-aside-lightblue: #EFF4FD;
   --c-gray-blue: #B1BDD8;
+  --c-gray-sm: #F8F8F9;
 
   // VARIABLES COLORS FOR LIGHT THEME
   --c-cerise: var(--c-cerise-red);
@@ -90,6 +91,7 @@
   --c-sidebar-toggle: var(--c-blue-aside-lightblue);
   --c-sidebar-before-bg: var(--c-lightgray-800);
   --c-active-router: var(--c-gray-blue);
+  --c-custom-bg-gray: var(--c-gray-sm)
 }
 
 .dark-theme {
@@ -200,6 +202,7 @@ $colors: (
     "sidebar": var(--c-sidebar),
     "sidebar-toggle": var(--c-sidebar-toggle),
     "sidebar-before": var(--c-sidebar-before-bg),
+    "custom-bg-gray": var(--c-custom-bg-gray),
   ),
   "footer": (
     "base": var(--c-footer-base),

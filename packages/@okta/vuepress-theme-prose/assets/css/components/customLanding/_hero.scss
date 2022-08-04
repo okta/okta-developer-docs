@@ -1,0 +1,70 @@
+.customLanding {
+  &-hero {
+    padding: 64px 0 84px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    &__content {
+      max-width: 560px;
+      color: cv('header', 'nav-link');
+      h1 {
+        color: cv('gray', '600');
+        text-transform: uppercase;
+        margin-bottom: 1.0625rem;
+        font-size: 0.75rem;
+        font-weight: 700px;
+        letter-spacing: 0.1rem;
+        margin-top: 0;
+      }
+      h2 {
+        font-size: 2.25rem;
+        font-weight: 400;
+        color: cv('header', 'nav-link');
+      }
+      p {
+        font-size: 1.125rem;
+        line-height: 1.6875rem;
+        font-weight: 300;
+        margin-bottom: 2.875rem;
+        span {
+          font-weight: 600;
+        }
+      }
+      h3 {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+        margin-bottom: 0.9375rem;
+        color: cv('header', 'nav-link');
+      }
+      span {
+        display: block;
+        font-size: 1rem;
+        line-height: 1.1875rem;
+        margin-bottom: 7px;
+      }
+    }
+    &__button {
+      background-color: cv('link', 'darker');
+      padding: 0.625rem 1.25rem;
+      color: cv('body', 'white');
+      display: inline-block;
+      font-weight: 500;
+      margin-bottom: 50px;
+      &:hover {
+        color: cv('body', 'white');
+        background-color: cv('link');
+      }
+    }
+    &__link {
+      color: cv('link');
+      display: inline-block;
+      font-weight: 500;
+    }
+    &__image {
+      svg {
+        width: 222px;
+      }
+    }
+  }
+}

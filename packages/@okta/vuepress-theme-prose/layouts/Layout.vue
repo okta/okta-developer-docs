@@ -12,6 +12,19 @@
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
+      <div class="content" v-if="$page.frontmatter.customLandingPage">
+        <div
+          :class="{
+            'content--container': true,
+            'navigation-only': appContext.isTreeNavMobileOpen
+          }"
+        >
+          <Sidebar />
+          <div class="content-custom">
+            <CustomLandingPage />
+          </div>
+        </div>
+      </div>
       <div class="content" v-else>
         <div
           :class="{
@@ -26,7 +39,6 @@
             <MobileOnThisPage />
             <PageTitle />
             <ContentPage />
-            <CustomLandingPage v-if="$page.frontmatter.customLandingPage" />
             <GeneratedContent v-if="$page.frontmatter.generated" />
             <div class="edit-on-github">
               <span class="fa fa-github"></span>

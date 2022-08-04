@@ -71,6 +71,12 @@
 @import "components/termsAndConditionsDialog";
 @import "components/nutritionFacts";
 
+//Custom Landing
+@import "components/customLanding/main";
+@import "components/customLanding/hero";
+@import "components/customLanding/about";
+@import "components/customLanding/tools";
+
 //Pages
 @import "okta/pages/multi-tenancy";
 @import "okta/pages/oie-embedded-sdk";

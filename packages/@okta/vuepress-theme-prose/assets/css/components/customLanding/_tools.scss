@@ -1,0 +1,31 @@
+.customLanding {
+  &-tools {
+    padding: 91px 0 68px;
+    &__content {
+      max-width: 682px;
+      color: cv('header', 'nav-link');
+      h2 {
+        font-size: 36px;
+        line-height: 45px;
+        font-weight: 500;
+        color: cv('link', 'darker');
+        margin: 0;
+      }
+      h3 {
+        margin-top: 33px;
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 0;
+        font-weight: 600;
+        color: cv('link', 'darker');
+      }
+      p {
+        font-size: 16px;
+        color: cv('text');
+        margin-top: 11px;
+        line-height: 26px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
