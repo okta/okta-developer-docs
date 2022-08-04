@@ -297,7 +297,7 @@ dependencies {
         implementation "org.opensaml:opensaml-saml-api:4.1.1"
         implementation "org.opensaml:opensaml-saml-impl:4.1.1"
     }
-  ...
+    ...
 }
 ```
 
