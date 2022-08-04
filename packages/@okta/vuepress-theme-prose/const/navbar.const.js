@@ -232,7 +232,7 @@ export const guides = [
                     guideName: "pwd-optional-sign-in-email"
                   },
                   {
-                    title: "Change the email authenticator",
+                    title: "Change your primary email address",
                     guideName: "pwd-optional-change-email"
                   }
                 ]

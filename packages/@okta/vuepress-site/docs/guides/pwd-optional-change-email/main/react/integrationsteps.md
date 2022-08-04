@@ -8,9 +8,7 @@ const oktaAuth = (() => {
 })();
 ```
 
- To learn more about initializing this object and how to integrate the user sign in, see [Sign in with email only](/docs/guides/pwd-optional-sign-in-email/nodeexpress/main/).
-
-<!-- Temporarily set to nodejs. The above react sign in guide will be completed in https://oktainc.atlassian.net/browse/OKTA-502075 -->
+ To learn more about initializing this object and how to integrate the user sign in, see [Example Client](https://github.com/okta/okta-auth-js#example-client) in Okta Auth Javascript SDK's readme.
 
 ### 2. The user starts the change primary email flow
 
@@ -24,7 +22,7 @@ The user starts the change primary email flow by clicking an **Edit** link next 
 
 ### 3. The user submits a new primary email
 
-When the user clicks on the **Edit** link, display a dialog that allows the user to change and submit their new email address.
+When the user clicks on the **Edit** link, display a dialog for the user to submit their new email address.
 
 <div class="half border">
 
@@ -32,23 +30,23 @@ When the user clicks on the **Edit** link, display a dialog that allows the user
 
 </div>
 
-1. When the user clicks **Continue** and submits their new email address, create an object of type [`AddEmailPayload`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#addemailpayload) and set
+When the user clicks **Continue** and submits their new email address, create an object of type [`AddEmailPayload`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#addemailpayload) and set
 
 * `profile.email` to the new primary email.
 * `role` to `PRIMARY` which identifies the email as the primary email address.
-* `sendEmail` to `true` which sends the email challenge to the newly added email. The default is `true`.
+* `sendEmail` to `true` which sends an email challenge to the newly added email. The default is `true`.
 
-```json
-{
-   "profile":{
-      "email":"john.doe.new@example.com"
-   },
-   "sendEmail":true,
-   "role":"PRIMARY"
-}
+```javascript
+const addEmailPayload = {
+    "profile":{
+       "email":"john.doe.new@example.com"
+    },
+    "sendEmail":true,
+    "role":"PRIMARY"
+ };
 ```
 
-2. Call [`addEmail`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#addemail) and pass in the new `AddEmailPayload` object.
+Call [`addEmail()`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#addemail) and pass in the new `AddEmailPayload` object.
 
 ```javascript
 import {
@@ -57,27 +55,23 @@ import {
 
 const handleAddEmail = async (role, email) => {
   return addEmail(oktaAuth, {
-    payload: {
-      profile: {
-        email
-      },
-      sendEmail: true,
-      role
-    }
+    addEmailPayload
   });
 };
 ```
 
-### 4. Your app handles email verification response
+>**Note**: If you want to send the email challenge in a separate step, set`sendEmail`=`false` and call [`sendEmailChallenge()`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#sendemailchallenge) after [`addEmail()`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#addemail).
 
-`addEmail` returns a promise that contains an [`EmailTransaction`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/classes/EmailTransaction.md) object. The object has a `status` of `UNVERIFIED` that indicates that the user needs to verify their identity with the new email.
+### 4. Identity Engine requests new email verification
+
+[`addEmail()`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#addemail) returns an [`EmailTransaction`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/classes/EmailTransaction.md) object. The object has a `status` of `UNVERIFIED` that indicates that the user needs to verify their identity with the new email.
 
 ```json
 {
    "id":"2e355d8376d4a12bb45ed54ebf8dd4d5",
    "status":"UNVERIFIED",
    "profile":{
-      "email":"robnicolo+oie-2022-11a@gmail.com"
+      "email":"john.doe.new@example.com"
    },
    "roles":[
       "PRIMARY"
@@ -89,7 +83,7 @@ Build the logic that handles this response and sends the user to a dialog where 
 
 ### 5. The user verifies their identity with the new email
 
-The user opens the email sent by Identity Engine and copies the One-Time Passcode (OTP) to your app. Create a dialog to allow the user to enter and submit the OTP.
+The user opens the email sent by Identity Engine and copies the one-time passcode (OTP) to your app. Create a dialog to allow the user to enter and submit the OTP.
 
 <div class="half border">
 
@@ -97,35 +91,24 @@ The user opens the email sent by Identity Engine and copies the One-Time Passcod
 
 </div>
 
-1. When the user submits the OTP, create an object of type [`VerificationPayload`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#VerificationPayload) and set `verificationCode` to the OTP entered by the user.
+When the user submits the OTP, create an object of type [`VerificationPayload`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#VerificationPayload) and set `verificationCode` to the OTP entered by the user.
 
 ```json
-{
-   "verificationCode":"197277"
-}
+const verificationPayload = {
+    "verificationCode":"197277"
+ };
 ```
 
-2. Call [`verify`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/classes/EmailTransaction.md#verify) from the `EmailTransaction` returned from the previous step and pass in the new `VerificationPayload` object.
+Call [`verify()`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/classes/EmailTransaction.md#verify) on the `EmailTransaction` returned from the previous step and pass in the new `VerificationPayload` object. Wrap the method call in a `try...catch` statement to catch invalid OTPs and other API exceptions raised from `EmailTransaction.verify()`.
 
 ```javascript
 ...
-
-if (transaction.status === 'UNVERIFIED') {
-  if (transaction.verify) {
-    await transaction.verify({ verificationCode: value });
-
-...
-```
-
-### 6. Your app handles a successful identity verification
-
-When the OTP is valid and the email change completes successfully, `EmailTransaction.verify()` returns no data and completes without exception. Wrap the method call in a `try...catch` statement to catch invalid OTPs and other API exceptions raised from `EmailTransaction.verify()`.
-
-```javascript
 try {
-
-  await transaction.verify({ verificationCode: value });
-
+  if (transaction.status === 'UNVERIFIED') {
+    if (transaction.verify) {
+      await transaction.verify(verificationPayload);
+    }
+  }
 } catch (err) {
   if (err.errorSummary === 'insufficient_authentication_context') {
     onFinish();
@@ -134,6 +117,9 @@ try {
     setError(err);
   }
 }
+...
 ```
 
-After `EmailTransaction.verify()` completes successfully, your app closes the change email dialog, refreshes the main page, and displays the new primary email. To learn more about retrieving the user's profile information including the primary email, see the provided [sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/react-embedded-auth-with-sdk).
+### 6. Your app handles a successful identity verification
+
+When the OTP is valid and the email change completes successfully, `EmailTransaction.verify()` returns no data and completes without exception. Your app should close the change email dialog, refresh the main page, and display the new primary email and any other profile information.

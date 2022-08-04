@@ -1,8 +1,8 @@
-Enable users to change their primary email address in an application based on the embedded SDK.
+Enable users to change their primary email address in a password-optional application.
 
 **Learning outcomes**
 
-* Add the ability for a user to change their primary email in your SPA app using the Embedded SDK and MyAccount API.
+* Integrate the change primary email flow into your SPA app.
 
 **What you need**
 
@@ -17,23 +17,16 @@ Enable users to change their primary email address in an application based on th
 
 ## Overview
 
-Allowing a user to change their primary email is a critical task when they only use their username and email address to sign in to your app. Much like a password, a user must be able to change their email address, especially if it becomes compromised. With the [Embedded SDK](https://github.com/okta/okta-auth-js) you can enable your users to change their primary emails in your app.
+Allowing a user to change their primary email is a critical task when they only use their username and email address to sign in to your app. Much like a password, a user must be able to change their email address, especially if it becomes compromised. With the [Okta Auth Javascript SDK](https://github.com/okta/okta-auth-js) you can enable your users to change their primary emails in your app.
 
-The Embedded SDK contains a series of [methods](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md) that use the [MyAccount API](/docs/reference/api/myaccount/) to change the user's email and other profile information. Your app calls these methods and indirectly accesses the MyAccount API through the Embedded SDK.
+The SDK contains a series of [methods](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md) that update the user's primary email address and other profile information. These methods are secure and can be safely used in browser-based SPA applications. In this guide, you learn how to use these methods to integrate the change email functionality in your app.
 
-<div class="three-quarter">
-
-![Diagram showing the call flow from your app to the Embedded SDK and MyAccount API](/img/pwd-optional/pwd-optional-change-email-my-account-js-react-overview.png)
-
-</div>
-
-The MyAccount API and these SDK methods are secure, don't expose information an end user shouldn't have access to, and can be safely used in browser-based SPA applications. In this guide, you learn how to use these methods to integrate the change email functionality in your app.
+>**Note**: These SDK methods use the [MyAccount API](/docs/reference/api/myaccount/) to update the user's profile information.
 
 ## Update configurations
 
-<StackSnippet snippet="setupoktaorg" inline/>
-
-> **Note:** To test the change email functionality, you must use a user with an enrolled email authenticator.
+* <StackSnippet snippet="setupoktaorg" inline/>
+* To test the email change flow, set up a user with an enrolled email authenticator.
 
 ## Integrate
 
@@ -47,6 +40,6 @@ The following summarizes the steps involved when a user changes their primary em
 
 ### See Also
 
-* [Javascript Embedded SDK](https://github.com/okta/okta-auth-js)
+* [Okta Auth Javascript SDK](https://github.com/okta/okta-auth-js)
 * [MyAccount SDK interface specification](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md)
 * [MyAccount API reference](/docs/reference/api/myaccount/)

@@ -1,5 +1,5 @@
 ---
-title: Change the email authenticator
+title: Change your primary email address
 ---
 
 <ApiLifecycle access="ie" /><br>
