@@ -1206,7 +1206,10 @@ This operation:
 | `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified User Type ID             |
 | `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
-| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with `Sm`         |
+| `profile.lastName sw "Sma" `                     | Users whose `lastName` starts with `Sma`         |
+
+##### Note
+"sw" operator must have at least 3 characters for user search.
 
 ##### Search examples
 
