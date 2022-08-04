@@ -10,6 +10,14 @@ If needed, you can also unenroll the device, either locally, or both locally and
 
 > **Note:** The iOS code snippets assume that there is a singleton class called `DeviceSDKManager` that manages interactions with the Devices SDK. The singleton contains any required state information, such as the current SDK client, the APNs token for the current launch of the app, utility functions, and more. Your app may use a different way of interacting with the parts of the Devices SDK.
 
+The following image shows how data flows through the Devices SDK:
+
+<div class="full">
+
+![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
+
+</div>
+
 ### Add sign-in to your app
 
 Add sign in using the [Okta mobile Swift SDK](https://github.com/okta/okta-mobile-swift)

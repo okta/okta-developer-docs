@@ -47,19 +47,31 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 3. [Enroll the device](#enroll-the-device): Register a device and optional biometrics with an account for use with the custom authenticator.
 4. [Respond to a challenge](#respond-to-a-challenge): Resolve a delivered challenge from the custom authenticator or retrieve an undelivered challenge. Refresh the FCM device registration token, remediate changed biometrics, and deregister the account on the device.
 
-<!-- Flow-type DIAGRAM -->
+The following image shows what the Devices SDK enables for end users:
+
+<div class="three-quarter">
+
+![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
+
+</div>
 
 ## Create a custom authenticator
 
-<!-- Console flow DIAGRAM -->
+The following image shows the Devices SDK setup in the Admin Console:
+
+<div class="three-quarter">
+
+![Custom authenticator Admin Console](/img/authenticators/authenticators-custom-authenticator-admin-console.png)
+
+</div>
 
 ### Create an OIDC web authentication client
 
-The simplest way to integrate authentication in your app is with OIDC through a web browser, using the Authorization Code Flow grant. You need an access token to start the enrollment flow for the Devices SDK. For future logins, consider using refresh tokens. <StackSnippet snippet="samplecode" inline />
+The simplest way to integrate authentication in your app is with OIDC through a web browser, using the [Authorization Code flow grant type](/docs/guides/implement-grant-type/authcode/main/). You need an access token to start the enrollment flow for the Devices SDK. For future sign-in attempts, consider using refresh tokens. <StackSnippet snippet="samplecode" inline />
 
 ### Grant the required scopes
 
-> **Note:** If you have a custom Authorization Server, the scopes associated with the a custom authenticator are granted by default. See [Create an Authorization Server](/docs/guides/customize-authz-server/-/main/).
+> **Note:** You must use an Org Authorization Server to grant the scopes needed to create a custom authenticator. Custom Authorization Servers (including the default Custom Authorization Server) don't work.
 
 When you are ready to grant the required scopes, follow these steps:
 
@@ -84,7 +96,7 @@ Alternatively, you can grant scopes using the [Grant consent to scope for applic
 
 ### Set up a global session policy and authentication policy
 
-You need to set up a Global Session Policy and an authentication policy to integrate with the Devices SDK. See [Configure a Global Session Policy and authentication policy](/docs/guides/configure-signon-policy/main/).
+You need to set up a global session policy and an authentication policy to integrate with the Devices SDK. See [Configure a global session policy and authentication policy](/docs/guides/configure-signon-policy/main/).
 
 ## Install and configure the Okta Devices SDK
 
@@ -96,7 +108,7 @@ You need to set up a Global Session Policy and an authentication policy to integ
 
 #### Description
 
-Use cases that meet the following conditions receive an error message in the Admin Console UI:
+Use cases that meet the following conditions receive an error message in the Admin Console:
 
 * Call the `api/v1/apps` endpoint to create an OIDC app with a custom `client_id`.
 * Use the Admin Console to create a custom authenticator.
@@ -106,6 +118,17 @@ Use cases that meet the following conditions receive an error message in the Adm
 Create both the OIDC client app (with a custom `client_id`) and the custom authenticator in the Admin Console.
 
 Alternatively, you can call the `api/v1/apps` endpoint to create the OIDC app and `custom client_id`, and call the `api/v1/authenticators` endpoint to create a custom authenticator.
+
+## Troubleshoot
+
+If your push notifications aren't delivering:
+
+1. Follow the steps to [view push notification events](https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
+2. To narrow your search parameters, enter the following: `eventType eq "device.push.provider.update" and displayMessage eq "Push Provider Configuration verification failed"`. See [Event types](/docs/reference/api/event-types/).
+3. In the **Reason** section, locate the error message from your push provider. Consult the push provider documentation, if necessary.
+4. Verify that your notification services configuration is valid. See [Edit a notification service](https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
+5. Click **Save** to allow push providers to attempt to send notifications again.
+6. If your push notifications still aren't delivering, repeat steps 1-5.
 
 ## See also
 

@@ -8,4 +8,6 @@
    * **Token signing key:** The APNs authentication token signing key (.p8) file for your service. For more information on generating the key, see [Establishing a Token-Based Connection to APNs](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_token-based_connection_to_apns) in Apple developer documentation.
 5. Click **Add**.
 
-After you have added a notification service, you can check for successful and failed push notifications sent to users in the System Log. See [View push notification events]().
+After you have added a notification service, you can check for successful and failed push notifications sent to users in the System Log. See [View push notification events](https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
+
+Alternatively, you can add a notification service using the [Create Push Provider](/docs/reference/api/push-providers/#create-push-provider) operation of the Push Providers API.

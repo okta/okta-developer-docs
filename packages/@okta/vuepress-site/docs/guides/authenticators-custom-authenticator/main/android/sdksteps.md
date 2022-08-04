@@ -4,7 +4,13 @@ See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-ove
 
 > **Note:** The following sample code assumes that suspend functions are called in a coroutine scope. See [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for more information.
 
-<!-- Data flow DIAGRAM -->
+The following image shows how data flows through the Devices SDK:
+
+<div class="full">
+
+![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
+
+</div>
 
 ### Install the dependency
 
@@ -14,7 +20,7 @@ Add the Okta Devices SDK dependency to your `build.gradle` file:
 implementation("com.okta.devices:devices-push:$okta.sdk.version")
 ```
 
-where `$okta.sdk.version` is the latest release version. See [Release Status]() for the latest Okta Devices SDK version.
+where `$okta.sdk.version` is the latest release version. See [Release Status](https://github.com/okta/okta-devices-kotlin/releases) for the latest Okta Devices SDK version.
 
 ### Initialize the client
 
@@ -32,7 +38,7 @@ val authenticator: PushAuthenticator = PushAuthenticatorBuilder.create(
 
 ### Enroll the device
 
-Before enrolling the device, ensure you have the following:
+Before enrolling the device, ensure that you have the following:
 
 * An OIDC application. See [Create an OAuth 2.0 app integration]().
 * A custom authenticator. See [Add a custom authenticator]().
@@ -42,15 +48,15 @@ To start enrolling the user:
 
 ```kotlin
 val authConfig = DeviceAuthenticatorConfig(URL(orgUrl), "oidcClientId")
-val result = authenticator.enroll(AuthToken.Bearer("accessToken"), authConfig, EnrollmentParameters.Push(FcmToken("registrationToken")), enableUserVerification = false)
+val result = authenticator.enroll(AuthToken.Bearer("accessToken"), authConfig, EnrollmentParameters.Push(FcmToken("registrationToken"), enableUserVerification = false))
 if (result.isSuccess) {
-    val pushEnrollment: PushEnrollment = result.value
+    val pushEnrollment: PushEnrollment = result.getOrThrow()
 }
 ```
 
 #### Retrieve enrollments
 
-In order to retrieve information about existing enrollments, use `allEnrollments()`. This can be used to display attributes for a list of accounts or find a specific account in order to update or delete it. Retrieve all previously enrolled `PushEnrollment`:
+To retrieve information about existing enrollments, use `allEnrollments()`. You can use this to display attributes for a list of accounts or find a specific account to update or delete it. Retrieve all previously enrolled `PushEnrollment`:
 
 ```kotlin
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
@@ -64,7 +70,7 @@ Whenever the FCM SDK sends your application a new token with `FirebaseMessagingS
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
 
 // Find the enrollment associated with the current user
-enrollments.find { it.user.username == "myUser" }?.let { pushEnrollment ->
+enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
     pushEnrollment.updateRegistrationToken(AuthToken.Bearer("accessToken"), FcmToken("newToken"))
         .onSuccess { println("success") }
         .onFailure { println("failure") }
@@ -79,7 +85,7 @@ User verification checks that a user is the one claimed. You can do this by aski
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
 
 // Find the enrollment associated with the current user
-enrollments.find { it.user.username == "myUser" }?.let { pushEnrollment ->
+enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
     pushEnrollment.setUserVerification(AuthToken.Bearer("accessToken"), true)
         .onSuccess { println("success") }
         .onFailure { println("failure") }
@@ -94,7 +100,7 @@ Use the delete function to delete an enrollment from both the server and the dev
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
 
 // Find the enrollment associated with the current user and delete it
-enrollments.find { it.userInformation().username == "myUser" }?.let { pushEnrollment ->
+enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
     authenticator.delete(AuthToken.Bearer("accessToken"), pushEnrollment)
         .onSuccess { println("success") }
         .onFailure { println("failure") }
@@ -111,7 +117,7 @@ The `deleteFromDevice` function doesn’t call the server, so it doesn’t requi
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
 
 // Find the enrollment associated with the current user
-enrollments.find { it.userInformation().username == "myUser" }?.let { pushEnrollment ->
+enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
     pushEnrollment.deleteFromDevice()
         .onSuccess { println("success") }
         .onFailure { println("failure") }
@@ -126,12 +132,12 @@ When a user attempts to sign in to the enrolled account through an app or a web 
 
 #### Resolve delivered challenges
 
-Once you receive a challenge, your app should resolve them in order to proceed with the login. The SDK may request remediation steps to resolve the challenge:
+After you receive a challenge, your app should resolve them to proceed with the sign-in flow. The SDK may request remediation steps to resolve the challenge:
 
 * `UserConsent`: Asks the user to approve or deny the challenge.
 * `UserVerification`: Notifies the app that a biometric verification is required to proceed.
 
-See the [Devices SDK sample app]() for complete details about resolving a push challenge.
+See the [Devices SDK sample app](https://github.com/okta/okta-devices-kotlin/tree/master/push-sample-app) for complete details about resolving a push challenge.
 
 ```kotlin
 val fcmRemoteMessage = "PushChallengeString" // fcm challenge
@@ -148,8 +154,10 @@ private fun remediate(remediation: PushRemediation) = runCatching {
         is Completed -> println("Successfully handled. sign in success")
         is UserConsent -> println("Show a UX to accept or deny")
         is UserVerification -> println("Show a biometric prompt")
+        is UserVerificationError -> println("Biometric failure")
     }
-}.getOrElse { updateError(it) }
+}.getOrElse { // handle error
+}
 ```
 
 #### Retrieve undelivered challenges
@@ -160,7 +168,7 @@ Sometimes FCM fails to deliver a notification to the user. <!-- See Maurice for 
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
 
 // Find the enrollment associated with the current user
-enrollments.find { it.user.username == "myUser" }?.let { pushEnrollment ->
+enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
     pushEnrollment.retrievePushChallenges(AuthToken.Bearer("accessToken"))
         .onSuccess { println("success") }
         .onFailure { println("failure") }
