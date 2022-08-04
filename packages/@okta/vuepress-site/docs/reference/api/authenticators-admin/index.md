@@ -47,23 +47,19 @@ The Authenticators Administration API has the following CRUD operations:
 
 Create an Authenticator
 
-> **Note:** You can use this operation as part of the "Create a custom authenticator" flow. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/android/main/).
-
 #### Request path parameters
 
 N/A
 
 #### Request query parameters
 
-> **Note:** The `activate` parameter is optional. If you don't include the `activate` parameter with a value of `TRUE` when creating an authenticator, you need to activate the authenticator later in the Admin Console or by using the [Activate an Authenticator](#activate-an-authenticator) operation.
-
 | Parameter | Description                                                                                           | Param Type | DataType      | Required | Default |
 | --------- | ----------------------------------------------------------------------------------------------------- | ---------- | ------------- | -------- | ------- |
-| activate  | Executes the [activation lifecycle](#activate-an-authenticator) operation when Okta creates the authenticator | Query      | Boolean       | FALSE    | TRUE    |
+| activate  | Executes [activation lifecycle](#activate-an-authenticator) operation when creating the authenticator | Query      | Boolean       | FALSE    | TRUE    |
 
 #### Request body
 
-An [Authenticator Object](#authenticator-object) that you need created
+An [Authenticator Object](#authenticator-object) that needs to be created
 
 #### Response body
 
@@ -740,21 +736,21 @@ The Authenticator object defines the following properties:
 | `settings.channelBinding.style` | String | `NUMBER_CHALLENGE` | `okta_verify` |
 | `settings.channelBinding.required` | String (Enum) | `NEVER`, `ALWAYS`, `HIGH_RISK_ONLY` | `okta_verify` |
 | `settings.userVerification` | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify`, `custom_app` |
-| `settings.appInstanceId` | String | The application instance ID. For `custom_app`, you need to create an OIDC native app using the [Apps API](/docs/reference/api/apps/) with `Authorization Code` and `Refresh Token` grant types. You can leave both `Sign-in redirect URIs` and `Sign-out redirect URIs` as the default values. | `okta_verify`, `custom_app` |
-| `provider.type` | String | Provider type. Supported value for Duo: `DUO`. Supported value for Custom App: `PUSH` | `duo` and other authenticators making use of the provider object |
+| `settings.appInstanceId` | String | The application instance ID. For `custom_app`, an OIDC native app would need to be created using the [Apps API](/docs/reference/api/apps/) with `Authoriation Code`, and `Refresh Token` grant types. `Sign-in redirect URIs` and `Sign-out redirect URIs` can be left as the default values. | `okta_verify`, `custom_app` |
+| `provider.type` | String | Provider type. For Duo: `DUO`. For Custom App: `PUSH` | `duo` and other authenticators making use of the provider object |
 | `provider.configuration.host` | String | The Duo Security API hostname | `duo` |
 | `provider.configuration.integrationKey` | String | The Duo Security integration key | `duo` |
 | `provider.configuration.secretKey` | String | The Duo Security secret key | `duo` |
 | `provider.configuration.userNameTemplate.template` | String | The Duo Security user template name | `duo` |
-| `provider.configuration.apns.id`| String | ID of the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `provider.configuration.apns.id`| String | Id of the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.apns.id`| String | AppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.apns.id`| String | DebugAppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
-| `provider.configuration.fcm.id` | String  | ID of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
-| `methods.type` | String  | Method type. Supported value for `custom_app`: `push`.  Supported values for `okta_verify`: `push`, `otp`, `signed_nonce`| `custom_app`, `okta_verify` |
+| `provider.configuration.fcm.id` | String  | Id of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `methods.type` | String  | Method type. For `custom_app`, it is `push`. For `okta_verify`, allowed values: `push`, `otp`, `signed_nonce`| `custom_app`, `okta_verify` |
 | `methods.status` | `ACTIVE`,`INACTIVE` | Status of the authenticator method | `custom_app`, `okta_verify`|
-| `methods.settings.algorithms` | String (Enum) | Algorithms supported. Supported values: `RS256`, `ES256` | `custom_app`, `okta_verify` |
-| `methods.settings.keyProtection` | String (Enum) | Key Protection. Supported values: `ANY`, `HARDWARE` | `custom_app`, `okta_verify` |
-| `agreeToTerms` | Boolean | A value of `true` indicates that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator. Okta requires that you accept the terms when creating a new `custom_app` authenticator. Other authenticators don't require this field. | `custom_app`|
+| `methods.settings.algorithms` | String (Enum) | Algorithms supported. Allowed values: `RS256`, `ES256` | `custom_app`, `okta_verify` |
+| `methods.settings.keyProtection` | String (Enum) | Key Protection. Allowed values: `ANY`, `HARDWARE` | `custom_app`, `okta_verify` |
+| `agreeToTerms` | Boolean | A value of `true` indicates that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator. It is required for the terms to be accepted when creating a new `custom_app` authenticator. Other authenticators do not require this field. | `custom_app`|
 
 
 #### Example Email Authenticator

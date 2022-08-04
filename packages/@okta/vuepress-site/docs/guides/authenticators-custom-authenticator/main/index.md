@@ -132,4 +132,4 @@ If your push notifications aren't delivering:
 
 ## See also
 
-[Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/android/main/)
+<StackSnippet snippet="mobilesdk" />
