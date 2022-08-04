@@ -54,6 +54,7 @@ For external integration examples, refer to:
 * [Splunk Add-on for Okta](https://www.okta.com/integrations/splunk-add-on-for-okta/)
 * [Datadog Log Management integration](https://www.okta.com/integrations/datadog/)
 * [Sumo Logic integration with Okta](https://www.okta.com/integrations/sumologic/)
+* [New Relic integration with Okta](https://www.okta.com/integrations/new-relic-by-organization/)
 
 > **NOTE**: During the integration setup, use the Admin Console for verification or troubleshooting purposes. Compare the system logs from the Admin Console with the system logs received in your external monitoring tool.
 
