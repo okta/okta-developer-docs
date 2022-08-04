@@ -1,0 +1,46 @@
+.customLanding {
+    &-start {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 60px 32px 100px;
+        text-align: center;
+
+        h2 {
+            margin: 0 0 30px;
+            font-size: 32px;
+            font-weight: 500;
+            line-height: 1.3;
+            color: cv('blue', '900');
+        }
+
+        p {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: cv('blue', '900');
+        }
+
+        &__actions {
+            margin-top: 36px;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__button {
+            display: inline-block;
+            margin-right: 40px;
+            background-color: cv('blue', '900');
+            padding: 0.625rem 1.25rem;
+            color: cv('body', 'white');
+            display: inline-block;
+            font-weight: 500;
+            &:hover {
+              color: cv('body', 'white');
+              background-color: cv('link');
+            }
+          }
+    }
+}

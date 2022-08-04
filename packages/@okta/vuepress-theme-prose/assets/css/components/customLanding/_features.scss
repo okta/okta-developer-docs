@@ -1,0 +1,104 @@
+.customLanding {
+    &-features {
+        &__row {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 60px 0;
+            &:not(:last-child) {
+                border-bottom: 3px dashed cv('gray', '100');
+            }
+            @media (max-width: 1110px) {
+                flex-wrap: wrap;
+            }
+        }
+
+        &__col {
+            width: 370px;
+
+            &:last-child {
+                width: 415px;
+                padding: 15px 20px;
+                background-color: #fff;
+            }
+
+            @media (max-width: 1110px) {
+                width: 100%;
+                margin-bottom: 20px;
+
+                &:last-child {
+                    width: 100%;
+                }
+            }
+        }
+
+        &__title {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 20px;
+
+            img {
+                width: 30px;
+            }
+
+            h3 {
+                margin: 0;
+                padding-left: 16px;
+                font-weight: 600;
+                font-size: 22px;
+                line-height: 28px;
+                color: cv('blue', '900');
+            }
+        }
+
+        &__text {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            color: cv('blue', '900');
+        }
+
+        &__button {
+          background-color: cv('blue', '900');
+          padding: 0.625rem 1.25rem;
+          color: cv('body', 'white');
+          display: inline-block;
+          font-weight: 500;
+          &:hover {
+            color: cv('body', 'white');
+            background-color: cv('link');
+          }
+        }
+        
+        &__caption {
+            margin: 0 0 15px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.7;
+            color: cv('blue', '900');
+        }
+
+        &__list-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.3;
+            color: cv('gray', '800');
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 8px;
+                left: 9px;
+                width: 3px;
+                height: 3px;
+                background-color: cv('gray', '900');
+                border-radius: 50%;
+            }
+        }
+    }
+}

@@ -42,3 +42,9 @@
     margin: 0 auto;
   }
 }
+
+.dark-theme {
+  .customLanding-white {
+    background-color: cv('body', 'base');
+  }
+}

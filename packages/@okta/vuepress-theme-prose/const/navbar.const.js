@@ -543,7 +543,8 @@ export const guides = [
         ],
       },
       {
-        title: "OIN Partner Integrations",
+        title: 'Okta Integration Network',
+        customLandingPage: true,
         subLinks: [
           {
             title: "Build a SCIM provisioning integration",
@@ -708,10 +709,6 @@ export const guides = [
           },
         ],
       },
-      {
-        title: 'Okta Integration Network',
-        customLandingPage: true
-      }
     ],
   },
 ];
