@@ -100,9 +100,9 @@ Update the **Okta Dashboard** [preset authentication policy](https://help.okta.c
 1. Verify that **Phone** is listed as an additional factor type in the **AND Access with Okta FastPass is granted** section.
 1. Click **Save**. Users signing in to Okta are then required to use both their password and the Phone authenticator to authenticate.
 
-## Activate the Telephony Inline Hook in Okta
+## Activate the telephony inline hook in Okta
 
-You must activate the Telephony Inline Hook in your Okta org. Activating the Telephony Inline Hook registers the hook with the Okta org and associates it with your external service.
+You must activate the telephony inline hook in your Okta org. Activating the telephony inline hook registers the hook with the Okta org and associates it with your external service.
 
 1. Navigate to the **Workflow** > **Inline Hooks** page.
 1. Click **Add Inline Hook** and select **Telephony** from the dropdown list.
@@ -159,10 +159,10 @@ The external service example is now ready with code to receive and respond to an
 
 ### Preview
 
-To preview the Telephony Inline Hook:
+To preview the telephony inline hook:
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-1. Select the Telephony Inline Hook name that you just set up (in this example, **Twilio Telephony Hook**).
+1. Select the telephony inline hook name that you just set up (in this example, **Twilio Telephony Hook**).
 1. Select the **Preview** tab.
 1. Define a value for `data.userProfile` by selecting a user in your org from the **data.userProfile** dropdown list.
 1. Define a value for `requestType` by selecting the flow that you want to test. In this example, select **MFA Verification**.

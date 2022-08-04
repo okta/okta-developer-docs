@@ -1,15 +1,15 @@
 ---
-title: SAML Assertion Inline Hook Reference
+title: SAML assertion inline hook reference
 excerpt: Customize SAML assertions returned by Okta.
 ---
 
-# SAML Assertion Inline Hook Reference
+# SAML assertion inline hook reference
 
-This page provides reference documentation for SAML Assertion Inline Hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
+This page provides reference documentation for SAML assertion inline hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
@@ -451,7 +451,7 @@ This example displays `replace` and `add` operations with the URI formatted clai
 }
 ```
 
-## Enabling a SAML Assertion Inline Hook
+## Enabling a SAML assertion inline hook
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 

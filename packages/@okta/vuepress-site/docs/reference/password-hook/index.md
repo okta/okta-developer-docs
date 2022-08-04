@@ -3,13 +3,13 @@ title: Password Import Inline Hook Reference
 excerpt: Verify a user-supplied password during migration of the user to Okta
 ---
 
-# Password Import Inline Hook Reference
+# Password import inline hook reference
 
-This page provides reference documentation for Password Import Inline Hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
+This page provides reference documentation for password import inline hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
@@ -147,9 +147,9 @@ If a response to the Password Import Inline Hook request is not received from yo
 }
 ```
 
-## Enabling a Password Import Inline Hook
+## Enabling a password import inline hook
 
-To enable a Password Import Inline Hook, you first need to register your external service endpoint with Okta and configure it as an Inline Hook of type `com.okta.user.credential.password.import`. See [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hook-setup). You can also use the Admin Console to register your external service endpoint and configure the hook by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**.
+To enable a password import inline hook, you first need to register your external service endpoint with Okta and configure it as an Inline Hook of type `com.okta.user.credential.password.import`. See [Inline hook setup](/docs/concepts/inline-hooks/#inline-hook-setup). You can also use the Admin Console to register your external service endpoint and configure the hook by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**.
 
 When creating a new user with the `/users` API, you need to use the [Create User with Password Import Inline Hook](/docs/reference/api/users#create-user-with-password-import-inline-hook) use case. This involves specifying a `credentials.password.hook` property in the request body.
 

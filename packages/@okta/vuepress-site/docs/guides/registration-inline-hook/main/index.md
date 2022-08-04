@@ -274,9 +274,9 @@ You need to remix your own version of the Okta sample Glitch project and confirm
 1. Click **Save**.
 1. In your Glitch project, click **Logs**. If your set up is successful, a "Your app is listening on port {XXXX}" message appears.
 
-The Registration Inline Hook is now set up with an active status.
+The registration inline hook is now set up with an active status.
 
-> **Note:** You can also set up an Inline Hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 ### Set up the employee number attribute
 
@@ -294,7 +294,7 @@ End users can now update the employee number in their profile.
 
 To enable the Registration Inline Hook, you must associate it with a Profile Enrollment policy. In this example, you create an enrollment policy specifically for your hook. See [enable and configure a Profile Enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
-> **Note:** Profile Enrollment and Registration Inline Hooks are only supported by the [Okta Sign-In Widget](/docs/guides/embedded-siw/) version 4.5 or later.
+> **Note:** Profile Enrollment and registration inline hooks are only supported by the [Okta Sign-In Widget](/docs/guides/embedded-siw/) version 4.5 or later.
 
 To associate the Registration Inline Hook with a Profile Enrollment policy:
 
@@ -320,14 +320,14 @@ To associate the Registration Inline Hook with a Profile Enrollment policy:
 
 Your Registration Inline Hook is configured for Profile Enrollment. You are now ready to preview and test the example.
 
-## Preview the Registration Inline Hook
+## Preview the registration inline hook
 
-Your Okta org is set up to call the sample external service using a Registration Inline Hook, and the external service is ready to receive and respond to an Okta call.
+Your Okta org is set up to call the sample external service using a registration inline hook, and the external service is ready to receive and respond to an Okta call.
 
 In your Okta org, you can preview the request and response JSON in the Admin Console.
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-1. Select the Registration Inline Hook name (in this example, select **Guide Registration Hook Code**).
+1. Select the registration inline hook name (in this example, select **Guide Registration Hook Code**).
 1. Click **Preview**.
 1. In the **Configure Inline Hook request** block, select an end user from your org in the **data.userProfile** field. That is, select a value from your `data.user.profile` object.
 1. To test an SSR request, under **requestType**, select **Self-Service Registration**.

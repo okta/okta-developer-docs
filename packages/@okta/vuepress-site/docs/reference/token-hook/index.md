@@ -1,15 +1,15 @@
 ---
-title: Token Inline Hook Reference
+title: Token inline hook reference
 excerpt: Customize tokens returned by the Okta API Access Management process flow.
 ---
 
-# Token Inline Hook Reference
+# Token inline hook reference
 
-This page provides reference documentation for Token Inline Hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
+This page provides reference documentation for token inline hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
@@ -728,7 +728,7 @@ The resulting JSON object:
 
 After receiving the Okta request, if there is a response timeout, the Okta process flow proceeds with original token returned. See [Troubleshooting](#troubleshooting).
 
-## Enabling a Token Inline Hook
+## Enabling a token inline hook
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
@@ -742,7 +742,7 @@ You then need to associate the registered Inline Hook with a Custom Authorizatio
 
 1. One of the policy's rules needs to trigger the Inline Hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.
 
-1. Click the **Use this Inline Hook** dropdown menu. Any Inline Hooks you have registered are listed. Select the hook you would like to use.
+1. Click the **Use this Inline Hook** dropdown menu. Any inline hooks you have registered are listed. Select the hook you would like to use.
 
 1. Click **Update Rule**.
 
@@ -752,7 +752,7 @@ You then need to associate the registered Inline Hook with a Custom Authorizatio
 
 This section covers what happens when a token inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response, or the inline hook patch fails.
 
-> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
+> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks concept piece for more information on the events related to inline hooks that the Okta System Log captures.
 
 - When there is a communication failure with the external service, a timeout for example, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 

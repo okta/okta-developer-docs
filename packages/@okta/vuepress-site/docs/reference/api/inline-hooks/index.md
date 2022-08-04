@@ -8,19 +8,19 @@ excerpt:
 
 # Inline Hooks Management API
 
-For general information on Inline Hooks and how to create and use them, see [Inline Hooks](/docs/concepts/inline-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Inline Hooks.
+For general information on inline hooks and how to create and use them, see [inline hooks](/docs/concepts/inline-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering inline hooks.
 
 ## Get started
 
 Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9aa336618148825976bc)
 
-## Inline Hook operations
+## Inline hook operations
 
-### Create Inline Hook
+### Create inline hook
 
 <ApiOperation method="post" url="/api/v1/inlineHooks" />
 
-Registers a new Inline Hook to your organization in `ACTIVE` status. You need to pass an [Inline Hook object](#inline-hook-object) in the JSON payload of your request. That object represents the set of required information about the Inline Hook that you are registering, including:
+Registers a new inline hook to your organization in `ACTIVE` status. You need to pass an [Inline Hook object](#inline-hook-object) in the JSON payload of your request. That object represents the set of required information about the Inline Hook that you are registering, including:
 
  - The URI of your external service endpoint
  - The type of Inline Hook you are registering
@@ -33,7 +33,7 @@ You can also optionally specify extra headers that you want Okta to pass to your
 
 Your external service's endpoint needs to be a valid HTTPS endpoint, and therefore the URI you specify should always begin with `https://`.
 
-The total number of Inline Hooks that you can create in an Okta org is limited to 50, which is a combined total for any combination of Inline Hook types.
+The total number of inline hooks that you can create in an Okta org is limited to 50, which is a combined total for any combination of Inline Hook types.
 
 ##### Request parameters
 
@@ -171,7 +171,7 @@ curl -v -X GET \
 }
 ```
 
-### List Inline Hooks
+### List inline hooks
 
 <ApiOperation method="get" url="/api/v1/inlineHooks?type=${type}" />
 
@@ -179,7 +179,7 @@ curl -v -X GET \
 | --------- | ------------------------------------------------------------------------- | ------------ | ---------- | -------- |
 | `type`    | One of the [supported Inline Hook types](#supported-inline-hook-types)   | Query        | String     | FALSE    |
 
-Returns a list of registered Inline Hooks that are optionally filtered by the Inline Hook type if you supply a `type` query parameter
+Returns a list of registered inline hooks that are optionally filtered by the Inline Hook type if you supply a `type` query parameter
 
 ##### Request examples
 
@@ -445,7 +445,7 @@ curl -v -X POST \
 | --------- | -------------------------------------- | ------------ | ---------- | -------- |
 | `id`      | The ID of the Inline Hook to delete   | Path         | String     | TRUE     |
 
-Deletes the Inline Hook that matches the provided `id`. After it is deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of `INACTIVE` are eligible for deletion.
+Deletes the Inline Hook that matches the provided `id`. After it is deleted, the Inline Hook is unrecoverable. As a safety precaution, only inline hooks with a status of `INACTIVE` are eligible for deletion.
 
 ##### Response parameters
 

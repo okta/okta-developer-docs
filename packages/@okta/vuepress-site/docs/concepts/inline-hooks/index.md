@@ -1,13 +1,13 @@
 ---
-title: Inline Hooks
+title: Inline hooks
 meta:
   - name: description
-    content: Inline hooks are outbound calls from Okta to your own custom code. Find out more about the types of Okta Inline Hooks, the process flow, and how to set them up.
+    content: Inline hooks are outbound calls from Okta to your own custom code. Find out more about the types of Okta inline hooks, the process flow, and how to set them up.
 ---
 
-# Inline Hooks
+# Inline hooks
 
-## What are Okta Inline Hooks?
+## What are Okta inline hooks?
 
 Inline hooks are outbound calls from Okta to your own custom code, triggered at specific points in Okta process flows. They allow you to integrate custom functionality into those flows.
 
@@ -17,9 +17,9 @@ The outbound call from Okta is called a hook. Your code, which receives the call
 
 Inline hooks use synchronous calls, which means that the Okta process that triggered the hook is paused until a response from your service is received.
 
-## Multiple types of Okta Inline Hooks
+## Multiple types of Okta inline hooks
 
-Okta defines several different types of Inline Hooks. Each type of Inline Hook makes it possible to customize a different Okta process flow. All the types share the same general syntax for requests and responses sent between Okta and the external service, but each differs in the specifics of the JSON objects that are sent and received. When implementing your external service, you need to develop your code according to the details of the particular type of hook you intend to use.
+Okta defines several different types of inline hooks. Each type of Inline Hook makes it possible to customize a different Okta process flow. All the types share the same general syntax for requests and responses sent between Okta and the external service, but each differs in the specifics of the JSON objects that are sent and received. When implementing your external service, you need to develop your code according to the details of the particular type of hook you intend to use.
 
 ### Currently-supported types
 
@@ -36,7 +36,7 @@ Okta defines several different types of Inline Hooks. Each type of Inline Hook m
 
 ### Extension points
 
-The points in Okta process flows where Inline Hooks can be triggered are called extension points, because they are where you can extend Okta functionality. Each type of Inline Hook is triggered at a particular extension point in a particular Okta process flow. At an extension point, if you have configured an Inline Hook, Okta calls your external service, and waits for a response. When the response is received, Okta resumes the process flow.
+The points in Okta process flows where inline hooks can be triggered are called extension points, because they are where you can extend Okta functionality. Each type of Inline Hook is triggered at a particular extension point in a particular Okta process flow. At an extension point, if you have configured an Inline Hook, Okta calls your external service, and waits for a response. When the response is received, Okta resumes the process flow.
 
 ### Inline Hook call within an Okta process flow
 
@@ -157,7 +157,7 @@ Lets you specify additional information to make available in the Okta System Log
 
 When Okta calls an external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. A request isn't retried if the external service endpoint responds with a 2xx HTTP success code or a 4xx HTTP error code. If the external service endpoint responds with a redirect, it isn't followed.
 
-### Inline Hooks and concurrent rate limits
+### Inline hooks and concurrent rate limits
 
 The Okta process flow that triggered the Inline Hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).
 
@@ -188,9 +188,9 @@ After creating your external service, you need to tell Okta it exists, and enabl
 
 1. Associate the endpoint with a particular Okta process flow. How to do this varies by Inline Hook type.
 
-The total number of Inline Hooks that you can create in an Okta org is limited to 50, which is a combined total for any combination of Inline Hook types.
+The total number of inline hooks that you can create in an Okta org is limited to 50, which is a combined total for any combination of Inline Hook types.
 
-For more information on implementing Inline Hooks, see the documentation for specific Inline Hook types linked to in [Currently-Supported Types](#currently-supported-types).
+For more information on implementing inline hooks, see the documentation for specific Inline Hook types linked to in [Currently-Supported Types](#currently-supported-types).
 
 ## Troubleshooting
 

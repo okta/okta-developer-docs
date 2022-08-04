@@ -1,18 +1,18 @@
 ---
-title: Telephony Inline Hook Reference
-excerpt: Customizes Okta's flows that send SMS or Voice messages
+title: Telephony inline hook reference
+excerpt: Customizes Okta's flows that send SMS or voice messages
 ---
 <ApiLifecycle access="ie" />
 
-# Telephony Inline Hook Reference
+# Telephony inline hook reference
 
-This page provides reference documentation for Telephony Inline Hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
+This page provides reference documentation for telephony inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
-- For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+- For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
-- For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/) or [Add an Inline Hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook).
+- For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/) or [Add an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook).
 
 - For a use case example of how to implement a Telephony Inline Hook, see [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/).
 
@@ -210,7 +210,7 @@ After receiving the Okta request, if there is a response timeout, the Okta proce
 
 This section covers what happens when a telephony inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response.
 
-> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
+> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks concept piece for more information on the events related to inline hooks that the Okta System Log captures.
 
 - When there is a communication failure with the external service, a timeout for example, the inline hook operation is skipped, and the OTP is delivered to the requester using Okta's telephony provider(s).
 

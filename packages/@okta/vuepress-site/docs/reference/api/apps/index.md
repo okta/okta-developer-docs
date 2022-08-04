@@ -1010,7 +1010,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 
 * If Single Logout is supported by the application and the `slo` object is provided in the request, the `spCertificate` object must be present.
 * When you update an application, if you don't specify `slo` or `spCertificate` the existing configuration persists.
-* When you associate the application with `inlineHooks`, you should [create SAML Inline Hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created Inline Hook ID.
+* When you associate the application with `inlineHooks`, you should [create SAML inline hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created Inline Hook ID.
 
 ##### Supported values for custom SAML app
 

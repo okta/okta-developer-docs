@@ -172,8 +172,8 @@ The following table shows the scopes that are currently available:
 | `okta.groups.read`       | Allows the app to read information about groups and their members in your Okta organization| [Groups API](/docs/reference/api/groups/#getting-started-with-the-groups-api)|
 | `okta.idps.manage`       | Allows the app to create and manage Identity Providers in your Okta organization| [Identity Providers API](/docs/reference/api/idps/#getting-started)|
 | `okta.idps.read`         | Allows the app to read information about Identity Providers in your Okta organization| [Identity Providers API](/docs/reference/api/idps/#getting-started)|
-| `okta.inlineHooks.manage`| Allows the app to create and manage Inline Hooks in your Okta organization | [Inline Hooks API](/docs/reference/api/inline-hooks/)|
-| `okta.inlineHooks.read` | Allows the app to read information about Inline Hooks in your Okta organization | [Inline Hooks API](/docs/reference/api/inline-hooks/)|
+| `okta.inlineHooks.manage`| Allows the app to create and manage inline hooks in your Okta organization | [Inline hooks API](/docs/reference/api/inline-hooks/)|
+| `okta.inlineHooks.read` | Allows the app to read information about inline hooks in your Okta organization | [Inline hooks API](/docs/reference/api/inline-hooks/)|
 | `okta.linkedObjects.manage`| Allows the app to manage Linked Object definitions in your Okta organization | [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.linkedObjects.read` | Allows the app to read Linked Object definitions in your Okta organization | [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.logStreams.manage`         | Allows the app to create and read log streams in your Okta organization | [Log Streaming API](/docs/reference/api/log-streaming/)|
