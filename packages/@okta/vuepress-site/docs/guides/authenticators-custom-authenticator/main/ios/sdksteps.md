@@ -38,7 +38,7 @@ target 'MyApplicationTarget' do
 end
 ```
 
-You're app receives notifications from a custom authenticator in two possible ways.
+There are two ways for your app to receive notifications from a custom authenticator:
 - As a push notification that's delivered whether your app is closed, in the background, or in the foreground.
 - By requesting any queued notifications when your app is in the foreground.
 
@@ -73,7 +73,7 @@ func initOktaDeviceAuthenticator() {
 }
 ```
 
-Use the name of the group you added when you added the App Group Capability when you [added the Devices SDK to your app](#_add_devices_sdk_to_your_app). The compiler conditional ensures that Device Authenticator uses the appropriate APNs environment.
+Use the name of the group you added when you added the App Group Capability earlier. The compiler conditional ensures that Device Authenticator uses the appropriate APNs environment.
 
 ### Register the device
 
@@ -129,7 +129,7 @@ func enrollDevice() {
 }
 ```
 
-If your app isn't configured to receive push notifications, use a value of `DeviceToken.empty` for the `deviceToken` argument of `EnrollmentParameters`.
+If your app isn't configured to receive push notifications or the APNs token isn't available yet, use a value of `DeviceToken.empty` for the `deviceToken` argument of `EnrollmentParameters`.
 
 ### Update the push notification token
 
@@ -161,9 +161,9 @@ The function assumes that the user is signed-in using the Mobile Swift SDK. In a
 
 ### Unenroll the device
 
-You may need to unenroll the device from a user account, such as the user turning off notifications using a setting. It's also possible to unenroll the device on the server, such as an administrator removing an account. One way to detect if the device is unenrolled on the server is that a call to either unenroll the device or to retrieve undelivered notifications results in an error of type `serverAPIError`.
+You may need to unenroll a device from a user account. For example, your app may enable a user to turn off notifications using a setting.
 
-When you unenroll a device their may be pending challenges or challenges that occur between the time of the request and deactivating the device on the server.
+You may need to unenroll the device from a user account, such as the user turning off notifications using a setting. It's also possible to unenroll the device on the server, such as an administrator removing an account. One way to detect if the device is unenrolled on the server is that a call to either unenroll the device or to retrieve undelivered notifications results in an error of type `serverAPIError`.
 
 The following function is an example of unenrolling the device either localy or both locally and on the server and assumes the user is signed-in:
 
@@ -209,13 +209,13 @@ func initOktaDeviceAuthenticator() {
                                                   applicationVersion: "Your-app-version",
                                                   applicationGroupId: "com.your.group.id",
                                                   )
-        applicationConfig.approveActionTitle = "Approved"
-        applicationConfig.denyActionTitle =  "Denied"
+        applicationConfig.approveActionTitle = "Approve"
+        applicationConfig.denyActionTitle =  "Deny"
         applicationConfig.userVerificationActionTitle = "Verify in YourAppName"
         ...
 ```
 
-The first two titles are the actions in the notification that requests a user confirms they're trying to sign-in. The second is the action for a biometric verification. Replace `YourAppName` with the name of your app which you can read from the `CFBundleName` key of the `Info.plist` file in your main bundle.
+The first two titles are the actions in the notification that requests a user confirms they're trying to sign-in. The third is the action for a biometric verification. Replace `YourAppName` with the name of your app which you can read from the `CFBundleName` key of the `Info.plist` file in your main bundle.
 
 #### Check for a challenge
 
@@ -240,7 +240,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 
 #### Handle a challenge
 
-The push challenge includes the steps, or *remediations*, required to validate the user identity. Your app handles these steps sequentially and updates the SDK with the results. Your app must handle two different types of types of steps:
+The push challenge includes the steps, or *remediations*, required to validate the user identity. Your app handles these steps sequentially and updates the SDK with the results. Your app must handle two different types of steps:
 - **Consent:** Confirm that the user is attempting to sign in.
 - **Message:** An informational message, such as the user cancelling verification or a key being corrupt or missing.
 
