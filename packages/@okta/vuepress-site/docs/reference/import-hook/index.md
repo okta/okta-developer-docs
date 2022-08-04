@@ -7,19 +7,19 @@ excerpt: Add custom logic to the user import process.
 
 <ApiLifecycle access="ea" />
 
-This page provides reference documentation for User Import Inline Hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta, and sample JSON objects that you can include in your response.
+This page provides reference documentation for user import inline hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta, and sample JSON objects that you can include in your response.
 
 ## See also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see [Enabling a User Import Inline Hook](#enabling-a-user-import-inline-hook).
+For steps to enable this inline hook, see [Enabling a user import inline hook](#enabling-a-user-import-inline-hook).
 
 ## About
 
-The User Import Inline Hook enables you to add custom logic to the process of importing new users into Okta from an app.
+The user import inline hook enables you to add custom logic to the process of importing new users into Okta from an app.
 
 You can resolve conflicts in user name or other profile attributes, modify values of profile attributes, and control whether the imported user is treated as a match for an existing user or not.
 
@@ -276,21 +276,21 @@ If the external service times out after receiving an Okta request, the Okta proc
 }
 ```
 
-## Enabling a User Import Inline Hook
+## Enabling a user import inline hook
 
-To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-You then need to associate the registered Inline Hook with an app by completing the following steps in Admin Console:
+You then need to associate the registered inline hook with an app by completing the following steps in Admin Console:
 
 1. Go to the **Applications** menu and scroll down to **Applications**.
 
-1. Select the app that you want the Inline Hook to work with.
+1. Select the app that you want the inline hook to work with.
 
 1. Select the **Provisioning** tab.
 
 1. From the Settings column on the left side of the screen, select **To Okta**.
 
-1. In the **Inline Hooks** section, click the **User Creation** drop-down menu. Inline Hooks that you've registered appears in the list. Select the Inline Hook to use.
+1. In the **Inline Hooks** section, click the **User Creation** drop-down menu. Inline hooks that you've registered appears in the list. Select the Inline Hook to use.
 
 1. Click **Save**.
 

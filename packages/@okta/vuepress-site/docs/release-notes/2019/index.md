@@ -190,7 +190,7 @@ The [User Types API](/docs/reference/api/user-types/) is in Early Access (EA) in
 
 #### Tokens transform events no longer available
 
-Tokens transform System Log [events](/docs/reference/api/event-types/) will no longer fire for SAML and Token Inline Hooks. They have been replaced by Inline Hook events.  <!-- OKTA-249601 -->
+Tokens transform System Log [events](/docs/reference/api/event-types/) will no longer fire for SAML and token inline hooks. They have been replaced by Inline Hook events.  <!-- OKTA-249601 -->
 
 #### Cookies updated to preserve cross-functionality
 
@@ -322,7 +322,7 @@ Some users were not able to access the Group Rules API, despite having proper pe
 |----------------------------------------------------------------------------------------------------------|--------------------------|
 | [Added Support for TOTP Factor](#added-support-for-totp-factor)                                          | August 7, 2019           |
 | [Cookies updated to preserve cross-site functionality](#cookies-updated-to-preserve-cross-site-functionality)| August 7, 2019           |
-| [Inline Hooks is now GA in Preview](#inline-hooks-is-now-ga-in-preview)                                  | August 7, 2019           |
+| [Inline hooks is now GA in Preview](#inline-hooks-is-now-ga-in-preview)                                  | August 7, 2019           |
 | [LinkedIn API V2 is now supported](#linkedin-api-v2-is-now-supported)                                    | August 7, 2019           |
 | [Mappings API is now GA in Preview](#mappings-api-is-now-ga-in-preview)                                  | August 7, 2019           |
 | [Missing type property now returns a 400 error code](#missing-type-property-now-returns-a-400-error-code)| August 7, 2019           |
@@ -336,9 +336,9 @@ Okta now supports a custom MFA factor based on the Time-based One-time Password 
 
 To preserve cross-site functionality in light of upcoming updates to [Chrome](https://www.chromestatus.com/feature/5088147346030592), Okta has added the `SameSite=None` attribute to all relevant cookies. <!-- OKTA-229541 -->
 
-#### Inline Hooks is now GA in Preview
+#### Inline hooks is now GA in Preview
 
-[Inline Hooks](/docs/concepts/inline-hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now Generally Available (GA) in Preview. <!-- OKTA-241104 -->
+[Inline hooks](/docs/concepts/inline-hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now Generally Available (GA) in Preview. <!-- OKTA-241104 -->
 
 #### LinkedIn API V2 is now supported
 
@@ -701,7 +701,7 @@ The following features have already been released as Early Access. To enable the
 | Change                                                                                                                  | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [Imported Hashed User Passwords Generally Available](#imported-hashed-user-passwords-generally-available)               | February 6, 2019         | March 11, 2019                               |
-| [Inline Hooks](#inline-hooks)                                                                                           | February 6, 2019         | February 19, 2019                            |
+| [Inline hooks](#inline-hooks)                                                                                           | February 6, 2019         | February 19, 2019                            |
 | [Token Inline Hook](#token-inline-hook)                                                                                 | February 6, 2019         | February 19, 2019                            |
 | [Signature and Digest Algorithms for Template WS-FED Apps](#signature-and-digest-algorithms-for-template-ws-fed-apps)   | February 6, 2019         | February 19, 2019                            |
 | [Google Integration Updated](#google-integration-updated)                                                               | February 6, 2019         | February 19, 2019                            |
@@ -714,9 +714,9 @@ The following features have already been released as Early Access. To enable the
 
 Use of imported hashed passwords when creating or updating users in the [Users API](/docs/reference/api/users) is now Generally Available (GA). <!--OKTA-205592-->
 
-#### Inline Hooks
+#### Inline hooks
 
-[Inline Hooks](/docs/concepts/inline-hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now in Early Access (EA/). <!--OKTA-205011-->
+[Inline hooks](/docs/concepts/inline-hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now in Early Access (EA/). <!--OKTA-205011-->
 
 #### Token Inline Hook
 

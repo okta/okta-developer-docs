@@ -1,15 +1,15 @@
 ---
-title: Registration Inline Hook Reference
+title: Registration inline hook reference
 excerpt: Customize handling of user registration requests in Profile Enrollment
 ---
 
-# Registration Inline Hook Reference
+# Registration inline hook reference
 
-This page provides reference documentation for Registration Import Inline Hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
+This page provides reference documentation for registration import inline hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
@@ -24,7 +24,7 @@ The Okta Registration Inline Hook allows you to integrate your own custom code i
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
 - Set or override the values that are populated in attributes of the user's Okta profile
 
-> **Note:** Profile Enrollment and self-service registration (SSR) Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
+> **Note:** Profile Enrollment and self-service registration (SSR) inline hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
 ## Objects in the Request from Okta
 

@@ -65,14 +65,14 @@ Based on the results of the credential check, you return either a command tellin
 
 >**Note:** Using an empty response to reject the credentials is based on the assumption that Okta is set to do that as the default action. In the request from Okta, the property `data.action.credential` specifies the default action. It is currently always set to `UNVERIFIED`, meaning that the default is to reject.
 
-## Activate the Password Import Hook on your Okta org
+## Activate the password import hook on your Okta org
 
-The Password Import Inline Hook must be set up and activated within your Okta Admin Console.
+The password import inline hook must be set up and activated within your Okta Admin Console.
 
-To set up and activate the Password Import Inline Hook:
+To set up and activate the password import inline hook:
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-2. Click **Add Inline Hook** and select **Password Import** from the drop-down menu.
+2. Click **Add Inline Hook** and select **Password Import** from the dropdown menu.
 3. Add a name for the hook (in this example, "Password Import Hook").
 4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/passwordImport`.
 5. Include authentication field and secret. In this example:
@@ -81,13 +81,13 @@ To set up and activate the Password Import Inline Hook:
     * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 6. Click **Save**.
 
-The Password Import Inline Hook is now set up with a status of "Active".
+The password import inline hook is now set up with a status of "Active".
 
-> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook) for further information.
+> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 ## Import test users
 
-Upload some users into your Okta org using the [Password Import Inline Hook API](/docs/reference/api/users/#create-user-with-password-import-inline-hook). These users provide data to test your Inline Hook.
+Upload some users into your Okta org using the [Password Import Inline Hook API](/docs/reference/api/users/#create-user-with-password-import-inline-hook). These users provide data to test your inline hook.
 
 The example below uses sample data from the data store in the `users.js` file of your project.
 

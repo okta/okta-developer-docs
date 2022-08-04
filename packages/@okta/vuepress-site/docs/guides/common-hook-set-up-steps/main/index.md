@@ -22,7 +22,7 @@ This guide explains common set-up steps when implementing an Okta Event or Inlin
 
 ## About the common Hook set-up steps
 
-Okta Event and Inline Hooks use outbound calls, which are received and parsed by an external service to implement additional custom functionality for your Okta implementation.
+Okta event and inline hooks use outbound calls, which are received and parsed by an external service to implement additional custom functionality for your Okta implementation.
 
 A secure web server and application is a requirement to implement an Okta Event or Inline Hook, and is referred to as the external service in these guides.
 
@@ -71,7 +71,7 @@ After setting up an external service and an Event Hook or Inline Hook, you may n
 
 ### Preview tab
 
-An [Inline Hook Preview](https://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks) tab, accessible in the Admin Console, is available for the following two Inline Hooks:
+An [Inline Hook Preview](https://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks) tab, accessible in the Admin Console, is available for the following two inline hooks:
 
 * Registration Inline Hook
 * SAML Inline Hook
@@ -106,4 +106,4 @@ Review the following guides to implement a simple hook example and preview the h
 
 ## See also
 
-For background conceptual information on hooks, see [Event Hooks](/docs/concepts/event-hooks/) and [Inline Hooks](/docs/concepts/inline-hooks/).
+For background conceptual information on hooks, see [event hooks](/docs/concepts/event-hooks/) and [inline hooks](/docs/concepts/inline-hooks/).
