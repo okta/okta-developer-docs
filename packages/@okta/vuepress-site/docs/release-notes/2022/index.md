@@ -44,6 +44,7 @@ The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn)
 
 * When a client used the `private_key_jwt` client authentication method, the `max_age` and `login_hint` parameters in the authorize request were sometimes ignored. (OKTA-501110, OKTA-501104)
 * When a client used either the `private_key_jwt` or `client_secret_jwt` client authentication methods, an error occurred if the `client_id` was included in the body of the token request. (OKTA-478059)
+* When the Disable Security Question for Recovery feature was enabled and an admin used the Users API to create a user with a pre-assigned password, the magic link sent in the activation email didn't expire after the first use. (OKTA-502692)
 
 ## July
 
