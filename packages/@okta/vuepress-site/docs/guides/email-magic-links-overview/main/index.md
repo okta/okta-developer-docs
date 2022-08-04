@@ -162,7 +162,7 @@ If your user base is multilingual, consider that the Okta-branded email template
 
 Creating custom authentication email templates allows you to send a fully-branded email to a user that skips the round-trip to Identity Engine and redirects them straight to your endpoint.
 
-All Okta email templates are written using [Velocity Templating Language (VTL)](https://help.okta.com/en-us/Content/Topics/Settings/velocity-variables.htm) and use predefined variables to insert relevant values into that email. For example, Okta defines three VTL variables specific to the **Email Challenge** template:
+All Okta email templates are written using [Velocity Templating Language (VTL)](https://help.okta.com/okta_help.htm?type=oie&id=ext-velocity-variables) and use predefined variables to insert relevant values into that email. For example, Okta defines three VTL variables specific to the **Email Challenge** template:
 
 | Variable                     | Contains                                                       |
 |------------------------------|----------------------------------------------------------------|

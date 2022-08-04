@@ -58,7 +58,7 @@ Confirm that you have the email authenticator set up for password recovery by pe
 
 ## Update the Forgot Password email template
 
-Okta sends users an email based on the **Forgot Password** template when they start a password recovery. All Okta email templates are written using [Velocity Templating Language (VTL)](https://help.okta.com/en-us/Content/Topics/Settings/velocity-variables.htm) and use predefined variables to insert relevant values into that email. Okta defines three VTL variables specific to this template:
+Okta sends users an email based on the **Forgot Password** template when they start a password recovery. All Okta email templates are written using [Velocity Templating Language (VTL)](https://help.okta.com/okta_help.htm?type=oie&id=ext-velocity-variables) and use predefined variables to insert relevant values into that email. Okta defines three VTL variables specific to this template:
 
 | Variable | Contains  |
 | ---------------| ------------------------|
