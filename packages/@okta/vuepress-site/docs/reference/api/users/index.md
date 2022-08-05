@@ -4100,7 +4100,7 @@ The password specified in the value property must meet the default password poli
   - Upper case
   - Lower case
   - Digit
-- Must not contain the user's sign-in ID or parts of the sign-in ID when split on the following characters: `,`, `.`, `_`, `#`, `@`,`-`. Okta only considers the parts of the sign-in ID that contain at least four characters. Additionally, the parent domain (such as `.com` in the following example) isn't considered.<br>
+- Must not contain the user's sign-in ID or parts of the sign-in ID when split on the following characters: `,`, `.`, `_`, `#`, `@`, `-`. Okta only considers the parts of the sign-in ID that contain at least four characters. Additionally, the parent domain (such as `com` in the following example) isn't considered.<br>
 <br>
   **For example:** A user with a sign-in ID such as `isaac.brock@example.com` can't set their password as `brockR0cks!` since the password contains part of the sign-in ID: `brock`.
 
