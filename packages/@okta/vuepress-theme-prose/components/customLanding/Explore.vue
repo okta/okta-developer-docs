@@ -5,7 +5,7 @@
             <h2>Explore the integration process from end-to-end</h2>
             <p class="customLanding-explore__desc">Our step by step guides walk you through every phase of building your integration.</p>
             <div class="customLanding-explore__list">
-                <div class="customLanding-explore__item" v-for="({ id, caption, text, link }) in list">
+                <div class="customLanding-explore__item" v-for="({ id, caption, text, link, path }) in list">
                     <div class="customLanding-explore__content">
                         <div class="customLanding-explore__icon">
                             <div class="customLanding-explore__icon-item" :style="`background: url(/img/customLanding/explore-${id}.svg) no-repeat 50% 50%;`">
@@ -14,7 +14,7 @@
                         <p class="customLanding-explore__caption">{{caption}}</p>
                         <p class="customLanding-explore__text">{{text}}</p>
                     </div>
-                    <a href="#" class="customLanding-explore__link" v-if="link">{{link}}</a>
+                    <a :href="`${path}`" class="customLanding-explore__link" v-if="link">{{link}}</a>
                 </div>
             </div>
         </div>
@@ -32,19 +32,22 @@
                     id: 1,
                     caption: 'Learn',
                     text: 'Easy and secure access is a base requirement for modern apps. Understand what enterprises need and their common use cases, and understand the  technologies involved.',
-                    link: 'View Concepts'
+                    link: 'View Concepts',
+                    path: 'https://developer.okta.com/docs/concepts/'
                 },
                 {
                     id: 2,
                     caption: 'Design & Build',
                     text: 'OIN is a catalog and a support system. Our resources help you to design, build, and test your integration before you submit it for verification.',
-                    link: 'View Guides'
+                    link: 'View Guides',
+                    path: 'https://developer.okta.com/docs/guides/#publish-an-integration'
                 },
                 {
                     id: 3,
                     caption: 'Get Okta Verified',
                     text: 'From testing to running diagnostics and validation, our team works with you to get your integration reviewed and ready to publish to the OIN.',
-                    link: 'Learn more'
+                    link: 'Learn more',
+                    path: 'https://developer.okta.com/docs/guides/submit-app'
                 },
                 {
                     id: 4,
