@@ -31,7 +31,7 @@ A valid API version in the `Accept` header is required to access the API. Curren
 Accept: application/json; okta-version=1.0.0
 ```
 
-#### Access Token Assurance
+#### Access Token assurance
 
 For management API operations (writes), an Access Token older then 15 minutes will require re-authentication, otherwise API returns a 403 with the 'www-authenticate' header filled out, regardless of the expiry time of the Access Token.
 
