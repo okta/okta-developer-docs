@@ -31,7 +31,7 @@
     }
   }
   &-white {
-    background-color: cv('white');
+    background-color: cv('body', 'custom-bg-white')
   }
   &-gray {
     background-color: cv('body', 'custom-bg-gray');
@@ -44,7 +44,18 @@
 }
 
 .dark-theme {
-  .customLanding-white {
-    background-color: cv('body', 'base');
+  .customLanding {
+    &-waves {
+      &-top {
+        &:before {
+          background: url('/img/customLanding/custom-bg-gray-top-dark.svg') 50% 50% no-repeat;
+        }
+      }
+      &-bottom {
+        &:after {
+          background: url('/img/customLanding/custom-bg-gray-top-dark.svg') 50% 50% no-repeat;
+        }
+      }
+    }
   }
 }

@@ -1,11 +1,11 @@
 .customLanding {
   &-about {
     padding: 56px 0 87px;
-    color: cv('link', 'darker');
+    color: cv('header', 'nav-link');
     h2 {
       font-size: 36px;
       line-height: 45px;
-      color: cv('link', 'darker');
+      color: cv('header', 'nav-link');
       margin-top: 0;
       font-weight: 400;
       margin-bottom: 30px;
@@ -31,7 +31,7 @@
         font-weight: 600;
         margin-top: 0;
         line-height: 24px;
-        color: cv('link', 'darker');
+        color: cv('header', 'nav-link');
         margin-bottom: 11px;
       }
       span {
@@ -49,20 +49,18 @@
         line-height: 13px;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        color: cv('link', 'darker');
+        color: cv('header', 'nav-link');
         font-weight: 700;
         margin-top: 0;
       }
     }
     &__link {
-      color: cv('link');
       font-size: 14px;
       line-height: 16px;
       font-weight: 500;
       margin-top: 20px;
       span {
         display: inline-block;
-        color: cv('link');
         padding: 1px 6px;
         border-radius: 4px;
         background-color: cv('violet');

@@ -3,12 +3,11 @@
     padding: 91px 0 68px;
     &__content {
       max-width: 682px;
-      color: cv('header', 'nav-link');
       h2 {
         font-size: 36px;
         line-height: 45px;
         font-weight: 500;
-        color: cv('link', 'darker');
+        color: cv('header', 'nav-link');
         margin: 0;
       }
       h3 {
@@ -17,7 +16,7 @@
         line-height: 30px;
         margin-bottom: 0;
         font-weight: 600;
-        color: cv('link', 'darker');
+        color: cv('header', 'nav-link');
       }
       p {
         font-size: 16px;

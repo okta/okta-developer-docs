@@ -91,7 +91,9 @@
   --c-sidebar-toggle: var(--c-blue-aside-lightblue);
   --c-sidebar-before-bg: var(--c-lightgray-800);
   --c-active-router: var(--c-gray-blue);
-  --c-custom-bg-gray: var(--c-gray-sm)
+  --c-custom-bg-gray: var(--c-gray-sm);
+  --c-custom-bg-white: var(--c-white);
+  --c-custom-bg-icon: var(--c-blue-000);
 }
 
 .dark-theme {
@@ -134,6 +136,7 @@
   --c-link-bluelight: #D7D7D7;
   --c-lightgray-800: #26262D;
   --c-gray-blue: #92bcff;
+  --c-blue-000: #121212;
 
   // VARIABLES COLORS FOR DARK THEME
   --c-body-base: var(--c-gray-800);
@@ -169,6 +172,9 @@
   --c-sidebar-toggle: var(--c-blue-aside-lightblue);
   --c-sidebar-before-bg: var(--c-lightgray-800);
   --c-active-router: var(--c-gray-blue);
+  --c-custom-bg-white: var(--c-gray-800);
+  --c-custom-bg-gray: var(--c-gray-900);
+  --c-custom-bg-icon: var(--c-blue-000);
 }
 
 $colors: (
@@ -203,6 +209,8 @@ $colors: (
     "sidebar-toggle": var(--c-sidebar-toggle),
     "sidebar-before": var(--c-sidebar-before-bg),
     "custom-bg-gray": var(--c-custom-bg-gray),
+    "custom-bg-white": var(--c-custom-bg-white),
+    "custom-bg-icon": var(--c-custom-bg-icon),
   ),
   "footer": (
     "base": var(--c-footer-base),
@@ -233,7 +241,7 @@ $colors: (
     "gray": var(--c-leaden),
     "github": var(--c-link-lightblue),
     "bluelight": var(--c-link-lighterblue),
-    "active-router": var(--c-active-router)
+    "active-router": var(--c-active-router),
   ),
   "code": (
     "base": var(--c-code-base),

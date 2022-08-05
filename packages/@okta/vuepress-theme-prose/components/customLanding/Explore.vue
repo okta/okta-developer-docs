@@ -8,7 +8,8 @@
                 <div class="customLanding-explore__item" v-for="({ id, caption, text, link }) in list">
                     <div class="customLanding-explore__content">
                         <div class="customLanding-explore__icon">
-                            <img :src="`/img/customLanding/explore-${id}.svg`" />
+                            <div class="customLanding-explore__icon-item" :style="`background: url(/img/customLanding/explore-${id}.svg) no-repeat 50% 50%;`">
+                            </div>
                         </div>
                         <p class="customLanding-explore__caption">{{caption}}</p>
                         <p class="customLanding-explore__text">{{text}}</p>
