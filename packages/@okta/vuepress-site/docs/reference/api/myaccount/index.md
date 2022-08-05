@@ -33,7 +33,7 @@ Accept: application/json; okta-version=1.0.0
 
 #### Access Token assurance
 
-For management API operations (writes), an Access Token older then 15 minutes will require re-authentication, otherwise API returns a 403 with the 'www-authenticate' header filled out, regardless of the expiry time of the Access Token.
+MyAccount operations that create, update, or delete resources require Access Tokens up to 15 minutes old. API calls with Access Tokens older than 15 minutes require re-authentication. If you don't re-authenticate the token, the API returns a 403 error with the following content in the header:
 
 ```json
 www-authenticate: Bearer realm="IdpMyAccountAPI", error="insufficient_authentication_context", error_description="The access token requires additional assurance to access the resource", max_age=900
