@@ -4,7 +4,7 @@ Use the Devices SDK to add custom push verification functionality to your Androi
 
 The following image shows how data flows through the Devices SDK:
 
-<div class="full">
+<div class="three-quarter">
 
 ![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
 
@@ -30,7 +30,7 @@ Create the SDK object to work with your Okta authenticator configuration. Use th
 val authenticator: PushAuthenticator = PushAuthenticatorBuilder.create(
     ApplicationConfig(context, appName = "MyApp", appVersion = BuildConfig.VERSION_NAME)
 ) {
-    passphrase = "SecretPassphrase".toByteArray() // Secret must be stored securely 
+    passphrase = "SecretPassphrase".toByteArray() // Secret must be stored securely
 }.getOrThrow()
 ```
 
@@ -154,7 +154,7 @@ private fun remediate(remediation: PushRemediation) = runCatching {
         is UserVerification -> println("Show a biometric prompt")
         is UserVerificationError -> println("Biometric failure")
     }
-}.getOrElse { // handle error 
+}.getOrElse { // handle error
 }
 ```
 

@@ -51,7 +51,7 @@ The response contains the Push Provider response object.
   },
   "_links": {
     "self": {
-      "href": "https://{yourOktaDomain}}/api/v1/push-providers/{pushProviderId}",
+      "href": "https://${yourOktaDomain}}/api/v1/push-providers/{pushProviderId}",
       "hints": {
         "allow": [ "GET", "PUT", "DELETE"]
       }

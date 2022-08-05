@@ -42,7 +42,7 @@ The following shows a sample request:
     },
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut36ryPSDvEpomfS0g4",
+            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut36ryPSDvEpomfS0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -51,7 +51,7 @@ The following shows a sample request:
             }
         },
         "deactivate": {
-            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut36ryPSDvEpomfS0g4/lifecycle/deactivate",
+            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut36ryPSDvEpomfS0g4/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -59,7 +59,7 @@ The following shows a sample request:
             }
         },
         "methods": {
-            "href": "https://{yourOktaDomain}/api/v1/authenticators/aut36ryPSDvEpomfS0g4/methods",
+            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut36ryPSDvEpomfS0g4/methods",
             "hints": {
                 "allow": [
                     "GET"
@@ -74,36 +74,36 @@ The following shows a sample request:
 
 ```json
 {
-    “key”:“custom_app”,
-    “name”:“Custom App Authenticator”,
-    “agreeToTerms” : true,
-    “provider”: {
-        “type”:“PUSH”,
-        “configuration”: {
-          “fcm”: {
-             “id”:“ppc38rxEr5dEKqDD10g4"
+    "key":"custom_app",
+    "name":"Custom App Authenticator",
+    "agreeToTerms" : true,
+    "provider": {
+        "type":"PUSH",
+        "configuration": {
+          "fcm": {
+             "id":"ppc38rxEr5dEKqDD10g4"
             },
-        “apns”: {
-            “id”: “ppc1buciB5V7ZdcB70g4”,
-            “appBundleId”:“com.my.app.release”,
-            “debugAppBundleId”:“com.my.app.debug”
+        "apns": {
+            "id": "ppc1buciB5V7ZdcB70g4",
+            "appBundleId":"com.my.app.release",
+            "debugAppBundleId":"com.my.app.debug"
             }
         }
     },
-    “settings”: {
-     “appInstanceId”:“0oa33z6AFuYWYjdBf0g4",
-     “userVerification”:“preferred”
+    "settings": {
+     "appInstanceId":"0oa33z6AFuYWYjdBf0g4",
+     "userVerification":"preferred"
     },
-    “methods”: [
+    "methods": [
         {
-            “type”:“push”,
-            “status”:“ACTIVE”,
-            “settings”: {
-                “algorithms”: [
-                “RS256",
-                “ES256”
+            "type":"push",
+            "status":"ACTIVE",
+            "settings": {
+                "algorithms": [
+                "RS256",
+                "ES256"
                         ],
-                “keyProtection”:“ANY”
+                "keyProtection":"ANY"
                     }
         }
 ```

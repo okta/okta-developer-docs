@@ -13,7 +13,7 @@
 5. Configure the connection to the push notification service:
    * **FCM configuration:** Select the connection to the FCM service that you want the custom authenticator to use.
 6. Select the checkbox to agree to Okta's Terms and Conditions.
-   > **Note:** By adding this feature, you agree on behalf of the entity you represent that it is your sole responsibility to provide any required notices and disclosures to end users, including any necessary information from [https://www.okta.com/privacy-policy](https://www.okta.com/privacy-policy).
+   > **Note:** By adding this feature, you agree on behalf of the entity you represent that it's your sole responsibility to provide any required notices and disclosures to end users, including any necessary information from [https://www.okta.com/privacy-policy](https://www.okta.com/privacy-policy).
 7. Click **Add**.
 
 Alternatively, you can create an authenticator using the [Create Authenticator](/docs/reference/api/authenticators-admin/#create-authenticator) operation of the Authenticators Admin API.

@@ -4,7 +4,7 @@ title: Custom authenticator integration guide
 
 <ApiLifecycle access="ie" /><br>
 
-This guide explains how to create a custom authenticator, using the Devices SDK to turn your mobile app into an authenticator.
+Enable a mobile app to verify a user identity for an Okta custom authenticator.
 
 ---
 **Learning outcomes**
@@ -42,14 +42,11 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 
 **Install and configure the Okta Devices SDK**
 
-1. [Install the dependency](#install-the-dependency): Add the Okta Devices SDK dependency to your `build.gradle` file.
-2. [Initialize the client](#initialize-the-client): Create the SDK object to work with your Okta authenticator configuration.
-3. [Enroll the device](#enroll-the-device): Register a device and optional biometrics with an account for use with the custom authenticator.
-4. [Respond to a challenge](#respond-to-a-challenge): Resolve a delivered challenge from the custom authenticator or retrieve an undelivered challenge. Refresh the FCM device registration token, remediate changed biometrics, and deregister the account on the device.
+<StackSnippet snippet="installandcongfiguresdk" />
 
 The following image shows what the Devices SDK enables for end users:
 
-<div class="three-quarter">
+<div class="half">
 
 ![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
 
@@ -59,7 +56,7 @@ The following image shows what the Devices SDK enables for end users:
 
 The following image shows the Devices SDK setup in the Admin Console:
 
-<div class="three-quarter">
+<div class="half">
 
 ![Custom authenticator Admin Console](/img/authenticators/authenticators-custom-authenticator-admin-console.png)
 
@@ -71,13 +68,14 @@ The simplest way to integrate authentication in your app is with OIDC through a 
 
 ### Grant the required scopes
 
-> **Note:** You must use an Org Authorization Server to grant the scopes needed to create a custom authenticator. Custom Authorization Servers (including the default Custom Authorization Server) don't work.
+> **Note:** You must use an [Org Authorization Server](https://developer.okta.com/docs/concepts/auth-servers/#available-authorization-server-types) to grant the scopes needed to create a custom authenticator. Custom Authorization Servers (including the default Custom Authorization Server) don't work.
 
 When you are ready to grant the required scopes, follow these steps:
 
-1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
-2. Open your OpenID Connect client app.
-3. On the **Okta API Scopes** tab, click **Grant** for the following scopes:
+1. Sign in to your Okta organization with your administrator account.
+2. Select **Applications** > **Applications** to see a list of your app integrations.
+3. Open your OpenID Connect client app.
+4. On the **Okta API Scopes** tab, click **Grant** for the following scopes:
    * For access to both GET and POST/DELETE endpoints:
       * `okta.authenticators.manage.self`
    * For access to GET endpoints only:
@@ -96,7 +94,7 @@ Alternatively, you can grant scopes using the [Grant consent to scope for applic
 
 ### Set up a global session policy and authentication policy
 
-You need to set up a global session policy and an authentication policy to integrate with the Devices SDK. See [Configure a global session policy and authentication policy](/docs/guides/configure-signon-policy/main/).
+You need to set up a global session policy and an authentication policy to integrate with the Devices SDK. For more information on policies, see [Configure a global session policy and authentication policy](/docs/guides/configure-signon-policy/main/).
 
 ## Install and configure the Okta Devices SDK
 
