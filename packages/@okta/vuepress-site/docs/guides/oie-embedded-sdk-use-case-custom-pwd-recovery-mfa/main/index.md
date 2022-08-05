@@ -66,6 +66,8 @@ Okta sends users an email based on the **Forgot Password** template when they st
 | `${request.relayState}` | The current SAML [relaystate](https://developer.okta.com/docs/concepts/saml/#understanding-sp-initiated-sign-in-flow) value |
 | `${resetPasswordLink}` | The Okta-hosted URL that continues the password recovery flow |
 
+> **Note**: The `${oneTimePassword}` and `${request.relayState}` variables are not supported in the **Password Reset by Admin** template. As a result, you cannot use this template in the custom password recovery flow described in this guide.
+
 By default, the magic link in the template is set to `${resetPasswordLink}`. You must update it to an endpoint in your application that expects `${oneTimePassword}` and `${request.relayState}` as query parameters and uses them to continue the password recovery flow:
 
 1. In the Admin Console, go to **Customizations > Emails**.
