@@ -56,7 +56,6 @@ For external integration examples, refer to:
 * [New Relic integration with Okta](https://www.okta.com/integrations/new-relic-by-organization/)
 * [Sumo Logic integration with Okta](https://www.okta.com/integrations/sumologic/)
 
-
 > **NOTE**: During the integration setup, use the Admin Console for verification or troubleshooting purposes. Compare the system logs from the Admin Console with the system logs received in your external monitoring tool.
 
 ## Send alerts to an external service
