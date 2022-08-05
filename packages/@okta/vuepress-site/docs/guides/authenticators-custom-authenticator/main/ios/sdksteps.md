@@ -129,7 +129,7 @@ func enrollDevice() {
 }
 ```
 
-If your app isn't configured to receive push notifications or the APNs token isn't available yet, use a value of `DeviceToken.empty` for the `deviceToken` argument of `EnrollmentParameters`.
+If your app isn't configured to receive push notifications or the device token isn't available yet, use a value of `DeviceToken.empty` for the `deviceToken` argument of `EnrollmentParameters`.
 
 ### Update the push notification token
 
@@ -200,7 +200,7 @@ func unenrollDevice(_ enrollment: AuthenticatorEnrollmentProtocol, localOnly: Bo
 
 When the custom authenticator is used during a sign-in attempt, Okta creates a *push challenge*, a notification that requests the user to verify their identity. This challenge is sent to the user's enrolled devices.
 
-You can enable Notification Actions by providing action titles when you initialize the client. The titles are the names of the different selections that appear when a user long-presses a notification. The following code shows the additional lines for the `initOktaDeviceAuthenticator()` shown in [Initialize the client](#_initialize_the_client):
+Specify action titles when you initialize the client to enable actionable notifications. The titles are the names of the different selections that appear when a user taps and holds a notification. The following code shows the additional lines for the `initOktaDeviceAuthenticator()` shown in [Initialize the client](#_initialize_the_client):
 
 ```swift
 func initOktaDeviceAuthenticator() {
@@ -215,13 +215,13 @@ func initOktaDeviceAuthenticator() {
         ...
 ```
 
-The first two titles are the actions in the notification that requests a user confirms they're trying to sign-in. The third is the action for a biometric verification. Replace `YourAppName` with the name of your app which you can read from the `CFBundleName` key of the `Info.plist` file in your main bundle.
+The first two titles are the actions for the notification that requests a user confirms they're trying to sign-in. The third is the action for a biometric verification. Replace `YourAppName` with the name of your app which you can read from the `CFBundleName` key of the `Info.plist` file in your main bundle.
 
 #### Check for a challenge
 
 When a notification arrives the first step is to check if it's a Devices SDK challenge. Call the appropriate Devices SDK function to create a `PushChallengeProtocol` from the notification. If the result is an object, continue processing the challenge. If it's `nil` then the notification is not part of the Devices SDK.
 
-Call `parsePushNotificationResponse(_:allowedClockSkewInSeconds:)` if you added action titles, otherwise call `parsePushNotification(_:allowedClockSkewInSeconds:)` to create the push challenge. `allowedClockSkewInSeconds` is optional. The following code shows handling a notification that's sent when the app is inactive:
+Use `parsePushNotificationResponse(_:allowedClockSkewInSeconds:)` when a notification arrives when your app is in the background or inactive. Use `parsePushNotification(_:allowedClockSkewInSeconds:)` when a notification arrives when your app is in the foreground. The `allowedClockSkewInSeconds` parameter is optional. The following code shows handling a notification that's sent when the app is inactive:
 
 ```swift
 func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -270,7 +270,7 @@ func resolvePushChallenge(_ challenge: PushChallengeProtocol) {
 }
 ```
 
-If you specified action titles and the user selected one, the SDK handles the rest of the step when you call `resolve` and returns a result that triggers the `default` case in the switch statement.
+If you enabled actionable notifications by providing action titles and the user selected an action, the Devices SDK handles the consent step. When this happens, the call to `resolve` doesn't return a consent step.
 
 Your app must implement a UI for the user to respond to a user consent notification even if you provide titles for the notification actions. For example, a user may only tap the notification to go directly to your app instead of a selecting an action. However you determine the user's choice, the last step is to enable the Devices SDK to inform the server by calling `provide(_)`:
 
