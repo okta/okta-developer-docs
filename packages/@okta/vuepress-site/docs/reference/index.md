@@ -16,7 +16,7 @@ The Core Okta API is the primary way that apps and services interact with Okta. 
 
 ## Okta hooks
 
-Okta Event and inline hooks allow you to integrate custom functionality into specific Okta process flows. Event Hooks send Okta events of interest to your systems as they occur, just like a webhook. inline hooks allow developers to modify in-flight Okta processes with custom logic and data from a non-Okta source. For example, you can migrate users from another data store and keep the user’s current password with a [password inline hook](/docs/reference/password-hook/).
+Okta Event and inline hooks allow you to integrate custom functionality into specific Okta process flows. event hooks send Okta events of interest to your systems as they occur, just like a webhook. inline hooks allow developers to modify in-flight Okta processes with custom logic and data from a non-Okta source. For example, you can migrate users from another data store and keep the user’s current password with a [password inline hook](/docs/reference/password-hook/).
 
 ## Okta Expression Language
 

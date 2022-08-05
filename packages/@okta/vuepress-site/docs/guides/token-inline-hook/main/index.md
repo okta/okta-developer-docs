@@ -171,7 +171,7 @@ The token inline hook is now ready for testing. You now have the following appli
 
 ## Next steps
 
-Review the following guides to implement other Inline or Event Hook examples:
+Review the following guides to implement other inline or event hook examples:
 
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Registration inline hook](/docs/guides/registration-inline-hook/)

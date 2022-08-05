@@ -120,7 +120,7 @@ When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threa
 | [Identity Providers API response includes ID token for generic OIDC provider](#identity-providers-api-response-includes-id-token-for-generic-oidc-provider) | November 3, 2021 |
 | [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
 | [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
-| [Event Hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
+| [Event hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
 | [Device Authorization grant type is now GA in Preview](#device-authorization-grant-type-is-now-ga-in-preview)                          | November 3, 2021          |
 | [Key pair additions to JWKS limited to 50 per client](#key-pair-additions-to-jwks-limited-to-50-per-client) | November 3, 2021 |
 | [Authentication API returns UD User Profile locale is GA in Production](#authentication-api-returns-ud-user-profile-locale-is-ga-in-production) | October 6, 2021 |
@@ -142,9 +142,9 @@ The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-o
 
 Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
 
-#### Event Hooks daily limit
+#### Event hooks daily limit
 
-The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+The maximum allowable daily limit of event hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of event hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
 
 #### Device Authorization grant type is now GA in Preview
 
@@ -446,9 +446,9 @@ The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#un
 
 You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/). <!--OKTA-406626-->
 
-#### Event Hook preview tab is now GA in Preview
+#### Event hook preview tab is now GA in Preview
 
-Event Hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
+Event hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
 
 #### Bugs fixed in 2021.07.0
 
@@ -836,13 +836,13 @@ The Okta Org API is now available in Self-Service EA. This API allows you to man
 
 #### Automatically mark a flow hook as "VERIFIED"
 
-When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` for an [Event Hook](/docs/reference/api/event-hooks/) that has an Okta Workflows endpoint configured, the Event Hook is automatically marked as "VERIFIED". The verification step isn't required.<!--OKTA-364393-->
+When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` for an [Event hook](/docs/reference/api/event-hooks/) that has an Okta Workflows endpoint configured, the event hook is automatically marked as "VERIFIED". The verification step isn't required.<!--OKTA-364393-->
 
 #### Event Hook preview tab now in Early Access (EA)
 
-Event Hooks configured in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
+Event hooks configured in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
 
-Previewing the JSON body of the Event Hook assists developers or administrators create or troubleshoot the request syntax. The JSON body can also be edited for different request scenarios.
+Previewing the JSON body of the event hook assists developers or administrators create or troubleshoot the request syntax. The JSON body can also be edited for different request scenarios.
 
 See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).<!--OKTA-364119-->
 

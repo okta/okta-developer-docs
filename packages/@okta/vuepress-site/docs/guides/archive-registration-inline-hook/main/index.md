@@ -118,7 +118,7 @@ To run a test of your registration inline hook, go to the Okta sign-in page for 
 
 ## Next steps
 
-Review the following guides to implement other Inline or Event Hook examples:
+Review the following guides to implement other inline or event hook examples:
 
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Password import inline hook](/docs/guides/password-import-inline-hook/)

@@ -179,7 +179,7 @@ When you click **Sign in**, you are prompted for an additional factor to either 
 
 ## Next steps
 
-Review the following guides to implement other Inline or Event Hook examples:
+Review the following guides to implement other inline or event hook examples:
 
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/)
