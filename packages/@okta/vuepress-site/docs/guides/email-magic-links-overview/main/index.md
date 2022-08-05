@@ -220,6 +220,7 @@ You can customize four email templates this way. These are listed in the table b
 | Forgot Password | Self-service password recovery | `${resetPasswordUrl}`           | `${oneTimePassword}`   |
 | Registration - Activation | Self-service registration | `${registrationActivationLink}` | `${oneTimePassword}`   |
 | Email factor verification | Sign in with email - enrollment | `${verificationLink}` | `${verificationToken}` |
+| Self-Service Unlock Account | Self-service unlock account| `${unlockAccountLink}` | `${oneTimePassword}` |
 
 When a user clicks the magic link based on a customized email template, their browser is redirected straight to your application's endpoint:
 
