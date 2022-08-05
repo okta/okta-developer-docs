@@ -4095,15 +4095,16 @@ When a user has a valid password, or imported hashed password, or password hook,
 
 The password specified in the value property must meet the default password policy requirements:
 
-- Must be a minimum of 8 characters
+- Must be a minimum of eight characters
 - Must have a character from the following groups:
   - Upper case
   - Lower case
   - Digit
-- Must not contain the user's login or parts of the the login when split on the following characters: `,` `.` `_` `#` `@`
-  - *For example, a user with login `isaac.brock@example.com` will not be able set password brockR0cks! as the password contains the login part `brock`.*
+- Must not contain the user's sign-in ID or parts of the sign-in ID when split on the following characters: `,`, `.`, `_`, `#`, `@`, `-`. Okta only considers the parts of the sign-in ID that contain at least four characters. Additionally, the parent domain (such as `com` in the following example) isn't considered.<br>
+<br>
+  **For example:** A user with a sign-in ID such as `isaac.brock@example.com` can't set their password as `brockR0cks!` since the password contains part of the sign-in ID: `brock`.
 
-> Password policy requirements can be modified in the administrator UI *(Security -> Policies)*
+> **Note:** You can modify password policy requirements in the Admin Console at **Security** > **Policies**.
 
 ##### Hashed Password object
 
