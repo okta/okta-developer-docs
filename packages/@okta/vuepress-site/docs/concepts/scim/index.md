@@ -126,7 +126,7 @@ If you want to read more about how to use the Okta Admin Console to set up provi
 * [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
 * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [Create a SCIM integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim)
-* [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts)
+* [Provisioning Concepts](https://support.okta.com/help/s/article/okta-provisioning?language=en_US)
 * [Configuring On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure)
 * IETF [Overview and Specification of the SCIM Protocol](http://www.simplecloud.info/)
 
