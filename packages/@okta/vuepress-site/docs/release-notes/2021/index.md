@@ -452,7 +452,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 #### Bugs fixed in 2021.07.0
 
-- The IdP claim wasn't available in the `id_token` or included with the Token Inline Hook request. (OKTA-407459)
+- The IdP claim wasn't available in the `id_token` or included with the token inline hook request. (OKTA-407459)
 
 - When the Users lifecycle API `users/{{userId}}/lifecycle/reset_factors` was called to reset user factors, a status 403 error was received, even with a valid bearer token and scope (`okta.users.manage`). (OKTA-404613)
 

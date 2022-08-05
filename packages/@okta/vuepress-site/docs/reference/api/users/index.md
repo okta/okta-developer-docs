@@ -366,16 +366,16 @@ curl -v -X POST \
 }
 ```
 
-#### Create User with Password Import Inline Hook
+#### Create User with password import inline hook
 
 
-Creates a user with a [Password Hook](#password-hook-object) object specifying that a Password Inline Hook should be used to handle password verification.
+Creates a user with a [Password Hook](#password-hook-object) object specifying that a password inline hook should be used to handle password verification.
 
-The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
+The password inline hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the password inline hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password import inline hook](/docs/reference/password-hook/) for more details.
 
 The new user is able to sign in after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
-> **Important:** Don't generate or send a one-time activation token when activating users with an Password Inline Hook. Users should sign in with their existing password to be imported using the Password Import Inline Hook.
+> **Important:** Don't generate or send a one-time activation token when activating users with an password inline hook. Users should sign in with their existing password to be imported using the password import inline hook.
 
 ##### Request example
 
@@ -4186,7 +4186,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 
 ##### Password Hook object
 
-Specifies that a [Password Import Inline Hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
+Specifies that a [password import inline hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
 
 When updating a user with a password hook the user must be in the `STAGED` status.
 
@@ -4194,7 +4194,7 @@ When updating a user with a password hook the user must be in the `STAGED` statu
 
 | Property   | DataType | Description                                                                                                                                                                                | Required                                                                      | Min Value                      | Max Value                      |
 |:-----------|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------|:-------------------------------|:-------------------------------|
-| type  | String   | The type of Password Inline Hook. Currently, must be set to default.                                                                                            | TRUE                                                                          | N/A                            | N/A                            |
+| type  | String   | The type of password inline hook. Currently, must be set to default.                                                                                            | TRUE                                                                          | N/A                            | N/A                            |
 
 ###### Password Hook object example
 

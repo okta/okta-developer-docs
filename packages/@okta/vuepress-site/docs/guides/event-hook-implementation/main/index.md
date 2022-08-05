@@ -154,12 +154,12 @@ To run a test of your Event Hook:
 
 ## Next steps
 
-Review the following guides to implement other Inline Hook examples:
+Review the following guides to implement other inline hook examples:
 
-* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
-* [Registration Inline Hook](/docs/guides/registration-inline-hook/)
-* [Token Inline Hook](/docs/guides/token-inline-hook/)
+* [Password import inline hook](/docs/guides/password-import-inline-hook/)
+* [Registration inline hook](/docs/guides/registration-inline-hook/)
+* [Token inline hook](/docs/guides/token-inline-hook/)
 
 ## See also
 
-For background conceptual information on Event Hooks, see [Event Hooks](/docs/concepts/event-hooks/).
+For background conceptual information on Event Hooks, see [event hooks](/docs/concepts/event-hooks/).

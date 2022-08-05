@@ -5,7 +5,7 @@ excerpt: Customize tokens returned by the Okta API Access Management process flo
 
 # Token inline hook reference
 
-This page provides reference documentation for token inline hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
+This page provides reference documentation for token inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
@@ -13,23 +13,23 @@ For a general introduction to Okta inline hooks, see [inline hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see below, [Enabling a Token Inline Hook](#enabling-a-token-inline-hook).
+For steps to enable this inline hook, see below, [Enabling a token inline hook](#enabling-a-token-inline-hook).
 
-For an example implementation of this Inline Hook, see [Token Inline Hook](/docs/guides/token-inline-hook).
+For an example implementation of this inline hook, see [Token inline hook](/docs/guides/token-inline-hook).
 
 ## About
 
-This type of Inline Hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token or to modify existing claims.
+This type of inline hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token or to modify existing claims.
 
 This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
 In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid.
 
-This Inline Hook works only when using an [Okta Custom Authorization Server](/docs/guides/customize-authz-server/main/#create-an-authorization-server), not the built-in Okta Authorization Server.
+This inline hook works only when using an [Okta Custom Authorization Server](/docs/guides/customize-authz-server/main/#create-an-authorization-server), not the built-in Okta Authorization Server.
 
 ## Objects in the request from Okta
 
-For the Token Inline Hook, the outbound call from Okta to your external service includes the following objects in its JSON payload:
+For the token inline hook, the outbound call from Okta to your external service includes the following objects in its JSON payload:
 
 ### data.identity
 
@@ -66,7 +66,7 @@ The set of scopes that have been granted. For descriptions of the scopes that ca
 
 ## Objects in the response that you send
 
-For the Token Inline Hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
+For the token inline hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
 
 ### commands
 
@@ -83,7 +83,7 @@ In the case of the Token hook type, the `value` property is itself a nested obje
 
 #### Supported commands
 
-The following commands are supported for the Token Inline Hook type:
+The following commands are supported for the token inline hook type:
 
 | Command                 | Description             |
 |-------------------------|-------------------------|
@@ -730,9 +730,9 @@ After receiving the Okta request, if there is a response timeout, the Okta proce
 
 ## Enabling a token inline hook
 
-To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-You then need to associate the registered Inline Hook with a Custom Authorization Server Policy Rule by completing the following steps:
+You then need to associate the registered inline hook with a Custom Authorization Server Policy Rule by completing the following steps:
 
 1. Go to **Security > API > Authorization Servers**.
 
@@ -740,13 +740,13 @@ You then need to associate the registered Inline Hook with a Custom Authorizatio
 
 1. Select **Access Policies** and select a policy to use with the hook. In most cases, just pick the Default Policy.
 
-1. One of the policy's rules needs to trigger the Inline Hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.
+1. One of the policy's rules needs to trigger the inline hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.
 
 1. Click the **Use this Inline Hook** dropdown menu. Any inline hooks you have registered are listed. Select the hook you would like to use.
 
 1. Click **Update Rule**.
 
-> **Note:** Only one Inline Hook can be associated with each rule.
+> **Note:** You can associate only one inline hook with each rule.
 
 ## Troubleshooting
 

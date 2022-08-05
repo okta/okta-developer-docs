@@ -177,10 +177,10 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 6. Customize Okta process flows with event or inline hooks
 
-    * [Event Hook example](/docs/guides/event-hook-implementation/)
-    * [Token Inline Hook example](/docs/guides/token-inline-hook/)
-    * [Password Import Inline Hook example](/docs/guides/password-import-inline-hook/)
-    * [Registration Inline Hook example](/docs/guides/registration-inline-hook/)
+    * [Event hook example](/docs/guides/event-hook-implementation/)
+    * [Token inline hook example](/docs/guides/token-inline-hook/)
+    * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
+    * [Registration inline hook example](/docs/guides/registration-inline-hook/)
 
 ## Publish an integration
 
