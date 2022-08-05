@@ -1,13 +1,13 @@
 ---
-title: User Import Inline Hook reference
+title: User import inline hook reference
 excerpt: Add custom logic to the user import process.
 ---
 
-# User Import Inline Hook reference
+# User import inline hook reference
 
 <ApiLifecycle access="ea" />
 
-This page provides reference documentation for user import inline hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta, and sample JSON objects that you can include in your response.
+This page provides reference documentation for user import inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta, and sample JSON objects that you can include in your response.
 
 ## See also
 
@@ -75,7 +75,7 @@ The `commands` object is where you can provide commands to Okta. It is an array,
 
 #### Supported commands
 
-The following commands are supported for the User Import Inline Hook type:
+The following commands are supported for the user import inline hook type:
 
 | Command                         | Description                                                                                                              |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -152,7 +152,7 @@ When you return an error object, it should contain an `errorSummary` sub-object:
 
 Returning an error object will cause Okta to record a failure event in the Okta System Log. The string you supplied in the `errorSummary` property of the `error` object will be recorded in the System Log event.
 
->**Note:** If a response to the Import Inline Hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta import process continues and the user is created.
+>**Note:** If a response to the import inline hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta import process continues and the user is created.
 
 ## Timeout behavior
 
@@ -290,8 +290,8 @@ You then need to associate the registered inline hook with an app by completing 
 
 1. From the Settings column on the left side of the screen, select **To Okta**.
 
-1. In the **Inline Hooks** section, click the **User Creation** drop-down menu. Inline hooks that you've registered appears in the list. Select the Inline Hook to use.
+1. In the **Inline Hooks** section, click the **User Creation** drop-down menu. Inline hooks that you've registered appears in the list. Select the inline hook to use.
 
 1. Click **Save**.
 
-> **Note:** The above procedure for associating a User Import Inline Hook with an app using Admin Console cannot be used with AD or LDAP.
+> **Note:** The above procedure for associating a user import inline hook with an app using Admin Console cannot be used with AD or LDAP.

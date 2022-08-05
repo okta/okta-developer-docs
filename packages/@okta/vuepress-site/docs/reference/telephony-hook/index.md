@@ -14,19 +14,19 @@ This page provides reference documentation for telephony inline hooks, one type 
 
 - For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/) or [Add an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook).
 
-- For a use case example of how to implement a Telephony Inline Hook, see [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/).
+- For a use case example of how to implement a telephony inline hook, see [Telephony inline hook with Twilio](/docs/guides/telephony-inline-hook/).
 
 ## About
 
-The Okta Telephony Inline Hook allows you to integrate your own custom code into several of Okta's flows that send SMS or Voice (CALL) messages. You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the One-Time Passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and your service can respond with commands that indicate success or failure in delivering the OTP.
+The Okta telephony inline hook allows you to integrate your own custom code into several of Okta's flows that send SMS or Voice (CALL) messages. You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the One-Time Passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and your service can respond with commands that indicate success or failure in delivering the OTP.
 
-You can have only one active Telephony Inline Hook per org.
+You can have only one active telephony inline hook per org.
 
-When you create a Telephony Inline Hook, you must include the `authScheme` parameter. See [Create Inline Hook](/docs/reference/api/inline-hooks/#create-inline-hook) and the [authScheme object](/docs/reference/api/inline-hooks/#authscheme-object).
+When you create a telephony inline hook, you must include the `authScheme` parameter. See [Create inline hook](/docs/reference/api/inline-hooks/#create-inline-hook) and the [authScheme object](/docs/reference/api/inline-hooks/#authscheme-object).
 
 ## Objects in the request from Okta
 
-For the Telephony Inline Hook, the outbound call from Okta to your external service includes the following objects in its JSON payload:
+For the telephony inline hook, the outbound call from Okta to your external service includes the following objects in its JSON payload:
 
 ### requestType
 OTP request or event for which this transaction is being requested: authentication, enrollment, recovery
@@ -66,7 +66,7 @@ Provides information on the properties of the message being sent to the OTP requ
 
 ## Objects in the response that you send
 
-For the Telephony Inline Hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
+For the telephony inline hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
 
 ### commands
 
@@ -83,7 +83,7 @@ The `value` property is itself a nested object in which you specify a status, pr
 
 #### Supported commands
 
-The following commands are supported for a Telephony Inline Hook:
+The following commands are supported for a telephony inline hook:
 
 | Command                 | Description             |
 |-------------------------|-------------------------|
@@ -232,6 +232,6 @@ This section covers what happens when a telephony inline hook flow fails either 
 
   - Using an invalid status in the response
 
-  - Attempting to add an active Telephony Inline Hook when one already exists
+  - Attempting to add an active telephony inline hook when one already exists
 
   - Not including the `authScheme` in the request header

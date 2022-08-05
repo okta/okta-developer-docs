@@ -13,7 +13,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [PKCE validation for OIDC app integrations is GA in Preview](#pkce-validation-for-oidc-app-integrations-is-ga-in-preview) | July 7, 2022|
 | [Configurable API token rate limits is GA in Production](#configurable-api-token-rate-limits-is-ga-in-production) | July 7, 2022|
 | [Rate Limits dashboard includes API Token data](#rate-limits-dashboard-includes-api-token-data) | August 3, 2022|
-| [Telephony Inline Hook is LGA in Production](#telephony-inline-hook-is-lga-in-production) | March 30, 2022|
+| [Telephony inline hook is LGA in Production](#telephony-inline-hook-is-lga-in-production) | March 30, 2022|
 | [System Log updates for telephony operations](#system-log-updates-for-telephony-operations) | August 3, 2022|
 | [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
 | [Updates to default global session policy](#updates-to-default-global-session-policy) | August 3, 2022|
@@ -34,9 +34,9 @@ Admins can now configure a percentage rate limit capacity for individual API tok
 
 The Rate Limits dashboard now includes API Token data on the Rate limit usage over time graph. You can view bar graph data from API tokens or by IP address to review any spike in traffic. See [bar graph](/docs/reference/rl-dashboard/#bar-graph) and [API rate limits by token](/docs/reference/rate-limits/#api-rate-limits-by-token). <!-- OKTA-498252 -->
 
-#### Telephony Inline Hook is LGA in Production
+#### Telephony inline hook is LGA in Production
 
-While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The Telephony Inline Hook allows customers to generate One-Time Passcodes within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/). <!-- OKTA-518233 -->
+While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The telephony inline hook allows customers to generate One-Time Passcodes within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony inline hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/). <!-- OKTA-518233 -->
 
 #### System Log updates for telephony operations
 
@@ -130,7 +130,7 @@ When redirecting applications, you can use the [loading page variant property](/
 
 #### Progressive enrollment is GA in Production
 
-Typically, collecting end-user data during the initial sign-up process creates friction and abandonment. The addition of the Progressive Enrollment feature helps you to capture the minimum user information required to create a profile and then continually build out those user profiles during subsequent sign-in operations. Admins can control what information is collected, validate those input values, and trigger inline hooks during the self-service registration and progressive enrollment flows. See [Registration of end users](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies) and [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/). <!-- OKTA-508479 -->
+Typically, collecting end-user data during the initial sign-up process creates friction and abandonment. The addition of the Progressive Enrollment feature helps you to capture the minimum user information required to create a profile and then continually build out those user profiles during subsequent sign-in operations. Admins can control what information is collected, validate those input values, and trigger inline hooks during the self-service registration and progressive enrollment flows. See [Registration of end users](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies) and [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/). <!-- OKTA-508479 -->
 
 #### PKCE validation for OIDC app integrations is Self-Service EA in Preview
 
@@ -235,7 +235,7 @@ The mandatory `profileAttributes` parameter wasn't validated and the primary `em
 | [Regular expression support for matching users with a generic inbound OIDC IdP](#regular-expression-support-for-matching-users-with-a-generic-inbound-oidc-idp) | June 8, 2022|
 | [Signed request support for generic SAML IdP is EA in Preview](#signed-request-support-for-generic-saml-idp-is-ea-in-preview) | June 8, 2022|
 | [System Log events for telephony rate limit violations](#system-log-events-for-telephony-rate-limit-violations) | June 8, 2022|
-| [Telephony Inline Hook is GA in Preview](#telephony-inline-hook-is-ga-in-preview) | March 30, 2022|
+| [Telephony inline hook is GA in Preview](#telephony-inline-hook-is-ga-in-preview) | March 30, 2022|
 | [User-scoped MyAccount API is GA in Preview](#user-scoped-myaccount-api-is-ga-in-preview) | May 11, 2022|
 | [Bugs fixed in 2022.06.0](#bugs-fixed-in-2022-06-0) | June 8, 2022 |
 
@@ -283,9 +283,9 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 Telephony `system.sms.send.*` and `system.voice.send.*` events are now issued as a `DENY` System Log message when SMS or Voice messages are blocked due to telephony operational rate limit violations. The `system.operation.rate_limit.violation` event is still fired, but will be deprecated in the 2022.08.0 release. See the [System Log API](/docs/reference/api/system-log/). <!-- OKTA-498664 -->
 
-#### Telephony Inline Hook is GA in Preview
+#### Telephony inline hook is GA in Preview
 
-While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The Telephony Inline Hook allows customers to generate One-Time Passcodes within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/). <!-- OKTA-491573 -->
+While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The telephony inline hook allows customers to generate One-Time Passcodes within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony inline hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/). <!-- OKTA-491573 -->
 
 #### User-scoped MyAccount API is GA in Preview
 
@@ -334,7 +334,7 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 #### Progressive Enrollment is EA in Preview
 
-Typically, collecting end-user data during the initial sign-up process creates friction and abandonment. The addition of the Progressive Enrollment feature helps you to capture the minimum user information required to create a profile and then continually build out those user profiles during subsequent sign-in operations. Admins can control what information is collected, validate those input values, and trigger inline hooks during the self-service registration and progressive enrollment flows. See [Registration of end users](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies) and [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/).
+Typically, collecting end-user data during the initial sign-up process creates friction and abandonment. The addition of the Progressive Enrollment feature helps you to capture the minimum user information required to create a profile and then continually build out those user profiles during subsequent sign-in operations. Admins can control what information is collected, validate those input values, and trigger inline hooks during the self-service registration and progressive enrollment flows. See [Registration of end users](https://help.okta.com/okta_help.htm?type=oie&id=ext-pe-policies) and [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/).
 
 #### The API for suppressing email notifications is EA in Preview
 
@@ -438,7 +438,7 @@ Passwords are weak authenticators and prone to security issues. Currently all us
 | [Improved email magic link authentication experience is EA in Preview](#improved-email-magic-link-authentication-experience-is-ea-in-preview) | March 30, 2022 |
 | [Password as an optional authenticator is EA in Preview](#password-as-an-optional-authenticator-is-ea-in-preview) | March 30, 2022 |
 | [Native SSO support is EA in Preview](#native-sso-support-is-ea-in-preview) | March 30, 2022 |
-| [Telephony Inline Hook is EA in Preview](#telephony-inline-hook-is-ea-in-preview) | March 30, 2022 |
+| [Telephony inline hook is EA in Preview](#telephony-inline-hook-is-ea-in-preview) | March 30, 2022 |
 | [Splunk available for Log Streaming is EA in Preview](#splunk-available-for-log-streaming-is-ea-in-preview) | March 30, 2022 |
 | [Burst rate limits available on Rate Limit Dashboard](#burst-rate-limits-available-on-rate-limit-dashboard) | March 30, 2022 |
 | [OAuth 2.0 Push Authorization Requests](#oauth-2-0-push-authorization-requests) | March 30, 2022 |
@@ -461,9 +461,9 @@ Single Sign-On (SSO) between browser-based web apps is achieved by leveraging sh
 
 Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/).
 
-#### Telephony Inline Hook is EA in Preview
+#### Telephony inline hook is EA in Preview
 
-While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The Telephony Inline Hook allows customers to generate One-Time Passcodes within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony Inline Hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/).
+While Okta provides out-of-the-box telephony functionality, many customers need the ability to integrate their existing telecommunications provider with Okta to deliver SMS and Voice messages. The telephony inline hook allows customers to generate One-Time Passcodes within Okta, and then use their existing telecommunications provider to deliver the messages for MFA enrollment/verification, password reset, and account unlock. This allows customers to use their existing telephony solution within Okta, due to the time they've already invested in their existing telephony solution, the need to use a specific regional provider, or simply the desire to maintain flexibility. See [Telephony inline hook with Twilio](/docs/guides/telephony-inline-hook/nodejs/main/).
 
 #### Splunk available for Log Streaming is EA in Preview
 

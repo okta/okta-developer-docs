@@ -29,7 +29,7 @@ Migrate users into Okta as they authenticate using Password Import inline hooks.
 
 ## Migration Program Plan
 
-A migration program utilizes Okta's [Password Import Inline Hook](/docs/reference/password-hook/) feature to seamlessly migrate users as they authenticate. The broad strokes look like:
+A migration program uses Okta's [password import inline hook](/docs/reference/password-hook/) feature to seamlessly migrate users as they authenticate. The broad strokes look like:
 
 1. Create all the users from the legacy system in Okta with a provider set to: `IMPORT`. **NOTE:** This can be done in bulk and does NOT require individual user credentials.
 2. Optional: Create groups and applications in Okta. Assign users to groups and assign groups and users to applications
@@ -40,7 +40,7 @@ Typically, you run a migration program like this for a set period of time, say 6
 
 ## Create all the users in Okta
 
-You can create users in Okta, without credentials, in a state ready for migration as outlined in the [Create User with Password Import Inline Hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) section of the docs.
+You can create users in Okta, without credentials, in a state ready for migration as outlined in the [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) section of the docs.
 
 ### Request Example
 
@@ -126,7 +126,7 @@ If your application determines the credentials are correct against the legacy sy
 
 Okta will then set the supplied password in its backend (properly hashed) and transition the `credentials.provider.type` value from `IMPORT` to `OKTA`. This User is now fully migrated to Okta. From this point forward, when that particular user authenticates, your password hook will no longer be called.
 
-For more information on the Request from Okta and types of Responses your application can return to Okta, visit the [Password Import Inline Hook Reference](/docs/reference/password-hook/).
+For more information on the Request from Okta and types of Responses your application can return to Okta, visit the [Password import inline hook reference](/docs/reference/password-hook/).
 
 ## Register the inline password hook application
 

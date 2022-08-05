@@ -1,20 +1,20 @@
 ---
-title: Telephony Inline Hook with Twilio
-excerpt: Learn how to easily implement a Telephony Inline hook
+title: Telephony inline hook with Twilio
+excerpt: Learn how to easily implement a telephony inline hook
 layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
 
-This guide provides a working example of an Okta Telephony Inline Hook. It uses the web site [Glitch](https://glitch.com/) to act as an external service and uses Twilio as the telephony provider that receives and responds to SMS and Voice Inline Hook calls.
+This guide provides a working example of an Okta telephony inline hook. It uses the web site [Glitch](https://glitch.com/) to act as an external service and uses Twilio as the telephony provider that receives and responds to SMS and voice inline hook calls.
 
 ---
 
 **Learning outcomes**
 
-* Understand the Okta Telephony Inline Hook calls and responses.
-* Implement a simple working example of a Telephony Inline Hook using a Glitch.com project.
-* Preview and test the Telephony Inline Hook.
+* Understand the Okta telephony inline hook calls and responses.
+* Implement a simple working example of a telephony inline hook using a Glitch.com project.
+* Preview and test the telephony inline hook.
 
 **What you need**
 
@@ -45,11 +45,11 @@ This guide provides a working example of an Okta Telephony Inline Hook. It uses 
 
 * Make sure that you have a user in your org that already has the [Phone authentication enrolled](https://help.okta.com/okta_help.htm?type=oie&id=ext-mfa-usage) with Okta.
 
-## About Telephony Inline Hook implementation
+## About telephony inline hook implementation
 
-You can customize a telephony service provider for your org by using an Okta Telephony Inline Hook. A Telephony Inline Hook allows you to integrate your own custom code into several of Okta's flows that send SMS or Voice (Call) messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the One-Time Passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and the external service responds with commands that indicate success or failure in delivering the OTP.
+You can customize a telephony service provider for your org by using an Okta telephony inline hook. A telephony inline hook allows you to integrate your own custom code into several of Okta's flows that send SMS or Voice (Call) messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the One-Time Passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and the external service responds with commands that indicate success or failure in delivering the OTP.
 
-> **Note:** An org can have only one active Telephony Inline Hook.
+> **Note:** An org can have only one active telephony inline hook.
 
 In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the SMS or Voice (Call) message was sent successfully.
 
@@ -57,10 +57,10 @@ At a high-level, the following workflow occurs:
 
 * A user attempts to sign in to Okta. The Okta org has an authentication requirement of a Phone authenticator. The user selects **Receive a code via SMS** or **Receive a voice call instead**.
 * Okta generates a One-Time Passcode (OTP) and looks up whether any telephony hooks are configured and active for the org.
-* A Telephony Inline Hook is triggered and sends a request to the provider to have them deliver the OTP.
+* A telephony inline hook is triggered and sends a request to the provider to have them deliver the OTP.
 * The external service evaluates the request, and if the request headers are valid, the Telephony provider(s) request is made.
 
-    > **Note:** Although you can have only one active Telephony Inline Hook in your org at a time, logic in the external web service can direct requests to different providers based on conditions that you specify. For example, you can send the request to different telephony providers based on the country where the request originates.
+    > **Note:** Although you can have only one active telephony inline hook in your org at a time, logic in the external web service can direct requests to different providers based on conditions that you specify. For example, you can send the request to different telephony providers based on the country where the request originates.
 
 * The provider-specific response code and transaction ID are mapped to generic response categories, for provider-independent processing.
 
@@ -111,7 +111,7 @@ You must activate the telephony inline hook in your Okta org. Activating the tel
 1. Include values for the following fields. For this use case example:<br>
     **Authentication field**: `authorization`<br>
     **Authentication secret**: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`<br>
-1. Click **Save**. The Telephony Inline Hook is now set up with an active status.
+1. Click **Save**. The telephony inline hook is now set up with an active status.
 
 > **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
@@ -129,11 +129,11 @@ Copy the account SID and auth token from your Twilio account and add them as var
 
 > **Note:** See the code comments in the Glitch `server.js` file where these variable values appear.
 
-## Parse the Telephony Inline Hook request
+## Parse the telephony inline hook request
 
-The external service in this scenario requires code to handle the Telephony Inline Hook request from Okta. Use the [Okta Telephony Inline Hook](https://glitch.com/~okta-inlinehook-telephonyhook) Glitch example to either build or copy the code (re-mix on Glitch) that parses the Telephony Inline Hook call.
+The external service in this scenario requires code to handle the telephony inline hook request from Okta. Use the [Okta Telephony Inline Hook](https://glitch.com/~okta-inlinehook-telephonyhook) Glitch example to either build or copy the code (re-mix on Glitch) that parses the telephony inline hook call.
 
-From the Telephony Inline Hook request, the following code retrieves the value of the user’s phone number from the `data.messageProfile` object. The code parses the Okta request body for the value of `phoneNumber` and stores it in the variable `userPhoneNumber`.
+From the telephony inline hook request, the following code retrieves the value of the user’s phone number from the `data.messageProfile` object. The code parses the Okta request body for the value of `phoneNumber` and stores it in the variable `userPhoneNumber`.
 
 <StackSelector snippet="userphonenumber" noSelector/>
 
@@ -155,7 +155,7 @@ The way to tell Okta that the SMS or Voice (Call) message was successfully sent 
 
 ## Preview and test
 
-The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service using a Telephony Inline Hook. In your Okta org, you can preview the request and response JSON right from the Admin Console. You can also test the code directly in your org.
+The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service using a telephony inline hook. In your Okta org, you can preview the request and response JSON right from the Admin Console. You can also test the code directly in your org.
 
 ### Preview
 
@@ -167,24 +167,24 @@ To preview the telephony inline hook:
 1. Define a value for `data.userProfile` by selecting a user in your org from the **data.userProfile** dropdown list.
 1. Define a value for `requestType` by selecting the flow that you want to test. In this example, select **MFA Verification**.
 
-    > **Note:** If your user doesn't have a phone number in their profile, change the phone number to one that you want to test in the **Preview example Inline Hook request** section. Click **Edit** and then add a value for the `phoneNumber` in the `messageProfile` section of the request (for example, `"+15555551212"`).
+    > **Note:** If your user doesn't have a phone number in their profile, change the phone number to one that you want to test in the **Preview example inline hook request** section. Click **Edit** and then add a value for the `phoneNumber` in the `messageProfile` section of the request (for example, `"+15555551212"`).
 
-1. From the **Preview example Inline Hook request** section, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
+1. From the **Preview example inline hook request** section, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
 1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. If it’s a successful response, an SMS code or Voice (Call) message with the code is sent to the user that you specified. If there is an error, the error message appears in the response.
 
 ### Test
 
-To run a test of your Telephony Inline Hook, go to your Okta org’s sign-in page and sign in as a user in your org.
+To run a test of your telephony inline hook, go to your Okta org’s sign-in page and sign in as a user in your org.
 When you click **Sign in**, you are prompted for an additional factor to either receive a code through SMS or receive a voice call instead. Click whichever option that you want to test. The SMS or Voice Call is sent to your phone.
 
 ## Next steps
 
 Review the following guides to implement other Inline or Event Hook examples:
 
-* [Event Hook](/docs/guides/event-hook-implementation/)
-* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/nodejs/main/)
-* [Token Inline Hook](/docs/guides/token-inline-hook/nodejs/main/)
+* [Event hook](/docs/guides/event-hook-implementation/)
+* [Password import inline hook](/docs/guides/password-import-inline-hook/nodejs/main/)
+* [Token inline hook](/docs/guides/token-inline-hook/nodejs/main/)
 
 ## See also
 
-For a complete description of this Inline Hook type, see [Telephony Inline Hook](/docs/reference/telephony-hook/).
+For a complete description of this inline hook type, see [telephony inline hook](/docs/reference/telephony-hook/).

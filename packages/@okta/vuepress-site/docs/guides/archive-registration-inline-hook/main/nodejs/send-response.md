@@ -1,6 +1,6 @@
 For this example, only users with emails that contain `example.com` are allowed to self-register. You can also include an `error` object in the response for users that are denied self-registration.
 
-See the [response properties](/docs/reference/registration-hook/#objects-in-response-you-send) of a Registration Inline Hook for full details.
+See the [response properties](/docs/reference/registration-hook/#objects-in-response-you-send) of a registration inline hook for full details.
 
 
 ```javascript

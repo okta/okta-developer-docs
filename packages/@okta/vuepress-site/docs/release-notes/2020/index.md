@@ -525,7 +525,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 #### Bugs fixed in 2020.04.0
 
-* New SAML apps would have an active SAML assertion Inline Hook assigned to them automatically. (OKTA-262777)
+* New SAML apps would have an active SAML assertion inline hook assigned to them automatically. (OKTA-262777)
 * Attempts to update the user schema with invalid properties could return HTTP 500 errors. (OKTA-281498)
 * The `errorSummary` for error E0000074 was malformed. (OKTA-273711)
 
@@ -542,7 +542,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 * In some cases, an OAuth 2.0 [`/authorize`](/docs/reference/api/oidc/#authorize) request would incorrectly redirect if the client App had an App Sign-On Policy configured. (OKTA-269116)
 
-* The [`_links`](/docs/reference/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML Inline Hook was incorrect. (OKTA-269553)
+* The [`_links`](/docs/reference/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML inline hook was incorrect. (OKTA-269553)
 
 * Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](/docs/reference/api/trusted-origins/) defined for the org. (OKTA-283549)
 
@@ -649,7 +649,7 @@ The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See 
 
 #### Password Import Inline Hook in General Availability in Preview and Production
 
-The [Password Import Inline Hook](/docs/reference/password-hook/) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
+The [password import inline hook](/docs/reference/password-hook/) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
 
 #### OAuth for Okta Enabled for User Consent Grant Operations
 
@@ -665,7 +665,7 @@ The [User Types API](/docs/reference/api/user-types/) is in General Availability
 
 #### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
-Okta now supports URI claims with the [SAML Assertion Inline Hook](/docs/reference/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
+Okta now supports URI claims with the [SAML assertion inline hook](/docs/reference/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
 
 #### Support Added in List Users API for Sort Parameters
 
@@ -681,7 +681,7 @@ The [Apps API](/docs/reference/api/apps/) now supports specifying SAML attribute
 
 #### Bugs Fixed in 2020.02.0
 
-* When using the [SAML Assertion Inline Hook](/docs/reference/saml-hook/), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML Inline Hook responses were not applied. (OKTA-263494)
+* When using the [SAML assertion inline hook](/docs/reference/saml-hook/), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses were not applied. (OKTA-263494)
 
 * The [Update User Types API](/docs/reference/api/user-types/#update-user-type) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
 
