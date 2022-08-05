@@ -252,6 +252,7 @@ public class SecurityConfiguration {
         // @formatter:off
         http
             .authorizeHttpRequests(authorize -> authorize
+                .mvcMatchers("/favicon.ico").permitAll()
                 .anyRequest().authenticated()
             )
             .saml2Login(saml2 -> saml2
