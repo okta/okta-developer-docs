@@ -380,15 +380,15 @@ For deleted or inactive instances, or instances that don't support CVD, calls to
 
 | Change                                                                                                                | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------------------------|--------------------------|
-| [Password Import Event eligible for use in Event Hook](#password-import-event-eligible-for-use-in-event-hook)         | June 3, 2020             |
+| [Password Import Event eligible for use in event hook](#password-import-event-eligible-for-use-in-event-hook)         | June 3, 2020             |
 | [OAuth public metadata endpoint caching](#oauth-public-metadata-endpoint-caching)                                     | June 3, 2020             |
 | [Improved new device behavior detection](#improved-new-device-behavior-detection)                                     | June 3, 2020             |
 | [Dynamic authentication context for SAML apps](#dynamic-authentication-context-for-saml-apps)                         | June 2, 2020             |
 | [New JWKS key length validation](#new-jwks-key-length-validation)                                                     | June 3, 2020             |
 
-#### Password Import Event eligible for use in Event Hook
+#### Password Import Event eligible for use in event hook
 
-The `user.import.password` event provides information on the outcome of the import of an individual user's password during the [Password Import flow](/docs/reference/api/users/#create-user-with-password-import-inline-hook). This event is eligible for use in an [Event Hook](/docs/concepts/event-hooks/), enabling you to trigger removal of a password from your existing user store when import to Okta is confirmed as successful. <!-- OKTA-298381 -->
+The `user.import.password` event provides information on the outcome of the import of an individual user's password during the [Password Import flow](/docs/reference/api/users/#create-user-with-password-import-inline-hook). This event is eligible for use in an [Event hook](/docs/concepts/event-hooks/), enabling you to trigger removal of a password from your existing user store when import to Okta is confirmed as successful. <!-- OKTA-298381 -->
 
 #### OAuth public metadata endpoint caching
 

@@ -111,7 +111,7 @@ To run a test of your password import inline hook, go to the Okta sign-in page f
 
 ## Next steps
 
-Review the following guides to implement other Inline or Event Hook examples:
+Review the following guides to implement other inline or event hook examples:
 
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Registration inline hook](/docs/guides/registration-inline-hook/)

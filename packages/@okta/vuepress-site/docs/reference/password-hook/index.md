@@ -163,6 +163,6 @@ Normally, if your external service responds to Okta indicating that the credenti
 
 Because of the possibility of your org being in a special service mode, permanent deletion of user passwords from your existing user store should not be performed until success of the password import can be verified. An Okta System Log [Event](/docs/reference/api/event-types/), `user.import.password`, is available for this purpose. An event of this type is created every time a password import inline hook is fired, with its `Event.Outcome` property providing a status of `FAILURE` or `SUCCESS` for the password import operation. If the status is `SUCCESS`, Okta has successfully saved the end user's password, and it's safe to delete it from your previous user store.
 
-You can configure an [Event Hook](/docs/concepts/event-hooks/) to send this event type to you, to use to trigger automated cleanup of end user passwords after successful migration.
+You can configure an [Event hook](/docs/concepts/event-hooks/) to send this event type to you, to use to trigger automated cleanup of end user passwords after successful migration.
 
 > **Note:** Only one password import inline hook can be created per org.

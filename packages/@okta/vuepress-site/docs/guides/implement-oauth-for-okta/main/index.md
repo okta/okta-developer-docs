@@ -161,8 +161,8 @@ The following table shows the scopes that are currently available:
 | `okta.devices.read`		| Allows the app to read any Device's profile      | [Devices API](/docs/reference/api/devices/)    <ApiLifecycle access="ie" />|
 | `okta.domains.manage`  | Allows the app to create and manage Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
 | `okta.domains.read`  | Allows the app to read information about Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
-| `okta.eventHooks.manage` | Allows the app to create and manage Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
-| `okta.eventHooks.read`   | Allows the app to read information about Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
+| `okta.eventHooks.manage` | Allows the app to create and manage event hooks in your Okta organization| [Event hooks API](/docs/reference/api/event-hooks/)|
+| `okta.eventHooks.read`   | Allows the app to read information about event hooks in your Okta organization| [Event hooks API](/docs/reference/api/event-hooks/)|
 | `okta.events.read`   | Allows the app to read deprecated Events v1 API entries in your Okta org| [Events API](/docs/reference/api/events/)|
 | `okta.factors.manage`    | Allows the app to manage all admin operations for org factors (for example, activate, deactivate, read)| [Factors Administration Operations](/docs/reference/api/factor-admin/#factors-administration-operations)|
 | `okta.factors.read`      | Allows the app to read org factors information                          | [Factors Administration Operations](/docs/reference/api/factor-admin/#factors-administration-operations)|

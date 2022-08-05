@@ -79,7 +79,7 @@ An [Inline Hook Preview](https://help.okta.com/okta_help.htm?id=ext-preview-inli
 
 Before enabling the hook, the preview tab can run a sample Okta request call and receive the external service response. Review the request and response formats to make sure responses are accurate.
 
-An [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview) tab is also available for Event Hooks and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
+An [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview) tab is also available for event hooks and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
 
 ### Admin Console System Log
 

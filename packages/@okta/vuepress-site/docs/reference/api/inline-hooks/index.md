@@ -39,7 +39,7 @@ The total number of inline hooks that you can create in an Okta org is limited t
 
 | Parameter   | Description                                                                                  | Param Type   | DataType                                    | Required |
 | ----------- | -------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
-| Inline hook | A valid inline hook object that specifies the details of the inline hook that you are registering   | Body         | [Inline Hook object](#inline-hook-object)   | TRUE     |
+| Inline Hook | A valid inline hook object that specifies the details of the inline hook that you are registering   | Body         | [Inline Hook object](#inline-hook-object)   | TRUE     |
 
 ##### Response parameters
 
