@@ -223,9 +223,7 @@ Okta Groups with Profile or memberships updated after 11/11/2015
 
     filter=type eq "OKTA_GROUP" and (lastUpdated gt "2015-11-11T00:00:00.000Z" or lastMembershipUpdated gt "2015-11-11T00:00:00.000Z")
 
-
 ##### Response parameters
-
 
 Array of [Groups](#group-object)
 
@@ -235,11 +233,12 @@ Enumerates all Groups in your organization
 
 Reminders about the `limit` query parameter and query timeouts:
 
-* If you don't specify a value for `limit` and don't specify a query, only 200 results are returned for most orgs.
-* If you don't specify any value for `limit` and do specify a query, a maximum of 10 results are returned.
-* The maximum value for `limit` is 200 for most orgs.
-* Don't write code that depends on the default or maximum value, as it may change.
-* If you receive an HTTP 500 status code, you have more than likely exceeded the request timeout. Retry your request with a smaller `limit` and [page the results](/docs/reference/core-okta-api/#pagination).
+- If you don't specify a value for `limit` and don't specify a query, only 200 results are returned for most orgs.
+- If you don't specify any value for `limit` and do specify a query, a maximum of 10 results are returned.
+- The maximum value for `limit` is 200 for most orgs.
+- Don't write code that depends on the default or maximum value, as it may change.
+- If you receive an HTTP 500 status code, you likely exceeded the request timeout. Retry your request with a smaller `limit` and [page the results](/docs/reference/core-okta-api/#pagination).
+- The Okta default Everyone group isn't returned for users with a Group Admin role.
 
 ##### Request example
 

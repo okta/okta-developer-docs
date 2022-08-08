@@ -1,7 +1,7 @@
 
-To get you up-and-running quickly, follow the steps below to build a very basic Express Node.js application. This application serves up a web page and responds to Okta Event Hook calls.
+To get you up-and-running quickly, follow the steps below to build a very basic Express Node.js application. This application serves up a web page and responds to Okta event hook calls.
 
-The Event Hook use case is a simple local application response to the addition of a new Okta user.
+The event hook use case is a simple local application response to the addition of a new Okta user.
 
 ### Create a folder and initialize the project
 
@@ -40,9 +40,9 @@ The Event Hook use case is a simple local application response to the addition o
     <p>See the following links for more information:
     <ul>
         <li><a href="https://developer.okta.com/docs/concepts/event-hooks">
-        Event Hook Concepts</a></li>
+        Event hook concepts</a></li>
         <li><a href="https://developer.okta.com/docs/guides/event-hook-implementation/">
-        Event Hook Guides</a></li>
+        Event hook guides</a></li>
     </ul>
     </p>
     </body>
@@ -50,7 +50,7 @@ The Event Hook use case is a simple local application response to the addition o
     ```
 
 2. Add the server page, `server.js`, that contains the simple application code and an
-   endpoint for the Okta Event Hook.
+   endpoint for the Okta event hook.
 
    The endpoint you call from Okta is `/userCreated`.
 
@@ -74,7 +74,7 @@ The Event Hook use case is a simple local application response to the addition o
     }));
 
 
-    // Event Hook Initial Verification
+    // Event hook initial verification
     // Extract header 'x-okta-verification-challenge' from Okta request
     // Return value as JSON object verification
     app.get("/userCreated", (request, response) => {
@@ -117,7 +117,7 @@ The Event Hook use case is a simple local application response to the addition o
 
     `http://localhost:8082`
 
-If your web page deploys, the simple application is working, and ready for your Event Hook set up.
+If your web page deploys, the simple application is working, and ready for your event hook set up.
 
 <div class="three-quarter">
 
