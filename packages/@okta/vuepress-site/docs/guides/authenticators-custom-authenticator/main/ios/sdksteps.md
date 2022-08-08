@@ -4,7 +4,7 @@ Use the Devices SDK to enable your app to verify the identity of a user by respo
 - [Register for notifications](#register-the-device)
 - [Initialize the SDK client](#initialize-the-client)
 
-Next, register or enroll the device to receive identity verification notifications for the custom authenticator. Your app needs to support a user sign-in flow and request the correct permissions, or scopes. Once the device is enrolled the app can respond to user verification notifications (challenges).
+Next, register the device to receive identity verification notifications for the custom authenticator. Your app needs to support a user sign-in flow and request the correct permissions, or scopes. Once the device is enrolled the app can respond to user verification notifications (challenges).
 
 If needed, you can also unenroll the device, either locally, or both locally and on the server.
 
@@ -12,7 +12,7 @@ If needed, you can also unenroll the device, either locally, or both locally and
 
 The following image shows how data flows through the Devices SDK:
 
-<div class="three-quarter">
+<div class="full">
 
 ![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
 
@@ -49,7 +49,7 @@ Although you don't need to receive push notifications to use Devices SDK, we sug
 
 The token is returned by the system in [`application(_:didRegisterForRemoteNotificationsWithDeviceToken:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622958-application). Use a property to store the token, though don't save the token between app launches as it can change. If there's an error registering for notifications, the system calls [`application(_:didFailToRegisterForRemoteNotificationsWithError:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622962-application). In this case, your app can still [load undelivered challenges](#load-undelivered-challenges).
 
-Add an App Group Capability to your app if it doesn't already have one. You'll use the group identifier in the next step. For more information on adding and configuring an App Group, see [Configuring App Groups](https://developer.apple.com/documentation/xcode/configuring-app-groups/) in Apple developer documentation.
+Add an App Group Capability to your app if it doesn't already have one. You'll use the group identifier in the next step. See [Configuring App Groups](https://developer.apple.com/documentation/xcode/configuring-app-groups/) in Apple developer documentation.
 
 ### Initialize the client
 

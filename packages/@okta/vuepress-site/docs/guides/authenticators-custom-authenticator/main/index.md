@@ -46,7 +46,7 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 
 The following image shows what the Devices SDK enables for end users:
 
-<div class="half">
+<div class="half border">
 
 ![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
 
@@ -56,7 +56,7 @@ The following image shows what the Devices SDK enables for end users:
 
 The following image shows the Devices SDK setup in the Admin Console:
 
-<div class="half">
+<div class="half border">
 
 ![Custom authenticator Admin Console](/img/authenticators/authenticators-custom-authenticator-admin-console.png)
 
@@ -68,7 +68,7 @@ The simplest way to integrate authentication in your app is with OIDC through a 
 
 ### Grant the required scopes
 
-> **Note:** You must use an [Org Authorization Server](https://developer.okta.com/docs/concepts/auth-servers/#available-authorization-server-types) to grant the scopes needed to create a custom authenticator. Custom Authorization Servers (including the default Custom Authorization Server) don't work.
+> **Note:** You must use an [Org Authorization Server](/docs/concepts/auth-servers/#available-authorization-server-types) to grant the scopes needed to create a custom authenticator. Custom Authorization Servers (including the default Custom Authorization Server) don't work.
 
 When you are ready to grant the required scopes, follow these steps:
 
@@ -94,7 +94,7 @@ Alternatively, you can grant scopes using the [Grant consent to scope for applic
 
 ### Set up a global session policy and authentication policy
 
-You need to set up a global session policy and an authentication policy to integrate with the Devices SDK. For more information on policies, see [Configure a global session policy and authentication policy](/docs/guides/configure-signon-policy/main/).
+You need to set up a global session policy and an authentication policy to integrate with the Devices SDK. See [Configure a global session policy and authentication policy](/docs/guides/configure-signon-policy/main/).
 
 ## Install and configure the Okta Devices SDK
 
