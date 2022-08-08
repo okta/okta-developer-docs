@@ -59,9 +59,9 @@ For external integration examples, refer to:
 
 ## Send alerts to an external service
 
-Your organization may have an external web service that performs extra processing for specific Okta events, such as creating or deactivating a user lifecycle event. Okta provides a webhook feature called [Event Hooks](/docs/concepts/event-hooks/), where you can set up triggers at specific events in Okta to send event payloads to an external web service. Event Hooks are asynchronous and do not affect existing Okta workflows.
+Your organization may have an external web service that performs extra processing for specific Okta events, such as creating or deactivating a user lifecycle event. Okta provides a webhook feature called [event hooks](/docs/concepts/event-hooks/), where you can set up triggers at specific events in Okta to send event payloads to an external web service. Event hooks are asynchronous and do not affect existing Okta workflows.
 
-For a working example of an end-to-end Event Hook setup, see the [Event Hooks guide](/docs/guides/event-hook-implementation/). For a list of events that support Event Hooks, see [Event Hooks eligible event types](/docs/reference/api/event-types/?q=event-hook-eligible).
+For a working example of an end-to-end event hook setup, see the [Event hooks guide](/docs/guides/event-hook-implementation/). For a list of events that support event hooks, see [Event hooks eligible event types](/docs/reference/api/event-types/?q=event-hook-eligible).
 
 ## Monitor Okta with your custom tool
 

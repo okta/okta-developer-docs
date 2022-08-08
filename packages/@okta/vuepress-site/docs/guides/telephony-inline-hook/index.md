@@ -1,6 +1,6 @@
 ---
-title: Telephony Inline Hook
-excerpt: Learn how to easily implement a Telephony Inline hook
+title: Telephony inline hook
+excerpt: Learn how to easily implement a telephony inline hook
 layout: Guides
 sections:
  - main
