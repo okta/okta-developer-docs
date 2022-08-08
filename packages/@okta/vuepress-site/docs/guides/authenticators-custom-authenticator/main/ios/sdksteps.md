@@ -12,7 +12,7 @@ If needed, you can also unenroll the device, either locally, or both locally and
 
 The following image shows how data flows through the Devices SDK:
 
-<div class="full">
+<div class="full border">
 
 ![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
 

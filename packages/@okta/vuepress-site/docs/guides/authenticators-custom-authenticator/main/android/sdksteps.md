@@ -4,7 +4,7 @@ Use the Devices SDK to add custom push verification functionality to your Androi
 
 The following image shows how data flows through the Devices SDK:
 
-<div class="three-quarter">
+<div class="full border">
 
 ![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
 

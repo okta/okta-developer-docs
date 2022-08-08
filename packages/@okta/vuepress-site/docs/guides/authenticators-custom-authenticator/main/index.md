@@ -46,7 +46,7 @@ This guide walks you through the two main tasks needed to integrate with Okta De
 
 The following image shows what the Devices SDK enables for end users:
 
-<div class="half border">
+<div class="three-quarter border">
 
 ![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
 
