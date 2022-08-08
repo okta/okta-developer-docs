@@ -20,8 +20,8 @@ title: Okta API Products Release Notes 2019
 | Change                                                                                                              | Expected in Preview Orgs |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------|
 | [Features API is Generally Available in Production](#features-api-is-generally-available-in-production)             | December 11, 2019        |
-| [Token Inline Hook is Generally Available in Production](#token-inline-hook-is-generally-available-in-production)   | December 11, 2019        |
-| [SAML Inline Hook is Generally Available in Production](#saml-inline-hook-is-generally-available-in-production)     | December 11, 2019        |
+| [Token inline hook is Generally Available in Production](#token-inline-hook-is-generally-available-in-production)   | December 11, 2019        |
+| [SAML inline hook is Generally Available in Production](#saml-inline-hook-is-generally-available-in-production)     | December 11, 2019        |
 | [Scope Object Properties Default Values](#scope-object-properties-default-values)                                   | December 11, 2019        |
 | [Okta-Hosted User Consent Dialog Change](#okta-hosted-user-consent-dialog-change)                                   | December 11, 2019        |
 | [OAuth for Okta Enabled for Clear User Sessions Endpoint](#oauth-for-okta-enabled-for-clear-user-sessions-endpoint) | December 11, 2019        |
@@ -31,13 +31,13 @@ title: Okta API Products Release Notes 2019
 
 The [Features API](/docs/reference/api/features/) allows operations to manage self-service Early Access features in Production and Preview orgs, as well as manage self-service Beta features in Preview orgs and view Beta features in Production orgs. <!-- OKTA-259575 -->
 
-#### Token Inline Hook is Generally Available in Production
+#### Token inline hook is Generally Available in Production
 
-The [Token Inline Hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244859 -->
+The [Token inline hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244859 -->
 
-#### SAML Inline Hook is Generally Available in Production
+#### SAML inline hook is Generally Available in Production
 
-The [SAML Inline Hook](/docs/reference/saml-hook/) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244860 -->
+The [SAML inline hook](/docs/reference/saml-hook/) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244860 -->
 
 #### Scope Object Properties Default Values
 
@@ -98,8 +98,8 @@ An incorrect status was returned in some cases when an admin checked another use
 |-----------------------------------------------------------------------------------------------------------------------|--------------------------|
 | [Web Authentication as a factor is Generally Available in Production](#web-authentication-as-a-factor-is-generally-available-in-production)       | November 6, 2019         |
 | [Features API is Generally Available in Preview](#features-api-is-generally-available-in-preview)            | November 6, 2019         |
-| [SAML Inline Hook is Generally Available in Preview](#saml-inline-hook-is-generally-available-in-preview)  | November 6, 2019         |
-| [Token Inline Hook is Generally Available in Preview](#token-inline-hook-is-generally-available-in-preview) | November 6, 2019         |
+| [SAML inline hook is Generally Available in Preview](#saml-inline-hook-is-generally-available-in-preview)  | November 6, 2019         |
+| [Token inline hook is Generally Available in Preview](#token-inline-hook-is-generally-available-in-preview) | November 6, 2019         |
 | [OAuth for Okta is Early Access in Preview](#oauth-for-okta-is-early-access-in-preview)                       | November 6, 2019         |
 | [Concurrent requests to the same app now return exception](#concurrent-requests-to-the-same-app-now-return-exception)| November 6, 2019|
 | [Rate Limits for /oauth2 endpoints](#rate-limits-for-oauth2-endpoints)                                               | November 6, 2019         |
@@ -113,13 +113,13 @@ Admins can enable [Web Authentication as a factor](/docs/reference/api/authn/#en
 
 The [Features API](/docs/reference/api/features/) provides operations to manage self-service Early Access features in your Production and Preview orgs and self-service Beta features in your Preview org. <!-- OKTA-258109 -->
 
-#### SAML Inline Hook is Generally Available in Preview
+#### SAML inline hook is Generally Available in Preview
 
-The [SAML Inline Hook](/docs/reference/saml-hook/) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244856 -->
+The [SAML inline hook](/docs/reference/saml-hook/) enables you to customize SAML assertions returned by Okta. You can add attributes or modify existing attributes in outbound SAML assertions. <!-- OKTA-244856 -->
 
-#### Token Inline Hook is Generally Available in Preview
+#### Token inline hook is Generally Available in Preview
 
-The [Token Inline Hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244855 -->
+The [Token inline hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!-- OKTA-244855 -->
 
 #### OAuth for Okta is Early Access in Preview
 
@@ -135,7 +135,7 @@ Concurrent PUT requests sent to the same app instance now return an `ApiExceptio
 
 #### Bug Fixed in 2019.11.0
 
-When the Token Inline Hook feature was enabled and the claim couldn't be evaluated, the OAuth 2.0 token endpoint returned a 403 HTTP status code rather than 400. (OKTA-258981)
+When the token inline hook feature was enabled and the claim couldn't be evaluated, the OAuth 2.0 token endpoint returned a 403 HTTP status code rather than 400. (OKTA-258981)
 
 
 ## October
@@ -190,7 +190,7 @@ The [User Types API](/docs/reference/api/user-types/) is in Early Access (EA) in
 
 #### Tokens transform events no longer available
 
-Tokens transform System Log [events](/docs/reference/api/event-types/) will no longer fire for SAML and Token Inline Hooks. They have been replaced by Inline Hook events.  <!-- OKTA-249601 -->
+Tokens transform System Log [events](/docs/reference/api/event-types/) will no longer fire for SAML and token inline hooks. They have been replaced by inline hook events.  <!-- OKTA-249601 -->
 
 #### Cookies updated to preserve cross-functionality
 
@@ -250,7 +250,7 @@ OAuth Scopes are not allowed to start with the `okta.` prefix. See the Note unde
 |---------------------------------------------------------------------------------------------------------------|--------------------------|
 | [Features API is Early Access EA in Preview and Production](#features-api-is-ea)                              | September 4, 2019        |
 | [Mappings API is now Generally Available (GA) in Production](#mappings-api-is-now-ga-in-production)           | September 4, 2019        |
-| [Error Object in SAML Assertion Inline Hook](#error-object-in-saml-assertion-inline-hook)                     | September 4, 2019        |
+| [Error Object in SAML assertion inline hook](#error-object-in-saml-assertion-inline-hook)                     | September 4, 2019        |
 | [Rate Limits for Authorization Server Public Metadata](#rate-limits-for-authorization-server-public-metadata) | September 4, 2019        |
 | [Bugs Fixed in 2019.09.0](#bugs-fixed-in-2019-09-0)                                                             | September 4, 2019        |
 
@@ -263,9 +263,9 @@ The [Features API](/docs/reference/api/features/) provides operations to manage 
 The Okta Mappings API provides operations to manage the mapping of properties between an Okta User's and an App User's
 [Profile Properties](/docs/reference/api/users/#profile-object) using [Expression Language](/docs/reference/okta-expression-language). This feature is now GA in Production. <!-- OKTA-241945 -->
 
-#### Error Object in SAML Assertion Inline Hook
+#### Error Object in SAML assertion inline hook
 
-For the [SAML Assertion Inline Hook](/docs/reference/saml-hook/), if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
+For the [SAML assertion inline hook](/docs/reference/saml-hook/), if an external service returns an `error` object, Okta now denies the SAML request and redirects the end user to an error page that displays the text string sent in `error.errorSummary`. <!-- OKTA-195167 -->
 
 #### Rate Limits for Authorization Server Public Metadata
 
@@ -288,7 +288,7 @@ The public metadata endpoints for Authorization Servers are now each assigned se
 
 #### Bugs Fixed in 2019.08.3
 
-* The [Update Inline Hook call](/docs/reference/api/inline-hooks/#update-inline-hook) wasn't replacing the whole object. (OKTA-229337)
+* The [Update inline hook call](/docs/reference/api/inline-hooks/#update-inline-hook) wasn't replacing the whole object. (OKTA-229337)
 
 * IP addresses identified as malicious by Okta ThreatInsight were missing from Events API ("security.threat.detected") event messages. See the [Event Types catalog](/docs/reference/api/event-types/#catalog) for more information on this event message. (OKTA-242795)
 
@@ -322,7 +322,7 @@ Some users were not able to access the Group Rules API, despite having proper pe
 |----------------------------------------------------------------------------------------------------------|--------------------------|
 | [Added Support for TOTP Factor](#added-support-for-totp-factor)                                          | August 7, 2019           |
 | [Cookies updated to preserve cross-site functionality](#cookies-updated-to-preserve-cross-site-functionality)| August 7, 2019           |
-| [Inline Hooks is now GA in Preview](#inline-hooks-is-now-ga-in-preview)                                  | August 7, 2019           |
+| [Inline hooks is now GA in Preview](#inline-hooks-is-now-ga-in-preview)                                  | August 7, 2019           |
 | [LinkedIn API V2 is now supported](#linkedin-api-v2-is-now-supported)                                    | August 7, 2019           |
 | [Mappings API is now GA in Preview](#mappings-api-is-now-ga-in-preview)                                  | August 7, 2019           |
 | [Missing type property now returns a 400 error code](#missing-type-property-now-returns-a-400-error-code)| August 7, 2019           |
@@ -336,9 +336,9 @@ Okta now supports a custom MFA factor based on the Time-based One-time Password 
 
 To preserve cross-site functionality in light of upcoming updates to [Chrome](https://www.chromestatus.com/feature/5088147346030592), Okta has added the `SameSite=None` attribute to all relevant cookies. <!-- OKTA-229541 -->
 
-#### Inline Hooks is now GA in Preview
+#### Inline hooks is now GA in Preview
 
-[Inline Hooks](/docs/concepts/inline-hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now Generally Available (GA) in Preview. <!-- OKTA-241104 -->
+[Inline hooks](/docs/concepts/inline-hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now Generally Available (GA) in Preview. <!-- OKTA-241104 -->
 
 #### LinkedIn API V2 is now supported
 
@@ -430,7 +430,7 @@ The [Token Inline Hook](/docs/reference/token-hook/) now lets you modify particu
 
 #### Bugs Fixed in 2019.06.3
 
-* When a customer used a [Token Inline Hook](/docs/reference/token-hook/) and returned an `error` object to Okta, Okta failed to pass the error to the token requester. (OKTA-231397)
+* When a customer used a [token inline hook](/docs/reference/token-hook/) and returned an `error` object to Okta, Okta failed to pass the error to the token requester. (OKTA-231397)
 
 * The issuer claim inside JWT tokens was erroneously changing to all lowercase causing JWT verification failure when the application was case-sensitive. (OKTA-235710)
 
@@ -464,7 +464,7 @@ Users can now be [unassigned](/docs/reference/api/apps/#remove-user-from-applica
 
 #### Token Inline Hook Can Modify or Remove Existing Claims (Early Access)
 
-The [Token Inline Hook](/docs/reference/token-hook/) now supports changing or removing existing claims in tokens minted by the Okta Custom Authorization Server. <!-- (OKTA-218305) -->
+The [token inline hook](/docs/reference/token-hook/) now supports changing or removing existing claims in tokens minted by the Okta Custom Authorization Server. <!-- (OKTA-218305) -->
 
 #### Bugs Fixed in 2019.05.3
 
@@ -505,7 +505,7 @@ The [Token Inline Hook](/docs/reference/token-hook/) now supports changing or re
 
 #### The Registration Inline Hook is in Early Access (EA)
 
-The [Registration Inline Hook](/docs/reference/registration-hook/) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
+The [registration inline hook](/docs/reference/registration-hook/) allows you to integrate your own custom logic into Okta's Self-Service Registration flow. <!-- (OKTA-215773) -->
 
 #### Bugs Fixed in 2019.05.0
 
@@ -566,7 +566,7 @@ IdP extensible matching rules allow you to define a regular expression pattern t
 
 #### The SAML Inline Hook is in EA
 
-The SAML Inline Hook enables you to customize SAML assertions returned by Okta. For details, see our [SAML Inline Hook](/docs/reference/saml-hook/) page. <!-- OKTA-211665 and OKTA-2202004 -->
+The SAML inline hook enables you to customize SAML assertions returned by Okta. For details, see our [SAML inline hook](/docs/reference/saml-hook/) page. <!-- OKTA-211665 and OKTA-2202004 -->
 
 #### Rate Limits Updated
 
@@ -678,7 +678,7 @@ Extended search capabilities for the `/users` endpoint is now Generally Availabl
 
 #### The Import Inline Hook is in EA
 
-The [Import Inline Hook](/docs/reference/import-hook/) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
+The [import inline hook](/docs/reference/import-hook/) enables you to add custom logic to the process of importing new users into Okta from an app. <!--OKTA-211788-->
 
 #### Previously Released Early Access Features 2019.03.0 Update
 
@@ -701,8 +701,8 @@ The following features have already been released as Early Access. To enable the
 | Change                                                                                                                  | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------------------------------------------- |
 | [Imported Hashed User Passwords Generally Available](#imported-hashed-user-passwords-generally-available)               | February 6, 2019         | March 11, 2019                               |
-| [Inline Hooks](#inline-hooks)                                                                                           | February 6, 2019         | February 19, 2019                            |
-| [Token Inline Hook](#token-inline-hook)                                                                                 | February 6, 2019         | February 19, 2019                            |
+| [Inline hooks](#inline-hooks)                                                                                           | February 6, 2019         | February 19, 2019                            |
+| [Token inline hook](#token-inline-hook)                                                                                 | February 6, 2019         | February 19, 2019                            |
 | [Signature and Digest Algorithms for Template WS-FED Apps](#signature-and-digest-algorithms-for-template-ws-fed-apps)   | February 6, 2019         | February 19, 2019                            |
 | [Google Integration Updated](#google-integration-updated)                                                               | February 6, 2019         | February 19, 2019                            |
 | [High Capacity Rate Limits](#high-capacity-rate-limits)                                                                 | February 6, 2019         | February 19, 2019                            |
@@ -714,13 +714,13 @@ The following features have already been released as Early Access. To enable the
 
 Use of imported hashed passwords when creating or updating users in the [Users API](/docs/reference/api/users) is now Generally Available (GA). <!--OKTA-205592-->
 
-#### Inline Hooks
+#### Inline hooks
 
-[Inline Hooks](/docs/concepts/inline-hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now in Early Access (EA/). <!--OKTA-205011-->
+[Inline hooks](/docs/concepts/inline-hooks/) enable you to integrate your own custom functionality into Okta process flows. The framework to support them is now in Early Access (EA/). <!--OKTA-205011-->
 
-#### Token Inline Hook
+#### Token inline hook
 
-The [Token Inline Hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
+The [token inline hook](/docs/reference/token-hook/) enables you to integrate your own custom functionality into the process of minting OAuth 2.0 and OpenID Connect tokens. <!--OKTA-206634-->
 
 #### Signature and Digest Algorithms for Template WS-Fed Apps
 

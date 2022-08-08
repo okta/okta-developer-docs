@@ -21,7 +21,7 @@ Are you an admin? See the Identity Engine [limitations](https://help.okta.com/ok
 
 ***
 
-### Event Type availability for Event Hooks
+### Event Type availability for event hooks
 
 **What Changed:** The following Event Types aren't available in Identity Engine because Device Trust isn't currently supported:
 
