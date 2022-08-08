@@ -31,7 +31,7 @@
 
     ```groovy
     dependencies {
-        // Used from Okta Mobile SDK code snippets.
+        // These packages are used in the Okta Mobile SDK code snippets.
         implementation('androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1')
         implementation('androidx.activity:activity-ktx:1.5.1')
     }
