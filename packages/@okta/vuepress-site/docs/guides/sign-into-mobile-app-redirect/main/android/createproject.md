@@ -7,7 +7,7 @@
     - Language: `Kotlin`
     - Minimum SDK: `API 23: Android 6.0 (Marshmallow)`
 
-2. Add the following code to the `app/build.gradle` to enable Android features used by the Okta SDK that aren't available on older Android versions:
+2. Add the following to the `app/build.gradle` to enable features required by the Okta Android SDK:
 
 ```gradle
 android {
