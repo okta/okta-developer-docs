@@ -25,7 +25,7 @@ In the optional **Authentication Settings** section:
 
     You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
 
-    **Note:** When you use multi-tenancy, we recommend that you add a unique username format with a suffix per spoke to prevent all potential impersonation, except with intentional scenarios such as using AD as the sign-in source for Okta.
+    **Note:** When you use multi-tenancy, we recommend that you add a unique username format with a suffix per spoke org to prevent all potential impersonation, except with intentional scenarios such as using AD as the sign-in source for Okta.
 
 * **Filter > Only allow usernames that match defined RegEx Pattern:** Select this option to only authenticate users with transformed usernames that match a regular expression pattern in the text field that appears. This filters the IdP username to prevent the IdP from authenticating unintended or privileged users. Users are only authenticated if the transformed username matches the regular expression pattern.
 
