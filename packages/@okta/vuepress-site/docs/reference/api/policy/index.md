@@ -24,7 +24,7 @@ The Policy API supports the following **Rule operations**:
 
 ## Getting started
 
-Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f1e0184b7e6b26c558a0)
+Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f443644517abb15117af)
 
 ## Policy API operations
 
@@ -191,6 +191,31 @@ curl -v -X POST \
     }
   }
 }' "https://${yourOktaDomain}/api/v1/policies"
+```
+
+##### Response types
+
+HTTP 204:
+[Policy object](#policy-object)
+
+### Clone a Policy
+
+<ApiLifecycle access="ie" />
+
+> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+
+> **Note:** Within the Identity Engine, this feature is only supported for [Authentication Policies](#authentication-policy).
+
+<ApiOperation method="post" url="/api/v1/policies/${policyId}/clone" />
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/policies/${policyId}/clone"
 ```
 
 ##### Response types
