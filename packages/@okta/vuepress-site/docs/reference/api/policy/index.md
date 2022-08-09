@@ -2129,7 +2129,8 @@ Policy Rule conditions aren't supported for this policy.
                 "unknownUserAction": "DENY",
                 "activationRequirements": {
                     "emailVerification": true
-                }
+                },
+                "uiSchemaId": "uis44fio9ifOCwJAO1d7"
             }
         }
 ```
@@ -2147,5 +2148,6 @@ Policy Rule conditions aren't supported for this policy.
 | `profileAttributes` | A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.                                                         | Array | Required | N/A                                                                                                                                                                                                                        |
 | `targetGroupIds`             | (Optional, max 1 entry) The `id` of a Group that this User should be added to                                                     | Array   | No | N/A                                                                                                                                                                                                                         |
 | `unknownUserAction`          | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)                                               | String  | YES | N/A                                                                                                                                                                                                                        |
+| `uiSchemaId`                 | Value created by the backend. If present all policy updates must include this attribute/value.                                               | String  | Required if Present | N/A                                                                                                                                                                                                                        |
 
 > **Note:** The Profile Enrollment Action object can't be modified to set the `access` property to `DENY` after the policy is created.
