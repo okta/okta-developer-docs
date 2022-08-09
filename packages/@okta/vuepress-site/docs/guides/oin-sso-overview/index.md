@@ -7,7 +7,7 @@ meta:
 
 The Okta Integration Network (OIN) is a collection of over 7000 pre-built app integrations to connect and exchange secure authentication between users, devices, and applications. Customers can easily integrate Okta Single Sign-On (SSO) to applications in the OIN with a guided experience that still supports the most secure configuration options.
 
-To get your app integration into the OIN, build an app integration using a free [Okta developer account](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta. [Submit your app](/docs/guides/submit-app/) for verification and approval by the Okta OIN team. Once your app integration is Okta Verified, it's available in the OIN for the Okta community to use.
+To get your app integration into the OIN, build an app integration using a free [Okta developer account](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta. [Submit your app](/docs/guides/submit-app/) integration for verification and approval by the Okta OIN team. Your app is available in the OIN for the Okta community to use once your integration is verified by Okta.
 
 With an Okta SSO integration, your customer's workforce can use their company-issued Okta credentials to securely access your application. In addition to the typical email and password credentials, your customers have the ability to control their authentication experience with Okta sign-on policies and features, such as [Multifactor Authentication](https://help.okta.com/okta_help.htm?id=ext_MFA) and [FastPass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-enable).
 
@@ -66,7 +66,7 @@ Ali is an IT admin at Initech. Initech is looking to add Acme's application into
 
 2. Ali adds the Acme app integration from the Okta Admin Console. Ali follows the instructions provided by Acme to configure the app integration.
 
-3. Ali configures the Okta authentication policy and the group of Initech employees with access to the Acme app.
+3. Ali configures the Okta authentication policy and the group of Initech employees who will have access to the Acme app.
 
 4. Ali tests signing in to the Acme app with existing Okta credentials to verify the authentication flow.
 
@@ -78,17 +78,17 @@ Ramon is an Initech employee with privileges to the Acme app.
 
 1. Ramon starts his work day. In his web browser, he clicks the Okta browser extension and selects his email app which loads in a new tab.
 2. Ramon’s company has an Okta sign-on policy, which requires each employee to verify their identity every 12 hours. Since it’s been more than 12 hours since he was last working, he is prompted to enter his Okta username and password.
-3. Ramon’s company has also enabled Okta multifactor authentication. After successfully entering his credentials, a push notification is sent to the Okta Verify app on his phone. Ramon taps his phone to verify his identity. Ramon can now access his email!
+3. Ramon’s company has also enabled Okta multifactor authentication. After successfully entering his credentials, a push notification is sent to the Okta Verify app on his phone. Ramon taps his phone to verify his identity. Ramon can now access his email.
 4. Next, Ramon goes to his Okta browser extension and selects the Acme app. Since Ramon started a session less than 12 hours ago, he is taken directly into the app without needing to sign-in again. In fact, Ramon can access all the Okta-integrated apps that he has privileges to without signing in again because he already has an authenticated session with Okta.
 
 ## Next steps
 
-After your app integration is built and tested, submit the integration to the Okta OIN team for verification:
+After your app integration is built and tested, submit the integration to the Okta OIN team for verification through the OIN Manager.
 
 <Cards>
-<Card href="/docs/guides/submit-app/" headerImage="/img/oin/Okta_OIN_Blue_RGB.svg" :showFooter=false>Publish an OIN integration</Card>
+<Card href="/docs/guides/submit-app/" headerImage="/img/icons/provisioning--blue.svg" cardTitle="OIN Manager" :showFooter=false>Publish an OIN integration</Card>
+<Card href="https://www.okta.com/integrations/" headerImage="/img/oin/Okta_OIN_Blue_RGB.svg" :showFooter=false>View current integrations in the OIN</Card>
 </Cards>
 <br>
 
 Want to automate even more for your customers and increase adoption of your product? Learn more about [lifecycle management integration](/docs/guides/oin-lifecycle-mgmt-overview/) in the OIN.
-
