@@ -61,8 +61,9 @@ Make sure to have this application running before proceeding with the SAML Asser
 
 ## Create your external service code
 
-Reference: For further information on the SAML Assertion commands object, see the [SAML Assertion Inline Hook reference](/docs/reference/saml-hook) documentation.
+You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site) that receives and responds to the SAML Assertion inline hook call from Okta. The responses to the SAML Assertion inline hook call can customize the SAML assertion in multiple ways, including adding or replacing elements of the assertion. In this example code, a new claim is added to the assertion. For further information on the SAML Assertion commands object and how you can modify the assertion, see the [SAML Assertion Inline Hook reference](/docs/reference/saml-hook) documentation.
 
+The following sections detail the portion of external service code that parses the SAML Assertion inline hook call, checks the data store, and then, if applicable, responds to Okta with a SAML assertion update.
 
 ### Parse the SAML Assertion inline hook
 
@@ -243,6 +244,55 @@ The SAML Assertion Inline Hook is now ready for triggering when a user authentic
 
 ## Preview and test the SAML Assertion inline hook
 
+The SAML Assertion Inline Hook is ready for preview and testing. You now have the following applications configured:
+
+* The SAML application (okta-spring-boot-saml-example) is ready to sign in and authenticate users using your Okta org as an IdP.
+* The external service (okta-inlinehook-samlhook) is ready with code to receive and respond to an Okta SAML Assertion Inline Hook call.
+* The Okta org is setup to call the external service when a SAML Assertion Inline Hook is triggered by a user sign-in from the SAML application, and is ready to receive a response.
+
+### Preview the SAML Assertion inline hook
+
+1. Navigate to Inline Hooks (**Workflow** > **Inline Hooks**) in your Admin Console.
+
+1. Click on the SAML Assertion Inline Hook name (in this example, "Patient SAML Hook").
+
+1. Click the **Preview** tab.
+
+1. Select a user assigned to your SAML application in the first block titled **Configure Inline Hook request**; that is, a value for the `data.userProfile` field.
+
+1. Select your SAML Application by searching in the **Select a SAML app** field (in this example, "Spring Book SAML").
+
+1. From the Preview example Inline Hook request" block, click Generate Request. You should see the user's request information in JSON format that is sent to the external service.
+
+> **Note:** You can also Edit this call for development or testing purposes.
+
+1. From the **View service's response** block, click **View Response**. You will see the response from your external service in JSON format, which either adds a claim to the SAML assertion or not.
+
+### Test the SAML Assertion inline hook
+
+1. Start your SAML Application by navigating to your project folder (`okta-spring-boo-saml-example >`) and then running the application (`> ./gradlew bootRun`).
+
+1. Navigate to your sample application (`http:/localhost:8080`).
+
+1. Navigate to your Glitch.com project to make sure it's listening for requests; open the Console Logs window (**Tools > Logs**).
+
+1. Return to your SAML application and sign in with an Okta user who is NOT in the Patients data store.
+
+The user should sign in as normal with first name, last name, and email attributes displaying on the sign-in page. In the Glitch log window a message that the user is not part of the data store appears.
+
+1. Sign out of the sample application and now sign in with an Okta user who IS in the Patients data store.
+
+The user should sign in as normal and also displays a patient ID attribute on the sign-in page, as well as first name, last name, and email address. In the Glitch log window a message displays the patient ID number added to the SAML assertion appears.
+
 ## Next steps
 
+Review the following guides to implement other inline or event hook examples:
+
+* [Event hook](/docs/guides/event-hook-implementation)
+* [Password import inline hook](/docs/guides/password-import-inline-hook/)
+* [Token inline hook](/docs/guides/token-inline-hook)
+* [Telephony inline hook](/docs/guides/telephony-inline-hook)
+
 ## See also
+
+For a complete description of this inline hook type, see [SAML Assertion inline hook](/docs/reference/saml-hook) reference.
