@@ -6,6 +6,23 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## August
 
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Improvements to the self-service unlock process is EA in Preview](#improvements-to-the-self-service-unlock-process-is-ea-in-preview)        | August 10, 2022            |
+| [Bugs fixed in 2022.08.1](#bugs-fixed-in-2022-08-1)                      | August 10, 2022            |
+
+#### Improvements to the self-service unlock process is EA in Preview
+
+Previously, the self-service unlock (SSU) flow created unnecessary friction in the end-user experience. The newly enhanced SSU feature introduces a seamless magic link experience in emails sent to unlock accounts. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the application. See the `${oneTimePassword}` and `${unlockAccountLink}` [VTL variables](/docs/guides/custom-email/main/#use-vtl-variables) used in the [Email Magic link](/docs/guides/email-magic-links-overview/) [custom email template](/docs/guides/email-magic-links-overview/aspnet/main/#use-custom-email-templates). <!--OKTA-499510-->
+
+#### Bugs fixed in 2022.08.1
+
+* When client assertions for `private_key_jwt` client authentication method operations contained the `aud` claim in an array instead of a string, an error was returned. (OKTA-478067)
+
+* When an app initiated the Service Provider flow and the SAML authorization request didn't contain the SAML Subject (`nameId`), a 500 HTTP error was returned. (OKTA-511120)
+
+* When a sign-on policy action has `access` set to `DENY` or `CHALLENGE`, the `primaryFactor` attribute was returned instead of being absent from the response body. (OKTA-519078)
+
 ### Monthly release 2022.08.0
 
 | Change | Expected in Preview Orgs |
@@ -56,7 +73,7 @@ The [MyAccount API](/docs/reference/api/myaccount/) includes improved error mess
 
 #### New custom authenticator for push notifications
 
-Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization’s mobile apps. Your users are presented with a push and biometric experience within your organization’s apps, with your organization’s branding on it. They never have to leave your app, and they don’t need to download a third-party app, such as Okta Verify, to complete their verification. See [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/android/main/). <!-- OKTA-517891 -->
+Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization’s mobile apps. Your users are presented with a push and biometric experience within your organization’s apps, with your organization’s branding on it. They never have to leave your app, and they don’t need to download a third-party app, such as Okta Verify, to complete their verification. See [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/). <!-- OKTA-517891 -->
 
 #### Developer documentation updates in 2022.08.0
 

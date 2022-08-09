@@ -4,6 +4,18 @@ title: Okta API Products release notes 2022
 
 ## August
 
+### Weekly release 2022.08.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.08.1](#bugs-fixed-in-2022-08-1)                      | August 10, 2022            |
+
+#### Bugs fixed in 2022.08.1
+
+* When client assertions for `private_key_jwt` client authentication method operations contained the `aud` claim in an array instead of a string, an error was returned. (OKTA-478067)
+
+* When an app initiated the Service Provider flow and the SAML authorization request didn't contain the SAML Subject (`nameId`), a 500 HTTP error was returned. (OKTA-511120)
+
 ### Monthly release 2022.08.0
 
 | Change | Expected in Preview Orgs |
