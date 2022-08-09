@@ -40,7 +40,7 @@ The [Polling Okta](#polling-okta) section covers all the polling logic and code 
 
 #### 4: Open Okta Verify
 
-Next, the user installs Okta Verify (if not already installed on their device) and opens the app. To learn how to install and use the Okta Verify app, go to the [Okta Help Center](https://help.okta.com/en/prod/Content/Topics/Mobile/okta-verify-overview.htm).
+Next, the user installs Okta Verify (if not already installed on their device) and opens the app. To learn how to install and use the Okta Verify app, go to the [Okta Help Center](https://help.okta.com/okta_help.htm?id=ext_okta_verify).
 
 #### 5: Scan QR code
 

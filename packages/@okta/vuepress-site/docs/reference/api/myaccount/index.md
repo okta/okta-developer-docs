@@ -31,6 +31,14 @@ A valid API version in the `Accept` header is required to access the API. Curren
 Accept: application/json; okta-version=1.0.0
 ```
 
+#### Access Token assurance
+
+MyAccount operations that create, update, or delete resources require Access Tokens up to 15 minutes old. API calls with Access Tokens older than 15 minutes require re-authentication. If you don't re-authenticate the token, the API returns a 403 error with the following content in the header:
+
+```json
+www-authenticate: Bearer realm="IdpMyAccountAPI", error="insufficient_authentication_context", error_description="The access token requires additional assurance to access the resource", max_age=900
+```
+
 ## MyAccount Operations
 
 The MyAccount API has the following operations:
@@ -83,6 +91,7 @@ Any user with a valid bearer token can issue this request to get their email add
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/emails"
 ```
 
@@ -182,6 +191,7 @@ Any user with a valid bearer token can issue this request to get their email.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/emails/{id}"
 ```
 
@@ -263,6 +273,7 @@ Any user with a valid bearer token can issue this request to create their email.
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/emails"
 ```
 
@@ -347,6 +358,7 @@ Any non-admin user with a valid bearer token can issue this request to challenge
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/emails/{id}/challenge"
 ```
 
@@ -435,6 +447,7 @@ Any non-admin user with a valid bearer token can issue this request to verify th
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/emails/{id}/challenge/{challengeId}/verify"
 ```
 
@@ -475,6 +488,7 @@ Any non-admin user with a valid bearer token can issue this request to get their
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/emails/{id}/challenge/{challengeId}"
 ```
 
@@ -532,6 +546,7 @@ Any non-admin user with a valid bearer token can issue this request to delete th
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/emails/{id}"
 ```
 
@@ -574,6 +589,7 @@ Any user with a valid bearer token can issue this request to get their phones.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/phones"
 ```
 
@@ -669,6 +685,7 @@ Any user with a valid bearer token can issue this request to get their phone.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/phones/{id}"
 ```
 
@@ -756,6 +773,7 @@ Any user with a valid bearer token can issue this request to create their phone.
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/phones"
 ```
 
@@ -860,7 +878,7 @@ Call providers failing to send the out of band OTP challenge returns 500 with er
 This request sends a verification code by SMS to the phone number represented by `id`. The request is a normal phone challenge, not a retry.
 
 ```bash
-curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' --data '{
+curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/challenge' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' -H 'Accept: application/json; okta-version=1.0.0' --data '{
      "method": "SMS",
      "retry": false
  }'
@@ -942,7 +960,7 @@ Failing to answer the challenge (possibly due to invalid `verificationCode`) ret
 The following request verifies the phone number represented by `id` with a `verificationCode` of 796672.
 
 ```bash
-curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' --data '{
+curl -XPOST 'https://${yourOktaDomain}/myaccount/phones/{id}/verify' -H 'Authorization: bearer {token}' -H 'Content-Type: application/json' -H 'Accept: application/json; okta-version=1.0.0' --data '{
      "verificationCode": "796672"
  }'
 ```
@@ -982,6 +1000,7 @@ Any non-admin user with a valid bearer token can issue this request to delete th
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/phones/{id}"
 ```
 
@@ -1031,6 +1050,7 @@ Any user with a valid bearer token can issue this request to get the Schema for 
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${api_token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/profile/schema"
 ```
 
@@ -1122,6 +1142,7 @@ This request would retriever the requesting User's Profile.
 ```bash
 curl -v -X GET \
 -H "Authorization: Bearer ${api_token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/profile"
 ```
 
@@ -1196,7 +1217,7 @@ If provided profile attributes for update are invalid, the response returns a 40
 This request would update the user profile of the caller to have exactly the values specified.
 
 ```bash
-curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: Bearer {token}' -H 'Content-Type: application/json' --data '{
+curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: Bearer {token}' -H 'Content-Type: application/json' -H 'Accept: application/json; okta-version=1.0.0' --data '{
      "profile": {
          "customBoolean": false,
          "foo": "bar",
