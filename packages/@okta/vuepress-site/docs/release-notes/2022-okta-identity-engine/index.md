@@ -73,7 +73,7 @@ The [MyAccount API](/docs/reference/api/myaccount/) includes improved error mess
 
 #### New custom authenticator for push notifications
 
-Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization’s mobile apps. Your users are presented with a push and biometric experience within your organization’s apps, with your organization’s branding on it. They never have to leave your app, and they don’t need to download a third-party app, such as Okta Verify, to complete their verification. See [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/android/main/). <!-- OKTA-517891 -->
+Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization’s mobile apps. Your users are presented with a push and biometric experience within your organization’s apps, with your organization’s branding on it. They never have to leave your app, and they don’t need to download a third-party app, such as Okta Verify, to complete their verification. See [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/). <!-- OKTA-517891 -->
 
 #### Developer documentation updates in 2022.08.0
 
