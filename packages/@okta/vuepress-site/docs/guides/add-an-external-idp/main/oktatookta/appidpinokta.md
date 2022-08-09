@@ -27,7 +27,7 @@ In the optional **Authentication Settings** section:
 
     **Note:** When you use multi-tenancy, we recommend that you add a unique username format with a suffix per spoke org to prevent all potential impersonation, except with intentional scenarios such as using AD as the sign-in source for Okta.
 
-* **Filter > Only allow usernames that match defined RegEx Pattern:** Select this option to only authenticate users with transformed usernames that match a regular expression pattern in the text field that appears. This filters the IdP username to prevent the IdP from authenticating unintended or privileged users. Users are only authenticated if the transformed username matches the regular expression pattern.
+* **Filter > Only allow usernames that match defined RegEx Pattern:** Select this option to only authenticate users with transformed usernames that match a regular expression pattern in the text field that appears. This filters the IdP username to prevent the IdP from authenticating unintended users. Users are only authenticated if the transformed username matches the regular expression pattern.
 
     > **Note:** When you use Okta for B2B or multi-tenancy use cases, we recommend that you select this checkbox. This helps you scope a subset of users in the org and enforce identifier constraints, such as email suffixes.
 
