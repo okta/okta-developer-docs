@@ -18,7 +18,7 @@ The following image shows how data flows through the Devices SDK:
 
 </div>
 
-### Enable the user to sign-in
+### Enable the user to sign in
 
 A valid user account authentication token is required to add a device as an authenticator. To get the token, first enable the user to sign-in to there account using the [Okta mobile Swift SDK](https://github.com/okta/okta-mobile-swift) or if you're already using it, the [Okta IDX Swift SDK](https://github.com/okta/okta-idx-swift). For more information on signing users in to your app, see [Sign users in to your mobile app using the redirect model](https://developer.okta.com/docs/guides/sign-into-mobile-app-redirect/ios/main/).
 
