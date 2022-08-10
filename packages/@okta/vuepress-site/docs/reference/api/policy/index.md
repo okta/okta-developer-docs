@@ -495,21 +495,14 @@ Policies that have no Rules aren't considered during evaluation and are never ap
 
 Different Policy types control settings for different operations. All Policy types share a common framework, message structure, and API, but have different Policy settings and Rule data. The data structures specific to each Policy type are discussed in the various sections below.
 
-[Global session policy](#global-session-policy)
-
-[Authenticator enrollment policy](#authenticator-enrollment-policy) <ApiLifecycle access="ie" />
-
-[Okta MFA Enrollment Policy](#multifactor-mfa-enrollment-policy)
-
-[Password Policy](#password-policy)
-
-[IdP Discovery Policy](#idp-discovery-policy)
-
-[OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
-
-[Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
-
-[Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
+* [Global session policy](#global-session-policy)
+* [Authenticator enrollment policy](#authenticator-enrollment-policy) <ApiLifecycle access="ie" />
+* [Okta MFA Enrollment Policy](#multifactor-mfa-enrollment-policy)
+* [Password Policy](#password-policy)
+* [IdP Discovery Policy](#idp-discovery-policy)
+* [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
+* [Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
+* [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 
 ### Policy priority and defaults
 
