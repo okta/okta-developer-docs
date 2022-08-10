@@ -2,7 +2,7 @@
   <section class="customLanding-gray">
     <div class="customLanding-wrapper">
         <div class="customLanding-features">
-            <div class="customLanding-features__row" v-for="({ id, title, text, link, linkText, caption, list }) in rows">
+            <div class="customLanding-features__row" v-for="({ id, title, text, link, linkText, list }) in rows" :key="title">
                 <div class="customLanding-features__col">
                     <div class="customLanding-features__title">
                         <img :src="`/img/customLanding/features-${id}.svg`" />

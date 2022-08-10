@@ -5,7 +5,7 @@
             <h2>Explore the integration process from end-to-end</h2>
             <p class="customLanding-explore__desc">Our step by step guides walk you through every phase of building your integration.</p>
             <div class="customLanding-explore__list">
-                <div class="customLanding-explore__item" v-for="({ id, caption, text, link, path }) in list" :key="id">
+                <div class="customLanding-explore__item" v-for="({ id, caption, text, link, path }) in list" :key="caption">
                     <div class="customLanding-explore__content">
                         <div class="customLanding-explore__icon">
                             <div class="customLanding-explore__icon-item" :style="`background: url(/img/customLanding/explore-${id}.svg) no-repeat 50% 50%;`">
