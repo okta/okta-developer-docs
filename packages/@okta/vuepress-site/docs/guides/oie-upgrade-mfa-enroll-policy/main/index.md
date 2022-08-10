@@ -2,7 +2,7 @@
 title: Understand MFA and authenticator enrollment policy API changes after the upgrade
 meta:
   - name: description
-    content: Learn how to use and manage the MFA enrollment policy after migrating to Okta Identity Engine with the API.
+    content: Learn how to use and manage the MFA and authenticator enrollment policies with the API in Okta Identity Engine.
 ---
 
 <ApiLifecycle access="ie" />
