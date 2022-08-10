@@ -543,7 +543,7 @@ curl -v -X POST \
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}" />
 
-Gets a Resource Set by its ID
+Gets a Resource Set by its ID or Label
 
 #### Request parameters
 
@@ -891,10 +891,10 @@ Removes a resource from a Resource Set
 
 ##### Request parameters
 
-| Parameter      | Description                             | Param Type   | DataType     | Required |
-| :------------- | :-------------------------------------- | :----------- | :----------- | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the Resource Set                  | URL          | String       | TRUE     |
-| `resourceId`     | ID of the resource within the Resource Set  | URL          | String       | TRUE     |
+| Parameter      | Description                                      | Param Type   | DataType     | Required |
+| :------------- |:-------------------------------------------------| :----------- | :----------- | :------- |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set                  | URL          | String       | TRUE     |
+| `resourceId`     | ID of the resource within the Resource Set       | URL          | String       | TRUE     |
 
 `resourceId` is the ID that is obtained when [resources are listed within the Resource Set](#list-resources). For example, if the resource object is:
 
