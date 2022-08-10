@@ -15,7 +15,7 @@ In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator
 
 After upgrading your org to Identity Engine, new authenticator enrollment policies created in the Admin Console are configured using authenticators. MFA enrollment policies created before upgrading to Identity Engine, are still configured with factors. However, if an existing policy was modified and saved in the Admin Console, the factors in that policy are converted to authenticators. This conversion is seamless to admin users that are managing policies in the Admin Console.
 
-For existing apps that manage and use MFA enrollment policies programmatically through the [Policy API](/docs/reference/api/policy/), some development work is required to handle the factor to authenticator conversion schema changes after the org upgrades to Identity Engine. This guide provides you with key API considerations to upgrade your app for multifactor enrollment flows in Identity Engine.
+For existing code that manages and uses Classic Engine MFA enrollment policies programmatically through the [Policy API](/docs/reference/api/policy/), some development work is required to handle the factor to authenticator conversion schema changes after the org upgrades to Identity Engine. This guide provides you with key API considerations to upgrade your app for multifactor enrollment flows in Identity Engine.
 
 ## Authenticator enrollment policy API changes in Identity Engine
 
@@ -28,7 +28,9 @@ The following are the main behavior changes to the [authenticator enrollment pol
 
 ### Recovery authenticators
 
-In Identity Engine, you can use the authenticator enrollment policy with authenticator settings to govern recovery authenticator enrollment for the password recovery flow. The enrollment for recovery authenticators (Email, Phone, Okta Verify, and Security question) are governed by both the password policy and the authenticator enrollment policy. For example, if the Email authenticator is enabled and set to `Required` in the authenticator enrollment policy, then email enrollment is required for recovery even if it isn't required in the password policy. Therefore, if you want to manage your recovery authenticators in the enrollment policy, you need to configure your authenticator enrollment policy with [authenticators](/docs/reference/api/policy/#policy-authenticator-object), and not [factors](/docs/reference/api/policy/#policy-factors-configuration-object).
+In Identity Engine, you can use authenticator-based authenticator enrollment policies to govern recovery authenticator enrollment for the password recovery flow. This feature isn't available for factor-based authenticator enrollment policies.
+
+The enrollment for recovery authenticators (Email, Phone, Okta Verify, and Security question) are governed by both the password policy and the authenticator enrollment policy. For example, if the Email authenticator is enabled and set to `Required` in the authenticator enrollment policy, then email enrollment is required for recovery even if it isn't required in the password policy.
 
 > **Note:** Password policy recovery authenticator settings supersedes the authenticator settings in an authenticator enrollment policy. For example, if the Phone authenticator is `Optional` or `Disabled` for the authenticator enrollment policy, but `Required` for the password policy, then phone enrollment is required for the password recovery flow.
 
@@ -93,7 +95,7 @@ Example of an authenticator enrollment policy response `settings` snippet with f
 
 ## Create an authenticator enrollment policy
 
-To create an authenticator enrollment policy through the [Policy API](/docs/reference/api/policy/), you need to provide the `settings` schema with either the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) or [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) in the `POST /api/v1/policies` request parameters body.
+To create an authenticator enrollment policy through the [Policy API](/docs/reference/api/policy/), you need to provide the `settings` schema with either the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) or [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) in the `POST /api/v1/policies` request body parameters.
 
 For a new authenticator enrollment policy in Identity Engine, use the [Create a Policy](/docs/reference/api/policy/#create-a-policy) API operation. Set the list of authenticators for the policy by using the [Authenticators Administration API](/docs/reference/api/authenticators-admin/) to list the available authenticators in your org.
 
@@ -103,7 +105,7 @@ You can also create a new authenticator enrollment policy with factors instead o
 
 ## Update an authenticator enrollment policy
 
-To update an authenticator enrollment policy through the [Update a Policy](/docs/reference/api/policy/#update-a-policy) API operation, you need to provide the `settings` schema with either the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) or [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) in the `PUT /api/v1/policies/${policyId}` request parameters body.
+To update an authenticator enrollment policy through the [Update a Policy](/docs/reference/api/policy/#update-a-policy) API operation, you need to provide the `settings` schema with either the list of [Policy Authenticator objects](/docs/reference/api/policy/#policy-authenticator-object) or [Policy Factors Configuration objects](/docs/reference/api/policy/#policy-factors-configuration-object) in the `PUT /api/v1/policies/${policyId}` request body parameters.
 
 > **Note:** You need to configure the other policy parameters according to the [Update a Policy](/docs/reference/api/policy/#update-a-policy) API operation. This section focuses on the `settings` parameter required specifically for the authenticator enrollment policy.
 
