@@ -204,7 +204,7 @@ HTTP 204:
 
 > **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
-> **Note:** Within the Identity Engine, this feature is only supported for [authentication Policies](#authentication-policy).
+> **Note:** Within the Identity Engine, this feature is only supported for [authentication policies](#authentication-policy).
 
 <ApiOperation method="post" url="/api/v1/policies/${policyId}/clone" />
 
