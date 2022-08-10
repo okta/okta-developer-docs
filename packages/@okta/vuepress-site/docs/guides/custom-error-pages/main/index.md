@@ -15,7 +15,7 @@ Customize error pages as part of the sign-in flow.
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Customized Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](#use-the-brands-api)
+* [Customized Okta URL domain](/docs/guides/custom-url-domain/), unless you're using the [Brands API](#use-the-brands-api)
 
 **Sample code**
 
@@ -47,19 +47,25 @@ The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, a
 
 ## Edit the error page
 
-The HTML editor that is provided on the **Error pages code editor** section of **Customizations** allows you to modify any HTML, CSS, and JavaScript on the error page.
+Use the code editor to modify any HTML, CSS, or JavaScript on the error page. See [Customization examples](#customization-examples) for snippets that you can update and use.
 
-1. In the Admin Console, select **Customizations** and then **Error pages code editor**.
-1. Make changes directly in the embedded **Error Pages** editor.
-1. Click **Preview** to preview your changes before you publish.
-1. Click **Reset to Default** if you need to remove all of your customizations and restore the default HTML/CSS and JavaScript code.
-1. Click **Save and Publish** to commit your changes.
+> **Note:** There is no draft mode in the code editor. When you click **Publish**, your changes go live. If you want to test changes without impacting production, use a test or development org.
 
-> **Note:** See [Customization examples](#customization-examples) for snippets that you can update and use.
+1. In the Admin Console, go to **Customizations** > **Branding**.
+2. In the **Okta-hosted Error Pages box**, click **Edit**.
+3. Enable the code editor.
+4. Make changes directly in the editor. If you type `{`, the editor shows a list of available variables that you can use. See [Use variables](#use-variables).
+   * Click **Preview** to see your changes in a new browser window before you publish.
+   * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
+   * Click **Revert changes** to remove your customizations and restore the default HTML/CSS and JavaScript code.
 
-## Use macros
+   > **Note:** The Admin Console auto-saves your changes every few minutes. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, disable the code editor.
 
-The following macros contain the configuration parameters for certain page elements. These macros inject specific content or functionality automatically.
+5. Click **Publish** to commit your changes.
+
+## Use variables
+
+The following variables contain the configuration parameters for certain page elements. These variables inject specific content or functionality automatically.
 
 ### <span v-pre>`{{orgName}}`</span>
 
@@ -115,7 +121,7 @@ Example:
 <p class="o-form-explain">What happened? {{{errorDescription}}}</p>
 ```
 
-> **Note:** Macros with double curly braces return escaped HTML by default. Triple braces `{{{` are used for the `errorDescription` macro to return unescaped HTML. See [Mustache template](http://mustache.github.io/mustache.5.html).
+> **Note:** Variables with double curly braces return escaped HTML by default. Triple braces `{{{` are used for the `errorDescription` macro to return unescaped HTML. See [Mustache template](http://mustache.github.io/mustache.5.html).
 
 ### <span v-pre>`{{back}}`</span>
 
@@ -137,7 +143,7 @@ Example:
 <p class="technical-details">Additional Error Details: {{technicalDetails}}</p>
 ```
 
-> **Note:** The following macros are only available when the Theme Builder feature is enabled in your org.
+> **Note:** The following variables are only available when the Theme Builder feature is enabled in your org.
 
 ### <span v-pre>`{{buttonText}}`</span>
 
@@ -223,8 +229,6 @@ Example:
 ```
 
 ## Next steps
-
-You should now understand how to customize the error page.
 
 Read more about other customization options:
 
