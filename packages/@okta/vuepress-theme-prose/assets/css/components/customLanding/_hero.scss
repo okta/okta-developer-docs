@@ -65,6 +65,11 @@
         color: cv('body', 'white');
         background-color: cv('link');
       }
+      &:visited,
+      &:active,
+      &:focus {
+        color: cv('body', 'white');
+      }
     }
     &__link {
       color: cv('link');
@@ -73,7 +78,7 @@
     }
     &__image {
       svg {
-        width: 222px;
+        width: 238px;
       }
     }
   }

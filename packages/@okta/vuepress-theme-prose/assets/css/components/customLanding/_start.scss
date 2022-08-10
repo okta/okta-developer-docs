@@ -41,6 +41,11 @@
               color: cv('body', 'white');
               background-color: cv('link');
             }
+            &:visited,
+            &:active,
+            &:focus {
+              color: cv('body', 'white');
+            }
           }
     }
 }
