@@ -50,6 +50,8 @@ Trusted applications are backend applications that act as authentication broker 
 
 Every authentication transaction starts with primary authentication which validates a user's primary password credential. **Password Policy**, **MFA Policy**,  and **Sign-On Policy** are evaluated during primary authentication to determine if the user's password is expired, a Factor should be enrolled, or additional verification is required. The [transaction state](#transaction-state) of the response depends on the user's status, group memberships and assigned policies.
 
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+
 The requests and responses vary depending on the application type, and whether a password expiration warning is sent:
 
 * [Primary Authentication with Public Application](#primary-authentication-with-public-application)&mdash;[Request Example](#request-example-for-primary-authentication-with-public-application)
@@ -439,6 +441,8 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
 
 
 User is assigned to a **MFA Policy** that requires enrollment during sign-in and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
+
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 ```json
 {
@@ -1204,6 +1208,8 @@ curl -v -X POST \
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+
 ```json
 {
    "stateToken":"00zEfSRIpELrl87ndYiHNkvOEbyEPrBmTYuf9dsGLl",
@@ -1553,6 +1559,8 @@ curl -v -X POST \
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+
 ```json
 {
    "stateToken":"00zEfSRIpELrl87ndYiHNkvOEbyEPrBmTYuf9dsGLl",
@@ -1894,6 +1902,8 @@ You can enroll, activate, manage, and verify factors inside the authentication c
 <ApiOperation method="post" url="/api/v1/authn/factors" /> <SupportsCors />
 
 Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-for-providers) assigned by their **MFA Policy**
+
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 * [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
 * [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
