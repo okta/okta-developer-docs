@@ -9,10 +9,6 @@ meta:
 
 ---
 
-::: slot description
-New to Okta? Our resources walk you through adding user authentication to your Android app in minutes.
-:::
-
 ## Get started with Android + Okta
 
 These resources walk you through adding user authentication to your Android app in minutes.
