@@ -10,6 +10,7 @@
       </router-link>
       <div class="generated-content">
         <Content :pageKey="getPageKey(link.path)" />
+        <p>Index page for "{{link.title}}" articles</p>
       </div>
     </div>
   </div>

@@ -1,5 +1,14 @@
-.generated-content .content__default > * {
-  display: none !important;
+.generated-content {
+  & .content__default > *,
+  & .content__default + p {
+    display: none !important;
+  }
+
+  & > p {
+    margin-top: 0.625rem;
+    padding-left: 1.25rem;
+    display: block !important;
+  }
 }
 
 .generated-content .content__default p:nth-of-type(1) {
