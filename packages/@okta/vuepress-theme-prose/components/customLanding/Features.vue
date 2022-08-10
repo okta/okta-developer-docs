@@ -9,11 +9,11 @@
                         <h3>{{title}}</h3>
                     </div>
                     <p class="customLanding-features__text">{{text}}</p>
-                    <a class="customLanding-features__button" :href="`${link}`">{{linkText}}</a>
+                    <a class="customLanding-features__button" :href="`${link}`" :blank="link.includes('https') ? '_blank' : '_self'">{{linkText}}</a>
                 </div>
                 <div class="customLanding-features__col">
                     <p class="customLanding-features__caption">Build this if you want to:</p>
-                    <ul class="customLanding-features__list" v-for="item in list">
+                    <ul class="customLanding-features__list" v-for="item in list" :key="item">
                         <li class="customLanding-features__list-item" v-html="item"></li>
                     </ul>
                 </div>
@@ -38,19 +38,19 @@
                     list: [
                         'Streamline the sign-in flow',
                         'Use Okta for identity management and secure access',
-                        'Federate using <a href="https://developer.okta.com/docs/concepts/saml/">SAML</a> or <a href="https://developer.okta.com/docs/guides/oin-oidc-overview/main/">OIDC</a>'
+                        'Federate using <a href="/docs/concepts/saml/">SAML</a> or <a href="/docs/guides/oin-oidc-overview/main/">OIDC</a>'
                     ]
                 },
                 {
                     id: 2,
                     title: 'Automate the User Lifecycle',
                     text: 'Automatically provision, update, and de-provision users securely with SCIM and automate complex actions with our low code/no-code building tools.',
-                    link: 'https://docs.google.com/document/d/157AdLbA38W_WyAIH0W45YE1G3F3pWzWVI8wIfVmBAZQ/edit#heading=h.xz5gewuas0i5',
+                    link: '/docs/guides/oin-lifecycle-mgmt-overview/',
                     linkText: 'Build SCIM provisioning',
                     list: [
                         'Synchronize your app user profiles with Okta profiles',
-                        'Use <a href="https://developer.okta.com/docs/concepts/scim/">SCIM</a> to manage users in cloud-based systems',
-                        'Provide custom onboarding and offboarding flows with <a href="https://help.okta.com/wf/en-us/Content/Topics/Workflows/connector-builder/connector-builder.htm">Workflows Connector Builder</a>'
+                        'Use <a href="/docs/concepts/scim/">SCIM</a> to manage users in cloud-based systems',
+                        'Provide custom onboarding and offboarding flows with <a href="https://help.okta.com/wf/en-us/Content/Topics/Workflows/connector-builder/connector-builder.htm" target="_blank">Workflows Connector Builder</a>'
                     ]
                 },
                 {
@@ -60,7 +60,7 @@
                     link: '#',
                     linkText: 'Get Started with Risk Signal Sharing',
                     list: [
-                        '<a href="https://developer.okta.com/docs/guides/third-party-risk-integration/main">Use the Risk Signal API</a> to unite risk signals with access decisions and secure digital experiences',
+                        '<a href="/docs/guides/third-party-risk-integration/main">Use the Risk Signal API</a> to unite risk signals with access decisions and secure digital experiences',
                         'Enhance security efficacy against targeted identity attacks',
                         'Start your journey towards continuous authentication'
                     ]

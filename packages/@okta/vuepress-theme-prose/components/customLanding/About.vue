@@ -12,13 +12,13 @@
           <div class="customLanding-about__resourses">
             <h4>Resources</h4>
             <div class="customLanding-about__link">
-              <a href="https://developer.okta.com/"><span>DOCS</span> Resource link title</a>
+              <a href="/"><span>DOCS</span> Resource link title</a>
             </div>
             <div class="customLanding-about__link">
-              <a href="https://developer.okta.com/blog/"><span>BLOG</span> Resource link title</a>
+              <a href="/blog/"><span>BLOG</span> Resource link title</a>
             </div>
             <div class="customLanding-about__explore">
-              <a href="https://www.okta.com/integrations/?_ga=2.69648791.666800256.1657039285-1720849556.1654882902&_gac=1.123406841.1657308936.CjwKCAjwq5-WBhB7EiwAl-HEkh9EljRcSMGkGP4C13k5PedUuP3J0ZcTIxjhsYjoDoTP5ahxXK1E7hoCtaYQAvD_BwE">Explore the OIN Catalog</a>
+              <a href="https://www.okta.com/integrations/?_ga=2.69648791.666800256.1657039285-1720849556.1654882902&_gac=1.123406841.1657308936.CjwKCAjwq5-WBhB7EiwAl-HEkh9EljRcSMGkGP4C13k5PedUuP3J0ZcTIxjhsYjoDoTP5ahxXK1E7hoCtaYQAvD_BwE" target="_blank">Explore the OIN Catalog</a>
             </div>
           </div>
         </div>
