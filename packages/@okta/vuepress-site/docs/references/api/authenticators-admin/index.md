@@ -740,16 +740,16 @@ The Authenticator object defines the following properties:
 | `settings.channelBinding.style` | String | `NUMBER_CHALLENGE` | `okta_verify` |
 | `settings.channelBinding.required` | String (Enum) | `NEVER`, `ALWAYS`, `HIGH_RISK_ONLY` | `okta_verify` |
 | `settings.userVerification` | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify`, `custom_app` |
-| `settings.appInstanceId` | String | The application instance ID. For `custom_app`, you need to create an OIDC native app using the [Apps API](/docs/reference/api/apps/) with `Authorization Code` and `Refresh Token` grant types. You can leave both `Sign-in redirect URIs` and `Sign-out redirect URIs` as the default values. | `okta_verify`, `custom_app` |
+| `settings.appInstanceId` | String | The application instance ID. For `custom_app`, you need to create an OIDC native app using the [Apps API](/docs/references/api/apps/) with `Authorization Code` and `Refresh Token` grant types. You can leave both `Sign-in redirect URIs` and `Sign-out redirect URIs` as the default values. | `okta_verify`, `custom_app` |
 | `provider.type` | String | Provider type. Supported value for Duo: `DUO`. Supported value for Custom App: `PUSH` | `duo` and other authenticators making use of the provider object |
 | `provider.configuration.host` | String | The Duo Security API hostname | `duo` |
 | `provider.configuration.integrationKey` | String | The Duo Security integration key | `duo` |
 | `provider.configuration.secretKey` | String | The Duo Security secret key | `duo` |
 | `provider.configuration.userNameTemplate.template` | String | The Duo Security user template name | `duo` |
-| `provider.configuration.apns.id`| String | ID of the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
-| `provider.configuration.apns.id`| String | AppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
-| `provider.configuration.apns.id`| String | DebugAppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
-| `provider.configuration.fcm.id` | String  | ID of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
+| `provider.configuration.apns.id`| String | ID of the APNs (Apple Push Notification Service) [configuration](/docs/references/api/push-providers/) | `custom_app` |
+| `provider.configuration.apns.id`| String | AppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/references/api/push-providers/) | `custom_app` |
+| `provider.configuration.apns.id`| String | DebugAppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/references/api/push-providers/) | `custom_app` |
+| `provider.configuration.fcm.id` | String  | ID of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/references/api/push-providers/) | `custom_app` |
 | `methods.type` | String  | Method type. Supported value for `custom_app`: `push`.  Supported values for `okta_verify`: `push`, `otp`, `signed_nonce`| `custom_app`, `okta_verify` |
 | `methods.status` | `ACTIVE`,`INACTIVE` | Status of the authenticator method | `custom_app`, `okta_verify`|
 | `methods.settings.algorithms` | String (Enum) | Algorithms supported. Supported values: `RS256`, `ES256` | `custom_app`, `okta_verify` |

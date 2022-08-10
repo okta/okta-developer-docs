@@ -24,7 +24,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### PKCE validation for OIDC app integrations is GA in Preview
 
-You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-518333 -->
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/references/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-518333 -->
 
 #### Configurable API token rate limits is GA in Production
 
@@ -32,7 +32,7 @@ Admins can now configure a percentage rate limit capacity for individual API tok
 
 #### Rate Limits dashboard includes API Token data
 
-The Rate Limits dashboard now includes API Token data on the Rate limit usage over time graph. You can view bar graph data from API tokens or by IP address to review any spike in traffic. See [bar graph](/docs/reference/rl-dashboard/#bar-graph) and [API rate limits by token](/docs/reference/rate-limits/#api-rate-limits-by-token). <!-- OKTA-498252 -->
+The Rate Limits dashboard now includes API Token data on the Rate limit usage over time graph. You can view bar graph data from API tokens or by IP address to review any spike in traffic. See [bar graph](/docs/references/rl-dashboard/#bar-graph) and [API rate limits by token](/docs/references/rate-limits/#api-rate-limits-by-token). <!-- OKTA-498252 -->
 
 #### Telephony inline hook is LGA in Production
 
@@ -44,7 +44,7 @@ The `system.operation.rate_limit.violation` event is no longer triggered when SM
 
 #### Trusted Origins for iFrame embedding is GA in Production
 
-You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-514609 -->
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/references/api/trusted-origins/). <!-- OKTA-514609 -->
 
 #### Updates to default global session policy
 
@@ -52,7 +52,7 @@ You can now edit the secondary factor in the default rule of the global session 
 
 #### Improved error messages for MyAccount API
 
-The [MyAccount API](/docs/reference/api/myaccount/) includes improved error messages for end users to identify why email and phone operations couldn’t be completed or accessed. <!-- OKTA-484080 -->
+The [MyAccount API](/docs/references/api/myaccount/) includes improved error messages for end users to identify why email and phone operations couldn’t be completed or accessed. <!-- OKTA-484080 -->
 
 #### New custom authenticator for push notifications
 

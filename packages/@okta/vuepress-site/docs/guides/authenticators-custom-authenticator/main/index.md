@@ -84,7 +84,7 @@ When you are ready to grant the required scopes, follow these steps:
       * `okta.authenticators.read`
       * `okta.users.read.self`
 
-Alternatively, you can grant scopes using the [Grant consent to scope for application](/docs/reference/api/apps/#application-oauth-2-0-scope-consent-grant-operations) operation of the Apps API.
+Alternatively, you can grant scopes using the [Grant consent to scope for application](/docs/references/api/apps/#application-oauth-2-0-scope-consent-grant-operations) operation of the Apps API.
 
 ### Set up notification services
 
@@ -124,7 +124,7 @@ Alternatively, you can call the `api/v1/apps` endpoint to create the OIDC app an
 If your push notifications aren't delivering:
 
 1. Follow the steps to [view push notification events](https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
-2. To narrow your search parameters, enter the following: `eventType eq "device.push.provider.update" and displayMessage eq "Push Provider Configuration verification failed"`. See [Event types](/docs/reference/api/event-types/).
+2. To narrow your search parameters, enter the following: `eventType eq "device.push.provider.update" and displayMessage eq "Push Provider Configuration verification failed"`. See [Event types](/docs/references/api/event-types/).
 3. In the **Reason** section, locate the error message from your push provider. Consult the push provider documentation, if necessary.
 4. Verify that your notification services configuration is valid. See [Edit a notification service](https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
 5. Click **Save** to allow push providers to attempt to send notifications again.

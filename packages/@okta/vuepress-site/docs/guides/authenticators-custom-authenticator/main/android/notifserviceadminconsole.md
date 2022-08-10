@@ -9,4 +9,4 @@
 
 After you have added a notification service, you can check for successful and failed push notifications sent to users in the System Log. See [View push notification events](https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
 
-Alternatively, you can add a notification service using the [Create Push Provider](/docs/reference/api/push-providers/#create-push-provider) operation of the Push Providers API.
+Alternatively, you can add a notification service using the [Create Push Provider](/docs/references/api/push-providers/#create-push-provider) operation of the Push Providers API.

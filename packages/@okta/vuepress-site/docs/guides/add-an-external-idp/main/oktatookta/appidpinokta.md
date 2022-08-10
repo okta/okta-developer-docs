@@ -23,7 +23,7 @@ In the optional **Authentication Settings** section:
 
     For example, the value `idpuser.email` means that it takes the email attribute passed by the Identity Provider and maps it to the Okta application user's username property.
 
-    You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
+    You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/references/okta-expression-language/).
 
     **Note:** When you use multi-tenancy, we recommend that you add a unique username format with a suffix per spoke org to prevent all potential impersonation, except with intentional scenarios such as using AD as the sign-in source for Okta.
 
