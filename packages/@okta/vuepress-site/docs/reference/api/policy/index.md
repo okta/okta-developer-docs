@@ -1194,13 +1194,13 @@ The authenticator enrollment policy controls which authenticators are available 
 
 | Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
 | ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
-| authenticators | List of authenticator policy settings | Array of [Policy Authenticators object](#policy-authenticators-object) | No       |           |
+| authenticators | List of authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
 | factors                                                                          | Factor policy settings. This parameter is for Classic Engine MFA Enrollment policies that have migrated to Identity Engine but haven't converted to using authenticators yet. Factors and authenticators are mutually exclusive in an authenticator enrollment policy. When a policy is updated to use authenticators, the factors are removed.               | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
 | type            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
 > **Note:** The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
 
-#### Policy Authenticators object
+#### Policy Authenticator object
 
 <ApiLifecycle access="ie" />
 
