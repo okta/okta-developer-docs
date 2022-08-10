@@ -53,7 +53,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 
 1. In the Admin Console, go to **Customizations** > **Branding**.
 2. In the **Okta-hosted Error Pages box**, click **Edit**.
-3. Enable the code editor.
+3. To open the code editor, turn on the toggle next to **Code editor**.
 4. Make changes directly in the editor. If you type `{`, the editor shows a list of available variables that you can use. See [Use variables](#use-variables).
    * Click **Preview** to see your changes in a new browser window before you publish.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
