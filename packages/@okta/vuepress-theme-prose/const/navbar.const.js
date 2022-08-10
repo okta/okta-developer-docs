@@ -210,6 +210,7 @@ export const guides = [
               {
                 title: "Sign in to your SPA with Auth JS",
                 guideName: "sign-in-to-spa-authjs",
+                description: 'Test description'
               },
               {
                 title: "Sign in to SPA with embedded Widget",

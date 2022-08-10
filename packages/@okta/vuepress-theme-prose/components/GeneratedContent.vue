@@ -8,7 +8,10 @@
           <slot>{{link.title}}</slot>
         </a>
       </router-link>
-      <div class="generated-content">
+      <div class="generated-content" v-if="link.description">
+        <p>{{link.description}}</p>
+      </div>
+      <div class="generated-content" v-else>
         <Content :pageKey="getPageKey(link.path)" />
         <p>Index page for "{{link.title}}" articles</p>
       </div>

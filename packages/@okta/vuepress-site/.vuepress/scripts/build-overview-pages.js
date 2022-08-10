@@ -54,6 +54,9 @@ function generatedLinks(arr, parent = null) {
           } else {
             page.frontmatter.generated = true
           }
+          if (el.description) {
+            page.description = el.description;
+          }
           generatedPages.push(page);
           el.path = path;
         }
