@@ -135,7 +135,10 @@ Example:
 
 ### <span v-pre>`{{technicalDetails}}`</span>
 
-Inserts additional error codes, if there are any. See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code).
+Inserts additional messaging, if the error code has any. For example:
+`If you are using custom expressions like \{0}, make sure that the field 'customField' is present in the user profile. Please review your attribute list and make the appropriate change.`
+
+See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code).
 
 Example:
 
