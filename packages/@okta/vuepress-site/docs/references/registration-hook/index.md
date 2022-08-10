@@ -1,36 +1,30 @@
 ---
-title: Registration Inline Hook Reference
+title: Registration inline hook reference
 excerpt: Customize handling of user registration requests in Profile Enrollment
 ---
 
-# Registration Inline Hook Reference
+# Registration inline hook reference
 
-This page provides reference documentation for:
-
-- JSON objects contained in the outbound request from Okta to your external service
-
-- JSON objects you can include in your response
-
-This information is specific to the Registration Inline Hook, one type of Inline Hook supported by Okta.
+This page provides reference documentation for registration import inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/references/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see [Enabling a Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/#enable-the-registration-inline-hook).
+For steps to enable this inline hook, see [Enabling a registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/#enable-the-registration-inline-hook).
 
-For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/).
+For an example implementation of this inline hook, see [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/).
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) flow. The hook is triggered after Okta receives the registration or profile update request. Your custom code can:
+The Okta registration inline hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) flow. The hook is triggered after Okta receives the registration or profile update request. Your custom code can:
 
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
 - Set or override the values that are populated in attributes of the user's Okta profile
 
-> **Note:** Profile Enrollment and self-service registration (SSR) Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
+> **Note:** Profile Enrollment and self-service registration (SSR) inline hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
 ## Objects in the Request from Okta
 
@@ -64,7 +58,7 @@ The following attributes aren't included in the `data.userProfile` object:
 
 Using the `com.okta.user.profile.update` commands you send in your response, you can modify the values of the attributes, or add other attributes, before the values are assigned to the Okta user profile that will be created for the registering user.
 
-You can only set values for profile fields which already exist in your Okta user profile schema: Registration Inline Hook functionality can only set values; it cannot create new fields.
+You can only set values for profile fields which already exist in your Okta user profile schema. Registration inline hook functionality can only set values. It can't create new fields.
 
 ### data.UserProfileUpdate
 
@@ -116,7 +110,7 @@ For example commands, see the [value](#value) section below.
 
 #### Supported commands
 
-The following commands are supported for the Registration Inline Hook type:
+The following commands are supported for the registration inline hook type:
 
 | Command                      | Description                                                  |
 |------------------------------|--------------------------------------------------------------|
@@ -128,7 +122,7 @@ To set attributes in the user's Okta profile, supply a type property set to `com
 
 To explicitly allow or deny registration to the user, supply a type property set to `com.okta.action.update`, together with a value property set to `{"registration": "ALLOW"}` or `{"registration": "DENY"}`. The default is to allow registration.
 
-In Okta Identity Engine, to set attributes in the user's profile, supply a type property set to `com.okta.user.progressive.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the Progressive Enrollment attributes that you want to set. See [Registration Inline Hook - Send response](/docs/guides/registration-inline-hook/nodejs/main/#send-response). <ApiLifecycle access="ie" />
+In Okta Identity Engine, to set attributes in the user's profile, supply a type property set to `com.okta.user.progressive.profile.update`, together with a `value` property set to a list of key-value pairs corresponding to the Progressive Enrollment attributes that you want to set. See [Registration inline hook - Send response](/docs/guides/registration-inline-hook/nodejs/main/#send-response). <ApiLifecycle access="ie" />
 
 Commands are applied in the order that they appear in the array. Within a single `com.okta.user.profile.update` or `com.okta.user.progressive.profile.update` command, attributes are updated in the order that they appear in the `value` object.
 
@@ -198,7 +192,7 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 See [error](/docs/concepts/inline-hooks/#error) for general information about the structure to use for the `error` object.
 
-For the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register or update their profile.
+For the registration inline hook, the `error` object provides a way of displaying an error message to the end user who is trying to register or update their profile.
 
 > **Note:** Generic Progressive Enrollment error messages are only available in the Identity Engine.
 

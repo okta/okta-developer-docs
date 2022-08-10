@@ -11,6 +11,7 @@ The rate limit dashboard is a tool that helps you understand the use of each API
 * The ability to track the rate limit's consumption.
 * The ability to change rate limit settings and customize the warning threshold.
 * Notification alerts when you're about to hit or have hit the rate limit or exceeded the rate limit (burst rate limits).
+* The ability to track rate limits by API token or IP address.
 * The ability for you to investigate the issue when an API has reached the rate limit.
 
 The following describes some typical reasons for viewing the dashboard:
@@ -42,7 +43,7 @@ The following describes typical uses of the functions in the Rate limits report:
 
 In the Admin Console, go to **Reports** > **Rate Limits**. The rate limits report opens in the **Overview** tab.
 
-<div class="three-quarter">
+<div >
 
 ![Displays the rate limits dashboard to monitor and browse rate limit usage.](/img/rate-limits/rl_dashboard6.png)
 
@@ -185,9 +186,17 @@ The timeline graph shows use over the last week. When a rate violation occurs, y
 
 ##### Bar graph
 
-The **Top Requests by IP** bar graph shows the top 10 IP addresses that are consuming the most traffic for the API. This view enables you to check if there is a single IP or multiple IPs that are creating the spike in traffic.
+The bar graph shows either the top 10 IP addresses or top 10 API tokens that are consuming the most traffic for the API. This view enables you to check if there are IP addresses or API tokens that are creating the spike in traffic.
 
-Click an IP address bar once to view the traffic for that IP address on the line graph. Double-click any IP address bar to view the traffic for all the IP addresses on the line graph.
+Display the desired bar graph by selecting **Top Requests by IP** or **Top Requests by API Token** in the dropdown menu.
+
+Click an IP address or API token bar once to view the traffic for that IP address or API token on the line graph. 
+
+<div class="three-quarter">
+
+![Displays the RL usage over time and bar graph dropdown](/img/rate-limits/rl_usage_over_time-bar-dropdown.png)
+
+</div>
 
 ### Investigate the rate limit violation
 

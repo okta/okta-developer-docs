@@ -190,11 +190,11 @@ See [Okta Sign-in Widget: Help links](https://github.com/okta/okta-signin-widget
 
 Developers can't subscribe to the `processCreds` hook in the widget.
 
-### Registration Inline Hooks
+### Registration inline hooks
 
-Existing Registration Inline Hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta Registration Inline Hook request. Your application may require code updates to consume the new request format properly.
+Existing registration inline hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta registration inline hook request. Your application may require code updates to consume the new request format properly.
 
-In the Admin Console, the enablement of a Registration Inline Hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the Registration Inline Hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
+In the Admin Console, the enablement of a registration inline hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the registration inline hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
 
 See [Registration hooks API reference](/docs/references/registration-hook/) and [Manage Profile Enrollment Policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 

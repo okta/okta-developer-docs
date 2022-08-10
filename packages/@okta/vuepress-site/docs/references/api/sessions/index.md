@@ -685,9 +685,9 @@ The following values are defined for the status of a Session:
 
 The [authentication methods reference](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-01) ("AMR") specifies which authentication methods are used to establish the Session. The value is a JSON array with one or more of the following values:
 
-> **Note:** For inline hook requests, use the Inline Hook value for the `amr` object.
+> **Note:** For inline hook requests, use the inline hook value for the `amr` object.
 
-| Value    | Inline Hook Value | Description                                           | Example                                                                                                |
+| Value    | Inline hook value | Description                                           | Example                                                                                                |
 | -------- | ----------------- | ----------------------------------------------------- | -------------------------------------------------------------------------                              |
 | `pwd`    | `PASSWORD`         | Password authentication                                | Standard password-based login                                                                          |
 | `swk`    | `POP_SOFTWARE_KEY` | Proof-of-possession (PoP) of a software key            | Okta Verify with Push                                                                                  |

@@ -99,7 +99,7 @@ The Groups API support for extended search is now Generally Available (GA) in Pr
 #### Bugs fixed in 2020.11.1
 
 * Import of users with a [bcrypt-hashed password](/docs/references/api/users/#hashed-password-object) succeeded even if the `workFactor` property was missing or misnamed. This prevented imported users from signing in. (OKTA-330587)
-* During user import, some POST requests to the `/users` [endpoint](/docs/references/api/users/#create-user) incorrectly triggered Inline Hooks, resulting in higher latency. (OKTA-335769)
+* During user import, some POST requests to the `/users` [endpoint](/docs/references/api/users/#create-user) incorrectly triggered inline hooks, resulting in higher latency. (OKTA-335769)
 
 
 ### Monthly Release 2020.11.0
@@ -380,15 +380,15 @@ For deleted or inactive instances, or instances that don't support CVD, calls to
 
 | Change                                                                                                                | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------------------------|--------------------------|
-| [Password Import Event eligible for use in Event Hook](#password-import-event-eligible-for-use-in-event-hook)         | June 3, 2020             |
+| [Password Import Event eligible for use in event hook](#password-import-event-eligible-for-use-in-event-hook)         | June 3, 2020             |
 | [OAuth public metadata endpoint caching](#oauth-public-metadata-endpoint-caching)                                     | June 3, 2020             |
 | [Improved new device behavior detection](#improved-new-device-behavior-detection)                                     | June 3, 2020             |
 | [Dynamic authentication context for SAML apps](#dynamic-authentication-context-for-saml-apps)                         | June 2, 2020             |
 | [New JWKS key length validation](#new-jwks-key-length-validation)                                                     | June 3, 2020             |
 
-#### Password Import Event eligible for use in Event Hook
+#### Password Import Event eligible for use in event hook
 
-The `user.import.password` event provides information on the outcome of the import of an individual user's password during the [Password Import flow](/docs/references/api/users/#create-user-with-password-import-inline-hook). This event is eligible for use in an [Event Hook](/docs/concepts/event-hooks/), enabling you to trigger removal of a password from your existing user store when import to Okta is confirmed as successful. <!-- OKTA-298381 -->
+The `user.import.password` event provides information on the outcome of the import of an individual user's password during the [Password Import flow](/docs/references/api/users/#create-user-with-password-import-inline-hook). This event is eligible for use in an [Event hook](/docs/concepts/event-hooks/), enabling you to trigger removal of a password from your existing user store when import to Okta is confirmed as successful. <!-- OKTA-298381 -->
 
 #### OAuth public metadata endpoint caching
 
@@ -525,7 +525,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 #### Bugs fixed in 2020.04.0
 
-* New SAML apps would have an active SAML assertion Inline Hook assigned to them automatically. (OKTA-262777)
+* New SAML apps would have an active SAML assertion inline hook assigned to them automatically. (OKTA-262777)
 * Attempts to update the user schema with invalid properties could return HTTP 500 errors. (OKTA-281498)
 * The `errorSummary` for error E0000074 was malformed. (OKTA-273711)
 
@@ -542,7 +542,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 * In some cases, an OAuth 2.0 [`/authorize`](/docs/references/api/oidc/#authorize) request would incorrectly redirect if the client App had an App Sign-On Policy configured. (OKTA-269116)
 
-* The [`_links`](/docs/references/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML Inline Hook was incorrect. (OKTA-269553)
+* The [`_links`](/docs/references/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML inline hook was incorrect. (OKTA-269553)
 
 * Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](/docs/references/api/trusted-origins/) defined for the org. (OKTA-283549)
 
@@ -649,7 +649,7 @@ The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See 
 
 #### Password Import Inline Hook in General Availability in Preview and Production
 
-The [Password Import Inline Hook](/docs/references/password-hook/) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
+The [password import inline hook](/docs/references/password-hook/) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
 
 #### OAuth for Okta Enabled for User Consent Grant Operations
 
@@ -665,7 +665,7 @@ The [User Types API](/docs/references/api/user-types/) is in General Availabilit
 
 #### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
-Okta now supports URI claims with the [SAML Assertion Inline Hook](/docs/references/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
+Okta now supports URI claims with the [SAML assertion inline hook](/docs/references/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
 
 #### Support Added in List Users API for Sort Parameters
 
@@ -681,7 +681,7 @@ The [Apps API](/docs/references/api/apps/) now supports specifying SAML attribut
 
 #### Bugs Fixed in 2020.02.0
 
-* When using the [SAML Assertion Inline Hook](/docs/references/saml-hook/), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML Inline Hook responses were not applied. (OKTA-263494)
+* When using the [SAML assertion inline hook](/docs/references/saml-hook/), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses were not applied. (OKTA-263494)
 
 * The [Update User Types API](/docs/references/api/user-types/#update-user-type) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
 

@@ -4,8 +4,6 @@ excerpt: Front-end framework guides with Auth JS
 layout: Guides
 ---
 
-<StackSelector />
-
 <StackSnippet snippet="guide" />
 
 ## See also 

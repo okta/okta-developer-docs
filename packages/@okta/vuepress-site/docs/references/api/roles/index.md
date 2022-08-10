@@ -87,7 +87,7 @@ Gets a Custom Role by its ID or label
 
 | Parameter     | Description                          | Param Type   | DataType                    | Required |
 | :------------ | :----------------------------------- | :----------- | :----------------------------------------------- | :------- |
-| `roleIdOrLabel` | `id` or `label` of the Role          | URL          | String                                           | TRUE     |
+| `roleIdOrLabel` | `id` or `label` of the Role        | URL          | String                                           | TRUE     |
 
 #### Response parameters
 
@@ -1600,6 +1600,83 @@ curl -v -X GET \
 ]
 ```
 
+##### Response example with IAM-based Standard Role
+<ApiLifecycle access="ea" />
+
+```json
+[
+    {
+        "id": "IFIFAX2BIRGUSTQ",
+        "label": "Application Administrator",
+        "type": "APP_ADMIN",
+        "status": "ACTIVE",
+        "created": "2019-02-06T16:17:40.000Z",
+        "lastUpdated": "2019-02-06T16:17:40.000Z",
+        "assignmentType": "USER",
+        "_links": {
+            "assignee": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+            }
+        }
+    },
+  {
+    "id": "irb1q92TFAHzySt3x0g4",
+    "role": "cr0Yq6IJxGIr0ouum0g3",
+    "label": "UserCreatorRole",
+    "type": "CUSTOM",
+    "status": "ACTIVE",
+    "created": "2019-02-06T16:20:57.000Z",
+    "lastUpdated": "2019-02-06T16:20:57.000Z",
+    "assignmentType": "USER",
+    "resource-set": "iamoJDFKaJxGIr0oamd9g",
+    "_links": {
+      "assignee": {
+        "href": "https://{yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
+      },
+      "resource-set": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      },
+      "member": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+      },
+      "role": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      },
+      "permissions": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
+      }
+    }
+  }, {
+    "id": "irb5e92YgBazyyQ3x1q5",
+    "role": "ACCESS_CERTIFICATIONS_ADMIN",
+    "label": "Access Certifications Administrator",
+    "type": "ACCESS_CERTIFICATIONS_ADMIN",
+    "status": "ACTIVE",
+    "created": "2019-02-06T16:20:57.000Z",
+    "lastUpdated": "2019-02-06T16:20:57.000Z",
+    "assignmentType": "USER",
+    "resource-set": "ACCESS_CERTIFICATIONS_IAM_POLICY",
+    "_links": {
+      "assignee": {
+        "href": "https://{yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
+      },
+      "resource-set": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY"
+      },
+      "member": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY/bindings/ACCESS_CERTIFICATIONS_ADMIN/members/irb1qe6PGuMc7Oh8N0g4"
+      },
+      "role": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_CERTIFICATIONS_ADMIN"
+      },
+      "permissions": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/permission-sets/OKTA_IAM_TEST_DELIVERED_ROLE/permissions"
+      }
+    }
+  }
+]
+```
+
 #### List Roles assigned to a Group
 
 
@@ -1814,7 +1891,51 @@ curl -v -X POST \
   }
 }
 ```
+#### Assign an IAM-based Standard Role to a User or Group
+<ApiLifecycle access="ea" />
+You can assign an IAM-based Standard Role like any other Standard Role.
 
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+      "type": "ACCESS_REQUESTS_ADMIN"
+}' "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3/roles"
+```
+
+###### Response example
+
+```json
+{
+  "id": "irb1q92TFAHzySt3x0g4",
+  "role": "ACCESS_REQUESTS_ADMIN",
+  "label": "Access Requests Administrator",
+  "type": "ACCESS_REQUESTS_ADMIN",
+  "status": "ACTIVE",
+  "created": "2019-02-06T16:20:57.000Z",
+  "lastUpdated": "2019-02-06T16:20:57.000Z",
+  "assignmentType": "GROUP",
+  "resource-set": "ACCESS_CERTIFICATIONS_IAM_POLICY",
+  "_links": {
+    "assignee": {
+      "href": "https://{yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
+    },
+    "resource-set": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY"
+    },
+    "role": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_REQUESTS_ADMIN"
+    },
+    "permissions": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_REQUESTS_ADMIN/permissions"
+    }
+  }
+}
+```
 ### Unassign a Role
 
 #### Unassign a Role from a User
@@ -2970,6 +3091,14 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 
 `API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature is enabled. See [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management) for a description of what the Role can do.
 
+##### IAM-based Role types
+<ApiLifecycle access="ea" />
+We also support the following IAM-based standard roles:
+| Role type                                               | Label                            | Permissions                                   |
+| :------------------------------------------------------ | :------------------------------- | :-------------------------------------------- |
+| `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Administrator | `okta.governance.accessCertifications.manage` |
+| `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Administrator       | `okta.governance.accessRequests.manage`       |
+
 #### Assignment types
 
 A Role could either be assigned to the User directly or be assigned to a Group of which the User is a Member. The `assignee` in `_links` provides more details about the User or the Group to which the assignment was made.
@@ -3064,6 +3193,11 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
 | `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
 | `okta.workflows.invoke`       <br><ApiLifecycle access="ea" />  | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
+| `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Access Certifications |
+| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests |
+| `okta.apps.manageFirstPartyApps`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage first-party apps                                                                                       | All Access Requests |
+> **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use these to create or update other roles.
+> **Note:** `okta.apps.manageFirstPartyApps` permission is currently only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use it to create or update other roles.
 
 #### Example
 
@@ -3122,9 +3256,12 @@ The following are the supported resources.
 |                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
 | Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
 |                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
+| Governance              | All Access Certifications         <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:certifications`                                   |                                                                                                                                                         |
+|                         | All Access Requests               <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:requests`                                         |                                                                                                                                                         |
 
 The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 
+> **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](/docs/concepts/role-assignment/#standard-resource-sets). You can't use these to create or update other resource sets.
 #### Resource examples
 
 ##### Group as resource

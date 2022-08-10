@@ -84,7 +84,7 @@ To create a rule for a policy:
         **Assigned the app and a member of one of the following:** The rule applies to users that are assigned to the app and a member of one or more groups that you specify. You can also specify a list of users to whom the rule applies.<br>
         > **Note:** The app must be assigned to this rule's policy.
     * **AND Scopes requested:** Select the scopes (any scopes, or a list that you specify) that the user can request as part of the rule conditions.
-    * **THEN Use this inline hook:**  Select an [Inline Hook](/docs/concepts/inline-hooks/), if any, that you want to use to customize the token returned by Okta API Access Management.
+    * **THEN Use this inline hook:**  Select an [inline hook](/docs/concepts/inline-hooks/), if any, that you want to use to customize the token returned by Okta API Access Management.
     * **AND Access token lifetime is:** Select the length of time before an access token expires.
     * **AND Refresh token lifetime is:** Select the length of time before a refresh token expires.
     * **but will expire if not used every:** Defines when the refresh token expires if it isn't used. Leave the default of **7 days** or make any necessary changes.

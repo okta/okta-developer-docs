@@ -76,7 +76,7 @@ You should also specify your data requirements in the configuration document tha
 
 **Q: How much support is required for filtering results?**
 
-The filtering capabilities in the SCIM protocol are pretty broad, but the common filtering use case with Okta is quite narrow. Okta determines if a newly created user already exists in your application based on a matching identifier. This means the `eq` (equals) operator is all you really need to support.
+The filtering capabilities in the SCIM protocol are pretty broad, but the common filtering use case with Okta is quite narrow. Okta determines if a newly created user or group already exists in your application based on a matching identifier. This means the `eq` (equals) operator is all you really need to support.
 
 **Q: How do I import users?**
 

@@ -41,7 +41,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 * Any profile updates - like department changes - populate automatically.
 * Inactive employees are automatically deactivated from their applications.
 
-> **Note**: Okta Event Hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org and allow them to take actions as a result — for example, provisioning external app access after a user account is created in Okta. As such, they are a flexible lightweight alternative to SCIM. See [Event Hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
+> **Note**: Okta event hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org and allow them to take actions as a result — for example, provisioning external app access after a user account is created in Okta. As such, they are a flexible lightweight alternative to SCIM. See [Event hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
 
 ## How does SCIM work?
 
@@ -126,7 +126,7 @@ If you want to read more about how to use the Okta Admin Console to set up provi
 * [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
 * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [Create a SCIM integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim)
-* [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts)
+* [Provisioning Concepts](https://support.okta.com/help/s/article/okta-provisioning?language=en_US)
 * [Configuring On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure)
 * IETF [Overview and Specification of the SCIM Protocol](http://www.simplecloud.info/)
 

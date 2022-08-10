@@ -1,6 +1,6 @@
 ---
-title: Password Import Inline Hook
-excerpt: Code the external service for a Password Import Inline Hook
+title: Password import inline hook
+excerpt: Code the external service for a password import inline hook
 layout: Guides
 ---
 
@@ -10,9 +10,9 @@ This guide provides a working example of an Okta Password Import Hook. It uses t
 
 **Learning outcomes**
 
-* Understand the Okta Password Import Inline Hook calls and responses.
-* Implement a simple working example of a Password Import Inline Hook with a Glitch.com project.
-* Preview and test a Password Import Inline Hook.
+* Understand the Okta password import inline hook calls and responses.
+* Implement a simple working example of a password import inline hook with a Glitch.com project.
+* Preview and test a password import inline hook.
 
 **What you need**
 
@@ -25,23 +25,23 @@ This guide provides a working example of an Okta Password Import Hook. It uses t
 
 ---
 
-## About Password Import Inline Hook implementation
+## About password import inline hook implementation
 
 In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the end user's credentials are valid. If the credentials are valid, the password is imported into the Okta org.
 
 At a high level, the following workflow occurs:
 
-* User profiles are imported into an Okta org that use the Password Import Inline Hook.
-* The Password Import Inline Hook triggers on first sign-in request by a user.
-* The external service evaluates the user credentials from the Password Import Inline Hook request against the data store.
+* User profiles are imported into an Okta org that use the password import inline hook.
+* The password import inline hook triggers on first sign-in request by a user.
+* The external service evaluates the user credentials from the password import inline hook request against the data store.
 * If the credentials are verified, the external service responds to Okta with a command to import the password and sign in the user.
 * If the credentials are not verified, the user is not signed-in and the password does not import.
 
-> **Tip:** For another in-depth look at a Password Import Inline Hook implementation, see the following Developer Experience blog example by Heather Wallander, [Migrate user Passwords with Okta's Password Hook](https://developer.okta.com/blog/2020/09/18/password-hook-migration).
+> **Tip:** For another in-depth look at a password import inline hook implementation, see the following Developer Experience blog example by Heather Wallander, [Migrate user Passwords with Okta's Password Hook](https://developer.okta.com/blog/2020/09/18/password-hook-migration).
 
 ## Get submitted credentials
 
-In your external service code, you need to get the values of `data.credential.username` and `data.credential.password` from within the body of the Password Import Inline Hook request received from Okta. These properties contain the credentials submitted by the end user who is trying to sign in.
+In your external service code, you need to get the values of `data.credential.username` and `data.credential.password` from within the body of the password import inline hook request received from Okta. These properties contain the credentials submitted by the end user who is trying to sign in.
 
 > **Note:** Make sure to have the required default code and packages in your project. See [Overview and considerations](/docs/guides/common-hook-set-up-steps).
 
@@ -65,14 +65,14 @@ Based on the results of the credential check, you return either a command tellin
 
 >**Note:** Using an empty response to reject the credentials is based on the assumption that Okta is set to do that as the default action. In the request from Okta, the property `data.action.credential` specifies the default action. It is currently always set to `UNVERIFIED`, meaning that the default is to reject.
 
-## Activate the Password Import Hook on your Okta org
+## Activate the password import hook on your Okta org
 
-The Password Import Inline Hook must be set up and activated within your Okta Admin Console.
+The password import inline hook must be set up and activated within your Okta Admin Console.
 
-To set up and activate the Password Import Inline Hook:
+To set up and activate the password import inline hook:
 
 1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
-2. Click **Add Inline Hook** and select **Password Import** from the drop-down menu.
+2. Click **Add Inline Hook** and select **Password Import** from the dropdown menu.
 3. Add a name for the hook (in this example, "Password Import Hook").
 4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/passwordImport`.
 5. Include authentication field and secret. In this example:
@@ -81,13 +81,21 @@ To set up and activate the Password Import Inline Hook:
     * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 6. Click **Save**.
 
-The Password Import Inline Hook is now set up with a status of "Active".
+The password import inline hook is now set up with a status of "Active".
 
+<<<<<<< HEAD
 > **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/references/api/inline-hooks/#create-inline-hook) for further information.
 
 ## Import test users
 
 Upload some users into your Okta org using the [Password Import Inline Hook API](/docs/references/api/users/#create-user-with-password-import-inline-hook). These users provide data to test your Inline Hook.
+=======
+> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
+
+## Import test users
+
+Upload some users into your Okta org using the [Password import inline hook API](/docs/reference/api/users/#create-user-with-password-import-inline-hook). These users provide data to test your inline hook.
+>>>>>>> 26e11f7041e72c351990ecff94ae0112321745b8
 
 The example below uses sample data from the data store in the `users.js` file of your project.
 
@@ -95,11 +103,11 @@ The example below uses sample data from the data store in the `users.js` file of
 
 ## Test your hook
 
-The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service when a Password Import Inline Hook is triggered.
+The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service when a password import inline hook is triggered.
 
 ### Test
 
-To run a test of your Password Import Inline Hook, go to the Okta sign-in page for your Okta org.
+To run a test of your password import inline hook, go to the Okta sign-in page for your Okta org.
 
 * Start by signing in with one of the users from the data store, for example, "michelletest@example.com", and enter an incorrect password.
 * Your result should be an "Unable to Sign On" error.
@@ -111,12 +119,16 @@ To run a test of your Password Import Inline Hook, go to the Okta sign-in page f
 
 ## Next steps
 
-Review the following guides to implement other Inline or Event Hook examples:
+Review the following guides to implement other inline or event hook examples:
 
-* [Event Hook](/docs/guides/event-hook-implementation/)
-* [Registration Inline Hook](/docs/guides/registration-inline-hook/)
-* [Token Inline Hook](/docs/guides/token-inline-hook/)
+* [Event hook](/docs/guides/event-hook-implementation/)
+* [Registration inline hook](/docs/guides/registration-inline-hook/)
+* [Token inline hook](/docs/guides/token-inline-hook/)
 
 ## See also
 
+<<<<<<< HEAD
 For further reference data on the Password Import Inline Hook, see: [Password Import Inline Hook](/docs/references/password-hook/).
+=======
+For further reference data on the password import inline hook, see: [Password import inline hook](/docs/reference/password-hook/).
+>>>>>>> 26e11f7041e72c351990ecff94ae0112321745b8

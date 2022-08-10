@@ -2,17 +2,17 @@
 title: Import Users with Inline Password Hooks
 meta:
   - name: description
-    content: Migrate users into Okta as they authenticate using Password Import Inline Hooks
+    content: Migrate users into Okta as they authenticate using password import inline hooks
 layout: Guides
 ---
 
-This guide explains how to use Password Import Inline Hooks to migrate users into Okta as they authenticate.
+This guide explains how to use password import inline hooks to migrate users into Okta as they authenticate.
 
 ---
 
 **Learning outcomes**
 
-Migrate users into Okta as they authenticate using Password Import Inline Hooks.
+Migrate users into Okta as they authenticate using Password Import inline hooks.
 
 **What you need**
 
@@ -29,7 +29,7 @@ Migrate users into Okta as they authenticate using Password Import Inline Hooks.
 
 ## Migration Program Plan
 
-A migration program utilizes Okta's [Password Import Inline Hook](/docs/references/password-hook/) feature to seamlessly migrate users as they authenticate. The broad strokes look like:
+A migration program uses Okta's [password import inline hook](/docs/references/password-hook/) feature to seamlessly migrate users as they authenticate. The broad strokes look like:
 
 1. Create all the users from the legacy system in Okta with a provider set to: `IMPORT`. **NOTE:** This can be done in bulk and does NOT require individual user credentials.
 2. Optional: Create groups and applications in Okta. Assign users to groups and assign groups and users to applications
@@ -40,7 +40,7 @@ Typically, you run a migration program like this for a set period of time, say 6
 
 ## Create all the users in Okta
 
-You can create users in Okta, without credentials, in a state ready for migration as outlined in the [Create User with Password Import Inline Hook](/docs/references/api/users/#create-user-with-password-import-inline-hook) section of the docs.
+You can create users in Okta, without credentials, in a state ready for migration as outlined in the [Create User with password import inline hook](/docs/references/api/users/#create-user-with-password-import-inline-hook) section of the docs.
 
 ### Request Example
 
@@ -126,9 +126,9 @@ If your application determines the credentials are correct against the legacy sy
 
 Okta will then set the supplied password in its backend (properly hashed) and transition the `credentials.provider.type` value from `IMPORT` to `OKTA`. This User is now fully migrated to Okta. From this point forward, when that particular user authenticates, your password hook will no longer be called.
 
-For more information on the Request from Okta and types of Responses your application can return to Okta, visit the [Password Import Inline Hook Reference](/docs/references/password-hook/).
+For more information on the Request from Okta and types of Responses your application can return to Okta, visit the [Password import inline hook reference](/docs/references/password-hook/).
 
-## Register the Inline Password Hook Application
+## Register the inline password hook application
 
 In order for Okta to use your application, you must register the external service endpoint.
 
@@ -140,7 +140,7 @@ You can also accomplish this using the [Inline Hooks Management API](/docs/refer
 
 ## Ending the Migration Program
 
-Typically, you leave the Inline Password Hook endpoint in service for a fixed period of time - for instance, 60 days.
+Typically, you leave the inline password hook endpoint in service for a fixed period of time - for instance, 60 days.
 
 During that time, a large percentage of your active users will migrate over to Okta without them knowing or being disrupted in their usual workflow.
 

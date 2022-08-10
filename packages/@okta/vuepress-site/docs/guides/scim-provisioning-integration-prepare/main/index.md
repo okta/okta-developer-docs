@@ -249,4 +249,4 @@ As you refine your SCIM implementation, you can share API test results with your
 
 ## Next steps
 
-Now that you have a SCIM-compliant API server on which to host your SCIM service, the next step is to [connect your SCIM API service to Okta](/docs/guides/scim-provisioning-integration-connect/).
+Now that you have a SCIM-compliant API server on which to host your SCIM service, the next step is to [configure Okta to your SCIM API service](/docs/guides/scim-provisioning-integration-connect/).

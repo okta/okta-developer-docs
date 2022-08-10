@@ -1,6 +1,6 @@
 {
-  "release" : "2022.07.1",
-  "build" : "2022.07.1-begin-106-ge4dd634b6592",
+  "release" : "2022.08.1",
+  "build" : "2022.08.1-begin-90-g3a41d489fbdb",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -330,6 +330,13 @@
     "internalErrorCode" : "access_token_insufficient_scopes",
     "errorCode" : "insufficient_scope",
     "errorDescription" : "The access token provided does not contain the required scopes."
+  }, {
+    "title" : "Insufficient user authentication",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "insufficient_user_authentication",
+    "errorCode" : "insufficient_user_authentication",
+    "errorDescription" : "The user authentication context is insufficient to perform the action."
   }, {
     "title" : "Interaction required",
     "statusCode" : 400,
@@ -877,6 +884,55 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Browser requests to the token endpoint must be made from one of the registered Trusted Origins."
   }, {
+    "title" : "Unsupported api resource for none response type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "`unsupported_api_resource_for_none_response_type`",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'resource' parameter is not supported for request with 'none' as response_type."
+  }, {
+    "title" : "Unsupported scope for none response type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unsupported_scope_for_none_response_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'scope' parameter is not supported for request with 'none' as response_type."
+  }, {
+    "title" : "Unsupported nonce for none response type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unsupported_nonce_for_none_response_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'nonce' parameter is not supported for request with 'none' as response_type."
+  }, {
+    "title" : "Invalid max age for none response type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_max_age_for_none_response_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'max_age' parameter is not supported for request with 'none' as response_type."
+  }, {
+    "title" : "Invalid prompt for none response type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_prompt_for_none_response_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'prompt' parameter must have the value 'enroll_authenticator' for request with 'none' as response_type."
+  }, {
+    "title" : "Invalid enroll amr for none response type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_enroll_amr_for_none_response_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'enroll_amr_values' parameter must have valid space delimited authenticators list for request with 'none' as response_type."
+  }, {
+    "title" : "Invalid acr values for none response type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_acr_values_for_none_response_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'acr_values' parameter must be omitted or only have the value 'urn:okta:loe:2fa:any' for request with 'none' as response_type."
+  }, {
     "title" : "Unknown IdP",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1359,6 +1415,13 @@
     "internalErrorCode" : "missing_scopes",
     "errorCode" : "invalid_scope",
     "errorDescription" : "No scopes were requested."
+  }, {
+    "title" : "Illegal scopes",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "illegal_scopes",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "Scopes are not allowed for this request."
   }, {
     "title" : "Illegal custom scope",
     "statusCode" : 400,

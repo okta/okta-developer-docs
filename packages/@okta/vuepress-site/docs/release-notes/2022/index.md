@@ -2,6 +2,50 @@
 title: Okta API Products release notes 2022
 ---
 
+## August
+
+### Monthly release 2022.08.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [PKCE validation for OIDC app integrations is GA in Preview](#pkce-validation-for-oidc-app-integrations-is-ga-in-preview) | July 7, 2022|
+| [Configurable API token rate limits is GA in Production](#configurable-api-token-rate-limits-is-ga-in-production) | July 7, 2022|
+| [Rate Limits dashboard includes API Token data](#rate-limits-dashboard-includes-api-token-data) | August 3, 2022|
+| [System Log updates for telephony operations](#system-log-updates-for-telephony-operations) | August 3, 2022|
+| [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
+| [Support for Okta Resource Name is GA in Production](#support-for-okta-resource-name-is-ga-in-production) | July 7, 2022|
+| [Bugs fixed in 2022.08.0](#bugs-fixed-in-2022-08-0) | August 3, 2022|
+
+#### PKCE validation for OIDC app integrations is GA in Preview
+
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-518333 -->
+
+#### Configurable API token rate limits is GA in Production
+
+Admins can now configure a percentage rate limit capacity for individual API tokens. Previously, when a token rate limit violation occurred, it wasn’t clear which token consumed the limit. Setting a maximum capacity for each token solves this problem and gives admins a new tool to investigate rate limit violations and plan for future deployments. See [API token management](https://help.okta.com/okta_help.htm?id=csh-api). <!-- OKTA-517890 -->
+
+#### Rate Limits dashboard includes API Token data
+
+The Rate Limits dashboard now includes API Token data on the Rate limit usage over time graph. You can select to view bar graph data from API tokens or by IP address to review any spike in traffic. See [bar graph](/docs/reference/rl-dashboard/#bar-graph) and [API rate limits by token](/docs/reference/rate-limits/#api-rate-limits-by-token). <!-- OKTA-498252 -->
+
+#### System Log updates for telephony operations
+
+The `system.operation.rate_limit.violation` event is no longer triggered when SMS or Voice messages are blocked due to telephony operational rate limit violations. Instead, telephony `system.sms.send.*` and `system.voice.send.*` events are issued as a `DENY` System Log message. <!-- OKTA-517838 -->
+
+#### Trusted Origins for iFrame embedding is GA in Production
+
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-514609 -->
+
+#### Support for Okta Resource Name is GA in Production
+
+The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn) (ORN) uniquely identifies an Okta [resource set](/docs/reference/api/roles/#resource-set-object) that is associated with a custom admin role assignment. <!-- OKTA-511699 -->
+
+#### Bugs fixed in 2022.08.0
+
+* When a client used the `private_key_jwt` client authentication method, the `max_age` and `login_hint` parameters in the authorize request were sometimes ignored. (OKTA-501110, OKTA-501104)
+* When a client used either the `private_key_jwt` or `client_secret_jwt` client authentication methods, an error occurred if the `client_id` was included in the body of the token request. (OKTA-478059)
+* When the Disable Security Question for Recovery feature was enabled and an admin used the Users API to create a user with a pre-assigned password, the magic link sent in the activation email didn't expire after the first use. (OKTA-502692)
+
 ## July
 
 ### Weekly release 2022.07.2
@@ -14,7 +58,7 @@ title: Okta API Products release notes 2022
 
 * Operations that assigned custom roles to a user or group and included a nonexistent resource returned an HTTP 500 Internal Server Error. (OKTA-472638)
 * When the “Verify a WebAuthn Factor challenge” (`/users/${userId}/factors/${factorId}/verify`) endpoint was called, the wrong WebAuthn factor enrollment profile information was returned if multiple factors were registered. (OKTA-482701)
-* When the change password (`/users/{{userid}}/credentials/change_password`) endpoint was called, the error message that appeared wasn't translated into the selected language. (OKTA-507667)
+* When the change password (`/users/{$userId}/credentials/change_password`) endpoint was called, the error message that appeared wasn't translated into the selected language. (OKTA-507667)
 
 ### Weekly release 2022.07.1
 
@@ -43,7 +87,7 @@ When the `/api/v1/users/${userId}/roles` or
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | June 8, 2022 |
 | [Support for Okta Resource Name is GA in Preview](#support-for-okta-resource-name-is-ga-in-preview) | July 7, 2022|
 | [The Loading Page API is EA in Preview](#the-loading-page-api-is-ea-in-preview) | July 7, 2022|
-| [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
+| [Trusted Origins for iFrame embedding is GA in Preview](#trusted-origins-for-iframe-embedding-is-ga-in-preview) | May 4, 2022|
 | [Developer documentation updates in 2022.07.0](#developer-documentation-updates-in-2022-07-0) | July 7, 2022 |
 | [Bugs fixed in 2022.07.0](#bugs-fixed-in-2022-07-0) | July 7, 2022 |
 
@@ -71,7 +115,7 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn) (ORN) uniquely identifies an Okta [resource set](/docs/references/api/roles/#resource-set-object) that is associated with a custom admin role assignment. <!-- OKTA-503417 -->
 
-#### Trusted Origins for iFrame embedding is GA in Production
+#### Trusted Origins for iFrame embedding is GA in Preview
 
 You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/references/api/trusted-origins/). <!-- OKTA-510180 -->
 

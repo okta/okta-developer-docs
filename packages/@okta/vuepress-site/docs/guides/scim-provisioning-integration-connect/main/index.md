@@ -1,28 +1,43 @@
 ---
-title: Connect your SCIM API service to Okta
-excerpt: Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
+title: Configure Okta to your SCIM API service
+excerpt: Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Admin Console.
 meta:
   - name: description
-    content: Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
+    content: Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Admin Console.
 layout: Guides
 ---
 
-This guide teaches you how to create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
+This guide teaches you how to configure Okta to make SCIM requests to your SCIM API service.
+
+---
+
+**Learning outcomes**
+
+* Create an Okta SCIM integration.
+* Configure SCIM provisioning.
+* Verify user profile and attribute mappings.
+
+**What you need**
+
+* A SCIM API service
+* An [Okta Developer Edition org](https://developer.okta.com/signup/)
+
+---
 
 ## Getting connected
 
 Make sure your SCIM implementation passes all the Runscope tests before integrating it with Okta. For more information on testing your SCIM implementation, see [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api)
 
-Begin by signing up for an [Okta developer account](https://developer.okta.com/signup/).
+Begin by signing in to your Okta Developer Edition org. If you don't have one, sign up for an [Okta developer account](https://developer.okta.com/signup/).
 
-1. Sign up for an [Okta developer account](https://developer.okta.com/signup/).
-1. Click the link in the signup email to open your Admin Console.
+1. Sign in to your [Okta org](https://developer.okta.com/login/) with your administrator account.
+1. Click **Admin** in the upper-right right corner of the page.
 1. Select **Applications** > **Applications**.
 1. Click **Browse App Catalog**.
 1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. After searching you see template applications for each of the three authentication methods used to connect to your SCIM implementation: Basic Auth, Header Auth, or OAuth Bearer Token.
-1. Click **Add** on the desired template application for your integration and finish adding the template application.
+1. Click **Add Integration** on the desired template application for your integration and finish adding the template application.
 1. On the **General Settings** page: Set the name of your application, choose if it's hidden from general and mobile users, and choose if users' are automatically signed in from the landing page. Click **Next**.
-1. Choose the sign in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [Applications topic](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
+1. Choose the sign in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [App integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
 1. Click the **Provisioning** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** checkbox.
   Enter the base URL for your SCIM server.
   Configure the credential options based on the previously chosen authentication method:
@@ -105,7 +120,7 @@ Click **Edit** to make changes to the following sections.
 
 * **Sync Password**: Ensures that a user's application password is always the same as their Okta password, or alternatively, allows Okta to generate a unique password for the user. See [Synchronize passwords](https://help.okta.com/okta_help.htm?id=ext-password-sync-main).
 
-* **Profile Attribute Mappings**: Edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
+* **Profile Attribute Mappings**: Edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](#check-the-attributes-and-corresponding-mappings) or [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 
 ### To Okta
 
@@ -141,7 +156,7 @@ Click **Edit** to make changes to the following sections.
 
 * **Import Safeguards**: Defines the maximum percentage of users in your org that can be left unassigned while still allowing the import to proceed. App-level and org-level safeguards are enabled by default and set at 20 percent.
 
-* **Inline Hooks**: Configures custom logic to the process of importing new users into Okta from a downstream application. You can program the hooks to resolve conflicts in profile attributes and control whether imported users are treated as matches for existing users. To enable an import inline hook, see [Inline hooks](/docs/concepts/inline-hooks/).
+* **Inline hooks**: Configures custom logic to the process of importing new users into Okta from a downstream application. You can program the hooks to resolve conflicts in profile attributes and control whether imported users are treated as matches for existing users. To enable an import inline hook, see [Inline hooks](/docs/concepts/inline-hooks/).
 
 * **Okta Attribute Mappings**: Edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 

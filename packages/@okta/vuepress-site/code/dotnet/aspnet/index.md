@@ -28,7 +28,7 @@ meta:
 
 ## Get started with ASP.NET + Okta
 
-New to Okta? Our resources walk you through adding user authentication to your ASP.NET app in minutes.
+These resources walk you through adding user authentication to your ASP.NET app in minutes.
 
 <ul class='language-ctas'>
   <!-- <li>

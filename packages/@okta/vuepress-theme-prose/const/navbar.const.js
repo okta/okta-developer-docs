@@ -284,7 +284,7 @@ export const guides = [
               },
               {
                 title: "Okta Verify",
-                guideName: "authenticators-okta-verify",
+                guideName: "authenticators-okta-verify"
               },
               {
                 title: "Google authenticator",
@@ -554,8 +554,8 @@ export const guides = [
                 path: "/docs/guides/scim-provisioning-integration-prepare/main/",
               },
               {
-                title: "Connect your SCIM API service to Okta",
-                path: "/docs/guides/scim-provisioning-integration-connect/main/",
+                title: "Configure Okta to your SCIM API service",
+                guideName: "scim-provisioning-integration-connect"
               },
               {
                 title: "Test your SCIM Okta integration",
@@ -833,6 +833,7 @@ export const reference = [
           { title: "MyAccount", path: "/docs/references/api/myaccount/" },
           { title: "Org", path: "/docs/references/api/org/" },
           { title: "Policy", path: "/docs/references/api/policy/" },
+          { title: "Push Providers", path: "/docs/references/api/push-providers/"},
           { title: "Risk Events", path: "/docs/references/api/risk-events/" },
           { title: "Risk Providers", path: "/docs/references/api/risk-providers/" },
           { title: "Schemas", path: "/docs/references/api/schemas/" },
