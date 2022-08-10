@@ -9,8 +9,6 @@ The Okta Trusted Origins API provides operations to manage Trusted Origins and s
 
 When external URLs are requested during sign-in, sign-out, or recovery operations, Okta checks those URLs against the allowed list of Trusted Origins. Trusted Origins also enable browser-based applications to access Okta APIs from JavaScript (CORS). If the origins aren't specified, the related operation (redirect or Okta API access) isn't permitted.
 
-<ApiLifecycle access="ea" />
-
 You can also configure Trusted Origins to allow iFrame embedding of Okta resources, such as Okta sign-in pages and the Okta End-User Dashboard, within that origin. This is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/).
 
 > **Note:** This Early Access feature is supported for Okta domains only. It isn't currently supported for custom domains.
@@ -126,8 +124,6 @@ curl -X POST \
 
 #### Valid request example with iFrame embedding
 
-<ApiLifecycle access="ea" />
-
 Creates a new Trusted Origin for iFrame embedding of an Okta resource within that origin. In this example, the type of Okta resource is both the Okta End-User Dashboard and the Okta sign-in page.
 
 ```bash
@@ -149,8 +145,6 @@ curl -X POST \
 
 Creates a new Trusted Origin for iFrame embedding of an Okta resource within that origin. In this example, the Okta resource is the Okta sign-in page.
 
-<ApiLifecycle access="ea" />
-
 ```bash
 curl -X POST \
 -H "Accept: application/json" \
@@ -169,8 +163,6 @@ curl -X POST \
 ```
 
 #### Successful response example with iFrame embedding (End-User Dashboard and Okta sign-in page)
-
-<ApiLifecycle access="ea" />
 
 ```json
 {
@@ -213,8 +205,6 @@ curl -X POST \
 
 #### Successful response example with iFrame embedding (Okta sign-in page)
 
-<ApiLifecycle access="ea" />
-
 ```json
 {
     "id": "tos10hu7rkbtrFt1M0g4",
@@ -256,8 +246,6 @@ curl -X POST \
 
 #### Invalid request example with iFrame embedding
 
-<ApiLifecycle access="ea" />
-
 ```bash
 curl -X POST \
 -H "Accept: application/json" \
@@ -276,8 +264,6 @@ curl -X POST \
 ```
 
 #### Unsuccessful response example with iFrame embedding
-
-<ApiLifecycle access="ea" />
 
 ```json
 {
@@ -363,8 +349,6 @@ curl -X GET \
 ```
 
 #### Response example with iFrame embedding
-
-<ApiLifecycle access="ea" />
 
 ```json
     {
@@ -778,8 +762,6 @@ curl -X PUT \
 
 #### Request example with iFrame embedding
 
-<ApiLifecycle access="ea" />
-
 ```bash
 curl -X PUT \
 -H "Accept: application/json" \
@@ -824,8 +806,6 @@ curl -X PUT \
 ```
 
 #### Response example with iFrame embedding
-
-<ApiLifecycle access="ea" />
 
 ```json
 {
@@ -1053,7 +1033,7 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 
 | Field Name  | Description                                                    | Data Type                         | Required |
 | :---------- | :------------------------------------------------------------- | :-------------------------------- | :------- |
-| type        | The scope type. Supported values: `CORS`, `REDIRECT`, or `IFRAME_EMBED`. <ApiLifecycle access="ea" /> When you use `IFRAME_EMBED` as the scope type, leave the `allowedOktaApps` property empty to allow iFrame embedding of only Okta sign-in pages. Include `OKTA_ENDUSER` as a value for the `allowedOktaApps` property to allow iFrame embedding of both Okta sign-in pages and the Okta End-User Dashboard.                    | String                            | Yes      |
+| type        | The scope type. Supported values: `CORS`, `REDIRECT`, or `IFRAME_EMBED`. When you use `IFRAME_EMBED` as the scope type, leave the `allowedOktaApps` property empty to allow iFrame embedding of only Okta sign-in pages. Include `OKTA_ENDUSER` as a value for the `allowedOktaApps` property to allow iFrame embedding of both Okta sign-in pages and the Okta End-User Dashboard.                    | String                            | Yes      |
 
 #### Scope object example (CORS)
 
@@ -1073,8 +1053,6 @@ Each Scope object specifies the type of Scope that its Trusted Origin is used fo
 
 #### Scope object example (IFRAME_EMBED)
 
-<ApiLifecycle access="ea" />
-
 Allows you to embed both Okta sign-in pages and the Okta End-User Dashboard in an iFrame
 
 ```json
@@ -1085,8 +1063,6 @@ Allows you to embed both Okta sign-in pages and the Okta End-User Dashboard in a
 ```
 
 #### Scope object example (IFRAME_EMBED)
-
-<ApiLifecycle access="ea" />
 
 Allows you to embed only Okta sign-in pages in an iFrame
 
