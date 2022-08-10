@@ -1244,7 +1244,7 @@ The following conditions may be applied to authenticator enrollment policies:
 
 ### Rules conditions
 
-The following conditions may be applied to the Rules associated with the authenticator enrollment policy:
+You can apply the following conditions to the Rules associated with the authenticator enrollment policy:
 
 * [People Condition](#people-condition-object)
 
