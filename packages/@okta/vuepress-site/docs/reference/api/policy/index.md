@@ -210,7 +210,7 @@ HTTP 204:
 
 ##### Request parameters
 
-The policy id described in the [Policy object](#policy-object) is required.
+The policy ID described in the [Policy object](#policy-object) is required.
 
 ##### Request example
 
