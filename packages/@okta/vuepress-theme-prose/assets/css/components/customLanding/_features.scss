@@ -47,7 +47,7 @@
             h3 {
                 margin: 0;
                 padding-left: 16px;
-                font-weight: 600;
+                font-weight: 400;
                 font-size: 22px;
                 line-height: 28px;
                 color: cv('header', 'nav-link');
@@ -66,7 +66,7 @@
           padding: 0.625rem 1.25rem;
           color: cv('body', 'white');
           display: inline-block;
-          font-weight: 500;
+          font-weight: 400;
           &:hover {
             color: cv('body', 'white');
             background-color: cv('link');
@@ -76,7 +76,7 @@
         &__caption {
             margin: 0 0 15px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 500;
             line-height: 1.7;
             color: cv('header', 'nav-link');
         }
