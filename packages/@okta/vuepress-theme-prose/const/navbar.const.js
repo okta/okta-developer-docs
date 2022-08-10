@@ -89,11 +89,8 @@ export const concepts = [
       },
       {
         title: "Understanding IAM",
+        path: "/docs/concepts/iam-overview/",
         subLinks: [
-          {
-            title: "IAM overview",
-            path: "/docs/concepts/iam-overview/"
-          },
           {
             title: "Identity management factors",
             path: "/docs/concepts/iam-overview-identity-management-factors/"
@@ -112,7 +109,8 @@ export const concepts = [
           },
           {
             title: "IAM terminology",
-            path: "/docs/concepts/iam-overview-iam-terminology/"
+            path: "/docs/concepts/iam-overview-iam-terminology/",
+            description: "Test description"
           }
         ]
       },
@@ -210,7 +208,7 @@ export const guides = [
               {
                 title: "Sign in to your SPA with Auth JS",
                 guideName: "sign-in-to-spa-authjs",
-                description: 'Test description'
+                description: "Test description"
               },
               {
                 title: "Sign in to SPA with embedded Widget",
@@ -695,10 +693,12 @@ export const guides = [
           {
             title: "Sign in to SPA with Auth JS",
             guideName: "archive-sign-in-to-spa-authjs",
+            description: "Test description"
           },
           {
             title: "Sign in to SPA with embedded Widget",
             guideName: "archive-sign-in-to-spa-embedded-widget",
+            description: "Test description"
           },
           {
             title: "Add multifactor authentication",
