@@ -20,6 +20,8 @@ The behavior of the Okta Authentication API varies depending on the type of your
 
 > **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/core-okta-api/#client-request-context) such as IP address.
 
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+
 ### Public application
 
 A public application is an application that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/).  Public applications are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
