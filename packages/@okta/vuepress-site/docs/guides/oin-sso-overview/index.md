@@ -35,7 +35,7 @@ Read further for reasons [why you want to build an SSO integration](#why-build-a
 
 ## Choose your SSO protocol
 
-Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). The SSO protocol you choose to implement your integration is based on your app and use case. For new integrations, OIDC is recommended.
+Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). The SSO protocol that you choose to implement your integration with is based on your app and use case. For new integrations, OIDC is recommended.
 
 | &nbsp; |  <span style="width: 24px;display:inline-block">![OIDC](/img/idp-logos/oidc.png)</span> OIDC | <span style="width: 22px;display:inline-block">![SAML](/img/idp-logos/saml.png)</span> SAML  |
 | ------ | :------------------- | :----------------------- |
