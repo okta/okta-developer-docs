@@ -29,7 +29,7 @@ Read further for reasons [why you want to build an SSO integration](#why-build-a
 | &nbsp; | &nbsp; |
 | ------ | ------ |
 | **Enhance security** | Integrating with Okta allows your customers to manage password strength and configure access policies for your application. For example, they may require employees to use multifactor authentication (such as a push notification to their phone or SMS) to access your application from an unknown device. |
-| **Deliver a strong end-user access experience** | Take away all the friction of managing usernames and passwords. Once authenticated through Okta, your users can access your application with a single click. |
+| **Deliver a strong end-user access experience** | Take away all the friction of managing usernames and passwords. After users authenticate through Okta, they can access your application with a single click. |
 | **Enterprise ready** | Your customers have a growing set of compliance needs that are continuously evolving. An Okta integration helps you meet compliance and audit requirements and shortens sales cycles. |
 | **Ease of adoption** | Your customers can add SSO integration to your OIN-published app with minimal effort. They use Okta to add and configure your app integration into their identity ecosystem without extensive support from your customer service resources. Their workforce can access your app within hours of integration and policy configurations. |
 
