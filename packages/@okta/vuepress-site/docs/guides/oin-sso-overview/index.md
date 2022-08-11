@@ -2,27 +2,14 @@
 title: Overview of SSO in the OIN
 meta:
   - name: description
-    content: Learn how to build SSO app integrations for the Okta Integration Network.
+    content: Provides a high level overview of SSO app integrations for the Okta Integration Network.
 ---
 
 The Okta Integration Network (OIN) is a collection of over 7000 pre-built app integrations to connect and exchange secure authentication between users, devices, and applications. Customers can easily integrate Okta Single Sign-On (SSO) to applications in the OIN with a guided experience that still supports the most secure configuration options.
 
-To get your app integration into the OIN, build an app integration using a free [Okta developer account](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta. [Submit your app](/docs/guides/submit-app/) integration for verification and approval by the Okta OIN team. Your app is available in the OIN for the Okta community to use after your integration is verified by Okta.
+To get your app integration into the OIN, [build an app integration](/docs/guides/build-sso-integration/) using a free [Okta developer account](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta. [Submit your app](/docs/guides/submit-app/) integration for verification and approval by the Okta OIN team. Your app is available in the OIN for the Okta community to use after your integration is verified by Okta.
 
 With an Okta SSO integration, your customer's workforce can use their company-issued Okta credentials to securely access your application. In addition to the typical email and password credentials, your customers have the ability to control their authentication experience with Okta sign-on policies and features, such as [Multifactor Authentication](https://help.okta.com/okta_help.htm?id=ext_MFA) and [FastPass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-enable).
-
-### Ready to get started?
-
-Choose how you want to implement your SSO integration:
-
-<Cards>
-<Card href="/docs/guides/build-sso-integration/openidconnect/main/" headerImage="/img/idp-logos/oidc.png" cardTitle="OpenID Connect (OIDC)" :showFooter=false>Build an Okta SSO integration with OIDC</Card>
-
-<Card href="/docs/guides/build-sso-integration/saml2/main/" headerImage="/img/idp-logos/saml.png" cardTitle="Security Assertion Markup Language (SAML)" :showFooter=false>Build an Okta SSO integration with SAML</Card>
-</Cards>
-<br>
-
-Read further for reasons [why you want to build an SSO integration](#why-build-an-sso-integration-with-okta) for the OIN, [choosing the right protocol](#choose-your-sso-protocol), and [use case examples](#use-case-examples).
 
 ## Why build an SSO integration with Okta?
 
@@ -51,24 +38,25 @@ Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) an
 
 Erika is an application developer at Acme, a technology partner with Okta. Acme is looking to leverage the OIN as a way for their customers to adopt and incorporate Acme’s application to the customer’s existing Okta tenant. This allows Acme’s customers to add Acme’s app to their existing identity infrastructure with minimal integration resources.
 
-1. Erika builds the Acme-Okta integration, doing the heavy lifting so that their customers don’t have to.
-2. Erika documents the required configuration steps for the customer admin.
-3. Erika submits the integration and corresponding documentation for the Okta OIN team to verify and review.
-4. After approval, Acme’s app is published on the OIN.
+Erika performs the following tasks:
 
-With a pre-built Acme-Okta integration, Acme avoids additional support staff required for each individual customer integration.
+* Builds the Acme-Okta integration, doing the heavy lifting so that their customers don’t have to.
+* Documents the required configuration steps for the customer admin.
+* Submits the integration and corresponding documentation for the Okta OIN team to verify and review.
+
+After approval, Acme’s app is published on the OIN. With a pre-built Acme-Okta integration, Acme avoids additional support staff required for each individual customer integration.
 
 ### Example of an identity admin journey with Okta
 
 Ali is an IT admin at Initech. Initech is looking to add Acme's application into their existing Okta identity infrastructure.
 
-1. Ali finds the Acme app in the OIN catalog. Since Acme is in the OIN, Ali knows that he can trust Acme to be securely incorporated into their existing Okta-managed SSO with minimal integration effort required.
+Ali performs the following tasks:
 
-2. Ali adds the Acme app integration from the Okta Admin Console. Ali follows the instructions provided by Acme to configure the app integration.
-
-3. Ali configures the Okta authentication policy and the group of Initech employees who will have access to the Acme app.
-
-4. Ali tests signing in to the Acme app with existing Okta credentials to verify the authentication flow.
+* Finds the Acme app in the OIN catalog. Since Acme is in the OIN, Ali knows that he can trust Acme to be securely incorporated into their existing Okta-managed SSO with minimal integration effort required.
+* Adds the Acme app integration from the Okta Admin Console.
+* Follows the instructions provided by Acme to configure the app integration.
+* Configures the Okta authentication policy and the group of Initech employees who will have access to the Acme app.
+* Tests signing in to the Acme app with existing Okta credentials to verify the authentication flow.
 
 Initech's group of employees with privileged access can sign in to the Acme app with their existing Okta credentials and no additional Acme app registration is required.
 
@@ -77,18 +65,21 @@ Initech's group of employees with privileged access can sign in to the Acme app 
 Ramon is an Initech employee with privileges to the Acme app.
 
 1. Ramon starts his work day. In his web browser, he clicks the Okta browser extension and selects his email app, which loads in a new tab.
-2. Ramon’s company has an Okta sign-on policy, which requires each employee to verify their identity every 12 hours. Since it’s been more than 12 hours since he was last working, he is prompted to enter his Okta username and password.
-3. Ramon’s company has also enabled Okta multifactor authentication. After successfully entering his credentials, a push notification is sent to the Okta Verify app on his phone. Ramon taps his phone to verify his identity. Ramon can now access his email.
-4. Next, Ramon goes to his Okta browser extension and selects the Acme app. Since Ramon started a session less than 12 hours ago, he is taken directly into the app without needing to sign in again. In fact, Ramon can access all the Okta-integrated apps that he has privileges to without signing in again because he already has an authenticated session with Okta.
+1. Initech has an Okta global session policy, which requires each employee to verify their identity every 12 hours. Since it’s been more than 12 hours since he was last working, he is prompted to enter his Okta username and password.
+1. Initech has also enabled Okta multifactor authentication. After successfully entering his credentials, a push notification is sent to the Okta Verify app on his phone. Ramon taps his phone to verify his identity. Ramon can now access his email.
+1. Next, Ramon goes to his Okta browser extension and selects the Acme app. Since Ramon started a session less than 12 hours ago, he is taken directly into the app without needing to sign in again. In fact, Ramon can access all the Okta-integrated apps that he has privileges to without signing in again because he already has an authenticated session with Okta.
 
 ## Next steps
 
-After your app integration is built and tested, submit the integration to the Okta OIN team for verification through the OIN Manager.
+Ready to get started? Choose how you want to implement your SSO integration:
 
 <Cards>
-<Card href="/docs/guides/submit-app/" headerImage="/img/icons/provisioning--blue.svg" cardTitle="OIN Manager" :showFooter=false>Publish an OIN integration</Card>
-<Card href="https://www.okta.com/integrations/" headerImage="/img/oin/Okta_OIN_Blue_RGB.svg" :showFooter=false>View current integrations in the OIN</Card>
+<Card href="/docs/guides/build-sso-integration/openidconnect/main/" headerImage="/img/idp-logos/oidc.png" cardTitle="OpenID Connect (OIDC)" :showFooter=false>Build an Okta SSO integration with OIDC</Card>
+
+<Card href="/docs/guides/build-sso-integration/saml2/main/" headerImage="/img/idp-logos/saml.png" cardTitle="Security Assertion Markup Language (SAML)" :showFooter=false>Build an Okta SSO integration with SAML</Card>
 </Cards>
 <br>
+
+After your app integration is built and tested, [submit the integration](/docs/guides/submit-app/) to the Okta OIN team for verification through the OIN Manager.
 
 Want to automate even more for your customers and increase adoption of your product? Learn more about [lifecycle management integration](/docs/guides/oin-lifecycle-mgmt-overview/) in the OIN.
