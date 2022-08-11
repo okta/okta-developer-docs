@@ -21,6 +21,8 @@ Previously, the self-service unlock (SSU) flow created unnecessary friction in t
 
 * When an app initiated the Service Provider flow and the SAML authorization request didn't contain the SAML Subject (`nameId`), a 500 HTTP error was returned. (OKTA-511120)
 
+* Clients using Native SSO token exchange ignored assurance challenges. (OKTA-520634)
+
 ### Monthly release 2022.08.0
 
 | Change | Expected in Preview Orgs |
