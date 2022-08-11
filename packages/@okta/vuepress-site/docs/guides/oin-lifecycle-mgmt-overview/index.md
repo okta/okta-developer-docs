@@ -15,6 +15,8 @@ Lifecycle management refers to the process of provisioning and deprovisioning ap
 
 Okta provides two methods to integrate lifecycle management to your application. You can use the [System for Cross-domain Identity Management](/docs/reference/scim/) (SCIM) protocol to manage user accounts from Okta, or you can use the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) to create automated identity processes in [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf).
 
+After completing your Okta lifecycle management integration, publish it in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) for your customers to benefit secure provisioning automation and meet compliance requirements. The OIN is a collection of pre-built app integrations covering numerous use cases. Join the community that customers trust to exchange secure authentication between users, devices, and applications.
+
 #### Ready to get started?
 
 Choose how you want to implement your lifecycle management integration.
@@ -31,16 +33,6 @@ Choose how you want to implement your lifecycle management integration.
 
 Read further for reasons [why you want to build a lifecycle management integration](#why-build-a-lifecycle-management-integration-with-okta) for the OIN, [choosing the right implementation](#choose-how-to-implement-your-integration), and [use case examples](#use-case-examples).
 
-#### Ready to submit an integration?
-
-After completing your Okta lifecycle management integration, publish it in the Okta Integration Network (OIN) for your customers to benefit secure provisioning automation and meet compliance requirements. The OIN is a collection of pre-built app integrations, with over 200 of these being lifecycle management integrations. Join the community that customers trust to exchange secure authentication between users, devices, and applications.
-
-<Cards>
-<Card href="/docs/guides/submit-app/scim/main/" headerImage="/img/icons/provisioning--blue.svg" cardTitle="OIN Manager" :showFooter=false>Publish an OIN integration</Card>
-<Card href="https://www.okta.com/integrations/" headerImage="/img/oin/Okta_OIN_Blue_RGB.svg" :showFooter=false>View current integrations in the OIN</Card>
-</Cards>
-<br>
-
 ## Why build a lifecycle management integration with Okta?
 
 | &nbsp; | &nbsp; |
@@ -52,15 +44,48 @@ After completing your Okta lifecycle management integration, publish it in the O
 
 ## Choose how to implement your integration
 
-| &nbsp; | System for Cross-domain Identity Management (SCIM) |  Workflows Connector |
+| &nbsp; |  System for Cross-domain Identity Management (SCIM) |  Workflows Connector |
 | ------ | :------------------- | :----------------------- |
 | **Description** | [SCIM](http://www.simplecloud.info) is the industry standard protocol for managing users and groups in cloud-based systems. It handles basic operations like create, read, update, delete, and search. | [Okta Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) is a no-code, if-this-then-that logic builder that Okta customers can use to automate custom or complex employee onboarding and offboarding flows in your application. Publishing a Workflows Connector with Okta allows your customers to deeply integrate your product as part of their lifecycle management flows. |
 | **Technology** | <ul><li>JSON-based REST API server implementation</li> <li>Okta supports outbound SCIM requests to your SCIM API service</li> <li>See [SCIM Protocol](/docs/reference/scim/)</li></ul> | <ul><li>Low code development environment</li> <li>See [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf)</li></ul>|
 | **Benefits** | <ul><li>Covers the most common lifecycle management needs related to onboarding/offboarding</li> <li>SCIM standard is throughout the industry</li> </ul> | <ul><li>Customers can create highly custom automation with your product without writing code</li> <li>Your product is tightly integrated with Okta</li> </ul>|
-| **Ease of Implementation** | <span style="width: 150px;display:block">![Low](/img/ratings/high.png)</span> | <span style="width: 150px;display:block">![Medium](/img/ratings/medium.png)</span> |
 | **Get started** | [Build a SCIM Provisioning Integration](/docs/guides/scim-provisioning-integration-overview/) | [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) |
 
 ## Use case examples
+
+### Example of partner integration journey with Okta
+
+Tom is an internal developer at OktReward, an HR employee rewards app. OktReward is already in the OIN with an SSO integration. OktReward wants to add a lifecycle management integration with Okta.
+
+Tom performs the following tasks:
+
+* Builds the OktReward-Okta lifecycle management integration by using the Workflows Connector Builder so that their customers don’t need to worry about manual employee profile processes, such as onboarding or offboarding.
+
+* Documents the required configuration steps for the customer admin.
+
+* Submits the integration and corresponding documentation for Okta to verify and review.
+
+After approval, the OktReward app is published as a lifecycle management integration (in addition to an SSO integration) in the OIN.
+
+### Example of customer admin integration journey with Okta
+
+Acme is a company that is using Okta to manage identity for their workforce. Acme is considering adding OktReward into their HR suite. Since OktReward is in the OIN with SSO and lifecycle management use cases, Acme knows that they can integrate OktReward securely into their existing Okta-managed SSO and automated user lifecycle flow with minimal effort. In addition, Acme can access OktRewards audits for their compliance needs.
+
+Alicia is an admin at Acme and performs the following tasks to integrate OktReward:
+
+* Adds the OktReward app integration in the OIN catalog from the Okta Admin Console.
+
+* Follows the instructions provided by OktReward to configure the SSO and Okta Workflows integration.
+
+* Configures the Okta authentication policy and the groups of Acme employees with various access levels to the OktReward app.
+
+* Imports user profiles from Okta to the OktReward app.
+
+* Tests signing in to the OktReward app with existing Okta credentials to verify the authentication flow.
+
+* Tests user onboarding, role changes, offboarding with HR to ensure that the user provisioning flow is working accurately.
+
+Acme's employees can sign in to the OktReward app with their existing Okta credentials and no additional OktReward app registration is required. When new employees join Acme, their HR staff adds user profiles in one Okta source. The user profiles are automatically provisioned to the apps with lifecycle management support, which now includes OktReward.
 
 ### Example of a workforce lifecycle journey with Okta
 
@@ -88,23 +113,14 @@ Key terms for lifecycle management in this workforce journey:
 
 1. After working at Acme for 5 years, Lucy decides to leave to take a Customer Support executive role at another organization. HR sets her last day in the employee directory.
 1. At close of business on Lucy’s last day with Acme, her account is removed from Okta. Her accounts in the various applications she uses for her job are removed.
-1. An offboarding Flow is triggered in Okta Workflows which reassigns ownership of Lucy’s files and folders in Acme’s cloud file storage service to her manager. A rule is created in Acme’s email system which forwards any email sent to Lucy’s corporate email address to her manager.
+1. An offboarding flow is triggered in Okta Workflows which reassigns ownership of Lucy’s files and folders in Acme’s cloud file storage service to her manager. A rule is created in Acme’s email system which forwards any email sent to Lucy’s corporate email address to her manager.
 
-### Example of partner lifecycle management integration journey with Okta
+## Next steps
 
-Tom is an internal developer at OktReward, an HR employee rewards app that is a partner with Okta. OktReward is already in the OIN with an SSO integration. OktReward is looking to add lifecycle management integration with Okta as a value-added feature for their customers.
+After your Okta lifecycle management integration is built and tested, submit it to the Okta OIN team for verification through the OIN Manager.
 
-#### Customer admin perspective before a lifecycle management integration
-
-Acme is a company that is using Okta to manage identity for their workforce. Acme is considering adding OktReward into their HR suite. Since OktReward is in the OIN, Acme knows that when they deploy OktReward, they can easily configure SSO and various access privileges for their employees. However, adding employee profiles to the RewardsMe app will still be a manual process for their HR and IT staff. In addition, onboarding, role changes, and offboarding processes will need to be addressed. Acme is worried about the security issues around adding personnel information manually and the additional workload for their staff. Acme will need a thorough project plan to rollout OktReward without a lifecycle management integration feature.
-
-#### Partner integration actions
-
-1. Tom builds the OktReward-Okta lifecycle management integration by using the SCIM protocol so that their customers don’t need to worry about manual employee profile processes, such as onboarding or offboarding.
-1. Tom documents the required configuration steps for the customer admin.
-1. Tom submits the integration and corresponding documentation for Okta to verify and review.
-1. After approval, the OktReward app is published as a lifecycle management integration (in addition to an SSO integration) in the OIN.
-
-#### Customer admin perspective after a lifecycle management integration
-
-Now that OktReward is in the OIN as an SSO and lifecycle management integration app, Acme knows that they can deploy OktReward with minimal effort. When new employees join Acme, their HR staff adds user profiles in one Okta source, as usual. The profiles are automatically provisioned to the apps with lifecycle management support, which now includes OktReward. This will alleviate Acme's resource efficiency and security concerns with OktReward. Acme is more compelled to adopt OktReward into their HR suite.
+<Cards>
+<Card href="/docs/guides/submit-app/scim/main/" headerImage="/img/icons/provisioning--blue.svg" cardTitle="OIN Manager" :showFooter=false>Publish an OIN integration</Card>
+<Card href="https://www.okta.com/integrations/" headerImage="/img/oin/Okta_OIN_Blue_RGB.svg" :showFooter=false>View current integrations in the OIN</Card>
+</Cards>
+<br>
