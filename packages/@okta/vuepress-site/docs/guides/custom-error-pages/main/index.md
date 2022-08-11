@@ -149,7 +149,9 @@ Example:
 
 Inserts the button text based on the page context. Requires double curly braces: <span v-pre>`{{buttonText}}`</span>
 
-When the user selects the button, they are directed to the `buttonHref` URL. The `{{back}}` macro is also supported for the same purpose.
+When the user selects the button, they are directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> macro is also supported for the same purpose.
+
+
 
 ### buttonHref
 
