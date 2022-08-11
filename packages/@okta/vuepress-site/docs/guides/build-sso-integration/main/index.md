@@ -19,7 +19,7 @@ This guide teaches you how to build federated Single Sign-On with Okta for your 
 **What you need**
 
 * An Okta developer account. Sign up for one at <https://developer.okta.com/signup/>.
-* An app to integrated with Okta
+* An app to integrate with Okta
 
 ---
 
