@@ -722,7 +722,7 @@ Deletes a Resource Set and all its associated Bindings
 
 | Parameter      | Description                          | Param Type   | DataType                              | Required |
 | :------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the Resource Set             | URL          | String                                | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set             | URL          | String                                | TRUE     |
 
 #### Response parameters
 
@@ -760,7 +760,7 @@ Adds more resources to a Resource Set
 
 | Parameter      | Description                                                                       | Param Type   | DataType     | Required |
 | :------------- | :----------------------------------------------------------------------------- | :----------- | :----------- | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the Resource Set                                                       | URL          | String       | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set                                                       | URL          | String       | TRUE     |
 | `additions`      | The endpoints that reference the resources to be included in the new Resource Set | Body         | Array of URL | TRUE     |
 
 ##### Response parameters
@@ -817,7 +817,7 @@ Lists the Resources that make up a Resource Set
 
 | Parameter      | Description               | Param Type   | DataType     | Required |
 | :------------- | :------------------------ | :----------- | :----------- | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the Resource Set  | URL          | String       | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set  | URL          | String       | TRUE     |
 
 ##### Response parameters
 
@@ -948,11 +948,11 @@ Assigns a Custom Role by creating a Binding between the Role and the admin that 
 
 #### Request parameters
 
-| Parameter      | Description                                                   | Param Type    | DataType       | Required |
-| :------------- | :------------------------------------------------------------ | :------------ | :------------- | :------- |
-| `resourceSetIdOrLabel`| Unique ID or label of the Resource Set                                       | URL           | String         | TRUE     |
-| `role`           | ID of the Role                                              | Body          | String         | TRUE     |
-| `members`        | The hrefs that point to User(s) and/or Group(s) that receive the Role  | Body          | Array of hrefs | TRUE     |
+| Parameter      | Description                                                           | Param Type    | DataType       | Required |
+| :------------- |:----------------------------------------------------------------------| :------------ | :------------- | :------- |
+| `resourceSetIdOrLabel`| ID or label of the Resource Set                                       | URL           | String         | TRUE     |
+| `role`           | ID of the Role                                                        | Body          | String         | TRUE     |
+| `members`        | The hrefs that point to User(s) and/or Group(s) that receive the Role | Body          | Array of hrefs | TRUE     |
 
 #### Response parameters
 
@@ -1005,7 +1005,7 @@ Adds more Members to a Role Binding that is already created in a Resource Set
 
 | Parameter      | Description                                                                    | Param Type   | DataType       | Required |
 | :------------- |:-------------------------------------------------------------------------------| :----------- | :------------- | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the target Resource Set                                  | URL          | String         | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the target Resource Set                                  | URL          | String         | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role to grant                                               | URL          | String         | TRUE     |
 | `additions`      | Array of hrefs that point to the User(s) and/or Group(s) that receive the Role | Body         | Array of hrefs | TRUE     |
 
@@ -1060,7 +1060,7 @@ Gets a paginated list of Members that are assigned to a Role in a Resource Set
 
 | Parameter      | Description                                     | Param Type   | DataType       | Required |
 | :------------- |:------------------------------------------------| :----------- | :------------- | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the target Resource Set   | URL          | String         | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the target Resource Set   | URL          | String         | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role to identify the Binding | URL          | String         | TRUE     |
 
 #### Response parameters
@@ -1123,7 +1123,7 @@ Gets a Member of a Role in a Resource Set
 
 | Parameter      | Description                                     | Param Type   | DataType       | Required |
 | :------------- |:------------------------------------------------| :----------- | :------------- | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the target Resource Set	  | URL          | String         | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the target Resource Set	  | URL          | String         | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role to identify the Binding | URL          | String         | TRUE     |
 | `memberId`       | ID of the Member within the Binding             | URL          | String         | TRUE     |
 
@@ -1184,7 +1184,7 @@ Deletes a Member of a Role in a Resource Set
 
 | Parameter      | Description                                     | Param Type   | DataType       | Required |
 | :------------- |:------------------------------------------------| :----------- | :------------- | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the target Resource Set	  | URL          | String         | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the target Resource Set	  | URL          | String         | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role to identify the Binding | URL          | String         | TRUE     |
 | `memberId`       | ID of the Member in the Binding                 | URL          | String         | TRUE     |
 
@@ -1238,7 +1238,7 @@ Gets a Binding from a Resource Set by its Role ID
 
 | Parameter      | Description              | Param Type   | DataType     | Required |
 | :------------- | :----------------------- | :----------- | :----------- | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the Resource Set | URL          | String       | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set | URL          | String       | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role         | URL          | String       | TRUE     |
 
 ##### Response parameters
@@ -1288,7 +1288,7 @@ Gets all the Bindings from a Resource Set
 
 | Parameter      | Description                             | Param Type   | DataType     | Required |
 | :------------- |:----------------------------------------| :----------- | :----------- | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the Resource Set  | URL          | String       | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set  | URL          | String       | TRUE     |
 
 ##### Response parameters
 
@@ -1345,7 +1345,7 @@ Deletes a Binding of a Role from a Resource Set
 
 | Parameter      | Description               | Param Type   | DataType     | Required |
 | :------------- | :------------------------ | :----------- | :----------- | :------- |
-| `resourceSetIdOrLabel`  | Unique ID or label of the Resource Set  | URL          | String       | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set  | URL          | String       | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role          | URL          | String       | TRUE     |
 
 #### Response parameters
