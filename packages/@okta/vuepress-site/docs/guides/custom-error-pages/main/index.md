@@ -16,6 +16,8 @@ Customize error pages as part of the sign-in flow.
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Customized Okta URL domain](/docs/guides/custom-url-domain/), unless you're using the [Brands API](#use-the-brands-api)
+* The full-featured code editor enabled in your org
+   <ApiLifecycle access="ea" />
 
 **Sample code**
 
@@ -59,7 +61,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
    * Click **Revert changes** to remove your customizations and restore the default HTML/CSS and JavaScript code.
 
-   > **Note:** The Admin Console auto-saves your changes every few minutes. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, turn off the toggle next to **Code editor**.
+   > **Note:** The Admin Console auto-saves your changes every few seconds. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, turn off the toggle next to **Code editor**.
 
 5. Click **Publish** to commit your changes.
 
@@ -145,8 +147,6 @@ Example:
 ```html
 <p class="technical-details">Additional Error Details: {{technicalDetails}}</p>
 ```
-
-> **Note:** The following variables are only available when the Theme Builder feature is enabled in your org.
 
 ### <span v-pre>`{{buttonText}}`</span>
 
