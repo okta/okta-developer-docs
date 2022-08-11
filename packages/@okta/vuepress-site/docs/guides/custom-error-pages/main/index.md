@@ -58,9 +58,11 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 
 The following variables contain the configuration parameters for certain page elements. These variables inject specific content or functionality automatically.
 
-### <span v-pre>`{{orgName}}`</span>
+> **Note:** Variables with double curly braces return escaped HTML by default. Triple braces `{{{` are used for the `errorDescription` macro to return unescaped HTML. See [Mustache template](http://mustache.github.io/mustache.5.html).
 
-Inserts the org name title.
+### orgName
+
+Inserts the org name title. Requires double brackets: <span v-pre>`{{orgName}}`</span>
 
 Example:
 
@@ -68,9 +70,9 @@ Example:
 <title>{{orgName}} - {{errorSummary}}</title>
 ```
 
-### <span v-pre>`{{errorSummary}}`</span>
+### errorSummary
 
-Inserts the error title text.
+Inserts the error title text. Requires double curly braces: <span v-pre>`{{errorSummary}}`</span>
 
 Example:
 
@@ -78,11 +80,13 @@ Example:
 <h2 class="o-form-title">{{errorSummary}}</h2>
 ```
 
-### <span v-pre>`{{bgImageUrl}}`</span>
+### bgImageUrl
 
-Inserts a URL to the background image configured for your application. You can change this image by using the **Sign-in Configuration** option that is accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the background image in all instances where the macro is used, including your custom sign-in page.
+Inserts a URL to the background image configured for your application. Requires double curly braces: <span v-pre>`{{bgImageUrl}}`</span>
 
-If you want to just change the background image for your custom error pages, include the URL to the image instead of the macro:
+You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext_Settings_Appearance) option, but this changes the background image in all instances where the macro is used, including your custom sign-in page.
+
+If you want to change only the background image for your custom error pages, include the URL to the image instead of the macro:
 
 Example:
 
@@ -90,11 +94,13 @@ Example:
 <div class="login-bg-image" style="background-image: url('https://example.com//YourBackgroundImage.png')"></div>
 ```
 
-### <span v-pre>`{{orgLogo}}`</span>
+### orgLogo
 
-Inserts the logo image that has been configured for your application. You can change this logo by using the **Organization Logo** option that is accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the org logo in all instances where the macro is used, including your custom sign-in page.
+Inserts the logo image that has been configured for your application. Requires double curly braces: <span v-pre>`{{orgLogo}}`</span>
 
-If you want to just change the logo image for your custom error pages, include the URL to the image instead of the macro:
+You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext_Settings_Appearance) option, but this changes the org logo in all instances where the macro is used, including your custom sign-in page.
+
+If you want to change only the logo image for your custom error pages, include the URL to the image instead of the macro:
 
 Example:
 
@@ -102,9 +108,9 @@ Example:
 <img alt="{{orgName}}" src="https://example.com//SomeOtherImage.png" class="org-logo">
 ```
 
-### <span v-pre>`{{{errorDescription}}}`</span>
+### errorDescription
 
-Inserts a detailed description of the error.
+Inserts a detailed description of the error. Requires tripe curly braces: <span v-pre>`{{{errorDescription}}}`</span>
 
 Example:
 
@@ -112,11 +118,11 @@ Example:
 <p class="o-form-explain">What happened? {{{errorDescription}}}</p>
 ```
 
-> **Note:** Variables with double curly braces return escaped HTML by default. Triple braces `{{{` are used for the `errorDescription` macro to return unescaped HTML. See [Mustache template](http://mustache.github.io/mustache.5.html).
+### back
 
-### <span v-pre>`{{back}}`</span>
+Inserts the text `Go to Homepage`. Requires double curly braces: <span v-pre>`{{back}}`</span>
 
-Inserts the text `Go to Homepage`. When the user selects the button, they are returned to the sign-in page.
+When the user selects the button, they are returned to the sign-in page.
 
 Example:
 
@@ -124,9 +130,11 @@ Example:
  <a href="/" class="button">{{back}}</a>
 ```
 
-### <span v-pre>`{{technicalDetails}}`</span>
+### technicalDetails
 
-Inserts additional messaging, if the error code has any. For example:
+Inserts additional messaging, if the error code has any. Requires double curly braces: <span v-pre>`{{technicalDetails}}`</span>
+
+Here are sample technical details for an error code:
 `If you are using custom expressions like \{0}, make sure that the field 'customField' is present in the user profile. Please review your attribute list and make the appropriate change.`
 
 See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code).
@@ -137,13 +145,15 @@ Example:
 <p class="technical-details">Additional Error Details: {{technicalDetails}}</p>
 ```
 
-### <span v-pre>`{{buttonText}}`</span>
+### buttonText
 
-Inserts the button text based on the page context. When the user selects the button, they are directed to the `buttonHref` URL. The `{{back}}` macro is also supported for the same purpose.
+Inserts the button text based on the page context. Requires double curly braces: <span v-pre>`{{buttonText}}`</span>
 
-### <span v-pre>`{{buttonHref}}`</span>
+When the user selects the button, they are directed to the `buttonHref` URL. The `{{back}}` macro is also supported for the same purpose.
 
-Inserts the hyperlink for the button
+### buttonHref
+
+Inserts the hyperlink for the button. Requires double curly braces: <span v-pre>`{{buttonHref}}`</span>
 
 Example:
 
@@ -151,9 +161,9 @@ Example:
  <a href="{{buttonHref}}" class="button">{{buttonText}}</a>
 ```
 
-### <span v-pre>`{{themedStylesUrl}}`</span>
+### themedStylesUrl
 
-Inserts the URL for the themed style sheet
+Inserts the URL for the themed style sheet. Requires double curly braces: <span v-pre>`{{themedStylesUrl}}`</span>
 
 Example:
 
@@ -161,9 +171,9 @@ Example:
  <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
 ```
 
-### <span v-pre>`{{faviconUrl}}`</span>
+### faviconUrl
 
-Inserts the URL for the favicon
+Inserts the URL for the favicon. Requires double curly braces: <span v-pre>`{{faviconUrl}}`</span>
 
 Example:
 
