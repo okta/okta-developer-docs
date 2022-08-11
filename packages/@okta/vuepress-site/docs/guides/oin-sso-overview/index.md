@@ -79,7 +79,7 @@ Ramon is an Initech employee with privileges to the Acme app.
 1. Ramon starts his work day. In his web browser, he clicks the Okta browser extension and selects his email app, which loads in a new tab.
 2. Ramon’s company has an Okta sign-on policy, which requires each employee to verify their identity every 12 hours. Since it’s been more than 12 hours since he was last working, he is prompted to enter his Okta username and password.
 3. Ramon’s company has also enabled Okta multifactor authentication. After successfully entering his credentials, a push notification is sent to the Okta Verify app on his phone. Ramon taps his phone to verify his identity. Ramon can now access his email.
-4. Next, Ramon goes to his Okta browser extension and selects the Acme app. Since Ramon started a session less than 12 hours ago, he is taken directly into the app without needing to sign-in again. In fact, Ramon can access all the Okta-integrated apps that he has privileges to without signing in again because he already has an authenticated session with Okta.
+4. Next, Ramon goes to his Okta browser extension and selects the Acme app. Since Ramon started a session less than 12 hours ago, he is taken directly into the app without needing to sign in again. In fact, Ramon can access all the Okta-integrated apps that he has privileges to without signing in again because he already has an authenticated session with Okta.
 
 ## Next steps
 
