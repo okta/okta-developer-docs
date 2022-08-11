@@ -17,22 +17,6 @@ Okta provides two methods to integrate lifecycle management to your application.
 
 After completing your Okta lifecycle management integration, publish it in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/) for your customers to benefit secure provisioning automation and meet compliance requirements. The OIN is a collection of pre-built app integrations covering numerous use cases. Join the community that customers trust to exchange secure authentication between users, devices, and applications.
 
-#### Ready to get started?
-
-Choose how you want to implement your lifecycle management integration.
-
-<Cards>
-
-<Card href="/docs/guides/scim-provisioning-integration-overview/" headerImage="/img/icons/scim.svg" cardTitle="System for Cross-domain Identity Management" :showFooter=false>Build a SCIM provisioning integration</Card>
-
-<Card href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Workflows Connector Builder" :showFooter=false>Build a Workflow integration</Card>
-
-</Cards>
-
-<br>
-
-Read further for reasons [why you want to build a lifecycle management integration](#why-build-a-lifecycle-management-integration-with-okta) for the OIN, [choosing the right implementation](#choose-how-to-implement-your-integration), and [use case examples](#use-case-examples).
-
 ## Why build a lifecycle management integration with Okta?
 
 | &nbsp; | &nbsp; |
@@ -117,10 +101,15 @@ Key terms for lifecycle management in this workforce journey:
 
 ## Next steps
 
-After your Okta lifecycle management integration is built and tested, submit it to the Okta OIN team for verification through the OIN Manager.
+Ready to get started? Choose how you want to implement your lifecycle management integration.
 
 <Cards>
-<Card href="/docs/guides/submit-app/scim/main/" headerImage="/img/icons/provisioning--blue.svg" cardTitle="OIN Manager" :showFooter=false>Publish an OIN integration</Card>
-<Card href="https://www.okta.com/integrations/" headerImage="/img/oin/Okta_OIN_Blue_RGB.svg" :showFooter=false>View current integrations in the OIN</Card>
+
+<Card href="/docs/guides/scim-provisioning-integration-overview/" headerImage="/img/icons/scim.svg" cardTitle="System for Cross-domain Identity Management" :showFooter=false>Build a SCIM provisioning integration</Card>
+
+<Card href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Workflows Connector Builder" :showFooter=false>Build a Workflow integration</Card>
+
 </Cards>
 <br>
+
+After your Okta lifecycle management integration is built and tested, [submit](/docs/guides/submit-app/scim/main/) it to the Okta OIN team for verification through the OIN Manager.
