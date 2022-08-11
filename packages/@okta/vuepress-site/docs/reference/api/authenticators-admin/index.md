@@ -756,7 +756,6 @@ The Authenticator object defines the following properties:
 | `methods.settings.keyProtection` | String (Enum) | Key Protection. Supported values: `ANY`, `HARDWARE` | `custom_app`, `okta_verify` |
 | `agreeToTerms` | Boolean | A value of `true` indicates that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator. Okta requires that you accept the terms when creating a new `custom_app` authenticator. Other authenticators don't require this field. | `custom_app`|
 
-
 #### Example Email Authenticator
 
 ```json

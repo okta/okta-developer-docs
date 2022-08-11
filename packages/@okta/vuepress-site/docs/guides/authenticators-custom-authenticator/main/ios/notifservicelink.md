@@ -1,0 +1,1 @@
+A configured Apple Push Notification service account. For more information, see Apple developer documentation for [setting up a notification server](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server) and [user notifications](https://developer.apple.com/documentation/usernotifications).

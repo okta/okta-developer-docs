@@ -11,7 +11,7 @@
       * **Browse files** - Click this button and select an SVG file from the file selection dialog.
       * **Use default logo** - Click the lock icon to use the default logo.
 5. Configure the connection to the push notification service:
-   * **FCM configuration:** Select the connection to the FCM service that you want the custom authenticator to use.
+   * **APNs configuration:** Select the connection to the APNs service that you want the custom authenticator to use.
 6. Select the checkbox to agree to Okta's Terms and Conditions.
    > **Note:** By adding this feature, you agree on behalf of the entity you represent that it's your sole responsibility to provide any required notices and disclosures to end users, including any necessary information from [https://www.okta.com/privacy-policy](https://www.okta.com/privacy-policy).
 7. Click **Add**.
