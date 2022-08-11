@@ -6,6 +6,8 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## August
 
+### Weekly release 2022.08.1
+
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [Improvements to the self-service unlock process is EA in Preview](#improvements-to-the-self-service-unlock-process-is-ea-in-preview)        | August 10, 2022            |
