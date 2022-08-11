@@ -16,8 +16,7 @@ Customize error pages as part of the sign-in flow.
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Customized Okta URL domain](/docs/guides/custom-url-domain/), unless you're using the [Brands API](#use-the-brands-api)
-* The full-featured code editor enabled in your org
-   <ApiLifecycle access="ea" />
+* The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
 
 **Sample code**
 
@@ -32,16 +31,6 @@ When using an Okta-hosted flow, you can create a unique sign-in experience by pr
 However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using an embedded HTML editor.
 
 > **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears.
-
-### Common questions
-
-**In what situations does Okta serve error pages to the user?**
-
-The error page appears when a critical error occurs or an application is misconfigured. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
-
-**What can I customize on the error page?**
-
-You can add any HTML, CSS, or JavaScript that you want to the page.
 
 ### Use the Brands API
 
@@ -230,6 +219,16 @@ Example:
 </style>
 </head>
 ```
+
+## FAQs
+
+**In what situations does Okta serve error pages to the user?**
+
+The error page appears when a critical error occurs or an application is misconfigured. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
+
+**What can I customize on the error page?**
+
+You can add any HTML, CSS, or JavaScript that you want to the page.
 
 ## Next steps
 
