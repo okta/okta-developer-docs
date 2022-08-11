@@ -49,7 +49,7 @@ Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) an
 
 ### Example of a partner integration journey with Okta
 
-Erika is an application developer at Acme, a technology partner with Okta. Acme is looking to leverage the OIN as a way for their customers to adopt and incorporate Acme’s application to the customer’s existing Okta tenant. This will allow Acme’s customers to add Acme’s app to their existing identity infrastructure with minimal integration resources.
+Erika is an application developer at Acme, a technology partner with Okta. Acme is looking to leverage the OIN as a way for their customers to adopt and incorporate Acme’s application to the customer’s existing Okta tenant. This allows Acme’s customers to add Acme’s app to their existing identity infrastructure with minimal integration resources.
 
 1. Erika builds the Acme-Okta integration, doing the heavy lifting so that their customers don’t have to.
 2. Erika documents the required configuration steps for the customer admin.
