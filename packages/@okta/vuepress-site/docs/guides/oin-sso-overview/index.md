@@ -1,8 +1,8 @@
 ---
-title: Overview of SSO in the OIN
+title: Overview of Single Sign-On in the OIN
 meta:
   - name: description
-    content: Provides a high level overview of SSO app integrations for the Okta Integration Network.
+    content: Provides a high level overview of Single Sign-On app integrations for the Okta Integration Network.
 ---
 
 The Okta Integration Network (OIN) is a collection of over 7000 pre-built app integrations to connect and exchange secure authentication between users, devices, and applications. Customers can easily integrate Okta Single Sign-On (SSO) to applications in the OIN with a guided experience that still supports the most secure configuration options.
@@ -62,7 +62,7 @@ Initech's group of employees with privileged access can sign in to the Acme app 
 
 ### Example of a workforce user Single Sign-On journey with Okta
 
-Ramon is an Initech employee with privileges to the Acme app. Follow his Single Sign-on journey:
+Ramon is an Initech employee with privileges to the Acme app. Follow his Single Sign-On journey:
 
 * Ramon starts his work day. In his web browser, he clicks the Okta browser extension and selects his email app, which loads in a new tab.
 * Initech has an Okta global session policy, which requires each employee to verify their identity every 12 hours. Since it’s been more than 12 hours since he was last working, Ramon is prompted to enter his Okta username and password.
