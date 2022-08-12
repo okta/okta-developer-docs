@@ -67,7 +67,7 @@ Alicia is an admin at Acme and performs the following tasks to integrate OktRewa
 
 * Tests signing in to the OktReward app with existing Okta credentials to verify the authentication flow.
 
-* Tests user onboarding, role changes, offboarding with HR to ensure that the user provisioning flow is working accurately.
+* Tests user onboarding, role changes, offboarding with HR to ensure that the user provisioning flow is working accurately
 
 Acme's employees can sign in to the OktReward app with their existing Okta credentials and no additional OktReward app registration is required. When new employees join Acme, their HR staff adds user profiles in one Okta source. The user profiles are automatically provisioned to the apps with lifecycle management support, which now includes OktReward.
 
