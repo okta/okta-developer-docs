@@ -83,7 +83,7 @@ Example:
 
 Inserts a URL to the background image configured for your application. Requires double curly braces: <span v-pre>`{{bgImageUrl}}`</span>
 
-You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext_Settings_Appearance) option, but this changes the background image in all instances where the variable is used, including your custom sign-in page.
+You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the background image in all instances where the variable is used, including your custom sign-in page.
 
 If you want to change only the background image for your custom error pages, include the URL to the image instead of the variable:
 
@@ -97,7 +97,7 @@ Example:
 
 Inserts the logo image that has been configured for your application. Requires double curly braces: <span v-pre>`{{orgLogo}}`</span>
 
-You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext_Settings_Appearance) option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page.
+You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page.
 
 If you want to change only the logo image for your custom error pages, include the URL to the image instead of the variable:
 
