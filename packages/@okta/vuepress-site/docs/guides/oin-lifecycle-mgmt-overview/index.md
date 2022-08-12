@@ -43,7 +43,7 @@ Tom is an internal developer at OktReward, an HR employee rewards app. OktReward
 
 Tom performs the following tasks:
 
-* Builds the OktReward-Okta lifecycle management integration by using the Workflows Connector Builder so that their customers don’t need to worry about manual employee profile processes, such as onboarding or offboarding.
+* Builds the OktReward-Okta lifecycle management integration by using the Workflows Connector Builder so that their customers don’t need to worry about manual employee profile processes, such as onboarding or offboarding
 
 * Documents the required configuration steps for the customer admin.
 
