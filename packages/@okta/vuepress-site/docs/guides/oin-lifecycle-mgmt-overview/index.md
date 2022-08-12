@@ -84,7 +84,7 @@ Key terms for lifecycle management in this workforce journey:
 1. Lucy accepts an offer to join the Customer Support team at Acme Corp. The Acme HR team sets her start date in the employee directory and adds her to the “Customer Support” Okta group.
 1. On her start date, Okta automatically creates accounts for Lucy in all the tools used by every employee at Acme (for example: chat, corporate directory, intranet, and so on).
 1. Since Lucy is in the Customer Support Okta group, an account is also provisioned for Lucy in the tools used exclusively by the Customer Support team (for example, the case management tool).
-1. Acme uses Okta Workflows to provide custom onboarding actions, extending the usual account provisioning flows. Once Lucy’s account is activated, an onboarding flow is triggered based on Lucy's group. Since she is part of the Customer Support group, Lucy is added to a special folder in Acme’s cloud file storage service that the Customer Support team uses to share template files.
+1. Acme uses Okta Workflows to provide custom onboarding actions, extending the usual account provisioning flows. After Lucy’s account is activated, an onboarding flow is triggered based on Lucy's group. Since she is part of the Customer Support group, Lucy is added to a special folder in Acme’s cloud file storage service that the Customer Support team uses to share template files.
 
 #### Mover
 
