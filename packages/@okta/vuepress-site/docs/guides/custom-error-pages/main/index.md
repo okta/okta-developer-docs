@@ -48,9 +48,8 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 4. Make changes directly in the editor. If you enter `{`, `(`, or `.` you see a list of available variables that you can use. See [Use variables](#use-variables).
    * Click **Preview** to see your changes in a new browser window before you publish.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
-   * Click **Revert changes** to remove your customizations and restore the default HTML/CSS and JavaScript code.
 
-   > **Note:** The Admin Console auto-saves your changes every few seconds. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, turn off the toggle next to **Code editor**.
+   > **Note:** The Admin Console auto-saves your changes every few seconds. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
 
 5. Click **Publish** to commit your changes.
 
@@ -58,7 +57,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 
 The following variables contain the configuration parameters for certain page elements. These variables inject specific content or functionality automatically.
 
-> **Note:** Variables with double curly braces return escaped HTML by default. Triple braces `{{{` are used for the `errorDescription` macro to return unescaped HTML. See [Mustache template](http://mustache.github.io/mustache.5.html).
+> **Note:** Variables with double curly braces return escaped HTML by default. Triple braces `{{{` are used for the `errorDescription` variable to return unescaped HTML. See [Mustache template](http://mustache.github.io/mustache.5.html).
 
 ### orgName
 
@@ -84,9 +83,9 @@ Example:
 
 Inserts a URL to the background image configured for your application. Requires double curly braces: <span v-pre>`{{bgImageUrl}}`</span>
 
-You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext_Settings_Appearance) option, but this changes the background image in all instances where the macro is used, including your custom sign-in page.
+You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext_Settings_Appearance) option, but this changes the background image in all instances where the variable is used, including your custom sign-in page.
 
-If you want to change only the background image for your custom error pages, include the URL to the image instead of the macro:
+If you want to change only the background image for your custom error pages, include the URL to the image instead of the variable:
 
 Example:
 
@@ -98,9 +97,9 @@ Example:
 
 Inserts the logo image that has been configured for your application. Requires double curly braces: <span v-pre>`{{orgLogo}}`</span>
 
-You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext_Settings_Appearance) option, but this changes the org logo in all instances where the macro is used, including your custom sign-in page.
+You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext_Settings_Appearance) option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page.
 
-If you want to change only the logo image for your custom error pages, include the URL to the image instead of the macro:
+If you want to change only the logo image for your custom error pages, include the URL to the image instead of the variable:
 
 Example:
 
@@ -149,7 +148,7 @@ Example:
 
 Inserts the button text based on the page context. Requires double curly braces: <span v-pre>`{{buttonText}}`</span>
 
-When the user selects the button, they are directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> macro is also supported for the same purpose.
+When the user selects the button, they are directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> variable is also supported for the same purpose.
 
 
 
