@@ -88,7 +88,7 @@ Key terms for lifecycle management in this workforce journey:
 
 #### Mover
 
-1. After 2 years of great work on the Customer Support team, Lucy is promoted and becomes a team manager! The HR team updates Lucy’s role in the employee directory to reflect her new level and manager title. Lucy’s profile in Okta is updated, and Lucy is added to a new group called “People Managers” in Okta.
+1. After two years of great work on the Customer Support team, Lucy is promoted and becomes a team manager! The HR team updates Lucy’s role in the employee directory to reflect her new level and manager title. Lucy’s profile in Okta is updated, and Lucy is added to a new group called “People Managers” in Okta.
 1. The applications Lucy was given access to when she joined Acme are automatically updated with Lucy’s latest profile information including her new title.
 1. Since Lucy is now a member of the People Managers Okta group, an account is provisioned for her in Acme’s employee performance evaluation tool.
 1. A flow is triggered in Okta Workflows when Lucy’s profile is updated that adds Lucy to a private chat group for people managers.
