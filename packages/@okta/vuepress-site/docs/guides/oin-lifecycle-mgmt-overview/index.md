@@ -37,7 +37,7 @@ After completing your Okta lifecycle management integration, publish it in the [
 
 ## Use case examples
 
-### Example of partner integration journey with Okta
+### Example of a partner integration journey with Okta
 
 Tom is an internal developer at OktReward, an HR employee rewards app. OktReward is already in the OIN with an SSO integration. OktReward wants to add a lifecycle management integration with Okta.
 
