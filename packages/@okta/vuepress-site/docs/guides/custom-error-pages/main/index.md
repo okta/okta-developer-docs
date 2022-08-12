@@ -57,7 +57,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 
 The following variables contain the configuration parameters for certain page elements. These variables inject specific content or functionality automatically.
 
-To see the variables in a code sample, go to the code editor in the Admin Console. See [Edit the error page](#edit-the-error-page).
+To see the variables in a code sample, refer to the error page default code in the code editor. See [Edit the error page](#edit-the-error-page).
 
 > **Note:** Variables with double curly braces (`{{`) return escaped HTML by default. Triple curly braces (`{{{`) are used for the `errorDescription` variable to return unescaped HTML. See the [Mustache manual](http://mustache.github.io/mustache.5.html).
 
