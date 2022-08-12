@@ -24,8 +24,6 @@ Learn how to enable an email only sign-up flow in your application using the Emb
 
 ---
 
-## Overview
-
 ## Update configurations
 
 Before you can start integrating password-optional sign-up flows in your app, <StackSnippet snippet="setupoktaorg" inline/>. Additionally, you must enable new user sign-up flows with the following steps:
