@@ -51,7 +51,7 @@ Tom performs the following tasks:
 
 After approval, the OktReward app is published as a lifecycle management integration (in addition to an SSO integration) in the OIN.
 
-### Example of customer admin integration journey with Okta
+### Example of a customer admin integration journey with Okta
 
 Acme is a company that is using Okta to manage identity for their workforce. Acme is considering adding OktReward into their HR suite. Since OktReward is in the OIN with SSO and lifecycle management use cases, Acme knows that they can integrate OktReward securely into their existing Okta-managed SSO and automated user lifecycle flow with minimal effort. In addition, Acme can access OktRewards audits for their compliance needs.
 
