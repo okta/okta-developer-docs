@@ -57,7 +57,7 @@ Acme is a company that is using Okta to manage identity for their workforce. Acm
 
 Alicia is an admin at Acme and performs the following tasks to integrate OktReward:
 
-* Adds the OktReward app integration in the OIN catalog from the Okta Admin Console.
+* Adds the OktReward app integration in the OIN catalog from the Okta Admin Console
 
 * Follows the instructions provided by OktReward to configure the SSO and Okta Workflows integration.
 
