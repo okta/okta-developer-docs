@@ -45,7 +45,7 @@ Tom performs the following tasks:
 
 * Builds the OktReward-Okta lifecycle management integration by using the Workflows Connector Builder so that their customers don’t need to worry about manual employee profile processes, such as onboarding or offboarding
 
-* Documents the required configuration steps for the customer admin.
+* Documents the required configuration steps for the customer admin
 
 * Submits the integration and corresponding documentation for Okta to verify and review.
 
