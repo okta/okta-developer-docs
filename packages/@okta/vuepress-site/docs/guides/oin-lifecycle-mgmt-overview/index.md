@@ -47,7 +47,7 @@ Tom performs the following tasks:
 
 * Documents the required configuration steps for the customer admin
 
-* Submits the integration and corresponding documentation for Okta to verify and review.
+* Submits the integration and corresponding documentation for Okta to verify and review
 
 After approval, the OktReward app is published as a lifecycle management integration (in addition to an SSO integration) in the OIN.
 
