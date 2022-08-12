@@ -40,7 +40,7 @@ Erika is an application developer at Acme, a technology partner with Okta. Acme 
 
 Erika performs the following tasks:
 
-* Builds the Acme-Okta integration, doing the heavy lifting so that their customers don’t have to.
+* Builds the Acme-Okta integration, doing the heavy lifting so that their customers don’t have to
 * Documents the required configuration steps for the customer admin.
 * Submits the integration and corresponding documentation for the Okta OIN team to verify and review.
 
