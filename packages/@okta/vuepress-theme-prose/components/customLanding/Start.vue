@@ -6,7 +6,7 @@
             <p>Sign up for a free developer-edition Okta org for a sandbox where you can build and test your enterprise app integrations. If you’re already working on something and need help, post your questions on the Okta Developer Forum.</p>
             <div class="customLanding-start__actions">
                 <a href="/signup/" class="customLanding-start__button">Sign up for Okta</a>
-                <a href="https://devforum.okta.com/" target="_blank">Post a question</a>
+                <a href="https://devforum.okta.com/" class="customLanding-start__link" target="_blank">Post a question</a>
             </div>
         </div>
     </div>

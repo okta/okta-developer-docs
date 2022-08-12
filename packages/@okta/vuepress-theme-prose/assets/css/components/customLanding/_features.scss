@@ -4,10 +4,20 @@
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             padding: 60px 0;
+            position: relative;
             &:not(:last-child) {
-                border-bottom: 3px dashed cv('gray', '100');
+                svg {
+                    display: block;
+                }
+            }
+            svg {
+                display: none;
+                width: 100%;
+                position: absolute;
+                bottom: -2px;
+                left: 0;
             }
             @media (max-width: 1110px) {
                 flex-wrap: wrap;
@@ -18,8 +28,9 @@
             width: 370px;
 
             &:last-child {
+                border-radius: 12px;
                 width: 415px;
-                padding: 15px 20px;
+                padding: 41px 43px 41px 54px;
                 background-color: cv('body', 'custom-bg-white');
             }
 
@@ -80,28 +91,32 @@
         
         &__caption {
             margin: 0 0 15px;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
-            line-height: 1.7;
+            line-height: 20px;
             color: cv('header', 'nav-link');
         }
 
         &__list-item {
             position: relative;
-            padding-left: 20px;
             margin-bottom: 10px;
             font-size: 14px;
-            line-height: 1.3;
-            color: cv('text', 'darker');
+            line-height: 18px;
+            color: cv('header', 'nav-link');
+            font-weight: 400;
+
+            a {
+                font-weight: 400;
+            }
 
             &::before {
                 content: '';
                 position: absolute;
                 top: 8px;
-                left: 9px;
-                width: 3px;
-                height: 3px;
-                background-color: cv('text', 'darker');
+                left: -18px;
+                width: 4px;
+                height: 4px;
+                background-color: cv('body', 'gray');
                 border-radius: 50%;
             }
         }

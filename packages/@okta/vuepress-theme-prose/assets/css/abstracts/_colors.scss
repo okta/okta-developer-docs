@@ -61,6 +61,7 @@
   --c-blue-aside-lightblue: #EFF4FD;
   --c-gray-blue: #B1BDD8;
   --c-gray-sm: #F8F8F9;
+  --c-dark-gray: #D9D9D9;
 
   // VARIABLES COLORS FOR LIGHT THEME
   --c-cerise: var(--c-cerise-red);
@@ -94,6 +95,7 @@
   --c-custom-bg-gray: var(--c-gray-sm);
   --c-custom-bg-white: var(--c-white);
   --c-custom-bg-icon: var(--c-blue-000);
+  --c-body-gray: var(--c-dark-gray);
 }
 
 .dark-theme {
@@ -198,6 +200,7 @@ $colors: (
     "checkbox": var(--c-checkbox-border)
   ),
   "body": (
+    "gray": var(--c-body-gray),
     "base": var(--c-body-base),
     "lighter": var(--c-body-lighter),
     "border": var(--c-body-border),
