@@ -95,7 +95,7 @@ Key terms for lifecycle management in this workforce journey:
 
 #### Leaver
 
-1. After working at Acme for 5 years, Lucy decides to leave to take a Customer Support executive role at another organization. HR sets her last day in the employee directory.
+1. After working at Acme for five years, Lucy decides to leave to take a Customer Support executive role at another organization. HR sets her last day in the employee directory.
 1. At close of business on Lucy’s last day with Acme, her account is removed from Okta. Her accounts in the various applications she uses for her job are removed.
 1. An offboarding flow is triggered in Okta Workflows which reassigns ownership of Lucy’s files and folders in Acme’s cloud file storage service to her manager. A rule is created in Acme’s email system which forwards any email sent to Lucy’s corporate email address to her manager.
 
