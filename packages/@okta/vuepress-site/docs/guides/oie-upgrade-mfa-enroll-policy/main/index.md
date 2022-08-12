@@ -15,7 +15,7 @@ In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator
 
 After upgrading your org to Identity Engine, new authenticator enrollment policies created in the Admin Console are configured using authenticators. Authenticator enrollment policies created before upgrading to Identity Engine, are still configured with factors. However, if an existing policy was saved in the Admin Console, the factors in that policy are converted to authenticators. This conversion is seamless to admin users that are managing policies in the Admin Console.
 
-> **Note:** Regardless if you edit the authenticator enrollment policy, when you click the **Update Policy** button in the Admin Console, the factor-to-authenticator conversion occurs.
+> **Note:** Whether you edit the authenticator enrollment policy or not, when you click the **Update Policy** button in the Admin Console, the factor-to-authenticator conversion occurs.
 
 For existing code that manages and uses authenticator enrollment policies programmatically through the [Policy API](/docs/reference/api/policy/), some development work is required to handle the factor to authenticator conversion schema changes after the org upgrades to Identity Engine. This guide provides you with key API considerations to upgrade your app for multifactor enrollment flows in Identity Engine.
 
