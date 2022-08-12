@@ -61,7 +61,7 @@ Alicia is an admin at Acme and performs the following tasks to integrate OktRewa
 
 * Follows the instructions provided by OktReward to configure the SSO and Okta Workflows integration
 
-* Configures the Okta authentication policy and the groups of Acme employees with various access levels to the OktReward app.
+* Configures the authentication policy and the groups of Acme employees with various access levels to the OktReward app
 
 * Imports user profiles from Okta to the OktReward app.
 
