@@ -14,7 +14,7 @@ This guide provides working examples of an Okta registration inline hook for sel
 
 **Learning outcomes**
 
-* Understand the Okta inline hook calls and responses for SSR and Progressive Enrollment support.
+* Understand the Okta inline hook request calls and responses for SSR and Progressive Enrollment support.
 * Implement working examples of a registration inline hook with a Glitch.com project.
 * Preview and test a registration inline hook for SSR and Progressive Enrollment support.
 
