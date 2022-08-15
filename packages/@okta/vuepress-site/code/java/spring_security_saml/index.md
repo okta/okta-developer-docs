@@ -178,12 +178,9 @@ Spring Security's SAML support has a [sign out feature](https://docs.spring.io/s
 
 1. Edit your application on Okta and navigate to **General** > **SAML Settings** > **Edit**.
 
-1. Continue to the **Configure SAML** step and **Show Advanced Settings**. Select **Enable Single Logout** and use the following values:
+1. Continue to the **Configure SAML** step and **Show Advanced Settings**. Before you can enable single logout, you'll have to create and upload a certificate to sign the outgoing logout request.
 
-   * Single Logout URL: `http://localhost:8080/logout/saml2/slo`
-   * SP Issuer: `http://localhost:8080/saml2/service-provider-metadata/okta`
-
-1. You'll need to create a certificate to sign the outgoing sign out request. You can create a private key and certificate using OpenSSL. Answer at least one of the questions with a value, and it should work.
+1. You can create a private key and certificate using OpenSSL. Answer at least one of the questions with a value, and it should work.
 
    ```shell
    openssl req -newkey rsa:2048 -nodes -keyout local.key -x509 -days 365 -out local.crt
@@ -209,7 +206,12 @@ Spring Security's SAML support has a [sign out feature](https://docs.spring.io/s
                  metadata-uri: <your-metadata-uri>
    ```
 
-1. Upload the `local.crt` to your Okta app and finish its configuration. Restart and the sign out button should work.
+1. Upload the `local.crt` to your Okta app. Select *Enable Single Logout* and use the following values:
+
+   * Single Logout URL: `\http://localhost:8080/logout/saml2/slo`
+   * SP Issuer: `\http://localhost:8080/saml2/service-provider-metadata/okta`
+
+1. Finish configuring your Okta app, restart your Spring Boot app, and the logout button should work.
 
    <div class="three-quarter border">
 
@@ -228,14 +230,25 @@ When you sign in, the resulting page shows that you have a `ROLE_USER` authority
    * Filter: `Matches regex` and use `.*` for the value
 
 1. Just above, you can add other attribute statements. For instance:
-
-   * email > `user.email`
-   * firstName > `user.firstName`
-   * lastName > `user.lastName`
+   * Email:
+      * Name: `email`
+      * Name format: `Unspecified`
+      * Value: `user.email`
+   * First name:
+      * Name: `firstName`
+      * Name format: `Unspecified`
+      * Value: `user.firstName`
+   * Last name:
+      * Name: `lastName`
+      * Name format: `Unspecified`
+      * Value: `user.lastName`
 
 1. Save these changes.
 
-1. Create a `SecurityConfiguration` class that overrides the default configuration and uses a converter to translate the values in the `groups` attribute into Spring Security authorities:
+1. If you cloned the repo earlier, restart your app and log in to see your user's groups as authorities.
+
+1. If you created a Spring Boot app from scratch, create a `SecurityConfiguration` class that overrides the default configuration and uses a converter to translate the values in the `groups` attribute into Spring Security authorities.
+
 
    ```java
    package com.example.demo;
