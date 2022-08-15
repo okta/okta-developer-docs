@@ -18,7 +18,6 @@ This guide describes how to use Spring Security SAML to add support for Okta to 
 **What you need**
 
 * [SDKMAN](https://sdkman.io/) installed (for Java 17)
-* Maven or Gradle installed
 
 ---
 
@@ -96,13 +95,13 @@ Open the project in your favorite IDE and complete the following steps.
    @Controller
    public class HomeController {
 
-      @RequestMapping("/")
-      public String home(@AuthenticationPrincipal Saml2AuthenticatedPrincipal principal, Model model) {
-         model.addAttribute("name", principal.getName());
-         model.addAttribute("emailAddress", principal.getFirstAttribute("email"));
-         model.addAttribute("userAttributes", principal.getAttributes());
-         return "home";
-      }
+   @RequestMapping("/")
+       public String home(@AuthenticationPrincipal Saml2AuthenticatedPrincipal principal, Model model) {
+           model.addAttribute("name", principal.getName());
+           model.addAttribute("emailAddress", principal.getFirstAttribute("email"));
+           model.addAttribute("userAttributes", principal.getAttributes());
+           return "home";
+       }
 
    }
    ```
@@ -113,27 +112,25 @@ Open the project in your favorite IDE and complete the following steps.
    <!DOCTYPE html>
    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
          xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-   <head>
-      <title>Spring Boot and SAML</title>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-   </head>
-   <body>
+       <head>
+           <title>Spring Boot and SAML</title>
+           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+       </head>
+       <body>
+           <h1>Welcome</h1>
+           <p>You are successfully logged in as <span sec:authentication="name"></span></p>
+           <p>Your email address is <span th:text="${emailAddress}"></span>.</p>
+           <p>Your authorities are <span sec:authentication="authorities"></span>.</p>
+           <h2>All Your Attributes</h2>
+           <dl th:each="userAttribute : ${userAttributes}">
+               <dt th:text="${userAttribute.key}"></dt>
+               <dd th:text="${userAttribute.value}"></dd>
+           </dl>
 
-   <h1>Welcome</h1>
-   <p>You are successfully logged in as <span sec:authentication="name"></span></p>
-   <p>Your email address is <span th:text="${emailAddress}"></span>.</p>
-   <p>Your authorities are <span sec:authentication="authorities"></span>.</p>
-   <h2>All Your Attributes</h2>
-   <dl th:each="userAttribute : ${userAttributes}">
-      <dt th:text="${userAttribute.key}"></dt>
-      <dd th:text="${userAttribute.value}"></dd>
-   </dl>
-
-   <form th:action="@{/logout}" method="post">
-      <button id="logout" type="submit">Logout</button>
-   </form>
-
-   </body>
+           <form th:action="@{/logout}" method="post">
+               <button id="logout" type="submit">Logout</button>
+           </form>
+       </body>
    </html>
    ```
 
@@ -141,13 +138,13 @@ Open the project in your favorite IDE and complete the following steps.
 
    ```yaml
    spring:
-   security:
-      saml2:
+     security:
+       saml2:
          relyingparty:
-         registration:
-            okta:
+           registration:
+             okta:
                assertingparty:
-               metadata-uri: <your-metadata-uri>
+                 metadata-uri: <your-metadata-uri>
    ```
 
 1. Change `build.gradle` to use `thymeleaf-extras-springsecurity6` instead of `thymeleaf-extras-springsecurity5` and add Spring Security SAML's dependency:
@@ -196,20 +193,20 @@ Spring Security's SAML support has a [sign out feature](https://docs.spring.io/s
 
    ```yaml
    spring:
-   security:
-      saml2:
+     security:
+       saml2:
          relyingparty:
-         registration:
-            okta:
+           registration:
+             okta:
                signing:
-               credentials:
-                  - private-key-location: classpath:local.key
+                 credentials:
+                   - private-key-location: classpath:local.key
                      certificate-location: classpath:local.crt
                singlelogout:
-               binding: POST
-               response-url: "{baseUrl}/logout/saml2/slo"
+                 binding: POST
+                 response-url: "{baseUrl}/logout/saml2/slo"
                assertingparty:
-               metadata-uri: <your-metadata-uri>
+                 metadata-uri: <your-metadata-uri>
    ```
 
 1. Upload the `local.crt` to your Okta app and finish its configuration. Restart and the sign out button should work.
@@ -222,7 +219,7 @@ Spring Security's SAML support has a [sign out feature](https://docs.spring.io/s
 
 ### Customize authorities with Spring Security SAML
 
-When you sign in, the resulting page shows that you have a `ROLE_USER` authority. However, when you assign users to the app, you give access to `Everyone`. You can configure your SAML app on Okta to send a user's groups as an attribute, and add other attributes like name and email.
+When you sign in, the resulting page shows that you have a `ROLE_USER` authority. However, when you assigned users to the app, you gave access to `Everyone`. You can configure your SAML app on Okta to send a user's groups as an attribute, and add other attributes like name and email.
 
 1. Edit your Okta app's SAML settings and fill in the **Group Attribute Statements** section.
 
@@ -311,17 +308,17 @@ When you sign in, the resulting page shows that you have a `ROLE_USER` authority
 
    ```groovy
    repositories {
-      ...
-      maven { url "https://build.shibboleth.net/nexus/content/repositories/releases/" }
+       ...
+       maven { url "https://build.shibboleth.net/nexus/content/repositories/releases/" }
    }
 
    dependencies {
-      constraints {
-         implementation "org.opensaml:opensaml-core:4.1.1"
-         implementation "org.opensaml:opensaml-saml-api:4.1.1"
-         implementation "org.opensaml:opensaml-saml-impl:4.1.1"
-      }
-      ...
+       constraints {
+           implementation "org.opensaml:opensaml-core:4.1.1"
+           implementation "org.opensaml:opensaml-saml-api:4.1.1"
+           implementation "org.opensaml:opensaml-saml-impl:4.1.1"
+       }
+       ...
    }
    ```
 
