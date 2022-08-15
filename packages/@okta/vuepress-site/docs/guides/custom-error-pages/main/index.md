@@ -30,7 +30,7 @@ When using an Okta-hosted flow, you can create a unique sign-in experience by pr
 
 However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using an embedded HTML editor.
 
-> **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears.
+> **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears when a critical error occurs or an application is misconfigured. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
 
 ### Use the Brands API
 
@@ -55,11 +55,9 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 
 ## Use variables
 
-The following variables contain the configuration parameters for certain page elements. These variables inject specific content or functionality automatically.
+The Okta error page template is written using [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the error page. To see the variables in a code sample, refer to the error page default code in the code editor. See [Edit the error page](#edit-the-error-page).
 
-To see the variables in a code sample, refer to the error page default code in the code editor. See [Edit the error page](#edit-the-error-page).
-
-> **Note:** Variables with double curly braces (`{{`) return escaped HTML by default. Triple curly braces (`{{{`) are used for the `errorDescription` variable to return unescaped HTML. See the [Mustache manual](http://mustache.github.io/mustache.5.html).
+> **Note:** Variables with double curly braces (`{{`) return escaped HTML by default. Triple curly braces (`{{{`) are used for the `errorDescription` variable to return unescaped HTML. 
 
 | Variable | Description |
 |----------|-------------|
@@ -123,16 +121,6 @@ Example:
 </style>
 </head>
 ```
-
-## FAQs
-
-**In what situations does Okta serve error pages to the user?**
-
-The error page appears when a critical error occurs or an application is misconfigured. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
-
-**What can I customize on the error page?**
-
-You can add any HTML, CSS, or JavaScript that you want to the page.
 
 ## Next steps
 
