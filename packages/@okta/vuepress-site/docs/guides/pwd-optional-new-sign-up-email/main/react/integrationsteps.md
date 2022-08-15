@@ -8,9 +8,9 @@ Display a **Sign up** link on your app's sign-in page that points to a sign-up p
 
 </div>
 
-### 2: The user clicks the sign-up link
+### 2: The user clicks the sign up link
 
-When the user clicks the **Sign-up** link, redirect them to the sign-up page where they can sign up for a new account. During page load, call `OktaAuth.idx.register()` to start the self-service registration flow.
+When the user clicks the **Sign up** link, redirect them to the sign-up page where they can sign up for a new account. During page load, call `OktaAuth.idx.register()` to start the self-service registration flow.
 
 ```javascript
   const { oktaAuth } = useOktaAuth();
@@ -19,7 +19,7 @@ When the user clicks the **Sign-up** link, redirect them to the sign-up page whe
   }, [oktaAuth, flow, setTransaction]);
 ```
 
-The method returns an `IdxTransaction` object which contains field information that can be optionally used to dynamically create a registration page.
+The method returns an `IdxTransaction` object containing field metadata that's optionally used to create a registration page dynamically.
 
 ```json
 {
@@ -66,16 +66,16 @@ const inputValues = {
 Send this new object to `OktaAuth.idx.proceed()`.
 
 ```javascript
-    setProcessing(true);
-    const newTransaction = await oktaAuth.idx.proceed(inputValues);
-    setTransaction(newTransaction);
+setProcessing(true);
+const newTransaction = await oktaAuth.idx.proceed(inputValues);
+setTransaction(newTransaction);
 ```
 
 >**Note**: You can also start the registration flow in a single step by passing the account details in `OktaAuth.idx.register()`. See [`idx.register`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister) in the GitHub docs or [Node Express's](/docs/guides/pwd-optional-new-sign-up-email/nodeexpress/main/#_3-the-user-submits-their-new-account-details) version of this guide to learn more.
 
 ### 4. Identity Engine requests new email verification
 
-`OktaAuth.idx.proceed()` returns an `IdxTransaction` object with a `status` of `PENDING`, which indicates that the user needs to verify their identity with their email.
+`OktaAuth.idx.proceed()` returns an `IdxTransaction` object with a `status` of `PENDING`, indicating that the user needs to verify their identity with their email.
 
 ```json
 {
@@ -112,7 +112,7 @@ const inputValues = {
  };
 ```
 
-Call `OktaAuth.idx.proceed()` and pass in the new object.
+Call `OktaAuth.idx.proceed()` passing in the new object.
 
 ```javascript
     const newTransaction = await oktaAuth.idx.proceed(inputValues);
@@ -123,7 +123,7 @@ Call `OktaAuth.idx.proceed()` and pass in the new object.
 
 ### 6. Your app displays the remaining optional authenticators
 
-After the user verifies their identity using the email authenticator, `OktaAuth.idx.proceed()` returns an `IdxTransaction` object indicating that the user has the option to enroll in additional authenticators. The `IdxTransaction.nextStep.canSkip` property is set `true`, which identifies the remaining authenticators as optional.
+After the user verifies their identity using the email authenticator, `OktaAuth.idx.proceed()` returns an `IdxTransaction` object indicating that the user has the option to enroll in additional authenticators. The `IdxTransaction.nextStep.canSkip` property is set `true`, which indicates the remaining authenticators are optional.
 
 ```json
 {
@@ -145,7 +145,7 @@ After the user verifies their identity using the email authenticator, `OktaAuth.
 }
 ```
 
-Create and display a page that lists the remaining optional authenticators and allows the user to skip registering any additional authenticators.
+Display a page that lists the remaining authenticators and allows the user to skip registering any more of them.
 
 <div class="half border">
 
@@ -155,16 +155,16 @@ Create and display a page that lists the remaining optional authenticators and a
 
 >**Note:** In other use cases where there are additional required authenticators, `IdxTransaction.nextStep.canSkip` equals `false` and the **Skip** button should be omitted.
 
-### 6. The user skips the remaining optional authenticators
+### 7. The user skips the remaining optional authenticators
 
-When the user clicks the **Skip** button, call `OktaAuth.idx.proceed()` and pass in an object with a `skip` property equal to `true`.
+When the user clicks the **Skip** button, call `OktaAuth.idx.proceed()` passing in an object with a `skip` property equal to `true`.
 
 ```javascript
 const newTransaction = await oktaAuth.idx.proceed({ skip: true });
 setTransaction(newTransaction);
 ```
 
-`OktaAuth.idx.proceed()` returns `IdxTransaction.status` of `SUCCESS` along with access and ID tokens, which indicates a successful new user sign-up flow.
+`OktaAuth.idx.proceed()` returns `IdxTransaction.status` equal to `SUCCESS` along with access and ID tokens, which indicates a successful new user sign-up flow.
 
 ```json
 {

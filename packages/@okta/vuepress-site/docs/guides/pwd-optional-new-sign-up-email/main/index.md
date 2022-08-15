@@ -30,8 +30,8 @@ Before you can start integrating password-optional sign-up flows in your app, <S
 
 1. In the Admin Console, go to **Security** > **Profile Enrollment**.
 1. Locate the **Default Policy** and select the pencil icon.
-1. Locate the **Enrollment Settings** of the default policy and select **Actions > Edit**.
-1. Under **For new users**, set **Sign-up** to **Allowed**.
+1. Locate the **Profile Enrollment** section and select **Edit**.
+1. Set **Self-service registration** to **Allowed**.
 1. Click **Save**.
 
 ## Integrate
