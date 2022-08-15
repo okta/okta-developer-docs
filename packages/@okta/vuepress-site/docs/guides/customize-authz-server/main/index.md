@@ -1,18 +1,18 @@
 ---
-title: Create an Authorization Server
+title: Create an authorization server
 excerpt: How to set up a custom authorization server in Okta
 layout: Guides
 ---
 
 <ApiAmProdWarning />
 
-This guide explains the Custom OAuth 2.0 Authorization Server in Okta and how to set it up.
+This guide explains the custom OAuth 2.0 authorization server in Okta and how to set it up.
 
 ---
 
 **Learning outcomes**
 
-Set up and test your Authorization Server.
+Set up and test your authorization server.
 
 **What you need**
 
@@ -22,23 +22,23 @@ Set up and test your Authorization Server.
 
 ## About the authorization server
 
-Okta allows you to create multiple custom authorization servers that you can use to protect your own resource servers. Within each Authorization Server you can define your own OAuth 2.0 scopes, claims, and access policies.
+Okta allows you to create multiple custom authorization servers that you can use to protect your own resource servers. Within each authorization server you can define your own OAuth 2.0 scopes, claims, and access policies.
 
-If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you already have a Custom Authorization Server created for you, called `default`. For simple use cases this default Custom Authorization Server should suffice. If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional Authorization Servers with different scopes and claims, then this guide is for you.
+If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you already have a custom authorization server created for you called `default`. If this custom authorization server has been renamed, there is an additional `Default` label that helps to identify the default authorization server that was created out of the box. For simple use cases this default custom authorization server should suffice. If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional Authorization Servers with different scopes and claims, then this guide is for you.
 
-See [Which Authorization Server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for more information on the types of Authorization Servers available to you and what you can use them for.
+See [Which authorization server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for more information on the types of Authorization Servers available to you and what you can use them for.
 
 ## Create an authorization server
 
-> **Note:** If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account and you don't want to create any additional Custom Authorization Servers, you can skip this step because you already have a Custom Authorization Server created for you called "default". The `${authorizationServerId}` for the default server is `default`.
+> **Note:** If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account and you don't want to create any additional Custom Authorization Servers, you can skip this step because you already have a custom authorization server created for you called "default". The `${authorizationServerId}` for the default server is `default`.
 
 1. In the Admin Console, go to **Security** > **API**.
 
-2. On the **Authorization Servers** tab, select **Add Authorization Server** and enter the **Name**, **Audience**, and **Description** for the Authorization Server.
+2. On the **Authorization Servers** tab, select **Add Authorization Server** and enter the **Name**, **Audience**, and **Description** for the authorization server.
 
-  > **Note:** An access token that is minted by a Custom Authorization Server requires that you define the **Audience** property and that it matches the `aud` claim that is returned during access token validation. The **Audience** property should be set to the URI for the OAuth 2.0 resource server that consumes the access token. Use an absolute path such as `https://api.example.com/pets`. This value is used as the default [audience](https://tools.ietf.org/html/rfc7519#section-4.1.3) for access tokens.
+  > **Note:** An access token that is minted by a custom authorization server requires that you define the **Audience** property and that it matches the `aud` claim that is returned during access token validation. The **Audience** property should be set to the URI for the OAuth 2.0 resource server that consumes the access token. Use an absolute path such as `https://api.example.com/pets`. This value is used as the default [audience](https://tools.ietf.org/html/rfc7519#section-4.1.3) for access tokens.
 
-When you finish, the Authorization Server's **Settings** tab displays the information that you provided. If you need to [edit any of the information](/docs/reference/api/authorization-servers/#authorization-server-properties), such as [Signing Key Rotation](/docs/concepts/key-rotation/), click **Edit**.
+When you finish, the authorization server's **Settings** tab displays the information that you provided. If you need to [edit any of the information](/docs/reference/api/authorization-servers/#authorization-server-properties), such as [Signing Key Rotation](/docs/concepts/key-rotation/), click **Edit**.
 
 ## Create access policies
 
@@ -75,7 +75,7 @@ Any request that is sent with a different scope won't match any rules and conseq
 To create a rule for a policy:
 
 1. In the Admin Console, go to **Security** > **API**.
-2. On the **Authorization Servers** tab, select the name of an Authorization Server, and then select **Access Policies**.
+2. On the **Authorization Servers** tab, select the name of an authorization server, and then select **Access Policies**.
 3. Select the name of an access policy, and then select **Add Rule**.
 4. Enter a **Name** for the rule, and then use the following fields to define the rule logic:
     * **IF Grant type is:** Select one or more OAuth 2.0 grant types. See [Choosing an OAuth 2.0 flow](/docs/concepts/oauth-openid/#choosing-an-oauth-2-0-flow) for more information on understanding the type of OAuth flow (grant type) that you should use.
@@ -94,7 +94,7 @@ Rules are evaluated in priority order, so the first rule in the first policy tha
 
 > **Note:** Service applications, which use the Client Credentials flow, have no user. If you use this flow, make sure that you have at least one rule that specifies the condition **No user**.
 
-At this point you can keep reading to find out how to create custom scopes and claims or proceed immediately to [Testing your Authorization Server](/docs/guides/customize-authz-server/main/#test-the-authorization-server).
+At this point you can keep reading to find out how to create custom scopes and claims or proceed immediately to [Testing your authorization server](/docs/guides/customize-authz-server/main/#test-the-authorization-server).
 
 ## Create Scopes
 
@@ -103,7 +103,7 @@ Scopes specify what access privileges are being requested as part of the authori
 If you need scopes in addition to the reserved scopes provided, you can create them. Custom scopes can have corresponding claims that tie them to some sort of user information.
 
 1. In the Admin Console, go to **Security** > **API**.
-1. On the **Authorization Servers** tab, select the name of the Authorization Server, and then select **Scopes**.
+1. On the **Authorization Servers** tab, select the name of the authorization server, and then select **Scopes**.
 1. Select **Scopes** and then **Add Scope**.
 1. Enter a **Name**, **Display phrase**, and **Description**.
 
