@@ -21,7 +21,7 @@ This guide explains what profile enrollment policies are used for and how to add
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Groups created](/docs/reference/api/groups/) in your org
+* Group created in your org. See [Add group](/docs/reference/api/groups/#add-group) using the API or 
 * An application that you want to assign to an enrollment policy
 * [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) configured in your org
 
