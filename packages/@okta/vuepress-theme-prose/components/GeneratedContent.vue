@@ -9,7 +9,7 @@
         </a>
       </router-link>
       <div class="generated-content" v-if="link.description">
-        <p>{{link.description}}</p>
+        <Content :pageKey="getPageKey(link.path)" slot-key="description"/>
       </div>
       <div class="generated-content" v-else>
         <Content :pageKey="getPageKey(link.path)" />

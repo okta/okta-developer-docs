@@ -110,7 +110,7 @@ export const concepts = [
           {
             title: "IAM terminology",
             path: "/docs/concepts/iam-overview-iam-terminology/",
-            description: "Test description"
+            description: true,
           }
         ]
       },
@@ -208,7 +208,7 @@ export const guides = [
               {
                 title: "Sign in to your SPA with Auth JS",
                 guideName: "sign-in-to-spa-authjs",
-                description: "Test description"
+                description: true
               },
               {
                 title: "Sign in to SPA with embedded Widget",
@@ -693,12 +693,12 @@ export const guides = [
           {
             title: "Sign in to SPA with Auth JS",
             guideName: "archive-sign-in-to-spa-authjs",
-            description: "Test description"
+            description: true
           },
           {
             title: "Sign in to SPA with embedded Widget",
             guideName: "archive-sign-in-to-spa-embedded-widget",
-            description: "Test description"
+            description: true
           },
           {
             title: "Add multifactor authentication",

@@ -6,8 +6,6 @@ The expected behavior of Okta Verify is to reflect the context of the original c
 
 <!--
 
-<div class="oie-embedded-sdk">
-
 <ApiLifecycle access="ie" /><br>
 
 Learn how to integrate Okta Verify into your app using the embedded SDK.
@@ -172,5 +170,4 @@ The following diagram summarizes this flow.
 
 <StackSnippet snippet="relatedusecases" />
 
-</div>
 -->

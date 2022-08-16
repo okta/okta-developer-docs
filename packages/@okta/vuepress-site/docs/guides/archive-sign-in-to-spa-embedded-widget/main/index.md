@@ -4,6 +4,10 @@ excerpt: Front-end framework guides for the embedded Okta Sign-In Widget
 layout: Guides
 ---
 
+::: slot description
+Test description
+:::
+
 <StackSnippet snippet="guide" />
 
 ## See also 

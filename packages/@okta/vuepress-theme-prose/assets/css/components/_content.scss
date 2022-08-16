@@ -11,7 +11,8 @@
   }
 }
 
-.generated-content .content__default p:nth-of-type(1) {
+.generated-content .content__default p:nth-of-type(1),
+.generated-content .content__description p {
   margin: 0.625rem 0 1.5rem;
   padding-left: 1.25rem;
   display: block !important;

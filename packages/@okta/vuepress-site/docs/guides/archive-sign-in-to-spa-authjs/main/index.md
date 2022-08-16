@@ -4,6 +4,10 @@ excerpt: Front-end framework guides with Auth JS
 layout: Guides
 ---
 
+::: slot description
+Test description
+:::
+
 <StackSnippet snippet="guide" />
 
 ## See also 
