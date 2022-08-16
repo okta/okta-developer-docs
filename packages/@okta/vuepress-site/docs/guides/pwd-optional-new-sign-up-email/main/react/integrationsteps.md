@@ -19,7 +19,7 @@ When the user clicks the **Sign up** link, redirect them to the sign-up page whe
   }, [oktaAuth, flow, setTransaction]);
 ```
 
-The method returns an `IdxTransaction` object containing field metadata that's optionally used to create a registration page dynamically.
+The method returns an `IdxTransaction` object containing field metadata that can be used to create a registration page dynamically.
 
 ```json
 {
