@@ -148,7 +148,7 @@ When you use these API endpoints to create or modify an Authorization Server res
 | audiences     | The recipients that the tokens are intended for. This becomes the `aud` claim in an access token. Currently, Okta supports only one audience.  | Array    | True  |
 | credentials  | Keys and settings used to sign tokens.   | [Credentials object](#credentials-object)  | False   |
 | description  | The description of a Custom Authorization Server  | String   | True                          |
-| default      | Indicates whether the custom authorization server is the default custom authorization server | 
+| default      | Indicates whether the custom authorization server is the default custom authorization server | Boolean | False |
 | issuer   | The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.                                                                | String                                                                    | False                         |
 | issuerMode                              | Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL. | String                                                                    | False                         |
 | name                                    | The name of a Custom Authorization Server                                                                                                                           | String                                                                    | True                          |
