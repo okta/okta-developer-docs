@@ -13,7 +13,7 @@
       </div>
       <div class="generated-content" v-else>
         <Content :pageKey="getPageKey(link.path)" />
-        <p>Index page for "{{link.title}}" articles</p>
+        <p>Index page for "{{link.title}}" articles.</p>
       </div>
     </div>
   </div>
