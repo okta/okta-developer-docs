@@ -60,7 +60,8 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 
 The Okta error page template is written using [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the error page. To see the variables in a code sample, refer to the error page default code in the code editor. See [Edit the error page](#edit-the-error-page).
 
-> **Note:** Variables with double curly braces (`{{`) return escaped HTML by default. Triple curly braces (`{{{`) are used for the `errorDescription` variable to return unescaped HTML. 
+> **Note:** Variables with double curly braces (`{{`) return escaped HTML by default. Escaping allows you to show "special" characters in HTML. For example, `<p>hello</p>` displays as a paragraph element without the `<p>` tags. To show the tags themselves, escape the special characters by using `&lt;p&gt;hello&lt;/p&gt;`. `&lt;p&gt;` replaces `<` and `&lt;/p&gt;` replaces `>`.
+> Triple curly braces (`{{{`) are used for the `errorDescription` variable to return unescaped HTML.
 
 | Variable | Description |
 |----------|-------------|
