@@ -15,7 +15,8 @@ Customize error pages as part of the sign-in flow.
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Customized Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](#use-the-brands-api)
+* [Custom URL domain](/docs/guides/custom-url-domain/), unless you're using the [Brands API](#use-the-brands-api)
+* The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
 
 **Sample code**
 
@@ -29,17 +30,7 @@ When using an Okta-hosted flow, you can create a unique sign-in experience by pr
 
 However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using an embedded HTML editor.
 
-> **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears.
-
-### Common questions
-
-**In what situations does Okta serve error pages to the user?**
-
-The error page appears when a critical error occurs or an application is misconfigured. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
-
-**What can I customize on the error page?**
-
-You can add any HTML, CSS, or JavaScript that you want to the page.
+> **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears when a critical error occurs or an application is misconfigured. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
 
 ### Use the Brands API
 
@@ -47,131 +38,44 @@ The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, a
 
 ## Edit the error page
 
-The HTML editor that is provided on the **Error pages code editor** section of **Customizations** allows you to modify any HTML, CSS, and JavaScript on the error page.
+Use the code editor to modify any HTML, CSS, or JavaScript on the error page. See [Customization examples](#customization-examples) for snippets that you can update and use.
 
-1. In the Admin Console, select **Customizations** and then **Error pages code editor**.
-1. Make changes directly in the embedded **Error Pages** editor.
-1. Click **Preview** to preview your changes before you publish.
-1. Click **Reset to Default** if you need to remove all of your customizations and restore the default HTML/CSS and JavaScript code.
-1. Click **Save and Publish** to commit your changes.
+> **Note:** There is no draft mode in the code editor. When you click **Publish**, your changes go live. If you want to test changes without impacting production, use a test or development org.
 
-> **Note:** See [Customization examples](#customization-examples) for snippets that you can update and use.
+1. In the Admin Console, go to **Customizations** > **Branding**.
+2. In the **Okta-hosted Error Pages box**, click **Edit**.
+3. To open the code editor, turn on the toggle next to **Code editor**.
 
-## Use macros
+   > **Note:** The code editor toggle only appears if you connect to Okta using a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).
 
-The following macros contain the configuration parameters for certain page elements. These macros inject specific content or functionality automatically.
+4. Make changes directly in the editor. If you enter `{`, `(`, or `.` you see a list of available variables that you can use. See [Use variables](#use-variables).
+   * Click **Preview** to see your changes in a new browser window before you publish.
+   * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
 
-### <span v-pre>`{{orgName}}`</span>
+   > **Note:** The Admin Console auto-saves your changes every few seconds. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
 
-Inserts the org name title.
+5. Click **Publish** to commit your changes.
 
-Example:
+## Use variables
 
-```html
-<title>{{orgName}} - {{errorSummary}}</title>
-```
+The Okta error page template is written using [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the error page. To see the variables in a code sample, refer to the error page default code in the code editor. See [Edit the error page](#edit-the-error-page).
 
-### <span v-pre>`{{errorSummary}}`</span>
+> **Note:** Variables with double curly braces (`{{`) return escaped HTML by default. Escaping allows you to show "special" characters in HTML. For example, `<p>hello</p>` displays as a paragraph element without the `<p>` tags. To show the tags themselves, escape the special characters by using `&lt;p&gt;hello&lt;/p&gt;`. `&lt;p&gt;` replaces `<` and `&lt;/p&gt;` replaces `>`.
+> Triple curly braces (`{{{`) are used for the `errorDescription` variable to return unescaped HTML.
 
-Inserts the error title text.
-
-Example:
-
-```html
-<h2 class="o-form-title">{{errorSummary}}</h2>
-```
-
-### <span v-pre>`{{bgImageUrl}}`</span>
-
-Inserts a URL to the background image configured for your application. You can change this image by using the **Sign-in Configuration** option that is accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the background image in all instances where the macro is used, including your custom sign-in page.
-
-If you want to just change the background image for your custom error pages, include the URL to the image instead of the macro:
-
-Example:
-
-```html
-<div class="login-bg-image" style="background-image: url('https://example.com//YourBackgroundImage.png')"></div>
-```
-
-### <span v-pre>`{{orgLogo}}`</span>
-
-Inserts the logo image that has been configured for your application. You can change this logo by using the **Organization Logo** option that is accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the org logo in all instances where the macro is used, including your custom sign-in page.
-
-If you want to just change the logo image for your custom error pages, include the URL to the image instead of the macro:
-
-Example:
-
-```html
-<img alt="{{orgName}}" src="https://example.com//SomeOtherImage.png" class="org-logo">
-```
-
-### <span v-pre>`{{{errorDescription}}}`</span>
-
-Inserts a detailed description of the error.
-
-Example:
-
-```html
-<p class="o-form-explain">What happened? {{{errorDescription}}}</p>
-```
-
-> **Note:** Macros with double curly braces return escaped HTML by default. Triple braces `{{{` are used for the `errorDescription` macro to return unescaped HTML. See [Mustache template](http://mustache.github.io/mustache.5.html).
-
-### <span v-pre>`{{back}}`</span>
-
-Inserts the text `Go to Homepage`. When the user selects the button, they are returned to the sign-in page.
-
-Example:
-
-```html
- <a href="/" class="button">{{back}}</a>
-```
-
-### <span v-pre>`{{technicalDetails}}`</span>
-
-Inserts additional error codes, if there are any. See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code).
-
-Example:
-
-```html
-<p class="technical-details">Additional Error Details: {{technicalDetails}}</p>
-```
-
-> **Note:** The following macros are only available when the Theme Builder feature is enabled in your org.
-
-### <span v-pre>`{{buttonText}}`</span>
-
-Inserts the button text based on the page context. When the user selects the button, they are directed to the `buttonHref` URL. The `{{back}}` macro is also supported for the same purpose.
-
-### <span v-pre>`{{buttonHref}}`</span>
-
-Inserts the hyperlink for the button
-
-Example:
-
-```html
- <a href="{{buttonHref}}" class="button">{{buttonText}}</a>
-```
-
-### <span v-pre>`{{themedStylesUrl}}`</span>
-
-Inserts the URL for the themed style sheet
-
-Example:
-
-```html
- <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
-```
-
-### <span v-pre>`{{faviconUrl}}`</span>
-
-Inserts the URL for the favicon
-
-Example:
-
-```html
- <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
-```
+| Variable | Description |
+|----------|-------------|
+| <span v-pre>`{{orgName}}`</span> | Inserts the org name title |
+| <span v-pre>`{{errorSummary}}`</span> | Inserts the error title text |
+| <span v-pre>`{{bgImageUrl}}`</span> | Inserts a URL to the background image configured for your application.</br>You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the background image in all instances where the variable is used, including your custom sign-in page.</br>If you want to change only the background image for your custom error pages, include the URL to the image instead of the variable. |
+| <span v-pre>`{{orgLogo}}`</span> | Inserts the logo image that has been configured for your application.</br>You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page.</br>If you want to change only the logo image for your custom error pages, include the URL to the image instead of the variable. |
+| <span v-pre>`{{{errorDescription}}}`</span> | Inserts a detailed description of the error |
+| <span v-pre>`{{back}}`</span> | Inserts the text "Go to Homepage". When the user selects the button, they are returned to the sign-in page. |
+| <span v-pre>`{{technicalDetails}}`</span> | Inserts additional messaging, if the error code has any. Here are sample technical details for an error code:</br>"If you are using custom expressions like `\{0}`, make sure that the field `customField` is present in the user profile. Please review your attribute list and make the appropriate change."</br>See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code). |
+| <span v-pre>`{{buttonText}}`</span> | Inserts the button text based on the page context. When the user selects the button, they are directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> variable is also supported for the same purpose. |
+| <span v-pre>`{{buttonHref}}`</span> | Inserts the hyperlink for the button |
+| <span v-pre>`{{themedStylesUrl}}`</span> | Inserts the URL for the themed style sheet |
+| <span v-pre>`{{faviconUrl}}`</span> | Inserts the URL for the favicon |
 
 ## Customization examples
 
@@ -223,8 +127,6 @@ Example:
 ```
 
 ## Next steps
-
-You should now understand how to customize the error page.
 
 Read more about other customization options:
 
