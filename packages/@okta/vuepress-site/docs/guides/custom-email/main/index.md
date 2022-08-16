@@ -262,7 +262,7 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${request.ipAddress}` | Available in Sign In From New Device |
 | `${request.reportSuspiciousActivityToken}` | Available in Authenticator Enrolled (with Report Suspicious Activity button) |
 | `${request.browser}` | Available in Sign In From New Device |
-| `${request.relayState}` | Available in Registration Activation, Forgot Password, Email Challenge, and Email Factor Verification |
+| `${request.relayState}` | Available in these templates:</br><ul><li>Registration Activation</li><li>Forgot Password</li><li>Email Challenge</li><li>Email Factor Verification</li><li>Self-Service Unlock Account</li></ul> |
 | `${request.verificationLink}` | Available in Email Factor Verification |
 | `${verificationToken}` | Available in these templates:</br><ul><li>Email Challenge</li><li>Activation</li><li>Registration - Email Verification</li><li>Change Email Confirmation</li></ul> |
 | `${emailAuthenticationLink}` | Available in Email Challenge |
