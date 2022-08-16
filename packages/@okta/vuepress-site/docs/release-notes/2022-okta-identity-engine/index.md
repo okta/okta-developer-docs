@@ -6,6 +6,16 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## August
 
+### Weekly release 2022.08.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.08.2](#bug-fixed-in-2022-08-2)                      | August 17, 2022            |
+
+#### Bug fixed in 2022.08.2
+
+The "Authenticator enrollment policy" was incorrectly named "Multifactor (MFA) Enrollment Policy". (OKTA-497457)
+
 ### Weekly release 2022.08.1
 
 | Change | Expected in Preview Orgs |
