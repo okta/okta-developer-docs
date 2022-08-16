@@ -12,6 +12,23 @@ ul.menu--items {
     margin-left: 29px;
   }
 
+  > li {
+    span {
+      a.link {
+        color: cv('text');
+      }
+    }
+    span.tree-nav-link {
+      a.link {
+        color: cv('text', 'darker') !important;
+        font-weight: 500 !important;
+      }
+      a.router-link-active {
+        color: cv('link') !important;
+      }
+    }
+  }
+
   > li.expandable {
     position: relative;
     padding-right: 8px;
@@ -19,6 +36,36 @@ ul.menu--items {
     > a,
     > span {
       padding-right: 10px;
+    }
+
+    span.tree-nav-link {
+      a.link {
+        color: cv('text', 'darker') !important;
+        font-weight: 500 !important;
+      }
+      a.router-link-active {
+        color: cv('link') !important;
+      }
+      .shevron {
+        position: absolute !important;
+        width: 20px;
+        height: 20px;
+        right: 0;
+        z-index: 20;
+      }
+      &:after {
+        transform: rotate(-90deg);
+      }
+      display: flex;
+    }
+
+    &.opened {
+      > span.tree-nav-link {
+        .shevron {
+          right: auto;
+          left: -20px;
+        }
+      }
     }
 
     > ul.submenu--items {
