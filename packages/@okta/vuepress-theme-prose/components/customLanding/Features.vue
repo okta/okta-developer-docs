@@ -46,7 +46,7 @@
                     id: 2,
                     title: 'Automate the User Lifecycle',
                     text: 'Automatically provision, update, and de-provision users securely with SCIM and automate complex actions with our low code/no-code building tools.',
-                    link: '/docs/guides/oin-lifecycle-mgmt-overview/',
+                    link: '',
                     linkText: 'Build SCIM provisioning',
                     list: [
                         'Synchronize your app user profiles with Okta profiles',
