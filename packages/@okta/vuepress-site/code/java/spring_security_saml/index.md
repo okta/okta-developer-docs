@@ -95,7 +95,7 @@ Open the project in your favorite IDE and complete the following steps.
    @Controller
    public class HomeController {
 
-   @RequestMapping("/")
+       @RequestMapping("/")
        public String home(@AuthenticationPrincipal Saml2AuthenticatedPrincipal principal, Model model) {
            model.addAttribute("name", principal.getName());
            model.addAttribute("emailAddress", principal.getFirstAttribute("email"));
