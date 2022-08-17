@@ -1304,13 +1304,14 @@ HTTP/1.1 200 OK
 ```json
 {
     "name": "UserActivation",
-    "_links": {
     "_embedded": {
       "settings": {
         "recipients": "ALL_USERS",
-    "_links": { ... }
+        "_links": { ... }
       },
       "customizationCount": 3
+    },
+    "_links": {
         "customizations": {
             "hints": {
                 "allow": [
