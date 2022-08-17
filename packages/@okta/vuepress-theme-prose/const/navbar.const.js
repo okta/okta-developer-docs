@@ -460,7 +460,7 @@ export const guides = [
             ]
           },
           {
-            title: "Understand MFA enrollment policy API changes after the upgrade",
+            title: "Understand authenticator enrollment policy API changes after the upgrade",
             guideName: "oie-upgrade-mfa-enroll-policy"
           }
         ]
