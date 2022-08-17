@@ -1183,8 +1183,8 @@ Lists all supported email templates
 
 | Parameter      | Description            | ParamType | DataType | Required |
 | -------------- | ---------------------- | --------- | -------- | -------- |
-| `brandId`      | ID of a Brand String   | Query     | String   | TRUE     |
-| `expand`       | If specified, it causes additional metadata to be included in the response. Possible values are `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
+| `brandId`      | ID of a Brand string   | Query     | String   | TRUE     |
+| `expand`       | If specified, it causes additional metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
 
 #### Response body
 
@@ -1271,9 +1271,9 @@ Fetches the email template named `templateName`
 
 | Parameter      | Description            | ParamType | DataType | Required |
 | -------------- | ---------------------- | --------- | -------- | -------- |
-| `brandId`      | ID of a Brand String   | Query     | String   | TRUE     |
-| `templateName` | Name of an Email Template | Query     | String   | TRUE     |
-| `expand`       | If specified, it causes additional metadata to be included in the response. Possible values are `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
+| `brandId`      | ID of a Brand string   | Query     | String   | TRUE     |
+| `templateName` | Name of an email template | Query     | String   | TRUE     |
+| `expand`       | If specified, it causes additional metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
 
 #### Response body
 
