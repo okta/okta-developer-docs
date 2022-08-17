@@ -147,13 +147,6 @@ Open the project in your favorite IDE and complete the following steps.
                  metadata-uri: <your-metadata-uri>
    ```
 
-1. Change `build.gradle` to use `thymeleaf-extras-springsecurity6` instead of `thymeleaf-extras-springsecurity5` and add Spring Security SAML's dependency:
-
-   ```groovy
-   implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
-   implementation 'org.springframework.security:spring-security-saml2-service-provider'
-   ```
-
 ### Run the app and authenticate
 
 1. Run your Spring Boot app. You can do this from your IDE, or as follows using the command line:
@@ -229,19 +222,13 @@ When you sign in, the resulting page shows that you have a `ROLE_USER` authority
    * Name format: `Unspecified`
    * Filter: `Matches regex` and use `.*` for the value
 
-1. Just above, you can add other attribute statements. For instance:
-   * Email:
-      * Name: `email`
-      * Name format: `Unspecified`
-      * Value: `user.email`
-   * First name:
-      * Name: `firstName`
-      * Name format: `Unspecified`
-      * Value: `user.firstName`
-   * Last name:
-      * Name: `lastName`
-      * Name format: `Unspecified`
-      * Value: `user.lastName`
+   Just above, you can add other attribute statements. For instance:
+
+   |     Name     |     Name format     |     Value        |
+   | ------------ | ------------------- | ---------------- |
+   | `email`      | `Unspecified`       | `user.email`     |
+   | `firstName`  | `Unspecified`       | `user.firstName` |
+   | `lastName`   | `Unspecified`       | `user.lastName`  |
 
 1. Save these changes.
 
