@@ -66,7 +66,7 @@ Make sure to have this application running before proceeding with the SAML asser
 
 ## Create the external service code
 
-You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site) that receives and responds to the SAML assertion inline hook call from Okta. The responses to the SAML assertion inline hook call can customize the SAML assertion in multiple ways, including adding or replacing elements of the assertion. In this example code, a new claim is added to the assertion. For further information on the SAML assertion commands object and how you can modify the assertion, see the [SAML assertion inline hook reference](/docs/reference/saml-hook) documentation.
+You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site). The third-party site receives and responds to the SAML assertion inline hook call from Okta. The responses to the SAML assertion inline hook call can customize the SAML assertion in multiple ways, including adding or replacing elements of the assertion. In this example code, a new claim is added to the assertion. For further information on the SAML assertion commands object and how you can modify the assertion, see the [SAML assertion inline hook reference](/docs/reference/saml-hook) documentation.
 
 Copy (re-mix) the Glitch.com project code, [Okta SAML assertion inline hook Example](https://glitch.com/edit/#!/okta-inlinehook-samlhook), to run the scenario right away. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
 
