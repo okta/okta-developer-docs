@@ -318,7 +318,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Return to your SAML application and sign in with an Okta user who is NOT in the Patients data store.
 
-      The user should sign in as normal with first name, last name, and email attributes displaying on the sign-in page. In the Glitch log window a message that the user is not part of the data store appears.
+      The user should sign in as normal, entering their first name, last name, and email attributes for the fields that display on the sign-in page. In the Glitch log window, a message appears stating that the user isn't part of the data store.
 
 1. Sign out of the sample application and now sign in with an Okta user who IS in the Patients data store.
 
