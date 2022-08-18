@@ -322,7 +322,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Sign out of the sample application and now sign in with an Okta user who IS in the Patients data store.
 
-      The user should sign in as normal and also displays a patient ID attribute on the sign-in page, as well as first name, last name, and email address. In the Glitch log window a message displays the patient ID number added to the SAML assertion appears.
+      The user should sign in as normal, entering their first name, last name, and email attributes for the fields that display on the sign-in page. The patient ID attribute also appears. In the Glitch log window, a message appears stating that the patient ID number was added to the SAML assertion.
 
 ## Next steps
 
