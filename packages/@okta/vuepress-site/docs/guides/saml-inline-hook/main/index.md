@@ -294,7 +294,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Navigate to Inline Hooks (**Workflow** > **Inline Hooks**) in your Admin Console.
 
-1. Click on the SAML assertion inline hook name (in this example, "Patient SAML Hook").
+1. Click the SAML assertion inline hook name (in this example, "Patient SAML Hook").
 
 1. Click the **Preview** tab.
 
