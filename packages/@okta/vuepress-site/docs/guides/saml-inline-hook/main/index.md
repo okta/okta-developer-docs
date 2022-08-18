@@ -52,7 +52,7 @@ At a high-level, the following workflow occurs:
 
 ## Set up the sample SAML-authenticated application
 
-The Spring Boot, SAML, and Okta application is designed to implement signle sign-on (SSO) with Spring Security's SAML and Okta.
+The Spring Boot, SAML, and Okta application is designed to implement Single Sign-On (SSO) with Spring Security's SAML and Okta.
 
 Access the Spring Book, SAML, and Okta code from the following Github repository:
 
