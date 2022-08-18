@@ -68,7 +68,7 @@ Make sure to have this application running before proceeding with the SAML asser
 
 You can now create the external service code that resides on your third-party site (in this example, the Glitch.com site). The third-party site receives and responds to the SAML assertion inline hook call from Okta. The responses to the SAML assertion inline hook call can customize the SAML assertion in multiple ways, including adding or replacing elements of the assertion. In this example code, a new claim is added to the assertion. For further information on the SAML assertion commands object and how you can modify the assertion, see the [SAML assertion inline hook reference](/docs/reference/saml-hook) documentation.
 
-Copy (re-mix) the Glitch.com project code, [Okta SAML assertion inline hook Example](https://glitch.com/edit/#!/okta-inlinehook-samlhook), to run the scenario right away. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
+Copy (re-mix) the Glitch.com project code, [Okta SAML assertion inline hook example](https://glitch.com/edit/#!/okta-inlinehook-samlhook), to run the scenario right away. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
 
 >**Note:** Ensure that you modify the project code's data store with a user that belongs to your org.
 
@@ -113,7 +113,7 @@ The following Node.js code checks the user name against the data store:
 
 const patients = [
   {
-    username: 'michelle.test@example.com',
+    username: 'michelle.test@example.com', // Update one of these username values to a user in your org.
     ExternalServicePatientID: '1235',
   },
   {
@@ -288,7 +288,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 * The SAML application (okta-spring-boot-saml-example) is ready to sign in and authenticate users using your Okta org as an IdP.
 * The external service (okta-inlinehook-samlhook) is ready with code to receive and respond to an Okta SAML assertion inline hook call.
-* The Okta org is setup to call the external service when a SAML assertion inline hook is triggered by a user sign-in from the SAML application, and is ready to receive a response.
+* The Okta org is setup to call and receive a response from the external service when a SAML assertion inline hook is triggered by a user sign-in from the SAML application.
 
 ### Preview the SAML assertion inline hook
 
@@ -298,7 +298,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Click **Preview**.
 
-1. Select a user assigned to your SAML application in the first block titled **Configure Inline Hook request**; that is, a value for the `data.userProfile` field.
+1. In the first block titled **Configure Inline Hook request**, define a value for `data.userProfile` by searching and selecting a user in your org from the **data.userProfile** dropdown list.
 
 1. Select your SAML application by typing in the **Select a SAML app** field (in this example, "Spring Book SAML"), and clicking on your application.
 
@@ -316,13 +316,13 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Navigate to your Glitch.com project and make sure that it's listening for requests by opening the Console Logs window (**Tools** > **Logs**).
 
-1. Return to your SAML application and sign in with an Okta user who is NOT in the Patients data store.
+1. Return to your SAML application and sign in with an Okta user who is NOT in the data store of patients.
 
-      The user should sign in as normal, entering their first name, last name, and email attributes for the fields that display on the sign-in page. In the Glitch log window, a message appears stating that the user isn't part of the data store.
+      The user should sign in as normal, entering their username and password. After authentication, the first name, last name, email, and group attributes display on the Welcome page. In the Glitch log window, a message appears stating that the user isn't part of the data store.
 
-1. Sign out of the sample application and now sign in with an Okta user who IS in the Patients data store.
+1. Sign out of the sample application and now sign in with an Okta user who IS in the data store of patients.
 
-      The user should sign in as normal, entering their first name, last name, and email attributes for the fields that display on the sign-in page. The patient ID attribute also appears. In the Glitch log window, a message appears stating that the patient ID number was added to the SAML assertion.
+      The user should sign in as normal, entering their username and password. After authentication, the user's attributes display on the Welcome page, as before, and now include the patient ID attribute. In the Glitch log window, a message appears stating that the patient ID number was added to the SAML assertion.
 
 ## Next steps
 
