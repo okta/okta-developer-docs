@@ -310,7 +310,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 ### Test the SAML assertion inline hook
 
-1. Start your SAML Application by navigating to your project folder (`okta-spring-boo-saml-example >`) and then running the application (`> ./gradlew bootRun`).
+1. Start your SAML application by navigating to your project folder (`okta-spring-boo-saml-example >`) and then running the application (`> ./gradlew bootRun`).
 
 1. Navigate to your sample application (`http:/localhost:8080`).
 
