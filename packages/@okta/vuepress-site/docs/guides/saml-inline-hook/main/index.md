@@ -314,7 +314,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Navigate to your sample application (`http:/localhost:8080`).
 
-1. Navigate to your Glitch.com project to make sure it's listening for requests; open the Console Logs window (**Tools > Logs**).
+1. Navigate to your Glitch.com project and make sure that it's listening for requests by opening the Console Logs window (**Tools** > **Logs**).
 
 1. Return to your SAML application and sign in with an Okta user who is NOT in the Patients data store.
 
