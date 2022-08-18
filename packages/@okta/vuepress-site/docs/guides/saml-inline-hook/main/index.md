@@ -102,7 +102,7 @@ app.post("/SAMLHook", (request, response) => {
 
 ### Check against the data store
 
-In this scenario, a pre-populated static array of patient names and patient IDs (patients) is used to simulate a real-world data store. The user email address included with the Okta request is checked against this array. If the user in the request matches a value in the patients array, the associated patient ID is stored as a variable, `patientID`.
+In this scenario, a pre-populated static array of patient names and patient IDs (patients) is used to simulate a real-world data store. The user email address included with the Okta request is checked against this array. If the user in the request matches a value in the patient's array, the associated patient ID is stored as a variable, `patientID`.
 
 > **Note:** Modify this data store to make sure it contains one or more users that are assigned to your application in your Okta org.
 
