@@ -128,7 +128,7 @@ Set up your Okta org to enable authentication without a password using the follo
 1. Set **This authenticator can be used for** to **Authentication and recovery**.
 1. Click **Save**.
 
-#### Create a password-optional authenticator policy
+#### Create a password-optional authenticator enrollment policy
 
 1. Open the **Admin Console** for your org.
 1. Choose **Security** > **Authenticators**.
