@@ -241,7 +241,7 @@ app.post("/SAMLHook", (request, response) => {
 
 ## Activate and enable the SAML assertion inline hook
 
-The SAML assertion inline hook must be activated and enabled within your Okta Admin Console.
+You must activate and enable the SAML assertion inline hook within your Admin Console.
 
 Activating the SAML assertion inline hook registers the hook with the Okta org and associates it with your external service. Enabling the SAML assertion inline hook associates the hook with your SAML application.
 
