@@ -106,7 +106,7 @@ Call `OktaAuth.idx.proceed()` passing in the new object.
 
 ### 5. Identity Engine verifies OTP and returns success
 
-`OktaAuth.idx.proceed()` returns `IdxTransaction.status` equal to `SUCCESS` along with access and ID tokens, which indicates a successful new user sign-up flow.
+`OktaAuth.idx.proceed()` returns `IdxTransaction.status` equal to `SUCCESS` along with access and ID tokens, which indicates a successful user sign-in flow.
 
 ```json
 {
