@@ -91,7 +91,8 @@ Create an app integration that represents the application you want to add authen
 
 After you've created your app integration in your Okta org, the next step is to configure your app and org to support the use case that you're implementing.
 
-* For a basic password factor use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* For a basic password factor only use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* For a password-optional use case, see [Set up your Okta org for a password-optional use case](#set-up-your-okta-org-for-a-password-optional-use-case)
 * For a multifactor use case, see [Set up your Okta org for a multifactor use case](#set-up-your-okta-org-for-a-multifactor-use-case)
 * For a social sign-in use case, see [Set up your Okta org for a social IdP use case](#set-up-your-okta-org-for-a-social-idp-use-case)
 
@@ -111,66 +112,120 @@ For password-only authentication, you need to update the password authenticator 
 
 ### Set up your Okta org for a password-optional use case
 
-Set up your Okta org to enable authentication without a password using the followings steps:
+Before you configure the passwordless experience, ensure that your admins continue to have passwords available. This ensures that users who don't have a password provisioned are not inadvertently blocked from signing in. To do this:
 
-1. [Set up the email authenticator](#set-up-the-email-authenticator).
-1. [Create a password-optional authenticator policy](#create-a-password-optional-authenticator-policy).
-1. [Add a new Global session policy](#add-a-new-global-session-policy).
-1. [Add a new authentication policy](#add-a-new-authentication-policy).
+1. Create a separate group for admins and add your admin users to that group.
+2. Create separate authenticator enrollment, global session, and authentication policies for this group.
+3. Place this group at the highest priority (at no. 1) in the authenticator enrollment policy.
 
-#### Set up the email authenticator
+To ensure that only specific app integrations can let users sign up without a password, do the following:
+
+1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator).
+2. [Create a separate group for passwordless users](#create-a-group-for-passwordless-users).
+3. [Create a profile enrollment policy for passwordless users](#create-a-profile-enrollment-policy-for-passwordless-users) that adds them to the new group and assign your app to it.
+4. Place this group at the lowest priority (just above the default policy) in the authenticator enrollment policy.
+
+To ensure that only passwordless users can sign in without a password and everybody else is appropriately prompted for it, do the following:
+
+1. [Create a new password-optional authenticator enrollment policy for the group](#create-a-password-optional-authenticator-enrollment-policy).
+2. [Add a new Global session policy for the group](#add-a-new-global-session-policy-for-passwordless-users).
+3. [Add a new authentication policy for the group](#add-a-new-authentication-policy-for-passwordless-users).
+4. Ensure that passwordless users will never fall through to the default policy. Default policy should always have a password as a required authenticator.
+5. Explicitly exclude your main admin account from any further passwordless policies you create.
+
+> **Note**: See also [Set up passwordless sign-in experience](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/password-optional/password-optional-disabled.htm)
+
+#### Enable Passwordless User Sign-Up
+
+To ensure that only specific app integrations can let users sign up without a password, do the following:
+
+##### Set up the email authenticator
 
 1. Open the **Admin Console** for your org.
-1. Choose **Security** > **Authenticators** to show the available authenticators.
-1. On the **Setup** tab, locate the **Email** authenticator, and then select **Actions** > **Edit**.
-1. Set **This authenticator can be used for** to **Authentication and recovery**.
-1. Click **Save**.
+2. Choose **Security** > **Authenticators** to show the available authenticators.
+3. On the **Setup** tab, locate the **Email** authenticator, and then select **Actions** > **Edit**.
+4. Set **This authenticator can be used for** to **Authentication and recovery**.
+5. Click **Save**.
 
-#### Create a password-optional authenticator policy
+##### Create a group for passwordless users
 
-1. Open the **Admin Console** for your org.
+1. Choose **Directory** > **Groups**.
+2. Click **Add Group**.
+3. Give the group a name. For example, "Passwordless Users".
+4. Click **Save**.
+
+##### Create a profile enrollment policy for passwordless users
+
+A profile enrollment policy determines the minimum information required from a user to create an account, and how the user should verify their identity before creating their account.
+
+1. Choose **Security** > **Profile Enrollment** to show the existing enrollment policies.
+2. Click **Add Profile Enrollment Policy**.
+3. Locate the **Profile Enrollment** section of the policy and click **Edit**.
+4. Set **Self-service registration** to **Allowed**.
+5. Verify that **Required before access is granted** is checked for **Email Verification**.
+6. Set **Add the user to group** to the group you just made for passwordless users.
+7. Click **Save**.
+8. Click **Manage apps**.
+9. Click **Add an App to This Policy**.
+10. Locate your app integration in the list and click **Apply** next to it.
+11. Verify that the app is now in the list of Apps using the new Profile Enrollment Policy.
+
+#### Enable Passwordless User Sign-In
+
+To ensure that only passwordless users can sign in without a password and everybody else is appropriately prompted for it, do the following:
+
+##### Create a password-optional authenticator enrollment policy
+
+An authenticator enrollment policy determines which authenticators must challenge a user before they are successfully logged in. In this case, email is set to Required, while all the other authenticators are set to Optional.
+
 1. Choose **Security** > **Authenticators**.
-1. Select the **Enrollment** tab, and then click **Add Multifactor Policy**.
-1. Give the new policy a name. For example, "Email sign-up required policy".
-1. Set **Assign to groups** to one or more groups. For example, "Everyone".
-1. In the **Eligible Authenticators** section
-   * Set **Email** to **Required**.
-   * Set **Password** to **Optional**.
-   * Verify that the remaining authenticators are set to **Optional**.
-1. Click **Create Policy**.
-1. Give the rule a name. For example, "Email sign-up required for all".
-1. Leave the other settings at their defaults, and then click **Create Rule**.
+2. Select the **Enrollment** tab, and then click **Add Multifactor Policy**.
+3. Give the new policy a name. For example, "Passwordless Sign-In Policy".
+4. Set **Assign to groups** to the group you just made for passwordless users.
+5. In the **Eligible Authenticators** section
 
-#### Add a new Global session policy
+   1. Set **Email** to **Required**.
+   2. Set **Password** to **Optional**.
+   3. Verify that the remaining authenticators are set to **Optional**.
 
-1. Open the **Admin Console** for your org.
+6. Click **Create Policy**.
+7. Give the rule a name. For example, "Passwordless Sign-In Rule".
+8. Set **Exclude Users** to the names of your main admin accounts
+9. Leave the other settings at their defaults, and then click **Create Rule**.
+10. Move the new policy immediately above the Default Policy in the list of policies.
+
+##### Add a new global session policy for passwordless users
+
+A global session policy determines user session length and basic authentication rules for groups of users. In this case, the policy turns off MFA for all users in the passwordless user group. Therefore, they only need email authentication to sign in.
+
 1. Choose **Security** > **Global Session Policy**.
-1. Click **Add policy**.
-1. Give the policy a name. For example, "Global Password Optional Policy".
-1. Set **Assign to groups** to one or more user groups. For example, "Everyone".
-1. Click **Create Policy and Add Rule**.
-1. Give the rule a name. For example, "Global Password Optional Rule".
-1. Verify **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
-1. Leave the other settings at their defaults, and then click **Create Rule**.
-1. Click **Create Rule**.
-1. Verify the new policy is in the number "1" position. If it isn't, click and drag the policy to that position.
+2. Click **Add policy**.
+3. Give the policy a name. For example, "Global Password Optional Policy".
+4. Set **Assign to groups** to the group you just made for passwordless users.
+5. Click **Create Policy and Add Rule**.
+6. Give the rule a name. For example, "Global Password Optional Rule".
+7. Set **Exclude Users** to the names of your main admin accounts
+8. Verify **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
+9. Set **Multifactor authentication (MFA) is** to **Not required**.
+10. Leave the other settings at their defaults, and then click **Create Rule**.
 
-#### Add a new authentication policy
+##### Add a new authentication policy for passwordless users
 
-1. Open the **Admin Console** for your org.
 1. Choose **Security** > **Authentication Policies**.
-1. Click **Add a Policy**.
-1. Give the policy a name, for example "Authenticate with only 1 factor", and then click **Save**.
-1. Locate the **Catch-all Rule** of the new policy and select **Actions** > **Edit**.
-1. Set **User must authenticate with** to **Any 1 factor type**.
-1. For **Possession factor constraints are**
-   * Verify that no options are selected.
-   * Verify that **Email** is listed in the box under **1 factor type**.
-1. Click **Save**.
-1. Select the **Applications** tab for your newly created policy, and click **Add app**.
-1. Find your app in the list and click **Add** next to it.
-1. Click **Close**.
-1. Verify that the app is now listed in the **Applications** tab of the new policy.
+2. Click **Add a policy**.
+3. Give the policy a name, for example "Authenticate with Email Only", and then click **Save**.
+4. Locate the Catch-all Rule of the new policy and select **Actions** > **Edit**.
+5. Set **User must authenticate with** to **Any 1 factor type**.
+6. For **Possession factor constraints are**
+
+   1. Verify that no options are selected.
+   2. Verify that **Email** is listed in the box under **1 factor type**.
+
+7. Click **Save**.
+8. Select the **Applications** tab for your newly created policy, and click **Add app**.
+9. Find your app in the list and click **Add** next to it.
+10. Click **Close**.
+11. Verify that the app is now listed in the **Applications** tab of the new policy.
 
 ### Set up your Okta org for a multifactor use case
 
