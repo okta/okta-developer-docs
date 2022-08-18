@@ -27,7 +27,7 @@ This guide explains how to use the Brands API to rapidly customize the theme of 
 
 Okta provides you with a lot of power to authenticate your users, and using the [Okta-hosted Sign-In Widget](/docs/concepts/redirect-vs-embedded/#redirect-authentication) gets you up and running quickly without having to write much custom code or host the sign-in functionality yourself. However, the trade-off is that your [customization options](/docs/guides/custom-widget/) are more limited and potentially tricky to administer, since the existing functionality that you typically need to set are colors, icons, and so on in multiple places.
 
-The [Brands API](/docs/references/api/brands/) allows you to set all of the following items across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once:
+The [Brands API](/docs/reference/api/brands/) allows you to set all of the following items across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once:
 
 * Primary color
 * Secondary color
@@ -53,7 +53,7 @@ You can return the org's brand response objects with the following request (**Ge
 
 <ApiOperation method="get" url="/api/v1/brands" />
 
-This returns an array of [brand response objects](/docs/references/api/brands/#brand-response-object), which currently contains a single object. You can try this in Postman by running the GET brands request.
+This returns an array of [brand response objects](/docs/reference/api/brands/#brand-response-object), which currently contains a single object. You can try this in Postman by running the GET brands request.
 
 You can also return a specific brand by running the **Get brand** request. Before you run the request, you'll need to set the `brandId` variable in Postman, which is used in the request, as seen below.
 
@@ -69,13 +69,13 @@ You can return the themes contained in a brand with the following request (**Get
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/themes" />
 
-This returns an array of [theme response objects](/docs/references/api/brands/#theme-response-object), which currently contains a single object.
+This returns an array of [theme response objects](/docs/reference/api/brands/#theme-response-object), which currently contains a single object.
 
 Once you've set the `themeId` variable to a specific theme ID, you can return a specific theme response object using the following request (**Get theme** in Postman):
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/themes/${themeId}" />
 
-This returns a [theme response object](/docs/references/api/brands/#theme-response-object) that contains all the details of your theme, including logo, favicon, colors, and background image.
+This returns a [theme response object](/docs/reference/api/brands/#theme-response-object) that contains all the details of your theme, including logo, favicon, colors, and background image.
 
 ## Update your brand
 
@@ -83,7 +83,7 @@ You can also update brand information with the following request (**Update brand
 
 <ApiOperation method="put" url="/api/v1/brands/${brandId}" />
 
-This request needs to contain a [Brand object](/docs/references/api/brands/#brand-object) in the body that contains updates to privacy policy information:
+This request needs to contain a [Brand object](/docs/reference/api/brands/#brand-object) in the body that contains updates to privacy policy information:
 
 ``` json
 {
@@ -115,11 +115,11 @@ The request body needs to contain a JSON object:
 }
 ```
 
-  > **Note:** The different properties are explained in the [Theme object reference](/docs/references/api/brands/#theme-object).
+  > **Note:** The different properties are explained in the [Theme object reference](/docs/reference/api/brands/#theme-object).
 
-  > **Note:** To see your custom colors and image assets being used on your Okta org, you need to set the `...Variant` properties to non-`OKTA_DEFAULT` values when you update your theme. See [Variant definition](/docs/references/api/brands/#variant-definition) for explanations of the available variant values.
+  > **Note:** To see your custom colors and image assets being used on your Okta org, you need to set the `...Variant` properties to non-`OKTA_DEFAULT` values when you update your theme. See [Variant definition](/docs/reference/api/brands/#variant-definition) for explanations of the available variant values.
 
-A successful request results in an updated [Theme response object](/docs/references/api/brands/#theme-response-object).
+A successful request results in an updated [Theme response object](/docs/reference/api/brands/#theme-response-object).
 
 ### Update and delete theme logos and images
 
@@ -202,7 +202,7 @@ You can list all supported email templates (**List email templates** in Postman)
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email" />
 
-This operation returns a [paginated](/docs/references/core-okta-api/#pagination) list of [email template](#/docs/references/api/brands/#email-template) resources.
+This operation returns a [paginated](/docs/reference/core-okta-api/#pagination) list of [email template](#/docs/reference/api/brands/#email-template) resources.
 
 #### Get an email template
 
@@ -210,7 +210,7 @@ You can fetch a specific email template corresponding to `templateName` (**Get e
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}" />
 
-This operation returns the requested [email template](/docs/references/api/brands/#email-template) resource.
+This operation returns the requested [email template](/docs/reference/api/brands/#email-template) resource.
 
 #### Get the default content of an email template
 
@@ -218,7 +218,7 @@ You can fetch the default content of a specific email template (**Get email temp
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content" />
 
-This operation returns the [default content](/docs/references/api/brands/#email-content) resource for the specified template.
+This operation returns the [default content](/docs/reference/api/brands/#email-content) resource for the specified template.
 
 #### Preview the default content of an email template
 
@@ -226,7 +226,7 @@ You can fetch a preview of the default content of a specific email template (**P
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/default-content/preview" />
 
-This operation returns the [default content](/docs/references/api/brands/#email-content) resource of the specified email template, with the variables populated with the current user's context.
+This operation returns the [default content](/docs/reference/api/brands/#email-content) resource of the specified email template, with the variables populated with the current user's context.
 
 #### Send a test email
 
@@ -248,7 +248,7 @@ You can list all customizations for a specific email template (**List email cust
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
 
-This operation returns a [paginated](/docs/references/core-okta-api/#pagination) list of [email customization](/docs/references/api/brands/#email-customization) resources.
+This operation returns a [paginated](/docs/reference/core-okta-api/#pagination) list of [email customization](/docs/reference/api/brands/#email-customization) resources.
 
 #### Create email customizations
 
@@ -274,7 +274,7 @@ You can fetch a specific email customization (**Get email customization** in Pos
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}" />
 
-This operation returns the requested [email customization](/docs/references/api/brands/#email-customization) resource.
+This operation returns the requested [email customization](/docs/reference/api/brands/#email-customization) resource.
 
 #### Update an email customization
 
@@ -302,11 +302,11 @@ You can fetch a preview of the customizations of an email template (**Preview em
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations/${customizationId}/preview" />
 
-This operation returns the [default content](/docs/references/api/brands/#email-content) resource of the specified email template, with the variables populated with the current user's context.
+This operation returns the [default content](/docs/reference/api/brands/#email-content) resource of the specified email template, with the variables populated with the current user's context.
 
 ## See also
 
-* [Brands API reference](/docs/references/api/brands/)
+* [Brands API reference](/docs/reference/api/brands/)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize email notifications and email domains](/docs/guides/custom-email/)
 * [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)

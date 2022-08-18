@@ -17,13 +17,13 @@ This guide explains how to refresh access tokens with Okta.
 
 ## About refresh tokens
 
-Access and ID [tokens](/docs/references/api/oidc/#tokens-and-claims) are JSON web tokens that are valid for a specific number of seconds. Typically, a user needs a new access token when they attempt to access a resource for the first time or after the previous access token that was granted to them expires.
+Access and ID [tokens](/docs/reference/api/oidc/#tokens-and-claims) are JSON web tokens that are valid for a specific number of seconds. Typically, a user needs a new access token when they attempt to access a resource for the first time or after the previous access token that was granted to them expires.
 
 A refresh token is a special token that is used to obtain additional access tokens. This allows you to have short-lived access tokens without having to collect credentials every time one expires. You request a refresh token alongside the access and/or ID tokens as part of a user's initial authentication and authorization flow. Applications must then securely store refresh tokens since they allow users to remain authenticated.
 
-For clients such as native apps, persistent refresh tokens help improve a user's authentication experience. For example, persistent refresh tokens allow a user to access streaming video services on their smart TV without signing in after they complete the initial device authorization. With persistent refresh token behavior, the same refresh token is returned each time the client makes a request to exchange a refresh token for a new access token until the [refresh token lifetime](/docs/references/api/authorization-servers/#actions-object) expires.
+For clients such as native apps, persistent refresh tokens help improve a user's authentication experience. For example, persistent refresh tokens allow a user to access streaming video services on their smart TV without signing in after they complete the initial device authorization. With persistent refresh token behavior, the same refresh token is returned each time the client makes a request to exchange a refresh token for a new access token until the [refresh token lifetime](/docs/reference/api/authorization-servers/#actions-object) expires.
 
-> **Note:** See [Token lifetime](/docs/references/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
 However, public clients such as browser-based applications have a much higher risk of a refresh token being compromised when a persistent refresh token is used. With clients such as single-page applications (SPAs), long-lived refresh tokens aren't suitable, because there isn't a way to safely store a persistent refresh token in a browser and assure access by only the intended app. These threats are greatly reduced by rotating refresh tokens. [Refresh token rotation](#refresh-token-rotation) helps a public client to securely rotate refresh tokens after each use. With refresh token rotation behavior, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. Refresh token rotation works with SPAs, native apps, and web apps in Okta.
 
@@ -31,7 +31,7 @@ However, public clients such as browser-based applications have a much higher ri
 
 Refresh tokens are available for a subset of Okta OAuth 2.0 client applications, specifically web, single-page, and native applications. See our [OAuth 2.0 and OIDC overview](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) for more about creating an OpenID Connect application.
 
-Be sure to specify `refresh_token` as a `data_type` value for the `grant_type` parameter when adding an [OAuth client app](/docs/references/api/apps/#add-oauth-2-0-client-application) using the `/apps` API. Alternatively, after you set up an application, you can select the **Refresh Token** option for **Allowed grant types** on the **General Settings** tab in the Admin Console.
+Be sure to specify `refresh_token` as a `data_type` value for the `grant_type` parameter when adding an [OAuth client app](/docs/reference/api/apps/#add-oauth-2-0-client-application) using the `/apps` API. Alternatively, after you set up an application, you can select the **Refresh Token** option for **Allowed grant types** on the **General Settings** tab in the Admin Console.
 
 ## Refresh token rotation
 
@@ -45,7 +45,7 @@ If a previously used refresh token is used again with the token request, the Aut
 
 #### System Log events
 
-Okta fires the following System Log [events](/docs/references/api/event-types/) when token reuse is detected:
+Okta fires the following System Log [events](/docs/reference/api/event-types/) when token reuse is detected:
 
 * `app.oauth2.as.token.detect_reuse` for [Custom Authorization Servers](/docs/concepts/auth-servers/#custom-authorization-server)
 * `app.oauth2.token.detect_reuse` for the [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server)
@@ -93,11 +93,11 @@ After you enable refresh token rotation, the `refresh_token` property appears wi
 
 > **Note:** A leeway of 0 doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
 
-See [Refresh token object](/docs/references/api/apps/#refresh-token-object).
+See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
 
 ### Refresh token lifetime
 
-Refresh token lifetimes are managed through the [Authorization Server access policy](/docs/guides/configure-access-policy/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [Authorization Server actions object](/docs/references/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if it hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
+Refresh token lifetimes are managed through the [Authorization Server access policy](/docs/guides/configure-access-policy/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [Authorization Server actions object](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if it hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
 
 ## Get a refresh token
 
@@ -121,7 +121,7 @@ The only flows that support refresh tokens are the authorization code flow and t
 
 In the case of the authorization code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then use the `authorization_code` grant with this code in a request to the `/token` endpoint to get an access token and a refresh token.
 
-See [Obtain an authorization grant from a User](/docs/references/api/oidc/#authorize) and [Implementing the authorization code flow](/docs/guides/implement-grant-type/authcode/main/) for more information on the `/authorize` endpoint and the authorization code flow.
+See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#authorize) and [Implementing the authorization code flow](/docs/guides/implement-grant-type/authcode/main/) for more information on the `/authorize` endpoint and the authorization code flow.
 
 #### Example request for an authorization code and refresh token
 
@@ -197,7 +197,7 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/toke
 
 For the resource owner password flow, you use the authorization server's `/token` endpoint directly.
 
-See [Request a token](/docs/references/api/oidc/#token) and [Implementing the resource owner password flow](/docs/guides/implement-grant-type/ropassword/main/) for more information on the `/token` endpoint and the resource owner password flow.
+See [Request a token](/docs/reference/api/oidc/#token) and [Implementing the resource owner password flow](/docs/guides/implement-grant-type/ropassword/main/) for more information on the `/token` endpoint and the resource owner password flow.
 
 #### Example request
 
@@ -217,7 +217,7 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/toke
 
 #### Example response
 
-You would then get back an ID token as well as your access and refresh tokens. See the [Okta OAuth 2.0 reference page](/docs/references/api/oidc/#response-properties).
+You would then get back an ID token as well as your access and refresh tokens. See the [Okta OAuth 2.0 reference page](/docs/reference/api/oidc/#response-properties).
 
 > **Note:** The access and ID tokens are truncated for brevity.
 
@@ -259,7 +259,7 @@ http --form POST https://${yourOktaDomain}/oauth2/default/v1/token \
 If the refresh token is valid, then you get back a new access and the refresh token. Whether that refresh token is the same one sent in the request or is a new refresh token depends on:
 
 * [Refresh token rotation](#refresh-token-rotation) enabled for the client
-* The configured [refresh token lifetime](/docs/references/api/authorization-servers/#actions-object) in the access policy. See [Refresh token reuse detection](/docs/guides/refresh-tokens/main/#refresh-token-reuse-detection).
+* The configured [refresh token lifetime](/docs/reference/api/authorization-servers/#actions-object) in the access policy. See [Refresh token reuse detection](/docs/guides/refresh-tokens/main/#refresh-token-reuse-detection).
 
 > **Note:** The access and ID tokens are truncated for brevity.
 

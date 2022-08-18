@@ -33,7 +33,7 @@ Ensure that your application fits your brand:
 
 ## Rate limits
 
-* [Review how Okta's rate limits work](/docs/references/rate-limits/): Requests made to the Okta API have rate limits to prevent abuse.
+* [Review how Okta's rate limits work](/docs/reference/rate-limits/): Requests made to the Okta API have rate limits to prevent abuse.
 
 ## Troubleshoot
 

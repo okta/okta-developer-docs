@@ -70,7 +70,7 @@ func (s *Server) LoginCallbackHandler(w http.ResponseWriter, r *http.Request) {
 ### 4 (Optional): Get the user profile information
 
 You can obtain basic user information by making a request to the authorization server.
-Make a call to the [`/v1/userinfo`](/docs/references/api/oidc/#userinfo) endpoint using the tokens obtained from the `LoginResponse`
+Make a call to the [`/v1/userinfo`](/docs/reference/api/oidc/#userinfo) endpoint using the tokens obtained from the `LoginResponse`
 object's `Token` property.
 
 ```go

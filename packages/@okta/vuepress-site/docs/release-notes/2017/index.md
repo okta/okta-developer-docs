@@ -32,9 +32,9 @@ Once you've got the right combination, it's easy to configure your authorization
 
 We improved some behaviors related for base claim `amr`:
 
-* When [MFA factors `sms` or `call`](/docs/references/api/factors/#factor-type) are used, the `amr` claim returns [`mca`](/docs/references/api/sessions/#amr-object).
-* When [MFA factor `token:hardware`](/docs/references/api/factors/#factor-type) is used, the `amr` claim returns `hwk`.
-* When [MFA factor `web`](/docs/references/api/factors/#factor-type) is used, the `amr` claim returns `swk`. <!-- OKTA-152175 -->
+* When [MFA factors `sms` or `call`](/docs/reference/api/factors/#factor-type) are used, the `amr` claim returns [`mca`](/docs/reference/api/sessions/#amr-object).
+* When [MFA factor `token:hardware`](/docs/reference/api/factors/#factor-type) is used, the `amr` claim returns `hwk`.
+* When [MFA factor `web`](/docs/reference/api/factors/#factor-type) is used, the `amr` claim returns `swk`. <!-- OKTA-152175 -->
 
 ### Bug Fix: Legacy Events Available in System Log
 
@@ -59,8 +59,8 @@ The following legacy events, already present in the `/api/v1/events` endpoint, a
 
 Added `strict` optional parameter to the following operations:
 
-* [Update User](/docs/references/api/users/#update-user)
-* [Change Password](/docs/references/api/users/#change-password)
+* [Update User](/docs/reference/api/users/#update-user)
+* [Change Password](/docs/reference/api/users/#change-password)
 
 This parameter allows you to force the validation of the password policy's `minAge` and `passwordHistory` requirements when an updated password is sent. This will be Generally Available in preview orgs starting on Dec 13, 2017 and in production orgs starting on Dec 19, 2017.
 <!-- OKTA-148151 -->
@@ -69,7 +69,7 @@ This parameter allows you to force the validation of the password policy's `minA
 
 The following bug fixes will be available on preview orgs starting Dec 13, 2017, and will be available on production orgs starting December 19, 2017:
 
-* When using the [Zones API](/docs/references/api/zones/#update-a-network-zone), erasing all IP addresses in the Default IP Blocklist zone caused an error. (OKTA-145602)
+* When using the [Zones API](/docs/reference/api/zones/#update-a-network-zone), erasing all IP addresses in the Default IP Blocklist zone caused an error. (OKTA-145602)
 
 
 ## 2017.49
@@ -84,7 +84,7 @@ The following bug fixes will be available on preview orgs starting Dec 13, 2017,
 
 #### Early Access Feature in Preview: App User Schema API
 
-The [App User Schema API](/docs/references/api/schemas/#app-user-schema-operations) is an [Early Access (EA)](/docs/references/releases-at-okta/#early-access-ea) release. Use this API to work with App User profiles, typically for apps that have features for provisioning users.
+The [App User Schema API](/docs/reference/api/schemas/#app-user-schema-operations) is an [Early Access (EA)](/docs/reference/releases-at-okta/#early-access-ea) release. Use this API to work with App User profiles, typically for apps that have features for provisioning users.
 <!-- OKTA-148782 -->
 
 #### Completing Rollout of Simple HAL Links
@@ -96,13 +96,13 @@ Some orgs did not receive this functionality because they were identified as pos
 
 Some preview orgs created with the Developer Paid edition will receive the new functionality on preview orgs starting December 6, 2017, and on production orgs starting December 12, 2017.
 
-See [the User Model documentation](/docs/references/api/users/#user-model) for more information. <!-- OKTA-150507 -->
+See [the User Model documentation](/docs/reference/api/users/#user-model) for more information. <!-- OKTA-150507 -->
 
 #### JWT as a Request Parameter
 
 A new parameter, `request` is available for all `/authorize` endpoints. The parameter contains a JWT created by the client, enabling requests to be passed in a single, self-contained parameter. This JWT must be signed.
 
-For details about using `request`, see [Oauth 2.0](/docs/references/api/oidc/#request-parameters-1) or [OpenID Connect](/docs/references/api/oidc/#request-parameters-3) documentation. <!-- OKTA-78476 -->
+For details about using `request`, see [Oauth 2.0](/docs/reference/api/oidc/#request-parameters-1) or [OpenID Connect](/docs/reference/api/oidc/#request-parameters-3) documentation. <!-- OKTA-78476 -->
 
 ### API Bug Fixes
 
@@ -159,7 +159,7 @@ The System Log and Events APIs now report the `userId` in API Access Management 
 
 #### IdP Provisioning Policy Conditions in GA
 
-Identity Provider Provisioning Policy [Conditions](/docs/references/api/idps/#provisioning-policy-object) are now Generally Available. <!--OKTA 123811-->
+Identity Provider Provisioning Policy [Conditions](/docs/reference/api/idps/#provisioning-policy-object) are now Generally Available. <!--OKTA 123811-->
 
 ### API Bug Fixes
 
@@ -175,7 +175,7 @@ The following bug fixes are available now on preview orgs, and will be available
 
 ### API Feature Enhancements: New Query Parameter for Create User
 
-Use [the new query parameter `nextLogin`](/docs/references/api/users/#request-parameters) with a create user API request to create and activate a user with an expired password.
+Use [the new query parameter `nextLogin`](/docs/reference/api/users/#request-parameters) with a create user API request to create and activate a user with an expired password.
 The user has to change his or her password the next time they log in. This new query parameter eliminates the need to use two API calls to achieve the same result. <!-- OKTA-142029 -->
 
 This feature enhancement is expected in preview orgs starting November 1, 2017, and in production orgs starting November 6, 2017.
@@ -262,7 +262,7 @@ These bug fixes are expected on preview orgs starting October 11, 2017, and on p
 
 #### Concurrent Rate Limits
 In order to protect the service for all customers, Okta enforces concurrent rate limits starting with this release.
-Concurrent limits are distinct from [the org-wide, per-minute API rate limits](/docs/references/rate-limits/#org-wide-rate-limits).
+Concurrent limits are distinct from [the org-wide, per-minute API rate limits](/docs/reference/rate-limits/#org-wide-rate-limits).
 
 For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 
@@ -403,7 +403,7 @@ When the number of unfinished requests is below the concurrent rate limit, reque
 
 The `X-Rate-Limit-Reset` time for concurrent rate limits is only a suggestion. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
 
-For more information, see developer documentation about [rate limit headers](/docs/references/rate-limits/). <!-- OKTA-140976, OKTA-142995 -->
+For more information, see developer documentation about [rate limit headers](/docs/reference/rate-limits/). <!-- OKTA-140976, OKTA-142995 -->
 
 #### OpenID Connect Scope Change
 
@@ -414,16 +414,16 @@ We've changed the behavior of OpenID Connect scopes:
 
 #### Help Desk Administrator Role Generally Available
 
-The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the [Roles API](/docs/references/api/roles/#role-properties).
+The Help Desk Administrator Role (`HELP_DESK_ADMIN`) is generally available via the [Roles API](/docs/reference/api/roles/#role-properties).
 For information about this role, see the [in-app help](https://help.okta.com/okta_help.htm?id=ext_The_Help_Desk_Admin_Role). <!-- OKTA-141867 -->
 
 #### Policy API
 
-The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/references/api/policy/).
+The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/reference/api/policy/).
 
 #### Password Policy API
 
-The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/references/api/policy/#GroupPasswordPolicy).
+The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/reference/api/policy/#GroupPasswordPolicy).
 
 
 ## 2017.38
@@ -441,15 +441,15 @@ Dates for preview and production release are the earliest possible release date.
 
 #### Policy API
 
-The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/references/api/policy/).
+The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances. For more information, see Okta's [API Reference](/docs/reference/api/policy/).
 
 #### Password Policy API
 
-The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/references/api/policy/#GroupPasswordPolicy),
+The Password Policy type controls settings that determine a user's password length and complexity, as well as the frequency with which a password can be changed. This policy also governs the recovery operations that may be performed by the user, including change password, reset (forgot) password and self-service password unlock. For more information, see Okta's [API Reference](/docs/reference/api/policy/#GroupPasswordPolicy),
 
 #### Key Rotation for OpenID Connect and OAuth Apps
 
-You can now specify the key rotation mode for OpenID Connect and OAuth apps in the Apps API with `autoKeyRollover`. More information can be found in the [API Reference](/docs/references/api/apps/#oauth-credential-object).
+You can now specify the key rotation mode for OpenID Connect and OAuth apps in the Apps API with `autoKeyRollover`. More information can be found in the [API Reference](/docs/reference/api/apps/#oauth-credential-object).
 
 ### API Bug Fixes
 
@@ -460,7 +460,7 @@ Bug fixes are expected on preview orgs starting September 20, 2017, and on produ
 
 ## 2017.36
 
-The [Policy API](/docs/references/api/policy/) and [Password Policy API](/docs/references/api/policy/#GroupPasswordPolicy) are Generally Available in preview orgs starting on September 7, 2017 and in production orgs starting on October 9, 2017.
+The [Policy API](/docs/reference/api/policy/) and [Password Policy API](/docs/reference/api/policy/#GroupPasswordPolicy) are Generally Available in preview orgs starting on September 7, 2017 and in production orgs starting on October 9, 2017.
 
 The Policy API enables an Administrator to perform policy and policy rule operations. The policy framework is used by Okta to control rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, and what types of self-service operations are permitted under various circumstances.
 
@@ -483,14 +483,14 @@ Dates for preview and production release are the earliest possible release date.
 
 Zones are used to group IP Address ranges so that policy decisions can be made based on the client's IP location.
 
-[The Zones API](/docs/references/api/zones/) is an <ApiLifecycle access="ea" /> release. Contact [Support](https://support.okta.com/help/open_case) to enable it.
+[The Zones API](/docs/reference/api/zones/) is an <ApiLifecycle access="ea" /> release. Contact [Support](https://support.okta.com/help/open_case) to enable it.
 This API can be enabled beginning August 22, 2017 for preview orgs, and beginning September 5, 2017 for production orgs.
 
 ### API Bug Fix
 
 This bug fix is expected on preview orgs starting August 31, 2017, and on production orgs starting Sept 5, 2017.
 
-* Some requests to update a user via [`/api/v1/users/${userId}`](/docs/references/api/users/#update-user) failed with a 500 Internal Server Error. (OKTA-138214)
+* Some requests to update a user via [`/api/v1/users/${userId}`](/docs/reference/api/users/#update-user) failed with a 500 Internal Server Error. (OKTA-138214)
 
 
 ## 2017.34
@@ -529,7 +529,7 @@ You can also create an OpenID Connect app more easily with this simplified flow:
 
 Zones are used to group IP Address ranges so that policy decisions can be made based on the client's IP location.
 
-[The Zones API](/docs/references/api/zones/) is an <ApiLifecycle access="ea" /> release. Contact [Support](https://support.okta.com/help/open_case) to enable it.
+[The Zones API](/docs/reference/api/zones/) is an <ApiLifecycle access="ea" /> release. Contact [Support](https://support.okta.com/help/open_case) to enable it.
 This API can be enabled beginning August 22, 2017 for preview orgs, and beginning September 5, 2017 for production orgs.
 
 ### API Bug Fixes
@@ -564,16 +564,16 @@ It allows you to specify `default` instead of the `authServerId` in requests to 
 #### Web App Supports Client Credential Grant Type
 <!-- OKTA-102062 -->
 
-OAuth 2.0 clients now support [configuration of the `web` application type to use a `client_credential` grant type](/docs/references/api/oauth-clients/#client-application-properties).
+OAuth 2.0 clients now support [configuration of the `web` application type to use a `client_credential` grant type](/docs/reference/api/oauth-clients/#client-application-properties).
 This allows you to use one `client_id` for an application that needs to make user-specific calls and back-end calls for data.
 
 #### OpenID Connect Group Claim Retrieves Application Groups
 <!-- OKTA_132193 -->
 
-OpenID Connect, which uses the Okta Authorization Server, can retrieve [application groups](/docs/references/api/apps/#application-group-model) for use in tokens.
+OpenID Connect, which uses the Okta Authorization Server, can retrieve [application groups](/docs/reference/api/apps/#application-group-model) for use in tokens.
 Previously, application groups could only be retrieved with the Custom Authorization Server.
 
-You can use Okta Expression Language [`getFilteredGroups` function](/docs/references/okta-expression-language/#group-functions) to retrieve application groups.
+You can use Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
 
 #### SHA-256 Signed Certificates for New SAML 2.0 Apps
 
@@ -598,23 +598,23 @@ Bug fixes are expected on preview orgs starting August 9, 2017, and on productio
 | [Email for Two-Factor Authentication](#email-for-two-factor-authentication)       | Early Access by 8/3/2017        | Early Access beginning 8/7/2017         |
 | [SHA-256 Signed Certificates for New SAML 2.0 Apps](#sha-256-signed-certificates-for-new-saml-20-apps) | Generally Available by 8/3/2017 | Generally Available beginning 9/11/2017 |
 
-To enable an Early Availability (EA) feature, contact [Support](https://support.okta.com/help/open_case). For more information, see [Okta Release Lifecycle](/docs/references/releases-at-okta/).
+To enable an Early Availability (EA) feature, contact [Support](https://support.okta.com/help/open_case). For more information, see [Okta Release Lifecycle](/docs/reference/releases-at-okta/).
 
 > A [new version of the Sign-In Widget](#new-version-of-the-sign-in-widget) is available now for all orgs.
 
 #### OpenID Connect
 <!-- OKTA-132049  -->
 
-[OpenID Connect](/docs/references/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](/docs/reference/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
 OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
-Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/references/api/oidc/).
+Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).
 
 #### Key Rollover
 <!-- OKTA-132045  -->
 
-We provide the ability to generate a certificate with a specified validity period for the [Apps API](/docs/references/api/apps/) and [Identity Providers API](/docs/references/api/idps/).
+We provide the ability to generate a certificate with a specified validity period for the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/reference/api/idps/).
 
 #### SHA-256 Signed Certificates for New SAML 2.0 Apps
 
@@ -623,7 +623,7 @@ All new SAML 2.0 apps are bootstrapped with SHA-256 signed public certificates. 
 #### Email for Two-Factor Authentication
 <!-- OKTA-134593  -->
 
-You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/references/api/factors/#enroll-okta-email-factor) for details.
+You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) for details.
 
 ### New Version of the Sign-In Widget
 <!-- (OKTA-132800) -->
@@ -643,25 +643,25 @@ This platform feature enhancement is EA in preview orgs with this release and ex
 
 * [Email for Two-Factor Authentication](#email-for-two-factor-authentication)
 
-For information about Early Access (EA) and General Availability (GA), see [Okta Release Lifecycle](/docs/references/releases-at-okta/).
+For information about Early Access (EA) and General Availability (GA), see [Okta Release Lifecycle](/docs/reference/releases-at-okta/).
 
 #### OpenID Connect
 
-[OpenID Connect](/docs/references/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](/docs/reference/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
- Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/references/api/oidc/).<!-- OKTA-132049  -->
+ Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).<!-- OKTA-132049  -->
 
 
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/references/api/apps/) and [Identity Providers API](/docs/references/api/idps/)). We build OpenID Connect and API Access Management on this feature. <!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/reference/api/idps/)). We build OpenID Connect and API Access Management on this feature. <!-- OKTA-132045  -->
 
 #### Email for Two-Factor Authentication  <!-- OKTA-134593  -->
 
-You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/references/api/factors/#enroll-okta-email-factor) for details.
+You can enroll a user with an email factor. See [Enroll Okta Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) for details.
 
 ### Platform Bugs Fixed
 
@@ -669,13 +669,13 @@ These platform bug fixes are in preview orgs with this release and expected in p
 
 * Under some circumstances users who did not have a secondary email address could not perform a self-service password reset operation.   (OKTA-128340)
 
-* "When the `expand` parameter was set in GET requests to [`/api/v1/groups`](/docs/references/api/groups/#list-groups), the second and subsequent pages of the response did not have the same `expand` setting.  (OKTA-132503)
+* "When the `expand` parameter was set in GET requests to [`/api/v1/groups`](/docs/reference/api/groups/#list-groups), the second and subsequent pages of the response did not have the same `expand` setting.  (OKTA-132503)
 
-* [`/oauth2/v1/clients`](/docs/references/api/oauth-clients/#register-new-client) returned HTTP status code 200 rather than 201 when creating a client successfully.  (OKTA-128839)
+* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) returned HTTP status code 200 rather than 201 when creating a client successfully.  (OKTA-128839)
 
-* [`/api/v1/authorizationServers`](/docs/references/api/authorization-servers/#create-authorization-server) returned HTTP status code 200 rather than 201 when creating an Authorization Server successfully.  (OKTA-128839)
+* [`/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#create-authorization-server) returned HTTP status code 200 rather than 201 when creating an Authorization Server successfully.  (OKTA-128839)
 
-* [`/oauth2/v1/clients/{clientId}`](/docs/references/api/oauth-clients/#get-oauth-client) returned HTTP status code 404 rather than 401 when it did not find the specified client.  (OKTA-130804, OKTA-130848)
+* [`/oauth2/v1/clients/{clientId}`](/docs/reference/api/oauth-clients/#get-oauth-client) returned HTTP status code 404 rather than 401 when it did not find the specified client.  (OKTA-130804, OKTA-130848)
 
 ## 2017.29
 
@@ -688,15 +688,15 @@ The following platform features are Generally Available (GA) in preview orgs (as
 
 #### OpenID Connect
 
-[OpenID Connect](/docs/references/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](/docs/reference/api/oidc/) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
- Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/references/api/oidc/).<!-- OKTA-132049  -->
+ Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).<!-- OKTA-132049  -->
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/references/api/apps/) and [Identity Providers API](/docs/references/api/idps/)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/reference/api/idps/)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
 
 ### Platform Bugs Fixed
 
@@ -706,20 +706,20 @@ These platform bug fixes are available in preview orgs and expected in productio
 
 * Custom SMS templates allowed messages greater than 160 characters after substituting the org name and code. The new behavior is to use a default template instead of the custom template when that happens. To ensure use of your custom template, update it to stay within the 160-character limit. (OKTA-128721)
 
-* [`/oauth2/v1/clients`](/docs/references/api/oauth-clients/#register-new-client) error responses didn't conform to the format in the [OAuth 2.0 Dynamic Client Registration spec](https://tools.ietf.org/html/rfc7591#section-3.2.2). (OKTA-130375)
+* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) error responses didn't conform to the format in the [OAuth 2.0 Dynamic Client Registration spec](https://tools.ietf.org/html/rfc7591#section-3.2.2). (OKTA-130375)
 
-* [`/oauth2/v1/clients`](/docs/references/api/oauth-clients/#register-new-client) didn't allow default values for optional parameters. (OKTA-130910)
+* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) didn't allow default values for optional parameters. (OKTA-130910)
 
-* Neither [`/oauth2/v1/clients`](/docs/references/api/oauth-clients/#register-new-client) nor [`/api/v1/apps`](/docs/references/api/apps/#add-application) required client secrets to be unique. (OKTA-131259)
+* Neither [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) nor [`/api/v1/apps`](/docs/reference/api/apps/#add-application) required client secrets to be unique. (OKTA-131259)
 
-* [`/oauth2/v1/clients`](/docs/references/api/oauth-clients/#register-new-client) returned an incorrect resource URI in the response header.  (OKTA-131891)
+* [`/oauth2/v1/clients`](/docs/reference/api/oauth-clients/#register-new-client) returned an incorrect resource URI in the response header.  (OKTA-131891)
 
 
 ## 2017.28
 
 ### Platform Enhancements and New Features
 
-The following changes are available in preview orgs on Wednesday, July 12. Availability in production orgs is expected either one week or one month later. For information about Early Availability (EA) and Generally Available (GA), see [Okta Release Lifecycle](/docs/references/releases-at-okta/).
+The following changes are available in preview orgs on Wednesday, July 12. Availability in production orgs is expected either one week or one month later. For information about Early Availability (EA) and Generally Available (GA), see [Okta Release Lifecycle](/docs/reference/releases-at-okta/).
 
 The following features are GA in preview orgs, and expected to be GA in production orgs during the week of August 7, 2017:
 
@@ -743,16 +743,16 @@ The following feature enhancement is available on GitHub:
 
 #### OpenID Connect
 
-[OpenID Connect](/docs/references/api/oidc) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
+[OpenID Connect](/docs/reference/api/oidc) is a simple identity layer on top of the OAuth 2.0 protocol, which allows computing clients to verify the identity of an end user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end user in an interoperable and REST-like manner. In technical terms, OpenID Connect specifies a RESTful HTTP API, using JSON as a data format.
 
  OpenID Connect allows a range of clients, including Web-based, mobile, and JavaScript clients, to request and receive information about authenticated sessions and end users. The specification suite is extensible, supporting optional features such as encryption of identity data, discovery of OpenID Providers, and session management.
 
- Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/references/api/oidc/).<!-- OKTA-132049  -->
+ Okta is [certified for OpenID Connect](http://openid.net/certification/). For more information, see [OpenID Connect and Okta](/docs/reference/api/oidc/).<!-- OKTA-132049  -->
 
 
 #### Key Rollover
 
-We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/references/api/apps/) and [Identity Providers API](/docs/references/api/idps)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
+We provide the ability to generate a certificate with specified validity period (see the [Apps API](/docs/reference/api/apps/) and [Identity Providers API](/docs/reference/api/idps)). We build OpenID Connect and API Access Management on this feature.<!-- OKTA-132045  -->
 
 #### Limit Age of Events
 
@@ -767,7 +767,7 @@ Version 1.13.0 of the [Okta Sign-In Widget](https://github.com/okta/okta-signin-
 
 #### Allow Unsuspending Users During Inbound SAML Login
 
-You can configure the JIT settings for a SAML identity provider (IdP) to enable unsuspending users during inbound SAML login. See the [Identity Providers API](/docs/references/api/idps) for more information.<!-- OKTA-128384 -->
+You can configure the JIT settings for a SAML identity provider (IdP) to enable unsuspending users during inbound SAML login. See the [Identity Providers API](/docs/reference/api/idps) for more information.<!-- OKTA-128384 -->
 
 #### Email Factor
 
@@ -810,7 +810,7 @@ You can export data before Okta deletes it. We recommend using Security Informat
 
 #### Additional Scopes Available for Social Authentication
 
-When using a Social Identity Provider, you can request information in stages. The initial request to `/oauth2/v1/authorize` can ask for a minimal set of scopes, and you can add scopes to collect additional user data in a subsequent request to the Social Identity Provider. This reduces friction during sign-in when users don't yet trust your app. For more information, see the descriptions of `idp_scope` in the [OAuth 2.0 API](/docs/references/api/oidc/#request-parameters-1 ) and [OpenID Connect API](/docs/references/api/oidc/#request-parameters-3) parameter tables.<!-- (OKTA-117521) -->
+When using a Social Identity Provider, you can request information in stages. The initial request to `/oauth2/v1/authorize` can ask for a minimal set of scopes, and you can add scopes to collect additional user data in a subsequent request to the Social Identity Provider. This reduces friction during sign-in when users don't yet trust your app. For more information, see the descriptions of `idp_scope` in the [OAuth 2.0 API](/docs/reference/api/oidc/#request-parameters-1 ) and [OpenID Connect API](/docs/reference/api/oidc/#request-parameters-3) parameter tables.<!-- (OKTA-117521) -->
 
 #### New Versions of Sign-In Widget and Auth SDK for JS
 
@@ -849,7 +849,7 @@ You can export data before Okta deletes it. We recommend using Security Informat
 ### Platform Enhancement: New Authentication Method for OpenID Connect and API Access Management
 For OpenID Connect and API Access Management, Okta supports the `client_secret_jwt` method for token endpoint authentication (`token_endpoint_auth_method`).
 This method is specified in the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication)
-and allows you to use JWT and HMAC to authenticate a client for [OAuth 2.0 and OpenID Connect](/docs/references/api/oidc/#token-authentication-methods) requests.<!-- (OKTA-101074) -->
+and allows you to use JWT and HMAC to authenticate a client for [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/#token-authentication-methods) requests.<!-- (OKTA-101074) -->
 
 ### Platform Bugs Fixed
 
@@ -893,8 +893,8 @@ You can export data before Okta deletes it. We recommend using Security Informat
 
 #### System Logs Track Key Rotation and Generation
 Logged information about key rotation and generation for apps and identity providers is available by using GET requests to either of the following endpoints: `/api/v1/events` or `/api/v1/logs`.
-For more information, see [Identity Provider Signing Key Store Operations](/docs/references/api/idps/#identity-provider-signing-key-store-operations)
-or [Update Key Credential for Application](/docs/references/api/apps/#update-key-credential-for-application).
+For more information, see [Identity Provider Signing Key Store Operations](/docs/reference/api/idps/#identity-provider-signing-key-store-operations)
+or [Update Key Credential for Application](/docs/reference/api/apps/#update-key-credential-for-application).
 
 Here is a response from `/api/v1/logs`:
 
@@ -907,13 +907,13 @@ Here is a response from `/api/v1/logs`:
 <!-- (OKTA-76607) -->
 
 #### Client Registration API Is an Early Access Feature
-The [Auth Clients API](/docs/references/api/oauth-clients/) provides operations to register and manage client applications for use with Okta's
+The [Auth Clients API](/docs/reference/api/oauth-clients/) provides operations to register and manage client applications for use with Okta's
 OAuth 2.0 and OpenID Connect endpoints.
 
 #### Create OAuth 2.0 and OpenID Connect Clients with Apps API
-The [Apps API](/docs/references/api/apps/) supports creating and configuring
+The [Apps API](/docs/reference/api/apps/) supports creating and configuring
 OAuth 2.0 or OpenID Connect clients. Alternatively, you can use
-[Client Registration API](/docs/references/api/oauth-clients/) (RFC 7591 and RFC 7592)
+[Client Registration API](/docs/reference/api/oauth-clients/) (RFC 7591 and RFC 7592)
 to create and manage clients.
 <!-- (OKTA-78223) -->
 
@@ -949,7 +949,7 @@ Okta returns the `registration_endpoint` in OAuth 2.0 and OpenID Connect `.well-
 The `credentials.signing.kid` property of an app was available even if its sign-on mode does not support
 certificates. Only apps using the following sign-on mode types support certificates: SAML 2.0, SAML 1.1,
 WS-Fed, or OpenID Connect. For more information,
-see: [Application Key Store Operations](/docs/references/api/apps/#application-key-store-operations) (OKTA-76439)
+see: [Application Key Store Operations](/docs/reference/api/apps/#application-key-store-operations) (OKTA-76439)
 
 #### WWW-Authenticate Header in HTTP 401 Response
 When a call to the token, introspect, or revocation endpoint of OpenID Connect or API Access Management
@@ -1010,7 +1010,7 @@ Okta returns all default scopes in the Access Token that are permitted by the ac
 
 </div>
 
-For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/references/api/authorization-servers/#scope-properties).
+For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/reference/api/authorization-servers/#scope-properties).
 <!-- OKTA-122185 OKTA-122072 -->
 
 #### Improved UI for Creating OpenID Connect Apps
@@ -1059,7 +1059,7 @@ We enforce new rate limits for all preview orgs. API calls exceeding the new rat
 
 3. We are rolling out the enforcement of these new rate limits to all orgs this week. Once your org has the new limits, you'll see HTTP 429 errors instead of rate-limit warnings in the System Log if the new limits are exceeded.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Bug Fixed
 
@@ -1113,7 +1113,7 @@ We enforce new rate limits for all preview orgs. API calls exceeding the new rat
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate limits will return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Enhancements
 
@@ -1133,7 +1133,7 @@ With the following enhancements, the API Access Management Authorization Servers
 * Scopes were actions previously, but are now conditions in a policy rule.
 * Control which claims are returned in ID tokens with the `alwaysIncludeInToken` property. You can also configure this in the [administrator UI](https://help.okta.com/okta_help.htm?id=ext_API_Access).
 
-For more information see the [Authorization Server API documentation](/docs/references/api/authorization-servers/#authorization-server-operations).
+For more information see the [Authorization Server API documentation](/docs/reference/api/authorization-servers/#authorization-server-operations).
 <!-- OKTA-127511, OKTA-123638 -->
 
 #### Additional Logging for Invalid Use by OAuth 2.0 Client
@@ -1153,7 +1153,7 @@ Additionally, the Set Recovery Question Answer operation doesn't validate comple
 #### Step-up Authentication for SAML Apps is an Early Access Feature
 
 Every step-up transaction starts with a user accessing an application. If step-up authentication is required, Okta redirects the user to the custom login page with state token as a request parameter.
-For more information, see the [SP initiated Step-up Authentication documentation](/docs/references/api/authn/#sp-initiated-step-up-authentication).
+For more information, see the [SP initiated Step-up Authentication documentation](/docs/reference/api/authn/#sp-initiated-step-up-authentication).
 
 #### Simple HAL Links Generally Available in Preview for May, 2017
 
@@ -1201,7 +1201,7 @@ Before release 2017.19, a user object returned in a collection contained some or
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/references/core-okta-api/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by ID using the `self` link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1250,7 +1250,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate limits will return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Bugs Fixed
 
@@ -1301,7 +1301,7 @@ Before release 2017.19, a user object returned in a collection contains some or 
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/references/core-okta-api/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by ID using the `self` link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1344,11 +1344,11 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate limits will return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Feature Improvement: System Log Notifications for OpenID Connect Apps
 
-Notifications are entered in the [System Log](/docs/references/api/system-log/) when OpenID Connect apps are created or updated.
+Notifications are entered in the [System Log](/docs/reference/api/system-log/) when OpenID Connect apps are created or updated.
 
 ### Platform Bugs Fixed
 
@@ -1400,7 +1400,7 @@ Before release 2017.19, a user object returned in a collection contains some or 
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/references/core-okta-api/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by ID using the `self` link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1442,7 +1442,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate limits will return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Feature Improvements
 
@@ -1450,7 +1450,7 @@ For a full description of the new rate limits, see [API Rate Limits](/docs/refer
 
 Use Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
 With such a list you can, for example, create claims in Access Tokens and ID Tokens based on the groups.
-For more information, see [Group Functions](/docs/references/okta-expression-language/#group-functions). <!--OKTA-123127-->
+For more information, see [Group Functions](/docs/reference/okta-expression-language/#group-functions). <!--OKTA-123127-->
 
 #### New Profile Property for Apps
 
@@ -1458,9 +1458,9 @@ The `profile` property in the Apps API accepts any well-formed JSON schema. You 
 For example:
 
 * Add an app manager contact email address.
-* Use the profile to define an allowlist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/references/okta-expression-language/#group-functions).
+* Use the profile to define an allowlist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
-For more information, see the [Apps API](/docs/references/api/apps/#profile-object).
+For more information, see the [Apps API](/docs/reference/api/apps/#profile-object).
 
 Note that the status code for service claims errors has changed from 500 to 400 as part of this feature. <!--OKTA-123128-->
 
@@ -1471,11 +1471,11 @@ Use the `login_hint` property on `/oauth2/${authServerId}/v1/authorize` or `/oau
 ### Platform Bugs Fixed
 
 * Updating the OpenID Connect property `max_age` incorrectly caused a new session to be created, which updated the `createdAt` timestamp. (OKTA-99850)
-* The property `application_type` in the [OAuth 2.0 Clients API](/docs/references/api/oauth-clients/) could be edited. (OKTA-120223)
+* The property `application_type` in the [OAuth 2.0 Clients API](/docs/reference/api/oauth-clients/) could be edited. (OKTA-120223)
 * User profile attributes could be fetched via the API even though attributes were marked hidden, if the user sending the request was the user being fetched. (OKTA-123882)
 * Reordering Authorization Server policies failed. (OKTA-125156)
 * (Preview fix) Fixed issue involving OpenID Connect and OAuth 2.0 requests within SAML IdP configuration. (OKTA-127155)
-* The Zones API documentation was incorrectly announced as Generally Available in 2017.19. It is [a Beta release](/docs/references/releases-at-okta/).
+* The Zones API documentation was incorrectly announced as Generally Available in 2017.19. It is [a Beta release](/docs/reference/releases-at-okta/).
 
 #### Simple HAL Links Generally Available in Preview for May, 2017
 
@@ -1521,7 +1521,7 @@ Before release 2017.19, a user object returned in a collection contains some or 
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/references/core-okta-api/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1564,7 +1564,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate limits will return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Feature Improvements
 
@@ -1577,9 +1577,9 @@ The Zones API is now Generally Available in preview orgs. It will be at least on
 
 Zones are used to group IP Address ranges so that policy decisions can be made based on the zone a client's IP belongs to.
 
-For more information, see [the Zones API developer documentation](/docs/references/api/zones/).
+For more information, see [the Zones API developer documentation](/docs/reference/api/zones/).
 
-> Update: Zones API is [a Beta release](/docs/references/releases-at-okta/). This release note is in error.
+> Update: Zones API is [a Beta release](/docs/reference/releases-at-okta/). This release note is in error.
 
 #### Simple HAL Links Generally Available in Preview
 
@@ -1627,7 +1627,7 @@ Before release 2017.19, a user object returned in a collection contains some or 
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/references/core-okta-api/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1687,7 +1687,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate-limits return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 #### Simple HAL Links
 
@@ -1735,7 +1735,7 @@ Currently, a user object returned in a collection contains some or all of the fo
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/references/core-okta-api/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1758,11 +1758,11 @@ As noted above, to change user state, the `self` link should be called to retrie
 Using `GET /api/v1/idps/${idpId}/users/${userId}/credentials/tokens`, you can fetch the Access Tokens minted by a social authentication provider.
 When a user authenticates to Okta via a Social IdP, this request returns the tokens and metadata provided by the Social IdP.
 Clients can use the Access Token against the social provider's endpoints in order to fetch additional profile attributes that Okta doesn't support in Universal Directory, for example, nested attributes.
-For more information, see the [Identity Providers API](/docs/references/api/idps/#social-authentication-token-operation). <!-- OKTA-118687 -->
+For more information, see the [Identity Providers API](/docs/reference/api/idps/#social-authentication-token-operation). <!-- OKTA-118687 -->
 
 ### Platform Bugs Fixed
 
- * Searches on [User](/docs/references/api/users/#list-users-with-search) incorrectly returned deleted users or out-of-date user status in some cases. (OKTA-116928)
+ * Searches on [User](/docs/reference/api/users/#list-users-with-search) incorrectly returned deleted users or out-of-date user status in some cases. (OKTA-116928)
  * Some orgs were unable to add OpenID Connect or OAuth 2.0 clients to an access policy in a custom Authorization Server. (OKTA-117630)
  * When deleting a claim from a custom Authorization Server, the Delete dialog didn't close after clicking **OK** or **Cancel**. (OKTA-124271)
  * Read-only Administrator UI didn't exactly match that role's access rights. (OKTA-123116)
@@ -1804,7 +1804,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 3. In early June, we'll enforce these new rate limits for all orgs, and instead of alerts in your System Log, the API calls exceeding the new rate-limits return an HTTP 429 error.
 
-For a full description of the new rate limits, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the new rate limits, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 #### Simple HAL Links
 
@@ -1852,7 +1852,7 @@ Currently, a user object returned in a collection contains some or all of the fo
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/references/core-okta-api/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1885,7 +1885,7 @@ If your org or integrations depend on the previous behavior, you can request the
  * Removing the last app target from an `APP_ADMIN` role assignment changed the scope of the role assignment to all app targets. Now an exception is thrown.
     To target all apps, delete the APP_ADMIN role assignment and recreate it. (OKTA-115122)
  * Adding the first app target failed to change the scope of the role assignment from applying to all app targets to only applying to the specified target.
-    See [Administrator Roles API](/docs/references/api/roles/#add-app-target-to-app-administrator-role) for details. (OKTA-115122)
+    See [Administrator Roles API](/docs/reference/api/roles/#add-app-target-to-app-administrator-role) for details. (OKTA-115122)
  * Application Administrators were incorrectly able to create an OpenID Connect service client even though they weren't assigned an OpenID Connect client app. (OKTA-115168)
  * Some orgs weren't able to deprovision a user, receiving an incorrect 403 error: "Operation failed because user profile is mastered under another system." (OKTA-119549)
 <!-- * Read-only Administrators were incorrectly able to view the administrator UI for deleting authorization servers. (OKTA-123116) hold for production -->
@@ -1910,7 +1910,7 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 #### Simple HAL Links
 
@@ -1958,7 +1958,7 @@ Currently, a user object returned in a collection contains some or all of the fo
 ```
 
 Unfortunately, these links are not guaranteed to accurately reflect the state of the specified user.
-As outlined in [Design Principles](/docs/references/core-okta-api/#links-in-collections):
+As outlined in [Design Principles](/docs/reference/core-okta-api/#links-in-collections):
 
 "Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by 'id' using the "self" link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state."
 
@@ -1980,7 +1980,7 @@ Instead, Okta will send a customer communication explaining the migration path t
 
 ### Platform Feature Improvement: Zones API Generally Available in Preview
 
-Access policies can now be defined based on an IP address range using [the Zones API](/docs/references/api/zones/).
+Access policies can now be defined based on an IP address range using [the Zones API](/docs/reference/api/zones/).
 This feature is Generally Available in preview orgs for at least one month before being Generally Available in production. <!-- OKTA-121280 -->
 
 ### Platform Bugs Fixed
@@ -2005,14 +2005,14 @@ We are making org-wide rate limits more granular, and treating authenticated end
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Feature Improvements
 
 #### Revoke Access Tokens and Refresh Tokens
 
 Use the `oauthTokens` parameter when clearing user sessions to revoke all OpenID Connect and OAuth Access Tokens and Refresh Tokens
-issued to the user. For more information, see [the Users API](/docs/references/api/users/#clear-user-sessions).<!-- OKTA-116904 -->
+issued to the user. For more information, see [the Users API](/docs/reference/api/users/#clear-user-sessions).<!-- OKTA-116904 -->
 
 #### Token Requests with Grant Type password
 
@@ -2022,7 +2022,7 @@ Previously only the appropriate Access Token or Refresh Token was returned. <!--
 #### Authentication That Overrides Client Request Context
 
 The API now authenticates a user via a trusted application or proxy that uses the activation token.
-For more information, see [Authentication API](/docs/references/api/authn/#primary-authentication-with-activation-token). <!-- OKTA-119692 -->
+For more information, see [Authentication API](/docs/reference/api/authn/#primary-authentication-with-activation-token). <!-- OKTA-119692 -->
 
 #### HAL Link for User in Provisioned State
 
@@ -2049,11 +2049,11 @@ When determining the user locale via the API, Okta uses the locale setting in th
 
 Added `lifecycle/reactivate` endpoint.
 
-This endpoint enables the API user to recover from failure in the authentication workflow, specifically when the user password is not set. In those cases this endpoint can be used to restart the activation by getting a new token and proceeding to set the user credentials. For more information, see the [API Reference](/docs/references/api/users/#reactivate-user). <!-- OKTA-119096 -->
+This endpoint enables the API user to recover from failure in the authentication workflow, specifically when the user password is not set. In those cases this endpoint can be used to restart the activation by getting a new token and proceeding to set the user credentials. For more information, see the [API Reference](/docs/reference/api/users/#reactivate-user). <!-- OKTA-119096 -->
 
 #### Linking Users to Social Identity Providers
 
-Added a number of APIs that allow you to link an existing Okta user to a Social Identity Provider via an `externalId`. For more information, see [Identity Provider User Operations](/docs/references/api/idps/#identity-provider-user-operations) <!-- OKTA-97257 -->
+Added a number of APIs that allow you to link an existing Okta user to a Social Identity Provider via an `externalId`. For more information, see [Identity Provider User Operations](/docs/reference/api/idps/#identity-provider-user-operations) <!-- OKTA-97257 -->
 
 ### Platform Bugs Fixed
 
@@ -2081,7 +2081,7 @@ point, the warnings in the System Log will change to error notifications.
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Bugs Fixed
  * The `/api/v1/apps` API sometimes incorrectly returned `null` for the `realm` or `groupName`
@@ -2112,7 +2112,7 @@ point, the warnings in the System Log will change to error notifications.
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Feature Improvements
 
@@ -2153,11 +2153,11 @@ point, the warnings in the System Log will change to error notifications.
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Platform Bugs Fixed
 
- * Request to [`/api/v1/authn/factors/<factorId>/verify`](/docs/references/api/authn/#enroll-factor) responded with a valid `stateToken` after user status
+ * Request to [`/api/v1/authn/factors/<factorId>/verify`](/docs/reference/api/authn/#enroll-factor) responded with a valid `stateToken` after user status
  became `LOCKED_OUT`, causing user interface errors. (OKTA-115153)
  * The AuthSJ SDK produced a debug log message with some browsers. (OKTA-115460)
 
@@ -2180,7 +2180,7 @@ point, the warnings in the System Log will change to error notifications.
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Feature Improvement
 
@@ -2205,7 +2205,7 @@ We are making rate limits more granular and will roll the changes out over the n
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Feature Improvements
 
@@ -2232,7 +2232,7 @@ We are making rate limits more granular and will roll the changes out over the n
 
 Of course, as each change is released, we'll announce the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Feature Improvements
 
@@ -2252,7 +2252,7 @@ We are making rate limits more granular and will roll the changes out over the n
 
 Of course, as each change is released, we'll announced the change here.
 
-For a full description of the rate limit changes, see [API Rate Limits](/docs/references/rate-limits/).<!-- OKTA-110472 -->
+For a full description of the rate limit changes, see [API Rate Limits](/docs/reference/rate-limits/).<!-- OKTA-110472 -->
 
 ### Feature Improvements
 
@@ -2306,7 +2306,7 @@ but is now 401. (OKTA-111888)
 
 ### Feature Improvements: New Expression Language Function
 
-The new [expression language](/docs/references/okta-expression-language/) function `Arrays.toCsvString(array)` converts an array to a comma-delimited string. For example:
+The new [expression language](/docs/reference/okta-expression-language/) function `Arrays.toCsvString(array)` converts an array to a comma-delimited string. For example:
 
 `Arrays.toCsvString({"This", "is", " a ", "test"})` returns `This,is, a ,test` <!-- OKTA-51976 -->
 

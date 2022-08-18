@@ -70,7 +70,7 @@ You can then select the option to open the collection using the Postman app. Alt
 * Click **Import**.
 
 > **Note:** You can import and work with the rest of the Okta API using the link at the top of each API reference page,
-or see [all Postman collections](/docs/references/postman-collections/). This tutorial only requires the Users API collection.
+or see [all Postman collections](/docs/reference/postman-collections/). This tutorial only requires the Users API collection.
 
 ## Send a request
 

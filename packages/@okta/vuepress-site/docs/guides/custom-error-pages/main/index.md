@@ -43,7 +43,7 @@ You can add any HTML, CSS, or JavaScript that you want to the page.
 
 ### Use the Brands API
 
-The [Brands API](/docs/references/api/brands/) allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
+The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
 
 ## Edit the error page
 
@@ -129,7 +129,7 @@ Example:
 
 ### <span v-pre>`{{technicalDetails}}`</span>
 
-Inserts additional error codes, if there are any. See [Okta Error Codes](/docs/references/error-codes/#okta-error-codes-listed-by-error-code).
+Inserts additional error codes, if there are any. See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code).
 
 Example:
 

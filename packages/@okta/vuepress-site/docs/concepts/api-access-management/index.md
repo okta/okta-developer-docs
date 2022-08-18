@@ -93,8 +93,8 @@ Custom claims also help you by reducing the number of lookup calls required to r
 
 * [Learn more](/docs/concepts/oauth-openid/) about Okta and OAuth 2.0.
 * [Set up a custom authorization server](/docs/guides/customize-authz-server/) and use the power of Okta's API Access Management.
-* Visit [the OIDC/OAuth 2.0 endpoint documentation](/docs/references/api/oidc/) and start building your integration today.
-* For simpler use cases focused on SSO, visit [the OpenID Connect documentation](/docs/references/api/oidc/).
+* Visit [the OIDC/OAuth 2.0 endpoint documentation](/docs/reference/api/oidc/) and start building your integration today.
+* For simpler use cases focused on SSO, visit [the OpenID Connect documentation](/docs/reference/api/oidc/).
 
 ## Recommended practices for API Access Management
 
@@ -148,7 +148,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 ##### API Gateway (optional)
 
 * Access tokens should be used exclusively via an HTTP Authorization header instead of encoded into a payload or URL which may be logged or cached.
-* When a gateway successfully validates an access token, cache the result until the expiration time (`exp` claim). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or via the [introspection endpoint](/docs/references/api/oidc/#introspect).
+* When a gateway successfully validates an access token, cache the result until the expiration time (`exp` claim). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
 * When a gateway retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 * If the gateway is performing endpoint or HTTP verb-level authorization using scopes, the scopes must be defined and granted in the Okta Authorization Server or Custom Authorization Server before being used in the gateway.
 
@@ -157,13 +157,13 @@ Okta provides the API Access Management administrator role to manage authorizati
 ##### Securing applications
 
 * Access tokens and refresh tokens are sensitive and should be protected as such. They should never be stored in client-side or frontend code.
-* A client (application) should never inspect the contents of an access token. For example, do not customize the client's UI based on scopes in the access token. The access token isn't meant for the client to read, it's meant for the client to use. However, there is still a large amount of metadata that may be attached to a token, such as its current validity, approved scopes, and information about the context in which the token was issued. Use the [token introspect endpoint](/docs/references/api/oidc/#introspect) to access this data.
+* A client (application) should never inspect the contents of an access token. For example, do not customize the client's UI based on scopes in the access token. The access token isn't meant for the client to read, it's meant for the client to use. However, there is still a large amount of metadata that may be attached to a token, such as its current validity, approved scopes, and information about the context in which the token was issued. Use the [token introspect endpoint](/docs/reference/api/oidc/#introspect) to access this data.
 * Access tokens should be used exclusively via an HTTP Authorization header instead of encoded into a payload or URL that may be logged or cached.
 * A client secret is a password and should be treated and protected as such. Therefore, it shouldn't be embedded in mobile applications, frontend JavaScript applications, or any other scenario where an attacker could access it.
 * Avoid using the resource owner password grant type (`password`) except in legacy application or transitional scenarios. The authorization code, implicit, or hybrid grant types are recommended for most scenarios.
 * For mobile and single-page web applications, using the authorization code grant type with PKCE is the best practice. The implicit or hybrid grant type is the next best option.
 * For Android or iOS applications, use [Okta OIDC iOS](https://github.com/okta/okta-oidc-ios) or [Okta OIDC Android](https://github.com/okta/okta-oidc-android).
-* When an application successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or via the [introspection endpoint](/docs/references/api/oidc/#introspect).
+* When an application successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
 * When an application retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 
 * Never use an access token granted from the Okta Organization Authorization Server for authorization within your applications. These tokens are intended for use with Okta and can't be validated within your application. Instead, use tokens granted from a Custom Authorization Server. Read more about the various types of authorization servers in the [Authorization Servers](/docs/concepts/auth-servers) concept section.
@@ -172,4 +172,4 @@ Okta provides the API Access Management administrator role to manage authorizati
 
 * Accept access tokens only via an HTTP Authorization header. Don't encode tokens into a payload or URL that may be logged or cached.
 * A resource server must confirm that the audience claim (`aud`) and client ID claim (`cid`) match the expected audience and client ID.
-* When a resource server successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or via the [introspection endpoint](/docs/references/api/oidc/#introspect).
+* When a resource server successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).

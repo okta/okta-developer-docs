@@ -35,7 +35,7 @@ http --form POST https://${yourOktaDomain}/oauth2/v1/revoke \
 
 > **Note:** Revoking a token that is invalid, expired, or already revoked returns a `200 OK` status code to prevent any information leaks.
 
-See [Revoke a token](/docs/references/api/oidc/#revoke) in the Okta OpenID Connect & OAuth 2.0 API reference.
+See [Revoke a token](/docs/reference/api/oidc/#revoke) in the Okta OpenID Connect & OAuth 2.0 API reference.
 
 ## Revoke an access token or a refresh token
 
@@ -73,17 +73,17 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/revoke' \
 -d "token_type_hint=refresh_token"
 ```
 
-See [Rule policies](/docs/references/api/authorization-servers/#rule-properties) for more information on configuring Time to Live (TTL) and other parameters involving access and refresh tokens.
+See [Rule policies](/docs/reference/api/authorization-servers/#rule-properties) for more information on configuring Time to Live (TTL) and other parameters involving access and refresh tokens.
 
 ## Remove a user session
 
-Separate from access and refresh tokens, there is also the Okta session cookie that provides access to your Okta organization and applications. For a more complete explanation of Okta user sessions, see the [Sessions API reference](/docs/references/api/sessions/). You can revoke Okta sessions in one of two ways:
+Separate from access and refresh tokens, there is also the Okta session cookie that provides access to your Okta organization and applications. For a more complete explanation of Okta user sessions, see the [Sessions API reference](/docs/reference/api/sessions/). You can revoke Okta sessions in one of two ways:
 
 * Close a specific session using the Sessions API
 * Revoke all sessions for a given user using the Users API
 
 > **Note:** Removing all user sessions can optionally also remove all related access and refresh tokens by including the `oauthTokens` parameter in the request.
 
-See [Close Session](/docs/references/api/sessions/#close-session) in the Sessions API reference for more information on removing a specific session.
+See [Close Session](/docs/reference/api/sessions/#close-session) in the Sessions API reference for more information on removing a specific session.
 
-See [Clear User Sessions](/docs/references/api/users/#clear-user-sessions) in the Users API reference for more information on removing all of a user's sessions.
+See [Clear User Sessions](/docs/reference/api/users/#clear-user-sessions) in the Users API reference for more information on removing all of a user's sessions.

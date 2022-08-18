@@ -12,7 +12,7 @@
 
     // Render the ID token payload from the request into an accessible JSON object
     // For more information on the ID token, see:
-    // https://developer.okta.com/docs/references/api/oidc/#id-token
+    // https://developer.okta.com/docs/reference/api/oidc/#id-token
 
     let payload = (req.userContext.tokens.id_token).split("."); //split payload segment from ID Token
     let bufferObj = Buffer.from(payload[1], "base64"); //decode payload from base64

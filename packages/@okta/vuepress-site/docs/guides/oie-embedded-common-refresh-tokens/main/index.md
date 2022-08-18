@@ -44,7 +44,7 @@ server's token endpoint to renew the access token.
 ## Option 2: Refresh the tokens with the OAuth token endpoint
 
 You can refresh access and ID tokens using the
-[`/token`](/docs/references/api/oidc/#token)
+[`/token`](/docs/reference/api/oidc/#token)
 endpoint with the `grant_type` set to `refresh_token`. Before calling this endpoint,
 obtain the refresh token from the SDK and ensure that you have included
 `offline_access` as a scope in the SDK configurations. For further details on
@@ -86,7 +86,7 @@ client_id=0oa94el1z4nUDxx0z5d7
 
 ## Get the token info using the introspect endpoint
 
-To get information on a current token, such as if the token is active or has expired, use the [`/introspect`](/docs/references/api/oidc/#introspect) endpoint.
+To get information on a current token, such as if the token is active or has expired, use the [`/introspect`](/docs/reference/api/oidc/#introspect) endpoint.
 
 <StackSnippet snippet="introspectendpointrequest" />
 

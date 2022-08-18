@@ -35,9 +35,9 @@ When an application needs to get a new access token from an authorization server
 
 When a consent dialog appears depends on the values of three elements:
 
-* `prompt`: a query [parameter](/docs/references/api/oidc/#parameter-details) that is used in requests to `/oauth2/${authorizationServerId}/v1/authorize` (custom authorization server)
-* `consent_method`: a property listed in the **Settings** [table](/docs/references/api/apps/#settings-10) in the Apps API doc
-* `consent`: a property listed in the **Parameter details** [section](/docs/references/api/oidc/#parameter-details) for the `/authorize` endpoint
+* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/${authorizationServerId}/v1/authorize` (custom authorization server)
+* `consent_method`: a property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc
+* `consent`: a property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint
 
 ## Enable consent for scopes
 
@@ -59,14 +59,14 @@ Use the following steps to display the user consent dialog box as part of an Ope
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
 1. Click **Save**.
-1. To enable consent for the [scopes](/docs/references/api/authorization-servers/#create-a-scope) that you want to require consent for, select **Security** and then **API**.
+1. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, select **Security** and then **API**.
 1. On the **Authorization Servers** tab, select **default** (Custom Authorization Server) in the table. In this example, we are enabling consent for default Custom Authorization Server scopes.
 1. Select the **Scopes** tab.
 1. Click the edit icon for the **phone** scope. The Edit Scope dialog box appears.
 
 1. Select **Require user consent for this scope**. The **Block services from requesting this scope** check box is automatically selected.
 
-    The **Block services from requesting this scope** check box strictly enforces end-user consent for the scope. When this check box is selected, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the check box. See the [Authorization Servers API](/docs/references/api/authorization-servers/#scope-properties) for more information on consent options.
+    The **Block services from requesting this scope** check box strictly enforces end-user consent for the scope. When this check box is selected, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the check box. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
 
 1. Click **Save**.
 
@@ -78,9 +78,9 @@ The following section provides example requests for enabling the consent dialog 
 
 This example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` (which is the default) to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
 
-> **Note:** Check the **Settings** [table](/docs/references/api/apps/#settings-10) in the **Add OAuth 2.0 Client Application** section of the Apps API reference for information on these three properties. In most cases, `REQUIRED` is the correct value.
+> **Note:** Check the **Settings** [table](/docs/reference/api/apps/#settings-10) in the **Add OAuth 2.0 Client Application** section of the Apps API reference for information on these three properties. In most cases, `REQUIRED` is the correct value.
 
-> **Note:** You need the `applicationId` of the app that you want to update. Do a [List Applications](/docs/references/api/apps/#list-applications-with-defaults) to locate that ID.
+> **Note:** You need the `applicationId` of the app that you want to update. Do a [List Applications](/docs/reference/api/apps/#list-applications-with-defaults) to locate that ID.
 
 ```json
 {
@@ -138,14 +138,14 @@ This example shows the JSON body of a PUT request to an existing OpenID Connect 
 }
 ```
 
-To enable consent for a scope, you need to [update the appropriate scope](/docs/references/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`. You can also set the `consent` property for the scope to `FLEXIBLE`. See the [Authorization Servers API](/docs/references/api/authorization-servers/#scope-properties) for more information on this value.
+To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`. You can also set the `consent` property for the scope to `FLEXIBLE`. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on this value.
 
 ### Update Scope consent
 
 This example shows the JSON body for a PUT request to the default Custom Authorization Server (`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/scopes/${scopeId}`) to update the `phone` scope. You need the following information for the request:
 
-* `authorizationServerId`: Do a [List Authorization Servers](/docs/references/api/authorization-servers/#list-authorization-servers) to locate the appropriate ID.
-* `scopeId`: Do a [List Scopes](/docs/references/api/authorization-servers/#get-all-scopes) to locate the appropriate ID.
+* `authorizationServerId`: Do a [List Authorization Servers](/docs/reference/api/authorization-servers/#list-authorization-servers) to locate the appropriate ID.
+* `scopeId`: Do a [List Scopes](/docs/reference/api/authorization-servers/#get-all-scopes) to locate the appropriate ID.
 
 ```json
 {
@@ -187,9 +187,9 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     * Values for `state` and `nonce`, which can be anything
 
-    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scope(s). When you include `prompt=consent` in the request, the user is prompted for consent every time, even if they have already given consent. The `consent_method` and the consent for the scope(s) must be set to `REQUIRED`. See the [**Parameter details**](/docs/references/api/oidc/#parameter-details) section for the `/authorize` endpoint for more information on the supported values for the `prompt` parameter.
+    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scope(s). When you include `prompt=consent` in the request, the user is prompted for consent every time, even if they have already given consent. The `consent_method` and the consent for the scope(s) must be set to `REQUIRED`. See the [**Parameter details**](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint for more information on the supported values for the `prompt` parameter.
 
-    > **Note:** All of the values are fully documented in the `/authorize` [endpoint](/docs/references/api/oidc/#authorize) section of the OpenID Connect & OAuth 2.0 API reference.
+    > **Note:** All of the values are fully documented in the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) section of the OpenID Connect & OAuth 2.0 API reference.
 
     The resulting URL to request an access token looks something like this:
 
@@ -335,8 +335,8 @@ There are several ways to verify that you've successfully created a user grant:
 
 To revoke consent for a user, you can revoke one consent that is granted or all consents that are granted. Before you begin, you need the following:
 
-- `userId` for the user that you want to revoke a grant for. Do a [List Users](/docs/references/api/users/#list-users) to locate the user and the `userId` that you need.
-- `grantId` for the grant that you want to revoke. Do a [List Grants](/docs/references/api/users/#list-grants) with the `userId` to locate the `grantID` that you need.
+- `userId` for the user that you want to revoke a grant for. Do a [List Users](/docs/reference/api/users/#list-users) to locate the user and the `userId` that you need.
+- `grantId` for the grant that you want to revoke. Do a [List Grants](/docs/reference/api/users/#list-grants) with the `userId` to locate the `grantID` that you need.
 
 ### Revoke one Grant
 
@@ -352,7 +352,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/${userId}/grants/${grantId}"
 ```
 
-> **Note:** See [Revoke a Grant for a User](/docs/references/api/users/#revoke-a-grant-for-a-user) for more information.
+> **Note:** See [Revoke a Grant for a User](/docs/reference/api/users/#revoke-a-grant-for-a-user) for more information.
 
 ### Revoke all Grants
 
@@ -368,14 +368,14 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/users/${userId}/grants"
 ```
 
-> **Note:** See [Revoke all Grants for a User](/docs/references/api/users/#revoke-all-grants-for-a-user) for more information.
+> **Note:** See [Revoke all Grants for a User](/docs/reference/api/users/#revoke-all-grants-for-a-user) for more information.
 
 ## Troubleshooting
 
 If you don't see the consent prompt when expected:
 
-* Verify that you haven't already provided consent for that combination of app and scope(s). Use the [`/grants` endpoint](/docs/references/api/users/#list-grants) to see which grants have been given and to revoke grants.
-* Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table](/docs/references/api/apps/#add-oauth-20-client-application).
-* Make sure that in your app configuration, the `redirect_uri` is an absolute URI and that it is allowed by specifying it in [Trusted Origins](/docs/references/api/trusted-origins/).
+* Verify that you haven't already provided consent for that combination of app and scope(s). Use the [`/grants` endpoint](/docs/reference/api/users/#list-grants) to see which grants have been given and to revoke grants.
+* Check the settings for `prompt`, `consent`, and `consent_method` in the [Apps API table](/docs/reference/api/apps/#add-oauth-20-client-application).
+* Make sure that in your app configuration, the `redirect_uri` is an absolute URI and that it is allowed by specifying it in [Trusted Origins](/docs/reference/api/trusted-origins/).
 * If you aren't using the `default` [authorization server](/docs/concepts/auth-servers/), check that you've created at least one policy with one rule that applies to any scope or the scope(s) in your test.
-* Check the [System Log](/docs/references/api/system-log/) to see what went wrong.
+* Check the [System Log](/docs/reference/api/system-log/) to see what went wrong.

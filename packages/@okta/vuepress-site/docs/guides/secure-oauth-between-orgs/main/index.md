@@ -50,9 +50,9 @@ You can use OAuth 2.0 to push user and group information from a spoke org to a c
 
 ### Add an Org2Org app integration in a spoke org
 
-In the spoke org, where you want to push users and groups to the central hub org, you need to add an instance of the Org2Org app integration by using the [Okta Apps API](/docs/references/api/apps/#add-okta-org2org-application). This generates an Org2Org app integration instance and the key certificates required to connect to the hub org.
+In the spoke org, where you want to push users and groups to the central hub org, you need to add an instance of the Org2Org app integration by using the [Okta Apps API](/docs/reference/api/apps/#add-okta-org2org-application). This generates an Org2Org app integration instance and the key certificates required to connect to the hub org.
 
-As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org parameters](/docs/references/api/apps/#add-okta-org2org-application):
+As an Okta admin, make a `POST /api/v1/apps` request to the spoke org with [Okta Org2Org parameters](/docs/reference/api/apps/#add-okta-org2org-application):
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -80,7 +80,7 @@ curl -v -X POST \
 }' "https://${yourSpokeOktaDomain}/api/v1/apps"
 ```
 
-From the response of your POST request, use the `id` property of the Org2Org app instance to [retrieve the key credentials](/docs/references/api/apps/#list-key-credentials-for-application) generated for the app with the `GET /api/v1/apps/${id}/credentials/keys` request.
+From the response of your POST request, use the `id` property of the Org2Org app instance to [retrieve the key credentials](/docs/reference/api/apps/#list-key-credentials-for-application) generated for the app with the `GET /api/v1/apps/${id}/credentials/keys` request.
 
 ##### Request example
 
@@ -119,7 +119,7 @@ You need to save the generated credentials to configure the corresponding hub or
 
 ### Create an OAuth 2.0 service app in the hub org
 
- In the hub org, create an OAuth 2.0 service app for each spoke org by using the [Dynamic Client Registration API](/docs/references/api/oauth-clients/). As an Okta admin, make a `POST /oauth2/v1/clients` request to the hub org with the following required parameters:
+ In the hub org, create an OAuth 2.0 service app for each spoke org by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). As an Okta admin, make a `POST /oauth2/v1/clients` request to the hub org with the following required parameters:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -172,7 +172,7 @@ curl -X POST \
 
 ### Grant allowed scopes to the OAuth 2.0 client
 
-From the response of the previous POST request, use the `client_id` property of the service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) for the client with the [`POST /api/v1/apps/${client_id}/grants`](/docs/references/api/apps/#grant-consent-to-scope-for-application) request.
+From the response of the previous POST request, use the `client_id` property of the service app instance to grant the [allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) for the client with the [`POST /api/v1/apps/${client_id}/grants`](/docs/reference/api/apps/#grant-consent-to-scope-for-application) request.
 
 > **Note**: Currently, both `okta.users.manage` and `okta.groups.manage` scopes are required for the service app configuration.
 
@@ -202,11 +202,11 @@ curl -X POST \
 
 ### Enable provisioning in the Org2Org app
 
-In each spoke org, set and activate provisioning for the Org2Org app integration by using the [Okta Apps API](/docs/references/api/apps/#set-default-provisioning-connection-for-application).
+In each spoke org, set and activate provisioning for the Org2Org app integration by using the [Okta Apps API](/docs/reference/api/apps/#set-default-provisioning-connection-for-application).
 
 > **Note**: Currently, only the Okta API can be used to enable OAuth 2.0-based provisioning.
 
-As an Okta admin, make a [`POST /api/v1/apps/${Org2OrgAppId}/connections/default?activate=TRUE`](/docs/references/api/apps/#set-default-provisioning-connection-for-application) request to set provisioning for the spoke org using the following profile parameters:
+As an Okta admin, make a [`POST /api/v1/apps/${Org2OrgAppId}/connections/default?activate=TRUE`](/docs/reference/api/apps/#set-default-provisioning-connection-for-application) request to set provisioning for the spoke org using the following profile parameters:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -228,14 +228,14 @@ curl -X POST \
 }' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/connections/default?activate=TRUE"
 ```
 
-> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App features operation](/docs/references/api/apps/#list-features-for-application) and the [Mappings API](/docs/references/api/mappings/). Alternatively, you can go to the Org2Org app **Provisioning** > **To App** settings from the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
+> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App features operation](/docs/reference/api/apps/#list-features-for-application) and the [Mappings API](/docs/reference/api/mappings/). Alternatively, you can go to the Org2Org app **Provisioning** > **To App** settings from the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
 
 ### Assign users and groups in the Org2Org app
 
-In each spoke org, assign the users and groups to the Org2Org app integration by using the [Okta Apps API application operations](/docs/references/api/apps/#application-user-operations):
+In each spoke org, assign the users and groups to the Org2Org app integration by using the [Okta Apps API application operations](/docs/reference/api/apps/#application-user-operations):
 
-* [`POST /api/v1/apps/${yourOrg2OrgAppId}/users` (assign user to an application for SSO and provisioning)](/docs/references/api/apps/#assign-user-to-application-for-sso-and-provisioning)
-* [`POST /api/v1/apps/${yourOrg2OrgAppId}/groups/${groupId}` (assign group to an application)](/docs/references/api/apps/#assign-group-to-application)
+* [`POST /api/v1/apps/${yourOrg2OrgAppId}/users` (assign user to an application for SSO and provisioning)](/docs/reference/api/apps/#assign-user-to-application-for-sso-and-provisioning)
+* [`POST /api/v1/apps/${yourOrg2OrgAppId}/groups/${groupId}` (assign group to an application)](/docs/reference/api/apps/#assign-group-to-application)
 
 Alternatively, you can assign users and groups for provisioning using the Okta Admin Console. See [Assign an app integration to a user](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-user) and [Assign an app integration to a group](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-assign-app-groups).
 
@@ -253,7 +253,7 @@ An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/do
 
 ### Generate a new key for the Org2Org app
 
-From your spoke org, make a request to [generate a new application key credential](/docs/references/api/apps/#generate-new-application-key-credential) as an Okta admin user.
+From your spoke org, make a request to [generate a new application key credential](/docs/reference/api/apps/#generate-new-application-key-credential) as an Okta admin user.
 
 ##### Request example
 
@@ -290,7 +290,7 @@ Save the generated credentials to update the keys in your Org2Org and service ap
 
 ### Register the new Org2Org app key with the corresponding service app
 
-On your hub org, register the new key, [generated from the previous POST request](#generate-a-new-key-for-the-org2org-app), to your corresponding service app by using the [Dynamic Client Registration API](/docs/references/api/oauth-clients/#update-a-client-application).
+On your hub org, register the new key, [generated from the previous POST request](#generate-a-new-key-for-the-org2org-app), to your corresponding service app by using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#update-a-client-application).
 
 ##### Request example
 
@@ -332,7 +332,7 @@ curl -X PUT \
 
 ### Update the current credentials for the Org2Org app
 
-From the response of the [previous generate key POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](/docs/references/api/apps/#update-key-credential-for-application).
+From the response of the [previous generate key POST request](#generate-a-new-key-for-the-org2org-app), copy the `kid` property and [activate the new key by updating the Org2Org app](/docs/reference/api/apps/#update-key-credential-for-application).
 
 ##### Request example
 

@@ -40,7 +40,7 @@ The following Event Types are available only in Identity Engine and can't be use
 * `security.authenticator.lifecycle.activated`
 * `security.authenticator.lifecycle.deactivate`
 
-**Further Information:** [Event Types](/docs/references/api/event-types/)
+**Further Information:** [Event Types](/docs/reference/api/event-types/)
 
 ***
 
@@ -109,7 +109,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 **What Changed:** The SMS Factor can no longer be activated or deactivated using the Factors Administrator API (`/api/v1/org/factors`).
 
-**Further Information:** [Factors Administration API](/docs/references/api/factor-admin)
+**Further Information:** [Factors Administration API](/docs/reference/api/factor-admin)
 
 ***
 
@@ -117,7 +117,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 **What Changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in Identity Engine because of the new flexible authentication policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible authentication policy.
 
-**Further information:** [IDP-initiated step-up authentication](/docs/references/api/authn/#idp-initiated-step-up-authentication)
+**Further information:** [IDP-initiated step-up authentication](/docs/reference/api/authn/#idp-initiated-step-up-authentication)
 
 ***
 
@@ -127,7 +127,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 The following Identity Engine features aren't supported using the Factor APIs.
 
-* Enroll in multiple Okta Verify factors using the [Factors API](/docs/references/api/factors/#enroll-okta-verify-totp-factor). You can only use the Factors API to enroll the first Okta Verify factor.
+* Enroll in multiple Okta Verify factors using the [Factors API](/docs/reference/api/factors/#enroll-okta-verify-totp-factor). You can only use the Factors API to enroll the first Okta Verify factor.
 * Okta Verify authenticator settings aren't enforced when enrolling using the Factors API:
 
   * The FIPS compliance requirement for enrollments
@@ -143,7 +143,7 @@ See the [SDK uses cases](/docs/guides/oie-embedded-common-org-setup/main/) in ou
 
 Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine Authentication APIs are denied recovery.
 
-**Further information:** [Recovery operations](/docs/references/api/authn/#recovery-operations) section of the Authentication API.
+**Further information:** [Recovery operations](/docs/reference/api/authn/#recovery-operations) section of the Authentication API.
 
 ***
 

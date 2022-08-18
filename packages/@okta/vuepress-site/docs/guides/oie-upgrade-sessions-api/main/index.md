@@ -7,7 +7,7 @@ meta:
 
 <ApiLifecycle access="ie" />
 
-Okta uses an HTTP session cookie to provide access to your Okta organization and applications across web requests for interactive user agents such as a browser. The Okta [Sessions API](/docs/references/api/sessions/) provides operations to create and manage authentication sessions for users in your Okta org.
+Okta uses an HTTP session cookie to provide access to your Okta organization and applications across web requests for interactive user agents such as a browser. The Okta [Sessions API](/docs/reference/api/sessions/) provides operations to create and manage authentication sessions for users in your Okta org.
 
 After your org is upgraded to Okta Identity Engine, there are a few things you should know about how sessions work with Identity Engine.
 
@@ -18,7 +18,7 @@ The following section discusses different use cases and what the changes are aft
 
 1. **Are you using the Sign-In Widget?** Everything works as configured. The Sign-In Widget takes care of calling the correct Identity Engine endpoints and returns the `idx` cookie in the response.
 
-2. **Are you creating a session with a [session token](/docs/references/api/sessions/#create-session-with-a-session-token)?** We recommend that you use the [Okta Identity Engine SDKs](/code/oie/).
+2. **Are you creating a session with a [session token](/docs/reference/api/sessions/#create-session-with-a-session-token)?** We recommend that you use the [Okta Identity Engine SDKs](/code/oie/).
 
     However, creating a session with a session token does continue to work in most cases:
 
@@ -26,7 +26,7 @@ The following section discusses different use cases and what the changes are aft
 
     > **Note:** Operations on the two sessions aren't synchronous in all cases. Okta creates an `idx` session if there's a `sid` session (Classic Engine session) present. However, creating a `sid` session when there's an `idx` session (Identity Engine session) present isn't supported.
 
-3. **Are you using the [My Session Management endpoints](/docs/references/api/sessions/#get-current-session) (`api/v1/sessions/me`)?** Everything works as configured. Operations are reflected on both Session ID (`sid`) and Identity Engine (`idx`) cookies.
+3. **Are you using the [My Session Management endpoints](/docs/reference/api/sessions/#get-current-session) (`api/v1/sessions/me`)?** Everything works as configured. Operations are reflected on both Session ID (`sid`) and Identity Engine (`idx`) cookies.
 
 4. **Are you calling any of these four `v1/sessions/${sessionId}/*` endpoints?** These operations work only on the Session ID (`sid`) session and not on the Identity Engine `idx` sessions.
 
@@ -35,4 +35,4 @@ The following section discusses different use cases and what the changes are aft
     * DELETE `/api/v1/sessions/${sessionId}`
     * POST `/api/v1/users/me/lifecycle/delete_sessions`
 
-If you are using any of these endpoints, we highly recommend that you move away from using the Session ID entirely and use the [My Session Management endpoints](/docs/references/api/sessions/#get-current-session) instead. This puts you in charge of managing your own session.
+If you are using any of these endpoints, we highly recommend that you move away from using the Session ID entirely and use the [My Session Management endpoints](/docs/reference/api/sessions/#get-current-session) instead. This puts you in charge of managing your own session.

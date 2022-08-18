@@ -7,7 +7,7 @@ This section discusses the steps required to add an external SAML Identity Provi
 Use one of the following existing procedures to configure the SAML Identity Provider:
 
 * [Admin Console](/docs/guides/add-an-external-idp/saml2/main/)
-* [Identity Providers API](/docs/references/api/idps/#add-saml-2-0-identity-provider)
+* [Identity Providers API](/docs/reference/api/idps/#add-saml-2-0-identity-provider)
 
 The following steps assume that you are using the Admin Console.
 
@@ -21,7 +21,7 @@ After you complete the SAML Identity Provider configuration, if you haven't done
 
 If your Service Provider doesn't support uploading metadata, save the **Assertion Consumer Service URL** (ACS URL) and the **Audience URI** values to enter manually.
 
-> **Note:** If you used the [Identity Providers API](/docs/references/api/idps/#add-saml-2-0-identity-provider) to create the SAML Identity Provider in Okta, locate and copy the `audience` value within the `credentials` property of the `protocol` object. Then, locate and copy the `acs` link relation type value within the `links` object.
+> **Note:** If you used the [Identity Providers API](/docs/reference/api/idps/#add-saml-2-0-identity-provider) to create the SAML Identity Provider in Okta, locate and copy the `audience` value within the `credentials` property of the `protocol` object. Then, locate and copy the `acs` link relation type value within the `links` object.
 
 ### Upload the metadata
 

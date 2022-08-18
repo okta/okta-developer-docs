@@ -80,7 +80,7 @@ curl --request POST \
 The device authorization request passes the following parameters:
 
 * `client_id` &mdash; matches the Client ID of the OAuth 2.0 application that you created
-* `scope` &mdash; specifies which access privileges are being requested for the access token. See [Scopes](/docs/references/api/oidc/#scopes) for a list of supported scopes.
+* `scope` &mdash; specifies which access privileges are being requested for the access token. See [Scopes](/docs/reference/api/oidc/#scopes) for a list of supported scopes.
 
 **Example response**
 

@@ -116,7 +116,7 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 
 > **Note**: `offline_access` scope isn't available since refresh tokens aren't supported for apps published in OIN.
 
-You can only request the [OIDC scopes](/docs/references/api/oidc/#scopes). Custom scopes, like the `groups` scope, can't be configured.
+You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). Custom scopes, like the `groups` scope, can't be configured.
 
 Okta utilizes access policies to decide whether the scopes can be granted. If any of the requested scopes are rejected by the access policies, the request is rejected.
 
@@ -130,7 +130,7 @@ There are three URIs that you need to consider when creating an OIDC app for the
 
 ## Token validation
 
-For checking access tokens, the `/introspect` [endpoint](/docs/references/api/oidc/#introspect) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
+For checking access tokens, the `/introspect` [endpoint](/docs/reference/api/oidc/#introspect) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
 
 As OIN app integrations can't use custom auth servers, you must use remote token validation (through the Introspection API endpoint) for access tokens and local validation for ID tokens.
 
@@ -142,7 +142,7 @@ The standard behavior in identity and access management is to rotate the keys us
 
 Your OIDC client should periodically query the `/keys` endpoint and retrieve the JSON Web Key Set. This key set contains the public keys used to verify the signatures of the tokens received from Okta. You can cache the keys to improve performance, but be aware that verification fails when Okta automatically rotates the keys.
 
-For more information, see [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](/docs/references/api/oidc/#keys) for specific details on handling queries and responses.
+For more information, see [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](/docs/reference/api/oidc/#keys) for specific details on handling queries and responses.
 
 ## Next steps
 

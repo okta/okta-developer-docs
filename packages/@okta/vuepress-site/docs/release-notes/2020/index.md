@@ -13,12 +13,12 @@ title: Okta API Products Release Notes 2020
 
 #### Manage email subscription settings using the Subscriptions API
 
-The `/subscriptions` API is now available in Self-Service EA. The [Subscriptions API](/docs/references/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications. <!--OKTA-325794-->
+The `/subscriptions` API is now available in Self-Service EA. The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications. <!--OKTA-325794-->
 
 #### Bugs fixed in 2020.12.2
 
-* Clients making GET requests to `/api/v1/users/{usernameprefix}` received an error if the user's [short name](/docs/references/api/users/#get-user-with-login-shortname) (`usernameprefix`) ended with `.jpg`, `.png`, `.js`, `.css`, or a similar file extension, even when a user matching that short name existed. (OKTA-322140)
-* When an [MFA policy](/docs/references/api/policy/#multifactor-mfa-enrollment-policy) was created without specifying the `consent` format, subsequent GET and UPDATE requests resulted in an error. (OKTA-339250)
+* Clients making GET requests to `/api/v1/users/{usernameprefix}` received an error if the user's [short name](/docs/reference/api/users/#get-user-with-login-shortname) (`usernameprefix`) ended with `.jpg`, `.png`, `.js`, `.css`, or a similar file extension, even when a user matching that short name existed. (OKTA-322140)
+* When an [MFA policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) was created without specifying the `consent` format, subsequent GET and UPDATE requests resulted in an error. (OKTA-339250)
 * The `/users/${userId}/groups` endpoint incorrectly returned a 500 Internal Server Error if the last page contained no elements. (OKTA-358328)
 
 
@@ -30,7 +30,7 @@ The `/subscriptions` API is now available in Self-Service EA. The [Subscriptions
 
 #### Bugs fixed in 2020.12.1
 
-* The Update User API incorrectly allowed the [Credentials object](/docs/references/api/users/#credentials-object) of an ACTIVE user to be updated to [Password Hook](/docs/references/api/users/#password-object). (OKTA-350956)
+* The Update User API incorrectly allowed the [Credentials object](/docs/reference/api/users/#credentials-object) of an ACTIVE user to be updated to [Password Hook](/docs/reference/api/users/#password-object). (OKTA-350956)
 * The `illegal_post_logout_redirect_uri` error message, which was enhanced to help clients using the app client configuration wizard, incorrectly appeared for OIN clients. (OKTA-343082)
 
 
@@ -61,15 +61,15 @@ Existing custom claims that use the `groupwhitelist` Profile property don't need
 
 #### New OAuth Administrator Roles API scopes
 
-The [Administer Roles API](/docs/references/api/roles) now supports OAuth scopes `okta.roles.manage` and `okta.roles.read`. These scopes allow applications to read and manage (create, update, and delete) administrator roles in your Okta organization.<!--OKTA-287229-->
+The [Administer Roles API](/docs/reference/api/roles) now supports OAuth scopes `okta.roles.manage` and `okta.roles.read`. These scopes allow applications to read and manage (create, update, and delete) administrator roles in your Okta organization.<!--OKTA-287229-->
 
 #### New endpoint added to DynamicScale rate limits
 
-The [DynamicScale](/docs/references/rl-dynamic-scale/) add-on service now includes the following additional authentication endpoint: `/login/login.html`.<!--OKTA-342112-->
+The [DynamicScale](/docs/reference/rl-dynamic-scale/) add-on service now includes the following additional authentication endpoint: `/login/login.html`.<!--OKTA-342112-->
 
 #### Account linking for SAML IdPs is now GA in Production
 
-Admins can now enable or disable automatic account linking between SAML Identity Providers and Okta using the [Identity Provider API](/docs/references/api/idps/). They can also restrict account linking based on whether the end user is a member of any specified groups. <!--OKTA-334889-->
+Admins can now enable or disable automatic account linking between SAML Identity Providers and Okta using the [Identity Provider API](/docs/reference/api/idps/). They can also restrict account linking based on whether the end user is a member of any specified groups. <!--OKTA-334889-->
 
 #### One Time Use Refresh Token is now in Early Access (EA)
 
@@ -77,11 +77,11 @@ One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early 
 
 #### Enhancements to Apps API for Idp Initiated Logins
 
-The [Apps API](/docs/references/api/apps/) can now configure the Idp Initiated Login behavior, which is also available in the Admin Console. **Note:** The Idp Initiated Login is limited to OpenID Connect clients. <!--OKTA-342821-->
+The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Login behavior, which is also available in the Admin Console. **Note:** The Idp Initiated Login is limited to OpenID Connect clients. <!--OKTA-342821-->
 
 #### Enhancements to Apps API for SAML Apps
 
-The [Apps API](/docs/references/api/apps/) can now configure the SLO URL behavior for SAML apps, which is also available in the Admin Console.<!--OKTA-342882-->
+The [Apps API](/docs/reference/api/apps/) can now configure the SLO URL behavior for SAML apps, which is also available in the Admin Console.<!--OKTA-342882-->
 
 #### Groups API extended search is now GA in Preview
 
@@ -98,8 +98,8 @@ The Groups API support for extended search is now Generally Available (GA) in Pr
 
 #### Bugs fixed in 2020.11.1
 
-* Import of users with a [bcrypt-hashed password](/docs/references/api/users/#hashed-password-object) succeeded even if the `workFactor` property was missing or misnamed. This prevented imported users from signing in. (OKTA-330587)
-* During user import, some POST requests to the `/users` [endpoint](/docs/references/api/users/#create-user) incorrectly triggered inline hooks, resulting in higher latency. (OKTA-335769)
+* Import of users with a [bcrypt-hashed password](/docs/reference/api/users/#hashed-password-object) succeeded even if the `workFactor` property was missing or misnamed. This prevented imported users from signing in. (OKTA-330587)
+* During user import, some POST requests to the `/users` [endpoint](/docs/reference/api/users/#create-user) incorrectly triggered inline hooks, resulting in higher latency. (OKTA-335769)
 
 
 ### Monthly Release 2020.11.0
@@ -124,39 +124,39 @@ The descriptive information returned on both the invalid redirect URI and invali
 
 #### System Log API adds additional filter expressions
 
-The [System Log API](/docs/references/api/system-log/) `/logs` endpoint can now use the SCIM filter expression operators: `ew` (ends with), `ne` (not equal), and `not` (not function). <!--OKTA-188737-->
+The [System Log API](/docs/reference/api/system-log/) `/logs` endpoint can now use the SCIM filter expression operators: `ew` (ends with), `ne` (not equal), and `not` (not function). <!--OKTA-188737-->
 
 #### Zones API includes `usage` property
 
-To help you manage zones in your organization, the Early Access [Zones API](/docs/references/api/zones/) now includes the `usage` attribute. There are two types of zones: Policy Network Zones and Blocklist Network Zones. <!--OKTA-333653-->
+To help you manage zones in your organization, the Early Access [Zones API](/docs/reference/api/zones/) now includes the `usage` attribute. There are two types of zones: Policy Network Zones and Blocklist Network Zones. <!--OKTA-333653-->
 
 #### Client-based rate limiting is now GA in Production
 
-[Client-based rate limiting](/docs/references/rl-clientbased/) for the `/authorize` endpoint is now available in production orgs. It provides granular isolation between requests made to the `/authorize` endpoint by using a combination of the Client ID, user's IP address, and Okta device identifier. This isolates rogue OAuth clients and bad actors, ensuring valid users and applications don't run into rate limit violations.
+[Client-based rate limiting](/docs/reference/rl-clientbased/) for the `/authorize` endpoint is now available in production orgs. It provides granular isolation between requests made to the `/authorize` endpoint by using a combination of the Client ID, user's IP address, and Okta device identifier. This isolates rogue OAuth clients and bad actors, ensuring valid users and applications don't run into rate limit violations.
 
 This feature will be available to orgs in Okta Production cells on November 9, 2020. <!--OKTA-342520-->
 
 #### User Consent for OAuth 2.0 and OpenID Connect flows is rolling out to GA in Production
 
-A consent represents a user's explicit permission to allow an application to access resources protected by scopes. As part of an OAuth 2.0 or OpenID Connect authentication flow, you can prompt the user with a page to approve your app's access to specified resources. See the [consent property for scopes](/docs/references/api/authorization-servers/#scope-properties).
+A consent represents a user's explicit permission to allow an application to access resources protected by scopes. As part of an OAuth 2.0 or OpenID Connect authentication flow, you can prompt the user with a page to approve your app's access to specified resources. See the [consent property for scopes](/docs/reference/api/authorization-servers/#scope-properties).
 
 This feature will be gradually made available to orgs in Okta Production cells beginning on November 11, 2020.
 
 #### Account linking for SAML IdPs is now GA in Preview
 
-Admins can now enable or disable automatic account linking between SAML Identity Providers and Okta using the [Identity Provider API](/docs/references/api/idps/). They can also restrict account linking based on whether the end user is a member of any specified groups. <!--OKTA-334818-->
+Admins can now enable or disable automatic account linking between SAML Identity Providers and Okta using the [Identity Provider API](/docs/reference/api/idps/). They can also restrict account linking based on whether the end user is a member of any specified groups. <!--OKTA-334818-->
 
 #### Group object `source` property is now GA in Preview
 
-For API requests that return a Group or a list of Groups, the Group object includes a `source` property that provides the ID of the source application for the returned Group. This property is now GA in all Preview orgs. See [Group attributes](/docs/references/api/groups/#group-attributes). <!--OKTA-326610-->
+For API requests that return a Group or a list of Groups, the Group object includes a `source` property that provides the ID of the source application for the returned Group. This property is now GA in all Preview orgs. See [Group attributes](/docs/reference/api/groups/#group-attributes). <!--OKTA-326610-->
 
 #### MyAccount API is now in Early Access (EA)
 
-The [MyAccount API](/docs/references/api/myaccount/) enables non-administrator end users to fetch their Okta user profiles. To enable this EA feature, contact [Support](https://support.okta.com/help/open_case). <!--OKTA-342090-->
+The [MyAccount API](/docs/reference/api/myaccount/) enables non-administrator end users to fetch their Okta user profiles. To enable this EA feature, contact [Support](https://support.okta.com/help/open_case). <!--OKTA-342090-->
 
 #### Bug fixed in 2020.11.0
 
-When the `expiresAt` property value of the [Authentication transaction object](/docs/references/api/authn/#authentication-transaction-object) was returned with an `/authn` [response](/docs/references/api/authn/) that also included the `sessionToken` [parameter](/docs/references/api/authn/#session-token) (not `stateToken`), the value incorrectly indicated a 3-minute lifetime. (OKTA-319907)
+When the `expiresAt` property value of the [Authentication transaction object](/docs/reference/api/authn/#authentication-transaction-object) was returned with an `/authn` [response](/docs/reference/api/authn/) that also included the `sessionToken` [parameter](/docs/reference/api/authn/#session-token) (not `stateToken`), the value incorrectly indicated a 3-minute lifetime. (OKTA-319907)
 
 
 ## October
@@ -169,7 +169,7 @@ When the `expiresAt` property value of the [Authentication transaction object](/
 
 #### Bug fixed in 2020.10.2
 
-When accessing the `/authorize` [endpoint](/docs/references/api/oidc/#authorize) with a scope parameter requiring consent, users not assigned to the application received a consent prompt rather than an error message.  (OKTA-335476)
+When accessing the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) with a scope parameter requiring consent, users not assigned to the application received a consent prompt rather than an error message.  (OKTA-335476)
 
 
 ### Weekly Release 2020.10.1
@@ -203,15 +203,15 @@ You can now name a claim `scope` in API Access Management [custom authorization 
 
 #### Rate limit changes
 
-Rate limits for paid developer orgs and for one-app orgs have been updated. See the [Rate Limits](/docs/references/rate-limits/) page. <!--OKTA-332153-->
+Rate limits for paid developer orgs and for one-app orgs have been updated. See the [Rate Limits](/docs/reference/rate-limits/) page. <!--OKTA-332153-->
 
 #### Client-based rate limiting
 
-[Client-based rate limiting](/docs/references/rl-clientbased/) for the `/authorize` endpoint is now available in Preview. It provides granular isolation between requests made to the `/authorize` endpoint by using a combination of the Client ID, user's IP address, and Okta device identifier. This isolates rogue OAuth clients and bad actors, ensuring valid users and applications don't run into rate limit violations. <!--OKTA-328984-->
+[Client-based rate limiting](/docs/reference/rl-clientbased/) for the `/authorize` endpoint is now available in Preview. It provides granular isolation between requests made to the `/authorize` endpoint by using a combination of the Client ID, user's IP address, and Okta device identifier. This isolates rogue OAuth clients and bad actors, ensuring valid users and applications don't run into rate limit violations. <!--OKTA-328984-->
 
 #### Groups API enhancements in EA
 
-The [Groups API](/docs/references/api/groups/) now supports extended search. Also, source application is now returned in [Group](/docs/references/api/groups/#group-object) objects.
+The [Groups API](/docs/reference/api/groups/) now supports extended search. Also, source application is now returned in [Group](/docs/reference/api/groups/#group-object) objects.
 
 
 ## September
@@ -224,11 +224,11 @@ The [Groups API](/docs/references/api/groups/) now supports extended search. Als
 
 #### Bugs fixed in 2020.09.4
 
-* When an OAuth service client called the `/authorize` [endpoint](/docs/references/api/oidc/#authorize), the returned error description was inaccurate. (OKTA-252750)
+* When an OAuth service client called the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize), the returned error description was inaccurate. (OKTA-252750)
 
-* If a user was assigned to two groups that have identical roles, then a call to the `/users/${userId}/roles` endpoint to [list the administrator roles assigned](/docs/references/api/roles/#list-roles) to the user failed with an HTTP 400 error. (OKTA-325187)
+* If a user was assigned to two groups that have identical roles, then a call to the `/users/${userId}/roles` endpoint to [list the administrator roles assigned](/docs/reference/api/roles/#list-roles) to the user failed with an HTTP 400 error. (OKTA-325187)
 
-* The `okta.apps.*` scope wasn't applied to the [`/apps/${applicationId}/credentials/keys`](/docs/references/api/apps/#list-key-credentials-for-application) endpoint. (OKTA-331828)
+* The `okta.apps.*` scope wasn't applied to the [`/apps/${applicationId}/credentials/keys`](/docs/reference/api/apps/#list-key-credentials-for-application) endpoint. (OKTA-331828)
 
 
 ### Weekly Release 2020.09.3
@@ -239,7 +239,7 @@ The [Groups API](/docs/references/api/groups/) now supports extended search. Als
 
 #### Bug fixed in 2020.09.3
 
-If a user was converted to use an [external Federated IdP instead of Okta](/docs/references/api/users/#request-example-convert-a-user-to-a-federated-user), any subsequent attempt to convert the user with a call to the `/users/${userId}/lifecycle/reset_password` endpoint returned an HTTP 501 error instead of an HTTP 400 error. (OKTA-323343)
+If a user was converted to use an [external Federated IdP instead of Okta](/docs/reference/api/users/#request-example-convert-a-user-to-a-federated-user), any subsequent attempt to convert the user with a call to the `/users/${userId}/lifecycle/reset_password` endpoint returned an HTTP 501 error instead of an HTTP 400 error. (OKTA-323343)
 
 
 ### Weekly Release 2020.09.2
@@ -314,7 +314,7 @@ To better align with [security best practices](https://tools.ietf.org/html/rfc68
 
 #### Bug fixed in 2020.07.2
 
-* When using the [Apps API](/docs/references/api/apps/), exceeding the character limit for OIDC application redirect URIs resulted in an HTTP 500 error instead of an HTTP 400 error. (OKTA-297164)
+* When using the [Apps API](/docs/reference/api/apps/), exceeding the character limit for OIDC application redirect URIs resulted in an HTTP 500 error instead of an HTTP 400 error. (OKTA-297164)
 
 
 ### Monthly Release 2020.07.0
@@ -333,19 +333,19 @@ Apple as an Identity Provider is now Generally Available in Preview. Apple as an
 
 #### YubiKey OTP Token operations added
 
-Using the [Factors API](/docs/references/api/factors/), requests for single YubiKey OTP Tokens and uploading a seed for a YubiKey OTP are now supported. Other API operations for YubiKey OTP Tokens are now documented in the [Factors API](/docs/references/api/factors/). <!-- OKTA-302434 -->
+Using the [Factors API](/docs/reference/api/factors/), requests for single YubiKey OTP Tokens and uploading a seed for a YubiKey OTP are now supported. Other API operations for YubiKey OTP Tokens are now documented in the [Factors API](/docs/reference/api/factors/). <!-- OKTA-302434 -->
 
 #### Support for creating OIN OIDC Apps using the Dynamic Client Registration API
 
-Creating OIN OIDC Apps using the [Dynamic Client Registration API](/docs/references/api/oauth-clients/) is now supported. <!-- OKTA-289900 -->
+Creating OIN OIDC Apps using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/) is now supported. <!-- OKTA-289900 -->
 
 #### API support for multiple ACS URLs
 
-When [creating a custom SAML app](/docs/references/api/apps/#add-custom-saml-application) using the [Apps API](/docs/references/api/apps/), you can now pass two optional parameters (`allowMultipleAcsEndpoints` and `acsEndpoints`) to configure up to 100 Assertion Consumer Service (ACS) URLs. <!-- OKTA-302291 -->
+When [creating a custom SAML app](/docs/reference/api/apps/#add-custom-saml-application) using the [Apps API](/docs/reference/api/apps/), you can now pass two optional parameters (`allowMultipleAcsEndpoints` and `acsEndpoints`) to configure up to 100 Assertion Consumer Service (ACS) URLs. <!-- OKTA-302291 -->
 
 #### Bugs fixed in 2020.07.0
 
-* In certain situations, the [Identity Providers API](/docs/references/api/idps/) returned the wrong X509 SSO endpoint. (OKTA-310023)
+* In certain situations, the [Identity Providers API](/docs/reference/api/idps/) returned the wrong X509 SSO endpoint. (OKTA-310023)
 
 
 
@@ -388,7 +388,7 @@ For deleted or inactive instances, or instances that don't support CVD, calls to
 
 #### Password Import Event eligible for use in event hook
 
-The `user.import.password` event provides information on the outcome of the import of an individual user's password during the [Password Import flow](/docs/references/api/users/#create-user-with-password-import-inline-hook). This event is eligible for use in an [Event hook](/docs/concepts/event-hooks/), enabling you to trigger removal of a password from your existing user store when import to Okta is confirmed as successful. <!-- OKTA-298381 -->
+The `user.import.password` event provides information on the outcome of the import of an individual user's password during the [Password Import flow](/docs/reference/api/users/#create-user-with-password-import-inline-hook). This event is eligible for use in an [Event hook](/docs/concepts/event-hooks/), enabling you to trigger removal of a password from your existing user store when import to Okta is confirmed as successful. <!-- OKTA-298381 -->
 
 #### OAuth public metadata endpoint caching
 
@@ -466,7 +466,7 @@ Rate limits do not apply to these OAuth public metadata endpoints, so rate limit
 
 #### OAuth for Okta enabled for Trusted Origins, Sessions, and Custom Templates APIs
 
-OAuth for Okta is now enabled for the [Trusted Origins API](/docs/references/api/trusted-origins/), the [Sessions API](/docs/references/api/sessions/), and the [Custom Templates API](/docs/references/api/templates/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!-- OKTA-286819 -->
+OAuth for Okta is now enabled for the [Trusted Origins API](/docs/reference/api/trusted-origins/), the [Sessions API](/docs/reference/api/sessions/), and the [Custom Templates API](/docs/reference/api/templates/). See [Scopes & supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!-- OKTA-286819 -->
 
 #### Updated behavior for logging of invalid use by OAuth 2.0 Client
 
@@ -517,7 +517,7 @@ The [previously announced logging behavior](/docs/release-notes/2017/#additional
 
 #### User Types API GA in Production
 
-The [User Types API](/docs/references/api/user-types/) is Generally Available in Production. <!-- OKTA-286349 -->
+The [User Types API](/docs/reference/api/user-types/) is Generally Available in Production. <!-- OKTA-286349 -->
 
 #### CORS headers in more API responses
 
@@ -540,11 +540,11 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 #### Bugs fixed in 2020.03.2
 
-* In some cases, an OAuth 2.0 [`/authorize`](/docs/references/api/oidc/#authorize) request would incorrectly redirect if the client App had an App Sign-On Policy configured. (OKTA-269116)
+* In some cases, an OAuth 2.0 [`/authorize`](/docs/reference/api/oidc/#authorize) request would incorrectly redirect if the client App had an App Sign-On Policy configured. (OKTA-269116)
 
-* The [`_links`](/docs/references/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML inline hook was incorrect. (OKTA-269553)
+* The [`_links`](/docs/reference/core-okta-api/#links) attribute for `groups` sent by Okta in the request body for a SAML inline hook was incorrect. (OKTA-269553)
 
-* Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](/docs/references/api/trusted-origins/) defined for the org. (OKTA-283549)
+* Responses from OpenID Connect and OAuth 2.0 public metadata endpoints incorrectly omitted the return of CORS headers if the calling URL wasn't in the list of [trusted origins](/docs/reference/api/trusted-origins/) defined for the org. (OKTA-283549)
 
 * When a Workflow was called, all headers that weren't white listed had text prepended in the response, which broke redirects. (OKTA-282294)
 
@@ -559,7 +559,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 #### Bug fixed in 2020.03.1
 
-* The [Update Identity Provider](/docs/references/api/idps/#update-identity-provider) operation allowed changing the `protocol` property of an Identity Provider object, which resulted in errors. (OKTA-277221)
+* The [Update Identity Provider](/docs/reference/api/idps/#update-identity-provider) operation allowed changing the `protocol` property of an Identity Provider object, which resulted in errors. (OKTA-277221)
 
 
 ### Monthly Release 2020.03.0
@@ -576,7 +576,7 @@ Okta will now return CORS headers for [requests made with OAuth 2.0 Bearer token
 
 #### Email as a factor and supported optional enrollment is Generally Available in Preview
 
-The Okta [email factor](/docs/references/api/authn/#enroll-okta-email-factor) for MFA is now Generally Available in Preview. When the email factor is enabled, end users receive a code in an email message to use when they sign in. <!-- OKTA-278974 -->
+The Okta [email factor](/docs/reference/api/authn/#enroll-okta-email-factor) for MFA is now Generally Available in Preview. When the email factor is enabled, end users receive a code in an email message to use when they sign in. <!-- OKTA-278974 -->
 
 The email factor configuration also supports optional enrollment, which is now Generally Available for all orgs that already have the factor enabled as part of Early Access. <!-- OKTA-274318 -->
 
@@ -590,7 +590,7 @@ The [Third-Party admin role](https://help.okta.com/okta_help.htm?id=csh_admin-th
 
 #### Pagination is available for the List Authorization Servers operation
 
-Pagination is now available for the [List Authorization Servers operation](/docs/references/api/authorization-servers/#list-authorization-servers). <!-- OKTA-277098 -->
+Pagination is now available for the [List Authorization Servers operation](/docs/reference/api/authorization-servers/#list-authorization-servers). <!-- OKTA-277098 -->
 
 #### Sign-in attempt behavior evaluation is now logged when there is no client information
 
@@ -628,8 +628,8 @@ The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See 
 
 #### Bugs Fixed in 2020.02.1
 
-* When an admin's last role was revoked using the [Roles API](/docs/references/api/roles/), it would sometimes not trigger a System Log event. (OKTA-276093)
-* In certain situations the [`/keys`](/docs/references/api/oidc/#keys) endpoint would incorrectly return that the current key was expired and needed to be rolled over when the rollover hadn't occurred yet. (OKTA-227062)
+* When an admin's last role was revoked using the [Roles API](/docs/reference/api/roles/), it would sometimes not trigger a System Log event. (OKTA-276093)
+* In certain situations the [`/keys`](/docs/reference/api/oidc/#keys) endpoint would incorrectly return that the current key was expired and needed to be rolled over when the rollover hadn't occurred yet. (OKTA-227062)
 * Expired AD users received different authentication errors depending on whether the Passwordless Policy was enabled or disabled. (OKTA-268306)
 
 
@@ -649,41 +649,41 @@ The Schemas API and the Linked Objects API now have OAuth for Okta enabled. See 
 
 #### Password Import Inline Hook in General Availability in Preview and Production
 
-The [password import inline hook](/docs/references/password-hook/) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
+The [password import inline hook](/docs/reference/password-hook/) lets you interface with an external service to verify a user-supplied password when the user signs in to Okta for the first time. This supports scenarios in which users are migrated from an existing user store while allowing them to retain their passwords. <!-- OKTA-275019 -->
 
 #### OAuth for Okta Enabled for User Consent Grant Operations
 
-[User Consent Grant Operations](/docs/references/api/users/#user-consent-grant-operations) now have [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) enabled. <!--OKTA-254864-->
+[User Consent Grant Operations](/docs/reference/api/users/#user-consent-grant-operations) now have [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) enabled. <!--OKTA-254864-->
 
 #### OAuth for Okta Enabled for Policy API
 
-The [Policy API](/docs/references/api/policy/) now has [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) enabled. <!--OKTA-272595-->
+The [Policy API](/docs/reference/api/policy/) now has [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) enabled. <!--OKTA-272595-->
 
 #### User Types API in General Availability in Preview
 
-The [User Types API](/docs/references/api/user-types/) is in General Availability (GA) in Preview. <!--OKTA-275379-->
+The [User Types API](/docs/reference/api/user-types/) is in General Availability (GA) in Preview. <!--OKTA-275379-->
 
 #### SAML Assertion Inline Hook Now Supports URI Formatting in Claims
 
-Okta now supports URI claims with the [SAML assertion inline hook](/docs/references/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
+Okta now supports URI claims with the [SAML assertion inline hook](/docs/reference/saml-hook/). When you need to replace or add a URI claim, you must encode the claim name within the command based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) specification. <!--OKTA-266619-->
 
 #### Support Added in List Users API for Sort Parameters
 
-The [List Users API](/docs/references/api/users/#list-users) now supports `sortBy` and `sortOrder` parameters on `search` queries. <!--OKTA-270214-->
+The [List Users API](/docs/reference/api/users/#list-users) now supports `sortBy` and `sortOrder` parameters on `search` queries. <!--OKTA-270214-->
 
 #### Apps API Support for Custom SAML Attribute Statements
 
-The [Apps API](/docs/references/api/apps/) now supports specifying SAML attribute statements for SAML 2.0 apps. <!--OKTA-275379-->
+The [Apps API](/docs/reference/api/apps/) now supports specifying SAML attribute statements for SAML 2.0 apps. <!--OKTA-275379-->
 
 #### Rate Limits for OAuth 2.0 Endpoints in Production
 
-[Rate limiting](/docs/references/rate-limits/#okta-api-endpoints-and-per-minute-limits) has been modified for OAuth 2.0 endpoints in Production orgs so that requests that use an invalid client ID don't consume the rate limit. A System Log warning has also been introduced for high rate limit consumption by requests that use a valid client ID. <!--OKTA-27534-->
+[Rate limiting](/docs/reference/rate-limits/#okta-api-endpoints-and-per-minute-limits) has been modified for OAuth 2.0 endpoints in Production orgs so that requests that use an invalid client ID don't consume the rate limit. A System Log warning has also been introduced for high rate limit consumption by requests that use a valid client ID. <!--OKTA-27534-->
 
 #### Bugs Fixed in 2020.02.0
 
-* When using the [SAML assertion inline hook](/docs/references/saml-hook/), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses were not applied. (OKTA-263494)
+* When using the [SAML assertion inline hook](/docs/reference/saml-hook/), if there was an optional attribute statement configured for the app and the attribute statement had no value specified, commands returned from SAML inline hook responses were not applied. (OKTA-263494)
 
-* The [Update User Types API](/docs/references/api/user-types/#update-user-type) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
+* The [Update User Types API](/docs/reference/api/user-types/#update-user-type) previously allowed the existing name of a User Type to be changed. (OKTA-241788)
 
 
 ## January
@@ -696,7 +696,7 @@ The [Apps API](/docs/references/api/apps/) now supports specifying SAML attribut
 
 #### Bug Fixed in 2020.01.2
 
-* Passing an incorrect `userId` to the [List User Roles API](/docs/references/api/roles/#list-roles-assigned-to-user) would not result in an error. (OKTA-243094)
+* Passing an incorrect `userId` to the [List User Roles API](/docs/reference/api/roles/#list-roles-assigned-to-user) would not result in an error. (OKTA-243094)
 
 
 ### Monthly Release 2020.01.0
@@ -713,8 +713,8 @@ All Customer Identity orgs will now see an admin console banner and receive an e
 
 #### Events API endpoint rate limit added
 
-The `/events` API endpoint now has its own rate limit bucket for Workforce orgs. See the [Rate Limits page](/docs/references/rate-limits/#okta-api-endpoints-and-per-minute-limits) for more information. <!-- OKTA-268018 -->
+The `/events` API endpoint now has its own rate limit bucket for Workforce orgs. See the [Rate Limits page](/docs/reference/rate-limits/#okta-api-endpoints-and-per-minute-limits) for more information. <!-- OKTA-268018 -->
 
 #### System Log Events for user import
 
-System Log events have been added for the start and end of each phase of the user import process. See the [Event Types catalog](/docs/references/api/event-types/) for more information. <!-- OKTA-264709 -->
+System Log events have been added for the start and end of each phase of the user import process. See the [Event Types catalog](/docs/reference/api/event-types/) for more information. <!-- OKTA-264709 -->

@@ -88,8 +88,8 @@
         if(menuItem.title === 'Concepts' && this.$page.path.startsWith('/docs/concepts/')) {
           menuItem.path = '/docs/concepts/';
         }     
-        if(menuItem.title === 'Reference' && this.$page.path.startsWith('/docs/references/')) {
-          menuItem.path = '/docs/references/';
+        if(menuItem.title === 'Reference' && this.$page.path.startsWith('/docs/reference/')) {
+          menuItem.path = '/docs/reference/';
         }
         if(menuItem.title === 'Languages & SDKs' && this.$page.path.startsWith('/code/')) {
           menuItem.path = '/code/';

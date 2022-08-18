@@ -7,7 +7,7 @@ meta:
 
 # Monitor Okta
 
-Okta offers monitoring and alerting capabilities through Okta's APIs, SDKs, and Admin Console. All [supported eventful](/docs/references/api/event-types/) activities within your Okta organization (org) are captured and available through system logs and allow you to:
+Okta offers monitoring and alerting capabilities through Okta's APIs, SDKs, and Admin Console. All [supported eventful](/docs/reference/api/event-types/) activities within your Okta organization (org) are captured and available through system logs and allow you to:
 
 * determine connectivity status from global internet locations to your Okta org
 * identify trends related to Users, Apps, Policies, and other Okta entities
@@ -36,7 +36,7 @@ The Okta Admin Console provides a rich set of visuals and tools for you to monit
 
 ## Integrate with external monitoring tools
 
-You can integrate commercial log monitoring tools, such as Splunk, Sumo Logic, or Datadog, with your Okta org to monitor and analyze all your applications and web traffic. The commercial monitoring tools are typically integrated with Okta using the Okta [System Log API](/docs/references/api/system-log/).
+You can integrate commercial log monitoring tools, such as Splunk, Sumo Logic, or Datadog, with your Okta org to monitor and analyze all your applications and web traffic. The commercial monitoring tools are typically integrated with Okta using the Okta [System Log API](/docs/reference/api/system-log/).
 At a high level, the API integration process includes:
 
 1. Obtaining an API token from your Okta org
@@ -46,7 +46,7 @@ At a high level, the API integration process includes:
    * Okta API token
    * Okta API service account username and credentials (not required for all integrated tools)
 
-These configuration properties allow the external tool to request system logs from the Okta [System Log API](/docs/references/api/system-log/).
+These configuration properties allow the external tool to request system logs from the Okta [System Log API](/docs/reference/api/system-log/).
 See [Exporting Okta Log Data](https://support.okta.com/help/s/article/Exporting-Okta-Log-Data) for details.
 
 For external integration examples, refer to:
@@ -61,17 +61,17 @@ For external integration examples, refer to:
 
 Your organization may have an external web service that performs extra processing for specific Okta events, such as creating or deactivating a user lifecycle event. Okta provides a webhook feature called [event hooks](/docs/concepts/event-hooks/), where you can set up triggers at specific events in Okta to send event payloads to an external web service. Event hooks are asynchronous and do not affect existing Okta workflows.
 
-For a working example of an end-to-end event hook setup, see the [Event hooks guide](/docs/guides/event-hook-implementation/). For a list of events that support event hooks, see [Event hooks eligible event types](/docs/references/api/event-types/?q=event-hook-eligible).
+For a working example of an end-to-end event hook setup, see the [Event hooks guide](/docs/guides/event-hook-implementation/). For a list of events that support event hooks, see [Event hooks eligible event types](/docs/reference/api/event-types/?q=event-hook-eligible).
 
 ## Monitor Okta with your custom tool
 
 You can build custom applications to monitor and analyze events in Okta using Okta SDKs and APIs.
 
-* For a [REST API](https://developer.okta.com/code/rest/) implementation, use the [System Log API](/docs/references/api/system-log/) to retrieve any of the system logs in your Okta org for the last 90 days
+* For a [REST API](https://developer.okta.com/code/rest/) implementation, use the [System Log API](/docs/reference/api/system-log/) to retrieve any of the system logs in your Okta org for the last 90 days
 * For a [Node.js](https://github.com/okta/okta-sdk-nodejs) implementation, use the [getLog()](https://github.com/okta/okta-sdk-nodejs#get-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
 * For an [okta-sdk-java](https://github.com/okta/okta-sdk-java) implementation, use the [getLogs()](https://github.com/okta/okta-sdk-java#list-system-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
 
-Refer to the supported [Event Types catalog](/docs/references/api/event-types/#catalog) for the list of events you can use to filter for the system logs you are interested in.
+Refer to the supported [Event Types catalog](/docs/reference/api/event-types/#catalog) for the list of events you can use to filter for the system logs you are interested in.
 
 See [Useful System Log Queries](https://support.okta.com/help/s/article/Useful-System-Log-Queries?language=en_US&_ga=2.122976834.831546547.1618838361-957571954.1617637001) for common system log query use cases.
 
@@ -83,15 +83,15 @@ You can use the Admin Console to manually download CSV files of system log query
 
 ## Enable and configure Okta ThreatInsight
 
-The [Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) feature aggregates data across Okta customers to detect malicious IP addresses that attempt credential-based attacks. You can enable ThreatInsight through the [Okta ThreatInsight Settings](https://help.okta.com/okta_help.htm?id=ext-configure-threatinsight) in the Admin Console, or through the [ThreatInsight configuration API](/docs/references/api/threat-insight/).
+The [Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) feature aggregates data across Okta customers to detect malicious IP addresses that attempt credential-based attacks. You can enable ThreatInsight through the [Okta ThreatInsight Settings](https://help.okta.com/okta_help.htm?id=ext-configure-threatinsight) in the Admin Console, or through the [ThreatInsight configuration API](/docs/reference/api/threat-insight/).
 
 After ThreadInsight is enabled, Okta captures access attempts from malicious IPs in the system logs. You can also configure it to block access from the malicious IPs to your Okta org.
 
 ## Monitor rate limit warnings and violations
 
-To mitigate denial-of-service attacks and abusive actions, Okta enforces rate limits on API requests as well as other end-user inbound and outbound operations. See [Rate limit overview](/docs/references/rate-limits/) for details.
+To mitigate denial-of-service attacks and abusive actions, Okta enforces rate limits on API requests as well as other end-user inbound and outbound operations. See [Rate limit overview](/docs/reference/rate-limits/) for details.
 
-Monitor and review the [system log events for rate limits](/docs/references/rl-system-log-events/) to detect rate limit warnings or violations. Use the information in these event logs to investigate access spikes, abusive actions, or traffic trends. You can set up rate limit notification emails or rate limit notifications displayed in the Admin Console banner for admins. See [Set up rate limit notifications](https://help.okta.com/okta_help.htm?id=ext-set-up-rate-limit-notifs) for details.
+Monitor and review the [system log events for rate limits](/docs/reference/rl-system-log-events/) to detect rate limit warnings or violations. Use the information in these event logs to investigate access spikes, abusive actions, or traffic trends. You can set up rate limit notification emails or rate limit notifications displayed in the Admin Console banner for admins. See [Set up rate limit notifications](https://help.okta.com/okta_help.htm?id=ext-set-up-rate-limit-notifs) for details.
 
 ## Review Okta system status
 

@@ -83,7 +83,7 @@ If you are familiar with using HTML and want to change the page layout, colors, 
 
 ### Use the Brands API
 
-The [Brands API](/docs/references/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted sign-in widget, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain. To find out more about this feature and how to use it, see [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
+The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted sign-in widget, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain. To find out more about this feature and how to use it, see [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
 
 ### Bypass the Custom Sign-In Page
 

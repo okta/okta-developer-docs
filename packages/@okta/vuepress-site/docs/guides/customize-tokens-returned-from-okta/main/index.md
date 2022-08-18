@@ -71,7 +71,7 @@ To test the full authentication flow that returns an ID token or an access token
     * Your OpenID Connect application's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 
-    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/references/api/oidc/#authorize) page.
+    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.
 
     The resulting URL looks something like this:
 
@@ -123,8 +123,8 @@ To add a custom claim:
     * **Value type** &mdash; select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
     * **Value** &mdash; this option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, we use `user.preferredLanguage` and for the access token example, we use `user.secondEmail`. These reference an Okta user profile attribute.
 
-      * See [Okta Expression Language](/docs/references/okta-expression-language).
-      * See [Expressions for OAuth 2.0/OIDC custom claims](/docs/references/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims) for custom claim-specific expressions.
+      * See [Okta Expression Language](/docs/reference/okta-expression-language).
+      * See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims) for custom claim-specific expressions.
     > **Note:** In this example, the user has a preferred language and a second email defined in their profile.
 
     * **Disable claim** &mdash; select if you want to temporarily disable the claim for testing or debugging. Leave this clear for this example.
@@ -136,7 +136,7 @@ To add a custom claim:
 
 ### Verify the custom claim
 
-To confirm that your custom claim is successfully added, you can [retrieve a list of all claims](/docs/references/api/authorization-servers/#get-all-claims) from your authorization server, including the custom ones, using the `/claims` endpoint:
+To confirm that your custom claim is successfully added, you can [retrieve a list of all claims](/docs/reference/api/authorization-servers/#get-all-claims) from your authorization server, including the custom ones, using the `/claims` endpoint:
 
 `https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/claims`
 
@@ -209,7 +209,7 @@ The decoded JWT looks something like this:
 
 ## Include app-specific information in a custom claim
 
-If you want to include certain app-specific information in a token claim, you can do so by first adding the metadata to the profile section of the app. You can access any values that are put inside the app profile using `app.profile` written in Okta Expression Language. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/references/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
+If you want to include certain app-specific information in a token claim, you can do so by first adding the metadata to the profile section of the app. You can access any values that are put inside the app profile using `app.profile` written in Okta Expression Language. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
 
 To include, for example, the app `label` parameter in a token claim:
 
@@ -220,7 +220,7 @@ To include, for example, the app `label` parameter in a token claim:
 
 ### Create an app with the Profile object
 
-Create an app with the Profile object using the [Apps API](/docs/references/api/apps/).
+Create an app with the Profile object using the [Apps API](/docs/reference/api/apps/).
 
 ```json
 {

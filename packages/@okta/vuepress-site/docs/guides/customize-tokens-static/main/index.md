@@ -73,7 +73,7 @@ To test the full authentication flow that returns an ID token or an access token
     * Your OpenID Connect application's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 
-    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/references/api/oidc/#authorize) page.
+    > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.
 
     The resulting URL looks something like this:
 
@@ -246,9 +246,9 @@ This function takes Okta EL expressions for all parameters that evaluate to the 
 | `group_expression`     | Valid Okta EL expression that evaluates to a string for use in evaluating the group. This string must also be a valid Okta EL expression. | FALSE    |
 | `limit`                | Valid Okta EL expression that evaluates to an integer between 1 and 100, inclusive, to indicate the maximum number of Groups to return **Note:** The maximum group limit of 100 applies only to the [Implicit grant type flow](https://developer.okta.com/docs/guides/implement-grant-type/implicit/main/). The [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) and [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flows have no maximum group limit.  | FALSE    |
 
-The string produced by the `group_expression` parameter usually contains attributes and objects from the [Groups API](/docs/references/api/groups/), although it isn't limited to those attributes and objects. Attributes and objects listed in the [Group Attributes](/docs/references/api/groups/#group-attributes) section of the Groups API can be any of the following: `id`, `status`, `name`, `description`, `objectClass`, and the `profile` object that contains the `groupType`, `samAccountName`, `objectSid`, `groupScope`, `windowsDomainQualifiedName`, `dn`, and `externalID` attributes for Groups that come from apps such as Active Directory.
+The string produced by the `group_expression` parameter usually contains attributes and objects from the [Groups API](/docs/reference/api/groups/), although it isn't limited to those attributes and objects. Attributes and objects listed in the [Group Attributes](/docs/reference/api/groups/#group-attributes) section of the Groups API can be any of the following: `id`, `status`, `name`, `description`, `objectClass`, and the `profile` object that contains the `groupType`, `samAccountName`, `objectSid`, `groupScope`, `windowsDomainQualifiedName`, `dn`, and `externalID` attributes for Groups that come from apps such as Active Directory.
 
-The allowlist parameter must evaluate to a list of group IDs that are returned from the [Groups API](/docs/references/api/groups/). If the user isn't a member of a group in the allowlist, that group is ignored.
+The allowlist parameter must evaluate to a list of group IDs that are returned from the [Groups API](/docs/reference/api/groups/). If the user isn't a member of a group in the allowlist, that group is ignored.
 
 #### Parameter Examples
 
@@ -328,7 +328,7 @@ The ID token contains the group "IT", so the audience (`aud`) has access to the 
 
 > **Note:** For flows other than implicit, post to the token endpoint `https://${yourOktaDomain}/oauth2/v1/token` with the user or client that you want. Make sure that the user is assigned to the app and to one of the Groups from your allowlist.
 
-If the results aren't as expected, start your troubleshooting by inspecting the [System Log](/docs/references/api/system-log/) to see what went wrong.
+If the results aren't as expected, start your troubleshooting by inspecting the [System Log](/docs/reference/api/system-log/) to see what went wrong.
 
 ## Use a static group allow list with a Custom Authorization Server
 

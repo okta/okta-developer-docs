@@ -39,7 +39,7 @@ At <StackSnippet snippet="idp" inline />, create the client application that you
 
 To connect your org to the Identity Provider, add and configure that Identity Provider in Okta.
 
-> **Note:** See the [Identity Providers API](/docs/references/api/idps/#add-identity-provider) for request and response examples of creating an Identity Provider in Okta using the API.
+> **Note:** See the [Identity Providers API](/docs/reference/api/idps/#add-identity-provider) for request and response examples of creating an Identity Provider in Okta using the API.
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 
@@ -81,7 +81,7 @@ In the URL, replace `${yourOktaDomain}` with your org's base URL, and then repla
 
 * `nonce`: A string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. Can be any value.
 
-For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/references/api/oidc/#request-parameters).
+For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
 
 An example of a complete URL looks like this:
 

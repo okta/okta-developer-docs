@@ -57,7 +57,7 @@ The following is a high-level workflow for a progressive enrollment inline hook:
 
 The following is an example of a JSON request received from Okta. The request properties contain data submitted by the end user who is trying to self register.
 
-See the [request properties](/docs/references/registration-hook/#objects-in-the-request-from-okta) of a registration inline hook for full details.
+See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a registration inline hook for full details.
 
 ```json
 {
@@ -96,7 +96,7 @@ See the [request properties](/docs/references/registration-hook/#objects-in-the-
 
 The following JSON example provides the end user's profile data to the external service for evaluation.
 
-See the [request properties](/docs/references/registration-hook/#objects-in-the-request-from-okta) of a registration inline hook for full details.
+See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a registration inline hook for full details.
 
 ```json
 {
@@ -153,7 +153,7 @@ The external service responds to Okta indicating whether to accept the end user'
 
 In our sample Glitch project, you can see this response in the [server.js](https://glitch.com/embed/#!/okta-inlinehook-registrationhook-v2?path=server.js%3A27%3A50) file.
 
-See the [response properties](/docs/references/registration-hook/#response-objects-that-you-send) of a registration inline hook for full details.
+See the [response properties](/docs/reference/registration-hook/#response-objects-that-you-send) of a registration inline hook for full details.
 
 ```javascript
 // Registration inline hook code to parse the incoming Okta request
@@ -276,7 +276,7 @@ You need to remix your own version of the Okta sample Glitch project and confirm
 
 The registration inline hook is now set up with an active status.
 
-> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/references/api/inline-hooks/#create-inline-hook).
+> **Note:** You can also set up an inline hook using the API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook).
 
 ### Set up the employee number attribute
 
@@ -358,7 +358,7 @@ To run a test of your SSR inline hook, go to the Okta sign-in page for your Okta
 > **Note:** The **Employee number** field appears as optional. To test SSR, you can leave **Employee number** blank.
 
 * If you use an allowable email domain, such as `rosario.jones@example.com`, the end user registration goes through.
-* If you use an incorrect email domain, the end user registration is denied. Review the error message that displays the error summary from the external service code and is passed back to Okta. See [error](/docs/references/registration-hook/#error).
+* If you use an incorrect email domain, the end user registration is denied. Review the error message that displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
 ### Test the progressive enrollment inline hook
 
@@ -376,7 +376,7 @@ To test the progressive enrollment inline hook, you need to make **Employee numb
 
 * If you use valid sign-in credentials, the **Employee number** field appears on the next page.
 * If you enter an employee number in a valid format (4 digits), the update goes through.
-* If you enter an employee number in an invalid format, the update is denied. Review the error message that displays the error summary from the external service code and is passed back to Okta. See [error](/docs/references/registration-hook/#error).
+* If you enter an employee number in an invalid format, the update is denied. Review the error message that displays the error summary from the external service code and is passed back to Okta. See [error](/docs/reference/registration-hook/#error).
 
 > **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) for help with any difficulties during setup or configuration.
 
@@ -387,8 +387,8 @@ Review the following guides to implement other inline or event hook examples:
 * [Event hook](/docs/guides/event-hook-implementation/)
 * [Password import inline hook](/docs/guides/password-import-inline-hook/)
 * [Token inline hook](/docs/guides/token-inline-hook/)
-* [Telephony inline hook](/docs/references/telephony-hook/)
+* [Telephony inline hook](/docs/reference/telephony-hook/)
 
 ## See also
 
-For a complete description of this inline hook type, see [Registration inline hook](/docs/references/registration-hook/).
+For a complete description of this inline hook type, see [Registration inline hook](/docs/reference/registration-hook/).

@@ -64,7 +64,7 @@ class LoginScreen extends React.Component {
 
 #### Handle transaction state
 
-As transaction states are evaluated during primary authentication, this SDK also exposes a `getAuthClient` function to return an instance of `@okta/okta-auth-js` client to handle [Authentication API](/docs/references/api/authn/) communication. See [Node JS and React Native Usage](https://github.com/okta/okta-auth-js#node-js-and-react-native-usage) for more information.
+As transaction states are evaluated during primary authentication, this SDK also exposes a `getAuthClient` function to return an instance of `@okta/okta-auth-js` client to handle [Authentication API](/docs/reference/api/authn/) communication. See [Node JS and React Native Usage](https://github.com/okta/okta-auth-js#node-js-and-react-native-usage) for more information.
 
 One general use case is that you can resume a transaction from the `authClient` to continue handling transactions for statuses other than `SUCCESS`.
 

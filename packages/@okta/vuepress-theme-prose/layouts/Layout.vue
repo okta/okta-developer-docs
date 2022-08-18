@@ -9,7 +9,13 @@
       }"
     >
       <HeaderNav />
-      <div class="content" v-if="$page.frontmatter.customLandingPage">
+
+      
+      <div class="content" v-if="$page.frontmatter.component">
+        <component :is="$page.frontmatter.component" />
+      </div>
+
+      <div class="content" v-else-if="$page.frontmatter.customLandingPage">
         <div
           :class="{
             'content--container': true,
@@ -22,9 +28,7 @@
           </div>
         </div>
       </div>
-      <div class="content" v-if="$page.frontmatter.component">
-        <component :is="$page.frontmatter.component" />
-      </div>
+
       <div class="content" v-else>
         <div
           :class="{
@@ -60,6 +64,7 @@
           </div>
         </div>
       </div>
+      
     </div>
     <Footer />
   </div>

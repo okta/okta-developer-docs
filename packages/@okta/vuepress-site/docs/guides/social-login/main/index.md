@@ -44,11 +44,11 @@ To add <StackSnippet snippet="idp" inline /> as an Identity Provider in Okta:
 
 5. Click **Finish**. A page appears that displays the IdP's configuration.
 
-> **Note:** If you want to use a specific **Redirect Domain** instead of the **Dynamic** default, you can use either **Org URL** or **Custom URL**. See `issuerMode` in the [Identity Provider attributes](/docs/references/api/idps/#identity-provider-attributes) section.
+> **Note:** If you want to use a specific **Redirect Domain** instead of the **Dynamic** default, you can use either **Org URL** or **Custom URL**. See `issuerMode` in the [Identity Provider attributes](/docs/reference/api/idps/#identity-provider-attributes) section.
 
 <StackSnippet snippet="afterappidpinokta" />
 
-> **Note:** See the [Identity Providers API](/docs/references/api/idps/#add-identity-provider) for request and response examples when creating an Identity Provider in Okta using the API.
+> **Note:** See the [Identity Providers API](/docs/reference/api/idps/#add-identity-provider) for request and response examples when creating an Identity Provider in Okta using the API.
 
 ## Test the integration
 
@@ -72,7 +72,7 @@ In the URL, replace `${yourOktaDomain}` with your org's base URL, and then repla
 
 * `nonce`: A string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. This can be set to any value.
 
-For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/references/api/oidc/#request-parameters).
+For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
 
 An example of a complete URL looks like this:
 

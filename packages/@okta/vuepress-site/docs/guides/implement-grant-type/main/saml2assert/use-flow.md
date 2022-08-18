@@ -1,6 +1,6 @@
 Before you can begin this flow, you must collect the SAML assertion from the Identity Provider and make sure that it is Base64-encoded. You can then use the assertion in the API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint.
 
-> **Note:** The example request in the next section shows you the direct [OIDC & OAuth 2.0 API](/docs/references/api/oidc/) call. Typically, you don't need to make direct calls to the API if you're using one of Okta's Authentication SDKs that support SAML 2.0 Assertion.
+> **Note:** The example request in the next section shows you the direct [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) call. Typically, you don't need to make direct calls to the API if you're using one of Okta's Authentication SDKs that support SAML 2.0 Assertion.
 
 ### Request example
 
@@ -16,7 +16,7 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/toke
 --data-urlencode 'assertion=<Base64-encoded assertion>'
 ```
 
-> **Note:** The call to your authorization server's `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and secret. You made note of these during [set up your app](#set-up-your-app). See [Client Authentication Methods](/docs/references/api/oidc/#client-authentication-methods).
+> **Note:** The call to your authorization server's `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and secret. You made note of these during [set up your app](#set-up-your-app). See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 

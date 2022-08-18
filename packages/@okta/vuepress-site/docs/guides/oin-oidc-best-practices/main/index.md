@@ -18,7 +18,7 @@ The logo file must be smaller than 1 MB in size and be in either PNG, JPG, or GI
 
 ## Rate restrictions
 
-When constructing your OIDC application, you want to be aware of the limits on calls to the Okta API. For reference on the categories and cumulative rate limits, see [Rate limits overview](/docs/references/rate-limits/). In order to monitor your calls to the API, Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
+When constructing your OIDC application, you want to be aware of the limits on calls to the Okta API. For reference on the categories and cumulative rate limits, see [Rate limits overview](/docs/reference/rate-limits/). In order to monitor your calls to the API, Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 
 For org-wide rate limits, the three headers show the limit that is being enforced, when it resets, and how close you are to hitting the limit:
 

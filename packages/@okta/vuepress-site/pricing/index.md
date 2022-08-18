@@ -234,6 +234,6 @@ faqs:
   - title: What is a monthly active user?
     content: A monthly active user is an end-user that authenticates to an application in a given month. A user that authenticates multiple times to one or more applications within a given month is counted once.
   - title: "What are the rate limits for Okta's APIs?"
-    content: "The number of API requests for an organization is limited for all APIs in order to protect the service for all users. <a href='/docs/references/rate-limits/'>Get more details</a>."
+    content: "The number of API requests for an organization is limited for all APIs in order to protect the service for all users. <a href='/docs/reference/rate-limits/'>Get more details</a>."
 
 ---

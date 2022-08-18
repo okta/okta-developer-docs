@@ -43,9 +43,9 @@ The following are the high-level steps required to perform the Client Credential
 
 Create an OAuth 2.0 service app integration using the Admin Console.
 
-  > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](/docs/references/api/oauth-clients/#request-example-create-a-service-app-with-a-jwks). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section below first, as you need the `JWKS` parameter value when you create the client using the API. 
+  > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](/docs/reference/api/oauth-clients/#request-example-create-a-service-app-with-a-jwks). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section below first, as you need the `JWKS` parameter value when you create the client using the API. 
   >
-  >You can also add additional JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/references/api/apps/#add-new-json-web-key) API.
+  >You can also add additional JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/reference/api/apps/#add-new-json-web-key) API.
 
 1. Sign in to your Okta organization as a user with administrative privileges. [Create an org for free](https://developer.okta.com/signup).
 
@@ -59,7 +59,7 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 The `private_key_jwt` client authentication method is the only supported method for OAuth service apps that want to get access tokens with Okta scopes.
 
-The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/references/api/oauth-clients/#json-web-key-set) of the OAuth service app. We recommend generating the public/private key pair first before creating the OAuth service app.
+The private key that you use to sign the JWT must have the corresponding public key registered in the [JWKSet](/docs/reference/api/oauth-clients/#json-web-key-set) of the OAuth service app. We recommend generating the public/private key pair first before creating the OAuth service app.
 
 1. Use a tool such as this [JSON Web Key Generator](https://mkjwk.org/) to generate a JWKS public/private key pair for testing. Okta supports both RSA and Elliptic Curve (EC) keys. In this example, we are selecting **RSA** as the encryption algorithm. Select the following values:
 
@@ -191,7 +191,7 @@ For testing purposes, use [this tool](https://www.jsonwebtoken.dev) to generate 
 
 > **Note:** After the service app has Okta-scoped grants, only an admin with Super Admin role permissions can rotate the keys.
 
-You can use the following [JWT claims](/docs/references/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) in the request for a scoped access token:
+You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) in the request for a scoped access token:
 
 * `alg`: One of the supported algorithm values (RS265, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#generate-the-jwk-using-the-admin-console). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
 * `aud`: The full URL of the resource that you're using the JWT to authenticate to

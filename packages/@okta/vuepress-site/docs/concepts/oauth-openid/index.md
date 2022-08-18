@@ -12,15 +12,15 @@ This article provides a high-level introduction to OAuth 2.0 and OpenID Connect 
 
 There are two main types of authentication that you can perform with Okta:
 
-* The [OpenID Connect](/docs/references/api/oidc/) (OIDC) protocol is built on the OAuth 2.0 protocol and helps authenticate users and convey information about them. It's also more opinionated than plain OAuth 2.0, for example in its scope definitions.
+* The [OpenID Connect](/docs/reference/api/oidc/) (OIDC) protocol is built on the OAuth 2.0 protocol and helps authenticate users and convey information about them. It's also more opinionated than plain OAuth 2.0, for example in its scope definitions.
 
-* The [OAuth 2.0](/docs/references/api/oidc/) protocol controls authorization to access a protected resource, like your web app, native app, or API service.
+* The [OAuth 2.0](/docs/reference/api/oidc/) protocol controls authorization to access a protected resource, like your web app, native app, or API service.
 
 The OAuth 2.0 protocol provides API security through scoped access tokens. OAuth 2.0 enables you to delegate authorization, while OIDC enables you to retrieve and store authentication information about your end users. OIDC extends OAuth 2.0 by providing user authentication and single sign-on (SSO) functionality.
 
 For most of your app auth requirements, we recommend that you use the OAuth 2.0 and OIDC protocols through the different solutions Okta provides, as outlined in [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/). To get started with auth implementation and find sample apps, see [Sign users in](/docs/guides/sign-in-overview/).
 
-> **Note**: If you require a completely custom app setup and workflow with direct access control to your Okta org and app integrations, then you can use the [Authentication API](/docs/references/api/authn/). This API underpins both the Okta [Redirect](/docs/guides/sign-into-web-app-redirect/) and [Embedded](/docs/guides/embedded-siw/) Sign-In Widget, and [Auth JS](/docs/guides/auth-js/) SDKs.
+> **Note**: If you require a completely custom app setup and workflow with direct access control to your Okta org and app integrations, then you can use the [Authentication API](/docs/reference/api/authn/). This API underpins both the Okta [Redirect](/docs/guides/sign-into-web-app-redirect/) and [Embedded](/docs/guides/embedded-siw/) Sign-In Widget, and [Auth JS](/docs/guides/auth-js/) SDKs.
 
 ### OAuth 2.0
 
@@ -42,7 +42,7 @@ Other important terms:
 * **access token**: The token issued by the authorization server (Okta) in exchange for the grant.
 * **refresh token**: An optional token that is exchanged for a new access token if the access token has expired.
 
-> **Note:** See [Token lifetime](/docs/references/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
 
 The usual OAuth 2.0 grant flow looks like this:
 
@@ -55,7 +55,7 @@ The usual OAuth 2.0 grant flow looks like this:
 
 At the core of both OAuth 2.0 and its OpenID Connect extension is the authorization server. An authorization server is simply an OAuth 2.0 token minting engine. Each authorization server has a unique issuer URI and its own signing key for tokens to keep a proper boundary between security domains. In the context of this guide, Okta is your authorization server.
 
-The authorization server also acts as an OpenID Connect Provider, which means you can request [ID tokens](/docs/references/api/oidc/#id-token) in addition to [access tokens](/docs/references/api/oidc/#access-token) from the authorization server endpoints.
+The authorization server also acts as an OpenID Connect Provider, which means you can request [ID tokens](/docs/reference/api/oidc/#id-token) in addition to [access tokens](/docs/reference/api/oidc/#access-token) from the authorization server endpoints.
 
 > **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization Servers](/docs/concepts/auth-servers).
 

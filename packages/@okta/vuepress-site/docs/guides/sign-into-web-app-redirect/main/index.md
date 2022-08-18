@@ -123,7 +123,7 @@ After successful authentication Okta redirects back to the app with an authoriza
 
 ### Get info about the user
 
-After the user signs in, Okta returns some of their profile information to your app, such as those shown in the [/userinfo response example](/docs/references/api/oidc/#response-example-success-6). One use of this information is updating your user interface, for example to display the customer's name.
+After the user signs in, Okta returns some of their profile information to your app, such as those shown in the [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6). One use of this information is updating your user interface, for example to display the customer's name.
 
 The default profile items (called `claims`) returned by Okta include the user's email address, name, and preferred username. The claims that you see may differ depending on the scopes requested by your app. See [Configure your app](#configure-your-app).
 

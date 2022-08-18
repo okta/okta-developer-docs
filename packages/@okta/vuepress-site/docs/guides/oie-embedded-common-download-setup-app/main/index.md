@@ -68,7 +68,7 @@ This is the same value as the **Redirect URI** for the application that you crea
 
 #### Scopes
 
-The sample app uses the default scopes provided in the SDK, which include `openid`, `profile`, and others. See [OpenID Connect & OAuth 2.0 API](/docs/references/api/oidc/#scopes) for more information on OIDC scopes associated with access tokens.
+The sample app uses the default scopes provided in the SDK, which include `openid`, `profile`, and others. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/#scopes) for more information on OIDC scopes associated with access tokens.
 
 ## Set the configuration values
 
