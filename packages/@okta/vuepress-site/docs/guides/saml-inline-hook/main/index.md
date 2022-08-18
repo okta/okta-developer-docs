@@ -296,7 +296,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Click the SAML assertion inline hook name (in this example, "Patient SAML Hook").
 
-1. Click the **Preview** tab.
+1. Click **Preview**.
 
 1. Select a user assigned to your SAML application in the first block titled **Configure Inline Hook request**; that is, a value for the `data.userProfile` field.
 
