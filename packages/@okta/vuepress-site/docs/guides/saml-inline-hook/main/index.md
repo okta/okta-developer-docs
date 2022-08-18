@@ -42,7 +42,7 @@ At a high-level, the following workflow occurs:
 * A user signs in to an application authenticated by SAML, which uses the Okta org as an Identity Provider (IdP), and authenticates the user (A).
 * At this point in the workflow, the Okta SAML assertion inline hook triggers (1) and sends a request to an external service.
 * The external service evaluates the request (2), and if the user is part of the patient data store, sends a response back to Okta to include the patient's ID as part of the assertion (3).
-* The user is logged in to the application with the additional claim in the SAML assertion (B).
+* The user is signed in to the application with the additional claim in the SAML assertion (B).
 
 <div class="three-quarter">
 
