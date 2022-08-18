@@ -35,7 +35,7 @@ This guide provides an end-to-end scenario using a SAML-authenticated applicatio
 
 ### The scenario
 
-In the following scenario, the external service code parses a request from Okta, evaluates the user name against a simple patient data store, and, if the user is part of the patient store, responds to Okta with a command to add a patient ID claim to the SAML assertion. If the user name is not part of the data store, no action is taken.
+In the following scenario, the external service code parses a request from Okta, evaluates the user name against a simple patient data store, and, if the user is part of the patient store, responds to Okta with a command to add a patient ID claim to the SAML assertion. If the user name isn't part of the data store, no action is taken.
 
 At a high-level, the following workflow occurs:
 
