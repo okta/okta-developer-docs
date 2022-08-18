@@ -1,6 +1,34 @@
-### 1: Your app displays the sign-in page
+### 1: The user navigates to the sign-in page
 
-Create a sign-in page that captures the user's username.
+When the user navigates to your app's sign-in page, call `OktaAuth.idx.start()` to start the sign-in flow.
+
+```javascript
+const { oktaAuth } = useOktaAuth();
+const startFlow = useCallback(async () => {
+  newTransaction = await oktaAuth.idx.start();
+}, [oktaAuth, flow, setTransaction]);
+```
+
+The method returns an `IdxTransaction` object containing field metadata that can be used to create a sign-in page dynamically.
+
+```json
+{
+   "status":"PENDING",
+   "nextStep":{
+      "name":"identify",
+      "inputs":[
+         {
+            "name": "username",
+            "label": "Username",
+            "required": true
+         }
+         ...
+      ]
+   },
+}
+```
+
+Display &mdash; either statically or dynamically using `IdxTransaction` &mdash; an input field for the user's username.
 
 <div class="half border">
 
@@ -10,23 +38,33 @@ Create a sign-in page that captures the user's username.
 
 ### 2: The user submits their username
 
-Call `OktaAuth.idx.authenticate()` and pass in the username.
+When the user submits their account details, create an object with a `username` property and assign it the value entered by the user.
 
 ```javascript
-  const { username } = req.body;
-  const authClient = getAuthClient(req);
-  const transaction = await authClient.idx.authenticate({ username });
+const inputValues = {
+  username: "johndoe@email.com",
+ };
 ```
 
-### 3. The user verifies their identity with the email authenticator
+Send this new object to `OktaAuth.idx.proceed()`.
 
-`OktaAuth.idx.authenticate()` returns an `IdxTransaction` object indicating that the user needs to verify their identity with the email authenticator challenge.
+```javascript
+setProcessing(true);
+const newTransaction = await oktaAuth.idx.proceed(inputValues);
+setTransaction(newTransaction);
+```
+
+>**Note**: You can also start the sign-in flow in a single step by passing the username in `OktaAuth.idx.authenticate()`. See [`idx.authenticate`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) in the GitHub docs or [Node Express's](/docs/guides/pwd-optional-sign-in-email/nodeexpress/main/#_2-the-user-submits-their-username) version of this guide to learn more.
+
+### 3. Identity Engine requests new email verification
+
+Identity Engine sends the user an email that contains a one-time password (OTP) they can use to verify their identity.`OktaAuth.idx.proceed()` returns an `IdxTransaction` object with a `status` of `PENDING`, indicating that the user needs to verify their identity with their email.
 
 ```json
 {
   status: "PENDING",
   nextStep: {
-    name: "challenge-authenticator",
+    name: "enroll-authenticator",
     type: "email",
     authenticator: {
       type: "email",
@@ -37,11 +75,38 @@ Call `OktaAuth.idx.authenticate()` and pass in the username.
 }
 ```
 
-The email authenticator supports user verification by One-Time Password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
+Build the logic that handles this response and sends the user to a dialog where they enter the OTP.
 
-### 4. Your app handles an authentication success response
+### 4. The user verifies their identity with the new email
 
-When the user completes the email authenticator verification, one of `OktaAuth.idx` methods returns `IdxTransaction.status` of `SUCCESS` along with ID and access tokens, which indicates that the user successfully signed in.
+The user opens the email sent by Identity Engine. Create a dialog in your app where the user can submit the OTP from the email back to Identity Engine.
+
+<div class="half border">
+
+![Screenshot showing a page with an OTP input field.](/img/pwd-optional/pwd-optional-sign-up-js-react-email-verify.png)
+
+</div>
+
+When the user submits the OTP, create an object with a `verificationCode` property set to the OTP entered by the user.
+
+```json
+const inputValues = {
+    "verificationCode":"197277"
+ };
+```
+
+Call `OktaAuth.idx.proceed()` passing in the new object.
+
+```javascript
+    const newTransaction = await oktaAuth.idx.proceed(inputValues);
+    setTransaction(newTransaction);
+    setInputValues({});
+    setProcessing(false);
+```
+
+### 5. Identity Engine verifies OTP and returns success
+
+`OktaAuth.idx.proceed()` returns `IdxTransaction.status` equal to `SUCCESS` along with access and ID tokens, which indicates a successful new user sign-up flow.
 
 ```json
 {
@@ -60,7 +125,6 @@ When the user completes the email authenticator verification, one of `OktaAuth.i
 }
 ```
 
-Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.
-
+Store these tokens for future requests and redirect the user to the default page after a successful sign-up attempt.
 
 > **Note:** In other use cases where additional sign-in authenticators are required, the user needs to choose and verify all required authenticators before `IdxTransaction.status` of `SUCCESS` is returned.
