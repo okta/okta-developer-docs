@@ -1,6 +1,6 @@
 ### 1: The user navigates to the sign-in page
 
-Display a **Sign up** link on your app's sign-in page that points to a sign-up page.
+When the user navigates to your app's sign-in page, display a link on your app's sign-in page that points to a sign-up page.
 
 <div class="half border">
 
@@ -8,9 +8,9 @@ Display a **Sign up** link on your app's sign-in page that points to a sign-up p
 
 </div>
 
-### 2: The user clicks the sign up link
+### 2: The user clicks the sign-up link
 
-When the user clicks the **Sign up** link, redirect them to the sign-up page where they can sign up for a new account. During page load, call `OktaAuth.idx.register()` to start the self-service registration flow.
+When the user clicks **Sign up**, redirect them to the page where they can sign up for a new account. During page load, call `OktaAuth.idx.register()` to start the self-service registration flow.
 
 ```javascript
   const { oktaAuth } = useOktaAuth();
@@ -75,7 +75,7 @@ setTransaction(newTransaction);
 
 ### 4. Identity Engine requests new email verification
 
-`OktaAuth.idx.proceed()` returns an `IdxTransaction` object with a `status` of `PENDING`, indicating that the user needs to verify their identity with their email.
+Identity Engine sends the user an email that contains a one-time password (OTP) they can use to verify their identity.`OktaAuth.idx.proceed()` returns an `IdxTransaction` object with a `status` of `PENDING`, indicating that the user needs to verify their identity with their email.
 
 ```json
 {
@@ -96,11 +96,11 @@ Build the logic that handles this response and sends the user to a dialog where 
 
 ### 5. The user verifies their identity with the new email
 
-The user opens the email sent by Identity Engine and copies the one-time passcode (OTP) to your app. Create a dialog to allow the user to enter and submit the OTP.
+The user opens the email sent by Identity Engine. Create a dialog in your app where the user can submit the OTP from the email back to Identity Engine.
 
 <div class="half border">
 
-![Screenshot showing a page with a OTP input field.](/img/pwd-optional/pwd-optional-change-email-my-account-js-react-verify-email.png)
+![Screenshot showing a page with an OTP input field.](/img/pwd-optional/pwd-optional-sign-up-js-react-email-verify.png)
 
 </div>
 
@@ -132,12 +132,12 @@ After the user verifies their identity using the email authenticator, `OktaAuth.
     name: "select-authenticator-enroll",
     options: [
       {
-        label: "Okta Verify",
-        value: "okta_verify",
+        label: "Google Authenticator",
+        value: "google_otp"
       },
       {
-        label: "Password",
-        value: "okta_password",
+        label: "Okta Verify",
+        value: "okta_verify",
       },
     ],
     canSkip: true,
