@@ -300,7 +300,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 1. Select a user assigned to your SAML application in the first block titled **Configure Inline Hook request**; that is, a value for the `data.userProfile` field.
 
-1. Select your SAML Application by typing in the **Select a SAML app** field (in this example, "Spring Book SAML"), and clicking on your application.
+1. Select your SAML application by typing in the **Select a SAML app** field (in this example, "Spring Book SAML"), and clicking on your application.
 
 1. From the **Preview example Inline Hook request** block, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
 
