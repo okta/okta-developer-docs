@@ -268,7 +268,7 @@ The SAML assertion inline hook is now set up with a status of active.
 
 1. Navigate to **Applications** and select your SAML application (in this example, "Spring Book SAML").
 
-1. Click the **General** tab.
+1. Click **General**.
 
 1. From the **SAML Settings** tile, click **Edit**.
 
