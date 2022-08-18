@@ -70,7 +70,7 @@ You can now create the external service code that resides on your third-party si
 
 Copy (re-mix) the Glitch.com project code, [Okta SAML assertion inline hook Example](https://glitch.com/edit/#!/okta-inlinehook-samlhook), to run the scenario right away. Skip to the [Activate and enable the SAML assertion inline hook](#activate-and-enable-the-saml-assertion-inline-hook) section to configure the SAML inline hook.
 
->**Note:** Ensure you modify the project code's data store with a user that belongs to your org.
+>**Note:** Ensure that you modify the project code's data store with a user that belongs to your org.
 
 If you'd like to create the external service yourself, use the following sections that detail the portion of code that parses the SAML assertion inline hook call, checks the data store, and then responds to Okta.
 
