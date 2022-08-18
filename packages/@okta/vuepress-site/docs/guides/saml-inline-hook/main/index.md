@@ -335,4 +335,4 @@ Review the following guides to implement other inline or event hook examples:
 
 ## See also
 
-For a complete description of this inline hook type, see [SAML assertion inline hook](/docs/reference/saml-hook) reference.
+For a complete description of this inline hook type, see the [SAML assertion inline hook](/docs/reference/saml-hook) reference.
