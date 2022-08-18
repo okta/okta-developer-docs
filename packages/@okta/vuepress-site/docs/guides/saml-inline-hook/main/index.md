@@ -306,7 +306,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
    > **Note:** You can also **Edit** this call for development or testing purposes.
 
-1. From the **View service's response** block, click **View Response**. You will see the response from your external service in JSON format, which either adds a claim to the SAML assertion or not.
+1. From the **View service's response** block, click **View Response**. A response appears from your external service in JSON format, which either adds a claim to the SAML assertion or doesn't.
 
 ### Test the SAML assertion inline hook
 
