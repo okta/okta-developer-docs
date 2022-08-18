@@ -29,7 +29,7 @@ This guide provides a working example of an Okta SAML assertion inline hook. It 
 
 ## About SAML assertion inline hook implementation
 
-The SAML assertion inline hook can be used to customize the authentication workflow that occurs between an application and the Okta org, which functions as the Identity Provider (IdP).
+You can use the SAML assertion inline hook to customize the authentication workflow that occurs between an application and the Okta org, which functions as the Identity Provider (IdP).
 
 This guide provides an end-to-end scenario using a SAML-authenticated application and an Okta org, and includes example code for an external service to respond to calls from a SAML assertion inline hook triggered during the authentication workflow.
 
