@@ -288,7 +288,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
 * The SAML application (okta-spring-boot-saml-example) is ready to sign in and authenticate users using your Okta org as an IdP.
 * The external service (okta-inlinehook-samlhook) is ready with code to receive and respond to an Okta SAML assertion inline hook call.
-* The Okta org is setup to call and receive a response from the external service when a SAML assertion inline hook is triggered by a user sign-in from the SAML application.
+* The Okta org is set up to call and receive a response from the external service when a SAML assertion inline hook is triggered by a user signing in from the SAML application.
 
 ### Preview the SAML assertion inline hook
 
