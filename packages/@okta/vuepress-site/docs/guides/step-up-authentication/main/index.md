@@ -11,7 +11,7 @@ This guide explains how to include the `acr_values` parameter in your authorizat
 
 **Learning outcomes**
 
-* Know the purpose of using the `acr_values` parameter.
+* Know the purpose of the `acr_values` parameter.
 * Learn about the different types of `acr_values` that are supported out of the box.
 * Use an `acr_values` parameter in your authorization request.
 
@@ -30,7 +30,7 @@ The `acr_values` parameter refers to authentication context class reference. Eac
 
 Today an authorization server relies on [authentication policies](/docs/reference/api/policy/#authentication-policy) to authenticate the user. After the user is authenticated, the authorization server evaluates the scopes and the grant types defined for the application, and then issues the tokens. Although this approach works in many situations, there are several circumstances where more is needed. Resource servers (your protected APIs) can require different authentication strengths or elapsed time frames for different use cases. For example, an eCommerce application requires different authentication strengths depending on whether the item being purchased exceeds a certain threshold. Another example is an application that requires a higher level of assurance before making changes to some sensitive information.
 
-Okta has created predefined `acr_values` that are described in the [**Predefined parameter values** section](#predefined-parameter-values). You can include one of these values, based on your use case, in the client authorization request to request a different authentication assurance. The authorization server returns an access token and/or an ID token that contains the `acr` claim. This claim conveys information about the level of assurance that the user verified at the time of authentication. The resource server can then validate these parameters to ensure that the user verified the required level of assurance.
+Okta has created predefined `acr_values` that are described in the [Predefined parameter values](#predefined-parameter-values) section. You can include one of these values, based on your use case, in the client authorization request to request a different authentication assurance. The authorization server returns an access token and/or an ID token that contains the `acr` claim. This claim conveys information about the level of assurance that the user verified at the time of authentication. The resource server can then validate these parameters to ensure that the user verified the required level of assurance.
 
 > **Note:** You can also specify a `max_age` parameter value to require an elapsed time frame. This guide focuses on the use of the `acr_values` parameter. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
 
@@ -74,7 +74,7 @@ At a high-level, this flow has the following steps:
 
 1. Per your use case, include the `acr_values` predefined parameter value in the authentication request.
 
-2. The authentication scenarios required by the [grant type](/docs/guides/implement-grant-type/authcode/main/) authenticate the user in accordance with the `acr_values` value in the authorization request.
+2. The authentication scenarios required by the [grant type](/docs/guides/implement-grant-type/authcode/main/) authenticate the user in accordance with the predefined `acr_values` parameter value used in the authorization request.
 
 3. When the authentication flow completes, the authorization server returns an access token and/or an ID token to the client that contains the `acr` claim.
 
