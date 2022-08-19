@@ -11,7 +11,7 @@ This guide explains how to include the `acr_values` parameter in your authorizat
 
 **Learning outcomes**
 
-* Know the purpose of using the `acr_values` parameter.
+* Know the purpose of the `acr_values` parameter.
 * Learn about the different types of `acr_values` that are supported out of the box.
 * Use an `acr_values` parameter in your authorization request.
 
