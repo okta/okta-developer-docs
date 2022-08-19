@@ -687,6 +687,10 @@ export const guides = [
           guideName: "registration-inline-hook"
           },
           {
+            title: "SAML assertion inline hook",
+          guideName: "saml-inline-hook"
+          },
+          {
             title: "Telephony Inline Hook",
           guideName: "telephony-inline-hook"
           },
