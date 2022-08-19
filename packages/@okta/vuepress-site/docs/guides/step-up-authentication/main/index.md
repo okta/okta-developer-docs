@@ -59,8 +59,8 @@ The following predefined optional parameters are available for use in your autho
 | `urn:okta:loa:1fa:pwd`   | Password only. Allows one factor authentication that requires the user’s password. | Query | String |
 | `urn:okta:loa:1fa:any`   | Any one factor. Allows one factor authentication with no requirements on which factor. | Query | String |
 | `urn:okta:loa:2fa:any`   | Any two factors. Allows two factor authentication with no requirements on which factors. | Query | String |
-| `phr` <ApiLifecycle access="ie" /> | Phishing-Resistant. Requires users to provide possession factors that cryptographically verify the sign-in server (the origin). Currently, only FIDO2/WebAuthn satisfies this requirement. Because phishing resistance implies [device binding](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators), that constraint is selected automatically when `phr` is specified. | Query | String |
-| `phrh` <ApiLifecycle access="ie" /> | Phishing-Resistant Hardware-Protected. Requires that you store keys being used to authenticate in secure hardware (TPM, Secure Enclave) on the device. Currently, only Okta Verify meets this constraint. Because hardware protection implies [device binding](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators), that constraint is selected automatically when `phrh` is specified. | Query | String |
+| `phr`<br><br><ApiLifecycle access="ie" /> | Phishing-Resistant. Requires users to provide possession factors that cryptographically verify the sign-in server (the origin). Currently, only FIDO2/WebAuthn satisfies this requirement. Because phishing resistance implies [device binding](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators), that constraint is selected automatically when `phr` is specified. | Query | String |
+| `phrh`<br><br> <ApiLifecycle access="ie" /> | Phishing-Resistant Hardware-Protected. Requires that you store keys being used to authenticate in secure hardware (TPM, Secure Enclave) on the device. Currently, only Okta Verify meets this constraint. Because hardware protection implies [device binding](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators), that constraint is selected automatically when `phrh` is specified. | Query | String |
 
 ## Authentication flow using ACR values
 
@@ -94,7 +94,7 @@ https://${yourOktadomain}/oauth2/default/v1/authorize?client_id={clientId}
 &scope=openid
 &redirect_uri=http://${yourOktadomain}/authorization-code/callback
 &state=296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
-&urn:okta:loa:1fa:any
+&acr_values=urn:okta:loa:1fa:any
 ```
 
 The authorization code is returned in the response. And then the request is made to the `/token` endpoint to exchange the authorization code for an ID token and an access token. See the [Authorization Code grant type](/docs/guides/implement-grant-type/authcode/main/#grant-type-flow) for a diagram of this flow.
@@ -154,6 +154,10 @@ To check the returned ID token payload, copy the values and paste them into any 
   "sub": "joe.smith@example.com"
 }
 ```
+
+### Refresh token behavior
+
+When you use the refresh token to refresh the access and ID tokens, the tokens reflect the `acr_values` parameter value sent in the original authentication request. Use the `auth_time` [parameter value](/docs/reference/api/oidc/#request-parameters) to validate when the original authentication occurred.
 
 ## Next steps
 
