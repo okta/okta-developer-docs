@@ -3,8 +3,6 @@ title: Step-up authentication using ACR values
 excerpt: Learn how to use the `acr_values` parameter in authorization requests to require different authentication levels of assurance.
 layout: Guides
 ---
-<ApiLifecycle access="ie" /><br>
-
 <ApiLifecycle access="ea" />
 
 This guide explains how to include the `acr_values` parameter in your authorization requests to increase the level of end-user assurance.
@@ -36,7 +34,7 @@ Okta has created predefined `acr_values` that are described in the [**Predefined
 
 > **Note:** You can also specify a `max_age` parameter value to require an elapsed time frame. This guide focuses on the use of the `acr_values` parameter. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
 
-Today the [redirect deployment model](/docs/concepts/redirect-vs-embedded/#redirect-authentication) supports the use of the `acr_values` parameter. This parameter works with any OpenID Connect application, such as web, native, or SPA, and it’s supported by both the [Okta Org Authorization Server and custom authorization servers](/docs/concepts/auth-servers/).
+Okta's [redirect deployment model](/docs/concepts/redirect-vs-embedded/#redirect-authentication) supports the use of the `acr_values` parameter. The parameter works with any OpenID Connect application, such as web, native, or SPA, and it’s supported by both the [Okta Org Authorization Server and custom authorization servers](/docs/concepts/auth-servers/).
 
 ### Evaluation flow
 
@@ -159,4 +157,8 @@ To check the returned ID token payload, copy the values and paste them into any 
 
 ## Next steps
 
-* You can find more information about Okta's access tokens in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).
+* Read more about Okta's access tokens in the [OIDC & OAuth 2.0 API Reference](/docs/reference/api/oidc/#id-token).
+
+* Read more about policies on the [Policies](/docs/concepts/policies/) concept page.
+
+* Read more about OpenID Connect and OAuth 2.0 in the [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
