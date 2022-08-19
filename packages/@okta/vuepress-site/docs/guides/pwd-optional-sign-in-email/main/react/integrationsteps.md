@@ -79,7 +79,7 @@ Build the logic that handles this response and sends the user to a dialog where 
 
 ### 4. The user verifies their identity with the new email
 
-The user opens the email sent by Identity Engine. Create a dialog in your app where the user can submit the OTP from the email back to Identity Engine.
+The user opens the email sent by Identity Engine. Create a dialog in your app where the user can submit the OTP from the email to Identity Engine.
 
 <div class="half border">
 
@@ -127,4 +127,4 @@ Call `OktaAuth.idx.proceed()` passing in the new object.
 
 Store these tokens for future requests and redirect the user to the default page after a successful sign-up attempt.
 
-> **Note:** In other use cases where additional sign-in authenticators are required, the user needs to choose and verify all required authenticators before `IdxTransaction.status` of `SUCCESS` is returned.
+> **Note:** In other use cases where additional sign-in authenticators are required, the user must choose and verify all required authenticators before `IdxTransaction.status` of `SUCCESS` is returned.
