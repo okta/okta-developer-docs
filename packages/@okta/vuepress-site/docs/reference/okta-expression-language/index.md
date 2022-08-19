@@ -402,11 +402,17 @@ To include a granted scope array and convert it to a space-delimited string, use
 
 ## Expressions in group rules
 
-The set of expressions allowed in group rules is limited to `String`, `Arrays`, and `user` expressions.
+Group rule conditions only allow `String`, `Arrays`, and `user` expressions.
 
-For example, `user.hasBadge`, `String.stringContains(user.email, "@example.com")` and
-`Arrays.contains(user.favoriteColors, "blue")` are allowed in group rule expressions, but
-`Convert.toInt("2018") == user.yearJoined` is not allowed in group rule expressions.
+For example, the following expressions are allowed in group rule conditions:
+
+* `user.hasBadge`
+* `String.stringContains(user.email, "@example.com")`
+* `Arrays.contains(user.favoriteColors, "blue")`
+
+The following expression is not allowed in group rule conditions:
+
+* `Convert.toInt("2018") == user.yearJoined`
 
 ## Appendix: Time zone codes
 
