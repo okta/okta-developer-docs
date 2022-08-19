@@ -74,7 +74,7 @@ At a high-level, this flow has the following steps:
 
 1. Per your use case, include the `acr_values` predefined parameter value in the authentication request.
 
-2. The authentication scenarios required by the [grant type](/docs/guides/implement-grant-type/authcode/main/) authenticate the user in accordance with the `acr_values` value in the authorization request.
+2. The authentication scenarios required by the [grant type](/docs/guides/implement-grant-type/authcode/main/) authenticate the user in accordance with the `acr_values` parameter value in the authorization request.
 
 3. When the authentication flow completes, the authorization server returns an access token and/or an ID token to the client that contains the `acr` claim.
 
