@@ -25,7 +25,7 @@ You can have a maximum of 10 active and verified event hooks set up in your org 
 
 During the initial configuration procedure for an event hook, you specify which event types you want the event hook to deliver. The event types that can be specified are a subset of the event types that the Okta System Log captures.
 
-To see the list of event types currently eligible for use in event hooks, see the [Event Types catalog](/docs/reference/api/event-types/#catalog) and search with the parameter `event-hook-eligible`.
+To see the list of event types currently eligible for use in event hooks, use the [Event Types catalog](/docs/reference/api/event-types/#catalog) and search with the parameter `event-hook-eligible`.
 
 For general information on how Okta encapsulates events, see the [System Log API](/docs/reference/api/system-log/) documentation.
 
