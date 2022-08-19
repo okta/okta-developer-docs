@@ -67,6 +67,7 @@ guides:
  - registration-inline-hook
  - request-user-consent
  - revoke-tokens
+ - saml-inline-hook
  - saml-tracer
  - session-cookie
  - set-up-self-service-registration
