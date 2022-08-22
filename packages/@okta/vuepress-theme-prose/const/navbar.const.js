@@ -541,7 +541,7 @@ export const guides = [
         ],
       },
       {
-        title: "OIN Partner Integrations",
+        title: "Okta Integration Network",
         customLandingPage: true,
         subLinks: [
           {
