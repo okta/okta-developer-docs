@@ -541,26 +541,40 @@ export const guides = [
         ],
       },
       {
-        title: 'Okta Integration Network',
+        title: "OIN Partner Integrations",
         customLandingPage: true,
         subLinks: [
           {
-            title: "Build a SCIM provisioning integration",
+            title: "Overview of Single Sign-On",
             subLinks: [
               {
-                title: "Prepare your SCIM API service",
-                path: "/docs/guides/scim-provisioning-integration-prepare/main/",
+                title: "Build an Okta SSO integration",
+                guideName: "build-sso-integration",
               },
-              {
-                title: "Configure Okta to your SCIM API service",
-                guideName: "scim-provisioning-integration-connect"
-              },
-              {
-                title: "Test your SCIM Okta integration",
-                path: "/docs/guides/scim-provisioning-integration-test/main/",
-              },
-            ],
+             ],
           },
+          {
+            title: "Overview of Lifecycle Management",
+            subLinks: [
+              {
+                title: "Build a SCIM Provisioning Integration",
+                subLinks: [
+                  {
+                	title: "Prepare your SCIM API service",
+                	path: "/docs/guides/scim-provisioning-integration-prepare/main/",
+              		},
+                  {
+                	title: "Connect your SCIM API service to Okta",
+                	guideName: "scim-provisioning-integration-connect",
+              		},
+                  {
+                	title: "Test your Okta SCIM integration",
+                	path: "/docs/guides/scim-provisioning-integration-test/main/",
+              		},
+                ],
+              },
+          ],
+        },
           {
             title: "OIDC and the OIN: A Developer Primer",
             subLinks: [
@@ -578,11 +592,9 @@ export const guides = [
               },
             ],
           },
-          {
-            title: "Build a Single Sign-On (SSO) integration",
-            guideName: "build-sso-integration",
+          { title: "Publish an OIN integration",
+              guideName: "submit-app",
           },
-          { title: "Submit an app integration", guideName: "submit-app" },
         ],
       },
       {

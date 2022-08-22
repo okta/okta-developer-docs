@@ -34,7 +34,7 @@
                     id: 1,
                     title: 'Enable Single Sign-On',
                     text: 'Let users securely sign in to your app with their credentials.',
-                    link: 'https://docs.google.com/document/d/157AdLbA38W_WyAIH0W45YE1G3F3pWzWVI8wIfVmBAZQ/edit#heading=h.xz5gewuas0i5',
+                    link: '/docs/guides/oin-sso-overview/',
                     linkText: 'Get Started with Single Sign-On',
                     list: [
                         'Streamline the sign-in flow',
