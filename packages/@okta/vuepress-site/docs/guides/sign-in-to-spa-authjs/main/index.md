@@ -5,7 +5,7 @@ layout: Guides
 ---
 
 ::: slot description
-Test description
+Add embedded authentication to your SPA app with Okta Auth JS.
 :::
 
 <ApiLifecycle access="ie" /><br>

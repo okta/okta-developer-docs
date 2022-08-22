@@ -44,7 +44,7 @@
             <PageTitle />
             <ContentPage />
             <GeneratedContent v-if="$page.frontmatter.generated" />
-            <div class="edit-on-github">
+            <div v-if="!$page.frontmatter.generated" class="edit-on-github">
               <span class="fa fa-github"></span>
               <span>
                 <a

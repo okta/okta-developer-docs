@@ -23,7 +23,7 @@
   position: relative;
   width: 100%;
   min-height: 100%;
-  padding: 34px 30px 3rem 2rem;
+  padding: 34px 30px 3rem 49px;
   background: cv('body', 'sidebar');
   margin-bottom: -176px;
   .sections {
@@ -116,8 +116,7 @@
     padding: 1rem 0 0 0;
   }
   .sections {
-    padding-left: 17px;
-    li.subnav-active > .sections {
+    li > .sections {
       padding-left: 0;
       margin-left: 22px;
     }
