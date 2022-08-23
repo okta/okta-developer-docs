@@ -141,7 +141,7 @@ Open the project in your favorite IDE and complete the following steps.
        </head>
        <body>
            <h1>Welcome</h1>
-           <p>You are successfully logged in as <span sec:authentication="name"></span></p>
+           <p>You are successfully signed in as <span sec:authentication="name"></span></p>
            <p>Your email address is <span th:text="${emailAddress}"></span>.</p>
            <p>Your authorities are <span sec:authentication="authorities"></span>.</p>
            <h2>All Your Attributes</h2>
