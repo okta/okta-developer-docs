@@ -227,7 +227,7 @@ Spring Security's SAML support has a [sign-out feature](https://docs.spring.io/s
    * Single Logout URL: `http://localhost:8080/logout/saml2/slo`
    * SP Issuer: `http://localhost:8080/saml2/service-provider-metadata/okta`
 
-1. Finish configuring your Okta app, restart your Spring Boot app, and the logout button should work.
+1. Finish configuring your Okta app, restart your Spring Boot app, and the button should work.
 
    <div class="three-quarter border">
 
