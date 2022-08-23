@@ -194,7 +194,7 @@ Spring Security's SAML support has a [sign-out feature](https://docs.spring.io/s
 
 1. Edit your application on Okta and navigate to **General** > **SAML Settings** > **Edit**.
 
-1. Continue to the **Configure SAML** step and **Show Advanced Settings**. Before you can enable single logout, you'll have to create and upload a certificate to sign the outgoing logout request.
+1. Continue to the **Configure SAML** step and **Show Advanced Settings**. Before you can enable single sign out, you'll have to create and upload a certificate to sign the outgoing sign-out request.
 
 1. You can create a private key and certificate using OpenSSL. Answer at least one of the questions with a value, and it should work.
 
