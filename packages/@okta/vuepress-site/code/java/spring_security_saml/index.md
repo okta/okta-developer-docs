@@ -26,57 +26,27 @@ This guide describes how to use Spring Security SAML to add support for Okta to 
 An Application Integration represents your app in your Okta org. To create an app integration for a SAML app:
 
 1. Open the **Admin Console** for your org.
-2. Choose **Applications** > **Applications**.
-3. Click **Create App Integration**.
-4. Select **SAML 2.0** as the Sign-in method, and then click **Next**.
-5. Give your application name, for example "Spring Boot SAML", and then click **Next**.
-6. On the Configure SAML page
-   - Set **Single sign-on URL** to a URL that is appropriate for your app. For example `http://localhost:8080/login/saml2/sso/okta`
-   - Verify that **Use this for Recipient URLs and Destination URLs** is checked.
-   - Set **Audience URI** to a URL that is appropriate for your app. For example `http://localhost:8080/saml2/service-provider-metadata/okta`
-7. Click **Next**.
-8. Set **Are you a customer or a partner?** to **I'm an Okta customer adding an internal app**.
-9. Set **App type** to **This is an internal app that we have created**.
-10. Click **Finish**.
+1. Choose **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. Select **SAML 2.0** as the Sign-in method, and then click **Next**.
+1. Give your application name, for example "Spring Boot SAML", and then click **Next**.
+1. On the Configure SAML page
+   * Set **Single sign-on URL** to a URL that is appropriate for your app. For example `http://localhost:8080/login/saml2/sso/okta`
+   * Verify that **Use this for Recipient URLs and Destination URLs** is checked.
+   * Set **Audience URI** to a URL that is appropriate for your app. For example `http://localhost:8080/saml2/service-provider-metadata/okta`
+1. Click **Next**.
+1. Set **Are you a customer or a partner?** to **I'm an Okta customer adding an internal app**.
+1. Set **App type** to **This is an internal app that we have created**.
+1. Click **Finish**.
 
-   Okta will create your app and redirect you to its **Sign On** tab.
+Okta will create your app and redirect you to its **Sign On** tab. Continue the required setup:
 
-11. Locate the **SAML Signing Certificates** section.
-12. Locate the entry for **SHA-2**, and then select **Actions** > **View IdP metadata**.
-13. Copy the URL for the resulting link to your clipboard. It will look like `https://${yourOktaDomain}/app/<random-characters>/sso/saml/metadata`.
-14. Choose the **Assignments** tab, and then select **Assign** > **Assign to Groups**.
-15. Locate the entry for **Everyone** and click **Assign**.
-16. Click **Done**.
-
-1. Sign in to your account and go to **Applications** > **Create App Integration**.
-
-1. Select **SAML 2.0** and click **Next**.
-
-1. Name your app `Spring Boot SAML` and click **Next**.
-
-1. Fill in the following settings:
-
-   * Single sign on URL: `http://localhost:8080/login/saml2/sso/okta`
-   * Check Recipient URL and Destination URL (this should be the default)
-   * Audience URI: `http://localhost:8080/saml2/service-provider-metadata/okta`
-
-1. Click **Next**, then select the following options:
-
-   * I'm an Okta customer adding an internal app
-   * This is an internal app that we have created
-
-1. Select **Finish**.
-
-Okta will create your app and redirect you to its **Sign On** tab.
-
-1. Scroll down to the **SAML Signing Certificates** and go to **SHA-2** > **Actions** > **View IdP Metadata**.
-1. Copy the resulting link to your clipboard (right-click and copy this menu item's link or open its URL). It should look something like the following:
-
-   ```
-   https://dev-13337.okta.com/app/<random-characters>/sso/saml/metadata
-   ```
-
-1. Go to your app's **Assignment** tab and assign access to the **Everyone** group.
+1. Locate the **SAML Signing Certificates** section.
+1. Locate the entry for **SHA-2**, and then select **Actions** > **View IdP metadata**.
+1. Copy the URL for the resulting link to your clipboard. It will look like `https://${yourOktaDomain}/app/<random-characters>/sso/saml/metadata`.
+1. Choose the **Assignments** tab, and then select **Assign** > **Assign to Groups**.
+1. Locate the entry for **Everyone** and click **Assign**.
+1. Click **Done**.
 
 ## Create a Spring Boot app with SAML support
 
@@ -190,19 +160,17 @@ If you try to sign out, it won't work. You'll fix that in the next section.
 
 ### Add a sign-out feature
 
-Spring Security's SAML support has a [sign-out feature](https://docs.spring.io/spring-security/reference/servlet/saml2/logout.html) that requires configuration.
+Spring Security's SAML support has a [sign-out feature](https://docs.spring.io/spring-security/reference/servlet/saml2/logout.html) that requires a private key and certificate. To use it, you'll need to:
 
-1. Edit your application on Okta and navigate to **General** > **SAML Settings** > **Edit**.
-
-1. Continue to the **Configure SAML** step and **Show Advanced Settings**. Before you can enable single sign out, you'll have to create and upload a certificate to sign the outgoing sign-out request.
-
-1. You can create a private key and certificate using OpenSSL. Answer at least one of the questions with a value, and it should work.
+1. Create a private key and certificate to sign the outgoing sign-out request using OpenSSL.
 
    ```shell
    openssl req -newkey rsa:2048 -nodes -keyout local.key -x509 -days 365 -out local.crt
    ```
 
-1. Copy the generated files to your app's `src/main/resources` directory. Configure `signing` and `singlelogout` in `application.yml`:
+1. Copy the generated `local.crt` and `local.key` files to your app's `src/main/resources` directory.
+
+1. Update the `signing` and `singlelogout` fields in `application.yml` to refer to the new certificate files:
 
    ```yaml
    spring:
@@ -222,12 +190,23 @@ Spring Security's SAML support has a [sign-out feature](https://docs.spring.io/s
                  metadata-uri: <your-metadata-uri>
    ```
 
-1. Upload the `local.crt` to your Okta app. Select *Enable Single Logout* and use the following values:
+1. Add this certificate to your app integration.
 
-   * Single Logout URL: `http://localhost:8080/logout/saml2/slo`
-   * SP Issuer: `http://localhost:8080/saml2/service-provider-metadata/okta`
+   1. Open the **Admin Console** for your org.
+   1. Choose **Applications** > **Applications**.
+   1. Click on the name of your SAML app integration.
+   1. Choose the **General** tab, locate the **SAML Settings** section, and click **Edit**.
+   1. Click **Next**.
+   1. In the **SAML Settings** section:
+      * Click **Show Advanced Settings**.
+      * Select **Allow application to initiate Single Logout** for **Enable Single Logout**.
+      * Set **Single Logout URL** to to a URL that is appropriate for your app. For example `http://localhost:8080/logout/saml2/slo`
+      * Set **SP Issuer** to a URL that is appropriate for your app. For example `http://localhost:8080/saml2/service-provider-metadata/okta`
+      * Click the **Browse** button for **Signature Certificate**, locate the `local.crt` file you created in step 1, and click **Upload Certificate**.
+      * Click **Next**.
+   1. Click **Finish**.
 
-1. Finish configuring your Okta app, restart your Spring Boot app, and the button should work.
+1. Restart your Spring Boot app, and the button should work.
 
    <div class="three-quarter border">
 
