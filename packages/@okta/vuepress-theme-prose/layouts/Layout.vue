@@ -15,20 +15,6 @@
         <component :is="$page.frontmatter.component" />
       </div>
 
-      <div class="content" v-else-if="$page.frontmatter.customLandingPage">
-        <div
-          :class="{
-            'content--container': true,
-            'navigation-only': appContext.isTreeNavMobileOpen
-          }"
-        >
-          <Sidebar />
-          <div class="content-custom">
-            <CustomLandingPage />
-          </div>
-        </div>
-      </div>
-
       <div class="content" v-else>
         <div
           :class="{
@@ -89,7 +75,6 @@ export default {
     PageTitle: () => import("../components/PageTitle.vue"),
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
-    CustomLandingPage: () => import("../components/CustomLandingPage.vue"),
     GeneratedContent: () => import("../components/GeneratedContent.vue"),
     Footer: () => import("../components/Footer.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),

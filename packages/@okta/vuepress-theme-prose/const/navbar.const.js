@@ -543,7 +543,7 @@ export const guides = [
       },
       {
         title: 'Okta Integration Network',
-        customLandingPage: true,
+        path: "/okta-integration-network/",
         subLinks: [
           {
             title: "Build a SCIM provisioning integration",
