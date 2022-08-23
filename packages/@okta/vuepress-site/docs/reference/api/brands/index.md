@@ -1181,9 +1181,10 @@ Lists all supported email templates
 
 #### Request path parameters
 
-| Parameter      | Type        | Description            |
-| -------------- | ----------- | ---------------------- |
-| `brandId`      | String      | ID of a Brand          |
+| Parameter      | Description            | ParamType | DataType | Required |
+| -------------- | ---------------------- | --------- | -------- | -------- |
+| `brandId`      | ID of a Brand string   | Query     | String   | TRUE     |
+| `expand`       | If specified, it causes additional metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
 
 #### Response body
 
@@ -1268,10 +1269,11 @@ Fetches the email template named `templateName`
 
 #### Request path parameters
 
-| Parameter      | Type        | Description               |
-| -------------- | ----------- | ------------------------- |
-| `brandId`      | String      | ID of a Brand             |
-| `templateName` | String      | Name of an Email Template |
+| Parameter      | Description            | ParamType | DataType | Required |
+| -------------- | ---------------------- | --------- | -------- | -------- |
+| `brandId`      | ID of a Brand string   | Query     | String   | TRUE     |
+| `templateName` | Name of an email template | Query     | String   | TRUE     |
+| `expand`       | If specified, it causes additional metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
 
 #### Response body
 
@@ -1290,7 +1292,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation?expand=settings,customizationCount'
 ```
 
 ##### Response
@@ -1302,6 +1304,13 @@ HTTP/1.1 200 OK
 ```json
 {
     "name": "UserActivation",
+    "_embedded": {
+      "settings": {
+        "recipients": "ALL_USERS",
+        "_links": { ... }
+      },
+      "customizationCount": 3
+    },
     "_links": {
         "customizations": {
             "hints": {

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fc86eb8e-814c-41d3-94c8-75d6eb3234b3",
+		"_postman_id": "160fa1d9-42c4-47d2-8135-ef46b59ba919",
 		"name": "Administrator Roles (Okta API)",
 		"description": "The Okta Administrator Roles API provides operations to manage administrative role assignments for a User.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -422,7 +422,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}",
 							"host": [
 								"{{url}}"
 							],
@@ -431,7 +431,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}"
+								"{{resourceSetIdOrLabel}}"
 							]
 						}
 					},
@@ -500,7 +500,7 @@
 							"raw": "{\n    \"label\": \"SF-IT-Staff\",\n    \"description\": \"Staff in the IT department of San Francisco\"\n}\n"
 						},
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}",
 							"host": [
 								"{{url}}"
 							],
@@ -509,7 +509,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}"
+								"{{resourceSetIdOrLabel}}"
 							]
 						}
 					},
@@ -537,7 +537,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}",
 							"host": [
 								"{{url}}"
 							],
@@ -546,7 +546,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}"
+								"{{resourceSetIdOrLabel}}"
 							]
 						}
 					},
@@ -583,7 +583,7 @@
 							"raw": "{\n    \"additions\": [\n        \"{{url}}/api/v1/groups/{{groupId3}}\",\n        \"{{url}}/api/v1/groups/{{groupId4}}/users\"\n    ]\n}\n"
 						},
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/resources",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/resources",
 							"host": [
 								"{{url}}"
 							],
@@ -592,7 +592,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}",
+								"{{resourceSetIdOrLabel}}",
 								"resources"
 							]
 						}
@@ -621,7 +621,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/resources",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/resources",
 							"host": [
 								"{{url}}"
 							],
@@ -630,7 +630,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}",
+								"{{resourceSetIdOrLabel}}",
 								"resources"
 							]
 						}
@@ -659,7 +659,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/resources/{{resourceId}}",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/resources/{{resourceId}}",
 							"host": [
 								"{{url}}"
 							],
@@ -668,7 +668,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}",
+								"{{resourceSetIdOrLabel}}",
 								"resources",
 								"{{resourceId}}"
 							]
@@ -706,7 +706,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleIdOrLabel}}",
+									"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/bindings/{{roleIdOrLabel}}",
 									"host": [
 										"{{url}}"
 									],
@@ -715,7 +715,7 @@
 										"v1",
 										"iam",
 										"resource-sets",
-										"{{resourceSetId}}",
+										"{{resourceSetIdOrLabel}}",
 										"bindings",
 										"{{roleIdOrLabel}}"
 									]
@@ -745,7 +745,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings",
+									"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/bindings",
 									"host": [
 										"{{url}}"
 									],
@@ -754,7 +754,7 @@
 										"v1",
 										"iam",
 										"resource-sets",
-										"{{resourceSetId}}",
+										"{{resourceSetIdOrLabel}}",
 										"bindings"
 									]
 								}
@@ -789,7 +789,7 @@
 							"raw": "{\n    \"role\": \"{{roleId}}\",\n    \"members\": [\n        \"{{url}}/api/v1/groups/{{groupId}}\"\n    ]\n}\n"
 						},
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/bindings",
 							"host": [
 								"{{url}}"
 							],
@@ -798,7 +798,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}",
+								"{{resourceSetIdOrLabel}}",
 								"bindings"
 							]
 						}
@@ -831,7 +831,7 @@
 							"raw": "{\n    \"additions\": [\n        \"{{url}}/api/v1/groups/{{groupId2}}\",\n        \"{{url}}/api/v1/users/{{userId}}\"\n    ]\n}\n"
 						},
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleId}}/members",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/bindings/{{roleId}}/members",
 							"host": [
 								"{{url}}"
 							],
@@ -840,7 +840,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}",
+								"{{resourceSetIdOrLabel}}",
 								"bindings",
 								"{{roleId}}",
 								"members"
@@ -871,7 +871,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleIdOrLabel}}/members",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/bindings/{{roleIdOrLabel}}/members",
 							"host": [
 								"{{url}}"
 							],
@@ -880,7 +880,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}",
+								"{{resourceSetIdOrLabel}}",
 								"bindings",
 								"{{roleIdOrLabel}}",
 								"members"
@@ -911,7 +911,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleIdOrLabel}}/members/{{memberId}}",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/bindings/{{roleIdOrLabel}}/members/{{memberId}}",
 							"host": [
 								"{{url}}"
 							],
@@ -920,7 +920,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}",
+								"{{resourceSetIdOrLabel}}",
 								"bindings",
 								"{{roleIdOrLabel}}",
 								"members",
@@ -952,7 +952,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleIdOrLabel}}/members/{{memberId}}",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/bindings/{{roleIdOrLabel}}/members/{{memberId}}",
 							"host": [
 								"{{url}}"
 							],
@@ -961,7 +961,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}",
+								"{{resourceSetIdOrLabel}}",
 								"bindings",
 								"{{roleIdOrLabel}}",
 								"members",
@@ -993,7 +993,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetId}}/bindings/{{roleIdOrLabel}}",
+							"raw": "{{url}}/api/v1/iam/resource-sets/{{resourceSetIdOrLabel}}/bindings/{{roleIdOrLabel}}",
 							"host": [
 								"{{url}}"
 							],
@@ -1002,7 +1002,7 @@
 								"v1",
 								"iam",
 								"resource-sets",
-								"{{resourceSetId}}",
+								"{{resourceSetIdOrLabel}}",
 								"bindings",
 								"{{roleIdOrLabel}}"
 							]

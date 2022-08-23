@@ -96,6 +96,6 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
 
 * [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/): Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
 
-* [Understand MFA enrollment policy API changes after the upgrade](/docs/guides/oie-upgrade-mfa-enroll-policy/): Learn how changes to the MFA enrollment policy impact applications that use the Policy API directly.
+* [Understand authenticator enrollment policy API changes after the upgrade](/docs/guides/oie-upgrade-mfa-enroll-policy/): Learn how changes to the MFA enrollment policy impact applications that use the Policy API directly.
 
 * [Identity Engine limitations](/docs/guides/ie-limitations/): Current limitations with the Identity Engine to be aware of.

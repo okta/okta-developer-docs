@@ -441,11 +441,10 @@ export const guides = [
             ],
           },
           {
-            title:
-              "Understand MFA enrollment policy API changes after the upgrade",
-            guideName: "oie-upgrade-mfa-enroll-policy",
-          },
-        ],
+            title: "Understand authenticator enrollment policy API changes after the upgrade",
+            guideName: "oie-upgrade-mfa-enroll-policy"
+          }
+        ]
       },
       {
         title: "Authorization",
@@ -664,6 +663,10 @@ export const guides = [
           {
             title: "Registration Inline Hook",
             guideName: "registration-inline-hook",
+          },
+          {
+            title: "SAML assertion inline hook",
+          guideName: "saml-inline-hook"
           },
           {
             title: "Telephony Inline Hook",
