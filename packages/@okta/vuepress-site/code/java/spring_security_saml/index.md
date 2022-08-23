@@ -190,7 +190,7 @@ If you try to sign out, it won't work. You'll fix that in the next section.
 
 ### Add a sign-out feature
 
-Spring Security's SAML support has a [sign out feature](https://docs.spring.io/spring-security/reference/servlet/saml2/logout.html) that requires configuration.
+Spring Security's SAML support has a [sign-out feature](https://docs.spring.io/spring-security/reference/servlet/saml2/logout.html) that requires configuration.
 
 1. Edit your application on Okta and navigate to **General** > **SAML Settings** > **Edit**.
 
