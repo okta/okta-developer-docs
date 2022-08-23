@@ -157,7 +157,7 @@ Open the project in your favorite IDE and complete the following steps.
    </html>
    ```
 
-1. Create a `src/main/resources/application.yml` file to contain your metadata URI.
+1. Create a `src/main/resources/application.yml` file to contain the metadata URI you copied to your clipboard earlier.
 
    ```yaml
    spring:
