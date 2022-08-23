@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-area" v-if="sidebarItems.length > 0">
+  <div class="sidebar-area">
     <div class="sidebar-inner">
       <aside class="tree-nav" >
           <div
