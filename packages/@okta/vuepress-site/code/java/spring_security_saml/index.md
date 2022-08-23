@@ -178,7 +178,7 @@ Open the project in your favorite IDE and complete the following steps.
    ./gradlew bootRun
    ```
 
-1. Open `http://localhost:8080` in your favorite browser and sign in with the credentials you used to create your account. You should see a successful result in your browser.
+1. Open `http://localhost:8080` in your favorite browser and sign in with a user account set up in your org. You should see a successful result in your browser.
 
    <div class="three-quarter border">
 
