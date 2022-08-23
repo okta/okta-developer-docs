@@ -23,7 +23,30 @@ This guide describes how to use Spring Security SAML to add support for Okta to 
 
 ## Create an Okta app integration for your SAML app
 
-1. Create an Okta developer account at [developer.okta.com/signup](https://developer.okta.com/signup) (or install the [Okta CLI](https://cli.okta.com) and run `okta register`).
+An Application Integration represents your app in your Okta org. To create an app integration for a SAML app:
+
+1. Open the **Admin Console** for your org.
+2. Choose **Applications** > **Applications**.
+3. Click **Create App Integration**.
+4. Select **SAML 2.0** as the Sign-in method, and then click **Next**.
+5. Give your application name, for example "Spring Boot SAML", and then click **Next**.
+6. On the Configure SAML page
+   - Set **Single sign-on URL** to a URL that is appropriate for your app. For example `http://localhost:8080/login/saml2/sso/okta`
+   - Verify that **Use this for Recipient URLs and Destination URLs** is checked.
+   - Set **Audience URI** to a URL that is appropriate for your app. For example `http://localhost:8080/saml2/service-provider-metadata/okta`
+7. Click **Next**.
+8. Set **Are you a customer or a partner?** to **I'm an Okta customer adding an internal app**.
+9. Set **App type** to **This is an internal app that we have created**.
+10. Click **Finish**.
+
+   Okta will create your app and redirect you to its **Sign On** tab.
+
+11. Locate the **SAML Signing Certificates** section.
+12. Locate the entry for **SHA-2**, and then select **Actions** > **View IdP metadata**.
+13. Copy the URL for the resulting link to your clipboard. It will look like `https://${yourOktaDomain}/app/<random-characters>/sso/saml/metadata`.
+14. Choose the **Assignments** tab, and then select **Assign** > **Assign to Groups**.
+15. Locate the entry for **Everyone** and click **Assign**.
+16. Click **Done**.
 
 1. Sign in to your account and go to **Applications** > **Create App Integration**.
 
