@@ -94,7 +94,7 @@ Okta will create your app and redirect you to its **Sign On** tab.
 
    You can also use [this URL](https://start.spring.io/#!type=gradle-project&language=java&platformVersion=3.0.0-SNAPSHOT&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=web,security,thymeleaf)
 
-   Or use HTTPie:
+   Or use [HTTPie](https://httpie.io/):
 
    ```shell
    https start.spring.io/starter.zip bootVersion==3.0.0-SNAPSHOT \
