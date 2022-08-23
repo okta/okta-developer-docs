@@ -21,7 +21,7 @@ This guide describes how to use Spring Security SAML to add support for Okta to 
 
 ---
 
-## Configure Okta to work with Spring Security SAML
+## Create an Okta app integration for your SAML app
 
 1. Create an Okta developer account at [developer.okta.com/signup](https://developer.okta.com/signup) (or install the [Okta CLI](https://cli.okta.com) and run `okta register`).
 
