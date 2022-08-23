@@ -188,7 +188,7 @@ Open the project in your favorite IDE and complete the following steps.
 
 If you try to sign out, it won't work. You'll fix that in the next section.
 
-### Add a sign out feature
+### Add a sign-out feature
 
 Spring Security's SAML support has a [sign out feature](https://docs.spring.io/spring-security/reference/servlet/saml2/logout.html) that requires configuration.
 
