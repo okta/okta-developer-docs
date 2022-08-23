@@ -24,11 +24,11 @@ This guide explains how to include the `acr_values` parameter in your authorizat
 
 ## Overview
 
-Users want seamless access to certain resources, but organizations want to increase the user’s level of assurance before they access anything sensitive. It’s always difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users so that they can easily interact with the application. Using the `acr_values` parameter provides easy access to one layer of resources and secure access to another layer of resources.
+Users want seamless access to certain resources, but organizations want to increase the user’s level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with the application. Using the `acr_values` parameter provides easy access to one layer of resources and secure access to another layer of resources.
 
 The `acr_values` parameter refers to authentication context class reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens.
 
-Today an authorization server relies on [authentication policies](/docs/reference/api/policy/#authentication-policy) to authenticate the user. After the user is authenticated, the authorization server evaluates the scopes and the grant types defined for the application, and then issues the tokens. Although this approach works in many situations, there are several circumstances where more is needed. Resource servers (your protected APIs) can require different authentication strengths or elapsed time frames for different use cases. For example, an eCommerce application requires different authentication strengths depending on whether the item being purchased exceeds a certain threshold. Another example is an application that requires a higher level of assurance before making changes to some sensitive information.
+Today an authorization server relies on [authentication policies](/docs/reference/api/policy/#authentication-policy) to authenticate the user. After the user is authenticated, the authorization server evaluates the scopes and the grant types defined for the application, and then issues the tokens. Although this approach works in many situations, there are several circumstances where more is needed. Resource servers (your protected APIs) can require different authentication strengths or elapsed time frames for different use cases. For example, an eCommerce application requires different authentication strengths depending on whether the item being purchased exceeds a certain threshold. Another example is an application that requires a higher level of assurance before making changes to sensitive information.
 
 Okta has created predefined `acr_values` that are described in the [Predefined parameter values](#predefined-parameter-values) section. You can include one of these values, based on your use case, in the client authorization request to request a different authentication assurance. The authorization server returns an access token and/or an ID token that contains the `acr` claim. This claim conveys information about the level of assurance that the user verified at the time of authentication. The resource server can then validate these parameters to ensure that the user verified the required level of assurance.
 
@@ -40,7 +40,9 @@ Okta's [redirect deployment model](/docs/concepts/redirect-vs-embedded/#redirect
 
 In Okta Identity Engine, assurances from policies are always evaluated in order of factor verification, constraints, and re-authentication. The [global session policy](/docs/concepts/policies/#sign-on-policies) is evaluated first, then the authentication policy, and then the `acr_values` parameter in the request. The authentication policy is always evaluated before the `acr_values` parameter.
 
-In Okta Classic Engine when a user doesn't have a session, the more restrictive policy is evaluated first. If the Okta sign-on policy is more restrictive, then that is evaluated first. Otherwise, the application sign-on policy is evaluated first. When an ACR value is passed in the authorize request and the application sign-on policy is more restrictive, the application sign-on policy is evaluated. If it isn’t more restrictive, then the `acr_values` parameter in the request is evaluated. When a user already has a session, the re-authentication settings in the application sign-on policy are always applied first. Then, Okta compares the multifactor authentication settings between the application sign-on policy and the `acr_values` parameter and evaluates the more restrictive setting.
+In Okta Classic Engine when a user doesn't have a session, the more restrictive policy is evaluated first. If the Okta sign-on policy is more restrictive, then that is evaluated first. Otherwise, the application sign-on policy is evaluated. When an ACR value is passed in the authorize request and the application sign-on policy is more restrictive, the application sign-on policy is evaluated. If it isn’t more restrictive, then the `acr_values` parameter in the request is evaluated. When a user already has a session, the application sign-on policy is always applied first. Then, if the application sign-on policy requirements are satisfied, the `acr_values` parameter in the request is evaluated.
+
+In both Identity Engine and Classic Engine, if the user has a session, the previously satisfied authenticators are considered before prompting for factors that are required by the `acr_values` parameter in the request.
 
 In both Identity Engine and Classic Engine, if the user is unable to satisfy the level of assurance, Okta returns an error to the callback endpoint.
 
@@ -121,17 +123,18 @@ To check the returned ID token payload, copy the values and paste them into any 
 {
   "sub": "00u47ijy7sRLaeSdC0g7",
   "ver": 1,
-  "iss": "https://{yourOktadomain}/oauth2/default",
+  "iss": "https://sharper.trexcloud.com/oauth2/default",
   "aud": "0oa48e74ox4t7mQJX0g7",
-  "iat": 1660084990,
-  "exp": 1660088590,
-  "jti": "ID.OrcvMtuNx4c05Rw_QxFE_fLPBYu6HCVjDJD3nslySms",
+  "iat": 1661289624,
+  "exp": 1661293224,
+  "jti": "ID.dz6ibX-YnBNlt14huAtBULam_Z0_wPG0ig5SWCy8XQU",
   "amr": [
     "pwd"
   ],
+  "acr": "urn:okta:loa:1fa:any",
   "idp": "00o47ijbqfgnq5gj00g7",
-  "auth_time": 1660084953,
-  "at_hash": "YxTPvQn3gQGwjD4yZGqXRg"
+  "auth_time": 1661289603,
+  "at_hash": "w6BLQV3642TKWvaVwTAJuw"
 }
 ```
 
@@ -140,18 +143,19 @@ To check the returned ID token payload, copy the values and paste them into any 
 ```json
 {
   "ver": 1,
-  "jti": "AT.tHCWZmHzxS27SqCNpcJAOTTO8UWsKCPXiDGe8J74HzI",
-  "iss": "https://{yourOktadomain}/oauth2/default",
+  "jti": "AT.NovJtQ_NrJ6cgy3h1-638ArovwYXWslu0teQ2M3Ux9c",
+  "iss": "https://sharper.trexcloud.com/oauth2/default",
   "aud": "api://default",
-  "iat": 1660084990,
-  "exp": 1660088590,
+  "iat": 1661289624,
+  "exp": 1661293224,
+  "acr": "urn:okta:loa:1fa:any",
   "cid": "0oa48e74ox4t7mQJX0g7",
   "uid": "00u47ijy7sRLaeSdC0g7",
   "scp": [
     "openid"
   ],
-  "auth_time": 1660084953,
-  "sub": "joe.smith@example.com"
+  "auth_time": 1661289603,
+  "sub": "susan.harper@okta.com"
 }
 ```
 
