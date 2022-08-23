@@ -9,12 +9,12 @@ showBreadcrumb: False
 guides:
   - name: Enable Single Sign-On
     icon: /img/icons/icon--saml.png
-    description: Federate using SAML or OIDC
+    description: Federate using OIDC or SAML
     links:
-      - text: What is SAML?
-        url: /docs/concepts/saml
       - text: What is OIDC?
         url: https://developer.okta.com/blog/2017/06/21/what-the-heck-is-oauth
+      - text: What is SAML?
+        url: /docs/concepts/saml
     docsUrl: /docs/guides/build-sso-integration/
   - name: Automate Provisioning
     icon: /img/icons/icon--lock.svg
