@@ -255,7 +255,7 @@ When you sign in, the resulting page shows that you have a `ROLE_USER` authority
 
 1. Save these changes.
 
-1. If you cloned the repo earlier, restart your app and log in to see your user's groups as authorities.
+1. If you cloned the repo earlier, restart your app and sign in to see your user's groups as authorities.
 
 1. If you created a Spring Boot app from scratch, create a `SecurityConfiguration` class that overrides the default configuration and uses a converter to translate the values in the `groups` attribute into Spring Security authorities.
 
