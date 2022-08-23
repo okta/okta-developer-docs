@@ -546,6 +546,7 @@ export const guides = [
         subLinks: [
           {
             title: "Overview of Single Sign-On",
+            guideName: "oin-sso-overview",
             subLinks: [
               {
                 title: "Build an Okta SSO integration",
@@ -555,6 +556,7 @@ export const guides = [
           },
           {
             title: "Overview of Lifecycle Management",
+            guideName: "oin-lifecycle-mgmt-overview",
             subLinks: [
               {
                 title: "Build a SCIM Provisioning Integration",

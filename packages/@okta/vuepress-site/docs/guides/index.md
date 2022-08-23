@@ -49,6 +49,8 @@ guides:
  - oin-oidc-best-practices
  - oin-oidc-multi-tenancy
  - oin-oidc-protocols
+ - oin-sso-overview
+ - oin-lifecycle-mgmt-overview
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect

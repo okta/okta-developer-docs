@@ -1,7 +1,4 @@
 .customLanding {
-  margin: 0 -59px;
-}
-.customLanding {
   width: 100%;
   &-waves {
     position: relative;
@@ -41,11 +38,8 @@
   }
   &-wrapper {
     max-width: 940px;
-    padding: 0 59px;
+    padding: 0 20px;
     margin: 0 auto;
-    a {
-      text-decoration: none !important;
-    }
   }
 }
 
