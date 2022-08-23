@@ -6,6 +6,16 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## August
 
+### Weekly release 2022.08.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.08.2](#bug-fixed-in-2022-08-2)                      | August 17, 2022            |
+
+#### Bug fixed in 2022.08.2
+
+The "Authenticator enrollment policy" was incorrectly named "Multifactor (MFA) Enrollment Policy". (OKTA-497457)
+
 ### Weekly release 2022.08.1
 
 | Change | Expected in Preview Orgs |
@@ -22,6 +32,8 @@ Previously, the self-service unlock (SSU) flow created unnecessary friction in t
 * When client assertions for `private_key_jwt` client authentication method operations contained the `aud` claim in an array instead of a string, an error was returned. (OKTA-478067)
 
 * When an app initiated the Service Provider flow and the SAML authorization request didn't contain the SAML Subject (`nameId`), a 500 HTTP error was returned. (OKTA-511120)
+
+* Clients using Native SSO token exchange ignored assurance challenges. (OKTA-520634)
 
 ### Monthly release 2022.08.0
 

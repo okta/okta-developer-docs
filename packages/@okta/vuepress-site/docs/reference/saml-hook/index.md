@@ -9,11 +9,13 @@ This page provides reference documentation for SAML assertion inline hooks, one 
 
 ## See also
 
-For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
+- For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+- For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this inline hook, see below, [Enabling a SAML assertion inline hook](#enabling-a-saml-assertion-inline-hook).
+- For a use case example of how to implement a SAML assertion inline hook, see [SAML assertion inline hook](/docs/guides/saml-inline-hook/).
+
+- For steps to enable this inline hook, see below, [Enabling a SAML assertion inline hook](#enabling-a-saml-assertion-inline-hook).
 
 ## About
 
