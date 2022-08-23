@@ -151,7 +151,7 @@ Open the project in your favorite IDE and complete the following steps.
            </dl>
 
            <form th:action="@{/logout}" method="post">
-               <button id="logout" type="submit">Logout</button>
+               <button id="signout" type="submit">Sign out</button>
            </form>
        </body>
    </html>
