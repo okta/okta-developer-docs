@@ -101,6 +101,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 | scope                            | `openid` is required for authentication requests. Other [scopes](#access-token-scopes-and-claims) may also be included.                                                                                                                                                                                                                                                                                                                            | Query       | String    | TRUE       |
 | sessionToken                     | Okta one-time session token. This allows an API-based user sign-in flow (rather than the Okta sign-in UI). Session tokens can be obtained via the [Authentication API](/docs/reference/api/authn/).                                                                                                                                                                                                                                                        | Query       | String    | FALSE      |
 | state                            | A value to be returned in the token. The client application can use it to remember the state of its interaction with the end user at the time of the authentication call. It can contain alphanumeric, comma, period, underscore, and hyphen characters. See [Parameter details](#parameter-details).                                                                                                                                               | Query       | String    | TRUE       |
+| acr_values <ApiLifecycle access="ea" /> | Use this parameter in authorization request to increase the level of end-user assurance. Okta has created predefined values that are described in the [Predefined acr values](/docs/guides/step-up-authentication/main/#predefined-parameter-values) section. | Query | String  | FALSE |
 
 #### Parameter details
 
@@ -1391,6 +1392,7 @@ The payload includes the following reserved claims:
 | scp      | Array of scopes that are granted to this access token.                                                                 | Array    |
 | uid      | A unique identifier for the user. It isn't included in the access token if there is no user bound to it.               | String   |
 | ver      | The semantic version of the access token.                                                                              | Integer  |
+| acr <ApiLifecycle access="ea" />  | Information about the level of assurance that the user verified at the time of authentication.| String   |
 
 ##### Custom scopes and claims
 
