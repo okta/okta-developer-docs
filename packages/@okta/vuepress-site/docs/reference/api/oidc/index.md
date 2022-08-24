@@ -1392,7 +1392,7 @@ The payload includes the following reserved claims:
 | scp      | Array of scopes that are granted to this access token.                                                                 | Array    |
 | uid      | A unique identifier for the user. It isn't included in the access token if there is no user bound to it.               | String   |
 | ver      | The semantic version of the access token.                                                                              | Integer  |
-| acr <ApiLifecycle access="ea" />  | Information about the level of assurance that the user verified at the time of authentication.| String   |
+| acr <ApiLifecycle access="ea" />  | Information about the level of assurance that the user verified at the time of authentication| String   |
 
 ##### Custom scopes and claims
 
