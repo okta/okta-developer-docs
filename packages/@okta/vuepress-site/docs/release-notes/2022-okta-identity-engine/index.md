@@ -6,6 +6,20 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## August
 
+### Weekly release 2022.08.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.08.3](#bugs-fixed-in-2022-08-3)                      | August 24, 2022            |
+
+#### Bugs fixed in 2022.08.3
+
+* The Apps API returned two validation errors rather than one when the value for the `url` parameter wasn't a URL. (OKTA-521199)
+
+* Imported passwords with a malformed bcrypt hash format caused an error during the password reset flow. (OKTA-502227)
+
+* Sometimes when an admin deleted an Identity Provider and a Group concurrently, the Identity Provider wasn't deleted. (OKTA-511062)
+
 ### Weekly release 2022.08.2
 
 | Change | Expected in Preview Orgs |
