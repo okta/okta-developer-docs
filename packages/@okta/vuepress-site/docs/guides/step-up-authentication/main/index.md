@@ -123,7 +123,7 @@ To check the returned ID token payload, copy the values and paste them into any 
 {
   "sub": "00u47ijy7sRLaeSdC0g7",
   "ver": 1,
-  "iss": "https://sharper.trexcloud.com/oauth2/default",
+  "iss": "https://{yourOktadomain}/oauth2/default",
   "aud": "0oa48e74ox4t7mQJX0g7",
   "iat": 1661289624,
   "exp": 1661293224,
@@ -144,7 +144,7 @@ To check the returned ID token payload, copy the values and paste them into any 
 {
   "ver": 1,
   "jti": "AT.NovJtQ_NrJ6cgy3h1-638ArovwYXWslu0teQ2M3Ux9c",
-  "iss": "https://sharper.trexcloud.com/oauth2/default",
+  "iss": "https://{yourOktadomain}/oauth2/default",
   "aud": "api://default",
   "iat": 1661289624,
   "exp": 1661293224,
@@ -155,7 +155,7 @@ To check the returned ID token payload, copy the values and paste them into any 
     "openid"
   ],
   "auth_time": 1661289603,
-  "sub": "susan.harper@okta.com"
+  "sub": "joe.smith@example.com"
 }
 ```
 
