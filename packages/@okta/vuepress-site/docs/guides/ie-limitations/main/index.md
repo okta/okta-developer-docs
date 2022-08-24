@@ -51,15 +51,15 @@ The following Event Types are available only in Identity Engine and can't be use
 * `system.voice.send_phone_verification_call`
 * `system.sms.send_phone_verification_message`
 
-Specifically, when `Target.Type` equals `MobilePhone` for these events, `Target.ID` has no intrinsic value other than being a placeholder that allows backward compatibility with Classic. In Classic, `Target.ID` is unique per phone number, stored in Okta's backend systems, and can be used to link all events for a given phone number. The following example from the System Log API shows these fields:
+Specifically, when `Target.Type` equals `MobilePhone` for these events, `Target.ID` has no intrinsic value other than being a placeholder that allows backward compatibility with Classic Engine. In Classic Engine, `Target.ID` is unique per phone number, stored in Okta's backend systems, and can be used to link all events for a given phone number. The following example from the System Log API shows these fields:
 
 ```json
   "target": [
     {
       "id": "qFGtyCw3hwhHh55555555z",
       "type": "MobilePhone",
-      "alternateId": +15555555555,
-      "displayName": +15555555555,
+      "alternateId": "+15555555555",
+      "displayName": "+15555555555",
       "detailEntry": null
     }
   ]
