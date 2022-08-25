@@ -234,6 +234,10 @@ export const guides = [
                   {
                     title: "Change your primary email address",
                     guideName: "pwd-optional-change-email"
+                  },
+                  {
+                    title: "Change your primary email address",
+                    guideName: "pwd-optional-best-practices"
                   }
                 ]
               },
