@@ -412,7 +412,7 @@ expressions are allowed in group rule conditions:
 * `String.stringContains(user.email, "@example.com")`
 * `Arrays.contains(user.favoriteColors, "blue")`
 
-The following expression is not allowed in group rule conditions, even if the user profile has a custom integer
+The following expression isn't allowed in group rule conditions, even if the user profile has a custom integer
 attribute called `yearJoined`:
 
 * `Convert.toInt("2018") == user.yearJoined`
