@@ -56,9 +56,10 @@ The following predefined optional parameters are available for use in your autho
 
 | Parameter value<br> for `acr_values` | Description           | Parameter Type   | DataType   |
 | :----------------------- | :----------------------------------------- | :--------------- | :--------- |
-| `urn:okta:loa:1fa:pwd`   | Password only. Allows one factor authentication that requires the user’s password. | Query | String |
 | `urn:okta:loa:1fa:any`   | Any one factor. Allows one factor authentication with no requirements on which factor. | Query | String |
 | `urn:okta:loa:2fa:any`   | Any two factors. Allows two factor authentication with no requirements on which factors. | Query | String |
+| `urn:okta:loa:1fa:pwd`   | Password only. Allows one factor authentication that requires the user’s password. | Query | String |
+| `urn:okta:loa:2fa:any:ifpossible` | Any two factors if possible. Allows two factor authentication with no requirements on which factors. Any two factors are presented only if the user is enrolled, otherwise any one factor is presented. | Query | String |
 | `phr`<br><br><ApiLifecycle access="ie" /> | Phishing-Resistant. Requires users to provide possession factors that cryptographically verify the sign-in server (the origin). Currently, only FIDO2/WebAuthn satisfies this requirement. Because phishing resistance implies [device binding](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators), that constraint is selected automatically when `phr` is specified. | Query | String |
 | `phrh`<br><br> <ApiLifecycle access="ie" /> | Phishing-Resistant Hardware-Protected. Requires that you store keys being used to authenticate in secure hardware (TPM, Secure Enclave) on the device. Currently, only Okta Verify meets this constraint. Because hardware protection implies [device binding](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators), that constraint is selected automatically when `phrh` is specified. | Query | String |
 
