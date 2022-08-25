@@ -7,7 +7,7 @@
         <div class="customLanding-about__footer">
           <div class="customLanding-about__info">
             <h3>Easily discoverable integrations</h3>
-            <span>When your integration is in the OIN, thousands of customers can discover and configure it. Browse all of the integrations already available ​and see where you have something to add.</span>
+            <span>When your integration is in the OIN, thousands of customers can discover and configure it. Browse the thousands of integrations already available and see where you have something to add.</span>
           </div>
           <div class="customLanding-about__resourses">
             <div class="customLanding-about__explore">
