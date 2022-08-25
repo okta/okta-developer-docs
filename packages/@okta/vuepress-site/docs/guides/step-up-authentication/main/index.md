@@ -42,9 +42,7 @@ In Okta Identity Engine, assurances from policies are always evaluated in order 
 
 In Okta Classic Engine when a user doesn't have a session, the more restrictive policy is evaluated first. If the Okta sign-on policy is more restrictive, then that is evaluated first. Otherwise, the application sign-on policy is evaluated. When an ACR value is passed in the authorize request and the application sign-on policy is more restrictive, the application sign-on policy is evaluated. If it isn’t more restrictive, then the `acr_values` parameter in the request is evaluated. When a user already has a session, the application sign-on policy is always applied first. Then, if the application sign-on policy requirements are satisfied, the `acr_values` parameter in the request is evaluated.
 
-In both Identity Engine and Classic Engine, if the user has a session, the previously satisfied authenticators are considered before prompting for factors that are required by the `acr_values` parameter in the request.
-
-In both Identity Engine and Classic Engine, if the user is unable to satisfy the level of assurance, Okta returns an error to the callback endpoint.
+In both Identity Engine and Classic Engine, if the user has a session, the previously satisfied authenticators are considered before prompting for factors that are required by the `acr_values` parameter in the request. Additionally, if the user is unable to satisfy the level of assurance, Okta returns an [error](https://openid.net/specs/openid-connect-unmet-authentication-requirements-1_0.html) (`error=unmet_authentication_requirements`) to the callback endpoint.
 
 ### Factor enrollment
 
