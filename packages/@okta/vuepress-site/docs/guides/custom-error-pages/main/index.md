@@ -63,19 +63,19 @@ The Okta error page template is written using [Mustache](http://mustache.github.
 > **Note:** Variables with double curly braces (`{{`) return escaped HTML by default. Escaping allows you to show "special" characters in HTML. For example, `<p>hello</p>` displays as a paragraph element without the `<p>` tags. To show the tags themselves, escape the special characters by using `&lt;p&gt;hello&lt;/p&gt;`. `&lt;p&gt;` replaces `<` and `&lt;/p&gt;` replaces `>`.
 > Triple curly braces (`{{{`) are used for the `errorDescription` variable to return unescaped HTML.
 
-| Variable | Description |
+| Variable | Contains |
 |----------|-------------|
-| <span v-pre>`{{orgName}}`</span> | Inserts the org name title |
-| <span v-pre>`{{errorSummary}}`</span> | Inserts the error title text |
-| <span v-pre>`{{bgImageUrl}}`</span> | Inserts a URL to the background image configured for your application.</br>You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the background image in all instances where the variable is used, including your custom sign-in page.</br>If you want to change only the background image for your custom error pages, include the URL to the image instead of the variable. |
-| <span v-pre>`{{orgLogo}}`</span> | Inserts the logo image that has been configured for your application.</br>You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page.</br>If you want to change only the logo image for your custom error pages, include the URL to the image instead of the variable. |
-| <span v-pre>`{{{errorDescription}}}`</span> | Inserts a detailed description of the error |
-| <span v-pre>`{{back}}`</span> | Inserts the text "Go to Homepage". When the user selects the button, they are returned to the sign-in page. |
-| <span v-pre>`{{technicalDetails}}`</span> | Inserts additional messaging, if the error code has any. Here are sample technical details for an error code:</br>"If you are using custom expressions like `\{0}`, make sure that the field `customField` is present in the user profile. Please review your attribute list and make the appropriate change."</br>See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code). |
+| <span v-pre>`{{orgName}}`</span> | The org name title |
+| <span v-pre>`{{errorSummary}}`</span> | The error title text |
+| <span v-pre>`{{bgImageUrl}}`</span> | The URL to the background image configured for your application.</br>You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the background image in all instances where the variable is used, including your custom sign-in page.</br>If you want to change only the background image for your custom error pages, include the URL to the image instead of the variable. |
+| <span v-pre>`{{orgLogo}}`</span> | The logo image that has been configured for your application.</br>You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page.</br>If you want to change only the logo image for your custom error pages, include the URL to the image instead of the variable. |
+| <span v-pre>`{{{errorDescription}}}`</span> | A detailed description of the error |
+| <span v-pre>`{{back}}`</span> | The text "Go to Homepage". When the user selects the button, they are returned to the sign-in page. |
+| <span v-pre>`{{technicalDetails}}`</span> | Any additional messaging, if the error code has any. Here are sample technical details for an error code:</br>"If you are using custom expressions like `\{0}`, make sure that the field `customField` is present in the user profile. Please review your attribute list and make the appropriate change."</br>See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code). |
 | <span v-pre>`{{buttonText}}`</span> | Inserts the button text based on the page context. When the user selects the button, they are directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> variable is also supported for the same purpose. |
-| <span v-pre>`{{buttonHref}}`</span> | Inserts the hyperlink for the button |
-| <span v-pre>`{{themedStylesUrl}}`</span> | Inserts the URL for the themed style sheet |
-| <span v-pre>`{{faviconUrl}}`</span> | Inserts the URL for the favicon |
+| <span v-pre>`{{buttonHref}}`</span> | The hyperlink for the button |
+| <span v-pre>`{{themedStylesUrl}}`</span> | The URL for the themed style sheet |
+| <span v-pre>`{{faviconUrl}}`</span> | The URL for the favicon |
 
 ## Customization examples
 
