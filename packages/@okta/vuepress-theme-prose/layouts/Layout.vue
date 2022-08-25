@@ -23,8 +23,10 @@
           }"
         >
           <Sidebar />
-          <div class="content-custom">
-            <CustomLandingPage />
+          <div class="content-area content-area-full col-xl-10 col-lg-10 col-md-12 col-sm-12">
+            <div class="content-custom">
+              <OktaIntegrationNetwork />
+            </div>
           </div>
         </div>
       </div>
@@ -89,7 +91,6 @@ export default {
     PageTitle: () => import("../components/PageTitle.vue"),
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
-    CustomLandingPage: () => import("../components/CustomLandingPage.vue"),
     GeneratedContent: () => import("../components/GeneratedContent.vue"),
     Footer: () => import("../components/Footer.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
@@ -177,12 +178,17 @@ export default {
   },
   methods: {
     redirIfRequired() {
-      if (this.$page && this.$page.redir) {
-        let anchor = window.location.href.split("#")[1] || "";
-        if (anchor) {
-          this.$router.replace({ path: `${this.$page.redir}#${anchor}` });
-        } else {
-          this.$router.replace({ path: `${this.$page.redir}` });
+      if (this.$page) {
+        if (this.$page.redir) {
+          let anchor = window.location.href.split("#")[1] || "";
+          if (anchor) {
+            this.$router.replace({ path: `${this.$page.redir}#${anchor}` });
+          } else {
+            this.$router.replace({ path: `${this.$page.redir}` });
+          }
+        }
+        if (this.$page.path === '/okta-integration-network/') {
+          this.$router.replace({ path: `/docs/guides${this.$page.path}` });
         }
       }
     },

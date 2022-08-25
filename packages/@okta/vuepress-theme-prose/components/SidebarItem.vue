@@ -57,7 +57,9 @@
             <a 
               :href="href"
               @click="navigate"
-              class="link"
+              :class="{
+                'link': true,
+              }"
               :title="link.title"
               >
               <slot>

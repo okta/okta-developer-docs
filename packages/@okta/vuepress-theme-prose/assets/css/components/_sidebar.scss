@@ -82,7 +82,7 @@
     justify-content: center;
     cursor: pointer;
     z-index: 2;
-    margin-left: -20px;
+    margin-left: -36px;
     &:before {
       content: '';
       position: absolute;
@@ -218,6 +218,7 @@
         text-overflow: ellipsis;
       }
       > i.parent {
+        transition: transform .3s;
         position: absolute;
         left: -19px;
         top: 6px;
