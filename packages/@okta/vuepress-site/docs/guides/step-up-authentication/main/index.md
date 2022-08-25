@@ -92,7 +92,7 @@ The following is an example authorization request using the `urn:okta:loa:1fa:an
 https://${yourOktadomain}/oauth2/default/v1/authorize?client_id={clientId}
 &response_type=code
 &scope=openid
-&redirect_uri=http://${yourOktadomain}/authorization-code/callback
+&redirect_uri=https://${yourOktadomain}/authorization-code/callback
 &state=296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
 &acr_values=urn:okta:loa:1fa:any
 ```
