@@ -10,7 +10,7 @@
         :href="href"
         @click="navigate"
         :class="{
-          'router-link-active': link.path == '/docs/guides/' && $route.path == '/okta-integration-network/' ? 'router-link-active' : isCurrentPage(route.path),
+          'router-link-active': isCurrentPage(route.path),
           'link': true,
         }"
         :aria-current="route.path === $route.path && 'page'"

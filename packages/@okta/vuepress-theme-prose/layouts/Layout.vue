@@ -15,6 +15,22 @@
         <component :is="$page.frontmatter.component" />
       </div>
 
+      <div class="content" v-else-if="$page.frontmatter.customLandingPage">
+        <div
+          :class="{
+            'content--container': true,
+            'navigation-only': appContext.isTreeNavMobileOpen
+          }"
+        >
+          <Sidebar />
+          <div class="content-area content-area-full col-xl-10 col-lg-10 col-md-12 col-sm-12">
+            <div class="content-custom">
+              <OktaIntegrationNetwork />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="content" v-else>
         <div
           :class="{
@@ -162,12 +178,17 @@ export default {
   },
   methods: {
     redirIfRequired() {
-      if (this.$page && this.$page.redir) {
-        let anchor = window.location.href.split("#")[1] || "";
-        if (anchor) {
-          this.$router.replace({ path: `${this.$page.redir}#${anchor}` });
-        } else {
-          this.$router.replace({ path: `${this.$page.redir}` });
+      if (this.$page) {
+        if (this.$page.redir) {
+          let anchor = window.location.href.split("#")[1] || "";
+          if (anchor) {
+            this.$router.replace({ path: `${this.$page.redir}#${anchor}` });
+          } else {
+            this.$router.replace({ path: `${this.$page.redir}` });
+          }
+        }
+        if (this.$page.path === '/okta-integration-network/') {
+          this.$router.replace({ path: `/docs/guides${this.$page.path}` });
         }
       }
     },

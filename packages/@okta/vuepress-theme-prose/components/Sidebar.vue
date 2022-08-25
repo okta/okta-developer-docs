@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-area">
+  <div class="sidebar-area" v-if="sidebarItems.length !== 0">
     <div class="sidebar-inner">
       <aside class="tree-nav" >
           <div
@@ -69,9 +69,6 @@ export default {
     updateSidebarItems() {
       const routes = this.appContext.treeNavDocs.length > 0 ? this.appContext.treeNavDocs : this.getNavigationData();
       const currentRoute = this.$route.path;
-      if (currentRoute == '/okta-integration-network/') {
-        this.sidebarItems = routes[1].subLinks;
-      }
       for (let i = 0; i < routes.length; i++) {
         if (routes[i].path !== '/' && currentRoute.startsWith(routes[i].path)) {
           this.sidebarItems = routes[i].subLinks;

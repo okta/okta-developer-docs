@@ -1,16 +1,11 @@
 <template>
-  <div class="content--container">
-    <Sidebar />
-    <div class="content-area content-area-full col-xl-10 col-lg-10 col-md-12 col-sm-12">
-      <div class="custom-landing">
-        <CustomLandingHero />
-        <CustomLandingAbout />
-        <CustomLandingTools />
-        <CustomLandingFeatures />
-        <CustomLandingExplore />
-        <CustomLandingStart />
-      </div>
-    </div>
+  <div class="custom-landing">
+    <CustomLandingHero />
+    <CustomLandingAbout />
+    <CustomLandingTools />
+    <CustomLandingFeatures />
+    <CustomLandingExplore />
+    <CustomLandingStart />
   </div>
 </template>
 
@@ -19,7 +14,6 @@
     name: 'OktaIntegrationNetwork',
     inject: ["appContext"],
     components: {
-      Sidebar: () => import("../components/Sidebar.vue"),
       CustomLandingHero: () => import("../components/customLanding/Hero.vue"),
       CustomLandingAbout: () => import("../components/customLanding/About.vue"),
       CustomLandingTools: () => import("../components/customLanding/Tools.vue"),

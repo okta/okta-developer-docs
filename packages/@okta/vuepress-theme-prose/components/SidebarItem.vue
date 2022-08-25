@@ -1,7 +1,7 @@
 <template>
   <li :class="{
     'link-wrap': true, 
-    'subnav-active': link.path == '/okta-integration-network/' ? '' : link.iHaveChildrenActive,
+    'subnav-active': link.iHaveChildrenActive,
     hidden: hidden }">
     <router-link
           v-if="entityType === types.link"
@@ -38,11 +38,11 @@
           v-if="entityType === types.parent"
           :class="{
             'tree-nav-link tree-nav-link-parent': true,
-            'children-active': link.path == '/okta-integration-network/' ? '' : link.iHaveChildrenActive || isCurrentPage(link.path) 
+            'children-active': link.iHaveChildrenActive || isCurrentPage(link.path)
           }"
           @click="toggleExpanded"
         >
-          <i v-if="link.path !== '/okta-integration-network/'" :class="{
+          <i :class="{
             'parent': link.subLinks,
             'opened': link.subLinks && sublinksExpanded || isCurrentPage(link.path),
             }">
@@ -58,7 +58,6 @@
               :href="href"
               @click="navigate"
               :class="{
-                'router-link-active': link.path == '/okta-integration-network/' ? 'router-link-active' : '',
                 'link': true,
               }"
               :title="link.title"
@@ -72,8 +71,8 @@
             </a>
           </router-link>
     </div>
-    <transition v-show="link.path !== '/okta-integration-network/'" name="slide-fade">
-      <ul v-if="entityType === types.parent" class="sections" v-show="link.path == '/okta-integration-network/' ? '' : sublinksExpanded || isCurrentPage(link.path)">
+    <transition name="slide-fade">
+      <ul v-if="entityType === types.parent" class="sections" v-show="sublinksExpanded || isCurrentPage(link.path)">
         <SidebarItem
           v-for="sublink in link.subLinks"
           :key="sublink.title"

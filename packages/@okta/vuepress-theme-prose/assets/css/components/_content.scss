@@ -121,7 +121,7 @@
     max-width: calc(82% - 266px);
     padding: 23px 59px;
     &-full {
-      max-width: calc(100% - 266px);
+      max-width: 100%;
       padding: 0 59px;
     }
     @include media("<desktop-xl") {
