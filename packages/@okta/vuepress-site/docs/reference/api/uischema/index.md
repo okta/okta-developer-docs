@@ -43,7 +43,7 @@ N/A
 
 #### Request body
 
-This API requires a [UI Schema Object](#ui-schema-object) as its request body.
+A [UI Schema object](#ui-schema-object)
 
 #### Response body
 
