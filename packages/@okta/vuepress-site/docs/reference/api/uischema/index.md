@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="ie" />
 
-The Okta UI Schema API provides an interface to dictate how inputs are displayed on a form.
+The Okta UI Schema API allows you to control how inputs appear on a form.
 
 ## Get started
 
