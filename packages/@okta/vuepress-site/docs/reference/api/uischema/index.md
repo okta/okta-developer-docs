@@ -31,7 +31,7 @@ The UI Schema API has the following CRUD operations:
 
 #### Required scope and role
 
-An Okta scope of `okta.uischemas.manage` is required to use this endpoint.
+`okta.uischemas.manage`
 
 #### Request path parameters
 
