@@ -118,7 +118,7 @@ To learn more about our Mobile OpenID Connect (OIDC) SDKs and sample apps:
 
 Android:
 - [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin).
--  [Okta Classic Android Sign-In Kotlin Sample App](https://github.com/okta/samples-android/tree/legacy-samples/sign-in-kotlin).
+- [Okta Classic Android Sign-In Kotlin Sample App](https://github.com/okta/samples-android/tree/legacy-samples/sign-in-kotlin).
 
 iOS:
 - [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift).

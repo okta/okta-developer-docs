@@ -27,7 +27,7 @@ These resources walk you through adding user authentication to your iOS app in m
 
 ## Add sign-in with Okta to your app
 
-There are two ways to integrate sign-in with Okta to your app. The easiest to integrate is the redirect model which uses the Okta-hosted Sign-In Widget. You open the widget, Okta processes the sign-in attempt, and sends the result to your app. The other is the embedded model, where your manages each step in the sign-in flow. See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/ios/main/) for more detail.
+There are two ways to integrate sign-in with Okta to your app. The easiest to integrate is the redirect model which uses the Okta-hosted Sign-In Widget. You open the widget, Okta processes the sign-in attempt, and sends the result to your app. The other is the embedded model, where you manage each step in the sign-in flow. See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/ios/main/) for more detail.
 
 ### Use the redirect model
 
