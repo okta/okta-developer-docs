@@ -29,7 +29,7 @@ The UI Schema API has the following CRUD operations:
 
 <ApiOperation method="post" url="/api/v1/meta/uischemas" />
 
-#### Required scope and role
+#### Required scope
 
 `okta.uischemas.manage`
 
