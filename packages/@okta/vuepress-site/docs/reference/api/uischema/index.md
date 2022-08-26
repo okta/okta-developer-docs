@@ -13,7 +13,7 @@ The Okta UI Schema API provides an interface to dictate how inputs are displayed
 
 - This API is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-Explore the UI Schema API: [![Run in Postman](https://run.pstmn.io/button.svg)](%linkhere%). % How to generate this link: https://oktawiki.atlassian.net/wiki/spaces/DOC/pages/227648499/How+to+publish+Postman+collections %
+Explore the UI Schema API: [![Run in Postman](https://run.pstmn.io/button.svg)](%linkhere%). <!-- How to generate this link: https://oktawiki.atlassian.net/wiki/spaces/DOC/pages/227648499/How+to+publish+Postman+collections -->
 
 ## UI Schema operations
 
