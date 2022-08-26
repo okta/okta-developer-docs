@@ -52,8 +52,16 @@ It is up to you how you set up users to call the MyAccount API to manage their a
 
 A valid API version in the `Accept` header is required to access the API. Current version: V1.0.0
 
-```json
+```bash
 Accept: application/json; okta-version=1.0.0
+```
+
+## Access Token assurance
+
+MyAccount operations that create, update, or delete resources require access tokens that are 15 minutes old or younger. API calls with access tokens older than 15 minutes require re-authentication. If you don't re-authenticate the token, the API returns a 403 error with the following content in the header:
+
+```bash
+www-authenticate: Bearer realm="IdpMyAccountAPI", error="insufficient_authentication_context", error_description="The access token requires additional assurance to access the resource", max_age=900
 ```
 
 ## Grant the required scopes
@@ -126,6 +134,7 @@ If the email already exists for the current user, the response returns a 409 CON
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/emails"
 ```
 
@@ -215,6 +224,7 @@ If the call providers fail to send a challenge when `sendCode` is `true`,  the r
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/phones"
 ```
 
