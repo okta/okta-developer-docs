@@ -56,6 +56,14 @@ A valid API version in the `Accept` header is required to access the API. Curren
 Accept: application/json; okta-version=1.0.0
 ```
 
+## Access Token assurance
+
+MyAccount operations that create, update, or delete resources require Access Tokens that are 15 minutes old or younger. API calls with Access Tokens older than 15 minutes require re-authentication. If you don't re-authenticate the token, the API returns a 403 error with the following content in the header:
+
+```json
+www-authenticate: Bearer realm="IdpMyAccountAPI", error="insufficient_authentication_context", error_description="The access token requires additional assurance to access the resource", max_age=900
+```
+
 ## Grant the required scopes
 
 > **Note:** If you have a custom Authorization Server, the MyAccount API-related scopes are granted by default. See [Create an Authorization Server](/docs/guides/customize-authz-server/-/main/).
@@ -126,6 +134,7 @@ If the email already exists for the current user, the response returns a 409 CON
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/emails"
 ```
 
@@ -215,6 +224,7 @@ If the call providers fail to send a challenge when `sendCode` is `true`,  the r
 ```bash
 curl -v -X POST \
 -H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/phones"
 ```
 
