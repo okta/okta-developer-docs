@@ -20,7 +20,7 @@ Explore the UI Schema API: [![Run in Postman](https://run.pstmn.io/button.svg)](
 The UI Schema API has the following CRUD operations:
 
 - [Create a UI Schema](#create-a-ui-schema)
-- [Get UI Schemas](#get-ui-schemas)
+- [Get UI Schemas](#get-all-ui-schemas)
 - [Get a UI Schema by ID](#get-a-ui-schema-by-id)
 - [Update a UI Schema](#update-a-ui-schema)
 - [Delete a UI Schema](#delete-a-ui-schema)
