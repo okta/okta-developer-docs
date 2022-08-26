@@ -400,6 +400,23 @@ In [API Access Management](/docs/concepts/api-access-management/) custom authori
 To include a granted scope array and convert it to a space-delimited string, use the following expression:<br>
 `String.replace(Arrays.toCsvString(access.scope),","," ")`
 
+## Expressions in group rules
+
+Group rule conditions only allow `String`, `Arrays`, and `user` expressions.
+
+For example, given the user profile has a base string attribute called `email`, and assuming the user profile has a
+custom boolean attribute called `hasBadge` and a custom string attribute called `favoriteColor`, the following
+expressions are allowed in group rule conditions:
+
+* `user.hasBadge`
+* `String.stringContains(user.email, "@example.com")`
+* `Arrays.contains(user.favoriteColors, "blue")`
+
+The following expression isn't allowed in group rule conditions, even if the user profile has a custom integer
+attribute called `yearJoined`:
+
+* `Convert.toInt("2018") == user.yearJoined`
+
 ## Appendix: Time zone codes
 
 Okta supports the use of the following time zone codes:
