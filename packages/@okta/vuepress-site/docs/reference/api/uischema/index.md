@@ -47,7 +47,7 @@ This API requires a [UI Schema Object](#ui-schema-object) as its request body.
 
 #### Response body
 
-This API returns the created [UI Schema Request object](#ui-schema-request-object)
+Returns the created [UI Schema Request object](#ui-schema-request-object)
 
 #### Use example
 
