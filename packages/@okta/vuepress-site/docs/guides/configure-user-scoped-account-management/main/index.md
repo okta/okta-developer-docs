@@ -52,7 +52,7 @@ It is up to you how you set up users to call the MyAccount API to manage their a
 
 A valid API version in the `Accept` header is required to access the API. Current version: V1.0.0
 
-```json
+```bash
 Accept: application/json; okta-version=1.0.0
 ```
 
