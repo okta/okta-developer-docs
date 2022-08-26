@@ -25,32 +25,26 @@ These resources walk you through adding user authentication to your iOS app in m
 	</li>
 </ul>
 
-## Integrate with Okta using the Okta-hosted Sign-In Widget
+## Add sign-in with Okta to your app
 
-These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
+There are two ways to integrate sign-in with Okta to your app. The easiest to integrate is the redirect model which uses the Okta-hosted Sign-In Widget. You open the widget, Okta processes the sign-in attempt, and sends the result to your app. The other is the embedded model, where your manages each step in the sign-in flow. See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/ios/main/) for more detail.
 
-[iOS redirect authentication sample app](https://github.com/okta/samples-ios): See [Browser sign in](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for a redirect configuration.
+### Use the redirect model
 
-## Integrate with Okta using embedded Sign-In Widget and SDKs
+This method works with both Okta Identity Engine and Okta Classic.
 
-These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+SDK: [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift).
 
-Okta Identity Engine:
+Example: [Browser sign in](https://github.com/okta/samples-ios/tree/master/browser-sign-in).
 
-* [Identity Engine Swift SDK](https://github.com/okta/okta-idx-swift)
-* [iOS embedded authentication with SDK sample app](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs)
 
-Okta Classic OIDC library for iOS (CocoaPod):
+### Use the embedded model
 
-* [OktaOidc on CocoaPods](https://cocoapods.org/pods/OktaOidc)
-* [Okta iOS OIDC SDK Source](https://github.com/okta/okta-oidc-ios)
+This method works only with Okta Identity Engine.
 
-## Other Classic iOS libraries
+SDK: [Identity Engine Swift SDK](https://github.com/okta/okta-idx-swift).
 
-* [Okta JWT Verifier for iOS](https://github.com/okta/okta-ios-jwt): Use this library for validating Okta OAuth tokens.
-* [iOS authentication SDK](https://github.com/okta/okta-auth-swift): Use this library for building custom authentication flows with Okta.
-* [React Native app with Okta's OpenID Connect API](https://github.com/okta/okta-react-native/tree/master/ios)
-* [Okta Secure Storage Library](https://github.com/okta/okta-storage-swift)
+Example: [iOS embedded authentication with SDK sample app](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs).
 
 ## Recommended guides
 
@@ -60,13 +54,14 @@ Okta-hosted Sign-In Widget guide:
 
 Embedded SDK and Sign-In Widget sign-in guide:
 
-* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/ios/main/)
+- [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/ios/main/)
+- [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/ios/main/)
 
 Other guides:
 
-* [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
-* [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
-* [Validate access tokens](/docs/guides/validate-access-tokens)
-* [Validate ID tokens](/docs/guides/validate-id-tokens)
+- [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
+- [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
+- [Validate access tokens](/docs/guides/validate-access-tokens)
+- [Validate ID tokens](/docs/guides/validate-id-tokens)
 
 > **Note**: Browse our recent [iOS Developer Blog posts](https://developer.okta.com/blog/tags/ios/) for further useful topics.

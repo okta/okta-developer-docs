@@ -26,30 +26,26 @@ These resources walk you through adding user authentication to your Android app 
 	</li>
 </ul>
 
-## Integrate with Okta using the Okta-hosted Sign-In Widget
+## Add sign-in with Okta to your app
 
-These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
+There are two ways to integrate sign-in with Okta to your app. The easiest to integrate is the redirect model which uses the Okta-hosted Sign-In Widget. You open the widget, Okta processes the sign-in attempt, and sends the result to your app. The other is the embedded model, where your manages each step in the sign-in flow. See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/ios/main/) for more detail.
 
-[Android redirect authentication sample app](https://github.com/okta/samples-android): See [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for a redirect configuration.
+### Use the redirect model
 
-## Integrate with Okta using embedded Sign-In Widget and SDKs
+This method works with both Okta Identity Engine and Okta Classic.
 
-These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
+SDK: [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin).
 
-Okta Identity Engine:
+Example: [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in).
 
-* [Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
-* [Android embedded authentication with SDK sample app](https://github.com/okta/okta-idx-android)
 
-Okta Classic:
+### Use the embedded model
 
-* [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requirements)
-* [Android SDK Source](https://github.com/okta/okta-oidc-android)
+This method works only with Okta Identity Engine.
 
-## Android libraries
+SDK: [Identity Engine Android SDK](https://github.com/okta/okta-idx-android).
 
-* [Okta JWT Verifier for Java](https://github.com/okta/okta-jwt-verifier-java)
-* [React Native app with Okta's OpenID Connect API, Android setup](https://github.com/okta/okta-react-native#android-setup)
+Example: [Android dynamic authentication example](https://github.com/okta/okta-idx-android/tree/master/dynamic-app).
 
 ## Recommended guides
 

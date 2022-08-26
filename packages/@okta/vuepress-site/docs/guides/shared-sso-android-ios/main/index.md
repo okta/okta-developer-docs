@@ -42,7 +42,7 @@ Single Sign-On (SSO) allows users to authenticate once and access multiple resou
 * **Session SSO**: Session SSO cookies are written for the authenticated user, which eliminates further prompts when the user switches applications during a particular session. However, if a particular session ends, the user is prompted for their credentials again.
 * **Persistent SSO**: Persistent SSO cookies are written for the authenticated user, which eliminates further prompts when the user switches applications for as long as the persistent SSO cookie is valid.
 
-The difference between persistent SSO and session SSO is that persistent SSO can be maintained across different sessions. Persistent SSO is disabled by default in Okta. To share a sign-in session with native mobile apps, you need to enable persistent SSO. 
+The difference between persistent SSO and session SSO is that persistent SSO can be maintained across different sessions. Persistent SSO is disabled by default in Okta. To share a sign-in session with native mobile apps, you need to enable persistent SSO.
 
 <StackSelector snippet="enablesso" noSelector />
 
@@ -100,7 +100,7 @@ If you are using the same Okta domain for both of your apps, the default behavio
 
 You can also check if the browser has a valid session by using the `prompt=none` parameter. The `prompt=none` parameter guarantees that the user isn't prompted for credentials. Either the requested tokens are obtained or if the session is invalid or doesn't exist, the application receives an OAuth error response. See [Parameter details](https://developer.okta.com/docs/reference/api/oidc/#parameter-details) for more information on using the `prompt` parameter.
 
-If your application requires that the user signs in to the first app first, then you can use the `prompt=none` parameter in the second app to check whether the user is already signed in to the first app. 
+If your application requires that the user signs in to the first app first, then you can use the `prompt=none` parameter in the second app to check whether the user is already signed in to the first app.
 
 <StackSelector snippet="checkvalidsession" noSelector />
 
@@ -116,7 +116,10 @@ You should now have a better understanding of how a sign-in session is shared be
 
 To learn more about our Mobile OpenID Connect (OIDC) SDKs and sample apps:
 
-* [Okta OIDC for iOS](https://github.com/okta/okta-oidc-ios)
-* [Okta OIDC for Android](https://github.com/okta/okta-oidc-android)
-* [Okta iOS Browser Sign-in Sample App](https://github.com/okta/samples-ios/tree/master/browser-sign-in)
-* [Kotlin Sign-In Sample App for Android](https://github.com/okta/samples-android/tree/master/sign-in-kotlin)
+Android:
+- [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin).
+-  [Okta Classic Android Sign-In Kotlin Sample App](https://github.com/okta/samples-android/tree/legacy-samples/sign-in-kotlin).
+
+iOS:
+- [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift).
+- [Okta Classic iOS Browser Sign-In Sample App](https://github.com/okta/samples-ios/tree/legacy-samples/browser-sign-in).

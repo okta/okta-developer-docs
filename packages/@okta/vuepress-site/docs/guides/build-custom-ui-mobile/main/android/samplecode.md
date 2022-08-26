@@ -1,1 +1,1 @@
-See our [Android custom UI example](https://github.com/okta/samples-android/tree/master/sign-in-kotlin).
+See the Classic sample [Android custom UI example](https://github.com/okta/samples-android/tree/legacy-samples/sign-in-kotlin) in the legacy branch.

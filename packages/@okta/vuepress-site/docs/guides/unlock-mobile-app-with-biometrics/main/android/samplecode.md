@@ -1,1 +1,1 @@
-We have a sample available in our [Android samples repo](https://github.com/okta/samples-android/tree/master/browser-sign-in).
+See the [Browser sign-in sample](https://github.com/okta/samples-android/tree/legacy-samples/browser-sign-in) for Classic.
