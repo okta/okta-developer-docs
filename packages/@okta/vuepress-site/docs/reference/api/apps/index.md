@@ -6675,7 +6675,7 @@ Update the logo for an application.
 | applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
 | file            | File containing logo                       | Body             | File       | TRUE     |
 
-The file must be in PNG, JPG, SVG, or GIF format, and less than 1 MB in size. For best results, use an image with a transparent background and a square dimension of 200px by 200px to prevent scaling.
+The file must be in PNG, JPG, SVG, or GIF format, and less than 1 MB in size. For best results, use an image with a transparent background and a square dimension of 200px by 200px to prevent upscaling.
 
 ##### Request example
 
