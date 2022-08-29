@@ -28,11 +28,11 @@ These resources walk you through adding user authentication to your Android app 
 
 ## Add sign-in with Okta to your app
 
-There are two ways to integrate sign-in with Okta to your app. The easiest to integrate is the redirect model which uses the Okta-hosted Sign-In Widget. You open the widget, Okta processes the sign-in attempt, and sends the result to your app. The other is the embedded model, where you manage each step in the sign-in flow. See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/ios/main/) for more detail.
+There are two ways to integrate sign-in with Okta to your app. The easiest to integrate is the redirect model that uses the Okta-hosted Sign-In Widget. You open the widget, Okta processes the sign-in attempt, and then sends the result to your app. The other is the embedded model, where you manage each step in the sign-in flow. See [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/android/main/) for more detail.
 
 ### Use the redirect model
 
-This method works with both Okta Identity Engine and Okta Classic.
+This method works with both Okta Identity Engine and Okta Classic Engine.
 
 SDK: [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin).
 
@@ -41,7 +41,7 @@ Example: [Browser Sign In](https://github.com/okta/samples-android/tree/master/b
 
 ### Use the embedded model
 
-This method works only with Okta Identity Engine.
+This method works only with Identity Engine.
 
 SDK: [Identity Engine Android SDK](https://github.com/okta/okta-idx-android).
 
@@ -59,7 +59,7 @@ Embedded SDK and Sign-In Widget sign-in guides:
 
 Other guides:
 
-* [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
+* [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)

@@ -42,7 +42,7 @@ Single Sign-On (SSO) allows users to authenticate once and access multiple resou
 * **Session SSO**: Session SSO cookies are written for the authenticated user, which eliminates further prompts when the user switches applications during a particular session. However, if a particular session ends, the user is prompted for their credentials again.
 * **Persistent SSO**: Persistent SSO cookies are written for the authenticated user, which eliminates further prompts when the user switches applications for as long as the persistent SSO cookie is valid.
 
-The difference between persistent SSO and session SSO is that persistent SSO can be maintained across different sessions. Persistent SSO is disabled by default in Okta. To share a sign-in session with native mobile apps, you need to enable persistent SSO.
+The difference between persistent SSO and session SSO is you can be maintain persistent SSO across different sessions. Persistent SSO is disabled by default in Okta. To share a sign-in session with native mobile apps, you need to enable persistent SSO.
 
 <StackSelector snippet="enablesso" noSelector />
 
@@ -118,8 +118,8 @@ To learn more about our Mobile OpenID Connect (OIDC) SDKs and sample apps:
 
 Android:
 - [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin).
-- [Okta Classic Android Sign-In Kotlin Sample App](https://github.com/okta/samples-android/tree/legacy-samples/sign-in-kotlin).
+- [Okta Classic Engine Android Sign-In Kotlin Sample App](https://github.com/okta/samples-android/tree/legacy-samples/sign-in-kotlin).
 
 iOS:
 - [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift).
-- [Okta Classic iOS Browser Sign-In Sample App](https://github.com/okta/samples-ios/tree/legacy-samples/browser-sign-in).
+- [Okta Classic Engine iOS Browser Sign-In Sample App](https://github.com/okta/samples-ios/tree/legacy-samples/browser-sign-in).
