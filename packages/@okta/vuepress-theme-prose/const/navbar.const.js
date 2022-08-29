@@ -546,33 +546,33 @@ export const guides = [
         subLinks: [
           {
             title: "Overview of Single Sign-On",
-            guideName: "oin-sso-overview",
+            path: "/docs/guides/oin-sso-overview/",
             subLinks: [
               {
                 title: "Build an Okta SSO integration",
                 guideName: "build-sso-integration",
               },
-             ],
+            ],
           },
           {
             title: "Overview of Lifecycle Management",
-            guideName: "oin-lifecycle-mgmt-overview",
+            path: "/docs/guides/oin-lifecycle-mgmt-overview/",
             subLinks: [
               {
                 title: "Build a SCIM Provisioning Integration",
                 subLinks: [
                   {
-                	title: "Prepare your SCIM API service",
-                	path: "/docs/guides/scim-provisioning-integration-prepare/main/",
-              		},
+                    title: "Prepare your SCIM API service",
+                    path: "/docs/guides/scim-provisioning-integration-prepare/main/",
+                  },
                   {
-                	title: "Connect your SCIM API service to Okta",
-                	guideName: "scim-provisioning-integration-connect",
-              		},
+                    title: "Connect your SCIM API service to Okta",
+                    guideName: "scim-provisioning-integration-connect",
+                  },
                   {
-                	title: "Test your Okta SCIM integration",
-                	path: "/docs/guides/scim-provisioning-integration-test/main/",
-              		},
+                    title: "Test your Okta SCIM integration",
+                    path: "/docs/guides/scim-provisioning-integration-test/main/",
+                  },
                 ],
               },
           ],

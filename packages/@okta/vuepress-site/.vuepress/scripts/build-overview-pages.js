@@ -60,11 +60,25 @@ function generatedLinks(arr, parent = null) {
           generatedPages.push(page);
           el.path = path;
         }
-        if (!el.path) {
+        if (!el.path && !el.customLandingPage) {
           el.path = parent.path + sanitizeTitle(el) + "/";
         }
         if (el.subLinks && el.subLinks.length > 0) {
           generatedLinks(el.subLinks, el);
+        }
+        if (el.customLandingPage) {
+          function generateOINLinks(array) {
+            if (array) {
+              for (let el of array) {
+                if (el.subLinks) {
+                  generateOINLinks(el.subLinks);
+                  let splitted = el.path.split('/')
+                  el.path = '/' + splitted.filter((el, idx, arr)=>idx===1||idx===2||idx===arr.length-2).join('/') + '/';
+                }
+              }
+            }
+          }
+          generateOINLinks(el.subLinks);
         }
       }
     }
