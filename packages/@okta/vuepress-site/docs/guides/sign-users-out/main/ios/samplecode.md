@@ -1,1 +1,1 @@
-[iOS samples repo](https://github.com/okta/samples-ios)
+Classic Engine samples in the legacy branch of the [iOS Samples repository](https://github.com/okta/samples-ios/tree/legacy-samples)

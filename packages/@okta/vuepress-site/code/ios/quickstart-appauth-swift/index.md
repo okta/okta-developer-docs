@@ -5,6 +5,8 @@ icon: code-ios
 excerpt: Integrate Okta with an iOS native application using OktaAuth.
 ---
 
+> **Note:** This information is deprecated. See [Add user authentication to your iOS app](/code/ios/).
+
 This guide walks you through integrating authentication and authorization into a Swift iOS native application with Okta.
 
 ## Prerequisites

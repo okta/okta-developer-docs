@@ -317,21 +317,9 @@ export const guides = [
             subLinks: [
               {
                 title: "Identity Engine SDK overview",
-                guideName: "mobile-idx-sdk-overview",
-              },
-              {
-                title: "Unlock a mobile app with biometrics",
-                guideName: "unlock-mobile-app-with-biometrics",
-              },
-              {
-                title: "Build a custom sign-in UI in your mobile app",
-                guideName: "build-custom-ui-mobile",
-              },
-              {
-                title: "Share a sign-in session with native mobile apps",
-                guideName: "shared-sso-android-ios",
-              },
-            ],
+                guideName: "mobile-idx-sdk-overview"
+              }
+            ]
           },
           {
             title: "Configure an access policy",
@@ -355,7 +343,7 @@ export const guides = [
               },
             ],
           },
-          { title: "Sign users out", guideName: "sign-users-out" },
+          { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
           {
             title: "Basics",
             subLinks: [
@@ -717,18 +705,36 @@ export const guides = [
             guideName: "archive-sign-in-to-spa-embedded-widget",
             description: true
           },
+          { title: "Sign users out", guideName: "sign-users-out" },
           {
             title: "Add multifactor authentication",
             guideName: "mfa",
           },
           {
             title: "Registration Inline Hook",
-            guideName: "archive-registration-inline-hook",
+            guideName: "archive-registration-inline-hook"
           },
-        ],
-      },
-    ],
-  },
+          {
+            title: "Mobile",
+            subLinks: [
+              {
+                title: "Build a custom sign-in UI in your mobile app",
+                guideName: "build-custom-ui-mobile"
+              },
+              {
+                title: "Unlock a mobile app with biometrics",
+                guideName: "unlock-mobile-app-with-biometrics"
+              },
+              {
+                title: "Share a sign-in session with native mobile apps",
+                guideName: "shared-sso-android-ios"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ];
 
 export const languagesSdk = [

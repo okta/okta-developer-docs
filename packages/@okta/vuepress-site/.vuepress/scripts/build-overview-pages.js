@@ -62,27 +62,6 @@ function generatedLinks(arr, parent = null) {
           if (el.description) {
             page.description = el.description;
           }
-          // if (el.customLandingPage) {
-          //   function generateOINLinks(array) {
-          //     if (array) {
-          //       for (let el of array) {
-          //         if (!el.path && el.subLinks) {
-          //           path = '/docs/guides/' + sanitizeTitle(el) + "/"
-          //           console.log(path)
-          //         }
-          //         if (el.subLinks) {
-          //           if (el.path) {
-          //             let splitted = el.path.split('/')
-          //             el.path = '/' + splitted.filter((el, idx, arr)=>idx===1||idx===2||idx===arr.length-2).join('/') + '/';
-          //             console.log(el.path)
-          //           }
-          //           generateOINLinks(el.subLinks);
-          //         }
-          //       }
-          //     }
-          //   }
-          //   generateOINLinks(el.subLinks);
-          // }
           generatedPages.push(page);
           el.path = path;
         }
