@@ -41,6 +41,8 @@ function generatedLinks(arr, parent = null) {
           let path = ''
           if (parentTitle !== 'guides' && parent.path.indexOf(parentTitle) >= 0) {
             path = parent.path.replace(parentTitle, sanitizeTitle(el))
+          } else if (parent.path == '/docs/guides/oin-lifecycle-mgmt-overview/') {
+            path = '/docs/guides/' + sanitizeTitle(el) + "/"
           } else {
             path = parent.path + sanitizeTitle(el) + "/"
           }
@@ -57,28 +59,35 @@ function generatedLinks(arr, parent = null) {
           if (el.description) {
             page.description = el.description;
           }
+          // if (el.customLandingPage) {
+          //   function generateOINLinks(array) {
+          //     if (array) {
+          //       for (let el of array) {
+          //         if (!el.path && el.subLinks) {
+          //           path = '/docs/guides/' + sanitizeTitle(el) + "/"
+          //           console.log(path)
+          //         }
+          //         if (el.subLinks) {
+          //           if (el.path) {
+          //             let splitted = el.path.split('/')
+          //             el.path = '/' + splitted.filter((el, idx, arr)=>idx===1||idx===2||idx===arr.length-2).join('/') + '/';
+          //             console.log(el.path)
+          //           }
+          //           generateOINLinks(el.subLinks);
+          //         }
+          //       }
+          //     }
+          //   }
+          //   generateOINLinks(el.subLinks);
+          // }
           generatedPages.push(page);
           el.path = path;
         }
-        if (!el.path && !el.customLandingPage) {
+        if (!el.path) {
           el.path = parent.path + sanitizeTitle(el) + "/";
         }
         if (el.subLinks && el.subLinks.length > 0) {
           generatedLinks(el.subLinks, el);
-        }
-        if (el.customLandingPage) {
-          function generateOINLinks(array) {
-            if (array) {
-              for (let el of array) {
-                if (el.subLinks) {
-                  generateOINLinks(el.subLinks);
-                  let splitted = el.path.split('/')
-                  el.path = '/' + splitted.filter((el, idx, arr)=>idx===1||idx===2||idx===arr.length-2).join('/') + '/';
-                }
-              }
-            }
-          }
-          generateOINLinks(el.subLinks);
         }
       }
     }

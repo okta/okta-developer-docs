@@ -46,7 +46,6 @@ export default {
     addStatesToLink(link, parent = null) {
       // Reset iHaveChildrenActive value.
       link.iHaveChildrenActive = false;
-
       if (!link.path) {
         link.path = parent.path + this.sanitizeTitle(link) + "/";
         if (!link.guideName) {
@@ -54,6 +53,8 @@ export default {
           let path = ''
           if (parentTitle !== 'guides' && parent.path.indexOf(parentTitle) >= 0) {
             path = parent.path.replace(parentTitle, this.sanitizeTitle(link))
+          } else if (parent.path == '/docs/guides/oin-lifecycle-mgmt-overview/') {
+            path = '/docs/guides/' + this.sanitizeTitle(link) + "/"
           } else {
             path = parent.path + this.sanitizeTitle(link) + "/"
           }
