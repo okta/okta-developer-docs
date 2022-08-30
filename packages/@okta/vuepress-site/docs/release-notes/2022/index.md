@@ -58,9 +58,9 @@ For SWA apps with an account sign-in option set to Users share a single username
 
 #### Developer documentation updates in 2022.09.0
 
-* 
+* [developer.okta.com](developer.okta.com) has a new main navigation menu, which makes navigating around the content easier and more intuitive. Instead of showing the entire sitemap in the menu at all times, each major area is now accessed via a submenu, which shows only the relevant menu sections at one time. In addition, clicking on each menu node will show a contextual landing page (either a defined custom page, or an auto-generated one if none exists), and you can now toggle the menu between hidden and visible states if desired.
 
-* 
+* Updates to the [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/main/#edit-the-error-page) and [Customize email notifications](/docs/guides/custom-email/main/#edit-a-default-email-template) guides describe the new full featured code editor. The editor integrates the Monaco code editing library into the Admin Console to make editing code for email notifications and error pages more efficient. Developers can write, test, and publish code faster.
 
 #### Bugs fixed in 2022.09.0
 
