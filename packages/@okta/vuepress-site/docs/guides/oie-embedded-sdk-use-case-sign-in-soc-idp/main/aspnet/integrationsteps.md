@@ -56,7 +56,6 @@ https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-
 
 Group 1, row 12
 
-
 -->
 
 ### 3: The user selects the Facebook Identity Provider
@@ -67,7 +66,7 @@ The user clicks the sign-in link, which sends them initially to the Okta org. Th
 
 Next, the user enters their email and password, and clicks **Log in**. This page is hosted by Facebook. The user information that you enter originates from a test user that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to perform this step.
 
-<div class="half">
+<div class="half border">
 
 ![Displays an example Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 
