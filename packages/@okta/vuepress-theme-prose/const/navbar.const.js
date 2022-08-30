@@ -548,6 +548,7 @@ export const guides = [
             subLinks: [
               {
                 title: "Build a SCIM Provisioning Integration",
+                path: "/docs/guides/scim-provisioning-integration-overview/main/",
                 subLinks: [
                   {
                     title: "Prepare your SCIM API service",
