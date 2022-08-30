@@ -18,10 +18,10 @@ title: Okta Identity Engine API Products release notes 2022
 | [Access Denied error message customization is GA in Preview](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
 | [Dynamic IdP routing is GA in Preview](#dynamic-idp-routing-is-ga-in-preview) | June 8, 2022 |
 | [The update logo for application operation is updated](#the-update-logo-for-application-operation-is-updated) | August 31, 2022 |
-|  |  |
-|  |  |
-|  |  |
-| [Developer documentation updates in 2022.09.0] | August 31, 2022 |
+| [Clone authentication policies are GA in Preview](#clone-authentication-policies-are-ga-in-preview) | August 31, 2022 |
+| [Improvements to the self-service password reset experience are GA in Preview](#improvements-to-the-self-service-password-reset-experience-are-ga-in-preview) | July 7, 2022 |
+| [Password restriction for shared SWA app accounts is GA in Production](#password-restriction-for-shared-swa-app-accounts-is-ga-in-production) | July 7, 2022 |
+| [Developer documentation updates in 2022.09.0](#developer-documentation-updates-in-2022090) | August 31, 2022 |
 | [Bugs fixed in 2022.09.0](#bugs-fixed-in-2022-09-0) | August 31, 2022|
 
 #### Non-deletable default authorization server is in Early Access (EA)
@@ -38,7 +38,7 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 #### Step-up authentication using ACR values is EA in Preview
 
-Users want seamless access to certain resources, but organizations want to increase the user’s level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values]().<!--OKTA-525790-->
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values]().<!--OKTA-525790-->
 
 #### API for suppressing email notifications is in General Availability
 
@@ -56,6 +56,18 @@ Org admins can now consolidate multiple IdP routing rules into a single dynamic 
 
 The [update logo for application](/docs/reference/api/apps/#application-logo-operations) API operation has been updated to support logo images in SVG format. In addition, the updated logo guidelines require a square image dimension of 200px by 200px to avoid distortion.<!--OKTA-511103-->
 
+#### Clone authentication policies are GA in Preview
+
+Creating an authentication policy from scratch is a manual, error-prone task because you need to visually copy existing rules into the new policy. Okta now offers the ability to clone a policy. You can use either the Admin Console or the new Clone a Policy operation on the Policy API. See [Clone a Policy](/docs/reference/api/policy/#clone-a-policy).<!--OKTA-515109-->
+
+#### Improvements to the self-service password reset experience are GA in Preview
+
+Previously, the self-service password reset (SSPR) flow created unnecessary friction in the user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset where the password meets the application’s assurance policy, the user is signed directly to the app. See [Configure the Email authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-email).<!--OKTA-499514-->
+
+#### Password restriction for shared SWA app accounts is GA in Production
+
+For SWA apps with an account sign-in option set to Users share a single username and password set by administrator, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
+
 #### Developer documentation updates in 2022.09.0
 
 * 
@@ -66,7 +78,15 @@ The [update logo for application](/docs/reference/api/apps/#application-logo-ope
 
 * The `sub` claim value in on-behalf token exchange flows was using the customized authorization server claim value when the token exchange feature was enabled. (OKTA-517125)
 
-* The Apps API didn't return all errors from the VPN settings (`settings.notifiations.vpn`) of an add app request. (OKTA-517563)
+* The Apps API returned only the first error from the VPN settings (`settings.notifiations.vpn`) of an add app request. (OKTA-517563)
+
+* The `fromURI` parameter in the Activation Email template linked users to the Okta Dashboard instead of the specified URL. (OKTA-505979)
+
+* When the `MyAccountChangeConfirmation` or `PendingEmailChange` email templates were customized without an `AuthStateToken`, the `app.id`, `app.name`, and `app.label` variables didn't work. (OKTA-515159)
+
+* When customers used a customized Okta-hosted Sign-In Widget, authorization requests failed after Identity Engine upgrade because the Authentication object was missing from the Identity Engine response. (OKTA-376674)
+
+* 
 
 ## August
 

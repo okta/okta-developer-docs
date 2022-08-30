@@ -16,9 +16,7 @@ title: Okta API Products release notes 2022
 | [Access Denied error message customization is GA in Preview](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
 | [Dynamic IdP routing is GA in Preview](#dynamic-idp-routing-is-ga-in-preview) | June 8, 2022 |
 | [The update logo for application operation is updated](#the-update-logo-for-application-operation-is-updated) | August 31, 2022 |
-|  |  |
-|  |  |
-|  |  |
+| [Password restriction for shared SWA app accounts is GA in Production](#password-restriction-for-shared-swa-app-accounts-is-ga-in-production) | July 7, 2022 |
 | [Developer documentation updates in 2022.09.0] | August 31, 2022 |
 | [Bugs fixed in 2022.09.0](#bugs-fixed-in-2022-09-0) | August 31, 2022|
 
@@ -36,7 +34,7 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 #### Step-up authentication using ACR values is EA in Preview
 
-Users want seamless access to certain resources, but organizations want to increase the user’s level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values]().<!--OKTA-525790-->
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values]().<!--OKTA-525790-->
 
 #### API for suppressing email notifications is in General Availability
 
@@ -54,6 +52,10 @@ Org admins can now consolidate multiple IdP routing rules into a single dynamic 
 
 The [update logo for application](/docs/reference/api/apps/#application-logo-operations) API operation has been updated to support logo images in SVG format. In addition, the updated logo guidelines require a square image dimension of 200px by 200px to avoid distortion.<!--OKTA-511103-->
 
+#### Password restriction for shared SWA app accounts is GA in Production
+
+For SWA apps with an account sign-in option set to Users share a single username and password set by administrator, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
+
 #### Developer documentation updates in 2022.09.0
 
 * 
@@ -62,10 +64,9 @@ The [update logo for application](/docs/reference/api/apps/#application-logo-ope
 
 #### Bugs fixed in 2022.09.0
 
-* The `sub` claim value in on-behalf token exchange flows was using the customized authorization server claim value when the token exchange feature was enabled. (OKTA-517125)
+* The `sub` claim value in on-behalf token exchange flows used the customized authorization server claim value when the token exchange feature was enabled. (OKTA-517125)
 
-* The Apps API didn't return all errors from the VPN settings (`settings.notifiations.vpn`) of an add app request. (OKTA-517563)
-
+* The Apps API returned only the first error from the VPN settings (`settings.notifiations.vpn`) of an add app request. (OKTA-517563)
 
 ## August
 
