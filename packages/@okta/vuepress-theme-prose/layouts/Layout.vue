@@ -25,7 +25,7 @@
           <Sidebar />
           <div class="content-area content-area-full col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <div class="content-custom">
-              <OktaIntegrationNetwork />
+              <component v-if="currentCustomLanding" :is="currentCustomLanding"></component>
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ export default {
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
-      import("../components/OktaIntegrationNetwork.vue"),
+      import("../custom-landings/OktaIntegrationNetwork/OktaIntegrationNetwork.vue"),
     Search: () => import("../components/Search.vue"),
     Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
@@ -174,6 +174,13 @@ export default {
     },
     editLinkText() {
       return this.$site.themeConfig.editLink.editLinkText || `Edit this page`;
+    },
+    currentCustomLanding() {
+      const { frontmatter, title } = this.$page;
+      if (title && frontmatter.customLandingPage) {
+        return title.replace(/\s/g, '')
+      }
+      return ''
     }
   },
   methods: {

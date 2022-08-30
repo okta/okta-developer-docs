@@ -192,7 +192,7 @@ module.exports = ctx => ({
     primary_doc_nav: [
       { text: 'Guides', link: '/docs/guides/' },
       { text: 'Concepts', link: '/docs/concepts/' },
-      { text: 'Reference', link: '/docs/references/' },
+      { text: 'Reference', link: '/docs/reference/' },
       { text: 'Languages & SDKs', link: '/code/' },
       { text: 'Release Notes', link: '/docs/release-notes/' },
     ],
@@ -301,8 +301,8 @@ module.exports = ctx => ({
           crawlDelay: 10,
           disallow: [
               //'/docs/guides/third-party-risk-integration/', //EA release of Risk APIs and Guide 2021.08.0
-              //'/docs/references/api/risk-providers/',
-              //'/docs/references/api/risk-events/',
+              //'/docs/reference/api/risk-providers/',
+              //'/docs/reference/api/risk-events/',
               '/docs/guides/migrate-to-oie/',
               //'/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
               //'/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
@@ -316,9 +316,9 @@ module.exports = ctx => ({
               //'/docs/guides/oie-upgrade-sign-in-widget-i18n/',
               //'/docs/guides/oie-upgrade-sign-in-widget-styling/',
               //'/docs/guides/oie-upgrade-mfa-enroll-policy/',
-              '/docs/references/api/archive-myaccount/',
-              '/docs/references/api/myaccount-migration/',
-              '/docs/references/csi-delauth-hook/'
+              '/docs/reference/api/archive-myaccount/',
+              '/docs/reference/api/myaccount-migration/',
+              '/docs/reference/csi-delauth-hook/'
           ]
         }
       ]
