@@ -84,6 +84,8 @@ For SWA apps with an account sign-in option set to **Users share a single userna
 
 * Sometimes when an admin deleted an Identity Provider and a Group concurrently, the Identity Provider wasn't deleted. (OKTA-511062)
 
+* Despite having insufficient permissions, a Report Admin was able to use the Mappings API to edit the UD mappings for an Identity Provider configured in Okta. (OKTA-499602)
+
 ### Weekly release 2022.08.1
 
 | Change | Expected in Preview Orgs |
