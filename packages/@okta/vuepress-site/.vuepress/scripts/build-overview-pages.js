@@ -39,10 +39,13 @@ function generatedLinks(arr, parent = null) {
         if (!el.path && !el.guideName) {
           const parentTitle = sanitizeTitle(parent)
           let path = ''
-          if (parentTitle !== 'guides' && parent.path.indexOf(parentTitle) >= 0) {
-            path = parent.path.replace(parentTitle, sanitizeTitle(el))
-          } else if (parent.path == '/docs/guides/oin-lifecycle-mgmt-overview/') {
-            path = '/docs/guides/' + sanitizeTitle(el) + "/"
+          if (parentTitle !== 'guides' && parent.path) {
+            if (parent.path.indexOf(parentTitle) >= 0) {
+              path = parent.path.replace(parentTitle, sanitizeTitle(el))
+            } else {
+              const splittedPath = parent.path.split('/')
+              path = `/${splittedPath[1]}/${splittedPath[2]}/${sanitizeTitle(el)}`
+            }
           } else {
             path = parent.path + sanitizeTitle(el) + "/"
           }

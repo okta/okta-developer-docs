@@ -50,11 +50,14 @@ export default {
         link.path = parent.path + this.sanitizeTitle(link) + "/";
         if (!link.guideName) {
           const parentTitle = this.sanitizeTitle(parent)
-          let path = ''
-          if (parentTitle !== 'guides' && parent.path.indexOf(parentTitle) >= 0) {
-            path = parent.path.replace(parentTitle, this.sanitizeTitle(link))
-          } else if (parent.path == '/docs/guides/oin-lifecycle-mgmt-overview/') {
-            path = '/docs/guides/' + this.sanitizeTitle(link) + "/"
+          let path = '';
+          if (parentTitle !== 'guides' && parent.path) {
+            if (parent.path.indexOf(parentTitle) >= 0) {
+              path = parent.path.replace(parentTitle, this.sanitizeTitle(link))
+            } else {
+              const splittedPath = parent.path.split('/')
+              path = `/${splittedPath[1]}/${splittedPath[2]}/${this.sanitizeTitle(link)}`
+            }
           } else {
             path = parent.path + this.sanitizeTitle(link) + "/"
           }
