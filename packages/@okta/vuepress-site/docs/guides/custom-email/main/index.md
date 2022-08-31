@@ -62,20 +62,20 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 1. In the Admin Console, go to **Customizations** > **Branding**.
 1. In the **Communications** section, in the **Emails** box, click **Edit**.
 1. In the **Email Templates** box, click a template name.
-   * The code editor is in read-only mode.
-   * **Audience**: Select the email audience.
-      * All users
-      * Admin only
-      * Disabled for all
-   * **Translations**: Customize email template translations. See [Add translations](#add-translations).
-   * **Language**: Select the default language for the email template. See [Add translations](#add-translations).
-   * **Subject**: The subject line for the template in the default language. Click **Edit**, to open the code editor and customize the subject line.
+   - The code editor is in read-only mode.
+   - **Audience**: Select the email audience.
+      - All users
+      - Admin only
+      - Disabled for all
+   - **Translations**: Customize email template translations. See [Add translations](#add-translations).
+   - **Language**: Select the default language for the email template. See [Add translations](#add-translations).
+   - **Subject**: The subject line for the template in the default language. Click **Edit**, to open the code editor and customize the subject line.
 1. Click **Edit** to put the editor in read-write mode.
 1. Make changes directly in the editor. If you type `$`, `#` or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
-   * Click the full page button to see the code editor in full page mode.
-   * At the top of the code editor, click the language to see a dropdown list. Select a language from the list of active template translations. See [Add translations](#add-translations).
-   * Click **Save changes**, then click **Preview** to see your changes before you publish.
-   * Click **Reset template** to remove your customizations and restore the default HTML/CSS and JavaScript code.
+   - Click the full page button to see the code editor in full page mode.
+   - At the top of the code editor, click the language to see a dropdown list. Select a language from the list of active template translations. See [Add translations](#add-translations).
+   - Click **Save changes**, then click **Preview** to see your changes before you publish.
+   - Click **Reset template** to remove your customizations and restore the default HTML/CSS and JavaScript code.
 1. Click **Save changes**. The default language version of your edited message appears in the **Email Templates** table.
 
 Remember that Okta doesn't automatically translate the changes you make in one template to the other language templates. To add translations for this customization, proceed to step 3 in [Add translations](#add-translations).
@@ -161,11 +161,18 @@ The following table provides a list of all allowed HTML tags and elements in cus
 
 ## Add translations
 
-When multiple translations are added for a template, the translation provided in the default language appears at the top of the list. You can designate any added translation as the default language by selecting it from the **Default Language** dropdown box. Doing so reorders the list of added translations automatically.
+**Note:** Once a template is customized, other languages are only included when they are customized. If all customized translations are removed, then the 27 default translations are used.
 
-You can edit the templates through the pencil icon, but you can't delete the default language template.
+The default language is used when the end user’s locale does not match any email customizations. You can designate any added translation as the default language by selecting it from the **Default Language** dropdown box. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
-1. In the Admin Console, go to **Customizations** > **Emails**.
+1. In the Admin Console, go to **Customizations** > **Branding**.
+1. In the **Communications** section, in the **Emails** box, click **Edit**.
+1. In the **Email Templates** box, select an email template that you customized.
+    - The default language version appears in the code editor or preview window.
+1. At the top of the page, next to **Translations**, click **Edit**.
+1. Under Inactive Translations, next to the language you want to customize, click Customize.
+
+
 1. Choose an email template that you customized. The default language version appears in the **Custom Email** table.
 1. Click **Add Translation**, and then select a language from the dropdown box. If the **Add Translation** button isn't available, this template isn't customized. See [Edit a default email template](#edit-a-default-email-template).
 1. Make your translated edits, and then click **Add Translation**.
