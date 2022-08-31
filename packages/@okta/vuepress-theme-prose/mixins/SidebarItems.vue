@@ -33,7 +33,7 @@ export default {
         this.addStatesToLink(nav);     
         return nav;
       });
-      return this.navigation
+      return this.navigation;
     },
 
     sanitizeTitle(el) {
@@ -49,19 +49,21 @@ export default {
       if (!link.path) {
         link.path = parent.path + this.sanitizeTitle(link) + "/";
         if (!link.guideName) {
-          const parentTitle = this.sanitizeTitle(parent)
+          const parentTitle = this.sanitizeTitle(parent);
           let path = '';
           if (parentTitle !== 'guides' && parent.path) {
+            const splittedPath = parent.path.split('/')
             if (parent.path.indexOf(parentTitle) >= 0) {
-              path = parent.path.replace(parentTitle, this.sanitizeTitle(link))
+              path = parent.path.replace(parentTitle, this.sanitizeTitle(link));
+            } else if (parent.path == '/code/') { 
+              path = `/${splittedPath[1]}/${this.sanitizeTitle(link)}/`;
             } else {
-              const splittedPath = parent.path.split('/')
-              path = `/${splittedPath[1]}/${splittedPath[2]}/${this.sanitizeTitle(link)}`
+              path = `/${splittedPath[1]}/${splittedPath[2]}/${this.sanitizeTitle(link)}/`;
             }
           } else {
-            path = parent.path + this.sanitizeTitle(link) + "/"
+            path = parent.path + this.sanitizeTitle(link) + "/";
           }
-          link.path = path
+          link.path = path;
         }
       }
 

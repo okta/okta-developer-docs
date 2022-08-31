@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
 
 function getNavbarConstPages() {
   const file = path.resolve(__dirname, '../../../vuepress-theme-prose/const/navbar.const.js'); // Main document file
@@ -37,17 +37,19 @@ function generatedLinks(arr, parent = null) {
     for (let el of arr) {
       if (el) {
         if (!el.path && !el.guideName) {
-          const parentTitle = sanitizeTitle(parent)
-          let path = ''
+          const parentTitle = sanitizeTitle(parent);
+          let path = '';
           if (parentTitle !== 'guides' && parent.path) {
+            const splittedPath = parent.path.split('/');
             if (parent.path.indexOf(parentTitle) >= 0) {
-              path = parent.path.replace(parentTitle, sanitizeTitle(el))
+              path = parent.path.replace(parentTitle, sanitizeTitle(el));
+            } else if (parent.path == '/code/') { 
+              path = `/${splittedPath[1]}/${sanitizeTitle(el)}/`;
             } else {
-              const splittedPath = parent.path.split('/')
-              path = `/${splittedPath[1]}/${splittedPath[2]}/${sanitizeTitle(el)}`
+              path = `/${splittedPath[1]}/${splittedPath[2]}/${sanitizeTitle(el)}/`;
             }
           } else {
-            path = parent.path + sanitizeTitle(el) + "/"
+            path = parent.path + sanitizeTitle(el) + "/";
           }
           const page = {
             path,
@@ -55,9 +57,9 @@ function generatedLinks(arr, parent = null) {
             frontmatter: {}
           }
           if (el.customLandingPage) {
-            page.frontmatter.customLandingPage = true
+            page.frontmatter.customLandingPage = true;
           } else {
-            page.frontmatter.generated = true
+            page.frontmatter.generated = true;
           }
           if (el.description) {
             page.description = el.description;
