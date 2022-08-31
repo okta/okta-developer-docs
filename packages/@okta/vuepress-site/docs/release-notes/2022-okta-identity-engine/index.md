@@ -66,7 +66,7 @@ Previously, the self-service password reset (SSPR) flow created unnecessary fric
 
 #### Password restriction for shared SWA app accounts is GA in Production
 
-For SWA apps with an account sign-in option set to Users share a single username and password set by administrator, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
+For SWA apps with an account sign-in option set to **Users share a single username and password set by administrator**, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
 
 #### Developer documentation updates in 2022.09.0
 
