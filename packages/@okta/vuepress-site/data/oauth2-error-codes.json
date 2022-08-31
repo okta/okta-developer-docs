@@ -1,6 +1,6 @@
 {
-  "release" : "2022.08.1",
-  "build" : "2022.08.1-begin-90-g3a41d489fbdb",
+  "release" : "2022.09.1",
+  "build" : "2022.09.1-begin-126-g0b0d930b7cfa",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -548,17 +548,17 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "The client does not have a JWKSet configured, but the client_assertion requires one."
   }, {
-    "title" : "Authorize request object invalid issuer",
+    "title" : "Request object invalid issuer",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
-    "internalErrorCode" : "authorize_request_object_invalid_issuer",
+    "internalErrorCode" : "request_object_invalid_issuer",
     "errorCode" : "invalid_client",
-    "errorDescription" : "The issuer of the authorize request object is invalid."
+    "errorDescription" : "The issuer of the request object is invalid."
   }, {
-    "title" : "Authorize request object jwks not configured",
+    "title" : "Request object jwks not configured",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
-    "internalErrorCode" : "authorize_request_object_jwks_not_configured",
+    "internalErrorCode" : "request_object_jwks_not_configured",
     "errorCode" : "invalid_client",
     "errorDescription" : "The client does not have a JWKSet configured, but the request object requires one."
   }, {
@@ -947,6 +947,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Invalid value for 'max_age' parameter. It should be within range 0 - 2^31-1."
   }, {
+    "title" : "Invalid requested expiry",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_requested_expiry",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Invalid value for 'requested_expiry' parameter. It should be within range 0 - 2^31-1."
+  }, {
     "title" : "Illegal redirect URI",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -995,20 +1002,6 @@
     "internalErrorCode" : "invalid_user_type",
     "errorCode" : "invalid_request",
     "errorDescription" : "The 'user_type' parameter must be user type name or id."
-  }, {
-    "title" : "Invalid acr values",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "invalid_acr_values",
-    "errorCode" : "invalid_request",
-    "errorDescription" : "The 'acr_values' parameter is not valid."
-  }, {
-    "title" : "Unsupported multiple acr values",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "unsupported_multiple_acr_values",
-    "errorCode" : "invalid_request",
-    "errorDescription" : "The 'acr_values' parameter only supports a single value."
   }, {
     "title" : "PKCE invalid challenge",
     "statusCode" : 400,
@@ -1178,6 +1171,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "A service client may not use the native sso flow."
   }, {
+    "title" : "On behalf invalid client type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "on_behalf_invalid_client_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Only service clients may use on-behalf token exchange."
+  }, {
     "title" : "PKCE challenge required",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1241,6 +1241,20 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The authorize request must not contain both a request object and a request uri."
   }, {
+    "title" : "Ciba request invalid hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_request_invalid_hint",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The ciba request must contain only one of 'id_token_hint' or 'login_hint'."
+  }, {
+    "title" : "Ciba request missing ID token hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_request_missing_id_token_hint",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The ciba request is missing 'id_token_hint'."
+  }, {
     "title" : "Pushed authorization request URI present",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1276,87 +1290,87 @@
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The authorize request object is invalid."
   }, {
-    "title" : "Authorize request object header algo mismatch",
+    "title" : "Request object header algo mismatch",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_header_algo_mismatch",
+    "internalErrorCode" : "request_object_header_algo_mismatch",
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The signing algorithm used is not supported by this client."
   }, {
-    "title" : "Authorize request object bad signature",
+    "title" : "Request object bad signature",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_bad_signature",
+    "internalErrorCode" : "request_object_bad_signature",
     "errorCode" : "invalid_request_object",
-    "errorDescription" : "The signature of the authorize request object is invalid."
+    "errorDescription" : "The signature of the request object is invalid."
   }, {
-    "title" : "Authorize request object audience mismatch",
+    "title" : "Request object audience mismatch",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_audience_mismatch",
+    "internalErrorCode" : "request_object_audience_mismatch",
     "errorCode" : "invalid_request_object",
-    "errorDescription" : "The audience of the authorize request object is invalid."
+    "errorDescription" : "The audience of the request object is invalid."
   }, {
-    "title" : "Authorize request object already used",
+    "title" : "Request object already used",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_already_used",
+    "internalErrorCode" : "request_object_already_used",
     "errorCode" : "invalid_request_object",
-    "errorDescription" : "The authorize request object has already been used."
+    "errorDescription" : "The request object has already been used."
   }, {
-    "title" : "Authorize request object invalid JWT",
+    "title" : "Request object invalid JWT",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_invalid",
+    "internalErrorCode" : "request_object_invalid",
     "errorCode" : "invalid_request_object",
-    "errorDescription" : "The authorize request object cannot be parsed."
+    "errorDescription" : "The request object cannot be parsed."
   }, {
-    "title" : "Authorize request object JWT expired",
+    "title" : "Request object JWT expired",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_jwt_expired",
+    "internalErrorCode" : "request_object_jwt_expired",
     "errorCode" : "invalid_request_object",
-    "errorDescription" : "The authorize request object is expired."
+    "errorDescription" : "The request object is expired."
   }, {
-    "title" : "Authorize request object JWT expires too far in future",
+    "title" : "Request object JWT expires too far in future",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_jwt_expiration_too_long",
+    "internalErrorCode" : "request_object_jwt_expiration_too_long",
     "errorCode" : "invalid_request_object",
-    "errorDescription" : "The authorize request object expires too far in the future."
+    "errorDescription" : "The request object expires too far in the future."
   }, {
-    "title" : "Authorize request object JWT issued in future",
+    "title" : "Request object JWT issued in future",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_issued_in_future",
+    "internalErrorCode" : "request_object_issued_in_future",
     "errorCode" : "invalid_request_object",
-    "errorDescription" : "The authorize request object is issued in the future."
+    "errorDescription" : "The request object is issued in the future."
   }, {
-    "title" : "Authorize request object invalid jwks",
+    "title" : "Request object invalid jwks",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_invalid_jwks",
+    "internalErrorCode" : "request_object_invalid_jwks",
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The client JWKSet is invalid."
   }, {
-    "title" : "Authorize request object invalid kid",
+    "title" : "Request object invalid kid",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_invalid_kid",
+    "internalErrorCode" : "request_object_invalid_kid",
     "errorCode" : "invalid_request_object",
-    "errorDescription" : "The JWT kid of the authorize request object is invalid."
+    "errorDescription" : "The JWT kid of the request object is invalid."
   }, {
-    "title" : "Authorize request object invalid signature algorithm",
+    "title" : "Request object invalid signature algorithm",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_invalid_signature_algorithm",
+    "internalErrorCode" : "request_object_invalid_signature_algorithm",
     "errorCode" : "invalid_request_object",
-    "errorDescription" : "The JWT signature algorithm of the authorize request object is invalid."
+    "errorDescription" : "The JWT signature algorithm of the request object is invalid."
   }, {
-    "title" : "Authorize request object invalid secret length",
+    "title" : "Request object invalid secret length",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_invalid_secret_length",
+    "internalErrorCode" : "request_object_invalid_secret_length",
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The JWT signature secret length is too short."
   }, {
@@ -1471,6 +1485,20 @@
     "internalErrorCode" : "no_matching_scope",
     "errorCode" : "invalid_scope",
     "errorDescription" : "One or more scopes are not configured for the authorization server resource."
+  }, {
+    "title" : "Ciba request missing scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_request_missing_scope",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "No scopes were requested."
+  }, {
+    "title" : "Ciba request invalid scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_request_invalid_scope",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The ciba request must contain 'openid' scope."
   }, {
     "title" : "Invalid social token",
     "statusCode" : 400,
@@ -1696,12 +1724,12 @@
     "errorCode" : "request_not_supported",
     "errorDescription" : "The authorize request object is not supported by this client."
   }, {
-    "title" : "Authorize request object no client secret",
+    "title" : "Request object no client secret",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "authorize_request_object_no_client_secret",
+    "internalErrorCode" : "request_object_no_client_secret",
     "errorCode" : "request_not_supported",
-    "errorDescription" : "The issuer of the authorize request object does not have a client secret."
+    "errorDescription" : "The issuer of the request object does not have a client secret."
   }, {
     "title" : "Request URI not supported",
     "statusCode" : 400,
@@ -1856,6 +1884,13 @@
     "internalErrorCode" : "confidential_client_required",
     "errorCode" : "unauthorized_client",
     "errorDescription" : "Confidential client is required to make this request."
+  }, {
+    "title" : "Unmet authentication requirements",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unmet_authentication_requirements",
+    "errorCode" : "unmet_authentication_requirements",
+    "errorDescription" : "Unable to meet the authentication requirements imposed by 'acr_values' parameter."
   }, {
     "title" : "Unsupported api resource",
     "statusCode" : 400,
