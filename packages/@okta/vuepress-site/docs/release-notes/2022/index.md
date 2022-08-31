@@ -8,7 +8,7 @@ title: Okta API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Non-deletable default authorization server is in Early Access (EA)](#non-deletable-default-authorization-server-is-in-early-access-ea) | August 31, 2022 |
+| [Non-deletable default authorization server is EA in Preview](#non-deletable-default-authorization-server-is-ea-in-preview) | August 31, 2022 |
 | [PKCE validation for OIDC app integrations is in General Availability (GA)](#pkce-validation-for-oidc-app-integrations-is-ga-in-production) | July 7, 2022 |
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | July 7, 2022 |
 | [Step-up authentication using ACR values is EA in Preview](#step-up-authentication-using-acr-values-is-ea-in-preview) | August 31, |
