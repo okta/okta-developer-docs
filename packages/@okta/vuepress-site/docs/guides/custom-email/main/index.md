@@ -163,7 +163,7 @@ The following table provides a list of all allowed HTML tags and elements in cus
 
 **Note:** After a template is customized, other languages are only included when they are customized. If all customized translations are reset, then the 27 default translations are used.
 
-The default language is used when the end user’s locale does not match any email customizations. You can edit the templates through the pencil icon, but you can't delete the default language template.
+The default language is used when the end user’s locale doesn't match any email customizations. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
 1. In the Admin Console, go to **Customizations** > **Branding**.
 1. In the **Communications** section, in the **Emails** box, click **Edit**.
