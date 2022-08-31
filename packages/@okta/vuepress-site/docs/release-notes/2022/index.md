@@ -38,7 +38,7 @@ Users want seamless access to certain resources, but organizations want to incre
 
 #### API for suppressing email notifications is in General Availability
 
-This API allows you to change who receives email notifications for each individual email template. You can suppress them completely, or send them to admins only. This unlocks testing scenarios which warrant using production user directories, and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](/docs/reference/api/brands/#email-template-settings).<!--OKTA-526580-->
+This API allows you to change who receives email notifications for each individual email template. You can suppress them completely or send them to admins only. This unlocks testing scenarios that warrant using production user directories and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](/docs/reference/api/brands/#email-template-settings).<!--OKTA-526580-->
 
 #### Access Denied error message customization is GA in Preview
 
