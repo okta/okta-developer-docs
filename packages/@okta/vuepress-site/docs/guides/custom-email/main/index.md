@@ -171,7 +171,7 @@ The default language is used when the end user’s locale doesn't match any emai
    - The code editor is in preview mode and shows the default language version.
    - **Translations**: Customize email template translations:
       1. Click **Edit**.
-      1. Under under **Inactive Translations**, next to the language you want to customize, click **Customize**.
+      1. Under **Inactive Translations**, next to the language that you want to customize, click **Customize**.
       1. Make your translated edits, then click **Save changes**.
    - **Language**: Select the default language for the email template:
       1. Click **Edit**.
