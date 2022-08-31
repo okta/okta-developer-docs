@@ -12,7 +12,7 @@ title: Okta API Products release notes 2022
 | [PKCE validation for OIDC app integrations is GA in Production](#pkce-validation-for-oidc-app-integrations-is-ga-in-production) | July 7, 2022 |
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | July 7, 2022 |
 | [Step-up authentication using ACR values is EA in Preview](#step-up-authentication-using-acr-values-is-ea-in-preview) | August 31, |
-| [API for suppressing email notifications is in General Availability](#api-for-suppressing-email-notifications-is-in-general-availability) | May 11, 2022 |
+| [API for suppressing email notifications is GA](#api-for-suppressing-email-notifications-is-in-general-availability) | May 11, 2022 |
 | [Access Denied error message customization is GA in Preview](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
 | [Dynamic IdP routing is GA in Preview](#dynamic-idp-routing-is-ga-in-preview) | June 8, 2022 |
 | [The update logo for application operation is updated](#the-update-logo-for-application-operation-is-updated) | August 31, 2022 |
