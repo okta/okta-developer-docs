@@ -24,7 +24,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Developer documentation updates in 2022.09.0](#developer-documentation-updates-in-2022090) | August 31, 2022 |
 | [Bugs fixed in 2022.09.0](#bugs-fixed-in-2022090) | August 31, 2022|
 
-#### Non-deletable default authorization server is in Early Access (EA)
+#### Non-deletable default authorization server is EA in Preview
 
 The default authorization server is a custom authorization server provided by Okta so that customers can quickly get started working with Okta. However, if a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label for the default authorization server in the Admin Console.<!--OKTA-521652--><!--OKTA-525780-->
 
