@@ -20,7 +20,7 @@ Create a sign-up page that captures the user's first name, last name, and email 
 
 ### 3: The user submits their new account details
 
-When the user submits their account details, create a `UserProfile` object and assign its `firstName`, `lastName`, and `email` properties to the values entered by the user. Pass this object as a parameter to IdxClient.RegisterAsync`()`.
+When the user submits their account details, create a `UserProfile` object and assign its `firstName`, `lastName`, and `email` properties to the values entered by the user. Pass this object as a parameter to `IdxClient.RegisterAsync()`.
 
 > **Note**: The `email` property represents the account's username and primary email address.
 
@@ -59,7 +59,7 @@ After the user verifies their identity using the email authenticator, the `Authe
 - `Success`: Go to step 6.
 - `AwaitingAuthenticatorEnrollment`: The user can enroll in additional authenticators.
 
-If the latter is true, create and display a page that lists the remaining authenticators. Check the `CanSkip` property of the `AuthenticationResponse` object. If `true`, all the listed authenticators are optional, so add a Skip button to the form to skip their enrollment. If `CanSkip` is `false`, the Skip button should be omitted.
+* If the latter is true, create and display a page that lists the remaining authenticators. Check the `CanSkip` property of the `AuthenticationResponse` object. If `true` &mdash; and all the listed authenticators are optional &mdash; add a **Skip** button to the form to skip their enrollment. If `CanSkip` is `false`, the Skip button should be omitted.
 
 <div class="half border">
 
@@ -69,7 +69,7 @@ If the latter is true, create and display a page that lists the remaining authen
 
 ### 6. The user skips the remaining optional authenticators
 
-When the user clicks the Skip button, call `IdxClient.SkipAuthenticationSelectionAsync()` passing in the `IdxContext` that represents the current state of the registration flow. The `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `SkipAutenticationSelectionAsync()` is `Success`. You can now call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
+When the user clicks the **Skip** button, call `IdxClient.SkipAuthenticationSelectionAsync()` passing in the `IdxContext` that represents the current state of the registration flow. The `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `SkipAuthenticationSelectionAsync()` is `Success`. You can now call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
 
 ```csharp
 var skipSelectionResponse = await _idxClient

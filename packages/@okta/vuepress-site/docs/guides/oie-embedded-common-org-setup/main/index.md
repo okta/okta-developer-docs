@@ -112,34 +112,12 @@ For password-only authentication, you need to update the password authenticator 
 
 ### Set up your Okta org for a password-optional use case
 
-Before you configure the passwordless experience, ensure that your admins continue to have passwords available. This ensures that users who don't have a password provisioned are not inadvertently blocked from signing in. To do this:
-
-1. Create a separate group for admins and add your admin users to that group.
-2. Create separate authenticator enrollment, global session, and authentication policies for this group.
-3. Place this group at the highest priority (at no. 1) in the authenticator enrollment policy.
-
-To ensure that only specific app integrations can let users sign up without a password, do the following:
+For password-optional authentication, you need to
 
 1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator).
-2. [Create a separate group for passwordless users](#create-a-group-for-passwordless-users).
-3. [Create a profile enrollment policy for passwordless users](#create-a-profile-enrollment-policy-for-passwordless-users) that adds them to the new group and assign your app to it.
-4. Place this group at the lowest priority (just above the default policy) in the authenticator enrollment policy.
+2. [Create a separate group for password-optional users](#create-a-group-for-password-optional-users).
 
-To ensure that only passwordless users can sign in without a password and everybody else is appropriately prompted for it, do the following:
-
-1. [Create a new password-optional authenticator enrollment policy for the group](#create-a-password-optional-authenticator-enrollment-policy).
-2. [Add a new Global session policy for the group](#add-a-new-global-session-policy-for-passwordless-users).
-3. [Add a new authentication policy for the group](#add-a-new-authentication-policy-for-passwordless-users).
-4. Ensure that passwordless users will never fall through to the default policy. Default policy should always have a password as a required authenticator.
-5. Explicitly exclude your main admin account from any further passwordless policies you create.
-
-> **Note**: See also [Set up passwordless sign-in experience](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/password-optional/password-optional-disabled.htm)
-
-#### Enable Passwordless User Sign-Up
-
-To ensure that only specific app integrations can let users sign up without a password, do the following:
-
-##### Set up the email authenticator
+#### Set up the email authenticator
 
 1. Open the **Admin Console** for your org.
 2. Choose **Security** > **Authenticators** to show the available authenticators.
@@ -147,14 +125,33 @@ To ensure that only specific app integrations can let users sign up without a pa
 4. Set **This authenticator can be used for** to **Authentication and recovery**.
 5. Click **Save**.
 
-##### Create a group for passwordless users
+#### Create a group for password-optional users
 
 1. Choose **Directory** > **Groups**.
 2. Click **Add Group**.
-3. Give the group a name. For example, "Passwordless Users".
+3. Give the group a name. For example, "Password-optional Users".
 4. Click **Save**.
 
-##### Create a profile enrollment policy for passwordless users
+To ensure that only specific app integrations can let users **sign up** without a password, do the following:
+
+1. [Create a profile enrollment policy for password-optional users](#create-a-profile-enrollment-policy-for-password-optional-users) that adds them to the new group and assign your app to it.
+2. Place this group at the lowest priority (just above the default policy) in the authenticator enrollment policy.
+
+To ensure that only password-optional users can **sign in** without a password and everybody else is appropriately prompted for it, do the following:
+
+1. [Create a new password-optional authenticator enrollment policy for the group](#create-a-password-optional-authenticator-enrollment-policy).
+2. [Add a new Global session policy for the group](#add-a-new-global-session-policy-for-password-optional-users).
+3. [Add a new authentication policy for the group](#add-a-new-authentication-policy-for-password-optional-users).
+4. Ensure that password-optional users will never fall through to the default policy. Default policy should always have a password as a required authenticator.
+5. Explicitly exclude your main admin account from any further password-optional policies you create.
+
+> **Note**: See also [Set up password-optional sign-in experience](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/password-optional/password-optional-disabled.htm)
+
+#### Enable password-optional User Sign-Up
+
+To ensure that only specific app integrations can let users sign up without a password, do the following:
+
+##### Create a profile enrollment policy for password-optional users
 
 A profile enrollment policy determines the minimum information required from a user to create an account, and how the user should verify their identity before creating their account.
 
@@ -163,16 +160,16 @@ A profile enrollment policy determines the minimum information required from a u
 3. Locate the **Profile Enrollment** section of the policy and click **Edit**.
 4. Set **Self-service registration** to **Allowed**.
 5. Verify that **Required before access is granted** is checked for **Email Verification**.
-6. Set **Add the user to group** to the group you just made for passwordless users.
+6. Set **Add the user to group** to the group you just made for password-optional users.
 7. Click **Save**.
 8. Click **Manage apps**.
 9. Click **Add an App to This Policy**.
 10. Locate your app integration in the list and click **Apply** next to it.
 11. Verify that the app is now in the list of Apps using the new Profile Enrollment Policy.
 
-#### Enable Passwordless User Sign-In
+#### Enable password-optional User Sign-In
 
-To ensure that only passwordless users can sign in without a password and everybody else is appropriately prompted for it, do the following:
+To ensure that only password-optional users can sign in without a password and everybody else is appropriately prompted for it, do the following:
 
 ##### Create a password-optional authenticator enrollment policy
 
@@ -180,8 +177,8 @@ An authenticator enrollment policy determines which authenticators must challeng
 
 1. Choose **Security** > **Authenticators**.
 2. Select the **Enrollment** tab, and then click **Add Multifactor Policy**.
-3. Give the new policy a name. For example, "Passwordless Sign-In Policy".
-4. Set **Assign to groups** to the group you just made for passwordless users.
+3. Give the new policy a name. For example, "Password-optional Sign-In Policy".
+4. Set **Assign to groups** to the group you just made for password-optional users.
 5. In the **Eligible Authenticators** section
 
    1. Set **Email** to **Required**.
@@ -189,19 +186,19 @@ An authenticator enrollment policy determines which authenticators must challeng
    3. Verify that the remaining authenticators are set to **Optional**.
 
 6. Click **Create Policy**.
-7. Give the rule a name. For example, "Passwordless Sign-In Rule".
+7. Give the rule a name. For example, "Password-optional Sign-In Rule".
 8. Set **Exclude Users** to the names of your main admin accounts
 9. Leave the other settings at their defaults, and then click **Create Rule**.
 10. Move the new policy immediately above the Default Policy in the list of policies.
 
-##### Add a new global session policy for passwordless users
+##### Add a new global session policy for password-optional users
 
-A global session policy determines user session length and basic authentication rules for groups of users. In this case, the policy turns off MFA for all users in the passwordless user group. Therefore, they only need email authentication to sign in.
+A global session policy determines user session length and basic authentication rules for groups of users. In this case, the policy turns off MFA for all users in the password-optional user group. Therefore, they only need email authentication to sign in.
 
 1. Choose **Security** > **Global Session Policy**.
 2. Click **Add policy**.
 3. Give the policy a name. For example, "Global Password Optional Policy".
-4. Set **Assign to groups** to the group you just made for passwordless users.
+4. Set **Assign to groups** to the group you just made for password-optional users.
 5. Click **Create Policy and Add Rule**.
 6. Give the rule a name. For example, "Global Password Optional Rule".
 7. Set **Exclude Users** to the names of your main admin accounts
@@ -209,7 +206,7 @@ A global session policy determines user session length and basic authentication 
 9. Set **Multifactor authentication (MFA) is** to **Not required**.
 10. Leave the other settings at their defaults, and then click **Create Rule**.
 
-##### Add a new authentication policy for passwordless users
+##### Add a new authentication policy for password-optional users
 
 1. Choose **Security** > **Authentication Policies**.
 2. Click **Add a policy**.
