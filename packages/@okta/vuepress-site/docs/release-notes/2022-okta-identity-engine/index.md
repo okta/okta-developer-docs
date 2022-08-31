@@ -11,7 +11,7 @@ title: Okta Identity Engine API Products release notes 2022
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [Non-deletable default authorization server is EA in Preview](#non-deletable-default-authorization-server-is-ea-in-preview) | August 31, 2022 |
-| [PKCE validation for OIDC app integrations is in General Availability (GA)](#pkce-validation-for-oidc-app-integrations-is-ga-in-production) | July 7, 2022 |
+| [PKCE validation for OIDC app integrations is GA in Production](#pkce-validation-for-oidc-app-integrations-is-ga-in-production) | July 7, 2022 |
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | July 7, 2022 |
 | [Step-up authentication using ACR values is EA in Preview](#step-up-authentication-using-acr-values-is-ea-in-preview) | August 31, |
 | [API for suppressing email notifications is in General Availability](#api-for-suppressing-email-notifications-is-in-general-availability) | May 11, 2022 |
