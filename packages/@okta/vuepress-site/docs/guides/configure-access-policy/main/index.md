@@ -216,7 +216,3 @@ You can customize and style various Okta assets to match your company's visual i
 * [SMS customization](/docs/guides/custom-sms-messaging/)
 * [Email customization](/docs/guides/custom-email/)
 * [Style the Sign-In Widget](/docs/guides/custom-widget/)
-
-## Support
-
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).

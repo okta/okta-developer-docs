@@ -46,25 +46,30 @@ There are three similar methods in the widget. `showSignIn` applies to most use 
 
 ```javascript
 var signIn = new OktaSignIn({
-    // Assumes there is an empty element on the page with an id of 'osw-container'  el: `#osw-container`,
-  el: '#osw-container',
-  clientId: `${clientId of your OIDC app integration}`,
-  redirectUri: `${redirectUri configured in your OIDC app integration}`,
-  baseUrl: `https://${yourOktaDomain}`,
-  authParams: {
-    issuer: `https://${yourOktaDomain}/oauth2/default`
-  }
+   // Assumes there is an empty element on the page with an ID of 'osw-container'  el: `#osw-container`,
+   el: '#osw-container',
+   clientId: `${clientId of your OIDC app integration}`,
+   redirectUri: `${redirectUri configured in your OIDC app integration}`,
+   baseUrl: `https://${yourOktaDomain}`,
+   authParams: {
+      issuer: `https://${yourOktaDomain}/oauth2/default`
+   }
 });
 
+// Search for URL Parameters to see if a user is being routed to the application to recover password
+var searchParams = new URL(window.location.href).searchParams;
+oktaSignIn.otp = searchParams.get('otp');
+oktaSignIn.state = searchParams.get('state');
+
 oktaSignIn.showSignIn().then(response
-=> {
-oktaSignIn.authClient.handleLoginRedirect(res.tokens);
+   => {
+   oktaSignIn.authClient.handleLoginRedirect(res.tokens);
 })
-  .catch(function(error) {
-    // This function causes errors from which the widget can't recover.
-    // Known errors: CONFIG_ERROR, UNSUPPORTED_BROWSER_ERROR
-    console.log('login error', error);
-  });
+.catch(function(error) {
+   // This function causes errors from which the widget can't recover.
+   // Known errors: CONFIG_ERROR, UNSUPPORTED_BROWSER_ERROR
+   console.log('login error', error);
+});
 ```
 
 > **Note:** For response handling, use the `handleLoginRedirect` method. See [Okta Auth API reference](https://github.com/okta/okta-auth-js#handleloginredirecttokens-originaluri).

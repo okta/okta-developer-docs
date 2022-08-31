@@ -26,13 +26,13 @@ Okta provides two embedded identity solutions:
    use cases.
 * **Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for example, social sign-in, multifactor authentication) are supported out of the box.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Displays Okta embedded solution components: (SDK) and (Sign-In Widget + SDK)](/img/oie-embedded-sdk/embedded-solution-overview.png)
 
 </div>
 
-This guide shows you how to set up your Okta org to support the embedded SDK or the embedded Widget with SDK solutions. Ensure that you [get set up](#get-set-up) with Okta and [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) before you [download and set up the SDK, Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
+This guide shows you how to set up your Okta org to support the embedded SDK or the embedded widget with SDK solutions. Ensure that you [get set up](#get-set-up) with Okta and [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) before you [download and set up the SDK, widget, and sample app](<StackSnippet snippet="downloadguideuri" inline />).
 
 ## Get set up
 
@@ -81,9 +81,11 @@ Create an app integration that represents the application you want to add authen
    * Set **Sign-in redirect URIs** to <StackSnippet snippet="redirecturi" inline />
 
 1. Click **Save**.
-1. On the **General** tab, save the generated **Client ID** value (and if applicable, the **Client secret** value) that is used later on in your embedded solution.
+1. On the **General** tab, note the **Client ID** value (and if applicable, the **Client secret** value) that is used later in your embedded solution.
 
-   > **Note:** New apps are automatically assigned the shared default authentication policy with a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. To view more information on the default authentication policy, from the left navigation pane, select **Security** > **Authentication Policies** and then select **Default Policy**.
+<StackSnippet snippet="emailcallbackuri" />
+
+> **Note:** New apps are automatically assigned the shared default authentication policy with a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. To view more information on the default authentication policy, from the left navigation pane, select **Security** > **Authentication Policies** and then select **Default Policy**.
 
 <StackSnippet snippet="appsbaseurl" />
 

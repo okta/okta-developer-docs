@@ -24,11 +24,10 @@ Enable users to register a user account with email only in an application based 
 
 ---
 
-## Overview
-
 ## Update configurations
 
 Before you can start integrating password-optional sign-up flows in your app, <StackSnippet snippet="setupoktaorg" inline/>. See also <StackSnippet snippet="bestpractices" inline />.
+
 ## Integrate
 
 ### Summary of steps

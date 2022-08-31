@@ -33,7 +33,7 @@ This use case describes how to integrate a password recovery flow into your app 
 
 The password recovery use case requires the **password** and **email** factors.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays Password and Email factor indicators](/img/oie-embedded-sdk/factor-password-email.png)
 

@@ -2,8 +2,6 @@
 title: Overview of the mobile Identity Engine SDK
 ---
 
-<div class="oie-embedded-sdk">
-
 Design the implementation of the sign-in flow for your mobile app by understanding the representation of the flow and the associated objects.
 
 <ApiLifecycle access="ie" /><br>
@@ -23,7 +21,7 @@ Okta supports many ways of authenticating the identity of a user during the sign
 
 The Android and iOS Identity Engine SDKs represent the sign-in flow as a state machine. You initialize the machine with the details of your Okta org app integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
 
-<div class="common-image-format bordered-image">
+<div class="three-quarter">
 
 !["A diagram that shows the steps in a sign-in flow for a mobile app."](/img/mobile-sdk/mobile-idx-basic-flow.png)
 
@@ -39,7 +37,7 @@ Each sign-in step may include one or more possible user actions, such as:
 
 The SDK represents the sign-in flow using a number of different objects:
 
-<div class="common-image-format bordered-image">
+<div class="full">
 
 !["A diagram that shows the SDK objects for the sign-in flow and the relationships between them."](/img/mobile-sdk/mobile-idx-basic-objects.png)
 
@@ -58,7 +56,7 @@ The SDK represents the sign-in flow using a number of different objects:
 
 ## Objects and the flow
 
-<div class="common-image-format bordered-image">
+<div class="three-quarter">
 
 !["A diagram that shows the main objects associated with each step in the sign-in flow."](/img/mobile-sdk/mobile-idx-objects-and-flow.png)
 
@@ -154,5 +152,3 @@ The usual way to satisfy the last condition is with an enterprise-managed workfo
 For consumer apps, and to reduce the risk for enterprise apps, a safer choice is building the user interface from the current sign-in step, by presenting a dynamic UI.
 
 For an example of implementing a dynamic UI, see <StackSnippet snippet="dynamicuisample" inline />.
-
-</div>

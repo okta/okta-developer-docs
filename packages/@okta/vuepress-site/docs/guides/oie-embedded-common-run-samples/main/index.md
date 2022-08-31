@@ -30,7 +30,7 @@ Run the Okta Identity Engine embedded SDK or embedded Sign-In Widget sample app.
 
 In tandem with the embedded SDK, the Widget integrates into your app by using a native language interface and communicates directly with the Okta APIs. The following diagram summarizes the flow.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Displays the Embedded SDK Widget flow](/img/oie-embedded-sdk/embedded-widget-overview.png)
 
@@ -44,7 +44,7 @@ In tandem with the embedded SDK, the Widget integrates into your app by using a 
 
 The SDK integrates into your app by using a native language interface and communicates directly with Okta APIs by using a REST interface. The following diagram illustrates the SDK flow.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Embedded SDK overview diagram](/img/oie-embedded-sdk/embedded-sdk-overview.png)
 

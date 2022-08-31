@@ -1,6 +1,6 @@
 {
-  "release" : "2022.06.1",
-  "build" : "2022.06.1-begin-129-g082fc8817049",
+  "release" : "2022.07.1",
+  "build" : "2022.07.1-begin-106-ge4dd634b6592",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -381,6 +381,10 @@
     "tags" : [ ]
   }, {
     "id" : "rum",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "support-audit",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -2060,7 +2064,7 @@
         "created" : "2022-05-11",
         "release" : "2022.05.3"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-credentials-lifecycle" ],
       "mappings" : [ ],
@@ -2077,7 +2081,7 @@
         "created" : "2022-05-11",
         "release" : "2022.05.3"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-credentials-lifecycle" ],
       "mappings" : [ ],
@@ -2094,7 +2098,7 @@
         "created" : "2022-05-11",
         "release" : "2022.05.3"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-credentials-lifecycle" ],
       "mappings" : [ ],
@@ -2111,7 +2115,7 @@
         "created" : "2022-05-11",
         "release" : "2022.05.3"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "oauth2", "oauth2-client", "oauth2-client-credentials-lifecycle" ],
       "mappings" : [ ],
@@ -9613,7 +9617,7 @@
       "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "AuthenticatorDebugData",
         "actor" : null,
         "targets" : [ "CustomAppAuthenticatorResourceDetails" ]
       }
@@ -9630,7 +9634,7 @@
       "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "AuthenticatorDebugData",
         "actor" : null,
         "targets" : [ "CustomAppAuthenticatorResourceDetails" ]
       }
@@ -9647,7 +9651,7 @@
       "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "AuthenticatorDebugData",
         "actor" : null,
         "targets" : [ "CustomAppAuthenticatorResourceDetails" ]
       }
@@ -9664,7 +9668,7 @@
       "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "AuthenticatorDebugData",
         "actor" : null,
         "targets" : [ "CustomAppAuthenticatorResourceDetails" ]
       }
@@ -10024,6 +10028,40 @@
         "debugData" : null,
         "actor" : null,
         "targets" : null
+      }
+    }, {
+      "id" : "support.org.update",
+      "category" : "analytics",
+      "description" : "Okta has updated the configuration or data within the Org. This can be used to identify modifications to an Org which are the result of an action by an Okta staff member. Such actions are typically taken in response to a customer request, such as request to enable an Early Access feature. In some cases, these actions may be the result of a review initiated by Okta, such as a review in response to a production service alert. See the supportAction object within the debugContext.debugData objection for more information about the type of update.",
+      "info" : {
+        "created" : "2022-06-08",
+        "release" : "2022.06.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "support-audit" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SupportActionDebugData",
+        "actor" : "SupportUserImpersonationResourceDetails",
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "support.org.view",
+      "category" : "analytics",
+      "description" : "Okta has viewed a page which contains customer data. This can be used to identify an action taken by an Okta staff member in the support tool which resulted in a view of customer data. Such actions are typically taken in response to a customer request, such as in the process of investigating an issue raised through a support case. In some cases, these actions may be the result of a review initiated by Okta, such as a review in response to a production service alert. See the supportAction object within the debugContext.debugData objection for more information about the type of update.",
+      "info" : {
+        "created" : "2022-06-08",
+        "release" : "2022.06.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "support-audit" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SupportActionDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "system.agent.ad.connect",
@@ -10684,7 +10722,7 @@
       "tags" : [ "event-hook-eligible", "token" ],
       "mappings" : [ "api.token.create" ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "ApiTokenDebugData",
         "actor" : null,
         "targets" : [ "ApiTokenResourceDetails" ]
       }
@@ -10701,7 +10739,7 @@
       "tags" : [ "token" ],
       "mappings" : [ "api.token.enable" ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "ApiTokenDebugData",
         "actor" : null,
         "targets" : [ "ApiTokenResourceDetails" ]
       }
@@ -10718,7 +10756,24 @@
       "tags" : [ "event-hook-eligible", "token" ],
       "mappings" : [ "api.token.revoke" ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "ApiTokenDebugData",
+        "actor" : null,
+        "targets" : [ "ApiTokenResourceDetails" ]
+      }
+    }, {
+      "id" : "system.api_token.update",
+      "category" : "federation",
+      "description" : "An API token has been updated. This event can be used to identify a change to an existing API token, such as a change to the applicable rate limits for the token. Details of the change can be found in the debugData. This event does not change whether the token is valid for use, for actions that impact validity see system.api_token.enable and system.api_token.revoke.",
+      "info" : {
+        "created" : "2022-05-30",
+        "release" : "2022.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "token" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "ApiTokenDebugData",
         "actor" : null,
         "targets" : [ "ApiTokenResourceDetails" ]
       }
@@ -12591,6 +12646,23 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "MFAFactorResourceDetails" ]
+      }
+    }, {
+      "id" : "system.operation.concurrency_limit.violation",
+      "category" : "performance",
+      "description" : "Operation concurrency limit violation. This can be used to track if there are too many concurrent operations of the given type.  The operation type information is available in debugData. When fired, this event contains information about the operation such as its actor, type, scope and threshold details. OperationRateLimitType in debugData will indicate the category to which the concurrency limit is being applied (e.g. web_request), OperationRateLimitSubtype defines specific subtypes (e.g. ssws_token) and OperationRateLimitScope will indicate the scope of the rate limit (e.g. token).",
+      "info" : {
+        "created" : "2022-06-13",
+        "release" : "2022.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OperationRateLimitDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "system.operation.rate_limit.violation",
@@ -14773,6 +14845,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -14946,6 +15026,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -15094,6 +15182,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -15252,6 +15348,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -15291,6 +15395,179 @@
             "customer" : false,
             "format" : "version",
             "examples" : [ "3.5.9" ]
+          }
+        }
+      },
+      "ApiTokenDebugData" : {
+        "name" : "ApiTokenDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "concurrency_percentage" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0", "33", "66", "100" ]
+          },
+          "rate_limit_percentage" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0", "33", "66", "100" ]
           }
         }
       },
@@ -15432,6 +15709,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -15589,6 +15874,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -15770,6 +16063,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -15968,6 +16269,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -16125,6 +16434,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -16132,6 +16449,22 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "new_signon_mode_type" : {
+            "type" : "Enum",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "OPENID_CONNECT", "BROWSER_PLUGIN", "BASIC_AUTH", "AUTO_LOGIN", "SECURE_PASSWORD_STORE" ]
+          },
+          "old_signon_mode_type" : {
+            "type" : "Enum",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "enum",
+            "examples" : [ "OPENID_CONNECT", "BROWSER_PLUGIN", "BASIC_AUTH", "AUTO_LOGIN", "SECURE_PASSWORD_STORE" ]
           },
           "old_display_name" : {
             "type" : "String",
@@ -16204,6 +16537,171 @@
             "customer" : false,
             "format" : "integer",
             "examples" : [ "72", "100", "372" ]
+          }
+        }
+      },
+      "AuthenticatorDebugData" : {
+        "name" : "AuthenticatorDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "authenticator_key" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "PASSWORD", "EMAIL", "PHONE" ]
           }
         }
       },
@@ -16345,6 +16843,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -16518,6 +17024,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -16723,6 +17237,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -17097,6 +17619,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -17285,6 +17815,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -17498,6 +18036,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -17720,6 +18266,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -17924,6 +18478,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -18178,6 +18740,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -18398,6 +18968,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -18628,6 +19206,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -18822,6 +19408,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -19003,6 +19597,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -19159,6 +19761,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -19333,6 +19943,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -19489,6 +20107,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -19655,6 +20281,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -19820,6 +20454,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -19984,6 +20626,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -20197,6 +20847,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -20531,6 +21189,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -20687,6 +21353,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -20869,6 +21543,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -21033,6 +21715,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -21319,6 +22009,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -21491,6 +22189,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -21697,6 +22403,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -21870,6 +22584,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -22035,6 +22757,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -22192,6 +22922,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -22348,6 +23086,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -22730,6 +23476,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -22911,6 +23665,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -23075,6 +23837,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -23537,6 +24307,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -23559,7 +24337,7 @@
             "personal" : false,
             "customer" : false,
             "format" : "text",
-            "examples" : [ "[Group limit is too large, max is 100]", "[Group limit is not an integer]", "[EL expression evaluated to too many groups]", "[Group limit is 0 or negative]", "[Whitelist is not an array]", "[Invalid number of parameters]", "[No user in context]" ]
+            "examples" : [ "[Group limit is too large, max is 100]", "[Group limit is not an integer]", "[EL expression evaluated to too many groups]", "[Group limit is 0 or negative]", "[Allowlist is not an array]", "[Invalid number of parameters]", "[No user in context]" ]
           },
           "provided_group_limit" : {
             "type" : "String",
@@ -23757,6 +24535,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -23963,6 +24749,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -24135,6 +24929,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -24357,6 +25159,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -24538,6 +25348,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -24694,6 +25512,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -24876,6 +25702,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -25040,6 +25874,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -25246,6 +26088,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -25426,6 +26276,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -25616,6 +26474,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -25780,6 +26646,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -25978,6 +26852,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -26057,6 +26939,19 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "Sms Delivered", "Sms Failed" ]
+          }
+        }
+      },
+      "SupportActionDebugData" : {
+        "name" : "SupportActionDebugData",
+        "properties" : {
+          "supportAction" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{ \"type\": \"enable_feature\", \"description\": \"Enable one or more feature flags which control access to features in an Okta Org.\", \"reason\": { \"type\": \"customer_initiated_support\", \"detail\": \"\"}}", "{ \"id\": \"someOpaqueString\", \"type\": \"view_org_overview\", \"description\": \"View basic configuration properties of an org.\", \"reason\": {\"type\": \"okta_engineering_review\", \"detail\": \"\"}}" ]
           }
         }
       },
@@ -26198,6 +27093,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -26444,6 +27347,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -26592,6 +27503,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -26934,6 +27853,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -27139,6 +28066,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -27328,6 +28263,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -27485,6 +28428,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -27641,6 +28592,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -27807,6 +28766,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -27971,6 +28938,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -28145,6 +29120,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -28309,6 +29292,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
           },
           "authn_request_id" : {
             "type" : "String",
@@ -28507,6 +29498,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -28672,6 +29671,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -28829,6 +29836,14 @@
             "format" : "id",
             "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
           },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
           "authn_request_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -28889,6 +29904,35 @@
             "customer" : true,
             "format" : "rfc1779",
             "examples" : [ "uid=downloads,ou=users,dc=company,dc=okta,dc=com", "uid=user0@foo.com,dc=company,dc=oktapreview,dc=com", "cn=00u7tlolkw4HjhPoE2p6,ou=users,dc=company,dc=okta,dc=com" ]
+          }
+        }
+      },
+      "SupportUserImpersonationResourceDetails" : {
+        "name" : "SupportUserImpersonationResourceDetails",
+        "properties" : {
+          "original_principal_alternate_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "email",
+            "examples" : [ "supportuser@okta.com" ]
+          },
+          "original_principal_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "User", "API" ]
+          },
+          "original_principal_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:userId",
+            "examples" : [ "00uk2i9vgsxHOCoOP0h7", "00ulkvh15u0hqwPd40h7" ]
           }
         }
       },
@@ -29238,30 +30282,6 @@
       "DeviceIdentityResourceDetails" : {
         "name" : "DeviceIdentityResourceDetails",
         "properties" : {
-          "jailbreak" : {
-            "type" : "Boolean",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "boolean",
-            "examples" : [ "true", "false" ]
-          },
-          "screen_lock_type" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "enum",
-            "examples" : [ "NONE", "PASSCODE", "BIOMETRIC" ]
-          },
-          "disk_encryption_type" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "enum",
-            "examples" : [ "NONE", "FULL", "USER", "ALL_INTERNAL_VOLUMES", "SYSTEM_VOLUME" ]
-          },
           "device_integrator" : {
             "type" : "String",
             "sensitive" : false,

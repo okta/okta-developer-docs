@@ -2,7 +2,7 @@
 
 Add a link that allows the user to submit their username to begin the password recovery flow. The following example shows a **Forgot your password?** link which redirects the user to the password recovery page.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot showing a page displaying the sign-in page with a 'Forgot password?' link where users can click to reset their password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
@@ -12,7 +12,7 @@ Add a link that allows the user to submit their username to begin the password r
 
 Next, build a password recovery page that allows the user to enter their account's username or email. Include a **Next** button that submits this username to the SDK when selected.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot showing a page displaying the reset password page that has a field to input your password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset-nodejs.png)
 
@@ -62,7 +62,7 @@ The next step is to display a list of available authenticators using the respons
 
 Using this response, display a list of authenticators to the user.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot of a page displaying a list of authenticators including the email authenticator](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-select-auth-nodejs.png)
 
@@ -101,7 +101,7 @@ After the user verifies their identity using the email authenticator, `OktaAuth.
 
 Create a password reset page that allows the user to enter their new password.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot of a page allowing the user to enter their new password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-set-password-nodejs.png)
 

@@ -2,7 +2,7 @@
 
 Build a sign-in form for your app that captures both the username and password.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-java.png)
 
@@ -35,7 +35,7 @@ If the password is validated, the `IDXAuthenticationWrapper.authenticate()` meth
 
 After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators to be enrolled, provide the user with a form to select the authenticator to enroll. In the following example, phone is the only authenticator:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the enroll phone authenticator selection form for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-enroll-phone-java.png)
 
@@ -55,7 +55,7 @@ The response from this request is an `AuthenticationResponse` object with `Authe
 
 You need to build a form to capture the user's phone number in your app. For example:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK's phone number input form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-in-pwd-phone-numberscreen-java.png)
 
@@ -80,7 +80,7 @@ The Java SDK sends the phone authenticator data to Okta. Okta processes the requ
 
 You need to build a form to capture the user's SMS verification code. For example:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the verification code input form for the Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-in-pwd-phone-verify-email-code-java.png)
 
@@ -92,7 +92,7 @@ This step assumes that your org is enabled with the voice feature.
 
 You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK's enroll phone number authenticator form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num-java.png)
 
@@ -100,7 +100,7 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 > **Note:** The Java SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK's phone factor (SMS or voice) form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-mode-java.png)
 

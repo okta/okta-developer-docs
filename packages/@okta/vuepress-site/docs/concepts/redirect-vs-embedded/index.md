@@ -36,7 +36,11 @@ Use this table and the subsequent sections to better understand the differences 
 
 Redirect authentication through the Okta-hosted Sign-In Widget is considered the easiest and most secure means of integration. This is because the Sign-In Widget itself is hosted by Okta, maintained by Okta, and kept secure by Okta. The Okta-hosted Sign-In Widget is recommended for most integrations.
 
-![Okta-hosted widget](/img/OktaHosted.png "Displays the integration for an Okta-hosted Sign-In Widget")
+<div class="three-quarter">
+
+![Okta-hosted widget](/img/auth/OktaHosted.png)
+
+</div>
 
 The user or system is redirected to Okta for credential verification and is then provided authenticated access to the client application and other Service Providers. When a user signs in to the client application, they are redirected to Okta using a protocol like SAML or OpenID Connect (OIDC). After the user signs in (based on policies that are configured in Okta), Okta redirects the user back to your application. You can customize your app's [URL domain](/docs/guides/custom-url-domain/) and the [Sign-In Widget style](/docs/guides/custom-widget/) to match your brand.
 
@@ -67,7 +71,12 @@ is -> cl: Return assertion to client
 @enduml
 
  -->
-![Redirect authentication](/img/redirect-auth-seq-flow.png "Redirect authentication sequence flow")
+
+<div class="three-quarter">
+
+![Redirect authentication sequence flow](/img/auth/redirect-auth-seq-flow.png)
+
+</div>
 
 ### Redirect summary
 
@@ -94,9 +103,13 @@ Embedded authentication is the process of authenticating user credentials direct
 
 <EmbeddedBrowserWarning />
 
-The customer-hosted embedded Sign-In Widget is considered the best balance of flexibility and effort to integrate, and is recommended if an integration requires a deeper level of customization than is available through an Okta-hosted Sign-In Widget. The embedded Sign-In Widget works by embedding the open source [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) into the application's web page. The Sign-In Widget is built and updated by Okta, uses industry best practice security design, and is added to a page with a few lines of HTML/JavaScript. You can load it directly from the CDN, NPM, or built from source.
+The customer-hosted embedded Sign-In Widget is considered the best balance of flexibility and effort to integrate, and is recommended if an integration requires a deeper level of customization than is available through an Okta-hosted Sign-In Widget. The embedded Sign-In Widget works by embedding the open source [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) into the application's web page. The Sign-In Widget is built and updated by Okta, uses industry best practice security design, and is added to a page with a few lines of HTML/JavaScript. You can load it directly from the CDN, NPM, or build from source.
 
-![Customer-hosted widget](/img/CustomerHosted.png "Displays the integration for a customer-hosted Sign-In Widget")
+<div class="three-quarter">
+
+![Customer-hosted widget](/img/auth/CustomerHosted.png)
+
+</div>
 
 The look and feel is customized directly through HTML/CSS/SASS and JavaScript. Features are configured within the Admin Console and enabled through JavaScript.
 
@@ -127,7 +140,12 @@ as -> cl: Tokens
 @enduml
 
  -->
-![Embedded authentication](/img/embedded-auth-seq-flow.png "Embedded authentication sequence flow diagram")
+
+<div class="three-quarter">
+
+![Embedded authentication sequence flow](/img/auth/embedded-auth-seq-flow.png)
+
+</div>
 
 ### Embedded summary
 

@@ -5,13 +5,7 @@ excerpt: Customize handling of user registration requests in Profile Enrollment
 
 # Registration Inline Hook Reference
 
-This page provides reference documentation for:
-
-- JSON objects contained in the outbound request from Okta to your external service
-
-- JSON objects you can include in your response
-
-This information is specific to the Registration Inline Hook, one type of Inline Hook supported by Okta.
+This page provides reference documentation for Registration Import Inline Hooks, one type of Inline Hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
@@ -72,9 +66,9 @@ You can only set values for profile fields which already exist in your Okta user
 
 This object appears in Progressive Profile requests from Okta. The object contains the delta between existing name-value pairs and the attributes that your end user wants to update.
 
-> **Note:** You can also allow end users to update non-sensitive attributes in addition to the delta attributes Okta sends in the request.
-
 Use the `com.okta.user.progressive.profile.update` command in your response to progressively change the values of delta attributes in the user's Okta profile.
+
+> **Note:** You can also allow end users to update non-sensitive attributes in addition to the delta attributes Okta sends in the request.
 
 ### data.action
 
@@ -264,7 +258,59 @@ See [request properties](#objects-in-the-request-from-okta) for full details.
 }
 ```
 
-## Sample Progressive Enrollment request
+## Sample SSR responses
+
+The external service responds to Okta indicating whether to accept the end user's self-registration attempt. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register.
+
+See [response properties](#response-objects-that-you-send) for full details.
+
+### Sample SSR response using data.userProfile
+
+The following sample response shows a successful self-registration:
+
+```json
+{
+    "commands": [
+        {
+            "type": "com.okta.user.profile.update",
+            "value": {
+                "login": "first.last@example.com"
+            }
+        }
+    ]
+}
+```
+
+### Sample SSR response using data.action
+
+The following sample response uses the `DENY` value and a custom error caused by an invalid email domain:
+
+```json
+{
+    "commands": [
+        {
+            "type": "com.okta.action.update",
+            "value": {
+                "registration": "DENY"
+            }
+        }
+    ],
+    "error": {
+        "errorSummary": "Incorrect email address. Please contact your admin.",
+        "errorCauses": [
+            {
+                "errorSummary": "Only example.com emails can register.",
+                "reason": "INVALID_EMAIL_DOMAIN",
+                "locationType": "body",
+                "location": "data.userProfile.email",
+                "domain": "end-user"
+            }
+        ]
+    }
+}
+```
+
+## Sample progressive enrollment request
 
 The following JSON example provides the end user's profile data to the external service for evaluation.
 
@@ -318,96 +364,54 @@ See [request properties](#objects-in-the-request-from-okta) for full details.
 }
 ```
 
-## Sample response
+## Sample progressive enrollment responses
 
-The external service responds to Okta indicating whether to accept the end user's self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta.
+The external service responds to Okta indicating whether to accept the end user's profile update. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to update their profile with Okta.
 
 See [response properties](#response-objects-that-you-send) for full details.
 
-```javascript
-// Registration Inline Hook code to parse the incoming Okta request
+### Sample progressive enrollment response using data.UserProfileUpdate
 
-app.post('/registrationHook', async (request, response) => {
-  console.log();
+The following sample response shows the addition of an employee number to an end user's profile:
 
-  var returnValue = {};
-
-  if (request.body.requestType === 'progressive.profile') {
-    // For example, 'employeeNumber' is an additional attribute collected after end user registration.
-    console.log('Employee number added to profile ' + request.body.data.context.user.profile['login'] + ': ' + request.body.data.userProfileUpdate['employeeNumber']);
-    var employeeNumber = request.body.data.userProfileUpdate['employeeNumber'];
-    if (employeeNumber && employeeNumber.length === 4) {
-      returnValue = {
-        'commands':[
-          {
-            type: 'com.okta.user.progressive.profile.update',
-            value: {
-              'employeeNumber': employeeNumber,
+```json
+{
+    "commands": [
+        {
+            "type": "com.okta.user.progressive.profile.update",
+            "value": {
+                "employeeNumber": "1234"
             }
-          }
-        ]
-      };
-    } else {
-      returnValue = {
-        'commands':[
-          {
-            type: 'com.okta.action.update',
-            value: {
-              registration: 'DENY',
-            },
-          }
-        ],
-        'error': {
-          'errorSummary':'Incorrect employee number. Enter an employee number with 4 digits.',
-          'errorCauses':[{
-            'errorSummary':'Only employee numbers with 4 digits can register.',
-            'reason':'INVALID_EMPLOYEE_NUMBER',
-            'locationType':'body',
-            'location':'data.userProfile.employeeNumber',
-            'domain':'end-user'
-          }]
         }
-      };
-    }
-  } else {
-    console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " has registered!");
-    var emailRegistration = request.body.data.userProfile['email'];
-    if (emailRegistration.includes('example.com')) {
-      returnValue = {
-        'commands':[
-          {
-            type: 'com.okta.user.profile.update',
-            value: {
-              'login': emailRegistration,
-            }
-          }
-        ]
-      };
-    } else {
-      console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " denied registration!");
-      returnValue = {
-        'commands':[
-          {
-            type: 'com.okta.action.update',
-            value: {
-              registration: 'DENY',
-            },
-          }
-        ],
-        'error': {
-          'errorSummary':'Incorrect email address. Please contact your admin.',
-          'errorCauses':[{
-            'errorSummary':'Only example.com emails can register.',
-            'reason':'INVALID_EMAIL_DOMAIN',
-            'locationType':'body',
-            'location':'data.userProfile.email',
-            'domain':'end-user'
-          }]
-        }
-      };
-    }
-  }
+    ]
+}
+```
 
-  response.send(JSON.stringify(returnValue));
-})
+### Sample progressive enrollment response using data.action
+
+The following sample response uses the `DENY` value and a custom error caused by an invalid employee number:
+
+```json
+{
+    "commands": [
+        {
+            "type": "com.okta.action.update",
+            "value": {
+                "registration": "DENY"
+            }
+        }
+    ],
+    "error": {
+        "errorSummary": "Incorrect employee number. Enter an employee number with 4 digits.",
+        "errorCauses": [
+            {
+                "errorSummary": "Only employee numbers with 4 digits can register.",
+                "reason": "INVALID_EMPLOYEE_NUMBER",
+                "locationType": "body",
+                "location": "data.userProfile.employeeNumber",
+                "domain": "end-user"
+            }
+        ]
+    }
+}
 ```

@@ -802,11 +802,25 @@ Content-Type: application/json
 
 #### Get current User
 
-
-Fetches the current user linked to API token or session cookie
+Fetches the current user linked to an API token or a session cookie
 
 ##### Request example
 
+The following example fetches the current user linked to a session cookie:
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Cookie: ${okta_session_cookie}" \
+"https://${yourOktaDomain}/api/v1/users/me"
+```
+
+> **Note:** This is typically a CORS request from the browser when the end user has an active Okta session. Therefore, it's possible to retrieve the current user without the `Authorization` header.
+
+##### Request example
+
+The following example fetches the current user linked to an API token:
 
 ```bash
 curl -v -X GET \
@@ -816,8 +830,9 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/me"
 ```
 
-##### Response example
+> **Note:** This request returns the user linked to the API token that is specified in the `Authorization` header, not the user linked to the active session. Details of the Admin user who granted the API token is returned.
 
+##### Response example
 
 ```json
 {
@@ -1127,7 +1142,7 @@ The performance optimization will only be applied when all three parameters are 
 
 ##### Request parameters
 
-The first three parameters in the table below correspond to different ways to list users.
+The first three parameters in the table below correspond to different ways to list users. For further details and examples on these parameters, see [User query options](/docs/reference/user-query) or the following sections.
 
 - [List Users with Search](#list-users-with-search) (`search`)
 - [List Users with a Filter](#list-users-with-a-filter) (`filter`)
@@ -1144,13 +1159,12 @@ The first three parameters in the table below correspond to different ways to li
 | sortBy      | Specifies field to sort by (for search queries only).                                                                                           | Search query | String     | FALSE    |
 | sortOrder   | Specifies sort order asc or desc (for search queries only).                                                                                     | Search query | String     | FALSE    |
 
-  * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
-  * An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
-  * Okta strongly advises that you use the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta recommends reformatting the request to use `search`.
-  * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+- If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
+- An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
+- Okta strongly advises that you use the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta recommends reformatting the request to use `search`.
+- Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
-
 
 Array of [User](#user-object)
 
@@ -1158,7 +1172,6 @@ Array of [User](#user-object)
 
 Due to an infrastructure limitation, [group administrators](https://help.okta.com/okta_help.htm?id=ext_The_User_Admin_Role), [help desk administrators](https://help.okta.com/okta_help.htm?id=ext_The_Help_Desk_Admin_Role),
 and [custom administrators](https://help.okta.com/okta_help.htm?id=csh-cstm-admin-roles) who are only scoped to view and manage users of their assigned groups may experience timeout for the list users endpoints.
-
 
 #### List Users with search
 
@@ -1170,16 +1183,16 @@ Property names in the search parameter are case sensitive, whereas operators (`e
 
 This operation:
 
-* Supports [pagination](/docs/reference/core-okta-api/#pagination).
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
+- Supports [pagination](/docs/reference/core-okta-api/#pagination).
+- Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
   For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
   Use an ID lookup for records that you update to ensure your results contain the latest data.
   > **Note:** If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`.
-* Searches many properties:
+- Searches many properties:
   - Any user profile property, including custom-defined properties
   - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`
   - The [User Type](/docs/reference/api/user-types) accessed as `type.id`
-* Accepts `sortBy` and `sortOrder` parameters.
+- Accepts `sortBy` and `sortOrder` parameters.
   - `sortBy` can be any single property, for example `sortBy=profile.lastName`
   - `sortOrder` is optional and defaults to ascending
   - `sortOrder` is ignored if `sortBy` is not present
@@ -1206,7 +1219,6 @@ List users in the department of `Engineering` who were created before `01/01/201
     search=profile.department eq "Engineering" and (created lt "2014-01-01T00:00:00.000Z" or status eq "ACTIVE")
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -1257,11 +1269,10 @@ curl -v -X GET \
 
 ##### Searching arrays
 
-You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned.
-For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
+You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned. For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
 
-* Okta follows the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
-* Search for one value at a time when searching arrays. For example, you can't search for users where a string is equal to an attribute in two different arrays.
+- Okta follows the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
+- You can search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators. See [Filter](/docs/reference/core-okta-api/#filter).
 
 ##### Request example for array
 
@@ -1276,7 +1287,6 @@ curl -v -X GET \
 ```
 
 ##### Response example for array
-
 
 ```json
 [
@@ -1332,16 +1342,17 @@ curl -v -X GET \
 ]
 ```
 
-
-
 #### List Users with a filter
 
 Lists all users that match the filter criteria. To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
 
 This operation:
 
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
-* Supports only a limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
+- Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
+- Supports the following limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
+- Supports only the equal `eq` operator from the standard Okta API filtering semantics, except in the case of the `lastUpdated` property. This property can also use the inequality operators (`gt`, `ge`, `lt`, and `le`).
+- Supports only the logical operators `and` and `or`.
+- Is case-sensitive for attribute names and query values, while attribute operators are case-insensitive.
 
 | Filter                                          | Description                                      |
 | :---------------------------------------------- | :----------------------------------------------- |
@@ -2778,18 +2789,19 @@ This operation resets all factors for the specified user. All MFA factor enrollm
 
 ##### Request parameters
 
-
 | Parameter    | Description                                                  | Param Type | DataType | Required | Default |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
 | id           | `id` of user                                                 | URL        | String   | TRUE     |         |
 
-##### Response parameters
+<!-- REMOVED THIS PARAMETER in 2022.07.0; release mgmt disabled with kill switch - June 30, 2022 Katherine Chan
 
+| removeRecoveryEnrollment       | An optional parameter that allows removal of the the phone factor (SMS/Voice) as both a recovery method and a factor. | QUERY      | Boolean  | FALSE    | FALSE   | -->
+
+##### Response parameters
 
 Returns an empty object by default.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -3929,7 +3941,11 @@ The `type` property is a map that identifies the User Type of the user (see [Use
 
 The following diagram shows the state object for a user:
 
-![STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED](/img/okta-user-status.png "STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED")
+<div class="full">
+
+![STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED](/img/users-api/okta-user-status.png)
+
+</div>
 
 ### Understanding User status values
 

@@ -50,7 +50,7 @@ After you have built a functioning app integration, a few steps are required to 
 1. Create a customer-facing configuration guide.
     >**Note:** This guide is required for SCIM and OIDC OIN apps. It's optional for SAML integrations, as Okta provides its own documentation for those apps. The guide is supplied with your published app.
 1. Submit your integration to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata that is required to create a customized integration for publication in the OIN.
-    >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact your Okta rep or post on our [forum](https://devforum.okta.com/) to request temporary activation of this capability when submitting a SCIM app integration.
+    >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact your Okta account team or post on our [forum](https://devforum.okta.com/) to request temporary activation of this capability when submitting a SCIM app integration.
 
 1. Work with the Okta OIN team to test your integration using your input and then get it published to the OIN Catalog.
 
@@ -259,7 +259,11 @@ The OIN Manager always shows the current status of your integration.
 
 The following flowchart outlines the entire process:
 
-![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png "Process flow diagram for Okta and ISV submission")
+<div class="three-quarter">
+
+![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png)
+
+</div>
 
 ## Update your published integration
 
@@ -296,7 +300,7 @@ You can only delete unpublished submissions that are in **DRAFT** state.
 
 To delete your submission:
 
-1. Click the delete icon ![Delete submission](/img/icons/delete_can.png "Deletion icon") beside the **Edit** button. If the delete icon is unavailable, that submission can't be deleted.
+1. Click the delete icon ![trash can; delete icon](/img/icons/delete_can.png) beside the **Edit** button. If the delete icon is unavailable, that submission can't be deleted.
 1. Confirm the deletion in the dialog box.
 
 No email confirmation is sent when deleting a submission. Deleted submissions can't be recovered.

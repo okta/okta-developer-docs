@@ -1,11 +1,11 @@
-### 1 - 4. Sign in and select authenticator
+### 1 - 4. Start enrollment flow and display list of authenticators
 
-The Enrollment flow follows the same first four steps as the Challenge flow:
+The Enrollment flow follows the same first four steps as the [Challenge flow](#integrate-email-challenge-with-magic-links): 
 
-* Build a sign-in page on the client
-* Authenticate the user credentials
-* Handle the response from the sign-in flow
-* Display a list of possible authenticator factors
+* [Build a sign-in page on the client](#_1-build-a-sign-in-page-on-the-client)
+* [Authenticate the user credentials](#_2-authenticate-the-user-credentials)
+* [Handle the response from the sign-in flow](#_3-handle-the-response-from-the-sign-in-flow)
+* [Display a list of possible authenticator factors](#_4-display-a-list-of-available-authenticators)
 
 ### 5. Check authenticator status and send email to the user
 
@@ -48,7 +48,7 @@ Build a form that allows the user to enter the One-Time Passcode (OTP) sent to t
 
 Next, the user opens the email and copies the OTP. The following screenshot shows the OTP in an email generated from the **Email Factor Verification** template.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Screenshot of OTP in enrollment page](/img/authenticators/authenticators-email-enroll-otp.png)
 

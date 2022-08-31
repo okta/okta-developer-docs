@@ -2,7 +2,7 @@
 
 Build a sign-in page that captures the user's name and password, as shown in the following example.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![A simple sign-in form with username and password fields](/img/authenticators/dotnet-authenticators-sign-in-form.png)
 
@@ -135,7 +135,7 @@ This viewModel is then consumed in a Razor page.
 
 For example, if the user has previously enrolled the email authenticator, Google Authenticator, and Okta Verify, they see the following:
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![A list of enrolled authenticators for the user to choose from](/img/authenticators/dotnet-authenticators-email-challenge-auth-list.png)
 
@@ -184,7 +184,7 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 ### 6. Display OTP input page
 
-Build a form that allows the user to enter the One-Time Password (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where the OTP may be required or simply more convenient. For example, a user checking their email from a different device must use an OTP. See [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
+Build a form that allows the user to enter the One-Time Password (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where the OTP may be required or simply more convenient. For example, a user checking their email from a different device must use an OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
 
 ```razor
 <section id="enterCodeForm">
@@ -234,7 +234,7 @@ Build a form that allows the user to enter the One-Time Password (OTP) sent to t
 
 Next, the user opens their email and clicks the magic link. The following screenshot shows the magic link in the email.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Magic link in email](/img/authenticators/authenticators-email-challenge-magic-link-in-email.png)
 

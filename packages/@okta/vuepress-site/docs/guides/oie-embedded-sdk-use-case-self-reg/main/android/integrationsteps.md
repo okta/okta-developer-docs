@@ -2,7 +2,7 @@
 
 The self-registration flow begins when the user clicks the **Sign up** link on your app's sign-in page. Create a **Sign up** link that directs the user to a create account form, such as the following example:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the sign-in form for Java SDK with a 'Sign up' link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up-java.png)
 
@@ -10,7 +10,7 @@ The self-registration flow begins when the user clicks the **Sign up** link on y
 
 You need to create a form to capture the user's new account details, such as the following example:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Create Account form for Java SDK with first name, last name, and email fields](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create-java.png)
 
@@ -65,7 +65,7 @@ After the initial register request, `IDXAuthenticationWrapper.register()` return
 
 After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators, you need to provide the user with a form to select the authenticator to enroll. In the following example, there is only one password authenticator to enroll:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK authenticator enrollment form with one 'Password' authenticator](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-password-java.png)
 
@@ -81,7 +81,7 @@ val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(procee
 
 This request returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION`. You need to build a form for the user to enter their password in this authenticator verification step.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK password authenticator verification form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-confirm-password-java.png)
 
@@ -98,7 +98,7 @@ val authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(procee
 
 The request returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and an `Authenticators` list that contains the email and phone factors. Reuse the authenticator enrollment form from [3: Display enrollment factors](#_3-display-the-enrollment-factors) to display the list of authenticators to the user.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK Email and Phone authenticator enrollment form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-email-phone-java.png)
 
@@ -114,7 +114,7 @@ val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(procee
 
 If this request is successful, a code is sent to the user's email and `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` is returned. You need to build a form to capture the code for this verification step.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK's Verify Code form for the email authenticator](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code-java.png)
 
@@ -138,7 +138,7 @@ Based on the configuration described in [Set up your Okta org for a multifactor 
 
 If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Step 8, Option 1: The user skips the phone authenticator](#option-1-the-user-skips-the-phone-authenticator) for the skip authenticator flow. If the user decides to select the optional factor, see [Step 8, Option 2: The user selects the phone authenticator](#option-2-the-user-selects-the-phone-authenticator) for the optional phone authenticator flow.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK's phone authenticator enrollment form with Skip button](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-phone-java.png)
 
@@ -185,7 +185,7 @@ The Java SDK sends the phone authenticator data to Okta. Okta processes the requ
 
 You need to build a form to capture the user's SMS verification code. For example:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the verification code input form for the Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-in-pwd-phone-verify-email-code-java.png)
 
@@ -197,7 +197,7 @@ This step assumes that your org is enabled with the voice feature.
 
 You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK's enroll phone number authenticator form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num-java.png)
 
@@ -205,7 +205,7 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 > **Note:** The Java SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Java SDK's phone factor (SMS or voice) form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-mode-java.png)
 

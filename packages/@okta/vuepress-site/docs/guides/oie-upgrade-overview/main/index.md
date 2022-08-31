@@ -12,7 +12,7 @@ Are you an admin? See [Upgrade from Classic Engine](https://help.okta.com/okta_h
 
 ## Before attempting to upgrade
 
-* **IMPORTANT**: Talk to your Okta rep/Customer Success Manager and get their support and input. Okta assistance is currently a requirement for carrying out the [Okta org](/docs/concepts/okta-organizations/) upgrade process outlined below (automated upgrades will be available for simple upgrades at a later date).
+* **IMPORTANT**: Talk to your Okta account team and get their support and input. Okta assistance is currently a requirement for carrying out the [Okta org](/docs/concepts/okta-organizations/) upgrade process outlined below (automated upgrades will be available for simple upgrades at a later date).
 * Review the [Identity Engine limitations](/docs/guides/ie-limitations/) guide to get an idea of what features you are using, if any, that require remediations (meaning they need adjustment before we can proceed with an upgrade). For example, some Classic Engine features may not be supported in Identity Engine in their current form.
 * [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) to the latest version before continuing further. This includes both Okta-hosted widgets and widgets embedded inside your apps.
 
@@ -33,7 +33,7 @@ Bear in mind that:
 * The existing Okta-hosted Sign-In Widget works as-is after you upgrade your org.
 * You should upgrade your embedded Sign-In Widget as you would normally do with other updates.
 
-> **Note:** For an overview of the changes in the Admin Console, see [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new).
+> **Note:** See [Upgrade from Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-upgrade-eligibility) for feature comparison and considerations before and after you upgrade.
 
 The rest of the upgrade process is defined in the next section. Which steps that you take are related to your deployment model. We have carefully considered how you can break up the upgrade steps to ensure that you maintain the best user experience across your applications. We don’t recommend doing this upgrade all at once, but rather in sections with breaks for testing. This process is designed to be non-disruptive and iterative over a period of time. Make the upgrade steps part of your normal product development process.
 
@@ -53,8 +53,6 @@ For a more detailed look at the upgrade steps, see the [Plan embedded auth appli
     * Make any necessary [updates to the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
 
     * Check your `config.idps` [settings](https://github.com/okta/okta-signin-widget#openid-connect) for customizations that may not be compatible with Identity Engine.
-
-    > **Note:** See the **Remember me** section of the [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new) for more information on functionality changes in the Admin Console.
 
     **Are you embedding our Sign-In Widget?**
 

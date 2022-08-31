@@ -6,7 +6,7 @@ and automatically displays the **Sign in with Facebook** button. If the Facebook
 make sure that you have completed all the steps in [Configuration Updates](#configuration-updates).
 The following Sign-In Widget displays the Facebook button:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Sign-In Widget with the username, password, and Facebook button](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-idp-sign-in-page.png)
 
@@ -17,7 +17,7 @@ The following Sign-In Widget displays the Facebook button:
 When the user selects **Sign in with Facebook**, they are redirected to
 the Facebook sign-in page.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Displays the Facebook sign-in page](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-fb-sign-in-page.png)
 
