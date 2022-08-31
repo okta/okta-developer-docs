@@ -2,51 +2,31 @@
 title: Password optional overview
 ---
 
+## Overview
 
-Notes:
+Most hacking-related breaches today involve weak or stolen passwords and credential security theft. Passwords are a security vulnerability because they can be easily stolen and are prone to phishing attacks. They're also not convenient because they need to be securely stored and managed by users and IT departments.
 
-## Issues with passwords
+Ditch the password for a passwordless sign-in experience. Give your users the ability instead to authenticate with a fingerprint, YubiKey, email, phone, or another authenticator. Depending on the authenticator, they can be more secure – it's harder to steal a fingerprint than a password – and more convenient since users no longer have to memorize and manage their passwords.
 
-1. Managing pwds is cumbersome of customers
-1. Customers reuse their pwds - leads to account takeovers, data breaches, stolen identites
-1. Customers forget their pwds
-1. Burden of securely storing pwds
-1. Pwds make login flow suspetible to bot attacks
-1. Remove need to create and remember a pwd
-1. Outdated, often reused, need to be changed frequently.
-1. For IT depts, pwd support and maintenance are largest expense
-1. less secure than other authenticators
-1. Thwart Fraud: prevent acct takeovers with more secure authentication
-1. Reduce cost: Little user interaction to prove possession of an app
-1. Create strong authentication bind between device and user
+<div class="three-quarters">
 
-## Replaced
+![Screenshot showing a sign-in page with a sign-up link.](/img/pwd-optional/pwd-optional-overview-xy-diagram.png)
 
-Pwd (knowledge) is removed and replaced with something you have and something you are (biometrics)
-
-## Why other options are better
-
-1. Improved user experience
-1. Much easier to provide a fingerprint that to remember and keep track of pwds
-1. A mix of different "factors" is more secure
-
-## Diffs between MFA and password optional
-
-Note that passwordless authentication is not necessarily the same thing as multi-factor authentication (MFA). With multi-factor authentication, users are required to use two or more factors to prove that they are who they claim to be, and one of these factors could involve a passwordless authentication method. With passwordless authentication, users might be required to use only one factor, but that factor is not a password. If authentication requires more than one passwordless factor, it’s considered passwordless MFA.
-
-## Example
-
-1. John is physically holding the pohne, that phone number has 10 years of real-time behavior, the phone number is owned and operated by john
-
-## Example use cases (workforce specific)
+</div>
 
 
+## Integration guides
 
+Implement passwordless authentication in your app using Okta's Embedded solutions and replace the password with more secure and convenient [authenticators](/docs/guides/authenticators-overview/main/). Use the following integration guides to step through a simple set of use cases and get started on your passwordless journey.
 
+### Embedded SDK
 
-## Open to change
+* <StackSnippet snippet="signupwithemail" inline/>
+* <StackSnippet snippet="signinwithemail" inline/>
+* <StackSnippet snippet="changeemail" inline/>
 
-1. Younger ppl don't want to manage pwds
-1. more options to use different auths (new devices have biometrics)
-1. Biometrics is much stronger than pwds
-1. most ppl use more than one device
+### Embedded Widget
+
+* <StackSnippet snippet="widgetsignin" inline/>
+
+Also, check out the <StackSnippet snippet="bestpractices" inline/>, to learn about best practices that will help you build a solid passwordless sign-in solution.

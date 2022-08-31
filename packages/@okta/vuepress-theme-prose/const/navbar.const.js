@@ -224,6 +224,10 @@ export const guides = [
                 title: "Password optional",
                 subLinks: [
                   {
+                    title: "Password optional overview",
+                    guideName: "pwd-optional-overview"
+                  },
+                  {
                     title: "Sign up for new account with email only",
                     guideName: "pwd-optional-new-sign-up-email"
                   },
