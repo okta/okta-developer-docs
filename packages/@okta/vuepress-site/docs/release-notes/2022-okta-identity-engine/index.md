@@ -38,7 +38,7 @@ Using signed SAML requests ensures that incoming requests are from genuine appli
 
 #### Step-up authentication using ACR values is EA in Preview
 
-Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values]().<!--OKTA-525790-->
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/).<!--OKTA-525790-->
 
 #### API for suppressing email notifications is in General Availability
 
@@ -70,7 +70,7 @@ For SWA apps with an account sign-in option set to **Users share a single userna
 
 #### Developer documentation updates in 2022.09.0
 
-* [developer.okta.com](developer.okta.com) has a new main navigation menu, which makes navigating around the content easier and more intuitive. Instead of showing the entire sitemap in the menu at all times, each major area is now accessed through a submenu that shows only the relevant menu sections at one time. In addition, clicking each menu node shows a contextual landing page (either a defined custom page or an auto-generated one if none exists), and you can now toggle the menu between hidden and visible states, if desired.
+* [developer.okta.com](https://developer.okta.com/) has a new main navigation menu, which makes navigating around the content easier and more intuitive. Instead of showing the entire sitemap in the menu at all times, each major area is now accessed through a submenu that shows only the relevant menu sections at one time. In addition, clicking each menu node shows a contextual landing page (either a defined custom page or an auto-generated one if none exists), and you can now toggle the menu between hidden and visible states, if desired.
 
 * Updates to the [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/main/#edit-the-error-page) and [Customize email notifications](/docs/guides/custom-email/main/#edit-a-default-email-template) guides describe the new full featured code editor. The editor integrates the Monaco code editing library into the Admin Console to make editing code for email notifications and error pages more efficient. Developers can write, test, and publish code faster.
 
