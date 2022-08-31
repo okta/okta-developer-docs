@@ -161,7 +161,7 @@ The following table provides a list of all allowed HTML tags and elements in cus
 
 ## Add translations
 
-**Note:** Once a template is customized, other languages are only included when they are customized. If all customized translations are removed, then the 27 default translations are used.
+**Note:** Once a template is customized, other languages are only included when they are customized. If all customized translations are reset, then the 27 default translations are used.
 
 The default language is used when the end user’s locale does not match any email customizations. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
