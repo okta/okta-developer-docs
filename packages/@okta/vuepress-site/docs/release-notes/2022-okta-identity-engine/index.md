@@ -22,7 +22,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Improvements to the self-service password reset experience are GA in Preview](#improvements-to-the-self-service-password-reset-experience-are-ga-in-preview) | July 7, 2022 |
 | [Password restriction for shared SWA app accounts is GA in Production](#password-restriction-for-shared-swa-app-accounts-is-ga-in-production) | July 7, 2022 |
 | [Developer documentation updates in 2022.09.0](#developer-documentation-updates-in-2022090) | August 31, 2022 |
-| [Bugs fixed in 2022.09.0](#bugs-fixed-in-2022-09-0) | August 31, 2022|
+| [Bugs fixed in 2022.09.0](#bugs-fixed-in-2022090) | August 31, 2022|
 
 #### Non-deletable default authorization server is in Early Access (EA)
 
