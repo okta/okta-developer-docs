@@ -16,6 +16,7 @@ Customize email notifications.
 
 - [Okta Developer Edition organization](https://developer.okta.com/signup)
 - Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
+* The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
 
 **Sample code**
 
@@ -55,6 +56,8 @@ See [Email template operations](/docs/reference/api/brands/#email-template-opera
 
 ## Edit a default email template
 
+<ApiLifecycle access="ea" />
+
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
 > **Note:** To access email customization with a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help).
@@ -63,10 +66,7 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 1. In the **Communications** section, in the **Emails** box, click **Edit**.
 1. In the **Email Templates** table, click a template name.
    - The code editor is in preview mode.
-   - **Audience**: Select the email audience.
-      - All users
-      - Admin only
-      - Disabled for all
+   - **Audience**: Select the email audience: All users, Admin only, or Disabled for all.
    - **Translations**: Customize email template translations. See [Add translations](#add-translations).
    - **Language**: Select the default language for the email template. See [Add translations](#add-translations).
    - **Subject**: The subject line for the template in the default language. You can edit the subject line when the template is in read/write mode.
@@ -160,6 +160,8 @@ The following table provides a list of all allowed HTML tags and elements in cus
 | Other allowed attributes | `noscript`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `i`, `b`, `u`, `strong`, `em`, `small`, `big`, `pre`, `code`, `cite`, `samp`, `sub`, `sup`, `strike`, `center`, `blockquote`, `hr`, `br`, `col`, `font`, `map`, `span`, `div`, `img`, `ul`, `ol`, `li`, `dd`, `dt`, `dl`, `fieldset`, `legend` |
 
 ## Add translations
+
+<ApiLifecycle access="ea" />
 
 **Note:** After a template is customized, other languages are only included when they are customized. If all customized translations are reset, then the 27 default translations are used.
 
