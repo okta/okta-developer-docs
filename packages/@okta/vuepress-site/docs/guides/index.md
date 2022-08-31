@@ -124,6 +124,7 @@ guides:
  - oie-embedded-sdk-use-case-new-user-activation
  - advanced-use-case-overview
  - email-magic-links-overview
+ - step-up-authentication
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
