@@ -112,25 +112,10 @@ For password-only authentication, you need to update the password authenticator 
 
 ### Set up your Okta org for a password-optional use case
 
-For password-optional authentication, you need to
+For password-optional authentication, you first need to
 
 1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator).
 2. [Create a separate group for password-optional users](#create-a-group-for-password-optional-users).
-
-#### Set up the email authenticator
-
-1. Open the **Admin Console** for your org.
-2. Choose **Security** > **Authenticators** to show the available authenticators.
-3. On the **Setup** tab, locate the **Email** authenticator, and then select **Actions** > **Edit**.
-4. Set **This authenticator can be used for** to **Authentication and recovery**.
-5. Click **Save**.
-
-#### Create a group for password-optional users
-
-1. Choose **Directory** > **Groups**.
-2. Click **Add Group**.
-3. Give the group a name. For example, "Password-optional Users".
-4. Click **Save**.
 
 To ensure that only specific app integrations can let users **sign up** without a password, do the following:
 
@@ -147,7 +132,24 @@ To ensure that only password-optional users can **sign in** without a password a
 
 > **Note**: See also [Set up password-optional sign-in experience](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/password-optional/password-optional-disabled.htm)
 
-#### Enable password-optional User Sign-Up
+#### Common password-optional setup tasks
+
+##### Set up the email authenticator
+
+1. Open the **Admin Console** for your org.
+2. Choose **Security** > **Authenticators** to show the available authenticators.
+3. On the **Setup** tab, locate the **Email** authenticator, and then select **Actions** > **Edit**.
+4. Set **This authenticator can be used for** to **Authentication and recovery**.
+5. Click **Save**.
+
+##### Create a group for password-optional users
+
+1. Choose **Directory** > **Groups**.
+2. Click **Add Group**.
+3. Give the group a name. For example, "Password-optional Users".
+4. Click **Save**.
+
+#### Enable password-optional user sign-up
 
 To ensure that only specific app integrations can let users sign up without a password, do the following:
 
@@ -167,7 +169,7 @@ A profile enrollment policy determines the minimum information required from a u
 10. Locate your app integration in the list and click **Apply** next to it.
 11. Verify that the app is now in the list of Apps using the new Profile Enrollment Policy.
 
-#### Enable password-optional User Sign-In
+#### Enable password-optional user sign-in
 
 To ensure that only password-optional users can sign in without a password and everybody else is appropriately prompted for it, do the following:
 
