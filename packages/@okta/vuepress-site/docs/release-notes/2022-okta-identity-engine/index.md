@@ -22,6 +22,8 @@ title: Okta Identity Engine API Products release notes 2022
 
 * If the Self Service Registration feature wasn't enabled, operations on the `/brands/` endpoint to list or update `RegistrationActivation` or `RegistrationEmailVerification` email templates received exception errors. (OKTA-524327)
 
+* Despite having insufficient permissions, a Report Admin was able to use the Mappings API to edit the UD mappings for an Identity Provider configured in Okta. (OKTA-499602)
+
 ### Weekly release 2022.08.2
 
 | Change | Expected in Preview Orgs |
