@@ -70,7 +70,7 @@ Use these steps to add or edit a template in one of the Okta-supported languages
    - **Translations**: Customize email template translations. See [Add translations](#add-translations).
    - **Language**: Select the default language for the email template. See [Add translations](#add-translations).
    - **Subject**: The subject line for the template in the default language. You can edit the subject line when the template is in read/write mode.
-   - In the preview window, to see a translation of a customized template, select a language from the drop-down menu. See [Add translations](#add-translations).
+   - In the preview window, to see a translation of a customized template, select a language from the dropdown menu. See [Add translations](#add-translations).
 1. Click **Edit** to put the editor in read-write mode.
 1. Make changes directly in the editor. If you type `$`, `#` or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
    - Click the full page button to see the code editor in full page mode.
