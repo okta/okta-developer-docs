@@ -276,6 +276,7 @@ export const guides = [
           },
           {
             title: "Authenticators",
+            path: "/docs/guides/authenticators-overview/main/",
             subLinks: [
               {
                 title: "Okta email",
@@ -301,6 +302,7 @@ export const guides = [
           },
           {
             title: "Advanced use cases",
+            path: "/docs/guides/advanced-use-case-overview/main/",
             subLinks: [
               {
                 title: "Email Magic Links",
@@ -568,6 +570,7 @@ export const guides = [
         },
           {
             title: "OIDC and the OIN: A Developer Primer",
+            path: "/docs/guides/oin-oidc-overview/main/",
             subLinks: [
               {
                 title: "Protocol-level requirements",
@@ -687,6 +690,7 @@ export const guides = [
       },
       {
         title: "Classic archive",
+        path: "/docs/guides/archive-overview/main/",
         subLinks: [
           {
             title: "Auth JS fundamentals",
