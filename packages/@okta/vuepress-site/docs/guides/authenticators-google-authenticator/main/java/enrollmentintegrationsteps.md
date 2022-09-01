@@ -2,7 +2,7 @@
 
 Build a sign-in page that captures the user's name and password.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Basic sign-in dialog](/img/authenticators/java-authenticators-signinform.png)
 
@@ -94,7 +94,7 @@ authenticationResponse.getContextualData().getQrcode()
 
 For example
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![A page showing a QR code and a shared secret to enroll a mobile device running Google Authenticator](/img/authenticators/dotnet-authenticators-google-enroll-page.png)
 
@@ -106,7 +106,7 @@ For example
 
 After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering the secret string. Once added, Google Authenticator displays the time-based one-time password (TOTP) for the newly added account.
 
-<div class="common-image-format">
+<div class="half">
 
 ![A time-based one-time password being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
 

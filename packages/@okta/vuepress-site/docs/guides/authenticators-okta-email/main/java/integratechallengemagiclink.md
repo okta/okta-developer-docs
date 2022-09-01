@@ -2,7 +2,7 @@
 
 Build a sign-in page that captures the user's name and password, as shown in the following example.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![A simple sign-in form with username and password fields](/img/authenticators/dotnet-authenticators-sign-in-form.png)
 
@@ -93,7 +93,7 @@ Build a form that allows the user to enter the One-Time Password (OTP) sent to t
 
 Next, the user opens their email and clicks the magic link. The following screenshot shows the magic link in the email.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Magic link in email](/img/authenticators/authenticators-email-challenge-magic-link-in-email.png)
 

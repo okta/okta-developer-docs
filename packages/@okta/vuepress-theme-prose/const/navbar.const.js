@@ -91,6 +91,35 @@ export const concepts = [
         path: "/docs/concepts/user-profiles/"
       },
       {
+        title: "Understanding IAM",
+        subLinks: [
+          {
+            title: "IAM overview",
+            path: "/docs/concepts/iam-overview/"
+          },
+          {
+            title: "Identity management factors",
+            path: "/docs/concepts/iam-overview-identity-management-factors/"
+          },
+          {
+            title: "Authentication factors",
+            path: "/docs/concepts/iam-overview-authentication-factors/"
+          },
+          {
+            title: "Authorization factors",
+            path: "/docs/concepts/iam-overview-authorization-factors/"
+          },
+          {
+            title: "Architectural factors",
+            path: "/docs/concepts/iam-overview-architectural-factors/"
+          },
+          {
+            title: "IAM terminology",
+            path: "/docs/concepts/iam-overview-iam-terminology/"
+          }
+        ]
+      },
+      {
         title: "Understanding SAML",
         subLinks: [
           {
@@ -267,6 +296,10 @@ export const guides = [
                 guideName: "authenticators-okta-verify"
               },
               {
+                title: "Custom authenticator integration guide",
+                guideName: "authenticators-custom-authenticator"
+              },
+              {
                 title: "Google authenticator",
                 guideName: "authenticators-google-authenticator"
               },
@@ -288,6 +321,10 @@ export const guides = [
                 guideName: "advanced-use-case-overview"
               },
               {
+                title: "Email Magic Links",
+                guideName: "email-magic-links-overview"
+              },
+              {
                  title: "Device context",
                  guideName: "device-context"
               },
@@ -303,18 +340,6 @@ export const guides = [
               {
                 title: "Identity Engine SDK overview",
                 guideName: "mobile-idx-sdk-overview"
-              },
-              {
-                title: "Unlock a mobile app with biometrics",
-                guideName: "unlock-mobile-app-with-biometrics"
-              },
-              {
-                title: "Build a custom sign-in UI in your mobile app",
-                guideName: "build-custom-ui-mobile"
-              },
-              {
-                title: "Share a sign-in session with native mobile apps",
-                guideName: "shared-sso-android-ios"
               }
             ]
           },
@@ -336,16 +361,12 @@ export const guides = [
                 guideName: "add-an-external-idp"
               },
               {
-                title: "Smart Card",
-                path: "/docs/guides/add-an-external-idp/smartcard/"
-              },
-              {
                 title: "Social Login",
                 guideName: "social-login"
               },
             ]
           },
-          { title: "Sign users out", guideName: "sign-users-out" },
+          { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
           {
             title: "Basics",
             subLinks: [
@@ -431,7 +452,7 @@ export const guides = [
             ]
           },
           {
-            title: "Understand MFA enrollment policy API changes after the upgrade",
+            title: "Understand authenticator enrollment policy API changes after the upgrade",
             guideName: "oie-upgrade-mfa-enroll-policy"
           }
         ]
@@ -545,8 +566,8 @@ export const guides = [
                 path: "/docs/guides/scim-provisioning-integration-prepare/main/"
               },
               {
-                title: "Connect your SCIM API service to Okta",
-                path: "/docs/guides/scim-provisioning-integration-connect/main/"
+                title: "Configure Okta to your SCIM API service",
+                guideName: "scim-provisioning-integration-connect"
               },
               { title: "Test your SCIM Okta integration",
                 path: "/docs/guides/scim-provisioning-integration-test/main/"
@@ -603,6 +624,10 @@ export const guides = [
           {
             title: "Secure OAuth API connection between orgs",
             guideName: "secure-oauth-between-orgs"
+          },
+          {
+            title: "Step-up authentication using ACR values",
+            guideName: "step-up-authentication"
           }
         ]
       },
@@ -658,6 +683,10 @@ export const guides = [
           guideName: "registration-inline-hook"
           },
           {
+            title: "SAML assertion inline hook",
+          guideName: "saml-inline-hook"
+          },
+          {
             title: "Telephony Inline Hook",
           guideName: "telephony-inline-hook"
           },
@@ -692,6 +721,7 @@ export const guides = [
             title: "Sign in to SPA with embedded Widget",
             guideName: "archive-sign-in-to-spa-embedded-widget"
           },
+          { title: "Sign users out", guideName: "sign-users-out" },
           {
             title: "Add multifactor authentication",
             guideName: "mfa"
@@ -699,6 +729,23 @@ export const guides = [
           {
             title: "Registration Inline Hook",
             guideName: "archive-registration-inline-hook"
+          },
+          {
+            title: "Mobile",
+            subLinks: [
+              {
+                title: "Build a custom sign-in UI in your mobile app",
+                guideName: "build-custom-ui-mobile"
+              },
+              {
+                title: "Unlock a mobile app with biometrics",
+                guideName: "unlock-mobile-app-with-biometrics"
+              },
+              {
+                title: "Share a sign-in session with native mobile apps",
+                guideName: "shared-sso-android-ios"
+              }
+            ]
           }
         ]
       }
@@ -827,6 +874,7 @@ export const reference = [
           { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
           { title: "Org", path: "/docs/reference/api/org/" },
           { title: "Policy", path: "/docs/reference/api/policy/" },
+          { title: "Push Providers", path: "/docs/reference/api/push-providers/"},
           { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
           { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
           { title: "Schemas", path: "/docs/reference/api/schemas/" },

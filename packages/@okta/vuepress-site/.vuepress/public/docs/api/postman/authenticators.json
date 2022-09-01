@@ -1,0 +1,229 @@
+{
+	"info": {
+		"_postman_id": "e1ec65eb-8b2b-40b5-af54-974beb272011",
+		"name": "Authenticators (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21977415"
+	},
+	"item": [
+		{
+			"name": "Create Authenticator",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"key\": \"duo\",\n    \"name\": \"Duo Security\",\n    \"provider\": {\n        \"type\": \"DUO\",\n        \"configuration\": {\n            \"userNameTemplate\": {\n                \"template\": \"oktaId\"\n            },\n            \"integrationKey\": \"testIntegrationKey\",\n            \"secretKey\": \"testSecretKey\",\n            \"host\": \"https://api-xxxxxxxx.duosecurity.com\"\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/authenticators",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authenticators"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Authenticators",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/authenticators",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authenticators"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authenticator",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/authenticators/{{authenticatorId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authenticators",
+						"{{authenticatorId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Authenticator",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Phone\",\n  \"settings\": {\n    \"allowedFor\": \"recovery\"\n  }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/authenticators/{{authenticatorId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authenticators",
+						"{{authenticatorId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate Authenticator",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/authenticators/{{authenticatorId}}/lifecycle/activate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authenticators",
+						"{{authenticatorId}}",
+						"lifecycle",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deactivate Authenticator",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/authenticators/{{authenticatorId}}/lifecycle/deactivate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"authenticators",
+						"{{authenticatorId}}",
+						"lifecycle",
+						"deactivate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

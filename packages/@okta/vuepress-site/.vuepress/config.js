@@ -170,7 +170,7 @@ module.exports = ctx => ({
         children: [
           { text: 'Forum', link: 'https://devforum.okta.com' },
           { text: 'Toolkit', link: 'https://toolkit.okta.com/' },
-          { text: 'Developer Day', link: 'https://www.okta.com/developerday/' },
+          { text: 'Developer Days', link: 'https://regionalevents.okta.com/DeveloperDays2022' },
           { type: 'divider' },
           { type: 'icons',
             icons: [

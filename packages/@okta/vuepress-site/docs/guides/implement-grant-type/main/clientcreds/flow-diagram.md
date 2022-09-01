@@ -1,6 +1,10 @@
 ### Client Credentials flow
 
-![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png "Client Credentials flow")
+<div class="three-quarter">
+
+![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -18,6 +22,7 @@ app -> client: Response
 @enduml
 
 -->
+
 At a high-level, this flow has the following steps:
 
 1. Your client application (app) makes an authorization request to your Okta Authorization Server using its client credentials.

@@ -20,6 +20,8 @@ The behavior of the Okta Authentication API varies depending on the type of your
 
 > **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/core-okta-api/#client-request-context) such as IP address.
 
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+
 ### Public application
 
 A public application is an application that anonymously starts an authentication or recovery transaction without an API token, such as the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/).  Public applications are aggressively rate-limited to prevent abuse and require primary authentication to be successfully completed before releasing any metadata about a user.
@@ -47,6 +49,8 @@ Trusted applications are backend applications that act as authentication broker 
 <ApiOperation method="post" url="/api/v1/authn" />
 
 Every authentication transaction starts with primary authentication which validates a user's primary password credential. **Password Policy**, **MFA Policy**,  and **Sign-On Policy** are evaluated during primary authentication to determine if the user's password is expired, a Factor should be enrolled, or additional verification is required. The [transaction state](#transaction-state) of the response depends on the user's status, group memberships and assigned policies.
+
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 The requests and responses vary depending on the application type, and whether a password expiration warning is sent:
 
@@ -437,6 +441,8 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
 
 
 User is assigned to a **MFA Policy** that requires enrollment during sign-in and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
+
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 ```json
 {
@@ -1202,6 +1208,8 @@ curl -v -X POST \
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+
 ```json
 {
    "stateToken":"00zEfSRIpELrl87ndYiHNkvOEbyEPrBmTYuf9dsGLl",
@@ -1551,6 +1559,8 @@ curl -v -X POST \
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+
 ```json
 {
    "stateToken":"00zEfSRIpELrl87ndYiHNkvOEbyEPrBmTYuf9dsGLl",
@@ -1892,6 +1902,8 @@ You can enroll, activate, manage, and verify factors inside the authentication c
 <ApiOperation method="post" url="/api/v1/authn/factors" /> <SupportsCors />
 
 Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-for-providers) assigned by their **MFA Policy**
+
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 * [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
 * [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
@@ -7136,7 +7148,11 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 
 ### Transaction state
 
-![Transaction State Diagram](/img/auth-state-model1.png "The diagram displays the authentication and recovery transaction states.")
+<div class="full">
+
+![Transaction state diagram showing authentication and recovery transaction states](/img/auth/auth-state-model1.png)
+
+</div>
 
 An authentication or recovery transaction has one of the following states:
 

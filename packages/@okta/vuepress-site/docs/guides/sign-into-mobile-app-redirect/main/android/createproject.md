@@ -1,6 +1,13 @@
+> **Note:** The guide requires Android Studio (Arctic Chipmunk 2021.2.1)
+
 1. Create a new Kotlin Android project called `browser_sign_in` with an **Empty Activity** in Android Studio. For information on creating a project, see the [Android Studio documentation](https://developer.android.com/training/basics/firstapp/creating-project).
 
-2. Add the following code to the `app/build.gradle` to enable Android features used by the Okta SDK that aren't available on older Android versions:
+    - Name: `browser_sign_in`
+    - Package name: `com.okta.android.samples.browser_sign_in`
+    - Language: `Kotlin`
+    - Minimum SDK: `API 23: Android 6.0 (Marshmallow)`
+
+2. Add the following to the `app/build.gradle` to enable features required by the Okta Android SDK:
 
 ```gradle
 android {

@@ -1,7 +1,7 @@
 You can use a copy of the sample app by cloning it:
 
 ```bash
-git clone -b tutorial_sample git@github.com:okta/samples-android.git tutorial_sample
+git clone -b tutorial_sample https://github.com/okta/samples-android/tree/legacy-samples/sign-in-kotlin tutorial_sample
 ```
 After you clone the sample app, under the `tutorial_sample` folder there should now be a copy of the `sign-in-kotlin` sample app folder.
 

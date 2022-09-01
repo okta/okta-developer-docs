@@ -24,7 +24,7 @@ Next call `OktaAuth.idx.handleEmailVerifyCallback()` and pass in the `otp` and `
 
 `OktaAuth.idx.handleEmailVerifyCallback()` throws an `EmailVerifyCallbackError` error if the user clicked the magic link in a different browser or device. Handle the error and ask the user to enter the OTP on the original tab.
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
 ![Screenshot of different device or browser error](/img/authenticators/authenticators-email-magic-link-error.png)
 

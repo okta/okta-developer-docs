@@ -1,31 +1,25 @@
 ---
-title: User Import Inline Hook reference
+title: User import inline hook reference
 excerpt: Add custom logic to the user import process.
 ---
 
-# User Import Inline Hook reference
+# User import inline hook reference
 
 <ApiLifecycle access="ea" />
 
-This page provides reference documentation for:
-
-- JSON objects contained in the outbound request from Okta to your external service
-
-- JSON objects you can include in your response
-
-This information is specific to the User Import Inline Hook, one type of Inline Hook supported by Okta.
+This page provides reference documentation for user import inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta, and sample JSON objects that you can include in your response.
 
 ## See also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see [Enabling a User Import Inline Hook](#enabling-a-user-import-inline-hook).
+For steps to enable this inline hook, see [Enabling a user import inline hook](#enabling-a-user-import-inline-hook).
 
 ## About
 
-The User Import Inline Hook enables you to add custom logic to the process of importing new users into Okta from an app.
+The user import inline hook enables you to add custom logic to the process of importing new users into Okta from an app.
 
 You can resolve conflicts in user name or other profile attributes, modify values of profile attributes, and control whether the imported user is treated as a match for an existing user or not.
 
@@ -81,7 +75,7 @@ The `commands` object is where you can provide commands to Okta. It is an array,
 
 #### Supported commands
 
-The following commands are supported for the User Import Inline Hook type:
+The following commands are supported for the user import inline hook type:
 
 | Command                         | Description                                                                                                              |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------|
@@ -158,7 +152,7 @@ When you return an error object, it should contain an `errorSummary` sub-object:
 
 Returning an error object will cause Okta to record a failure event in the Okta System Log. The string you supplied in the `errorSummary` property of the `error` object will be recorded in the System Log event.
 
->**Note:** If a response to the Import Inline Hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta import process continues and the user is created.
+>**Note:** If a response to the import inline hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta import process continues and the user is created.
 
 ## Timeout behavior
 
@@ -282,22 +276,22 @@ If the external service times out after receiving an Okta request, the Okta proc
 }
 ```
 
-## Enabling a User Import Inline Hook
+## Enabling a user import inline hook
 
-To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-You then need to associate the registered Inline Hook with an app by completing the following steps in Admin Console:
+You then need to associate the registered inline hook with an app by completing the following steps in Admin Console:
 
 1. Go to the **Applications** menu and scroll down to **Applications**.
 
-1. Select the app that you want the Inline Hook to work with.
+1. Select the app that you want the inline hook to work with.
 
 1. Select the **Provisioning** tab.
 
 1. From the Settings column on the left side of the screen, select **To Okta**.
 
-1. In the **Inline Hooks** section, click the **User Creation** drop-down menu. Inline Hooks that you've registered appears in the list. Select the Inline Hook to use.
+1. In the **Inline Hooks** section, click the **User Creation** drop-down menu. Inline hooks that you've registered appears in the list. Select the inline hook to use.
 
 1. Click **Save**.
 
-> **Note:** The above procedure for associating a User Import Inline Hook with an app using Admin Console cannot be used with AD or LDAP.
+> **Note:** The above procedure for associating a user import inline hook with an app using Admin Console cannot be used with AD or LDAP.

@@ -76,7 +76,7 @@ You should also specify your data requirements in the configuration document tha
 
 **Q: How much support is required for filtering results?**
 
-The filtering capabilities in the SCIM protocol are pretty broad, but the common filtering use case with Okta is quite narrow. Okta determines if a newly created user already exists in your application based on a matching identifier. This means the `eq` (equals) operator is all you really need to support.
+The filtering capabilities in the SCIM protocol are pretty broad, but the common filtering use case with Okta is quite narrow. Okta determines if a newly created user or group already exists in your application based on a matching identifier. This means the `eq` (equals) operator is all you really need to support.
 
 **Q: How do I import users?**
 
@@ -96,7 +96,7 @@ For more details on the import functionality of Okta, see [Import users](https:/
 
 **Q: How do I get my SCIM integration to use `PUT` requests instead of `PATCH` when updating users and groups?**
 
-SCIM integrations that are created using the templates from the OIN catalog have `PATCH` enabled by default. However, if your SCIM server doesn't support `PATCH`, you can contact your Okta rep and request that they change your integration to use `PUT` for updates, or ask on our [forum](https://devforum.okta.com/).
+SCIM integrations that are created using the templates from the OIN catalog have `PATCH` enabled by default. However, if your SCIM server doesn't support `PATCH`, you can contact your Okta account team and request that they change your integration to use `PUT` for updates, or ask on our [forum](https://devforum.okta.com/).
 
 SCIM integrations that are created using the Application Integration Wizard use `PUT` by default. They can't be reconfigured to use `PATCH` for updates.
 

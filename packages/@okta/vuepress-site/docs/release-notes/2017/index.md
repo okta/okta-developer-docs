@@ -16,7 +16,11 @@ title: Okta API Products Release Notes 2017
 Configuring an application or integration to use OpenID Connect  ID tokens or OAuth 2.0 access tokens can take a lot of trial-and-error.
 Okta has made it easier to choose configuration settings and see the resulting tokens in the **Token Preview** tab of the Authorization Server page:
 
-![Screen shot of token preview tab](/img/release_notes/token_preview.png "Screen shot of token preview tab")
+<div class="three-quarter border">
+
+![Screen shot of token preview tab](/img/release_notes/token_preview.png)
+
+</div>
 
 Add values on the left side to see how they would affect the token on the right. All the fields are selection boxes except User.
 For User, type in the first few letters to see a choice of user names.
@@ -505,12 +509,20 @@ Dates for preview and production release are the earliest possible release date.
 
 The new developer dashboard is available in all new developer orgs in preview:
 
-![New Developer Dashboard](/img/release_notes/dev-dashboard.png "New Developer Dashboard")
+<div class="three-quarter border">
+
+![New Developer Dashboard](/img/release_notes/dev-dashboard.png)
+
+</div>
 
 Use the developer dashboard to access quick-start guides for your favorite language and view recent system log events.
 You can also create an OpenID Connect app more easily with this simplified flow:
 
-![New Developer Dashboard](/img/release_notes/new-oidc-app-dashboard.png "New Developer Dashboard")
+<div class="three-quarter border">
+
+![New Developer Dashboard](/img/release_notes/new-oidc-app-dashboard.png)
+
+</div>
 
 #### Zones API is an Early Access Release
 <!-- OKTA-129115 -->
@@ -757,8 +769,6 @@ Version 1.13.0 of the [Okta Sign-In Widget](https://github.com/okta/okta-signin-
 
 You can configure the JIT settings for a SAML identity provider (IdP) to enable unsuspending users during inbound SAML login. See the [Identity Providers API](/docs/reference/api/idps) for more information.<!-- OKTA-128384 -->
 
-![JIT settings for SAML IdP](/img/release_notes/JIT_settings.png "JIT settings for SAML IdP")
-
 #### Email Factor
 
  You can send a one-time password (OTP) and an activation link to an email address as part of enrolling a user.<!-- OKTA-132297  -->
@@ -886,8 +896,14 @@ Logged information about key rotation and generation for apps and identity provi
 For more information, see [Identity Provider Signing Key Store Operations](/docs/reference/api/idps/#identity-provider-signing-key-store-operations)
 or [Update Key Credential for Application](/docs/reference/api/apps/#update-key-credential-for-application).
 
-Here is a response from `/api/v1/logs`
-![Logged Key Rotation Event](/img/release_notes/KeyRotateLog.png "Logged Key Rotation Event")
+Here is a response from `/api/v1/logs`:
+
+<div class="full">
+
+![Logged Key Rotation Event](/img/release_notes/KeyRotateLog.png)
+
+</div>
+
 <!-- (OKTA-76607) -->
 
 #### Client Registration API Is an Early Access Feature
@@ -905,7 +921,12 @@ to create and manage clients.
 Logged information about OAuth 2.0 client updates is now available by using GET requests to
 either log endpoint: `/api/v1/events` or `/api/v1/logs`.
 
-![Logged Key Rotation Event](/img/release_notes/DeactClientLog.png "Logged Key Rotation Event")
+<div class="full">
+
+![Logged Key Rotation Event](/img/release_notes/DeactClientLog.png)
+
+</div>
+
 <!-- (OKTA-86738, OKTA-127445) -->
 
 #### Support for RP-Initiated Logout
@@ -983,7 +1004,11 @@ Using either the administrator UI or API, you can configure default scopes for a
 If the client omits the scope parameter in an authorization request,
 Okta returns all default scopes in the Access Token that are permitted by the access policy rule.
 
-![Default Scope Configuration UI](/img/release_notes/default-scope.png "Default Scope Configuration UI")
+<div class="three-quarter border">
+
+![Default Scope Configuration UI](/img/release_notes/default-scope.png)
+
+</div>
 
 For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/reference/api/authorization-servers/#scope-properties).
 <!-- OKTA-122185 OKTA-122072 -->
@@ -992,7 +1017,11 @@ For more information about setting default scopes in the API, see [OAuth 2.0 API
 
 The wizard for creating an OpenID Connect app has been improved and consolidated onto a single screen.
 
-![New OpenID Connect Create Wizard](/img/release_notes/single-oidc-screen.png "New OpenID Connect Create Wizard")
+<div class="three-quarter border">
+
+![New OpenID Connect Create Wizard](/img/release_notes/single-oidc-screen.png)
+
+</div>
 
 <!-- OKTA-129127 -->
 
@@ -2098,7 +2127,6 @@ For a full description of the rate limit changes, see [API Rate Limits](/docs/re
  to use multi-factor authentication for a user trying to log in. This log entry includes
  the user's zone.
 
-![Log screen](/img/graphics/SysLogMFA.png "Log screen")
 <!-- (OKTA-114417) -->
 
 ### Platform Bug Fixed
@@ -2234,7 +2262,11 @@ You can now search (exact match) for an authorization server name or resource UR
 To see the new search box, log into your Okta org, click the **Admin** button, and visit **Security > API > Authorization Servers**.
 <!-- OKTA-97833 -->
 
-![Search box for authorization servers](/img/release_notes/rn-search-as.png "Search box for authorization servers")
+<div class="full border">
+
+![Search box for authorization servers](/img/release_notes/rn-search-as.png)
+
+</div>
 
 #### Manual Key Rotation (Key Pinning)
 

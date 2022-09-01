@@ -161,8 +161,8 @@ The following table shows the scopes that are currently available:
 | `okta.devices.read`		| Allows the app to read any Device's profile      | [Devices API](/docs/reference/api/devices/)    <ApiLifecycle access="ie" />|
 | `okta.domains.manage`  | Allows the app to create and manage Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
 | `okta.domains.read`  | Allows the app to read information about Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
-| `okta.eventHooks.manage` | Allows the app to create and manage Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
-| `okta.eventHooks.read`   | Allows the app to read information about Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
+| `okta.eventHooks.manage` | Allows the app to create and manage event hooks in your Okta organization| [Event hooks API](/docs/reference/api/event-hooks/)|
+| `okta.eventHooks.read`   | Allows the app to read information about event hooks in your Okta organization| [Event hooks API](/docs/reference/api/event-hooks/)|
 | `okta.events.read`   | Allows the app to read deprecated Events v1 API entries in your Okta org| [Events API](/docs/reference/api/events/)|
 | `okta.factors.manage`    | Allows the app to manage all admin operations for org factors (for example, activate, deactivate, read)| [Factors Administration Operations](/docs/reference/api/factor-admin/#factors-administration-operations)|
 | `okta.factors.read`      | Allows the app to read org factors information                          | [Factors Administration Operations](/docs/reference/api/factor-admin/#factors-administration-operations)|
@@ -172,8 +172,8 @@ The following table shows the scopes that are currently available:
 | `okta.groups.read`       | Allows the app to read information about groups and their members in your Okta organization| [Groups API](/docs/reference/api/groups/#getting-started-with-the-groups-api)|
 | `okta.idps.manage`       | Allows the app to create and manage Identity Providers in your Okta organization| [Identity Providers API](/docs/reference/api/idps/#getting-started)|
 | `okta.idps.read`         | Allows the app to read information about Identity Providers in your Okta organization| [Identity Providers API](/docs/reference/api/idps/#getting-started)|
-| `okta.inlineHooks.manage`| Allows the app to create and manage Inline Hooks in your Okta organization | [Inline Hooks API](/docs/reference/api/inline-hooks/)|
-| `okta.inlineHooks.read` | Allows the app to read information about Inline Hooks in your Okta organization | [Inline Hooks API](/docs/reference/api/inline-hooks/)|
+| `okta.inlineHooks.manage`| Allows the app to create and manage inline hooks in your Okta organization | [Inline hooks API](/docs/reference/api/inline-hooks/)|
+| `okta.inlineHooks.read` | Allows the app to read information about inline hooks in your Okta organization | [Inline hooks API](/docs/reference/api/inline-hooks/)|
 | `okta.linkedObjects.manage`| Allows the app to manage Linked Object definitions in your Okta organization | [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.linkedObjects.read` | Allows the app to read Linked Object definitions in your Okta organization | [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.logStreams.manage`         | Allows the app to create and read log streams in your Okta organization | [Log Streaming API](/docs/reference/api/log-streaming/)|
@@ -191,8 +191,8 @@ The following table shows the scopes that are currently available:
 | `okta.policies.read`      | Allows the app to read information about Policies in your Okta organization | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
 | `okta.profileMappings.manage`| Allows the app to manage user profile mappings in your Okta organization | [Mappings API](/docs/reference/api/mappings/)|
 | `okta.profileMappings.read`| Allows the app to read user profile mappings in your Okta organization | [Mappings API](/docs/reference/api/mappings/)|
-| `okta.riskProviders.manage`        | Allows the app to create and manage risk provider integrations in your Okta organization | [Risk Providers API](/docs/reference/api/risk-providers/)|
-| `okta.riskProviders.read`        | Allows the app to read all risk provider integrations in your Okta organization | [Risk Providers](/docs/reference/api/risk-providers/)|
+| `okta.pushProviders.manage`| Allows the app to create and manage push notification providers such as APNs and FCM | [Push Providers API](/docs/reference/api/push-providers/)|
+| `okta.pushProviders.read`| Allows the app to read push notification providers such as APNs and FCM | [Push Providers API](/docs/reference/api/push-providers/)|
 | `okta.roles.manage`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
 | `okta.roles.read`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
 | `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization | [Schemas API](/docs/reference/api/schemas/#getting-started)|

@@ -5,7 +5,7 @@
 
 The following is a JSON example of an incoming SSR request from Okta that shows the user's profile data in the `userProfile` property. The values of `data.userProfile` from within the request body contains the properties that Okta verifies.
 
-See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
+See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a registration inline hook for full details.
 
 
 ```json
@@ -46,7 +46,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 <ApiLifecycle access="ie" />
 The following JSON example is a Progressive Profile request to the external service.
 
-See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a Registration Inline Hook for full details.
+See the [request properties](/docs/reference/registration-hook/#objects-in-the-request-from-okta) of a registration inline hook for full details.
 
 ```json
 {

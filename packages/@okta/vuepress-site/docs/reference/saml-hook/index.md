@@ -1,33 +1,29 @@
 ---
-title: SAML Assertion Inline Hook Reference
+title: SAML assertion inline hook reference
 excerpt: Customize SAML assertions returned by Okta.
 ---
 
-# SAML Assertion Inline Hook Reference
+# SAML assertion inline hook reference
 
-This page provides reference documentation for:
-
-- JSON objects contained in the outbound request from Okta to your external service
-
-- JSON objects you can include in your response
-
-This information is specific to the SAML Assertion Inline Hook, one type of Inline Hook supported by Okta.
+This page provides reference documentation for SAML assertion inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+- For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
-For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+- For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see below, [Enabling a SAML Assertion Inline Hook](#enabling-a-saml-assertion-inline-hook).
+- For a use case example of how to implement a SAML assertion inline hook, see [SAML assertion inline hook](/docs/guides/saml-inline-hook/).
+
+- For steps to enable this inline hook, see below, [Enabling a SAML assertion inline hook](#enabling-a-saml-assertion-inline-hook).
 
 ## About
 
-This type of Inline Hook is triggered when Okta generates a SAML assertion in response to an authentication request. Before sending the SAML assertion to the app that will consume it, Okta calls out to your external service. Your external service can respond with commands to add attributes to the assertion or to modify its existing attributes.
+This type of inline hook is triggered when Okta generates a SAML assertion in response to an authentication request. Before sending the SAML assertion to the app that will consume it, Okta calls out to your external service. Your external service can respond with commands to add attributes to the assertion or to modify its existing attributes.
 
 This functionality can be used to add data to assertions, which might be data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, SAML assertions generated for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
-This Inline Hook works only when using custom SAML apps, not apps from the OIN.
+This inline hook works only when using custom SAML apps, not apps from the OIN.
 
 ## Objects in the request from Okta
 
@@ -290,7 +286,7 @@ The following sub-objects are included:
 
 ## Objects in response you send
 
-For the SAML Assertion Inline Hook, the objects that you can return in the JSON payload of your response are defined as follows:
+For the SAML assertion inline hook, the objects that you can return in the JSON payload of your response are defined as follows:
 
 ### commands
 
@@ -298,7 +294,7 @@ The `commands` object is where you can tell Okta to add additional claims to the
 
 `commands` is an array, allowing you to send multiple commands. In each array element, you include a `type` property and a `value` property. The `type` property is where you specify which of the supported commands you want to execute, and `value` is where you supply an operand for that command.
 
-In the case of the SAML Assertion Inline Hook, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
+In the case of the SAML assertion inline hook, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
 
 | Property | Description                                                              | Data Type       |
 |----------|--------------------------------------------------------------------------|-----------------|
@@ -307,7 +303,7 @@ In the case of the SAML Assertion Inline Hook, the `value` property is itself a 
 
 #### Supported commands
 
-The following command is currently supported for the SAML Assertion Inline Hook type:
+The following command is currently supported for the SAML assertion inline hook type:
 
 | Command                  | Description              |
 |--------------------------|--------------------------|
@@ -330,7 +326,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | add     | Add a new claim to the assertion       |
 | replace | Modify any element of the assertion   |
 
->**Note:** If a response to the SAML Assertion Inline Hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta process flow continues with the original SAML assertion returned.
+>**Note:** If a response to the SAML assertion inline hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta process flow continues with the original SAML assertion returned.
 
 ### Specify location within the assertion
 
@@ -457,11 +453,11 @@ This example displays `replace` and `add` operations with the URI formatted clai
 }
 ```
 
-## Enabling a SAML Assertion Inline Hook
+## Enabling a SAML assertion inline hook
 
-To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
+To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-You then need to associate the registered Inline Hook with a SAML app by completing the following steps in Admin Console:
+You then need to associate the registered inline hook with a SAML app by completing the following steps in Admin Console:
 
 1. Go to **Applications** and select your SAML app.
 
@@ -473,6 +469,6 @@ You then need to associate the registered Inline Hook with a SAML app by complet
 
 1. Click **Show Advanced Settings**.
 
-1. In the **Assertion Inline Hook** field, select your registered Inline Hook.
+1. In the **Assertion Inline Hook** field, select your registered inline hook.
 
-> **Note:** Only one Inline Hook can be associated with each app.
+> **Note:** You can associate only one inline hook with each app.

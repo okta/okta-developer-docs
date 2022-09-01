@@ -14,7 +14,7 @@ Role listing APIs provide a union of both standard and Custom Roles assigned to 
 
 ## Get started
 
-Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/276a9ad500a92c942865)
+Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63c73546214177bae3bf)
 
 ## Custom Role operations
 
@@ -87,7 +87,7 @@ Gets a Custom Role by its ID or label
 
 | Parameter     | Description                          | Param Type   | DataType                    | Required |
 | :------------ | :----------------------------------- | :----------- | :----------------------------------------------- | :------- |
-| `roleIdOrLabel` | `id` or `label` of the Role          | URL          | String                                           | TRUE     |
+| `roleIdOrLabel` | `id` or `label` of the Role        | URL          | String                                           | TRUE     |
 
 #### Response parameters
 
@@ -541,15 +541,15 @@ curl -v -X POST \
 
 ### Get Resource Set
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}" />
 
-Gets a Resource Set by its ID
+Gets a Resource Set by its ID or Label
 
 #### Request parameters
 
-| Parameter     | Description                          | Param Type   | DataType                    | Required |
-| :------------ | :----------------------------------- | :----------- | :----------------------------------------------- | :------- |
-| `resourceSetId` | Unique ID of the Resource Set        | URL          | String                                           | TRUE     |
+| Parameter              | Description                            | Param Type   | DataType                    | Required |
+|:-----------------------|:---------------------------------------| :----------- | :----------------------------------------------- | :------- |
+| `resourceSetIdOrLabel` | Unique ID or label of the Resource Set | URL          | String                                           | TRUE     |
 
 #### Response parameters
 
@@ -660,17 +660,17 @@ curl -v -X GET \
 
 ### Update Resource Set
 
-<ApiOperation method="put" url="/api/v1/iam/resource-sets/${resourceSetId}" />
+<ApiOperation method="put" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}" />
 
 Updates the label and description of a Resource Set
 
 #### Request parameters
 
 | Parameter     | Description                               | Param Type   | DataType     | Required |
-| :------------ | :---------------------------------------- | :----------- | :----------- | :------- |
-| `resourceSetId` | Unique ID of the Resource Set             | URL          | String       | TRUE     |
+| :------------ |:------------------------------------------| :----------- | :----------- | :------- |
+| `resourceSetIdOrLabel` | Unique ID or label of the Resource Set    | URL          | String       | TRUE     |
 | `label`         | New unique name given to the Resource Set | Body         | String       | TRUE     |
-| `description`   | New description of the Resource Set   | Body         | String       | TRUE     |
+| `description`   | New description of the Resource Set       | Body         | String       | TRUE     |
 
 #### Response parameters
 
@@ -714,7 +714,7 @@ curl -v -X PUT \
 
 ### Delete Resource Set
 
-<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}" />
+<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}" />
 
 Deletes a Resource Set and all its associated Bindings
 
@@ -722,7 +722,7 @@ Deletes a Resource Set and all its associated Bindings
 
 | Parameter      | Description                          | Param Type   | DataType                              | Required |
 | :------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
-| `resourceSetId`  | ID of the Resource Set             | URL          | String                                | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set             | URL          | String                                | TRUE     |
 
 #### Response parameters
 
@@ -752,7 +752,7 @@ These operations add, remove, and list the resources within a Resource Set.
 
 #### Add more resources
 
-<ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/resources" />
+<ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/resources" />
 
 Adds more resources to a Resource Set
 
@@ -760,7 +760,7 @@ Adds more resources to a Resource Set
 
 | Parameter      | Description                                                                       | Param Type   | DataType     | Required |
 | :------------- | :----------------------------------------------------------------------------- | :----------- | :----------- | :------- |
-| `resourceSetId`  | ID of the Resource Set                                                       | URL          | String       | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set                                                       | URL          | String       | TRUE     |
 | `additions`      | The endpoints that reference the resources to be included in the new Resource Set | Body         | Array of URL | TRUE     |
 
 ##### Response parameters
@@ -809,7 +809,7 @@ curl -v -X PATCH \
 
 #### List resources
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/resources" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/resources" />
 
 Lists the Resources that make up a Resource Set
 
@@ -817,7 +817,7 @@ Lists the Resources that make up a Resource Set
 
 | Parameter      | Description               | Param Type   | DataType     | Required |
 | :------------- | :------------------------ | :----------- | :----------- | :------- |
-| `resourceSetId`  | ID of the Resource Set  | URL          | String       | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set  | URL          | String       | TRUE     |
 
 ##### Response parameters
 
@@ -885,16 +885,16 @@ curl -v -X GET \
 
 #### Delete a resource
 
-<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/resources/${resourceId}" />
+<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/resources/${resourceId}" />
 
 Removes a resource from a Resource Set
 
 ##### Request parameters
 
-| Parameter      | Description                             | Param Type   | DataType     | Required |
-| :------------- | :-------------------------------------- | :----------- | :----------- | :------- |
-| `resourceSetId`  | ID of the Resource Set                  | URL          | String       | TRUE     |
-| `resourceId`     | ID of the resource within the Resource Set  | URL          | String       | TRUE     |
+| Parameter      | Description                                      | Param Type   | DataType     | Required |
+| :------------- |:-------------------------------------------------| :----------- | :----------- | :------- |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set                  | URL          | String       | TRUE     |
+| `resourceId`     | ID of the resource within the Resource Set       | URL          | String       | TRUE     |
 
 `resourceId` is the ID that is obtained when [resources are listed within the Resource Set](#list-resources). For example, if the resource object is:
 
@@ -942,17 +942,17 @@ A Binding represents an association of a principal, Role, and Resource Set that 
 
 ### Create a new Binding
 
-<ApiOperation method="post" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings" />
+<ApiOperation method="post" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings" />
 
 Assigns a Custom Role by creating a Binding between the Role and the admin that targets an existing Resource Set
 
 #### Request parameters
 
-| Parameter      | Description                                                   | Param Type    | DataType       | Required |
-| :------------- | :------------------------------------------------------------ | :------------ | :------------- | :------- |
-| `resourceSetId`| ID of the Resource Set                                        | URL           | String         | TRUE     |
-| `role`           | ID of the Role                                              | Body          | String         | TRUE     |
-| `members`        | The hrefs that point to User(s) and/or Group(s) that receive the Role  | Body          | Array of hrefs | TRUE     |
+| Parameter      | Description                                                           | Param Type    | DataType       | Required |
+| :------------- |:----------------------------------------------------------------------| :------------ | :------------- | :------- |
+| `resourceSetIdOrLabel`| ID or label of the Resource Set                                       | URL           | String         | TRUE     |
+| `role`           | ID of the Role                                                        | Body          | String         | TRUE     |
+| `members`        | The hrefs that point to User(s) and/or Group(s) that receive the Role | Body          | Array of hrefs | TRUE     |
 
 #### Response parameters
 
@@ -997,16 +997,16 @@ curl -v -X POST \
 
 ### Add more Members to a Binding
 
-<ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members" />
+<ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}/members" />
 
 Adds more Members to a Role Binding that is already created in a Resource Set
 
 #### Request parameters
 
-| Parameter      | Description                                                           | Param Type   | DataType       | Required |
-| :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
-| `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleIdOrLabel`         | ID or label of the Role to grant                                         | URL          | String         | TRUE     |
+| Parameter      | Description                                                                    | Param Type   | DataType       | Required |
+| :------------- |:-------------------------------------------------------------------------------| :----------- | :------------- | :------- |
+| `resourceSetIdOrLabel`  | ID or label of the target Resource Set                                  | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to grant                                               | URL          | String         | TRUE     |
 | `additions`      | Array of hrefs that point to the User(s) and/or Group(s) that receive the Role | Body         | Array of hrefs | TRUE     |
 
 #### Response parameters
@@ -1052,16 +1052,16 @@ curl -v -X PATCH \
 
 ### List Members in a Binding
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}/members" />
 
 Gets a paginated list of Members that are assigned to a Role in a Resource Set
 
 #### Request parameters
 
-| Parameter      | Description                                                           | Param Type   | DataType       | Required |
-| :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
-| `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleIdOrLabel`         | ID or label of the Role to identify the Binding                          | URL          | String         | TRUE     |
+| Parameter      | Description                                     | Param Type   | DataType       | Required |
+| :------------- |:------------------------------------------------| :----------- | :------------- | :------- |
+| `resourceSetIdOrLabel`  | ID or label of the target Resource Set   | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to identify the Binding | URL          | String         | TRUE     |
 
 #### Response parameters
 
@@ -1115,17 +1115,17 @@ curl -v -X GET \
 
 ### Get a Member from a Binding
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members/${memberId}" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}/members/${memberId}" />
 
 Gets a Member of a Role in a Resource Set
 
 #### Request parameters
 
-| Parameter      | Description                                                           | Param Type   | DataType       | Required |
-| :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
-| `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleIdOrLabel`         | ID or label of the Role to identify the Binding                              | URL          | String         | TRUE     |
-| `memberId`       | ID of the Member within the Binding                                 | URL          | String         | TRUE     |
+| Parameter      | Description                                     | Param Type   | DataType       | Required |
+| :------------- |:------------------------------------------------| :----------- | :------------- | :------- |
+| `resourceSetIdOrLabel`  | ID or label of the target Resource Set	  | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to identify the Binding | URL          | String         | TRUE     |
+| `memberId`       | ID of the Member within the Binding             | URL          | String         | TRUE     |
 
 
 `memberId` is the ID that is obtained when [Members are listed in a Binding](#list-members-in-a-binding). For example, if the Member object was:
@@ -1176,17 +1176,17 @@ curl -v -X GET \
 
 ### Delete a Member from a Binding
 
-<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}/members/${memberId}" />
+<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}/members/${memberId}" />
 
 Deletes a Member of a Role in a Resource Set
 
 #### Request parameters
 
-| Parameter      | Description                                                           | Param Type   | DataType       | Required |
-| :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
-| `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
-| `roleIdOrLabel`         | ID or label of the Role to identify the Binding                              | URL          | String         | TRUE     |
-| `memberId`       | ID of the Member in the Binding                                 | URL          | String         | TRUE     |
+| Parameter      | Description                                     | Param Type   | DataType       | Required |
+| :------------- |:------------------------------------------------| :----------- | :------------- | :------- |
+| `resourceSetIdOrLabel`  | ID or label of the target Resource Set	  | URL          | String         | TRUE     |
+| `roleIdOrLabel`         | ID or label of the Role to identify the Binding | URL          | String         | TRUE     |
+| `memberId`       | ID of the Member in the Binding                 | URL          | String         | TRUE     |
 
 
 `memberId` is the ID that is obtained when [Members are listed in a Binding](#list-members-in-a-binding). For example, if the Member object was:
@@ -1230,7 +1230,7 @@ HTTP/1.1 204 No Content
 
 #### Get a Binding by Role ID or label
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}" />
 
 Gets a Binding from a Resource Set by its Role ID
 
@@ -1238,7 +1238,7 @@ Gets a Binding from a Resource Set by its Role ID
 
 | Parameter      | Description              | Param Type   | DataType     | Required |
 | :------------- | :----------------------- | :----------- | :----------- | :------- |
-| `resourceSetId`  | ID of the Resource Set | URL          | String       | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set | URL          | String       | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role         | URL          | String       | TRUE     |
 
 ##### Response parameters
@@ -1280,15 +1280,15 @@ curl -v -X GET \
 
 #### Get all Bindings in a Resource Set
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings" />
 
 Gets all the Bindings from a Resource Set
 
 ##### Request parameters
 
-| Parameter      | Description               | Param Type   | DataType     | Required |
-| :------------- | :------------------------ | :----------- | :----------- | :------- |
-| `resourceSetId`  | ID of the Resource Set  | URL          | String       | TRUE     |
+| Parameter      | Description                             | Param Type   | DataType     | Required |
+| :------------- |:----------------------------------------| :----------- | :----------- | :------- |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set  | URL          | String       | TRUE     |
 
 ##### Response parameters
 
@@ -1337,7 +1337,7 @@ curl -v -X GET \
 
 ### Delete a Binding
 
-<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleIdOrLabel}" />
+<ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}" />
 
 Deletes a Binding of a Role from a Resource Set
 
@@ -1345,7 +1345,7 @@ Deletes a Binding of a Role from a Resource Set
 
 | Parameter      | Description               | Param Type   | DataType     | Required |
 | :------------- | :------------------------ | :----------- | :----------- | :------- |
-| `resourceSetId`  | ID of the Resource Set  | URL          | String       | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the Resource Set  | URL          | String       | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role          | URL          | String       | TRUE     |
 
 #### Response parameters
@@ -1600,6 +1600,83 @@ curl -v -X GET \
 ]
 ```
 
+##### Response example with IAM-based Standard Role
+<ApiLifecycle access="ea" />
+
+```json
+[
+    {
+        "id": "IFIFAX2BIRGUSTQ",
+        "label": "Application Administrator",
+        "type": "APP_ADMIN",
+        "status": "ACTIVE",
+        "created": "2019-02-06T16:17:40.000Z",
+        "lastUpdated": "2019-02-06T16:17:40.000Z",
+        "assignmentType": "USER",
+        "_links": {
+            "assignee": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+            }
+        }
+    },
+  {
+    "id": "irb1q92TFAHzySt3x0g4",
+    "role": "cr0Yq6IJxGIr0ouum0g3",
+    "label": "UserCreatorRole",
+    "type": "CUSTOM",
+    "status": "ACTIVE",
+    "created": "2019-02-06T16:20:57.000Z",
+    "lastUpdated": "2019-02-06T16:20:57.000Z",
+    "assignmentType": "USER",
+    "resource-set": "iamoJDFKaJxGIr0oamd9g",
+    "_links": {
+      "assignee": {
+        "href": "https://{yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
+      },
+      "resource-set": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      },
+      "member": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+      },
+      "role": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      },
+      "permissions": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
+      }
+    }
+  }, {
+    "id": "irb5e92YgBazyyQ3x1q5",
+    "role": "ACCESS_CERTIFICATIONS_ADMIN",
+    "label": "Access Certifications Administrator",
+    "type": "ACCESS_CERTIFICATIONS_ADMIN",
+    "status": "ACTIVE",
+    "created": "2019-02-06T16:20:57.000Z",
+    "lastUpdated": "2019-02-06T16:20:57.000Z",
+    "assignmentType": "USER",
+    "resource-set": "ACCESS_CERTIFICATIONS_IAM_POLICY",
+    "_links": {
+      "assignee": {
+        "href": "https://{yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
+      },
+      "resource-set": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY"
+      },
+      "member": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY/bindings/ACCESS_CERTIFICATIONS_ADMIN/members/irb1qe6PGuMc7Oh8N0g4"
+      },
+      "role": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_CERTIFICATIONS_ADMIN"
+      },
+      "permissions": {
+        "href": "https://{yourOktaDomain}/api/v1/iam/permission-sets/OKTA_IAM_TEST_DELIVERED_ROLE/permissions"
+      }
+    }
+  }
+]
+```
+
 #### List Roles assigned to a Group
 
 
@@ -1814,7 +1891,51 @@ curl -v -X POST \
   }
 }
 ```
+#### Assign an IAM-based Standard Role to a User or Group
+<ApiLifecycle access="ea" />
+You can assign an IAM-based Standard Role like any other Standard Role.
 
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+      "type": "ACCESS_REQUESTS_ADMIN"
+}' "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3/roles"
+```
+
+###### Response example
+
+```json
+{
+  "id": "irb1q92TFAHzySt3x0g4",
+  "role": "ACCESS_REQUESTS_ADMIN",
+  "label": "Access Requests Administrator",
+  "type": "ACCESS_REQUESTS_ADMIN",
+  "status": "ACTIVE",
+  "created": "2019-02-06T16:20:57.000Z",
+  "lastUpdated": "2019-02-06T16:20:57.000Z",
+  "assignmentType": "GROUP",
+  "resource-set": "ACCESS_CERTIFICATIONS_IAM_POLICY",
+  "_links": {
+    "assignee": {
+      "href": "https://{yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
+    },
+    "resource-set": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY"
+    },
+    "role": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_REQUESTS_ADMIN"
+    },
+    "permissions": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_REQUESTS_ADMIN/permissions"
+    }
+  }
+}
+```
 ### Unassign a Role
 
 #### Unassign a Role from a User
@@ -2970,6 +3091,14 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 
 `API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature is enabled. See [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management) for a description of what the Role can do.
 
+##### IAM-based Role types
+<ApiLifecycle access="ea" />
+We also support the following IAM-based standard roles:
+| Role type                                               | Label                            | Permissions                                   |
+| :------------------------------------------------------ | :------------------------------- | :-------------------------------------------- |
+| `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Administrator | `okta.governance.accessCertifications.manage` |
+| `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Administrator       | `okta.governance.accessRequests.manage`       |
+
 #### Assignment types
 
 A Role could either be assigned to the User directly or be assigned to a Group of which the User is a Member. The `assignee` in `_links` provides more details about the User or the Group to which the assignment was made.
@@ -3064,6 +3193,11 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
 | `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
 | `okta.workflows.invoke`       <br><ApiLifecycle access="ea" />  | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
+| `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Access Certifications |
+| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests |
+| `okta.apps.manageFirstPartyApps`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage first-party apps                                                                                       | All Access Requests |
+> **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use these to create or update other roles.
+> **Note:** `okta.apps.manageFirstPartyApps` permission is currently only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use it to create or update other roles.
 
 #### Example
 
@@ -3122,9 +3256,12 @@ The following are the supported resources.
 |                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
 | Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
 |                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
+| Governance              | All Access Certifications         <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:certifications`                                   |                                                                                                                                                         |
+|                         | All Access Requests               <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:requests`                                         |                                                                                                                                                         |
 
 The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 
+> **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](/docs/concepts/role-assignment/#standard-resource-sets). You can't use these to create or update other resource sets.
 #### Resource examples
 
 ##### Group as resource

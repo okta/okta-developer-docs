@@ -19,6 +19,7 @@
 .content__default div.half {
   img {
     width: 75%;
+    max-width: 350px;
   }
 }
 
@@ -40,7 +41,6 @@
   .content__default div.half {
     img {
       width: 50%;
-      max-width: 350px;
     }
   }
   
@@ -56,5 +56,26 @@
 .content__default div.border {
   img {
     border: 1px solid cv('gray', '200');
+    border-radius: 20px;
+  }
+}
+
+/* optional border class for adding a "sketchy" border to wireframe diagrams */
+
+.content__default div.wireframe-border {
+  img {
+    border-width: 5px;
+    border-style: solid;
+    border-image-source: url('/img/ui/wireframe-border-image-black.png');
+    border-image-slice: 10;
+    border-image-repeat: stretch;
+  }
+}
+
+/* swap out border image when dark mode is enabled */
+
+.dark-theme .content__default div.wireframe-border {
+  img {
+    border-image-source: url('/img/ui/wireframe-border-image-white.png');
   }
 }
