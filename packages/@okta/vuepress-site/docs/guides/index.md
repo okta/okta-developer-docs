@@ -193,6 +193,6 @@ Integrations can be published publicly in the Okta Integration network catalog, 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 
 1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
-1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/)
-1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
+1. [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/)
+1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
 1. [Submit an app integration](/docs/guides/submit-app/)

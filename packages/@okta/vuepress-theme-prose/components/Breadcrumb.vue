@@ -60,13 +60,14 @@
           if (parent) {
             menuItem.parents = _.union([parent], parent.parents)
           }
+          if(menuItem.path != undefined && window.location.pathname === menuItem.path) {
 
-          if(menuItem.path != undefined && this.$page.path === menuItem.path) {
-
-            //add parent crumbs           
-            menuItem.parents.reverse().map((parentCrumb) => {
-              this.crumbs.push({'link': parentCrumb.path, 'title': parentCrumb.title});
-            });
+            //add parent crumbs    
+            if (menuItem.parents) {      
+              menuItem.parents.reverse().map((parentCrumb) => {
+                this.crumbs.push({'link': parentCrumb.path, 'title': parentCrumb.title});
+              });
+            }
 
             this.crumbs.push({'link': menuItem.path, 'title': menuItem.title});
           }

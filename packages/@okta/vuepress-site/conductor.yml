@@ -2129,10 +2129,14 @@ redirects:
     to: /code/rest/
   - from: /docs/code/python/pysaml2.html
     to: /code/python/pysaml2/
-  - from: /integrate-with-okta
-    to: /okta-integration-network
   - from: /integrate-with-okta/index.html
-    to: /okta-integration-network
+    to: /docs/guides/okta-integration-network/
+  - from: /integrate-with-okta
+    to: /docs/guides/okta-integration-network/
+  - from: /okta-integration-network/index.html
+    to: /docs/guides/okta-integration-network/
+  - from: /okta-integration-network
+    to: /docs/guides/okta-integration-network/
   - from: /docs/guides/set-up-event-hook/overview
     to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/overview/index.html

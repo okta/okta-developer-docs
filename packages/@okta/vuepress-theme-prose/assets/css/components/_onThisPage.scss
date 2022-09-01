@@ -6,10 +6,10 @@
     color: cv('action');
     position: sticky;
     overflow-y: auto;
-    top: 155px;
+    top: 175px;
 
     @include media('>=tablet') {
-      top: 150px;
+      top: 170px;
       min-height: 450px;
       padding-bottom: 40px;
     }

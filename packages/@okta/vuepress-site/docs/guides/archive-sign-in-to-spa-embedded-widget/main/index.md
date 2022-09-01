@@ -4,6 +4,10 @@ excerpt: Front-end framework guides for the embedded Okta Sign-In Widget
 layout: Guides
 ---
 
+::: slot description
+For Okta Classic customers: Add embedded authentication to your SPA app using the Okta Embedded Sign-In Widget.
+:::
+
 <StackSnippet snippet="guide" />
 
 ## See also 

@@ -65,15 +65,15 @@ body {
 }
 
 .page-body {
-  padding-top: 87px;
+  padding-top: 142px;
   background-color: white;
   flex: 1 0 auto;
 
   @include media("<desktop-xl") {
-    padding-top: 70px;
+    padding-top: 125px;
   }
   @include media("<tablet") {
-    padding-top: 60px;
+    padding-top: 115px;
   }
 }
 
