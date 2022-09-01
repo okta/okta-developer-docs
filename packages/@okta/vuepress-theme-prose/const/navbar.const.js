@@ -620,6 +620,10 @@ export const guides = [
           {
             title: "Secure OAuth API connection between orgs",
             guideName: "secure-oauth-between-orgs"
+          },
+          {
+            title: "Step-up authentication using ACR values",
+            guideName: "step-up-authentication"
           }
         ]
       },
