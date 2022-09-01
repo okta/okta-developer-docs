@@ -1,20 +1,40 @@
 ### 1: Register new users
 
-The self-registration flow begins when the user clicks the **Sign up** link on your app's sign-in page. Create a **Sign up** link that directs the user to a create account form, such as the following example:
+The self-registration flow begins when the user clicks the **Sign up** link on your app's sign-in page. Create a **Sign up** link that directs the user to a create account form, similar to the following wireframe.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays the sign-in form for Java SDK with a 'Sign up' link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up-java.png)
+![Sign-in form with a 'Forgot your password?' link](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g2r2.png)
+
+</div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 2
+
+-->
+
+You need to create a form to capture the user's new account details.
+
+<div class="half wireframe-border">
+
+![Create Account form with first name, last name, and email fields](/img/oie-embedded-sdk/wireframes/create-account-form-g2r25.png)
 
 </div>
 
-You need to create a form to capture the user's new account details, such as the following example:
+<!--
 
-<div class="half">
+Source image:
 
-![Displays the Create Account form for Java SDK with first name, last name, and email fields](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create-java.png)
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
 
-</div>
+Group 2, row 25
+
+-->
 
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) method.
 
@@ -63,13 +83,23 @@ After the initial register request, `IDXAuthenticationWrapper.register()` return
    val authenticators = authenticationResponse.authenticators
    ```
 
-After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators, you need to provide the user with a form to select the authenticator to enroll. In the following example, there is only one password authenticator to enroll:
+After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators, you need to provide the user with a form to select the authenticator to enroll. In the following wireframe, there is only one password authenticator to enroll.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays the Java SDK authenticator enrollment form with one 'Password' authenticator](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-password-java.png)
+![Choose authenticator form with password option](/img/oie-embedded-sdk/wireframes/choose-authenticator-password-form-g2r26.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 26
+
+-->
 
 ### 4: The user selects the authenticator to enroll
 
@@ -81,11 +111,21 @@ val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(procee
 
 This request returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION`. You need to build a form for the user to enter their password in this authenticator verification step.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays the Java SDK password authenticator verification form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-confirm-password-java.png)
+![Set password form with new password and confirm new password fields](/img/oie-embedded-sdk/wireframes/set-password-form-g2r27.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 27
+
+-->
 
 ### 5: Verify the authenticator and display additional authenticators
 
@@ -96,13 +136,23 @@ val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(newPassword)
 val authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
-The request returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and an `Authenticators` list that contains the email and phone factors. Reuse the authenticator enrollment form from [3: Display enrollment factors](#_3-display-the-enrollment-factors) to display the list of authenticators to the user.
+The request returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and an `Authenticators` list that contains the email and phone factors.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays the Java SDK Email and Phone authenticator enrollment form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-email-phone-java.png)
+![Choose authenticator form with Email and Phone options](/img/oie-embedded-sdk/wireframes/choose-authenticator-email-phone-form-g2r28.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 28
+
+-->
 
 ### 6: The user selects the email authenticator
 
@@ -114,11 +164,21 @@ val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(procee
 
 If this request is successful, a code is sent to the user's email and `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` is returned. You need to build a form to capture the code for this verification step.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays the Java SDK's Verify Code form for the email authenticator](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code-java.png)
+![Email verification code input form](/img/oie-embedded-sdk/wireframes/enter-verification-code-form-g2r5.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 5
+
+-->
 
 > **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [The email link to verify that the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-that-the-email-address-isn-t-working) for details.
 
@@ -138,11 +198,21 @@ Based on the configuration described in [Set up your Okta org for a multifactor 
 
 If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Step 8, Option 1: The user skips the phone authenticator](#option-1-the-user-skips-the-phone-authenticator) for the skip authenticator flow. If the user decides to select the optional factor, see [Step 8, Option 2: The user selects the phone authenticator](#option-2-the-user-selects-the-phone-authenticator) for the optional phone authenticator flow.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays the Java SDK's phone authenticator enrollment form with Skip button](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-phone-java.png)
+![Choose authenticator form with Phone option and skip button](/img/oie-embedded-sdk/wireframes/choose-authenticator-phone-optional-form-g2r30.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 30
+
+-->
 
 ### 8: Handle the phone authenticator options
 
@@ -183,13 +253,23 @@ val authenticationResponse =
 
 The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
 
-You need to build a form to capture the user's SMS verification code. For example:
+You need to build a form to capture the user's SMS verification code.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays the verification code input form for the Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-in-pwd-phone-verify-email-code-java.png)
+![Email verification code input form](/img/oie-embedded-sdk/wireframes/enter-verification-code-form-g2r5.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 5
+
+-->
 
 ##### 2. The user enters their phone number and selects either the SMS or the Voice Verify method
 
@@ -197,19 +277,39 @@ This step assumes that your org is enabled with the voice feature.
 
 You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays the Java SDK's enroll phone number authenticator form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num-java.png)
+![Phone number entry form](/img/oie-embedded-sdk/wireframes/auth-enter-phone-number-form-g2r32.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 32
+
+-->
 
 > **Note:** The Java SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays the Java SDK's phone factor (SMS or voice) form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-mode-java.png)
+![Phone verification factor selection form](/img/oie-embedded-sdk/wireframes/choose-message-type-verification-code-g2r33.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 33
+
+-->
 
 When the user enters their phone number and selects a method to receive the verification code, capture this information and send it to the `IDXAuthenticationWrapper.submitPhoneAuthenticator()` method.
 
