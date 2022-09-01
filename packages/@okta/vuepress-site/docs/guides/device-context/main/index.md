@@ -1,18 +1,18 @@
 ---
-title: Device Context
+title: Device Context Overview
 ---
 
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
 
-This guide shows you how to enable and integrate device context into your application using the Embedded SDK.
+Enable a new device rule for your Org's authentication policy.
 
 ---
 **Learning outcomes**
 
+* Send a unique device ID to the Okta servers with a custom HTTP request header.
 * Understand how device context enables Adaptive Multifactor Authentication (AMFA).
-* Learn how to enable device context in your app.
 
 **What you need**
 
@@ -27,92 +27,122 @@ This guide shows you how to enable and integrate device context into your applic
 
 ## Overview
 
-### Adaptive Multifactor Authentication and device context defined
+Server-side web applications can use the `X-Device-Token` custom HTTP request header to send a user's device ID to an Okta org. The ID:
 
-A fixed authentication strategy for each one of your users isn't ideal, especially when their sign-in requests span varying degrees of risk levels. For example, a user signing in to your website from a new device or new country may signal a risky situation and demands strong security. Adding additional authenticators&#8212;email, phone SMS, or biometrics&#8212;gives extra identity assurance in these circumstances. These authenticators, however, also add sign-in friction for safer situations such as your user signing in from home on a previously used device. Okta's Adaptive Multifactor Authentication (AMFA) solves this need for differing security strategies by dynamically throttling the amount and type of authenticators based on the riskiness of the user's location and device identity.
+* Is 32 characters or less.
+* Identifies the specific user device.
+* Is unique across all devices.
 
-Okta's AMFA uses device context coupled with policy-driven logic to decide when users are required to verify themselves with additional authenticators. This device context includes the device's location, unique identifier, and user agent used during the sign-in flow. Okta manages this device context for you automatically when you use the Redirect or Sign-In Widget deployment models. Create the policies in your org to start using AMFA.
+For server-side apps using an embedded SDK, developers must create the ID and attach it to the `X-Device-Token` header. The ID informs two features within an Org that flag "a request is coming to the Org from a new device":
 
-### Use device context with the Embedded SDK
+* [Device Context](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/guides/devices/devcontext-main.htm)
+* [Behavior Detection](https://help.okta.com/oie/en-us/Content/Topics/Security/behavior-detection/about-behavior-detection.htm)
 
-For Embedded SDK integrations, where your middleware server-side application is a trusted client, you are required to create, store, and pass this device context information to Okta. Currently, the SDK supports using a device ID that represents a unique identifier for the user's device. With this device ID, you can detect whether a user is using a new or previously used device to sign in.
+Administrators can write authentication policy rules for sign-in requests from a new device using the **new device behavior**. The following diagram shows this flow:
 
-To enable AMFA in your app using the Embedded SDK, you need to enable AMFA in your org, create and manage these device IDs, and update your application to pass the device ID to the SDK. This guide shows you how to do this.
+<div class="full">
 
-## Update configurations
+![Flow diagram showing how the new device behavior works](/img/advanced-use-cases/device-context-new-behavior-flow.png)
 
-Update your Okta org to allow for AMFA. The following steps set up your org to prompt users with an additional authenticator when they are on a new device. Subsequent sign-in flows only require a username and password. The steps are as follows:
+</div>
 
-1. [Create your Okta org](#create-your-okta-org)
-1. [Add a new Global Session Policy](#add-a-new-global-session-policy)
-1. [Confirm catch-all rule has no additional authenticators](#confirm-catch-all-rule-has-no-additional-authenticators)
-1. [Add a new rule in the authentication policy](#add-a-new-rule-in-the-authentication-policy)
+> **Note:** Find your Org's definition of **New Device** in your Admin Console under **Security** > **Behavior Detection**.
 
-### Create your Okta org
+## Update your application to send an X-Device-Token header
 
-1. If you haven't yet created an org, [create one](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#get-set-up) and <StackSnippet snippet="configureorg" inline/>.
+<StackSnippet snippet="integrationsteps" />
 
-1. Ensure that you have at least one authenticator set up for your org. See how to set up an [Email](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_1-set-up-the-email-authenticator-for-authentication-and-recovery) and [Phone](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_2-add-the-phone-authenticator-for-authentication-and-recovery) Authenticator.
+## An Example: Adaptive Multi-Factor Authentication
 
-### Add a new Global Session Policy
+An Adaptive Multi-Factor Authentication (AMFA) policy means that users are prompted for a different number of authentication factors based on a number of criteria, including:
 
-Add a new Global Session Policy that allows applications to set rules for new devices.
+* Location: Where are they signing in from?
+* New device: Are they signing in from a managed or known device?
+* Network: Are they signing in from a safe network?
+* Travel: Are they signing in from a new location?
+* What groups does the user belong to?
+* Are they signing in through SSO?
+
+For example, a user signing in to your website from a new device or new country may signal a risky situation. Requiring additional authenticators&mdash;email, phone SMS, or biometrics&mdash;gives extra identity assurance in these circumstances.
+
+In this example, you'll implement a simple AMFA policy requiring two authentication factors from new devices and only one factor from known devices. The following diagram illustrates this flow:
+
+<div class="full">
+
+![Flow diagram showing how adaptive multifactor authentication works for new devices](/img/advanced-use-cases/device-context-adaptive-mfa-flow.png)
+
+</div>
+
+Follow these steps to enable this AMFA policy in your app:
+
+1. Update your application to send the `X-Device-Token` header to your Org.
+2. Update or create a new global session policy to require a second authentication factor for sign-in requests from new devices.
+3. Update or create an authentication policy for your app to require and identify a second authentication factor for new devices.
+
+> **Note**: For testing purposes, we suggest creating new policies rather than adding AMFA rules to your existing policies.
+
+### Create a new global session policy for AMFA
 
 1. Open the **Admin Console** for your org.
-1. Choose **Security > Global Session Policy** to show the available global session policies.
-1. Click **Add Policy**.
-1. Give the policy a name, for example "New Device AMFA Policy".
-1. Set **Assign to Groups** to **Everyone**.
-1. Click **Create Policy and Add Rule** to save the new policy.
+2. Choose **Security** > **Global Session Policy** to show the available global session policies.
+3. Click **Add Policy**.
+4. Set a **Policy Name**; for example, "New Device AMFA Policy".
+5. Set **Assign to Groups** to your target user groups; for example, "Test Users".
+6. Click **Create Policy and Add Rule** to save the new policy.
 
 After creating the policy, the **Add Rule** dialog appears.
 
-1. Set a **Rule Name**, for example **New Device AMFA Rule**.
-1. Set **Behavior is** to **New Device**.
-1. Set **Primary factor is** to **Password / IDP**
-1. Verify that **Require Secondary factor** is selected for **Secondary factor**.
-1. Click **Create Rule** to create the rule.
+1. Set a **Rule Name**; for example, "New Device AMFA Rule".
+2. Set **Behavior is** to **New Device**. This is where the `X-Device-Token` header is checked.
+3. Set **Establish the user session with** to **A password**.
+4. Set **Multifactor authentication (MFA) is** to **Required**.
+5. Set **Establish the user session with** to **A password**.
+6. Verify that **Users will be prompted for MFA** is set to **At every sign-in**.
+7. Click **Create Rule** to create the rule.
 
-> **Note:** The **New Device** behavior is defined under **Security** > **Behavior Detection**.
+These rules declare that:
 
-### Create a new authentication policy
+* Every user starts the sign-in process with a password
+* If "New Device" is true, a second authentication factor is required, and users will be prompted as such for each sign-in process.
 
-New app integrations are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup. In production, multiple app integrations can share the same application policy. In testing however, it's recommended that you create a new policy specifically for your test application. Specifically for this app, the policy has two rules:
+> **Note**: See [Add a global session policy rule](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/add-okta-sign-on-policy-rule.htm) to learn how the different MFA settings interact.
 
-* By default, users authenticate with a username and password only.
-* If the user is using a new device, require a second authentication factor.
+### Create a new app authentication policy for AMFA
+
+Create a new authentication policy for your app that contains two rules that state:
+
+1. By default, users authenticate with a username and password only.
+2. If the user is using a new device, require a second authentication factor.
+
+First, create the policy.
 
 1. Open the **Admin Console** for your org.
-1. Choose **Security > Authentication Policies** to show the available authentication policies.
-1. Click **Add a Policy**.
-1. Give the policy a name, and then click **Save**.
+2. Choose **Security** > **Authentication Policies** to show the available authentication policies.
+3. Click **Add a Policy**.
+4. Set a **Policy Name**; for example, "AMFA Test Policy".
+5. Click **Save**.
 
-Set the catch-all rule to require username and password only.
+Set the catch-all rule to require username and password only by default.
 
-1. Locate the Catch-all Rule of the new policy and select **Actions > Edit**.
-1. Select **Allowed after successful authentication**.
-1. Verify that **User must authenticate with** is set to **Password**.
-1. Click **Save**.
+1. Locate the **Catch-all Rule** for the new policy and select **Actions** > **Edit**.
+2. Verify **Access is** is set to **Allowed after successful authentication**.
+3. Set **User must authenticate with** to **Password**.
+4. Click **Save**.
 
-Add a new authentication rule that requires an authenticator when the user signs in with a new device.
+Add a new rule that requires an additional authenticator when signing in from a new device.
 
 1. Click **Add rule** on the **Rules** tab for your new policy.
-1. Give the rule a name, for example, **New device requires second factor**
-1. Set the **The following custom expression is true** to `security.behaviors.contains('New Device')`.
-1. Verify that **User must authenticate with** is set to **Password + Another factor**.
-1. Verify that at least one additional factor type (for example, email or Okta Verify) is listed in the box under **Additional factor types**.
-1. Click **Save**.
+2. Set a **Rule Name**; for example, "Second factor for new device."
+3. Set **The following custom expression is true** to `security.behaviors.contains("New Device")`.
+4. Verify that **User must authenticate with** is set to **Password + Another factor**.
+5. Verify that the box under **Additional factor types** contains at least one additional factor type; for example, email or Okta Verify).
+6. Click **Save**.
+7. Select the **Applications** tab for your newly created policy and click **Add App**.
+8. Find your app in the list and click **Add** next to it.
+9. Click **Close**.
+10. Verify the **Applications** tab of the new policy lists the new app.
 
-1. Select the **Applications** tab for your newly created policy, and then click **Add App**.
-1. Find your app in the list and click **Add** next to it.
-1. Click **Close**.
-1. Verify that the app is now listed in the **Applications** tab of the new policy.
-
-> **Note:** For more information on the `New Device` expression, see the [Okta Expression Reference Guide](/docs/reference/okta-expression-language-in-identity-engine/#security-context).
-
-## SDK Integration steps
-
-<StackSnippet snippet="integrationsteps" />
+> **Note**: For more about the expression used in Step 3, see [Okta Expression Reference Guide](/docs/reference/okta-expression-language-in-identity-engine/#security-context).
 
 ## See also
 

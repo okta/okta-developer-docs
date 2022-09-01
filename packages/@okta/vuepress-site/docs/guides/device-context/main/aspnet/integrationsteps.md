@@ -1,29 +1,32 @@
-### 1. Create a device ID for each device
+Add the following code to your app to send the `X-Device-Token` header with a device ID attached.
 
-Create a device ID to identify each device. These IDs must be unique per device, or unpredictable behavior can result. For example, you can generate a UUID of the format `123e4567-e89b-12d3-a456-426655440000` in the following ways:
+### Create a device ID
 
-* In a Powershell window with the command `[guid]::NewGuid()`
-* In C# with `Guid.NewGuid().ToString("N")`
+Generate a unique identifier for the device with a maximum length of 32 characters. Some operating systems include an API to generate an application-specific device ID. Other ways to generate the ID include using a UUID or GUID directly or as a source for a hash, or for an encrypted string using a public key.
 
-When you use the Embedded SDK, it's your responsibility to generate and store these device ID values.
+> **Warning**: Each device must have a unique ID or unknown results may occur.
 
-> **Note:**  The SDK expects the device ID to be exactly 32 characters long. UUIDs are 36 characters long including the hyphens.
+### Add the device ID to the header
 
-### 2. Pass the device ID to the Okta SDK
+Add the device ID to the `X-Device-Token` request header in the constructor of the OktaAuth IDX client class.
 
-Add the device ID to your application's [configuration](https://github.com/okta/okta-idx-dotnet#configuration-reference). Identify it as `deviceToken`. For example
-
-```yaml
-okta:
-  idx:
-    issuer: "{YOUR_ISSUER}"
-    clientId: "{YOUR_CLIENT_ID}"
-    clientSecret: "{YOUR_CLIENT_SECRET}"
-    scopes:
-      - "openid"
-      - "profile"
-    redirectUri: "{YOUR_REDIRECT_URI}"
-    deviceToken: "123e4567e89b12d3a456426655440000"
+```csharp
+const authClient = new OktaAuth({
+  issuer: 'https://${yourOktaDomain}',
+  …
+  headers: {
+    'X-Device-Token': '${yourDeviceID}'
+  }
+});
 ```
 
-If `clientSecret` is set, the SDK includes the device ID in a HTTP header named `X-Device-Token` in each call it makes to Okta.
+Alternatively, call `OktaAuth.setHeaders()` with `X-Device-Token` and the device ID as parameters, once the client has been instantiated.
+
+```csharp
+const authClient = new OktaAuth({
+  issuer: 'https://${yourOktaDomain}',
+  …
+});
+
+authClient.setHeaders({'X-Device-Token': '${yourDeviceID}'});
+```

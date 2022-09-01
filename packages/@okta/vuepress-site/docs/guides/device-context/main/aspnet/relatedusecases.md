@@ -1,2 +1,6 @@
 * [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/)
 * [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/aspnet/main/)
+* [Device Context](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/guides/devices/devcontext-main.htm)
+* [Behavior Detection](https://help.okta.com/oie/en-us/Content/Topics/Security/behavior-detection/about-behavior-detection.htm)
+* [Okta Expression Reference Guide](/docs/reference/okta-expression-language-in-identity-engine/#security-context)
+* [Add a global session policy rule](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/add-okta-sign-on-policy-rule.htm)

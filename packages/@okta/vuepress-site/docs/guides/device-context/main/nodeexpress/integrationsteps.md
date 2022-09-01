@@ -1,32 +1,15 @@
-### 1. Capture device ID from your users
+Add the following code to your app to send the `X-Device-Token` header with a device ID attached.
 
-Capture the device ID from the user sign-in flow. When you use the Embedded SDK, it's your responsibility to generate and store these device ID values. These IDs are often UUIDs that take the following format: `123e4567-e89b-12d3-a456-426655440000` and are unique per device. These IDs must be unique per the user's device, or unpredictable behavior can result.
+### Create a device ID
 
-### 2. Pass device ID to the Okta SDK
+Generate a unique identifier for the device with a maximum length of 32 characters. Some operating systems include an API to generate an application-specific device ID. Other ways to generate the ID include using a UUID or GUID directly or as a source for a hash, or for an encrypted string using a public key.
 
-Pass the device ID to the Okta SDK. Do this by calling the  `OktaAuth.setHeaders()` method and pass `X-Device-Token` as the header name with a user-defined value.
+> **Warning**: Each device must have a unique ID or unknown results may occur.
 
-```javascript
-authClient.setHeaders({'X-Device-Token': '123e4567-e89b-12d3-a456-426614174000'});
-```
+### Add the device ID to the header
 
-Call this method after instantiating `OktaAuth` as in the following example.
+Add the device ID to the `X-Device-Token` request header in the constructor of the OktaAuth IDX client class. Do this by calling the `OktaAuth.setHeaders()` method and pass `X-Device-Token` as the header name with a user-defined value.
 
 ```javascript
-authClient = new OktaAuth({
-      ...oidc,
-      state: transactionId,
-      storageManager: {
-        token: {
-          storageProvider
-        },
-        transaction: {
-          storageKey: `transaction-${transactionId}`, // unique storage per transaction
-          storageProvider
-        }
-      },
-      ...options
-    });
-
-authClient.setHeaders({'X-Device-Token': '123e4567-e89b-12d3-a456-426614174000'});
+authClient.setHeaders({'X-Device-Token': '${yourDeviceID}'});
 ```
