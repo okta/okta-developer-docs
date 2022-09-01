@@ -1,6 +1,7 @@
 ---
 title: IAM terminology
 ---
+
 # IAM terminology
 
 - **Access control:** Grant or deny individual requests to view or update a restricted resource based on the resource, the nature of the request, whether the user is authenticated, the user's authorizations, relevant policies, and other data. (Access control is part of *authorization*.) The term access control can also refer broadly to IAM. See [What Is Access Control & How Crucial Is It to Cybersecurity?](https://www.okta.com/identity-101/access-control/).

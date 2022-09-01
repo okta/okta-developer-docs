@@ -38,6 +38,11 @@
         a {
           color: cv('link');
         }
+        &:first-child {
+          a, span {
+            color: cv('text', 'darker');
+          }
+        }
         &:last-child {
           svg {
             display: none;

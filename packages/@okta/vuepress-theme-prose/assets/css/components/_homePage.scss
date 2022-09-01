@@ -23,7 +23,7 @@
 
   .width-adjuster {
     flex: 4 0 78%;
-    max-width: calc(100% - 253px);
+    max-width: calc(100% - 266px);
     @include media("<desktop") {
       flex-basis: 100%;
       max-width: 100%;
@@ -458,4 +458,11 @@
   }
   to {
   }
+}
+
+.isHome .width-adjuster {
+  max-width: 100%;
+}
+.aside-hidden .width-adjuster {
+  max-width: calc(100% - 77px);
 }

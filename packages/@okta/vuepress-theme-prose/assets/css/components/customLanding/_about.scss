@@ -1,0 +1,60 @@
+.customLanding {
+  &-about {
+    padding: 56px 0 87px;
+    color: cv('header', 'nav-link');
+    h2 {
+      font-size: 36px;
+      line-height: 45px;
+      color: cv('header', 'nav-link');
+      margin-top: 0;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: 20px;
+      line-height: 30px;
+      max-width: 783px;
+      margin-bottom: 0;
+    }
+    &__footer {
+      max-width: 783px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 60px;
+    }
+    &__info {
+      margin-right: 20px;
+      h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-top: 0;
+        line-height: 24px;
+        color: cv('header', 'nav-link');
+        margin-bottom: 15px;
+      }
+      span {
+        font-size: 16px;
+        line-height: 25px;
+        color: cv('text');
+        display: inline-block;
+        max-width: 474px;
+      }
+    }
+    &__resourses {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+    &__explore {
+      display: flex;
+      align-items: center;
+      a {
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 500;
+      }
+    }
+  }
+}

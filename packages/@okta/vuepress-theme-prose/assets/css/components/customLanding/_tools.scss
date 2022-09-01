@@ -1,0 +1,47 @@
+.customLanding {
+  &-tools {
+    padding: 91px 0 160px;
+    &__content {
+      max-width: 682px;
+      margin: 0 auto;
+      text-align: center;
+      h2 {
+        font-size: 36px;
+        line-height: 45px;
+        font-weight: 400;
+        color: cv('header', 'nav-link');
+        margin: 0;
+      }
+      p {
+        font-size: 16px;
+        color: cv('text');
+        margin-top: 16px;
+        line-height: 26px;
+        margin-bottom: 52px;
+        max-width: 615px;
+      }
+    }
+    &__title {
+      margin-top: 57px;
+      font-size: 22px;
+      line-height: 28px;
+      margin-bottom: 0;
+      font-weight: 500;
+      color: cv('header', 'nav-link');
+      &-bg {
+        background-color: cv('body', 'custom-bg-gray');
+        padding: 24px 40px;
+        border-radius: 70px;
+        display: inline-block;
+        margin: 0;
+        position: relative;
+        svg {
+          position: absolute;
+          bottom: -85px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}

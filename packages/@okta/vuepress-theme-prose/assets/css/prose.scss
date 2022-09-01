@@ -50,6 +50,7 @@
 @import "components/search";
 @import "components/frameworkIconBlock";
 @import "components/header";
+@import "components/headerNav";
 @import "components/menuItem";
 @import "components/featuredGuides";
 @import "components/stackSelector";
@@ -69,6 +70,15 @@
 @import "components/dialogWindow";
 @import "components/termsAndConditionsDialog";
 @import "components/nutritionFacts";
+
+//Custom Landing
+@import "components/customLanding/main";
+@import "components/customLanding/hero";
+@import "components/customLanding/about";
+@import "components/customLanding/tools";
+@import "components/customLanding/features";
+@import "components/customLanding/explore";
+@import "components/customLanding/start";
 
 //Pages
 @import "okta/pages/multi-tenancy";
