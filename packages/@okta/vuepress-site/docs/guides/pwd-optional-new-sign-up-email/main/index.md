@@ -6,11 +6,11 @@ title: Sign up for new account with email only
 
 <ApiLifecycle access="ie" /><br>
 
-Enable users to register a user account with email only in an application based on an embedded SDK
+Enable users to register a user account with email only in an application based on an embedded SDK.
 
 **Learning outcomes**
 
-* Configure your Okta org to enable user sign-up without a password.
+* Configure your Okta org to enable a user sign-up flow without a password.
 * Integrate a password-optional sign-up flow into an application based on an Embedded SDK.
 
 **What you need**

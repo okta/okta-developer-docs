@@ -54,12 +54,12 @@ The email authenticator supports user verification by One-Time Password (OTP) an
 
 ### 5. Your app displays the remaining optional authenticators
 
-After the user verifies their identity using the email authenticator, the `AuthenticationStatus` property of the `AuthenticationResponse` object is either
+After the user verifies their identity using the email authenticator, the `AuthenticationStatus` property of the `AuthenticationResponse` object is either:
 
-- `Success`: Go to step 6.
+- `Success`: Go to step six.
 - `AwaitingAuthenticatorEnrollment`: The user can enroll in additional authenticators.
 
-* If the latter is true, create and display a page that lists the remaining authenticators. Check the `CanSkip` property of the `AuthenticationResponse` object. If `true` &mdash; and all the listed authenticators are optional &mdash; add a **Skip** button to the form to skip their enrollment. If `CanSkip` is `false`, the Skip button should be omitted.
+If the latter is true, create and display a page that lists the remaining authenticators. Check the `CanSkip` property of the `AuthenticationResponse` object. If `true` &mdash; and all the listed authenticators are optional &mdash; add a **Skip** button to the form to skip their enrollment. If `CanSkip` is `false`, you should omit the **Skip** button.
 
 <div class="half border">
 

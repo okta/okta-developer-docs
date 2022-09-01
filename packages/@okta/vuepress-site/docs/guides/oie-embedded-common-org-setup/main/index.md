@@ -127,12 +127,12 @@ To ensure that only specific app integrations can let users **sign up** without 
 To ensure that only password-optional users can **sign in** without a password and everybody else is appropriately prompted for it, do the following:
 
 1. [Create a new password-optional authenticator enrollment policy for the group](#create-a-password-optional-authenticator-enrollment-policy).
-2. [Add a new Global session policy for the group](#add-a-new-global-session-policy-for-password-optional-users).
+2. [Add a new global session policy for the group](#add-a-new-global-session-policy-for-password-optional-users).
 3. [Add a new authentication policy for the group](#add-a-new-authentication-policy-for-password-optional-users).
-4. Ensure that password-optional users will never fall through to the default policy. Default policy should always have a password as a required authenticator.
+4. Ensure that password-optional users never fall through to the default policy. Default policy should always have a password as a required authenticator.
 5. Explicitly exclude your main admin account from any further password-optional policies you create.
 
-> **Note**: See also [Set up password-optional sign-in experience](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/password-optional/password-optional-disabled.htm)
+> **Note**: See also [Set up password-optional sign-in experience](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/password-optional/password-optional-disabled.htm).
 
 #### Common password-optional setup tasks
 
@@ -151,7 +151,7 @@ To ensure that only password-optional users can **sign in** without a password a
 3. Give the group a name. For example, "Password-optional Users".
 4. Click **Save**.
 
-#### Enable password-optional user sign-up
+#### Enable password-optional user sign-up flow
 
 To ensure that only specific app integrations can let users sign up without a password, do the following:
 
@@ -163,7 +163,7 @@ A profile enrollment policy determines the minimum information required from a u
 2. Click **Add Profile Enrollment Policy**.
 3. Locate the **Profile Enrollment** section of the policy and click **Edit**.
 4. Set **Self-service registration** to **Allowed**.
-5. Verify that **Required before access is granted** is checked for **Email Verification**.
+5. Verify that **Required before access is granted** is selected for **Email Verification**.
 6. Set **Add the user to group** to the group you just made for password-optional users.
 7. Click **Save**.
 8. Click **Manage apps**.
@@ -171,19 +171,19 @@ A profile enrollment policy determines the minimum information required from a u
 10. Locate your app integration in the list and click **Apply** next to it.
 11. Verify that the app is now in the list of Apps using the new Profile Enrollment Policy.
 
-#### Enable password-optional user sign-in
+#### Enable password-optional user sign-in flow
 
 To ensure that only password-optional users can sign in without a password and everybody else is appropriately prompted for it, do the following:
 
 ##### Create a password-optional authenticator enrollment policy
 
-An authenticator enrollment policy determines which authenticators must challenge a user before they are successfully logged in. In this case, email is set to Required, while all the other authenticators are set to Optional.
+An authenticator enrollment policy determines which authenticators must challenge a user before they are successfully signed in. In this case, email is set to **Required**, while all the other authenticators are set to **Optional**.
 
 1. Choose **Security** > **Authenticators**.
 2. Select the **Enrollment** tab, and then click **Add Multifactor Policy**.
 3. Give the new policy a name. For example, "Password-optional Sign-In Policy".
 4. Set **Assign to groups** to the group you just made for password-optional users.
-5. In the **Eligible Authenticators** section
+5. In the **Eligible Authenticators** section:
 
    1. Set **Email** to **Required**.
    2. Set **Password** to **Optional**.
@@ -191,7 +191,7 @@ An authenticator enrollment policy determines which authenticators must challeng
 
 6. Click **Create Policy**.
 7. Give the rule a name. For example, "Password-optional Sign-In Rule".
-8. Set **Exclude Users** to the names of your main admin accounts
+8. Set **Exclude Users** to the names of your main admin accounts.
 9. Leave the other settings at their defaults, and then click **Create Rule**.
 10. Move the new policy immediately above the Default Policy in the list of policies.
 
@@ -206,7 +206,7 @@ A global session policy determines user session length and basic authentication 
 5. Click **Create Policy and Add Rule**.
 6. Give the rule a name. For example, "Global Password Optional Rule".
 7. Set **Exclude Users** to the names of your main admin accounts
-8. Verify **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
+8. Verify that **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
 9. Set **Multifactor authentication (MFA) is** to **Not required**.
 10. Leave the other settings at their defaults, and then click **Create Rule**.
 
@@ -217,7 +217,7 @@ A global session policy determines user session length and basic authentication 
 3. Give the policy a name, for example "Authenticate with Email Only", and then click **Save**.
 4. Locate the Catch-all Rule of the new policy and select **Actions** > **Edit**.
 5. Set **User must authenticate with** to **Any 1 factor type**.
-6. For **Possession factor constraints are**
+6. For **Possession factor constraints are**:
 
    1. Verify that no options are selected.
    2. Verify that **Email** is listed in the box under **1 factor type**.
