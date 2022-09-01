@@ -2,6 +2,72 @@
 title: Okta API Products release notes 2022
 ---
 
+## September
+
+### Monthly release 2022.09.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Non-deletable default authorization server is EA in Preview](#non-deletable-default-authorization-server-is-ea-in-preview) | August 31, 2022 |
+| [PKCE validation for OIDC app integrations is GA in Production](#pkce-validation-for-oidc-app-integrations-is-ga-in-production) | July 7, 2022 |
+| [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | July 7, 2022 |
+| [Step-up authentication using ACR values is EA in Preview](#step-up-authentication-using-acr-values-is-ea-in-preview) | August 31, |
+| [API for suppressing email notifications is GA](#api-for-suppressing-email-notifications-is-in-general-availability) | May 11, 2022 |
+| [Access Denied error message customization is GA in Preview](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
+| [Dynamic IdP routing is GA in Preview](#dynamic-idp-routing-is-ga-in-preview) | June 8, 2022 |
+| [The update logo for application operation is updated](#the-update-logo-for-application-operation-is-updated) | August 31, 2022 |
+| [Password restriction for shared SWA app accounts is GA in Production](#password-restriction-for-shared-swa-app-accounts-is-ga-in-production) | July 7, 2022 |
+| [Developer documentation updates in 2022.09.0](#developer-documentation-updates-in-2022090) | August 31, 2022 |
+| [Bugs fixed in 2022.09.0](#bugs-fixed-in-2022090) | August 31, 2022|
+
+#### Non-deletable default authorization server is EA in Preview
+
+The default authorization server is a custom authorization server provided by Okta so that customers can quickly get started working with Okta. However, if a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label for the default authorization server in the Admin Console.<!--OKTA-521652--><!--OKTA-525780-->
+
+#### PKCE validation for OIDC app integrations is GA in Production
+
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app.<!--OKTA-523773-->
+
+#### Signed request support for generic SAML IdP is GA in Production
+
+Using signed SAML requests ensures that incoming requests are from genuine applications. When this is configured, Okta only accepts SAML requests signed using the certificate associated with the app integration. Having signed SAML requests also resolves scenarios where the Assertion Consumer Service (ACS) URL requested after authentication can be one of several domains or URLs. When a Service Provider sends a signed authentication request, Okta can accept dynamic ACS values as part of the SAML request and posts the SAML assertion response to the ACS value specified in the request. See the Advanced Settings section of [Create SAML app integrations using AIW](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).<!--OKTA-525803-->
+
+#### Step-up authentication using ACR values is EA in Preview
+
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/).<!--OKTA-525790-->
+
+#### API for suppressing email notifications is in General Availability
+
+This API allows you to change who receives email notifications for each individual email template. You can suppress them completely or send them to admins only. This unlocks testing scenarios that warrant using production user directories and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](/docs/reference/api/brands/#email-template-settings).<!--OKTA-526580-->
+
+#### Access Denied error message customization is GA in Preview
+
+Admins can now customize the error message that users receive when their access is denied. This allows admins to provide remediation steps and/or point users to documentation that helps resolve their access issues.<!--OKTA-512724-->
+
+#### Dynamic IdP routing is GA in Preview
+
+Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing).<!--OKTA-520971-->
+
+#### The update logo for application operation is updated
+
+The [update logo for application](/docs/reference/api/apps/#application-logo-operations) API operation has been updated to support logo images in SVG format. In addition, the updated logo guidelines require a square image dimension of 200px by 200px to avoid distortion.<!--OKTA-511103-->
+
+#### Password restriction for shared SWA app accounts is GA in Production
+
+For SWA apps with an account sign-in option set to **Users share a single username and password set by administrator**, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
+
+#### Developer documentation updates in 2022.09.0
+
+* `developer.okta.com` has a new main navigation menu, which makes navigating around the content easier and more intuitive. Instead of showing the entire sitemap in the menu at all times, each major area is now accessed through a submenu that shows only the relevant menu sections at one time. In addition, clicking each menu node shows a contextual landing page (either a defined custom page or an auto-generated one if none exists), and you can now toggle the menu between hidden and visible states, if desired.
+
+* Updates to the [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/main/#edit-the-error-page) and [Customize email notifications](/docs/guides/custom-email/main/#edit-a-default-email-template) guides describe the new full-featured code editor. The editor integrates the Monaco code editing library into the Admin Console to make editing code for error pages and email notifications more efficient. Developers can write, test, and publish code faster.
+
+#### Bugs fixed in 2022.09.0
+
+* The `sub` claim value in on-behalf token exchange flows used the customized authorization server claim value when the token exchange feature was enabled. (OKTA-517125)
+
+* The Apps API returned only the first error from the VPN settings (`settings.notifiations.vpn`) of an add app request. (OKTA-517563)
+
 ## August
 
 ### Weekly release 2022.08.3
@@ -17,6 +83,8 @@ title: Okta API Products release notes 2022
 * Imported passwords with a malformed bcrypt hash format caused an error during the password reset flow. (OKTA-502227)
 
 * Sometimes when an admin deleted an Identity Provider and a Group concurrently, the Identity Provider wasn't deleted. (OKTA-511062)
+
+* Despite having insufficient permissions, a Report Admin was able to use the Mappings API to edit the UD mappings for an Identity Provider configured in Okta. (OKTA-499602)
 
 ### Weekly release 2022.08.1
 

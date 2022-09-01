@@ -20,7 +20,7 @@ The Push Providers API supports the following Authorization Schemes:
 
 ## Get started
 
-Explore the Push Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/83575c0b5b075783862c)
+Explore the Push Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/7d5fdec8d458540bc745?action=collection%2Fimport)
 
 ## Push Providers operations
 
