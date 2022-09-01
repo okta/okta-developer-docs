@@ -35,7 +35,7 @@
                     title: 'Enable Single Sign-On',
                     text: 'Let users securely sign in to your app with their credentials.',
                     link: '/docs/guides/oin-sso-overview/',
-                    linkText: 'Get Started with Single Sign-On',
+                    linkText: 'Get started with Single Sign-On',
                     list: [
                         'Streamline the sign-in flow',
                         'Use Okta for identity management and secure access',
@@ -44,10 +44,10 @@
                 },
                 {
                     id: 2,
-                    title: 'Automate the User Lifecycle',
-                    text: 'Automatically provision, update, and de-provision users securely with SCIM and automate complex actions with our low code/no-code building tools.',
+                    title: 'Automate the user lifecycle',
+                    text: 'Automatically provision, update, and deprovision users securely with SCIM and automate complex actions with our low code/no-code building tools.',
                     link: '/docs/guides/oin-lifecycle-mgmt-overview/',
-                    linkText: 'Build SCIM provisioning',
+                    linkText: 'Get started with the user lifecycle',
                     list: [
                         'Synchronize your app user profiles with Okta profiles',
                         'Use <a href="/docs/concepts/scim/">SCIM</a> to manage users in cloud-based systems',
@@ -56,7 +56,7 @@
                 },
                 {
                     id: 3,
-                    title: 'Risk Signal Sharing',
+                    title: 'Risk signal sharing',
                     text: "Connect to Okta's risk APIs to share risk signals and make it easier for your customers to protect their users and data.",
                     link: '',
                     linkText: 'Get Started with Risk Signal Sharing',
