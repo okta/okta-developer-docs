@@ -40,7 +40,7 @@
                     caption: 'Design & build',
                     text: 'OIN is a catalog and a support system. Our resources help you to design, build, and test your integration before you submit it for verification.',
                     link: 'View guides',
-                    path: '/docs/guides/oin-sso-overview/'
+                    path: '/docs/guides/#publish-an-integration'
                 },
                 {
                     id: 3,
