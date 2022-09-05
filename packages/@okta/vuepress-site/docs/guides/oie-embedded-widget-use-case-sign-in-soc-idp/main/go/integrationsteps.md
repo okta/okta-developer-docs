@@ -17,9 +17,9 @@ The following Sign-In Widget displays the Facebook button:
 When the user selects **Sign in with Facebook**, they are redirected to
 the Facebook sign-in page.
 
-<div class="three-quarter">
+<div class="half border">
 
-![Displays the Facebook sign-in page](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-fb-sign-in-page.png)
+![Displays the Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 
 </div>
 

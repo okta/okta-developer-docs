@@ -2,12 +2,6 @@
 
 The first step is to create a link, button, or other similar UI element that allows the user to sign out of the app.
 
-<div class="quarter border">
-
-![Displays a Sign out button](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-out-link.png)
-
-</div>
-
 ### 2: Revoke the access token
 
 When the sign-out request is initiated, create the following flow:
