@@ -1,12 +1,22 @@
 ### 1: Build a sign-in page on the client
 
-Build a sign-in page that captures the user's name and password, as shown in the following example.
+Build a sign-in page that captures the user's name and password, similar to the following wireframe.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
+![Sign-in form with a 'Forgot your password?' link](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g2r2.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 2
+
+-->
 
 ### 2: Authenticate the user credentials
 
@@ -48,13 +58,23 @@ switch (authnResponse?.AuthenticationStatus)
 
 ### 4: Show the phone factor in the authenticator list
 
-The next step is to show the phone factor in an authenticator list page. Build a page to display the list of authenticators from the previous step. In this use case, only the phone factor appears, as shown in the following sample screenshot.
+The next step is to show the phone factor in an authenticator list page. Build a page to display the list of authenticators from the previous step. In this use case, only the phone factor appears, similar to the following wireframe.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example Verify phone form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone.png)
+![Choose authenticator form with phone option](/img/oie-embedded-sdk/wireframes/choose-authenticator-phone-form-g3r18.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 3, row 18
+
+-->
 
 ### 5: Select the phone factor by calling the SelectChallengeAuthenticatorAsync method
 
@@ -80,11 +100,21 @@ switch (enrollResponse?.AuthenticationStatus)
 
 Build the phone number entry page that accepts the phone number that the user will enroll and verify.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example enter phone number form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
+![Phone number entry form](/img/oie-embedded-sdk/wireframes/auth-enter-phone-number-form-g2r32.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 32
+
+-->
 
 > **Note:** The SDK requires that the phone number be in the following format: `+##########`, including the beginning plus (+) sign, for example, `+5551234567`.
 
@@ -132,11 +162,21 @@ if (enrollResponse.AuthenticationStatus ==
 
 Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, this page can be the same page that verifies the email code or a different page. The sample app reuses the same page for both the email and phone verifications.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example verify phone form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
+![Phone number entry form](/img/oie-embedded-sdk/wireframes/sms-enter-verification-code-form-g2r42.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 42
+
+-->
 
 ### 10: Call the VerifyAuthenticatorAsync method to verify the phone code
 

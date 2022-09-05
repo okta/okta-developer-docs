@@ -19,11 +19,21 @@ if err != nil {
 
 Build a sign-in page that captures both the user's name and password.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![Sign-in form with a 'Forgot your password?' link](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g2r2.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 2
+
+-->
 
 During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
 `LoginResponse` that is used to initate the sign-in process with Okta.  The object
@@ -96,11 +106,21 @@ return
 The next step is to build a page that allows the user to choose a factor
 to continue the authentication flow.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an option to choose verification through the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-verify-page.png)
+![Choose authenticator form with phone option](/img/oie-embedded-sdk/wireframes/choose-authenticator-phone-form-g3r18.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 3, row 18
+
+-->
 
 When the page loads call the `LoginResponse` object's `HasStep`method once for the `LoginStepPhoneVerification` and `LoginStepPhoneInitialVerification` constants. If the method returns `true` for either constants, show the
 phone factor option.
@@ -181,11 +201,21 @@ if lr.HasStep(idx.LoginStepPhoneInitialVerification) {
 The next step is to build the code verification page. After the user submits the method type
 and optional phone number, they need to enter the verification code from their phone.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an option to choose verification through the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-code-verify-page.png)
+![Phone number entry form](/img/oie-embedded-sdk/wireframes/sms-enter-verification-code-form-g2r42.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 42
+
+-->
 
 ### 9: Submit the verification code
 

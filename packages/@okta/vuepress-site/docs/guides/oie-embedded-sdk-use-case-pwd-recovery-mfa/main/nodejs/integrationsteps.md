@@ -2,21 +2,41 @@
 
 Add a link that allows the user to submit their username to begin the password recovery flow. The following example shows a **Forgot your password?** link which redirects the user to the password recovery page.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![Screenshot showing a page displaying the sign-in page with a 'Forgot password?' link where users can click to reset their password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![Sign-in form with a 'Forgot your password?' link](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g2r2.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 2
+
+-->
 
 ### 2. Show the password recovery page
 
 Next, build a password recovery page that allows the user to enter their account's username or email. Include a **Next** button that submits this username to the SDK when selected.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![Screenshot showing a page displaying the reset password page that has a field to input your password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset-nodejs.png)
+![Reset password form with an email field](/img/oie-embedded-sdk/wireframes/reset-password-form-enter-email-g2r3.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 3
+
+-->
 
 ### 3. Submit username
 
@@ -62,11 +82,21 @@ The next step is to display a list of available authenticators using the respons
 
 Using this response, display a list of authenticators to the user.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![Screenshot of a page displaying a list of authenticators including the email authenticator](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-select-auth-nodejs.png)
+![Recovery factor list to use (only email for this use case)](/img/oie-embedded-sdk/wireframes/choose-authenticator-email-form-g2r4.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 4
+
+-->
 
 > **Note**: If email is not included in the list of available authenticators, check you've configured your org as described in [Configuration updates](#configuration-updates).
 
@@ -101,11 +131,21 @@ After the user verifies their identity using the email authenticator, `OktaAuth.
 
 Create a password reset page that allows the user to enter their new password.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![Screenshot of a page allowing the user to enter their new password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-set-password-nodejs.png)
+![Password reset new password form](/img/oie-embedded-sdk/wireframes/reset-password-form-choose-new-password-g2r6.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 6
+
+-->
 
 ### 7. Submit the new password
 
