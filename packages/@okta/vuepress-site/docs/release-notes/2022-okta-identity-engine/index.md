@@ -6,6 +6,62 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## September
 
+## Default main card
+
+<figure class="main-card">
+  <img
+    class="main-card__image"
+    src="https://picsum.photos/200/300"
+    width="122"
+    height="110"
+    alt="Description"
+  >
+  <figcaption class="main-card__body">
+    <h2 class="main-card__title main-card__text">
+      It's a simple title
+    </h2>
+    <div class="main-card__wrapper">
+      <p class="main-card__tag main-card__text">
+        Reference Architecture
+      </p>
+      <p class="main-card__tag main-card__text">
+        Reference Architecture
+      </p>
+    </div>
+    <p class="main-card__description main-card__text">
+      Nunc ut sed odio non sed dictum. Nulla vel morbi faucibus facilisis a tristique. Lorem ipsum is lorem ipsum <a class="main-card__link" href="#">Learn more</a>
+    </p>
+  </figcaption>
+</figure>
+
+## Large main card
+
+<figure class="main-card main-card_size_large">
+  <img
+    class="main-card__image"
+    src="https://picsum.photos/200/300"
+    width="122"
+    height="110"
+    alt="Description"
+  >
+  <figcaption class="main-card__body">
+    <h2 class="main-card__title main-card__text">
+      It's a simple title
+    </h2>
+    <div class="main-card__wrapper">
+      <p class="main-card__tag main-card__text">
+        Reference Architecture
+      </p>
+      <p class="main-card__tag main-card__text">
+        Reference Architecture
+      </p>
+    </div>
+    <p class="main-card__description main-card__text">
+      Nunc ut sed odio non sed dictum. Nulla vel morbi faucibus facilisis a tristique. Nunc ut sed odio non sed dictum. Nulla vel morbi faucibus facilisis a tristique. Lorem ipsum is lorem ipsum <a class="main-card__link" href="#">Learn more</a>
+    </p>
+  </figcaption>
+</figure>
+
 ### Monthly release 2022.09.0
 
 | Change | Expected in Preview Orgs |
@@ -86,7 +142,7 @@ For SWA apps with an account sign-in option set to **Users share a single userna
 
 * When customers used a customized Okta-hosted Sign-In Widget, authorization requests failed after Identity Engine upgrade because the Authentication object was missing from the Identity Engine response. (OKTA-376674)
 
-* 
+*
 
 ## August
 
