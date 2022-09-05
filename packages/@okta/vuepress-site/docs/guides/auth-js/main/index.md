@@ -219,12 +219,6 @@ Run the static-spa sample application to see a working example of the authentica
 * Download and install the sample application.
 * Run the sample application.
 
-<div class="half">
-
-![Screenshot of a custom sign-in form used with the Auth JS SDK](/img/authjs/okta-sign-in-javascript-custom.png)
-
-</div>
-
 ### Create an app integration
 
 Create an app integration in the Okta org that represents the application you want to add authentication to:
