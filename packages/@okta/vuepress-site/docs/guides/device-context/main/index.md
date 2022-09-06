@@ -35,8 +35,8 @@ Server-side web applications can use the `X-Device-Token` custom HTTP request he
 
 For server-side apps using an embedded SDK, developers must create the ID and attach it to the `X-Device-Token` header. The ID informs two features within an org that flag "a request is coming to the org from a new device":
 
-* [Device Context](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/guides/devices/devcontext-main.htm)
-* [Behavior Detection](https://help.okta.com/oie/en-us/Content/Topics/Security/behavior-detection/about-behavior-detection.htm)
+* [Device Context](https://help.okta.com/okta_help.htm?type=oie&id=ext-devcontext-main)
+* [Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection)
 
 Administrators can write authentication policy rules for sign-in requests from a new device using the **new device behavior**. The following diagram shows this flow:
 
