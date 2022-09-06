@@ -200,13 +200,23 @@ If the request to skip the optional authenticator is successful, the SDK returns
 
 #### Option 2: The user selects the phone authenticator
 
-After the user selects the phone authenticator value, and `idx.register` is called with this authenticator key (`Authenticator: AuthenticatorKey.PHONE_NUMBER`), the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires phone registration data, which includes the phone number and verification method (SMS or voice). The user is directed to a page to enroll the phone data:
+After the user selects the phone authenticator value, and `idx.register` is called with this authenticator key (`Authenticator: AuthenticatorKey.PHONE_NUMBER`), the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires phone registration data, which includes the phone number and verification method (SMS or voice). The user is directed to a page to enroll the phone data.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![Displays an Enroll phone authenticator page screenshot that includes a selection for Phone verification method (SMS) and a field for the phone number. Also displays a Next button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-auth-nodejs.png)
+![Phone number entry form](/img/oie-embedded-sdk/wireframes/auth-enter-phone-number-form-g2r32.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 32
+
+-->
 
 #### The user selects SMS as the verify method and enters their phone number
 
