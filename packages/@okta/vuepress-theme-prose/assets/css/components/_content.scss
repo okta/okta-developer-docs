@@ -120,10 +120,6 @@
     flex: 1;
     max-width: calc(82% - 266px);
     padding: 23px 59px;
-    &-full {
-      max-width: 100%;
-      padding: 0 59px;
-    }
     @include media("<desktop-xl") {
       max-width: calc(100% - 266px);
       padding: 40px 57px 30px;
@@ -285,6 +281,23 @@
         display: block;
       }
     }
+
+    &-full {
+      max-width: 100%;
+      padding: 0 59px;
+    }
+    &-arch {
+      max-width: 70%;
+      padding: 23px 59px 80px;
+      @include media("<desktop-xl") {
+        max-width: 100%;
+        padding: 30px 20px 40px;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+    
   }
 
   .on-this-page {
@@ -306,6 +319,12 @@
       display: none;
     }
   }
+}
+
+.arch--container {
+  display: flex;
+  padding: 0;
+  justify-content: flex-start;
 }
 
 .aside-hidden .sidebar-area {

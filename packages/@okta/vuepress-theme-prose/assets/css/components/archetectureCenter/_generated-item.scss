@@ -1,0 +1,53 @@
+.archetecture-center {
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 24px;
+    @include media('<desktop-xl') {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @include media('<tablet') {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+  &__item {
+    background-color: cv('arch', 'item');
+    border-radius: 12px;
+    padding: 37px 35px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .generated-content {
+      .content__default {
+        p {
+          padding-left: 0;
+          margin-bottom: 0;
+        }
+      }
+      p {
+        padding-left: 0;
+      }
+    }
+    p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+        margin-top: 13px;
+      }
+    h2 {
+      font-size: 18px;
+      line-height: 24px;
+      font-weight: 500;
+      margin: 0;
+    }
+    a {
+      display: inline-flex;
+      align-self: flex-end;
+      align-items: center;
+      margin-top: 13px;
+      svg {
+        margin-left: 6px;
+      }
+    }
+  }
+}
