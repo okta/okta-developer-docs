@@ -129,6 +129,6 @@ After the sign-in page is successfully loaded, the embedded Sign-In Widget appea
 
 <div class="half">
 
-![Displays the Sign-in Widget with the username and password fields](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-sign-in-page.png)
+![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
 
 </div>
