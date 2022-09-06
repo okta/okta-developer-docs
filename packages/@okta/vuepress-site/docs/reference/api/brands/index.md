@@ -15,7 +15,7 @@ Each org starts off with Okta's default branding. You can upload your own assets
 
 Explore the Brands API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
 
-> **Note:** This Postman collection requires the Early Access Loading Page Animation feature to be enabled.
+> **Note:** This Postman collection requires the <ApiLifecycle access="ea" /> Loading Page Animation feature to be enabled.
 
 ## Brand operations
 
