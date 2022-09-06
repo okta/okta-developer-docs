@@ -438,7 +438,6 @@ export const guides = [
       },
       {
         title: "Authorization",
-        cards: true,
         subLinks: [
           {
             title: "Implement authorization by grant type",
@@ -1024,6 +1023,7 @@ export const architectureCenter = [
       },
       {
         title: 'Reference Architectures',
+        cards: true,
         subLinks: [
           {
             title: 'Okta DevOps Pipeline',

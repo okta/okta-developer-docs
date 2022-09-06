@@ -63,7 +63,6 @@ export default {
               path = `/${splittedPath[1]}/${splittedPath[2]}/${this.sanitizeTitle(link)}/`;
             }
           } else {
-              console.log('if 4', link.title)
             path = parent.path + this.sanitizeTitle(link) + "/";
           }
           link.path = path;
