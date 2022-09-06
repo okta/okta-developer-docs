@@ -178,7 +178,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
   1. Go to the **Provisioning** tab. Under the **Settings** section, click **To App**.
 
-     <div class="three-quarter">
+     <div class="three-quarter border">
 
      ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1.png)
 
@@ -222,7 +222,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from Okta Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute from. Click **Save**.
 
-   <div class="three-quarter">
+   <div class="three-quarter border">
 
    ![Displays the Map Attribute dialog.](/img/oin/scim_check-attributes-14.png)
 

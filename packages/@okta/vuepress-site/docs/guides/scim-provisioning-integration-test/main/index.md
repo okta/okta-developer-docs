@@ -56,7 +56,7 @@ To configure and run the SCIM CRUD tests:
     * `oktaAppId` - the unique identifier randomly assigned to your Okta integration. You can see this value in the **App Embed Link** panel under the **General** tab for your Okta integration.
     * `oktaOrgUrl` - the base URL for your Okta org. Include the `https://` prefix.
 
-        <div class="three-quarter">
+        <div class="three-quarter border">
 
         ![Browser bar showing the oktaOrgUrl location.](/img/oin/scim_crud-test-identifiers.png)
 
@@ -72,7 +72,7 @@ To configure and run the SCIM CRUD tests:
 
     The final Runscope values should look similar to the following:
 
-    <div class="three-quarter">
+    <div class="three-quarter border">
 
     ![Sample values for CRUD test variables. Runscope Initial Variables](/img/oin/scim_crud-variables-d.png)
 
