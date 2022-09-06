@@ -105,7 +105,7 @@ These rules declare that:
 * Every user starts the sign-in process with a password
 * If "New Device" is true, a second authentication factor is required, and users are prompted as such for each sign-in process.
 
-> **Note**: See [Add a global session policy rule](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/add-okta-sign-on-policy-rule.htm) to learn how the different MFA settings interact.
+> **Note**: See [Add a global session policy rule](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-okta-sign-on-policy-rule) to learn how the different MFA settings interact.
 
 ### Create a new app authentication policy for AMFA
 
