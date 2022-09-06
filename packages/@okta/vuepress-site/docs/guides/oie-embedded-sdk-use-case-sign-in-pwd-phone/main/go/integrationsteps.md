@@ -170,13 +170,23 @@ This flag is then used in a template to decide whether or not to display the fie
 {{end}}
 ```
 
-The following page from the sample application shows the phone number field and phone method type options.
+This code is used to create a form for the user to enter their phone number to receive a verification code, similar to the wireframe below.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an option to choose the phone method for the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-method-page.png)
+![Phone number entry form](/img/oie-embedded-sdk/wireframes/auth-enter-phone-number-form-g2r32.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 32
+
+-->
 
 ### 7: Submit the phone factor details
 
