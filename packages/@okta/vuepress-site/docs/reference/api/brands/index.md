@@ -15,6 +15,9 @@ Each org starts off with Okta's default branding. You can upload your own assets
 
 Explore the Brands API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
 
+> <ApiLifecycle access="ea"/>
+> **Note:** This Postman collection requires the Loading Page Animation feature to be enabled if using Themes API with `loadingPageTouchPointVariant`.
+
 ## Brand operations
 
 The Brands API has the following CRUD operations:
@@ -2117,14 +2120,9 @@ HTTP/1.1 200 OK
 
 ### Email Template Settings
 
-<ApiLifecycle access="ea" />
-
 This API lets you manage the settings of each customizable email template.
 
 ### Get Email Template Settings
-
-> **Note:** Email Template Settings are gated behind the **API For Supressing Email Notifications** Early Access feature and must be enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
-
 
 <ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/settings" />
 
@@ -2602,10 +2600,6 @@ The Email Customization resource defines the following properties:
 | `subject`      | String                  | The subject of the customization            |
 | `body`         | String                  | The body of the customization               |
 | `_links`       | [Links](#links-object)  | Link relations for this object              |
-
-<ApiLifecycle access="ea" />
-
-> **Note:** Email Template Settings are gated behind the **API For Supressing Email Notifications** Early Access feature and must be enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
 ### Email Template Settings Object
 
