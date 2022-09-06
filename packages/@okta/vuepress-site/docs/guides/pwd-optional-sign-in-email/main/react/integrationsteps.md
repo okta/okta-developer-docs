@@ -38,7 +38,7 @@ Display &mdash; either statically or dynamically using `IdxTransaction` &mdash; 
 
 ### 2: The user submits their username
 
-When the user submits their account details, create an object with a `username` property and assign it the value entered by the user.
+When the user submits their username, create an object with a `username` property and assign it the value entered by the user.
 
 ```javascript
 const inputValues = {
@@ -46,7 +46,7 @@ const inputValues = {
  };
 ```
 
-Send this new object to `OktaAuth.idx.proceed()`.
+Call `OktaAuth.idx.proceed()` passing in this new object as a parameter.
 
 ```javascript
 setProcessing(true);
@@ -54,11 +54,11 @@ const newTransaction = await oktaAuth.idx.proceed(inputValues);
 setTransaction(newTransaction);
 ```
 
->**Note**: You can also start the sign-in flow in a single step by passing the username in `OktaAuth.idx.authenticate()`. See [`idx.authenticate`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) in the GitHub docs or [Node Express's](/docs/guides/pwd-optional-sign-in-email/nodeexpress/main/#_2-the-user-submits-their-username) version of this guide to learn more.
+>**Note**: You can also start the sign-in flow in a single step by passing the username as a parameter to `OktaAuth.idx.authenticate()`. See [`idx.authenticate`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) in the GitHub docs or the [Node Express](/docs/guides/pwd-optional-sign-in-email/nodeexpress/main/#_2-the-user-submits-their-username) version of this guide to learn more.
 
-### 3. Identity Engine requests new email verification
+### 3. Identity Engine requests email verification
 
-Identity Engine sends the user an email that contains a one-time password (OTP) they can use to verify their identity.`OktaAuth.idx.proceed()` returns an `IdxTransaction` object with a `status` of `PENDING`, indicating that the user needs to verify their identity with their email.
+Identity Engine sends the user an email that contains a one-time password (OTP) they can use to verify their identity. `OktaAuth.idx.proceed()` returns an `IdxTransaction` object with a `status` of `PENDING`, indicating that the user needs to verify their identity with their email.
 
 ```json
 {
@@ -95,7 +95,7 @@ const inputValues = {
  };
 ```
 
-Call `OktaAuth.idx.proceed()` passing in the new object.
+Call `OktaAuth.idx.proceed()` passing in the new object as a parameter.
 
 ```javascript
     const newTransaction = await oktaAuth.idx.proceed(inputValues);
