@@ -12,24 +12,22 @@ title: Okta Identity Engine API Products release notes 2022
   <img
     class="main-card__image"
     src="https://picsum.photos/200/300"
-    width="122"
-    height="110"
-    alt="Description"
+    alt="It's a simple title"
   >
   <figcaption class="main-card__body">
-    <h2 class="main-card__title main-card__text">
+    <h2 class="main-card__title">
       It's a simple title
     </h2>
     <div class="main-card__wrapper">
-      <p class="main-card__tag main-card__text">
+      <span class="main-card__tag">
         Reference Architecture
-      </p>
-      <p class="main-card__tag main-card__text">
+      </span>
+      <span class="main-card__tag">
         Reference Architecture
-      </p>
+      </span>
     </div>
-    <p class="main-card__description main-card__text">
-      Nunc ut sed odio non sed dictum. Nulla vel morbi faucibus facilisis a tristique. Lorem ipsum is lorem ipsum <a class="main-card__link" href="#">Learn more</a>
+    <p class="main-card__text">
+      Nunc ut sed odio non sed dictum. Nulla vel morbi faucibus facilisis a tristique. Lorem ipsum is lorem ipsum. Lorem ipsum is lorem ipsum. <a class="main-card__link" href="#">Learn more</a>
     </p>
   </figcaption>
 </figure>
@@ -40,24 +38,22 @@ title: Okta Identity Engine API Products release notes 2022
   <img
     class="main-card__image"
     src="https://picsum.photos/200/300"
-    width="122"
-    height="110"
-    alt="Description"
+    alt="It's a simple title"
   >
   <figcaption class="main-card__body">
-    <h2 class="main-card__title main-card__text">
+    <h2 class="main-card__title">
       It's a simple title
     </h2>
     <div class="main-card__wrapper">
-      <p class="main-card__tag main-card__text">
+      <span class="main-card__tag">
         Reference Architecture
-      </p>
-      <p class="main-card__tag main-card__text">
+      </span>
+      <span class="main-card__tag">
         Reference Architecture
-      </p>
+      </span>
     </div>
-    <p class="main-card__description main-card__text">
-      Nunc ut sed odio non sed dictum. Nulla vel morbi faucibus facilisis a tristique. Nunc ut sed odio non sed dictum. Nulla vel morbi faucibus facilisis a tristique. Lorem ipsum is lorem ipsum <a class="main-card__link" href="#">Learn more</a>
+    <p class="main-card__text">
+      Nunc ut sed odio non sed dictum. Nulla vel morbi faucibus facilisis a tristique. Nunc ut sed odio non sed dictum. Nulla vel morbi faucibus facilisis a tristique. Lorem ipsum is lorem ipsum. <a class="main-card__link" href="#">Learn more</a>
     </p>
   </figcaption>
 </figure>

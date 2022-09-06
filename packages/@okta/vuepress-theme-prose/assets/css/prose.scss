@@ -24,6 +24,9 @@
 @import "layouts/authorizationLayout.scss";
 @import "layouts/darktheme.scss";
 
+// Helpers
+@import "helpers/dont-break-out";
+
 // Components
 @import "components/announcementBanner";
 @import "components/apiLifecycle";
