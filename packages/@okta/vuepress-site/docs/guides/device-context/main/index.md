@@ -6,7 +6,7 @@ title: Device Context Overview
 
 <ApiLifecycle access="ie" /><br>
 
-Enable a new device rule for your Org's authentication policy.
+Enable a new device rule for your org's authentication policy.
 
 ---
 **Learning outcomes**
@@ -33,7 +33,7 @@ Server-side web applications can use the `X-Device-Token` custom HTTP request he
 * Identifies the specific user device.
 * Is unique across all devices.
 
-For server-side apps using an embedded SDK, developers must create the ID and attach it to the `X-Device-Token` header. The ID informs two features within an Org that flag "a request is coming to the Org from a new device":
+For server-side apps using an embedded SDK, developers must create the ID and attach it to the `X-Device-Token` header. The ID informs two features within an org that flag "a request is coming to the org from a new device":
 
 * [Device Context](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/guides/devices/devcontext-main.htm)
 * [Behavior Detection](https://help.okta.com/oie/en-us/Content/Topics/Security/behavior-detection/about-behavior-detection.htm)
@@ -46,7 +46,7 @@ Administrators can write authentication policy rules for sign-in requests from a
 
 </div>
 
-> **Note:** Find your Org's definition of **New Device** in your Admin Console under **Security** > **Behavior Detection**.
+> **Note:** Find your org's definition of **New Device** in your Admin Console under **Security** > **Behavior Detection**.
 
 ## Update your application to send an X-Device-Token header
 
@@ -75,7 +75,7 @@ In this example, you'll implement a simple AMFA policy requiring two authenticat
 
 Follow these steps to enable this AMFA policy in your app:
 
-1. Update your application to send the `X-Device-Token` header to your Org.
+1. Update your application to send the `X-Device-Token` header to your org.
 2. Update or create a new global session policy to require a second authentication factor for sign-in requests from new devices.
 3. Update or create an authentication policy for your app to require and identify a second authentication factor for new devices.
 
@@ -103,7 +103,7 @@ After creating the policy, the **Add Rule** dialog appears.
 These rules declare that:
 
 * Every user starts the sign-in process with a password
-* If "New Device" is true, a second authentication factor is required, and users will be prompted as such for each sign-in process.
+* If "New Device" is true, a second authentication factor is required, and users are prompted as such for each sign-in process.
 
 > **Note**: See [Add a global session policy rule](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/add-okta-sign-on-policy-rule.htm) to learn how the different MFA settings interact.
 
@@ -135,7 +135,7 @@ Add a new rule that requires an additional authenticator when signing in from a 
 2. Set a **Rule Name**; for example, "Second factor for new device."
 3. Set **The following custom expression is true** to `security.behaviors.contains("New Device")`.
 4. Verify that **User must authenticate with** is set to **Password + Another factor**.
-5. Verify that the box under **Additional factor types** contains at least one additional factor type; for example, email or Okta Verify).
+5. Verify that the box under **Additional factor types** contains at least one additional factor type; for example, email or Okta Verify.
 6. Click **Save**.
 7. Select the **Applications** tab for your newly created policy and click **Add App**.
 8. Find your app in the list and click **Add** next to it.
