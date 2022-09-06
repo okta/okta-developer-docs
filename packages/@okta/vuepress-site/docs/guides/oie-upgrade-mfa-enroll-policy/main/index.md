@@ -28,6 +28,8 @@ The following are the main behavior changes to the [authenticator enrollment pol
 - Existing authenticator enrollment policies (that is, policies created before the Identity Engine upgrade) still contain factors in their settings.
 - For authenticator enrollment policies modified from the Admin Console of an Identity Engine org, existing factors are converted to authenticators in their settings.
 
+> **Note:** For Identity Engine orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta uses the authenticators setting schema. Existing default authenticator enrollment policies, prior to enabling this feature, remains unchanged and still uses the factors setting schema. If you want the default policy to use the authenticators setting schema, then modify the default policy from the Admin Console to convert the settings from factors to authenticators.
+
 ### Recovery authenticators
 
 In Identity Engine, you can use authenticator-based authenticator enrollment policies to govern recovery authenticator enrollment for the password recovery flow. This feature isn't available for factor-based authenticator enrollment policies.
