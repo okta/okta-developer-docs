@@ -236,7 +236,7 @@ export const guides = [
                     guideName: "pwd-optional-change-email"
                   },
                   {
-                    title: "Change your primary email address",
+                    title: "Best practices for password optional",
                     guideName: "pwd-optional-best-practices"
                   }
                 ]
