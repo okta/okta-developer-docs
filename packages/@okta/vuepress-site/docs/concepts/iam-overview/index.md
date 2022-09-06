@@ -1,9 +1,10 @@
 ---
 title: Identity and Access Management (IAM) overview
 ---
-Learn the key issues and concepts for adding identity and access management to your internal and external services.
 
 # Identity and Access Management (IAM) overview
+
+Learn the key issues and concepts for adding identity and access management to your internal and external services.
 
 Ensuring that the right person gets access to the right services requires designing and implementing sign-in flows and access management. This usually involves integrating complex functionality into many areas of your applications. The solution impacts your end users and customers, your employees, and how easy it is to adapt changing security needs. Even small issues with the design or implementation can cause reliability issues, or worse, expose a weakness in your security.
 

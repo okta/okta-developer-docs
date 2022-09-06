@@ -46,7 +46,8 @@ header.page-header {
 }
 
 ul.menu--items > li.expandable {
-  & > span:after {
+  & > span:after,
+  & > a:after {
     background-image: url(/img/icons/chevron-down-white.svg) !important;
   }
   & > ul.submenu--items {

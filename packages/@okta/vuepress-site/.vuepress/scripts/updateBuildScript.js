@@ -18,7 +18,7 @@ const createServerConfig = require('../webpack/createServerConfig')
 const { applyUserWebpackConfig } = require('../util/index')
 
 const MAX_WORKER_THREADS = 6;
-const PAGES_PER_THREAD = 100;
+const PAGES_PER_THREAD = 25;
 
 /**
  * Expose Build Process Class.

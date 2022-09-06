@@ -1,0 +1,54 @@
+.header-nav {
+  padding: 0 31px;
+  background-color: cv('header', 'nav');
+  position: fixed;
+  top: 87px;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  @include media("<desktop-xl") {
+    top: 70px;
+  }
+  @include media("<tablet") {
+    top: 60px;
+  }
+  a {
+    margin-right: 28px;
+    padding: 18px 0 16px;
+    font-size: 14px;
+    line-height: 21px;
+    color: cv('header', 'nav-link');
+    position: relative;
+    white-space: nowrap;
+    &:before {
+      display: block;
+      content: attr(title);
+      font-weight: bold;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    } 
+    &:last-child {
+      margin-right: 0;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: transparent;
+    }
+    &.router-link-active {
+      color: cv('link');
+      font-weight: 700;
+      &:after {
+        background-color: cv('link');
+      }
+    }
+  }
+}

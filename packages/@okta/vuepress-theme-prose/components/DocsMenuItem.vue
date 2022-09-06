@@ -13,6 +13,7 @@
           v-slot="{ route, href, navigate }"
           class="tree-nav-link"
         >
+        <span>
           <a
             :href="href"
             @click="navigate"
@@ -25,6 +26,8 @@
               </span>
             </slot>
           </a>
+          <span v-if="link.path && link.subLinks" class="link shevron" @click="handleChange"></span>
+          </span>
     </router-link>
 
     <span v-if="!link.path && link.subLinks" class="link" @click="handleChange">{{link.title}}</span>
