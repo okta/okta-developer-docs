@@ -6,7 +6,8 @@ import {
   guides,
   languagesSdk,
   reference,
-  releaseNotes
+  releaseNotes,
+  architectureCenter
 } from "../const/navbar.const";
       
 export default {
@@ -25,7 +26,8 @@ export default {
         ..._.cloneDeep(concepts),
         ..._.cloneDeep(reference),
         ..._.cloneDeep(languagesSdk),
-        ..._.cloneDeep(releaseNotes)
+        ..._.cloneDeep(releaseNotes),
+        ..._.cloneDeep(architectureCenter)
       ];
     },
     getNavigationData() {
@@ -53,14 +55,15 @@ export default {
           let path = '';
           if (parentTitle !== 'guides' && parent.path) {
             const splittedPath = parent.path.split('/')
-            if (parent.path.indexOf(parentTitle) >= 0) {
-              path = parent.path.replace(parentTitle, this.sanitizeTitle(link));
-            } else if (parent.path == '/code/') { 
+            if (parent.path == '/code/' || parent.path === '/architecture-center/') {
               path = `/${splittedPath[1]}/${this.sanitizeTitle(link)}/`;
+            } else if (parent.path.indexOf(parentTitle) >= 0) {
+              path = parent.path.replace(parentTitle, this.sanitizeTitle(link));
             } else {
               path = `/${splittedPath[1]}/${splittedPath[2]}/${this.sanitizeTitle(link)}/`;
             }
           } else {
+              console.log('if 4', link.title)
             path = parent.path + this.sanitizeTitle(link) + "/";
           }
           link.path = path;

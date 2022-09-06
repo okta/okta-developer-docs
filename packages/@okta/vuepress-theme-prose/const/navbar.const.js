@@ -1011,3 +1011,41 @@ export const releaseNotes = [
     ],
   },
 ];
+
+export const architectureCenter = [
+  {
+    title: 'Architecture Center',
+    path: '/architecture-center/',
+    subLinks: [
+      {
+        title: 'Case Studies',
+        path: '/architecture-center/case-studies'
+      },
+      {
+        title: 'Reference Architectures',
+        subLinks: [
+          {
+            title: 'Okta DevOps Pipeline',
+            path: '/architecture-center/okta-devops-pipeline'
+          },
+          {
+            title: 'Multi AS',
+            path: '/architecture-center/multi-as'
+          },
+          {
+            title: 'IDX Deployment Models',
+            path: '/architecture-center/idx-deployment-models'
+          },
+          {
+            title: 'Directory Coexistence',
+            path: '/architecture-center/directory-coexistence'
+          },
+          {
+            title: 'Directory Coexistence Model Deployment',
+            path: '/architecture-center/directory-coexistence-model-deployment'
+          }
+        ]
+      }
+    ]
+  }
+];

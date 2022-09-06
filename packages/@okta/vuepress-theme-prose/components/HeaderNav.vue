@@ -15,6 +15,9 @@ export default {
   inject: ["appContext"],
   components: {
     HeaderNavItem: () => import("../components/HeaderNavItem.vue")
+  },
+  mounted() {
+    console.log('appContext.treeNavDocs', this.appContext.treeNavDocs)
   }
 }
 </script>
