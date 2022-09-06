@@ -63,6 +63,7 @@
   --c-gray-blue: #B1BDD8;
   --c-gray-sm: #F8F8F9;
   --c-dark-gray: #D9D9D9;
+  --c-gray-md: #F9F9F9;
 
   // VARIABLES COLORS FOR LIGHT THEME
   --c-cerise: var(--c-cerise-red);
@@ -97,6 +98,7 @@
   --c-custom-bg-white: var(--c-white);
   --c-custom-bg-icon: var(--c-blue-000);
   --c-body-gray: var(--c-dark-gray);
+  --c-arch-item: var(--c-gray-md);
 }
 
 .dark-theme {
@@ -179,9 +181,13 @@
   --c-custom-bg-white: var(--c-gray-800);
   --c-custom-bg-gray: var(--c-gray-900);
   --c-custom-bg-icon: var(--c-blue-000);
+  --c-arch-item: var(--c-coal);
 }
 
 $colors: (
+  "arch": (
+  "item": var(--c-arch-item)
+  ),
   "cerise": (
     "base": var(--c-cerise)
   ),

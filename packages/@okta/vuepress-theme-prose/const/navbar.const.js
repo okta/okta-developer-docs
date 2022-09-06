@@ -438,6 +438,7 @@ export const guides = [
       },
       {
         title: "Authorization",
+        cards: true,
         subLinks: [
           {
             title: "Implement authorization by grant type",

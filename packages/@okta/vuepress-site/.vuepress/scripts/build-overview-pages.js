@@ -62,6 +62,9 @@ function generatedLinks(arr, parent = null) {
           } else {
             page.frontmatter.generated = true;
           }
+          if (el.cards) {
+            page.frontmatter.cards = true;
+          } 
           if (el.description) {
             page.description = el.description;
           }
