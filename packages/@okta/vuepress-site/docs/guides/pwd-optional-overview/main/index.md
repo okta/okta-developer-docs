@@ -10,7 +10,7 @@ Replace the password with a password-optional sign-in experience. Give your user
 
 <div class="three-quarters">
 
-![Screenshot showing a sign-in page with a sign-up link.](/img/pwd-optional/pwd-optional-overview-xy-diagram.png)
+![Diagram illustrating how password-optional authentication, when compared to other password authentication, is convenient and secure.](/img/pwd-optional/pwd-optional-overview-xy-diagram.png)
 
 </div>
 
