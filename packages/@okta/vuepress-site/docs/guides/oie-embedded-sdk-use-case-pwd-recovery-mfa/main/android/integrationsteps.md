@@ -18,7 +18,7 @@ Group 2, row 2
 
 -->
 
-You need to create a form to capture the user's email for password recovery, similar to the following wireframe:
+You need to create a form to capture the user's email for password recovery, similar to the following wireframe.
 
 <div class="half wireframe-border">
 
