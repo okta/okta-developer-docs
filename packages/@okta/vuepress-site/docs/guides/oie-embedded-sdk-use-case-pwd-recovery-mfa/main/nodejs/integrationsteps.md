@@ -1,6 +1,6 @@
 ### 1. Start the password recovery flow
 
-Add a link that allows the user to submit their username to begin the password recovery flow. The following example shows a **Forgot your password?** link which redirects the user to the password recovery page.
+Add a link that allows the user to submit their username to begin the password recovery flow. The following wireframe shows a **Forgot your password?** link.
 
 <div class="half wireframe-border">
 
@@ -80,7 +80,7 @@ The next step is to display a list of available authenticators using the respons
 }
 ```
 
-Using this response, display a list of authenticators to the user.
+Using this response, display a list of authenticators to the user. In this case we are only showing the Email authenticator.
 
 <div class="half wireframe-border">
 

@@ -18,7 +18,7 @@ Group 2, row 2
 
 -->
 
-You need to create a form to capture the user's email for password recovery, such as the following reset my password form:
+You need to create a form to capture the user's email for password recovery, similar to the following wireframe.
 
 <div class="half wireframe-border">
 
@@ -59,7 +59,7 @@ If the email is for a valid and active user in the Okta directory, the `IDXAuthe
 * `Authenticators` &mdash; List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) to be verified (in this case, there is only the email authenticator). <br>
     Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
 
-After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In other words, provide the user with a list of recovery factors to use. In this use case, email is the only recovery factor available:
+After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In other words, provide the user with a list of recovery factors to use. In this use case, email is the only recovery factor available.
 
 <div class="half wireframe-border">
 
@@ -115,7 +115,7 @@ AuthenticationResponse authenticationResponse =
    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-If the request to verify the code is successful, the Java SDK returns an `AuthenticationResponse` object with the `AuthenticationStatus=AWAITING_PASSWORD_RESET` property. This status indicates that the recovery flow is waiting for an updated password for the user. You need to build a form for the user to enter their new password:
+If the request to verify the code is successful, the Java SDK returns an `AuthenticationResponse` object with the `AuthenticationStatus=AWAITING_PASSWORD_RESET` property. This status indicates that the recovery flow is waiting for an updated password for the user. You need to build a form for the user to enter their new password.
 
 <div class="half wireframe-border">
 

@@ -1,9 +1,7 @@
 <template>
   <div class="homepage content">
     <div class="content--container">
-      <div class="sidebar-area">
-        <Sidebar />
-      </div>
+      <Sidebar />
       <div class="width-adjuster">
         <div class="justify-content-center">
           <div class="homepage--elevated">

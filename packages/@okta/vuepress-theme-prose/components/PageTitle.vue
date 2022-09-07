@@ -15,6 +15,9 @@
         if (this.$page.path.includes("/docs/guides")) {
           return true;
         }
+        if (this.$page.frontmatter.generated) {
+          return true;
+        }
         return this.$page.frontmatter.icon ? true : false;
       }
     }

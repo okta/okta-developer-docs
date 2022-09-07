@@ -4,7 +4,7 @@ After you complete the steps in the [Load the Widget](/docs/guides/oie-embedded-
 
 <div class="half">
 
-![Displays an example Widget sign-in page](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen.png)
+![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
 
 </div>
 

@@ -8,9 +8,29 @@
         'page-body': true,
       }"
     >
+      <HeaderNav />
+
+      
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
+
+      <div class="content" v-else-if="$page.frontmatter.customLandingPage">
+        <div
+          :class="{
+            'content--container': true,
+            'navigation-only': appContext.isTreeNavMobileOpen
+          }"
+        >
+          <Sidebar />
+          <div class="content-area content-area-full col-xl-10 col-lg-10 col-md-12 col-sm-12">
+            <div class="content-custom">
+              <component v-if="currentCustomLanding" :is="currentCustomLanding"></component>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="content" v-else>
         <div
           :class="{
@@ -18,16 +38,15 @@
             'navigation-only': appContext.isTreeNavMobileOpen
           }"
         >
-          <div class="sidebar-area">
-            <Sidebar />
-          </div>
+          <Sidebar />
           <div class="content-area col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <Breadcrumb />
             <StackSelector v-if="$page.hasStackContent" />
             <MobileOnThisPage />
             <PageTitle />
             <ContentPage />
-            <div class="edit-on-github">
+            <GeneratedContent v-if="$page.frontmatter.generated" />
+            <div v-if="!$page.frontmatter.generated" class="edit-on-github">
               <span class="fa fa-github"></span>
               <span>
                 <a
@@ -47,6 +66,7 @@
           </div>
         </div>
       </div>
+      
     </div>
     <Footer />
   </div>
@@ -64,17 +84,19 @@ export const endingSlashRE = /\/$/;
 export default {
   components: {
     Header: () => import("../components/Header.vue"),
+    HeaderNav: () => import("../components/HeaderNav.vue"),
     Sidebar: () => import("../components/Sidebar.vue"),
     OnThisPage: () => import("../components/OnThisPage.vue"),
     MobileOnThisPage: () => import("../components/MobileOnThisPage.vue"),
     PageTitle: () => import("../components/PageTitle.vue"),
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
+    GeneratedContent: () => import("../components/GeneratedContent.vue"),
     Footer: () => import("../components/Footer.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
-      import("../components/OktaIntegrationNetwork.vue"),
+      import("../custom-landings/OktaIntegrationNetwork/OktaIntegrationNetwork.vue"),
     Search: () => import("../components/Search.vue"),
     Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
@@ -152,16 +174,28 @@ export default {
     },
     editLinkText() {
       return this.$site.themeConfig.editLink.editLinkText || `Edit this page`;
+    },
+    currentCustomLanding() {
+      const { frontmatter, title } = this.$page;
+      if (title && frontmatter.customLandingPage) {
+        return title.replace(/\s/g, '')
+      }
+      return ''
     }
   },
   methods: {
     redirIfRequired() {
-      if (this.$page && this.$page.redir) {
-        let anchor = window.location.href.split("#")[1] || "";
-        if (anchor) {
-          this.$router.replace({ path: `${this.$page.redir}#${anchor}` });
-        } else {
-          this.$router.replace({ path: `${this.$page.redir}` });
+      if (this.$page) {
+        if (this.$page.redir) {
+          let anchor = window.location.href.split("#")[1] || "";
+          if (anchor) {
+            this.$router.replace({ path: `${this.$page.redir}#${anchor}` });
+          } else {
+            this.$router.replace({ path: `${this.$page.redir}` });
+          }
+        }
+        if (this.$page.path === '/okta-integration-network/') {
+          this.$router.replace({ path: `/docs/guides${this.$page.path}` });
         }
       }
     },
