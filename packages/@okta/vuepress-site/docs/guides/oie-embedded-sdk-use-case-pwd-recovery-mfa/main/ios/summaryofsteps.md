@@ -1,6 +1,6 @@
 The following sequence diagram details each step in the password recovery flow.
 
-<div class="full">
+<div class="three-quarter">
 
 ![Displays a sequence diagram for the password recovery use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-pwd-recovery.png)
 
