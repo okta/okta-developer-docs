@@ -37,14 +37,13 @@ Import any Okta API collection for Postman from the following list:
 | MyAccount <ApiLifecycle access="ie" /><ApiLifecycle access="ea" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9cb68745dbf85ae3a871) |
 | OpenID Connect                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9e7ad28ca1c26870a4b0) |
 | Org                               | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2a73f5511943d1bd6611) |
-| Policy                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f443644517abb15117af) |
-| Push Providers <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/83575c0b5b075783862c) |
 | Policy                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f1e0184b7e6b26c558a0) |
 | Push Providers <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/7d5fdec8d458540bc745?action=collection%2Fimport) |
 | Risk Integration                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47546754d382762468c6) |
 | Schemas                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c85985861f9b277913ae) |
 | Sessions                          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ff723148292df05bb58b) |
 | System Log                        | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3295add9e852d8728ef2) |
+| UI Schema                         | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1a927e3b353fd0e1b158) |
 | User Types                        | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/519c04869c17079762f9) |
 | Users                             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009) |
 
