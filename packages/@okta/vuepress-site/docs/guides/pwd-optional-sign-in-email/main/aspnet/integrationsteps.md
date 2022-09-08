@@ -22,7 +22,7 @@ var authnResponse = await _idxClient
 
 ### 3. The user verifies their identity with the email authenticator
 
-Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `AuthenticateAsync()` to discover the current status of the authentication process. If you configured your Okta org correctly, the status is `AwaitingChallengeAuthenticatorSelection`, indicating that the user needs to verify their identity and must now choose the email authenticator to complete the identity challenge.
+`AuthenticateAsync()` returns an `AuthenticationResponse` object. Query its `AuthenticationStatus` property to discover the current status of the authentication process. A status of `AwaitingChallengeAuthenticatorSelection` indicates that the user needs to verify their identity with the email authenticator challenge.
 
 ```csharp
 switch (authnResponse?.AuthenticationStatus)
@@ -33,7 +33,7 @@ switch (authnResponse?.AuthenticationStatus)
       Session["isChallengeFlow"] = true;
       return RedirectToAction("SelectAuthenticator", "Manage");
 
-   \\\ other case statements
+   // other case statements
 
    default:
       return View("Login", model);
@@ -44,7 +44,7 @@ The email authenticator supports user verification by One-Time Password (OTP) an
 
 ### 4. Your app handles an authentication success response
 
-When the user successfully completes the email authenticator challenge, the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `VerifyAuthenticatorAsync()` is `Success`. You can now call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
+After the user verifies their identity using the email authenticator, the current status of the authentication process is now `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
 
 ```csharp
 var authnResponse = await _idxClient.VerifyAuthenticatorAsync(
