@@ -1,8 +1,8 @@
-Add the following code to your app to send the `X-Device-Token` header with a device ID attached.
+Add the following code to your app to set the `X-Device-Token` with a device ID.
 
 ### Create a device ID
 
-Generate a unique identifier for the device with a maximum length of 32 characters. Some operating systems include an API to generate an application-specific device ID. Other ways to generate the ID include using a UUID or GUID directly or as a source for a hash, or for an encrypted string using a public key.
+Generate a unique identifier for the device with a maximum length of 32 characters. Some operating systems include an API to generate an application-specific device ID. Other ways to create the ID include using a UUID or GUID directly, as a source for a hash, or for an encrypted string using a public key.
 
 > **Warning**: Each device must have a unique ID or unknown results may occur.
 

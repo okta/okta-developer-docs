@@ -33,7 +33,7 @@ Server-side web applications can use the `X-Device-Token` custom HTTP request he
 * Identifies the specific user device.
 * Is unique across all devices.
 
-For server-side apps using an embedded SDK, developers must create the ID and attach it to the `X-Device-Token` header. The ID informs two features within an org that flag "a request is coming to the org from a new device":
+For server-side apps using an embedded SDK, developers must create the ID and assign it to the `X-Device-Token` header. The ID informs two features within an org that flag "a request is coming to the org from a new device":
 
 * [Device Context](https://help.okta.com/okta_help.htm?type=oie&id=ext-devcontext-main)
 * [Behavior Detection](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-behavior-detection)
@@ -52,9 +52,9 @@ Administrators can write authentication policy rules for sign-in requests from a
 
 <StackSnippet snippet="integrationsteps" />
 
-## An Example: Adaptive Multi-Factor Authentication
+## Adaptive Multi-Factor Authentication example
 
-An Adaptive Multi-Factor Authentication (AMFA) policy means that users are prompted for a different number of authentication factors based on a number of criteria, including:
+Apps with an Adaptive Multi-Factor Authentication (AMFA) policy prompt users for a different number of authentication factors based on a number of criteria, including:
 
 * Location: Where are they signing in from?
 * New device: Are they signing in from a managed or known device?
