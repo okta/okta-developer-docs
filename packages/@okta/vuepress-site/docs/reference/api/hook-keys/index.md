@@ -7,7 +7,8 @@ excerpt:
 ---
 
 # Key Management API
-For information on how to create inline hooks, see [inline hooks](/docs/reference/api/inline-hooks/). The following documentation is only for the key management API which will be used in other parts of application such as inline hooks.
+
+The Okta key management API provides a CRUD interface for JSON Web Keys (JWK) used with other parts of the application, such as inline hooks. For information on how to create inline hooks, see [Inline hooks management API](/docs/reference/api/inline-hooks/).
 
 ## Get started
 
@@ -15,13 +16,22 @@ Explore the key management API:[![Run in Postman](https://run.pstmn.io/button.sv
 
 ## Key operations
 
-### Create key
+The key management API has the following CRUD operations:
+
+* [Create a key](#create-a-key)
+* [Get a key](#get-a-key)
+* [List keys](#list-keys)
+* [Get a public key](#get-a-public-key)
+* [Update a key](#update-a-key)
+* [Delete a key](#delete-a-key)
+
+### Create a key
 
 <ApiOperation method="post" url="/api/v1/hook-keys" />
 
-To register a key you need to use [key request](#key-request-object) as JSON payload. This JSON object represents the required information about the key that you are registering.
+To create a key, use the [key request object](#key-request-object) as the JSON payload. This JSON object represents the required information about the key that you are creating.
 
-> **Note:** The new key that you create will appear with the name that you choose here at the inline hook creation time .
+> **Note:** The new key that you create appears with the name that you choose here at the inline hook creation time.
 
 The total number of keys that you can create in an Okta org is limited to 50.
 
@@ -29,15 +39,14 @@ The total number of keys that you can create in an Okta org is limited to 50.
 
 | Parameter   | Description                                                                                  | Param Type   | DataType                                    | Required |
 | ----------- | -------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
-| key | A valid request object that specifies the details of key that you are registering   | Body         | [key request](#key-request-object)  | TRUE     |
+| key | A valid request object that specifies the details of the key that you are creating   | Body         | [key request object](#key-request-object)  | TRUE     |
 
 ##### Response parameters
 
-The response is an [key object](#key-object)  that represents the key that was registered. The `id` property returned in the response serves as the unique ID for the registered key, which you can specify when invoking other CRUD operations.
-The keyId provided in the response is the alias of the public key that can be used to get details of public key in a seperate call.
+The response is a [key object](#key-object) that represents the key that was created. The `id` property in the response serves as the unique ID for the key, which you can specify when invoking other CRUD operations.
+The `keyId` provided in the response is the alias of the public key that can be used to get details of the public key in a separate call.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -48,6 +57,7 @@ curl -v -X POST \
     "name" : "Test Name",
 }' "https://${yourOktaDomain}/api/v1/hook-keys"
 ```
+
 ##### Response example
 
 ```json
@@ -71,7 +81,7 @@ curl -v -X POST \
 
 > **Note:** The `keyId` is the alias of the public key that you can use to retrieve the public key.
 
-### Get specific key
+### Get a key
 
 <ApiOperation method="get" url="/api/v1/hook-keys/${id}" />
 
@@ -81,14 +91,13 @@ curl -v -X POST \
 | --------- | ------------------------- | ------------ | ---------- | -------- |
 | `id`      | A valid key ID   | Path         | String     | TRUE     |
 
-> **Note:** The ?expand=publickey query parameter optionally returns the full object including the details of public key in the response body's _embedded property.
+> **Note:** The `?expand=publickey` query parameter optionally returns the full object including the details of the public key in the response body's `_embedded` property.
 
 ##### Response parameters
 
-The response is an [key object](#key-object) that represents the registered key that matches the `id` you specify.
+The response is a [key object](#key-object) that represents the key that matches the `id` you specify.
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -97,7 +106,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -119,20 +127,20 @@ curl -v -X GET \
 ```
 
 ### List keys
+
 <ApiOperation method="get" url="/api/v1/hook-keys" />
 
-Returns a list of registered keys
+Returns a list of keys
 
 ##### Request examples
-
 
 ```bash
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/hook-keys"
 ```
-##### Response example
 
+##### Response example
 
 ```json
 [{
@@ -151,7 +159,8 @@ curl -v -X GET \
   "isUsed": false
 }]
 ```
-### Get public key
+
+### Get a public key
 
 <ApiOperation method="get" url="/api/v1/hook-keys/${keyId}" />
 
@@ -159,16 +168,15 @@ curl -v -X GET \
 
 | Parameter | Description               | Param Type   | DataType   | Required |
 | --------- | ------------------------- | ------------ | ---------- | -------- |
-| `KeyId`      | A valid key ID   | Path         | String     | TRUE     |
+| `keyId`      | A valid key ID   | Path         | String     | TRUE     |
 
-> **Note:** KeyId is the alias of the public key that has been provided at the creation time of the key.
+> **Note:** `keyId` is the alias of the public key.
 
 ##### Response parameters
 
-The response represents the registered key that matches the `KeyId` you specify.
+The response represents the key that matches the `keyId` you specify.
 
 ##### Request example
-
 
 ```bash
 curl -v -X GET \
@@ -177,7 +185,8 @@ curl -v -X GET \
 ```
 
 ##### Response example
-The details of response can be found [public Key details](#public-key-details) .
+
+The details of response can be found [public key details](#public-key-details).
 
 ```json
 {
@@ -190,7 +199,7 @@ The details of response can be found [public Key details](#public-key-details) .
 }
 ```
 
-### Update key
+### Update a key
 
 <ApiOperation method="put" url="/api/v1/hook-keys/${id}" />
 
@@ -199,18 +208,17 @@ The details of response can be found [public Key details](#public-key-details) .
 | Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
 | id         | The ID of the key that you want to update                                   | Path         | String                                      | TRUE     |
-| key request | An `request` object that represents the updated properties that you want to apply   | Body         |[key request](#key-request-object)  | TRUE     |
+| key request | An object that represents the updated properties that you want to apply   | Body         |[key request object](#key-request-object)  | TRUE     |
 
-The submitted key request replace the existing properties after passing validation.
+The submitted key request replaces the existing properties after passing validation.
 
-> **Note:** The only  parameter that can be updated is the name of the key which needs to be unique at all time.
+> **Note:** The only parameter that can be updated is the name of the key, which needs to be unique at all times.
 
 ##### Response parameters
 
-The response is an [key object](#key-object) that represents the updated key.
+The response is a [key object](#key-object) that represents the updated key.
 
 ##### Request example
-
 
 ```bash
 curl -v -X PUT \
@@ -223,7 +231,6 @@ curl -v -X PUT \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -244,7 +251,7 @@ curl -v -X PUT \
 }
 ```
 
-### Delete key
+### Delete a key
 
 <ApiOperation method="delete" url="/api/v1/hook-keys/${id}" />
 
@@ -254,14 +261,13 @@ curl -v -X PUT \
 | --------- | -------------------------------------- | ------------ | ---------- | -------- |
 | `id`      | The ID of the key to delete   | Path         | String     | TRUE     |
 
-Deletes the key that matches the provided `id`. After it is deleted, the key is unrecoverable. As a safety precaution, only keys that are not being used in the system eligible for deletion.
+Deletes the key that matches the provided `id`. After it is deleted, the key is unrecoverable. As a safety precaution, only keys that are not being used are eligible for deletion.
 
 ##### Response parameters
 
 All responses return a 204 status with no content.
 
 ##### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -271,9 +277,7 @@ curl -v -X DELETE \
 
 ##### Response example
 
-
 204 with no content
-
 
 ### Key request object
 
@@ -282,12 +286,12 @@ curl -v -X DELETE \
 | name           | Display name for the key                                                                | String                              | FALSE      | TRUE     | FALSE      | Must be between 1 and 255 characters in length   |
 
 
-
 ```json
 {
     "name" : "My new key"
 }
 ```
+
 ### Key object
 
 | Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
@@ -295,9 +299,11 @@ curl -v -X DELETE \
 | id             | Unique key                                                                  | String                              | FALSE      | TRUE     | TRUE       | System assigned                                          |
 | keyId         | Alias of the public key                                      | String                              | FALSE      | TRUE    | TRUE      | System assigned            |
 | name           | Display name for the key                                                                   | String                              | FALSE      | TRUE     | FALSE      | Must be between 1 and 255 characters in length   |
-| isUsed           | Declares if this item is currently is used by other applications.   | String(Boolean)                      | FALSE      | FALSE    | TRUE       | System assigned             |
+| isUsed           | Declares if this item is currently in use by other applications.   | String(Boolean)                      | FALSE      | FALSE    | TRUE       | System assigned             |
 | created        | Date of key creation                                                                       | String (Date)                       | TRUE       | FALSE    | TRUE       | System assigned                                          |
 | lastUpdated    | Date of key update                                                                         | String (Date)                       | TRUE       | FALSE    | TRUE       | System assigned                                          |
+| \_embedded    | [Public key details](#public-key-details)                                                                         | JSON                     | FALSE     | TRUE   | TRUE      | System assigned                                        |
+
 ```json
 {
   "id": "HKY1p7jWLndGQV9M60g4",
@@ -305,20 +311,28 @@ curl -v -X DELETE \
   "name": "My new key",
   "created": "2022-08-31T18:09:58.000Z",
   "lastUpdated": "2022-08-31T18:09:58.000Z",
-  "isUsed": false
+  "isUsed": false,
+  "_embedded": {
+    "kty": "RSA",
+    "alg": "RSA",
+    "kid": "7fbc27fd-e3df-4522-86bf-1930110256ad",
+    "use": null,
+    "e": "AQAB",
+    "n": "2naqCnv6r4xNQs7207lRtKQvdtnlVND-8k5iYBIiqoKGY3CqUmRm1jleoOniiQoMkFX8Wj2DmVqr002efF3vOQ7_gjtTatBTVUNbNIQLybun4dkVoUtfP7pRc5SLpcP3eGPRVar734ZrpQXzmCEdpqBt3jrVjwYjNE5DqOjbYXFJtMsy8CWE9LRJ3kyHEoHPzo22dG_vMrXH0_sAQoCk_4TgNCbvyzVmGVYXI_BkUnp0hv2pR4bQVRYzGB9dKJdctOh8zULqc_EJ8tiYsS05YnF7whrWEyARK0rH-e4d4W-OmBTga_zhY4kJ4NsoQ4PyvcatZkxjPO92QHQOFDnf3w"
+  }
 }
 ```
-> **Note:** The response body's _embedded property will provide details of public key.
-
 
 ### Public key details
 
+The public key details are defined in the `_embedded` property of the key object.
+
 | Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
 | -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
- kty            | cryptographic algorithm family for the certificate's keypair                                                                  | String                              | FALSE      | FALSE     | TRUE       | System assigned                                          |
+ kty            | Cryptographic algorithm family for the certificate's keypair                                                                  | String                              | FALSE      | FALSE     | TRUE       | System assigned                                          |
 | alg         | Algorithm used in the key                                      | String                              | FALSE      | FALSE    | TRUE      | System assigned            |
-| kid           | unique identifier for the certificate                                                                   | String                              | FALSE      | TRUE     | TRUE      | System assigned    |
-| use           |acceptable usage of the certificate  | String                     | TRUE      | FALSE    | TRUE       | System assigned             |
+| kid           | Unique identifier for the certificate                                                                   | String                              | FALSE      | TRUE     | TRUE      | System assigned    |
+| use           |Acceptable usage of the certificate  | String                     | TRUE      | FALSE    | TRUE       | System assigned             |
 | e        | RSA key value (exponent) for key binding                                                                       | String                        | FALSE       | FALSE    | TRUE       | System assigned                                          |
 | n    | RSA key value (modulus) for key binding                                                                        | String                       | FALSE       | FALSE    | TRUE       | System assigned                                          |
 
