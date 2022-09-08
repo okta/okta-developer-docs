@@ -32,11 +32,11 @@ HTTP headers let you specify a secret API key that you want Okta to pass to your
 
 > **Note:** The API key you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs.
 
-You can also optionally specify extra headers that you want Okta to pass to your external service with each call. 
+You can also optionally specify extra headers that you want Okta to pass to your external service with each call.
 
 To configure HTTP header authentication, see parameters for the [Config object for HTTP headers](#config-object-for-http-headers).
 
-OAuth 2.0 tokens provide enhanced security between Okta and your external service, and can be configured for types: client secret and private key.
+OAuth 2.0 tokens provide enhanced security between Okta and your external service, and can be configured for the following types: client secret and private key.
 
 To configure OAuth 2.0 authentication, see parameters for the [Config object for OAuth 2.0](#config-object-for-oauth-2-0).
 
@@ -54,7 +54,7 @@ The total number of inline hooks that you can create in an Okta org is limited t
 
 The response is an [Inline Hook object](#inline-hook-object) that represents the inline hook that was registered. The `id` property returned with the response serves as the unique ID for the registered inline hook, which you can specify when invoking other CRUD operations.
 
-##### Request example
+##### HTTP header request example
 
 ```bash
 curl -v -X POST \
@@ -88,7 +88,7 @@ curl -v -X POST \
 
 > **Note:** `X-Other-Header` is an example of an additional optional header, with its value specified as `some-other-value`. For each optional header, you choose the name and value that you want Okta to pass to your external service.
 
-##### Response example
+##### HTTP header response example
 
 
 ```json
@@ -122,6 +122,73 @@ curl -v -X POST \
 ```
 
 > **Note:** The `channel.authScheme.value` property isn't returned in the response. You set it in your request, but it isn't exposed in any responses.
+
+##### OAuth 2.0 request example
+
+```bash
+curl -v -X POST \
+ -H 'Authorization: SSWS ${api_token}' \
+ -H 'Content-Type: application/json' \
+ -H Accept: application/json' \
+ -d '{
+   "version": "1.0.0",
+   "type": "com.okta.saml.tokens.transform",
+   "name": "My Inline Hook",
+   "channel": {
+       "type": "OAUTH",
+       "version": "1.0.0",
+       "config": {
+           "headers": [
+               {
+                   "key": "x-header-value",
+                   "value": "value"
+               }
+           ],
+           "method": "POST",
+           "uri": "https://oauthinlinehook.com",
+           "clientId": "clientId",
+           "clientSecret": "secret",
+           "tokenUrl": "https://oauthinlinehook.com/oauth/token",
+           "authType": "client_secret_post",
+           "scope": "custom"
+       }
+   }
+ }' 'https://${yourOktaDomain}/api/v1/inlineHooks'
+
+```
+
+##### OAuth 2.0 response example
+
+```json
+{
+   "id": "cal1u30j5tPBLkKIG685",
+   "status": "ACTIVE",
+   "name": "My Inline Hook",
+   "type": "com.okta.saml.tokens.transform",
+   "version": "1.0.0",
+   "channel": {
+       "type": "OAUTH",
+       "version": "1.0.0",
+       "config": {
+           "uri": "https://oauthinlinehook.com",
+           "headers": [
+               {
+                   "key": "x-header-value",
+                   "value": "value"
+               }
+           ],
+           "method": "POST",
+           "authScheme": null,
+           "clientId": "clientId",
+           "tokenUrl": "https://oauthinlinehook.com/oauth/token",
+           "authType": "client_secret_post",
+           "scope": "custom"
+       }
+   },
+   "created": "2022-09-07T15:15:39.000Z",
+   "lastUpdated": "2022-09-07T15:15:39.000Z",
+}
+```
 
 ### Get inline hook
 
