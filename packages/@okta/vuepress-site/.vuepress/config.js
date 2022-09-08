@@ -318,7 +318,8 @@ module.exports = ctx => ({
               //'/docs/guides/oie-upgrade-mfa-enroll-policy/',
               '/docs/reference/api/archive-myaccount/',
               '/docs/reference/api/myaccount-migration/',
-              '/docs/reference/csi-delauth-hook/'
+              '/docs/reference/csi-delauth-hook/',
+              '/docs/reference/api/inline-hooks-lea/'
           ]
         }
       ]
