@@ -14,7 +14,7 @@ The Okta key management API provides a CRUD interface for JSON Web Keys (JWK) us
 
 Explore the key management API:[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a36f6c129009072f78b5?action=collection%2Fimport)
 
-## Key operations
+## Key management operations
 
 The key management API has the following CRUD operations:
 
@@ -31,7 +31,7 @@ The key management API has the following CRUD operations:
 
 To create a key, use the [key request object](#key-request-object) as the JSON payload. This JSON object represents the required information about the key that you are creating.
 
-> **Note:** The new key that you create appears with the name that you choose here at the inline hook creation time.
+> **Note:** The new key that you create is accessed by the key name for use with inline hooks.
 
 The total number of keys that you can create in an Okta org is limited to 50.
 
@@ -44,7 +44,7 @@ The total number of keys that you can create in an Okta org is limited to 50.
 ##### Response parameters
 
 The response is a [key object](#key-object) that represents the key that was created. The `id` property in the response serves as the unique ID for the key, which you can specify when invoking other CRUD operations.
-The `keyId` provided in the response is the alias of the public key that can be used to get details of the public key in a separate call.
+The `keyId` provided in the response is the alias of the public key that can be used to get details of the public key data in a separate call.
 
 ##### Request example
 
@@ -164,6 +164,8 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/hook-keys/${keyId}" />
 
+Returns the public portion of the key object using the `keyId` parameter.
+
 ##### Request parameters
 
 | Parameter | Description               | Param Type   | DataType   | Required |
@@ -186,7 +188,7 @@ curl -v -X GET \
 
 ##### Response example
 
-The details of response can be found [public key details](#public-key-details).
+The details of the response can be found in [public key details](#public-key-details).
 
 ```json
 {
@@ -278,6 +280,14 @@ curl -v -X DELETE \
 ##### Response example
 
 204 with no content
+
+## Key management objects
+
+The key management API has the following objects:
+
+* [Key request object](/#key-request-object)
+* [Key object](#key-object)
+* [Public key details](#public-key-details)
 
 ### Key request object
 
