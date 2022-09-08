@@ -129,7 +129,7 @@ To ensure that only password-optional users can **sign in** without a password a
 1. [Create a new password-optional authenticator enrollment policy for the group](#create-a-password-optional-authenticator-enrollment-policy).
 2. [Add a new global session policy for the group](#add-a-new-global-session-policy-for-password-optional-users).
 3. [Add a new authentication policy for the group](#add-a-new-authentication-policy-for-password-optional-users).
-4. Ensure that password-optional users never fall through to the default policy. Default policy should always have a password as a required authenticator.
+4. Ensure that password-optional users never fall through to the default policy. The default policy should always have a password as a required authenticator.
 5. Explicitly exclude your main admin account from any further password-optional policies you create.
 
 > **Note**: See also [Set up password-optional sign-in experience](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/password-optional/password-optional-disabled.htm).
@@ -180,7 +180,7 @@ To ensure that only password-optional users can sign in without a password and e
 An authenticator enrollment policy determines which authenticators must challenge a user before they are successfully signed in. In this case, email is set to **Required**, while all the other authenticators are set to **Optional**.
 
 1. Choose **Security** > **Authenticators**.
-2. Select the **Enrollment** tab, and then click **Add Multifactor Policy**.
+2. Select the **Enrollment** tab, and then click **Add A Policy**.
 3. Give the new policy a name. For example, "Password-optional Sign-In Policy".
 4. Set **Assign to groups** to the group you just made for password-optional users.
 5. In the **Eligible Authenticators** section:
@@ -205,10 +205,9 @@ A global session policy determines user session length and basic authentication 
 4. Set **Assign to groups** to the group you just made for password-optional users.
 5. Click **Create Policy and Add Rule**.
 6. Give the rule a name. For example, "Global Password Optional Rule".
-7. Set **Exclude Users** to the names of your main admin accounts
-8. Verify that **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
-9. Set **Multifactor authentication (MFA) is** to **Not required**.
-10. Leave the other settings at their defaults, and then click **Create Rule**.
+7. Verify that **Establish the user session with** is set to **Any factor used to meet the Authentication Policy requirements**.
+8. Set **Multifactor authentication (MFA) is** to **Not required**.
+9. Leave the other settings at their defaults, and then click **Create Rule**.
 
 ##### Add a new authentication policy for password-optional users
 

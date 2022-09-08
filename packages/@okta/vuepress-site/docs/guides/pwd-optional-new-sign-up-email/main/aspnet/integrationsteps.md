@@ -34,7 +34,7 @@ var registerResponse = await _idxClient.RegisterAsync(userProfile);
 
 ### 4. The user verifies their identity using the email authenticator
 
-Query the `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `RegisterAsync()` to discover the current status of the authentication process. If you've configured your Okta org correctly, the status is `AwaitingAuthenticatorEnrollment`, indicating that the user needs to verify their identity with the email authenticator challenge.
+`RegisterAsync()` returns an `AuthenticationResponse` object. Query its `AuthenticationStatus` property to discover the current status of the authentication process. A status of `AwaitingAuthenticatorEnrollment` indicates that the user needs to verify their identity with the email authenticator challenge.
 
 ```csharp
 if (registerResponse.AuthenticationStatus ==
@@ -54,12 +54,9 @@ The email authenticator supports user verification by One-Time Password (OTP) an
 
 ### 5. Your app displays the remaining optional authenticators
 
-After the user verifies their identity using the email authenticator, the `AuthenticationStatus` property of the `AuthenticationResponse` object is either:
+After the user verifies their identity using the email authenticator, the current status of the authentication process is now `AwaitingAuthenticatorEnrollment`.
 
-- `Success`: Go to step six.
-- `AwaitingAuthenticatorEnrollment`: The user can enroll in additional authenticators.
-
-If the latter is true, create and display a page that lists the remaining authenticators. Check the `CanSkip` property of the `AuthenticationResponse` object. If `true` &mdash; and all the listed authenticators are optional &mdash; add a **Skip** button to the form to skip their enrollment. If `CanSkip` is `false`, you should omit the **Skip** button.
+Create and display a page that lists the remaining authenticators. Check the `CanSkip` property of the `AuthenticationResponse` object. If `true` &mdash; and all the listed authenticators are optional &mdash; add a **Skip** button to the form to skip their enrollment. If `CanSkip` is `false`, you should omit the **Skip** button.
 
 <div class="half border">
 
@@ -69,7 +66,9 @@ If the latter is true, create and display a page that lists the remaining authen
 
 ### 6. The user skips the remaining optional authenticators
 
-When the user clicks the **Skip** button, call `IdxClient.SkipAuthenticationSelectionAsync()` passing in the `IdxContext` that represents the current state of the registration flow. The `AuthenticationStatus` property of the `AuthenticationResponse` object returned by `SkipAuthenticationSelectionAsync()` is `Success`. You can now call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
+When the user clicks the **Skip** button, call `IdxClient.SkipAuthenticationSelectionAsync()` passing in the `IdxContext` object that represents the current state of the registration flow.
+
+After the user skips the remaining optional authenticators, the current status of the authentication process is now `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
 
 ```csharp
 var skipSelectionResponse = await _idxClient
