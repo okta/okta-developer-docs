@@ -73,7 +73,7 @@ Creating users with a `FEDERATION` or `SOCIAL` provider sets the user status to 
 
 <ApiLifeCycle access="ea" />
 
-When Optional Password is enabled, the user status following user creation can be affected by the enrollment policy. See [About MFA enrollment policies and rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy).
+When Optional Password is enabled, the user status following user creation can be affected by the enrollment policy. See [Create an authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy).
 Based on the group memberships that are specified when the user is created, a password may or may not be required to make the user's status `ACTIVE`. See [Create user in a group](#create-user-in-group).
 
 If the enrollment policy that applies to the user (as determined by the groups assigned to the user) specifies that the Password authenticator is `required`, then in the case where the user is created without a password, the user is in the `PROVISIONED` state and
@@ -366,16 +366,16 @@ curl -v -X POST \
 }
 ```
 
-#### Create User with Password Import Inline Hook
+#### Create User with password import inline hook
 
 
-Creates a user with a [Password Hook](#password-hook-object) object specifying that a Password Inline Hook should be used to handle password verification.
+Creates a user with a [Password Hook](#password-hook-object) object specifying that a password inline hook should be used to handle password verification.
 
-The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
+The password inline hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the password inline hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password import inline hook](/docs/reference/password-hook/) for more details.
 
 The new user is able to sign in after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
-> **Important:** Don't generate or send a one-time activation token when activating users with an Password Inline Hook. Users should sign in with their existing password to be imported using the Password Import Inline Hook.
+> **Important:** Don't generate or send a one-time activation token when activating users with an password inline hook. Users should sign in with their existing password to be imported using the password import inline hook.
 
 ##### Request example
 
@@ -1206,7 +1206,7 @@ This operation:
 | `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified User Type ID             |
 | `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
 | `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
-| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with `Sm`         |
+| `profile.lastName sw "Smi" `                    | Users whose `lastName` starts with `Smi`        |
 
 ##### Search examples
 
@@ -4095,15 +4095,16 @@ When a user has a valid password, or imported hashed password, or password hook,
 
 The password specified in the value property must meet the default password policy requirements:
 
-- Must be a minimum of 8 characters
+- Must be a minimum of eight characters
 - Must have a character from the following groups:
   - Upper case
   - Lower case
   - Digit
-- Must not contain the user's login or parts of the the login when split on the following characters: `,` `.` `_` `#` `@`
-  - *For example, a user with login `isaac.brock@example.com` will not be able set password brockR0cks! as the password contains the login part `brock`.*
+- Must not contain the user's sign-in ID or parts of the sign-in ID when split on the following characters: `,`, `.`, `_`, `#`, `@`, `-`. Okta only considers the parts of the sign-in ID that contain at least four characters. Additionally, the parent domain (such as `com` in the following example) isn't considered.<br>
+<br>
+  **For example:** A user with a sign-in ID such as `isaac.brock@example.com` can't set their password as `brockR0cks!` since the password contains part of the sign-in ID: `brock`.
 
-> Password policy requirements can be modified in the administrator UI *(Security -> Policies)*
+> **Note:** You can modify password policy requirements in the Admin Console at **Security** > **Policies**.
 
 ##### Hashed Password object
 
@@ -4186,7 +4187,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 
 ##### Password Hook object
 
-Specifies that a [Password Import Inline Hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
+Specifies that a [password import inline hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
 
 When updating a user with a password hook the user must be in the `STAGED` status.
 
@@ -4194,7 +4195,7 @@ When updating a user with a password hook the user must be in the `STAGED` statu
 
 | Property   | DataType | Description                                                                                                                                                                                | Required                                                                      | Min Value                      | Max Value                      |
 |:-----------|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------|:-------------------------------|:-------------------------------|
-| type  | String   | The type of Password Inline Hook. Currently, must be set to default.                                                                                            | TRUE                                                                          | N/A                            | N/A                            |
+| type  | String   | The type of password inline hook. Currently, must be set to default.                                                                                            | TRUE                                                                          | N/A                            | N/A                            |
 
 ###### Password Hook object example
 

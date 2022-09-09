@@ -1,6 +1,6 @@
 ---
-title: Token Inline Hook
-excerpt: Learn how to easily implement a Token Inline hook
+title: Token inline hook
+excerpt: Learn how to easily implement a token inline hook
 layout: Guides
 sections:
  - main

@@ -24,7 +24,7 @@ The Policy API supports the following **Rule operations**:
 
 ## Getting started
 
-Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f1e0184b7e6b26c558a0)
+Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f443644517abb15117af)
 
 ## Policy API operations
 
@@ -191,6 +191,35 @@ curl -v -X POST \
     }
   }
 }' "https://${yourOktaDomain}/api/v1/policies"
+```
+
+##### Response types
+
+HTTP 204:
+[Policy object](#policy-object)
+
+### Clone a Policy
+
+<ApiLifecycle access="ie" />
+
+> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+
+> **Note:** Within the Identity Engine, this feature is only supported for [authentication policies](#authentication-policy).
+
+<ApiOperation method="post" url="/api/v1/policies/${policyId}/clone" />
+
+##### Request parameters
+
+The policy ID described in the [Policy object](#policy-object) is required.
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/policies/${policyId}/clone"
 ```
 
 ##### Response types
@@ -495,19 +524,14 @@ Policies that have no Rules aren't considered during evaluation and are never ap
 
 Different Policy types control settings for different operations. All Policy types share a common framework, message structure, and API, but have different Policy settings and Rule data. The data structures specific to each Policy type are discussed in the various sections below.
 
-[Global session policy](#global-session-policy)
-
-[Okta MFA Policy](#multifactor-mfa-enrollment-policy)
-
-[Password Policy](#password-policy)
-
-[IdP Discovery Policy](#idp-discovery-policy)
-
-[OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
-
-[Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
-
-[Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
+* [Global session policy](#global-session-policy)
+* [Authenticator enrollment policy](#authenticator-enrollment-policy) <ApiLifecycle access="ie" />
+* [Okta MFA Enrollment Policy](#multifactor-mfa-enrollment-policy)
+* [Password Policy](#password-policy)
+* [IdP Discovery Policy](#idp-discovery-policy)
+* [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
+* [Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
+* [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 
 ### Policy priority and defaults
 
@@ -1155,9 +1179,109 @@ You can apply the following conditions to the Rules associated with a global ses
 
 * [Risk Score condition](#risk-score-condition-object)
 
+## Authenticator enrollment policy
+
+<ApiLifecycle access="ie" />
+
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to authenticator enrollment policy. The policy type of `MFA_ENROLL` remains unchanged, however, the `settings` data is updated for authenticators. For Classic Engine, see [Multifactor (MFA) Enrollment Policy](#multifactor-mfa-enrollment-policy).
+> The authenticator enrollment policy is a <ApiLifecycle access="beta" /> release.
+
+The authenticator enrollment policy controls which authenticators are available for a User, as well as when a User may enroll in a particular authenticator.
+
+#### Authenticator enrollment policy settings example
+
+<ApiLifecycle access="ie" />
+
+> **Note:** Policy settings are included only for those authenticators that are enabled.
+
+```json
+   "settings": {
+     "type": "AUTHENTICATORS",
+     "authenticators": [
+       {
+         "key": "security_question",
+         "enroll": {
+           "self": "OPTIONAL"
+         }
+       },
+       {
+         "key": "okta_phone",
+         "enroll": {
+           "self": "OPTIONAL"
+         }
+       }
+     ]
+   }
+```
+
+### Policy Settings data
+
+<ApiLifecycle access="ie" />
+
+| Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
+| ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
+| authenticators | List of authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
+| factors                                                                          | Factor policy settings. This parameter is for Classic Engine MFA Enrollment policies that have migrated to Identity Engine but haven't converted to using authenticators yet. Factors and authenticators are mutually exclusive in an authenticator enrollment policy. When a policy is updated to use authenticators, the factors are removed.               | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
+| type            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
+
+> **Note:** The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
+
+#### Policy Authenticator object
+
+<ApiLifecycle access="ie" />
+
+| Parameter | Description                                   | Data Type                                                                   | Required |
+| ---       | ---                                           | ---                                                                         | ---      |
+| key       | A label that identifies the authenticator     | String                                                                      | Yes      |
+| enroll    | Enrollment requirements for the authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
+
+#### Policy Authenticator Enroll object
+
+<ApiLifecycle access="ie" />
+
+| Parameter | Description                                    | Data Type                                | Required | Default       |
+| ---       | ---                                            | ---                                      | ---      | ---           |
+| self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
+
+### Policy conditions
+
+The following conditions may be applied to authenticator enrollment policies:
+
+* [People Condition](#people-condition-object)
+
+* [Network Condition](#network-condition-object)
+
+* [Application and App Instance Condition](#application-and-app-instance-condition-object)
+
+### Authenticator Rules Action data
+
+#### Authenticator enrollment rules actions example
+
+```json
+  "actions": {
+    "enroll": {
+      "self": "CHALLENGE"
+    }
+  },
+```
+
+#### Rules Actions Enroll object
+
+| Parameter | Description                                                                                               | Data Type                       | Required | Default |
+| ---       | ---                                                                                                       | ---                             | ---      | ---     |
+| self      | Should the User be enrolled the first time they `LOGIN`, the next time they are `CHALLENGE`d, or `NEVER`? | `CHALLENGE`, `LOGIN` or `NEVER` | Yes      | N/A     |
+
+### Rules conditions
+
+You can apply the following conditions to the Rules associated with the authenticator enrollment policy:
+
+* [People Condition](#people-condition-object)
+
+* [Network Condition](#network-condition-object)
+
 ## Multifactor (MFA) Enrollment Policy
 
-> **Note:** The MFA Policy API is a <ApiLifecycle access="beta" /> release.
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](#authenticator-enrollment-policy). In Classic Engine, the Multifactor Enrollment Policy type remains unchanged and is a <ApiLifecycle access="beta" /> release.
 
 The Multifactor (MFA) Enrollment Policy controls which MFA methods are available for a User, as well as when a User may enroll in a particular Factor.
 
@@ -1188,42 +1312,14 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
    }
 ```
 
-#### Policy Authenticators Settings example
-
-<ApiLifecycle access="ie" />
-
-> **Note:** Policy Settings are included only for those Authenticators that are enabled.
-
-```json
-   "settings": {
-     "type": "AUTHENTICATORS",
-     "authenticators": [
-       {
-         "key": "security_question",
-         "enroll": {
-           "self": "OPTIONAL"
-         }
-       },
-       {
-         "key": "okta_phone",
-         "enroll": {
-           "self": "OPTIONAL"
-         }
-       }
-     ]
-   }
-```
-
 ### Policy Settings data
 
 
 | Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
 | ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
-| authenticators <ApiLifecycle access="ie" /> | List of Authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
 | factors                                                                          | Factor policy settings                | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
-| type <ApiLifecycle access="ie" />            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
-> **Note:** The `authenticators` parameter allows you to configure all available Authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
+> **Note:** The `factors` parameter only allows you to configure multifactor authentication.
 
 #### Policy Factors Configuration object
 
@@ -1276,24 +1372,6 @@ Currently, the Policy Factor Consent terms settings are ignored.
 | ---       | ---                                               | ---                                | ---      | ---     |
 | format    | The format of the Consent dialog box to be presented. | `TEXT`, `RTF`, `MARKDOWN` or `URL` | No       | N/A     |
 | value     | The contents of the Consent dialog box.               | String                             | No       | N/A     |
-
-
-#### Policy Authenticator object
-
-<ApiLifecycle access="ie" />
-
-| Parameter | Description                                   | Data Type                                                                   | Required |
-| ---       | ---                                           | ---                                                                         | ---      |
-| key       | A label that identifies the Authenticator     | String                                                                      | Yes      |
-| enroll    | Enrollment requirements for the Authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
-
-#### Policy Authenticator Enroll object
-
-<ApiLifecycle access="ie" />
-
-| Parameter | Description                                    | Data Type                                | Required | Default       |
-| ---       | ---                                            | ---                                      | ---      | ---           |
-| self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
 
 ### Policy conditions
 
@@ -2129,7 +2207,8 @@ Policy Rule conditions aren't supported for this policy.
                 "unknownUserAction": "DENY",
                 "activationRequirements": {
                     "emailVerification": true
-                }
+                },
+                "uiSchemaId": "uis44fio9ifOCwJAO1d7"
             }
         }
 ```
@@ -2140,12 +2219,13 @@ Policy Rule conditions aren't supported for this policy.
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
 | `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
 | `activationRequirements`  | Contains a single Boolean property that indicates whether `emailVerification` should occur (`true`) or not (`false`, default)       | Object | Yes |        `false`                                                                                                                                                                                                              |
-| `preRegistrationInlineHooks` | (Optional) The `id` of at most one Registration Inline Hook                                                                       | Array   | No | N/A                                                                                                                                                                                                                        |
+| `preRegistrationInlineHooks` | (Optional) The `id` of at most one registration inline  hook                                                                       | Array   | No | N/A                                                                                                                                                                                                                        |
 | `profileAttributes.label`    | A display-friendly label for this property                                                                                       | String  |  Required | N/A                                                                                                                                                                                                                      |
 | `profileAttributes.name`     | The name of a User Profile property. Can be an existing User Profile property.                                                   | String  |  Required | N/A                                                                                                                                                                                                                          |
 | `profileAttributes.required` | (Optional, default `FALSE`) Indicates if this property is required for enrollment                                                 | Boolean | Required | `FALSE`                                                                                                                                                                                                                        |
-| `profileAttributes` | A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the Registration Inline Hook. A maximum of 10 Profile properties is supported.                                                         | Array | Required | N/A                                                                                                                                                                                                                        |
+| `profileAttributes` | A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.                                                         | Array | Required | N/A                                                                                                                                                                                                                        |
 | `targetGroupIds`             | (Optional, max 1 entry) The `id` of a Group that this User should be added to                                                     | Array   | No | N/A                                                                                                                                                                                                                         |
 | `unknownUserAction`          | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)                                               | String  | YES | N/A                                                                                                                                                                                                                        |
+| `uiSchemaId`                 | Value created by the backend. If present all policy updates must include this attribute/value.                                               | String  | Required if Present | N/A                                                                                                                                                                                                                        |
 
 > **Note:** The Profile Enrollment Action object can't be modified to set the `access` property to `DENY` after the policy is created.

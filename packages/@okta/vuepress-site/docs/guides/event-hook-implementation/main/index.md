@@ -1,18 +1,18 @@
 ---
-title: Event Hook implementation
-excerpt: Code an external service for an Event Hook
+title: Event hook implementation
+excerpt: Code an external service for an event hook
 layout: Guides
 ---
 
-This guide provides a working example of an Okta Event Hook. It uses the website [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Okta Event Hook calls.
+This guide provides a working example of an Okta event hook. It uses the website [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Okta event hook calls.
 
 ---
 
 **Learning outcomes**
 
-* Understand the Okta Event Hook calls and responses.
-* Implement a simple working example of an Okta Event Hook with a Glitch.com project, which acts as an external service.
-* Preview and test an Okta Event Hook.
+* Understand the Okta event hook calls and responses.
+* Implement a simple working example of an Okta event hook with a Glitch.com project, which acts as an external service.
+* Preview and test an Okta event hook.
 
 **What you need**
 
@@ -25,28 +25,28 @@ This guide provides a working example of an Okta Event Hook. It uses the website
 
 ---
 
-## About Event Hook implementation
+## About event hook implementation
 
-Event Hooks are outbound calls from Okta that can be used to notify your own software systems of events occurring in your Okta org. See [Event Hooks](/docs/concepts/event-hooks/) for an overview.
+Event hooks are outbound calls from Okta that can be used to notify your own software systems of events occurring in your Okta org. See [Event hooks](/docs/concepts/event-hooks/) for an overview.
 
-Setting up an Event Hook in your Okta org requires the following generic steps:
+Setting up an event hook in your Okta org requires the following generic steps:
 
-1. Implement your external web service to receive Event Hook calls from Okta.
-1. Register the endpoint of your external service with Okta and configure Event Hook parameters.
+1. Implement your external web service to receive event hook calls from Okta.
+1. Register the endpoint of your external service with Okta and configure event hook parameters.
 1. Verify to Okta that you control the endpoint.
 1. Begin receiving ongoing delivery of event notifications.
 
-These steps are explained in the following Event Hook example, which uses the Okta event for a user deactivation. When this event occurs, the example external service code receives an Okta request. The external service responds with an acknowledgement to Okta that the request has been received and, in this example, simply displays the deactivated user’s name to the console.
+These steps are explained in the following event hook example, which uses the Okta event for a user deactivation. When this event occurs, the example external service code receives an Okta request. The external service responds with an acknowledgement to Okta that the request has been received and, in this example, simply displays the deactivated user’s name to the console.
 
-This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the Event Hook with an Okta org. See the following Glitch project to copy a working code example that implements the following scenario or build your own using the code snippets:
+This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the event hook with an Okta org. See the following Glitch project to copy a working code example that implements the following scenario or build your own using the code snippets:
 
 [Okta Event Hook: Display Deactivated Users](https://glitch.com/~okta-event-hook/)
 
-> **Tip:** For another in-depth look at an Event Hook implementation, see the following Developer Experience blog example by Heather Wallander, [Build Easy User Sync Webhooks with Okta](https://developer.okta.com/blog/2020/07/20/easy-user-sync-hooks).
+> **Tip:** For another in-depth look at an event hook implementation, see the following Developer Experience blog example by Heather Wallander, [Build Easy User Sync Webhooks with Okta](https://developer.okta.com/blog/2020/07/20/easy-user-sync-hooks).
 
-## Configure initial Event Hook verification
+## Configure initial event hook verification
 
-Okta Event Hooks require an initial verification of the external service endpoint prior to ongoing triggering of the Hook. For more information on this request, see [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request).
+Okta event hooks require an initial verification of the external service endpoint prior to ongoing triggering of the Hook. For more information on this request, see [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request).
 
 Add the following code to your external service to address this request.
 
@@ -54,11 +54,11 @@ Add the following code to your external service to address this request.
 
 <StackSelector snippet="verification"/>
 
-## Parse the Event Hook request
+## Parse the event hook request
 
-When a user is deactivated in the Okta org, your external service receives the Event Hook request from Okta, and must parse the Event Object to determine the user name or other data required by your external service.
+When a user is deactivated in the Okta org, your external service receives the event hook request from Okta, and must parse the Event Object to determine the user name or other data required by your external service.
 
-In this example, after parsing the Event Hook request, the code simply displays the deactivated user to the console, and then replies to Okta with an empty, successful response (200).
+In this example, after parsing the event hook request, the code simply displays the deactivated user to the console, and then replies to Okta with an empty, successful response (200).
 
 <StackSelector snippet="parse-request" noSelector/>
 
@@ -72,11 +72,11 @@ https://${yourOktaDomain}/api/v1/logs?filter=eventType eq "user.lifecycle.deacti
 
 <StackSelector snippet="event-object" noSelector/>
 
-## Enable and verify the Event Hook
+## Enable and verify the event hook
 
-The Event Hook must be set up and verified within your Okta Admin Console.
+The event hook must be set up and verified within your Okta Admin Console.
 
-### Set up the Event Hook
+### Set up the event hook
 
 1. Sign in to your [Okta org](https://login.okta.com/).
 
@@ -98,46 +98,46 @@ The Event Hook must be set up and verified within your Okta Admin Console.
 
 8. Click **Save & Continue**.
 
-9. You can complete the one-time verification Okta call at this time or verify the Event Hook later. If you are using the Glitch example, proceed to verification.
+9. You can complete the one-time verification Okta call at this time or verify the event hook later. If you are using the Glitch example, proceed to verification.
 
-> **Note:** You can also set up an Event Hook using an API. See [Event Hooks Management](/docs/reference/api/event-hooks/#create-event-hook) for further information.
+> **Note:** You can also set up an event hook using an API. See [Event Hooks Management](/docs/reference/api/event-hooks/#create-event-hook).
 
-### Verify the Event Hook
+### Verify the event hook
 
-You must verify the Event Hook to prove that your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for further information on this process.
+You must verify the event hook to prove that your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for further information on this process.
 
-To complete the one-time verification of the Event Hook:
+To complete the one-time verification of the event hook:
 
-- After creating the Event Hook, and if your external service is ready to handle the request, click **Verify** to complete the one-time verification step.
+- After creating the event hook, and if your external service is ready to handle the request, click **Verify** to complete the one-time verification step.
 
 or
 
-- After making sure that your external service is ready for the external verification call, go to the Event Hooks table, click the **Actions** drop-down menu of any **UNVERIFIED** Event Hook, and select **Verify**.
+- After making sure that your external service is ready for the external verification call, go to the event hooks table, click the **Actions** dropdown menu of any **UNVERIFIED** event hook, and select **Verify**.
 
-The Event Hook is now set up with a status of **VERIFIED** and is ready to send Event Hook calls to your external service.
+The event hook is now set up with a status of **VERIFIED** and is ready to send event hook calls to your external service.
 
-## Preview and test the Event Hook
+## Preview and test the event hook
 
 The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service when an event is triggered. In this example, the event is triggered when a user is deactivated in the Okta org.
 
 ### Preview
 
-To run a preview call of your Event Hook, sign in to your Okta org as the super admin.
+To run a preview call of your event hook, sign in to your Okta org as the super admin.
 
 1. In the Admin Console, go to **Workflow** > **Event Hooks**.
-2. Locate the Event Hook you created during the set-up step. In this example, select `Deactivated User Event Hook` or the name you gave the Event Hook.
+2. Locate the event hook you created during the set-up step. In this example, select `Deactivated User Event Hook` or the name you gave the event hook.
 3. Click the **Actions** menu for this hook, and select **Preview**.
 4. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there is only one: `User deactivated (user.lifecycle.deactivate)`.
-5. Select a previous recent event (in this case, a user deactivation) from the **System Log Event** drop-down menu. The **Preview & Deliver Event Hook** section populates the JSON body of the Event Hook. If no event is available, the JSON body populates with sample data.
+5. Select a previous recent event (in this case, a user deactivation) from the **System Log Event** drop-down menu. The **Preview & Deliver Event Hook** section populates the JSON body of the event hook. If no event is available, the JSON body populates with sample data.
 6. Optionally, click **Edit** to modify the JSON body call. For example, you can change the `target` object's property, `displayName`, to `John Doe`.
 7. Navigate to your Glitch application, opening the log console (**Tools** > **Logs**). Make sure your application is listening for requests.
-8. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Check your Glitch application console. The following message should display if successful:
+8. Click **Deliver Request**. The event hook Preview displays the status request as either successful or a failure. Check your Glitch application console. The following message should display if successful:
 
      `The user John Doe has been deactivated on the Okta org!`
 
 ### Test
 
-To run a test of your Event Hook:
+To run a test of your event hook:
 
 1. Start by going to your Glitch application and opening the log console (**Tools** > **Logs**). Make sure your application is listening for requests.
 2. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
@@ -154,12 +154,12 @@ To run a test of your Event Hook:
 
 ## Next steps
 
-Review the following guides to implement other Inline Hook examples:
+Review the following guides to implement other inline hook examples:
 
-* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
-* [Registration Inline Hook](/docs/guides/registration-inline-hook/)
-* [Token Inline Hook](/docs/guides/token-inline-hook/)
+* [Password import inline hook](/docs/guides/password-import-inline-hook/)
+* [Registration inline hook](/docs/guides/registration-inline-hook/)
+* [Token inline hook](/docs/guides/token-inline-hook/)
 
 ## See also
 
-For background conceptual information on Event Hooks, see [Event Hooks](/docs/concepts/event-hooks/).
+For background conceptual information on event hooks, see [Event hooks](/docs/concepts/event-hooks/).

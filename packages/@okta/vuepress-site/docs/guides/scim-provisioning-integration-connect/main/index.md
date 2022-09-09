@@ -1,5 +1,5 @@
 ---
-title: Configure Okta to your SCIM API service
+title: Connect your SCIM API service to Okta
 excerpt: Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Admin Console.
 meta:
   - name: description
@@ -156,7 +156,7 @@ Click **Edit** to make changes to the following sections.
 
 * **Import Safeguards**: Defines the maximum percentage of users in your org that can be left unassigned while still allowing the import to proceed. App-level and org-level safeguards are enabled by default and set at 20 percent.
 
-* **Inline Hooks**: Configures custom logic to the process of importing new users into Okta from a downstream application. You can program the hooks to resolve conflicts in profile attributes and control whether imported users are treated as matches for existing users. To enable an import inline hook, see [Inline hooks](/docs/concepts/inline-hooks/).
+* **Inline hooks**: Configures custom logic to the process of importing new users into Okta from a downstream application. You can program the hooks to resolve conflicts in profile attributes and control whether imported users are treated as matches for existing users. To enable an import inline hook, see [Inline hooks](/docs/concepts/inline-hooks/).
 
 * **Okta Attribute Mappings**: Edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 

@@ -1,6 +1,6 @@
 The following sequence diagram shows the steps for the basic sign-in flow.
 
-<div class="full">
+<div class="three-quarter">
 
 ![Displays the basic sign-in flow with the Golang sample application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on.png)
 

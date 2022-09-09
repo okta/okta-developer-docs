@@ -21,7 +21,7 @@ Are you an admin? See the Identity Engine [limitations](https://help.okta.com/ok
 
 ***
 
-### Event Type availability for Event Hooks
+### Event Type availability for event hooks
 
 **What Changed:** The following Event Types aren't available in Identity Engine because Device Trust isn't currently supported:
 
@@ -41,6 +41,36 @@ The following Event Types are available only in Identity Engine and can't be use
 * `security.authenticator.lifecycle.deactivate`
 
 **Further Information:** [Event Types](/docs/reference/api/event-types/)
+
+***
+
+### Target.ID value simulated for mobile phone event types
+
+**What Changed:** `Target.ID` represents a simulated value for the following event types:
+
+* `system.voice.send_phone_verification_call`
+* `system.sms.send_phone_verification_message`
+
+Specifically, when `Target.Type` equals `MobilePhone` for these events, `Target.ID` has no intrinsic value other than being a placeholder that allows backward compatibility with Classic Engine. In Classic Engine, `Target.ID` is unique per phone number, stored in Okta's backend systems, and can be used to link all events for a given phone number. The following example from the System Log API shows these fields:
+
+```json
+  "target": [
+    {
+      "id": "qFGtyCw3hwhHh55555555z",
+      "type": "MobilePhone",
+      "alternateId": "+15555555555",
+      "displayName": "+15555555555",
+      "detailEntry": null
+    }
+  ]
+```
+
+If you use the `Target.Id` to link and reconcile events in Classic, use the phone number in Identity Engine. The phone number is found in `Target.AlternateId`.
+
+**Further Information:**
+
+* [System Log](/docs/reference/api/system-log/)
+* [Event Types](/docs/reference/api/event-types/)
 
 ***
 

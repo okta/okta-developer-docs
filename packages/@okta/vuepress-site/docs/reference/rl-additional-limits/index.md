@@ -44,7 +44,7 @@ The first request to exceed the concurrent limit returns an HTTP 429 error, and 
 
 > **Note:** Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem that requires investigation.
 
-> **Note:** For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
+> **Note:** For information on possible interaction between inline hooks and concurrent rate limits, see [Inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
 
 ### End-user rate limits
 
