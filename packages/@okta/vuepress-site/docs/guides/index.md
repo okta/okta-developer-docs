@@ -126,6 +126,8 @@ guides:
  - pwd-optional-widget-sign-in-email
  - pwd-optional-change-email
  - email-magic-links-overview
+ - pwd-optional-best-practices
+ - pwd-optional-overview
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

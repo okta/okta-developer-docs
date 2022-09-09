@@ -6,7 +6,7 @@ title: Sign in with email only
 
 <ApiLifecycle access="ie" /><br>
 
-Enable users to sign in with email only in an application based on an embedded SDK.
+Enable an email-only sign-in flow in your application using the Embedded SDK.
 
 **Learning outcomes**
 
