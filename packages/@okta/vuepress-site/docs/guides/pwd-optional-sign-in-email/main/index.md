@@ -10,8 +10,8 @@ Enable an email-only sign-in flow in your application using the Embedded SDK.
 
 **Learning outcomes**
 
-* Configure your Okta org to enable user sign-in flows without a password.
-* Integrate email only sign-in flow support into your application with the Embedded SDK.
+* Configure your Okta org to enable user sign-in without a password.
+* Integrate a password-optional sign-in flow into an application based on an embedded SDK.
 
 **What you need**
 
