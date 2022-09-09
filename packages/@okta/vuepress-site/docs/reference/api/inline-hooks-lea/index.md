@@ -832,8 +832,8 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 | -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
 | clientId | A publicly exposed string provided by the service that is used to identify the OAuth application and build authorization URLs | String     | TRUE       | FALSE    |
 | clientSecret | A private value provided by the service used to authenticate the identity of the application to the service                               | String     | TRUE       | FALSE    |
-| tokenUrl | The URI where inline hooks can exchange an authorization code for access and refresh tokens
-| scope | (Optional) Include the scopes that allow you to perform the actions on the hook endpoint that you want to access
+| tokenUrl | The URI where inline hooks can exchange an authorization code for access and refresh tokens | String | TRUE | FALSE |
+| scope | (Optional) Include the scopes that allow you to perform the actions on the hook endpoint that you want to access | String | FALSE | FALSE |
 | authScheme | Not applicable. Must be `null`.                                              | `null`    | FALSE      | TRUE     |
 | hookKeyId  | Not applicable. Must be `null`.                                              | `null`    | FALSE      | TRUE     |
 
@@ -862,11 +862,11 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 | Property | Description                                                                    | Data type   | Required   | Read-only |
 | -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
 | clientId | A publicly exposed string provided by the service that is used to identify the OAuth application and build authorization URLs | String     | TRUE       | FALSE    |
-| clientSecret | Not applicable. Must be `null`.                               | `null`    | TRUE       | FALSE    |
-| tokenUrl | The URI where inline hooks can exchange an authorization code for access and refresh tokens
-| scope | (Optional) Include the scopes that allow you to perform the actions on the hook endpoint that you want to access
-| authScheme | Not applicable. Must be `null`.                                              | `null`    | FALSE      | TRUE     |
-| hookKeyId  | An ID value of the Hook key pair generated from Hook Key management. APIs                                              | `null`    | FALSE      | TRUE     |
+| clientSecret | Not applicable. Must be `null`.                               | `null`    | FALSE      | FALSE    |
+| tokenUrl | The URI where inline hooks can exchange an authorization code for access and refresh tokens |  String | TRUE | FALSE |
+| scope | (Optional) Include the scopes that allow you to perform the actions on the hook endpoint that you want to access | String | FALSE | FALSE |
+| authScheme | Not applicable. Must be `null`.                                              | `null`   | FALSE    | TRUE     |
+| hookKeyId  | An ID value of the Hook key pair generated from key management API                                              | String    | TRUE      | TRUE     |
 
 #### Example object parameters for private_key_jwt
 
