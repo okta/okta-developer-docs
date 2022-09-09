@@ -826,13 +826,12 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 | method | Request method for external service endpoint calls                                                      |  | TRUE    | FALSE  | FALSE    | Valid method. Only accepts `POST`.|
 | authType | The authentication method for the token endpoint: `client_secret_post` or `private_key_jwt`                                                     |  | TRUE    | FALSE  | FALSE    | Valid authType parameters: [client_secret_post](#authtype-parameters-for-client-secret-post) or [private_key_jwt](/#authtype-parameters-for-private-key-jwt)|
 
-
-#### authType parameters for client_secret_post
+#### Config object parameters for client_secret_post
 
 | Property | Description                                                                    | Data type   | Required   | Read-only |
 | -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
 | clientId | A publicly exposed string provided by the service that is used to identify the OAuth application and build authorization URLs | String     | TRUE       | FALSE    |
-| clientSecret | A private value provided by the service used to authenticate the identity of the application to the service.                               | String     | TRUE       | FALSE    |
+| clientSecret | A private value provided by the service used to authenticate the identity of the application to the service                               | String     | TRUE       | FALSE    |
 | tokenUrl | The URI where inline hooks can exchange an authorization code for access and refresh tokens
 | scope | (Optional) Include the scopes that allow you to perform the actions on the hook endpoint that you want to access
 | authScheme | Not applicable. Must be `null`.                                              | `null`    | FALSE      | TRUE     |
@@ -858,7 +857,7 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 }
 ```
 
-#### authType parameters for private_key_jwt
+#### Config object parameters for private_key_jwt
 
 | Property | Description                                                                    | Data type   | Required   | Read-only |
 | -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
