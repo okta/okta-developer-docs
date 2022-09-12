@@ -26,7 +26,7 @@ Enable an email-only sign-in flow in your application using the Embedded SDK.
 
 ## Update configurations
 
-<StackSnippet snippet="setupoktaorg" inline/>
+Before you can start integrating password-optional sign-up flows in your app, <StackSnippet snippet="setupoktaorg" inline/>. See also <StackSnippet snippet="bestpractices" inline />.
 
 > **Note:** To test the sign-in integration, you must use a user with an enrolled email authenticator.
 
