@@ -879,7 +879,7 @@ If you want to include or exclude all zones, you should pass in `ALL_ZONES` as t
 
 #### Authentication Provider Condition object
 
-Specifies an authentication provider that masters some or all Users
+Specifies an authentication provider that is the source of some or all Users
 
 | Parameter | Description                                    | Data Type                  | Required | Default                     |
 | ---       | ---                                            | ---                        | ---      | ---                         |
@@ -1413,7 +1413,7 @@ The following conditions may be applied to the Rules associated with MFA Enrollm
 
 The Password Policy determines the requirements for a user's password length and complexity, as well as the frequency with which a password must be changed. This Policy also governs the recovery operations that may be performed by the User, including change password, reset (forgot) password, and self-service password unlock.
 
-> **Note:** Password Policies are enforced only for Okta and AD-mastered users. For AD-mastered users, ensure that your Active Directory Policies don't conflict with the Okta Policies.
+> **Note:** Password Policies are enforced only for Okta and AD-sourced users. For AD-sourced users, ensure that your Active Directory Policies don't conflict with the Okta Policies.
 
 #### Policy Settings example
 
@@ -1614,7 +1614,7 @@ However, if you are using the Identity Engine, it is recommended to set recovery
 
 | Property   | Description                                                                                                                                                                            | Data Type | Required | Default |
 | ---        | ---                                                                                                                                                                                    | ---       | ---      | ---     |
-| skipUnlock | Indicates if, when performing an unlock operation on an Active Directory mastered User who is locked out of Okta, the system should also attempt to unlock the User's Windows account. | Boolean   | No       | false   |
+| skipUnlock | Indicates if, when performing an unlock operation on an Active Directory sourced User who is locked out of Okta, the system should also attempt to unlock the User's Windows account. | Boolean   | No       | false   |
 
 ### Policy conditions
 
