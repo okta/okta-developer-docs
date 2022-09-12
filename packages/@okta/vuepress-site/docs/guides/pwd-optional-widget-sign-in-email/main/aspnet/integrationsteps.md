@@ -14,7 +14,9 @@ public async Task<ActionResult> Callback(
        return View("SignInWidget", siwConfig);
    }
 
-   return View(new MagicLinkCallbackModel { Message = $"Please enter the OTP '{otp}' in the original browser tab to finish the flow." });
+   return View(new MagicLinkCallbackModel {
+      Message = $"Please enter the OTP '{otp}' in the original browser tab to finish the flow."
+   });
 }
 ```
 
@@ -24,10 +26,11 @@ public async Task<ActionResult> Callback(
 
 After the user successfully verifies their identity, Identity Engine sends an interaction code in a query parameter to `${signInRedirectURI}`. For example, `http://localhost:44314/interactioncode/callback?interaction_code=2JFmObNY8snovJP6_UK5gI_l7RQ-....`
 
-Create an endpoint that calls `idxClient.RedeemInteractionCodeAsync()` exchanges the interaction code for access tokens and `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
+Create an endpoint that calls `idxClient.RedeemInteractionCodeAsync()` to exchange the interaction code for access tokens and `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
 
 ```csharp
-public async Task<ActionResult> Callback(string state = null, string interaction_code = null, string error = null, string error_description = null)
+public async Task<ActionResult> Callback(
+   string state = null, string interaction_code = null, string error = null, string error_description = null)
 {
    try
    {
@@ -35,15 +38,19 @@ public async Task<ActionResult> Callback(string state = null, string interaction
 
        // handle errors if error is not null or interaction_code is null
 
-       Okta.Idx.Sdk.TokenResponse tokens = await _idxClient.RedeemInteractionCodeAsync(idxContext, interaction_code);
-       ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration, tokens);
+       Okta.Idx.Sdk.TokenResponse tokens =
+         await _idxClient.RedeemInteractionCodeAsync(idxContext, interaction_code);
+       ClaimsIdentity identity =
+         await AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration, tokens);
        _authenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
 
        return RedirectToAction("Index", "Home");
    }
    catch (Exception ex)
    {
-       return View("Error", new InteractionCodeErrorViewModel { Error = ex.GetType().Name, ErrorDescription = ex.Message });
+      return View("Error", new InteractionCodeErrorViewModel {
+         Error = ex.GetType().Name, ErrorDescription = ex.Message
+      });
    }
 }
 ```
