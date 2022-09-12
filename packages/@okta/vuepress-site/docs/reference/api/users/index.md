@@ -2572,7 +2572,7 @@ HTTP/1.1 204 No Content
 
 Unlocks a user with a `LOCKED_OUT` status and returns them to `ACTIVE` status.  Users will be able to login with their current password.
 
-> **Note:** This operation works with Okta-mastered users. It doesn't support directory-mastered accounts such as Active Directory.
+> **Note:** This operation works with Okta-sourced users. It doesn't support directory-sourced accounts such as Active Directory.
 
 ##### Request parameters
 
