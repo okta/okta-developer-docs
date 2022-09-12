@@ -2131,7 +2131,7 @@ For a full description of the rate limit changes, see [API Rate Limits](/docs/re
 
 ### Platform Bug Fixed
 
-For a user mastered from Active Directory and in password reset mode, the /api/v1/users API
+For a user sourced from Active Directory and in password reset mode, the /api/v1/users API
 returned the user's status as ACTIVE rather than RECOVERY. (OKTA-109772)
 
 ## 2017.10
