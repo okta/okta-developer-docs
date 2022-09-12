@@ -197,8 +197,7 @@ export default {
 <style>
   .sidebar-list-enter-active {
     transition-property: all;
-    transition-duration: 0.6s;
-    transition-timing-function: ease-in-out;
+    transition-duration: 0.5s;
   }
 
   .sidebar-list-enter {
@@ -207,6 +206,6 @@ export default {
   }
 
   .sidebar-list-enter-to {
-    max-height: 1000px;
+    max-height: 300px;
   }
 </style>
