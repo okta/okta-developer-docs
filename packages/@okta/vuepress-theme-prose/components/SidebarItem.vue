@@ -197,15 +197,26 @@ export default {
 <style>
   .sidebar-list-enter-active {
     transition-property: all;
-    transition-duration: 0.5s;
+    transition-duration: 0.4s;
   }
 
   .sidebar-list-enter {
     overflow: hidden;
     max-height: 0;
+    opacity: 0;
   }
 
   .sidebar-list-enter-to {
     max-height: 300px;
+    opacity: 1;
+  }
+
+  .sidebar-list-leave-active {
+    transition-property: all;
+    transition-duration: 0.3s;
+  }
+
+  .sidebar-list-leave-to {
+    opacity: 0;
   }
 </style>
