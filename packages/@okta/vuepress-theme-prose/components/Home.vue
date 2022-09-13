@@ -167,6 +167,7 @@ const SIDE_BY_SIDE_BREAKPOINT = 1200;
 export default {
   name: "Home",
   components: {
+    AnnouncementBanner: () => import("../global-components/AnnouncementBanner"),
     Sidebar: () => import("../components/Sidebar"),
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),
