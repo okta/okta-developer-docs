@@ -26,8 +26,6 @@ Open `ContentView.swift` and replace the `import` statements and the `ContentVie
 
 ```swift
 import SwiftUI
-import AuthFoundation
-import WebAuthenticationUI
 
 struct ContentView: View {
    // Used to display error messages.
