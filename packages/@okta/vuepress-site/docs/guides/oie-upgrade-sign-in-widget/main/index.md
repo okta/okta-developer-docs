@@ -153,7 +153,7 @@ idps: [
 
 [Smart card IdP](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow) is no longer supported.
 
-Remove the authentication settings for the smart card IdP (`piv`) shown below:
+Remove the authentication settings for the smart card IdP (`piv`):
 
 ```JavaScript
 piv: {
