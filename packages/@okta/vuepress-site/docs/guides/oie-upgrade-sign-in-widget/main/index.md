@@ -15,7 +15,7 @@ This guide covers how to upgrade the Okta Sign-In Widget, which depends on wheth
 **What you need**
 
 * An [Identity Engine-upgraded Okta org](/docs/guides/oie-upgrade-overview/)
-* An existing app that uses the Okta Sign-In Widget
+* An existing app that uses the Sign-In Widget
 * [Latest available widget release](https://github.com/okta/okta-signin-widget/releases)
 
 ---
@@ -140,14 +140,17 @@ features: {
 
 ### OpenID Connect/social authentication
 
-You no longer require the `idps` JavaScript object and `className` property in the widget (shown below for reference), and you can remove them.  This is optional as the Okta Identity Engine will now include IdPs based on the routing rules.
+You no longer require the `idps` JavaScript object in the widget, and can remove it.
 
 ```JavaScript
 idps: [
   { type: 'GOOGLE', id: '0oagjkh' },
   { type: 'FACEBOOK', id: '0oagjkh' },
+    ...
 ]
 ```
+
+This is now optional as the Sign-In Widget will automatically include IdPs based on Identity Engine routing rules.
 
 ### Smart card IdP
 
