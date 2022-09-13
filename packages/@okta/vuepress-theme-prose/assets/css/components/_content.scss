@@ -81,7 +81,7 @@
     background: cv('body');
     top: 142px;
     transition-property: all;
-    transition-duration: 0.25s;
+    transition-duration: 0.15s;
     transition-timing-function: cubic-bezier(0.14, 0.04, 1, 0.91);
     @include media("<desktop-xl") {
       top: 125px;
