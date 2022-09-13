@@ -15,7 +15,5 @@ The phone authenticator is a popular and recommended alternative authenticator b
 Before you configure the password-optional experience, ensure that passwords continue to be required for your admins. Should a passwordless account be granted admin privileges at some point, they will then be required to create a password giving them access to all your Org's apps. To do this:
 
 * Create a separate group for admins and add your admin users to that group.
-* Create separate authenticator enrollment, global session, and authentication policies for this group.
+* Create separate authenticator enrollment, global session, and authentication policies for this group. Each policy should require a password.
 * Place this group at the highest priority (at number one) in the authenticator enrollment policy.
-
-This will also prevent new admin accounts being created without a password.
