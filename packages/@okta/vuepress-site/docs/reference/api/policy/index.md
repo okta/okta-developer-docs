@@ -1226,6 +1226,8 @@ The authenticator enrollment policy controls which authenticators are available 
 
 > **Note:** The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
 
+> **Note:** For orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta contains the `authenticators` property in the policy settings. Existing default authenticator enrollment policies from a migrated Classic Engine org remain unchanged and still use the `factors` property in their policy settings.
+
 #### Policy Authenticator object
 
 <ApiLifecycle access="ie" />
