@@ -95,7 +95,7 @@ Add the required dependencies for using the Okta SDK with your app.
 
 ### Configure your app
 
-Our app uses information from the Okta integration that we created earlier to configure communication with the API: Redirect URI, Post Logout Redirect URI, Client ID and Issuer.
+The app uses information from the Okta integration that you created earlier to configure communication with the API: Redirect URI, Post Logout Redirect URI, Client ID and Issuer.
 
 <StackSnippet snippet="configmid" />
 
@@ -114,7 +114,7 @@ To sign users in, your application will generally open a browser and display an 
 
 To achieve this you need to define how Okta can redirect back to your app. This is called a callback route or redirect URI. In mobile apps, use a custom scheme similar to `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in through the browser. This should be the same value that you used for the Sign-in and Sign-out redirect URIs when you created an app integration in the previous steps.
 
-Your mobile app is responsible for parsing the information Okta sends to the callback route. Our SDKs can help you with this task (covered later in the [Open the sign-in page](#open-the-sign-in-page) section). For now, just define the route itself.
+Your mobile app is responsible for parsing the information Okta sends to the callback route. The Okta SDKs can help you with this task (covered later in the [Open the sign-in page](#open-the-sign-in-page) section). For now, just define the route itself.
 
 <StackSnippet snippet="definecallback" />
 
