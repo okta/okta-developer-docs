@@ -178,7 +178,7 @@ The recovery token is dynamic and is automatically passed into the initializatio
 
 For an Okta dashboard sign-in, you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget.
 
-Remove the redirect configuration (`setCookieAndRedirect()`) line shown below:
+Remove the redirect configuration (`setCookieAndRedirect()`) line, shown in the following snippet:
 
 ```JavaScript
 function success(res) {
