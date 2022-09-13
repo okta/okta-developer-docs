@@ -6,7 +6,7 @@ title: Sign in with email only
 
 <ApiLifecycle access="ie" /><br>
 
-Enable users to sign in with email only in an application using the embedded Okta Sign-In Widget.
+Enable an email-only sign-in flow in your application using the embedded Okta Sign-In Widget.
 
 **Learning outcomes**
 
@@ -65,7 +65,7 @@ The user clicks **Send me an email** to begin the email challenge flow.
 
 ### 3. The user verifies their identity with the email authenticator
 
-Identity Engine sends a verification email to the user's primary email address. The email gives the user two ways to verify their identity:
+Okta Identity Engine sends a verification email to the user's primary email address. The email gives the user two ways to verify their identity:
 
 * Copy a One-Time Password (OTP) from the email into the Sign-In Widget and submit it for verification.
 * Click a "magic link" in the email that submits the OTP to Identity Engine on your behalf.
