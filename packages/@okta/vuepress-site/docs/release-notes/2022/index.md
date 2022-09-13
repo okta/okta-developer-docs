@@ -312,7 +312,7 @@ For generic OIDC IdPs, Okta fails the authentication if the returned ID token do
 
 #### Group limit removed for Authorization Code grant type flows
 
-The 100-group limit for the `/token` endpoint is removed for the Authorization Code and Authorization Code with PKCE grant type flows. <!-- OKTA-497701 -->
+The 100-group limit for the `/token` endpoint is removed for the Authorization Code and Authorization Code with PKCE grant type flows when the Groups Claim Type is **Filter**. <!-- OKTA-497701 -->
 
 #### JWT claim enhancement
 
