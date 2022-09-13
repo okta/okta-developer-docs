@@ -62,5 +62,4 @@ When the user completes the email authenticator verification, one of `OktaAuth.i
 
 Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.
 
-
 > **Note:** In other use cases where additional sign-in authenticators are required, the user needs to choose and verify all required authenticators before `IdxTransaction.status` of `SUCCESS` is returned.

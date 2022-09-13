@@ -68,7 +68,7 @@ Create and display a page that lists the remaining authenticators. Check the `Ca
 
 When the user clicks the **Skip** button, call `IdxClient.SkipAuthenticationSelectionAsync()` passing in the `IdxContext` object that represents the current state of the registration flow.
 
-After the user skips the remaining optional authenticators, the current status of the authentication process is now `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
+After the user skips the remaining optional authenticators, the current status of the authentication process is now `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information and pass it into your application. The user has now signed in.
 
 ```csharp
 var skipSelectionResponse = await _idxClient

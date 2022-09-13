@@ -44,7 +44,7 @@ The email authenticator supports user verification by One-Time Password (OTP) an
 
 ### 4. Your app handles an authentication success response
 
-After the user verifies their identity using the email authenticator, the current status of the authentication process is now `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the OIDC claims information about the user and pass them into your application. The user has now signed in.
+After the user verifies their identity using the email authenticator, the current status of the authentication process is now `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information and pass it into your application. The user has now signed in.
 
 ```csharp
 var authnResponse = await _idxClient.VerifyAuthenticatorAsync(
