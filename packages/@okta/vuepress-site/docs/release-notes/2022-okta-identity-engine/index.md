@@ -359,6 +359,7 @@ The mandatory `profileAttributes` parameter wasn't validated and the primary `em
 | [Dynamic IdP routing is EA in Preview](#dynamic-idp-routing-is-ea-in-preview) | June 8, 2022|
 | [Email Address Bounces API is GA in Production](#email-address-bounces-api-is-ga-in-production) | March 2, 2022 |
 | [Generic OIDC IdP nonce validation enforced](#generic-oidc-idp-nonce-validation-enforced) | June 8, 2022|
+| [Group limit removed for Authorization Code grant type flows](#group-limit-removed-for-authorization-code-grant-type-flows) | June 8, 2022|
 | [JWT claim enhancement](#jwt-claim-enhancement) | June 8, 2022|
 | [Okta Verify rate limit updates](#okta-verify-rate-limit-updates) | June 8, 2022|
 | [OIDC Identity Providers private/public key pair support is EA in Preview](#oidc-identity-providers-private-public-key-pair-support-is-ea-in-preview) | June 8, 2022|
@@ -385,6 +386,10 @@ Okta admins can now control the bounced email address list through the [Email Ad
 #### Generic OIDC IdP nonce validation enforced
 
 For generic OIDC IdPs, Okta fails the authentication if the returned ID token doesn’t contain the `nonce` that was sent with the initial authorize request. <!-- OKTA-486805 -->
+
+#### Group limit removed for Authorization Code grant type flows
+
+The 100-group limit for the `/token` endpoint is removed for the Authorization Code and Authorization Code with PKCE grant type flows when the Groups Claim Type is **Filter**. <!-- OKTA-497701 -->
 
 #### JWT claim enhancement
 
