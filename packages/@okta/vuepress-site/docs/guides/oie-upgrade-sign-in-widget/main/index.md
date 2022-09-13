@@ -101,7 +101,7 @@ var config = {
 
 You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the widget. You can add registration into your application by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment). This process allows users to self register into your application.
 
-Remove the `registration` object and `features.registration` property shown in the below snippet:
+Remove the `registration` object and `features.registration` property that are shown in the following snippet:
 
 ```JavaScript
 var signIn = new OktaSignIn({
