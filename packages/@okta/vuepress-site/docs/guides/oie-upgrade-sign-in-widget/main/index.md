@@ -130,7 +130,7 @@ var signIn = new OktaSignIn({
 
 IdP Discovery enables you to route users to different third-party IdPs that are connected to your Okta org. Users can federate back into the primary org after authenticating at the IdP. This feature still functions, but you no longer need to enable the link for users to initialize the route. Instead, you can configure a routing rule with the application context.
 
-Remove the `idpDiscovery` property shown below:
+Remove the `idpDiscovery` property:
 
 ```JavaScript
 features: {
