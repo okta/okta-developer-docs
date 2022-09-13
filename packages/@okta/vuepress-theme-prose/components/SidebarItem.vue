@@ -196,8 +196,9 @@ export default {
 
 <style>
   .sidebar-list-enter-active {
-    transition-property: all;
-    transition-duration: 0.4s;
+    transition-property: max-height, opacity;
+    transition-duration: 0.55s, 0.7s;
+    transition-timing-function: cubic-bezier(0.14, 0.04, 1, 0.91), ease-in;
   }
 
   .sidebar-list-enter {
@@ -207,16 +208,9 @@ export default {
   }
 
   .sidebar-list-enter-to {
-    max-height: 300px;
+    max-height: 2000px;
     opacity: 1;
-  }
 
-  .sidebar-list-leave-active {
-    transition-property: all;
-    transition-duration: 0.3s;
-  }
-
-  .sidebar-list-leave-to {
-    opacity: 0;
+    will-change: max-height;
   }
 </style>
