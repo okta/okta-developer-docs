@@ -4,6 +4,17 @@ title: Okta API Products release notes 2022
 
 ## September
 
+### Weekly release 2022.09.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.1](#bugs-fixed-in-2022-09-1)                      | September 14, 2022            |
+
+#### Bugs fixed in 2022.09.1
+
+* The subscription role API didn’t support the API Access Management role. (OKTA-431895)
+* The origin header validation on the `/token` endpoint for cross-origin requests was case-sensitive, which returned an error for redirect URIs using upper-case. (OKTA-516740)
+
 ### Monthly release 2022.09.0
 
 | Change | Expected in Preview Orgs |
