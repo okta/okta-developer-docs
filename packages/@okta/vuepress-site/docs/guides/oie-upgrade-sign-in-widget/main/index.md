@@ -151,7 +151,7 @@ idps: [
 
 ### Smart card IdP
 
-You no longer need to configure the authentication settings for the [smart card IdP](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow), as it's no longer supported.
+[Smart card IdP](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow) is no longer supported.
 
 Remove the authentication settings for the smart card IdP (`piv`) shown below:
 
