@@ -95,7 +95,7 @@ Add the required dependencies for using the Okta SDK with your app.
 
 ### Configure your app
 
-The app uses information from the Okta integration that you created earlier to configure communication with the API: Redirect URI, Post Logout Redirect URI, Client ID and Issuer.
+The app uses information from the Okta integration that you created earlier to configure communication with the API: Redirect URI, Post Logout Redirect URI, Client ID, and Issuer.
 
 <StackSnippet snippet="configmid" />
 
