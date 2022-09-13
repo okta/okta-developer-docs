@@ -124,7 +124,7 @@ var signIn = new OktaSignIn({
 })
 ```
 
-> **Note**: We have not included the `parseSchema` method in the above `registration` object; the ability to include additional schemas is no longer supported.
+> **Note**: The `parseSchema` method isn't included in the above `registration` object because the ability to include additional schemas is no longer supported.
 
 ### IdP Discovery
 
