@@ -43,7 +43,7 @@ The total number of keys that you can create in an Okta org is limited to 50.
 
 ##### Response parameters
 
-The response is a [key object](#key-object) that represents the key that was created. The `id` property in the response serves as the unique ID for the key, which you can specify when invoking other CRUD operations.
+The response is a [Key object](#key-object) that represents the key that you create. The `id` property in the response serves as the unique ID for the key, which you can specify when invoking other CRUD operations.
 The `keyId` provided in the response is the alias of the public key that can be used to get details of the public key data in a separate call.
 
 ##### Request example
