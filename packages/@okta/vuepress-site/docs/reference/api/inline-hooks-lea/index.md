@@ -30,7 +30,7 @@ There are two authentication options that you can configure for your inline hook
 
 HTTP headers let you specify a secret API key that you want Okta to pass to your external service endpoint (so that your external service can check for its presence as a security measure).
 
-> **Note:** The API key you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs.
+> **Note:** The API key that you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs.
 
 You can also optionally specify extra headers that you want Okta to pass to your external service with each call.
 
