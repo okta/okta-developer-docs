@@ -285,7 +285,7 @@ curl -v -X DELETE \
 
 The Key Management API has the following objects:
 
-* [Key request object](/#key-request-object)
+* [Key Request object](/#key-request-object)
 * [Key object](#key-object)
 * [Public key details](#public-key-details)
 
