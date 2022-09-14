@@ -335,7 +335,7 @@ The key management API has the following objects:
 
 ### Public Key Details
 
-The public key details are defined in the `_embedded` property of the key object.
+The Public Key Details are defined in the `_embedded` property of the Key object.
 
 | Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
 | -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
