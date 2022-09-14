@@ -12,7 +12,7 @@ The Okta Key Management API provides a CRUD interface for JSON Web Keys (JWK) us
 
 ## Get started
 
-Explore the key management API:[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a36f6c129009072f78b5?action=collection%2Fimport)
+Explore the Key Management API:[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a36f6c129009072f78b5?action=collection%2Fimport)
 
 ## Key management operations
 
