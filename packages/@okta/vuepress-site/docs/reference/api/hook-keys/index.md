@@ -289,7 +289,7 @@ The Key Management API has the following objects:
 * [Key object](#key-object)
 * [Public key details](#public-key-details)
 
-### Key request object
+### Key Request object
 
 | Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
 | -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
