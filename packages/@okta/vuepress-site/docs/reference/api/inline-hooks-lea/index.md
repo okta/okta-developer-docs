@@ -402,7 +402,7 @@ curl -v -X PUT \
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
 | id         | The ID of the inline hook that you want to activate                                   | Path         | String                                      | TRUE     |
 
-Activates the inline hook that match the provided `id`
+Activates the inline hook that matches the provided `id`
 
 ##### Response parameters
 
