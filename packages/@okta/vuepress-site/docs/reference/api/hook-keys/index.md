@@ -281,7 +281,7 @@ curl -v -X DELETE \
 
 204 with no content
 
-## Key management objects
+## Key Management objects
 
 The key management API has the following objects:
 
