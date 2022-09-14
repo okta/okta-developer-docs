@@ -39,7 +39,7 @@ The total number of keys that you can create in an Okta org is limited to 50.
 
 | Parameter   | Description                                                                                  | Param Type   | DataType                                    | Required |
 | ----------- | -------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
-| key | A valid request object that specifies the details of the key that you are creating   | Body         | [key request object](#key-request-object)  | TRUE     |
+| key | A valid request object that specifies the details of the key that you create   | Body         | [key request object](#key-request-object)  | TRUE     |
 
 ##### Response parameters
 
