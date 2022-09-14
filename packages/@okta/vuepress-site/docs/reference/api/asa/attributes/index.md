@@ -11,20 +11,23 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 `https://app.scaleft.com/v1/`
 
+
 Advanced Server Access (ASA) Attributes are key-value mappings that hold metadata of ASA Users and ASA Groups.
 
-Explore the Attributes API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
+Explore the Attributes API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
+
 
 ## Attributes API operations
 
-The Attributes API has the following operations:
 
+The Attributes API has the following operations:
 * [List Group Attributes](#list-group-attributes)
 * [Fetch a Group Attribute](#fetch-a-group-attribute)
 * [Update a Group Attribute](#update-a-group-attribute)
 * [List the Attributes for a User](#list-the-attributes-for-a-user)
 * [Fetch a User Attribute](#fetch-a-user-attribute)
 * [Update a single Attribute for a User](#update-a-single-attribute-for-a-user)
+
 
 ### List Group Attributes
 
@@ -45,10 +48,10 @@ This endpoint requires one of the following roles: `access_admin`, `access_user`
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| `conflicting`   |  boolean | (Optional) When true, returns only attributes that conflict with other ASA Group attributes on this Team |
+| `conflicting`   |  boolean | (Optional) When true, returns only attributes that conflict with other ASA Group attributes on this Team. |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 
@@ -58,6 +61,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `attribute_name`   | string | Accepted values: `unix_group_name`, `unix_gid`, or `windows_group_name` |
@@ -100,7 +105,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/attributes/${attribute_id}" />
 Fetches the details of an Attribute for an ASA Group
 
-This endpoint requires one of the following roles: `access_user`, `reporting_user`, or `access_admin`.
+This endpoint requires one of the following roles: `access_admin`, `access_user`, or `reporting_user`.
 
 #### Request path parameters
 
@@ -121,6 +126,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `attribute_name`   | string | Accepted values: `unix_group_name`, `unix_gid`, or `windows_group_name` |
@@ -171,6 +178,7 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `attribute_name`   | string | Accepted names include `unix_group_name`, `windows_group_name`, and `unix_gid`. |
@@ -178,6 +186,8 @@ This endpoint requires an object with the following fields.
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example
@@ -221,7 +231,7 @@ This endpoint requires one of the following roles: `access_user`, `reporting_use
 | `conflicting`   |  boolean | (Optional) When true, returns only attributes that conflict with other ASA User attributes on this Team |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 
@@ -231,6 +241,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `attribute_name`   | string | Accepted values: `unix_user_name`, `unix_uid`, `unix_gid`, or `windows_user_name`. |
@@ -285,7 +297,7 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/attributes/${attribute_id}" />
 Fetches the details of an Attribute for an ASA User
 
-This endpoint requires one of the following roles: `reporting_user`, `access_admin`, or `access_user`.
+This endpoint requires one of the following roles: `access_user`, `reporting_user`, or `access_admin`.
 
 #### Request path parameters
 
@@ -306,6 +318,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `attribute_name`   | string | Accepted values: `unix_user_name`, `unix_uid`, `unix_gid`, or `windows_user_name`. |
@@ -356,6 +370,7 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `attribute_name`   | string | Accepted values: `unix_group_name`, `unix_gid`, or `windows_group_name` |
@@ -363,6 +378,8 @@ This endpoint requires an object with the following fields.
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example

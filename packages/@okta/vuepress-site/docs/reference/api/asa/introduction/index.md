@@ -1,12 +1,12 @@
-# Introduction to the Advanced Server Access API
+# Introduction to the Advanced Server Access (ASA) API
 
 ## Authentication
 
-Most calls to the Advanced Server Access (ASA) API require an HTTP `Authorization`
+Most calls to the Advanced Server Access API require an HTTP `Authorization`
 header with a value of `Bearer ${AUTH_TOKEN}`.
 
 To retrieve an auth token, you need to [create a Service User and API
-key](https://help.okta.com/okta_help.htm?type=asa&id=ext_asa_service_users),
+key](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_asa_service_users),
 then pass the API key information to the [Issue a Service User
 token](../service-users/#issue-a-service-user-token) endpoint.
 
@@ -61,14 +61,6 @@ when retrieving lists:
 3. Check for a Link header value with `rel="next"`. If such a value exists,
    fetch it and repeat steps two and three.
 
-An example of a paginated request that contains the URL from the `rel="next"` Link header:
-
-```bash
-curl -v -X GET \
--H "Authorization: Bearer ${jwt}" \
-https://app.scaleft.com/v1/teams/${team_name}/projects?offset=${next_page_offset}
-```
-
 Clients that want to fetch pages of less than 100 items (for testing
 pagination, for example) may pass a `count` parameter to the initial list call.
 This parameter is automatically propagated to each of the pagination Link URLs
@@ -111,16 +103,20 @@ An example of a paginated response body that contains a `list` field:
 }
 ```
 
-## Rate limiting
+## Rate Limiting
 
-Rate limits control access to Advanced Server Access APIs by measuring the rate at which users send requests during a rate limit period. After exceeding this limit, users must wait for requests to replenish before submitting again.
+Rate limits for Advanced Server Access limit access to APIs. By default users
+are limited to 10,000 API requests per hour collectively across most endpoints.
+In the future, Team-wide rate limits may be implemented.
 
-Every API response includes headers related to rate limiting:
+Every API response includes three headers related to rate limiting:
 
-* `X-RateLimit-Limit`: Describes the total number of operations permitted per rate limit period.
-* `X-RateLimit-Remaining`: Describes the total number of remaining operations permitted during the current rate limit period.
-* `X-RateLimit-Reset`: Contains a UNIX timestamp that indicates when the number of rate limit requests fully replenishes.
-* `X-RateLimit-Retry-At`: Sent after exceeding the rate limit and contains a UNIX timestamp that indicates when the number of rate limit requests partially replenishes. If multiple requests share the same timestamp, sending them at the same time may cause additional rate limiting.
+* `X-RateLimit-Limit` - describes the total number of operations permitted per
+  rate limit period (currently one hour on all endpoints)
+* `X-RateLimit-Remaining` - describes the total number of remaining operations
+  permitted during the current rate limit period
+* `X-RateLimit-Reset` - contains the unix timestamp for the beginning of the
+  next rate limit period
 
 Requests that exceed a rate limit receive an `HTTP 429 - Too Many Requests`
 error response.

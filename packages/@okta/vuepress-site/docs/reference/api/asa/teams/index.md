@@ -11,16 +11,18 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 `https://app.scaleft.com/v1/`
 
+
 An Advanced Server Access (ASA) Team is the top-level organizational concept in ASA. Each ASA Team maps to a single app in the Okta dashboard.
 
 All other configuration objects in Advanced Server Access are scoped to an ASA Team.
 
-Explore the Teams API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
+Explore the Teams API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
+
 
 ## Teams API operations
 
-The Teams API has the following operations:
 
+The Teams API has the following operations:
 * [List Servers for a Team](#list-servers-for-a-team)
 * [Update a Server](#update-a-server)
 * [Fetch Team settings](#fetch-team-settings)
@@ -33,7 +35,7 @@ The Teams API has the following operations:
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/servers" />
 Lists all the Servers enrolled in a Team that the requesting ASA User has access to
 
-This endpoint requires one of the following roles: `access_user`, `access_admin`, `authenticated_client`, `reporting_user`, or `server_admin`.
+This endpoint requires one of the following roles: `reporting_user`, `server_admin`, `access_user`, `access_admin`, or `authenticated_client`.
 
 #### Request path parameters
 
@@ -49,11 +51,16 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | `alt_names_contains`   |  string | (Optional) Include Servers that contain the value of `alt_name_contains` in their `alt_names` |
 | `bastion`   |  string | (Optional) A bastion hostname |
 | `canonical_name`   |  string | (Optional) A canonical name |
-| `cloud_provider`   |  string | (Optional) A Cloud provider: `aws` or `gcp` |
+| `cloud_account`   |  string | (Optional) The id of the cloud account associated with this server |
+| `cloud_provider`   |  string | (Optional) A Cloud provider: `aws` or `gce` |
 | `count`   |  number | (Optional) The number of objects per page |
+| `credentialed`   |  string | (Optional) If `true`, only include unmanaged servers with credential issuance enabled. If `false`, only include unmanaged servers with credential issuance disabled. |
 | `descending`   |  boolean | (Optional) The object order |
+| `has_account_under_management`   |  string | (Optional) If `true`, only include servers that currently have at least one account`s password under management`.  If `false`, only include servers that do not currently have an account whose password is under management |
 | `hostname`   |  string | (Optional) A hostname |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `instance_id`   |  string | (Optional) The instance ids of the servers |
+| `managed`   |  string | (Optional) If `true`, only include managed servers. If `false`, only include unmanaged servers |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `project_name`   |  string | (Optional) A Project name |
 | `selector`   |  string | (Optional) Server selectors. Same syntax as k8s |
@@ -66,6 +73,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `access_address`   | string | The access address of the Server |
@@ -77,7 +86,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `hostname`   | string | The hostname of the Server |
 | `id`   | string | The UUID corresponding to the Server |
 | `instance_details`   | object | Information that the cloud provider provides about the Server, if one exists |
-| `labels`   | object | (Optional) The labels for this server. This parameter is only available with the PolicySync feature, which is currently in EA. |
+| `labels`   | object | (Optional) The labels for this server. Only available with the PolicySync feature, which is currently in EA. |
 | `last_seen`   | string | The last time that the Server made a request to the ASA platform |
 | `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA knows that it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server, such as CentOS 6 or Debian 9.13 |
@@ -109,12 +118,14 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 			"access_address": null,
 			"alt_names": null,
 			"bastion": null,
+			"broker_host_certs": null,
 			"canonical_name": null,
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "harvard",
-			"id": "0a49a1cf-c747-47a0-bb14-94b1edb9f3ee",
+			"id": "88bcbd37-2b86-437a-a767-96fca38b58f9",
 			"instance_details": null,
+			"instance_id": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
 			"os": "Ubuntu 16.04",
@@ -122,6 +133,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 			"project_name": "the-sound-and-the-fury",
 			"registered_at": "0001-01-01T00:00:00Z",
 			"services": [
+				"broker",
 				"ssh"
 			],
 			"sftd_version": "1.44.4",
@@ -133,12 +145,14 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 			"access_address": null,
 			"alt_names": null,
 			"bastion": null,
+			"broker_host_certs": null,
 			"canonical_name": null,
 			"cloud_provider": null,
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"hostname": "jefferson",
-			"id": "ac68cb70-e3eb-4239-b6de-73d3878dd97b",
+			"id": "e2a60254-cdf8-4762-ae5a-2dd8e76936a6",
 			"instance_details": null,
+			"instance_id": null,
 			"last_seen": "0001-01-01T00:00:00Z",
 			"managed": true,
 			"os": "Ubuntu 16.04",
@@ -146,6 +160,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 			"project_name": "the-sound-and-the-fury",
 			"registered_at": "0001-01-01T00:00:00Z",
 			"services": [
+				"broker",
 				"ssh"
 			],
 			"sftd_version": "1.44.4",
@@ -159,7 +174,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 ### Update a Server
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/servers/${server_id}" />
-Updates a Server. This endpoint is only available with the PolicySync feature, which is currently in EA.
+Update a Server. This endpoint is only available with the PolicySync feature, which is currently in EA
 
 This endpoint requires one of the following roles: `access_admin`, or `server_admin`.
 
@@ -177,14 +192,16 @@ This endpoint has no query parameters.
 
 #### Request body
 
+This endpoint requires an object with the following fields.
 
-This endpoint requires an object with the following fields:
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `labels`   | object | (Optional) A map of key value pairs. These labels overwrite all labels previously supplied through the API for this server. You can only update labels from other sources using that source. If you don't supply the prefix 'api.', it is automatically prepended. |
+| `labels`   | object | (Optional) A map of key value pairs. These labels will overwrite all labels previously supplied via the API for this server. Labels from any other source can only be updated using that source. The prefix 'api.' will be automatically prepended if not supplied. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example
@@ -212,7 +229,7 @@ HTTP 204 No Content
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/settings" />
 Fetches Team-level settings for a specific Team, such as authentication and enrollment details
 
-This endpoint requires one of the following roles: `access_admin`, `instance_admin`, or `access_user`.
+This endpoint requires one of the following roles: `access_user`, `access_admin`, or `instance_admin`.
 
 #### Request path parameters
 
@@ -231,15 +248,17 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `approve_device_without_interaction`   | boolean | If enabled, ASA auto-approves devices for ASA Users that are authenticated into this Team. |
-| `client_session_duration`   | number | Defines the Client session duration. Values should be in hours between 1 hour 25 hours. |
+| `client_session_duration`   | number | Defines the Client session duration. Value should be in hours between 1 hour and 25 hours. |
 | `post_device_enrollment_url`   | string | If post device enrollment is configured, this is the URL that an ASA User is directed to after enrolling a device in ASA. |
 | `post_login_url`   | string | If post login is configured, this is the URL that an ASA User who hasn't recently been authenticated is directed to after being validated by their IdP. |
 | `post_logout_url`   | string | If post logout is configured, this is the URL that an ASA User is redirected to after signing out. |
 | `reactivate_users_via_idp`   | boolean | If a disabled or deleted ASA User is able to authenticate through the IdP, their ASA User is re-enabled. |
-| `team`   | string | The name of the Team that is configured with the provided settings |
+| `team`   | string | The name of the Team that is configured with the provided settings. |
 | `user_provisioning_exact_username`   | boolean | If true, ASA has ASA Users configured through SCIM to maintain the exact username that is specified. |
 | `web_session_duration`   | number | Defines the duration of the web session. Configure the web session to be between 30 minutes and 25 hours. |
 
@@ -271,9 +290,9 @@ https://app.scaleft.com/v1/teams/${team_name}/settings
 ### Update Team settings
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/settings" />
-Updates ream-level settings. Partial updates are permitted. URL parameters are optional **and default to unset.** To unset a previously set URL, use PUT with the `unset` parameter set to `null`.
+Updates Team-level settings. Partial updates are permitted. To unset a previous setting, set its value tto `null`.
 
-This endpoint requires one of the following roles: `access_admin`, or `instance_admin`.
+This endpoint requires one of the following roles: `instance_admin`, or `access_admin`.
 
 #### Request path parameters
 
@@ -289,20 +308,23 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `approve_device_without_interaction`   | boolean | If enabled, ASA auto-approves devices for ASA Users that are authenticated into this Team. |
-| `client_session_duration`   | number | Defines the Client session duration. Values should be in hours between 1 hour 25 hours. |
+| `client_session_duration`   | number | Defines the Client session duration. Value should be in hours between 1 hour and 25 hours. |
 | `post_device_enrollment_url`   | string | If post device enrollment is configured, this is the URL that an ASA User is directed to after enrolling a device in ASA. |
 | `post_login_url`   | string | If post login is configured, this is the URL that an ASA User who hasn't recently been authenticated is directed to after being validated by their IdP. |
 | `post_logout_url`   | string | If post logout is configured, this is the URL that an ASA User is redirected to after signing out. |
 | `reactivate_users_via_idp`   | boolean | If a disabled or deleted ASA User is able to authenticate through the IdP, their ASA User is re-enabled. |
-| `team`   | string | The name of the Team that is configured with the provided settings |
+| `team`   | string | The name of the Team that is configured with the provided settings. |
 | `user_provisioning_exact_username`   | boolean | If true, ASA has ASA Users configured through SCIM to maintain the exact username that is specified. |
 | `web_session_duration`   | number | Defines the duration of the web session. Configure the web session to be between 30 minutes and 25 hours. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example
@@ -355,15 +377,17 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `num_clients`   | number | The number of Clients in a Team |
-| `num_gateways`   | number | The number of Gateways in a Team |
-| `num_groups`   | number | The number of ASA Groups in a Team |
-| `num_human_users`   | number | The number of human ASA Users in a Team |
-| `num_projects`   | number | The number of Projects in a Team |
-| `num_servers`   | number | The number of Servers in a Team |
-| `num_service_users`   | number | The number of service ASA Users in a Team |
+| `num_clients`   | number | The number of Clients in a Team. |
+| `num_gateways`   | number | The number of Gateways in a Team. |
+| `num_groups`   | number | The number of ASA Groups in a Team. |
+| `num_human_users`   | number | The number of human ASA Users in a Team. |
+| `num_projects`   | number | The number of Projects in a Team. |
+| `num_servers`   | number | The number of Servers in a Team. |
+| `num_service_users`   | number | The number of service ASA Users in a Team. |
 
 #### Usage example
 
@@ -379,10 +403,12 @@ https://app.scaleft.com/v1/teams/${team_name}/team_stats
 
 ```json
 {
+	"num_af_applications": 0,
 	"num_clients": 0,
 	"num_gateways": 0,
 	"num_groups": 1,
 	"num_human_users": 1,
+	"num_oidc_applications": 0,
 	"num_projects": 2,
 	"num_servers": 1,
 	"num_service_users": 0

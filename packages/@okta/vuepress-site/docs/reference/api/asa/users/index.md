@@ -11,14 +11,16 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 `https://app.scaleft.com/v1/`
 
+
 An Advanced Server Access (ASA) User corresponds to a human or Service User in the ASA ecosystem.
 
-Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
+Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
+
 
 ## Users API operations
 
-The Users API has the following operations:
 
+The Users API has the following operations:
 * [List the ASA Users for a team](#list-the-asa-users-for-a-team)
 * [Fetch an ASA User](#fetch-an-asa-user)
 * [Update an ASA User](#update-an-asa-user)
@@ -47,7 +49,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
 | `include_service_users`   |  string | (Optional) Include Service Users in the results |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `starts_with`   |  string | (Optional) Includes ASA Users with name that begins with the value |
 | `status`   |  string | (Optional) Includes ASA Users with specified statuses. Valid statuses: `ACTIVE`, `DISABLED`, and `DELETED`. |
@@ -59,6 +61,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
@@ -93,11 +97,12 @@ https://app.scaleft.com/v1/teams/${team_name}/users
 				"full_name": "Jason Compson IV",
 				"last_name": "Compson"
 			},
-			"id": "9b30f827-66bb-4d86-ba26-d57f85c2a0d6",
+			"id": "03832a9e-c09c-4200-bf05-32dde35de011",
 			"name": "Jason.Compson.IV",
 			"oauth_client_application_id": null,
 			"role_grants": null,
 			"status": "ACTIVE",
+			"team_name": "william-faulkner",
 			"user_type": "human"
 		},
 		{
@@ -108,11 +113,12 @@ https://app.scaleft.com/v1/teams/${team_name}/users
 				"full_name": "Benjy Compson",
 				"last_name": "Compson"
 			},
-			"id": "10593dce-5a88-462c-bba7-1666e0b401a3",
+			"id": "c58846b8-8301-4bae-9e05-b2729e7c48e6",
 			"name": "Benjy.Compson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
 			"status": "DISABLED",
+			"team_name": "william-faulkner",
 			"user_type": "human"
 		},
 		{
@@ -123,11 +129,12 @@ https://app.scaleft.com/v1/teams/${team_name}/users
 				"full_name": "Quentin Compson III",
 				"last_name": "Compson"
 			},
-			"id": "4dee8f5f-a15e-400d-853c-a89850f051c1",
+			"id": "c6ebf3f2-8fd4-40ec-b2bc-4984c2502b93",
 			"name": "Quentin.Compson.III",
 			"oauth_client_application_id": null,
 			"role_grants": null,
 			"status": "DELETED",
+			"team_name": "william-faulkner",
 			"user_type": "human"
 		}
 	]
@@ -158,6 +165,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
@@ -190,11 +199,12 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}
 		"full_name": "Jason Compson IV",
 		"last_name": "Compson"
 	},
-	"id": "9b30f827-66bb-4d86-ba26-d57f85c2a0d6",
+	"id": "03832a9e-c09c-4200-bf05-32dde35de011",
 	"name": "Jason.Compson.IV",
 	"oauth_client_application_id": null,
 	"role_grants": null,
 	"status": "ACTIVE",
+	"team_name": "william-faulkner",
 	"user_type": "human"
 }
 ```
@@ -220,6 +230,7 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
@@ -233,6 +244,8 @@ This endpoint requires an object with the following fields.
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example
@@ -250,11 +263,12 @@ curl -v -X PUT \
 		"full_name": "James Compson IV",
 		"last_name": "Compson"
 	},
-	"id": "9b30f827-66bb-4d86-ba26-d57f85c2a0d6",
+	"id": "03832a9e-c09c-4200-bf05-32dde35de011",
 	"name": "James.Compson.IV",
 	"oauth_client_application_id": null,
 	"role_grants": null,
 	"status": "ACTIVE",
+	"team_name": "william-faulkner",
 	"user_type": "human"
 }' \
 https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}
@@ -287,7 +301,10 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | `contains`   |  string | (Optional) If a value is provided, the results are filtered to only contain ASA Groups whose name contains that value. |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `disconnected_mode_on_only`   |  boolean | (Optional) If `true`, the results only include ASA Groups with disconnected mode enabled. |
+| `include_deleted`   |  boolean | (Optional) If `true`, the results include deleted ASA Groups. |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `only_include_deleted`   |  boolean | (Optional) If `true`, the results only include deleted ASA Groups. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 
@@ -297,6 +314,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA Group was deleted |
@@ -325,7 +344,7 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": null,
 			"federation_approved_at": null,
-			"id": "5476abfe-5eaf-4f96-ac83-053b900bdccf",
+			"id": "f9ee433d-7015-4439-a408-da34ef9fd9c6",
 			"name": "compsons",
 			"roles": [
 				"access_user",

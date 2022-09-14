@@ -11,14 +11,16 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 `https://app.scaleft.com/v1/`
 
+
 Advanced Server Access (ASA) Entitlements offer ASA admins a system of layered permissions, which allow admins to specify the exact commands that their users can run on end servers.
 
-Explore the Entitlements API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
+Explore the Entitlements API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
+
 
 ## Entitlements API operations
 
-The Entitlements API has the following operations:
 
+The Entitlements API has the following operations:
 * [List the sudo Entitlements for a Team](#list-the-sudo-entitlements-for-a-team)
 * [Create a sudo Entitlement](#create-a-sudo-entitlement)
 * [Fetch a single sudo Entitlement](#fetch-a-single-sudo-entitlement)
@@ -46,7 +48,7 @@ This endpoint requires the `access_admin` role.
 | --------- | ------------- | -------- |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 
@@ -56,6 +58,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `add_env`   | array | A list of environment variables to include when running Entitlement commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment). |
@@ -86,6 +90,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
 	"list": [
 		{
 			"add_env": [],
+			"commands": null,
 			"created_at": "2018-04-07T00:00:00Z",
 			"description": "desc",
 			"id": "226a1963-a1c8-4316-bb4d-da48f2e7652a",
@@ -137,6 +142,7 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `add_env`   | array | A list of environment variables to include when running Entitlement commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment). |
@@ -152,6 +158,8 @@ This endpoint requires an object with the following fields.
 
 #### Response body
 This endpoint returns an object with the following fields and a `201` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `add_env`   | array | A list of environment variables to include when running Entitlement commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment). |
@@ -174,6 +182,7 @@ curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
 --data '{
 	"add_env": [],
+	"commands": null,
 	"created_at": "0001-01-01T00:00:00Z",
 	"description": "desc",
 	"id": "226a1963-a1c8-4316-bb4d-da48f2e7652a",
@@ -209,6 +218,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo
 ```json
 {
 	"add_env": [],
+	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
 	"id": "226a1963-a1c8-4316-bb4d-da48f2e7652a",
@@ -262,6 +272,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `add_env`   | array | A list of environment variables to include when running Entitlement commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment). |
@@ -290,6 +302,7 @@ https://app.scaleft.com/v1/teams/${team_name}/entitlements/sudo/${sudo_id}
 ```json
 {
 	"add_env": [],
+	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "desc",
 	"id": "226a1963-a1c8-4316-bb4d-da48f2e7652a",
@@ -345,6 +358,8 @@ This endpoint has no request body.
 This endpoint returns a `204 No Content` response on a successful call.
 
 
+
+
 #### Usage example
 
 ##### Request
@@ -382,6 +397,7 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `add_env`   | array | A list of environment variables to include when running Entitlement commands. See [the sudo documentation](https://www.sudo.ws/man/1.8.13/sudoers.man.html#Command_environment). |
@@ -399,6 +415,8 @@ This endpoint requires an object with the following fields.
 This endpoint returns a `204 No Content` response on a successful call.
 
 
+
+
 #### Usage example
 
 ##### Request
@@ -408,6 +426,7 @@ curl -v -X PUT \
 -H "Authorization: Bearer ${jwt}" \
 --data '{
 	"add_env": [],
+	"commands": null,
 	"created_at": "2018-04-07T00:00:00Z",
 	"description": "A new description",
 	"id": "226a1963-a1c8-4316-bb4d-da48f2e7652a",

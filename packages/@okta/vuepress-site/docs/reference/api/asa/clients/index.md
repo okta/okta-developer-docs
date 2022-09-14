@@ -11,14 +11,16 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 `https://app.scaleft.com/v1/`
 
+
 An Advanced Server Access (ASA) Client corresponds to a user's device. Clients are the primary way users access servers managed by ASA.
 
-Explore the Clients API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
+Explore the Clients API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
+
 
 ## Clients API operations
 
-The Clients API has the following operations:
 
+The Clients API has the following operations:
 * [List ASA Clients](#list-asa-clients)
 * [Fetch an ASA Client](#fetch-an-asa-client)
 * [Revoke an ASA Client](#revoke-an-asa-client)
@@ -46,7 +48,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | `all`   |  boolean | (Optional) When `true`, returns all Clients for the Team |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `state`   |  string | (Optional) The state of the ASA Client: `ACTIVE`, `PENDING`, or `DELETED` |
 | `username`   |  string | (Optional) List Clients assigned to a single User. An empty string returns unassigned Clients. |
@@ -58,6 +60,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time the ASA Client was deleted |
@@ -132,6 +136,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time the ASA Client was deleted |
@@ -172,7 +178,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}" />
 Revokes an ASA Client's access to this Team
 
-This endpoint requires one of the following roles: `access_admin`, `authenticated_client`, or `access_user`.
+This endpoint requires one of the following roles: `access_user`, `access_admin`, or `authenticated_client`.
 
 #### Request path parameters
 
@@ -192,6 +198,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example
@@ -231,6 +239,7 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `state`   | string | The state of the ASA Client:`ACTIVE`, `PENDING`, or `DELETED` |
@@ -238,6 +247,8 @@ This endpoint requires an object with the following fields.
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example

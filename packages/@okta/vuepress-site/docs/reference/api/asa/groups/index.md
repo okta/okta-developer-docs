@@ -11,18 +11,21 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 `https://app.scaleft.com/v1/`
 
+
 An Advanced Server Access (ASA) Group is a collection of ASA Users that share permissions and access.
 
-Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
+Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
+
 
 ## Groups API operations
 
-The Groups API has the following operations:
 
+The Groups API has the following operations:
 * [List the ASA Groups for a Team](#list-the-asa-groups-for-a-team)
 * [Create an ASA Group](#create-an-asa-group)
 * [Fetch a single ASA Group](#fetch-a-single-asa-group)
 * [Remove an ASA Group from a Team](#remove-an-asa-group-from-a-team)
+* [Update an ASA Group](#update-an-asa-group)
 * [Update an ASA Group](#update-an-asa-group)
 * [List ASA Users of an ASA Group](#list-asa-users-of-an-asa-group)
 * [Add an ASA User to an ASA Group](#add-an-asa-user-to-an-asa-group)
@@ -51,7 +54,10 @@ This endpoint requires one of the following roles: `reporting_user`, `access_adm
 | `contains`   |  string | (Optional) If a value is provided, the results are filtered to only contain ASA Groups whose name contains that value. |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `disconnected_mode_on_only`   |  boolean | (Optional) If `true`, the results only include ASA Groups with disconnected mode enabled. |
+| `include_deleted`   |  boolean | (Optional) If `true`, the results include deleted ASA Groups. |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `only_include_deleted`   |  boolean | (Optional) If `true`, the results only include deleted ASA Groups. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 
@@ -61,6 +67,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA Group was deleted |
@@ -89,7 +97,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": "william-faulkner",
 			"federation_approved_at": "2018-04-07T00:00:00Z",
-			"id": "eb75a736-bee0-4b01-a3c1-5facae80fcb6",
+			"id": "8d9f1752-3423-4fef-8921-07d49fc793dd",
 			"name": "compsons",
 			"roles": [
 				"access_user",
@@ -101,7 +109,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 			"deleted_at": "0001-01-01T00:00:00Z",
 			"federated_from_team": null,
 			"federation_approved_at": null,
-			"id": "57bc138b-63c2-4351-98d0-d72d8d6c1b74",
+			"id": "f9ee433d-7015-4439-a408-da34ef9fd9c6",
 			"name": "compsons",
 			"roles": [
 				"access_user",
@@ -133,6 +141,7 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA Group was deleted |
@@ -144,6 +153,8 @@ This endpoint requires an object with the following fields.
 
 #### Response body
 This endpoint returns an object with the following fields and a `201` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA Group was deleted |
@@ -182,7 +193,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"federated_from_team": null,
 	"federation_approved_at": null,
-	"id": "57bc138b-63c2-4351-98d0-d72d8d6c1b74",
+	"id": "f9ee433d-7015-4439-a408-da34ef9fd9c6",
 	"name": "compsons",
 	"roles": [
 		"access_user",
@@ -196,7 +207,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}" />
 Fetches details regarding a single ASA Group
 
-This endpoint requires one of the following roles: `reporting_user`, `access_admin`, or `access_user`.
+This endpoint requires one of the following roles: `access_user`, `reporting_user`, or `access_admin`.
 
 #### Request path parameters
 
@@ -216,6 +227,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA Group was deleted |
@@ -242,7 +255,7 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 	"deleted_at": "0001-01-01T00:00:00Z",
 	"federated_from_team": null,
 	"federation_approved_at": null,
-	"id": "57bc138b-63c2-4351-98d0-d72d8d6c1b74",
+	"id": "f9ee433d-7015-4439-a408-da34ef9fd9c6",
 	"name": "compsons",
 	"roles": [
 		"access_user",
@@ -276,6 +289,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example
@@ -315,12 +330,15 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `roles`   | array | A list of Roles for the ASA Group. Options are `access_user`, `access_admin` and `reporting_user`. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example
@@ -345,12 +363,67 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}
 ```json
 HTTP 204 No Content
 ```
+### Update an ASA Group
+
+<ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/disconnected_mode" />
+Updates the access privileges of a single ASA Group
+
+This endpoint requires the `access_admin` role.
+
+#### Request path parameters
+
+| Parameter | Type        | Description   |
+| --------- | ----------- | ------------- |
+| `group_name`   | string | The ASA Group name |
+| `team_name`   | string | The name of your Team |
+
+
+#### Request query parameters
+
+This endpoint has no query parameters.
+
+#### Request body
+
+This endpoint requires an object with the following fields.
+
+| Properties | Type        | Description          |
+|----------|-------------|----------------------|
+| `roles`   | array | A list of Roles for the ASA Group. Options are `access_user`, `access_admin` and `reporting_user`. |
+
+#### Response body
+This endpoint returns a `204 No Content` response on a successful call.
+
+
+
+
+#### Usage example
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${jwt}" \
+--data '{
+	"roles": [
+		"access_user",
+		"reporting_user",
+		"access_admin"
+	]
+}' \
+https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/disconnected_mode
+```
+
+##### Response
+
+```json
+HTTP 204 No Content
+```
 ### List ASA Users of an ASA Group
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users" />
 Lists all of the ASA Users in an ASA Group
 
-This endpoint requires one of the following roles: `reporting_user`, `access_user`, or `access_admin`.
+This endpoint requires one of the following roles: `access_user`, `access_admin`, or `reporting_user`.
 
 #### Request path parameters
 
@@ -367,7 +440,7 @@ This endpoint requires one of the following roles: `reporting_user`, `access_use
 | `contains`   |  string | (Optional) Includes ASA Users with name that contains the value |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `starts_with`   |  string | (Optional) Includes ASA Users with a name that begins with the provided value |
 | `status`   |  string | (Optional) Includes ASA Users with the specified statuses. Valid statuses: `ACTIVE`, `DISABLED`, and `DELETED`. |
@@ -380,6 +453,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
@@ -389,7 +464,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
 | `role_grants`   | array | The permission roles available to the ASA User |
 | `status`   | string | Status of the ASA User: `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users can't disable or delete their own ASA User. |
-| `user_type`   | string | The type of ASA User:`service` or `human` |
+| `user_type`   | string | The type of ASA User: `service` or `human` |
 
 #### Usage example
 
@@ -414,11 +489,12 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
 				"full_name": "Benjy Compson",
 				"last_name": "Compson"
 			},
-			"id": "27af3388-1a21-47d9-8063-adf0051eefc4",
+			"id": "c58846b8-8301-4bae-9e05-b2729e7c48e6",
 			"name": "Benjy.Compson",
 			"oauth_client_application_id": null,
 			"role_grants": null,
 			"status": "DISABLED",
+			"team_name": "william-faulkner",
 			"user_type": "human"
 		}
 	]
@@ -446,6 +522,7 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
@@ -455,10 +532,12 @@ This endpoint requires an object with the following fields.
 | `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
 | `role_grants`   | array | The permission roles available to the ASA User |
 | `status`   | string | Status of the ASA User: `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users can't disable or delete their own ASA User. |
-| `user_type`   | string | The type of ASA User:`service` or `human` |
+| `user_type`   | string | The type of ASA User: `service` or `human` |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example
@@ -476,11 +555,12 @@ curl -v -X POST \
 		"full_name": "Jason Compson IV",
 		"last_name": "Compson"
 	},
-	"id": "281aa06b-02df-4b2b-9d4a-35f6a81e844f",
+	"id": "03832a9e-c09c-4200-bf05-32dde35de011",
 	"name": "Jason.Compson.IV",
 	"oauth_client_application_id": null,
 	"role_grants": null,
 	"status": "ACTIVE",
+	"team_name": "william-faulkner",
 	"user_type": "human"
 }' \
 https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users
@@ -519,6 +599,8 @@ This endpoint has no request body.
 This endpoint returns a `204 No Content` response on a successful call.
 
 
+
+
 #### Usage example
 
 ##### Request
@@ -539,7 +621,7 @@ HTTP 204 No Content
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_group" />
 Lists ASA Users of a Team not assigned to an ASA Group
 
-This endpoint requires one of the following roles: `access_user`, `access_admin`, or `reporting_user`.
+This endpoint requires one of the following roles: `access_admin`, `reporting_user`, or `access_user`.
 
 #### Request path parameters
 
@@ -569,6 +651,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
@@ -578,7 +662,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
 | `role_grants`   | array | The permission roles available to the ASA User |
 | `status`   | string | Status of the ASA User: `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users can't disable or delete their own ASA User. |
-| `user_type`   | string | The type of ASA User:`service` or `human` |
+| `user_type`   | string | The type of ASA User: `service` or `human` |
 
 #### Usage example
 
@@ -603,11 +687,12 @@ https://app.scaleft.com/v1/teams/${team_name}/groups/${group_name}/users_not_in_
 				"full_name": "Jason Compson IV",
 				"last_name": "Compson"
 			},
-			"id": "281aa06b-02df-4b2b-9d4a-35f6a81e844f",
+			"id": "03832a9e-c09c-4200-bf05-32dde35de011",
 			"name": "Jason.Compson.IV",
 			"oauth_client_application_id": null,
 			"role_grants": null,
 			"status": "ACTIVE",
+			"team_name": "william-faulkner",
 			"user_type": "human"
 		}
 	]

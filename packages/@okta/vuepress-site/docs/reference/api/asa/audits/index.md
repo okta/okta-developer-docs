@@ -11,15 +11,18 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 `https://app.scaleft.com/v1/`
 
+
 Advanced Server Access (ASA) Audit Events provide log data of ASA User actions such as accessing ASA Servers, enrolling ASA Clients, and creating resources.
 
-Explore the Audit Events API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
+Explore the Audit Events API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
+
 
 ## Audit Events API operation
 
-The Audit Events API has the following operation:
 
+The Audit Events API has the following operation:
 * [List the Audits for a Team](#list-the-audits-for-a-team)
+
 
 ### List the Audits for a Team
 
@@ -28,29 +31,31 @@ Lists the Audits for a Team
 
 This endpoint requires one of the following roles: `access_user`, `access_admin`, or `reporting_user`.
 
-##### Request path parameters
+#### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
 | `team_name`   | string | The name of your Team |
 
 
-##### Request query parameters
+#### Request query parameters
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 
-##### Request body
+#### Request body
 
 This endpoint has no request body.
 
-##### Response body
+#### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `list`   | array | The list of Audit events |
@@ -84,7 +89,7 @@ https://app.scaleft.com/v1/teams/${team_name}/auditsV2
 				"via": null
 			},
 			"id": "UD5pqjIhjKVQPmmqMiGMpQ==",
-			"timestamp": "2020-11-18T18:05:08.277119888Z"
+			"timestamp": "2022-09-14T19:06:35.889892998Z"
 		}
 	],
 	"related_objects": {
@@ -102,6 +107,7 @@ https://app.scaleft.com/v1/teams/${team_name}/auditsV2
 				"oauth_client_application_id": null,
 				"role_grants": null,
 				"status": "ACTIVE",
+				"team_name": "",
 				"user_type": "human"
 			},
 			"type": "user"

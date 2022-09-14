@@ -11,14 +11,16 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 `https://app.scaleft.com/v1/`
 
+
 Advanced Server Access (ASA) Service Users are used to access the ASA API. ASA Service Users are provided tokens for authentication and authorization against the service.
 
-Explore the Service Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3)
+Explore the Service Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
+
 
 ## Service Users API operations
 
-The Service Users API has the following operations:
 
+The Service Users API has the following operations:
 * [Issue a Service User token](#issue-a-service-user-token)
 * [Lists the Service Users for a Team](#lists-the-service-users-for-a-team)
 * [Create a Service User](#create-a-service-user)
@@ -33,7 +35,7 @@ The Service Users API has the following operations:
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_token" />
 Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of `Bearer ${AUTH_TOKEN}`.
-To retrieve an auth token, you need to [create a Service User and API key](https://help.okta.com/okta_help.htm?type=asa&id=ext_asa_service_users), then pass the API key information to this endpoint.
+To retrieve an auth token, you need to [create a Service User and API key](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_asa_service_users), then pass the API key information to this endpoint.
 Auth tokens may expire at any time, so code that uses them should be prepared to handle a 401 response code by creating a new auth token.
 
 #### Request path parameters
@@ -50,6 +52,7 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `key_id`   | string | The ID of the API key |
@@ -57,6 +60,8 @@ This endpoint requires an object with the following fields.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `bearer_token`   | string | The JSON Web Token used to authenticate against the ASA API |
@@ -108,7 +113,7 @@ This endpoint requires the `access_admin` role.
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
 | `include_service_users`   |  string | (Optional) Include Service Users in the results |
-| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `starts_with`   |  string | (Optional) Includes ASA Users with name that begins with the value |
 | `status`   |  string | (Optional) Includes ASA Users with specified statuses. Valid statuses: `ACTIVE`, `DISABLED`, and `DELETED`. |
@@ -120,10 +125,12 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
-| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
+| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, and `email` |
 | `id`   | string | The UUID of the ASA User |
 | `name`   | string | The username of the ASA User |
 | `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
@@ -154,6 +161,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 			"oauth_client_application_id": null,
 			"role_grants": null,
 			"status": "ACTIVE",
+			"team_name": "william-faulkner",
 			"user_type": "service"
 		},
 		{
@@ -164,6 +172,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 			"oauth_client_application_id": null,
 			"role_grants": null,
 			"status": "DISABLED",
+			"team_name": "william-faulkner",
 			"user_type": "service"
 		}
 	]
@@ -190,16 +199,19 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `name`   | string | The name of the Service User |
 
 #### Response body
 This endpoint returns an object with the following fields and a `201` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
-| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
+| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, and `email` |
 | `id`   | string | The UUID of the ASA User |
 | `name`   | string | The username of the ASA User |
 | `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
@@ -231,6 +243,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 	"oauth_client_application_id": null,
 	"role_grants": null,
 	"status": "ACTIVE",
+	"team_name": "william-faulkner",
 	"user_type": "service"
 }
 ```
@@ -259,10 +272,12 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
-| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
+| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, and `email` |
 | `id`   | string | The UUID of the ASA User |
 | `name`   | string | The username of the ASA User |
 | `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
@@ -291,6 +306,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
 	"oauth_client_application_id": null,
 	"role_grants": null,
 	"status": "ACTIVE",
+	"team_name": "william-faulkner",
 	"user_type": "service"
 }
 ```
@@ -316,10 +332,11 @@ This endpoint has no query parameters.
 #### Request body
 
 This endpoint requires an object with the following fields.
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
-| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
+| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, and `email` |
 | `id`   | string | The UUID of the ASA User |
 | `name`   | string | The username of the ASA User |
 | `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
@@ -329,10 +346,12 @@ This endpoint requires an object with the following fields.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `deleted_at`   | string | The time at which the ASA User was deleted |
-| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
+| `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, and `email` |
 | `id`   | string | The UUID of the ASA User |
 | `name`   | string | The username of the ASA User |
 | `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
@@ -355,6 +374,7 @@ curl -v -X PUT \
 	"oauth_client_application_id": null,
 	"role_grants": null,
 	"status": "DISABLED",
+	"team_name": "william-faulkner",
 	"user_type": "service"
 }' \
 https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
@@ -371,6 +391,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
 	"oauth_client_application_id": null,
 	"role_grants": null,
 	"status": "DISABLED",
+	"team_name": "william-faulkner",
 	"user_type": "service"
 }
 ```
@@ -399,6 +420,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `expires_at`   | string | The expiration time of the key |
@@ -461,6 +484,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
+
+
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
 | `expires_at`   | string | The expiration time of the key |
@@ -516,6 +541,8 @@ This endpoint has no request body.
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
+
+
 
 
 #### Usage example
