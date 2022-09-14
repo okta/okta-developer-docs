@@ -2,14 +2,16 @@
 title: Sign in with email only
 ---
 
+<div class="oie-embedded-sdk">
+
 <ApiLifecycle access="ie" /><br>
 
-Enable users to sign in with email only in an application using the embedded Okta Sign-In Widget.
+Enable an email-only sign-in flow in your application using the embedded Okta Sign-In Widget.
 
 **Learning outcomes**
 
 * Configure your Okta org to enable user sign-in without a password.
-* Integrate password-optional sign-ins in your app using the Sign-In Widget
+* Integrate a password-optional sign-in flow into an application using the Sign-In Widget.
 
 **What you need**
 
@@ -24,23 +26,21 @@ Enable users to sign in with email only in an application using the embedded Okt
 
 ## Update configurations
 
-<StackSnippet snippet="setupoktaorg" inline/>
+Before you can start integrating password-optional sign-up flows in your app, <StackSnippet snippet="setupoktaorg" inline/>. See also <StackSnippet snippet="bestpractices" inline />.
 
 > **Note:** To test the sign-in integration, you must use a user with an enrolled email authenticator.
 
-## Integrate into your app
+## Integrate
 
 ### Summary of steps
 
-The following diagram details the steps involved in an email-only sign-in flow.
+The following summarizes the steps involved in the password-optional sign-in flow.
 
 <StackSnippet snippet="integrationsummary" />
 
 ### 1. The user submits their username
 
 The user enters their username and clicks the **Next** button to start the sign-in flow.
-
-> **Note:** This guide assumes you have already set up and configured the Sign-In Widget. To learn how to add the Sign-In Widget to your app, see [Embedded Okta Sign-In Widget fundamentals](docs/guides/embedded-siw/main/).
 
 <div class="half">
 
@@ -59,22 +59,22 @@ The user clicks **Send me an email** to begin the email challenge flow.
 
 <div class="half">
 
-![Screenshot showing the Sign-in Wiget verify-email page with a Send me an email button.](/img/pwd-optional/pwd-optional-widget-send-email-page.png)
+![Screenshot showing the Sign-in Widget verify-email page with a Send me an email button.](/img/pwd-optional/pwd-optional-widget-send-email-page.png)
 
 </div>
 
 ### 3. The user verifies their identity with the email authenticator
 
-Identity Engine sends a verification email to the user's primary email address. The email gives the user two ways to verify their identity:
+Okta Identity Engine sends a verification email to the user's primary email address. The email gives the user two ways to verify their identity:
 
 * Copy a One-Time Password (OTP) from the email into the Sign-In Widget and submit it for verification.
 * Click a "magic link" in the email that submits the OTP to Identity Engine on your behalf.
 
-Your app requires no changes to use OTP since it's built into the Sign-In Widget. However, using magic links require additions to your app which include:
+Your app requires no changes to use OTP since it's built into the Sign-In Widget. However, using magic links requires you to:
 
-* A check to ensure the user starts the sign-in flow and opens the magic link in the same browser.
-* And endpoint to handle the callback request originating from the magic link. This method takes the values from the `otp` and `state` query parameters in the request and passes them to the Sign-In Widget.
-
->**Note**: For more information on magic links and OTP, including customizations and complete user journeys, see the [Email Magic Links Overview](docs/guides/email-magic-links-overview/main/).
+* Ensure the Sign-In Widget is always initialized with OTP and state values. See the [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw/main/) guide for details.
+* Create an endpoint to handle the callback from the Magic Link.
 
 <StackSnippet snippet="integrationsteps" />
+
+</div>
