@@ -6,6 +6,18 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## September
 
+### Weekly release 2022.09.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.1](#bugs-fixed-in-2022-09-1)                      | September 14, 2022            |
+
+#### Bugs fixed in 2022.09.1
+
+* The Subscription Role API didn’t support the API Access Management role. (OKTA-431895)
+* The origin header validation on the `/token` endpoint for cross-origin requests was case-sensitive, which returned an error for redirect URIs using uppercase. (OKTA-516740)
+* The Interaction Code flow didn’t pass the `nonce` parameter from the authorization request into the ID token. (OKTA-521597)
+
 ### Monthly release 2022.09.0
 
 | Change | Expected in Preview Orgs |
@@ -68,6 +80,8 @@ Previously, the self-service password reset (SSPR) flow created unnecessary fric
 
 For SWA apps with an account sign-in option set to **Users share a single username and password set by administrator**, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
 
+
+
 #### Developer documentation updates in 2022.09.0
 
 * `developer.okta.com` has a new main navigation menu, which makes navigating around the content easier and more intuitive. Instead of showing the entire sitemap in the menu at all times, each major area is now accessed through a submenu that shows only the relevant menu sections at one time. In addition, clicking each menu node shows a contextual landing page (either a defined custom page or an auto-generated one if none exists), and you can now toggle the menu between hidden and visible states, if desired.
@@ -85,8 +99,6 @@ For SWA apps with an account sign-in option set to **Users share a single userna
 * When the `MyAccountChangeConfirmation` or `PendingEmailChange` email templates were customized without an `AuthStateToken`, the `app.id`, `app.name`, and `app.label` variables didn't work. (OKTA-515159)
 
 * When customers used a customized Okta-hosted Sign-In Widget, authorization requests failed after Identity Engine upgrade because the Authentication object was missing from the Identity Engine response. (OKTA-376674)
-
-* 
 
 ## August
 
