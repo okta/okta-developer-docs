@@ -333,7 +333,7 @@ The key management API has the following objects:
 }
 ```
 
-### Public key details
+### Public Key Details
 
 The public key details are defined in the `_embedded` property of the key object.
 
