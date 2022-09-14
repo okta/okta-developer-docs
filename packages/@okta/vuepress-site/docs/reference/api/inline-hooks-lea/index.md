@@ -26,7 +26,7 @@ Registers a new inline hook to your organization in `ACTIVE` status. You need to
 * The type of inline hook you are registering
 * The type of authentication you are registering
 
-There are two authentication options that can be configured for your inline hook: HTTP headers and OAuth 2.0 tokens.
+There are two authentication options that you can configure for your inline hook: HTTP headers and OAuth 2.0 tokens.
 
 HTTP headers let you specify a secret API key that you want Okta to pass to your external service endpoint (so that your external service can check for its presence as a security measure).
 
