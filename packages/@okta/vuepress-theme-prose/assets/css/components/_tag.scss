@@ -8,8 +8,8 @@
 
   font-size: 12px;
   line-height: 1;
-  color: cv("tag", "color");
+  color: var(--c-tag-text);
 
-  background-color: cv("tag", "bg");
+  background-color: var(--c-tag-bg);
   border-radius: 4px;
 }
