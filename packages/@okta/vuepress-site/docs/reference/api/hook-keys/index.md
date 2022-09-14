@@ -8,7 +8,7 @@ excerpt:
 
 # Key Management API
 
-The Okta key management API provides a CRUD interface for JSON Web Keys (JWK) used with other parts of the application, such as inline hooks. For information on how to create inline hooks, see [Inline hooks management API](/docs/reference/api/inline-hooks/).
+The Okta Key Management API provides a CRUD interface for JSON Web Keys (JWK) used with other parts of the application, such as inline hooks. For information on how to create inline hooks, see [Inline hooks management API](/docs/reference/api/inline-hooks/).
 
 ## Get started
 
