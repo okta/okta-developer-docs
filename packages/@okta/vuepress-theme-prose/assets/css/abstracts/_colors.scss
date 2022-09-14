@@ -100,6 +100,8 @@
   --c-body-gray: var(--c-dark-gray);
   --c-arch-item: var(--c-gray-md);
   --c-arch-card-bg: var(--c-lightgray-900);
+  --c-tag-bg: var(--c-gray-100);
+  --c-tag-text: var(--c-gray-800);
 }
 
 .dark-theme {
@@ -109,9 +111,11 @@
   --c-gray-700: #232327;
   --c-gray-750: #2a2a2f;
   --c-gray-600: #41414b;
+  --c-gray-550: #55555b;
   --c-gray-500: #6e6e78;
   --c-gray-400: #8c8c96;
   --c-gray-300: #aaaab4;
+  --c-gray-250: #cccccc;
   --c-gray-200: #dcdcdc;
   --c-gray-100: #ebebed;
   --c-gray-000: #f5f5f6;
@@ -185,12 +189,18 @@
   --c-custom-bg-icon: var(--c-blue-000);
   --c-arch-item: var(--c-coal);
   --c-arch-card-bg: var(--c-gray-750);
+  --c-tag-bg: var(--c-gray-550);
+  --c-tag-text: var(--c-gray-250);
 }
 
 $colors: (
   "arch": (
     "item": var(--c-arch-item),
     "card": var(--c-arch-card-bg),
+  ),
+  "tag": (
+    "text": var(--c-tag-text),
+    "bg": var(--c-tag-bg)
   ),
   "cerise": (
     "base": var(--c-cerise)

@@ -1,0 +1,15 @@
+.tag {
+  --tag-space-y: 0;
+
+  display: inline-flex;
+  padding: 6px;
+  margin-top: var(--tag-space-y);
+  margin-bottom: var(--tag-space-y);
+
+  font-size: 12px;
+  line-height: 1;
+  color: cv("tag", "color");
+
+  background-color: cv("tag", "bg");
+  border-radius: 4px;
+}
