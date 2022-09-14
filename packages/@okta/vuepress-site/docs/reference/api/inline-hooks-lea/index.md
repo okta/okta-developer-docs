@@ -811,7 +811,7 @@ The inline hook management API provides the following objects:
 
 | Property | Description                                                                    | Data type   | Required   | Read-only |
 | -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
-| type     | The authentication scheme type. The only supported type is `HEADER`. | String     | TRUE       | FALSE    |
+| type     | The authentication scheme type. Supported type: `HEADER`. | String     | TRUE       | FALSE    |
 | key      | The header name for the authorization header                                  | String     | TRUE       | FALSE    |
 | value    | The header value. This secret value is passed to your external service endpoint. Your external service can check for it as a security measure.                                                               | String     | TRUE       | TRUE     |
 
