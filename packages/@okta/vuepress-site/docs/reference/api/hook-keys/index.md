@@ -312,7 +312,7 @@ The key management API has the following objects:
 | isUsed           | Declares if this item is currently in use by other applications   | String(Boolean)                      | FALSE      | FALSE    | TRUE       | System assigned             |
 | created        | Date of key creation                                                                       | String (Date)                       | TRUE       | FALSE    | TRUE       | System assigned                                          |
 | lastUpdated    | Date of key update                                                                         | String (Date)                       | TRUE       | FALSE    | TRUE       | System assigned                                          |
-| \_embedded    | [Public key details](#public-key-details)                                                                         | JSON                     | FALSE     | TRUE   | TRUE      | System assigned                                        |
+| \_embedded    | [Public Key Details](#public-key-details)                                                                         | JSON                     | FALSE     | TRUE   | TRUE      | System assigned                                        |
 
 ```json
 {
