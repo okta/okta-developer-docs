@@ -176,7 +176,7 @@ Retrieves the public portion of the Key object using the `keyId` parameter
 
 ##### Response parameters
 
-The response represents the key that matches the `keyId` you specify.
+The response represents the key that matches the `keyId` that you specify.
 
 ##### Request example
 
