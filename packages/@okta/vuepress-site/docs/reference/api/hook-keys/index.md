@@ -214,7 +214,7 @@ You can find the details of the response in [public key details](#public-key-det
 
 The submitted key request replaces the existing properties after passing validation.
 
-> **Note:** The only parameter that can be updated is the name of the key, which needs to be unique at all times.
+> **Note:** The only parameter that you can update is the name of the key, which needs to be unique at all times.
 
 ##### Response parameters
 
