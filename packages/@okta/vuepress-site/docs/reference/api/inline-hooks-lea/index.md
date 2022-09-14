@@ -36,7 +36,7 @@ You can also optionally specify extra headers that you want Okta to pass to your
 
 To configure HTTP header authentication, see parameters for the [Config object for HTTP headers](#config-object-for-http-headers).
 
-OAuth 2.0 tokens provide enhanced security between Okta and your external service, and can be configured for the following types: client secret and private key.
+OAuth 2.0 tokens provide enhanced security between Okta and your external service and can be configured for the following types: client secret and private key.
 
 To configure OAuth 2.0 authentication, see parameters for the [Config object for OAuth 2.0](#config-object-for-oauth-2-0).
 
