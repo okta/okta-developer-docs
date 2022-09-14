@@ -218,7 +218,7 @@ The submitted key request replaces the existing properties after passing validat
 
 ##### Response parameters
 
-The response is a [key object](#key-object) that represents the updated key.
+The response is a [Key object](#key-object) that represents the updated key.
 
 ##### Request example
 
