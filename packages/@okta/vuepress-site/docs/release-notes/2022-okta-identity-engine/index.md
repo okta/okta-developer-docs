@@ -80,7 +80,6 @@ Previously, the self-service password reset (SSPR) flow created unnecessary fric
 
 For SWA apps with an account sign-in option set to **Users share a single username and password set by administrator**, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
 
-#### Default authenticator enrollment policy settings format
 
 For orgs that recently enabled the Authenticator enrollment policy feature, the new default [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy ) is created with settings in the authenticator format instead of the factor format. Any existing orgs that have the Authenticator enrollment policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format.<!--OKTA-527304-->
 
