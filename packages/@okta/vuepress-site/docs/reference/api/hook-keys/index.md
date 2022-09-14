@@ -263,7 +263,7 @@ curl -v -X PUT \
 | --------- | -------------------------------------- | ------------ | ---------- | -------- |
 | `id`      | The ID of the key to delete   | Path         | String     | TRUE     |
 
-Deletes the key that matches the provided `id`. After it is deleted, the key is unrecoverable. As a safety precaution, only keys that are not being used are eligible for deletion.
+Deletes the key that matches the provided `id`. After it's deleted, the key is unrecoverable. As a safety precaution, only keys that aren't being used are eligible for deletion.
 
 ##### Response parameters
 
