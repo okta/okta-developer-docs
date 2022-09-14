@@ -796,7 +796,7 @@ The inline hook management API provides the following objects:
 | Property | Description                                                                     | Data type                                | Nullable | Unique | Validation                                        |
 |----------|---------------------------------------------------------------------------------|-----------------------------------------|----------|--------|---------------------------------------------------|
 | type     | The channel type. Must be `HTTP` or `OAUTH`.                  | channel type                             | FALSE    | FALSE  | TRUE|Must match a valid channel type.             |
-| version  | Version of the channel. The currently supported version is "1.0.0".             | String                                  | FALSE    | FALSE  | Must match a valid version number                |
+| version  | Version of the channel. Supported version: "1.0.0".             | String                                  | FALSE    | FALSE  | Must match a valid version number                |
 | config   | Properties of the communications channel that are used to contact your external service. | [HTTP config](#config-object-for-http-headers) or [OAuth 2.0 config](#config-object-for-oauth-2-0)| FALSE    | FALSE  | Validation is determined by the specific channel. |
 
 ### Config object for HTTP headers
