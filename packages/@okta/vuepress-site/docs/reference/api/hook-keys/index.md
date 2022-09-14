@@ -16,7 +16,7 @@ Explore the Key Management API:[![Run in Postman](https://run.pstmn.io/button.sv
 
 ## Key management operations
 
-The key management API has the following CRUD operations:
+The Key Management API has the following CRUD operations:
 
 * [Create a key](#create-a-key)
 * [Get a key](#get-a-key)
