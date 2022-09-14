@@ -442,15 +442,15 @@ The [Token Inline Hook](/docs/reference/token-hook/) now lets you modify particu
 | Change                                                                                                                                        | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
 | [Email Factor is now GA in Preview](#email-factor-is-now-ga-in-preview) | June 5, 2019             |
-| [Users can be removed from Profile Masters](#users-can-be-removed-from-profile-masters)| June 5, 2019 |
+| [Users can be removed from a Profile source](#users-can-be-removed-from-a-profile-source)| June 5, 2019 |
 
 #### Email Factor is now GA in Preview
 
 The [Email Factor](/docs/reference/api/factors/#enroll-okta-email-factor) is now Generally Available (GA) in all Preview orgs. <!-- OKTA-227761 -->
 
-#### Users can be removed from Profile Masters
+#### Users can be removed from a Profile source
 
-Users can now be [unassigned](/docs/reference/api/apps/#remove-user-from-application) from Apps that serve as their Profile Masters. <!-- OKTA-227994 -->
+Users can now be [unassigned](/docs/reference/api/apps/#remove-user-from-application) from Apps that serve as their Profile source. <!-- OKTA-227994 -->
 
 
 ## May
@@ -612,7 +612,7 @@ Okta now supports Proof Key for Code Exchange (PKCE) for browser clients and ret
 #### Bugs Fixed in 2019.03.2
 
 * Under some circumstances, users in a locked out state would receive success responses from the SMS recovery API. (OKTA-207288)
-* In some instances, users who were not Okta-mastered would have inaccurate `passwordChanged` values in API responses. (OKTA-210233)
+* In some instances, users who were not Okta-sourced would have inaccurate `passwordChanged` values in API responses. (OKTA-210233)
 * SAML applications created through the API would not save the value for the `HonorForceAuthn` property. (OKTA-209083)
 * For SAML applications, the `attributeStatements` object would not update if a `null` value was passed as part of a PUT operation. (OKTA-209767)
 

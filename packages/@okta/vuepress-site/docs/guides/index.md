@@ -125,6 +125,7 @@ guides:
  - advanced-use-case-overview
  - email-magic-links-overview
  - step-up-authentication
+ - device-context
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
