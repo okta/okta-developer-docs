@@ -188,7 +188,7 @@ curl -v -X GET \
 
 ##### Response example
 
-The details of the response can be found in [public key details](#public-key-details).
+You can find the details of the response in [public key details](#public-key-details).
 
 ```json
 {
