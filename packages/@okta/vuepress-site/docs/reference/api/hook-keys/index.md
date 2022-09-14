@@ -342,7 +342,7 @@ The Public Key Details are defined in the `_embedded` property of the Key object
  kty            | Cryptographic algorithm family for the certificate's keypair                                                                  | String                              | FALSE      | FALSE     | TRUE       | System assigned                                          |
 | alg         | Algorithm used in the key                                      | String                              | FALSE      | FALSE    | TRUE      | System assigned            |
 | kid           | Unique identifier for the certificate                                                                   | String                              | FALSE      | TRUE     | TRUE      | System assigned    |
-| use           |Acceptable usage of the certificate  | String                     | TRUE      | FALSE    | TRUE       | System assigned             |
+| use           |Acceptable use of the certificate  | String                     | TRUE      | FALSE    | TRUE       | System assigned             |
 | e        | RSA key value (exponent) for key binding                                                                       | String                        | FALSE       | FALSE    | TRUE       | System assigned                                          |
 | n    | RSA key value (modulus) for key binding                                                                        | String                       | FALSE       | FALSE    | TRUE       | System assigned                                          |
 
