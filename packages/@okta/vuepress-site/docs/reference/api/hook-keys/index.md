@@ -130,7 +130,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/hook-keys" />
 
-Returns a list of keys
+Lists all keys
 
 ##### Request examples
 
