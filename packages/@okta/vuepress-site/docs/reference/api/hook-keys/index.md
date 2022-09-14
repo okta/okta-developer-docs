@@ -95,7 +95,7 @@ curl -v -X POST \
 
 ##### Response parameters
 
-The response is a [key object](#key-object) that represents the key that matches the `id` you specify.
+The response is a [Key object](#key-object) that represents the key that matches the `id` that you specify.
 
 ##### Request example
 
