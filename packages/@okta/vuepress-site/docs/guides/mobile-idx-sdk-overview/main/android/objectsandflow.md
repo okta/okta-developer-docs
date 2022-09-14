@@ -6,12 +6,12 @@
 
 The main objects associated with each step in the flow are:
 
-| Sign-in step                       | Objects                         |
-| :--------------------------------- | :------------------------------ |
-| Initialize SDK                     | InteractionCodeFlow             |
-| Request initial step               | InteractionCodeFlow             |
-| Receive step                       | Response                        |
-| Check completion, cancel, or error | Response <br/> Remediation      |
-| Gather user input                  | Remediation <br/> Authenticator |
-| Send input                         | InteractionCodeFlow             |
-| Done                               | Response                        |
+| Sign-in step                       | Objects                          |
+| :--------------------------------- |:---------------------------------|
+| Initialize SDK                     | InteractionCodeFlow              |
+| Request initial step               | InteractionCodeFlow              |
+| Receive step                       | IdxResponse                      |
+| Check completion, cancel, or error | IdxResponse <br/> IdxRemediation |
+| Gather user input                  | IdxRemediation <br/> Capability  |
+| Send input                         | InteractionCodeFlow              |
+| Done                               | IdxResponse                      |
