@@ -15,7 +15,7 @@ title: Okta Identity Engine API Products release notes 2022
 #### Bugs fixed in 2022.09.1
 
 * The subscription role API didn’t support the API Access Management role. (OKTA-431895)
-* The origin header validation on the `/token` endpoint for cross-origin requests was case-sensitive, which returned an error for redirect URIs using upper-case. (OKTA-516740)
+* The origin header validation on the `/token` endpoint for cross-origin requests was case-sensitive, which returned an error for redirect URIs using uppercase. (OKTA-516740)
 * The Interaction Code flow didn’t pass the `nonce` parameter from the authorization request into the ID token. (OKTA-521597)
 
 ### Monthly release 2022.09.0
