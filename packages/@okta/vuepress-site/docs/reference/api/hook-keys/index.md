@@ -164,7 +164,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/hook-keys/${keyId}" />
 
-Returns the public portion of the key object using the `keyId` parameter.
+Retrieves the public portion of the Key object using the `keyId` parameter
 
 ##### Request parameters
 
