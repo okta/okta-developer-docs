@@ -293,7 +293,7 @@ The Key Management API has the following objects:
 
 | Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
 | -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
-| name           | Display name for the key                                                                | String                              | FALSE      | TRUE     | FALSE      | Must be between 1 and 255 characters in length   |
+| name           | Display name for the key                                                                | String                              | FALSE      | TRUE     | FALSE      | Must be between one and 255 characters in length   |
 
 
 ```json
