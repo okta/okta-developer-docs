@@ -461,7 +461,7 @@ curl -v -X POST \
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
 | id         | The ID of the inline hook that you want to deactivate                                   | Path         | String                                      | TRUE     |
 
-Deactivates the inline hook that match the provided `id`
+Deactivates the inline hook that matches the provided `id`
 
 ##### Response parameters
 
