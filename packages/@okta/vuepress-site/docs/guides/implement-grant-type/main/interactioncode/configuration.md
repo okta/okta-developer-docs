@@ -25,7 +25,7 @@ The Interaction Code grant type is a sign-in flow used by embedded applications 
 
 To use the Interaction Code flow, both your client app and the [Okta Authorization Server](/docs/concepts/auth-servers/) that you are using with the app must have the Interaction Code grant type enabled in your Okta org.
 
-If your Okta org is enabled with Identity Engine, then the Interaction Code grant type is automatically configured in your [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server). For custom authorization servers that you are using with your app, verify that the Interaction Code grant type is an available option. If it isn’t, go to **Settings** > **Account** > **Embedded widget sign-in support**. See [Verify that the Interaction Code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled) for more information on how to toggle the Interaction Grant type for your org.
+If your Okta org is enabled with Identity Engine, then the Interaction Code grant type is automatically configured in your [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server). For custom authorization servers that you are using with your app, verify that the Interaction Code grant type is an available option. If it isn’t, go to **Settings** > **Account** > **Embedded widget sign-in support**. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled) for more information on how to toggle the Interaction Grant type for your org.
 
 > **Note:** See [Create an authorization server](/docs/guides/customize-authz-server/) to create your own Custom Authorization Server.
 
