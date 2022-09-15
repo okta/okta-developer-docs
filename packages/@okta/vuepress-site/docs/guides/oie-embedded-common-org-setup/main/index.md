@@ -39,7 +39,7 @@ This guide shows you how to set up your Okta org to support the embedded SDK or 
 Sample apps are provided for each solution to show you exactly how to integrate the SDK and the Widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
 
 1. [Create your Okta account](#create-your-okta-account).
-1. [Verify that the Interaction Code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled).
+1. [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
 1. [Update the default Custom Authorization Server](#update-the-default-custom-authorization-server).
 1. [Create a new application](#create-a-new-application).
 
@@ -55,29 +55,6 @@ If you don't have an Okta Identity Engine org, you need to sign up for an Okta a
 
 1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/concepts/okta-organizations/#admin-console) of your new Identity Engine org.
 
-### Verify that the Interaction Code grant type is enabled
-
-The Interaction Code grant type is a sign-in flow used by embedded applications to connect to Okta. The **Embedded widget sign-in support** setting controls this grant type for all OpenID Connect and API access management servers in your org. With this setting enabled, you can allow or deny apps the ability to use embedded sign-in flows across your entire org. See [Interaction Code grant type](/docs/concepts/interaction-code/) for detailed information on this grant type and how to use it.
-
-> **Note:** Super Admin permissions are required. If you don’t have those permissions for your org, contact your administrator.
-
-1. To access this setting, from your Okta org's [Admin Console](/docs/concepts/okta-organizations/#admin-console), go to **Settings** > **Account** > **Embedded widget sign-in support**.
-1. Click **Edit**.
-1. If the checkbox isn’t selected, select it if you want to use the Interaction Code as a grant type for your OpenID Connect app integrations and authorization servers.
-
-   If the **Interaction code** checkbox is selected, the number of applications and authorization servers that use the Interaction Code grant type appear.
-
-   If you disable the Interaction Code grant type:
-
-   * You can’t configure any new OpenID Connection app integrations to use the Interaction Code grant.
-   * For any app integrations previously configured to use the Interaction Code grant type, the grant type is disabled and no longer an available option.
-   * Users that attempt to sign in to the app integration receive a message that the client isn’t authorized to use the provided grant type.
-   * Access rules for authorization servers don't show the Interaction Code as an available grant type.
-   * When an API call is made using the Interaction Code grant type, Okta returns an error message that the client isn’t authorized to use the provided grant type.
-   * If you disable this feature for your org and then re-enable it, the Interaction Code grant type isn't automatically re-enabled for any app integration or authorization server.
-
-1. Click **Save**.
-
 ### Update the default Custom Authorization Server
 
 You need to configure your default Custom Authorization Server to enable the Interaction Code flow.
@@ -88,7 +65,7 @@ You need to configure your default Custom Authorization Server to enable the Int
 1. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
 1. In the **Edit Rule** dialog box, select the **Interaction Code** checkbox.
 
-   > **Note:** If this checkbox doesn’t appear, the Interaction Code grant type isn’t enabled for your org. To enable it, go to **Settings** > **Account** > **Embedded widget sign-in support**. See [Verify that the Interaction Code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled) for more information on how to toggle the Interaction Grant type for your org.
+   <VerifyICGrantType />
 
 1. Click **Update Rule**.
 
@@ -105,9 +82,9 @@ Create an app integration that represents the application you want to add authen
    * Enter an application name.
    * Ensure that the **Interaction Code** checkbox is selected.
 
-      > **Note:** If this checkbox doesn’t appear, the Interaction Code grant type isn’t enabled for your org. To enable it, go to **Settings** > **Account** > **Embedded widget sign-in support**. See [Verify that the Interaction Code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled) for more information on how to toggle the Interaction Grant type for your org.
+      <VerifyICGrantType />
 
-   * Select the **Refresh Token** check box.
+   * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to <StackSnippet snippet="redirecturi" inline />
 
 1. Click **Save**.

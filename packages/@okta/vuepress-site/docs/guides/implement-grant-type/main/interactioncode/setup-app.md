@@ -20,6 +20,6 @@ If you have an existing app registered in Okta and want to enable the app to use
 3. From the **General** tab, click **Edit** in the **General Settings** panel.
 4. In the **Grant type** > **Client acting on behalf of a user** option, select the **Interaction Code** checkbox (retain any other grant type that your app currently supports).
 
-    > **Note:** If this checkbox doesn’t appear, the Interaction Code grant type isn’t enabled for your org. To enable it, go to **Settings** > **Account** > **Embedded widget sign-in support**. See [Verify that the Interaction Code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled) for more information on how to toggle the Interaction Grant type for your org.
+    <VerifyICGrantType />
 
 5. Click **Save**.

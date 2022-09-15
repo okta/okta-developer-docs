@@ -38,6 +38,6 @@ If your Okta org is enabled with Identity Engine, then the Interaction Code gran
     If you aren’t using the Default Policy for your client app that requires the Interaction Code grant, select the Policy that applies to your app.
 5. In the **Edit Rule** dialog box, select the **Interaction Code** check box (in addition to any other grant type that is already supported by the authorization server).
 
-     > **Note:** If this checkbox doesn’t appear, the Interaction Code grant type isn’t enabled for your org. To enable it, go to **Settings** > **Account** > **Embedded widget sign-in support**. See [Verify that the Interaction Code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled) for more information on how to toggle the Interaction Grant type for your org.
+     <VerifyICGrantType />
 
 6. Click **Update Rule**.
