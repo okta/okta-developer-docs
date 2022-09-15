@@ -1354,7 +1354,7 @@ The Password Policy determines the requirements for a user's password length and
                             "exclude": false
                         }
                     },
-          "excludeAttributes": []
+         "excludeAttributes": []
        },
        "age": {
          "maxAgeDays": 0,
