@@ -223,6 +223,8 @@ export default {
     max-height: 9999px;
 
     opacity: 1;
+
+    will-change: max-height, transform;
   }
 
   .sidebar-list-leave-to {
