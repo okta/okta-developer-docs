@@ -539,11 +539,11 @@ export const guides = [
         ],
       },
       {
-        title: "Okta Integration Network",
+        title: "Okta Integration Network (OIN)",
         customLandingPage: true,
         subLinks: [
           {
-            title: "Overview of Single Sign-On",
+            title: "Single Sign-On",
             path: "/docs/guides/oin-sso-overview/",
             subLinks: [
               {
@@ -553,11 +553,11 @@ export const guides = [
             ],
           },
           {
-            title: "Overview of Lifecycle Management",
+            title: "Lifecycle management",
             path: "/docs/guides/oin-lifecycle-mgmt-overview/",
             subLinks: [
               {
-                title: "Build a SCIM Provisioning Integration",
+                title: "Build a SCIM provisioning integration",
                 path: "/docs/guides/scim-provisioning-integration-overview/main/",
                 subLinks: [
                   {
