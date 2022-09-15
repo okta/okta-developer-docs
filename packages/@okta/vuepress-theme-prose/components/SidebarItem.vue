@@ -22,12 +22,11 @@
             >
             <slot>
               <span class="text-holder">
-                {{ link.customTitle || link.title}}
+                {{ link.title }}
               </span>
             </slot>
           </a>
     </router-link>
-
     <div v-if="entityType === types.blankDivider">
         <div class="blank-divider">
           {{link.title}}
@@ -65,7 +64,7 @@
               <slot>
                 <span 
                   class="text-holder">
-                    {{ link.customTitle || link.title}}
+                    {{ link.title }}
                 </span>
               </slot>
             </a>
@@ -96,6 +95,7 @@ export default {
   },
   data() {
     return {
+      title: '',
       sublinksExpanded: false,
       hidden: !!this.link.hidden,
       types: {

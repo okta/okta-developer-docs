@@ -73,8 +73,8 @@
   }
 
   .sidebar-area {
-    width: 18.5vw;
-    min-width: 266px;
+    width: 350px;
+    min-width: 350px;
     position: sticky;
     overflow: auto;
     overflow-x: hidden;
@@ -118,10 +118,10 @@
 
   .content-area {
     flex: 1;
-    max-width: calc(82% - 266px);
+    max-width: calc(82% - 350px);
     padding: 23px 59px;
     @include media("<desktop-xl") {
-      max-width: calc(100% - 266px);
+      max-width: calc(100% - 350px);
       padding: 40px 57px 30px;
     }
     @include media("<desktop") {
