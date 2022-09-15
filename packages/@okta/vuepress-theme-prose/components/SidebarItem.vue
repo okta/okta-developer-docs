@@ -213,4 +213,25 @@ export default {
 
     will-change: max-height;
   }
+
+  .sidebar-list-leave-active {
+    transition-property: max-height, opacity, transform;
+    transition-duration: 0.55s, 0.4s, 0.3s;
+  }
+
+  .sidebar-list-leave {
+    max-height: 9999px;
+
+    opacity: 1;
+  }
+
+  .sidebar-list-leave-to {
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform: translateY(-10px);
+  }
 </style>
