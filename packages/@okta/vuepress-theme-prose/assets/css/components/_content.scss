@@ -81,7 +81,7 @@
     background: cv('body');
     top: 142px;
     transition-property: all;
-    transition-duration: 0.15s;
+    transition-duration: 0.1s;
     transition-timing-function: cubic-bezier(0.14, 0.04, 1, 0.91);
     @include media("<desktop-xl") {
       top: 125px;
@@ -312,8 +312,9 @@
 }
 
 .aside-hidden .sidebar-area {
-  width: auto;
-  min-width: 77px;
+  width: 77px;
+  min-width: 0;
+  // min-width: 77px;
 }
 .aside-hidden .content-area {
   max-width: calc(100% - 77px);
