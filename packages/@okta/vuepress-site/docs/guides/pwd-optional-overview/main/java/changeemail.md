@@ -1,3 +1,3 @@
-[Change your primary email address](/docs/guides/pwd-optional-change-email/react/main/)
+[Change your primary email address](/docs/guides/pwd-optional-change-email/java/main/)
 
 <!-- TODO: update link -->
