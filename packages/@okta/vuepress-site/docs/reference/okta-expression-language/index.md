@@ -21,12 +21,13 @@ When you create an Okta expression, you can reference any attribute that lives o
 
 ### Okta User Profile
 
-Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, just reference `user` and specify the attribute variable name.
-
+Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, specify `user.` and the attribute variable name. For a list of core User Profile attributes, see [Default Profile properties](/docs/reference/api/users/#default-profile-properties).
 
 | Syntax            | Definitions                                                                   | examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |
 | `user.$attribute` | `user` reference to the Okta User<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
+
+> **Note:** You can also access the User ID for each user with the following expression: `user.getInternalProperty("id")`.
 
 ### Application User Profile
 
