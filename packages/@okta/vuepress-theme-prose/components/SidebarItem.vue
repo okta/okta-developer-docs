@@ -22,7 +22,7 @@
             >
             <slot>
               <span class="text-holder">
-                {{ link.title }}
+                {{ link.customTitle || link.title}}
               </span>
             </slot>
           </a>
@@ -65,7 +65,7 @@
               <slot>
                 <span 
                   class="text-holder">
-                    {{ link.title }}
+                    {{ link.customTitle || link.title}}
                 </span>
               </slot>
             </a>

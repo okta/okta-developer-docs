@@ -153,6 +153,7 @@ export const guides = [
         subLinks: [
           {
             title: "Redirect authentication",
+            // customTitle: "Custom title",
             subLinks: [
               {
                 title: "Sign users in to your single-page application",
