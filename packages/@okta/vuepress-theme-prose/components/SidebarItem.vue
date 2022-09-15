@@ -201,24 +201,15 @@ export default {
     transition-timing-function: cubic-bezier(0.14, 0.04, 1, 0.91), ease-in;
   }
 
-  .sidebar-list-enter {
-    overflow: hidden;
+  .sidebar-list-enter,
+  .sidebar-list-leave-to {
     max-height: 0;
+
+    overflow: hidden;
     opacity: 0;
   }
 
-  .sidebar-list-enter-to {
-    max-height: 9999px;
-    opacity: 1;
-
-    will-change: max-height;
-  }
-
-  .sidebar-list-leave-active {
-    transition-property: max-height, opacity, transform;
-    transition-duration: 0.55s, 0.4s, 0.3s;
-  }
-
+  .sidebar-list-enter-to,
   .sidebar-list-leave {
     max-height: 9999px;
 
@@ -227,13 +218,12 @@ export default {
     will-change: max-height, transform;
   }
 
+  .sidebar-list-leave-active {
+    transition-property: max-height, opacity, transform;
+    transition-duration: 0.55s, 0.4s, 0.3s;
+  }
+
   .sidebar-list-leave-to {
-    max-height: 0;
-
-    overflow: hidden;
-
-    opacity: 0;
-
     transform: translateY(-10px);
   }
 </style>
