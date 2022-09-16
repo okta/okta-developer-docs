@@ -625,6 +625,10 @@ export const guides = [
           {
             title: "Step-up authentication using ACR values",
             guideName: "step-up-authentication"
+          },
+          {
+            title: "Anything-as-a-source integration",
+            path: "/docs/guides/anything-as-a-source/",
           }
         ],
       },
