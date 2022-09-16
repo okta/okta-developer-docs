@@ -63,8 +63,7 @@
               :title="link.title"
               >
               <slot>
-                <span
-                  class="text-holder">
+                <span class="text-holder">
                     {{ link.title }}
                 </span>
               </slot>
