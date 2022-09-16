@@ -24,7 +24,7 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
 3. Start Postman if it's not open already.
 4. In the upper-left corner, click **Import**.
 5. In the **Import** dialog box, click **Link** and then paste the following link into the **Enter a URL** box: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
-   > **Note:** You can also download this environment locally and import as a file.
+   > **Note:** You can also download this environment locally and import it as a file.
 6. Click **Continue** and then **Import** to confirm your environment import.
 7. In the upper-right corner, click the box that lists the environments and then select `${yourOktaDomain}` from the list. The initial value is `No Environment` if you just installed Postman.
 
