@@ -32,7 +32,7 @@ This guide covers self-service registration, which allows users to sign up for t
 
 Before you can build the self-registration flow in your app, you must configure the Okta org to accept self-registration with the password, email, and/or phone factors. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to set up the password, email, and phone factors in your Okta org.
 
-<div class="three-quarter">
+<div class="half">
 
 ![Password and email factors](/img/oie-embedded-sdk/factor-password-email-or-phone.png)
 

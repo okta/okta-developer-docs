@@ -287,6 +287,10 @@ export const guides = [
                 guideName: "authenticators-okta-verify"
               },
               {
+                title: "Custom authenticator integration guide",
+                guideName: "authenticators-custom-authenticator"
+              },
+              {
                 title: "Google authenticator",
                 guideName: "authenticators-google-authenticator",
               },
@@ -307,6 +311,10 @@ export const guides = [
               {
                 title: "Email Magic Links",
                 guideName: "email-magic-links-overview"
+              },
+              {
+                 title: "Device context",
+                 guideName: "device-context"
               },
               {
                 title: "Custom password recovery",

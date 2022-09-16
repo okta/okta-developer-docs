@@ -125,7 +125,7 @@ The final step is to run your app. If the Widget and Okta org are properly confi
 
 <div class="half">
 
-![Displays the Widget load and sign-in page](/img/oie-embedded-sdk/oie-embedded-widget-use-case-load-screen-signin.png)
+![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
 
 </div>
 

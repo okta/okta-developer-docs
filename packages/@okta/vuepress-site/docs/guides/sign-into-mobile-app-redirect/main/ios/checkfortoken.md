@@ -15,6 +15,7 @@ var body: some View {
          }
       }
       .onAppear() {
+         // Show the activity indicator.
          busy = true
          // Check for an existing valid token.
          if let credential = Credential.default {

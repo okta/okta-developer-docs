@@ -32,7 +32,7 @@ User activation is the final step in self-service registration, where a user pro
 
 This architecture uses the Embedded SDK to create and activate users during self-service registration. The user uses <StackSnippet snippet="oktaemailguide" inline /> to verify their email address which enables them to be activated. The type of Okta email [template](/docs/guides/custom-email/main/) used depends on how you've configured your Okta org.
 
-<div class="common-image-format">
+<div class="full">
 
 ![High level diagram showing components involved in full Embedded SDK solution](/img/emailusecases/email-use-cases-user-activation-embedded-sdk-okta-email-overview.png)
 
@@ -44,7 +44,7 @@ See [Integrate user activations using Okta email](#integrate-user-activations-us
 
 In this architecture, your system makes direct calls to the Okta API to create users and initiate activations. You send activation emails with your infrastructure and call the Embedded SDK to complete the registration steps and activate the user.
 
-<div class="common-image-format">
+<div class="full">
 
 ![High level diagram showing components involved in Okta API and Embedded SDK solution](/img/emailusecases/email-use-cases-user-activation-okta-api-embedded-sdk-overview.png)
 
@@ -128,7 +128,7 @@ To learn more about this template and how to remove the magic link, see the <Sta
 
 Integrate the **Email Factor Verification** template into your app with the following steps.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Diagram showing summary of integration steps](/img/emailusecases/email-use-cases-user-activation-okta-summary-email-factor-verification.png)
 
@@ -147,7 +147,7 @@ First, the user starts a new account registration using your app and is required
 
 After the user submits the email authenticator for enrollment, Okta sends an email to the user based on the **Email Factor Verification Template**. See the following screenshot for an example of the email.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Email using the email factor verification template](/img/emailusecases/email-use-cases-user-activation-email-factor-verification-template.png)
 
@@ -195,7 +195,7 @@ When the user clicks the email's **Activate Account** link, Okta activates their
 
 Integrate the **Registration - Activation** template into your app with the following steps.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Diagram showing summary of integration steps](/img/emailusecases/email-use-cases-user-activation-okta-summary-registration-activation.png)
 
@@ -217,7 +217,7 @@ First, the user registers a new account using your app. This registration includ
 
 After the user completes the account registration, Okta sends an email to the user based on the **Registration - Activation** template. See the following screenshot for an example of the email.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Email using the activation registration template](/img/emailusecases/email-use-cases-user-activation-registration-activation-template.png)
 
@@ -235,7 +235,7 @@ In this architecture, you take more control over the account creation by calling
 
 Integrate user activations in this proxy model with the following steps.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Diagram showing summary of integration steps](/img/emailusecases/email-use-cases-user-activation-okta-summary-proxy-model.png)
 

@@ -2,21 +2,41 @@
 
 The self-registration flow begins when the user clicks the **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example 'Sign up' link at the bottom of the sign-in page.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up.png)
+![Sign-in form with a 'Forgot your password?' link](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g2r2.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 2
+
+-->
 
 ### 2: Enter the profile data
 
-The next step for the user after they click the **Sign up** link is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information. The following shows an example of a create account page.
+The next step for the user after they click the **Sign up** link is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information. The following wireframe shows an example of a create account page.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example 'Create your account' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create.png)
+![Create Account form with first name, last name, and email fields](/img/oie-embedded-sdk/wireframes/create-account-form-g2r25.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 25
+
+-->
 
 ### 3: Select Register
 
@@ -49,15 +69,23 @@ if (registerResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthen
 
 ### 5: Show the password authenticator
 
-The next step is to build a page that shows a user the required factors that need to
-be verified. After the call to `RegisterAsync`, the user needs to see the
-password factor requirement and select it for verification.
+The next step is to build a page that shows a user the required factors that need to be verified. After the call to `RegisterAsync`, the user needs to see the password factor requirement and select it for verification.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example 'Verify password' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-password.png)
+![Choose authenticator form with password option](/img/oie-embedded-sdk/wireframes/choose-authenticator-password-form-g2r26.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 26
+
+-->
 
 The page should be generic and should handle the list of authenticators that are returned from the various methods of the SDK. Use the `Authenticators` property in the returned response to build the list.
 
@@ -114,13 +142,23 @@ default:
 
 ### 8: Show the new password page
 
-After `AwaitingAuthenticatorVerification` is returned, the next step is to build a page that allows the user to verify the new password by supplying the password.
+After `AwaitingAuthenticatorVerification` is returned, the next step is to build a page that allows the user to supply a new password for verification.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example 'Confirm password' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-confirm-password.png)
+![Set password form with new password and confirm new password fields](/img/oie-embedded-sdk/wireframes/set-password-form-g2r27.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 27
+
+-->
 
 ### 9: Submit the new password
 
@@ -144,13 +182,23 @@ If you completed the steps in [Set up your Okta org for a multifactor use case](
 
 The `AwaitingAuthenticatorEnrollment` status is returned because the required email and optional phone factors await to be enrolled and verified. The user should be redirected to an authenticator list page.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example 'Authenticator list' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-email-phone.png)
+![Choose authenticator form with Email and Phone options](/img/oie-embedded-sdk/wireframes/choose-authenticator-email-phone-form-g2r28.png)
 
 </div>
 
-> **Note:** In the previous screenshot, the **Skip** button is used to skip the authenticators. You can implement the skip option on your authenticators list page when one of the authenticators is optional. Since the email factor is required but the phone is optional, the **Skip** button in this step is visible yet disabled. The **Skip** button is described in later steps.
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 28
+
+-->
+
+> **Note:** In the previous wireframe, a **Skip** button is not provided. You could choose to implement a skip option on your authenticators list page when one of the authenticators is optional. Since the email factor is required but the phone is optional, we'll describe it in later steps.
 
 The code snippet below shows how the response is handled. `AwaitingAuthenticatorEnrollment` identifies that there are additional factors (in this use case, email and optionally phone). The authenticator list page is loaded again (the first time was for password) with the two additional factors.
 
@@ -209,11 +257,21 @@ switch (enrollResponse?.AuthenticationStatus)
 
 Build the email verification code page that accepts the code from the email.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example 'Authenticator list' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code.png)
+![Email verification code input form](/img/oie-embedded-sdk/wireframes/enter-verification-code-form-g2r5.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 5
+
+-->
 
 ### 15: Submit the email code
 
@@ -254,11 +312,21 @@ switch (authnResponse.AuthenticationStatus)
 
 The remaining authenticator should display the phone factor to the user. Since this factor is currently optional and no other required factors need to be verified, the user should have the ability to skip the factor. Create a **Skip** button for this use case. This **Skip** button is governed by the `CanSkip` property on the `AuthenticationResponse`. See the following screenshot for an illustration.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example 'Phone list' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-phone.png)
+![Choose authenticator form with Phone option and skip button](/img/oie-embedded-sdk/wireframes/choose-authenticator-phone-optional-form-g2r30.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 30
+
+-->
 
 The user can either enroll in the phone factor or skip the phone factor. Your code should handle both scenarios that will be described in the following steps.
 
@@ -290,11 +358,21 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
    Build the phone number entry page that accepts the phone number. The user uses the phone number entry page to enroll and verify.
 
-   <div class="half">
+   <div class="half wireframe-border">
 
-   ![Displays an example 'Verify phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
+   ![Phone number entry form](/img/oie-embedded-sdk/wireframes/auth-enter-phone-number-form-g2r32.png)
 
    </div>
+
+   <!--
+
+   Source image:
+
+   https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+   Group 2, row 32
+
+   -->
 
    > **Note:** The SDK requires that the phone number be in the following format: `+#######`, including the beginning plus (+) sign.
 
@@ -344,11 +422,21 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
    Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, the page can be the same page that verifies the email code. The sample app reuses the same page for both email and phone verification.
 
-   <div class="half">
+   <div class="half wireframe-border">
 
-   ![Displays an example 'Enter code from phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
+   ![Phone number entry form](/img/oie-embedded-sdk/wireframes/sms-enter-verification-code-form-g2r42.png)
 
    </div>
+
+   <!--
+
+   Source image:
+
+   https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+   Group 2, row 42
+
+   -->
 
 6. Submit phone code
 
