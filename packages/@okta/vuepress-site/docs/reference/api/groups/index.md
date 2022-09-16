@@ -1334,7 +1334,7 @@ curl -v -X PUT \
 
 Lists all Group rules for your organization
 
-> **Note:** If you don't specify any value for `limit`, a maximum of 50 results are returned. The maximum value for `limit` is 300.
+> **Note:** If you don't specify any value for `limit`, a maximum of 50 results are returned. The maximum value for `limit` is 200.
 
 ##### Request parameters
 
