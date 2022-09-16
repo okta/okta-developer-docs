@@ -73,17 +73,13 @@
   }
 
   .sidebar-area {
-    width: 350px;
-    min-width: 350px;
+    width: 18.5vw;
+    min-width: 266px;
     position: sticky;
     overflow: auto;
     overflow-x: hidden;
     background: cv('body');
     top: 142px;
-    transition-property: all;
-    transition-duration: 0.1s;
-    transition-timing-function: cubic-bezier(0.14, 0.04, 1, 0.91);
-    will-change: width, min-width;
     @include media("<desktop-xl") {
       top: 125px;
     }
@@ -122,10 +118,14 @@
 
   .content-area {
     flex: 1;
-    max-width: calc(82% - 350px);
+    max-width: calc(82% - 266px);
     padding: 23px 59px;
+    &-full {
+      max-width: 100%;
+      padding: 0 59px;
+    }
     @include media("<desktop-xl") {
-      max-width: calc(100% - 350px);
+      max-width: calc(100% - 266px);
       padding: 40px 57px 30px;
     }
     @include media("<desktop") {
@@ -285,23 +285,6 @@
         display: block;
       }
     }
-
-    &-full {
-      max-width: 100%;
-      padding: 0 59px;
-    }
-    &-arch {
-      max-width: 70%;
-      padding: 23px 59px 80px;
-      @include media("<desktop-xl") {
-        max-width: 100%;
-        padding: 30px 20px 40px;
-      }
-      a {
-        text-decoration: none;
-      }
-    }
-    
   }
 
   .on-this-page {
@@ -325,15 +308,9 @@
   }
 }
 
-.arch--container {
-  display: flex;
-  padding: 0;
-  justify-content: flex-start;
-}
-
 .aside-hidden .sidebar-area {
   width: 77px;
-  min-width: 0;
+  min-width: auto;
 }
 .aside-hidden .content-area {
   max-width: calc(100% - 77px);

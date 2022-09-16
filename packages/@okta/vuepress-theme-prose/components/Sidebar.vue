@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-area" v-if="sidebarItems.length !== 0">
     <div class="sidebar-inner">
-      <aside class="tree-nav" ref="treeNav">
+      <aside class="tree-nav" >
           <div
             class="tree-nav-toggle active"
             v-on:click="handleSidebarClose"
@@ -25,9 +25,7 @@
 </template>
 
 <script>
-
 import SidebarItems from "../mixins/SidebarItems";
-
 export default {
   name: "Sidebar",
   inject: ["appContext"],
@@ -120,9 +118,6 @@ export default {
       }
     },
     handleSidebarClose() {
-      const treeNav = this.$refs.treeNav;
-      treeNav.classList.toggle("active");
-
       let button = document.querySelector(".tree-nav-toggle");
       if (button.classList.contains('active')) {
         button.classList.remove('active');
