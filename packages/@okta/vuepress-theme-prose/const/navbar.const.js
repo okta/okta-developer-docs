@@ -539,7 +539,7 @@ export const guides = [
         ],
       },
       {
-        title: "Okta Integration Network (OIN)",
+        title: "Okta Integration Network",
         customLandingPage: true,
         subLinks: [
           {
