@@ -47,7 +47,7 @@
       word-break: keep-all;
     }
   }
-  
+
   h1,
   h3 {
     word-break: break-word;
@@ -80,6 +80,10 @@
     overflow-x: hidden;
     background: cv('body');
     top: 142px;
+    transition-property: all;
+    transition-duration: 0.1s;
+    transition-timing-function: cubic-bezier(0.14, 0.04, 1, 0.91);
+    will-change: width, min-width;
     @include media("<desktop-xl") {
       top: 125px;
     }
@@ -226,7 +230,7 @@
         }
       }
     }
-    
+
     a.header-link svg {
       width: 1rem;
       display: none;
@@ -329,7 +333,7 @@
 
 .aside-hidden .sidebar-area {
   width: 77px;
-  min-width: auto;
+  min-width: 0;
 }
 .aside-hidden .content-area {
   max-width: calc(100% - 77px);
