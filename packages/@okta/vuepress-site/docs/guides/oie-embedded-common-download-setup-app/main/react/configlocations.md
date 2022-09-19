@@ -22,7 +22,7 @@ const oktaAuth = (() => {
 })();
 ```
 
-The [React sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/react-embedded-auth-with-sdk) supports setting the configuration values in the following locations:
+You have several options to locate your app's configuration settings. They are:
 
 ### Directly in code
 
@@ -42,7 +42,7 @@ export default {
 };
 ```
 
-In another file where you are instantiating `OktaAuth`, import the file as a module. Pass it's default object into `OktaAuth`'s constructor.
+Import the file as a module in another file where you are instantiating `OktaAuth`. Pass its default object into `OktaAuth`'s constructor.
 
 ```javascript
 import appConfig from './config';
@@ -54,7 +54,7 @@ const oktaAuth = (() => {
 
 ### Environment variables
 
-Add environment variables on the server-side for each of the settings. Use names such as:
+Add environment variables on the server for each of the settings. Use names such as:
 
 * `ISSUER`
 * `CLIENT_ID`
@@ -63,7 +63,7 @@ Access these values using the global `process.env` object. For example, use `pro
 
 ### External configuration file
 
-Read the settings from a configuration file that's created on the server-side. For example, use the [dotenv](https://www.npmjs.com/package/dotenv) package and create an external configuration file that defines each setting.
+Read the settings from a configuration file located on the server. For example, use the [dotenv](https://www.npmjs.com/package/dotenv) package and create an external configuration file that defines each setting.
 
 ```yaml
 ISSUER=https://${yourOktaDomain}/oauth2/default
@@ -72,3 +72,5 @@ CLIENT_ID=0oa1kelclsb...
 ```
 
 With dotenv you can access these values through `process.env`. As mentioned in the previous option, use webpack, vite, or another bundler to access these same environment variables from the browser.
+
+> **Note:** These configuration locations are also supported in the [React sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/react-embedded-auth-with-sdk).

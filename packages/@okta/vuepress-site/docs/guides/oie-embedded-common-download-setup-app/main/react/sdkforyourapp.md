@@ -1,10 +1,10 @@
 >**Note:** Before you start to integrate your own embedded React app, [run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/react/main/#run-the-embedded-sdk-sample-app) and explore the available [embedded authentication use cases](/docs/guides/pwd-optional-new-sign-up-email/react/main/) to get familiar with the SDK.
 
-Integrate the SDK into your own app by following these steps:
+Set up the SDK in your app with the following steps:
 
-#### 1: Install Okta Auth JS
+#### 1: Install the Okta Auth JavaScript (JS) SDK
 
-Install the SDK in your application by using npm or yarn.
+Install the SDK in your project by using npm or yarn.
 
 ```shell
 # Run this command in your project root folder.
@@ -29,6 +29,6 @@ const oktaAuth = new OktaAuth({
 
 #### 4: Review the SDK methods
 
-Start integrating your app using the SDK by reviewing the Identity Engine Auth JS SDK methods. See [Usage](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage) for further information.
+Start integrating the available authentication workflows by reviewing the Auth JS SDK methods. See [Usage](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage) for further information.
 
 >**Note:** For additional details setting up the SDK, see the [npm Get Started guide](https://www.npmjs.com/package/@okta/okta-auth-js#getting-started) and the SDK's yarn [site](https://yarnpkg.com/package/@okta/okta-auth-js).
