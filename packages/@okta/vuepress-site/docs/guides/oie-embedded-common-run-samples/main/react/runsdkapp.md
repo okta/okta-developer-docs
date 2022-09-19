@@ -32,4 +32,4 @@ yarn start
 
 ### Troubleshoot
 
-If the app doesn't load in the browser, open the app in private or incognite mode. This allows the app to run with an empty browser cache and may resolve issues related to stale caches.
+If the app doesn't load in the browser, open the app in private or incognito mode. This allows the app to run with an empty browser cache and may resolve issues related to stale caches.

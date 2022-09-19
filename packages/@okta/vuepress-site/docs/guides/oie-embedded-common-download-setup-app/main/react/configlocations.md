@@ -14,7 +14,7 @@ const appConfig = {
  };
 ```
 
-And pass this object to  `OktaAuth ` during initialization.
+And pass this object to `OktaAuth` during initialization.
 
 ```javascript
 const oktaAuth = (() => {

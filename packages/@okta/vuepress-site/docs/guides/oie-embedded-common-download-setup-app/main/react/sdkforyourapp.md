@@ -17,7 +17,7 @@ npm install --save @okta/okta-auth-js
 
 #### 2: Set the configuration settings
 
-Set the SDK's configurations values described in [Set the configuration values](#set-the-configuration-values).
+Set the SDK's configuration values described in [Set the configuration values](#set-the-configuration-values).
 
 #### 3: Initialize the SDK
 
@@ -29,6 +29,6 @@ const oktaAuth = new OktaAuth({
 
 #### 4: Review the SDK methods
 
-Start integrating the available authentication workflows by reviewing the Auth JS SDK methods. See [Usage](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage) for further information.
+Start integrating the available authentication workflows by reviewing the Auth JS SDK methods. See [Usage](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage).
 
 >**Note:** For additional details setting up the SDK, see the [npm Get Started guide](https://www.npmjs.com/package/@okta/okta-auth-js#getting-started) and the SDK's yarn [site](https://yarnpkg.com/package/@okta/okta-auth-js).
