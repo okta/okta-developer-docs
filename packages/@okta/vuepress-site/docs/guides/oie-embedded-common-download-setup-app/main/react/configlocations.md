@@ -22,7 +22,7 @@ const oktaAuth = (() => {
 })();
 ```
 
-You have several options to locate your app's configuration settings. They are:
+You have several options on where to locate your app's configuration settings. They are:
 
 ### Directly in code
 

@@ -1,1 +1,1 @@
-/docs/guides/oie-embedded-common-download-setup-app/react/main/
+[download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/react/main/)
