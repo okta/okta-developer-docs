@@ -1476,4 +1476,4 @@ When you create a SAML 2.0 app in Okta, the app is created with SHA-256 signed p
 The following bugs have been fixed, and are expected in preview orgs starting January 10, 2018, and in production orgs starting January 16, 2018.
 
 * Network zones couldn't be deleted if they were associated with a sign-on policy, even after the policy has been deleted. (OKTA-150747)
-* Results returned from the Users API incorrectly reported the status of some users who were mastered by Active Directory. The statuses `PASSWORD_RESET` or `LOCKED_OUT` were reported as `ACTIVE`. (OKTA-153214, OKTA-151861)
+* Results returned from the Users API incorrectly reported the status of some users who were sourced by Active Directory. The statuses `PASSWORD_RESET` or `LOCKED_OUT` were reported as `ACTIVE`. (OKTA-153214, OKTA-151861)

@@ -6,3 +6,11 @@ Add the latest Okta OIDC package to your project:
 1. Confirm that the `okta-mobile-swift` package is selected, that the **Dependency Rule** is set to the main branch, and that your project is selected.
 1. Click **Add Package**.
 1. Select all of the package products in the dialog that appears: **AuthFoundation**, **OktaOAuth2**, and **WebAuthenticationUI**, and then click **Add Package**.
+
+Open `ContentView.swift` and update the `import` statements to use the authorization foundation and web authentication UI libraries:
+
+```swift
+import SwiftUI
+import AuthFoundation
+import WebAuthenticationUI
+```
