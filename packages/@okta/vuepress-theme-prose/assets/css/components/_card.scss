@@ -15,19 +15,6 @@
     border: 1px solid #b7bcc0;
     border-radius: 4px;
 
-    &_type_secondary {
-      border: none !important;
-      box-shadow: none !important;
-      background-color: cv("arch", "card");
-    }
-
-    &__icon {
-      --card-icon-size: 50px;
-
-      width: var(--card-icon-size);
-      height: var(--card-icon-size);
-    }
-
     a {
       text-decoration: none;
     }
