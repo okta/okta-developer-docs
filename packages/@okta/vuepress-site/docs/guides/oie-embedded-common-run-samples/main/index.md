@@ -16,7 +16,7 @@ Run the Okta Identity Engine embedded SDK or embedded Sign-In Widget sample app.
 
 **What you need**
 
-* [Okta org already configured for a password-only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* [Okta org already configured for a password only use case](/docs/guides/oie-embedded-common-org-setup/#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * [Identity Engine SDK set up for the sample app](/docs/guides/oie-embedded-common-download-setup-app/)
 * Okta Identity Engine [sample app](#sample-code) (see the next section)
 
