@@ -6,6 +6,18 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## September
 
+### Weekly release 2022.09.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.1](#bugs-fixed-in-2022-09-1)                      | September 14, 2022            |
+
+#### Bugs fixed in 2022.09.1
+
+* The Subscription Role API didn’t support the API Access Management role. (OKTA-431895)
+* The origin header validation on the `/token` endpoint for cross-origin requests was case-sensitive, which returned an error for redirect URIs using uppercase. (OKTA-516740)
+* The Interaction Code flow didn’t pass the `nonce` parameter from the authorization request into the ID token. (OKTA-521597)
+
 ### Monthly release 2022.09.0
 
 | Change | Expected in Preview Orgs |
@@ -21,6 +33,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Clone authentication policies are GA in Preview](#clone-authentication-policies-are-ga-in-preview) | August 31, 2022 |
 | [Improvements to the self-service password reset experience are GA in Preview](#improvements-to-the-self-service-password-reset-experience-are-ga-in-preview) | July 7, 2022 |
 | [Password restriction for shared SWA app accounts is GA in Production](#password-restriction-for-shared-swa-app-accounts-is-ga-in-production) | July 7, 2022 |
+| [Default authenticator enrollment policy settings format](#default-authenticator-enrollment-policy-settings-format) | August 31, 2022 |
 | [Developer documentation updates in 2022.09.0](#developer-documentation-updates-in-2022-09-0) | August 31, 2022 |
 | [Bugs fixed in 2022.09.0](#bugs-fixed-in-2022-09-0) | August 31, 2022|
 
@@ -68,6 +81,10 @@ Previously, the self-service password reset (SSPR) flow created unnecessary fric
 
 For SWA apps with an account sign-in option set to **Users share a single username and password set by administrator**, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
 
+#### Default authenticator enrollment policy settings format
+
+For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy ) is created with settings in the authenticator format instead of the factor format. Any existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format.<!--OKTA-527304-->
+
 #### Developer documentation updates in 2022.09.0
 
 * `developer.okta.com` has a new main navigation menu, which makes navigating around the content easier and more intuitive. Instead of showing the entire sitemap in the menu at all times, each major area is now accessed through a submenu that shows only the relevant menu sections at one time. In addition, clicking each menu node shows a contextual landing page (either a defined custom page or an auto-generated one if none exists), and you can now toggle the menu between hidden and visible states, if desired.
@@ -85,8 +102,6 @@ For SWA apps with an account sign-in option set to **Users share a single userna
 * When the `MyAccountChangeConfirmation` or `PendingEmailChange` email templates were customized without an `AuthStateToken`, the `app.id`, `app.name`, and `app.label` variables didn't work. (OKTA-515159)
 
 * When customers used a customized Okta-hosted Sign-In Widget, authorization requests failed after Identity Engine upgrade because the Authentication object was missing from the Identity Engine response. (OKTA-376674)
-
-* 
 
 ## August
 
@@ -359,6 +374,7 @@ The mandatory `profileAttributes` parameter wasn't validated and the primary `em
 | [Dynamic IdP routing is EA in Preview](#dynamic-idp-routing-is-ea-in-preview) | June 8, 2022|
 | [Email Address Bounces API is GA in Production](#email-address-bounces-api-is-ga-in-production) | March 2, 2022 |
 | [Generic OIDC IdP nonce validation enforced](#generic-oidc-idp-nonce-validation-enforced) | June 8, 2022|
+| [Group limit removed for Authorization Code grant type flows](#group-limit-removed-for-authorization-code-grant-type-flows) | June 8, 2022|
 | [JWT claim enhancement](#jwt-claim-enhancement) | June 8, 2022|
 | [Okta Verify rate limit updates](#okta-verify-rate-limit-updates) | June 8, 2022|
 | [OIDC Identity Providers private/public key pair support is EA in Preview](#oidc-identity-providers-private-public-key-pair-support-is-ea-in-preview) | June 8, 2022|
@@ -385,6 +401,10 @@ Okta admins can now control the bounced email address list through the [Email Ad
 #### Generic OIDC IdP nonce validation enforced
 
 For generic OIDC IdPs, Okta fails the authentication if the returned ID token doesn’t contain the `nonce` that was sent with the initial authorize request. <!-- OKTA-486805 -->
+
+#### Group limit removed for Authorization Code grant type flows
+
+The 100-group limit for the `/token` endpoint is removed for the Authorization Code and Authorization Code with PKCE grant type flows when the Groups Claim Type is **Filter**. <!-- OKTA-497701 -->
 
 #### JWT claim enhancement
 

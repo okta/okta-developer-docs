@@ -879,7 +879,7 @@ If you want to include or exclude all zones, you should pass in `ALL_ZONES` as t
 
 #### Authentication Provider Condition object
 
-Specifies an authentication provider that masters some or all Users
+Specifies an authentication provider that is the source of some or all Users
 
 | Parameter | Description                                    | Data Type                  | Required | Default                     |
 | ---       | ---                                            | ---                        | ---      | ---                         |
@@ -1226,6 +1226,8 @@ The authenticator enrollment policy controls which authenticators are available 
 
 > **Note:** The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
 
+> **Note:** For orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta contains the `authenticators` property in the policy settings. Existing default authenticator enrollment policies from a migrated Classic Engine org remain unchanged and still use the `factors` property in their policy settings.
+
 #### Policy Authenticator object
 
 <ApiLifecycle access="ie" />
@@ -1413,7 +1415,7 @@ The following conditions may be applied to the Rules associated with MFA Enrollm
 
 The Password Policy determines the requirements for a user's password length and complexity, as well as the frequency with which a password must be changed. This Policy also governs the recovery operations that may be performed by the User, including change password, reset (forgot) password, and self-service password unlock.
 
-> **Note:** Password Policies are enforced only for Okta and AD-mastered users. For AD-mastered users, ensure that your Active Directory Policies don't conflict with the Okta Policies.
+> **Note:** Password Policies are enforced only for Okta and AD-sourced users. For AD-sourced users, ensure that your Active Directory Policies don't conflict with the Okta Policies.
 
 #### Policy Settings example
 
@@ -1426,7 +1428,13 @@ The Password Policy determines the requirements for a user's password length and
          "minUpperCase": 1,
          "minNumber": 1,
          "minSymbol": 0,
-         "excludeUsername": true
+         "excludeUsername": true,
+         "dictionary": {
+                        "common": {
+                            "exclude": false
+                        }
+                    },
+         "excludeAttributes": []
        },
        "age": {
          "maxAgeDays": 0,
@@ -1501,11 +1509,9 @@ The Password Policy determines the requirements for a user's password length and
 | minSymbol                                 | Indicates if a password must contain at least one symbol (For example: !@#$%^&*): `0` indicates no, `1` indicates yes                      | integer                                                             | No       | 1           |
 | excludeUsername                           | Indicates if the Username must be excluded from the password                                                                   | boolean                                                             | No       | true        |
 | excludeAttributes                         | The User profile attributes whose values must be excluded from the password: currently only supports `firstName` and `lastName` | Array                                                               | No       | Empty Array |
-| dictionary <ApiLifecycle access="beta" /> | Weak password dictionary lookup settings                                                                                        | [Weak Password Dictionary object](#weak-password-dictionary-object) | No       | N/A         |
+| dictionary | Weak password dictionary lookup settings                                                                                        | [Weak Password Dictionary object](#weak-password-dictionary-object) | No       | N/A         |
 
 ###### Weak Password Dictionary object
-
-> **Note:** Weak password lookup is a <ApiLifecycle access="beta" /> feature.
 
 Specifies how lookups for weak passwords are done. Designed to be extensible with multiple possible dictionary types against which to do lookups.
 
@@ -1614,7 +1620,7 @@ However, if you are using the Identity Engine, it is recommended to set recovery
 
 | Property   | Description                                                                                                                                                                            | Data Type | Required | Default |
 | ---        | ---                                                                                                                                                                                    | ---       | ---      | ---     |
-| skipUnlock | Indicates if, when performing an unlock operation on an Active Directory mastered User who is locked out of Okta, the system should also attempt to unlock the User's Windows account. | Boolean   | No       | false   |
+| skipUnlock | Indicates if, when performing an unlock operation on an Active Directory sourced User who is locked out of Okta, the system should also attempt to unlock the User's Windows account. | Boolean   | No       | false   |
 
 ### Policy conditions
 

@@ -10,7 +10,7 @@ func signIn() {
             updateStatus("Signed in", infoText: "", signedInStatus: true)
          }
       } catch {
-         // Handle errors
+         // Handle sign-in and token storage errors.
          showError(title: "Unable to Sign In", error: error)
       }
    }
@@ -35,7 +35,7 @@ func signOut() {
          updateStatus("Signed out", infoText: "", signedInStatus: false)
       }
       catch {
-         // Handle errors
+         // Handle sign-out and token removal errors.
          showError(title: "Unable to Sign Out", error: error)
       }
       busy = false

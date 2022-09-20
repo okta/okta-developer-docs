@@ -67,7 +67,7 @@ The following predefined optional parameters are available for use in your autho
 
 <div class="three-quarter">
 
-![Flow diagram that displays the back and forth between the client, resource server, and the authorization server](/img/auth/step-up-authentication-using-acr-values-flow.png)
+![Flow diagram that displays the back and forth between the client, resource server, and the authorization server](/img/auth/step-up-authentication-acr-flow.png)
 
 </div>
 
