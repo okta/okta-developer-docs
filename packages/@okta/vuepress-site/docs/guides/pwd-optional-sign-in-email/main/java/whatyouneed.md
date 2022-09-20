@@ -1,2 +1,2 @@
-* [Download and set up the SDK](docs/guides/oie-embedded-common-download-setup-app/java/main/)
+* [Download and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app/java/main/)
 </br>
