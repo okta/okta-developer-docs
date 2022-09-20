@@ -22,10 +22,6 @@ title: Okta Identity Engine API Products release notes 2022
 
 * A two-minute clock skew was allowed during access and ID token validation. (OKTA-528530)
 
-
-
-
-
 ### Weekly release 2022.09.1
 
 | Change | Expected in Preview Orgs |
