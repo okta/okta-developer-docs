@@ -25,7 +25,7 @@
        return false;
      }
 
-     return true;
+     return $jwt->claims;
    }
    ```
 
