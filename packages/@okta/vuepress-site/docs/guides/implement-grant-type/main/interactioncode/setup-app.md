@@ -2,7 +2,7 @@
 5. Specify the **App integration name**.
 6. Select **Interaction Code** and **Refresh Token** as the **Grant type**.
 
-    > **Note:** If the **Interaction Code** checkbox doesn’t appear, the Interaction Code grant type isn’t enabled for your org. To enable it, go to **Settings** > **Account** > **Embedded widget sign-in support**. See [Verify that the Interaction Code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled) for more information on how to toggle the Interaction Grant type for your org.
+    > **Note:** If the **Interaction Code** checkbox doesn’t appear, the Interaction Code grant type isn’t enabled for your org. To enable it, go to **Settings** > **Account** > **Embedded widget sign-in support**. See [Verify that the Interaction Code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled) for more information on how to toggle the Interaction Grant type for your org. <ApiLifecycle access="ea" />
 
 7. Specify the **Sign-in redirect URIs** to redirect the user with their Interaction Code.
 8. Fill in the remaining details for your app integration, then click **Save**.
