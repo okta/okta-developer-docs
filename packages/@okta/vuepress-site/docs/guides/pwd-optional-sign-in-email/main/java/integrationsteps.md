@@ -37,7 +37,7 @@ switch (response.getAuthenticationStatus()) {
 }
 ```
 
-The email authenticator supports user verification by One-Time Password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/java/main/#integrate-email-challenge-with-magic-links).
+The email authenticator supports user verification via One-Time Password (OTP) and magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/java/main/#integrate-email-challenge-with-magic-links).
 
 ### 4. Your app handles an authentication success response
 

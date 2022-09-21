@@ -1,6 +1,6 @@
-The following code defines an endpoint that receives the `OTP` and `state` values from the magic link. If `state` is null or `IDX_CLIENT_CONTEXT` is not present in session state, the code assumes the callback has not come from the same browser and prompts the user accordingly.
+The following code defines an endpoint that receives the `OTP` and `state` values from the magic link. If `state` is null or `IDX_CLIENT_CONTEXT` isn't present in session state, the code assumes the callback hasn't come from the same browser. Redirect the user to a page where the widget prompts the user to enter the code or open the magic link in the original browser.
 
-If successful, the `OTP` and `state` values are passed to the Widget with the rest of its configuration details.
+If successful, the `OTP` and `state` values are passed to the widget with the rest of its configuration details.
 
 ```java
 @GetMapping("/magic-link/callback")
@@ -10,8 +10,16 @@ public ModelAndView handleMagicLinkCallback(
    @RequestParam(name = "otp") String otp,
    HttpSession session) throws MalformedURLException {
 
-   // Check for IDX_CLIENT_CONTEXT in session state and state parameter
-   // If either are null, prompt user to enter code in original browser
+   if (idxClientContext == null) {
+      ModelAndView modelAndView = new ModelAndView("error");
+      modelAndView.addObject("error_details", "Unknown error");
+      return modelAndView;
+   }
+
+   // if we don't have the state parameter redirect
+   if (state == null) {
+      return new ModelAndView("redirect:" + oktaOAuth2Properties.getRedirectUri());
+   }
 
    String issuer = oktaOAuth2Properties.getIssuer();
    String orgUrl = new URL(new URL(issuer), "/").toString();
@@ -36,7 +44,7 @@ public ModelAndView handleMagicLinkCallback(
 }
 ```
 
-> **Note**: For more information on magic links and OTP, including customizations and complete user journeys, see [Email Magic Links Overview](/docs/guides/email-magic-links-overview/main/).
+> **Note**: For more information on magic links and OTP, including customizations and complete user journeys, see [Email Magic Links overview](/docs/guides/email-magic-links-overview/main/).
 
 ### 4. Your app handles an authentication success response
 

@@ -88,7 +88,7 @@ If `true` &mdash; and all the listed authenticators are optional &mdash; add a *
 
 ### 6. The user skips the remaining optional authenticators
 
-When the user clicks the **Skip** button, call `IDXAuthenticationWrapper.skipAuthenticatorEnrollment()` method. After the user skips the remaining optional authenticators, the current status of the authentication process is now `SKIP_COMPLETE`. Call `AuthenticationResponse.getTokenResponse()` to retrieve the required access, refresh and ID tokens to pass it into your application. The user has now signed in.
+When the user clicks the **Skip** button, call `IDXAuthenticationWrapper.skipAuthenticatorEnrollment()`. After the user skips the remaining optional authenticators, the authentication process's current status is now `SKIP_COMPLETE`. Call `AuthenticationResponse.getTokenResponse()` to retrieve the required access, refresh and ID tokens to pass it into your application. The user has now signed in.
 
 ```java
 val authenticationResponse =
@@ -101,4 +101,4 @@ if (response.getAuthenticationStatus() == SKIP_COMPLETE) {
 }
 ```
 
-Store these tokens for future requests and redirect the user to the default page after a successful sign-up attempt. In the example above, this is achieved in [`homeHelper`](https://github.com/okta/okta-idx-java/blob/master/samples/embedded-auth-with-sdk/src/main/java/com/okta/spring/example/helpers/HomeHelper.java)`.proceedToHome()`.
+Store these tokens for future requests and redirect the user to the default page after a successful sign-up attempt. In the example above, this is achieved using [`homeHelper`](https://github.com/okta/okta-idx-java/blob/master/samples/embedded-auth-with-sdk/src/main/java/com/okta/spring/example/helpers/HomeHelper.java)`.proceedToHome()`.
