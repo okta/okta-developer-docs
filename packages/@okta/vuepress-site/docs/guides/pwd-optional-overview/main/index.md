@@ -2,6 +2,10 @@
 title: Password optional overview
 ---
 
+<div class="oie-embedded-sdk">
+
+<ApiLifecycle access="ie" /><br>
+
 ## Overview
 
 Most hacking-related breaches involve weak or stolen passwords and credential security theft. Passwords are a security vulnerability because they can be easily stolen and are prone to phishing attacks. They're also not convenient. Users often need to remember multiple passwords, change them regularly, and either memorize or store them securely somewhere.
@@ -35,3 +39,5 @@ Also, see the <StackSnippet snippet="bestpractices" inline/> guide to learn how 
 * [Okta Passwordless Authentication](https://www.okta.com/passwordless-authentication/)
 * [Let’s (finally) say goodbye to passwords](https://www.okta.com/go-passwordless/)
 <!--* [Passwordless authentication deployment guide](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/guides/pwa/pwa-main.htm)-->
+
+</div>

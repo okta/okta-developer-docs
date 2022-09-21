@@ -21,7 +21,7 @@ router.get('/login/callback', async (req, res, next) => {
 });
 ```
 
-> **Note**: For more information on magic links and OTP, including customizations and complete user journeys, see the [Email Magic Links overview](docs/guides/email-magic-links-overview/main/).
+> **Note**: For more information on magic links and OTP, including customizations and complete user journeys, see the [Email Magic Links overview](/docs/guides/email-magic-links-overview/main/).
 
 ### 4. Your app completes sign-in flow and obtains the ID and access tokens
 
