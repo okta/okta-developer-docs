@@ -1428,7 +1428,13 @@ The Password Policy determines the requirements for a user's password length and
          "minUpperCase": 1,
          "minNumber": 1,
          "minSymbol": 0,
-         "excludeUsername": true
+         "excludeUsername": true,
+         "dictionary": {
+                        "common": {
+                            "exclude": false
+                        }
+                    },
+         "excludeAttributes": []
        },
        "age": {
          "maxAgeDays": 0,
@@ -1503,11 +1509,9 @@ The Password Policy determines the requirements for a user's password length and
 | minSymbol                                 | Indicates if a password must contain at least one symbol (For example: !@#$%^&*): `0` indicates no, `1` indicates yes                      | integer                                                             | No       | 1           |
 | excludeUsername                           | Indicates if the Username must be excluded from the password                                                                   | boolean                                                             | No       | true        |
 | excludeAttributes                         | The User profile attributes whose values must be excluded from the password: currently only supports `firstName` and `lastName` | Array                                                               | No       | Empty Array |
-| dictionary <ApiLifecycle access="beta" /> | Weak password dictionary lookup settings                                                                                        | [Weak Password Dictionary object](#weak-password-dictionary-object) | No       | N/A         |
+| dictionary | Weak password dictionary lookup settings                                                                                        | [Weak Password Dictionary object](#weak-password-dictionary-object) | No       | N/A         |
 
 ###### Weak Password Dictionary object
-
-> **Note:** Weak password lookup is a <ApiLifecycle access="beta" /> feature.
 
 Specifies how lookups for weak passwords are done. Designed to be extensible with multiple possible dictionary types against which to do lookups.
 
