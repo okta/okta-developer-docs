@@ -1,3 +1,5 @@
+> **Note**: The examples in this guide use Java 11 and Spring Boot MVC.
+
 ### 1: Your app displays sign-up link on sign-in page
 
 Add a link to your app's sign-in page. When the user clicks this link, redirect them to a sign-up page where they can sign up for a new account.

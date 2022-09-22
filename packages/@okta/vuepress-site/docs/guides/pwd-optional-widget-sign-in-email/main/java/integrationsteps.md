@@ -1,3 +1,5 @@
+> **Note**: The examples in this guide use Java 11 and Spring Boot MVC.
+
 The following code defines an endpoint that receives the `OTP` and `state` values from the magic link. If `state` is null or `IDX_CLIENT_CONTEXT` isn't present in session state, the code assumes the callback hasn't come from the same browser. Redirect the user to a page where the widget prompts the user to enter the code or open the magic link in the original browser.
 
 If successful, the `OTP` and `state` values are passed to the widget with the rest of its configuration details.

@@ -1,3 +1,5 @@
+> **Note**: The examples in this guide use Java 11 and Spring Boot MVC.
+
 ### 1: Your app displays the sign-in page
 
 Create a sign-in page that captures the user's username.
