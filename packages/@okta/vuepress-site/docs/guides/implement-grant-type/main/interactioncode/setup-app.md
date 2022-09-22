@@ -2,7 +2,7 @@
 5. Specify the **App integration name**.
 6. Select **Interaction Code** and **Refresh Token** as the **Grant type**.
 
-    > **Note:** If the **Interaction Code** checkbox doesn’t appear, the Interaction Code grant type isn’t enabled for your org. To enable it, go to **Settings** > **Account** > **Embedded widget sign-in support**. See [Verify that the Interaction Code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled) for more information on how to toggle the Interaction Grant type for your org. <ApiLifecycle access="ea" />
+    <VerifyICGrantType />
 
 7. Specify the **Sign-in redirect URIs** to redirect the user with their Interaction Code.
 8. Fill in the remaining details for your app integration, then click **Save**.
@@ -18,7 +18,7 @@ If you have an existing app registered in Okta and want to enable the app to use
 1. In the Admin Console, go to **Applications** > **Applications**.
 2. Select your app from the application list.
 3. From the **General** tab, click **Edit** in the **General Settings** panel.
-4. In the **Grant type** > **Client acting on behalf of a user** option, select the **Interaction Code** checkbox (retain any other grant type that your app currently supports).
+4. In the **Grant type** > **Client acting on behalf of a user** option, select the **Interaction Code** checkbox You can retain any other grant types that your app currently supports).
 
     <VerifyICGrantType />
 
