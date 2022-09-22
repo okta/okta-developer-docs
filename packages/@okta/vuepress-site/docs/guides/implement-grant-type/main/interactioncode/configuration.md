@@ -8,7 +8,7 @@ The Interaction Code grant type is a sign-in flow used by embedded applications 
 
 1. To access this setting, from your Okta org's [Admin Console](/docs/concepts/okta-organizations/#admin-console), go to **Settings** > **Account** > **Embedded widget sign-in support**.
 1. Click **Edit**.
-1. If the checkbox isn’t selected, select it if you want to use the Interaction Code as a grant type for your OpenID Connect app integrations and authorization servers.
+1. Select the checkbox if you want to use the Interaction Code as a grant type for your OpenID Connect app integrations and authorization servers.
 
    If the **Interaction code** checkbox is selected, the number of applications and authorization servers that use the Interaction Code grant type appear.
 
