@@ -95,7 +95,7 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
 When you are constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
-When you need help during the submission process, use the Support section in the App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This support section provides you with the following resources from the [Okta developer portal](https://developer.okta.com/):
+When you need help during the submission process, use the Support section in the App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides you with the following resources from the [Okta developer portal](https://developer.okta.com/):
 
 * OIN integration guides
 * Okta, OIDC, SAML, and SCIM concepts
