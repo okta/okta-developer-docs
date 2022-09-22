@@ -66,13 +66,13 @@ You can only process one Import Session, for a specific Custom Identity Source i
 
 ### Bulk user imports
 
-You can upload up to 200 KB of data in a single bulk import (`bulkImport`) request for a particular Import Session. This equates to 200 user profiles. To add more user profiles, you can make multiple bulk import requests for a particular session. The maximum number of bulk import requests for a session is 50. If you have exhausted the maximum number of bulk import requests and you still need to upload more user profiles, then create another Import Session object for the additional user profiles. Keep in mind that you can only import user data for Import Sessions in the `CREATED` status and that you can’t process user imports in parallel for a specific identity source.
+You can upload up to 200 KB of data in a single bulk import request for a particular Import Session. This equates to 200 user profiles. To add more user profiles, you can make multiple bulk import requests for a particular session. The maximum number of bulk import requests for a session is 50. If you have exhausted the maximum number of bulk import requests and you still need to upload more user profiles, then create another Import Session object for the additional user profiles. Keep in mind that you can only import user data for Import Sessions in the `CREATED` status and that you can’t process user imports in parallel for a specific identity source.
 
 ### Bulk user profile data
 
-The bulk import request contains an array of [User Profile Data](/docs/reference/api/xaas/#user-profile-data) objects that contain the following:
+The bulk import request contains an array of [User Profile Data](/docs/reference/api/xaas/#profile-object) objects that contain the following:
 
-* `externalId`: Contains the unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This value is used to determine if a new user needs to be created or an existing user needs to be updated.
+* `externalId`: Contains the unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This value is used as a key to determine if a new user needs to be created or an existing user needs to be updated.
 
 * `profile`:  Contains the set of attributes from the HR source to synchronize with Okta user profiles. User profiles are mapped according to the attribute mappings you specified in your Custom Identity Source configuration.  See Declaration of a Custom Identity Source Schema in  [Using anything as a source](https://help.okta.com/okta_help.htm?type=wf).
 
@@ -90,19 +90,18 @@ There are two types of bulk import requests:
 Before you start to build your integration component, you need to set up a few configuration variables:
 
 * Your Okta org domain URL (`${yourOktaDomain}`): This is for XaaS API requests.
-* Your Custom Identity Source ID (`${identitySourceId}`): This is the unique identifier you obtain from [configuring a Custom Identity Source integration] in your Okta org. 
+* Your Custom Identity Source ID (`${identitySourceId}`): This is the unique identifier you obtain from [configuring a Custom Identity Source integration] in your Okta org.
 * An API Token (`${apiKey}`}: You need to [obtain an API token from your Okta org] to make API calls to Okta. Use this API token in the SSWS Authorization header.
 
 Code your XaaS data synchronization component with the following generalized API flow:
 
-1. Create an Import Session
-2. Load user data profile (if required, load multiple batches of user data)
-3. Trigger the data import process
-4. Monitor the Import Session until the data processing completes
-5. Close the Import Session
+1. Create an Import Session.
+2. Load user data profile into the Import Session (if required, load multiple batches of user data).
+3. Trigger the data import process.
+4. Monitor the Import Session until the data processing completes.
+5. Close the Import Session.
 
-    > **Note:** It is good practice to close the Import Session in your custom code. Closing the Import Session sets the status to `CANCELLED` and removes all the imported user data from Okta, freeing up space.
-
+    > **Note:** It is good practice to close the Import Session in your custom code. Closing the Import Session sets the status to `CANCELLED` and removes all the imported user data from Okta, freeing up resources.
 
 <div class="full">
 
@@ -145,17 +144,16 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 2. [Load user data profile](/docs/reference/api/xaas) in bulk:
 
     * Use the `sessionId` property value returned from the created Import Session to make the [Load user data profile](link to API operation) request.
-    * Obtain the user profiles from your HR source and add each user profile attribute into the `profiles` array. Set the bulk import `type` to `UPSERT`. You can have up to a maximum of 200 user profiles in the array.
+    * Obtain the user profiles from your HR source and add each user profile attribute into the `profiles` array. You can have up to a maximum of 200 user profiles in the array.
     * Set `entityName` to `USERS`. Only user import is supported; group import is not supported.
-    * If you need to add more users, make another [Load user data profile](link to API operation) request with the same `sessionId` value. You can make up to 50 load user data requests for one Import Session.
+    * If you need to add more users, make another [Load user data profile](/docs/reference/api/xaas) request with the same `sessionId` value. You can make up to 50 load user data requests for one Import Session.
 
     ```bash
     curl -i -X POST \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-import' \
+      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-upsert' \
     -H 'Authorization: SSWS ${apiKey}' \
     -H 'Content-Type: application/json' \
     -d '{
-        "type": "UPSERT",
         "entityName": "USERS",
         "profiles": [
             {
@@ -185,7 +183,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
     ```bash
     curl -i -X PUT \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}' \
+      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/start-import' \
     -H 'Authorization: SSWS ${apiKey}' \
     -H 'Content-Type: application/json' 
     ```
@@ -210,7 +208,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
     ```bash
     curl -i -X GET \
-      'https://${yourOktaDomain}/api/v1/identity-sources/sessions/${sessionId} \
+      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
     -H 'Authorization: SSWS ${apiKey}' \
     -H 'Content-Type: application/json' 
     ```
@@ -237,7 +235,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
     ```bash
     curl -i -X DELETE \
-      'https://${yourOktaDomain}/api/v1/identity-sources/sessions/${sessionId} \
+      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
     -H 'Authorization: SSWS ${apiKey}' \
     -H 'Content-Type: application/json' 
     ```
@@ -265,10 +263,10 @@ When users have been deactivated or deleted from your HR source, you need to ref
     * **200 OK**: The Import Session created successfully and returns a `sessionId` property. Save the `sessionId` value to make further API calls.
 
       ```json
-          {
-          	sessionId: “${sessionId}”,
-          	status: “CREATED”
-          }
+      {
+      sessionId: “${sessionId}”,
+      status: “CREATED”
+      }
       ```
 
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
@@ -277,18 +275,16 @@ When users have been deactivated or deleted from your HR source, you need to ref
 2. [Load user data profile](/docs/reference/api/xaas) in bulk:
 
     * Use the `sessionId` property value returned from the created Import Session to make the [Load user data profile](/docs/reference/api/xaas) request.
-    * Obtain the unique user identifiers  from your HR source and add each `externalId` value into the `profiles` array. Set the bulk import `type` to `DELETE`. You can have up to a maximum of 200 user IDs in the array.
+    * Obtain the unique user identifiers from your HR source and add each `externalId` value into the `profiles` array. You can have up to a maximum of 200 user IDs in the array.
     * Set `entityName` to `USERS`. Only user import is supported.
-
     * If you need to deactivate more users, make another [Load user data profile](/docs/reference/api/xaas) request with the same `sessionId` value. You can make up to 50 load user data requests for one Import Session.
 
     ```bash
     curl -i -X POST \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-import' \
+      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-delete' \
     -H 'Authorization: SSWS ${apiKey}' \
     -H 'Content-Type: application/json' \
     -d '{
-        "type": "DELETE",
         "entityName": "USERS",
         "profiles": [
           {
@@ -315,7 +311,7 @@ When users have been deactivated or deleted from your HR source, you need to ref
 
     ```bash
     curl -i -X PUT \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}' \
+      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/session/${sessionId}/start-import' \
     -H 'Authorization: SSWS ${apiKey}' \
     -H 'Content-Type: application/json' 
     ```
@@ -340,7 +336,7 @@ When users have been deactivated or deleted from your HR source, you need to ref
 
     ```bash
     curl -i -X GET \
-      'https://${yourOktaDomain}/api/v1/identity-sources/sessions/${sessionId} \
+      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
     -H 'Authorization: SSWS ${apiKey}' \
     -H 'Content-Type: application/json' 
     ```
@@ -367,7 +363,7 @@ When users have been deactivated or deleted from your HR source, you need to ref
 
     ```bash
     curl -i -X DELETE \
-      'https://${yourOktaDomain}/api/v1/identity-sources/sessions/${sessionId} \
+      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
     -H 'Authorization: SSWS ${apiKey}' \
     -H 'Content-Type: application/json' 
     ```
