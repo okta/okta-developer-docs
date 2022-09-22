@@ -115,8 +115,7 @@ curl -X POST \
 ##### Response example
 
 
-```bash
-HTTP/1.1 201 Created
+```json
 {
     "primary": {
         "name": "manager",
@@ -173,8 +172,6 @@ curl -X GET \
 
 
 ```json
-HTTP/1.1 200 OK
-
 {
     "primary": {
         "name": "manager",
@@ -397,7 +394,7 @@ curl -v -X GET \
 ##### Response example
 
 
-```bash
+```json
 [
     {
         "_links": {
@@ -444,7 +441,7 @@ curl -v -X GET \
 ##### Response example
 
 
-```bash
+```json
 [
     {
         "_links": {
@@ -487,7 +484,7 @@ None
 
 
 ```bash
-curl -v -X GET \
+curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
@@ -505,7 +502,7 @@ HTTP/1.1 204 No Content
 
 The following object contains example values for each attribute.
 
-```bash
+```json
 {
     "primary": {
         "name": "manager",
