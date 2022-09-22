@@ -47,9 +47,9 @@ This guide covers submissions that use one or more of these protocols:
 
 After you have built a functioning app integration, a few steps are required to submit it to Okta for review and publication in the OIN:
 
-1. Create a customer-facing configuration guide.
+1. Create a [customer-facing configuration guide](#prepare-a-customer-facing-configuration-guide).
     >**Note:** This guide is required for SCIM and OIDC OIN apps. It's optional for SAML integrations, as Okta provides its own documentation for those apps. The guide is supplied with your published app.
-1. Submit your integration to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata that is required to create a customized integration for publication in the OIN.
+1. [Submit your integration](#submit-an-integration) to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata that is required to create a customized integration for publication in the OIN.
     >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact your Okta account team or post on our [forum](https://devforum.okta.com/) to request temporary activation of this capability when submitting a SCIM app integration.
 
 1. Work with the Okta OIN team to test your integration using your input and then get it published to the OIN Catalog.
@@ -60,13 +60,48 @@ If the Okta OIN team identifies any issues in the initial review and QA testing 
 
   >**Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, existing SWA apps are still maintained by the OIN team.
 
+### Understand the submission review process
+
+The submission review process begins after you click **Submit for Review** in the [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review by the Okta OIN team, along with a date by which you should complete the initial review.
+
+The OIN Manager always shows the current status of your integration.
+
+#### Step 1: Initial Review
+
+* **Pending review by Okta**: The Okta OIN team is notified of your submission. Okta reviews the submission and notifies you by email when the submission review is complete.
+* **Action required**: Okta has reviewed your submission and found issues that require your attention. Check your email for results from the Okta initial review. Sign in to OIN Manager, update the requested details, and click **Submit for Review**. After the submission review is complete, the Okta OIN team moves it to Step 2 for QA testing.
+
+#### Step 2: Code Review
+
+* **Pending review by Okta**: The Okta OIN team is now conducting internal QA tests and notifies you by email when the QA review is complete. If the QA test is successful, your submission is published automatically in the OIN.
+* **Action required**: Okta has found QA issues that require your correction. Check your email for results from the Okta QA review. Make the requested changes as an update to your existing submission.
+* **Final review by Okta**: The Okta OIN team is conducting a final internal QA test based on previously requested changes and notifies you by email when the final QA review is complete. If the review is successful, your submission is published automatically in the OIN.
+
+#### Step 3: Published
+
+* Congratulations, your integration is published in the OIN!
+
+The following flowchart outlines the entire process:
+
+<div class="three-quarter">
+
+![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png)
+
+</div>
+
 ### Submission support
 
 Getting your app integration in the OIN catalog involves two phases: creating a functional integration and submitting it through the OIN publication process. For each phase in the process, Okta has an associated support stream to assist you.
 
 When you are constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
-When you are troubleshooting a submission or need to know the current publication status, sign in to the [OIN Manager](https://oinmanager.okta.com) using your dev credentials. You can make any necessary changes to your submission there. If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
+When you need help during the submission process, use the Support section in the App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This support section provides you with the following resources from the [Okta developer portal](https://developer.okta.com/):
+
+* OIN integration guides
+* Okta, OIDC, SAML, and SCIM concepts
+* A search tool to find articles in the Okta developer portal
+
+If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
 >**Note:** All integrations in the OIN catalog are public. If you want to submit a request to create a private app integration for an application that uses SCIM 1.1 or Profile Sourcing, or for an application that uses a custom header expression for the Header Auth, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim) to create your integration and submit your app through the [OIN Manager](https://oinmanager.okta.com). The Okta OIN team works with you to create an internal-only integration that isn't included in the OIN.
 
@@ -151,7 +186,7 @@ You need to only include this section if there are known issues that apply to th
 
 You may also want to include information on how to contact your organization if the customer has any support queries.
 
-## Configure general settings
+## Submit an integration
 
 To start your integration submission, open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
@@ -159,15 +194,21 @@ Sign in using your development org credentials and click **Add New Submission** 
 
 If you want to review an in-progress submission, click **View** beside the name of your integration.
 
+Start to define your submission by specifying details in the [General Settings](#configure-general-settings) and [protocol specific](#configure-protocol-specific-settings) tabs.
+
 If you need to update an integration, see [Update your published integration](#update-your-published-integration).
+
+### Configure general settings
 
 In the General Settings page, you need to fill in the basic information about your integration:
 
-### App information
+#### App information
 
-* **Does your app exist in the OIN?**: If your integration already exists in the OIN, provide the **Existing OIN app name** so that the Okta OIN team can locate it.
+* **Does your app exist in the OIN?**: Indicate if your integration exists in the OIN. 
 
-* **What changes are you making to the existing OIN integration?**: If your integration already exists in the OIN, summarize the changes that you are requesting in your update. This summary helps the Okta OIN team address your changes.
+   * If your integration already exists in the OIN, provide the **Existing OIN app name** so that the Okta OIN team can locate it.
+
+   * **What changes are you making to the existing OIN integration?**: If your integration already exists in the OIN, summarize the changes that you are requesting in your update. This summary helps the Okta OIN team address your changes.
 
 * **App name**: Provide a name for your integration. This is the main title used for your integration in the OIN.
 
@@ -179,13 +220,13 @@ In the General Settings page, you need to fill in the basic information about yo
 
 * **App icon**: Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be smaller than 1 MB in size. For best results, use a PNG image with a transparent background, a landscape orientation, and use a minimum resolution of 420 x 120 pixels to prevent upscaling.
 
-### Customer support
+#### Customer support
 
 * **Support contacts**: Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the drop-down menu to specify if you are adding an email, a URL, or a phone number and click **Add Another** to add additional contacts. Okta shares this information with customers in the OIN catalog description for your app integration.
 
 * **Escalation support contact**: This should be an email distribution list for Okta to use when contacting your company about your integration. It can be a phone number, but ideally when there is an issue with your integration, Okta wants to reach as many people as possible without creating any bottlenecks. Make sure that the contact provided here isn't a generic contact such as `support@example.com` or a 1-800 number. The escalation contact should be a contact list that Okta can reach out to in an emergency. This contact information isn't shared with customers.
 
-### Test account
+#### Test account
 
 The Okta OIN team requires a dedicated account on your application to run their tests. This test account needs to be kept active beyond the submission period in case Okta needs to update or troubleshoot your app integration.
 
@@ -197,7 +238,7 @@ The Okta OIN team requires a dedicated account on your application to run their 
 
 * **Additional instructions**: Include any other information that you think the Okta OIN team needs to know about your integration, the test account, or the testing configuration.
 
-## Configure protocol-specific settings
+### Configure protocol-specific settings
 
 Your application needs to support at least one protocol for interacting with Okta: SAML or OIDC for authentication, or SCIM for provisioning.
 
@@ -205,7 +246,7 @@ You can submit protocol support details all together or asynchronously. For exam
 
 For each protocol, click the appropriate tab name and change the protocol support drop-down box from **Off** to **On**.
 
-### Instance URL
+#### Instance URL
 
 For each protocol, enter the **Okta instance URL** for your integration in the first field.
 
@@ -224,11 +265,9 @@ To get your Okta instance URL in your development org:
 1. Paste that value into your submission.
 -->
 
-### Protocol-specific settings
+#### Protocol-specific settings
 
 Each of the supported protocols has different configuration settings for the remainder of the submission.
-
-<StackSelector />
 
 <StackSnippet snippet="submit" />
 
@@ -236,34 +275,6 @@ As you add configuration information about your integration to the submission pa
 
 You must include all required information before you can click **Submit for Review** to move your integration into the submission phase.
 
-## Understand the submission process
-
-The submission review process begins after you click **Submit for Review** in the [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review by the Okta OIN team, along with a date by which you should complete the initial review.
-
-The OIN Manager always shows the current status of your integration.
-
-### Step 1: Initial Review
-
-* **Pending review by Okta**: The Okta OIN team is notified of your submission. Okta reviews the submission and notifies you by email when the submission review is complete.
-* **Action required**: Okta has reviewed your submission and found issues that require your attention. Check your email for results from the Okta initial review. Sign in to OIN Manager, update the requested details, and click **Submit for Review**. After the submission review is complete, the Okta OIN team moves it to Step 2 for QA testing.
-
-### Step 2: Code Review
-
-* **Pending review by Okta**: The Okta OIN team is now conducting internal QA tests and notifies you by email when the QA review is complete. If the QA test is successful, your submission is published automatically in the OIN.
-* **Action required**: Okta has found QA issues that require your correction. Check your email for results from the Okta QA review. Make the requested changes as an update to your existing submission.
-* **Final review by Okta**: The Okta OIN team is conducting a final internal QA test based on previously requested changes and notifies you by email when the final QA review is complete. If the review is successful, your submission is published automatically in the OIN.
-
-### Step 3: Published
-
-* Congratulations, your integration is published in the OIN!
-
-The following flowchart outlines the entire process:
-
-<div class="three-quarter">
-
-![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png)
-
-</div>
 
 ## Update your published integration
 
