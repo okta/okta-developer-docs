@@ -7,22 +7,38 @@
   flex-direction: var(--main-card-direction);
   gap: var(--main-card-gap, 0);
   padding: var(--main-card-space, 0);
+  margin-bottom: 30px;
 
   background-color: cv('arch', 'item');
   border-radius: var(--main-card-border-radius);
+  box-shadow: var(--main-card-box-shadow);
   overflow: hidden;
-  margin-bottom: 30px;
 
-  &:last-child {
-    margin-bottom: 0;
+  transition-property: border-radius, background-color, box-shadow;
+  transition-duration: 0.75s;
+  transition-timing-function: ease-in-out;
+
+  &:hover {
+    --main-card-border-radius: 12px;
+    --main-card-box-shadow:
+      0px 1px 4px rgba(29, 29, 33, 0.08),
+      0px 4px 6px rgba(29, 29, 33, 0.01),
+      0px 5px 15px rgba(29, 29, 33, 0.05);
+
+    background-color: cv("arch", "card-hover");
+
+    cursor: pointer;
   }
-
 
   @include media(">tablet") {
     --main-card-space: 33px 35px;
     --main-card-direction: row;
     --main-card-gap: 40px;
     --main-card-border-radius: 12px;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 
   &_size_large {
@@ -32,6 +48,10 @@
       --main-card-space: 44px 35px;
     }
   }
+}
+
+.dark-theme .main-card:hover {
+  --main-card-box-shadow: 0px 5px 50px rgba(0, 0, 0, 0.35);
 }
 
 .main-card__image {
@@ -84,7 +104,7 @@
 
   font-size: var(--title-text-size);
   font-weight: 500;
-  
+
 
   @include media(">tablet") {
     --title-text-size: 18px;

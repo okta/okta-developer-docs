@@ -100,6 +100,7 @@
   --c-body-gray: var(--c-dark-gray);
   --c-arch-item: var(--c-gray-md);
   --c-arch-card-bg: var(--c-lightgray-900);
+  --c-arch-card-hover: var(--c-lightgray-900);
   --c-tag-bg: var(--c-gray-100);
   --c-tag-text: var(--c-gray-800);
 }
@@ -108,8 +109,9 @@
   // PALETTE DARK THEME
   --c-gray-900: #17171b;
   --c-gray-800: #1d1d21;
-  --c-gray-700: #232327;
   --c-gray-750: #2a2a2f;
+  --c-gray-700: #232327;
+  --c-gray-650: #343439;
   --c-gray-600: #41414b;
   --c-gray-550: #55555b;
   --c-gray-500: #6e6e78;
@@ -189,6 +191,7 @@
   --c-custom-bg-icon: var(--c-blue-000);
   --c-arch-item: var(--c-coal);
   --c-arch-card-bg: var(--c-gray-750);
+  --c-arch-card-hover: var(--c-gray-650);
   --c-tag-bg: var(--c-gray-550);
   --c-tag-text: var(--c-gray-250);
 }
@@ -197,6 +200,7 @@ $colors: (
   "arch": (
     "item": var(--c-arch-item),
     "card": var(--c-arch-card-bg),
+    "card-hover": var(--c-arch-card-hover)
   ),
   "tag": (
     "text": var(--c-tag-text),
