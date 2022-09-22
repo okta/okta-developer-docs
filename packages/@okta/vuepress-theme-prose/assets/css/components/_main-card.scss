@@ -137,9 +137,9 @@
 
   font-size: 12px;
   line-height: 1;
-  color: var(--c-gray-800);
+  color: cv("tag", "text");
 
-  background-color: var(--c-gray-100);
+  background-color: cv("tag", "bg");
   border-radius: 4px;
 
   @extend .dont-break-out;
