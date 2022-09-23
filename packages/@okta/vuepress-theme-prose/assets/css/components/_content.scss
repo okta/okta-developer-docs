@@ -73,8 +73,8 @@
   }
 
   .sidebar-area {
-    width: 18.5vw;
-    min-width: 266px;
+    width: 350px;
+    min-width: 350px;
     position: sticky;
     overflow: auto;
     overflow-x: hidden;
@@ -118,14 +118,26 @@
 
   .content-area {
     flex: 1;
-    max-width: calc(82% - 266px);
+    max-width: calc(82% - 350px);
     padding: 23px 59px;
     &-full {
       max-width: 100%;
       padding: 0 59px;
     }
+
+    &-arch {
+      max-width: 70%;
+      padding: 23px 59px 80px;
+      @include media("<desktop-xl") {
+        max-width: 100%;
+        padding: 30px 20px 40px;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
     @include media("<desktop-xl") {
-      max-width: calc(100% - 266px);
+      max-width: calc(100% - 350px);
       padding: 40px 57px 30px;
     }
     @include media("<desktop") {
@@ -310,8 +322,13 @@
 
 .aside-hidden .sidebar-area {
   width: 77px;
-  min-width: auto;
+  min-width: 0;
 }
 .aside-hidden .content-area {
   max-width: calc(100% - 77px);
+}
+.arch--container {
+  display: flex;
+  padding: 0;
+  justify-content: flex-start;
 }
