@@ -216,7 +216,7 @@ export const guides = [
               },
               {
                 title: "Password optional",
-                path: "pwd-optional-overview",
+                path: "/docs/guides/pwd-optional-overview/aspnet/main/",
                 subLinks: [
                   {
                     title: "Sign up for new account with email only",
