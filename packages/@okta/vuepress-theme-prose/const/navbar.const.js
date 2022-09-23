@@ -216,7 +216,7 @@ export const guides = [
               },
               {
                 title: "Password optional",
-                path: "/docs/guides/pwd-optional-overview/main/",
+                path: "pwd-optional-overview",
                 subLinks: [
                   {
                     title: "Sign up for new account with email only",

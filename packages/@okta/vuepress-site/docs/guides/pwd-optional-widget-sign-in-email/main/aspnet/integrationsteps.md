@@ -1,4 +1,4 @@
-The following code defines an endpoint that receives the `OTP` and `state` values from the magic link. It then attempts to retrieve the current Sign-In Widget configuration details from session state. If successful, the `OTP` and `state` values are added to the configuration details and passed to the Widget. If unsuccessful, the code assumes the callback has not come from the same browser and prompts the user accordingly.
+The following code defines an endpoint that receives the `OTP` and `state` values from the magic link. It then attempts to retrieve the current Sign-In Widget configuration details from session state. If successful, the `OTP` and `state` values are added to the configuration details and passed to the widget. If unsuccessful, the code assumes the callback has not come from the same browser and prompts the user accordingly.
 
 ```csharp
 public async Task<ActionResult> Callback(
@@ -20,7 +20,7 @@ public async Task<ActionResult> Callback(
 }
 ```
 
-> **Note**: For more information on magic links and OTP, including customizations and complete user journeys, see [Email Magic Links Overview](/docs/guides/email-magic-links-overview/main/).
+> **Note**: For more information on magic links and OTP, including customizations and complete user journeys, see [Email Magic Links overview](/docs/guides/email-magic-links-overview/main/).
 
 ### 4. Your app handles an authentication success response
 

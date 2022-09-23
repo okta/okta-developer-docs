@@ -1,3 +1,1 @@
-[Best practices for password optional]()
-
-<!-- TODO: update link -->
+[Best practices for password optional](/docs/guides/pwd-optional-best-practices/java/main/)
