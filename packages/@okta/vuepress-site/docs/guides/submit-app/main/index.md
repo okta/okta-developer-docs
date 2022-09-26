@@ -62,20 +62,20 @@ If the Okta OIN team identifies any issues in the initial review and QA testing 
 
 ### Understand the submission review process
 
-The submission review process begins after you click **Submit for Review** in the [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review by the Okta OIN team, along with a date by which you should complete the initial review.
+The submission review process begins when you click **Submit for Review** in the [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review by the Okta OIN team, which includes the date that the initial review of the integration is expected to be completed.
 
-The OIN Manager always shows the current status of your integration.
+The OIN Manager shows the current status of your integration.
 
 #### Step 1: Initial Review
 
 * **Pending review by Okta**: The Okta OIN team is notified of your submission. Okta reviews the submission and notifies you by email when the submission review is complete.
-* **Action required**: Okta has reviewed your submission and found issues that require your attention. Check your email for results from the Okta initial review. Sign in to OIN Manager, update the requested details, and click **Submit for Review**. After the submission review is complete, the Okta OIN team moves it to Step 2 for QA testing.
+* **Action required**: Okta has reviewed your submission and found issues that require your attention. Check your email for results from the Okta initial review. Sign in to OIN Manager, update the requested details, and click **Submit for Review**. After the OIN team reviews your updated submission and verifies that the issues have been resolved, the submitted integration moves to step 2 for QA testing.
 
 #### Step 2: Code Review
 
-* **Pending review by Okta**: The Okta OIN team is now conducting internal QA tests and notifies you by email when the QA review is complete. If the QA test is successful, your submission is published automatically in the OIN.
+* **Pending review by Okta**: The Okta OIN team conducts internal QA tests and notifies you by email when the QA review is complete. If the QA test is successful, your submission is automatically published in the OIN.
 * **Action required**: Okta has found QA issues that require your correction. Check your email for results from the Okta QA review. Make the requested changes as an update to your existing submission.
-* **Final review by Okta**: The Okta OIN team is conducting a final internal QA test based on previously requested changes and notifies you by email when the final QA review is complete. If the review is successful, your submission is published automatically in the OIN.
+* **Final review by Okta**: The Okta OIN team conducts a final internal QA test based on previously requested changes and notifies you by email when the final QA review is complete. If the review is successful, your submission is automatically published in the OIN.
 
 #### Step 3: Published
 
@@ -95,7 +95,7 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
 When you are constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
-When you need help during the submission process, use the Support section in the App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides you with the following resources from the [Okta developer portal](https://developer.okta.com/):
+When you need help during the submission process, use the Get Support section of the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
 
 * OIN integration guides
 * Okta, OIDC, SAML, and SCIM concepts
@@ -194,7 +194,7 @@ Sign in using your development org credentials and click **Add New Submission** 
 
 If you want to review an in-progress submission, click **View** beside the name of your integration.
 
-Start to define your submission by specifying details in the [General Settings](#configure-general-settings) and [protocol specific](#configure-protocol-specific-settings) tabs.
+Begin defining your submission by specifying details in the [General Settings](#configure-general-settings) and [protocol specific](#configure-protocol-specific-settings) tabs.
 
 If you need to update an integration, see [Update your published integration](#update-your-published-integration).
 
