@@ -69,7 +69,7 @@ The OIN Manager shows the current status of your integration.
 #### Step 1: Initial Review
 
 * **Pending review by Okta**: The Okta OIN team is notified of your submission. Okta reviews the submission and notifies you by email when the submission review is complete.
-* **Action required**: Okta has reviewed your submission and found issues that require your attention. Check your email for results from the Okta initial review. Sign in to OIN Manager, update the requested details, and click **Submit for Review**. After the OIN team reviews your updated submission and verifies that the issues have been resolved, the submitted integration moves to step 2 for QA testing.
+* **Action required**: Okta has reviewed your submission and found issues that require your attention. Check your email for results from the Okta initial review. Sign in to OIN Manager, update the requested details, and click **Submit for Review**. After the OIN team reviews your updated submission and verifies that the issues have been resolved, your submission moves to step 2 for QA testing.
 
 #### Step 2: Code Review
 
