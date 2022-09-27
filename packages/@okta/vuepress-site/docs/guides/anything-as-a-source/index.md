@@ -88,9 +88,9 @@ The bulk-user-load request contains an array of [User Profile Data](/docs/refere
 
 Before you start to build your XaaS data synchronization component, you need to set up a few configuration variables:
 
-* Your Okta org domain URL (`${yourOktaDomain}`): This is for XaaS API requests.
-* Your Custom Identity Source ID (`${identitySourceId}`): This is the unique identifier you obtain from [configuring a Custom Identity Source integration](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm) in your Okta org.
-* An API Token (`${apiKey}`}: You need to [obtain an API token from your Okta org](/docs/guides/create-an-api-token/main/) to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
+* Your Okta org domain URL (`${yourOktaDomain}`) for API requests
+* Your Custom Identity Source ID (`${identitySourceId}`): The unique identifier you obtained from [configuring a Custom Identity Source integration](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm) in your Okta org
+* An API Token (`${apiKey}`}: [Obtain an API token from your Okta org](/docs/guides/create-an-api-token/main/) to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
 
 Code your XaaS data synchronization component with the following generalized API flow:
 
@@ -360,21 +360,20 @@ When users have been deactivated or deleted from your HR source, you need to ref
 
 ### Cancel an Import Session
 
-If there's an Import Session with the `CREATED` status and you don't want to run the import process on this session, then you can cancel the session. This operation deletes all loaded user data in the Import Session and sets the session status to `CLOSED`.
+If there's an Import Session with the `CREATED` status for your identity source and you don't want to run the import process, then you can cancel the session. This operation deletes all loaded user data in the Import Session and sets the session status to `CLOSED`.
 
-1. [Cancel an Import Session](/docs/reference/api/xaas/#cancel-an-import-session)
+Use the [Cancel an Import Session](/docs/reference/api/xaas/#cancel-an-import-session) operation to cancel the Import Session and delete all the bulk user data associated with the session:
 
-    Use the DELETE operation to cancel the Import Session and delete all the bulk user data associated with the session.
+```bash
+curl -i -X DELETE \
+  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
+-H 'Authorization: SSWS ${apiKey}' \
+-H 'Content-Type: application/json' 
+```
 
-    ```bash
-    curl -i -X DELETE \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
-    -H 'Authorization: SSWS ${apiKey}' \
-    -H 'Content-Type: application/json' 
-    ```
+Possible returned responses:
 
-    Possible returned responses:
-    * **204 No content**: The Import Session cancelled successfully. All bulk user data is removed from the session.
-    * **400 Bad Request**: Unknown Import Session ID error
-    * **401 Unauthorized**: API key isn't valid
-    * **403 Forbidden**
+* **204 No content**: The Import Session cancelled successfully. All bulk user data is removed from the session.
+* **400 Bad Request**: Unknown Import Session ID error
+* **401 Unauthorized**: API key isn't valid
+* **403 Forbidden**
