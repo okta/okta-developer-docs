@@ -114,6 +114,23 @@ This section walks you through the self-service enrollment steps for a new user.
 6. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
 7. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
+## Enable password-optional enrollments
+
+To enable enrollment without password in the Sign-in Widget, <StackSnippet snippet="setuppwdoptional" inline/>. After completing the setup, try and enrollment using only an email with the following steps:
+
+<StackSnippet snippet="tryenrollin" />
+
+3. In the Okta Sign-In Widget, click **Sign up**.
+4. Enter the email, first and last name, and then click **Sign Up**.
+5. Verify your email address by clicking the **Verify Email Address** [magic link]() in the email sent by Okta.
+
+    > **Note:** Alternatively, you can verify your email address by copying the one-time password from the email into the Sign-In Widget.
+
+5. Click **Set up later** for all the optional authenticators.
+6. You are redirected to the app's welcome page.
+7. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
+
+
 ## Add MFA with a mandatory second factor
 
 You can modify the Application's Sign-On Policy to require the user to have a second factor enabled for authentication. In this example, we use the Phone Authenticator.
