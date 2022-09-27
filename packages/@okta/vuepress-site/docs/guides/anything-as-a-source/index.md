@@ -127,12 +127,14 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
     Possible returned responses:
 
-    * **200 OK**: The Import Session created successfully and returns a `sessionId` property. Save the `sessionId` value to make further API calls.
+    * **200 OK**: The Import Session created successfully and returns a `id` property. Save the `id` value to make further API calls.
 
       ```json
       {
-         "sessionId": "${sessionId}",
-         "status": "CREATED"
+        "id": "${sessionId}",
+        "identitySourceId": "${identitySourceId}",
+        "status": "CREATED",
+        "importType": "INCREMENTAL"
       }
       ```
 
@@ -172,7 +174,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
     ```
 
     Possible returned responses:
-    * **202 ???** : The bulk upsert was successful.
+    * **202 Accepted** : The bulk upsert was successful.
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
     * **401 Unauthorized**: API key isn't valid
     * **403 Forbidden**
@@ -193,9 +195,10 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
         ```json
         {
-           "id": "${sessionId}",
-           "identitySourceId": "${identitySourceId}",
-           "status": "IN_PROGRESS"
+          "id": "uij4bjiw3eY00uuhR0g7",
+          "identitySourceId": "0oa4bjizmkh7KAJau0g7",
+          "status": "TRIGGERED",
+          "importType": "INCREMENTAL"
         }
         ```
 
@@ -223,7 +226,8 @@ Use these steps to insert or update a set of user data profiles from your HR sou
         {
             "id": "${sessionId}",
             "identitySourceId": "${identitySourceId}",
-            "status": "COMPLETED"
+            "status": "COMPLETED",
+            "importType": "INCREMENTAL"
         }
         ```
 
@@ -246,12 +250,14 @@ When users have been deactivated or deleted from your HR source, you need to ref
 
     Possible returned responses:
 
-    * **200 OK**: The Import Session created successfully and returns a `sessionId` property. Save the `sessionId` value to make further API calls.
+    * **200 OK**: The Import Session created successfully and returns a `id` property. Save the `id` value to make further API calls.
 
       ```json
       {
-         "sessionId": "${sessionId}",
-         "status": "CREATED"
+        "id": "${sessionId}",
+        "identitySourceId": "${identitySourceId}",
+        "status": "CREATED",
+        "importType": "INCREMENTAL"
       }
       ```
 
@@ -288,7 +294,7 @@ When users have been deactivated or deleted from your HR source, you need to ref
     ```
 
     Possible returned responses:
-    * **202 ???** : The bulk delete operation was successful.
+    * **202 Accepted** : The bulk delete operation was successful.
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
     * **401 Unauthorized**: API key isn't valid
     * **403 Forbidden**:
@@ -311,7 +317,8 @@ When users have been deactivated or deleted from your HR source, you need to ref
           {
             "id": "${sessionId}",
             "identitySourceId": "${identitySourceId}",
-            "status": "IN_PROGRESS"
+            "status": "TRIGGERED",
+            "importType": "INCREMENTAL"
         }
         ```
 
