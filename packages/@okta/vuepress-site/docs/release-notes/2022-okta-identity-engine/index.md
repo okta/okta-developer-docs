@@ -14,7 +14,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Bugs fixed in 2022.09.3
 
-* Existing provisioning settings for an app were reset to `None` when an app was updated using PUT (`/apps/${applicationId}`). (OKTA-520647)
+* Existing provisioning settings for an app were reset to `None` when an app was updated using `PUT /apps/${applicationId}`. (OKTA-520647)
 
 * Read-only admins weren’t able to see the signing keys that were used for SAML applications. (OKTA-522887)
 
