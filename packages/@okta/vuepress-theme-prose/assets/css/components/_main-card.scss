@@ -15,8 +15,7 @@
   overflow: hidden;
 
   transition-property: border-radius, background-color, box-shadow;
-  transition-duration: 0.75s;
-  transition-timing-function: ease-in-out;
+  transition-duration: 0.25s;
 
   &:hover {
     --main-card-border-radius: 12px;
