@@ -6,6 +6,20 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## September
 
+### Weekly release 2022.09.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.3](#bugs-fixed-in-2022-09-3)                      | September 28, 2022            |
+
+#### Bugs fixed in 2022.09.3
+
+* Existing provisioning settings for an app were reset to `None` when an app was updated using PUT (`/apps/${applicationId}`). (OKTA-520647)
+
+* Read-only admins weren’t able to see the signing keys that were used for SAML applications. (OKTA-522887)
+
+* When an access token was used to create an email template customization, the POST request failed. (OKTA-526881)
+
 ### Weekly release 2022.09.2
 
 | Change | Expected in Preview Orgs |
