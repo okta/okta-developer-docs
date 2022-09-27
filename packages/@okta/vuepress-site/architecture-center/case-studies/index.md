@@ -13,7 +13,12 @@ title: Case Studies
   >
   <figcaption class="main-card__body">
     <h2 class="main-card__title">
-      It's a simple title
+      <a
+        class="main-card__main-link"
+        href="#"
+      >
+        It's a simple title
+      </a>
     </h2>
     <div class="main-card__wrapper">
       <span class="main-card__tag">
@@ -39,7 +44,12 @@ title: Case Studies
   >
   <figcaption class="main-card__body">
     <h2 class="main-card__title">
-      It's a simple title
+      <a
+        class="main-card__main-link"
+        href="#"
+      >
+        It's a simple title
+      </a>
     </h2>
     <div class="main-card__wrapper">
       <span class="main-card__tag">
@@ -63,7 +73,12 @@ title: Case Studies
   >
   <figcaption class="main-card__body">
     <h2 class="main-card__title">
-      It's a simple title
+      <a
+        class="main-card__main-link"
+        href="#"
+      >
+        It's a simple title
+      </a>
     </h2>
     <div class="main-card__wrapper">
       <span class="main-card__tag">
