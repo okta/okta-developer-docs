@@ -62,7 +62,7 @@ If the Okta OIN team identifies any issues in the initial review and QA testing 
 
 ### Understand the submission review process
 
-The submission review process begins when you click **Submit for Review** in the [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review by the Okta OIN team, which includes the date that the initial review of the integration is expected to be completed.
+The submission review process begins when you click **Submit for Review** in the [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review by the Okta OIN team, which includes the date that the initial review of the integration is expected to finish.
 
 The OIN Manager shows the current status of your integration.
 
