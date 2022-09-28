@@ -1190,6 +1190,8 @@ Enrolls a user with the Okta Verify `push` Factor. The Factor must be [activated
 
 > **Note:** Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
 
+<ApiLifecycle access="ie" /> Enrolls a user with the Okta Verify `push` Factor, as well as the `totp`, and `signed_nonce` factors if they don't already exist for the user. The Factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
+
 ##### Request example
 
 ```bash
@@ -2664,6 +2666,8 @@ curl -v -X POST \
 <ApiOperation method="delete" url="/api/v1/users/${userId}/factors/${factorId}" />
 
 Unenrolls an existing Factor for the specified user, allowing the user to enroll a new Factor
+
+<ApiLifecycle access="ie" /> If the Okta Verify `push` Factor is reset, then existing `totp` and `signed_nonce` Factors are reset as well for the user. Similarly, if the `signed_nonce` Factor is reset, then existing `push` and `totp` Factors are also reset for the user.
 
 ##### Request parameters
 
