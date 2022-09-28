@@ -15,7 +15,7 @@ This guide shows you how to rotate and manage your client secrets without servic
 **Learning outcomes**
 
 * Create additional client secrets for a client app and manage existing client secrets.
-* Generate public/private key pairs for a client app using the Admin console and manage additional key pairs.
+* Generate public/private key pairs for a client app using the Admin Console and manage additional key pairs.
 
 **What you need**
 
@@ -103,9 +103,11 @@ This option allows you to bring your own keys or use the Okta key generator. The
 
     * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
     **OR**<br>
-    * Click **Generate new key** and the public and private keys appear. This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
+    * Click **Generate new key** and the public and private keys appear in JWK format.
 
-    > **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, use a [JWK to PEM Convertor tool](https://www.npmjs.com/package/pem-jwk) and then use the private key in PEM format when signing the JWT.
+        Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires this format, click **PEM**. The private key appears in PEM format.
+
+        This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
 
 3. Click **Done**. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab.
 
@@ -135,7 +137,11 @@ To add more keys, deactivate a key, or delete a key, follow these steps:
 
     * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
     **OR**<br>
-    * Click **Generate new key** and the public and private keys appear. This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
+    * Click **Generate new key** and the public and private keys appear.
+
+        Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires this format, click **PEM**. The private key appears in PEM format.
+
+        This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
 
 4. Click **Save**. The new public key is now registered with the app and appears in the **Public keys** table.
 
