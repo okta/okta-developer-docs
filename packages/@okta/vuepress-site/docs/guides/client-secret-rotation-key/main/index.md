@@ -137,7 +137,7 @@ To add more keys, deactivate a key, or delete a key, follow these steps:
 
     * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
     **OR**<br>
-    * Click **Generate new key** and the public and private keys appear.
+    * Click **Generate new key** and the public and private keys appear in JWK format.
 
         Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires this format, click **PEM**. The private key appears in PEM format.
 
