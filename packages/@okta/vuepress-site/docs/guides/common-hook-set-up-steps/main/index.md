@@ -109,21 +109,18 @@ When creating your inline hook, in the Authentication section, select **OAuth 2.
 
 #### Add code to verify the JWT
 
-The Okta Inline hook sends a signed JWT with the client secret to your external service as part of the hook call. Your service must decode this JWT to validate the token.
+The Okta Inline hook sends a signed JWT to your external service as part of the hook call. Your service must decode this JWT to validate the token.
 
 The following Node.js code uses the Okta JWT verifier package to validate the JWT. For further information on using this package, see [https://www.npmjs.com/package/@okta/jwt-verifier](https://www.npmjs.com/package/@okta/jwt-verifier). Add the `@okta/jwt-verifier` package to your external service, and then add the following code to validate the token:
 
 ```JavaScript
-// OAuth2 authentication
-
 const OktaJwtVerifier = require("@okta/jwt-verifier");
 
 const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: 'https://${yourOktaDomain}/oauth2/default', // required
-  //client_id: '0oa9jg763kg5iHvy70w6',
-  //client_secret: 'a8yH4VOEZkFoz8aHQVyCB2RxunvexP1uFDd2i2fj'
+  clientId: '0oa9i3f.....1Y14aB0w6',
+  jwksUri: 'https://${yourOktaDomain}/oauth2/default/v1/keys'
 });
-
 
 const authenticationRequired = async (request, response, next) => {
   const authHeader = request.headers.authorization || '';
@@ -149,6 +146,7 @@ const authenticationRequired = async (request, response, next) => {
 };
 
 app.all('*', authenticationRequired); // Require authentication for all routes
+
 ```
 
 ### OAuth 2.0: Private Key
@@ -209,8 +207,8 @@ const OktaJwtVerifier = require("@okta/jwt-verifier");
 
 const oktaJwtVerifier = new OktaJwtVerifier({
   issuer: 'https://${yourOktaDomain}/oauth2/default', // required
-  //clientId: '0oa9i3f0sx21Y14aB0w6',
-  //jwksUri: 'https://${yourOktaDomain}/oauth2/default/v1/keys'
+  clientId: '0oa9i3f.....1Y14aB0w6',
+  jwksUri: 'https://${yourOktaDomain}/oauth2/default/v1/keys'
 });
 
 const authenticationRequired = async (request, response, next) => {
