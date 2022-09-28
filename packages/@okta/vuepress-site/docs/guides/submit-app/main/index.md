@@ -200,7 +200,7 @@ If you need to update an integration, see [Update your published integration](#u
 
 ### Configure general settings
 
-In the General Settings page, you need to fill in the basic information about your integration:
+On the General Settings page, fill in the basic information about your integration:
 
 #### App information
 
