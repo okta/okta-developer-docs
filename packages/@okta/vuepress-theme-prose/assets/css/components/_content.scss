@@ -124,6 +124,7 @@
     flex: 1;
     max-width: calc(82% - 266px);
     padding: 23px 59px;
+    overflow: hidden;
     &-full {
       max-width: 100%;
       padding: 0 59px;
@@ -313,8 +314,10 @@
 }
 
 .aside-hidden .sidebar-area {
-  width: 77px;
-  min-width: 0;
+  --sidebar-area-width: 77px;
+
+  width: var(--sidebar-area-width);
+  min-width: var(--sidebar-area-width);
 }
 .aside-hidden .content-area {
   max-width: calc(100% - 77px);
