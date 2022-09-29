@@ -1368,7 +1368,7 @@ When you use these API endpoints to create or modify a Certificate JSON Web Key 
             "use": "sig",
             "_links": {
               "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/credentials/keys/Vy8zLvevjtTVBAXC138BCq4HQ_vj_RzaTXtlr7ekxfY",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/credentials/keys/{keyID}",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1431,7 +1431,7 @@ curl -v -X GET \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/{keyId}",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1453,7 +1453,7 @@ curl -v -X GET \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/{keyId}",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1475,7 +1475,7 @@ curl -v -X GET \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/h5Sr3LXcpQiQlAUVPdhrdLFoIvkhRTAVs_h39bQnxlU",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/{keyId}",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1531,7 +1531,7 @@ curl -v -X POST \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/{keyId}",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1553,7 +1553,7 @@ curl -v -X POST \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/T5dZ1dYT-l-I0j-gRQ82XjutSX00TeWiSguuDhW3zdf",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/{keyId}",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1575,7 +1575,7 @@ curl -v -X POST \
         "use": "sig",
         "_links": {
             "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/{keyId}",
                 "hints": {
                     "allow": [
                         "GET"
