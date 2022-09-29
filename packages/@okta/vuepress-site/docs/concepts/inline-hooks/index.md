@@ -84,11 +84,11 @@ OAuth 2.0 tokens provide enhanced security between Okta and your external servic
 
 #### Client secret post
 
-Okta uses the client secret (`client_secret_post`) method to generate a client ID and secret. These credentials are sent to the authorization server to obtain a token. The OAuth 2.0 inline hook request includes the token as a signed JWT. Your external service must verify the JWT to authenticate the inline hook call.
+The client secret method (`client_secret_post`) uses a generated client ID and secret to obtain a token from the authorization server. The OAuth 2.0 inline hook request includes the token as a signed JWT. Your external service must verify the JWT to authenticate the inline hook call.
 
 #### Private key
 
-Okta uses the private key (`private_key_jwgt`) method to generate a key, which includes a private key and a public key. The key is sent to the authorization server to obtain a token. The authorization server uses the public key to verify the request and return a token. The OAuth 2.0 inline hook request includes the token as a signed JWT. Your external service must verify the JWT to authenticate the inline hook call.
+The private key method (`private_key_jwt`) uses a generated key, which includes a private key and a public key. The key is sent to the authorization server to obtain a token. The authorization server uses the public key to verify the request and return a token. The OAuth 2.0 inline hook request includes the token as a signed JWT. Your external service must verify the JWT to authenticate the inline hook call.
 
 ### HTTP header
 
