@@ -4,7 +4,9 @@ When the user navigates to your app's sign-in page, display a link on your app's
 
 <div class="half border">
 
-![Screenshot showing a sign-in page with a sign-up link.](/img/pwd-optional/pwd-optional-sign-up-link-sign-in-page.png)
+![A simple sign-in page with a sign-up link.](/img/pwd-optional/pwd-optional-sign-up-link-sign-in-page.png)
+
+<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1975%3A2792 pwd-optional-sign-up-link-sign-in-page -->
 
 </div>
 
@@ -45,7 +47,9 @@ Display &mdash; either statically or dynamically using `IdxTransaction` &mdash; 
 
 <div class="half border">
 
-![A sign-up page with first name, last name, and email fields, and submit button.](/img/pwd-optional/pwd-optional-sign-up-page.png)
+![A simple sign-up page with first name, last name, and email fields, and submit button.](/img/pwd-optional/pwd-optional-sign-up-page.png)
+
+<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1975%3A2791 pwd-optional-sign-up-page -->
 
 </div>
 
@@ -100,7 +104,11 @@ The user opens the email sent by Identity Engine. Create a dialog in your app wh
 
 <div class="half border">
 
-![Screenshot showing a page with an OTP input field.](/img/pwd-optional/pwd-optional-sign-up-js-react-email-verify.png)
+![A form with an OTP input field and a verify button.](/img/pwd-optional/pwd-optional-react-sign-up-verify-otp.png)
+
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=2842%3A4925 pwd-optional-react-sign-up-verify-otp
+ -->
 
 </div>
 
@@ -150,6 +158,10 @@ Display a page that lists the remaining authenticators and allows the user to sk
 <div class="half border">
 
 ![A form showing a list of authenticators to enroll, and Submit, Cancel, and Skip buttons.](/img/pwd-optional/pwd-optional-sign-up-authenticators-page.png)
+
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1978%3A1741 pwd-optional-sign-up-authenticators-page
+-->
 
 </div>
 

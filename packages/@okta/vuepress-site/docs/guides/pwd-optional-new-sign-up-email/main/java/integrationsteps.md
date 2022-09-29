@@ -8,6 +8,8 @@ Add a link to your app's sign-in page. When the user clicks this link, redirect 
 
 ![A simple sign-in page with a sign-up link.](/img/pwd-optional/pwd-optional-sign-up-link-sign-in-page.png)
 
+<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1975%3A2792 pwd-optional-sign-up-link-sign-in-page -->
+
 </div>
 
 ### 2: Your app displays sign-up page
@@ -17,6 +19,8 @@ Create a sign-up page that captures the user's first name, last name, and email 
 <div class="half border">
 
 ![A simple sign-up page with first name, last name, and email fields, and submit button.](/img/pwd-optional/pwd-optional-sign-up-page.png)
+
+<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1975%3A2791 pwd-optional-sign-up-page -->
 
 </div>
 
@@ -85,6 +89,11 @@ If `true` &mdash; and all the listed authenticators are optional &mdash; add a *
 <div class="half border">
 
 ![A form showing a list of authenticators to enroll, and Submit, Cancel, and Skip buttons.](/img/pwd-optional/pwd-optional-sign-up-authenticators-page.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1978%3A1741 pwd-optional-sign-up-authenticators-page
+ -->
 
 </div>
 
