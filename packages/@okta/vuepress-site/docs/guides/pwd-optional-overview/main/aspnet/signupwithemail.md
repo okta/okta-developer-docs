@@ -1,1 +1,1 @@
-[Sign up for new account with email only](/docs/guides/pwd-optional-new-sign-up-email/dotnet/main/)
+[Sign up for new account with email only](/docs/guides/pwd-optional-new-sign-up-email/aspnet/main/)
