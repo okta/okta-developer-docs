@@ -868,6 +868,7 @@ export const reference = [
           { title: "Factors", path: "/docs/reference/api/factors/" },
           { title: "Features", path: "/docs/reference/api/features/" },
           { title: "Groups", path: "/docs/reference/api/groups/" },
+          { title: "Key Management", path: "/docs/reference/api/hook-keys/" },
           { title: "Linked Objects", path: "/docs/reference/api/linked-objects/"},
           { title: "Log Streaming", path: "/docs/reference/api/log-streaming/"},
           { title: "Mappings", path: "/docs/reference/api/mappings/" },
