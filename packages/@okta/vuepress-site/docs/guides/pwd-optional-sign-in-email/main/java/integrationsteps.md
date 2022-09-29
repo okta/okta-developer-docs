@@ -6,7 +6,11 @@ Create a sign-in page that captures the user's username.
 
 <div class="half border">
 
-![Screenshot showing a sign-in page with a username field and a Next button.](/img/pwd-optional/pwd-optional-sign-in-page.png)
+![A sign-in page with a username field and a Next button.](/img/pwd-optional/pwd-optional-sign-in-page.png)
+
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1978%3A1743 pwd-optional-sign-in-page
+ -->
 
 </div>
 
