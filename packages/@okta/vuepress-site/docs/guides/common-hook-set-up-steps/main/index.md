@@ -77,7 +77,7 @@ After including the `npm` packages, add the following code snippet in your proje
 
 ### OAuth 2.0: Client Secret
 
-The OAuth 2 Client Secret method sends a JWT with a private secret to your external service. To use this method, you must make the following configurations to your org, and add code to decode the JWT from the Okta inline hook call:
+The OAuth 2 Client Secret method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org, and add code to decode the JWT from the Okta inline hook call:
 
 * Create an app integration
 * Add a custom scope
@@ -117,9 +117,7 @@ The following Node.js code uses the Okta JWT verifier package to validate the JW
 const OktaJwtVerifier = require("@okta/jwt-verifier");
 
 const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: 'https://${yourOktaDomain}/oauth2/default', // required
-  clientId: '0oa9i3f.....1Y14aB0w6',
-  jwksUri: 'https://${yourOktaDomain}/oauth2/default/v1/keys'
+  issuer: 'https://${yourOktaDomain}/oauth2/default' // required
 });
 
 const authenticationRequired = async (request, response, next) => {
@@ -151,7 +149,7 @@ app.all('*', authenticationRequired); // Require authentication for all routes
 
 ### OAuth 2.0: Private Key
 
-The OAuth 2 private key method sends a JWT with a signed private key to your external service. To use this method, you must make the following configurations to your org, and add code to decode the JWT from the Okta inline hook call:
+The OAuth 2 private key method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org, and add code to decode the JWT from the Okta inline hook call:
 
 * Create a key
 * Create an app integration
@@ -206,9 +204,7 @@ The following Node.js code uses the Okta JWT verifier package to validate the JW
 const OktaJwtVerifier = require("@okta/jwt-verifier");
 
 const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: 'https://${yourOktaDomain}/oauth2/default', // required
-  clientId: '0oa9i3f.....1Y14aB0w6',
-  jwksUri: 'https://${yourOktaDomain}/oauth2/default/v1/keys'
+  issuer: 'https://${yourOktaDomain}/oauth2/default' // required
 });
 
 const authenticationRequired = async (request, response, next) => {
