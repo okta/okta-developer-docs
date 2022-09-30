@@ -313,6 +313,7 @@ The following pushed authorization request initiates the flow. The request retur
 ```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 "https://${yourOktaDomain}/oauth2/default/v1/par" \
 -d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}&response_type=${responseType}&response_mode=${responseMode}&state=${state}&nonce=${nonce}"
 ```
@@ -382,6 +383,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 ```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 "https://${yourOktaDomain}/oauth2/default/v1/device/authorize" \
 -d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}"
 ```
@@ -470,6 +472,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 ```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 "https://${yourOktaDomain}/oauth2/default/v1/token" \
 -d "client_id=${clientId}&client_secret=${clientSecret}&grant_type=authorization_code&redirect_uri=${redirectUri}&code=${code}"
 ```
