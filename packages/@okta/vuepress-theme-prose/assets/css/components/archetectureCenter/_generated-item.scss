@@ -35,6 +35,8 @@
         p {
           padding-left: 0;
           margin-bottom: 0;
+
+          @include limit_lines(3);
         }
       }
       p {
@@ -52,6 +54,8 @@
       line-height: 24px;
       font-weight: 500;
       margin: 0;
+
+      @include limit_lines(2);
     }
     a {
       padding-right: 17px;
