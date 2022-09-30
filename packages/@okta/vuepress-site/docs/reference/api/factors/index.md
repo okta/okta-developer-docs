@@ -1114,6 +1114,9 @@ curl -v -X POST \
 
 Enrolls a user with an Okta `token:software:totp` factor. The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
+> <ApiLifecycle access="ie" /> 
+> Enrolls a user with an Okta `token:software:totp` factor and the `push` factor, if the user isn't currently enrolled with these factors.
+
 ##### Request example
 
 ```bash
@@ -1186,12 +1189,14 @@ curl -v -X POST \
 
 #### Enroll Okta Verify Push Factor
 
-Enrolls a user with the Okta Verify `push` Factor. The Factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
+Enrolls a user with the Okta Verify `push` factor. The factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
+
+> <ApiLifecycle access="ie" /> 
+> Enrolls a user with the Okta Verify `push` factor, as well as the `totp` and `signed_nonce` factors (if the user isn't already enrolled with these factors).
 
 > **Note:** Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
 
-> <ApiLifecycle access="ie" /> 
-> Enrolls a user with the Okta Verify `push` Factor, as well as the `totp`, and `signed_nonce` Factors if they don't already exist for the user. The Factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
+<!-- Users aren't allowed to enroll with `signed_nonce` directly by setting the `factorType` to the `signed_nonce` value in the request. `signed_nonce` can only be enrolled indirectly through the Factors API by enrolling to the OV `push` `factorType`. See OKTA-525563 -->
 
 ##### Request example
 
@@ -2669,7 +2674,7 @@ curl -v -X POST \
 Unenrolls an existing Factor for the specified user, allowing the user to enroll a new Factor
 
 > <ApiLifecycle access="ie" /> 
-> If the Okta Verify `push` Factor is reset, then existing `totp` and `signed_nonce` Factors are reset as well for the user. Similarly, if the `signed_nonce` Factor is reset, then existing `push` and `totp` Factors are also reset for the user.
+> If the Okta Verify `push` factor is reset, then existing `totp` and `signed_nonce` factors are reset as well for the user. Similarly, if the `signed_nonce` factor is reset, then existing `push` and `totp` factors are also reset for the user.
 
 ##### Request parameters
 
