@@ -66,6 +66,7 @@ If an invalid `sessionToken` is provided, a `401 Unauthorized` status code is re
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -d '{
   "sessionToken": "00HiohZYpJgMSHwmL9TQy7RRzuY-q9soKp1SPmYYow"
 }' "https://${yourOktaDomain}/api/v1/sessions"
@@ -135,6 +136,7 @@ Gets Session information for a given Session ID
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ"
 ```
@@ -221,6 +223,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
 curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ"
 ```
@@ -301,6 +304,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh"
 ```
@@ -381,6 +385,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ"
 ```
@@ -404,6 +409,7 @@ Gets Session information for the current user. Use this method in a browser-base
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Cookie: ${okta_session_cookie}" \
 "https://${yourOktaDomain}/api/v1/sessions/me"
 ```
@@ -477,6 +483,7 @@ Refreshes the Session for the current user
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Cookie: ${okta_session_cookie}" \
 "https://${yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh"
 ```
@@ -546,6 +553,7 @@ Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Prefer: return=minimal" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/me/refresh"
@@ -573,6 +581,7 @@ Closes the Session for the user who is currently signed in. Use this method in a
 ```bash
 curl -v -X DELETE \
 -H "Accept: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Cookie: ${okta_session_cookie}" \
 "https://${yourOktaDomain}/api/v1/sessions/me"
 ```

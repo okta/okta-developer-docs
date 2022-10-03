@@ -60,6 +60,7 @@ Adds a new `OIDC` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "OIDC",
@@ -256,6 +257,7 @@ Adds a new `SAML2` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "SAML2",
@@ -471,6 +473,7 @@ Adds a new `Apple` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "APPLE",
@@ -621,6 +624,7 @@ Adds a new `FACEBOOK` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "FACEBOOK",
@@ -767,6 +771,7 @@ Adds a new `Google` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "GOOGLE",
@@ -914,6 +919,7 @@ Adds a new `LINKEDIN` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "LINKEDIN",
@@ -1059,6 +1065,7 @@ Adds a new `Microsoft` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "MICROSOFT",
@@ -1208,6 +1215,7 @@ Adds a new Smart Card `X509` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "X509",
@@ -1336,6 +1344,7 @@ idpId       | `id` of an IdP  | URL        | String   | TRUE     |
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oa62bfdjnK55Z5x80h7"
 ```
@@ -1464,6 +1473,7 @@ Enumerates all IdPs in your organization
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps?limit=20"
 ```
@@ -2082,6 +2092,7 @@ Search currently performs a `startsWith` match, but it should be considered an i
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps?q=Example SAML&limit=10"
 ```
@@ -2214,6 +2225,7 @@ Finds all IdPs with a [specific type](#identity-provider-type)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps?type=SAML2"
 ```
@@ -2361,6 +2373,7 @@ Updated [Identity Provider](#identity-provider-object)
 curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}"
@@ -2506,6 +2519,7 @@ There are no response parameters.
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}"
@@ -2541,6 +2555,7 @@ Activated [Identity Provider](#identity-provider-object)
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}/lifecycle/activate"
@@ -2655,6 +2670,7 @@ Deactivated [Identity Provider](#identity-provider-object)
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}/lifecycle/deactivate"
@@ -2812,6 +2828,7 @@ You must use a `CALLOUT` action for [user provisioning](#user-provisioning-actio
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3"
 ```
@@ -2883,6 +2900,7 @@ Fetches the source [IdP User](#identity-provider-user-object) for a Transaction
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/source"
 ```
@@ -2930,6 +2948,7 @@ Fetches the target transformed [Okta User Profile](/docs/reference/api/users/#pr
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/source"
 ```
@@ -2985,6 +3004,7 @@ Array of [Okta User](/docs/reference/api/users/#user-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/users"
 ```
@@ -3070,6 +3090,7 @@ Provisions an IdP User as a new Okta User
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "profile": {
@@ -3143,6 +3164,7 @@ Links an IdP User to an [existing Okta User](#list-users-for-idp-link-transactio
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "profile": {
@@ -3211,6 +3233,7 @@ No actions are completed when using `callout` until the `/finish` request comple
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/tx/sat4h4zexs17NrXWc0h6/finish"
@@ -3242,6 +3265,7 @@ No actions are completed when using `callout` if the Transaction is canceled.
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/tx/sat4jmxahzdtLDHOm0h6/cancel"
@@ -3280,6 +3304,7 @@ Adds a new X.509 certificate credential to the IdP key store
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "x5c": [
@@ -3356,6 +3381,7 @@ Gets a specific [IdP Key Credential](#identity-provider-key-credential-object) b
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/credentials/keys/your-key-id"
 ```
@@ -3417,6 +3443,7 @@ Array of [Identity Provider Key Credential](#identity-provider-key-credential-ob
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/credentials/keys"
 ```
@@ -3493,6 +3520,7 @@ curl -v -X GET \
 curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d ' {
   "x5c": [
@@ -3546,6 +3574,7 @@ There are no response parameters.
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/credentials/keys/74bb2164-e0c8-4457-862b-7c29ba6cd2c9"
@@ -3586,6 +3615,7 @@ Returns the generated [IdP Key Credential](#identity-provider-key-credential-obj
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys/generate?validityYears=2"
@@ -3645,6 +3675,7 @@ Array of the [IdP Key Credential](#identity-provider-key-credential-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys"
 ```
@@ -3701,6 +3732,7 @@ Gets a specific [IdP Key Credential](#identity-provider-key-credential-object) b
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys/akm5hvbbevE341ovl0h7"
 ```
@@ -3748,6 +3780,7 @@ Returns the cloned [IdP Key Credential](#identity-provider-key-credential-object
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys/SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4/clone?targetIdpId=0oal21k0DVN7DhS3R0g3"
@@ -3812,6 +3845,7 @@ Generate a new key pair and return the CSR in PKCS#10 format:
 curl -v -X POST \
 -H "Accept: application/pkcs10" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "subject": {
@@ -3834,6 +3868,7 @@ Generate a new key pair and return the CSR in JSON:
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "subject": {
@@ -3923,6 +3958,7 @@ Publish with X.509 certificate in base64-encoded ``DER``:
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/pkix-cert" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -H "Content-Transfer-Encoding: base64" \
 -d "MIIFgjCCA2qgAwIBAgICEAcwDQYJKoZIhvcNAQELBQAwXjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkNBMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARPa3RhMQwwCgYDVQQLDANFbmcxDTALBgNVBAMMBFJvb3QwHhcNMTcwMzI3MjEyMDQ3WhcNMTgwNDA2MjEyMDQ3WjB4MQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzETMBEGA1UECgwKT2t0YSwgSW5jLjEQMA4GA1UECwwHSmFua3lDbzEVMBMGA1UEAwwMSWRQIElzc3VlciA3MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmkC6yAJVvFwUlmM9gKjb2d+YK5qHFt+mXSsbjWKKs4EfNm+BoQeeovBZtSACyaqLc8IYFTPEURFcbDQ9DkAL04uUIRD2gaHYY7uK0jsluEaXGq2RAIsmzAwNTzkiDw4q9pDL/q7n0f/SDt1TsMaMQayB6bU5jWsmqcWJ8MCRJ1aJMjZ16un5UVx51IIeCbe4QRDxEXGAvYNczsBoZxspDt28esSpq5W0dBFxcyGVudyl54Er3FzAguhgfMVjH+bUec9j2Tl40qDTktrYgYfxz9pfjm01Hl4WYP1YQxeETpSL7cQ5Ihz4jGDtHUEOcZ4GfJrPzrGpUrak8Qp5xcwCqQIDAQABo4IBLjCCASowCQYDVR0TBAIwADARBglghkgBhvhCAQEEBAMCBkAwMwYJYIZIAYb4QgENBCYWJE9wZW5TU0wgR2VuZXJhdGVkIFNlcnZlciBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUVqJukDmyENw/2pTApbxc/HRKbngwgZAGA1UdIwSBiDCBhYAUFx245ZZXqWTTbARfMlFWN77L9EahYqRgMF4xCzAJBgNVBAYTAlVTMQswCQYDVQQIDAJDQTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEMMAoGA1UECwwDRW5nMQ0wCwYDVQQDDARSb290ggkAlIfpwZjO5o8wDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4ICAQCcoBSRtY+9cJY00hLvq6AloYZcdn/kUQupfmyz4n3lKE3wV2FB0swKnK0QDi8iNuQJFdag/19vDHC4/LhoSuv1Q+KXM61pPZVRXXPyC1+e7Y6hj93tEI5HcqLPcDRH1AIG2l8tE7LBn+MQB5Vh6oxjG2IdoWxg6abMfISU+MauPWql4vMDUWo9iNShAo44Z5fd+nuz+hlAinU9Xn9Jf2QsfKvcbMRq7iuqgkabgdmObmWb9KK0Vm7TDkxCH0pB0onPr6epVUP8Obg/pT1Oj/1hOLbfR8CHHWdAWzUBGGvp2TIy2A8LUaEoFnwkxZfdL7Bnd0RH/ClBtAjzLOxmUo7NbZmEnYCcD5pZz7BdZI0db/eBXFqfOlA88rEe+9Sv+NndIq0/WNIIsJi2RgjJnxsxvB5MjhhzmItpFIUl5yqoO3C9jcCp6HDBJxtCGbvAr5ALPn5RCJeBIr67WpAiTd7L3Ebu9SQZlXnoHX8kP04EA6ylR3W0EFbh7KUtq8M2H2vo0wjMj7ysl/3tT7cEZ97s1ygO5iJx3GfMDyrDhtLXSBJ20uSxTJeptRw8SDiwTqunIh1WyKlcQz1WGauSbW4eXdj/r9KYMJ3qMMkdP/9THQUtTcOYx51r8RV9pdzqF2HPnZZNziBa+wXJZHEWp70NyoakNthgYwtypqiDHs2f3Q==" \
@@ -3935,6 +3971,7 @@ Publish with X.509 certificate in ``PEM`` format:
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/x-pem-file" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 --data-binary @certificate.pem \
 "https://${yourOktaDomain}/api/v1/idps/0oa1ysid1U3iyFqLu0g4/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish"
@@ -3946,6 +3983,7 @@ Publish with X.509 certificate in binary ``CER`` format:
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/x-x509-ca-cert" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 --data-binary @certificate.cer \
 -d '{
@@ -4011,6 +4049,7 @@ Empty response
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg"
@@ -4044,6 +4083,7 @@ Array of [CSR objects](#identity-provider-csr-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs"
 ```
@@ -4128,6 +4168,7 @@ Returns base64-encoded CSR in DER format if the ``Accept`` media type is ``appli
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50"
 ```
@@ -4189,6 +4230,7 @@ List of Users that are linked to the specified Identity Provider
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oa4lb6lbtmH355Hx0h7/users"
 ```
@@ -4253,6 +4295,7 @@ Return the associated [Identity Providers](#identity-provider-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/idps"
 ```
@@ -4387,6 +4430,7 @@ Return the associated [Identity Providers](#identity-provider-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oa62bfdiumsUndnZ0h7/users/00u5t60iloOHN9pBi0h7"
 ```
@@ -4467,6 +4511,7 @@ Return the associated [Identity Providers](#identity-provider-object)
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "externalId": "121749775026145"
@@ -4535,6 +4580,7 @@ Removes the link between the Okta User and the IdP User. The next time the User 
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/0oa4lb6lbtmH355Hx0h7/users/00u5cl9lo7nMjHjPr0h7"
@@ -4569,6 +4615,7 @@ Return a list of the associated [social authentication tokens](#identity-provide
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oa62b57p7c8PaGpU0h7/users/00ub0oNGTSWTBKOLGLNR/credentials/tokens"
 ```
