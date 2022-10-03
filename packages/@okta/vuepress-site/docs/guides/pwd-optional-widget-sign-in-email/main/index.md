@@ -44,7 +44,7 @@ The user enters their username and clicks the **Next** button to start the sign-
 
 <div class="half border">
 
-![The Sign-in Widget sign-in page with a username field and a Next button.](/img/pwd-optional/pwd-optional-widget-sign-in-page.png)
+![The Sign-In Widget sign-in page with a Username field and a Next button.](/img/pwd-optional/pwd-optional-widget-sign-in-page.png)
 
 <!--
 Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=2188%3A1717 pwd-optional-widget-sign-in-page
@@ -63,7 +63,7 @@ The user clicks **Send me an email** to begin the email challenge flow.
 
 <div class="half border">
 
-![The Sign-in Widget verify-email page with a Send me an email button.](/img/pwd-optional/pwd-optional-widget-send-email-page.png)
+![The Sign-In Widget verify-email page with a Send me an email button.](/img/pwd-optional/pwd-optional-widget-send-email-page.png)
 
 <!--
 Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=2188%3A1775 pwd-optional-widget-send-email-page
