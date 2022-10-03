@@ -796,7 +796,7 @@ curl -v -X POST \
 }
 ```
 
-###### Rate Limit
+###### Rate limit
 
 A `429 Too Many Requests` status code may be returned if you attempt to resend an SMS challenge (OTP) within the same time window.
 
@@ -1958,6 +1958,20 @@ The `sms` and `token:software:totp` [Factor types](#factor-type) require activat
 - [Activate Email Factor](#activate-email-factor)
 - [Activate U2F Factor](#activate-u2f-factor)
 - [Activate WebAuthn Factor](#activate-webauthn-factor)
+
+###### Rate limit
+
+The rate limit for a user to activate one of their OTP-based factors (such as SMS, CALL, EMAIL, Google OTP, and Okta Verify TOTP) is 5 attempts within 5 minutes. The following example error message is returned if the user exceeds the rate limit:
+
+```json
+{
+  "errorCode": "E0000047",
+  "errorSummary": "API call exceeded rate limit due to too many requests.",
+  "errorLink": "E0000047",
+  "errorId": "oaewuKv0-nWSzucLsTdKZpe6g",
+  "errorCauses": []
+}
+```
 
 #### Activate TOTP Factor
 
