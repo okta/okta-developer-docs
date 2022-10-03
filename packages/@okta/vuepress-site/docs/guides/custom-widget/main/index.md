@@ -168,7 +168,7 @@ If you're using Okta Identity Engine, the following object is returned by invoki
 }
 ```
 
-Okta Classic users will get the following object returned from `OktaUtil.getRequestContext()`:
+Okta Classic Engine users get the following object returned from `OktaUtil.getRequestContext()`:
 
 ```json
 {
