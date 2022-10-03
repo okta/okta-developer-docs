@@ -47,7 +47,7 @@
       word-break: keep-all;
     }
   }
-  
+
   h1,
   h3 {
     word-break: break-word;
@@ -80,12 +80,21 @@
     overflow-x: hidden;
     background: cv('body');
     top: 142px;
+
     @include media("<desktop-xl") {
       top: 125px;
     }
+
     @include media("<desktop") {
       display: none;
     }
+
+    @include media(">desktop-xl") {
+      min-width: 400px;
+      width: 22vw;
+      max-width: 600px;
+    }
+
     .sidebar-fade {
       display: block;
       position: sticky;
@@ -230,7 +239,7 @@
         }
       }
     }
-    
+
     a.header-link svg {
       width: 1rem;
       display: none;
