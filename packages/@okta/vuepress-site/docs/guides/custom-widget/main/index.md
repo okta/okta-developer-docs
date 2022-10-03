@@ -131,7 +131,7 @@ Defines a global `OktaUtil` JavaScript object that contains methods used to comp
 
 By calling the `OktaUtil.getRequestContext()` method, JavaScript code on your sign-in page can inspect the current request and make decisions based on the target application or other details.
 
-If you are using Okta Identity Engine, the following object is returned by invoking `OktaUtil.getRequestContext()`:
+If you're using Okta Identity Engine, the following object is returned by invoking `OktaUtil.getRequestContext()`:
 
 ```json
 {
