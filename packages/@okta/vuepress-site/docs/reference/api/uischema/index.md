@@ -20,8 +20,8 @@ Explore the UI Schema API: [![Run in Postman](https://run.pstmn.io/button.svg)](
 The UI Schema API has the following CRUD operations:
 
 - [Create a UI Schema](#create-a-ui-schema)
-- [Get UI Schemas](#get-all-ui-schemas)
-- [Get a UI Schema by ID](#get-a-ui-schema-by-id)
+- [List all UI Schemas](#list-all-ui-schemas)
+- [Retrieve a UI Schema](#retrieve-a-ui-schema)
 - [Update a UI Schema](#update-a-ui-schema)
 - [Delete a UI Schema](#delete-a-ui-schema)
 
@@ -615,7 +615,7 @@ N/A
 
 #### Usage example
 
-The following request deletes a UI Schema with an `id` value of `uis4a97f4pmZsdxKu0g7`.
+The following request deletes a UI Schema with an `id` value of `uis4a97f4pmZsdxKu0g7`:
 
 ##### Request
 
