@@ -1961,7 +1961,7 @@ The `sms` and `token:software:totp` [Factor types](#factor-type) require activat
 
 ###### Rate limit
 
-The rate limit for a user to activate one of their OTP-based factors (such as SMS, CALL, EMAIL, Google OTP, and Okta Verify TOTP) is 5 attempts within 5 minutes. The following example error message is returned if the user exceeds the rate limit:
+The rate limit for a user to activate one of their OTP-based factors (such as SMS, CALL, EMAIL, Google OTP, and Okta Verify TOTP) is 5 attempts within 5 minutes. The following example error message is returned if the user exceeds their OTP factor rate limit:
 
 ```json
 {
