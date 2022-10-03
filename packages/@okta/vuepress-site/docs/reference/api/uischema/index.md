@@ -676,7 +676,7 @@ If an invalid UI Schema ID is included in the request, the response returns a 40
 }
 ```
 
-### UI Schema Object
+### UI Schema object
 
 #### UI Schema properties
 
