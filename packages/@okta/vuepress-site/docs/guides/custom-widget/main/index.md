@@ -198,7 +198,7 @@ Okta Classic users will get the following object returned from `OktaUtil.getRequ
 }
 ```
 
-For an OpenID Connect application, the application's client ID is stored in the request context object, and retrievable with the following commands:
+For an OpenID Connect application, the application's client ID is stored in the request context object and is retrievable using the following commands:
 
 ```javascript
 // Identity Engine
