@@ -7,11 +7,11 @@ category: management
 
 <ApiLifecycle access="ie" />
 
-The Okta UI Schema API allows you to control how inputs appear on a form.
+The Okta UI Schema API allows you to control how inputs appear on an enrollment form.
 
 ## Get started
 
-This API is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+The UI Schema API is only available as a part of Okta Identity Engine. If you’re using Okta Classic Engine, see [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 Explore the UI Schema API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1a927e3b353fd0e1b158)
 
@@ -28,6 +28,8 @@ The UI Schema API has the following CRUD operations:
 ### Create a UI Schema
 
 <ApiOperation method="post" url="/api/v1/meta/uischemas" />
+
+Creates an input for an enrollment form
 
 #### Required scope
 
@@ -49,7 +51,7 @@ A [UI Schema object](#ui-schema-object)
 
 Returns the created [UI Schema Request object](#ui-schema-request-object)
 
-#### Use example
+#### Usage example
 
 This request creates a UI Schema Object:
 
@@ -143,15 +145,15 @@ curl -v -X POST \
 }
 ```
 
-### Get all UI Schemas
+### List all UI Schemas
 
 <ApiOperation method="get" url="/api/v1/meta/uischemas" />
 
-Fetches all UI Schemas in your org.
+Lists all UI Schemas in your org
 
 #### Required scope and role
 
-An Okta scope of `okta.uischemas.manage` or `okta.uischemas.read` is required to use this endpoint.
+`okta.uischemas.manage` or `okta.uischemas.read`
 
 #### Request path parameters
 
@@ -167,9 +169,9 @@ N/A
 
 #### Response body
 
-A list of [UI Schema Response Objects](#ui-schema-response-object)
+A list of [UI Schema Response objects](#ui-schema-response-object)
 
-#### Use example
+#### Usage example
 
 ##### Request
 
@@ -357,21 +359,21 @@ curl -v -X GET \
 ]
 ```
 
-### Get a UI Schema by ID
+### Retrieve a UI Schema
 
 <ApiOperation method="get" url="/api/v1/meta/uischemas/{id}" />
 
-Fetches a UI Schema by its `id`
+Retrieves a UI Schema by `id`
 
 #### Required scope and role
 
-An Okta scope of `okta.uischemas.manage` or `okta.uischemas.read` is required to use this endpoint.
+`okta.uischemas.manage` or `okta.uischemas.read`
 
 #### Request path parameters
 
 | Parameter | Type   | Description                                    |
 | --------- | ------ | ---------------------------------------------- |
-| `id`      | String | The unique ID of the UISchema being requested. |
+| `id`      | String | The unique ID of the UI Schema |
 
 #### Request query parameters
 
@@ -383,9 +385,9 @@ N/A
 
 #### Response body
 
-The requested [UI Schema Request Object](#ui-schema-request-object)
+The requested [UI Schema Request object](#ui-schema-request-object)
 
-#### Use example
+#### Usage example
 
 ##### Request
 
@@ -469,15 +471,13 @@ Updates a UI Schema
 
 #### Required scope and role
 
-An Okta scope of `okta.uischemas.manage` is required to use this endpoint.
+`okta.uischemas.manage`
 
 #### Request path parameters
 
-%List any path parameters here in alpha order%
-
 | Parameter | Type   | Description                                  |
 | --------- | ------ | -------------------------------------------- |
-| `id`      | String | The unique ID of the UISchema being updated. |
+| `id`      | String | The unique ID of the UI Schema |
 
 #### Request query parameters
 
@@ -485,13 +485,13 @@ N/A
 
 #### Request body
 
-This API requiest a [UI Schema Request Object](#ui-schema-request-object) as its request body.
+A [UI Schema Request Object](#ui-schema-request-object)
 
 #### Response body
 
-Returns a [UI Schema Response Object](#ui-schema-response-object)
+A [UI Schema Response Object](#ui-schema-response-object)
 
-#### Use example
+#### Usage example
 
 ##### Request
 
@@ -593,15 +593,13 @@ Permanently deletes a UI Schema
 
 #### Required scope and role
 
-An Okta scope of `okta.uischemas.manage` is required to use this endpoint.
+`okta.uischemas.manage`
 
 #### Request path parameters
 
-%List any path parameters here in alpha order%
-
 | Parameter | Type   | Description                                           |
 | --------- | ------ | ----------------------------------------------------- |
-| `id`      | String | The unique identifier of the UI Schema to be deleted. |
+| `id`      | String | The unique ID of the UI Schema |
 
 #### Request query parameters
 
@@ -615,7 +613,7 @@ N/A
 
 N/A
 
-#### Use example
+#### Usage example
 
 The following request deletes a UI Schema with an `id` value of `uis4a97f4pmZsdxKu0g7`.
 
@@ -629,11 +627,11 @@ curl -v -X DELETE \
 
 ##### Response
 
-Returns an empty HTTP 204 status code response.
+Returns an empty HTTP 204 status code response
 
 #### Error Responses
 
-If an invalid UI Schema ID is passed to the request, the response returns a 404 NOT FOUND with error code E0000008.
+If an invalid UI Schema ID is included in the request, the response returns a 404 NOT FOUND with error code E0000008.
 
 ## UI Schema API objects
 
@@ -641,25 +639,25 @@ If an invalid UI Schema ID is passed to the request, the response returns a 404 
 
 #### UI Schema Request properties
 
-| Property   | Type                                  | Description                                                                                                       |
-| ---------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `id`       | String                                | The unique ID of the ui schema you are performing this operation on.                                              |
-| `uiSchema` | [UI Schema Object](#ui-schema-object) | A short description of this object. If the object can be returned standalone, it should be documented separately. |
+| Property   | Type | Description |
+| ---------- | ------------------------------------- | ----------------------------------------------------------- |
+| `id`       | String                                | The unique ID of the ui schema |
+| `uiSchema` | [UI Schema Object](#ui-schema-object) |  |
 
-#### UI Schema Request Example
+#### UI Schema Request example
 
 ### UI Schema Response object
 
-#### UI Schema Response Object properties
+#### UI Schema Response object properties
 
 | Property      | Type                                                                    | Description                                                                                                       |
 | ------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `id`          | String                                                                  | The unique ID of the ui schema you are performing this operation on.                                              |
-| `uiSchema`    | [UI Schema Object](#ui-schema-object)                                   | A short description of this object. If the object can be returned standalone, it should be documented separately. |
-| `lastUpdated` | String (ISO-8601)                                                       | Timestamp when the UI Schema was last modified                                                                    |
-| `_links`      | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)) | Discoverable resources related to the UISchema                                                                    |
+| `id`          | String                                                                  | The unique ID of the UI schema |
+| `uiSchema`    | [UI Schema Object](#ui-schema-object)  |  |
+| `lastUpdated` | String (ISO-8601) | Timestamp when the UI Schema was last modified |
+| `_links`      | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)) | Discoverable resources related to the UISchema |
 
-#### UI Schema Response Object Example
+#### UI Schema Response object example
 
 ```json
 {
@@ -682,12 +680,12 @@ If an invalid UI Schema ID is passed to the request, the response returns a 404 
 
 #### UI Schema properties
 
-| Property      | Type   | Description                                                                                                       | Supported Values |
-| ------------- | ------ | ----------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `buttonLabel` | String | Specifies the button label for the `submit` button at the bottom of the enrollment form. Defaults to `Submit`     |
-| `elements`    | Array  | A short description of this object. If the object can be returned standalone, it should be documented separately. |
-| `label`       | String | Specifies the label at the top of the enrollment form under the logo. Defaults to `Sign in`                       |
-| `type`        | String | Type of layout                                                                                                    | `Group`          |
+| Property      | Type   | Description | Supported Values |
+| ------------- | ------ | ----------- | ---------------- |
+| `buttonLabel` | String | Specifies the button label for the `submit` button at the bottom of the enrollment form. Defaults to `Submit`. |
+| `elements`    | Array  |  |
+| `label`       | String | Specifies the label at the top of the enrollment form under the logo. Defaults to `Sign in`.  |
+| `type`        | String | Type of layout  |
 
 #### UI Schema example
 
@@ -702,16 +700,16 @@ If an invalid UI Schema ID is passed to the request, the response returns a 404 
 
 ### UI Schema Element object
 
-The UI Schema Element object specifies how one specific input field on a form should be configured.
+The UI Schema Element object specifies the configuration of an input field on an enrollment form.
 
 #### UI Schema Element properties
 
-| Property      | Type                                                            | Description                                                                                                                                                                                     | Supported Values |
-| ------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `buttonLabel` | String                                                          | Specifies the button label for the `submit` button at the bottom of the enrollment form. Defaults to `Submit`                                                                                   |
-| `options`     | [UI Schema Element Options ](#ui-schema-element-options-object) | A short description of this object. If the object can be returned standalone, it should be documented separately.                                                                               |
-| `scope`       | String                                                          | Specifies which property this input field should be bound to. Must follow the format `#/properties/PROPERTY_NAME` where `PROPERTY_NAME` is a variable name for an attribute in `profile editor` | N/A              |
-| `type`        | String                                                          | Specifies the relationship between this input element and `Scope`. The `Control` value specifies that this input controlls the value represented by `scope`                                     | `Control`        |
+| Property | Type | Description | Supported Values |
+| -------- | ---- | ------ | ------- |
+| `buttonLabel` | String  | Specifies the button label for the `submit` button at the bottom of the enrollment form. Defaults to `Submit`. |
+| `options`     | [UI Schema Element Options ](#ui-schema-element-options-object) |  |
+| `scope`       | String | Specifies the property to which the input field should be bound. Must follow the format `#/properties/PROPERTY_NAME` where `PROPERTY_NAME` is a variable name for an attribute in `profile editor`. | N/A              |
+| `type`        | String  | Specifies the relationship between this input element and `Scope`. The `Control` value specifies that this input controls the value represented by `scope`. | `Control` |
 
 #### UI Schema Element example
 
@@ -726,14 +724,14 @@ The UI Schema Element object specifies how one specific input field on a form sh
 
 ### UI Schema Element Options object
 
-The UI Schema Element Options object specifies how the input is displayed. The supported formats are as follows:
+The UI Schema Element Options object specifies how the input is displayed. The supported formats are:
 
-- `text`: Text input. This is the default for the majority of property types.
+- `text`: Text input. This is the default format for the majority of property types.
 - `radio`: Radio button options. This option is only available for `string` data types with an `enum` or `one of` constraint.
-- `select`: Display input as a dropdown. This option is only available for the `country-code` data type or a `string` data type with an `enum` or `one of` constraint.
-- `checkbox`: Display input as a checkbox. This option is only available for `boolean` data types.
-- `radio_yes_no`: Display input as 2 radio buttons, one with the option `yes` and the other `no`. This option is only available for `boolean` data types.
-- `radio_true_false`: Display input as 2 radio buttons, one with the option `true` and the other `false`. This option is only available for `boolean` data types.
+- `select`: Displays input as a dropdown. This option is only available for the `country-code` data type or a `string` data type with an `enum` or `one of` constraint.
+- `checkbox`: Displays input as a checkbox. This option is only available for `boolean` data types.
+- `radio_yes_no`: Displays input as 2 radio buttons, one with the option `yes` and the other `no`. This option is only available for `boolean` data types.
+- `radio_true_false`: Displays input as 2 radio buttons, one with the option `true` and the other `false`. This option is only available for `boolean` data types.
 
 #### UI Schema Element Option properties
 
