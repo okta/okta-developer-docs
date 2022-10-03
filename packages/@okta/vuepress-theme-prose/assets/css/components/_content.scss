@@ -89,12 +89,6 @@
       top: 125px;
     }
 
-    @include media(">desktop-xl") {
-      min-width: 400px;
-      width: 22vw;
-      max-width: 600px;
-    }
-
     .sidebar-fade {
       display: block;
       position: sticky;
