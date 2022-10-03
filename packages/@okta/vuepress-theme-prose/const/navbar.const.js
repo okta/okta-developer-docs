@@ -384,10 +384,6 @@ export const guides = [
                 title: "Sign the Okta certificate with your own CA",
                 guideName: "sign-your-own-saml-csr",
               },
-              {
-                title: "Set up self-service registration",
-                guideName: "set-up-self-service-registration",
-              },
             ],
           },
         ],
