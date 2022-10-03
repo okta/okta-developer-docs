@@ -35,7 +35,11 @@ Okta uses the Widget as part of its normal sign-in page. If you would like to fu
 
 A simple working code example is also included to demonstrate a common sign-in use case. See [Sign In and display user's email](#sign-in-and-display-user-s-email).
 
-<img src="/img/okta-sign-in-javascript.png" alt="Screenshot of basic Okta Sign-In Widget" width="400">
+<div class="half">
+
+![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
+
+</div>
 
 ## Installation
 
@@ -197,17 +201,18 @@ Create an app integration in the Okta org that represents the application you wa
         <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
       </div>
       <script type="text/javascript">
-         const oktaSignIn = new OktaSignIn({
-            issuer: "https://${yourOktaDomain}/oauth2/default",
-            redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
-            clientId: "${yourClientId}",
-            useInteractionCodeFlow: true
-         });
+        var oktaConfig = {
+          issuer: "https://${yourOktaDomain}/oauth2/default",
+          redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
+          clientId: "${yourClientId}",
+          useInteractionCodeFlow: true
+        }
+        // Search for URL Parameters to see if a user is being routed to the application to recover password
+        var searchParams = new URL(window.location.href).searchParams;
+        oktaConfig.otp = searchParams.get('otp');
+        oktaConfig.state = searchParams.get('state');
 
-         // Search for URL Parameters to see if a user is being routed to the application to recover password
-         var searchParams = new URL(window.location.href).searchParams;
-         oktaSignIn.otp = searchParams.get('otp');
-         oktaSignIn.state = searchParams.get('state');
+       const oktaSignIn = new OktaSignIn(oktaConfig);
 
         oktaSignIn.authClient.token.getUserInfo().then(function(user) {
           document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
@@ -376,14 +381,16 @@ Okta also has mobile SDKs for Android, React Native, iOS, and Xamarin.
 
 For mobile apps, embedding the Sign-In Widget isn't currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget). Support is provided for building your own UI in mobile apps.
 
-See the following examples:
+See the following:
 
 * Android:
-* [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
-* [Custom sign-in example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
+* [Sign users in to your Android mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/android/main/)
+* [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in)
+* [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin)
 * iOS:
-* [Authenticate a user](https://github.com/okta/okta-auth-swift#authenticate-a-user)
-* [Okta iOS custom sign-in example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+* [Sign users in to your iOS mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/ios/main/)
+* [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in)
+* [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift)
 
 You can also develop your mobile app with frameworks like Ionic and Flutter. We currently don't have native SDKs for either, but they should work with an AppAuth library. We recommend [Ionic AppAuth](https://github.com/wi3land/ionic-appauth) and the [Flutter AppAuth Plugin](https://pub.dev/packages/flutter_appauth).
 

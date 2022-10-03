@@ -15,7 +15,7 @@ This guide covers how to upgrade the Okta Sign-In Widget, which depends on wheth
 **What you need**
 
 * An [Identity Engine-upgraded Okta org](/docs/guides/oie-upgrade-overview/)
-* An existing app that uses the Okta Sign-In Widget
+* An existing app that uses the Sign-In Widget
 * [Latest available widget release](https://github.com/okta/okta-signin-widget/releases)
 
 ---
@@ -101,45 +101,95 @@ var config = {
 
 You no longer need the [registration](https://github.com/okta/okta-signin-widget#registration) JavaScript objects in the widget. You can add registration into your application by configuring your Okta admin settings for [profile enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment). This process allows users to self register into your application.
 
-You can remove the registration objects as follows.
+Remove the `registration` object and `features.registration` property that are shown in the following snippet:
 
-![Displays the registration objects in JavaScript to remove](/img/SIW_Upgrade_Config_Change1.png)
+```JavaScript
+var signIn = new OktaSignIn({
+  baseUrl: 'https://{yourOktaDomain}',
+  registration: {
+    preSubmit: (postData, onSuccess, onFailure) => {
+        // handle preSubmit callback
+        onSuccess(postData);
+    },
+    postSubmit: (response, onSuccess, onFailure) => {
+        // handle postsubmit callback
+        onSuccess(response);
+    }
+  },
+  features: {
+    // Used to enable registration feature on the widget
+    // https://github.com/okta/okta-signin-widget#feature-flags
+    registration: true
+  }
+})
+```
+
+> **Note**: The `parseSchema` method isn't included in the above `registration` object because the ability to include additional schemas is no longer supported.
 
 ### IdP Discovery
 
 IdP Discovery enables you to route users to different third-party IdPs that are connected to your Okta org. Users can federate back into the primary org after authenticating at the IdP. This feature still functions, but you no longer need to enable the link for users to initialize the route. Instead, you can configure a routing rule with the application context.
 
-You can remove the `idpDiscovery` JavaScript object in the widget as follows.
+Remove the `idpDiscovery` property:
 
-![Displays the IDP Discovery object in JavaScript to remove](/img/SIW_Upgrade_Config_Change2.png)
+```JavaScript
+features: {
+  idpDiscovery: true
+}
+```
 
 ### OpenID Connect/social authentication
 
-When [external Identity Providers (IdPs)](/docs/guides/identity-providers/) are used for Social Login in Classic Engine, the supported IdPs (such as Google, Facebook, Apple, Microsoft, and so on) are declared with a `type` property. These supported IdPs get distinct styling and default i18n text, while other custom entries receive general styling and require you to provide text. Each IdP can have additional CSS classes added through an optional `className` property. This feature still functions in Identity Engine. However, it's no longer the preferred method to enable the link for users to initialize the route. You can replace this method by configuring a routing rule with the application context. See [Okta Sign-In Widget with an external Identity Provider](/docs/guides/add-an-external-idp/openidconnect/main/#okta-sign-in-widget).
+You no longer require the `idps` JavaScript object in the widget, and can remove it.
 
-You no longer need the `idps` JavaScript object and `className` property in the widget, and you can remove them as follows.
+```JavaScript
+idps: [
+  { type: 'GOOGLE', id: '0oagjkh' },
+  { type: 'FACEBOOK', id: '0oagjkh' },
+    ...
+]
+```
 
-![Displays the IdPs object and className property in JavaScript to remove](/img/SIW_Upgrade_Config_Change3.png)
+This is now optional as the Sign-In Widget will automatically include IdPs based on Identity Engine routing rules.
 
 ### Smart card IdP
 
-You no longer need to configure the authentication settings for the [smart card IdP](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow), as it's no longer supported. You can remove the authentication settings for the smart card IdP (`piv`) as follows.
+[Smart card IdP](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow) is no longer supported.
 
-![Displays the smart card IdP settings in JavaScript to remove](/img/SIW_Upgrade_Config_Change4.png)
+Remove the authentication settings for the smart card IdP (`piv`):
+
+```JavaScript
+piv: {
+  certAuthUrl: '/your/cert/validation/endpoint',
+  text: 'Authenticate with a Smart Card',
+  className: 'custom-style',
+  isCustomDomain: true,
+}
+```
 
 ### Bootstrapping from a recovery token
 
 If you're initializing the widget with a recovery token, the `recoveryToken` setting appears, for example:
 
-![Displays the recovery token setting](/img/SIW_Upgrade_Config_Change5.png)
+```JavaScript
+recoveryToken: 'x0whAcR02i0leKtWMZVc'
+```
 
 The recovery token is dynamic and is automatically passed into the initialization of the widget. A value in the `recoveryToken` setting currently doesn't have any effect on widget function, though, the setting takes effect in the future.
 
 ### Okta dashboard or custom dashboard sign-in flow
 
-For an Okta dashboard sign-in, you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget. You can remove the redirect configuration as follows.
+For an Okta dashboard sign-in, you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget.
 
-![Displays the Okta dashboard sign-in](/img/SIW_Upgrade_Config_Change6.png)
+Remove the redirect configuration (`setCookieAndRedirect()`) line, shown in the following snippet:
+
+```JavaScript
+function success(res) {
+  if (res.status === 'SUCCESS') {
+    res.session.setCookieAndRedirect('https://{yourOktaDomain}/app/UserHome');
+  }
+};
+```
 
 ### Feature flags
 
@@ -190,14 +240,18 @@ See [Okta Sign-in Widget: Help links](https://github.com/okta/okta-signin-widget
 
 Developers can't subscribe to the `processCreds` hook in the widget.
 
-### Registration Inline Hooks
+### Registration inline hooks
 
-Existing Registration Inline Hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta Registration Inline Hook request. Your application may require code updates to consume the new request format properly.
+Existing registration inline hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta registration inline hook request. Your application may require code updates to consume the new request format properly.
 
-In the Admin Console, the enablement of a Registration Inline Hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the Registration Inline Hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
+In the Admin Console, the enablement of a registration inline hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the registration inline hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
 
 See [Registration hooks API reference](/docs/reference/registration-hook/) and [Manage Profile Enrollment Policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
 ### Security image
 
 The ability for end users to specify a security image when they first register for an account isn't supported with Identity Engine. Additionally, existing users who may have already registered a security image won't see that image when they sign in.
+
+## See also
+
+[Deprecated JavaScript methods in the widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/main/)

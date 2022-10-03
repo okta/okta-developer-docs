@@ -7,18 +7,14 @@ excerpt: >-
 
 # Authentication/End-user rate limits
 
-This page provides the API rate limits for authentication and end-user activities, which is part of Okta [rate limits](/docs/reference/rate-limits).
-
-> **Note:**
->
-> * To learn more about rate limits, visit our [overview](/docs/reference/rate-limits) and [best practices](/docs/reference/rl-best-practices) pages.
+This page provides the API rate limits for authentication and end-user activities, which is part of Okta [rate limits](/docs/reference/rate-limits). To learn more about rate limits, visit our [Overview](/docs/reference/rate-limits) and [Best practices](/docs/reference/rl-best-practices) pages.
 
 > * In addition to the rate limit per API, Okta implements limits on concurrent requests, Okta-generated email messages, end user requests, and home page endpoints. These limits are described on the [Additional limits](/docs/reference/rl-additional-limits/) page.
 > * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to a variety of endpoints across different APIs for customers that purchased this add-on.
 > * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
 
-> We enforce the following **per-minute** limits.
+See the following list of **per-minute** limits. If an endpoint is not in this list, you can review it using the Admin Console, in the rate limit dashboard's APIs table. See [APIs table](/docs/reference/rl-dashboard/#apis-table).
 
 | Action and Okta API Endpoint                                                                                           | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ---------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
@@ -38,14 +34,12 @@ This page provides the API rate limits for authentication and end-user activitie
 | `/login/login.htm`<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 200              | 1200              | 1200     | 1200        | 1200                   |
 | `/login/sso_iwa_auth`<br>Eligible for workforce multiplier                                                                                                  | 100              | 600              | 600     | 600        | 500                   |
 | `/api/${apiVersion}/radius`<br>Eligible for workforce multiplier                                                                                             | 100              | 600              | 600     | 600        | 600                   |
-| `/idp/idx`                                                                                                             | 100              | 600              | 600     | 600        | 500                   |
 | `/login/token/redirect`<br>Eligible for dynamic scale and workforce multiplier                                                                                                             | 100              | 600              | 600     | 600        | 600                   |
-| <ApiLifecycle access="ie" /> **Identity Engine APIs:**</br>The below rate limits are configured so that orgs are allowed to complete 1000 Identity Engine authentication flows per minute.                                                                             |               |               |      |         |                    |
+| <ApiLifecycle access="ie" /> **Identity Engine APIs:**</br>Identity Engine rate limits are configured to support 1000 Identity Engine authentication flows per minute. That is, depending on authentication flows, some endpoint limits may differ.                                                                                                        |
 | `/idp/idx`                                                                                                     | 100              | 1000              | 1000     | 1000        | 1000                   |
 | `/idp/idx/identify`<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 100              | 1000              | 1000     | 1000        | 1000                   |
 | `/idp/idx/introspect`<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 200              | 2000              | 2000     | 2000        | 2000                   |
 | Identity Engine App Intent<br>Eligible for dynamic scale and workforce multiplier                                                                                                     | 200              | 2000              | 2000     | 2000        | 2000                   |
-
 
 > **Note:** The following public metadata endpoints aren't subjected to rate limiting.
 >

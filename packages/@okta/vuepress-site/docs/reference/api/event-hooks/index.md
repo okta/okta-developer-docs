@@ -8,17 +8,17 @@ excerpt:
 
 # Event Hooks Management API
 
-For general information on event hooks and how to create and use them, see [Event Hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Event Hooks.
+For general information on event hooks and how to create and use them, see [Event hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering event hooks.
 
-For a step-by-step guide on implementing an example Event Hook, see the [Event Hook](/docs/guides/event-hook-implementation/) guide.
+For a step-by-step guide on implementing an example event hook, see the [Event hook](/docs/guides/event-hook-implementation/) guide.
 
 ## Get started
 
-Explore the Event Hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2fdf75c2fb3319ef5e73)
+Explore the event hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2fdf75c2fb3319ef5e73)
 
-## Event Hook operations
+## Event hook operations
 
-### Create Event Hook
+### Create event hook
 
 <ApiOperation method="post" url="/api/v1/eventHooks" />
 
@@ -124,7 +124,7 @@ curl -v -X POST \
 
 > **Note:** The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses.
 
-### Get Event Hook
+### Get event hook
 
 <ApiOperation method="get" url="/api/v1/eventHooks/${id}" />
 
@@ -132,7 +132,7 @@ curl -v -X POST \
 
 | Parameter | Description             | Param Type | DataType | Required |
 |-----------|-------------------------|------------|----------|----------|
-| `id`      | A valid Event Hook ID | Path       | String   | TRUE     |
+| `id`      | A valid event hook ID | Path       | String   | TRUE     |
 
 ##### Response parameters
 
@@ -184,7 +184,7 @@ curl -v -X GET \
 }
 ```
 
-### List Event Hooks
+### List event hooks
 
 <ApiOperation method="get" url="/api/v1/eventHooks" />
 
@@ -238,7 +238,7 @@ curl -v -X GET \
 ]
 ```
 
-### Update Event Hook
+### Update event hook
 
 <ApiOperation method="put" url="/api/v1/eventHooks/${id}" />
 
@@ -333,7 +333,7 @@ curl -v -X PUT \
 ```
 > **Note:** Updating the `channel` property requires you to verify an event hook again.
 
-### Verify Event Hook
+### Verify event hook
 
 <ApiOperation method="post" url="/api/v1/eventHooks/${id}/lifecycle/verify" />
 
@@ -341,7 +341,7 @@ curl -v -X PUT \
 |---------------------------------|--------------------------------------------------------|------------|----------|----------|
 | id                                   | ID of the event hook to verify                                                | Path       | String   | TRUE     |
 
-Verifies that the Event Hook matches the provided `eventHookId`. Your endpoint needs to be able to correctly send back information to Okta in JSON format, so that endpoint ownership can be verified. See [Event Hooks](/docs/concepts/event-hooks/) documentation for details.
+Verifies that the event hook matches the provided `eventHookId`. Your endpoint needs to be able to correctly send back information to Okta in JSON format, so that endpoint ownership can be verified. See [Event hooks](/docs/concepts/event-hooks/).
 
 Only `ACTIVE` and `VERIFIED` event hooks can receive events from Okta.
 
@@ -395,7 +395,7 @@ curl -v -X POST \
 
 ```
 
-### Activate Event Hook
+### Activate event hook
 
 <ApiOperation method="post" url="/api/v1/eventHooks/${id}/lifecycle/activate" />
 
@@ -457,7 +457,7 @@ curl -v -X POST \
 }
 ```
 
-### Deactivate Event Hook
+### Deactivate event hook
 
 <ApiOperation method="post" url="/api/v1/eventHooks/${id}/lifecycle/deactivate" />
 
@@ -519,7 +519,7 @@ curl -v -X POST \
 }
 ```
 
-### Delete Event Hook
+### Delete event hook
 
 <ApiOperation method="delete" url="/api/v1/eventHooks/${id}" />
 
@@ -552,13 +552,13 @@ curl -v -X DELETE \
 | Property       | Description                                                                                       | DataType                          | Nullable | Unique | ReadOnly | Validation                                        |
 |----------------|---------------------------------------------------------------------------------------------------|-----------------------------------|----------|--------|----------|---------------------------------------------------|
 | channel object | Properties of the communications channel used to contact your external service                   | [Channel object](#channel-object) | FALSE    | FALSE  | FALSE    | Validation is determined by the specific channel. |
-| created        | Date of Event Hook creation                                                                   | String (Date)                     | TRUE     | FALSE  | TRUE     | System assigned                                          |
+| created        | Date of event hook creation                                                                   | String (Date)                     | TRUE     | FALSE  | TRUE     | System assigned                                          |
 | events           | Events subscribed by this hook                                                                 | [Events object](#events-object)                            | FALSE    | TRUE   | FALSE    | Validation is determined by the specific event object type.   |
-| id             | Unique key for the Event Hook                                                                  | String                            | FALSE    | TRUE   | TRUE     | System assigned                                          |
-| lastUpdated    | Date of Event Hook update                                                                      | String (Date)                     | TRUE     | FALSE  | TRUE     | System assigned                                          |
-| name           | Display name for the Event Hook                                                                 | String                            | FALSE    | TRUE   | FALSE    | Must be between one and 255 characters in length   |
-| status         | Status of the Event Hook. `INACTIVE` will not receive any events.                                       | String                            | FALSE    | FALSE  | FALSE    | System assigned. Will be either `ACTIVE` or `INACTIVE`.            |
-| verificationStatus         | Verification status of the Event Hook. `UNVERIFIED` will not receive any events.                                       | String                            | FALSE    | FALSE  | FALSE    | System assigned. Will be either `VERIFIED` or `UNVERIFIED`.            |
+| id             | Unique key for the event hook                                                                  | String                            | FALSE    | TRUE   | TRUE     | System assigned                                          |
+| lastUpdated    | Date of event hook update                                                                      | String (Date)                     | TRUE     | FALSE  | TRUE     | System assigned                                          |
+| name           | Display name for the event hook                                                                 | String                            | FALSE    | TRUE   | FALSE    | Must be between one and 255 characters in length   |
+| status         | Status of the event hook. `INACTIVE` doesn't receive any events.                                       | String                            | FALSE    | FALSE  | FALSE    | System assigned. Will be either `ACTIVE` or `INACTIVE`.            |
+| verificationStatus         | Verification status of the event hook. `UNVERIFIED` will not receive any events.                                       | String                            | FALSE    | FALSE  | FALSE    | System assigned. Will be either `VERIFIED` or `UNVERIFIED`.            |
 
 ```json
 {
@@ -631,6 +631,4 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 
 ## Supported events for subscription
 
-When you register an event hook, you need to specify what events you want to subscribe to. To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
-
-<https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible>
+When you register an event hook, you need to specify what events you want to subscribe to. To see the list of event types currently eligible for use in event hooks, use the [Event Types catalog](/docs/reference/api/event-types/#catalog) and search with the parameter `event-hook-eligible`.

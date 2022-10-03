@@ -986,7 +986,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 | digestAlgorithm       | Determines the digest algorithm used to digitally sign the SAML assertion and response                            | String                                               | FALSE    | FALSE  |                                           |
 | honorForceAuthn       | Prompt user to re-authenticate if SP asks for it                                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
 | idpIssuer             | SAML Issuer ID                                                                                                    | String                                               | FALSE    | FALSE  |                                           |
-| inlineHooks           | Associates the application with SAML inline hooks. See the [SAML Assertion Inline Hook Reference](/docs/reference/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
+| inlineHooks           | Associates the application with SAML inline hooks. See the [SAML assertion inline hook reference](/docs/reference/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
 | recipient             | The location where the app may present the SAML assertion                                                         | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | recipientOverride     | Overrides the `recipient` setting                                                                                 | String                                               | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | requestCompressed     | Determines whether the SAML request is expected to be compressed or not                                           | Boolean                                              | FALSE    | FALSE  |                                           |
@@ -1010,7 +1010,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 
 * If Single Logout is supported by the application and the `slo` object is provided in the request, the `spCertificate` object must be present.
 * When you update an application, if you don't specify `slo` or `spCertificate` the existing configuration persists.
-* When you associate the application with `inlineHooks`, you should [create SAML Inline Hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created Inline Hook ID.
+* When you associate the application with `inlineHooks`, you should [create SAML inline hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created inline hook ID.
 
 ##### Supported values for custom SAML app
 
@@ -1328,6 +1328,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | client_id                    | Unique identifier for the client application. **Note:** When not specified, `client_id` and application `id` are the same. You can specify a `client_id`, if necessary. See the [OAuth Credential object](#oauth-credential-object) section for more details.   | String     |                       |
 | client_secret                | OAuth 2.0 client secret string (used for confidential clients)                                                                                      | String     |                       |
 | token_endpoint_auth_method   | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, `client_secret_jwt`, or `private_key_jwt`   | String     | `client_secret_basic` |
+| pkce_required                | Require Proof Key for Code Exchange (PKCE) for additional verification | Boolean  | `true` for `browser` and `native` application types |
 
 ##### Settings
 
@@ -3687,6 +3688,8 @@ Content-Type: application/json
 
 Assign an application to a specific policy. This un-assigns the application from its currently assigned policy.
 
+> **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
+
 ##### Request parameters
 
 | Parameter     | Description      | Param Type | DataType | Required | Default |
@@ -4032,6 +4035,8 @@ Enumerates all assigned [Application users](#application-user-object) for an app
 | applicationId | `id` of an [app](#application-object)                                        | URL        | String   | TRUE     |         |
 | limit         | Specifies the number of results per page (maximum 500)                      | Query      | Number   | FALSE    | 50      |
 | q             | Returns a filtered list of app users. The value of `q` is matched against an application user profile's `userName`, `firstName`, `lastName`, and `email`. **Note:** This operation only supports `startsWith` that matches what the string starts with to the query. | Query      | String   | FALSE    |         |
+
+> **Note:** For OIDC apps, the user's profile doesn't contain the `firstName` and `lastName` attributes. The `q` query parameter matches the provided string with only the beginning of the `userName` or `email` attributes.
 
 The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
@@ -6424,7 +6429,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens" />
 
-Lists all tokens for the application
+Lists all refresh tokens for the application
 
 #### Request parameters
 
@@ -6502,7 +6507,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
-Gets a token for the specified application
+Gets a refresh token for the specified application
 
 #### Request parameters
 
@@ -6670,7 +6675,7 @@ Update the logo for an application.
 | applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
 | file            | File containing logo                       | Body             | File       | TRUE     |
 
-The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+The file must be in PNG, JPG, SVG, or GIF format, and less than 1 MB in size. For best results, use an image with a transparent background and a square dimension of 200px by 200px to prevent upscaling.
 
 ##### Request example
 
@@ -7994,6 +7999,7 @@ Determines how to authenticate the OAuth 2.0 client
 | client_id                  | Unique identifier for the OAuth 2.0 client application                           | String   | TRUE     |
 | client_secret              | OAuth 2.0 client secret string                                                   | String   | TRUE     |
 | token_endpoint_auth_method | Requested authentication method for the token endpoint                           | String   | FALSE    |
+| pkce_required              | Require Proof Key for Code Exchange (PKCE) for additional verification           | Boolean  | TRUE     |
 
 * When you create an OAuth 2.0 client application, you can specify the `client_id`, or Okta sets it as the same value as the application ID. Thereafter, the `client_id` is immutable.
 
@@ -8003,13 +8009,16 @@ Determines how to authenticate the OAuth 2.0 client
 
 * If `autoKeyRotation` isn't specified, the client automatically opts in for Okta's [key rotation](/docs/concepts/key-rotation/). You can update this property via the API or via the administrator UI.
 
+* Use `pkce_required` to require PKCE for your confidential clients using the [Authorization Code flow](/docs/guides/implement-grant-type/authcodepkce/main/). If `token_endpoint_auth_method` is `none`, `pkce_required` needs to be `true`. If `pkce_required` isn't specified when adding a new application, Okta sets it to `true` by default for `browser` and `native` application types.
+
 ```json
 {
   "oauthClient": {
     "autoKeyRotation": false,
     "client_id": "0oa1hm4POxgJM6CPu0g4",
     "client_secret": "5jVbn2W72FOAWeQCg7-s_PA0aLqHWjHvUCt2xk-z",
-    "token_endpoint_auth_method": "client_secret_post"
+    "token_endpoint_auth_method": "client_secret_post",
+    "pkce_required": true
   }
 }
 ```
@@ -8362,13 +8371,21 @@ Application User profiles are app-specific, but may be customized by the Profile
 
 ##### Profile Editor
 
-![Profile Editor UI](/img/okta-admin-ui-profile-editor.png "Profile Editor UI")
+<div class="three-quarter border">
+
+![Profile Editor UI](/img/admin/okta-admin-ui-profile-editor.png)
+
+</div>
 
 > **Note:** Managing profiles for applications is restricted to specific editions and requires access to the Universal Directory <ApiLifecycle access="ea" /> feature.
 
 ##### Example application assignment
 
-![App Assignment UI](/img/okta-admin-ui-app-assignment.png "App Assignment UI")
+<div class="three-quarter">
+
+![App Assignment UI](/img/admin/okta-admin-ui-app-assignment.png)
+
+</div>
 
 ##### Example Profile object
 

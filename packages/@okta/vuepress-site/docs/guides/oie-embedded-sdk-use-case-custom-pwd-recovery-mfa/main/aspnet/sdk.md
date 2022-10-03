@@ -8,9 +8,9 @@ The user starts the password recovery flow by completing these steps:
 
 After the user completes these steps, Okta verifies that an account exists for the user using the information that they entered in step 2 above. If the account exists, Okta then sends a recovery email that matches the Forgot Password template that was altered earlier to the associated email address.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
-![Screenshot of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png "Customized Password Recovery Diagram")
+![Screenshot of email sent to user](/img/advanced-use-cases/custom-pwd-recovery-custom-email.png)
 
 </div>
 
@@ -72,8 +72,8 @@ If the `otp` and `state` values aren't valid or an `AuthenticationStatus` is ret
 
 Display the password reset page and continue the password recovery flow described in the [User password recovery guide](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/aspnet/main/).
 
-<div class="common-image-format bordered-image">
+<div class="half border">
 
-![Screenshot of password reset page](/img/advanced-use-cases/dotnet-custom-pwd-recovery-custom-sdk-reset-pwd-page.png "Password Reset Page")
+![Screenshot of password reset page](/img/advanced-use-cases/dotnet-custom-pwd-recovery-custom-sdk-reset-pwd-page.png)
 
 </div>

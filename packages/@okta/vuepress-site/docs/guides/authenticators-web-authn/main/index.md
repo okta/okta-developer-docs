@@ -2,8 +2,6 @@
 title: Web Authentication integration guide
 ---
 
-<div class="oie-embedded-sdk">
-
 <ApiLifecycle access="ie" /><br>
 
 This guide shows you how to integrate Web Authentication (WebAuthn) into your app using the embedded SDK.
@@ -47,7 +45,7 @@ WebAuthn uses public-key cryptopgraphy to security communicate and validate the 
 
 In the previous example the public and private keys are generated on the user's device during enrollment. The following diagram illustrates the enrollment and challenge flows and how they are integrated within Okta.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Diagram showing the WebAuthn enrollment flow](/img/authenticators/authenticators-webauthn-flow-overview.png)
 
@@ -129,5 +127,3 @@ The following summarizes the WebAuthn challenge flow using a user sign-in use ca
 ## See also
 
 <StackSnippet snippet="relatedusecases" />
-
-</div>

@@ -18,23 +18,42 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
 
 1. [Create an API token](/docs/guides/create-an-api-token/) for your org.
 
-  > **Note:** Alternatively, you can [create an OAuth 2.0 access token](/docs/guides/implement-oauth-for-okta/) for use with a number of Okta endpoints. This is a feature that allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+   > **Note:** Alternatively, you can [create an OAuth 2.0 access token](/docs/guides/implement-oauth-for-okta/) for use with a number of Okta endpoints. This is a feature that allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
 2. [Install the Postman app](https://www.getpostman.com/apps).
 3. Start Postman if it's not open already.
 4. In the upper-left corner, click **Import**.
 5. In the **Import** dialog box, click **Link** and then paste the following link into the **Enter a URL** box: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`.
+   > **Note:** You can also download this environment locally and import it as a file.
 6. Click **Continue** and then **Import** to confirm your environment import.
-7. In the upper-right corner, click the box that lists the environments and then select `${yourOktaDomain}` from the list. The initial value is `No Environment` if you just installed Postman. ![Postman environment list box](/img/postman_environment_list.png "Displays an arrow pointing to the box in the upper-right corner of the window that contains environments for use with Postman")
-8. In the upper-right corner, next to `${yourOktaDomain}`, click **Environment quick look** ![Postman environment quick look button](/img/postman_eye_icon_button.png  "Displays the eye icon button").
+7. In the upper-right corner, click the box that lists the environments and then select `${yourOktaDomain}` from the list. The initial value is `No Environment` if you just installed Postman.
+
+   <div class="three-quarter">
+
+   ![Postman environment list box: Displays an arrow pointing to the box in the upper-right corner of the window that contains environments for use with Postman](/img/postman/postman_environment_list.png)
+
+   </div>
+
+8. In the upper-right corner, next to `${yourOktaDomain}`, click **Environment quick look** ![Postman environment quick look button](/img/postman/postman_eye_icon_button.png  "Displays the eye icon button").
 9. In the upper-right corner of the **${yourOktaDomain}** dialog box, click **Edit**.
-![Postman environment quick look edit link](/img/postman_environment_quick_look_edit.png "Displays an arrow pointing to the edit link in the upper-right corner of the ${yourOktaDomain} dialog box")
+
+<div class="three-quarter">
+
+![Postman environment quick look edit link: Displays an arrow pointing to the edit link in the upper-right corner of the ${yourOktaDomain} dialog box](/img/postman/postman_environment_quick_look_edit.png)
+
+</div>
+
 10. In the **Manage Environments** dialog box, do the following:
     * In the **Environment Name** box, delete the placeholder text and name your environment, for example: `John's Okta Org`.
     * For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL, for example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
     * For the `apikey` variable, in the **Initial Value** and **Current Value** columns, enter your API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
-    ![Postman Manage Environments dialog box](/img/postman_manage_environments_dialog.png "Displays arrows that points to the Environment Name box and the url and apikey variables in the Manage Environments dialog box")
+    <div class="three-quarter">
+
+    ![Displays arrows that points to the Environment Name box and the url and apikey variables in the Manage Environments dialog box](/img/postman/postman_manage_environments_dialog.png)
+
+    </div>
+
 11. Scroll to the bottom of the dialog box and click **Update**.
 12. To close the dialog box, click the **X** in the upper-right corner.
 
@@ -78,7 +97,11 @@ Your imported collections contain URLs and JSON request bodies that have sample 
 
 1. To get a user's ID, for example, send a request to list the users in your org like you did in the previous section. Each user listed in the response has an ID:
 
-  ![List Users Response](/img/postman_response2.png "Response example for a GET users request that highlights the ID in the response")
+  <div class="three-quarter border">
+
+  ![Response example for a GET users request that highlights the ID in the response](/img/postman/postman_response2.png)
+
+  </div>
 
 2. Copy the `id` of the resource, in this example the `id` for Tony Stark, for use in your next request.
 

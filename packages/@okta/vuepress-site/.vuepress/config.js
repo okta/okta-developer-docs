@@ -1,4 +1,5 @@
 const guidesInfo = require('./scripts/build-guides-info');
+const overviewPages = require('./scripts/build-overview-pages');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -170,7 +171,7 @@ module.exports = ctx => ({
         children: [
           { text: 'Forum', link: 'https://devforum.okta.com' },
           { text: 'Toolkit', link: 'https://toolkit.okta.com/' },
-          { text: 'Developer Day', link: 'https://www.okta.com/developerday/' },
+          { text: 'Developer Days', link: 'https://regionalevents.okta.com/DeveloperDays2022' },
           { type: 'divider' },
           { type: 'icons',
             icons: [
@@ -317,7 +318,9 @@ module.exports = ctx => ({
               //'/docs/guides/oie-upgrade-mfa-enroll-policy/',
               '/docs/reference/api/archive-myaccount/',
               '/docs/reference/api/myaccount-migration/',
-              '/docs/reference/csi-delauth-hook/'
+              '/docs/reference/csi-delauth-hook/',
+              '/docs/reference/api/inline-hooks-lea/',
+              '/docs/reference/api/hook-keys/'
           ]
         }
       ]
@@ -331,6 +334,7 @@ module.exports = ctx => ({
 
   additionalPages: [
     ...guidesInfo.additionalPagesForGuides(),
+    ...overviewPages()
   ],
 
   extendPageData ($page) {

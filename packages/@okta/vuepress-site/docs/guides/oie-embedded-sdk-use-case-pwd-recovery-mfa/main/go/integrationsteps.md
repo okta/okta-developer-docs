@@ -21,11 +21,21 @@ When the user clicks on the **Recover password** link on your site, send the
 user to a page where they can enter their email and start the password
 recovery flow.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays the first page in the password recovery flow that shows the email field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-first.png)
+![Reset password form with an email field](/img/oie-embedded-sdk/wireframes/reset-password-form-enter-email-g2r3.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 3
+
+-->
 
 ### 3: The user enters their email and initiates password recovery
 
@@ -74,11 +84,21 @@ s.cache.Set("resetPasswordFlow", rpr, time.Minute*5)
 The next step is for the user to enter the verification code from their email.
 Build a page that captures this code.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays the second page in the password recovery flow that shows the verification code field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-second.png)
+![Email verification code input form](/img/oie-embedded-sdk/wireframes/enter-verification-code-form-g2r5.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 5
+
+-->
 
 ### 5: Submit the verification code
 
@@ -109,11 +129,21 @@ return
 After the code has been confirmed, the next step is to send the user
 to a page that allows them to enter their new password.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays the third page in the password recovery flow that shows the password fields](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-third.png)
+![Password reset new password form](/img/oie-embedded-sdk/wireframes/reset-password-form-choose-new-password-g2r6.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 2, row 6
+
+-->
 
 ### 7: Submit the new password
 

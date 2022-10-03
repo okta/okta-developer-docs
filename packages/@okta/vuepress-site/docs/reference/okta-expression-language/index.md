@@ -9,7 +9,7 @@ meta:
 
 This document details the features and syntax of Okta Expression Language, which you can use throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
 
-> **Note:** If you are using the Okta Expression Language for [Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
+> **Note:** If you are using the Okta Expression Language for [Global session policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
 
 Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of functionalities offered by SpEL.
 
@@ -21,12 +21,13 @@ When you create an Okta expression, you can reference any attribute that lives o
 
 ### Okta User Profile
 
-Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, just reference `user` and specify the attribute variable name.
-
+Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, specify `user.` and the attribute variable name. For a list of core User Profile attributes, see [Default Profile properties](/docs/reference/api/users/#default-profile-properties).
 
 | Syntax            | Definitions                                                                   | examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |
 | `user.$attribute` | `user` reference to the Okta User<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
+
+> **Note:** You can also access the User ID for each user with the following expression: `user.getInternalProperty("id")`.
 
 ### Application User Profile
 
@@ -399,6 +400,23 @@ In [API Access Management](/docs/concepts/api-access-management/) custom authori
 
 To include a granted scope array and convert it to a space-delimited string, use the following expression:<br>
 `String.replace(Arrays.toCsvString(access.scope),","," ")`
+
+## Expressions in group rules
+
+Group rule conditions only allow `String`, `Arrays`, and `user` expressions.
+
+For example, given the user profile has a base string attribute called `email`, and assuming the user profile has a
+custom boolean attribute called `hasBadge` and a custom string attribute called `favoriteColor`, the following
+expressions are allowed in group rule conditions:
+
+* `user.hasBadge`
+* `String.stringContains(user.email, "@example.com")`
+* `Arrays.contains(user.favoriteColors, "blue")`
+
+The following expression isn't allowed in group rule conditions, even if the user profile has a custom integer
+attribute called `yearJoined`:
+
+* `Convert.toInt("2018") == user.yearJoined`
 
 ## Appendix: Time zone codes
 

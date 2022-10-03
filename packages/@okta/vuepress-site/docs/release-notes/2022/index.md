@@ -2,18 +2,299 @@
 title: Okta API Products release notes 2022
 ---
 
+## September
+
+### Weekly release 2022.09.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.3](#bugs-fixed-in-2022-09-3)                      | September 28, 2022            |
+
+#### Bugs fixed in 2022.09.3
+
+* Existing provisioning settings for an app were reset to `None` when an app was updated using `PUT /apps/${applicationId}`. (OKTA-520647)
+
+* Read-only admins weren’t able to see the signing keys that were used for SAML applications. (OKTA-522887)
+
+* When an access token was used to create an email template customization, the POST request failed. (OKTA-526881)
+
+### Weekly release 2022.09.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.2](#bugs-fixed-in-2022-09-2)                      | September 21, 2022            |
+
+#### Bugs fixed in 2022.09.2
+
+* A descriptive error message wasn't returned when OAuth management endpoints were used with non-OAuth clients. (OKTA-458109)
+
+* A misleading error message appeared when the Interaction Code grant type was enabled in an org that used the embedded Sign-In Widget. (OKTA-493935)
+
+* A two-minute clock skew was allowed during access and ID token validation. (OKTA-528530)
+
+### Weekly release 2022.09.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.1](#bugs-fixed-in-2022-09-1)                      | September 14, 2022            |
+
+#### Bugs fixed in 2022.09.1
+
+* The Subscription Role API didn’t support the API Access Management role. (OKTA-431895)
+* The origin header validation on the `/token` endpoint for cross-origin requests was case-sensitive, which returned an error for redirect URIs using uppercase. (OKTA-516740)
+
+### Monthly release 2022.09.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Non-deletable default authorization server is EA in Preview](#non-deletable-default-authorization-server-is-ea-in-preview) | August 31, 2022 |
+| [PKCE validation for OIDC app integrations is GA in Production](#pkce-validation-for-oidc-app-integrations-is-ga-in-production) | July 7, 2022 |
+| [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | July 7, 2022 |
+| [Step-up authentication using ACR values is EA in Preview](#step-up-authentication-using-acr-values-is-ea-in-preview) | August 31, |
+| [API for suppressing email notifications is GA](#api-for-suppressing-email-notifications-is-in-general-availability) | May 11, 2022 |
+| [Access Denied error message customization is GA in Preview](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
+| [Dynamic IdP routing is GA in Preview](#dynamic-idp-routing-is-ga-in-preview) | June 8, 2022 |
+| [The update logo for application operation is updated](#the-update-logo-for-application-operation-is-updated) | August 31, 2022 |
+| [Password restriction for shared SWA app accounts is GA in Production](#password-restriction-for-shared-swa-app-accounts-is-ga-in-production) | July 7, 2022 |
+| [Developer documentation updates in 2022.09.0](#developer-documentation-updates-in-2022-09-0) | August 31, 2022 |
+| [Bugs fixed in 2022.09.0](#bugs-fixed-in-2022-09-0) | August 31, 2022|
+
+#### Non-deletable default authorization server is EA in Preview
+
+The default authorization server is a custom authorization server provided by Okta so that customers can quickly get started working with Okta. However, if a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label for the default authorization server in the Admin Console.<!--OKTA-521652--><!--OKTA-525780-->
+
+#### PKCE validation for OIDC app integrations is GA in Production
+
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app.<!--OKTA-523773-->
+
+#### Signed request support for generic SAML IdP is GA in Production
+
+Using signed SAML requests ensures that incoming requests are from genuine applications. When this is configured, Okta only accepts SAML requests signed using the certificate associated with the app integration. Having signed SAML requests also resolves scenarios where the Assertion Consumer Service (ACS) URL requested after authentication can be one of several domains or URLs. When a Service Provider sends a signed authentication request, Okta can accept dynamic ACS values as part of the SAML request and posts the SAML assertion response to the ACS value specified in the request. See the Advanced Settings section of [Create SAML app integrations using AIW](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml).<!--OKTA-525803-->
+
+#### Step-up authentication using ACR values is EA in Preview
+
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/).<!--OKTA-525790-->
+
+#### API for suppressing email notifications is in General Availability
+
+This API allows you to change who receives email notifications for each individual email template. You can suppress them completely or send them to admins only. This unlocks testing scenarios that warrant using production user directories and prevents end users from getting test emails. It also allows extensibility for customers who would like to use a third party email sender through Hooks or Workflows. See [Email template settings](/docs/reference/api/brands/#email-template-settings).<!--OKTA-526580-->
+
+#### Access Denied error message customization is GA in Preview
+
+Admins can now customize the error message that users receive when their access is denied. This allows admins to provide remediation steps and/or point users to documentation that helps resolve their access issues.<!--OKTA-512724-->
+
+#### Dynamic IdP routing is GA in Preview
+
+Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing).<!--OKTA-520971-->
+
+#### The update logo for application operation is updated
+
+The [update logo for application](/docs/reference/api/apps/#application-logo-operations) API operation has been updated to support logo images in SVG format. In addition, the updated logo guidelines require a square image dimension of 200px by 200px to avoid distortion.<!--OKTA-511103-->
+
+#### Password restriction for shared SWA app accounts is GA in Production
+
+For SWA apps with an account sign-in option set to **Users share a single username and password set by administrator**, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
+
+#### Developer documentation updates in 2022.09.0
+
+* `developer.okta.com` has a new main navigation menu, which makes navigating around the content easier and more intuitive. Instead of showing the entire sitemap in the menu at all times, each major area is now accessed through a submenu that shows only the relevant menu sections at one time. In addition, clicking each menu node shows a contextual landing page (either a defined custom page or an auto-generated one if none exists), and you can now toggle the menu between hidden and visible states, if desired.
+
+* Updates to the [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/main/#edit-the-error-page) and [Customize email notifications](/docs/guides/custom-email/main/#edit-a-default-email-template) guides describe the new full-featured code editor. The editor integrates the Monaco code editing library into the Admin Console to make editing code for error pages and email notifications more efficient. Developers can write, test, and publish code faster.
+
+#### Bugs fixed in 2022.09.0
+
+* The `sub` claim value in on-behalf token exchange flows used the customized authorization server claim value when the token exchange feature was enabled. (OKTA-517125)
+
+* The Apps API returned only the first error from the VPN settings (`settings.notifiations.vpn`) of an add app request. (OKTA-517563)
+
+## August
+
+### Weekly release 2022.08.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.08.3](#bugs-fixed-in-2022-08-3)                      | August 24, 2022            |
+
+#### Bugs fixed in 2022.08.3
+
+* The Apps API returned two validation errors rather than one when the value for the `url` parameter wasn't a URL. (OKTA-521199)
+
+* Imported passwords with a malformed bcrypt hash format caused an error during the password reset flow. (OKTA-502227)
+
+* Sometimes when an admin deleted an Identity Provider and a Group concurrently, the Identity Provider wasn't deleted. (OKTA-511062)
+
+* Despite having insufficient permissions, a Report Admin was able to use the Mappings API to edit the UD mappings for an Identity Provider configured in Okta. (OKTA-499602)
+
+### Weekly release 2022.08.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.08.1](#bugs-fixed-in-2022-08-1)                      | August 10, 2022            |
+
+#### Bugs fixed in 2022.08.1
+
+* When client assertions for `private_key_jwt` client authentication method operations contained the `aud` claim in an array instead of a string, an error was returned. (OKTA-478067)
+
+* When an app initiated the Service Provider flow and the SAML authorization request didn't contain the SAML Subject (`nameId`), a 500 HTTP error was returned. (OKTA-511120)
+
+### Monthly release 2022.08.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [PKCE validation for OIDC app integrations is GA in Preview](#pkce-validation-for-oidc-app-integrations-is-ga-in-preview) | July 7, 2022|
+| [Configurable API token rate limits is GA in Production](#configurable-api-token-rate-limits-is-ga-in-production) | July 7, 2022|
+| [Rate Limits dashboard includes API Token data](#rate-limits-dashboard-includes-api-token-data) | August 3, 2022|
+| [System Log updates for telephony operations](#system-log-updates-for-telephony-operations) | August 3, 2022|
+| [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
+| [Support for Okta Resource Name is GA in Production](#support-for-okta-resource-name-is-ga-in-production) | July 7, 2022|
+| [Bugs fixed in 2022.08.0](#bugs-fixed-in-2022-08-0) | August 3, 2022|
+
+#### PKCE validation for OIDC app integrations is GA in Preview
+
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-518333 -->
+
+#### Configurable API token rate limits is GA in Production
+
+Admins can now configure a percentage rate limit capacity for individual API tokens. Previously, when a token rate limit violation occurred, it wasn’t clear which token consumed the limit. Setting a maximum capacity for each token solves this problem and gives admins a new tool to investigate rate limit violations and plan for future deployments. See [API token management](https://help.okta.com/okta_help.htm?id=csh-api). <!-- OKTA-517890 -->
+
+#### Rate Limits dashboard includes API Token data
+
+The Rate Limits dashboard now includes API Token data on the Rate limit usage over time graph. You can select to view bar graph data from API tokens or by IP address to review any spike in traffic. See [bar graph](/docs/reference/rl-dashboard/#bar-graph) and [API rate limits by token](/docs/reference/rate-limits/#api-rate-limits-by-token). <!-- OKTA-498252 -->
+
+#### System Log updates for telephony operations
+
+The `system.operation.rate_limit.violation` event is no longer triggered when SMS or Voice messages are blocked due to telephony operational rate limit violations. Instead, telephony `system.sms.send.*` and `system.voice.send.*` events are issued as a `DENY` System Log message. <!-- OKTA-517838 -->
+
+#### Trusted Origins for iFrame embedding is GA in Production
+
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-514609 -->
+
+#### Support for Okta Resource Name is GA in Production
+
+The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn) (ORN) uniquely identifies an Okta [resource set](/docs/reference/api/roles/#resource-set-object) that is associated with a custom admin role assignment. <!-- OKTA-511699 -->
+
+#### Bugs fixed in 2022.08.0
+
+* When a client used the `private_key_jwt` client authentication method, the `max_age` and `login_hint` parameters in the authorize request were sometimes ignored. (OKTA-501110, OKTA-501104)
+* When a client used either the `private_key_jwt` or `client_secret_jwt` client authentication methods, an error occurred if the `client_id` was included in the body of the token request. (OKTA-478059)
+* When the Disable Security Question for Recovery feature was enabled and an admin used the Users API to create a user with a pre-assigned password, the magic link sent in the activation email didn't expire after the first use. (OKTA-502692)
+
+## July
+
+### Weekly release 2022.07.2
+
+| Change | Expected in Preview Orgs |
+|----------------------------|--------------------------|
+| [Bugs fixed in 2022.07.2](#bugs-fixed-in-2022-07-2) | July 27, 2022 |
+
+#### Bugs fixed in 2022.07.2
+
+* Operations that assigned custom roles to a user or group and included a nonexistent resource returned an HTTP 500 Internal Server Error. (OKTA-472638)
+* When the “Verify a WebAuthn Factor challenge” (`/users/${userId}/factors/${factorId}/verify`) endpoint was called, the wrong WebAuthn factor enrollment profile information was returned if multiple factors were registered. (OKTA-482701)
+* When the change password (`/users/{$userId}/credentials/change_password`) endpoint was called, the error message that appeared wasn't translated into the selected language. (OKTA-507667)
+
+### Weekly release 2022.07.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Dynamic issuer mode for Identity Providers](#dynamic-issuer-mode-for-identity-providers)                    | July 13, 2022            |
+| [Bug fixed in 2022.07.1](#bug-fixed-in-2022-07-1)                        | July 13, 2022            |
+
+#### Dynamic issuer mode for Identity Providers
+
+You can configure the dynamic issuer mode for an Identity Provider using the Identity Provider API. When you set the`issuerMode` parameter to `DYNAMIC`, Okta uses the domain from the Authorize URL as the domain for the redirect URI when returning the authentication response. <!--OKTA-506807-->
+
+#### Bug fixed in 2022.07.1
+
+When the `/api/v1/users/${userId}/roles` or
+`/api/v1/groups/${groupId}/roles` endpoints were called to assign a custom role and resource set to a user or group, and those assignments already existed, the calls didn’t receive an HTTP 409 Conflict error. (OKTA-507683)
+
+### Monthly release 2022.07.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Configurable API token rate limits is GA in Preview](#configurable-api-token-rate-limits-is-ga-in-preview) | July 7, 2022|
+| [Deprecated MyAccount API endpoints now have limited availability](#deprecated-myaccount-api-endpoints-now-have-limited-availability) | July 7, 2022|
+| [Loading Page Animation feature for the Brands API is EA in Preview](#loading-page-animation-feature-for-the-brands-api-is-ea-in-preview) | July 7, 2022|
+| [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-oidc-app-integrations-is-self-service-ea-in-preview) | July 7, 2022|
+| [Signed request support for generic SAML IdP is GA in Preview](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | July 7, 2022 |
+| [Support for Okta Resource Name is GA in Preview](#support-for-okta-resource-name-is-ga-in-preview) | July 7, 2022|
+| [The Loading Page API is EA in Preview](#the-loading-page-api-is-ea-in-preview) | July 7, 2022|
+| [Trusted Origins for iFrame embedding is GA in Preview](#trusted-origins-for-iframe-embedding-is-ga-in-preview) | May 4, 2022|
+| [Developer documentation updates in 2022.07.0](#developer-documentation-updates-in-2022-07-0) | July 7, 2022 |
+| [Bugs fixed in 2022.07.0](#bugs-fixed-in-2022-07-0) | July 7, 2022 |
+
+#### Configurable API token rate limits is GA in Preview
+
+Admins can now configure a percentage rate limit capacity for individual API tokens. Previously, when a token rate limit violation occurred, it wasn’t clear which token consumed the limit. Setting a maximum capacity for each token solves this problem and gives admins a new tool to investigate rate limit violations and plan for future deployments. See [API token management](https://help.okta.com/okta_help.htm?id=csh-api). <!-- OKTA-506379 -->
+
+#### Deprecated MyAccount API endpoints now have limited availability
+
+The existing MyAccount API (`api/v1/myaccount`) endpoints are now only accessible to orgs that had that feature enabled for their orgs prior to June 2022. From June 2022 forward, use the new IdP MyAccount API (`/idp/myaccount`) endpoints instead. <!-- OKTA-509664 -->
+
+#### Loading Page Animation feature for the Brands API is EA in Preview
+
+When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#theme-object) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-509771 -->
+
+#### PKCE validation for OIDC app integrations is Self-Service EA in Preview
+
+You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-506682 -->
+
+#### Signed request support for generic SAML IdP is GA in Preview
+
+Using signed SAML requests ensures that incoming requests are from genuine applications. When this is configured, Okta only accepts SAML requests signed using the certificate associated with the app integration. Having signed SAML requests also resolves scenarios where the Assertion Consumer Service (ACS) URL requested after authentication can be one of several domains or URLs. When a Service Provider sends a signed authentication request, Okta can accept dynamic ACS values as part of the SAML request and posts the SAML assertion response to the ACS value specified in the request. See the Advanced Settings section of [Create SAML app integrations using AIW](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). <!-- OKTA-508480 -->
+
+#### Support for Okta Resource Name is GA in Preview
+
+The [Okta Resource Name](/docs/concepts/role-assignment/#okta-resource-name-orn) (ORN) uniquely identifies an Okta [resource set](/docs/reference/api/roles/#resource-set-object) that is associated with a custom admin role assignment. <!-- OKTA-503417 -->
+
+#### Trusted Origins for iFrame embedding is GA in Preview
+
+You can now choose which origins can embed Okta sign-in pages and the Okta End-User Dashboard using Trusted Origins for iFrame embedding. This feature offers a granular control over iFrame embedding compared to the existing embedding option in Customization, which doesn't let you distinguish between secure and non-secure origins. Trusted Origins (**Security** > **API**) allows you to selectively configure the origins that you trust. It also provides enhanced security as it uses a more secure `frame-ancestors` directive in Content Security Policy that protects your data from web attacks such as clickjacking. You can also migrate your existing iFrames to Trusted Origins. See [Trusted Origins API](/docs/reference/api/trusted-origins/). <!-- OKTA-510180 -->
+
+#### Developer documentation updates in 2022.07.0
+
+* A new [Custom Password Recovery guide](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/java/main/) is now available for those wanting to link Email Magic Links directly to their applications with the Java IDX SDK.
+
+* A new [User query options guide](/docs/reference/user-query/) is now available, with best practices for retrieving users from your org by using the `search` instead of `filter` or `q` query parameters in the Users API.
+
+* New guides are now available for integrating [Google Authenticator](/docs/guides/authenticators-google-authenticator/java/main/), [Okta Email](/docs/guides/authenticators-okta-email/java/main/), and [WebAuthn authenticators](/docs/guides/authenticators-web-authn/java/main/) into an application with the Java IDX SDK.
+
+* The [Customize email notifications guide](/docs/guides/custom-email/main/) now includes a list of allowed HTML tags and elements.
+
+#### Bugs fixed in 2022.07.0
+
+* A `Number` type schema property could erroneously be made unique. This resulted in inconsistent behavior and is no longer supported. Use `Integer` or `String` properties instead. (OKTA-506002)
+
+* Sometimes an error occurred when an admin attempted to edit a resource set that included a deleted app. (OKTA-510483)
+
+* When an app user property was set to `NON-SENSITIVE`, sometimes it was still mapped from a sensitive property.(OKTA-508820)
+
+* When the Enroll Okta Call Factor lifecycle operation (`/users/{userId}/factors`) was executed, an internal server error sometimes occurred. (OKTA-482674)
+
+* When the Groups API was called using an older prefix as the `groupID`, an invalid cursor error was returned.  (OKTA-501397)
+
 ## June
+
+### Weekly release 2022.06.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.06.3](#bug-fixed-in-2022-06-3)                      | June 29, 2022            |
+
+#### Bug fixed in 2022.06.3
+
+There was no limit on the number of factor sequences that could be added in a chain through a Policy API update. (OKTA-499259)
 
 ### Weekly release 2022.06.2
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Reset Factors endpoint includes a new optional request parameter](#reset-factors-endpoint-includes-a-new-optional-request-parameter)                      | June 23, 2022            |
 | [Bugs fixed in 2022.06.2](#bugs-fixed-in-2022-06-2)                      | June 23, 2022            |
 
-#### Reset Factors endpoint includes a new optional request parameter
+<!-- #### Reset Factors endpoint includes a new optional request parameter
 
-The `/reset_factors` endpoint has a new optional request parameter for the [Reset Factor lifecycle operation](/docs/reference/api/users/#reset-factors). You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor by setting the `removeRecoveryEnrollment` parameter to true when making a POST request to the `/reset_factors` endpoint (`/users/${userId}/lifecycle/reset_factors`). <!--OKTA-500168-->
+The `/reset_factors` endpoint has a new optional request parameter for the [Reset Factor lifecycle operation](/docs/reference/api/users/#reset-factors). You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor by setting the `removeRecoveryEnrollment` parameter to true when making a POST request to the `/reset_factors` endpoint (`/users/${userId}/lifecycle/reset_factors`). <!--OKTA-500168  REMOVED as per Katherine Chan - feature disabled with kill switch June 30, 2022-->
 
 #### Bugs fixed in 2022.06.2
 
@@ -43,6 +324,7 @@ The `/reset_factors` endpoint has a new optional request parameter for the [Rese
 | [Dynamic IdP routing is EA in Preview](#dynamic-idp-routing-is-ea-in-preview) | June 8, 2022|
 | [Email Address Bounces API is GA in Production](#email-address-bounces-api-is-ga-in-production) | March 2, 2022 |
 | [Generic OIDC IdP nonce validation enforced](#generic-oidc-idp-nonce-validation-enforced) | June 8, 2022|
+| [Group limit removed for Authorization Code grant type flows](#group-limit-removed-for-authorization-code-grant-type-flows) | June 8, 2022|
 | [JWT claim enhancement](#jwt-claim-enhancement) | June 8, 2022|
 | [OIDC Identity Providers private/public key pair support is EA in Preview](#oidc-identity-providers-private-public-key-pair-support-is-ea-in-preview) | June 8, 2022|
 | [Okta Verify rate limit updates](#okta-verify-rate-limit-updates) | June 8, 2022|
@@ -66,6 +348,10 @@ Okta admins can now control the bounced email address list through the [Email Ad
 #### Generic OIDC IdP nonce validation enforced
 
 For generic OIDC IdPs, Okta fails the authentication if the returned ID token doesn’t contain the `nonce` that was sent with the initial authorize request. <!-- OKTA-486805 -->
+
+#### Group limit removed for Authorization Code grant type flows
+
+The 100-group limit for the `/token` endpoint is removed for the Authorization Code and Authorization Code with PKCE grant type flows when the Groups Claim Type is **Filter**. <!-- OKTA-497701 -->
 
 #### JWT claim enhancement
 

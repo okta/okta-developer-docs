@@ -2,11 +2,9 @@
 title: Custom password recovery
 ---
 
-<div class="oie-embedded-sdk">
+<ApiLifecycle access="ie" />
 
-<ApiLifecycle access="ie" /><br>
-
-This guide shows you how to integrate  [Email Magic Links (EML)](https://www.okta.com/passwordless-authentication/#email-magic-link) into the self-service password recovery flow of your applications using Okta's embedded solutions.
+This guide shows you how to integrate  [Email Magic Links (EML)](/docs/guides/email-magic-links-overview/main/) into the self-service password recovery flow of your applications using Okta's embedded solutions.
 
 ---
 **Learning outcomes**
@@ -29,29 +27,7 @@ This guide shows you how to integrate  [Email Magic Links (EML)](https://www.okt
 
 Okta's embedded solutions allow you to customize your authentication use cases with full support for theming, branding, and extensive ways to control the user experience. This guide covers customizations for one particular use case, self-service password recovery, where an email authenticator is used to verify the user before they can reset their password.
 
-### Two different user experiences using email
-
-When you configure an email authenticator with password recovery, there is out-of-the-box support for two different types of user experiences: click a magic link or copy a one-time password (OTP). With the magic link experience, the user initiates the password recovery in your app, clicks on the magic link in their email, and completes the password reset using an Okta-hosted site. With OTP, the user initiates the password recovery in your app, copies the OTP from their email to your app, and completes the password reset in your app. The following diagram illustrates these two experiences:
-
-<div class="common-image-format">
-
-![Diagram showing two flows for password recovery](/img/advanced-use-cases/custom-pwd-recovery-no-customizations.png)
-
-</div>
-
-### The case for customizing the email magic link experience
-
-The OTP experience allows for greater customization because it keeps the user within your app when performing the password reset. However, it does introduce additional friction since the user needs to copy the OTP from their email to your app. Magic links, on the other hand, provide a smoother experience by only requiring the user to click a link. However, the drawback with this experience is that it sends them to an Okta-hosted site to reset their password, which limits the branding and other customizations you can implement.
-
-Fortunately, you can provide your users with a password recovery experience that's friction-free and customizable. In this customized experience, your users click the magic link and, instead of redirecting to an Okta-hosted site, they get sent directly to your app to reset their password. The flow looks like the following:
-
-<div class="common-image-format">
-
-![Diagram showing customized password recovery](/img/advanced-use-cases/custom-pwd-recovery-customizations.png)
-
-</div>
-
-With this customized experience, you gain better control of the user experience, keep user interactions contained as much as possible within your app, and send your users back to your app with a single click. This guide discusses the configuration changes and updates needed to make your app support this experience.
+> **Note**: The [Email Magic Links overview](/docs/guides/email-magic-links-overview/main/) explains the difference in user experience between using one-time passwords and magic links.
 
 ## Before you begin
 
@@ -82,13 +58,15 @@ Confirm that you have the email authenticator set up for password recovery by pe
 
 ## Update the Forgot Password email template
 
-Okta sends users an email based on the **Forgot Password** template when they start a password recovery. All Okta email templates are written using [Velocity Templating Language (VTL)](https://help.okta.com/en-us/Content/Topics/Settings/velocity-variables.htm) and use predefined variables to insert relevant values into that email. Okta defines three VTL variables specific to this template:
+Okta sends users an email based on the **Forgot Password** template when they start a password recovery. All Okta email templates are written using [Velocity Templating Language (VTL)](https://help.okta.com/okta_help.htm?type=oie&id=ext-velocity-variables) and use predefined variables to insert relevant values into that email. Okta defines three VTL variables specific to this template:
 
 | Variable | Contains  |
 | ---------------| ------------------------|
 | `${oneTimePassword}`   | The one-time password Okta generated for the user |
 | `${request.relayState}` | The current SAML [relaystate](https://developer.okta.com/docs/concepts/saml/#understanding-sp-initiated-sign-in-flow) value |
 | `${resetPasswordLink}` | The Okta-hosted URL that continues the password recovery flow |
+
+> **Note**: The `${oneTimePassword}` and `${request.relayState}` variables aren't supported in the **Password Reset by Admin** template. As a result, you can't use this template in the custom password recovery flow described in this guide.
 
 By default, the magic link in the template is set to `${resetPasswordLink}`. You must update it to an endpoint in your application that expects `${oneTimePassword}` and `${request.relayState}` as query parameters and uses them to continue the password recovery flow:
 
@@ -143,5 +121,3 @@ The following diagram shows the steps for a customized password recovery in an a
 ## See also
 
 <StackSnippet snippet="relatedusecases" />
-
-</div>

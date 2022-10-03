@@ -1,5 +1,5 @@
 <template>
-    <router-link :to="href" class="card is-card-action is-card-clickable">
+    <SmartLink :item="{ link: href }" classes="card is-card-action is-card-clickable">
         <header class="card--header">
             <figure class="card--header-icon" v-if="headerIcon">
                 <i class="icon-75" :class="headerIcon"></i>
@@ -31,11 +31,14 @@
                 <span class="card--link">{{ cardLinkText }}</span>
             </section>
         </footer>
-    </router-link>
+    </SmartLink>
 </template>
 
 <script>
 export default {
+    components: {
+        SmartLink: () => import("../components/SmartLink.vue")
+    },
     props: {
         href: {
             default: "#",

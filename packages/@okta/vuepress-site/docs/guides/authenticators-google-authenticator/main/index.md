@@ -2,8 +2,6 @@
 title: Google Authenticator integration guide
 ---
 
-<div class="oie-embedded-sdk">
-
 <ApiLifecycle access="ie" /><br>
 
 This guide shows you how to integrate Google Authenticator into your authentication use cases using the embedded SDK.
@@ -39,7 +37,7 @@ As the service provider, you can provide Google Authenticator support to your us
 
 The following diagram illustrates how the Google Authenticator enrollment and challenge flows can work in your application.
 
-<div class="common-image-format">
+<div class="full">
 
 ![Diagram showing the Google Authenticator enrollment flow](/img/authenticators/authenticators-google-flow-overview.png)
 
@@ -111,5 +109,3 @@ The following summarizes the Google Authenticator challenge flow using a user si
 ## See also
 
 <StackSnippet snippet="relatedusecases" />
-
-</div>

@@ -24,7 +24,7 @@ The Policy API supports the following **Rule operations**:
 
 ## Getting started
 
-Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f1e0184b7e6b26c558a0)
+Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f443644517abb15117af)
 
 ## Policy API operations
 
@@ -198,6 +198,35 @@ curl -v -X POST \
 HTTP 204:
 [Policy object](#policy-object)
 
+### Clone a Policy
+
+<ApiLifecycle access="ie" />
+
+> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+
+> **Note:** Within the Identity Engine, this feature is only supported for [authentication policies](#authentication-policy).
+
+<ApiOperation method="post" url="/api/v1/policies/${policyId}/clone" />
+
+##### Request parameters
+
+The policy ID described in the [Policy object](#policy-object) is required.
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/policies/${policyId}/clone"
+```
+
+##### Response types
+
+HTTP 204:
+[Policy object](#policy-object)
+
 ### Activate a Policy
 
 <ApiOperation method="post" url="/api/v1/policies/${policyId}/lifecycle/activate" />
@@ -248,6 +277,10 @@ HTTP 204:
 
 ### Get applications
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
+
+Retrieves a list of applications mapped to a policy
+
+> **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
 
 ##### Request parameters
 
@@ -491,19 +524,14 @@ Policies that have no Rules aren't considered during evaluation and are never ap
 
 Different Policy types control settings for different operations. All Policy types share a common framework, message structure, and API, but have different Policy settings and Rule data. The data structures specific to each Policy type are discussed in the various sections below.
 
-[Global Session Policy](#global-session-policy)
-
-[Okta MFA Policy](#multifactor-mfa-enrollment-policy)
-
-[Password Policy](#password-policy)
-
-[IdP Discovery Policy](#idp-discovery-policy)
-
-[OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
-
-[Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
-
-[Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
+* [Global session policy](#global-session-policy)
+* [Authenticator enrollment policy](#authenticator-enrollment-policy) <ApiLifecycle access="ie" />
+* [Okta MFA Enrollment Policy](#multifactor-mfa-enrollment-policy)
+* [Password Policy](#password-policy)
+* [IdP Discovery Policy](#idp-discovery-policy)
+* [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
+* [Authentication Policy](#authentication-policy) <ApiLifecycle access="ie" /><br>
+* [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 
 ### Policy priority and defaults
 
@@ -528,7 +556,7 @@ For example, assume the following Policies exist.
 
 When a Policy is evaluated for a user, Policy "A" is evaluated first. If the user is a member of the "Administrators" group, then the Rules associated with Policy "A" are evaluated. If a match is found, then the Policy settings are applied. If the user isn't a member of the "Administrators" group, then Policy B is evaluated.
 
-### Policy JSON example (Global Session Policy)
+### Policy JSON example (global session policy)
 
 ```json
   {
@@ -851,7 +879,7 @@ If you want to include or exclude all zones, you should pass in `ALL_ZONES` as t
 
 #### Authentication Provider Condition object
 
-Specifies an authentication provider that masters some or all Users
+Specifies an authentication provider that is the source of some or all Users
 
 | Parameter | Description                                    | Data Type                  | Required | Default                     |
 | ---       | ---                                            | ---                        | ---      | ---                         |
@@ -1080,25 +1108,25 @@ See [Okta Expression Language in Identity Engine](/docs/reference/okta-expressio
 
 ## Type-Specific Policy data structures
 
-## Global Session Policy
+## Global session policy
 
-> **Note:** In Identity Engine, the Okta Sign On Policy name has changed to Global Session Policy. The policy type of `OKTA_SIGN_ON` remains unchanged.
+> **Note:** In Identity Engine, the Okta Sign On Policy name has changed to global session policy. The policy type of `OKTA_SIGN_ON` remains unchanged.
 
-Global Session Policy controls the manner in which a user is allowed to sign in to Okta, including whether they are challenged for multifactor authentication (MFA) and how long they are allowed to remain signed in before re-authenticating.
+Global session policy controls the manner in which a user is allowed to sign in to Okta, including whether they are challenged for multifactor authentication (MFA) and how long they are allowed to remain signed in before re-authenticating.
 
-> **Note:** Global Session Policy is different from an application-level authentication policy. An authentication policy determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked.
+> **Note:** Global session policy is different from an application-level authentication policy. An authentication policy determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked.
 
 ### Policy Settings data
 
-The Global Session Policy doesn't contain Policy Settings data. All of the data is contained in the Rules.
+The global session policy doesn't contain Policy Settings data. All of the data is contained in the Rules.
 
 ### Policy conditions
 
-The following conditions may be applied to the Global Session Policy.
+The following conditions may be applied to the global session policy.
 
 [People Condition](#people-condition-object)
 
-### Global Session Policy Rules action data
+### Global session policy Rules action data
 
 #### Signon Action example
 
@@ -1125,6 +1153,7 @@ The following conditions may be applied to the Global Session Policy.
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
 | access                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
 | requireFactor           | Indicates if multifactor authentication is required                                                                                                                      | Boolean                                         | No                            | false   |
+| primaryFactor <ApiLifecycle access="ie" /> | Indicates the primary factor used to establish a session for the org. Supported values: `PASSWORD_IDP_ANY_FACTOR` (users can use any factor required by the app authentication policy to establish a session), `PASSWORD_IDP` (users must always use a password to establish a session)  | String | Yes, if `access` is set to `ALLOW`                        | N/A   |
 | factorPromptMode        | Indicates if the User should be challenged for a second factor (MFA) based on the device being used, a Factor session lifetime, or on every sign-in attempt. | `DEVICE`, `SESSION` or `ALWAYS`                 | Yes, if `requireFactor` is set to `true` | N/A     |
 | rememberDeviceByDefault | Indicates if Okta should automatically remember the device                                                                                                                | Boolean                                         | No                            | false   |
 | factorLifetime          | Interval of time that must elapse before the User is challenged for MFA, if the Factor prompt mode is set to `SESSION`                                                    | Integer                                         | Yes, if `requireFactor` is `true` | N/A     |
@@ -1141,7 +1170,7 @@ The following conditions may be applied to the Global Session Policy.
 
 ### Rules conditions
 
-You can apply the following conditions to the Rules associated with a Global Session Policy:
+You can apply the following conditions to the Rules associated with a global session policy:
 
 * [People condition](#people-condition-object)
 
@@ -1151,9 +1180,111 @@ You can apply the following conditions to the Rules associated with a Global Ses
 
 * [Risk Score condition](#risk-score-condition-object)
 
+## Authenticator enrollment policy
+
+<ApiLifecycle access="ie" />
+
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to authenticator enrollment policy. The policy type of `MFA_ENROLL` remains unchanged, however, the `settings` data is updated for authenticators. For Classic Engine, see [Multifactor (MFA) Enrollment Policy](#multifactor-mfa-enrollment-policy).
+> The authenticator enrollment policy is a <ApiLifecycle access="beta" /> release.
+
+The authenticator enrollment policy controls which authenticators are available for a User, as well as when a User may enroll in a particular authenticator.
+
+#### Authenticator enrollment policy settings example
+
+<ApiLifecycle access="ie" />
+
+> **Note:** Policy settings are included only for those authenticators that are enabled.
+
+```json
+   "settings": {
+     "type": "AUTHENTICATORS",
+     "authenticators": [
+       {
+         "key": "security_question",
+         "enroll": {
+           "self": "OPTIONAL"
+         }
+       },
+       {
+         "key": "okta_phone",
+         "enroll": {
+           "self": "OPTIONAL"
+         }
+       }
+     ]
+   }
+```
+
+### Policy Settings data
+
+<ApiLifecycle access="ie" />
+
+| Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
+| ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
+| authenticators | List of authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
+| factors                                                                          | Factor policy settings. This parameter is for Classic Engine MFA Enrollment policies that have migrated to Identity Engine but haven't converted to using authenticators yet. Factors and authenticators are mutually exclusive in an authenticator enrollment policy. When a policy is updated to use authenticators, the factors are removed.               | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
+| type            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
+
+> **Note:** The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
+
+> **Note:** For orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta contains the `authenticators` property in the policy settings. Existing default authenticator enrollment policies from a migrated Classic Engine org remain unchanged and still use the `factors` property in their policy settings.
+
+#### Policy Authenticator object
+
+<ApiLifecycle access="ie" />
+
+| Parameter | Description                                   | Data Type                                                                   | Required |
+| ---       | ---                                           | ---                                                                         | ---      |
+| key       | A label that identifies the authenticator     | String                                                                      | Yes      |
+| enroll    | Enrollment requirements for the authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
+
+#### Policy Authenticator Enroll object
+
+<ApiLifecycle access="ie" />
+
+| Parameter | Description                                    | Data Type                                | Required | Default       |
+| ---       | ---                                            | ---                                      | ---      | ---           |
+| self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
+
+### Policy conditions
+
+The following conditions may be applied to authenticator enrollment policies:
+
+* [People Condition](#people-condition-object)
+
+* [Network Condition](#network-condition-object)
+
+* [Application and App Instance Condition](#application-and-app-instance-condition-object)
+
+### Authenticator Rules Action data
+
+#### Authenticator enrollment rules actions example
+
+```json
+  "actions": {
+    "enroll": {
+      "self": "CHALLENGE"
+    }
+  },
+```
+
+#### Rules Actions Enroll object
+
+| Parameter | Description                                                                                               | Data Type                       | Required | Default |
+| ---       | ---                                                                                                       | ---                             | ---      | ---     |
+| self      | Should the User be enrolled the first time they `LOGIN`, the next time they are `CHALLENGE`d, or `NEVER`? | `CHALLENGE`, `LOGIN` or `NEVER` | Yes      | N/A     |
+
+### Rules conditions
+
+You can apply the following conditions to the Rules associated with the authenticator enrollment policy:
+
+* [People Condition](#people-condition-object)
+
+* [Network Condition](#network-condition-object)
+
 ## Multifactor (MFA) Enrollment Policy
 
-> **Note:** The MFA Policy API is a <ApiLifecycle access="beta" /> release.
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](#authenticator-enrollment-policy). In Classic Engine, the Multifactor Enrollment Policy type remains unchanged and is a <ApiLifecycle access="beta" /> release.
 
 The Multifactor (MFA) Enrollment Policy controls which MFA methods are available for a User, as well as when a User may enroll in a particular Factor.
 
@@ -1184,42 +1315,14 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
    }
 ```
 
-#### Policy Authenticators Settings example
-
-<ApiLifecycle access="ie" />
-
-> **Note:** Policy Settings are included only for those Authenticators that are enabled.
-
-```json
-   "settings": {
-     "type": "AUTHENTICATORS",
-     "authenticators": [
-       {
-         "key": "security_question",
-         "enroll": {
-           "self": "OPTIONAL"
-         }
-       },
-       {
-         "key": "okta_phone",
-         "enroll": {
-           "self": "OPTIONAL"
-         }
-       }
-     ]
-   }
-```
-
 ### Policy Settings data
 
 
 | Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
 | ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
-| authenticators <ApiLifecycle access="ie" /> | List of Authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
 | factors                                                                          | Factor policy settings                | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
-| type <ApiLifecycle access="ie" />            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
-> **Note:** The `authenticators` parameter allows you to configure all available Authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
+> **Note:** The `factors` parameter only allows you to configure multifactor authentication.
 
 #### Policy Factors Configuration object
 
@@ -1273,24 +1376,6 @@ Currently, the Policy Factor Consent terms settings are ignored.
 | format    | The format of the Consent dialog box to be presented. | `TEXT`, `RTF`, `MARKDOWN` or `URL` | No       | N/A     |
 | value     | The contents of the Consent dialog box.               | String                             | No       | N/A     |
 
-
-#### Policy Authenticator object
-
-<ApiLifecycle access="ie" />
-
-| Parameter | Description                                   | Data Type                                                                   | Required |
-| ---       | ---                                           | ---                                                                         | ---      |
-| key       | A label that identifies the Authenticator     | String                                                                      | Yes      |
-| enroll    | Enrollment requirements for the Authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
-
-#### Policy Authenticator Enroll object
-
-<ApiLifecycle access="ie" />
-
-| Parameter | Description                                    | Data Type                                | Required | Default       |
-| ---       | ---                                            | ---                                      | ---      | ---           |
-| self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
-
 ### Policy conditions
 
 The following conditions may be applied to Multifactor Policy:
@@ -1331,7 +1416,7 @@ The following conditions may be applied to the Rules associated with MFA Enrollm
 
 The Password Policy determines the requirements for a user's password length and complexity, as well as the frequency with which a password must be changed. This Policy also governs the recovery operations that may be performed by the User, including change password, reset (forgot) password, and self-service password unlock.
 
-> **Note:** Password Policies are enforced only for Okta and AD-mastered users. For AD-mastered users, ensure that your Active Directory Policies don't conflict with the Okta Policies.
+> **Note:** Password Policies are enforced only for Okta and AD-sourced users. For AD-sourced users, ensure that your Active Directory Policies don't conflict with the Okta Policies.
 
 #### Policy Settings example
 
@@ -1344,7 +1429,13 @@ The Password Policy determines the requirements for a user's password length and
          "minUpperCase": 1,
          "minNumber": 1,
          "minSymbol": 0,
-         "excludeUsername": true
+         "excludeUsername": true,
+         "dictionary": {
+                        "common": {
+                            "exclude": false
+                        }
+                    },
+         "excludeAttributes": []
        },
        "age": {
          "maxAgeDays": 0,
@@ -1419,11 +1510,9 @@ The Password Policy determines the requirements for a user's password length and
 | minSymbol                                 | Indicates if a password must contain at least one symbol (For example: !@#$%^&*): `0` indicates no, `1` indicates yes                      | integer                                                             | No       | 1           |
 | excludeUsername                           | Indicates if the Username must be excluded from the password                                                                   | boolean                                                             | No       | true        |
 | excludeAttributes                         | The User profile attributes whose values must be excluded from the password: currently only supports `firstName` and `lastName` | Array                                                               | No       | Empty Array |
-| dictionary <ApiLifecycle access="beta" /> | Weak password dictionary lookup settings                                                                                        | [Weak Password Dictionary object](#weak-password-dictionary-object) | No       | N/A         |
+| dictionary | Weak password dictionary lookup settings                                                                                        | [Weak Password Dictionary object](#weak-password-dictionary-object) | No       | N/A         |
 
 ###### Weak Password Dictionary object
-
-> **Note:** Weak password lookup is a <ApiLifecycle access="beta" /> feature.
 
 Specifies how lookups for weak passwords are done. Designed to be extensible with multiple possible dictionary types against which to do lookups.
 
@@ -1532,7 +1621,7 @@ However, if you are using the Identity Engine, it is recommended to set recovery
 
 | Property   | Description                                                                                                                                                                            | Data Type | Required | Default |
 | ---        | ---                                                                                                                                                                                    | ---       | ---      | ---     |
-| skipUnlock | Indicates if, when performing an unlock operation on an Active Directory mastered User who is locked out of Okta, the system should also attempt to unlock the User's Windows account. | Boolean   | No       | false   |
+| skipUnlock | Indicates if, when performing an unlock operation on an Active Directory sourced User who is locked out of Okta, the system should also attempt to unlock the User's Windows account. | Boolean   | No       | false   |
 
 ### Policy conditions
 
@@ -1829,15 +1918,16 @@ refers to the user's `username`. If the user is signing in with the username `jo
 
 > **Note:** The app sign-on policy name has changed to authentication policy. The policy type of `ACCESS_POLICY` remains unchanged.
 
-An authentication policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. The Identity Engine always evaluates both the Global Session Policy and the authentication policy for the app. The resulting user experience is the union of both policies. Authentication policies have a policy type of `ACCESS_POLICY`.
+An authentication policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. This policy is always associated with an app through a mapping. Identity Engine always evaluates both the global session policy and the authentication policy for the app. The resulting user experience is the union of both policies. Authentication policies have a policy type of `ACCESS_POLICY`.
 
-When you create a new application, the shared default authentication policy is associated with it. You can [create a different authentication policy for the app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) or [add additional rules to the default authentication policy](/docs/guides/configure-signon-policy/#select-the-policy-and-add-a-rule) to meet your needs. Remember that any rules that you add to the shared authentication policy are automatically assigned to any new application that you create in your org.
+When you create a new application, the shared default authentication policy is associated with it. You can [create a different authentication policy for the app](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) or [add additional rules to the default authentication policy](/docs/guides/configure-signon-policy/#select-the-policy-and-add-a-rule) to meet your needs. Remember that any rules that you add to the shared authentication policy are automatically assigned to any new application that you create in your org. Additionally, you can [merge duplicate authentication policies with identical rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies) to improve policy management.
 
 > **Note:** You can have a maximum of 5000 authentication policies in an org.
 > There is a max limit of 100 rules allowed per policy.
 > When you create an authentication policy, you automatically also create a default policy rule with the lowest priority of `99`.
 > The highest priority that an authentication policy rule can be set to is `0`.
 
+> **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
 
 #### Authentication policy example
 
@@ -2077,6 +2167,8 @@ Profile Enrollment policies specify which profile attributes are required for cr
 
 When you create a new profile enrollment policy, a policy rule is created by default. This type of policy can only have one policy rule, so it's not possible to create other rules. Instead, consider editing the default one to meet your needs.
 
+> **Note:** You can't update or delete the required base attributes in the default user profile: `email`, `firstName`, or `lastName`.
+
 > **Note:** You can have a maximum of 500 profile enrollment policies in an org.
 > A Profile Enrollment policy can only have one rule associated with it. Adding more rules isn't allowed.
 
@@ -2122,7 +2214,8 @@ Policy Rule conditions aren't supported for this policy.
                 "unknownUserAction": "DENY",
                 "activationRequirements": {
                     "emailVerification": true
-                }
+                },
+                "uiSchemaId": "uis44fio9ifOCwJAO1d7"
             }
         }
 ```
@@ -2133,12 +2226,13 @@ Policy Rule conditions aren't supported for this policy.
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
 | `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
 | `activationRequirements`  | Contains a single Boolean property that indicates whether `emailVerification` should occur (`true`) or not (`false`, default)       | Object | Yes |        `false`                                                                                                                                                                                                              |
-| `preRegistrationInlineHooks` | (Optional) The `id` of at most one Registration Inline Hook                                                                       | Array   | No | N/A                                                                                                                                                                                                                        |
+| `preRegistrationInlineHooks` | (Optional) The `id` of at most one registration inline  hook                                                                       | Array   | No | N/A                                                                                                                                                                                                                        |
 | `profileAttributes.label`    | A display-friendly label for this property                                                                                       | String  |  Required | N/A                                                                                                                                                                                                                      |
 | `profileAttributes.name`     | The name of a User Profile property. Can be an existing User Profile property.                                                   | String  |  Required | N/A                                                                                                                                                                                                                          |
 | `profileAttributes.required` | (Optional, default `FALSE`) Indicates if this property is required for enrollment                                                 | Boolean | Required | `FALSE`                                                                                                                                                                                                                        |
-| `profileAttributes` | A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the Registration Inline Hook. A maximum of 10 Profile properties is supported.                                                         | Array | Required | N/A                                                                                                                                                                                                                        |
+| `profileAttributes` | A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the registration inline hook. A maximum of 10 Profile properties is supported.                                                         | Array | Required | N/A                                                                                                                                                                                                                        |
 | `targetGroupIds`             | (Optional, max 1 entry) The `id` of a Group that this User should be added to                                                     | Array   | No | N/A                                                                                                                                                                                                                         |
 | `unknownUserAction`          | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)                                               | String  | YES | N/A                                                                                                                                                                                                                        |
+| `uiSchemaId`                 | Value created by the backend. If present all policy updates must include this attribute/value.                                               | String  | Required if Present | N/A                                                                                                                                                                                                                        |
 
 > **Note:** The Profile Enrollment Action object can't be modified to set the `access` property to `DENY` after the policy is created.

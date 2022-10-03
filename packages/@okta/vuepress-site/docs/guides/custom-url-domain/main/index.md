@@ -55,7 +55,7 @@ You can also [configure a custom email notification domain](#about-custom-email-
     * If it's your first time setting up a custom domain URL with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
     * If you already have an Okta-managed TLS certificate and you later get a CAA record, Okta may be unable to renew your certificate.
 
-* Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind.isc.org/doc/arm/9.11/man.dig.html).
+* Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
@@ -349,7 +349,11 @@ Okta sends your super admins a confirmation email after your custom domain is co
 
     To finish configuring your custom email domain, you must add another include-statement that specifies the mail domain that you specified in the **Mail domain to send from** field from the Configure Email Sender dialog box in step 6. This is also the host that appears in the first CNAME row in the DNS Records table.
 
-    ![CNAME Example](/img/CNAMEExample.png "CNAME table with an arrow pointing at the first CNAME row in the table")
+    <div class="three-quarter border">
+
+    ![CNAME table with an arrow pointing at the first CNAME row in the table](/img/admin/CNAMEExample.png)
+
+    </div>
 
     Add the host to the existing record to configure a combined SPF record similar to this:
 

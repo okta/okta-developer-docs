@@ -1,0 +1,151 @@
+.customLanding {
+    &-explore {
+        padding: 90px 0 120px;
+
+        h2 {
+            margin: 0 0 35px;
+            max-width: 540px;
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 1.25;
+            color: cv('header', 'nav-link');
+        }
+
+        &__desc {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 1.5;
+            color: cv('header', 'nav-link');
+        }
+
+        &__list {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: stretch;
+            position: relative;
+            margin-top: 60px;
+            @media (max-width: 1110px) {
+                flex-wrap: wrap;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 80%;
+                border-bottom: 3px dashed cv('gray', '100');
+                @media (max-width: 1110px) {
+                    content: none;
+                }
+            }
+        }
+
+        &__item {
+            position: relative;
+            padding-right: 50px;
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            &:last-child {
+                padding-right: 0;
+            }
+            @media (max-width: 1110px) {
+                width: 50%;
+                margin-bottom: 20px;
+            }
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+            &:nth-child(4) {
+                .customLanding-explore__icon-item {
+                    background-position: 37px 50% !important;
+                }
+            }
+        }
+
+        &__icon {
+            width: 112px;
+            height: 112px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: cv('body', 'custom-bg-icon') !important;
+            border-radius: 50%;
+            &-item {
+                width: 112px;
+                height: 112px;
+                background-size: 48px;
+            }
+        }
+
+        &__caption {
+            margin: 0 0 10px;
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 500;
+            color: cv('header', 'nav-link');
+        }
+
+        &__text {
+            font-size: 13px;
+            line-height: 21px;
+            color: cv('text');
+        }
+
+        &__link {
+            display: inline-block;
+            margin-top: 20px;
+            color: cv('link');
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+}
+
+.dark-theme {
+    .customLanding {
+        &-explore {
+            &__item {
+                &:nth-child(1) {
+                    .customLanding-explore__icon-item {
+                        -webkit-mask-image: url(/img/customLanding/explore-1.svg);
+                        mask-image: url(/img/customLanding/explore-1.svg);
+                    }
+                }
+                &:nth-child(2) {
+                    .customLanding-explore__icon-item {
+                        -webkit-mask-image: url(/img/customLanding/explore-2.svg);
+                        mask-image: url(/img/customLanding/explore-2.svg);
+                    }
+                }
+                &:nth-child(3) {
+                    .customLanding-explore__icon-item {
+                        -webkit-mask-image: url(/img/customLanding/explore-3.svg);
+                        mask-image: url(/img/customLanding/explore-3.svg);
+                    }
+                }
+                &:nth-child(4) {
+                    .customLanding-explore__icon-item {
+                        -webkit-mask-image: url(/img/customLanding/explore-4.svg);
+                        mask-image: url(/img/customLanding/explore-4.svg);
+                        margin-left: 8px;
+                    }
+                }
+            }
+            &__icon {
+                background-color: cv('body', 'custom-bg-gray') !important;
+                &-item {
+                    background-image: none !important;
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    background-color: cv("action") !important;
+                }
+            }
+        }
+    }
+}

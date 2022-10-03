@@ -7,12 +7,7 @@
 1. From the terminal, navigate to the `express-embedded-sign-in-widget` sample directory and run the application: `npm run start`. This process sets the environment variables and starts the web server. Verify on the console that the environment variables are set.
 1. Open a browser window and navigate to the app's home page: `http://localhost:8080`. After the app loads, click the **Sign In** button located on the home page.
 1. On the sign-in page, enter the username (email) and password you used in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-your-okta-account).
-
-   ![Displays the sample app sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-signin.png)
-
 1. Click **Sign In**. If you've successfully signed in, the app redirects you to the user profile page that displays basic user profile and security token information.
-
-   ![Example user profile page](/img/oie-embedded-sdk/Embedded-SIW-profile-page-nodejs.png)
 
 ### Troubleshoot
 

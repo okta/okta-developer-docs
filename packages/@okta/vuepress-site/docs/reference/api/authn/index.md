@@ -11,14 +11,16 @@ The Okta Authentication API provides operations to authenticate users, perform m
 The API is targeted for developers who want to build their own end-to-end login experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
 * **Primary authentication** allows you to verify username and password credentials for a user.
-* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time password or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your Global Session Policy.
+* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time password or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your global session policy.
 * **Recovery** allows users to securely reset their password if they've forgotten it, or unlock their account if it has been locked out due to excessive failed login attempts. This functionality is subject to the security policy set by the administrator.
 
 ## Application types
 
-The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the Global Session Policy, the MFA Enrollment Policy, or the Password Policy.
+The behavior of the Okta Authentication API varies depending on the type of your application and your org's security policies such as the global session policy, the MFA Enrollment Policy, or the Password Policy.
 
 > **Note:** Policy evaluation is conditional on the [client request context](/docs/reference/core-okta-api/#client-request-context) such as IP address.
+
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 ### Public application
 
@@ -47,6 +49,8 @@ Trusted applications are backend applications that act as authentication broker 
 <ApiOperation method="post" url="/api/v1/authn" />
 
 Every authentication transaction starts with primary authentication which validates a user's primary password credential. **Password Policy**, **MFA Policy**,  and **Sign-On Policy** are evaluated during primary authentication to determine if the user's password is expired, a Factor should be enrolled, or additional verification is required. The [transaction state](#transaction-state) of the response depends on the user's status, group memberships and assigned policies.
+
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 The requests and responses vary depending on the application type, and whether a password expiration warning is sent:
 
@@ -437,6 +441,8 @@ User is assigned to a **Sign-On Policy** that requires additional verification a
 
 
 User is assigned to a **MFA Policy** that requires enrollment during sign-in and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
+
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 ```json
 {
@@ -1113,7 +1119,7 @@ curl -v -X POST \
 
 Primary authentication has to be completed by using the value of **stateToken** request parameter passed to custom sign-in page.
 
-> **Note:** Global Session Policy and the related authentication policy are evaluated after successful primary authentication.
+> **Note:** Global session policy and the related authentication policy are evaluated after successful primary authentication.
 
 ```bash
 curl -v -X POST \
@@ -1202,6 +1208,8 @@ curl -v -X POST \
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
 
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
+
 ```json
 {
    "stateToken":"00zEfSRIpELrl87ndYiHNkvOEbyEPrBmTYuf9dsGLl",
@@ -1276,7 +1284,7 @@ The user is assigned to an MFA Policy that requires enrollment during the sign-i
 
 ##### Response example for Factor challenge for step-up authentication with Okta session
 
-User is assigned to a Global Session Policy or an authentication policy that requires additional verification and must [select and verify](#verify-Factor) a previously enrolled [Factor](#Factor-object) by `id` to complete the authentication transaction.
+User is assigned to a global session policy or an authentication policy that requires additional verification and must [select and verify](#verify-Factor) a previously enrolled [Factor](#Factor-object) by `id` to complete the authentication transaction.
 
 ```json
 {
@@ -1550,6 +1558,8 @@ curl -v -X POST \
 ##### Response example for Factor enroll
 
 The user is assigned to an MFA Policy that requires enrollment during the sign-in process and must [select a Factor to enroll](#enroll-factor) to complete the authentication transaction.
+
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 ```json
 {
@@ -1892,6 +1902,8 @@ You can enroll, activate, manage, and verify factors inside the authentication c
 <ApiOperation method="post" url="/api/v1/authn/factors" /> <SupportsCors />
 
 Enrolls a user with a [Factor](/docs/reference/api/factors/#supported-factors-for-providers) assigned by their **MFA Policy**
+
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 * [Enroll Okta Security Question Factor](#enroll-okta-security-question-factor)
 * [Enroll Okta SMS Factor](#enroll-okta-sms-factor)
@@ -7136,7 +7148,11 @@ The Authentication API leverages the [JSON HAL](http://tools.ietf.org/html/draft
 
 ### Transaction state
 
-![Transaction State Diagram](/img/auth-state-model1.png "The diagram displays the authentication and recovery transaction states.")
+<div class="full">
+
+![Transaction state diagram showing authentication and recovery transaction states](/img/auth/auth-state-model1.png)
+
+</div>
 
 An authentication or recovery transaction has one of the following states:
 
@@ -7345,7 +7361,7 @@ Subset of [profile properties](/docs/reference/api/users/#profile-object) for a 
 
 #### Remember device policy object
 
-A subset of policy settings of the Global Session Policy or an authentication policy published during `MFA_REQUIRED`, `MFA_CHALLENGE` states
+A subset of policy settings of the global session policy or an authentication policy published during `MFA_REQUIRED`, `MFA_CHALLENGE` states
 
 | Property                        | Description                                                                      | DataType  | Nullable | Unique | Readonly |
 | ------------------------------- | -------------------------------------------------------------------------------- | --------- | -------- | ------ | -------- |
@@ -7488,7 +7504,7 @@ Specifies the password complexity requirements of the assigned password policy
 | minNumber       | Minimum number of numeric characters for the password          | Number   | FALSE    | FALSE  | TRUE     |
 | minSymbol       | Minimum number of symbol characters for the password           | Number   | FALSE    | FALSE  | TRUE     |
 | minUpperCase    | Minimum number of uppercase characters for the password       | Number   | FALSE    | FALSE  | TRUE     |
-> **Note:** Duplicate the minimum Active Directory (AD) requirements in these settings for AD-mastered users. No enforcement is triggered by Okta settings for AD-mastered users.
+> **Note:** Duplicate the minimum Active Directory (AD) requirements in these settings for AD-sourced users. No enforcement is triggered by Okta settings for AD-sourced users.
 
 #### Password age object
 

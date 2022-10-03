@@ -69,6 +69,7 @@ guides:
  - registration-inline-hook
  - request-user-consent
  - revoke-tokens
+ - saml-inline-hook
  - saml-tracer
  - session-cookie
  - shared-sso-android-ios
@@ -119,9 +120,13 @@ guides:
  - authenticators-web-authn
  - oie-embedded-sdk-use-case-custom-pwd-recovery-mfa
  - authenticators-okta-verify
+ - authenticators-custom-authenticator
  - authenticators-okta-email
  - oie-embedded-sdk-use-case-new-user-activation
  - advanced-use-case-overview
+ - email-magic-links-overview
+ - step-up-authentication
+ - device-context
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
@@ -144,8 +149,9 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/)
     * [Auth JS fundamentals](/docs/guides/auth-js)
     * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw)
-    * [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/)
     * [Configure profile enrollment policies](/docs/guides/configure-profile-enrollment-policies/main/)
+    * [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/)
+    * [Single Sign-On with external Identity Providers](/docs/guides/identity-providers)
 
 3. Authorize
 
@@ -173,12 +179,12 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Deploy your app](/docs/guides/deploy-your-app/)
     * [Migrate to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
-6. Customize Okta process flows with Event or Inline Hooks
+6. Customize Okta process flows with event or inline hooks
 
-    * [Event Hook example](/docs/guides/event-hook-implementation/)
-    * [Token Inline Hook example](/docs/guides/token-inline-hook/)
-    * [Password Import Inline Hook example](/docs/guides/password-import-inline-hook/)
-    * [Registration Inline Hook example](/docs/guides/registration-inline-hook/)
+    * [Event hook example](/docs/guides/event-hook-implementation/)
+    * [Token inline hook example](/docs/guides/token-inline-hook/)
+    * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
+    * [Registration inline hook example](/docs/guides/registration-inline-hook/)
 
 ## Publish an integration
 
@@ -189,6 +195,6 @@ Integrations can be published publicly in the Okta Integration network catalog, 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 
 1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
-1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/)
-1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
+1. [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/)
+1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
 1. [Submit an app integration](/docs/guides/submit-app/)

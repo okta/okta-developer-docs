@@ -4,7 +4,9 @@ excerpt: Front-end framework guides with Auth JS
 layout: Guides
 ---
 
-<StackSelector />
+::: slot description
+For Okta Classic customers: Add embedded authentication to your SPA app with Okta Auth JS.
+:::
 
 <StackSnippet snippet="guide" />
 

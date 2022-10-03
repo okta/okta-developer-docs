@@ -8,13 +8,8 @@
    and where to place the configuration file.
 1. Click Visual Studio's play button and run the solution. The default web browser should open and navigate to the app's home page. The URL should be `https://localhost:44314`, which is the default address when using IISExpress. After the app loads, click the **Sign In** button located on the home screen.
 1. On the sign-in page, enter the username (email) and password that you used in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-your-okta-account).
-
-   ![Displays the Sign-In Widget](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen.png)
-
 1. Sign in to the app. After you've signed in successfully, the app redirects you to the user profile page that displays
    basic user profile and security token information.
-
-   ![Displays an example user profile page](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-user-profile-page.png)
 
 ### Troubleshoot
 

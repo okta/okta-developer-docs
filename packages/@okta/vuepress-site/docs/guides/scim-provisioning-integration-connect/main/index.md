@@ -1,28 +1,43 @@
 ---
 title: Connect your SCIM API service to Okta
-excerpt: Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
+excerpt: Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Admin Console.
 meta:
   - name: description
-    content: Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
+    content: Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Admin Console.
 layout: Guides
 ---
 
-This guide teaches you how to create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
+This guide teaches you how to configure Okta to make SCIM requests to your SCIM API service.
+
+---
+
+**Learning outcomes**
+
+* Create an Okta SCIM integration.
+* Configure SCIM provisioning.
+* Verify user profile and attribute mappings.
+
+**What you need**
+
+* A SCIM API service
+* An [Okta Developer Edition org](https://developer.okta.com/signup/)
+
+---
 
 ## Getting connected
 
 Make sure your SCIM implementation passes all the Runscope tests before integrating it with Okta. For more information on testing your SCIM implementation, see [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api)
 
-Begin by signing up for an [Okta developer account](https://developer.okta.com/signup/).
+Begin by signing in to your Okta Developer Edition org. If you don't have one, sign up for an [Okta developer account](https://developer.okta.com/signup/).
 
-1. Sign up for an [Okta developer account](https://developer.okta.com/signup/).
-1. Click the link in the signup email to open your Admin Console.
+1. Sign in to your [Okta org](https://developer.okta.com/login/) with your administrator account.
+1. Click **Admin** in the upper-right right corner of the page.
 1. Select **Applications** > **Applications**.
 1. Click **Browse App Catalog**.
 1. Search for either "SCIM 2.0" or "SCIM 1.1" depending on the version of SCIM supported by your server. After searching you see template applications for each of the three authentication methods used to connect to your SCIM implementation: Basic Auth, Header Auth, or OAuth Bearer Token.
-1. Click **Add** on the desired template application for your integration and finish adding the template application.
+1. Click **Add Integration** on the desired template application for your integration and finish adding the template application.
 1. On the **General Settings** page: Set the name of your application, choose if it's hidden from general and mobile users, and choose if users' are automatically signed in from the landing page. Click **Next**.
-1. Choose the sign in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [Applications topic](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
+1. Choose the sign in method for your integration on the **Sign-On Options** page. Select either SAML or SWA. For guidance on choosing the access method, see [App integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps). Click **Done** to create the integration.
 1. Click the **Provisioning** tab, then in the main panel click **Configure API Integration**. Select the **Enable API Integration** checkbox.
   Enter the base URL for your SCIM server.
   Configure the credential options based on the previously chosen authentication method:
@@ -105,7 +120,7 @@ Click **Edit** to make changes to the following sections.
 
 * **Sync Password**: Ensures that a user's application password is always the same as their Okta password, or alternatively, allows Okta to generate a unique password for the user. See [Synchronize passwords](https://help.okta.com/okta_help.htm?id=ext-password-sync-main).
 
-* **Profile Attribute Mappings**: Edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
+* **Profile Attribute Mappings**: Edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](#check-the-attributes-and-corresponding-mappings) or [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 
 ### To Okta
 
@@ -141,7 +156,7 @@ Click **Edit** to make changes to the following sections.
 
 * **Import Safeguards**: Defines the maximum percentage of users in your org that can be left unassigned while still allowing the import to proceed. App-level and org-level safeguards are enabled by default and set at 20 percent.
 
-* **Inline Hooks**: Configures custom logic to the process of importing new users into Okta from a downstream application. You can program the hooks to resolve conflicts in profile attributes and control whether imported users are treated as matches for existing users. To enable an import inline hook, see [Inline hooks](/docs/concepts/inline-hooks/).
+* **Inline hooks**: Configures custom logic to the process of importing new users into Okta from a downstream application. You can program the hooks to resolve conflicts in profile attributes and control whether imported users are treated as matches for existing users. To enable an import inline hook, see [Inline hooks](/docs/concepts/inline-hooks/).
 
 * **Okta Attribute Mappings**: Edit attributes and mappings through the Profile Editor. See [Check the attributes and corresponding mappings](/docs/guides/scim-provisioning-integration-connect/main/#check-the-attributes-and-corresponding-mappings) or [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 
@@ -163,12 +178,13 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
   1. Go to the **Provisioning** tab. Under the **Settings** section, click **To App**.
 
-      ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1.png "Provisioning to App tab")
+     <div class="three-quarter">
+
+     ![Displays the Provisioning > To App tab.](/img/oin/scim_check-attributes-1.png)
+
+     </div>
 
   1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to delete and then click the corresponding **X**.
-
-      ![Displays the Attribute Mappings screen.](/img/oin/scim_check-attributes-2.png "Attribute Mappings")
-
   1. Click **OK** to confirm that you want to remove the mapping for the attribute that you selected.
 
         Repeat steps 3 and 4 until you remove all the mappings for the attributes that you want to delete.
@@ -176,9 +192,6 @@ Before you can delete an attribute, you first need to remove the mapping for tha
   1. After removing all the mappings for the attributes that you want to delete, click **Go to Profile Editor** in the **Attribute Mappings** section.
 
   1. In the Profile Editor, look for the attribute that you want to delete, and click the corresponding **X**.
-
-        ![Displays the Profile Editor > Remove Attribute screen.](/img/oin/scim_check-attributes-7.png "Profile Editor: Remove Attribute")
-
   1. Click **Delete Attribute** to confirm that you want to remove the attribute.
 
         Repeat steps 6 and 7 for all the attributes that you want to delete.
@@ -193,9 +206,7 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. In the Profile Editor, click **Add Attribute**.
 
-1. Enter the information for the new attribute that you’re adding and then click **Save**. For example:
-
-    ![Displays the Add Attribute dialog](/img/oin/scim_check-attributes-11.png "Profile Editor: Add Attribute")
+1. Enter the information for the new attribute that you’re adding and then click **Save**.
 
     > **Note:** The **Scope** property determines whether the attribute that you are adding can be assigned at a group level or just per user. If you want your admins to be able to assign a value for this attribute at a group level, don't select the **User personal** checkbox.
 
@@ -207,13 +218,15 @@ Before you can delete an attribute, you first need to remove the mapping for tha
 
 1. Go to the **Provisioning** tab. Under the **Settings** section, click **To App**.
 
-1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
-
-    ![Displays the Attribute Mappings > Edit Attribute screen.](/img/oin/scim_check-attributes-13.png "Attribute Mappings: Edit Attribute")
+1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click the corresponding **Edit** (pen) button.
 
 1. In the dialog that appears, there are two dropdown fields. In the first dropdown menu, select **Map from Okta Profile**. In the second dropdown menu, choose the Okta profile attribute that you want to map the SCIM attribute from. Click **Save**.
 
-    ![Displays the Map Attribute dialog.](/img/oin/scim_check-attributes-14.png "Attributes: Map Attribute")
+   <div class="three-quarter">
+
+   ![Displays the Map Attribute dialog.](/img/oin/scim_check-attributes-14.png)
+
+   </div>
 
 1. Repeat steps 3 and 4 for all other SCIM attributes that you want to map (from Okta to your application).
 
@@ -239,8 +252,6 @@ You only want to include the attributes that you support in your current user sc
 
     1. Find the user that you imported and click the user's name.
     1. After the user account appears, click **Profile**. The Profile screen shows the user's attributes. Verify that the supported attribute values were imported properly.
-
-        ![Displays the User Profile Attributes dialog.](/img/oin/scim_check-attributes-19.png "User Profile Attributes")
 
         Your Profile Mapping template can always be updated in the future.
 

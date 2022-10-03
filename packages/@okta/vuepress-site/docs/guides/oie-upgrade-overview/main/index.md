@@ -12,7 +12,7 @@ Are you an admin? See [Upgrade from Classic Engine](https://help.okta.com/okta_h
 
 ## Before attempting to upgrade
 
-* **IMPORTANT**: Talk to your Okta rep/Customer Success Manager and get their support and input. Okta assistance is currently a requirement for carrying out the [Okta org](/docs/concepts/okta-organizations/) upgrade process outlined below (automated upgrades will be available for simple upgrades at a later date).
+* **IMPORTANT**: Talk to your Okta account team and get their support and input. Okta assistance is currently a requirement for carrying out the [Okta org](/docs/concepts/okta-organizations/) upgrade process outlined below (automated upgrades will be available for simple upgrades at a later date).
 * Review the [Identity Engine limitations](/docs/guides/ie-limitations/) guide to get an idea of what features you are using, if any, that require remediations (meaning they need adjustment before we can proceed with an upgrade). For example, some Classic Engine features may not be supported in Identity Engine in their current form.
 * [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) to the latest version before continuing further. This includes both Okta-hosted widgets and widgets embedded inside your apps.
 
@@ -96,6 +96,6 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
 
 * [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/): Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
 
-* [Understand MFA enrollment policy API changes after the upgrade](/docs/guides/oie-upgrade-mfa-enroll-policy/): Learn how changes to the MFA enrollment policy impact applications that use the Policy API directly.
+* [Understand authenticator enrollment policy API changes after the upgrade](/docs/guides/oie-upgrade-mfa-enroll-policy/): Learn how changes to the MFA enrollment policy impact applications that use the Policy API directly.
 
 * [Identity Engine limitations](/docs/guides/ie-limitations/): Current limitations with the Identity Engine to be aware of.

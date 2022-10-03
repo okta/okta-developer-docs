@@ -1,9 +1,9 @@
 ---
-title: Custom Source Delegated Authentication Inline Hook Reference
+title: Custom source delegated authentication inline hook reference
 excerpt: Allow delegated authentication to custom identity sources.
 ---
 
-# Custom Source Delegated Authentication Inline Hook Reference
+# Custom Source Delegated Authentication inline hook reference
 
 <ApiLifecycle access="beta" />
 
@@ -13,17 +13,17 @@ This page provides reference documentation for:
 
 - JSON objects you can include in your response
 
-This information is specific to the Custom Source Delegated Authentication Inline Hook, one type of Inline Hook supported by Okta.
+This information is specific to the custom source delegated authentication inline hook, one type of inline hook supported by Okta.
 
 ## See also
 
-For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
+For a general introduction to Okta inline hooks, see [inline hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
 ## About
 
-The Custom Source Delegated Authentication Inline Hook enables you to delegate authentication of a user to an external identity source.
+The custom source delegated authentication inline hook enables you to delegate authentication of a user to an external identity source.
 
 The hook supports a few operations. It first allows you to import a user into Okta after a successful authentication. From there it allows delegated authentication of the user to the external source, and fetches the latest profile of the user from the external source.
 
@@ -399,7 +399,7 @@ The `commands` object is where you can provide commands to Okta. It's an array t
 
 ##### Supported commands
 
-The following commands are supported for the Custom Source Delegated Authentication Inline Hook type:
+The following commands are supported for the custom source delegated authentication inline hook type:
 
 | Command                         | Description                                                                                                              |
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------|

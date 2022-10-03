@@ -1,6 +1,6 @@
 ---
-title: Event Hook with Hookdeck
-excerpt: How to demonstrate an Event Hook using Hookdeck
+title: Event hook with Hookdeck
+excerpt: How to demonstrate an event hook using Hookdeck
 layout: Guides
 sections:
 - main

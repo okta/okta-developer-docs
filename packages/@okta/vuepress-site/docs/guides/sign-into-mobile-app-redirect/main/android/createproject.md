@@ -1,18 +1,24 @@
-1. Create a new Java Android project with an **Empty Activity** using Android Studio (we called it `browser_sign_in`). For information on creating a project, see the [Android Studio documentation](https://developer.android.com/training/basics/firstapp/creating-project).
+> **Note:** The guide requires Android Studio (Arctic Chipmunk 2021.2.1)
 
-2. Add the following permissions to your `AndroidManifest.xml`:
+1. Create a new Kotlin Android project called `browser_sign_in` with an **Empty Activity** in Android Studio. For information on creating a project, see the [Android Studio documentation](https://developer.android.com/training/basics/firstapp/creating-project).
 
-   ```xml
-   <uses-permission android:name="android.permission.INTERNET"/>
-   ```
+    - Name: `browser_sign_in`
+    - Package name: `com.okta.android.samples.browser_sign_in`
+    - Language: `Kotlin`
+    - Minimum SDK: `API 23: Android 6.0 (Marshmallow)`
 
-3. The code samples use features from Java 11. [Configure Android Studio to use Java 11](https://developer.android.com/studio/intro/studio-config#jdk) and update `compileOptions.sourceCompatibility` and `compileOptions.targetCompatibility` in `app/build.gradle` to the following:
+2. Add the following to the `app/build.gradle` to enable features required by the Okta Android SDK:
 
-   ```gradle
-   compileOptions {
-     sourceCompatibility JavaVersion.VERSION_11
-     targetCompatibility JavaVersion.VERSION_11
-   }
-   ```
+```gradle
+android {
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+    }
+}
 
-> **Note**: If you're using the Okta CLI, you can also run `okta start android-java` to create an app. This command creates an OIDC app in Okta, downloads the [okta-android-java-sample](https://github.com/okta-samples/okta-android-java-sample), and configures it to work with the OIDC app. This quickstart uses a basic Android project instead, as it's easier to understand the Okta-specific additions if you work through them yourself.
+dependencies {
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+}
+```
+
+> **Note**: The Okta CLI can create a Kotlin app for Android that's pre-configured for an Okta org by using the command `okta start android-kotlin`. This QuickStart uses a basic project to show you how to configure an app.

@@ -13,11 +13,11 @@ This guide teaches you to how test that your SCIM application can handle actual 
 
 This second suite of [Runscope](https://www.runscope.com) tests checks that your SCIM application can handle actual requests to **c**reate, **r**ead, **u**pdate, and **d**elete (CRUD) user profile information.
 
->**Note:** Okta doesn't delete user profiles in your application, but instead marks the user record with `active=false` to deactivate them. For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
+> **Note:** Okta doesn't delete user profiles in your application, but instead marks the user record with `active=false` to deactivate them. For a detailed explanation on deleting user profiles, see [Delete (Deprovision)](/docs/concepts/scim/#delete-deprovision).
 
 ## Profile Sourcing activation
 
-The Profile Sourcing capability (formerly known as Profile Mastering) must be activated for developer orgs by Okta Developer Support. If you are testing this feature in your SCIM app integration, contact your Okta rep or post on our [forum](https://devforum.okta.com/) to request that Profile Sourcing be temporarily activated for your org. Developer Support automatically removes the access after two weeks. If you need a longer period to test your integration, include your time requirements in your email.
+The Profile Sourcing capability (formerly known as Profile Mastering) must be activated for developer orgs by Okta Developer Support. If you are testing this feature in your SCIM app integration, contact <developers@okta.com> with the name of your app integration and your org ID to have Profile Sourcing temporarily activated for your org. Developer Support automatically removes the access after two weeks. If you need a longer period to test your integration, include your time requirements in your email.
 
 ## Runscope tests for CRUD
 
@@ -56,7 +56,11 @@ To configure and run the SCIM CRUD tests:
     * `oktaAppId` - the unique identifier randomly assigned to your Okta integration. You can see this value in the **App Embed Link** panel under the **General** tab for your Okta integration.
     * `oktaOrgUrl` - the base URL for your Okta org. Include the `https://` prefix.
 
-        ![Browser bar showing the oktaOrgUrl location.](/img/oin/scim_crud-test-identifiers.png "Dev Window")
+        <div class="three-quarter">
+
+        ![Browser bar showing the oktaOrgUrl location.](/img/oin/scim_crud-test-identifiers.png)
+
+        </div>
 
     * `oktaToken` - the security token used to connect to your API. You can generate a token for your integration inside your Okta org:
         * Click **Security** > **API**.
@@ -68,7 +72,11 @@ To configure and run the SCIM CRUD tests:
 
     The final Runscope values should look similar to the following:
 
-    ![Sample values for CRUD test variables.Runscope Initial Variables](/img/oin/scim_crud-variables-d.png "Runscope Initial Variables")
+    <div class="three-quarter">
+
+    ![Sample values for CRUD test variables. Runscope Initial Variables](/img/oin/scim_crud-variables-d.png)
+
+    </div>
 
 1. Click **Test Settings** and then click **Initial Script**.
 1. Copy the contents of the [Okta CRUD Initial Script](/standards/SCIM/SCIMFiles/Initial_Script_CRUD.txt) text file and paste into this Runscope console.

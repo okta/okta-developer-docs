@@ -17,13 +17,23 @@ if err != nil {
 
 ### 2: Capture the credentials with the sign-in page
 
-Build a sign-in page that captures both the user's name and password.
+Build a sign-in page that captures both the user's name and password, similar to the following wireframe.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![Displays the simple sign-in form for Java SDK](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g1r7.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 1, row 7
+
+-->
 
 During page load, call the `Client` object's `InitLogin()` method. This method returns an object of type
 `LoginResponse` that is used to initiate the sign-in process with Okta.  The object
@@ -73,13 +83,23 @@ Identity Provider.
 
 #### Example of the sign-in page with Identity Provider links
 
-The following sample application form shows the Facebook and Google IdP sign-in options.
+The following wireframe includes Facebook and Google IdP sign-in options.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays a sign-in page with the available Identity Providers](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-sign-in.png)
+![Displays an example social sign-in form](/img/oie-embedded-sdk/wireframes/oie-embedded-sdk-signin-idp-options-g1r12.png)
 
 </div>
+
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 1, row 12
+
+-->
 
 ### 4: The user selects the Facebook sign-in link
 
@@ -90,9 +110,9 @@ When the user clicks the Facebook IdP link, initially they are sent to the Okta 
 
 After the user clicks the sign-in link, the browser redirects the user to a sign-in page hosted by Facebook. To test this step, you can use the Facebook test user credentials that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to perform this step.
 
-<div class="common-image-format">
+<div class="half border">
 
-![Displays an example Facebook sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-fb-sign-in.png)
+![Displays an example Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 
 </div>
 

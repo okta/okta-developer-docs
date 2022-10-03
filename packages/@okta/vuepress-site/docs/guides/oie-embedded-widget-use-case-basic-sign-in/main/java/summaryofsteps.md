@@ -2,7 +2,7 @@
 
 The following diagram illustrates the sequence of steps to sign in to an app by using the embedded Sign-In Widget.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Displays basic sign-in sequence steps for the Java SDK Sign-In Widget](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-java.png)
 

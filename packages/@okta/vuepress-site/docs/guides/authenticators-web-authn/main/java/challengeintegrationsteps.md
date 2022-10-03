@@ -47,7 +47,7 @@ Use the `type` and `label` properties to show the available list of authenticato
 
 A simple authenticator selection page should look like this:
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Screenshot illustrating the select authenticator page showing the available sign-in authenticators, including the WebAuthn.](/img/authenticators/authenticators-webauthn-java-dropdown-selection.png)
 
@@ -170,7 +170,7 @@ This call initiates the following steps:
 
 2. If the validations are successful, the authenticator prompts the user for consent. In the following example, the **Touch ID** authenticator prompts the user for a fingerprint to confirm consent.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Screenshot showing the user consent screen that prompts the user to verify through a fingerprint or password.](/img/authenticators/authenticators-webauthn-user-consent.png)
 

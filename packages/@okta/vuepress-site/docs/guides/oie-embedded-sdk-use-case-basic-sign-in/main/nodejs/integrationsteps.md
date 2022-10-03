@@ -1,14 +1,22 @@
 ### 1: Build a sign-in page on the client
 
-Build a sign-in page that captures both the username and password.
+Build a sign-in page that captures both the username and password, similar to the following wireframe.
 
-For example:
+<div class="half wireframe-border">
 
-<div class="common-image-format">
+![Displays the simple sign-in form for Java SDK](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g1r7.png)
 
-![Display of a screenshot showing a simple sign-in page with fields for username and password. A login button submits the credentials.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+</div>
 
- </div>
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+
+Group 1, row 7
+
+-->
 
 ### 2: Authenticate the user credentials
 

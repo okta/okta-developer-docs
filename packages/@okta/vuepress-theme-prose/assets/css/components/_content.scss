@@ -1,3 +1,27 @@
+.generated-content {
+  & .content__default > *,
+  & .content__default + p {
+    display: none !important;
+  }
+
+  & > p {
+    margin: 0.625rem 0 1.5rem;
+    padding-left: 1.25rem;
+    display: block !important;
+  }
+}
+
+.generated-content .content__default p:nth-of-type(1),
+.generated-content .content__description p {
+  margin: 0.625rem 0 1.5rem;
+  padding-left: 1.25rem;
+  display: block !important;
+}
+
+.content-custom {
+  width: 100%;
+}
+
 .content--container {
   display: flex;
   padding: 0;
@@ -23,7 +47,7 @@
       word-break: keep-all;
     }
   }
-  
+
   h1,
   h3 {
     word-break: break-word;
@@ -49,26 +73,69 @@
   }
 
   .sidebar-area {
-    width: 266px;
+    width: 18.5vw;
+    min-width: 350px;
     position: sticky;
     overflow: auto;
+    overflow-x: hidden;
     background: cv('body');
-    top: 87px;
+    top: 142px;
+
     @include media("<desktop-xl") {
-      top: 70px;
+      top: 125px;
     }
+
     @include media("<desktop") {
       display: none;
+    }
+
+    @include media(">desktop-xl") {
+      min-width: 400px;
+      width: 22vw;
+      max-width: 600px;
+    }
+
+    .sidebar-fade {
+      display: block;
+      position: sticky;
+      width: 100%;
+      height: 176px;
+      background: linear-gradient(3.53deg, #F7FAFF 38.14%, rgba(247, 250, 255, 0) 83.09%);
+      z-index: 2;
+      left: 0;
+      bottom: 0;
+      transition: .3s;
+    }
+    &:hover {
+      .sidebar-fade {
+        opacity: 0;
+        visibility: hidden;
+        z-index: -1;
+      }
+    }
+    &.no-fade {
+      .sidebar-fade {
+        display: none;
+      }
+    }
+    &.show-scroll-up {
+      .scroll-up {
+        display: block;
+      }
     }
   }
 
   .content-area {
     flex: 1;
-    max-width: calc(82% - 266px);
+    max-width: calc(82% - 350px);
     padding: 23px 59px;
+    &-full {
+      max-width: 100%;
+      padding: 0 59px;
+    }
     @include media("<desktop-xl") {
-      max-width: calc(100% - 266px);
-      padding: 30px 57px;
+      max-width: calc(100% - 350px);
+      padding: 40px 57px 30px;
     }
     @include media("<desktop") {
       width: 100%;
@@ -172,7 +239,7 @@
         }
       }
     }
-    
+
     a.header-link svg {
       width: 1rem;
       display: none;
@@ -248,4 +315,12 @@
       display: none;
     }
   }
+}
+
+.aside-hidden .sidebar-area {
+  width: 77px;
+  min-width: auto;
+}
+.aside-hidden .content-area {
+  max-width: calc(100% - 77px);
 }

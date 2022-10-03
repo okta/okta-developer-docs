@@ -19,7 +19,11 @@ The goal of SCIM is to securely automate the exchange of user identity data betw
 
 Managing user lifecycles in your organization is a fundamental business problem. Hiring new employees is just the first step - you also need to provision the applications that they need for their job, enforce the corporate security policies, and update their user accounts as they advance through their time with your company. At the end of their employment period, you need to make sure that all access is quickly and thoroughly revoked across all applications. Handling all of this can be a time-consuming and error-prone process if done manually.
 
-![SCIM Lifecycle](/img/oin/scim_lifecycle.png "User lifecycle diagram: 1 - new employee 2 - provision applications 3 - enforce security 4 - update user information 5 - off-board")
+<div class="three-quarter">
+
+![SCIM user lifecycle diagram](/img/oin/scim_lifecycle.png)
+
+</div>
 
 As your company grows, the number of user accounts and provisioned software applications increases exponentially. Requests to add and remove users, reset passwords, change permissions, and add new types of accounts all take up valuable IT department time.
 
@@ -37,7 +41,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 * Any profile updates - like department changes - populate automatically.
 * Inactive employees are automatically deactivated from their applications.
 
-> **Note**: Okta Event Hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org and allow them to take actions as a result — for example, provisioning external app access after a user account is created in Okta. As such, they are a flexible lightweight alternative to SCIM. See [Event Hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
+> **Note**: Okta event hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org and allow them to take actions as a result — for example, provisioning external app access after a user account is created in Okta. As such, they are a flexible lightweight alternative to SCIM. See [Event hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
 
 ## How does SCIM work?
 
@@ -122,7 +126,7 @@ If you want to read more about how to use the Okta Admin Console to set up provi
 * [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
 * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [Create a SCIM integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim)
-* [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts)
+* [Provisioning Concepts](https://support.okta.com/help/s/article/okta-provisioning?language=en_US)
 * [Configuring On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure)
 * IETF [Overview and Specification of the SCIM Protocol](http://www.simplecloud.info/)
 
