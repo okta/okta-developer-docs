@@ -23,7 +23,6 @@ This guide explains what profile enrollment policies are used for and how to add
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * Group created in your org. See [Add group](/docs/reference/api/groups/#add-group) using the API or 
 * An application that you want to assign to an enrollment policy
-* [Authenticators](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-authenticators) configured in your org
 
 ---
 
@@ -54,8 +53,6 @@ After end users complete the enrollment form, Okta sends them a link and a one-t
 After end users satisfy all the authentication requirements, Okta automatically registers them in your org. They’re also provisioned to the appropriate groups defined by the profile enrollment policy. Okta then redirects the end users to your app or your org's Okta End-User Dashboard.
 
 If your org doesn't use [password-optional authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless), you can still configure the email verification to be optional. After registration, Okta redirects end users to your custom application or your org's Okta End-User Dashboard. The end user still receives a verification email, but clicking the verification link isn't required for the user to complete the sign-in process.
-
-If you enable SSR and the end user attempts to sign in with a username that doesn't exist in the org, Okta returns a warning message that there’s no account with that username.
 
 However, if SSR is disabled for your app and the end user enters a username that doesn't exist in the org, they are prompted to enter a password but won't be able to sign in. In this scenario, the option to sign up for an account isn't shown on the Sign-In Widget. You must have an alternate method to create the accounts for new users. See [Add users manually](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-add-users).
 
@@ -99,10 +96,12 @@ If any Global Session Policy rule has the primary factor set to **Password / IdP
 
 </div>
 </br>
+
 1. End users enter their full app **Username**, including the domain, and then their password in the **Password** field.
-The Keep me signed in checkbox retains their identifier as well as authenticator verification information on their device for the amount of time designated by the policy rule. This replaces the Remember me option in Classic Engine orgs.
-2. End users click Sign in to initiate the authentication process.
-3. On the security method page, end users pick one of the primary authenticator options allowed by the combined global session and authentication policies.
+The **Keep me signed in** checkbox retains their identifier as well as authenticator verification information on their device for the amount of time designated by the policy rule. This replaces the Remember me option in Classic Engine orgs.
+1. End users click **Sign in** to initiate the authentication process.
+1. On the security method page, end users pick one of the primary authenticator options allowed by the combined global session and authentication policies.
+
 </br>
 <div class="quarter">
 
@@ -110,11 +109,13 @@ The Keep me signed in checkbox retains their identifier as well as authenticator
 
 </div>
 </br>
-4. After clicking Select to choose an authenticator, end users move to the verification step where they supply the required authenticator and then click Verify.
+
+4. After clicking **Select** to choose an authenticator, end users move to the verification step where they supply the required authenticator and then click **Verify**.
 
 ### Password / IdP / any factor allowed by app sign-on rules
 
-If any Global Session Policy rule has the primary factor set to Password / IDP / any factor allowed by app sign on rules, end users see the identifier-first Sign-In Widget as the first screen during their access flow.
+If any Global Session Policy rule has the primary factor set to **Password / IDP / any factor allowed by app sign on rules**, end users see the identifier-first Sign-In Widget as the first screen during their access flow.
+
 </br>
 <div class="quarter">
 
@@ -122,10 +123,12 @@ If any Global Session Policy rule has the primary factor set to Password / IDP /
 
 </div>
 </br>
+
 1. End users enter their full app Username, including the domain, and click Next.
-   - The Keep me signed in checkbox retains their identifier as well as authenticator verification information on their device for the amount of time designated by the policy rule. This replaces the Remember me option in Classic Engine orgs.
+   - The **Keep me signed in** checkbox retains their identifier as well as authenticator verification information on their device for the amount of time designated by the policy rule. This replaces the **Remember me** option in Classic Engine orgs.
    - If the username is unknown to the org, the Sign-In Widget displays a warning that there is no account with that username and returns an error that the user can't sign in.
-2. On the security method page, end users pick one of the primary authenticator options allowed by the combined global session and authentication policies.
+1. On the security method page, end users pick one of the primary authenticator options allowed by the combined global session and authentication policies.
+
 </br>
 <div class="quarter">
 
@@ -133,7 +136,8 @@ If any Global Session Policy rule has the primary factor set to Password / IDP /
 
 </div>
 </br>
-3. After clicking Select to choose an authenticator, end users move to the verification step where they supply the required authenticator and then click Verify.
+
+3. After clicking **Select** to choose an authenticator, end users move to the verification step where they supply the required authenticator and then click **Verify**.
 
 ## Configure profile enrollment policies
 
@@ -148,24 +152,23 @@ In progressive enrollment scenarios, the enrollment policy can collect additiona
 ### Create a profile enrollment policy
 
 1. In the Admin Console, go to **Security** > **Profile Enrollment**.
-2. Select the Default Policy, or, to create a new one, click **Add Profile Enrollment Policy**.
-3. Enter a new policy **Name**.
-4. Click **Save**.
+1. Select the Default Policy, or, to create a new one, click **Add Profile Enrollment Policy**.
+1. Enter a new policy **Name**.
+1. Click **Save**.
 
 ### Select a profile enrollment policy
 
 You can change which app integrations use a policy for profile enrollment:
 
 1. In the Admin Console, go to **Security** > **Profile Enrollment**.
-2. Under the **Actions** column for the policy you want to update, select the **Edit** icon.
-3. Click **Manage Apps**.
-4. On the **Apps using (policy name)** page, click **Add an App to This Policy**.
-5. Use the search bar to find existing app integrations in your org.
-6. Click **Apply** for each app integration that you want to add to this policy.
-7. Click **Close**.
-8. Optional. Under the **Actions** dropdown menu, you can click **Go to this app** to open the settings page for that app integration.
-9. Optional. Under the **Actions** dropdown menu, you can click **Apply a different policy** to switch to a different policy that the app integration can use for profile enrollment. Click **Save** to confirm your change or **Cancel** to continue using the original policy.
-10. Click **Back to Profile Enrollment Policy**.
+1. Under the **Actions** column for the policy you want to update, select the **Edit** icon.
+1. Click **Manage Apps**.
+1. On the **Apps using (policy name)** page, click **Add an App to This Policy**.
+1. Click **Apply** for each app integration that you want to add to this policy.
+1. Click **Close**.
+1. Optional. Under the **Actions** dropdown menu, you can click **Go to this app** to open the settings page for that app integration.
+1. Optional. Under the **Actions** dropdown menu, you can click **Apply a different policy** to switch to a different policy that the app integration can use for profile enrollment. Click **Save** to confirm your change or **Cancel** to continue using the original policy.
+1. Click **Back to Profile Enrollment Policy**.
 
 ### Collect profile information and register users
 
@@ -196,7 +199,7 @@ Okta can assist you in collecting profile data from end users before they can ac
 
 You can create or edit a custom profile enrollment form for progressive enrollment scenarios. End users are prompted for input during their next sign-in attempt if a required attribute is missing from their profile.
 
-Before you being, keep the following in mind:
+Before you begin, keep the following in mind:
 
 * The attributes added to the profile enrollment form must exist in the default user profile for Okta Universal Directory. Both base and custom attributes are permitted. See [About profile types](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-about-profiles).
 * The User permission for each attribute must be set to Read-Write before the end user can update the attribute using the profile enrollment form.
