@@ -206,54 +206,55 @@ Before you begin, keep the following in mind:
 * See [Understand attribute rules for the profile enrollment form](#understand-attribute-rules-for-the-profile-enrollment-form) for a complete summary on adding, editing, and deleting profile attributes.
 * Super admin access is required to modify the profile enrollment form.
 
-#### Task 1 - Customize the form sign-in options
+#### Customize the form sign-in options
 
 The profile enrollment form shown to end users can be customized with a header at the top and a confirmation button at the bottom.
 
 Use the following procedure to change these labels:
 
-1. In the Admin Console, go to **Security** > **Profile Enrollment**.
+1. In the Admin Console, go to **Security** > **Profile Enrollment form**.
 2. Under the Actions column for the policy you want to update, select the **Edit** icon.
 3. In the **Profile enrollment** section, click **Edit** to modify the options.
-4. Under **Customize label**, enter the text you want to show your end users:
+4. Scroll to **Customize label**, and then enter the text you want to show your end users:
    * **Form header:** The text at the top of the enrollment form. For example, `Sign in` or `Log in to your personal account`.
    * **Submit button:** The text displayed on the confirmation button. For example, `Submit` or `Log in`.
 
-#### Task 2 - Create the custom profile enrollment form
+#### Create the custom profile enrollment form
 
-> **Note:** If an attribute is defined in any of your Okta user profiles with any of the following conditions, it can't be added to the enrollment form:
->
-> * A user permission set to Read-only or Hide
-> * Marked as sensitive
-> * Sourced from an external application
+When creating a custom profile enrollment form, keep in mind the following:
 
-You can't add an attribute more than once to the enrollment form.
+* If an attribute is defined in any of your Okta user profiles with any of the following conditions, it can't be added to the enrollment form:
 
-You should observe a limit of 10 attributes to the enrollment form to prevent overloading the interface displayed to the end user.
+   * A user permission set to Read-only or Hide
+   * Marked as sensitive
+   * Sourced from an external application
+* You can't add an attribute more than once to the enrollment form.
+* You should observe a limit of 10 attributes to the enrollment form to prevent overloading the interface displayed to the end user.
 
 Use the following procedure to create the customized enrollment form that Okta will use to add end user information to their profiles:
 
 1. In the Admin Console, go to **Security** > **Profile Enrollment**.
-2. Under the **Actions** column for the policy you want to update, select the **Edit** icon.
+1. Under the **Actions** column for the policy you want to update, select the **Edit** icon.
+
    * The **Profile enrollment form** section shows the profile attributes that the enrollment form collects from end users. When you create the policy, these fields are populated using the attributes that are marked as required in the Universal Directory default profile.
    * Default fields show up first in the enrollment form. However, you can change the order of the attributes by clicking and dragging each attribute under the **Order** column. This changes the order shown on the enrollment form displayed to the end user.
    * Use the **Edit** or **Delete** actions to modify or remove any attributes from the enrollment form. If these actions are not present, those attributes can't be changed or removed from the profile enrollment form. See [Understand attribute rules for the profile enrollment form](#understand-attribute-rules-for-the-profile-enrollment-form).
-3. Click **Add form input** to pick additional attributes from the Universal Directory.
-4. Select the attribute from the dropdown menu. The **User permission** for the attribute must be set to **Read-Write** before the attribute can be added to the enrollment form.
-5. In the **Add form input** dialog, verify that the **Data type** and **Attribute requirement** information match the settings from the Universal Directory default profile. To modify these settings, click **Go to Profile Editor**:
+1. Click **Add form input** to pick additional attributes from the Universal Directory.
+1. Select the attribute from the dropdown menu. The **User permission** for the attribute must be set to **Read-Write** before the attribute can be added to the enrollment form.
+1. In the **Add form input** dialog, verify that the **Data type** and **Attribute requirement** information match the settings from the Universal Directory default profile. To modify these settings, click **Go to Profile Editor**:
    a. Select the **User (default)** profile.
    b. Locate the attribute, and then click the information icon to edit the attribute properties.
    c. In the **User permission** section, select **Read - Write**. End users require write access to update any attribute information in their profile.
    d. Click **Save Attribute**.
    If your Okta org provides access to the Okta End-User Dashboard, registered end users can modify the value of this attribute through their personal settings page.
-6. In the **Customize form input** section, you can modify the following fields for the attributes:
+1. In the **Customize form input** section, you can modify the following fields for the attributes:
    * **Form label:** This is the text label for the attribute that is shown to the end user.
    * **Input requirement:** This indicates whether this attribute must be provided by the user for the form to proceed. See [Understand attribute rules for the profile enrollment form](#understand-attribute-rules-for-the-profile-enrollment-form). If the Okta user profile requires this attribute, you can't change this requirement to be Optional and the end user must provide a value.
    * **Input display type:** This determines what type of input form the enrollment form shows to the end user. For example, a text box, radio buttons, or a dropdown menu.
    * **Input form validation:** If the user must provide the input in a particular format, you can select an input validation method from the dropdown menu. Validation is available for phone numbers and calendar dates.
-7. Click **Save**.
+1. Click **Save**.
 
-#### Task 3 - Remove attributes from the enrollment form
+#### Remove attributes from the enrollment form
 
 To remove an attribute from the enrollment form:
 
@@ -309,7 +310,7 @@ Custom attributes follow the same restrictions as base attributes:
 * You must set the attribute's **User permission** setting to **Read-Write** in UD so it can be added to the profile enrollment form.
 * If it's marked as a required attribute in UD, you can edit the attribute's label for the profile enrollment form, but you can't delete it.
 * If it is marked as an optional attribute in UD, then you can edit the attribute's label and input options (including specifying it as a required or optional step for the enrollment form) or delete it.
-* You can change the **Input display type** to a value that best reflects the kind of information expected from the end user. Most fields have a string data type and use a text box as the input type, although the enumeration data type uses either a radio button or a dropdown menu. However, if you select fields with a data type such as country code or a boolean the enrollment form changes to the corresponding input type.
+* You can change the **Input display type** to a value that best reflects the kind of information expected from the end user. Most fields have a string data type and use a text box as the input type, although the enumeration data type uses either a radio button or a dropdown menu. However, if you select fields with a data type such as country code or a Boolean the enrollment form changes to the corresponding input type.
 
 The following table explains the required conditions and permitted actions for a few example custom profile attributes.
 
@@ -345,14 +346,7 @@ You can delete any profile enrollment policy that isn't currently in use or the 
 
 ## Next steps
 
-Now that you understand how to configure profile enrollment policies (and set up SSR and progressive enrollment) you can learn how to implement various [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) flows, configure policies for role-based access, and use tokens to provide API authorization.
-
-* [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
-* [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
-* [Implement the Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/)
-* [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/)
-* [Refresh tokens](/docs/guides/refresh-tokens/)
-* [Configure access policies](/docs/guides/configure-access-policy/)
+* [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/main/)
 
 ## See also
 
