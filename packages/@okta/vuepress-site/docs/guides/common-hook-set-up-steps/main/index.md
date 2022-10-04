@@ -149,7 +149,7 @@ app.all('*', authenticationRequired); // Require authentication for all routes
 
 ### OAuth 2.0: Private Key
 
-The OAuth 2 private key method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org, and add code to decode the JWT from the Okta inline hook call:
+The OAuth 2.0 private key method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org and add code to decode the JWT from the Okta inline hook call:
 
 * Create a key
 * Create an app integration
