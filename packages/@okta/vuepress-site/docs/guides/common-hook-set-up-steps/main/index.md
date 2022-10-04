@@ -77,7 +77,7 @@ After including the `npm` packages, add the following code snippet in your proje
 
 ### OAuth 2.0: Client Secret
 
-The OAuth 2 Client Secret method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org, and add code to decode the JWT from the Okta inline hook call:
+The OAuth 2.0 Client Secret method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org and add code to decode the JWT from the Okta inline hook call:
 
 * Create an app integration
 * Add a custom scope
