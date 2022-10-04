@@ -76,7 +76,7 @@ Okta uses an HTTPS POST request to call your service.
 
 ### Inline hook security
 
-To secure the communication channel between Okta and your external service, you have the option of using HTTP headers or OAuth2 tokens.
+To secure the communication channel between Okta and your external service, you have the option of using HTTP headers or OAuth 2.0 tokens.
 
 ### OAuth 2.0
 
