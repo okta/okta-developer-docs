@@ -88,7 +88,7 @@ The client secret method (`client_secret_post`) uses a generated client ID and s
 
 #### Private key
 
-The private key method (`private_key_jwt`) uses a generated key, which includes a private key and a public key. A JWT is generated using the private key and sent to the authorization server. The authorization server uses the public key to verify the JWT and returns an access token as a signed JWT. The OAuth 2.0 inline hook request includes the signed JWT. Your external service must verify the JWT to authenticate the inline hook call. For more information on implementing this method, see [OAuth 2.0: Private Key](/docs/guides/common-hook-set-up-steps/#oauth-2-0-private-key).
+The private key method (`private_key_jwt`) uses a generated key, which includes a private key and a public key. A JWT is generated using the private key and sent to the authorization server. The authorization server uses the public key to verify the JWT and returns an access token as a signed JWT. The OAuth 2.0 inline hook request includes the signed JWT. Your external service must verify the JWT to authenticate the inline hook call. See [OAuth 2.0: Private Key](/docs/guides/common-hook-set-up-steps/#oauth-2-0-private-key).
 
 ### HTTP header
 
