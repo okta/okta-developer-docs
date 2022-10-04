@@ -93,7 +93,7 @@ Before you can implement authorization, you need to register your app in Okta by
 1. Select **API Services** as the Sign-in method.
 1. Click **Next**.
 1. Specify the app integration name, then click **Save**.
-1. From the General tab of your app integration, note your generated **Client ID** and **Client secret**. These value are used when configuring your inline hook authentication.
+1. From the **General** tab of your app integration, note your generated **Client ID** and **Client secret**. These value are used when configuring your inline hook authentication.
 
 #### Add a custom scope
 
