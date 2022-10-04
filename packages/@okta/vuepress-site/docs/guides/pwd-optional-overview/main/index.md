@@ -16,6 +16,10 @@ Replace the password with a password-optional sign-in experience. Give your user
 
 ![Diagram illustrating how password-optional authentication, when compared to other password authentications, is convenient and secure.](/img/pwd-optional/pwd-optional-overview-xy-diagram.png)
 
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3012%3A6039 pwd-optional-overview-xy-diagram
+ -->
+
 </div>
 
 ## Integration guides

@@ -16,7 +16,9 @@ The user starts the change primary email flow by clicking an **Edit** link next 
 
 <div class="half border">
 
-![Screenshot showing an edit link next to the primary email address.](/img/pwd-optional/pwd-optional-change-email-my-account-js-react-edit-email.png)
+![Screenshot showing an edit link next to the primary email address.](/img/pwd-optional/pwd-optional-react-change-primary-email-edit-email.png)
+
+<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=2606%3A2463  pwd-optional-react-change-primary-email-edit-email -->
 
 </div>
 
@@ -26,7 +28,9 @@ When the user clicks on the **Edit** link, display a dialog for the user to subm
 
 <div class="half border">
 
-![Screenshot showing a page with a new primary email input field and continue button.](/img/pwd-optional/pwd-optional-change-email-my-account-js-react-submit-email.png)
+![Screenshot showing a page with a new primary email input field and continue button.](/img/pwd-optional/pwd-optional-react-change-primary-email-submit-email.png)
+
+<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=2584%3A2577  pwd-optional-react-change-primary-email-submit-email -->
 
 </div>
 
@@ -87,7 +91,9 @@ The user opens the email sent by Identity Engine and copies the one-time passcod
 
 <div class="half border">
 
-![Screenshot showing a page with a new primary email input field and continue button.](/img/pwd-optional/pwd-optional-change-email-my-account-js-react-verify-email.png)
+![Screenshot showing a page with an OTP input field and continue button.](/img/pwd-optional/pwd-optional-react-change-primary-email-verify-email.png)
+
+<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=2584%3A2605  pwd-optional-react-change-primary-email-verify-email -->
 
 </div>
 
