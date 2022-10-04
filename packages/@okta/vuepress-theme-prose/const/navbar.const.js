@@ -525,7 +525,7 @@ export const guides = [
             guideName: "custom-error-pages",
           },
           {
-            title: "Customize SMS messages",
+            title: "SMS messages",
             guideName: "custom-sms-messaging",
           },
           {
