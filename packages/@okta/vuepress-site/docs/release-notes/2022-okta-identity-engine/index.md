@@ -6,6 +6,36 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## September
 
+### Weekly release 2022.09.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.3](#bugs-fixed-in-2022-09-3)                      | September 28, 2022            |
+
+#### Bugs fixed in 2022.09.3
+
+* Existing provisioning settings for an app were reset to `None` when an app was updated using `PUT /apps/${applicationId}`. (OKTA-520647)
+
+* Read-only admins weren’t able to see the signing keys that were used for SAML applications. (OKTA-522887)
+
+* When an access token was used to create an email template customization, the POST request failed. (OKTA-526881)
+
+### Weekly release 2022.09.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.2](#bugs-fixed-in-2022-09-2)                      | September 21, 2022            |
+
+#### Bugs fixed in 2022.09.2
+
+* A descriptive error message wasn't returned when OAuth management endpoints were used with non-OAuth clients. (OKTA-458109)
+
+* Identity Provider information was missing from the `GET /sessions/me` API response. (OKTA-484077)
+
+* During the MFA Attestation flow, when a request was sent to the `/interact` endpoint, an access token was erroneously returned and an Okta session was created. (OKTA-522155)
+
+* A two-minute clock skew was allowed during access and ID token validation. (OKTA-528530)
+
 ### Weekly release 2022.09.1
 
 | Change | Expected in Preview Orgs |

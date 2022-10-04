@@ -4,8 +4,6 @@ excerpt: Learn how to use a secondary device to complete sign-in to applications
 layout: Guides
 ---
 
-<ClassicDocOieVersionNotAvailable />
-
 This guide describes the Device Authorization feature, which allows users to sign in to input-constrained devices and devices without a browser.
 
 ---

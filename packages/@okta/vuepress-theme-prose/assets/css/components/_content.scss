@@ -47,7 +47,7 @@
       word-break: keep-all;
     }
   }
-  
+
   h1,
   h3 {
     word-break: break-word;
@@ -74,18 +74,27 @@
 
   .sidebar-area {
     width: 18.5vw;
-    min-width: 266px;
+    min-width: 350px;
     position: sticky;
     overflow: auto;
     overflow-x: hidden;
     background: cv('body');
     top: 142px;
+
     @include media("<desktop-xl") {
       top: 125px;
     }
+
     @include media("<desktop") {
       display: none;
     }
+
+    @include media(">desktop-xl") {
+      min-width: 400px;
+      width: 22vw;
+      max-width: 600px;
+    }
+
     .sidebar-fade {
       display: block;
       position: sticky;
@@ -118,14 +127,14 @@
 
   .content-area {
     flex: 1;
-    max-width: calc(82% - 266px);
+    max-width: calc(82% - 350px);
     padding: 23px 59px;
     &-full {
       max-width: 100%;
       padding: 0 59px;
     }
     @include media("<desktop-xl") {
-      max-width: calc(100% - 266px);
+      max-width: calc(100% - 350px);
       padding: 40px 57px 30px;
     }
     @include media("<desktop") {
@@ -230,7 +239,7 @@
         }
       }
     }
-    
+
     a.header-link svg {
       width: 1rem;
       display: none;
