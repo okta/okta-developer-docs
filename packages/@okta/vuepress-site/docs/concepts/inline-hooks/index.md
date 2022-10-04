@@ -80,7 +80,7 @@ To secure the communication channel between Okta and your external service, you 
 
 ### OAuth 2.0
 
-OAuth 2.0 tokens provide enhanced security between Okta and your external service and can be configured for the following methods: client secret (`client_secret_post`) and private key (`private_key_jwt`). <!-- Okta uses the RS256 algorithm -->
+OAuth 2.0 tokens provide enhanced security between Okta and your external service, and you can configure them for the following methods: client secret (`client_secret_post`) and private key (`private_key_jwt`). <!-- Okta uses the RS256 algorithm -->
 
 #### Client secret post
 
