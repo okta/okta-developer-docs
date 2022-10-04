@@ -196,7 +196,7 @@ Before you can implement authorization, you need to register your app in Okta by
 
 #### Add code to verify the request
 
-The Okta Inline hook sends a signed JWT to your external service as part of the hook call. Your service must decode this JWT to validate the token.
+The Okta inline hook sends a signed JWT to your external service as part of the hook call. Your service must decode this JWT to validate the token.
 
 The following Node.js code uses the Okta JWT verifier package to validate the JWT. For further information on using this package, see [https://www.npmjs.com/package/@okta/jwt-verifier](https://www.npmjs.com/package/@okta/jwt-verifier). Add the `@okta/jwt-verifier` package to your external service, and then add the following code to validate the token:
 
