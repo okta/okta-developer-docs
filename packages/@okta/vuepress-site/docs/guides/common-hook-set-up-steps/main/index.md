@@ -186,7 +186,7 @@ Before you can implement authorization, you need to register your app in Okta by
 
 <StackSnippet snippet="scope"/>
 
-#### Add OAuth 2 authentication fields to your inline hook
+#### Add OAuth 2.0 authentication fields to your inline hook
 
 1. When creating your inline hook, in the **Authentication** section, select **OAuth 2.0**.
 1. In the **Client Authentication** field, select **Use private key** from the dropdown menu.
