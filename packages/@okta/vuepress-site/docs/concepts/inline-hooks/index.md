@@ -102,7 +102,7 @@ Authorization: ${key}
 
 #### Authorization header
 
-The Authorization header (`Authorization: ${key}` is a secret string you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This is not an Okta authorization token, it is simply a text string you decide on.) For more information on implementing this method, see [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/#http-header-basic-authentication).
+The Authorization header (`Authorization: ${key}` is a secret string that you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.) See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/#http-header-basic-authentication).
 
 ### JSON request payload objects
 
