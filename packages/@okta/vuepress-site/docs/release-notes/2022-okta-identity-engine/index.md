@@ -4,6 +4,87 @@ title: Okta Identity Engine API Products release notes 2022
 
 <ApiLifecycle access="ie" />
 
+## October
+
+### Monthly release 2022.10.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
+| [Default authenticator enrollment policy settings format is GA in Production](#default-authenticator-enrollment-policy-settings-format-is-ga-in-production) | August 31, 2022 |
+| [Additional measures for suspicious SMS and Voice requests](#additional-measures-for-suspicious-sms-and-voice-requests) | October 5, 2022 |
+| [Clone authentication policies are GA in Production](#clone-authentication-policies-are-ga-in-production) | August 31, 2022 |
+| [Dynamic IdP routing is GA in Production](#dynamic-idp-routing-is-ga-in-production) | June 8, 2022 |
+| [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
+| [Access Denied error message customization is GA in Production](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
+| [Manage embedded widget sign-in support is EA in Preview](#manage-embedded-widget-sign-in-support-is-ea-in-preview) | October 5, 2022 |
+| [xxxx](#xxxx) | October 5, 2022 |
+| [xxxx](#xxxx) | October 5, 2022 |
+| [xxxx](#xxxx) | October 5, 2022 |
+| [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
+| [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
+
+#### Non-deletable default authorization server is GA in Production
+
+Okta provides a default authorization server so that customers can quickly get started. If a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label in the Admin Console. <!--OKTA-536276-->
+
+#### Default authenticator enrollment policy settings format is GA in Production
+
+For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy) is created with settings in the authenticator format instead of the factor format. For existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format. <!--OKTA-535005-->
+
+#### Additional measures for suspicious SMS and Voice requests
+
+Additional measures are now applied to block suspicious SMS and Voice traffic from countries that are typically at risk of toll fraud attacks. Blocked transactions display a deny status in the System Log.
+<!--OKTA-532681-->
+
+#### Clone authentication policies are GA in Production
+
+Creating an authentication policy from scratch is a manual, error-prone task because you need to visually copy existing rules into the new policy. Okta now offers the ability to clone a policy. You can use either the Admin Console or the new Clone a Policy operation on the Policy API. See [Clone a Policy](/docs/reference/api/policy/#clone-a-policy). <!--OKTA-525110-->
+
+#### Dynamic IdP routing is GA in Production
+
+Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing). <!--OKTA-520972-->
+
+#### Improved User API sort
+
+The Users API now supports sorting results by the top-level User object properties `status`, `lastUpdated`, and `type.id`. <!--OKTA-513502-->
+
+#### Access Denied error message customization is GA in Production
+
+Admins can now customize the error message that users receive when their access is denied. This allows admins to provide remediation steps and/or point users to documentation that will help resolve their access issues. <!--OKTA-512725-->
+
+#### Manage embedded widget sign-in support is EA in Preview
+
+Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The Embedded widget sign-in support toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improves the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled). <!--OKTA-517774-->
+
+#### Factors API support for Okta Verify authenticator enrollment flows is GA in Preview
+
+Identity Engine now supports Okta Verify enrollments with email or SMS links created from the Factors API. Previously, when a client generated an Okta Verify enrollment email or SMS link using the Factors API, the enrollment from the Okta Verify app failed with an `Invalid Token` error. 
+To address this issue, Factors API updates include the following behaviors when the Okta Verify authenticator is used:
+When an Okta Verify enrollment request is made using the Factors API for a user not currently enrolled with an Okta Verify factor, then all three `signed_nonce`, `push`, and `totp` factors are enrolled.
+
+The GET factors operation lists all Okta Verify enrollment methods for a user.
+
+The DELETE `push` or `signed_nonce` factor operation deletes all three factor enrollments (`push`, `signed_nonce`, and `totp`).
+
+See [Enroll Okta Verify Push] and [Delete Factor] updates in the Factors API.
+
+#### Developer documentation updates in 2022.10.0
+
+* 
+
+* 
+
+#### Bugs fixed in 2022.10.0
+
+* A `GET /api/v1/groups` request with an invalid search operator returned a 504 Timeout error instead of a 400 Bad Request error with an appropriate message. (OKTA-535035)
+
+* When a `session.amr` expression was used for SAML attribute statements, the attribute statement wasn't correctly populated. (OKTA-532316)
+
+* A user was able to verify more than 10 phone numbers with the verify my phone (`/idp/myaccount/phones/${id}/verify`) endpoint in the MyAccount API. (OKTA-531097)
+
+* When an OIN client was set to invisible, the client was still incorrectly returned if a GET request was made using the Dynamic Client Registration API (`/oauth2/v1/clients`). (OKTA-515362)
+
 ## September
 
 ### Weekly release 2022.09.3
@@ -63,7 +144,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Clone authentication policies are GA in Preview](#clone-authentication-policies-are-ga-in-preview) | August 31, 2022 |
 | [Improvements to the self-service password reset experience are GA in Preview](#improvements-to-the-self-service-password-reset-experience-are-ga-in-preview) | July 7, 2022 |
 | [Password restriction for shared SWA app accounts is GA in Production](#password-restriction-for-shared-swa-app-accounts-is-ga-in-production) | July 7, 2022 |
-| [Default authenticator enrollment policy settings format](#default-authenticator-enrollment-policy-settings-format) | August 31, 2022 |
+| [Default authenticator enrollment policy settings format is GA in Preview](#default-authenticator-enrollment-policy-settings-format-is-ga-in-preview) | August 31, 2022 |
 | [Developer documentation updates in 2022.09.0](#developer-documentation-updates-in-2022-09-0) | August 31, 2022 |
 | [Bugs fixed in 2022.09.0](#bugs-fixed-in-2022-09-0) | August 31, 2022|
 
@@ -111,7 +192,7 @@ Previously, the self-service password reset (SSPR) flow created unnecessary fric
 
 For SWA apps with an account sign-in option set to **Users share a single username and password set by administrator**, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
 
-#### Default authenticator enrollment policy settings format
+#### Default authenticator enrollment policy settings format is GA in Preview
 
 For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy ) is created with settings in the authenticator format instead of the factor format. Any existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format.<!--OKTA-527304-->
 
@@ -195,7 +276,7 @@ Previously, the self-service unlock (SSU) flow created unnecessary friction in t
 | [Updates to default global session policy](#updates-to-default-global-session-policy) | August 3, 2022|
 | [Improved error messages for MyAccount API](#improved-error-messages-for-myaccount-api) | August 3, 2022|
 | [New custom authenticator for push notifications](#new-custom-authenticator-for-push-notifications) | August 3, 2022|
-| [Developer Documentation updates in 2022.08.0](#developer-documentation-updates-in-2022-08-0) | August 3, 2022|
+| [Developer documentation updates in 2022.08.0](#developer-documentation-updates-in-2022-08-0) | August 3, 2022|
 | [Bug fixed in 2022.08.0](#bug-fixed-in-2022-08-0) | August 3, 2022|
 
 #### PKCE validation for OIDC app integrations is GA in Preview
