@@ -54,7 +54,7 @@ If you remix a Glitch inline hook project, the packages and code are already inc
 To add the `npm` packages:
 
 1. Select the `package.json` file in the left-hand project menu.
-2. From the `Add Package` dropdown box, search for the and `body-parser` packages.
+2. From the `Add Package` dropdown box, search for the `body-parser` packages.
 3. Click each package to add to your project.
 
 <StackSnippet snippet="parse"/>
