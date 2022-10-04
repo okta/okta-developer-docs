@@ -63,7 +63,7 @@ To add the `npm` packages:
 
 ## Add authentication method
 
-Okta inline hooks can use header authentication as well as OAuth 2.0 authentication to secure the calls from Okta to your external service. The inline hook Glitch projects use basic authentication. See the following sections to implement basic authentication or to use the OAuth 2 client secret or the private key method.
+Okta inline hooks can use header authentication as well as OAuth 2.0 authentication to secure the calls from Okta to your external service. The inline hook Glitch projects use basic authentication. See the following sections to implement basic authentication or to use the OAuth 2.0 client secret or the private key method.
 
 ### HTTP header: Basic Authentication
 
