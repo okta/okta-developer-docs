@@ -74,7 +74,7 @@ Your service needs to handle the inline hook by responding to Okta's request. Th
 
 Okta uses an HTTPS POST request to call your service.
 
-### Inline hook Security
+### Inline hook security
 
 To secure the communication channel between Okta and your external service, you have the option of using HTTP headers or OAuth2 tokens.
 
