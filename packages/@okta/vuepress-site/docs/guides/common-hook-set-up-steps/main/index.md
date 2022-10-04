@@ -40,13 +40,13 @@ The event hook and inline hook examples in this section use Glitch projects to c
 
 Start with a new Node.js project built on the Express framework or a Node.js SQLite database application and use the code snippets in the following examples to implement the example hooks. Copy (**Remix on Glitch**) the Glitch projects for each hook in the following sections to have a working code sample.
 
-<StackSelector snippet="setup"/>
+<StackSnippet snippet="setup"/>
 
-## Add Basic Authorization and Body Parsing
+## Add body parsing
 
-The Glitch project templates don't have any authorization or body parsing code. To include this content:
+The Glitch project templates don't have any body-parsing code. To include this content:
 
-* Add the Body Parser and Basic Auth `npm` packages to your Glitch project
+* Add the Body Parser `npm` package to your Glitch project
 * Add the code snippet below
 
 If you remix a Glitch inline hook project, the packages and code are already included.
@@ -54,16 +54,185 @@ If you remix a Glitch inline hook project, the packages and code are already inc
 To add the `npm` packages:
 
 1. Select the `package.json` file in the left-hand project menu.
-2. From the `Add Package` drop-down box, search for the `express-basic-auth` and `body-parser` packages.
+2. From the `Add Package` dropdown box, search for the `body-parser` packages.
 3. Click each package to add to your project.
+
+<StackSnippet snippet="parse"/>
+
+> **Note:** If your express framework package is version `14.1x` or above, you don't need to add the `body-parser` package, which is now included with the `express` package. You only need to add `app.use(express.json())` to your project code.
+
+## Add authentication method
+
+Okta inline hooks can use header authentication as well as OAuth 2.0 authentication to secure the calls from Okta to your external service. The inline hook Glitch projects use basic authentication. See the following sections to implement basic authentication or to use the OAuth 2.0 client secret or the private key method.
+
+### HTTP header: Basic Authentication
 
 The inline hook guides use [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) to authenticate the Okta inline hook API calls received by your Glitch external service. In your Okta org, you must encode the Glitch project username and password credentials in Base64 and add them as the **Authentication secret** when you activate the inline hook. Ensure that you add the scheme `Basic ` (including a space) as a prefix to the **Authentication secret** value.
 
-For example, the credential pair used in the inline hook examples is `admin:supersecret`, which encoded in Base64 is `YWRtaW46c3VwZXJzZWNyZXQ=`. Adding the scheme to this value, creates the inline hook **Authentication secret** value: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`.
+For example, the credential pair used in the inline hook examples is `admin:supersecret`, which encoded in Base64 is `YWRtaW46c3VwZXJzZWNyZXQ=`. Adding the scheme to this value creates the inline hook **Authentication secret** value: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`.
 
 After including the `npm` packages, add the following code snippet in your project.
 
 <StackSelector snippet="auth" noSelector/>
+
+### OAuth 2.0: Client Secret
+
+The OAuth 2.0 Client Secret method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org and add code to decode the JWT from the Okta inline hook call:
+
+* Create an app integration
+* Add a custom scope
+* Add OAuth 2.0 authentication fields to your inline hook
+* Add code to verify the JWT
+
+#### Create an app integration
+
+Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
+
+1. In the Admin Console, navigate to **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. Select **API Services** as the Sign-in method.
+1. Click **Next**.
+1. Specify the app integration name, then click **Save**.
+1. From the **General** tab of your app integration, note your generated **Client ID** and **Client secret**. These value are used when configuring your inline hook authentication.
+
+#### Add a custom scope
+
+<StackSnippet snippet="scope"/>
+
+#### Add OAuth 2.0 authentication fields to your inline hook
+
+When creating your inline hook, in the Authentication section, select **OAuth 2.0**.
+1. In the **Client Authentication** field, select **Use client secret** from the dropdown menu.
+1. Add the **Client ID** and **Client Secret** values from your app integration.
+1. Add the authorization server’s token URL, such as `https://${yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
+1. Click **Save**.
+
+#### Add code to verify the JWT
+
+The Okta inline hook sends a signed JWT to your external service as part of the hook call. Your service must decode this JWT to validate the token.
+
+The following Node.js code uses the Okta JWT verifier package to validate the JWT. For further information on using this package, see [Okta JWT Verifier for Node.js](https://www.npmjs.com/package/@okta/jwt-verifier). Add the `@okta/jwt-verifier` package to your external service, and then add the following code to validate the token:
+
+```JavaScript
+const OktaJwtVerifier = require("@okta/jwt-verifier");
+
+const oktaJwtVerifier = new OktaJwtVerifier({
+  issuer: 'https://${yourOktaDomain}/oauth2/default' // required
+});
+
+const authenticationRequired = async (request, response, next) => {
+  const authHeader = request.headers.authorization || '';
+  const match = authHeader.match(/Bearer (.+)/);
+  if (!match) {
+    return response.status(401).send();
+  }
+
+  try {
+    const accessToken = match[1];
+    console.log(accessToken);
+    if (!accessToken) {
+      console.log("no access token");
+      return request.status(401, 'Not authorized').send();
+    }
+    request.jwt = await oktaJwtVerifier.verifyAccessToken(accessToken,  'api://default');
+    console.log('token is valid');
+    next();
+  } catch (err) {
+    console.warn('token failed validation');
+    return response.status(401).send(err.message);
+  }
+};
+
+app.all('*', authenticationRequired); // Require authentication for all routes
+
+```
+
+### OAuth 2.0: Private Key
+
+The OAuth 2.0 private key method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org and add code to decode the JWT from the Okta inline hook call:
+
+* Create a key
+* Create an app integration
+* Add a custom scope
+* Add OAuth 2.0 authentication fields to your inline hook
+* Add code to verify the JWT
+
+#### Create a key
+
+1. In the Admin Console, go to **Workflow** > **Key Management**.
+1. Click **Create new key**, and add a unique name for the key. You reference this name when adding your inline hook.
+1. Click **Create key**. The key is added to the table with a creation date and status.
+1. In the table, click your key name.
+1. Click **Copy key**. You need this public key in the next step.
+
+> **Note:** You can also create a key with the [Key Management API](/docs/reference/api/hook-keys/).
+
+#### Create an app integration
+
+Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
+
+1. In the Admin Console, navigate to **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. Select **API Services** as the Sign-in method.
+1. Click **Next**.
+1. Specify the app integration name, then click **Save**.
+1. From the **General** tab of your app integration, click **Edit**.
+1. In the **Client authentication** field, select **Public key / Private key**.
+1. In the **Public Keys** section, click **Add key**.
+1. Paste the public key that you created in the previous procedure, and click **Done**.
+1. Click **Save** and copy the generated Client ID value.
+
+#### Add a custom scope
+
+<StackSnippet snippet="scope"/>
+
+#### Add OAuth 2.0 authentication fields to your inline hook
+
+1. When creating your inline hook, in the **Authentication** section, select **OAuth 2.0**.
+1. In the **Client Authentication** field, select **Use private key** from the dropdown menu.
+1. Add the Client ID value from your app integration.
+1. Add the authorization server’s token URL, such as `https://${yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
+1. Click **Save**.
+
+#### Add code to verify the request
+
+The Okta inline hook sends a signed JWT to your external service as part of the hook call. Your service must decode this JWT to validate the token.
+
+The following Node.js code uses the Okta JWT verifier package to validate the JWT. For further information on using this package, see [Okta JWT Verifier for Node.js](https://www.npmjs.com/package/@okta/jwt-verifier). Add the `@okta/jwt-verifier` package to your external service, and then add the following code to validate the token:
+
+```JavaScript
+const OktaJwtVerifier = require("@okta/jwt-verifier");
+
+const oktaJwtVerifier = new OktaJwtVerifier({
+  issuer: 'https://${yourOktaDomain}/oauth2/default' // required
+});
+
+const authenticationRequired = async (request, response, next) => {
+  const authHeader = request.headers.authorization || '';
+  const match = authHeader.match(/Bearer (.+)/);
+  if (!match) {
+    return response.status(401).send();
+  }
+
+  try {
+    const accessToken = match[1];
+    console.log(accessToken);
+    if (!accessToken) {
+      console.log("no access token");
+      return request.status(401, 'Not authorized').send();
+    }
+    request.jwt = await oktaJwtVerifier.verifyAccessToken(accessToken,  'api://default');
+    console.log('token is valid');
+    next();
+  } catch (err) {
+    console.warn('token failed validation');
+    return response.status(401).send(err.message);
+  }
+};
+
+app.all('*', authenticationRequired); // Require authentication for all routes
+
+```
 
 ## Troubleshoot hook implementations
 
