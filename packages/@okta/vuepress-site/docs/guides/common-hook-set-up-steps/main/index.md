@@ -178,7 +178,7 @@ Before you can implement authorization, you need to register your app in Okta by
 1. Specify the app integration name, then click **Save**.
 1. From the **General** tab of your app integration, click **Edit**.
 1. In the **Client authentication** field, select **Public key / Private key**.
-1. In the Public Keys section, click **Add key**.
+1. In the **Public Keys** section, click **Add key**.
 1. Copy in the public key you created in the previous procedure, and click **Done**.
 1. Click **Save**, and copy the generated Client ID value.
 
