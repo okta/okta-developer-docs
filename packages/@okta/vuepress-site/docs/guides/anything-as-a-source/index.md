@@ -41,24 +41,24 @@ This guide outlines the XaaS API flow so that you can develop your custom client
 
 ### Import Session
 
-The XaaS API synchronizing data flow uses an [Import Session](/docs/reference/xaas/#import-session) object to encapsulate the data upload and the data import processing tasks. You need to create an Import Session object each time you want to synchronize data from the HR source to Okta. The Import Session object uses the following status to indicate the stage of the synchronization process flow.
+The XaaS API synchronizing data flow uses an [Import Session](/docs/reference/xaas/#import-session) object to encapsulate the data upload and the data import processing tasks. You need to create an Import Session object each time you want to synchronize data from the HR source to Okta. The Import Session object uses the following `status` values to indicate each stage of the synchronization process flow.
 
 ### Import Session status
 
 * **CREATED**: The Import Session object has been created for a specific Custom Identity Source integration and data can be loaded to the session at this stage. No data import processing has been invoked and the session can be cancelled at this stage.
-* **TRIGGERED**:  Okta is processing the loaded data in the Import Session. You can’t load new data to the Import Session object at this stage and the session can’t be cancelled. Import Sessions with this status can be viewed in the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console.
+* **TRIGGERED**:  Okta is processing the loaded data in the Import Session. You can’t load new data to the Import Session object at this stage and the session can’t be cancelled. Import Sessions with this status can be viewed in the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page from the Admin Console.
 * **COMPLETED**:  The data in the Import Session object has been processed by Okta. You can’t upload new data to the Import Session object if it has the `COMPLETED` status. The synchronization data job is considered complete.
 * **CLOSED**: The session is cancelled and isn't available for further activity. Only Import Sessions with the `CREATED` status can be cancelled. You can't cancel a session that has been triggered or completed. Previously loaded user data is deleted from a cancelled Import Session.
-* **EXPIRED**: This status indicates that the Import Session has timed-out during the data loading stage, where `/bulk-upsert` and `/bulk-delete` calls are made. An Import Session with the `CREATED` status expires from 24 hours of inactivity.
+* **EXPIRED**: This status indicates that the Import Session has timed out during the data loading stage. An Import Session with the `CREATED` status expires from 24 hours of inactivity.
 
 ### Import Session process
 
 You can only process one Import Session, for a specific Custom Identity Source integration, at a time to avoid conflicts. The following are additional Import Session behaviors:
 
 * Data can only be loaded to an Import Session when it’s in the `CREATED` status.
-* A Custom Identity Source integration can only ever have one active Import Session at a time. An Import Session with the `CREATED` or `TRIGGERED` status is considered active.
+* A Custom Identity Source integration can only have one active Import Session at a time. An Import Session with the `CREATED` or `TRIGGERED` status is considered active.
 * You can’t process an Import Session in parallel for the same identity source.
-* A new Import Session can’t be created in less than five minutes of an active Import Session associated with the same identity source has. If Okta receives a new Import Session request within five minutes of an active Import Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 - Bad Request response.
+* A new Import Session can’t be created in less than five minutes of an active Import Session associated with the same identity source. If Okta receives a new Import Session request within five minutes of an active Import Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 - Bad Request response.
 * If there are no API requests in 24 hours for an Import Session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
 
 > **Note:** If you receive a 400 Bad Request from a create Import Session request, then ensure that there isn't an active Import Session for the same identity source. Use the [Retrieve the current Import Session](/docs/reference/api/xaas/#retrieve-the-current-import-session) request to return the current active Import Session for an identity source.
@@ -78,9 +78,9 @@ You can load up to 200 KB of data in a single bulk-user-load (`/bulk-upsert` or 
 
 The bulk-user-load request contains an array of [User Profile Data](/docs/reference/api/xaas/#profile-object) objects that contain the following:
 
-* `externalId`: Contains the unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This value is used as a key to determine if a new user needs to be created or an existing user needs to be updated.
+* `externalId`: Contains the unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This value is used as a key to determine if a new user needs to be created or if an existing user needs to be updated.
 
-* `profile`:  Contains the set of attributes from the HR source to synchronize with Okta user profiles. User profiles are mapped according to the attribute mappings you specified in your Custom Identity Source configuration.  See Declaration of a Custom Identity Source Schema in  [Using anything as a source](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm).
+* `profile`:  Contains the set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings you specified in your Custom Identity Source configuration.  See Declaration of a Custom Identity Source Schema in  [Using anything as a source](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm).
 
 > **Note:** Only user profile data can be loaded to an Import Session object with the `"entityType": "USERS"` property. Group data load isn’t currently supported.
 
@@ -126,7 +126,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
     Possible returned responses:
 
-    * **200 OK**: The Import Session created successfully and returns a `id` property. Save the `id` value to make further API calls.
+    * **200 OK**: The Import Session created successfully and returns an `id` property. Save the `id` value to make further API calls.
 
       ```json
       {
@@ -140,15 +140,14 @@ Use these steps to insert or update a set of user data profiles from your HR sou
       > **Note:** Only `"importType": "INCREMENTAL"` is currently supported for an Import Session.
 
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
-    * **401 Unauthorized**: API key isn't valid
-    * **403 Forbidden**
+    * **401 Unauthorized**: The API key isn't valid.
 
 2. [Bulk upsert user data](/docs/reference/api/xaas/#bulk-upsert-user-data):
 
-    * Use the `sessionId` property value returned from the created Import Session to make the [bulk upsert user data](/docs/reference/api/xaas/#bulk-upsert-user-data) request.
+    * Use the `id` property value returned from the created Import Session to make the [bulk upsert user data](/docs/reference/api/xaas/#bulk-upsert-user-data) request.
     * Obtain the user profiles from your HR source and add each user profile attribute into the `profiles` array. You can have up to a maximum of 200 user profiles in the array.
     * Set `entityType` to `USERS`. Only user data is supported; group data is currently not supported.
-    * If you need to add more users, make another [bulk upsert user data](/docs/reference/api/xaas/#bulk-upsert-user-data) request with the same `sessionId` value. You can make up to 50 bulk-user-load requests for one Import Session.
+    * If you need to add more users, make another [bulk upsert user data](/docs/reference/api/xaas/#bulk-upsert-user-data) request with the same `${sessionId}` value. You can make up to 50 bulk-user-load requests for one Import Session.
 
     ```bash
     curl -i -X POST \
@@ -177,8 +176,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
     Possible returned responses:
     * **202 Accepted** : The bulk upsert was successful.
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
-    * **401 Unauthorized**: API key isn't valid
-    * **403 Forbidden**
+    * **401 Unauthorized**: The API key isn't valid.
 
 3. [Trigger the data import process](/docs/reference/api/xaas):
 
@@ -192,24 +190,21 @@ Use these steps to insert or update a set of user data profiles from your HR sou
     ```
 
     Possible returned responses:
-    * **200 OK**: The data import process started successfully and returns the following properties:
+    * **200 OK**: The data import process started successfully. The following is an example of the returned properties:
 
         ```json
         {
-          "id": "uij4bjiw3eY00uuhR0g7",
-          "identitySourceId": "0oa4bjizmkh7KAJau0g7",
+          "id": "${sessionId}",
+          "identitySourceId": "${identitySourceId}",
           "status": "TRIGGERED",
           "importType": "INCREMENTAL"
         }
         ```
 
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
-    * **401 Unauthorized**: API key isn't valid
-    * **403 Forbidden**
+    * **401 Unauthorized**: The API key isn't valid.
 
-4. Monitor the Import Session until the data processing completes:
-
-    Request for the status of the Import Session to verify that the import job completed.
+4. Monitor the Import Session until the data processing completes by making requests for the status of the Import Session:
 
     ```bash
     curl -i -X GET \
@@ -221,7 +216,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
     Alternatively, use the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console to monitor the import process job. When the job completes, a summary of the import process appears in the Import Monitoring dashboard.
 
     Possible returned responses:
-    * **200 OK**: The data import process started successfully and returns the following properties:
+    * **200 OK**: The data import process completed successfully and returns the following properties:
 
         ```json
         {
@@ -232,9 +227,8 @@ Use these steps to insert or update a set of user data profiles from your HR sou
         }
         ```
 
-    * **400 Bad Request**: Unknown Import Session ID
-    * **401 Unauthorized**: API key isn't valid
-    * **403 Forbidden**
+    * **400 Bad Request**: The Import Session ID is unknown.
+    * **401 Unauthorized**: The API key isn't valid.
 
 ### Bulk deactivate user data
 
@@ -265,15 +259,14 @@ When users have been deactivated or deleted from your HR source, you need to ref
       > **Note:** Only `"importType": "INCREMENTAL"` is currently supported for an Import Session.
 
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
-    * **401 Unauthorized**: API key isn't valid
-    * **403 Forbidden**
+    * **401 Unauthorized**: The API key isn't valid.
 
 2. [Bulk delete user data](/docs/reference/api/xaas/#bulk-delete-user-data):
 
-    * Use the `sessionId` property value returned from the created Import Session to make the [bulk delete user data](/docs/reference/api/xaas/#bulk-delete-user-data) request.
+    * Use the `id` property value returned from the created Import Session to make the [bulk delete user data](/docs/reference/api/xaas/#bulk-delete-user-data) request.
     * Obtain the unique user identifiers from your HR source and add each `externalId` value into the `profiles` array. You can have up to a maximum of 200 user IDs in the array.
     * Set `entityType` to `USERS`. Only user data is supported; group data is currently not supported.
-    * If you need to deactivate more users, make another [bulk delete user data](/docs/reference/api/xaas/#bulk-delete-user-data) request with the same `sessionId` value. You can make up to 50 bulk-user-load requests for one Import Session.
+    * If you need to deactivate more users, make another [bulk delete user data](/docs/reference/api/xaas/#bulk-delete-user-data) request with the same `${sessionId}` value. You can make up to 50 bulk-user-load requests for one Import Session.
 
     ```bash
     curl -i -X POST \
@@ -299,8 +292,7 @@ When users have been deactivated or deleted from your HR source, you need to ref
     Possible returned responses:
     * **202 Accepted** : The bulk delete operation was successful.
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
-    * **401 Unauthorized**: API key isn't valid
-    * **403 Forbidden**:
+    * **401 Unauthorized**: The API key isn't valid.
 
 3. [Trigger the data import process](/docs/reference/api/xaas):
 
@@ -326,12 +318,9 @@ When users have been deactivated or deleted from your HR source, you need to ref
         ```
 
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
-    * **401 Unauthorized**: API key isn't valid
-    * **403 Forbidden**
+    * **401 Unauthorized**: The API key isn't valid.
 
-4. Monitor the Import Session until the data processing completes:
-
-    Request for the status of the Import Session to verify that the import job completed.
+4. Monitor the Import Session until the data processing completes by making requests for the status of the Import Session:
 
     ```bash
     curl -i -X GET \
@@ -354,9 +343,8 @@ When users have been deactivated or deleted from your HR source, you need to ref
         }
         ```
 
-    * **400 Bad Request**: Unknown Import Session ID
-    * **401 Unauthorized**: API key isn't valid
-    * **403 Forbidden**
+    * **400 Bad Request**: The Import Session ID is unknown.
+    * **401 Unauthorized**: The API key isn't valid.
 
 ### Cancel an Import Session
 
@@ -374,6 +362,5 @@ curl -i -X DELETE \
 Possible returned responses:
 
 * **204 No content**: The Import Session cancelled successfully. All bulk user data is removed from the session.
-* **400 Bad Request**: Unknown Import Session ID error
-* **401 Unauthorized**: API key isn't valid
-* **403 Forbidden**
+* **400 Bad Request**: The Import Session ID is unknown.
+* **401 Unauthorized**: The API key isn't valid.
