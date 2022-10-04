@@ -61,7 +61,7 @@ To add the `npm` packages:
 
 > **Note:** If your express framework package is version `14.1x` or above, you don't need to add the `body-parser` package, which is now included with the `express` package. You only need to add `app.use(express.json())` to your project code.
 
-## Add Authentication method
+## Add authentication method
 
 Okta inline hooks can use header authentication as well as OAuth 2.0 authentication to secure the calls from Okta to your external service. The inline hook Glitch projects use basic authentication. See the following sections to implement basic authentication or to use the OAuth 2 client secret or the private key method.
 
