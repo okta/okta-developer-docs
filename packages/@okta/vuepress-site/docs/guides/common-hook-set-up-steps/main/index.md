@@ -160,7 +160,7 @@ The OAuth 2.0 private key method sends a signed JWT to your external service. To
 #### Create a key
 
 1. In the Admin Console, go to **Workflow** > **Key Management**.
-1. Click **Create new key**, and add a unique name for the key. You will reference this name when adding your inline hook.
+1. Click **Create new key**, and add a unique name for the key. You reference this name when adding your inline hook.
 1. Click **Create key**. The key is added to the table with a creation date and status.
 1. In the table, click your key name.
 1. Click **Copy key**. You need this public key in the next step.
