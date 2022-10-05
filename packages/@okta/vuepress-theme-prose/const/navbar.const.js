@@ -448,7 +448,7 @@ export const guides = [
         title: "Authorization",
         subLinks: [
           {
-            title: "Implement auth by grant type",
+            title: "Implement authz by grant type",
             guideName: "implement-grant-type",
           },
           {
@@ -461,7 +461,7 @@ export const guides = [
           },
           { title: "Request user consent", guideName: "request-user-consent" },
           {
-            title: "Configure the Device Auth Grant Flow",
+            title: "Configure the Device Authz grant flow",
             guideName: "device-authorization-grant",
           },
           {
@@ -472,39 +472,39 @@ export const guides = [
             title: "Tokens",
             subLinks: [
               {
-                title: "Build a JWT for Client Authentication",
+                title: "Build a JWT for client authn",
                 guideName: "build-self-signed-jwt",
               },
               {
-                title: "Customize tokens returned from Okta with custom claims",
+                title: "Customize tokens: Custom claims",
                 guideName: "customize-tokens-returned-from-okta",
               },
               {
                 title:
-                  "Customize tokens returned from Okta with a Groups claim",
+                  "Customize tokens: Groups claim",
                 guideName: "customize-tokens-groups-claim",
               },
               {
                 title:
-                  "Customize tokens returned from Okta with a dynamic allow list",
+                  "Customize tokens: Dynamic allow list",
                 guideName: "customize-tokens-dynamic",
               },
               {
                 title:
-                  "Customize tokens returned from Okta with a static allow list",
+                  "Customize tokens: Static allow list",
                 guideName: "customize-tokens-static",
               },
               { title: "Refresh access tokens", guideName: "refresh-tokens" },
-              { title: "Revoke Tokens", guideName: "revoke-tokens" },
+              { title: "Revoke tokens", guideName: "revoke-tokens" },
               {
                 title: "Work with Okta session cookies",
                 guideName: "session-cookie",
               },
               {
-                title: "Validate Access Tokens",
+                title: "Validate access tokens",
                 guideName: "validate-access-tokens",
               },
-              { title: "Validate ID Tokens", guideName: "validate-id-tokens" },
+              { title: "Validate ID tokens", guideName: "validate-id-tokens" },
             ],
           },
         ],
