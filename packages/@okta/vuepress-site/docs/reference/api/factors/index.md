@@ -1196,8 +1196,6 @@ Enrolls a user with the Okta Verify `push` factor. The factor must be [activated
 
 > **Note:** Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
 
-<!-- Users aren't allowed to enroll with `signed_nonce` directly by setting the `factorType` to the `signed_nonce` value in the request. `signed_nonce` can only be enrolled indirectly through the Factors API by enrolling to the OV `push` `factorType`. See OKTA-525563 -->
-
 ##### Request example
 
 ```bash
