@@ -18,7 +18,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
 | [Access Denied error message customization is GA in Production](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
 | [Manage embedded widget sign-in support is EA in Preview](#manage-embedded-widget-sign-in-support-is-ea-in-preview) | October 5, 2022 |
-| [xxxx](#xxxx) | October 5, 2022 |
+| [Factors API support for Okta Verify authenticator enrollment flows is GA in Preview](#factors-api-support-for-okta-verify-authenticator-enrollment-flows-is-ga-in-preview) | October 5, 2022 |
 | [xxxx](#xxxx) | October 5, 2022 |
 | [xxxx](#xxxx) | October 5, 2022 |
 | [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
@@ -59,15 +59,14 @@ Okta provides the Okta Sign-In Widget out of the box so that customers can authe
 
 #### Factors API support for Okta Verify authenticator enrollment flows is GA in Preview
 
-Identity Engine now supports Okta Verify enrollments with email or SMS links created from the Factors API. Previously, when a client generated an Okta Verify enrollment email or SMS link using the Factors API, the enrollment from the Okta Verify app failed with an `Invalid Token` error. 
-To address this issue, Factors API updates include the following behaviors when the Okta Verify authenticator is used:
-When an Okta Verify enrollment request is made using the Factors API for a user not currently enrolled with an Okta Verify factor, then all three `signed_nonce`, `push`, and `totp` factors are enrolled.
+Identity Engine now supports Okta Verify enrollments with email or SMS links created from the Factors API. Previously, when a client generated an Okta Verify enrollment email or SMS link using the Factors API, the enrollment from the Okta Verify app failed with an `Invalid Token` error. To address this issue, Factors API updates include the following behaviors when the Okta Verify authenticator is used:
 
-The GET factors operation lists all Okta Verify enrollment methods for a user.
+* When an Okta Verify enrollment request is made using the Factors API for a user not currently enrolled with an Okta Verify factor, then all three `signed_nonce`, `push`, and `totp` factors are enrolled.
+* The GET factors operation lists all Okta Verify enrollment methods for a user.
+* The DELETE `push` or `signed_nonce` factor operation deletes all three factor enrollments (`push`, `signed_nonce`, and `totp`).
 
-The DELETE `push` or `signed_nonce` factor operation deletes all three factor enrollments (`push`, `signed_nonce`, and `totp`).
-
-See [Enroll Okta Verify Push] and [Delete Factor] updates in the Factors API.
+See [Enroll Okta Verify Push](/docs/reference/api/factors/#enroll-okta-verify-push-factor) and [Reset Factor](/docs/reference/api/factors/#reset-factor) updates in the Factors API.
+<!--OKTA-536937-->
 
 #### Developer documentation updates in 2022.10.0
 
