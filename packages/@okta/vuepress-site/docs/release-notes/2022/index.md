@@ -52,9 +52,9 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 * A new [Key Management API](/docs/reference/api/hook-keys/) is available under the Core Okta APIs. This reference manages JWKs used with OAuth 2.0 authentication for inline hooks.
 
-* A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available under the [Guide > Hooks](/docs/guides/hook/) heading. Use this guide to implement a working example of a SAML assertion inline hook.
+* A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available at **Guides > Hooks**. Use this guide to implement a working example of a SAML assertion inline hook.
 
-* The OIN Manager has a new Get Support section that provides common [developer.okta.com](/docs/guides/okta-integration-network/) guides relating to OIN integrations and the submission process.
+* The OIN Manager has a new Get Support section that provides common developer.okta.com guides relating to OIN integrations and the submission process.
 
 #### Bugs fixed in 2022.10.0
 

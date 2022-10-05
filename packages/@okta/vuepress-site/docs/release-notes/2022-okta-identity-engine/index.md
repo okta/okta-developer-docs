@@ -66,9 +66,7 @@ The Users API now supports sorting results by the top-level User object properti
 
 #### Manage embedded widget sign-in support is EA in Preview
 
-Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The Embedded widget sign-in support toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improves the security posture of your applications. See [Verify that the Interaction Code grant type is enabled]. <!--OKTA-517774-->
-
-<!--(/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled)-->
+Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The Embedded widget sign-in support toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improves the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled). <!--OKTA-517774-->
 
 #### Non-deletable default authorization server is GA in Production
 
@@ -80,9 +78,7 @@ Okta inline hook calls to third-party external web services previously provided 
 
 To improve the security of inline hooks, Okta now supports authentication with OAuth 2.0 access tokens. Tokens ensure secure calls to external web services.
 
-When creating inline hooks in the Admin Console (or by API), administrators or developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: Client Secret or Private Key. A new [Key Management API] and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
-
-<!-- (/docs/reference/api/hook-keys/)  -->
+When creating inline hooks in the Admin Console (or by API), administrators or developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: Client Secret or Private Key. A new [Key Management API](/docs/reference/api/hook-keys/) and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
 
 Using the OAuth 2.0 framework provides better security than Basic Authentication or custom headers, and is less work than setting up an IP allowlisting solution. Clients also have the ability to use access tokens minted by their own custom authorization servers to guarantee that Okta is calling their client web services and isn't triggered by any external actors. See [Add an event hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-event-hooks). <!--OKTA-537306-->
 
@@ -90,9 +86,9 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 * A new [Key Management API](/docs/reference/api/hook-keys/) is available under the Core Okta APIs. This reference manages JWKs used with OAuth 2.0 authentication for inline hooks.
 
-* A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available under the Guide > Hooks heading. Use this guide to implement a working example of a SAML assertion inline hook.
+* A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available at **Guides > Hooks**. Use this guide to implement a working example of a SAML assertion inline hook.
 
-* The OIN Manager has a new Get Support section that provides common [developer.okta.com](/docs/guides/okta-integration-network/) guides relating to OIN integrations and the submission process.
+* The OIN Manager has a new Get Support section that provides common developer.okta.com guides relating to OIN integrations and the submission process.
 
 #### Bugs fixed in 2022.10.0
 
