@@ -10,27 +10,23 @@ title: Okta Identity Engine API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
-| [Default authenticator enrollment policy settings format is GA in Production](#default-authenticator-enrollment-policy-settings-format-is-ga-in-production) | August 31, 2022 |
+| [Access Denied error message customization is GA in Production](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
 | [Additional measures for suspicious SMS and Voice requests](#additional-measures-for-suspicious-sms-and-voice-requests) | October 5, 2022 |
 | [Clone authentication policies are GA in Production](#clone-authentication-policies-are-ga-in-production) | August 31, 2022 |
+| [Default authenticator enrollment policy settings format is GA in Production](#default-authenticator-enrollment-policy-settings-format-is-ga-in-production) | August 31, 2022 |
 | [Dynamic IdP routing is GA in Production](#dynamic-idp-routing-is-ga-in-production) | June 8, 2022 |
-| [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
-| [Access Denied error message customization is GA in Production](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
-| [Manage embedded widget sign-in support is EA in Preview](#manage-embedded-widget-sign-in-support-is-ea-in-preview) | October 5, 2022 |
 | [Factors API support for Okta Verify authenticator enrollment flows is GA in Preview](#factors-api-support-for-okta-verify-authenticator-enrollment-flows-is-ga-in-preview) | October 5, 2022 |
-| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-20-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
 | [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | October 5, 2022 |
+| [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
+| [Manage embedded widget sign-in support is EA in Preview](#manage-embedded-widget-sign-in-support-is-ea-in-preview) | October 5, 2022 |
+| [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
+| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-20-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
 | [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
 | [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
 
-#### Non-deletable default authorization server is GA in Production
+#### Access Denied error message customization is GA in Production
 
-Okta provides a default authorization server so that customers can quickly get started. If a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label in the Admin Console. <!--OKTA-536276-->
-
-#### Default authenticator enrollment policy settings format is GA in Production
-
-For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy) is created with settings in the authenticator format instead of the factor format. For existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format. <!--OKTA-535005-->
+Admins can now customize the error message that users receive when their access is denied. This allows admins to provide remediation steps and/or point users to documentation that will help resolve their access issues. <!--OKTA-512725-->
 
 #### Additional measures for suspicious SMS and Voice requests
 
@@ -41,21 +37,13 @@ Additional measures are now applied to block suspicious SMS and Voice traffic fr
 
 Creating an authentication policy from scratch is a manual, error-prone task because you need to visually copy existing rules into the new policy. Okta now offers the ability to clone a policy. You can use either the Admin Console or the new Clone a Policy operation on the Policy API. See [Clone a Policy](/docs/reference/api/policy/#clone-a-policy). <!--OKTA-525110-->
 
+#### Default authenticator enrollment policy settings format is GA in Production
+
+For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy) is created with settings in the authenticator format instead of the factor format. For existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format. <!--OKTA-535005-->
+
 #### Dynamic IdP routing is GA in Production
 
 Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing). <!--OKTA-520972-->
-
-#### Improved User API sort
-
-The Users API now supports sorting results by the top-level User object properties `status`, `lastUpdated`, and `type.id`. <!--OKTA-513502-->
-
-#### Access Denied error message customization is GA in Production
-
-Admins can now customize the error message that users receive when their access is denied. This allows admins to provide remediation steps and/or point users to documentation that will help resolve their access issues. <!--OKTA-512725-->
-
-#### Manage embedded widget sign-in support is EA in Preview
-
-Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The Embedded widget sign-in support toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improves the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled). <!--OKTA-517774-->
 
 #### Factors API support for Okta Verify authenticator enrollment flows is GA in Preview
 
@@ -68,6 +56,22 @@ Identity Engine now supports Okta Verify enrollments with email or SMS links cre
 See [Enroll Okta Verify Push](/docs/reference/api/factors/#enroll-okta-verify-push-factor) and [Reset Factor](/docs/reference/api/factors/#reset-factor) updates in the Factors API.
 <!--OKTA-536937-->
 
+#### Improved ThreatInsight coverage
+
+ThreatInsight has increased coverage for enabled orgs. More malicious requests are now flagged for orgs with ThreatInsight configured. <!--OKTA-531586-->
+
+#### Improved User API sort
+
+The Users API now supports sorting results by the top-level User object properties `status`, `lastUpdated`, and `type.id`. <!--OKTA-513502-->
+
+#### Manage embedded widget sign-in support is EA in Preview
+
+Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The Embedded widget sign-in support toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improves the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled). <!--OKTA-517774-->
+
+#### Non-deletable default authorization server is GA in Production
+
+Okta provides a default authorization server so that customers can quickly get started. If a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label in the Admin Console. <!--OKTA-536276-->
+
 #### OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview
 
 Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
@@ -78,35 +82,31 @@ When creating inline hooks in the Admin Console (or by API), administrators or d
 
 Using the OAuth 2.0 framework provides better security than Basic Authentication or custom headers, and is less work than setting up an IP allowlisting solution. Clients also have the ability to use access tokens minted by their own custom authorization servers to guarantee that Okta is calling their client web services and isn't triggered by any external actors. See [Add an event hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-event-hooks). <!--OKTA-537306-->
 
-#### Improved ThreatInsight coverage
-
-ThreatInsight has increased coverage for enabled orgs. More malicious requests are now flagged for orgs with ThreatInsight configured. <!--OKTA-531586-->
-
 #### Developer documentation updates in 2022.10.0
-
-* The OIN Manager has a new Get Support section that provides common [developer.okta.com](/docs/guides/okta-integration-network/) guides relating to OIN integrations and the submission process.
-
-* A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available under the [Guide > Hooks](/docs/guides/hook/) heading. Use this guide to implement a working example of a SAML assertion inline hook.
 
 * A new [Key Management API](/docs/reference/api/hook-keys/) is available under the Core Okta APIs. This reference manages JWKs used with OAuth 2.0 authentication for inline hooks.
 
+* A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available under the [Guide > Hooks](/docs/guides/hook/) heading. Use this guide to implement a working example of a SAML assertion inline hook.
+
+* The OIN Manager has a new Get Support section that provides common [developer.okta.com](/docs/guides/okta-integration-network/) guides relating to OIN integrations and the submission process.
+
 #### Bugs fixed in 2022.10.0
-
-* A `GET /api/v1/groups` request with an invalid search operator returned a 504 Timeout error instead of a 400 Bad Request error with an appropriate message. (OKTA-535035)
-
-* When a `session.amr` expression was used for SAML attribute statements, the attribute statement wasn't correctly populated. (OKTA-532316)
-
-* A user was able to verify more than 10 phone numbers with the verify my phone (`/idp/myaccount/phones/${id}/verify`) endpoint in the MyAccount API. (OKTA-531097)
-
-* When an OIN client was set to invisible, the client was still incorrectly returned if a GET request was made using the Dynamic Client Registration API (`/oauth2/v1/clients`). (OKTA-515362)
 
 * Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
 
 * Searching for users with the Users API returned a 503 Service Unavailable error if the call included a `sortBy` parameter with an invalid `after` parameter. (OKTA-504265)
 
+* When an OIN client was set to invisible, the client was still incorrectly returned if a GET request was made using the Dynamic Client Registration API (`/oauth2/v1/clients`). (OKTA-515362)
+
 * When the Factors API verify endpoint (`/users/${userId}/factors/${factorId}/verify`) was called on behalf of a user, an HTTP 403 Forbidden error was returned. (OKTA-523738)
 
+* A user was able to verify more than 10 phone numbers with the verify my phone (`/idp/myaccount/phones/${id}/verify`) endpoint in the MyAccount API. (OKTA-531097)
+
 * An error message didn’t appear when a deleted app instance was assigned to a role. (OKTA-531308)
+
+* When a `session.amr` expression was used for SAML attribute statements, the attribute statement wasn't correctly populated. (OKTA-532316)
+
+* A `GET /api/v1/groups` request with an invalid search operator returned a 504 Timeout error instead of a 400 Bad Request error with an appropriate message. (OKTA-535035)
 
 ## September
 
