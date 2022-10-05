@@ -607,7 +607,7 @@ export const guides = [
             guideName: "implement-oauth-for-okta",
           },
           {
-            title: "Implement OAuth for Okta with a Service App",
+            title: "Implement OAuth for Okta: Service App",
             guideName: "implement-oauth-for-okta-serviceapp",
           },
           {
@@ -619,11 +619,11 @@ export const guides = [
             guideName: "third-party-risk-integration",
           },
           {
-            title: "Secure OAuth API connection between orgs",
+            title: "Secure OAuth API between orgs",
             guideName: "secure-oauth-between-orgs",
           },
           {
-            title: "Step-up authentication using ACR values",
+            title: "Step-up authn using ACR values",
             guideName: "step-up-authentication"
           }
         ],
