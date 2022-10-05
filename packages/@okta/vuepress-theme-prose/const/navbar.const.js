@@ -448,24 +448,24 @@ export const guides = [
         title: "Authorization",
         subLinks: [
           {
-            title: "Implement authorization by grant type",
+            title: "Implement auth by grant type",
             guideName: "implement-grant-type",
           },
           {
-            title: "Create an Authorization Server",
+            title: "Create an authorization server",
             guideName: "customize-authz-server",
           },
           {
-            title: "Configure SSO for Native apps",
+            title: "Configure SSO for native apps",
             guideName: "configure-native-sso",
           },
           { title: "Request user consent", guideName: "request-user-consent" },
           {
-            title: "Configure Device Authorization Grant Flow",
+            title: "Configure the Device Auth Grant Flow",
             guideName: "device-authorization-grant",
           },
           {
-            title: "Client secret rotation and key management",
+            title: "Secret rotation and key management",
             guideName: "client-secret-rotation-key",
           },
           {
