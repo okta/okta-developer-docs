@@ -10,7 +10,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Access Denied error message customization is GA in Production](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
+| [Access Denied error message customization is GA in Production](#access-denied-error-message-customization-is-ga-in-production) | August 31, 2022 |
 | [Additional measures for suspicious SMS and Voice requests](#additional-measures-for-suspicious-sms-and-voice-requests) | October 5, 2022 |
 | [Clone authentication policies are GA in Production](#clone-authentication-policies-are-ga-in-production) | August 31, 2022 |
 | [Default authenticator enrollment policy settings format is GA in Production](#default-authenticator-enrollment-policy-settings-format-is-ga-in-production) | August 31, 2022 |
