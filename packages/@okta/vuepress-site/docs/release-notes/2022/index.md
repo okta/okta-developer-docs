@@ -13,7 +13,7 @@ title: Okta API Products release notes 2022
 | [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | October 5, 2022 |
 | [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
 | [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
-| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-20-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
+| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
 | [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
 | [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
 

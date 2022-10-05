@@ -20,13 +20,13 @@ title: Okta Identity Engine API Products release notes 2022
 | [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
 | [Manage embedded widget sign-in support is EA in Preview](#manage-embedded-widget-sign-in-support-is-ea-in-preview) | October 5, 2022 |
 | [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
-| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-20-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
+| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
 | [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
 | [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
 
 #### Access Denied error message customization is GA in Production
 
-Admins can now customize the error message that users receive when their access is denied. This allows admins to provide remediation steps and/or point users to documentation that will help resolve their access issues. <!--OKTA-512725-->
+Admins can now customize the error message that users receive when their access is denied. This allows admins to provide remediation steps and/or point users to documentation that helps resolve their access issues. <!--OKTA-512725-->
 
 #### Additional measures for suspicious SMS and Voice requests
 
