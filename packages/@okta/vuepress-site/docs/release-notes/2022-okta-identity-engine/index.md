@@ -19,8 +19,8 @@ title: Okta Identity Engine API Products release notes 2022
 | [Access Denied error message customization is GA in Production](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
 | [Manage embedded widget sign-in support is EA in Preview](#manage-embedded-widget-sign-in-support-is-ea-in-preview) | October 5, 2022 |
 | [Factors API support for Okta Verify authenticator enrollment flows is GA in Preview](#factors-api-support-for-okta-verify-authenticator-enrollment-flows-is-ga-in-preview) | October 5, 2022 |
-| [xxxx](#xxxx) | October 5, 2022 |
-| [xxxx](#xxxx) | October 5, 2022 |
+| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-20-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
+| [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | October 5, 2022 |
 | [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
 | [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
 
@@ -68,11 +68,27 @@ Identity Engine now supports Okta Verify enrollments with email or SMS links cre
 See [Enroll Okta Verify Push](/docs/reference/api/factors/#enroll-okta-verify-push-factor) and [Reset Factor](/docs/reference/api/factors/#reset-factor) updates in the Factors API.
 <!--OKTA-536937-->
 
+#### OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview
+
+Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
+
+To improve the security of inline hooks, Okta now supports authentication with OAuth 2.0 access tokens. Tokens ensure secure calls to external web services.
+
+When creating inline hooks in the Admin Console (or by API), administrators or developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: Client Secret or Private Key. A new [Key Management API](/docs/reference/api/hook-keys/) and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
+
+Using the OAuth 2.0 framework provides better security than Basic Authentication or custom headers, and is less work than setting up an IP allowlisting solution. Clients also have the ability to use access tokens minted by their own custom authorization servers to guarantee that Okta is calling their client web services and isn't triggered by any external actors. See [Add an event hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-event-hooks). <!--OKTA-537306-->
+
+#### Improved ThreatInsight coverage
+
+ThreatInsight has increased coverage for enabled orgs. More malicious requests are now flagged for orgs with ThreatInsight configured. <!--OKTA-531586-->
+
 #### Developer documentation updates in 2022.10.0
 
-* 
+* The OIN Manager has a new Get Support section that provides common [developer.okta.com](/docs/guides/okta-integration-network/) guides relating to OIN integrations and the submission process.
 
-* 
+* A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available under the [Guide > Hooks](/docs/guides/hook/) heading. Use this guide to implement a working example of a SAML assertion inline hook.
+
+* A new [Key Management API](/docs/reference/api/hook-keys/) is available under the Core Okta APIs. This reference manages JWKs used with OAuth 2.0 authentication for inline hooks.
 
 #### Bugs fixed in 2022.10.0
 
@@ -83,6 +99,14 @@ See [Enroll Okta Verify Push](/docs/reference/api/factors/#enroll-okta-verify-pu
 * A user was able to verify more than 10 phone numbers with the verify my phone (`/idp/myaccount/phones/${id}/verify`) endpoint in the MyAccount API. (OKTA-531097)
 
 * When an OIN client was set to invisible, the client was still incorrectly returned if a GET request was made using the Dynamic Client Registration API (`/oauth2/v1/clients`). (OKTA-515362)
+
+* Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
+
+* Searching for users with the Users API returned a 503 Service Unavailable error if the call included a `sortBy` parameter with an invalid `after` parameter. (OKTA-504265)
+
+* When the Factors API verify endpoint (`/users/${userId}/factors/${factorId}/verify`) was called on behalf of a user, an HTTP 403 Forbidden error was returned. (OKTA-523738)
+
+* An error message didn’t appear when a deleted app instance was assigned to a role. (OKTA-531308)
 
 ## September
 
