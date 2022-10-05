@@ -448,7 +448,7 @@ export const guides = [
         title: "Authorization",
         subLinks: [
           {
-            title: "Implement authz by grant type",
+            title: "Implement by grant type",
             guideName: "implement-grant-type",
           },
           {
@@ -461,7 +461,7 @@ export const guides = [
           },
           { title: "Request user consent", guideName: "request-user-consent" },
           {
-            title: "Configure the Device Authz grant",
+            title: "Configure Device Authz grant flow",
             guideName: "device-authorization-grant",
           },
           {
@@ -476,19 +476,19 @@ export const guides = [
                 guideName: "build-self-signed-jwt",
               },
               {
-                title: "Customize: use custom claims",
+                title: "Add custom claims",
                 guideName: "customize-tokens-returned-from-okta",
               },
               {
-                title: "Customize: use groups claim",
+                title: "Add a custom groups claim",
                 guideName: "customize-tokens-groups-claim",
               },
               {
-                title: "Customize: use dynamic allowlist",
+                title: "Add a dynamic allowlist",
                 guideName: "customize-tokens-dynamic",
               },
               {
-                title: "Customize: use static allowlist",
+                title: "Add a static allowlist",
                 guideName: "customize-tokens-static",
               },
               { title: "Refresh access tokens", guideName: "refresh-tokens" },
