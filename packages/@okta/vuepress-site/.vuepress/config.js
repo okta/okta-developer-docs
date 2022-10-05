@@ -319,8 +319,8 @@ module.exports = ctx => ({
               '/docs/reference/api/archive-myaccount/',
               '/docs/reference/api/myaccount-migration/',
               '/docs/reference/csi-delauth-hook/',
-              '/docs/reference/api/inline-hooks-lea/',
-              '/docs/reference/api/hook-keys/'
+              //'/docs/reference/api/inline-hooks-lea/',
+              //'/docs/reference/api/hook-keys/'
           ]
         }
       ]
