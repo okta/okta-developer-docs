@@ -238,7 +238,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-new-user-activation",
                   },
                   {
-                    title: "Sign in with password and email",
+                    title: "Sign in: password + email",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
                   },
                   {
