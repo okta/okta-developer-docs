@@ -1059,8 +1059,10 @@ curl -v -X GET \
 
 Adds a [user](/docs/reference/api/users/#user-object) to a group of `OKTA_GROUP` type
 
-> **Notes:** You can modify only memberships for groups of `OKTA_GROUP` type.<br><br>
-Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
+> **Note:** You can modify only memberships for groups of `OKTA_GROUP` type. <br>
+> Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
+
+> **Note:** User profile attributes aren’t updated or reapplied when a user is added to a group. Okta updates user profile attributes only when an app is assigned to a user or when mappings are applied.
 
 ##### Request parameters
 
