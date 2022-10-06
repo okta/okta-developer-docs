@@ -1,6 +1,6 @@
 {
-  "release" : "2022.09.1",
-  "build" : "2022.09.1-begin-126-g0b0d930b7cfa",
+  "release" : "2022.10.1",
+  "build" : "2022.10.1-begin-172-g89b201af9033",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -22,6 +22,13 @@
     "internalErrorCode" : "feature_not_enabled_access_denied",
     "errorCode" : "access_denied",
     "errorDescription" : "The requested feature is not enabled in this environment."
+  }, {
+    "title" : "Oie not enabled for interact",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "oie_not_enabled_for_interact",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The requested feature (Interaction Code flow) isn't enabled in this environment. Ensure that you have Okta Identity Engine enabled and the Interaction Code flow enabled for this application and authorization server."
   }, {
     "title" : "User not assigned",
     "statusCode" : 400,
