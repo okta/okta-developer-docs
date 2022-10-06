@@ -336,7 +336,7 @@ export const guides = [
             guideName: "configure-access-policy",
           },
           {
-            title: "Global session and authentication policies",
+            title: "Global session and authn policies",
             guideName: "configure-signon-policy"
           },
           {
