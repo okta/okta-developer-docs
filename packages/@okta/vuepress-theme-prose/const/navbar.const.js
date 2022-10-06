@@ -242,7 +242,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
                   },
                   {
-                    title: "Sign in with password and phone",
+                    title: "Sign in: pwd and phone",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
                   },
                   {
