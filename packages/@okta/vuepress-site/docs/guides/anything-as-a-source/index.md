@@ -130,8 +130,8 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
       ```json
       {
-        "id": "${sessionId}",
-        "identitySourceId": "${identitySourceId}",
+        "id": "{sessionId}",
+        "identitySourceId": "{identitySourceId}",
         "status": "CREATED",
         "importType": "INCREMENTAL"
       }
@@ -194,8 +194,8 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
         ```json
         {
-          "id": "${sessionId}",
-          "identitySourceId": "${identitySourceId}",
+          "id": "{sessionId}",
+          "identitySourceId": "{identitySourceId}",
           "status": "TRIGGERED",
           "importType": "INCREMENTAL"
         }
@@ -220,8 +220,8 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
         ```json
         {
-            "id": "${sessionId}",
-            "identitySourceId": "${identitySourceId}",
+            "id": "{sessionId}",
+            "identitySourceId": "{identitySourceId}",
             "status": "COMPLETED",
             "importType": "INCREMENTAL"
         }
@@ -249,8 +249,8 @@ When users have been deactivated or deleted from your HR source, you need to ref
 
       ```json
       {
-        "id": "${sessionId}",
-        "identitySourceId": "${identitySourceId}",
+        "id": "{sessionId}",
+        "identitySourceId": "{identitySourceId}",
         "status": "CREATED",
         "importType": "INCREMENTAL"
       }
@@ -310,8 +310,8 @@ When users have been deactivated or deleted from your HR source, you need to ref
 
         ```json
           {
-            "id": "${sessionId}",
-            "identitySourceId": "${identitySourceId}",
+            "id": "{sessionId}",
+            "identitySourceId": "{identitySourceId}",
             "status": "TRIGGERED",
             "importType": "INCREMENTAL"
         }
@@ -336,8 +336,8 @@ When users have been deactivated or deleted from your HR source, you need to ref
 
         ```json
         {
-            "id": "${sessionId}",
-            "identitySourceId": "${identitySourceId}",
+            "id": "{sessionId}",
+            "identitySourceId": "{identitySourceId}",
             "status": "COMPLETED",
             "importType": "INCREMENTAL"
         }
