@@ -448,63 +448,60 @@ export const guides = [
         title: "Authorization",
         subLinks: [
           {
-            title: "Implement authorization by grant type",
+            title: "Implement by grant type",
             guideName: "implement-grant-type",
           },
           {
-            title: "Create an Authorization Server",
+            title: "Create an authorization server",
             guideName: "customize-authz-server",
           },
           {
-            title: "Configure SSO for Native apps",
+            title: "Configure SSO for native apps",
             guideName: "configure-native-sso",
           },
           { title: "Request user consent", guideName: "request-user-consent" },
           {
-            title: "Configure Device Authorization Grant Flow",
+            title: "Configure Device Authz grant flow",
             guideName: "device-authorization-grant",
           },
           {
-            title: "Client secret rotation and key management",
+            title: "Rotate secrets and manage keys",
             guideName: "client-secret-rotation-key",
           },
           {
             title: "Tokens",
             subLinks: [
               {
-                title: "Build a JWT for Client Authentication",
+                title: "Build a JWT for client authn",
                 guideName: "build-self-signed-jwt",
               },
               {
-                title: "Customize tokens returned from Okta with custom claims",
+                title: "Add custom claims",
                 guideName: "customize-tokens-returned-from-okta",
               },
               {
-                title:
-                  "Customize tokens returned from Okta with a Groups claim",
+                title: "Add a custom groups claim",
                 guideName: "customize-tokens-groups-claim",
               },
               {
-                title:
-                  "Customize tokens returned from Okta with a dynamic allow list",
+                title: "Add a dynamic allowlist",
                 guideName: "customize-tokens-dynamic",
               },
               {
-                title:
-                  "Customize tokens returned from Okta with a static allow list",
+                title: "Add a static allowlist",
                 guideName: "customize-tokens-static",
               },
               { title: "Refresh access tokens", guideName: "refresh-tokens" },
-              { title: "Revoke Tokens", guideName: "revoke-tokens" },
+              { title: "Revoke tokens", guideName: "revoke-tokens" },
               {
                 title: "Work with Okta session cookies",
                 guideName: "session-cookie",
               },
               {
-                title: "Validate Access Tokens",
+                title: "Validate access tokens",
                 guideName: "validate-access-tokens",
               },
-              { title: "Validate ID Tokens", guideName: "validate-id-tokens" },
+              { title: "Validate ID tokens", guideName: "validate-id-tokens" },
             ],
           },
         ],
