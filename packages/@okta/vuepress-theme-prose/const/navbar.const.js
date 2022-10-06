@@ -709,7 +709,7 @@ export const guides = [
             guideName: "archive-configure-signon-policy",
           },
           {
-            title: "Embedded Sign-In Widget fundamentals",
+            title: "Embedded Widget fundamentals",
             guideName: "archive-embedded-siw",
           },
           {
