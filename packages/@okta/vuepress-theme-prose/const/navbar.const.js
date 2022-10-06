@@ -705,7 +705,7 @@ export const guides = [
             guideName: "archive-auth-js",
           },
           {
-            title: "Configure Okta and App Sign-On Policies",
+            title: "Configure Sign-On Policies",
             guideName: "archive-configure-signon-policy",
           },
           {
