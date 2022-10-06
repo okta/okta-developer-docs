@@ -32,7 +32,7 @@ Today an authorization server relies on [authentication policies](/docs/referenc
 
 Okta has created predefined `acr_values` that are described in the [Predefined parameter values](#predefined-parameter-values) section. You can include one of these values, based on your use case, in the client authorization request to request a different authentication assurance. The authorization server returns an access token and/or an ID token that contains the `acr` claim. This claim conveys information about the level of assurance that the user verified at the time of authentication. The resource server can then validate these parameters to ensure that the user verified the required level of assurance.
 
-> **Note:** You can also specify a `max_age` parameter value to require an elapsed time frame. This guide focuses on the use of the `acr_values` parameter. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
+> **Note:** You can specify a `max_age` parameter value to require an elapsed time frame. Additionally, if you want to ignore the existing session and reauthenticate the user each time, pass `max_age=0` in the request. For Classic Engine, pass `max_age=1`. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
 
 Okta's [redirect deployment model](/docs/concepts/redirect-vs-embedded/#redirect-authentication) supports the use of the `acr_values` parameter. The parameter works with any OpenID Connect application, such as web, native, or SPA, and it’s supported by both the [Okta Org Authorization Server and custom authorization servers](/docs/concepts/auth-servers/).
 
