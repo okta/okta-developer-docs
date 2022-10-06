@@ -600,11 +600,11 @@ export const guides = [
         title: "API Security",
         subLinks: [
           {
-            title: "Implement OAuth for Okta",
+            title: "Configure OAuth for Okta",
             guideName: "implement-oauth-for-okta",
           },
           {
-            title: "Implement OAuth for Okta with a Service App",
+            title: "Configure OAuth for Okta: Service App",
             guideName: "implement-oauth-for-okta-serviceapp",
           },
           {
@@ -616,11 +616,11 @@ export const guides = [
             guideName: "third-party-risk-integration",
           },
           {
-            title: "Secure OAuth API connection between orgs",
+            title: "Secure OAuth API between orgs",
             guideName: "secure-oauth-between-orgs",
           },
           {
-            title: "Step-up authentication using ACR values",
+            title: "Set up step-up authn with ACR values",
             guideName: "step-up-authentication"
           }
         ],
