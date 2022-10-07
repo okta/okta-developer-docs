@@ -56,11 +56,11 @@ export const concepts = [
         path: "/docs/concepts/multi-tenancy/",
       },
       {
-        title: "OAuth 2.0 and OpenID Connect Overview",
+        title: "OAuth 2.0 and OIDC overview",
         path: "/docs/concepts/oauth-openid/",
       },
       {
-        title: "Okta deployment models — redirect vs. embedded",
+        title: "Redirect vs. embedded deployment",
         path: "/docs/concepts/redirect-vs-embedded/",
       },
       {
@@ -155,19 +155,19 @@ export const guides = [
             title: "Redirect authentication",
             subLinks: [
               {
-                title: "Sign users in to your single-page application",
+                title: "Sign in to SPA",
                 guideName: "sign-into-spa-redirect",
               },
               {
-                title: "Sign users in to your web application",
+                title: "Sign in to web application",
                 guideName: "sign-into-web-app-redirect",
               },
               {
-                title: "Sign users in to your mobile app",
+                title: "Sign in to mobile app",
                 guideName: "sign-into-mobile-app-redirect",
               },
               {
-                title: "Use redirect auth with the sample apps",
+                title: "Redirect auth in the sample apps",
                 guideName: "sampleapp-oie-redirectauth",
               },
               {
@@ -183,12 +183,12 @@ export const guides = [
                 title: "Get set up",
                 subLinks: [
                   {
-                    title: "Set up your Okta org",
+                    title: "Your Okta org",
                     guideName: "oie-embedded-common-org-setup",
                   },
                   {
                     title:
-                      "Download and set up the SDK, Sign-In Widget, and sample apps",
+                      "SDK, Widget, sample apps",
                     guideName: "oie-embedded-common-download-setup-app",
                   },
                   {
@@ -202,23 +202,23 @@ export const guides = [
                 guideName: "auth-js",
               },
               {
-                title: "Embedded Sign-In Widget fundamentals",
+                title: "Embedded Widget fundamentals",
                 guideName: "embedded-siw",
               },
               {
-                title: "Sign in to your SPA with Auth JS",
+                title: "Sign in to SPA: Auth JS",
                 guideName: "sign-in-to-spa-authjs",
                 description: true
               },
               {
-                title: "Sign in to SPA with embedded Widget",
+                title: "Sign in to SPA: Widget",
                 guideName: "sign-in-to-spa-embedded-widget",
               },
               {
                 title: "Embedded SDK use cases",
                 subLinks: [
                   {
-                    title: "Basic sign-in flow using the password factor",
+                    title: "Basic sign-in with password",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-in",
                   },
                   {
@@ -238,11 +238,11 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-new-user-activation",
                   },
                   {
-                    title: "Sign in with password and email factors",
+                    title: "Sign in: password + email",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
                   },
                   {
-                    title: "Sign in with password and phone factors",
+                    title: "Sign in: pwd and phone",
                     guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
                   },
                   {
@@ -250,7 +250,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                   {
-                    title: "SDK limitations and workarounds",
+                    title: "Limitations and workarounds",
                     guideName: "oie-embedded-sdk-limitations",
                   },
                 ],
@@ -263,11 +263,11 @@ export const guides = [
                     guideName: "oie-embedded-widget-use-case-load",
                   },
                   {
-                    title: "Basic sign-in flow using the Widget",
+                    title: "Basic sign-in",
                     guideName: "oie-embedded-widget-use-case-basic-sign-in",
                   },
                   {
-                    title: "Sign in with Facebook using the Widget",
+                    title: "Sign in with Facebook",
                     guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
                   },
                 ],
@@ -287,7 +287,7 @@ export const guides = [
                 guideName: "authenticators-okta-verify"
               },
               {
-                title: "Custom authenticator integration guide",
+                title: "Custom authenticator",
                 guideName: "authenticators-custom-authenticator"
               },
               {
@@ -301,7 +301,7 @@ export const guides = [
             ],
           },
           {
-            title: "Configure User-Scoped account management",
+            title: "User-Scoped account management",
             guideName: "configure-user-scoped-account-management",
           },
           {
@@ -332,11 +332,11 @@ export const guides = [
             ]
           },
           {
-            title: "Configure an access policy",
+            title: "Access policies",
             guideName: "configure-access-policy",
           },
           {
-            title: "Configure a global session policy and authentication policies",
+            title: "Global session and authn policies",
             guideName: "configure-signon-policy"
           },
           {
@@ -368,16 +368,16 @@ export const guides = [
                 guideName: "find-your-app-credentials",
               },
               {
-                title: "Share Application Key Credentials for IdPs across Apps",
+                title: "Share app key credentials for IdPs",
                 guideName: "sharing-cert",
               },
               { title: "Set up SAML Tracer", guideName: "saml-tracer" },
               {
-                title: "Upgrade SAML Apps to SHA256",
+                title: "Upgrade SAML apps to SHA256",
                 guideName: "updating-saml-cert",
               },
               {
-                title: "Sign the Okta certificate with your own CA",
+                title: "Sign Okta certs with your own CA",
                 guideName: "sign-your-own-saml-csr",
               },
               {
@@ -702,20 +702,20 @@ export const guides = [
             guideName: "archive-auth-js",
           },
           {
-            title: "Configure Okta Sign-On and App Sign-On Policies",
+            title: "Configure Sign-On Policies",
             guideName: "archive-configure-signon-policy",
           },
           {
-            title: "Embedded Sign-In Widget fundamentals",
+            title: "Embedded Widget fundamentals",
             guideName: "archive-embedded-siw",
           },
           {
-            title: "Sign in to SPA with Auth JS",
+            title: "Sign in to SPA: Auth JS",
             guideName: "archive-sign-in-to-spa-authjs",
             description: true
           },
           {
-            title: "Sign in to SPA with embedded Widget",
+            title: "Sign in to SPA: Embedded Widget",
             guideName: "archive-sign-in-to-spa-embedded-widget",
             description: true
           },
@@ -729,18 +729,18 @@ export const guides = [
             guideName: "archive-registration-inline-hook"
           },
           {
-            title: "Mobile",
+            title: "Mobile apps",
             subLinks: [
               {
-                title: "Build a custom sign-in UI in your mobile app",
+                title: "Build a custom sign-in UI",
                 guideName: "build-custom-ui-mobile"
               },
               {
-                title: "Unlock a mobile app with biometrics",
+                title: "Unlock with biometrics",
                 guideName: "unlock-mobile-app-with-biometrics"
               },
               {
-                title: "Share a sign-in session with native mobile apps",
+                title: "Share a sign-in session",
                 guideName: "shared-sso-android-ios"
               }
             ]
@@ -807,7 +807,7 @@ export const reference = [
                 path: "/docs/reference/rl-dashboard/",
               },
               {
-                title: "Authentication/End-user rate limits",
+                title: "Authn/End-user rate limits",
                 path: "/docs/reference/rl-global-enduser/",
               },
               {
@@ -891,7 +891,7 @@ export const reference = [
         title: "Advanced Server Access API",
         subLinks: [
           {
-            title: "Introduction to the Advanced Server Access API",
+            title: "Introduction",
             path: "/docs/reference/api/asa/introduction/",
           },
           {
@@ -983,7 +983,7 @@ export const reference = [
         path: "/docs/reference/okta-expression-language/",
       },
       {
-        title: "Okta Expression Language in Identity Engine",
+        title: "Expression Language in Identity Engine",
         path: "/docs/reference/okta-expression-language-in-identity-engine/",
       },
       {
