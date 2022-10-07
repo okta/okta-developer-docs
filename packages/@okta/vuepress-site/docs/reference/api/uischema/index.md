@@ -683,7 +683,7 @@ If an invalid UI Schema ID is included in the request, the response returns a 40
 | Property      | Type   | Description |
 | ------------- | ------ | ----------- |
 | `buttonLabel` | String | Specifies the button label for the `submit` button at the bottom of the enrollment form. Defaults to `Submit`. |
-| `elements`    | Array  | See [UI Schema Element object](#ui-schema-element-object). |
+| `elements`    | Array  | See [UI Schema Element object](#ui-schema-element-object) |
 | `label`       | String | Specifies the label at the top of the enrollment form under the logo. Defaults to `Sign in`.  |
 | `type`        | String | Type of layout  |
 
