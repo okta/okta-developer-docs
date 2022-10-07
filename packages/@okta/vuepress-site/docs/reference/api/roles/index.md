@@ -511,7 +511,8 @@ curl -v -X POST \
       "resources": [
         "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
         "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users",
-        "https://${yourOktaDomain}/api/v1/users"
+        "https://${yourOktaDomain}/api/v1/users",
+        "orn:${partition}:directory:${yourOrgId}:groups:00g4bjtkrsFSFhzB00g7"
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets"
 ```
@@ -779,7 +780,8 @@ curl -v -X PATCH \
 -d '{
       "additions": [
         "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
-        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users"
+        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users",
+        "orn:${partition}:directory:${yourOrgId}:groups:00g4bjtkrsFSFhzB00g7"
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
 ```
@@ -840,6 +842,7 @@ curl -v -X GET \
   "resources": [
     {
       "id": "ire106sQKoHoXXsAe0g4",
+      "orn": "orn:{partition}:directory:{yourOrgId}:groups:00guaxWZ0AOa5NFAj0g3",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
@@ -850,6 +853,7 @@ curl -v -X GET \
     },
     {
       "id": "ire106riDrTYl4qA70g4",
+      "orn": "orn:{partition}:directory:{yourOrgId}:groups:00gu67DU2qNCjNZYO0g3:contained_resources",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
@@ -860,11 +864,26 @@ curl -v -X GET \
     },
     {
       "id": "irezvo4AwE2ngpMw40g3",
+      "orn": "orn:{partition}:directory:{yourOrgId}:users",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
+        "self": {
+          "href": "https://{yourOktaDomain}/api/v1/users"
+        },
         "users": {
           "href": "https://{yourOktaDomain}/api/v1/users"
+        }
+      }
+    },
+    {
+      "id": "ire2j4iDnxHhUFaZN0g4",
+      "orn": "orn:{partition}:directory:{yourOrgId}:groups",
+      "created": "2021-02-06T16:20:57.000Z",
+      "lastUpdated": "2021-02-06T16:20:57.000Z",
+      "_links": {
+        "self": {
+          "href": "https://{yourOktaDomain}/api/v1/groups"
         },
         "groups": {
           "href": "https://{yourOktaDomain}/api/v1/groups"
@@ -901,6 +920,7 @@ Removes a resource from a Resource Set
 ```json
     {
       "id": "ire106sQKoHoXXsAe0g4",
+      "orn": "orn:{partition}:directory:{yourOrgId}:groups:00guaxWZ0AOa5NFAj0g3",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
