@@ -38,9 +38,10 @@ This guide shows you how to set up your Okta org to support the embedded SDK or 
 
 Sample apps are provided for each solution to show you exactly how to integrate the SDK and the Widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
 
-1. [Create your Okta account](#create-your-okta-account)
-1. [Update the default Custom Authorization Server](#update-the-default-custom-authorization-server)
-1. [Create a new application](#create-a-new-application)
+1. [Create your Okta account](#create-your-okta-account).
+1. [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
+1. [Update the default Custom Authorization Server](#update-the-default-custom-authorization-server).
+1. [Create a new application](#create-a-new-application).
 
 After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) scenario.
 
@@ -62,7 +63,10 @@ You need to configure your default Custom Authorization Server to enable the Int
 1. On the **Authorization Servers** tab, select the pencil icon for the **default** Custom Authorization Server.
 1. Select the **Access Policies** tab.
 1. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
-1. In the **Edit Rule** dialog box, select the **Interaction Code** check box.
+1. In the **Edit Rule** dialog box, select the **Interaction Code** checkbox.
+
+   <VerifyICGrantType />
+
 1. Click **Update Rule**.
 
 ### Create a new application
@@ -76,8 +80,11 @@ Create an app integration that represents the application you want to add authen
 1. <StackSnippet snippet="newapp" />
 
    * Enter an application name.
-   * Ensure that the **Interaction Code** check box is selected.
-   * Select the **Refresh Token** check box.
+   * Ensure that the **Interaction Code** checkbox is selected.
+
+      <VerifyICGrantType />
+
+   * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to <StackSnippet snippet="redirecturi" inline />
 
 1. Click **Save**.

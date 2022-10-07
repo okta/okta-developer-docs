@@ -1131,6 +1131,9 @@ curl -v -X POST \
 
 Enrolls a user with an Okta `token:software:totp` factor. The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
+> <ApiLifecycle access="ie" /> 
+> Enrolls a user with an Okta `token:software:totp` factor and the `push` factor, if the user isn't currently enrolled with these factors.
+
 ##### Request example
 
 ```bash
@@ -1204,7 +1207,10 @@ curl -v -X POST \
 
 #### Enroll Okta Verify Push Factor
 
-Enrolls a user with the Okta Verify `push` Factor. The Factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
+Enrolls a user with the Okta Verify `push` factor. The factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
+
+> <ApiLifecycle access="ie" /> 
+> Enrolls a user with the Okta Verify `push` factor, as well as the `totp` and `signed_nonce` factors (if the user isn't already enrolled with these factors).
 
 > **Note:** Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
 
@@ -2700,6 +2706,9 @@ curl -v -X POST \
 <ApiOperation method="delete" url="/api/v1/users/${userId}/factors/${factorId}" />
 
 Unenrolls an existing Factor for the specified user, allowing the user to enroll a new Factor
+
+> <ApiLifecycle access="ie" /> 
+> If the Okta Verify `push` factor is reset, then existing `totp` and `signed_nonce` factors are reset as well for the user. Similarly, if the `signed_nonce` factor is reset, then existing `push` and `totp` factors are also reset for the user.
 
 ##### Request parameters
 
