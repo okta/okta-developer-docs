@@ -708,7 +708,7 @@ The UI Schema Element object specifies the configuration of an input field on an
 | -------- | ---- | ------ | ------- |
 | `buttonLabel` | String  | Specifies the button label for the `Submit` button at the bottom of the enrollment form. Defaults to `Submit`. | N/A |
 | `options`     | [UI Schema Element Options ](#ui-schema-element-options-object) | N/A | N/A |
-| `scope`       | String | Specifies the property to which the input field should be bound. Must follow the format `#/properties/PROPERTY_NAME` where `PROPERTY_NAME` is a variable name for an attribute in `profile editor`. | N/A              |
+| `scope`       | String | Specifies the property to which the input field should be bound. It must follow the format `#/properties/PROPERTY_NAME` where `PROPERTY_NAME` is a variable name for an attribute in `profile editor`. | N/A              |
 | `type`        | String  | Specifies the relationship between this input element and `Scope`. The `Control` value specifies that this input controls the value represented by `scope`. | `Control` |
 
 #### UI Schema Element example
