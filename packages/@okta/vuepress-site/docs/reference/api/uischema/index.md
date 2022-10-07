@@ -737,7 +737,7 @@ The UI Schema Element Options object specifies how the input is displayed. The s
 
 | Property | Type   | Description                                 | Supported Values                                                          |
 | -------- | ------ | ------------------------------------------- | ------------------------------------------------------------------------- |
-| `format` | String | Specifies how the input should be displayed | `text`, `radio`, `select`, `checkbox`, `radio_yes_no`, `radio_true_false` |
+| `format` | String | Specifies how the input should appear | `text`, `radio`, `select`, `checkbox`, `radio_yes_no`, `radio_true_false` |
 
 #### UI Schema Element Options example
 
