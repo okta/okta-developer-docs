@@ -724,7 +724,7 @@ The UI Schema Element object specifies the configuration of an input field on an
 
 ### UI Schema Element Options object
 
-The UI Schema Element Options object specifies how the input is displayed. The supported formats are:
+The UI Schema Element Options object specifies how the input appears. The supported formats are:
 
 - `text`: Text input. This is the default format for the majority of property types.
 - `radio`: Radio button options. This option is only available for `string` data types with an `enum` or `one of` constraint.
