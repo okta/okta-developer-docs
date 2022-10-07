@@ -231,6 +231,9 @@ Create an app integration in the Okta org that represents the application you wa
 
    * Enter an application name.
    * Select the **Interaction Code** checkbox.
+
+      <VerifyICGrantType />
+
    * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to `http://localhost:8080/login/callback`.
 
@@ -243,6 +246,9 @@ Create an app integration in the Okta org that represents the application you wa
 
 1. Click **Save**.
 1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** checkbox is selected.
+
+    <VerifyICGrantType />
+
 1. In the **Security** > **API** > **Trusted Origins** page, ensure that there is an entry for your sign in redirect URI (`http://localhost:8080`). See [Enable CORS](/docs/guides/enable-cors/).
 
 > **Note:** From the **General** tab of your app integration, save the generated **Client ID** value, which is used in the next section.

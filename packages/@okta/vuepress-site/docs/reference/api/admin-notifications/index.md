@@ -944,7 +944,7 @@ Refer to the [product documentation](https://help.okta.com/okta_help.htm?id=ext_
 
 | Role type                     | Label                               |
 | :---------------------------- | :---------------------------------- |
-| `API_ADMIN`                   | API Access Management Administrator |
+| `API_ADMIN` or `API_ACCESS_MANAGEMENT_ADMIN` | API Access Management Administrator |
 | `APP_ADMIN`                   | Application Administrator           |
 | `GROUP_MEMBERSHIP_ADMIN`      | Group Membership Administrator      |
 | `HELP_DESK_ADMIN`             | Help Desk Administrator             |
