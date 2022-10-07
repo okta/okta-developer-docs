@@ -642,7 +642,7 @@ If an invalid UI Schema ID is included in the request, the response returns a 40
 | Property   | Type | Description |
 | ---------- | ------------------------------------- | ----------------------------------------------------------- |
 | `id`       | String                                | The unique ID of the ui schema |
-| `uiSchema` | [UI Schema Object](#ui-schema-object) |  |
+| `uiSchema` | [UI Schema Object](#ui-schema-object) | N/A |
 
 #### UI Schema Request example
 
@@ -653,7 +653,7 @@ If an invalid UI Schema ID is included in the request, the response returns a 40
 | Property      | Type                                                                    | Description                                                                                                       |
 | ------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `id`          | String                                                                  | The unique ID of the UI schema |
-| `uiSchema`    | [UI Schema Object](#ui-schema-object)  |  |
+| `uiSchema`    | See [UI Schema Object](#ui-schema-object). | N/A |
 | `lastUpdated` | String (ISO-8601) | Timestamp when the UI Schema was last modified |
 | `_links`      | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)) | Discoverable resources related to the UISchema |
 
@@ -680,10 +680,10 @@ If an invalid UI Schema ID is included in the request, the response returns a 40
 
 #### UI Schema properties
 
-| Property      | Type   | Description | Supported Values |
-| ------------- | ------ | ----------- | ---------------- |
+| Property      | Type   | Description |
+| ------------- | ------ | ----------- |
 | `buttonLabel` | String | Specifies the button label for the `submit` button at the bottom of the enrollment form. Defaults to `Submit`. |
-| `elements`    | Array  |  |
+| `elements`    | Array  | See [UI Schema Element object](#ui-schema-element-object). |
 | `label`       | String | Specifies the label at the top of the enrollment form under the logo. Defaults to `Sign in`.  |
 | `type`        | String | Type of layout  |
 
@@ -706,8 +706,8 @@ The UI Schema Element object specifies the configuration of an input field on an
 
 | Property | Type | Description | Supported Values |
 | -------- | ---- | ------ | ------- |
-| `buttonLabel` | String  | Specifies the button label for the `submit` button at the bottom of the enrollment form. Defaults to `Submit`. |
-| `options`     | [UI Schema Element Options ](#ui-schema-element-options-object) |  |
+| `buttonLabel` | String  | Specifies the button label for the `submit` button at the bottom of the enrollment form. Defaults to `Submit`. | N/A |
+| `options`     | [UI Schema Element Options ](#ui-schema-element-options-object) | N/A | N/A |
 | `scope`       | String | Specifies the property to which the input field should be bound. Must follow the format `#/properties/PROPERTY_NAME` where `PROPERTY_NAME` is a variable name for an attribute in `profile editor`. | N/A              |
 | `type`        | String  | Specifies the relationship between this input element and `Scope`. The `Control` value specifies that this input controls the value represented by `scope`. | `Control` |
 
