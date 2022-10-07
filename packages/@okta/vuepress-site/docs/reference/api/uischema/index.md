@@ -731,7 +731,7 @@ The UI Schema Element Options object specifies how the input appears. The suppor
 - `select`: Displays input as a dropdown list. This option is only available for the `country-code` data type or a `string` data type with an `enum` or `one of` constraint.
 - `checkbox`: Displays input as a checkbox. This option is only available for `boolean` data types.
 - `radio_yes_no`: Displays input as two radio buttons, one with the option `yes` and the other `no`. This option is only available for `boolean` data types.
-- `radio_true_false`: Displays input as 2 radio buttons, one with the option `true` and the other `false`. This option is only available for `boolean` data types.
+- `radio_true_false`: Displays input as two radio buttons, one with the option `true` and the other `false`. This option is only available for `boolean` data types.
 
 #### UI Schema Element Option properties
 
