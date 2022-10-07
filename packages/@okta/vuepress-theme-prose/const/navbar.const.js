@@ -544,7 +544,7 @@ export const guides = [
             path: "/docs/guides/oin-sso-overview/",
             subLinks: [
               {
-                title: "Build an Okta SSO integration",
+                title: "Build an SSO integration",
                 guideName: "build-sso-integration",
               },
             ],
@@ -554,31 +554,31 @@ export const guides = [
             path: "/docs/guides/oin-lifecycle-mgmt-overview/",
             subLinks: [
               {
-                title: "Build a SCIM provisioning integration",
+                title: "Build a SCIM integration",
                 path: "/docs/guides/scim-provisioning-integration-overview/main/",
                 subLinks: [
                   {
-                    title: "Prepare your SCIM API service",
+                    title: "Prepare your service",
                     path: "/docs/guides/scim-provisioning-integration-prepare/main/",
                   },
                   {
-                    title: "Connect your SCIM API service to Okta",
+                    title: "Connect your service",
                     guideName: "scim-provisioning-integration-connect",
                   },
                   {
-                    title: "Test your Okta SCIM integration",
+                    title: "Test your integration",
                     path: "/docs/guides/scim-provisioning-integration-test/main/",
                   },
                 ],
               },
-          ],
-        },
+            ],
+          },
           {
-            title: "OIDC and the OIN: A Developer Primer",
+            title: "Primer for OIN OIDC",
             path: "/docs/guides/oin-oidc-overview/main/",
             subLinks: [
               {
-                title: "Protocol-level requirements",
+                title: "Protocol requirements",
                 path: "/docs/guides/oin-oidc-protocols/main/",
               },
               {
@@ -586,7 +586,7 @@ export const guides = [
                 path: "/docs/guides/oin-oidc-multi-tenancy/main/",
               },
               {
-                title: "OIN integration best practices",
+                title: "Best practices",
                 path: "/docs/guides/oin-oidc-best-practices/main/",
               },
             ],
