@@ -728,7 +728,7 @@ The UI Schema Element Options object specifies how the input appears. The suppor
 
 - `text`: Text input. This is the default format for the majority of property types.
 - `radio`: Radio button options. This option is only available for `string` data types with an `enum` or `one of` constraint.
-- `select`: Displays input as a dropdown. This option is only available for the `country-code` data type or a `string` data type with an `enum` or `one of` constraint.
+- `select`: Displays input as a dropdown list. This option is only available for the `country-code` data type or a `string` data type with an `enum` or `one of` constraint.
 - `checkbox`: Displays input as a checkbox. This option is only available for `boolean` data types.
 - `radio_yes_no`: Displays input as 2 radio buttons, one with the option `yes` and the other `no`. This option is only available for `boolean` data types.
 - `radio_true_false`: Displays input as 2 radio buttons, one with the option `true` and the other `false`. This option is only available for `boolean` data types.
