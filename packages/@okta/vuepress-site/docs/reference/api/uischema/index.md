@@ -655,7 +655,7 @@ If an invalid UI Schema ID is included in the request, the response returns a 40
 | `id`          | String                                                                  | The unique ID of the UI schema |
 | `uiSchema`    | See [UI Schema Object](#ui-schema-object). | N/A |
 | `lastUpdated` | String (ISO-8601) | Timestamp when the UI Schema was last modified |
-| `_links`      | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)) | Discoverable resources related to the UISchema |
+| `_links`      | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)) | Discoverable resources related to the UI Schema |
 
 #### UI Schema Response object example
 
