@@ -21,7 +21,7 @@ When the user clicks **Sign up**, redirect them to the page where they can sign 
   }, [oktaAuth, flow, setTransaction]);
 ```
 
-The method returns an `IdxTransaction` object containing field metadata that can be used to create a registration page dynamically.
+The method returns an `IdxTransaction` object that contains field metadata that you can use to create a registration page dynamically.
 
 ```json
 {
@@ -131,7 +131,7 @@ Call `OktaAuth.idx.proceed()` passing in the new object.
 
 ### 6. Your app displays the remaining optional authenticators
 
-After the user verifies their identity using the email authenticator, `OktaAuth.idx.proceed()` returns an `IdxTransaction` object indicating that the user has the option to enroll in additional authenticators. The `IdxTransaction.nextStep.canSkip` property is set `true`, which indicates the remaining authenticators are optional.
+After the user verifies their identity using the email authenticator, `OktaAuth.idx.proceed()` returns an `IdxTransaction` object indicating that the user has the option to enroll in additional authenticators. The `IdxTransaction.nextStep.canSkip` property is set to `true`, which indicates the remaining authenticators are optional.
 
 ```json
 {
@@ -153,7 +153,7 @@ After the user verifies their identity using the email authenticator, `OktaAuth.
 }
 ```
 
-Display a page that lists the remaining authenticators and allows the user to skip registering any more of them.
+Display a page that lists the remaining authenticators and allows the user to skip registering any more.
 
 <div class="half border">
 

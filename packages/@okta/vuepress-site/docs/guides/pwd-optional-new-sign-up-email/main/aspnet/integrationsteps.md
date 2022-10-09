@@ -54,11 +54,11 @@ ModelState.AddModelError(string.Empty, $"Oops! Something went wrong.");
 return View("Register", model);
 ```
 
-The email authenticator supports user verification by One-Time Password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
+The email authenticator supports user verification by one-time password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
 
 ### 5. Your app displays the remaining optional authenticators
 
-After the user verifies their identity using the email authenticator, the current status of the authentication process is now `AwaitingAuthenticatorEnrollment`.
+After the user verifies their identity using the email authenticator, the status of the authentication process is `AwaitingAuthenticatorEnrollment`.
 
 Create and display a page that lists the remaining authenticators. Check the `CanSkip` property of the `AuthenticationResponse` object. If `true` &mdash; and all the listed authenticators are optional &mdash; add a **Skip** button to the form to skip their enrollment. If `CanSkip` is `false`, you should omit the **Skip** button.
 

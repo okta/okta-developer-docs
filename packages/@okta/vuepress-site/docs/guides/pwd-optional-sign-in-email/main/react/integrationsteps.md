@@ -9,7 +9,7 @@ const startFlow = useCallback(async () => {
 }, [oktaAuth, flow, setTransaction]);
 ```
 
-The method returns an `IdxTransaction` object containing field metadata that can be used to create a sign-in page dynamically.
+The method returns an `IdxTransaction` object that contains field metadata that you can use to create a sign-in page dynamically.
 
 ```json
 {
@@ -133,6 +133,6 @@ Call `OktaAuth.idx.proceed()` passing in the new object as a parameter.
 }
 ```
 
-Store these tokens for future requests and redirect the user to the default page after a successful sign-up attempt.
+Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.
 
 > **Note:** In other use cases where additional sign-in authenticators are required, the user must choose and verify all required authenticators before `IdxTransaction.status` of `SUCCESS` is returned.

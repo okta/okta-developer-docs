@@ -12,7 +12,7 @@ const oktaAuth = (() => {
 
 ### 2. The user starts the change primary email flow
 
-The user starts the change primary email flow by clicking an **Edit** link next to the primary email address field. Add an **Edit** link that gives the user an entry point to change their email.
+The user starts the change primary email flow by clicking an **Edit** link next to the **Primary Email Address** field. Add an **Edit** link that gives the user an entry point to change their email.
 
 <div class="half border">
 
@@ -24,7 +24,7 @@ The user starts the change primary email flow by clicking an **Edit** link next 
 
 ### 3. The user submits a new primary email
 
-When the user clicks on the **Edit** link, display a dialog for the user to submit their new email address.
+When the user clicks the **Edit** link, display a dialog for the user to submit their new email address.
 
 <div class="half border">
 
@@ -37,8 +37,8 @@ When the user clicks on the **Edit** link, display a dialog for the user to subm
 When the user clicks **Continue** and submits their new email address, create an object of type [`AddEmailPayload`](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md#addemailpayload) and set
 
 * `profile.email` to the new primary email.
-* `role` to `PRIMARY` which identifies the email as the primary email address.
-* `sendEmail` to `true` which sends an email challenge to the newly added email. The default is `true`.
+* `role` to `PRIMARY`, which identifies the email as the primary email address.
+* `sendEmail` to `true`, which sends an email challenge to the newly added email. The default is `true`.
 
 ```javascript
 const addEmailPayload = {
@@ -87,7 +87,7 @@ Build the logic that handles this response and sends the user to a dialog where 
 
 ### 5. The user verifies their identity with the new email
 
-The user opens the email sent by Identity Engine and copies the one-time passcode (OTP) to your app. Create a dialog to allow the user to enter and submit the OTP.
+The user opens the email sent by Identity Engine and copies the one-time password (OTP) to your app. Create a dialog to allow the user to enter and submit the OTP.
 
 <div class="half border">
 

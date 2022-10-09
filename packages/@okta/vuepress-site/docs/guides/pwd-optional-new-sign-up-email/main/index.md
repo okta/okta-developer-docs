@@ -11,7 +11,7 @@ Enable users to register a user account with email only in an application based 
 **Learning outcomes**
 
 * Configure your Okta org to enable a user sign-up flow without a password.
-* Integrate a password-optional sign-up flow into an application based on an Embedded SDK.
+* Integrate a password-optional sign-up flow into an application based on an embedded SDK.
 
 **What you need**
 

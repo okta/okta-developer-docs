@@ -10,7 +10,7 @@ Enable an email-only sign-in flow in your application using the embedded Okta Si
 
 **Learning outcomes**
 
-* Configure your Okta org to enable user sign-in without a password.
+* Configure your Okta org to enable a user to sign in without a password.
 * Integrate a password-optional sign-in flow into an application using the Sign-In Widget.
 
 **What you need**
@@ -40,7 +40,7 @@ The following summarizes the steps involved in the password-optional sign-in flo
 
 ### 1. The user submits their username
 
-The user enters their username and clicks the **Next** button to start the sign-in flow.
+The user enters their username and clicks **Next** to start the sign-in flow.
 
 <div class="half border">
 
@@ -75,13 +75,13 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 Okta Identity Engine sends a verification email to the user's primary email address. The email gives the user two ways to verify their identity:
 
-* Copy a One-Time Password (OTP) from the email into the Sign-In Widget and submit it for verification.
+* Copy a one-time password (OTP) from the email into the Sign-In Widget and submit it for verification.
 * Click a "magic link" in the email that submits the OTP to Identity Engine on your behalf.
 
 Your app requires no changes to use OTP since it's built into the Sign-In Widget. However, using magic links requires you to:
 
-* Ensure the Sign-In Widget is always initialized with OTP and state values. See the [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw/main/) guide for details.
-* Create an endpoint to handle the callback from the Magic Link.
+* Ensure that the Sign-In Widget is always initialized with OTP and state values. See the [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw/main/) guide for details.
+* Create an endpoint to handle the callback from the magic link.
 
 <StackSnippet snippet="integrationsteps" />
 

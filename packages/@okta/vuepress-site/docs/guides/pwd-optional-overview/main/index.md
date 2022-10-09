@@ -32,7 +32,7 @@ Implement password-optional authentication in your app using Okta's embedded sol
 * <StackSnippet snippet="signinwithemail" inline/>
 * <StackSnippet snippet="changeemail" inline/>
 
-### Embedded Widget
+### Embedded widget
 
 * <StackSnippet snippet="widgetsignin" inline/>
 

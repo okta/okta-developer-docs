@@ -73,4 +73,4 @@ public String home(
 }
 ```
 
-Store these tokens for future requests and redirect the user to the default page.
+Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.

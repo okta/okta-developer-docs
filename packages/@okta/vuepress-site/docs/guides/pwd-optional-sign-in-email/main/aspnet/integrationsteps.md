@@ -44,11 +44,11 @@ switch (authnResponse?.AuthenticationStatus)
 }
 ```
 
-The email authenticator supports user verification by One-Time Password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#integrate-email-challenge-with-magic-links).
+The email authenticator supports user verification by one-time password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#integrate-email-challenge-with-magic-links).
 
 ### 4. Your app handles an authentication success response
 
-After the user verifies their identity using the email authenticator, the current status of the authentication process is now `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information and pass it into your application. The user has now signed in.
+After the user verifies their identity using the email authenticator, the status of the authentication process is `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information and pass it into your application. The user has now signed in.
 
 ```csharp
 var authnResponse = await _idxClient.VerifyAuthenticatorAsync(
@@ -71,6 +71,6 @@ switch (authnResponse.AuthenticationStatus)
 return View(view, model);
 ```
 
-Store these tokens for future requests and redirect the user to the default page.
+Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.
 
 > **Note:** In cases where additional sign-in authenticators are required, the user needs to choose and verify all required authenticators before Identity Engine returns an `AuthenticationStatus` equal to `SUCCESS`.

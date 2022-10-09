@@ -121,7 +121,7 @@ For password-only authentication, you need to update the password authenticator 
 
 ### Set up your Okta org for a password-optional use case
 
-For password-optional authentication, you first need to
+For password-optional authentication, you first need to:
 
 1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator).
 2. [Create a separate group for password-optional users](#create-a-group-for-password-optional-users).
@@ -192,9 +192,9 @@ An authenticator enrollment policy determines which authenticators must challeng
 4. Set **Assign to groups** to the group you just made for password-optional users.
 5. In the **Eligible Authenticators** section:
 
-   1. Set **Email** to **Required**.
-   2. Set **Password** to **Optional**.
-   3. Verify that the remaining authenticators are set to **Optional**.
+  * Set **Email** to **Required**.
+  * Set **Password** to **Optional**.
+  * Verify that the remaining authenticators are set to **Optional**.
 
 6. Click **Create Policy**.
 7. Give the rule a name. For example, "Password-optional Sign-In Rule".

@@ -74,11 +74,11 @@ switch (response.getAuthenticationStatus()) {
 }
 ```
 
-The email authenticator supports user verification by One-Time Password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/java/main/#integrate-email-challenge-with-magic-links).
+The email authenticator supports user verification by one-time password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/java/main/#integrate-email-challenge-with-magic-links).
 
 ### 5. Your app displays the remaining optional authenticators
 
-After the user verifies their identity using the email authenticator, the current status of the authentication process is now `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION`. Create and display a page that lists the remaining authenticators. Call `isSkipAuthenticatorPresent()` on the current context of the flow.
+After the user verifies their identity using the email authenticator, the status of the authentication process is `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION`. Create and display a page that lists the remaining authenticators. Call `isSkipAuthenticatorPresent()` on the current context of the flow.
 
 ```java
 boolean canSkip = authenticationWrapper.isSkipAuthenticatorPresent(response.getProceedContext());
@@ -99,7 +99,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### 6. The user skips the remaining optional authenticators
 
-When the user clicks the **Skip** button, call `IDXAuthenticationWrapper.skipAuthenticatorEnrollment()`. After the user skips the remaining optional authenticators, the authentication process's current status is now `SKIP_COMPLETE`. Call `AuthenticationResponse.getTokenResponse()` to retrieve the required access, refresh and ID tokens to pass it into your application. The user has now signed in.
+When the user clicks the **Skip** button, call `IDXAuthenticationWrapper.skipAuthenticatorEnrollment()`. After the user skips the remaining optional authenticators, the authentication process's status is `SKIP_COMPLETE`. Call `AuthenticationResponse.getTokenResponse()` to retrieve the required access, refresh and ID tokens to pass it into your application. The user has now signed in.
 
 ```java
 val authenticationResponse =
