@@ -645,7 +645,7 @@ export const guides = [
                 path: "/docs/guides/migrate-to-okta-bulk/main/",
               },
               {
-                title: "Import users with pwd hooks",
+                title: "Migrate users with pwd hooks",
                 path: "/docs/guides/migrate-to-okta-password-hooks/main/",
               },
             ],
