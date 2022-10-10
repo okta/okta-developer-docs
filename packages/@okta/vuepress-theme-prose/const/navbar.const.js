@@ -408,7 +408,7 @@ export const guides = [
                 guideName: "oie-upgrade-sign-in-widget",
               },
               {
-                title: "Deprecated Widget JS methods",
+                title: "Deprecated widget JS methods",
                 guideName: "oie-upgrade-sign-in-widget-deprecated-methods",
               },
               {
