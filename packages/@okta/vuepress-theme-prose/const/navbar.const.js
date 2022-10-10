@@ -433,13 +433,13 @@ export const guides = [
                 guideName: "oie-upgrade-api-sdk-to-oie-sdk",
               },
               {
-                title: "Post-upgrade sessions",
+                title: "Session changes",
                 guideName: "oie-upgrade-sessions-api",
               },
             ],
           },
           {
-            title: "Post-upgrade authn enrollment policy API changes",
+            title: "Authn enrollment policy changes",
             guideName: "oie-upgrade-mfa-enroll-policy"
           }
         ]
