@@ -412,7 +412,7 @@ export const guides = [
                 guideName: "oie-upgrade-sign-in-widget-deprecated-methods",
               },
               {
-                title: "Updates to Widget styling",
+                title: "Updates to widget styling",
                 guideName: "oie-upgrade-sign-in-widget-styling",
               },
               {
