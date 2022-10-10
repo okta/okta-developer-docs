@@ -404,7 +404,7 @@ export const guides = [
             title: "Okta Sign-In Widget upgrade",
             subLinks: [
               {
-                title: "Upgrade your Widget",
+                title: "Upgrade your widget",
                 guideName: "oie-upgrade-sign-in-widget",
               },
               {
