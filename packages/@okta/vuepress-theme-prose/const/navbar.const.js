@@ -416,7 +416,7 @@ export const guides = [
                 guideName: "oie-upgrade-sign-in-widget-styling",
               },
               {
-                title: "Updates to Widget i18n",
+                title: "Updates to widget i18n",
                 guideName: "oie-upgrade-sign-in-widget-i18n",
               },
             ],
