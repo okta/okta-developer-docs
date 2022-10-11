@@ -31,7 +31,7 @@ The Okta Anything-as-a-Source (XaaS) solution provides your organization with th
 
    or
 
-* developing a custom client
+* Developing a custom client
 
 With either method, you need to first define your HR source in your Okta org. This is referred to as the Custom Identity Source integration. Okta provides you with a Custom Identity Source unique identifier that you can use in your Okta Workflow or custom client to identify the HR source. See Configuration of a Custom Identity Source in [Using anything as a source](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm).
 
