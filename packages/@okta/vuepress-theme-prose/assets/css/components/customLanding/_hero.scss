@@ -1,6 +1,6 @@
 .customLanding {
   &-hero {
-    padding: 64px 0 84px;
+    padding: 14px 0 44px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +19,7 @@
       }
       h2 {
         margin-top: 0;
-        margin-bottom: 2.875rem;
+        margin-bottom: 1.875rem;
         font-size: 2.25rem;
         font-weight: 400;
         color: cv('header', 'nav-link');
@@ -28,7 +28,7 @@
         font-size: 18px;
         line-height: 27px;
         font-weight: 300;
-        margin-bottom: 2.875rem;
+        margin-bottom: 1.875rem;
         span {
           display: inline-block;
           font-size: 18px;
@@ -61,6 +61,25 @@
       font-size: 18px;
       font-weight: 400;
       margin-bottom: 50px;
+      &:hover {
+        color: cv('body', 'white');
+        background-color: cv('link');
+      }
+      &:visited,
+      &:active,
+      &:focus {
+        color: cv('body', 'white');
+      }
+    }
+    &__button2 {
+      text-align: center;
+      background-color: cv('link', 'darker');
+      padding: 10px 12px;
+      color: cv('body', 'white');
+      display: inline-block;
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 20px;
       &:hover {
         color: cv('body', 'white');
         background-color: cv('link');
