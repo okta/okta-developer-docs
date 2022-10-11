@@ -20,7 +20,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
 | [Manage embedded widget sign-in support is EA in Preview](#manage-embedded-widget-sign-in-support-is-ea-in-preview) | October 5, 2022 |
 | [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
-| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
+| [OAuth 2.0 authentication for inline hooks is EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ea-in-preview) | October 5, 2022 |
 | [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
 | [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
 
@@ -72,7 +72,7 @@ Okta provides the Okta Sign-In Widget out of the box so that customers can authe
 
 Okta provides a default authorization server so that customers can quickly get started. If a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label in the Admin Console. <!--OKTA-536276-->
 
-#### OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview
+#### OAuth 2.0 authentication for inline hooks is EA in Preview
 
 Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
 
