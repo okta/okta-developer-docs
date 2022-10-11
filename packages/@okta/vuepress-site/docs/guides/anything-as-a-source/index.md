@@ -89,7 +89,7 @@ The bulk-user-load request contains an array of [User Profile Data](/docs/refere
 Before you start to build your XaaS data synchronization component, you need to set up a few configuration variables:
 
 * Your Okta org domain URL (`${yourOktaDomain}`) for API requests
-* Your Custom Identity Source ID (`${identitySourceId}`): The unique identifier you obtained from [configuring a Custom Identity Source integration](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm) in your Okta org
+* Your Custom Identity Source ID (`${identitySourceId}`): The unique identifier that you obtained from [configuring a Custom Identity Source integration](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm) in your Okta org
 * An API Token (`${apiKey}`}: [Obtain an API token from your Okta org](/docs/guides/create-an-api-token/main/) to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
 
 Code your XaaS data synchronization component with the following generalized API flow:
