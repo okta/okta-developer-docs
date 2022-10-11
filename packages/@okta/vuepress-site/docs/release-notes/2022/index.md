@@ -58,6 +58,8 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 #### Bugs fixed in 2022.10.0
 
+* Users were able to make more than five attempts to activate their One-Time Password (OTP) based factors. (OKTA-429940)
+
 * Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
 
 * Searching for users with the Users API returned a 503 Service Unavailable error if the call included a `sortBy` parameter with an invalid `after` parameter. (OKTA-504265)
