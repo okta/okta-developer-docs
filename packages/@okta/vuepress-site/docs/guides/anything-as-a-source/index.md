@@ -45,7 +45,7 @@ The XaaS API synchronizing data flow uses an [Import Session](/docs/reference/xa
 
 ### Import Session status
 
-* **CREATED**: The Import Session object has been created for a specific Custom Identity Source integration and data can be loaded to the session at this stage. No data import processing has been invoked and the session can be cancelled at this stage.
+* **CREATED**: The Import Session object has been created for a specific Custom Identity Source integration, and you can load data to the session at this stage. No data import processing has been invoked, and you can cancel the session at this stage.
 * **TRIGGERED**:  Okta is processing the loaded data in the Import Session. You can’t load new data to the Import Session object at this stage and the session can’t be cancelled. Import Sessions with this status can be viewed in the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page from the Admin Console.
 * **COMPLETED**:  The data in the Import Session object has been processed by Okta. You can’t upload new data to the Import Session object if it has the `COMPLETED` status. The synchronization data job is considered complete.
 * **CLOSED**: The session is cancelled and isn't available for further activity. Only Import Sessions with the `CREATED` status can be cancelled. You can't cancel a session that has been triggered or completed. Previously loaded user data is deleted from a cancelled Import Session.
