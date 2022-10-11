@@ -70,7 +70,7 @@ There are two types of bulk-user-load requests:
 * `/bulk-upsert`: Insert or update the profile users in the bulk-user-load request
 * `/bulk-delete`: Deactivate the user profiles in the bulk-user-load request
 
-You can load up to 200 KB of data in a single bulk-user-load (`/bulk-upsert` or `/bulk-delete`) request for an Import Session. This equates to 200 user profiles. To load more user profiles, you can make multiple bulk-user-load requests to the same session. The maximum number of bulk-user-load requests for a session is 50. If you have exhausted the maximum number of bulk-user-load requests and you still need to load more user profiles, then create another Import Session object for the additional user profiles. Keep in mind that you can only load user data to an Import Session with the `CREATED` status.
+You can load up to 200 KB of data in a single bulk-user-load (`/bulk-upsert` or `/bulk-delete`) request for an Import Session. This equates to 200 user profiles. To load more user profiles, you can make multiple bulk-user-load requests to the same session. The maximum number of bulk-user-load requests for a session is 50. If you exhaust the maximum number of bulk-user-load requests and you still need to load more user profiles, then create another Import Session object for the additional user profiles. Keep in mind that you can only load user data to an Import Session with the `CREATED` status.
 
 > **Note:** Only `"importType": "INCREMENTAL"` is currently supported for an Import Session.
 
