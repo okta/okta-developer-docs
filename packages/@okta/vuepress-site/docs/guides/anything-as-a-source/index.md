@@ -232,7 +232,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
 ### Bulk deactivate user data
 
-When users have been deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta does not delete user profile objects, it deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.  
+When users are deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta doesn't delete user profile objects, it deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.  
 
 1. [Create an Import Session](/docs/reference/api/xaas/):
 
