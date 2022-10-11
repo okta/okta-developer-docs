@@ -1,5 +1,14 @@
 .customLanding {
     &-features {
+        h2 {
+            margin: 0 0 0px;
+            max-width: 540px;
+            font-size: 36px;
+            font-weight: 400;
+            line-height: 1.25;
+            color: cv('header', 'nav-link');
+        }
+
         &__row {
             display: flex;
             flex-flow: row nowrap;

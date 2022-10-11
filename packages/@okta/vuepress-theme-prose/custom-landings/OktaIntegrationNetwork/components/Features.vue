@@ -1,7 +1,8 @@
 <template>
-  <section class="customLanding-gray">
+  <section class="customLanding-white customLanding-waves customLanding-waves-bottom customLanding-waves-top">
     <div class="customLanding-wrapper">
         <div class="customLanding-features">
+        <h2>What integrations can I build?</h2>
             <div class="customLanding-features__row" v-for="({ id, title, text, link, linkText, list }) in rows" :key="title">
                 <div class="customLanding-features__col">
                     <div class="customLanding-features__title">

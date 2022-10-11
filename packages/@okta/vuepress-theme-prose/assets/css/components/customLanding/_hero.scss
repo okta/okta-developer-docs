@@ -18,7 +18,7 @@
         margin-top: 0;
       }
       h2 {
-        margin-top: 0;
+        margin-top: 1.875rem;
         margin-bottom: 1.875rem;
         font-size: 2.25rem;
         font-weight: 400;
@@ -74,7 +74,7 @@
     &__button2 {
       text-align: center;
       background-color: cv('link', 'darker');
-      padding: 10px 12px;
+      padding: 8px 10px;
       color: cv('body', 'white');
       display: inline-block;
       font-size: 18px;

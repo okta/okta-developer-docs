@@ -1,8 +1,8 @@
 <template>
-  <section class="customLanding-white customLanding-waves customLanding-waves-bottom customLanding-waves-top">
+  <section class="customLanding-gray">
     <div class="customLanding-wrapper">
         <div class="customLanding-explore">
-            <h2>Explore the integration process from end-to-end</h2>
+            <h2>Explore the integration process</h2>
             <p class="customLanding-explore__desc">Our step-by-step guides walk you through every phase of building your integration.</p>
             <div class="customLanding-explore__list">
                 <div class="customLanding-explore__item" v-for="({ id, caption, text, link, path }) in list" :key="caption">
@@ -17,6 +17,8 @@
                     <a :href="`${path}`" class="customLanding-explore__link" v-if="link">{{link}}</a>
                 </div>
             </div>
+            <p>Get started by signing up for a free Okta developer org. <a class="customLanding-hero__button2" href="/signup/">Sign up</a></p>
+
         </div>
     </div>
   </section>
