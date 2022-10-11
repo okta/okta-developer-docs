@@ -882,6 +882,7 @@ export const reference = [
           { title: "Templates", path: "/docs/reference/api/templates/" },
           { title: "ThreatInsight", path: "/docs/reference/api/threat-insight/" },
           { title: "Trusted Origins", path: "/docs/reference/api/trusted-origins/" },
+          { title: "UI Schema", path: "/docs/reference/api/uischema/" },
           { title: "User Types", path: "/docs/reference/api/user-types/" },
           { title: "Users", path: "/docs/reference/api/users/" },
           { title: "Zones", path: "/docs/reference/api/zones/" }
