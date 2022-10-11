@@ -25,7 +25,7 @@ This guide outlines how to develop a custom client to manage an identity source 
 
 ## Overview
 
-The Okta Anything-as-a-Source (XaaS) solution provides your organization the ability to integrate any HR source into your Okta org. The HR source acts as a source-of-truth and users are pushed and mapped to Okta user profiles in the Okta Universal Directory. There are two methods to implement the XaaS integration:
+The Okta Anything-as-a-Source (XaaS) solution provides your organization with the ability to integrate any HR source into your Okta org. The HR source acts as a source-of-truth, and users are pushed and mapped to Okta user profiles in the Okta Universal Directory. There are two methods to implement the XaaS integration:
 
 * using Okta Workflows
 
