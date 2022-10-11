@@ -180,7 +180,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
 3. [Trigger the data import process](/docs/reference/api/xaas):
 
-    Once you've loaded all your user profiles to insert or update, start the import processing job to add users to the Okta Universal Directory:
+    After you've loaded all your user profiles to insert or update, start the import processing job to add users to the Okta Universal Directory:
 
     ```bash
     curl -i -X PUT \
