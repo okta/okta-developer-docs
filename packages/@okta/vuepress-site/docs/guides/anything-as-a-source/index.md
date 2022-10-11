@@ -174,7 +174,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
     ```
 
     Possible returned responses:
-    * **202 Accepted** : The bulk upsert was successful.
+    * **202 Accepted**: The bulk upsert was successful.
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
     * **401 Unauthorized**: The API key isn't valid.
 
