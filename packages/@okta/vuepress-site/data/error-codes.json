@@ -1,6 +1,6 @@
 {
-  "release" : "2021.04.1",
-  "build" : "2021.04.1-begin-177-gffbed663c7f7",
+  "release" : "2022.10.1",
+  "build" : "2022.10.1-begin-172-g89b201af9033",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -698,12 +698,12 @@
     "errorSummary" : "The recovery question answer did not match our records.",
     "errorDescription" : null
   }, {
-    "title" : "Org Creator API subdomain validation exception",
+    "title" : "Org Creator API subdomain already exists exception",
     "includesExceptionMessage" : false,
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000088",
-    "errorSummary" : "Org Creator API subdomain validation exception.",
+    "errorSummary" : "Org Creator API subdomain validation exception: An object with this field already exists.",
     "errorDescription" : null
   }, {
     "title" : "Org Creator API name validation exception",
@@ -724,8 +724,8 @@
   }, {
     "title" : "Illegal role assignment exception",
     "includesExceptionMessage" : false,
-    "statusCode" : 405,
-    "statusReasonPhrase" : "Method Not Allowed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000091",
     "errorSummary" : "The provided role type was not the same as required role type.",
     "errorDescription" : null
@@ -1131,11 +1131,11 @@
     "errorDescription" : null
   }, {
     "title" : "Policy violation exception",
-    "includesExceptionMessage" : false,
+    "includesExceptionMessage" : true,
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000148",
-    "errorSummary" : "Cannot disable this authenticator because it is enabled in one or more policies. To continue, disable the authenticator in these policies.",
+    "errorSummary" : "Cannot modify/disable this authenticator because it is enabled in one or more policies. {0}",
     "errorDescription" : null
   }, {
     "title" : "HTTP request not acceptable",
@@ -1148,16 +1148,16 @@
   }, {
     "title" : "SMS rate limit exception",
     "includesExceptionMessage" : true,
-    "statusCode" : 429,
-    "statusReasonPhrase" : "Too Many Requests",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000150",
     "errorSummary" : "You have reached the limit of sms requests, please try again later.",
     "errorDescription" : null
   }, {
     "title" : "Call rate limit exception",
     "includesExceptionMessage" : true,
-    "statusCode" : 429,
-    "statusReasonPhrase" : "Too Many Requests",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000151",
     "errorSummary" : "You have reached the limit of call requests, please try again later.",
     "errorDescription" : null
@@ -1210,7 +1210,7 @@
     "errorSummary" : "Another authenticator with key: {0} is already active.",
     "errorDescription" : null
   }, {
-    "title" : "Non user verification compliance okta verify enrollment exception",
+    "title" : "Non user verification compliance enrollment exception",
     "includesExceptionMessage" : true,
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1224,14 +1224,6 @@
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000159",
     "errorSummary" : "Invalid Enrollment. FIPS compliance required.",
-    "errorDescription" : null
-  }, {
-    "title" : "Mutually exclusive authenticator active exception",
-    "includesExceptionMessage" : true,
-    "statusCode" : 409,
-    "statusReasonPhrase" : "Conflict",
-    "errorCode" : "E0000160",
-    "errorSummary" : "Cannot enable authenticator at this time. Conflicts with authenticator with key: {0}",
     "errorDescription" : null
   }, {
     "title" : "Domain already exists exception",
@@ -1288,6 +1280,302 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000168",
     "errorSummary" : "CAPTCHA cannot be removed. This CAPTCHA is associated with org-wide CAPTCHA settings, please unassociate it before removing it.",
+    "errorDescription" : null
+  }, {
+    "title" : "Org Creator API subdomain reserved exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000170",
+    "errorSummary" : "Org Creator API subdomain validation exception: Using a reserved value. Try again with a different value.",
+    "errorDescription" : null
+  }, {
+    "title" : "Org Creator API subdomain locked exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000171",
+    "errorSummary" : "Org Creator API subdomain validation exception: The value is already in use by a different request.",
+    "errorDescription" : null
+  }, {
+    "title" : "Org Creator API subdomain name too long exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000172",
+    "errorSummary" : "Org Creator API subdomain validation exception: The value exceeds the max length.",
+    "errorDescription" : null
+  }, {
+    "title" : "Device condition dependency exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000174",
+    "errorSummary" : "You canât disable Okta FastPass because it is being used by one or more application sign-on policies. First, go to each policy and remove any device conditions. Then, come back and try again.",
+    "errorDescription" : null
+  }, {
+    "title" : "Log streaming create failed",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000176",
+    "errorSummary" : "Failed to create LogStreaming event source. {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Log streaming delete failed",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000177",
+    "errorSummary" : "Failed to delete LogStreaming event source. {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Cannot delete realm exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000178",
+    "errorSummary" : "This realm cannot be deleted. {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Externally sourced attribute exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000179",
+    "errorSummary" : "There is a required attribute that is externally sourced.",
+    "errorDescription" : null
+  }, {
+    "title" : "Suspended factor exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 423,
+    "statusReasonPhrase" : "Locked",
+    "errorCode" : "E0000180",
+    "errorSummary" : "Factor id is currently not active.",
+    "errorDescription" : null
+  }, {
+    "title" : "Dns challenge not found exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 503,
+    "statusReasonPhrase" : "Service Unavailable",
+    "errorCode" : "E0000181",
+    "errorSummary" : "Service temporarily unavailable.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email customization default already exists exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000182",
+    "errorSummary" : "A default email template customization already exists.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email customization language already exists exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000183",
+    "errorSummary" : "An email template customization for that language already exists.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email customization cannot delete default exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000184",
+    "errorSummary" : "A default email template customization can't be deleted.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email customization cannot clear default exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000185",
+    "errorSummary" : "The isDefault parameter of the default email template customization can't be set to false.",
+    "errorDescription" : null
+  }, {
+    "title" : "SMS free org roadblock exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000186",
+    "errorSummary" : "Your free tier organization has reached the limit of sms requests that can be sent within a 30 day period.",
+    "errorDescription" : null
+  }, {
+    "title" : "Push provider dependency exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000187",
+    "errorSummary" : "Cannot delete push provider because it is being used by a custom app authenticator.",
+    "errorDescription" : null
+  }, {
+    "title" : "Domain update conflict exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000188",
+    "errorSummary" : "Domain update conflict exception.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email template invalid recipients exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 422,
+    "statusReasonPhrase" : "Unprocessable Entity",
+    "errorCode" : "E0000189",
+    "errorSummary" : "This template does not support the recipients value.",
+    "errorDescription" : null
+  }, {
+    "title" : "Delete ldap interface forbidden exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000190",
+    "errorSummary" : "Delete LDAP interface instance forbidden.",
+    "errorDescription" : null
+  }, {
+    "title" : "Transaction not found exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 404,
+    "statusReasonPhrase" : "Not Found",
+    "errorCode" : "E0000191",
+    "errorSummary" : "Verification timed out. Please try again.",
+    "errorDescription" : null
+  }, {
+    "title" : "Assign admin privilege to group with rules exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000192",
+    "errorSummary" : "Roles cannot be granted to groups with group membership rules. {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Group member count exceeds limit exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000193",
+    "errorSummary" : "Roles can only be granted to groups with 5000 or less users. {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Non applicable group type exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000194",
+    "errorSummary" : "Roles can only be granted to Okta groups, AD groups and LDAP groups. {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "API conflict exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000195",
+    "errorSummary" : "Api validation failed due to conflict: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Sign in page cannot update default brand exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000196",
+    "errorSummary" : "Cannot update sign-in page settings for the default brand.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email domain already exists exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000197",
+    "errorSummary" : "Unique email domain name required.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email domain not found exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 404,
+    "statusReasonPhrase" : "Not Found",
+    "errorCode" : "E0000198",
+    "errorSummary" : "Email domain not found.",
+    "errorDescription" : null
+  }, {
+    "title" : "Error page cannot update default brand exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000199",
+    "errorSummary" : "Cannot update error page settings for the default brand.",
+    "errorDescription" : null
+  }, {
+    "title" : "Brand cannot delete default exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000200",
+    "errorSummary" : "A default brand cannot be deleted.",
+    "errorDescription" : null
+  }, {
+    "title" : "Brand cannot delete already assigned exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000201",
+    "errorSummary" : "A brand associated with a domain cannot be deleted.",
+    "errorDescription" : null
+  }, {
+    "title" : "Brand name already exist exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000202",
+    "errorSummary" : "Brand name already exists.",
+    "errorDescription" : null
+  }, {
+    "title" : "Brand domain mapping failure exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000203",
+    "errorSummary" : "Failed to associate this domain with the given brandId.",
+    "errorDescription" : null
+  }, {
+    "title" : "SMS rate limit exception 429",
+    "includesExceptionMessage" : true,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000204",
+    "errorSummary" : "You have reached the limit of sms requests, please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "Call rate limit exception 429",
+    "includesExceptionMessage" : true,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000205",
+    "errorSummary" : "You have reached the limit of call requests, please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "Brand domain delete mapping failure exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000206",
+    "errorSummary" : "Failed to delete the mapping for the provided brandId and domainId.",
+    "errorDescription" : null
+  }, {
+    "title" : "Incorrect username or password exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "errorCode" : "E0000207",
+    "errorSummary" : "The username and/or the password you entered is incorrect. Please try again.",
+    "errorDescription" : null
+  }, {
+    "title" : "Access token bad request exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000208",
+    "errorSummary" : "Failed to get access token. The request was invalid, reason: {0}.",
     "errorDescription" : null
   } ]
 }
