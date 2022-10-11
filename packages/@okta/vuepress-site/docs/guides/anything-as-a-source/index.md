@@ -296,7 +296,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
 3. [Trigger the data import process](/docs/reference/api/xaas):
 
-    Once you've imported all your user IDs, start the processing job to deactivate users from the Okta Universal Directory:
+    After you've imported all your user IDs, start the processing job to deactivate users from the Okta Universal Directory:
 
     ```bash
     curl -i -X PUT \
