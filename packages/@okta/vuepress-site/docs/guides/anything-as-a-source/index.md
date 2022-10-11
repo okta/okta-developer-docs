@@ -245,7 +245,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
     Possible returned responses:
 
-    * **200 OK**: The Import Session created successfully and returns a `id` property. Save the `id` value to make further API calls.
+    * **200 OK**: The Import Session created successfully and returns an `id` property. Save the `id` value to make further API calls.
 
       ```json
       {
