@@ -53,7 +53,7 @@ The XaaS API synchronizing data flow uses an [Import Session](/docs/reference/xa
 
 ### Import Session process
 
-You can only process one Import Session, for a specific Custom Identity Source integration, at a time to avoid conflicts. The following are additional Import Session behaviors:
+You can only process one Import Session at a time (for a specific Custom Identity Source integration) to avoid conflicts. The following are additional Import Session behaviors:
 
 * Data can only be loaded to an Import Session when it’s in the `CREATED` status.
 * A Custom Identity Source integration can only have one active Import Session at a time. An Import Session with the `CREATED` or `TRIGGERED` status is considered active.
