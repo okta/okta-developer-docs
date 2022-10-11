@@ -146,7 +146,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
     * Use the `id` property value returned from the created Import Session to make the [bulk upsert user data](/docs/reference/api/xaas/#bulk-upsert-user-data) request.
     * Obtain the user profiles from your HR source and add each user profile attribute into the `profiles` array. You can have up to a maximum of 200 user profiles in the array.
-    * Set `entityType` to `USERS`. Only user data is supported; group data is currently not supported.
+    * Set `entityType` to `USERS`. Only user data is supported. Group data isn't currently supported.
     * If you need to add more users, make another [bulk upsert user data](/docs/reference/api/xaas/#bulk-upsert-user-data) request with the same `${sessionId}` value. You can make up to 50 bulk-user-load requests for one Import Session.
 
     ```bash
