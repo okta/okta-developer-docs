@@ -79,6 +79,7 @@
         min-width: 97px;
         img {
           width: 28px;
+          margin: 0; /* Override default positioning of content images */
         }
         &:after {
           content: '';
