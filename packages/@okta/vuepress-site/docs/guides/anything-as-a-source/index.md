@@ -290,7 +290,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
     ```
 
     Possible returned responses:
-    * **202 Accepted** : The bulk delete operation was successful.
+    * **202 Accepted**: The bulk delete operation was successful.
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
     * **401 Unauthorized**: The API key isn't valid.
 
