@@ -41,7 +41,7 @@ This guide outlines the XaaS API flow so that you can develop your custom client
 
 ### Import Session
 
-The XaaS API synchronizing data flow uses an [Import Session](/docs/reference/xaas/#import-session) object to encapsulate the data upload and the data import processing tasks. You need to create an Import Session object each time you want to synchronize data from the HR source to Okta. The Import Session object uses the following `status` values to indicate each stage of the synchronization process flow.
+The XaaS API synchronizing data flow uses an [Import Session](/docs/reference/xaas/#import-session) object to encapsulate the data upload and the data import processing tasks. You need to create an Import Session object each time that you want to synchronize data from the HR source to Okta. The Import Session object uses the following `status` values to indicate each stage of the synchronization process flow.
 
 ### Import Session status
 
