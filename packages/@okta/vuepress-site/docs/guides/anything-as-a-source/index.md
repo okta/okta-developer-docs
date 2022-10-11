@@ -265,7 +265,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
     * Use the `id` property value returned from the created Import Session to make the [bulk delete user data](/docs/reference/api/xaas/#bulk-delete-user-data) request.
     * Obtain the unique user identifiers from your HR source and add each `externalId` value into the `profiles` array. You can have up to a maximum of 200 user IDs in the array.
-    * Set `entityType` to `USERS`. Only user data is supported; group data is currently not supported.
+    * Set `entityType` to `USERS`. Only user data is supported. Group data isn't currently supported.
     * If you need to deactivate more users, make another [bulk delete user data](/docs/reference/api/xaas/#bulk-delete-user-data) request with the same `${sessionId}` value. You can make up to 50 bulk-user-load requests for one Import Session.
 
     ```bash
