@@ -55,7 +55,7 @@ The XaaS API synchronizing data flow uses an [Import Session](/docs/reference/xa
 
 You can only process one Import Session at a time (for a specific Custom Identity Source integration) to avoid conflicts. The following are additional Import Session behaviors:
 
-* Data can only be loaded to an Import Session when it’s in the `CREATED` status.
+* You can only load data to an Import Session when it’s in the `CREATED` status.
 * A Custom Identity Source integration can only have one active Import Session at a time. An Import Session with the `CREATED` or `TRIGGERED` status is considered active.
 * You can’t process an Import Session in parallel for the same identity source.
 * A new Import Session can’t be created in less than five minutes of an active Import Session associated with the same identity source. If Okta receives a new Import Session request within five minutes of an active Import Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 - Bad Request response.
