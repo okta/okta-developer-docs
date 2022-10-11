@@ -80,7 +80,7 @@ The bulk-user-load request contains an array of [User Profile Data](/docs/refere
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This value is used as a key to determine if a new user needs to be created or if an existing user needs to be updated.
 
-* `profile`:  Contains the set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings you specified in your Custom Identity Source configuration.  See Declaration of a Custom Identity Source Schema in  [Using anything as a source](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm).
+* `profile`:  The set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration.  See Declaration of a Custom Identity Source Schema in  [Using anything as a source](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm).
 
 > **Note:** Only user profile data can be loaded to an Import Session object with the `"entityType": "USERS"` property. Group data load isn’t currently supported.
 
