@@ -21,6 +21,6 @@ This guide uses several libraries that you need to install before continuing. Th
 4. As explained later, it's a good idea to cache the public key to speed up access token validation. You should probably use whatever caching mechanism is available in the particular framework you're using for your API, but to keep things simple, this quickstart uses a file-based cache using phpfastcache.
 
 	```bash
-  composer require phpfastcache/phpfastcache ^9.1
-  composer require guzzlehttp/psr7 ^2.4
+	composer require phpfastcache/phpfastcache ^9.1
+	composer require guzzlehttp/psr7 ^2.4
 	```
