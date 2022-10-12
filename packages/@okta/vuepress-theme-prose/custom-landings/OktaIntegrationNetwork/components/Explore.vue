@@ -17,8 +17,6 @@
                     <a :href="`${path}`" class="customLanding-explore__link" v-if="link">{{link}}</a>
                 </div>
             </div>
-            <p>Get started by signing up for a free Okta developer org. <a class="customLanding-hero__button2" href="/signup/">Sign up</a></p>
-
         </div>
     </div>
   </section>
@@ -33,21 +31,21 @@
                 {
                     id: 1,
                     caption: 'Learn',
-                    text: 'Easy and secure access is a base requirement for modern apps. Understand what enterprises need, their common use cases, and the technologies involved.',
-                    link: 'View concepts',
-                    path: '/docs/concepts/'
+                    text: 'Understand how Okta works and how to implement solutions for your use cases. Get started by signing up for a [free Okta developer org] and trying the [Quickstart] examples.',
+                    link: 'Learn more',
+                    path: '/docs/concepts/how-okta-works/'
                 },
                 {
                     id: 2,
                     caption: 'Design & build',
-                    text: 'OIN is a catalog and a support system. Our resources help you to design, build, and test your integration before you submit it for verification.',
+                    text: 'OIN is a catalog and a support system. View [SSO] and [Lifecycle] integration guides to help you to design, build, and test your integration before you submit it for verification.',
                     link: 'View guides',
-                    path: '/docs/guides/#publish-an-integration'
+                    path: '/docs/guides/#publish-an-integration-in-the-oin'
                 },
                 {
                     id: 3,
                     caption: 'Get Okta verified',
-                    text: 'From testing to running diagnostics and validation, our team works with you to get your integration reviewed and ready to publish to the OIN.',
+                    text: 'Prepare submission requirements and use the OIN Manager portal to submit your integration for verification. The OIN team runs diagnostics and works with you to validate your integration for publication.',
                     link: 'Learn more',
                     path: '/docs/guides/submit-app'
                 },
