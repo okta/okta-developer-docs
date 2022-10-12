@@ -5,6 +5,8 @@ meta:
     content: This is an Anything-as-a-Source custom client developer guide to synchronize any HR source with Okta user profiles.
 ---
 
+<ApiLifecycle access="ea" />
+
 This guide outlines how to develop a custom client to manage an identity source with Okta for the Anything-as-a-Source (XaaS) integration. The custom client can be a standalone app or a component of an existing app that drives the synchronization between the HR source (the identity source) and the Okta Universal Directory.
 
 ---
