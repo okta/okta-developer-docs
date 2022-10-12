@@ -53,3 +53,15 @@ Before API Service Integrations, Okta API tokens were a common way for integrati
 * **Access granularity**: Using OAuth 2.0 scopes, you can restrict your access request to specific resources instead of all the resources that a user can access.
 
 * **Configuration experience**: API Service Integrations can be discovered and added directly from the Okta Integration Network catalog, with no need to create and don’t require creating a service account or “dummy user” for the integration.
+
+* **Service integration**: Okta API tokens represent a user, which means they're not a great fit for service integrations where a user context isn’t needed or desirable.
+
+* **Reliability**: Okta API tokens expire after 30 days of inactivity or when a user leaves the Okta org. After being authorized, API Service Integrations can fetch a new access token whenever necessary and without manual action from an admin.
+
+* **Rotation**: Okta API tokens must be rotated manually. API Service Integration access tokens can be rotated programmatically.
+
+### Multi-tenancy in Okta
+
+Okta tenants are called organizations (orgs). Each Okta org has its own authorization server. When a customer authorizes your API Service Integration to access their org, the server generates a unique set of credentials (client ID and client secret) for that org.
+
+You must collect and store these credentials for each customer to allow your integration to work with any Okta org.
