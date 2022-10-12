@@ -16,7 +16,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 * POST update email address requests to `/idp/myaccount/emails` returned an HTTP 409 Conflict error when the primary email wasn't verified during registration. (OKTA-534398)
 
-* During user activation flow when a request was made to the `/authorize/` endpoint, a user was still prompted to sign in when the `prompt` property was set to `none` and the user had a valid session token. (OKTA-514346)
+* During the user activation flow, a user was still prompted to sign in when the `prompt` property was set to `none` and the user had a valid session token. (OKTA-514346)
 
 ### Monthly release 2022.10.0
 
