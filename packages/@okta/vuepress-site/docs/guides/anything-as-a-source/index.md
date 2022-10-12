@@ -108,6 +108,14 @@ Code your XaaS data synchronization component with the following generalized API
 
 </div>
 
+<!--
+
+Source image:
+
+https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3064%3A5755
+
+-->
+
 For detailed API calls, see the following guidelines for specific use case flows:
 
 * [Bulk import user data](#bulk-import-user-data)

@@ -630,7 +630,7 @@ export const guides = [
         ],
       },
       {
-        title: "Custom HR integration",
+        title: "Manage users",
         subLinks: [
           { 
             title: "Anything-as-a-Source integration",
