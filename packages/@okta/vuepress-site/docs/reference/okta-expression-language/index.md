@@ -188,7 +188,7 @@ Group functions return either an array of groups or **True** or **False**.
 
 > **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
 
-> **Note:** Users that are a members of a particular group (such as from a `isMemberOfGroup` or `isMemberOfGroupName` expression) may not have their app user profile attributes updated. Okta updates app user profile attributes only when an app is assigned to a user or when mappings are applied. App attributes aren’t updated or reapplied when the user’s group membership changes.
+> **Note:** Users that are a members of a particular group (such as from a `isMemberOfGroup` or `isMemberOfGroupName` expression) may not have their app user profile attributes updated. Okta updates app user profile attributes only when an app is assigned to a user or when a user profile changed and mappings are reapplied. App user attributes aren’t updated or reapplied when the user’s group membership changes.
 
 For an example using group functions and for more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
