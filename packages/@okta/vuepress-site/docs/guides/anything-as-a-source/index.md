@@ -1,5 +1,5 @@
 ---
-title: Build an Anything-as-a-Source custom client
+title: Build an Anything-as-a-Source custom client integration
 meta:
   - name: description
     content: This is an Anything-as-a-Source custom client developer guide to synchronize any HR source with Okta user profiles.
@@ -16,7 +16,8 @@ This guide outlines how to develop a custom client to manage an identity source 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
-* [A Custom Identity Source](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm) integration configured in your Okta org
+* [A Custom Identity Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source) integration configured in your Okta org
+ <!--(https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm)-->
 * [An Okta API token](https://developer.okta.com/docs/guides/create-an-api-token/main/) to make secure API calls
 * An HR source from which you want to synchronize user data with Okta
 * A custom client to add XaaS API integration
@@ -33,7 +34,7 @@ The Okta Anything-as-a-Source (XaaS) solution provides your organization with th
 
 * Developing a custom client
 
-With either method, you need to first define your HR source in your Okta org. This is referred to as the Custom Identity Source integration. Okta provides you with a Custom Identity Source unique identifier that you can use in your Okta Workflow or custom client to identify the HR source. See Configuration of a Custom Identity Source in [Using anything as a source](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm).
+With either method, you need to first define your HR source in your Okta org. This is referred to as the Custom Identity Source integration. Okta provides you with a Custom Identity Source unique identifier that you can use in your Okta Workflow or custom client to identify the HR source. See Configuration of a Custom Identity Source in [Using anything as a source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source).
 
 This guide outlines the XaaS API flow so that you can develop your custom client for the XaaS integration. For XaaS integrations using Okta Workflows, see [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf).
 
@@ -61,7 +62,7 @@ You can only process one Import Session at a time (for a specific Custom Identit
 * You can't create a new Import Session in less than five minutes of an active Import Session associated with the same identity source. If Okta receives a new Import Session request within five minutes of an active Import Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 - Bad Request response.
 * If there are no API requests in 24 hours for an Import Session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
 
-> **Note:** If you receive a 400 Bad Request from a create Import Session request, then ensure that there isn't an active Import Session for the same identity source. Use the [Retrieve the current Import Session](/docs/reference/api/xaas/#retrieve-the-current-import-session) request to return the current active Import Session for an identity source.
+> **Note:** If you receive a 400 Bad Request from a create Import Session request, then ensure that there isn't an active Import Session for the same identity source. Use the [Retrieve the active Import Session](/docs/reference/api/xaas/#retrieve-the-active-import-session) request to return the active Import Session for an identity source.
 
 ### Bulk-user-load requests
 
@@ -80,7 +81,7 @@ The bulk-user-load request contains an array of [User Profile Data](/docs/refere
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This value is used as a key to determine if a new user needs to be created or if an existing user needs to be updated.
 
-* `profile`:  The set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration.  See Declaration of a Custom Identity Source Schema in  [Using anything as a source](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm).
+* `profile`:  The set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declaration of a Custom Identity Source Schema in  [Using anything as a source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source).
 
 > **Note:** You can only load user profile data to an Import Session object with the `"entityType": "USERS"` property. Group data load isn’t currently supported.
 
@@ -89,7 +90,7 @@ The bulk-user-load request contains an array of [User Profile Data](/docs/refere
 Before you start to build your XaaS data synchronization component, you need to set up a few configuration variables:
 
 * Your Okta org domain URL (`${yourOktaDomain}`) for API requests
-* Your Custom Identity Source ID (`${identitySourceId}`): The unique identifier that you obtained from [configuring a Custom Identity Source integration](https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm) in your Okta org
+* Your Custom Identity Source ID (`${identitySourceId}`): The unique identifier that you obtained from [configuring a Custom Identity Source integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source) in your Okta org
 * An API token (`${apiKey}`}: [Obtain an API token from your Okta org](/docs/guides/create-an-api-token/main/) to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
 
 Code your XaaS data synchronization component with the following generalized API flow:
@@ -144,10 +145,10 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
 2. [Bulk upsert user data](/docs/reference/api/xaas/#bulk-upsert-user-data):
 
-    * Use the `id` property value returned from the created Import Session to make the [bulk upsert user data](/docs/reference/api/xaas/#bulk-upsert-user-data) request.
+    * Use the `id` property value returned from the created Import Session to make the bulk-upsert user data request.
     * Obtain the user profiles from your HR source and add each user profile attribute into the `profiles` array. You can have up to a maximum of 200 user profiles in the array.
     * Set `entityType` to `USERS`. Only user data is supported. Group data isn't currently supported.
-    * If you need to add more users, make another [bulk upsert user data](/docs/reference/api/xaas/#bulk-upsert-user-data) request with the same `${sessionId}` value. You can make up to 50 bulk-user-load requests for one Import Session.
+    * If you need to add more users, make another bulk-upsert user data request with the same `${sessionId}` value. You can make up to 50 bulk-user-load requests for one Import Session.
 
     ```bash
     curl -i -X POST \
@@ -204,32 +205,55 @@ Use these steps to insert or update a set of user data profiles from your HR sou
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
     * **401 Unauthorized**: The API key isn't valid.
 
-4. Monitor the Import Session until the data processing completes by making requests for the status of the Import Session:
+4. Monitor the Import Session until the data processing completes by reviewing the status of the session.
 
-    ```bash
-    curl -i -X GET \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
-    -H 'Authorization: SSWS ${apiKey}' \
-    -H 'Content-Type: application/json' 
-    ```
+    You can use either [Retrieve an Import Session by ID](/docs/reference/api/xaas/#retrieve-an-import-session) or [Retrieve the active Import Session](/docs/reference/api/xaas/#retrieve-the-active-import-session) API requests to retrieve Import Session properties:
 
-    Alternatively, use the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console to monitor the import process job. When the job completes, a summary of the import process appears in the Import Monitoring dashboard.
+    * [Retrieve an Import Session by ID](/docs/reference/api/xaas/#retrieve-an-import-session): This request returns the Import Session properties for a specific session ID. Data processing completed if the returned session status is `COMPLETED`.
 
-    Possible returned responses:
-    * **200 OK**: The data import process completed successfully and returns the following properties:
+       ```bash
+       curl -i -X GET \
+          'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
+       -H 'Authorization: SSWS ${apiKey}' \
+       -H 'Content-Type: application/json' 
+       ```
 
-        ```json
-        {
-            "id": "{sessionId}",
-            "identitySourceId": "{identitySourceId}",
-            "status": "COMPLETED",
-            "importType": "INCREMENTAL"
-        }
-        ```
+       Possible returned responses:
+         * **200 OK**: The data import process completed successfully and returns the following properties:
 
-    * **400 Bad Request**: The Import Session ID is unknown.
-    * **401 Unauthorized**: The API key isn't valid.
+           ```json
+           {
+               "id": "{sessionId}",
+               "identitySourceId": "{identitySourceId}",
+               "status": "COMPLETED",
+               "importType": "INCREMENTAL"
+           }
+           ```
 
+        * **400 Bad Request**: The Import Session ID is unknown.
+        * **401 Unauthorized**: The API key isn't valid.
+
+    * [Retrieve the active Import Session](/docs/reference/api/xaas/#retrieve-the-active-import-session): This request returns the properties for a session that has the `CREATED` or `TRIGGERED` status for a specific identity source. Data processing completed for an identity source if no active Import Session is returned (since a session that contains the `COMPLETED` status isn't considered active).
+
+      ```bash
+       curl -i -X GET \
+          'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions \
+       -H 'Authorization: SSWS ${apiKey}' \
+       -H 'Content-Type: application/json' 
+       ```
+
+       Possible returned responses:
+         * **200 OK**: The request was successful and returns an empty list of active sessions:
+
+           ```json
+           []
+           ```
+
+        * **401 Unauthorized**: The API key isn't valid.
+    
+    > **Note:** Alternatively, you can use the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console to monitor the import process job. When the job completes, a summary of the import process appears in the Import Monitoring dashboard.
+
+    
 ### Bulk deactivate user data
 
 When users are deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta doesn't delete user profile objects, it deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.  
@@ -263,10 +287,10 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
 2. [Bulk delete user data](/docs/reference/api/xaas/#bulk-delete-user-data):
 
-    * Use the `id` property value returned from the created Import Session to make the [bulk delete user data](/docs/reference/api/xaas/#bulk-delete-user-data) request.
+    * Use the `id` property value returned from the created Import Session to make the bulk-delete user data request.
     * Obtain the unique user identifiers from your HR source and add each `externalId` value into the `profiles` array. You can have up to a maximum of 200 user IDs in the array.
     * Set `entityType` to `USERS`. Only user data is supported. Group data isn't currently supported.
-    * If you need to deactivate more users, make another [bulk delete user data](/docs/reference/api/xaas/#bulk-delete-user-data) request with the same `${sessionId}` value. You can make up to 50 bulk-user-load requests for one Import Session.
+    * If you need to deactivate more users, make another bulk-delete user data request with the same `${sessionId}` value. You can make up to 50 bulk-user-load requests for one Import Session.
 
     ```bash
     curl -i -X POST \
@@ -288,6 +312,8 @@ When users are deactivated or deleted from your HR source, you need to reflect t
         ]
     }'
     ```
+
+    > **Note:** If the `externalId` of the user profile in the bulk-delete data isn't matched to a user in Okta, then the user profile is silently ignored.
 
     Possible returned responses:
     * **202 Accepted**: The bulk delete operation was successful.
@@ -320,31 +346,53 @@ When users are deactivated or deleted from your HR source, you need to reflect t
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
     * **401 Unauthorized**: The API key isn't valid.
 
-4. Monitor the Import Session until the data processing completes by making requests for the status of the Import Session:
+4. Monitor the Import Session until the data processing completes by reviewing the status of the session.
 
-    ```bash
-    curl -i -X GET \
-      'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
-    -H 'Authorization: SSWS ${apiKey}' \
-    -H 'Content-Type: application/json' 
-    ```
+    You can use either [Retrieve an Import Session by ID](/docs/reference/api/xaas/#retrieve-an-import-session) or [Retrieve the active Import Session](/docs/reference/api/xaas/#retrieve-the-active-import-session) API requests to retrieve Import Session properties:
 
-    Alternatively, use the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console to monitor the import process job. When the job completes, a summary of the import process appears in the Import Monitoring dashboard.
+    * [Retrieve an Import Session by ID](/docs/reference/api/xaas/#retrieve-an-import-session): This request returns the Import Session properties for a specific session ID. Data processing completed if the returned session status is `COMPLETED`.
 
-    Possible returned responses:
-    * **200 OK**: The data import process started successfully and returns the following properties:
+       ```bash
+       curl -i -X GET \
+          'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
+       -H 'Authorization: SSWS ${apiKey}' \
+       -H 'Content-Type: application/json' 
+       ```
 
-        ```json
-        {
-            "id": "{sessionId}",
-            "identitySourceId": "{identitySourceId}",
-            "status": "COMPLETED",
-            "importType": "INCREMENTAL"
-        }
-        ```
+       Possible returned responses:
+         * **200 OK**: The data import process completed successfully and returns the following properties:
 
-    * **400 Bad Request**: The Import Session ID is unknown.
-    * **401 Unauthorized**: The API key isn't valid.
+           ```json
+           {
+               "id": "{sessionId}",
+               "identitySourceId": "{identitySourceId}",
+               "status": "COMPLETED",
+               "importType": "INCREMENTAL"
+           }
+           ```
+
+        * **400 Bad Request**: The Import Session ID is unknown.
+        * **401 Unauthorized**: The API key isn't valid.
+
+    * [Retrieve the active Import Session](/docs/reference/api/xaas/#retrieve-the-active-import-session): This request returns the properties for a session that has the `CREATED` or `TRIGGERED` status for a specific identity source. Data processing completed for an identity source if no active Import Session is returned (since a session that contains the `COMPLETED` status isn't considered active).
+
+      ```bash
+       curl -i -X GET \
+          'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions \
+       -H 'Authorization: SSWS ${apiKey}' \
+       -H 'Content-Type: application/json' 
+       ```
+
+       Possible returned responses:
+         * **200 OK**: The request was successful and returns an empty list of active sessions:
+
+           ```json
+           []
+           ```
+
+        * **401 Unauthorized**: The API key isn't valid.
+
+    > **Note:** Alternatively, you can use the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console to monitor the import process job. When the job completes, a summary of the import process appears in the Import Monitoring dashboard.
 
 ### Cancel an Import Session
 
