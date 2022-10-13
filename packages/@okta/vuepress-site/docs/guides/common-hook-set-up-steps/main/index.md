@@ -82,7 +82,7 @@ The OAuth 2.0 Client Secret method sends a signed JWT to your external service. 
 * Create an app integration
 * Add a custom scope
 * Add OAuth 2.0 authentication fields to your inline hook
-* Add code to verify the JWT
+* Add code to your external service to verify the JWT
 
 #### Create an app integration
 
@@ -93,7 +93,9 @@ Before you can implement authorization, you need to register your app in Okta by
 1. Select **API Services** as the Sign-in method.
 1. Click **Next**.
 1. Specify the app integration name, then click **Save**.
-1. From the **General** tab of your app integration, note your generated **Client ID** and **Client secret**. These value are used when configuring your inline hook authentication.
+1. From the **General** tab of your app integration, note your generated **Client ID** and **Client secret**.
+
+These values are used when configuring your inline hook authentication.
 
 #### Add a custom scope
 
@@ -102,6 +104,7 @@ Before you can implement authorization, you need to register your app in Okta by
 #### Add OAuth 2.0 authentication fields to your inline hook
 
 When creating your inline hook, in the Authentication section, select **OAuth 2.0**.
+
 1. In the **Client Authentication** field, select **Use client secret** from the dropdown menu.
 1. Add the **Client ID** and **Client Secret** values from your app integration.
 1. Add the authorization server’s token URL, such as `https://${yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
@@ -147,6 +150,8 @@ app.all('*', authenticationRequired); // Require authentication for all routes
 
 ```
 
+See the following Registration inline hook Glitch project that implements this code and provides a working example: [Okta Registration Hook (with OAuth 2.00 authentication)](https://glitch.com/~okta-inlinehook-registrationhook-oauth2).
+
 ### OAuth 2.0: Private Key
 
 The OAuth 2.0 private key method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org and add code to decode the JWT from the Okta inline hook call:
@@ -155,7 +160,7 @@ The OAuth 2.0 private key method sends a signed JWT to your external service. To
 * Create an app integration
 * Add a custom scope
 * Add OAuth 2.0 authentication fields to your inline hook
-* Add code to verify the JWT
+* Add code to your external service to verify the JWT
 
 #### Create a key
 
@@ -163,7 +168,7 @@ The OAuth 2.0 private key method sends a signed JWT to your external service. To
 1. Click **Create new key**, and add a unique name for the key. You reference this name when adding your inline hook.
 1. Click **Create key**. The key is added to the table with a creation date and status.
 1. In the table, click your key name.
-1. Click **Copy key**. You need this public key in the next step.
+1. Click **Copy public key**. You need this public key in the next step.
 
 > **Note:** You can also create a key with the [Key Management API](/docs/reference/api/hook-keys/).
 
@@ -191,6 +196,7 @@ Before you can implement authorization, you need to register your app in Okta by
 1. When creating your inline hook, in the **Authentication** section, select **OAuth 2.0**.
 1. In the **Client Authentication** field, select **Use private key** from the dropdown menu.
 1. Add the Client ID value from your app integration.
+1. Select the **Key** that you created previously from the dropdown menu.
 1. Add the authorization server’s token URL, such as `https://${yourOktaDomain}/oauth2/default/v1/token`, and the custom scope that you created previously.
 1. Click **Save**.
 
@@ -233,6 +239,8 @@ const authenticationRequired = async (request, response, next) => {
 app.all('*', authenticationRequired); // Require authentication for all routes
 
 ```
+
+See the following Registration inline hook Glitch project that implements this code and provides a working example: [Okta Registration inline hook (with OAuth 2.00 authentication)](https://glitch.com/~okta-inlinehook-registrationhook-oauth2).
 
 ## Troubleshoot hook implementations
 
