@@ -157,13 +157,13 @@ ul.menu--items {
     position: absolute;
     right: 0;
     top: 9px;
-    background-image: url('/img/icons/chevron-down-gray.svg');
+    background-image: url('/img/icons/chevron-down-white.svg');
     background-repeat: no-repeat;
     width: 8px;
     height: 4px;
 
     @include media("<desktop") {
-      background-image: url('/img/icons/chevron-down-gray.svg');
+      background-image: url('/img/icons/chevron-down-white.svg');
     }
   }
 }
