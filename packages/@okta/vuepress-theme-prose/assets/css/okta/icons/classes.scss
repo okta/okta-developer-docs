@@ -1768,6 +1768,11 @@ h1 {
   background-image: url('/img/icons/scim_dark.svg');
 }
 
+.icon.oauth::before {
+  content:'';
+  background-image: url('/img/icons/oauth2.svg');
+}
+
 .icon-laptop::before,
 .icon-laptop-32::before {
   content: $laptop;
