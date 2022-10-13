@@ -424,7 +424,7 @@ export const guides = [
         guideName: "oie-upgrade-overview/main",
         subLinks: [
           {
-            title: "Plan embedded auth app upgrades",
+            title: "Plan embedded app upgrades",
             guideName: "oie-upgrade-plan-embedded-upgrades",
           },
           {
@@ -439,7 +439,7 @@ export const guides = [
                 guideName: "oie-upgrade-sign-in-widget",
               },
               {
-                title: "Deprecated JavaScript methods in the widget",
+                title: "Deprecated widget JS methods",
                 guideName: "oie-upgrade-sign-in-widget-deprecated-methods",
               },
               {
@@ -447,7 +447,7 @@ export const guides = [
                 guideName: "oie-upgrade-sign-in-widget-styling",
               },
               {
-                title: "Updates to widget i18n properties",
+                title: "Updates to widget i18n",
                 guideName: "oie-upgrade-sign-in-widget-i18n",
               },
             ],
@@ -456,21 +456,21 @@ export const guides = [
             title: "Identity Engine SDK upgrade",
             subLinks: [
               {
-                title: "Add the Identity Engine SDK to your app",
+                title: "Add the SDK to your app",
                 guideName: "oie-upgrade-add-sdk-to-your-app",
               },
               {
-                title: "Upgrade your application to the Identity Engine SDK",
+                title: "Upgrade your app SDK",
                 guideName: "oie-upgrade-api-sdk-to-oie-sdk",
               },
               {
-                title: "Understand how sessions work after the upgrade",
+                title: "Session changes",
                 guideName: "oie-upgrade-sessions-api",
               },
             ],
           },
           {
-            title: "Understand authenticator enrollment policy API changes after the upgrade",
+            title: "Authn enrollment policy changes",
             guideName: "oie-upgrade-mfa-enroll-policy"
           }
         ]
@@ -676,7 +676,7 @@ export const guides = [
                 path: "/docs/guides/migrate-to-okta-bulk/main/",
               },
               {
-                title: "Import Users with Inline Password Hooks",
+                title: "Migrate users with pwd hooks",
                 path: "/docs/guides/migrate-to-okta-password-hooks/main/",
               },
             ],
@@ -913,6 +913,7 @@ export const reference = [
           { title: "Templates", path: "/docs/reference/api/templates/" },
           { title: "ThreatInsight", path: "/docs/reference/api/threat-insight/" },
           { title: "Trusted Origins", path: "/docs/reference/api/trusted-origins/" },
+          { title: "UI Schema", path: "/docs/reference/api/uischema/" },
           { title: "User Types", path: "/docs/reference/api/user-types/" },
           { title: "Users", path: "/docs/reference/api/users/" },
           { title: "Zones", path: "/docs/reference/api/zones/" }
