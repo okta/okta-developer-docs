@@ -269,7 +269,7 @@ You need to remix your own version of the Okta sample Glitch project and confirm
    * **Authentication Field** = `authorization`
    * **Authorization Secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
-   > **Note**: If you want to use OAuth 2.0 to secure your inline hooks, see [Add Authentication method](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-authentication-method) and [Okta Registration inline hook (with OAuth 2.0 authentication)](https://glitch.com/~okta-inlinehook-registrationhook-oauth2).
+   > **Note**: If you want to use OAuth 2.0 to secure your inline hooks, see [Add Authentication method](/docs/guides/common-hook-set-up-steps/nodejs/main/#add-authentication-method).
 
 1. Click **Save**.
 1. In your Glitch project, click **Logs**. If your set up is successful, a "Your app is listening on port {XXXX}" message appears.

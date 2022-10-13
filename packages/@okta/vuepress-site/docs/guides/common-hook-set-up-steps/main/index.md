@@ -150,7 +150,7 @@ app.all('*', authenticationRequired); // Require authentication for all routes
 
 ```
 
-See the following Registration inline hook Glitch project that implements this code and provides a working example: [Okta Registration Hook (with OAuth 2.00 authentication)](https://glitch.com/~okta-inlinehook-registrationhook-oauth2).
+See the following project that implements this code and provides a working example: [Okta Registration inline hook (with OAuth 2.0 authentication)](https://glitch.com/~okta-inlinehook-registrationhook-oauth2).
 
 ### OAuth 2.0: Private Key
 
@@ -240,7 +240,7 @@ app.all('*', authenticationRequired); // Require authentication for all routes
 
 ```
 
-See the following Registration inline hook Glitch project that implements this code and provides a working example: [Okta Registration inline hook (with OAuth 2.00 authentication)](https://glitch.com/~okta-inlinehook-registrationhook-oauth2).
+See the following project that implements this code and provides a working example: [Okta Registration inline hook (with OAuth 2.0 authentication)](https://glitch.com/~okta-inlinehook-registrationhook-oauth2).
 
 ## Troubleshoot hook implementations
 
