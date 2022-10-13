@@ -574,6 +574,16 @@ export const guides = [
             ],
           },
           {
+            title: "API service",
+            path: "/docs/guides/oin-api-service-overview/",
+            subLinks: [
+              {
+                title: "Build an API service integration",
+                guideName: "build-api-service-integration",
+              },
+            ],
+          },
+          {
             title: "Primer for OIN OIDC",
             path: "/docs/guides/oin-oidc-overview/main/",
             subLinks: [

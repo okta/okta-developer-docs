@@ -126,6 +126,7 @@ guides:
  - email-magic-links-overview
  - step-up-authentication
  - device-context
+ - build-api-service-integration
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

@@ -1,12 +1,12 @@
 ---
-title: Build an API Service Integration
-excerpt: Learn how to build and register an API Service Integration to the Okta Integration Network.
+title: Build an API service integration
+excerpt: Learn how to build and register an API service integration to the Okta Integration Network.
 layout: Guides
 ---
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to register and submit an API Service Integration to the Okta Integration Network for review and publishing.
+This guide explains how to build, register and submit an API service integration to the Okta Integration Network for review and publishing.
 
 ---
 
