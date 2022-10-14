@@ -50,6 +50,7 @@
     "wait-for-localhost-cli": "^3.0.0"
   },
   "resolutions": {
-    "cypress/**/async": "3.2.3"
+    "cypress/**/async": "3.2.3",
+    "vuepress/**/got": "11.8.5"
   }
 }
