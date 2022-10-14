@@ -13,7 +13,7 @@
 
 > Every line of code should appear to be written by a single person, no matter the number of contributors.
 
-The main rule that guides us while creating the **"code guide"** is readability and standardization.
+The main rule that guides us while creating the **code guide** is readability and standardization.
 
 ## Common settings
 
