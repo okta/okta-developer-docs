@@ -13,11 +13,7 @@
 
 > Every line of code should appear to be written by a single person, no matter the number of contributors.
 
-The main rule that guided us in creating the guide was readability and uniformity. First of all, the code must be readable.
-
-We do not reduce the color values. We do not omit the first zero in fractional values.
-
-We argued about abbreviations for a long time inside the team, and the arguments of the defenders of abbreviations boiled down to one thing — it's faster to write this way. But I think that if you want to speed up code typing, then you need to use special tools: ``Emmet`` for quick code typing or autocompletion in editors. And the reduction should be handled by robots. Don't take their jobs away from them, they weren't created for this.
+The main rule that guides us while creating the **"code guide"** is readability and standardization.
 
 ## Common settings
 
