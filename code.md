@@ -1222,6 +1222,6 @@ Don't use sass variables when you can use custom css variables
 
 ### Advice
 
-Sass has a huge number of possibilities. @mixin, @extend, @function, @error and so on. But this does not mean that using all these features makes the code understandable. Often all these constructions complicate the understanding of the code, so please simplify your styles as much as possible and try to use the Sass/SCSS capabilities to a minimum.
+Sass has a huge number of possibilities. @mixin, @extend, @function, @error and so on, but this does not mean that using all these features makes the code understandable. Often all these constructions complicate the understanding of the code, so please simplify your styles as much as possible and try to use the Sass/SCSS capabilities to a minimum.
 
 Ideally, you need to use from Sass/SCSS: nesting (as shown in the first block), @import, @mixin (if they are really necessary for calculating something complex) and that's it.
