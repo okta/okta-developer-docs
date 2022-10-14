@@ -1530,7 +1530,7 @@ Specifies how lookups for weak passwords are done. Designed to be extensible wit
 
 | Property       | Description                                                                                                                          | Data Type | Required | Default |
 | ---            | ---                                                                                                                                  | ---       | ---      | ---     |
-| maxAgeDays     | Specifies how long (in days) a password remains valid before it expireds: `0` indicates no limit                                       | integer   | No       | 0       |
+| maxAgeDays     | Specifies how long (in days) a password remains valid before it expires: `0` indicates no limit                                       | integer   | No       | 0       |
 | expireWarnDays | Specifies the number of days prior to password expiration when a User is warned to reset their password: `0` indicates no warning | integer   | No       | 0       |
 | minAgeMinutes  | Specifies the minimum time interval (in minutes) between password changes: `0` indicates no limit                                      | integer   | No       | 0       |
 | historyCount   | Specifies the number of distinct passwords that a User must create before they can reuse a previous password: `0` indicates none       | integer   | No       | 0       |
