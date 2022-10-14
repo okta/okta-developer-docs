@@ -13,6 +13,8 @@ For a general introduction to Okta inline hooks, see [inline hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
+For steps to set up and activate the registration inline hook, see [Set up and activate the registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/#set-up-your-glitch-project).
+
 For steps to enable this inline hook, see [Enabling a registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/#enable-the-registration-inline-hook).
 
 For an example implementation of this inline hook, see [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/).
