@@ -1,44 +1,29 @@
 ---
-title: Overview of API service integrations in the OIN
+title: API service integrations in the OIN
 meta:
   - name: description
     content: Provides an overview of why and when to build API service integrations for the Okta Integration Network.
 ---
 
 <ApiLifecycle access="ea" />
-<!--Need OAUTH_ADMIN_CONSENT_DIALOG FF enabled in monolith org-->
 
-API Service Integrations allow ISVs/customers to build and publish integrations that use Okta’s OAuth management API with ease.
+<!-- Need OAUTH_ADMIN_CONSENT_DIALOG FF enabled in monolith org -->
 
-OIN OAuth2 Integrations allows ISV/Customers to build and publish an integration with ease by utilizing Okta’s management API using OAuth.
+An API service integration allows you to build and publish service integrations that can access your customer's Okta org through [Okta's core management APIs](/docs/reference/core-okta-api/) using OAuth 2.0.
 
-## When to build an API Service Integration
+Previously, if you have a service app requiring Okta management API access, you need to use an API token that was tied to a specific Okta user and can't restrict access to certain resources. With an OAuth API service integration, your service app can have secure, reliable, and granular access to Okta APIs without being tied to a user.
 
-API Service Integrations access the [Core Okta API](/docs/reference/core-okta-api/) using OAuth 2.0 and are sometimes referred to as service-to-service or machine-to-machine integrations. This API access represents the application itself rather than a particular user.
+When your service app integration is in the Okta Integration Network (OIN), your customers can discover and configure your integration through the OIN catalog in their own Okta tenant org. Configuration is easy and consistent for your customers because you've already done the hard work by building the integration with the required configuration instructions. Customers trust that integrations in the OIN are secure and reliable because it's Okta verified.
 
-## When to build an API Service Integration
+## When to build an API service integration
 
-Consider the following to determine if API Service Integrations are appropriate for your needs:
+API service integrations access the [Core Okta API](/docs/reference/core-okta-api/) using OAuth 2.0 and are sometimes referred to as service-to-service or machine-to-machine integrations. This API access represents the application itself rather than a particular user. Consider the following scenarios to determine if you need to build a service-based or a user-based OAuth API integration.
 
-* For auditing purposes, would it make more sense for the actor in a log entry to be the application rather than a human’s name?
-* Are the API requests made without a user taking an action (clicking a button, running a script, and so on)?
-* Is the application that will make the requests hosted on a secure server? (this type of application is also known as a confidential client)
-
-Examples of API Service Integration access:
-
-* Accessing certain types of Okta system log entries for occasional analysis
-* Sending risk signals to Okta
-* Occasionally syncing Okta user profile information to another system
-
-If this describes your needs, then API Service Integrations are a good solution! If not, user-based API access might be a better fit for your needs.
-
-Cases where user-based API access is a better fit than API Service Integrations:
-
-* An IT Support ticketing system integration that allows an Okta admin to assign an application directly from the access request support ticket
-* Configuring a new custom application from a form entry
-
- Learn more about implementing user-based API access by reading [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/main/).
-
+| &nbsp; |  Service-based API access | User-based API access |
+| ------ | :------------------- | :----------------------- |
+| **Use cases** | <ul><li>For auditing purposes, would it make more sense for the actor in a log entry to be the application rather than a human’s name?</li> <li>Are the API requests made without a user taking an action (clicking a button, running a script, and so on)?</li> <li>Is the application that will make the requests hosted on a secure server? (this type of application is also known as a confidential client)</li></ul> | <ul><li>Configure a new custom application from a form entry</li> <li>API requests made by an admin user taking an action</li></ul> |
+| **Examples** | <ul><li>Accessing certain types of Okta system log entries for occasional analysis</li> <li>Sending risk signals to Okta</li> <li>Occasionally syncing Okta user profile information to another system</li></ul> |  <ul><li>An IT Support ticketing system integration that allows an Okta admin to assign an application directly from the access request support ticket</li></ul> |
+| **Best-fit API integration** | If these use cases and examples describe your needs, then implementing an API service integration for the OIN is a best-fit solution. See [Build an API service integration](/docs/guides/build-api-service-integration/).  | If these use cases and examples describe your needs, then implementing a user-based API integration is a better solution. User-based API integrations aren't currently supported in the OIN. See [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/main/) to learn more about user-based API integrations. |
 
 ## API service integration benefits
 
@@ -52,20 +37,8 @@ Before API Service Integrations, Okta API tokens were a common way for integrati
 | **Reliability** | Okta API tokens expire after 30 days of inactivity or when a user leaves the Okta org. After being authorized, API Service Integrations can fetch a new access token whenever necessary and without manual action from an admin. |
 | **Rotation** | Okta API tokens must be rotated manually. API Service Integration access tokens can be rotated programmatically. |
 
-## Choose how to implement your integration
+## Next steps
 
-| &nbsp; |  System for Cross-domain Identity Management (SCIM) |  Workflows Connector |
-| ------ | :------------------- | :----------------------- |
-| **Description** | [SCIM](http://www.simplecloud.info) is the industry standard protocol for managing users and groups in cloud-based systems. It handles basic operations like create, read, update, delete, and search. | [Okta Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) is a no-code, if-this-then-that logic builder that Okta customers can use to automate custom or complex employee onboarding and offboarding flows in your application. Publishing a Workflows Connector with Okta allows your customers to deeply integrate your product as part of their lifecycle management flows. |
-| **Technology** | <ul><li>JSON-based REST API server implementation</li> <li>Okta supports outbound SCIM requests to your SCIM API service</li> <li>See [SCIM Protocol](/docs/reference/scim/)</li></ul> | <ul><li>Low code development environment</li> <li>See [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf)</li></ul>|
-| **Benefits** | <ul><li>Covers the most common lifecycle management needs related to onboarding/offboarding</li> <li>SCIM standard is throughout the industry</li> </ul> | <ul><li>Customers can create highly custom automation with your product without writing code</li> <li>Your product is tightly integrated with Okta</li> </ul>|
-| **Get started** | [Build a SCIM Provisioning Integration](/docs/guides/scim-provisioning-integration-overview/) | [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) |
+Ready to get started? See [Build an API service integration](/docs/guides/build-api-service-integration/).
 
-
-## Submit for review
-
-[ Include code snippets in several languages we support, ultimately SDK examples. ]
-
-## Support
-
-If you need help or have an issue, post a question in the [Okta Developer Forum](https://devforum.okta.com/c/questions/oin-submissions/19).
+Post your questions on the [Okta Developer Forum](https://devforum.okta.com/c/questions/oin-submissions/19) if you need help or have an issue.
