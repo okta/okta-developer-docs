@@ -1198,7 +1198,7 @@ In Sass there is a great opportunity to add nesting in styles. But this often co
 
 ### Variables
 
-Don't use sass variables when you can use custom css variables
+**NOTE!** Don't use sass variables when you can use custom css variables.
 
 #### Example
 
