@@ -455,7 +455,7 @@ As a CSS methodology, it is better to use BEM
 - An element is separated from a block with a double underscore. (e.g. ``block-name__element-name``)
 - The modifier is written through ``_mod-name_mod-value`` (e.g. ``block-name__element-name_mod-name_mod-value``)
 
-The most important thing is that the block does not need to write external geometry so that it can be reused in different places on the site.
+The most important thing is that the block does not need to write external geometry so that it can be reused in different places of the site.
 
 #### Example
 
