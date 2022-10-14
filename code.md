@@ -631,7 +631,7 @@ Selectors and properties are written in lowercase letters.
 
 ### Ad Structure
 
-1. There is a space in front of the opening curly brace. After the parenthesis, the entry starts on a new line.
+1. There is a space in front of the opening curly brace. After the parenthesis, the entry starts from a new line.
 2. The properties are on separate lines.
 3. The properties inside the block have one internal indentation.
 4. There is a space after the colon. No space is needed before the colon.
