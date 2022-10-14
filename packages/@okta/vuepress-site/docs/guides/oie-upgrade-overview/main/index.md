@@ -15,7 +15,7 @@ To leverage the power of [Okta Identity Engine](/docs/guides/oie-intro/) and to 
 
 ## Org upgrade process
 
-Your account team will help you to assess your org and schedule the upgrade. If there are any significant remediations required (for example converting and migrate objects such as policies, orgs, and users), they will let you know what services are needed. If there are no remediations required, then the upgrade is simple.
+Your account team will help you to assess your org and schedule the upgrade. If there are any significant remediations required (for example converting and migrating objects such as policies, orgs, and users), they will let you know what services are needed. If there are no remediations required, then the upgrade is simple.
 
 > **Note**: For more detailed org upgrade instructions, see [Upgrade from Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-upgrade-eligibility).
 
