@@ -68,7 +68,7 @@ Identity Engine sends the user an email that contains a one-time password (OTP) 
 {
   status: "PENDING",
   nextStep: {
-    name: "enroll-authenticator",
+    name: "challenge-authenticator",
     type: "email",
     authenticator: {
       type: "email",
@@ -81,7 +81,7 @@ Identity Engine sends the user an email that contains a one-time password (OTP) 
 
 Build the logic that handles this response and sends the user to a dialog where they enter the OTP.
 
-### 4. The user verifies their identity with the new email
+### 4. The user verifies their identity with their email
 
 The user opens the email sent by Identity Engine. Create a dialog in your app where the user can submit the OTP from the email to Identity Engine.
 
