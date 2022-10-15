@@ -59,6 +59,7 @@
     "vuepress/**/nth-check": "^2.1.1",
     "vuepress/**/ini": "^1.3.7",
     "vuepress/**/css-what": "^6.1.0",
-    "vuepress/**/glob-parent": "^6.0.2"
+    "vuepress/**/glob-parent": "^6.0.2",
+    "vuepress/**/json-schema": "^0.4.0"
   }
 }
