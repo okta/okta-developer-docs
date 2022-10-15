@@ -902,7 +902,7 @@ In fractional values, there are no more than two digits after the dot.
 
 ### Accessible hiding
 
-The content is hidden by the visuallyhidden utility class so that it is accessible to screen readers and search engines.
+The content is hidden by the visually-hidden utility class so that it is accessible to screen readers and search engines.
 
 #### Example
 
