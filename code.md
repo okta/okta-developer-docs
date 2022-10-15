@@ -35,7 +35,7 @@ insert_final_newline = true
 
 #### We have 4 case styles:
 
-1. **Camel case** (e.g. camel_case)
+1. **Camel case** (e.g. camelCase)
 2. **Snake case** & **Capitalized Snake Case** (e.g. snake_case & SNAKE_CASE)
 3. **Kebab case** (e.g. kebab-case)
 4. **Pascal case** (e.g. PascalCase)
