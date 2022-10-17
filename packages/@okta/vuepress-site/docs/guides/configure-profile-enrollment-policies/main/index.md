@@ -21,8 +21,8 @@ This guide explains what profile enrollment policies are used for and how to add
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* Group created in your org. See [Add group](/docs/reference/api/groups/#add-group) using the API or 
-* An application that you want to assign to an enrollment policy
+* Group created in your org. See [Add group](/docs/reference/api/groups/#add-group) using the API or [Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=ext-usgp-about-groups).
+* An app that you want to assign to an enrollment policy
 
 ---
 
