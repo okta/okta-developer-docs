@@ -20,7 +20,7 @@ This guide explains common set-up steps when implementing an Okta Event or Inlin
 
 ---
 
-## About the common Hook set-up steps
+## About the common hook set-up steps
 
 Okta event and inline hooks use outbound calls, which are received and parsed by an external service to implement additional custom functionality for your Okta implementation.
 
@@ -79,10 +79,10 @@ After including the `npm` packages, add the following code snippet in your proje
 
 The OAuth 2.0 Client Secret method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org and add code to decode the JWT from the Okta inline hook call:
 
-* Create an app integration
-* Add a custom scope
-* Add OAuth 2.0 authentication fields to your inline hook
-* Add code to your external service to verify the JWT
+* Create an app integration.
+* Add a custom scope.
+* Add OAuth 2.0 authentication fields to your inline hook.
+* Add code to your external service to verify the JWT.
 
 #### Create an app integration
 
@@ -150,7 +150,7 @@ app.all('*', authenticationRequired); // Require authentication for all routes
 
 ```
 
-See the following project that implements this code and provides a working example: [Okta Registration inline hook (with OAuth 2.0 authentication)](https://glitch.com/~okta-inlinehook-registrationhook-oauth2).
+<RegistrationHookXref/>
 
 ### OAuth 2.0: Private Key
 
@@ -240,7 +240,7 @@ app.all('*', authenticationRequired); // Require authentication for all routes
 
 ```
 
-See the following project that implements this code and provides a working example: [Okta Registration inline hook (with OAuth 2.0 authentication)](https://glitch.com/~okta-inlinehook-registrationhook-oauth2).
+<RegistrationHookXref/>
 
 ## Troubleshoot hook implementations
 
