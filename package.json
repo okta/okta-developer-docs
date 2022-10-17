@@ -25,7 +25,8 @@
     "update-docs": "yarn update-event-types && yarn update-error-codes && yarn update-oauth2-error-codes",
     "update-event-types": "bash scripts/update-event-types.sh",
     "update-error-codes": "bash scripts/update-error-codes.sh",
-    "update-oauth2-error-codes": "bash scripts/update-oauth2-error-codes.sh"
+    "update-oauth2-error-codes": "bash scripts/update-oauth2-error-codes.sh",
+    "stylelint": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\""
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
