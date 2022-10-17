@@ -3,6 +3,54 @@
     "stylelint-scss"
   ],
   "rules": {
+    "block-no-empty": true,
+    "comment-no-empty": true,
+    "no-empty-source": true,
 
+    "color-named": "never",
+    "color-no-invalid-hex": true,
+
+    "no-irregular-whitespace": true,
+
+    "length-zero-no-unit": true,
+
+    "alpha-value-notation": true,
+    "color-function-notation": "modern",
+    "color-hex-length": "long",
+    "font-weight-notation": "numeric",
+    "hue-degree-notation": "angle",
+    "keyframe-selector-notation": "percentage",
+    "selector-pseudo-element-colon-notation": "double",
+
+    "selector-nested-pattern": "^&:(?:hover|active|focus|focus-visible|focus-within|nth-child|nth-last-child|first-child|last-child|nth-of-type|nth-last-of-type|first-of-type|last-of-type)$",
+
+    "selector-attribute-quotes": "always",
+
+    "value-keyword-case": "lower",
+    "function-name-case": "lower",
+    "selector-type-case": "lower",
+    "rule-empty-line-before": "always",
+    "at-rule-empty-line-before": "always",
+    "comment-whitespace-inside": "always",
+
+    "color-hex-case": "lower",
+
+    "number-leading-zero": "always",
+    "number-no-trailing-zeros": true,
+
+    "string-quotes": "double",
+    "unit-case": "lower",
+
+    "property-case": "lower",
+
+    "declaration-no-important": true,
+
+    "indentation": 2,
+    "max-empty-lines": 1,
+    "max-line-length": 80,
+    "no-empty-first-line": true,
+    "no-eol-whitespace": true,
+    "no-extra-semicolons": true,
+    "no-missing-end-of-source-newline": true
   }
 }
