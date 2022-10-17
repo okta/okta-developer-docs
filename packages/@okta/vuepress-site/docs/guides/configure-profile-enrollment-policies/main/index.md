@@ -70,22 +70,6 @@ In a progressive enrollment scenario, existing registered end users can sign in 
 
 Okta evaluates the profile enrollment policy every time the end user attempts to sign in to an app. If you add required attributes to the enrollment form, Okta prompts the end user for this information during their next sign-in attempt. If an end user is already signed in when you change the policy, they may be prompted for additional data or assigned to a new group at their next sign-in attempt.
 
-## About sign-in flows
-
-The sequence of a sign-in flow depends on the authentication assurance requirements that you set in your policies. Okta Identity Engine requires that the authentication assurance specified in both the Global Session Policy and the authentication policies are satisfied before it allows the end user to access an app.
-
-Sign-on policies supply the context necessary for the user to advance to the next step and specify the actions to take, such as allowing access, prompting for a challenge, or setting the time required before prompting for another challenge.
-
-The Global Session Policy defines access globally, across all apps in your org. See [Global session policies](/docs/guides/configure-signon-policy/main/#global-session-policies).
-
-The Authentication policies enforce end user authentication only in the context of the requested application. See [Authentication policies](/docs/guides/configure-signon-policy/main/#authentication-policies).
-
-The user’s location and profile are verified using both policies' group membership and authentication criteria.
-
-When an end user is allowed to sign in without a password, Okta attempts to optimize the sign-in experience. If the device is enrolled with Okta Verify and a biometric authenticator is enabled, the biometric authenticator is always the first factor used for user authentication.
-
-If end users are required to sign in with a password, the password-first prompt is always displayed. This is true for any authentication policy configuration where the password authenticator is defined along with other authenticators.
-
 ### Password / IdP
 
 If any Global Session Policy rule has the primary factor set to **Password / IdP**, end users see the password-first Sign-In Widget.
