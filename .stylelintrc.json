@@ -2,6 +2,7 @@
   "plugins": [
     "stylelint-scss"
   ],
+  "processors": ["stylelint-processor-html"],
   "rules": {
     "no-descending-specificity": true,
 
