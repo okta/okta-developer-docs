@@ -51,6 +51,7 @@
   },
   "resolutions": {
     "cypress/**/async": "3.2.3",
-    "vuepress/**/got": "11.8.5"
+    "vuepress/**/got": "11.8.5",
+    "vuepress/**/unset-value": "^2.0.1"
   }
 }
