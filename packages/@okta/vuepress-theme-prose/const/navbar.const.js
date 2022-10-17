@@ -215,6 +215,28 @@ export const guides = [
                 guideName: "sign-in-to-spa-embedded-widget",
               },
               {
+                title: "Password optional",
+                path: "/docs/guides/pwd-optional-overview/aspnet/main/",
+                subLinks: [
+                  {
+                    title: "Sign up for new account with email only",
+                    guideName: "pwd-optional-new-sign-up-email"
+                  },
+                  {
+                    title: "Sign in with email only",
+                    guideName: "pwd-optional-sign-in-email"
+                  },
+                  {
+                    title: "Change your primary email address",
+                    guideName: "pwd-optional-change-email"
+                  },
+                  {
+                    title: "Best practices for password optional",
+                    guideName: "pwd-optional-best-practices"
+                  }
+                ]
+              },
+              {
                 title: "Embedded SDK use cases",
                 subLinks: [
                   {
@@ -258,6 +280,15 @@ export const guides = [
               {
                 title: "Embedded Sign-In Widget use cases",
                 subLinks: [
+                  {
+                    title: "Password optional",
+                    subLinks: [
+                      {
+                        title: "Sign in with email only",
+                        guideName: "pwd-optional-widget-sign-in-email"
+                      }
+                    ]
+                  },
                   {
                     title: "Load the Widget",
                     guideName: "oie-embedded-widget-use-case-load",
