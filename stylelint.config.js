@@ -3,7 +3,6 @@
 module.exports = {
   "plugins": [
     "stylelint-scss",
-    "stylelint-order"
   ],
 
   "processors": [
@@ -114,49 +113,6 @@ module.exports = {
     "string-quotes": "double",
     "unit-case": "lower",
     "property-case": "lower",
-
-    // Order properties
-    "order/properties-order": [
-      "position",
-      "top",
-      "right",
-      "bottom",
-      "left",
-      "z-index",
-
-      "display",
-      "float",
-      "width",
-      "height",
-      "margin",
-      "padding",
-
-      "font-family",
-      "font-style",
-      "font-size",
-      "line-height",
-      "font-weight",
-      "text-align",
-      "color",
-
-      "background-color",
-      "border",
-      "border-radius",
-      "opacity",
-
-      "transition-property",
-      "transition-delay",
-      "transition-duration",
-      "transition-timing-function",
-      "animation-name",
-      "animation-delay",
-      "animation-direction",
-      "animation-duration",
-      "animation-fill-mode",
-      "animation-iteration-count",
-      "animation-titmting-function",
-      "animation-play-state"
-    ],
 
     // Sass / SCSS
     "no-dollar-variables": true,
