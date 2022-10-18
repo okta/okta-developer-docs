@@ -43,6 +43,8 @@
       "vue/require-prop-types": "off",
       "vue/attribute-hyphenation": "off",
       "vue/require-default-prop": "off",
+      "vue/no-template-shadow": "off",
+      "vue-a11y/click-events-have-key-events": "off",
       "vue/attributes-order": ["error", {
         "order": [
           "OTHER_ATTR",
