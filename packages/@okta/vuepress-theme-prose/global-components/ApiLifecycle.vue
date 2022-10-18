@@ -1,21 +1,39 @@
 <template>
   <SmartLink :item="{ link }">
-    <span class="api-label api-label-beta" v-if="access === labelType.BETA">
+    <span 
+      class="api-label api-label-beta" 
+      v-if="access === labelType.BETA"
+    >
       <i class="fa fa-warning"></i> Beta
     </span>
-    <span class="api-label api-label-ea" v-if="access === labelType.EARLY_ACCESS">
+    <span 
+      class="api-label api-label-ea" 
+      v-if="access === labelType.EARLY_ACCESS"
+    >
       <i class="fa fa-flag"></i> Early Access
     </span>
-    <span class="api-label api-label-deprecated" v-if="access === labelType.DEPRECATED">
+    <span 
+      class="api-label api-label-deprecated" 
+      v-if="access === labelType.DEPRECATED"
+    >
       <i class="fa fa-warning"></i> Deprecated
     </span>
-    <span class="api-label api-label-ie" v-if="access === labelType.IDENTITY_ENGINE">
+    <span 
+      class="api-label api-label-ie" 
+      v-if="access === labelType.IDENTITY_ENGINE"
+    >
       Identity Engine
     </span>
-    <span class="api-label api-label-classic-engine" v-if="access === labelType.CLASSIC_ENGINE">
+    <span 
+      class="api-label api-label-classic-engine" 
+      v-if="access === labelType.CLASSIC_ENGINE"
+    >
       Classic Engine
     </span>
-    <span class="api-label api-label-limited-ga" v-if="access === labelType.LIMITED_GA">
+    <span 
+      class="api-label api-label-limited-ga" 
+      v-if="access === labelType.LIMITED_GA"
+    >
       Limited GA
     </span>
   </SmartLink>
