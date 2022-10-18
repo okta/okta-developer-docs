@@ -45,6 +45,8 @@
       "vue/require-default-prop": "off",
       "vue/no-template-shadow": "off",
       "vue-a11y/click-events-have-key-events": "off",
+      "vue-a11y/form-has-label": "off",
+      "vue/no-v-html": "off",
       "vue/attributes-order": ["error", {
         "order": [
           "OTHER_ATTR",
