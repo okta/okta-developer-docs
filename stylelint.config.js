@@ -70,6 +70,12 @@ module.exports = {
     "selector-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
 
+    // Max & min
+    "declaration-block-single-line-max-declarations": true,
+    "max-nesting-depth": 1,
+    "number-max-precision": 2,
+
+    // Notation
     "alpha-value-notation": true,
     "color-function-notation": "modern",
     "color-hex-length": "long",
