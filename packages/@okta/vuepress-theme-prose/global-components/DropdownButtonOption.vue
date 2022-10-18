@@ -1,8 +1,8 @@
 <template>
-  <div class='dropdown-button-option-value'>
-  <a :href='href'>
-    <slot></slot>
-  </a>
+  <div class="dropdown-button-option-value">
+    <a :href="href">
+      <slot></slot>
+    </a>
   </div>
 </template>
 <script>
