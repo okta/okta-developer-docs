@@ -8,3 +8,5 @@ app.use(basicAuth({
   users: { 'admin': 'supersecret' },
   unauthorizedResponse: req => 'Unauthorized'
 }));
+
+```
