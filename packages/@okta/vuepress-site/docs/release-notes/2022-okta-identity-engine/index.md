@@ -6,6 +6,18 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## October
 
+### Weekly release 2022.10.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.10.1](#bugs-fixed-in-2022-10-1)                      | October 12, 2022            |
+
+#### Bugs fixed in 2022.10.1
+
+* POST update email address requests to `/idp/myaccount/emails` returned an HTTP 409 Conflict error when the primary email wasn't verified during registration. (OKTA-534398)
+
+* During the user activation flow, a user was still prompted to sign in when the `prompt` property was set to `none` and the user had a valid session token. (OKTA-514346)
+
 ### Monthly release 2022.10.0
 
 | Change | Expected in Preview Orgs |
@@ -20,7 +32,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
 | [Manage embedded widget sign-in support is EA in Preview](#manage-embedded-widget-sign-in-support-is-ea-in-preview) | October 5, 2022 |
 | [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
-| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
+| [OAuth 2.0 authentication for inline hooks is EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ea-in-preview) | October 5, 2022 |
 | [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
 | [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
 
@@ -72,7 +84,7 @@ Okta provides the Okta Sign-In Widget out of the box so that customers can authe
 
 Okta provides a default authorization server so that customers can quickly get started. If a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label in the Admin Console. <!--OKTA-536276-->
 
-#### OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview
+#### OAuth 2.0 authentication for inline hooks is EA in Preview
 
 Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
 
@@ -91,6 +103,8 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 * The OIN Manager has a new Get Support section that provides common developer.okta.com guides relating to OIN integrations and the submission process.
 
 #### Bugs fixed in 2022.10.0
+
+* Users were able to make more than five attempts to activate their One-Time Password (OTP) based factors. (OKTA-429940)
 
 * Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
 

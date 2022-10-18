@@ -4,7 +4,7 @@ excerpt: A list of set-up steps that are common to all hook implementations.
 layout: Guides
 ---
 
-This guide explains common set-up steps when implementing an Okta Event or Inline hook, including using Glitch.com as an example external service, adding basic authentication to the hook calls, JSON body parsing in the external service code, and troubleshooting steps.
+This guide explains common set-up steps when implementing an Okta Event or Inline hook, including using Glitch.com as an example external service, adding authentication to the hook calls, JSON body parsing in the external service code, and troubleshooting steps.
 
 ---
 

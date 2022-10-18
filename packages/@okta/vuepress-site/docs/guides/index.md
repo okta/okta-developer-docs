@@ -123,10 +123,16 @@ guides:
  - authenticators-okta-email
  - oie-embedded-sdk-use-case-new-user-activation
  - advanced-use-case-overview
+ - pwd-optional-new-sign-up-email
+ - pwd-optional-sign-in-email
+ - pwd-optional-widget-sign-in-email
+ - pwd-optional-change-email
  - email-magic-links-overview
  - step-up-authentication
  - device-context
  - build-api-service-integration
+ - pwd-optional-best-practices
+ - pwd-optional-overview
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
