@@ -1,9 +1,15 @@
-{
+"use strict";
+
+module.exports = {
   "plugins": [
     "stylelint-scss",
     "stylelint-order"
   ],
-  "processors": ["stylelint-processor-html"],
+
+  "processors": [
+    "stylelint-processor-html"
+  ],
+
   "rules": {
     "no-descending-specificity": true,
 
@@ -134,4 +140,4 @@
       "animation-play-state"
     ]
   }
-}
+};
