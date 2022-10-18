@@ -11,6 +11,15 @@ module.exports = {
   ],
 
   "rules": {
+    // General / Sheet
+    "indentation": 2,
+    "max-empty-lines": 1,
+    "max-line-length": 80,
+    "no-empty-first-line": true,
+    "no-eol-whitespace": true,
+    "no-extra-semicolons": true,
+    "no-missing-end-of-source-newline": true,
+
     // Descending
     "no-descending-specificity": true,
 
@@ -84,37 +93,29 @@ module.exports = {
     "keyframe-selector-notation": "percentage",
     "selector-pseudo-element-colon-notation": "double",
 
-    "selector-nested-pattern": "^&:(?:hover|active|focus|focus-visible|focus-within|nth-child|nth-last-child|first-child|last-child|nth-of-type|nth-last-of-type|first-of-type|last-of-type)$",
-
+    // Quotes
+    "font-family-name-quotes": "always-unless-keyword",
+    "function-url-quotes": "always",
     "selector-attribute-quotes": "always",
 
+    // Not handled by pretty printers
     "value-keyword-case": "lower",
     "function-name-case": "lower",
     "selector-type-case": "lower",
     "rule-empty-line-before": "always",
     "at-rule-empty-line-before": "always",
+    "comment-empty-line-before": "always",
     "comment-whitespace-inside": "always",
 
+    // Handled by pretty printers
     "color-hex-case": "lower",
-
     "number-leading-zero": "always",
     "number-no-trailing-zeros": true,
-
     "string-quotes": "double",
     "unit-case": "lower",
-
     "property-case": "lower",
 
-    "indentation": 2,
-    "max-empty-lines": 1,
-    "max-line-length": 80,
-    "no-empty-first-line": true,
-    "no-eol-whitespace": true,
-    "no-extra-semicolons": true,
-    "no-missing-end-of-source-newline": true,
-
-    "no-dollar-variables": true,
-
+    // Order properties
     "order/properties-order": [
       "position",
       "top",
@@ -155,6 +156,9 @@ module.exports = {
       "animation-iteration-count",
       "animation-titmting-function",
       "animation-play-state"
-    ]
+    ],
+
+    // Sass / SCSS
+    "no-dollar-variables": true,
   }
 };
