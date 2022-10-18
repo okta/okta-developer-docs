@@ -1,0 +1,11 @@
+{
+  "attr-value-not-empty": false,
+  "tagname-lowercase": true,
+  "attr-lowercase": true,
+  "doctype-first": false,
+  "attr-no-unnecessary-whitespace": true,
+  "attr-value-double-quotes": true,
+  "attr-sorted": true,
+  "alt-require": true,
+  "tag-self-close": false
+}

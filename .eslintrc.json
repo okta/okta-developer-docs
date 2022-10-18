@@ -1,6 +1,60 @@
 {
-  "extends": [
-    "eslint:recommended",
-    "plugin:vue/recommended"
-  ]
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:vue/recommended",
+      "plugin:vue-a11y/base"
+    ],
+    "overrides": [
+    ],
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "vue",
+        "vue-a11y"
+    ],
+    "rules": {
+      // "vue-a11y/rule-name": 2,
+      "vue/html-self-closing": ["error", {
+        "html": {
+          "void": "never",
+          "normal": "never",
+          "component": "always"
+        },
+        "svg": "always",
+        "math": "always"
+      }],
+      
+      "vue/html-indent": ["error", 2, {
+        "attribute": 1,
+        "baseIndent": 1,
+        "closeBracket": 0,
+        "alignAttributesVertically": true,
+        "ignores": []
+      }],
+      "vue/multi-word-component-names": "off",
+      "vue/no-reserved-component-names": "off",
+      "vue/attributes-order": ["error", {
+        "order": [
+          "OTHER_ATTR",
+          "DEFINITION",
+          "LIST_RENDERING",
+          "CONDITIONALS",
+          "RENDER_MODIFIERS",
+          "GLOBAL",
+          ["UNIQUE", "SLOT"],
+          "TWO_WAY_BINDING",
+          "OTHER_DIRECTIVES",
+          "EVENTS",
+          "CONTENT"
+        ],
+        "alphabetical": false
+      }]
+    }
 }
