@@ -47,6 +47,9 @@
       "vue-a11y/click-events-have-key-events": "off",
       "vue-a11y/form-has-label": "off",
       "vue/no-v-html": "off",
+      "vue-a11y/label-has-for": "off",
+      "no-undef": "off",
+      "no-unused-vars": "off",
       "vue/attributes-order": ["error", {
         "order": [
           "OTHER_ATTR",
