@@ -1,17 +1,32 @@
 <template>
-  <div class="stack-selector" v-if="options.length">
+  <div 
+    class="stack-selector" 
+    v-if="options.length"
+  >
     <nav class="tabs">
       <ul>
-        <li v-for="opt in options" :class="{ current: opt.framework === framework }" :key="opt.link" >
-          <router-link :to="opt.link"><i :class="opt.css"></i><span class="framework">{{opt.title}}</span></router-link>
+        <li 
+          :class="{ current: opt.framework === framework }" 
+          v-for="opt in options" 
+          :key="opt.link"
+        >
+          <router-link :to="opt.link">
+            <i :class="opt.css"></i><span class="framework">{{ opt.title }}</span>
+          </router-link>
         </li>
       </ul>
     </nav>
     <aside class="stack-content">
-      <Content v-if="snippetComponentKey" :pageKey="snippetComponentKey" />
+      <Content 
+        :pageKey="snippetComponentKey" 
+        v-if="snippetComponentKey" 
+      />
     </aside>
   </div>
-  <div v-else class="no-stack-content">
+  <div
+    class="no-stack-content"
+    v-else 
+  >
     No code snippets defined
   </div>
 </template>
@@ -25,23 +40,6 @@
       return { 
         offsetFromViewport: null,
       };
-    },
-    methods: { 
-      handleScroll() { 
-        // beforeUpdated was somehow AFTER the viewport offsets were calculated for new content
-        // thus we need to save this from before they swap tabs within the StackSelector
-        this.offsetFromViewport = this.$el.getBoundingClientRect().top;
-      },
-    },
-    created () {
-      if(typeof window !== "undefined") { 
-        window.addEventListener('scroll', this.handleScroll);
-      }
-    },
-    destroyed () {
-      if(typeof window !== "undefined") { 
-        window.removeEventListener('scroll', this.handleScroll);
-      }
     },
     computed: { 
       guideName() {
@@ -69,6 +67,16 @@
         return (option ? option.componentKey : '');
       },
     },
+    created () {
+      if(typeof window !== "undefined") { 
+        window.addEventListener('scroll', this.handleScroll);
+      }
+    },
+    destroyed () {
+      if(typeof window !== "undefined") { 
+        window.removeEventListener('scroll', this.handleScroll);
+      }
+    },
     updated() { 
       // If we are the Stack Selector that was focused (clicked on), 
       // scroll that we stay in the same position relative to the viewport
@@ -79,6 +87,13 @@
         });
       }
     },
+    methods: { 
+      handleScroll() { 
+        // beforeUpdated was somehow AFTER the viewport offsets were calculated for new content
+        // thus we need to save this from before they swap tabs within the StackSelector
+        this.offsetFromViewport = this.$el.getBoundingClientRect().top;
+      },
+    }
   };
 </script>
 <style scoped lang="scss">
