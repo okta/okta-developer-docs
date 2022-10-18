@@ -1,10 +1,6 @@
 "use strict";
 
 module.exports = {
-  "plugins": [
-    "stylelint-scss",
-  ],
-
   "rules": {
     // General / Sheet
     "indentation": 2,
@@ -108,9 +104,6 @@ module.exports = {
     "number-no-trailing-zeros": true,
     "string-quotes": "double",
     "unit-case": "lower",
-    "property-case": "lower",
-
-    // Sass / SCSS
-    "no-dollar-variables": true,
+    "property-case": "lower"
   }
 };
