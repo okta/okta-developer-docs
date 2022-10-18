@@ -36,14 +36,20 @@ module.exports = {
     "no-invalid-position-at-import-rule": true,
     "string-no-newline": true,
 
-    "color-named": "never",
+    // Irregular
+    "no-irregular-whitespace": true,
 
+    // Missing
     "custom-property-no-missing-var-function": true,
     "font-family-no-missing-generic-family-keyword": true,
 
+    // Non-standard
     "function-linear-gradient-no-nonstandard-direction": true,
+
+    // Overrides
     "declaration-block-no-shorthand-property-overrides": true,
 
+    // Unknown
     "annotation-no-unknown": true,
     "at-rule-no-unknown": true,
     "function-no-unknown": true,
@@ -55,12 +61,14 @@ module.exports = {
     "selector-type-no-unknown": true,
     "unit-no-unknown": true,
 
+    // Allowed, disallowed & required
     "at-rule-no-vendor-prefix": true,
-    "at-rule-property-required-list": true,
-
-    "no-irregular-whitespace": true,
-
+    "color-named": "never",
+    "declaration-no-important": true,
+    "function-url-no-scheme-relative": true,
     "length-zero-no-unit": true,
+    "selector-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true,
 
     "alpha-value-notation": true,
     "color-function-notation": "modern",
@@ -90,8 +98,6 @@ module.exports = {
     "unit-case": "lower",
 
     "property-case": "lower",
-
-    "declaration-no-important": true,
 
     "indentation": 2,
     "max-empty-lines": 1,
