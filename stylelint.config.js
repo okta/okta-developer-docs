@@ -1,6 +1,15 @@
 "use strict";
 
 module.exports = {
+  processors: [
+    [
+      "@mapbox/stylelint-processor-arbitrary-tags",
+      {
+        fileFilterRegex: [/\.vue$/],
+      },
+    ],
+  ],
+
   "rules": {
     // General / Sheet
     "indentation": 2,

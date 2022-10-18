@@ -26,7 +26,8 @@
     "update-event-types": "bash scripts/update-event-types.sh",
     "update-error-codes": "bash scripts/update-error-codes.sh",
     "update-oauth2-error-codes": "bash scripts/update-oauth2-error-codes.sh",
-    "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\""
+    "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
+    "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\""
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
@@ -45,6 +46,7 @@
     "remove": "^0.1.5"
   },
   "dependencies": {
+    "@mapbox/stylelint-processor-arbitrary-tags": "^0.4.0",
     "broken-link-checker": "^0.7.8",
     "eslint": "^8.25.0",
     "eslint-plugin-vue": "^9.6.0",
