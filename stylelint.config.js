@@ -61,7 +61,6 @@ module.exports = {
     // Unknown
     "annotation-no-unknown": true,
     "at-rule-no-unknown": true,
-    "function-no-unknown": true,
     "media-feature-name-no-unknown": true,
     "no-unknown-animations": true,
     "property-no-unknown": true,
