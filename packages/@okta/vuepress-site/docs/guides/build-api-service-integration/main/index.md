@@ -23,59 +23,57 @@ This guide explains how to build and submit an API service integration to the Ok
 
 ---
 
-## When to build an API Service Integration
+## Overview
 
-API Service Integrations access the [Core Okta API](/docs/reference/core-okta-api/) using OAuth 2.0 and are sometimes referred to as service-to-service or machine-to-machine integrations. This API access represents the application itself rather than a particular user.
+API service integrations access the [Okta management API](/docs/reference/core-okta-api/) using OAuth 2.0, and are sometimes referred to as service-to-service or machine-to-machine integrations. If you have a service-to-service app where a backend service or a daemon has to call your customer's tenant Okta APIs, then build your app integration using the OAuth 2.0 Client Credentials grant flow.
+
+The Client Credentials grant flow is the only grant flow supported with the OAuth 2.0 service app when you want to mint access tokens that contain Okta scopes.
+
+Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you are able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
 ### Multi-tenancy in Okta
+since each tenant requires client id and secret, you will need to have configuration variables to store each okta tentant client id and secret.
 
 Okta tenants are called organizations (orgs). Each Okta org has its own authorization server. When a customer authorizes your API Service Integration to access their org, the server generates a unique set of credentials (client ID and client secret) for that org.
 
 You must collect and store these credentials for each customer to allow your integration to work with any Okta org.
 
-## Register your integration
+### Build the 
 
-1. Go to the [OIN Manager](https://oinmanager.okta.com/) and log in with the credentials of the Okta org you will use to build and submit your integration.
-1. Click **Add New Submission** or **Edit** an existing submission.
-1. On the **OAuth** tab, toggle on **OAUTH Support**.
-1. Under **Enable scopes**, click **Add Another**.
-1. Enter the name of a scope you would like to request from Okta admins. A scope corresponds to a resource you would like to access in the Okta API (users, logs, etc) and a level of access (read or manage). [A full list of scopes is here](/docs/guides/implement-oauth-for-okta/main/). The sections below have more information about scopes.
-1. Repeat steps 4 and 5 above for each scope you would like to access.
+At a high-level, this flow has the following steps:
 
-### Selecting scopes
+1. Your client application (app) makes an authorization request to your Okta Authorization Server using its client credentials.
 
-There are two types of scope: read and manage. Read scopes can only view resources, while manage scopes can read, create, update, and delete resources. Because manage scopes include read access, if you do not need to request a read scope in addition to a manage scope.
+1. You need to register your app so that Okta can accept the authorization request. See Set up your app to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See Request for token.
 
-| Action    | Read scopes           | Manage scopes   |
-| ----------- | -------------- | ------------- |
-| Read | Yes | Yes |
-| Create | No | Yes |
-| Update | No | Yes |
-| Delete | No | Yes |
+1. If the credentials are accurate, Okta responds with an access token.
 
-### Silent downscoping
+1. Your app uses the access token to make authorized requests to the resource server.
 
-The Okta Org Authorization Server returns all scopes that you request provided that you registered those scopes along with your integration. Currently, API Service Integrations do not support “optional” scopes. You may request only a subset of scopes when requesting a token from the token endpoint, the Okta customer must authorize all the scopes.
+### Client Credentials grant flow
 
-For example, suppose a client's grant collection includes the `okta.authorizationServers.manage` scope. A Read Only admin can request and get an access token that contains the scope, but when they attempt to perform a modification, such as modifying an authorization server using `/api/v1/authorizationServers`, the operation fails because the admin lacks the necessary permissions.
+API Service Integrations use an OAuth 2.0 client credentials grant flow with a client ID and client secret to get access tokens. 
 
-## Test your integration
+<div class="three-quarter">
 
-Before submitting your integration to be reviewed and published, you must test it on your Okta org. Your integration will only be available on your Okta org. Okta admins will see the same authorize experience.
+![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
 
-### Authorize a test instance
+</div>
 
-1. In [OIN Manager](https://oinmanager.okta.com/), edit your submission and click the **OAuth** tab.
-1. On the right side of your screen, click **Test in Okta**.
-1. Once redirected, click **Install and Authorize**.
-1. Copy the client secret which appears in the dialog and paste it into your application or securely store it for later use.
-1. Dismiss the dialog. On the integration details page, copy the Okta domain and client id for use in your application.
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
-### Updating a test instance
+skinparam monochrome true
 
-When you make an update to your submission in the OIN Manager (for example, modifying the scopes or name of the integration), the update will not automatically be reflected in your test instance for security reasons.
+participant "Client + Resource Owner" as client
+participant "Authorization Server (Okta)" as okta
+participant "Resource Server (Your App)" as app
 
-To update a test instance, repeat the procedure above for Authorizing a test instance. You can clear previous instances by clicking **Revoke** on the integration details page.
+client -> okta: Access token request to /token
+okta -> client: Access token response
+client -> app: Request with access token
+app -> client: Response
+
+-->
 
 ## Get an access token
 
@@ -172,6 +170,51 @@ curl -X GET "https://${customerOktaDomain}/api/v1/users"
     -H "Content-Type: application/json"
     -H "Authorization: Bearer ${accessToken}
 ```
+
+## Register your integration
+
+1. Go to the [OIN Manager](https://oinmanager.okta.com/) and log in with the credentials of the Okta org you will use to build and submit your integration.
+1. Click **Add New Submission** or **Edit** an existing submission.
+1. On the **OAuth** tab, toggle on **OAUTH Support**.
+1. Under **Enable scopes**, click **Add Another**.
+1. Enter the name of a scope you would like to request from Okta admins. A scope corresponds to a resource you would like to access in the Okta API (users, logs, etc) and a level of access (read or manage). [A full list of scopes is here](/docs/guides/implement-oauth-for-okta/main/). The sections below have more information about scopes.
+1. Repeat steps 4 and 5 above for each scope you would like to access.
+
+### Selecting scopes
+
+There are two types of scope: read and manage. Read scopes can only view resources, while manage scopes can read, create, update, and delete resources. Because manage scopes include read access, if you do not need to request a read scope in addition to a manage scope.
+
+| Action    | Read scopes           | Manage scopes   |
+| ----------- | -------------- | ------------- |
+| Read | Yes | Yes |
+| Create | No | Yes |
+| Update | No | Yes |
+| Delete | No | Yes |
+
+### Silent downscoping
+
+The Okta Org Authorization Server returns all scopes that you request provided that you registered those scopes along with your integration. Currently, API Service Integrations do not support “optional” scopes. You may request only a subset of scopes when requesting a token from the token endpoint, the Okta customer must authorize all the scopes.
+
+For example, suppose a client's grant collection includes the `okta.authorizationServers.manage` scope. A Read Only admin can request and get an access token that contains the scope, but when they attempt to perform a modification, such as modifying an authorization server using `/api/v1/authorizationServers`, the operation fails because the admin lacks the necessary permissions.
+
+## Test your integration
+
+Before submitting your integration to be reviewed and published, you must test it on your Okta org. Your integration will only be available on your Okta org. Okta admins will see the same authorize experience.
+
+### Authorize a test instance
+
+1. In [OIN Manager](https://oinmanager.okta.com/), edit your submission and click the **OAuth** tab.
+1. On the right side of your screen, click **Test in Okta**.
+1. Once redirected, click **Install and Authorize**.
+1. Copy the client secret which appears in the dialog and paste it into your application or securely store it for later use.
+1. Dismiss the dialog. On the integration details page, copy the Okta domain and client id for use in your application.
+
+### Updating a test instance
+
+When you make an update to your submission in the OIN Manager (for example, modifying the scopes or name of the integration), the update will not automatically be reflected in your test instance for security reasons.
+
+To update a test instance, repeat the procedure above for Authorizing a test instance. You can clear previous instances by clicking **Revoke** on the integration details page.
+
 
 ## Submit for review
 

@@ -11,7 +11,7 @@ meta:
 
 An API service integration allows you to build and publish service integrations that can access your customer's Okta org through [Okta's core management APIs](/docs/reference/core-okta-api/) using OAuth 2.0.
 
-Previously, if you have a service app requiring Okta management API access, you need to use an API token that was tied to a specific Okta user and can't restrict access to certain resources. With an OAuth API service integration, your service app can have secure, reliable, and granular access to Okta APIs without being tied to a user.
+Previously, if you have a service app requiring Okta management API access, you need to use an API token that was tied to a specific Okta user and can't restrict access to certain resources. With an OAuth API service integration, your service app can have secure, reliable, and granular access to Okta APIs without being associated with a user.
 
 When your service app integration is in the Okta Integration Network (OIN), your customers can discover and configure your integration through the OIN catalog in their own Okta tenant org. Configuration is easy and consistent for your customers because you've already done the hard work by building the integration with the required configuration instructions. Customers trust that integrations in the OIN are secure and reliable because it's Okta verified.
 
