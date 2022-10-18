@@ -42,6 +42,7 @@
       "vue/no-reserved-component-names": "off",
       "vue/require-prop-types": "off",
       "vue/attribute-hyphenation": "off",
+      "vue/require-default-prop": "off",
       "vue/attributes-order": ["error", {
         "order": [
           "OTHER_ATTR",
