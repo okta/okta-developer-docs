@@ -1,5 +1,9 @@
 <template>
-  <router-link :to="target"><span><slot>link</slot></span></router-link>
+  <router-link :to="target">
+    <span>
+      <slot>link</slot>
+    </span>
+  </router-link>
 </template>
 
 <script>
