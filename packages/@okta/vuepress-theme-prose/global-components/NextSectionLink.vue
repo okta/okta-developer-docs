@@ -1,6 +1,13 @@
 <template>
   <div class="next-section">
-    <router-link :to="target" class="button is-button-cerise is-button-small"><span><slot>Next: {{title}}</slot></span></router-link>
+    <router-link 
+      :to="target" 
+      class="button is-button-cerise is-button-small"
+    >
+      <span>
+        <slot>Next: {{ title }}</slot>
+      </span>
+    </router-link>
   </div>
 </template>
 
