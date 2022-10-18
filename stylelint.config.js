@@ -11,8 +11,10 @@ module.exports = {
   ],
 
   "rules": {
+    // Descending
     "no-descending-specificity": true,
 
+    // Duplicate
     "declaration-block-no-duplicate-custom-properties": true,
     "declaration-block-no-duplicate-properties": true,
     "font-family-no-duplicate-names": true,
@@ -20,18 +22,21 @@ module.exports = {
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
 
+    // Empty
     "block-no-empty": true,
     "comment-no-empty": true,
     "no-empty-source": true,
 
-    "function-calc-no-unspaced-operator": true,
-    "color-named": "never",
-    "keyframe-declaration-no-important": true,
+    // Invalid
     "color-no-invalid-hex": true,
+    "function-calc-no-unspaced-operator": true,
+    "keyframe-declaration-no-important": true,
     "named-grid-areas-no-invalid": true,
     "no-invalid-double-slash-comments": true,
     "no-invalid-position-at-import-rule": true,
     "string-no-newline": true,
+
+    "color-named": "never",
 
     "custom-property-no-missing-var-function": true,
     "font-family-no-missing-generic-family-keyword": true,
