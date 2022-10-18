@@ -5,10 +5,6 @@ module.exports = {
     "stylelint-scss",
   ],
 
-  "processors": [
-    "stylelint-processor-html"
-  ],
-
   "rules": {
     // General / Sheet
     "indentation": 2,
