@@ -14,7 +14,6 @@ module.exports = {
     // General / Sheet
     "indentation": 2,
     "max-empty-lines": 1,
-    "max-line-length": 80,
     "no-empty-first-line": true,
     "no-eol-whitespace": true,
     "no-extra-semicolons": true,
@@ -72,7 +71,6 @@ module.exports = {
     // Allowed, disallowed & required
     "at-rule-no-vendor-prefix": true,
     "color-named": "never",
-    "declaration-no-important": true,
     "function-url-no-scheme-relative": true,
     "length-zero-no-unit": true,
     "selector-no-vendor-prefix": true,
@@ -80,7 +78,7 @@ module.exports = {
 
     // Max & min
     "max-nesting-depth": 1,
-    "number-max-precision": 2,
+    "number-max-precision": 3,
 
     // Notation
     "color-function-notation": "modern",
