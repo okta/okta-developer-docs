@@ -1,5 +1,4 @@
 :root {
-  // PALETTE LIGHT THEME
   --c-white: #ffffff;
   --c-gray-000: #ffffff;
   --c-gray-100: #ebebed;
@@ -13,7 +12,7 @@
   --c-gray-900: #1d1d21;
   --c-lightgray-200: #f5f5f5;
   --c-lightgray-300: #f7f7f8;
-  --c-lightgray-800: #E7EDF9;
+  --c-lightgray-800: #e7edf9;
   --c-blue-000: #f2f5ff;
   --c-blue-300: #a7b5ec;
   --c-blue-400: #788ee2;
@@ -55,15 +54,14 @@
   --c-body: #ffffff;
   --c-tile-gray: #8c8c96;
   --c-form-gray: #c1c1c8;
-  --c-black: #000;
-  --c-bg-lightblue: #E8EFFC;
+  --c-black: #000000;
+  --c-bg-lightblue: #e8effc;
   --c-blue-aside: #f7faff;
-  --c-blue-aside-lightblue: #EFF4FD;
-  --c-gray-blue: #B1BDD8;
-  --c-gray-sm: #F8F8F9;
-  --c-dark-gray: #D9D9D9;
+  --c-blue-aside-lightblue: #eff4fd;
+  --c-gray-blue: #b1bdd8;
+  --c-gray-sm: #f8f8f9;
+  --c-dark-gray: #d9d9d9;
 
-  // VARIABLES COLORS FOR LIGHT THEME
   --c-cerise: var(--c-cerise-red);
   --c-body-base: var(--c-lightgray-200);
   --c-body-lighter: var(--c-lightgray-300);
@@ -99,7 +97,6 @@
 }
 
 .dark-theme {
-  // PALETTE DARK THEME
   --c-gray-900: #17171b;
   --c-gray-800: #1d1d21;
   --c-gray-700: #232327;
@@ -110,12 +107,11 @@
   --c-gray-200: #dcdcdc;
   --c-gray-100: #ebebed;
   --c-gray-000: #f5f5f6;
-  --c-checkbox-border: #c1c1c8;
   --c-cyan-base: #30c0bc;
   --c-lightgray: #212125;
   --c-silvery: #212126;
   --c-light: #d7d7dc;
-  --c-blue-200: #CFE4F6;
+  --c-blue-200: #cfe4f6;
   --c-blue-300: #92bcff;
   --c-blue-800: #234f97;
   --c-blue-darker: #5976a6;
@@ -135,12 +131,11 @@
   --c-bg-lightblue: #121212;
   --c-blue-aside: #121212;
   --c-blue-aside-lightblue: #222228;
-  --c-link-bluelight: #D7D7D7;
-  --c-lightgray-800: #26262D;
+  --c-link-bluelight: #d7d7d7;
+  --c-lightgray-800: #26262d;
   --c-gray-blue: #92bcff;
   --c-blue-000: #121212;
 
-  // VARIABLES COLORS FOR DARK THEME
   --c-body-base: var(--c-gray-800);
   --c-body-lighter: var(--c-gray-800);
   --c-header-base: var(--c-gray-700);
@@ -183,6 +178,7 @@ $colors: (
   "cerise": (
     "base": var(--c-cerise)
   ),
+
   "header": (
     "base": var(--c-header-base),
     "search": var(--c-search),
@@ -190,15 +186,18 @@ $colors: (
     "nav": var(--c-headerNav-bg),
     "nav-link": var(--c-headerNav-link),
   ),
+
   "breadcrumb": (
     "link": var(--c-breadcrumb-link),
     "svg": var(--c-breadcrumb-svg)
   ),
+
   "border": (
     "base": var(--c-border-light),
     "gray": var(--c-border),
     "checkbox": var(--c-checkbox-border)
   ),
+
   "body": (
     "gray": var(--c-body-gray),
     "base": var(--c-body-base),
@@ -215,11 +214,13 @@ $colors: (
     "custom-bg-white": var(--c-custom-bg-white),
     "custom-bg-icon": var(--c-custom-bg-icon),
   ),
+
   "footer": (
     "base": var(--c-footer-base),
     "gray": var(--c-footer-gray),
     "light": var(--c-footer-light)
   ),
+
   "text": (
     "darker": var(--c-text-darker),
     "base": var(--c-text-base),
@@ -228,12 +229,15 @@ $colors: (
     "dark": var(--c-black),
     "accent": var(--c-text-gray)
   ),
+
   "tile": (
     "angle": var(--c-tile-angle)
   ),
+
   "input": (
     "border": var(--c-checkbox-border)
   ),
+
   "link": (
     "base": var(--c-link-base),
     "darker": var(--c-link-darker),
@@ -246,6 +250,7 @@ $colors: (
     "bluelight": var(--c-link-lighterblue),
     "active-router": var(--c-active-router),
   ),
+
   "code": (
     "base": var(--c-code-base),
     "keyword": var(--c-code-keyword),
@@ -254,48 +259,58 @@ $colors: (
     "string": var(--c-code-string),
     "success": var(--c-code-greenstring)
   ),
+
   "form": (
     "input-border": var(--c-form-input-border)
   ),
+
   "success": (
     "lightest": var(--c-success-lightest),
     "base": var(--c-success-base),
     "dark": var(--c-success-dark)
   ),
+
   "action": (
     "lightest": var(--c-action-lightest),
     "base": var(--c-action-base),
     "dark": var(--c-action-dark)
   ),
+
   "yellow": (
     "lightest": var(--c-yellow-lightest),
     "base": var(--c-yellow-base),
     "dark": var(--c-yellow-dark)
   ),
+
   "warning": (
     "lightest": var(--c-warning-lightest),
     "base": var(--c-warning-base),
     "dark": var(--c-warning-dark),
     "deprecation": var(--c-warning-deprecation)
   ),
+
   "danger": (
     "lightest": var(--c-danger-lightest),
     "base": var(--c-danger-base),
     "dark": var(--c-danger-dark)
   ),
+
   "cyan": (
     "lightest": var(--c-cyan-lightest),
     "base": var(--c-cyan-base),
     "dark": var(--c-cyan-dark)
   ),
+
   "violet": (
     "lightest": var(--c-violet-lightest),
     "base": var(--c-violet-base),
     "dark": var(--c-violet-dark)
   ),
+
   "magenta": (
     "base": var(--c-magenta-base)
   ),
+
   "blue": (
     "000": var(--c-blue-000),
     "300": var(--c-blue-300),
@@ -305,6 +320,7 @@ $colors: (
     "whale": var(--c-blue-whale),
     "darker": var(--c-blue-darker)
   ),
+
   "gray": (
     "000": var(--c-gray-000),
     "100": var(--c-gray-100),
@@ -317,9 +333,11 @@ $colors: (
     "800": var(--c-gray-800),
     "900": var(--c-gray-900)
   ),
+
   "white": (
     "base": var(--c-white)
   ),
+
   "theme-toggle": (
     "bg": var(--c-toggle-bg)
   )
