@@ -25,38 +25,31 @@ This guide explains how to build and submit an API service integration to the Ok
 
 ## Overview
 
-API service integrations access the [Okta management API](/docs/reference/core-okta-api/) using OAuth 2.0, and are sometimes referred to as service-to-service or machine-to-machine integrations. If you have a service-to-service app where a backend service or a daemon has to call your customer's tenant Okta APIs, then build your app integration using the OAuth 2.0 Client Credentials grant flow.
+A service-to-service app where where a backend service or a daemon calls [Okta management APIs](/docs/reference/core-okta-api/) for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration.
+API service integrations access Okta APIs using the OAuth 2.0 Client Credentials grant flow, where access is not associated with a user and resources can be restricted with scoped access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
-The Client Credentials grant flow is the only grant flow supported with the OAuth 2.0 service app when you want to mint access tokens that contain Okta scopes.
-
-Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you are able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
-
-### Multi-tenancy in Okta
-since each tenant requires client id and secret, you will need to have configuration variables to store each okta tentant client id and secret.
-
-Okta tenants are called organizations (orgs). Each Okta org has its own authorization server. When a customer authorizes your API Service Integration to access their org, the server generates a unique set of credentials (client ID and client secret) for that org.
-
-You must collect and store these credentials for each customer to allow your integration to work with any Okta org.
-
-### Build the 
-
-At a high-level, this flow has the following steps:
-
-1. Your client application (app) makes an authorization request to your Okta Authorization Server using its client credentials.
-
-1. You need to register your app so that Okta can accept the authorization request. See Set up your app to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See Request for token.
-
-1. If the credentials are accurate, Okta responds with an access token.
-
-1. Your app uses the access token to make authorized requests to the resource server.
+If you have an API service integration for your app in the OIN, your customers can configure the OAuth 2.0 Client Credentials flow for an instance of your app with their Okta tenant org. Each customer Okta org has its own authorization server. When a customer authorizes your API Service Integration to access their org, Okta generates a unique set of credentials (client ID and client secret) for that org.
+You must collect and store these credentials for each customer to allow your integration to work with the customer's Okta org.
 
 ### Client Credentials grant flow
 
-API Service Integrations use an OAuth 2.0 client credentials grant flow with a client ID and client secret to get access tokens. 
+At a high-level, the OAuth 2.0 Client Credentials flow for an API service integration has the following steps:
+
+1. Your customer's instance of your service app makes an authorization request to their Okta Authorization Server using their client credentials.
+
+   Your customer needs to register their instance of your app in their Okta org so that Okta can accept the authorization request. See [HOC set up an API service integration]. After registration, the customer's instance of your app can make an authorization request to Okta. See [Request for access token].
+
+2. If the credentials are accurate, Okta responds with an access token.
+
+   This scope allowed for the access token is configured by you when you [submit your API service integration to the OIN] for verification through the OIN Manager. In addition, the access token request must contain allowed scopes for your API service integration.
+
+3. Your customer's service app instance uses the access token to make authorized requests to their Okta org APIs (the resource server).
+
+4. The customer's Okta org (resource server) validates the token before responding to the API request.
 
 <div class="three-quarter">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
+![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for API service integration's Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
 
 </div>
 
@@ -64,9 +57,9 @@ API Service Integrations use an OAuth 2.0 client credentials grant flow with a c
 
 skinparam monochrome true
 
-participant "Client + Resource Owner" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
+participant "Service app (customer's instance)" as client
+participant "Authorization Server (your customer's Okta org)" as okta
+participant "Resource Server (your customer's Okta APIs)" as app
 
 client -> okta: Access token request to /token
 okta -> client: Access token response
@@ -75,32 +68,13 @@ app -> client: Response
 
 -->
 
-## Get an access token
+## Build your API service integration
 
-### Client Credentials grant flow
+### Collect and save customer credentials
 
-API Service Integrations use an OAuth 2.0 client credentials grant flow with a client ID and client secret to get access tokens. 
+Okta generates a unique set of credentials (client ID and client secret) for that org.
+You must collect and store these credentials for each customer to allow your integration to work with the customer's Okta org.
 
-<div class="three-quarter">
-
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
-
-</div>
-
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-skinparam monochrome true
-
-participant "Client + Resource Owner" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
-
-client -> okta: Access token request to /token
-okta -> client: Access token response
-client -> app: Request with access token
-app -> client: Response
-
--->
 
 ### Request an access token
 
