@@ -19,9 +19,6 @@ module.exports = {
     "no-extra-semicolons": true,
     "no-missing-end-of-source-newline": true,
 
-    // Descending
-    "no-descending-specificity": true,
-
     // Duplicate
     "declaration-block-no-duplicate-custom-properties": true,
     "declaration-block-no-duplicate-properties": true,
