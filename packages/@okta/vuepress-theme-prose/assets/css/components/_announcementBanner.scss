@@ -1,134 +1,145 @@
 .announcement-banner {
+  position: relative;
+
   display: flex;
   align-items: center;
   min-height: 140px;
-  background-color: cv("blue", "000");
+
   color: cv("blue", "900");
-  position: relative;
+
+  background-color: cv("blue", "000");
 
   @include media("<=tablet") {
     min-height: 190px;
   }
+}
 
-  &--close {
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 39px;
-    height: 35px;
-    right: 0;
-    top: 0;
-    cursor: pointer;
+.announcement-banner--close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
 
-    > i {
-      pointer-events: none;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 35px;
 
-    @include media("<=desktop") {
-      background-color: cv("blue", "000");
-    }
+  cursor: pointer;
+
+  @include media("<=desktop") {
+    background-color: cv("blue", "000");
+  }
+}
+
+.announcement-banner--close > i {
+  pointer-events: none;
+}
+
+.announcement-banner--content {
+  height: 100%;
+  padding: 0 40px 0 135px;
+  margin-right: 344px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include media("<desktop-xl") {
+    padding: 0 57px;
   }
 
-  &--content {
-    height: 100%;
-    padding: 0 40px 0 135px;
-    margin-right: 344px;
-    display: flex;
+  @include media("<desktop") {
+    padding: 0 33px;
+  }
+
+  @include media("<=tablet") {
+    margin-right: 98px;
+  }
+}
+
+.announcement-banner--title {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.32em;
+
+  @include media("<=desktop-xl") {
+    font-size: 14px;
+  }
+}
+
+.announcement-banner--description-wrapper {
+  display: flex;
+  align-items: start;
+
+  @include media("<=desktop") {
     flex-direction: column;
-    justify-content: center;
+  }
+}
 
-    @include media("<desktop-xl") {
-      padding: 0 57px;
-    }
+.announcement-banner--description {
+  margin-bottom: 0;
 
-    @include media("<desktop") {
-      padding: 0 33px;
-    }
+  font-size: 20px;
 
-    @include media("<=tablet") {
-      margin-right: 98px;
-    }
+  @include media("<=desktop-xl") {
+    font-size: 14px;
+  }
+}
+
+.announcement-banner--cta {
+  margin-left: 10px;
+  flex: 0 0 auto;
+
+  font-size: 18px;
+  font-weight: 500;
+  color: cv("blue", "500");
+
+  @include media("<=desktop-xl") {
+    font-size: 14px;
   }
 
-  &--title {
-    font-size: 21px;
-    font-weight: 500;
-    line-height: 1.32em;
-
-    @include media("<=desktop-xl") {
-      font-size: 14px;
-    }
+  @include media("<=desktop") {
+    margin-left: 0;
+    margin-top: 10px;
   }
+}
 
-  &--description-wrapper {
-    display: flex;
-    align-items: start;
+.announcement-banner--cta:link,
+.announcement-banner--cta:visited {
+  color: cv("blue", "500");
+  text-decoration: none;
 
-    @include media("<=desktop") {
-      flex-direction: column;
-    }
+  border-bottom: 1px solid currentcolor;
+}
+
+.announcement-banner--cta:hover {
+  border-bottom: 0;
+}
+
+.announcement-banner--logo {
+  position: absolute;
+  top: 0;
+  right: 100px;
+  z-index: 1;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  @include media("<=tablet") {
+    top: -2px;
+    right: 3px;
   }
+}
 
-  &--description {
-    font-size: 20px;
-    margin-bottom: 0;
-
-    @include media("<=desktop-xl") {
-      font-size: 14px;
-    }
+.announcement-banner--logo--large {
+  @include media("<=tablet") {
+    display: none;
   }
-  
-    &--cta  {
-    font-size: 18px;
-    font-weight: 500;
-    color: cv('blue', '500');
-    margin-left: 10px;
-    flex: 0 0 auto;
-
-    &:link,
-    &:visited {
-      color: cv('blue', '500');
-      text-decoration: none;
-      border-bottom: 1px solid currentcolor;
-    }
-    &:hover {
-      border-bottom: 0;
-    }
-
-    @include media("<=desktop-xl") {
-      font-size: 14px;
-    }
-
-    @include media("<=desktop") {
-      margin-left: 0px;
-      margin-top: 10px;
-    }
-  }
-
-  &--logo {
-    z-index: 1;
-    position: absolute;
-    right: 100px;
-    top: 0;
-    height: 100%;
-    overflow: hidden;
-
-    @include media("<=tablet") {
-      right: 3px;
-      top: -2px;
-    }
-
-    &--large {
-      @include media("<=tablet") {
-        display: none;
-      }
-    }
-    &--small {
-      @include media(">tablet") {
-        display: none;
-      }
-    }
+}
+.announcement-banner--logo--small {
+  @include media(">tablet") {
+    display: none;
   }
 }
