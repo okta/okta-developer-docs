@@ -9,14 +9,14 @@
       <span>{{ link.title }}</span>
     </a>
     <ul
-      :id="ulId"
       v-show="link.children && link.children.length > 0 && (iHaveChildrenActive || imActive)"
+      :id="ulId"
     >
       <OnThisPageItem
-        v-for="(childLink, index) in filteredLink"
-        :key="index"
         :link="childLink"
         :activeAnchor="activeAnchor"
+        v-for="(childLink, index) in filteredLink"
+        :key="index"
       />
     </ul>
   </li>
@@ -26,17 +26,17 @@
 import AnchorHistory from "../mixins/AnchorHistory.vue";
 export default {
   name: "OnThisPageItem",
-  props: ["link", "activeAnchor"],
+  components: {
+    OnThisPageItem: () => import("../components/OnThisPageItem.vue")
+  },
   mixins: [AnchorHistory],
+  props: ["link", "activeAnchor"],
   data() {
     return {
       id: "",
       imActive: false,
       iHaveChildrenActive: false
     };
-  },
-  components: {
-    OnThisPageItem: () => import("../components/OnThisPageItem.vue")
   },
   computed: {
     filteredLink() {
@@ -54,13 +54,13 @@ export default {
       return `${identifier}${this.link.slug}`;
     }
   },
-  mounted() {
-    this.setActiveData();
-  },
   watch: {
     activeAnchor: function() {
       this.setActiveData();
     }
+  },
+  mounted() {
+    this.setActiveData();
   },
   methods: {
     isActive: function(node) {
@@ -75,7 +75,6 @@ export default {
     },
     setActiveData: function() {
       this.imActive = this.isActive(this.link);
-
       this.iHaveChildrenActive = (this.link.children || []).some(child =>
         this.isActive(child)
       );
@@ -85,11 +84,9 @@ export default {
       if (e.target.tagName.toLowerCase() === "span") {
         hash = e.target.parentNode.hash;
       }
-
       if (e.target.tagName.toLowerCase() === "a") {
         hash = e.target.hash;
       }
-
       if (hash) {
         this.historyPushAndScrollToAnchor(hash);
       }
