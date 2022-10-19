@@ -14,14 +14,10 @@ module.exports = {
     // General / Sheet
     "indentation": 2,
     "max-empty-lines": 1,
-    "max-line-length": 80,
     "no-empty-first-line": true,
     "no-eol-whitespace": true,
     "no-extra-semicolons": true,
     "no-missing-end-of-source-newline": true,
-
-    // Descending
-    "no-descending-specificity": true,
 
     // Duplicate
     "declaration-block-no-duplicate-custom-properties": true,
@@ -72,19 +68,16 @@ module.exports = {
     // Allowed, disallowed & required
     "at-rule-no-vendor-prefix": true,
     "color-named": "never",
-    "declaration-no-important": true,
     "function-url-no-scheme-relative": true,
     "length-zero-no-unit": true,
     "selector-no-vendor-prefix": true,
     "value-no-vendor-prefix": true,
 
     // Max & min
-    "declaration-block-single-line-max-declarations": true,
     "max-nesting-depth": 1,
-    "number-max-precision": 2,
+    "number-max-precision": 3,
 
     // Notation
-    "alpha-value-notation": true,
     "color-function-notation": "modern",
     "color-hex-length": "long",
     "font-weight-notation": "numeric",

@@ -1,5 +1,4 @@
 /* Basic styling to be applied to all images inside the main content column */
-
 .content__default div img {
   display: block;
   margin: 0 auto;
@@ -9,73 +8,51 @@
 }
 
 /* Mobile-first sizing, applied by default if below media query does not kick in (i.e. it's a narrow screen) */
-
-.content__default div.full, .content__default div.three-quarter {
-  img {
-    width: 100%;
-  }
+.content__default div.full img,
+.content__default div.three-quarter img {
+  width: 100%;
 }
 
-.content__default div.half {
-  img {
-    width: 75%;
-    max-width: 350px;
-  }
+.content__default div.half img {
+  width: 75%;
+  max-width: 350px;
 }
 
-.content__default div.quarter {
-  img {
-    width: 50%;
-  }
+.content__default div.quarter img {
+  width: 50%;
 }
 
 /* On wider screens, overwrite the width for the half and quarter-size images so they appear smaller */
-
 @media (min-width: 768px) {
-  .content__default div.three-quarter {
-    img {
-      width: 75%;
-    }
+  .content__default div.three-quarter img {
+    width: 75%;
   }
 
-  .content__default div.half {
-    img {
-      width: 50%;
-    }
+  .content__default div.half img {
+    width: 50%;
   }
-  
-  .content__default div.quarter {
-    img {
-      width: 25%;
-    }
+
+  .content__default div.quarter img {
+    width: 25%;
   }
 }
 
 /* optional border class that can be used to apply a gray border to the image if required as per the guidelines */
-
-.content__default div.border {
-  img {
-    border: 1px solid cv('gray', '200');
-    border-radius: 20px;
-  }
+.content__default div.border img {
+  border: 1px solid cv("gray", "200");
+  border-radius: 20px;
 }
 
 /* optional border class for adding a "sketchy" border to wireframe diagrams */
-
-.content__default div.wireframe-border {
-  img {
-    border-width: 5px;
-    border-style: solid;
-    border-image-source: url('/img/ui/wireframe-border-image-black.png');
-    border-image-slice: 10;
-    border-image-repeat: stretch;
-  }
+.content__default div.wireframe-border img {
+  border-width: 5px;
+  border-style: solid;
+  border-image-source: url("/img/ui/wireframe-border-image-black.png");
+  border-image-slice: 10;
+  border-image-repeat: stretch;
 }
 
 /* swap out border image when dark mode is enabled */
-
-.dark-theme .content__default div.wireframe-border {
-  img {
-    border-image-source: url('/img/ui/wireframe-border-image-white.png');
-  }
+.dark-theme .content__default div.wireframe-border img {
+  border-image-source: url("/img/ui/wireframe-border-image-white.png");
 }

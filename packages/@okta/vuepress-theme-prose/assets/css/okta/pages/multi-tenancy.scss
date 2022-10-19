@@ -1,45 +1,47 @@
-.multi-tenancy {
-    //Image format
-    .image-at-100 {
-        text-align: center;
+.multi-tenancy .image-at-100 {
+  text-align: center;
+}
 
-        img {
-            max-width: 100%;
-        }
-    }
-    .image-at-90 {
-        text-align: center;
+.multi-tenancy .image-at-100 img {
+  max-width: 100%;
+}
 
-        img {
-            max-width: 90%;
-        }
-    }
-    .image-at-80 {
-        text-align: center;
+.multi-tenancy .image-at-90 {
+  text-align: center;
+}
 
-        img {
-            max-width: 80%;
-        }
-    }
-    .image-at-70 {
-        text-align: center;
+.multi-tenancy .image-at-90 img {
+  max-width: 90%;
+}
 
-        img {
-            max-width: 70%;
-        }
-    }
-    .image-at-60 {
-        text-align: center;
+.multi-tenancy .image-at-80 {
+  text-align: center;
+}
 
-        img {
-            max-width: 60%;
-        }
-    }
-    .image-at-50 {
-        text-align: center;
+.multi-tenancy .image-at-80 img {
+  max-width: 80%;
+}
 
-        img {
-            max-width: 50%;
-        }
-    }
+.multi-tenancy .image-at-70 {
+  text-align: center;
+}
+
+.multi-tenancy .image-at-70 img {
+  max-width: 70%;
+}
+
+.multi-tenancy .image-at-60 {
+  text-align: center;
+}
+
+.multi-tenancy .image-at-60 img {
+  max-width: 60%;
+}
+
+.multi-tenancy .image-at-50 {
+  text-align: center;
+}
+
+.multi-tenancy .image-at-50 img {
+  max-width: 50%;
 }

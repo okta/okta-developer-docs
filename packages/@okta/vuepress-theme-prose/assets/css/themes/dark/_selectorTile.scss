@@ -1,32 +1,36 @@
-.selector-tile {
-  &--header {
-    color: cv("action");
-    border-bottom: 1px solid cv("action");
-    &:visited,
-    &:active,
-    &:focus {
-      color: cv("action");
-    }
-    &:hover {
-      color: cv("text");
-      i {
-        color: cv("text");
-      }
-    }
-    i {
-      color: cv("action");
-    }
-  }
-  &--data {
-    &--item {
-      border-bottom-color: transparent;
-      &:hover {
-        color: cv("text");
-        background: cv("text", "accent");
-        & > i {
-          color: cv("text");
-        }
-      }
-    }
-  }
+.selector-tile--header {
+  color: cv("action");
+  border-bottom: 1px solid cv("action");
+}
+
+.selector-tile--header:visited,
+.selector-tile--header:active,
+.selector-tile--header:focus {
+  color: cv("action");
+}
+
+.selector-tile--header:hover {
+  color: cv("text");
+}
+
+.selector-tile--header:hover i {
+  color: cv("text");
+}
+
+.selector-tile--header i {
+  color: cv("action");
+}
+
+.selector-tile--data--item {
+  border-bottom-color: transparent;
+}
+
+.selector-tile--data--item:hover {
+  color: cv("text");
+
+  background: cv("text", "accent");
+}
+
+.selector-tile--data--item:hover > i {
+  color: cv("text");
 }

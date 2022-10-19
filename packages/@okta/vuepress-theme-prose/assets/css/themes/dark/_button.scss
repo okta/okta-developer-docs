@@ -1,18 +1,17 @@
-.Button {
-  &--redOutline,
-  &--redOutline:active,
-  &--redOutline:hover,
-  &--redOutline:visited,
-  &--red,
-  &--red:active,
-  &--red:hover,
-  &--red:visited,
-  &--blueDarkOutline,
-  &--blueDarkOutline:active,
-  &--blueDarkOutline:hover,
-  &--blueDarkOutline:visited {
-    color: cv("text");
-    border-color: cv("text");
-    background-color: cv("body", "obscure");
-  }
+.Button--redOutline,
+.Button--redOutline:active,
+.Button--redOutline:hover,
+.Button--redOutline:visited,
+.Button--red,
+.Button--red:active,
+.Button--red:hover,
+.Button--red:visited,
+.Button--blueDarkOutline,
+.Button--blueDarkOutline:active,
+.Button--blueDarkOutline:hover,
+.Button--blueDarkOutline:visited {
+  color: cv("text");
+
+  border-color: cv("text");
+  background-color: cv("body", "obscure");
 }
