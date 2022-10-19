@@ -3,21 +3,29 @@
     <div v-show="showNavigation">
       <StackSelector v-if="$page.hasStackContent" />
       <div v-show="showOnthisPage">
-        <div class="title">On this page</div>
-        <ul class="links" v-if="items">
+        <div class="title">
+          On this page
+        </div>
+        <ul 
+          class="links" 
+          v-if="items"
+        >
           <OnThisPageItem
-            v-for="(link, index) in items"
-            :link="link"
-            :key="index"
             :activeAnchor="activeAnchor"
+            :link="link"
+            v-for="(link, index) in items"
+            :key="index"
           />
         </ul>
-        <ul class="links" v-else-if="$page.fullHeaders">
+        <ul 
+          class="links" 
+          v-else-if="$page.fullHeaders"
+        >
           <OnThisPageItem
-            v-for="(link, index) in $page.fullHeaders[0].children"
             :link="link"
-            :key="index"
             :activeAnchor="activeAnchor"
+            v-for="(link, index) in $page.fullHeaders[0].children"
+            :key="index"
           />
         </ul>
       </div>
@@ -31,12 +39,12 @@ import AnchorHistory from "../mixins/AnchorHistory.vue";
 import _ from "lodash";
 export default {
   name: "OnThisPage",
-  mixins: [AnchorHistory],
-  inject: ["appContext"],
   components: {
     OnThisPageItem: () => import("../components/OnThisPageItem.vue"),
     StackSelector: () => import("../global-components/StackSelector.vue")
   },
+  mixins: [AnchorHistory],
+  inject: ["appContext"],
   props: ["items"],
   data() {
     return {
@@ -58,6 +66,15 @@ export default {
       return this.showOnthisPage || this.$page.hasStackContent;
     }
   },
+  watch: {
+    $page(to, from) {
+      if (from.title !== to.title) {
+        this.$nextTick(function() {
+          this.anchors = this.getOnThisPageAnchors();
+        });
+      }
+    }
+  },
   mounted() {
     this.paddedHeaderHeight =
       document.querySelector(".fixed-header").clientHeight +
@@ -75,15 +92,6 @@ export default {
   beforeDestroy() {
     // window.removeEventListener("scroll", this.setAlwaysOnViewPosition);
     window.removeEventListener("scroll", this.setActiveAnchor);
-  },
-  watch: {
-    $page(to, from) {
-      if (from.title !== to.title) {
-        this.$nextTick(function() {
-          this.anchors = this.getOnThisPageAnchors();
-        });
-      }
-    }
   },
   methods: {
     setAlwaysOnViewPosition: _.debounce(function() {
