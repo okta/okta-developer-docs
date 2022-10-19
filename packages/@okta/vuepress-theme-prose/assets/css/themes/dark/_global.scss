@@ -3,17 +3,26 @@ table,
 .CodeMirror-vscrollbar {
   scrollbar-width: thin;
   scrollbar-color: dark;
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-  &::-webkit-scrollbar-track {
-    background: cv("body", "obscure");
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: cv("breadcrumb", "svg");
-    border-radius: 6px;
-    border: 2px solid cv("body", "obscure");
-  }
+}
+
+.sidebar-area::-webkit-scrollbar,
+table::-webkit-scrollbar,
+.CodeMirror-vscrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-area::-webkit-scrollbar-track,
+table::-webkit-scrollbar-track,
+.CodeMirror-vscrollbar::-webkit-scrollbar-track {
+  background: cv("body", "obscure");
+}
+
+.sidebar-area::-webkit-scrollbar-thumb,
+table::-webkit-scrollbar-thumb,
+.CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
+  background-color: cv("breadcrumb", "svg");
+  border-radius: 6px;
+  border: 2px solid cv("body", "obscure");
 }
 
 .page-body {
