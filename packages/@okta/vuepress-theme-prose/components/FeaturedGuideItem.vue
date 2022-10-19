@@ -1,18 +1,21 @@
 <template>
-  <router-link :to="guide.makeLink(guide.mainFramework)" class="guides--featured">
+  <router-link 
+    class="guides--featured"
+    :to="guide.makeLink(guide.mainFramework)" 
+  >
     <header>
       <section>
         <h1 class="title">
-          {{guide.title}}
+          {{ guide.title }}
         </h1>
       </section>
     </header>
     <section class="excerpt">
-      {{guide.excerpt}}
+      {{ guide.excerpt }}
     </section>
     <footer>
       <section class="icons">
-        <FrameworkIconBlock :frameworks="mainFrameworksOfGuide"/>
+        <FrameworkIconBlock :frameworks="mainFrameworksOfGuide" />
       </section>
     </footer>
   </router-link>
