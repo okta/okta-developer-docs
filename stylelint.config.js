@@ -1,6 +1,10 @@
 "use strict";
 
 module.exports = {
+  plugins: [
+    "stylelint-scss"
+  ],
+
   processors: [
     [
       "@mapbox/stylelint-processor-arbitrary-tags",
@@ -37,8 +41,6 @@ module.exports = {
     "function-calc-no-unspaced-operator": true,
     "keyframe-declaration-no-important": true,
     "named-grid-areas-no-invalid": true,
-    "no-invalid-double-slash-comments": true,
-    "no-invalid-position-at-import-rule": true,
     "string-no-newline": true,
 
     // Irregular
@@ -56,7 +58,8 @@ module.exports = {
 
     // Unknown
     "annotation-no-unknown": true,
-    "at-rule-no-unknown": true,
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
     "media-feature-name-no-unknown": true,
     "no-unknown-animations": true,
     "property-no-unknown": true,
@@ -94,8 +97,6 @@ module.exports = {
     "value-keyword-case": "lower",
     "function-name-case": "lower",
     "selector-type-case": "lower",
-    "rule-empty-line-before": "always",
-    "at-rule-empty-line-before": "always",
     "comment-empty-line-before": "always",
     "comment-whitespace-inside": "always",
 
