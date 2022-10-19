@@ -1,61 +1,77 @@
-.CodeMirror.cm-s-default {
-  .cm-variable, .cm-punctuation, .cm-property, .cm-operator {
-    color: #fff;
-  }
-  .cm-keyword {
-    color: cv('code', 'keyword');
-  }
-  .cm-def {
-    color: cv('code', 'define');
-  }
-  .cm-property {
-    color: cv('code', 'property');
-  }
-  .cm-string {
-    color: cv('code', 'string');
-  }
+.CodeMirror.cm-s-default .cm-variable,
+.CodeMirror.cm-s-default .cm-punctuation,
+.CodeMirror.cm-s-default .cm-property,
+.CodeMirror.cm-s-default .cm-operator {
+  color: #ffffff;
+}
 
-  .CodeMirror-gutters {
-    background: none;
-    border: none;
+.CodeMirror.cm-s-default .cm-keyword {
+  color: cv("code", "keyword");
+}
+
+.CodeMirror.cm-s-default .cm-def {
+  color: cv("code", "define");
+}
+
+.CodeMirror.cm-s-default .cm-property {
+  color: cv("code", "property");
+}
+
+.CodeMirror.cm-s-default .cm-string {
+  color: cv("code", "string");
+}
+
+.CodeMirror.cm-s-default .CodeMirror-gutters {
+  background: none;
+  border: none;
+}
+
+.CodeMirror.cm-s-default .CodeMirror-linenumber {
+  margin-left: -15px;
+
+  color: #737b7f;
+
+  opacity: 0.3;
+
+  @include media("<desktop") {
+    margin-left: -10px;
   }
-  .CodeMirror-linenumber {
-    color: #737B7F;
-    opacity: 0.3;
-    margin-left: -15px;
-    @include media("<desktop") {
-      margin-left: -10px;
-    }
+}
+
+.CodeMirror.cm-s-default .CodeMirror-code {
+  padding: 0 20px;
+  margin: 30px 0;
+
+  line-height: 1.53em;
+  font-size: 15px;
+
+  @include media("<desktop") {
+    padding: 0 15px;
+    margin: 20px 0;
   }
-  .CodeMirror-code {
-    padding: 0 20px;
-    margin: 30px 0;
-    line-height: 1.53em;
-    font-size: 15px;
-    @include media("<desktop") {
-      padding: 0 15px;
-      margin: 20px 0;
-    }
+}
+
+.CodeMirror.cm-s-default .CodeMirror-sizer {
+  border-right-width: 0 !important;
+
+  @include media("<desktop") {
+    max-width: 100%;
+    min-width: 0 !important;
   }
-  .CodeMirror-sizer {
-    border-right-width: 0 !important;
-    @include media("<desktop") {
-      max-width: 100%;
-      min-width: 0 !important;
-    }
-  }
-  .CodeMirror-selected {
-    background: rgba(255,255,255,.1);
-  }
-  .CodeMirror-focused .CodeMirror-selected {
-    background: rgba(255,255,255,.1);
-  }
-  
-  .CodeMirror-line::selection,
-  .CodeMirror-line > span::selection,
-  .CodeMirror-line > span > span::selection {
-    background: transparent;
-    color: cv('code', 'string');
-  }
-  
+}
+
+.CodeMirror.cm-s-default .CodeMirror-selected {
+  background: rgb(255 255 255 / 0.1);
+}
+
+.CodeMirror.cm-s-default .CodeMirror-focused .CodeMirror-selected {
+  background: rgb(255 255 255 / 0.1);
+}
+
+.CodeMirror.cm-s-default .CodeMirror-line::selection,
+.CodeMirror.cm-s-default .CodeMirror-line > span::selection,
+.CodeMirror.cm-s-default .CodeMirror-line > span > span::selection {
+  color: cv("code", "string");
+
+  background: transparent;
 }
