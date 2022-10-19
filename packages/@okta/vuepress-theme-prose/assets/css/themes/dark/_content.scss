@@ -1,64 +1,74 @@
-.page-body {
-  .content--container {
-    color: cv("text");
-    pre[class*="language-"] {
-      background-color: cv("code");
-    }
-    :not([class*="language-"]) > code {
-      background-color: cv("text", "accent");
-      color: cv("text");
-      border-color: transparent;
-    }
-    .edit-on-github .fa {
-      color: cv("text");
-    }
-    blockquote {
-      border-right-color: transparent;
-      border-bottom-color: transparent;
-      border-top-color: transparent;
-      background-color: cv("body", "obscure");
-    }
-    .vs__selected {
-      color: cv("text");
-    }
-    .vs__dropdown-menu {
-      border-color: cv("text", "accent") !important;
-      .vs__dropdown-option {
-        border-color: transparent !important;
-        background-color: cv("code");
-        color: cv("text");
-        &--highlight {
-          border-color: transparent !important;
-        }
-      }
-    }
-  }
-}
-
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.download-16::before,
-.fa-github:before {
+.page-body .content--container {
   color: cv("text");
 }
 
-.page-title [class^="icon-"]:before,
-[class*=" icon-"]:before {
+.page-body .content--container pre[class*="language-"] {
+  background-color: cv("code");
+}
+
+.page-body .content--container :not([class*="language-"]) > code {
+  color: cv("text");
+
+  background-color: cv("text", "accent");
+  border-color: transparent;
+}
+
+.page-body .content--container .edit-on-github .fa {
+  color: cv("text");
+}
+
+.page-body .content--container blockquote {
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  background-color: cv("body", "obscure");
+}
+
+.page-body .content--container .vs__selected {
+  color: cv("text");
+}
+
+.page-body .content--container .vs__dropdown-menu {
+  border-color: cv("text", "accent") !important;
+}
+
+.page-body .content--container .vs__dropdown-menu .vs__dropdown-option {
+  color: cv("text");
+
+  border-color: transparent !important;
+  background-color: cv("code");
+}
+
+.page-body .content--container .vs__dropdown-menu .vs__dropdown-option--highlight {
+  border-color: transparent !important;
+}
+
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.download-16::before,
+.fa-github::before {
+  color: cv("text");
+}
+
+.page-title [class^="icon-"]::before,
+[class*=" icon-"]::before {
   line-height: 2.875rem;
 }
 
 .api-label-ie {
+  color: cv("text");
+
   background-color: cv("link", "signup");
   border-color: cv("text");
-  color: cv("text");
 }
 
 .api-label-limited-ga {
+  color: cv("text");
+
   background-color: cv("cyan");
   border-color: cv("text");
-  color: cv("text");
 }
