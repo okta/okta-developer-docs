@@ -1,56 +1,55 @@
-.reference {
+.reference--container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+}
 
-  &--container {
-    display: flex;
-    flex-direction: column;
-    padding-top: 4rem;
+.reference--container .header-anchor {
+  display: none;
+}
 
-    .header-anchor {
-      display: none;
-    }
+.reference--list {
+  display: flex;
+  flex-direction: column;
+  max-height: 20rem;
+  flex-wrap: wrap;
+
+  @include media(">=tablet") {
+    flex-direction: row;
   }
+}
 
-  &--list {
-    display: flex;
-    flex-direction: column;
-    max-height: 20rem;
-    flex-wrap: wrap;
+.reference--list li {
+  margin-right: 1.3rem;
+  margin-bottom: 1rem;
+}
 
-    @include media('>=tablet') {
-      flex-direction: row;
-    }
+.reference--list img {
+  width: 1.4em;
+  height: 1.4em;
+  margin-right: 0.4em;
+}
 
-    li {
-      margin-right: 1.3rem;
-      margin-bottom: 1.0rem;
-    }
+.reference--list a {
+  display: flex;
 
-    img {
-      width: 1.4em;
-      height: 1.4em;
-      margin-right: 0.4em;
-    }
+  color: cv("action");
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
 
-    a {
-      display: flex;
-      color: cv('action');
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
+.reference--sections {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6rem;
+
+  @include media(">=tablet") {
+    flex-direction: row;
   }
+}
 
-  &--sections {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 6rem;
-
-    @include media('>=tablet') {
-      flex-direction: row;
-
-      > div {
-        flex: 1;
-      }
-    }
+.reference--sections > div {
+  @include media(">=tablet") {
+    flex: 1;
   }
-
 }
