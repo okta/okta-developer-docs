@@ -884,6 +884,7 @@ export const reference = [
           { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
           { title: "Manage Okta Objects", path: "empty"},
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
+          { title: "Anything-as-a-Source", path: "/docs/reference/api/xaas/" },
           { title: "Apps", path: "/docs/reference/api/apps/" },
           { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
