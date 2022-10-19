@@ -1,47 +1,62 @@
 <template>
-  <li :class="{
+  <li 
+    :class="{
       'expandable': (link.subLinks && link.subLinks.length > 0),
       'opened': isOpened,
       'is-home': link.path ? link.path === '/' : false
     }"
   >
-    <SmartLink v-if="link.link" :item="link" :class="'link'"/>
+    <SmartLink 
+      :class="'link'"
+      :item="link" 
+      v-if="link.link" 
+    />
     <router-link
-          v-else-if="link.path"
-          :to="link.path"
-          custom
-          v-slot="{ route, href, navigate }"
-          class="tree-nav-link"
+      class="tree-nav-link"
+      :to="link.path"
+      custom
+      v-else-if="link.path"
+      v-slot="{ route, href, navigate }"
+    >
+      <span>
+        <a
+          :class="route.path === $route.path ? 'router-link-active link' : 'link'"
+          :href="href"
+          :aria-current="route.path === $route.path && 'page'"
+          @click="navigate"
         >
-        <span>
-          <a
-            :href="href"
-            @click="navigate"
-            :class="route.path === $route.path ? 'router-link-active link' : 'link'"
-            :aria-current="route.path === $route.path && 'page'"
-            >
-            <slot>
-              <span class="text-holder">
-                {{ link.title }}
-              </span>
-            </slot>
-          </a>
-          <span v-if="link.path && link.subLinks" class="link shevron" @click="handleChange"></span>
-          </span>
+          <slot>
+            <span class="text-holder">
+              {{ link.title }}
+            </span>
+          </slot>
+        </a>
+        <span 
+          class="link shevron" 
+          v-if="link.path && link.subLinks" 
+          @click="handleChange"
+        >
+        </span>
+      </span>
     </router-link>
 
-    <span v-if="!link.path && link.subLinks" class="link" @click="handleChange">{{link.title}}</span>
-
+    <span 
+      class="link" 
+      v-if="!link.path && link.subLinks" 
+      @click="handleChange"
+    >
+      {{ link.title }}
+    </span>
   </li>
 </template>
 
 <script>
 export default {
   name: "DocsMenuItem",
-  props: ["link", "isOpened"],
   components: {
     SmartLink: () => import("./SmartLink.vue"),
   },
+  props: ["link", "isOpened"],
   methods: {
     handleChange: function() {
         this.$parent.handleChange(this.link);
