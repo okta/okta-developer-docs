@@ -1,28 +1,32 @@
-.cm-s-neat {
-  span.cm-variable {
-    color: cv("text");
-  }
-  span.cm-comment {
-    color: cv("breadcrumb", "svg");
-  }
-  span.cm-property {
-    color: cv("code", "property");
-  }
-  span.cm-keyword {
-    color: cv("code", "keyword");
-  }
-  span.cm-string {
-    color: cv("code", "define");
-  }
+.cm-s-neat span.cm-variable {
+  color: cv("text");
+}
+
+.cm-s-neat span.cm-comment {
+  color: cv("breadcrumb", "svg");
+}
+
+.cm-s-neat span.cm-property {
+  color: cv("code", "property");
+}
+
+.cm-s-neat span.cm-keyword {
+  color: cv("code", "keyword");
+}
+
+.cm-s-neat span.cm-string {
+  color: cv("code", "define");
 }
 
 .CodeMirror {
   color: cv("text");
+
   background-color: cv("code");
   border-color: transparent;
-  &-gutters {
-    background-color: cv("code");
-  }
+}
+
+.CodeMirror-gutters {
+  background-color: cv("code");
 }
 
 .token.function,
@@ -61,18 +65,18 @@ pre[class*="language-"] {
 .homepage--code-example {
   background-color: cv("body");
   border-color: transparent;
-  &--cm-wrapper .CodeMirror {
-    background-color: cv("body");
-    border-color: transparent;
-  }
 }
 
-.api-uri {
-  &-template {
-    background-color: cv("body", "obscure");
-    border-color: cv("body");
-  }
-  &-put strong {
-    color: cv("link");
-  }
+.homepage--code-example--cm-wrapper .CodeMirror {
+  background-color: cv("body");
+  border-color: transparent;
+}
+
+.api-uri-template {
+  background-color: cv("body", "obscure");
+  border-color: cv("body");
+}
+
+.api-uri-put strong {
+  color: cv("link");
 }
