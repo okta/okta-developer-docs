@@ -7,7 +7,7 @@ meta:
 
 <ApiLifecycle access="ea" />
 
-> **Note:** This feature requires API service integration enabled in your org. Contact your Okta account team or ask us on our [forum](https://devforum.okta.com/) to enable this feature.
+> **Note:** This feature requires API service integration enabled in your org. Contact your Okta account team to enable this feature.
 <!-- Need OAUTH_ADMIN_CONSENT_DIALOG FF enabled in monolith org -->
 
 You can publish an API service integration to the Okta Integration Network (OIN). This integration allows your service app to access your customer's Okta org through [Okta's core management APIs](/docs/reference/core-okta-api/) using OAuth 2.0.
