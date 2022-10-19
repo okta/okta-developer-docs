@@ -14,6 +14,16 @@ export default {
       headingAnchorsMap: {}
     };
   },
+  watch: {
+    $page(to, from) {
+      if (from.title !== to.title) {
+        this.$nextTick(function() {
+          this.anchors = this.getAnchors();
+          this.onPageChange();
+        });
+      }
+    }
+  },
   mounted() {
     this.anchors = this.getAnchors(``);
     document.onreadystatechange = () => {
@@ -31,16 +41,6 @@ export default {
   beforeDestroy() {
     window.removeEventListener("scroll", this.setHeadingAnchorToURL);
     window.removeEventListener("popstate", this.scrollToAnchor);
-  },
-  watch: {
-    $page(to, from) {
-      if (from.title !== to.title) {
-        this.$nextTick(function() {
-          this.anchors = this.getAnchors();
-          this.onPageChange();
-        });
-      }
-    }
   },
   methods: {
     onPageChange() {

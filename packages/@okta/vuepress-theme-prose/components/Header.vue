@@ -1,17 +1,25 @@
 <template>
   <header class="page-header">
-    <SmartLink :item="{ link: '/' }" classes="header--logo">
-      <img src="/img/icons/okta-developer.svg" alt="Okta Developer Logo" />
+    <SmartLink 
+      classes="header--logo"
+      :item="{ link: '/' }" 
+    >
+      <img 
+        src="/img/icons/okta-developer.svg" 
+        alt="Okta Developer Logo"
+      >
     </SmartLink>
     <div :class="{ 'menu--slideout': true, opened: menuOpened }">
       <div class="search--slideout opened">
         <SearchBar />
       </div>
-
       <HeaderMenu />
     </div>
     <div class="flex align-items-center">
-      <SmartLink :item="{ link: '/signup/' }" classes="sign-up--button">
+      <SmartLink 
+        classes="sign-up--button"
+        :item="{ link: '/signup/' }" 
+      >
         Sign Up
       </SmartLink>
       <div class="mobile--toggles">
