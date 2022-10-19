@@ -4,141 +4,169 @@ $small-spacing: 0.75rem;
 
 .stack-selector {
   border-radius: 3px;
-  .selector-control {
-    display: flex;
-    flex-direction: column;
-    .framework {
-      padding-left: 10px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    nav {
-      flex: 1;
-      background-color: white;
-    }
-    .instructions-label {
-      flex: 0;
-      padding: 0.65rem 0.5rem 0.5rem 0;
-      font-weight: 500;
-      white-space: nowrap;
-      font-size: 1rem;
-      color: #1D1D21;
+}
 
-      @include media(">desktop-xl") {
-        margin-left: 0.8rem;
-      }
-    }
-    .select-dropdown {
-      @include media(">desktop-xl") {
-        margin-left: 0.8rem;
-      }
-    }
-    .icon {
-      width: 24px;
-      height: 24px;
-      &:before,
-      &:after {
-        font-size: 24px;
-        width: 24px;
-        height: 24px;
-        line-height: 24px;
-        display: inline-block;
-        vertical-align: middle;
-        text-align: center;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 20px 20px;
-      }
-    }
-    .dropdown-item {
-      display: flex;
-      position: relative;
-      top: 1px;
-      width: 100%;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      text-decoration: none;
-      color: cv('text');
-      background: transparent;
-      align-items: center;
-      width: 100%;
-      text-overflow: ellipsis;
-    }
+.stack-selector .selector-control {
+  display: flex;
+  flex-direction: column;
+}
 
-    .vs__search {
-      margin-top: 0;
-      margin-left: 1.7rem;
-    }
+.stack-selector .selector-control .framework {
+  padding-left: 10px;
 
-    .vs__dropdown-toggle{
-      min-height: 45px;
-      padding: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-      border-color: cv('text','darker');
-      font-size: 14px;
-      .vs__selected-options{
-        flex-basis: auto;
-        padding: 0;
-        padding-left: 0.5rem;
-        max-width: 93%;
-        .vs__selected{
-          margin: 0;
-          padding: 0;
-          border: 0;
-          max-width: 90%;
-        }
-        .vs__search {
-          margin: 0;
-        }
-      }
-      .vs__actions {
-        padding: 0;
-      }
-      .vs__open-indicator {
-        fill: cv('text','darker');
-      }
-    }
+  text-overflow: ellipsis;
 
-    .vs__dropdown-menu {
-      overflow-x: hidden;
-      border-top-style: initial;
-      padding: 0;
-      z-index: 50;
+  overflow: hidden;
+}
 
-      .vs__dropdown-option {
-        padding: 0.7rem 1rem;
-        border: none;
-        border-bottom: 1px solid cv('gray', '100');
-        width: 100%;
-        margin: 0;
+.stack-selector .selector-control nav {
+  flex: 1;
 
-        &:last-child {
-          border-bottom: none;
-        }
+  background-color: #ffffff;
+}
 
-        &--highlight {
-          background: inherit;
-          color: inherit;
-          border: 1px solid cv('action');
-          box-sizing: border-box;
+.stack-selector .selector-control .instructions-label {
+  flex: 0;
+  padding: 0.65rem 0.5rem 0.5rem 0;
 
-          &:last-child {
-            border: 1px solid cv('action');
-            border-radius: 0 0 4px 4px;
-            box-sizing: border-box;
-          }
-        }
-      }
-    }
+  font-weight: 500;
+  white-space: nowrap;
+  font-size: 1rem;
+  color: #1d1d21;
+
+  @include media(">desktop-xl") {
+    margin-left: 0.8rem;
   }
+}
 
-  .stack-content {
-    padding-top: $base-spacing;
-    pre {
-      margin: 0;
-    }
+.stack-selector .selector-control .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.stack-selector .selector-control .icon::before,
+.stack-selector .selector-control .icon::after {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+
+  font-size: 24px;
+  line-height: 24px;
+  vertical-align: middle;
+  text-align: center;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+}
+
+.stack-selector .selector-control .select-dropdown {
+  @include media(">desktop-xl") {
+    margin-left: 0.8rem;
   }
+}
+
+.stack-selector .selector-control .dropdown-item {
+  position: relative;
+  top: 1px;
+
+  display: flex;
+  width: 100%;
+  align-items: center;
+
+  background: transparent;
+
+  white-space: nowrap;
+  text-decoration: none;
+  color: cv("text");
+  text-overflow: ellipsis;
+}
+
+.stack-selector .selector-control .vs__search {
+  margin-top: 0;
+  margin-left: 1.7rem;
+}
+
+.stack-selector .selector-control .vs__dropdown-toggle {
+  min-height: 45px;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  font-size: 14px;
+
+  border-color: cv("text", "darker");
+}
+
+.stack-selector .selector-control .vs__dropdown-toggle .vs__selected-options {
+  flex-basis: auto;
+  padding: 0;
+  padding-left: 0.5rem;
+  max-width: 93%;
+}
+
+.stack-selector .selector-control .vs__dropdown-toggle .vs__selected-options .vs__selected {
+  margin: 0;
+  padding: 0;
+  max-width: 90%;
+
+  border: 0;
+}
+
+.stack-selector .selector-control .vs__dropdown-toggle .vs__selected-options .vs__search {
+  margin: 0;
+}
+
+.stack-selector .selector-control .vs__dropdown-toggle .vs__actions {
+  padding: 0;
+}
+
+.stack-selector .selector-control .vs__dropdown-toggle .vs__open-indicator {
+  fill: cv("text", "darker");
+}
+
+.stack-selector .selector-control .vs__dropdown-menu {
+  z-index: 50;
+
+  padding: 0;
+
+  overflow-x: hidden;
+  border-top-style: initial;
+}
+
+.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option {
+  padding: 0.7rem 1rem;
+  width: 100%;
+  margin: 0;
+
+  border: none;
+  border-bottom: 1px solid cv("gray", "100");
+}
+
+.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option:last-child {
+  border-bottom: none;
+}
+
+.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight {
+  color: inherit;
+
+  background: inherit;
+  border: 1px solid cv("action");
+  box-sizing: border-box;
+}
+
+.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight:last-child {
+  border: 1px solid cv("action");
+  border-radius: 0 0 4px 4px;
+  box-sizing: border-box;
+}
+
+.stack-selector .stack-content {
+  padding-top: $base-spacing;
+}
+
+.stack-selector .stack-content pre {
+  margin: 0;
 }
