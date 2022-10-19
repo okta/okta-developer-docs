@@ -1,43 +1,43 @@
 .toggle-switch {
-  background: cv('theme-toggle', 'bg');
-  border-radius: 30px;
-  padding: 0 0.5625rem;
+  padding: 0 0.563rem;
   height: 43px;
   display: flex;
   align-items: center;
   margin-left: 1.75rem;
 
-  span {
-    border-radius: 50%;
-    width: 32px;
-    cursor: pointer;
-    height: 32px;
-    display: inline-flex;
-    justify-content: center;
+  background: cv("theme-toggle", "bg");
+  border-radius: 30px;
+}
 
-    &.active {
-      background: cv('blue', '300');
-    }
-  }
+.toggle-switch span {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  justify-content: center;
 
-  &.switch-theme {
-    span {
-      &:after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-color: cv('gray', '000');
-        -webkit-mask: url("/img/icons/mode-dark.svg") no-repeat center center;
-        mask: url("/img/icons/mode-dark.svg") no-repeat center center;
-      }
-      &.light-mode:after {
-        -webkit-mask-image: url("/img/icons/mode-light.svg");
-        mask-image: url("/img/icons/mode-light.svg");
-      }
+  border-radius: 50%;
 
-      &.active:after {
-        background-color: cv('theme-toggle', 'bg');
-      }
-    }
-  }
+  cursor: pointer;
+}
+
+.toggle-switch span.active {
+  background: cv("blue", "300");
+}
+
+.toggle-switch.switch-theme span::after {
+  content: "";
+
+  width: 100%;
+  height: 100%;
+
+  background-color: cv("gray", "000");
+  mask: url("/img/icons/mode-dark.svg") no-repeat center center;
+}
+
+.toggle-switch.switch-theme span.light-mode::after {
+  mask-image: url("/img/icons/mode-light.svg");
+}
+
+.toggle-switch.switch-theme span.active::after {
+  background-color: cv("theme-toggle", "bg");
 }
