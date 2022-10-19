@@ -1,68 +1,62 @@
-header.page-header {
-  .sign-up--button {
-    color: cv("action");
-    border-color: cv("action");
-  }
+header.page-header .sign-up--button {
+  color: cv("action");
+
+  border-color: cv("action");
 }
 
 @include media("<desktop") {
-  header.page-header {
-    .menu--slideout {
-      background-color: cv("body", "obscure");
-      .header--links {
-        & > ul.menu--items {
-          &:not(.expanded) {
-            & > li {
-              span.link,
-              a.link {
-                color: cv("text");
-              }
-              a.link.router-link-active {
-                color: cv("action") !important;
-              }
-            }
-          }
-          li a.link:hover,
-          li span.link:hover {
-            color: cv("action");
-          }
-        }
-        & > ul.menu--items.expanded {
-          li.opened > span {
-            color: cv("action");
-            &:after {
-              background-image: none !important;
-              mask-repeat: no-repeat;
-              mask-position: center;
-              background-color: cv("action") !important;
-              -webkit-mask-image: url(/img/icons/chevron-down-gray.svg);
-              mask-image: url(/img/icons/chevron-down-gray.svg);
-            }
-          }
-        }
-      }
-    }
+  header.page-header .menu--slideout {
+    background-color: cv("body", "obscure");
+  }
+
+  header.page-header .menu--slideout .header--links > ul.menu--items:not(.expanded) > li span.link,
+  header.page-header .menu--slideout .header--links > ul.menu--items:not(.expanded) > li a.link {
+    color: cv("text");
+  }
+
+  header.page-header .menu--slideout .header--links > ul.menu--items:not(.expanded) > li a.link.router-link-active {
+    color: cv("action") !important;
+  }
+
+  header.page-header .menu--slideout .header--links > ul.menu--items li a.link:hover,
+  header.page-header .menu--slideout .header--links > ul.menu--items li span.link:hover {
+    color: cv("action");
+  }
+
+  header.page-header .menu--slideout .header--links > ul.menu--items.expanded li.opened > span {
+    color: cv("action");
+  }
+
+  header.page-header .menu--slideout .header--links > ul.menu--items.expanded li.opened > span::after {
+    background-image: none !important;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    background-color: cv("action") !important;
+    mask-image: url("/img/icons/chevron-down-gray.svg");
   }
 }
 
-ul.menu--items > li.expandable {
-  & > span:after,
-  & > a:after {
-    background-image: url(/img/icons/chevron-down-white.svg) !important;
-  }
-  & > ul.submenu--items {
-    background: cv("header", "search");
-    .menu--divider {
-      border-color: cv("text", "accent");
-    }
-    &:before {
-      border-bottom-color: cv("header", "search");
-    }
-    li a {
-      color: cv("text");
-    }
-    .menu--icons .menu--icon svg path {
-      fill: cv("link");
-    }
-  }
+ul.menu--items > li.expandable > span::after,
+ul.menu--items > li.expandable > a::after {
+  background-image: url("/img/icons/chevron-down-white.svg") !important;
+}
+
+ul.menu--items > li.expandable > ul.submenu--items {
+  background: cv("header", "search");
+}
+
+ul.menu--items > li.expandable > ul.submenu--items .menu--divider {
+  border-color: cv("text", "accent");
+}
+
+ul.menu--items > li.expandable > ul.submenu--items::before {
+  border-bottom-color: cv("header", "search");
+}
+
+ul.menu--items > li.expandable > ul.submenu--items li a {
+  color: cv("text");
+}
+
+ul.menu--items > li.expandable > ul.submenu--items .menu--icons .menu--icon svg path {
+  fill: cv("link");
 }
