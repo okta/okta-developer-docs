@@ -1,17 +1,37 @@
 <template>
-<div class="breadcrumb" v-if="showBreadcrumb">
-  <div class="breadcrumb--container">
-    <ol>
-      <li v-for="(crumb, index) in crumbItems" :key="index">
-        <router-link v-if="crumb.link" :to="crumb.link">{{crumb.title}}</router-link>
-        <span v-else>{{crumb.title}}</span>
-        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1 9L5 5L1 1" stroke="#1D1D21"/>
-        </svg>
-      </li>
-    </ol>
+  <div 
+    class="breadcrumb" 
+    v-if="showBreadcrumb"
+  >
+    <div class="breadcrumb--container">
+      <ol>
+        <li 
+          v-for="(crumb, index) in crumbItems" 
+          :key="index"
+        >
+          <router-link 
+            :to="crumb.link"
+            v-if="crumb.link" 
+          >
+            {{ crumb.title }}
+          </router-link>
+          <span v-else>{{ crumb.title }}</span>
+          <svg 
+            width="6" 
+            height="10" 
+            viewBox="0 0 6 10" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path 
+              d="M1 9L5 5L1 1" 
+              stroke="#1D1D21"
+            />
+          </svg>
+        </li>
+      </ol>
+    </div>
   </div>
-</div>
 </template>
 
 <script>

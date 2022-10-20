@@ -1,28 +1,27 @@
 <template>
-<ul :class="['menu--items', 'menu--mobile', {'expanded': title_element && title_element.isOpened}]">
-  
-  <DocsMenuItem
-    v-if="title_element" 
-    :link="title_element"
-    :key="title_element.title"
-    :isOpened="title_element && title_element.isOpened"
-  />
+  <ul :class="['menu--items', 'menu--mobile', {'expanded': title_element && title_element.isOpened}]">
+    <DocsMenuItem
+      :link="title_element"
+      :isOpened="title_element && title_element.isOpened"
+      v-if="title_element" 
+      :key="title_element.title"
+    />
 
-  <DocsMenuItem
-    v-for="(link, index) in list"
-    :key="index"
-    :link="link"
-  />
-</ul>
+    <DocsMenuItem
+      :link="link"
+      v-for="(link, index) in list"
+      :key="index"
+    />
+  </ul>
 </template>
 
 <script>
 
 export default {
-  inject: ['appContext'],
   components: {
     DocsMenuItem: () => import("../components/DocsMenuItem.vue"),
   },
+  inject: ['appContext'],
   data() {
     return {
       'list': [],

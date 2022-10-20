@@ -1,37 +1,34 @@
 <template>
   <router-link
-      v-if="entityType === types.link && link.path !== '/'"
-      :to="link.path"
-      v-slot="{ route, href, navigate }"
-      class="tree-nav-link"
+    class="tree-nav-link"
+    :to="link.path"
+    v-if="entityType === types.link && link.path !== '/'"
+    v-slot="{ route, href, navigate }"
+  >
+    <a
+      :class="{
+        'router-link-active': isCurrentPage(route.path),
+        'link': true,
+      }"
+      :title="link.title"
+      :href="href"
+      :aria-current="route.path === $route.path && 'page'"
+      @click="navigate"
     >
-      <a
-        :title="link.title"
-        :href="href"
-        @click="navigate"
-        :class="{
-          'router-link-active': isCurrentPage(route.path),
-          'link': true,
-        }"
-        :aria-current="route.path === $route.path && 'page'"
-        >
-        <slot>
-          <span class="text-holder">
-            {{ link.title }}
-          </span>
-        </slot>
-      </a>
+      <slot>
+        <span class="text-holder">
+          {{ link.title }}
+        </span>
+      </slot>
+    </a>
   </router-link>
 </template>
 
 <script>
 export default {
   name: "HeaderNavItem",
-  props: ["link"],
   inject: ["appContext", "stackSelectorData"],
-  components: {
-    HeaderNavItem: () => import("../components/HeaderNavItem.vue"),
-  },
+  props: ["link"],
   data() {
     return {
       types: {
@@ -47,6 +44,7 @@ export default {
           return this.types.link
         }
       }
+      return false;
     },
   },
   methods: {
