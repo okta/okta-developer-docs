@@ -304,7 +304,8 @@
   }
 
   .error-codes .error-code .toggleErrorExample {
-    color: --link_color;
+    color: $link_color;
+    font-size: 14px;
 
     cursor: pointer;
   }
@@ -313,9 +314,6 @@
     text-decoration: underline;
   }
 
-  .error-codes .error-code .toggleErrorExample {
-    font-size: 14px;
-  }
   .error-codes .error-code .toggleErrorExample::before {
     content: "";
 
