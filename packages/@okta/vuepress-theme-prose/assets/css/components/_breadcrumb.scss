@@ -1,61 +1,61 @@
 .breadcrumb {
   padding: 0;
 
-  &--container {
-    padding: 0px;
-
-    ol {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      padding: 0 0 9px;
-      flex-wrap: wrap;
-
-      li {
-        display: flex;
-        align-items: center;
-        margin: 0 9px 0 0;
-        padding: 9px 0 0;
-
-        @include media("<desktop-xl") {
-          margin-right: 7px;
-        }
-        @include media("<tablet") {
-          padding-top: 4px;
-        }
-
-        a, span {
-          text-decoration: none !important;
-          color: cv('text', 'darker');
-          font-size: 12px;
-          font-weight: 500;
-          padding-right: 7px;
-
-          @include media("<desktop-xl") {
-            padding-right: 7px;
-          }
-        }
-        a {
-          color: cv('link');
-        }
-        &:first-child {
-          a, span {
-            color: cv('text', 'darker');
-          }
-        }
-        &:last-child {
-          svg {
-            display: none;
-          }
-        }
-      }
-
-    }
-
-  }
-
   @include media("<desktop-xl") {
     padding-bottom: 0;
   }
+}
 
+.breadcrumb--container {
+  padding: 0;
+}
+
+.breadcrumb--container ol {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0 0 9px;
+  flex-wrap: wrap;
+}
+
+.breadcrumb--container ol li {
+  display: flex;
+  align-items: center;
+  margin: 0 9px 0 0;
+  padding: 9px 0 0;
+
+  @include media("<desktop-xl") {
+    margin-right: 7px;
+  }
+
+  @include media("<tablet") {
+    padding-top: 4px;
+  }
+}
+
+.breadcrumb--container ol li a,
+.breadcrumb--container ol li span {
+  padding-right: 7px;
+
+  text-decoration: none !important;
+  color: cv("text", "darker");
+  font-size: 12px;
+  font-weight: 500;
+
+  @include media("<desktop-xl") {
+    padding-right: 7px;
+  }
+}
+
+.breadcrumb--container ol li a {
+  color: cv("link");
+}
+
+.breadcrumb--container ol li:first-child a,
+.breadcrumb--container ol li:first-child span {
+  color: cv("text", "darker");
+}
+
+.breadcrumb--container ol li:last-child svg {
+  display: none;
 }
