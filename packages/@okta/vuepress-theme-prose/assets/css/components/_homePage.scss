@@ -1,468 +1,554 @@
 @mixin mobile-separator {
-  content: '';
+  content: "";
+
   position: absolute;
   bottom: 0;
   left: 50%;
+
   width: 22px;
   height: 1px;
+
+  background: cv("text", "lighter");
+
   transform: translateX(-50%);
-  background: cv('text', 'lighter');
 }
 
 .homepage {
-  background-color: cv('body', 'lighter');
-  font-family: $font-family;
   min-height: 100vh;
-  color: cv('text');
 
-  .content--container {
-    @include media("<desktop") {
-      padding: 0;
-    }
+  font-family: $font-family;
+  color: cv("text");
+
+  background-color: cv("body", "lighter");
+}
+
+.homepage .content--container {
+  @include media("<desktop") {
+    padding: 0;
+  }
+}
+
+.homepage .width-adjuster {
+  flex: 4 0 78%;
+  max-width: calc(100% - 266px);
+
+  @include media("<desktop") {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+.homepage .row {
+  height: auto;
+}
+
+.homepage--elevated {
+  z-index: 11;
+}
+
+.homepage .row.justify-content-around.no-wrap,
+.homepage .row.justify-content-between.no-wrap {
+  flex-wrap: nowrap;
+}
+
+.homepage--section-margins {
+  padding-left: 135px;
+  padding-right: 135px;
+
+  @include media("<desktop-xl") {
+    padding: 40px 57px;
   }
 
-  .width-adjuster {
-    flex: 4 0 78%;
-    max-width: calc(100% - 266px);
-    @include media("<desktop") {
-      flex-basis: 100%;
-      max-width: 100%;
-    }
+  @include media("<desktop") {
+    padding: 40px 33px;
   }
+}
 
-  .row {
+.homepage--top-section {
+  padding-bottom: 103px;
+  padding-top: 47px;
+
+  background: #ffffff url("/img/homepage/white-to-gray-bg.svg") repeat-x left bottom;
+
+  @include media("<desktop") {
     height: auto;
   }
+}
 
-  &--elevated {
-    z-index: 11;
-  }
+.homepage--selector-block-margin {
+  margin-bottom: 150px;
+  padding-top: 42px;
 
-  .row.justify-content-around.no-wrap,
-  .row.justify-content-between.no-wrap {
-    flex-wrap: nowrap;
-  }
-
-  &--section-margins {
-    padding-left: 135px;
-    padding-right: 135px;
-    @include media("<desktop-xl") {
-      padding: 40px 57px;
-    }
-    @include media("<desktop") {
-      padding: 40px 33px;
-    }
-  }
-
-  &--top-section {
-    padding-top: 38px;
-    padding-bottom: 50px;
-    background: #fff url('/img/homepage/white-to-gray-bg.svg') repeat-x left bottom;
-    @include media("<desktop") {
-      height: auto;
-      padding-bottom: 103px;
-      padding-top: 47px;
-    }
-  }
-  &--selector-block-margin {
-    margin-bottom: 150px;
-    padding-top: 42px;
-    @include media("<desktop") {
-      margin-bottom: 30px;
-      padding-top: 54px;
-    }
-  }
-
-  &--assurance-block-margin {
+  @include media("<desktop") {
+    margin-bottom: 30px;
     padding-top: 54px;
-    padding-bottom: 105px;
-    background: cv('body', 'lighter') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
-
-    @include media("<desktop") {
-      padding-bottom: 165px;
-      padding-top: 91px;
-    }
   }
+}
 
-  &--partners-block-margin {
-    margin-bottom: 58px;
-    @include media("<desktop-xl") {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
+.homepage--assurance-block-margin {
+  padding-top: 54px;
+  padding-bottom: 105px;
 
-  &--customize-your-app-margin {
-    margin-bottom: 75px;
-    min-height: 600px;
-    padding-top: 20px;
-    position: relative;
-    * {
-      z-index: 1;
-    }
-    &::before {
-      content: '';
-      z-index: 0;
-      position: absolute;
-      background: #fff url('/img/homepage/white-to-gray-bg.svg') repeat-x left bottom;
-      width: 100%;
-      height: 485px;
-      top: 0;
-      left: 0;
-    }
+  background: cv("body", "lighter") url("/img/homepage/gray-to-white-bg.svg") repeat-x left bottom;
 
-    @include media("<desktop-xl") {
-      margin-bottom: 0px;
-    }
-    @include media("<desktop") {
-      padding-top: 40px;
-    }
+  @include media("<desktop") {
+    padding-bottom: 165px;
+    padding-top: 91px;
   }
+}
 
-  &--color-main {
-    color: cv('text', 'darker');
+.homepage--partners-block-margin {
+  margin-bottom: 58px;
+
+  @include media("<desktop-xl") {
+    padding-top: 0;
+    padding-bottom: 0;
   }
-  &--color-sub {
-    color: cv('text');
-  }
-  &--intro-heading {
+}
+
+.homepage--customize-your-app-margin {
+  position: relative;
+
+  margin-bottom: 75px;
+  min-height: 600px;
+  padding-top: 20px;
+
+  @include media("<desktop-xl") {
     margin-bottom: 0;
-    padding-bottom: 36px;
-    border-bottom: 1px solid cv('text', 'lighter');
-
-    @include media("<tablet") {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 21px;
-    }
-
-    h6 {
-      font-size: 1em;
-      font-weight: 500;
-      margin: 0 0 9px;
-      position: relative;
-
-      @include media("<tablet") {
-        text-align: center;
-        font-size: 21px;
-        padding: 0 0 16px;
-        margin-bottom: 21px;
-
-        &::after {
-          @include mobile-separator();
-        }
-      }
-    }
-    p {
-      @include media("<1120px") {
-        br {
-          display: none;
-        }
-      }
-      @include media("<tablet") {
-        line-height: 1.45rem;
-        br {
-          display: none;
-        }
-      }
-    }
   }
 
-  &--main-heading {
-    font-size: 32px;
-    font-weight: 300;
-    margin-top: 60px;
-    margin-bottom: 60px;
+  @include media("<desktop") {
+    padding-top: 40px;
+  }
+}
+
+.homepage--customize-your-app-margin * {
+  z-index: 1;
+}
+
+.homepage--customize-your-app-margin::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+
+  width: 100%;
+  height: 485px;
+
+  background: #ffffff url("/img/homepage/white-to-gray-bg.svg") repeat-x left bottom;
+}
+
+.homepage--color-main {
+  color: cv("text", "darker");
+}
+
+.homepage--color-sub {
+  color: cv("text");
+}
+
+.homepage--intro-heading {
+  margin-bottom: 0;
+  padding-bottom: 36px;
+
+  border-bottom: 1px solid cv("text", "lighter");
+
+  @include media("<tablet") {
+    margin-bottom: 0;
+    padding-bottom: 21px;
+
+    border-bottom: none;
+  }
+}
+
+.homepage--intro-heading h6 {
+  position: relative;
+
+  margin: 0 0 9px;
+
+  font-size: 1em;
+  font-weight: 500;
+
+  @include media("<tablet") {
+    padding: 0 0 16px;
+    margin-bottom: 21px;
+
+    text-align: center;
+    font-size: 21px;
+  }
+}
+
+.homepage--intro-heading h6::after {
+  @include mobile-separator;
+}
+
+.homepage--intro-heading p {
+  line-height: 1.45rem;
+}
+
+.homepage--intro-heading p br {
+  @include media("<tablet") {
+    display: none;
+  }
+
+  @include media("<1120px") {
+    display: none;
+  }
+}
+
+.homepage--main-heading {
+  position: relative;
+
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+  font-size: 32px;
+  font-weight: 300;
+
+  @include media("<tablet") {
+    margin-bottom: 49px;
+    margin-top: 25px;
+
+    text-align: center;
+    font-size: 28px;
+  }
+}
+
+.homepage--section-description {
+  max-width: 100%;
+
+  @include media("<tablet") {
+    padding-bottom: 30px;
+
+    text-align: center;
+  }
+}
+
+.homepage--sub-heading {
+  margin-bottom: 28px;
+}
+
+.homepage--sub-heading h2 {
+  margin-bottom: 8px;
+  padding-bottom: 0;
+  margin-top: 71px;
+
+  font-size: 24px;
+
+  @include media("<tablet") {
     position: relative;
-    @include media("<tablet") {
-      text-align: center;
-      margin-bottom: 49px;
-      margin-top: 25px;
-      font-size: 28px;
-    }
+
+    margin: 2px 0 21px;
+    padding-bottom: 16px;
+
+    text-align: center;
+    font-size: 21px;
   }
-  &--section-description {
-    max-width: 100%;
-    @include media("<tablet") {
-      text-align: center;
-      padding-bottom: 30px;
-    }
+}
+
+.homepage--sub-heading h2::after {
+  @include media("<tablet") {
+    @include mobile-separator;
   }
+}
 
-  &--sub-heading {
-    margin-bottom: 28px;
+.homepage--sub-heading p {
+  font-size: 18px;
 
-    h2 {
-      font-size: 24px;
-      margin-bottom: 8px;
-      padding-bottom: 0px;
-      margin-top: 71px;
-      @include media("<tablet") {
-        text-align: center;
-        font-size: 21px;
-        margin: 2px 0 21px;
-        padding-bottom: 16px;
-        position: relative;
-        &::after {
-          @include mobile-separator();
-        }
-      }
-    }
-
-    p {
-      font-size: 18px;
-      @include media("<tablet") {
-        font-size: 16px;
-        text-align: center;
-        line-height: 1.45rem;
-      }
-    }
+  @include media("<tablet") {
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.45rem;
   }
+}
 
-  &--centered-md {
-    @include media("<=bootstrap-lg") {
-      text-align: center;
-    }
+.homepage--centered-md {
+  @include media("<=bootstrap-lg") {
+    text-align: center;
   }
+}
 
-  &--sub-heading-disclaimer {
-    font-size: 18px;
-    margin-bottom: 30px;
-    @include media("<desktop") {
-      text-align: center;
-    }
-    &:last-child {
-      margin-bottom: 30px;
-    }
+.homepage--sub-heading-disclaimer {
+  margin-bottom: 30px;
+
+  font-size: 18px;
+
+  @include media("<desktop") {
+    text-align: center;
   }
-  &--examples {
-    padding-top: 36px;
-    margin: 0 -70px;
-    justify-content: center;
-    @include media("<desktop-xl") {
-      flex-direction: column;
-      margin: 0;
-    }
-    @include media("<desktop") {
-      padding-top: 41px;
-    }
-  }
-  &--code-example {
-    height: 400px;
-    background-color: cv("text", "darker");
-    border: 1.5px solid #2a4c63;
-    border-radius: 10px;
-    box-shadow: 0px 9px 25px rgba(0, 0, 0, 0.24);
-    overflow: hidden;
-    margin-bottom: 30px;
-    margin-right: 37px;
-    min-width: 563px;
-    @include media("<desktop-xl") {
-      margin-bottom: 25px;
-      margin-right: 0;
-    }
-    @include media("<desktop") {
-      min-width: 0;
-      width: 100%;
-      height: auto;
-    }
-    &--header {
-      height: 50px;
-      background: #192e3a;
-      padding: 10px 20px;
-      font-size: 16px;
-    }
-    &--cm-wrapper {
-      height: 100%;
-      .vue-codemirror {
-        height: 100%;
-      }
-      .CodeMirror {
-        height: 100%;
-        background-color: cv("text", "darker");
-        color: #fff;
+}
 
-        pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like {
-          @include media("<desktop") {
-            white-space: break-spaces;
-            word-break: break-word;
-          }
-        }
-      }
-    }
-  }
+.homepage--sub-heading-disclaimer:last-child {
+  margin-bottom: 30px;
+}
 
-  &--live-widget {
-    background-color: #f9f9f9;
-    border: 1px solid #cecece;
-    border-radius: 10px;
-    width: 334px;
-    max-width: 334px;
-    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.10);
-    margin-bottom: 30px;
-    overflow: hidden;
-    @include media("<tablet") {
-      max-width: 100%;
-    }
+.homepage--examples {
+  padding-top: 36px;
+  margin: 0 -70px;
+  justify-content: center;
 
-    #okta-sign-in {
-      font-family: $font-family;
-      min-width: 210px;
-      .auth-header {
-        padding: 22px 90px 47px;
-      }
-      &.no-beacon .auth-header {
-        padding-bottom: 25px;
-      }
-      .auth-org-logo {
-        max-height: 35px;
-      }
-      .auth-content {
-        background: #fff;
-        padding: 60px 35px 20px;
-      }
-      &.no-beacon .auth-content {
-        padding-bottom: 34px;
-      }
-      .o-form-head {
-        font-size: 11px;
-        margin-bottom: 13px;
-      }
-      .o-form-fieldset {
-        margin-bottom: 13px;
-      }
-      .o-form {
-        .input-fix, .textarea-fix {
-          height: 34px;
-        }
-        .custom-checkbox label {
-          font-size: 11px;
-        }
-      }
-      .auth-footer {
-        font-size: 11px;
-        margin-top: 5px;
-      }
-      .o-form-button-bar {
-        padding-bottom: 15px;
-      }
-      &.main-page-widget-wrapper .button.button-primary {
-        background: #1662DD;
-        border: none;
-        text-transform: none;
-      }
-      &.main-page-widget-wrapper .okta-form-label.o-form-label {
-        display: none;
-      }
-    }
-  }
-
-  &--welcome-leia {
-    display: flex;
+  @include media("<desktop-xl") {
     flex-direction: column;
-    align-items: center;
-    position: relative;
-    border-radius: 10px;
-    border: 1px solid cv('text', 'lighter');
-    background-color: white;
-    height: 425px;
-    padding: 10% 15%;
-    box-shadow: 0px 20px 24px rgba(0, 0, 0, 0.13);
-
-    @include media("<desktop") {
-      padding: 30px 10px;
-      justify-content: space-evenly;
-    }
-
-    &--header {
-      font-size: 28px;
-      font-weight: 500;
-      animation: moveToRight 0.6s ease both;
-      text-align: center;
-      color: cv('link', 'darker');
-      margin-bottom: 28px;
-    }
-
-    &--info {
-      text-align: center;
-      font-size: 1rem;
-      line-height: 1.7rem;
-      margin-bottom: 47px;
-    }
-
-    &--actions {
-      display: flex;
-      flex-direction: row;
-
-      @include media("<desktop") {
-        flex-direction: column;
-      }
-
-      .act-btn {
-        display: block;
-        margin-right: 23px;
-        margin-bottom: 20px;
-        padding: 0;
-        color: inherit;
-        display: block;
-        padding: 8px 24px;
-        text-decoration: none;
-        border-radius: 0.25rem;
-        font-size: 14px;
-        font-weight: 500;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
-        &:hover,
-        &:active,
-        &:focus {
-          color: inherit;
-        }
-      }
-
-      &--cta.act-btn {
-        background: cv('header');
-        border-color: cv('header');
-        color: white;
-        &:hover {
-          color: white;
-        }
-      }
-
-      &--docs.act-btn {
-        color: cv('header');
-        border-color: cv('header');
-        &:hover {
-          background: cv('header');
-          border-color: cv('header');
-          color: white;
-        }
-      }
-    }
-
-    &--close {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      position: absolute;
-      top: 23px;
-      right: 17px;
-      z-index: 1;
-      cursor: pointer;
-    }
+    margin: 0;
   }
+
+  @include media("<desktop") {
+    padding-top: 41px;
+  }
+}
+
+.homepage--code-example {
+  height: 400px;
+  margin-bottom: 30px;
+  margin-right: 37px;
+  min-width: 563px;
+
+  background-color: cv("text", "darker");
+  border: 1.5px solid #2a4c63;
+  border-radius: 10px;
+  box-shadow: 0 9px 25px rgb(0 0 0 / 0.24);
+  overflow: hidden;
+
+  @include media("<desktop-xl") {
+    margin-bottom: 25px;
+    margin-right: 0;
+  }
+
+  @include media("<desktop") {
+    min-width: 0;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.homepage--code-example--header {
+  height: 50px;
+  padding: 10px 20px;
+
+  background: #192e3a;
+  font-size: 16px;
+}
+
+.homepage--code-example--cm-wrapper {
+  height: 100%;
+}
+
+.homepage--code-example--cm-wrapper .vue-codemirror {
+  height: 100%;
+}
+
+.homepage--code-example--cm-wrapper .CodeMirror {
+  height: 100%;
+
+  color: #ffffff;
+
+  background-color: cv("text", "darker");
+}
+
+.homepage--code-example--cm-wrapper .CodeMirror pre.CodeMirror-line, .homepage--code-example--cm-wrapper .CodeMirror .CodeMirror pre.CodeMirror-line-like {
+  @include media("<desktop") {
+    white-space: break-spaces;
+    word-break: break-word;
+  }
+}
+
+.homepage--live-widget {
+  width: 334px;
+  max-width: 334px;
+  margin-bottom: 30px;
+
+  background-color: #f9f9f9;
+  border: 1px solid #cecece;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+
+  @include media("<tablet") {
+    max-width: 100%;
+  }
+}
+
+.homepage--live-widget #okta-sign-in {
+  min-width: 210px;
+
+  font-family: $font-family;
+}
+
+.homepage--live-widget #okta-sign-in .auth-header {
+  padding: 22px 90px 47px;
+}
+
+.homepage--live-widget #okta-sign-in.no-beacon .auth-header {
+  padding-bottom: 25px;
+}
+
+.homepage--live-widget #okta-sign-in .auth-org-logo {
+  max-height: 35px;
+}
+
+.homepage--live-widget #okta-sign-in .auth-content {
+  padding: 60px 35px 20px;
+
+  background: #ffffff;
+}
+
+.homepage--live-widget #okta-sign-in.no-beacon .auth-content {
+  padding-bottom: 34px;
+}
+
+.homepage--live-widget #okta-sign-in .o-form-head {
+  margin-bottom: 13px;
+
+  font-size: 11px;
+}
+
+.homepage--live-widget #okta-sign-in .o-form-fieldset {
+  margin-bottom: 13px;
+}
+.homepage--live-widget #okta-sign-in .o-form .input-fix,
+.homepage--live-widget #okta-sign-in .o-form .textarea-fix {
+  height: 34px;
+}
+
+.homepage--live-widget #okta-sign-in .o-form .custom-checkbox label {
+  font-size: 11px;
+}
+
+.homepage--live-widget #okta-sign-in .auth-footer {
+  margin-top: 5px;
+
+  font-size: 11px;
+}
+
+.homepage--live-widget #okta-sign-in .o-form-button-bar {
+  padding-bottom: 15px;
+}
+
+.homepage--live-widget #okta-sign-in.main-page-widget-wrapper .button.button-primary {
+  text-transform: none;
+
+  background: #1662dd;
+  border: none;
+}
+
+.homepage--live-widget #okta-sign-in.main-page-widget-wrapper .okta-form-label.o-form-label {
+  display: none;
+}
+
+.homepage--welcome-leia {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 425px;
+  padding: 10% 15%;
+
+  border-radius: 10px;
+  border: 1px solid cv("text", "lighter");
+  background-color: #ffffff;
+  box-shadow: 0 20px 24px rgb(0 0 0 / 0.13);
+
+  @include media("<desktop") {
+    padding: 30px 10px;
+    justify-content: space-evenly;
+  }
+}
+
+.homepage--welcome-leia--header {
+  margin-bottom: 28px;
+
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+  color: cv("link", "darker");
+
+  animation: moveToRight 0.6s ease both;
+}
+
+.homepage--welcome-leia--info {
+  margin-bottom: 47px;
+
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.7rem;
+}
+
+.homepage--welcome-leia--actions {
+  display: flex;
+  flex-direction: row;
+
+  @include media("<desktop") {
+    flex-direction: column;
+  }
+}
+
+.homepage--welcome-leia--actions .act-btn {
+  display: block;
+  margin-right: 23px;
+  margin-bottom: 20px;
+  padding: 8px 24px;
+
+  color: inherit;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+
+  border-radius: 0.25rem;
+
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.homepage--welcome-leia--actions .act-btn:hover, .homepage--welcome-leia--actions .act-btn:active, .homepage--welcome-leia--actions .act-btn:focus {
+  color: inherit;
+}
+
+.homepage--welcome-leia--actions--cta.act-btn {
+  color: #ffffff;
+
+  background: cv("header");
+  border-color: cv("header");
+}
+
+.homepage--welcome-leia--actions--cta.act-btn:hover {
+  color: #ffffff;
+}
+
+.homepage--welcome-leia--actions--docs.act-btn {
+  color: cv("header");
+
+  border-color: cv("header");
+}
+
+.homepage--welcome-leia--actions--docs.act-btn:hover {
+  color: #ffffff;
+
+  background: cv("header");
+  border-color: cv("header");
+}
+
+.homepage--welcome-leia--close {
+  position: absolute;
+  top: 23px;
+  right: 17px;
+  z-index: 1;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  cursor: pointer;
 }
 
 @keyframes moveToRight {
-  from {
+  0% {
     transform: translateY(10px);
   }
-  to {
-  }
 }
-
 .isHome .width-adjuster {
   max-width: 100%;
 }
+
 .aside-hidden .width-adjuster {
   max-width: calc(100% - 77px);
 }
