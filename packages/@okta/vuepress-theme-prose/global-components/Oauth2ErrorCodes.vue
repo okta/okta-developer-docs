@@ -1,62 +1,62 @@
 <template>
   <div class="error-codes">
     <p class="error-codes-search-container">
-      <input 
-        :value="search" 
-        type="text" 
-        name="filter" 
-        autocomplete="off" 
-        autocorrect="off" 
-        autocapitalize="off" 
-        spellcheck="false" 
-        placeholder="Search error codes for... (Titles, Http Status, or Error Code)" 
-        id="error-code-search" 
+      <input
+        :value="search"
+        type="text"
+        name="filter"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="Search error codes for... (Titles, Http Status, or Error Code)"
+        id="error-code-search"
         @input="updateSearch"
       >
-      <select 
-        name="release" 
-        markdown="block" 
-        id="error-codes-release" 
+      <select
+        name="release"
+        markdown="block"
+        id="error-codes-release"
         v-model="filterStatusCode"
       >
         <option :value="null">
           Status Codes
         </option>
-        <option 
+        <option
           :value="statusCode.statusCode"
-          v-for="statusCode in statusCodes" 
+          v-for="statusCode in statusCodes"
           :key="statusCode.statusCode"
         >
           {{ statusCode.statusCode }} - {{ statusCode.statusReasonPhrase }}
         </option>
       </select>
-      <span 
-        class="reset-search" 
+      <span
+        class="reset-search"
         title="Reset Search"
-        @click="resetSearch" 
+        @click="resetSearch"
       >
       </span>
     </p>
     <div id="error-code-count">
       Found <b>{{ resultCount }}</b> matches
     </div>
-    <div 
-      class="error-code" 
-      v-for="oktaError in filteredErrorCodes" 
+    <div
+      class="error-code"
+      v-for="oktaError in filteredErrorCodes"
       :key="oktaError.errorCode"
     >
       <h4 :id="oktaError.errorCode">
-        <span 
-          class="title-error-code" 
+        <span
+          class="title-error-code"
           v-html="$options.filters.titleErrorCode(oktaError)"
         >
         </span>
         <span>
-          {{ oktaError.title }} 
-          <a 
+          {{ oktaError.title }}
+          <a
             class="header-anchor header-link"
-            :href="'#'+oktaError.errorCode" 
-            aria-hidden="true" 
+            :href="'#'+oktaError.errorCode"
+            aria-hidden="true"
           >
             <i class="fa fa-link"></i>
           </a>
@@ -65,30 +65,30 @@
       <div class="error-code-mappings">
         <b>HTTP Status: </b> <code>{{ oktaError.statusCode }} {{ oktaError.statusReasonPhrase }}</code>
       </div>
-      <p 
-        class="error-code-description" 
-        v-if="oktaError.errorDescription" 
+      <p
+        class="error-code-description"
+        v-if="oktaError.errorDescription"
         v-html="oktaError.errorDescription"
       ></p>
-      <p 
-        class="error-code-description" 
-        v-else 
+      <p
+        class="error-code-description"
+        v-else
         v-html="oktaError.errorSummary"
       ></p>
       <div class="example">
-        <h6 
-          class="toggleErrorExample" 
-          :class="{open: openExample == oktaError.errorCode}" 
+        <h6
+          class="toggleErrorExample"
+          :class="{open: openExample == oktaError.errorCode}"
           @click="toggleResponseExample(oktaError.errorCode)"
         >
           <span class="underline">
             <span v-if="openExample == oktaError.errorCode">Hide</span>
-            <span v-else>Show</span> 
+            <span v-else>Show</span>
             Example Error Response
           </span>
         </h6>
-        <pre 
-          class="language-http" 
+        <pre
+          class="language-http"
           v-if="openExample == oktaError.errorCode"
         >
           <code>
@@ -205,161 +205,179 @@
 </script>
 
 <style scoped lang="scss">
-  @import '../assets/css/abstracts/_colors.scss';
+  @import "../assets/css/abstracts/_colors.scss";
 
-  $border_color: map-get(map-get($colors, 'form'), 'input-border');
-  $link_color: map-get(map-get($colors, 'link'), 'base');
+  $border_color: map-get(map-get($colors, "form"), "input-border");
+  $link_color: map-get(map-get($colors, "link"), "base");
 
-  .error-codes {
-    .PageContent-main {
-      padding-right: 0;
-    }
-
-    .error-codes-search-container {
-      display: flex;
-      align-items: center;
-    }
-
-    .reset-search {
-      cursor: pointer;
-    }
-
-    .reset-search::before {
-      content: '\f00d';
-      margin-left: 8px;
-      font-family: fontawesome;
-      text-align: center;
-    }
-
-    select {
-      height: 45px;
-      border: 2px solid $border_color;
-    }
-
-    #error-code-search {
-      flex: 1;
-      margin-right: 10px;
-      border: 2px solid $border_color;
-      font-size: 18px;
-      padding-top:10px;
-      padding-bottom: 10px;
-      padding-left: 10px;
-    }
-
-    #error-code-search::placeholder {
-      color: $border_color;
-    }
-
-    #error-code-release {
-      margin-top: 1em;
-    }
-
-    #error-code-count {
-      margin-top: -1em;
-      margin-left: 0.3em;
-      color: #888888;
-      font-size: 0.9em;
-    }
-
-    .error-code {
-      h4 {
-        margin: 25px 0 0;
-        padding: 6px 10px;
-        clear: left;
-        overflow: hidden;
-        border-left: 3px solid $link_color;
-        color: $link_color;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-
-      }
-
-      h4 .title-error-code {
-        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-      }
-
-      h4::before {
-        content: '\f071';
-        margin-right: 8px;
-        font-family: fontawesome;
-      }
-
-      pre {
-        padding: 5px 0px;
-        margin: 0px;
-        white-space: pre-line;
-      }
-
-      pre code {
-        white-space: pre;
-        padding-left: 20px;
-      }
-
-      .toggleErrorExample {
-        color: $link_color;
-        cursor: pointer;
-
-        .underline:hover {
-          text-decoration: underline;
-        }
-      }
-
-      .toggleErrorExample {
-        font-size: 14px;
-      }
-      .toggleErrorExample:before {
-        content: '\f0a9';
-        margin-right: 8px;
-        font-family: fontawesome;
-        text-decoration: none;
-      }
-      .toggleErrorExample.open::before {
-        content: '\f0ab';
-        margin-right: 8px;
-        font-family: fontawesome;
-        text-decoration: none;
-      }
-
-      .error-code-mappings {
-        margin: -1em 0;
-        padding: 10px 15px;
-        color: #888888;
-        font-size: 0.9em;
-      }
-
-      .error-code-description {
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
-
-      .error-code-tag::before {
-        content: '\f02b';
-        padding: 2px 4px;
-        font-family: fontawesome;
-      }
-
-      .error-code-tag.world::before {
-        content: '\f0ac';
-        padding: 2px 4px;
-        font-family: fontawesome;
-      }
-
-      .error-code-tag {
-        display: block;
-        margin: 2px;
-        padding: 1px 3px;
-        float: left;
-        border-radius: 3px;
-        background-color: #ffffff;
-        font-size: 0.7em;
-      }
-
-      .error-code-release {
-        clear: both;
-        opacity: 0.7;
-        font-size: 0.8em;
-      }
-    }
+  .error-codes .PageContent-main {
+    padding-right: 0;
   }
 
+  .error-codes .error-codes-search-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .error-codes .reset-search {
+    cursor: pointer;
+  }
+
+  .error-codes .reset-search::before {
+    content: "";
+
+    margin-left: 8px;
+
+    font-family: "fontawesome", sans-serif;
+    text-align: center;
+  }
+  .error-codes select {
+    height: 45px;
+
+    border: 2px solid $border_color;
+  }
+
+  .error-codes #error-code-search {
+    flex: 1;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+
+    font-size: 18px;
+
+    border: 2px solid $border_color;
+  }
+
+  .error-codes #error-code-search::placeholder {
+    color: $border_color;
+  }
+
+  .error-codes #error-code-release {
+    margin-top: 1em;
+  }
+
+  .error-codes #error-code-count {
+    margin-top: -1em;
+    margin-left: 0.3em;
+
+    color: #888888;
+    font-size: 0.9em;
+  }
+
+  .error-codes .error-code h4 {
+    margin: 25px 0 0;
+    padding: 6px 10px;
+    clear: left;
+
+    color: $link_color;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    overflow: hidden;
+    border-left: 3px solid $link_color;
+  }
+
+  .error-codes .error-code h4 .title-error-code {
+    font-family: "Menlo", "Monaco", "Consolas", "Courier New", monospace;
+  }
+
+  .error-codes .error-code h4::before {
+    content: "";
+
+    margin-right: 8px;
+
+    font-family: "fontawesome", sans-serif;
+  }
+
+  .error-codes .error-code pre {
+    padding: 5px 0;
+    margin: 0;
+
+    white-space: pre-line;
+  }
+
+  .error-codes .error-code pre code {
+    padding-left: 20px;
+
+    white-space: pre;
+  }
+
+  .error-codes .error-code .toggleErrorExample {
+    color: --link_color;
+
+    cursor: pointer;
+  }
+
+  .error-codes .error-code .toggleErrorExample .underline:hover {
+    text-decoration: underline;
+  }
+
+  .error-codes .error-code .toggleErrorExample {
+    font-size: 14px;
+  }
+  .error-codes .error-code .toggleErrorExample::before {
+    content: "";
+
+    margin-right: 8px;
+
+    font-family: "fontawesome", sans-serif;
+    text-decoration: none;
+  }
+
+  .error-codes .error-code .toggleErrorExample.open::before {
+    content: "";
+
+    margin-right: 8px;
+
+    font-family: "fontawesome", sans-serif;
+    text-decoration: none;
+  }
+
+  .error-codes .error-code .error-code-mappings {
+    margin: -1em 0;
+    padding: 10px 15px;
+
+    color: #888888;
+    font-size: 0.9em;
+  }
+
+  .error-codes .error-code .error-code-description {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  .error-codes .error-code .error-code-tag::before {
+    content: "";
+
+    padding: 2px 4px;
+
+    font-family: "fontawesome", sans-serif;
+  }
+  .error-codes .error-code .error-code-tag.world::before {
+    content: "";
+
+    padding: 2px 4px;
+
+    font-family: "fontawesome", sans-serif;
+  }
+
+  .error-codes .error-code .error-code-tag {
+    display: block;
+    margin: 2px;
+    padding: 1px 3px;
+    float: left;
+
+    font-size: 0.7em;
+
+    border-radius: 3px;
+    background-color: #ffffff;
+  }
+
+  .error-codes .error-code .error-code-release {
+    clear: both;
+
+    font-size: 0.8em;
+
+    opacity: 0.7;
+  }
 </style>
