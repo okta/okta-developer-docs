@@ -1,8 +1,10 @@
 .SearchBox .CoveoOmnibox {
-  border-color: #b7bcc0;
   height: 45px;
   width: 85%;
   max-width: 710px;
+
+  border-color: #b7bcc0;
+
   @include media("<desktop") {
     max-width: 100%;
     width: 100%;
@@ -10,8 +12,9 @@
 }
 
 .SearchBar {
-  top: 0px;
+  top: 0;
   left: 0;
+
   @include media(">desktop") {
     top: 95px;
   }
@@ -19,145 +22,151 @@
   @include media(">859px") {
     top: 75px;
   }
+}
 
-  .Wrap {
-    width: 100%;
-  }
+.SearchBar .Wrap {
+  width: 100%;
 }
 
 .search--wrapper {
   position: relative;
+
   width: 100%;
   height: 38px;
+
   border-radius: 4px;
-  background-color: white;
+  background-color: #ffffff;
+}
 
-  .input--icon {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    top: 11px;
-    left: 12px;
-  }
+.search--wrapper .input--icon {
+  position: absolute;
+  top: 11px;
+  left: 12px;
 
-  .SearchBox {
-    &.CoveoSearchInterface {
-      min-width: initial;
-      max-width: initial;
-    }
+  width: 15px;
+  height: 15px;
+}
 
-    .search--form {
-      display: flex;
+.search--wrapper .SearchBox.CoveoSearchInterface {
+  min-width: initial;
+  max-width: initial;
+}
 
-      .CoveoSearchButton {
-        color: cv('header');
-        border: none;
-        height: auto;
-        width: 94px;
-        line-height: 1em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-left: 2px solid cv('header');
-        box-sizing: content-box;
-        font-size: 14px;
-        font-weight: 600;
-        &:before {
-          display: none;
-        }
-      }
-    }
+.search--wrapper .SearchBox .search--form {
+  display: flex;
+}
 
-    .CoveoOmnibox.magic-box {
-      width: 100%;
-      height: 38px;
-      border: none;
+.search--wrapper .SearchBox .search--form .CoveoSearchButton {
+  height: auto;
+  width: 94px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      .magic-box-input {
-        height: 38px;
-        border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1em;
+  color: cv("header");
 
-        .magic-box-clear {
-          &:before {
-            border-left: none;
-          }
+  border: none;
+  border-left: 2px solid cv("header");
+  box-sizing: content-box;
+}
 
-          .magic-box-icon:before {
-            display: none;
-          }
-        }
+.search--wrapper .SearchBox .search--form .CoveoSearchButton::before {
+  display: none;
+}
 
-        .magic-box-underlay {
-          height: 38px;
-          padding-left: 40px;
-          padding-right: 12px;
-          position: relative;
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box {
+  width: 100%;
+  height: 38px;
 
-          &::before {
-            position: absolute;
-            content: "\f002";
-            font: 13px FontAwesome;
-            left: 10px;
-            top: 13px;
-            color: cv('header');
+  border: none;
+}
 
-            @include media("<desktop") {
-              color: cv('text', 'darker');
-            }
-          }
-        }
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input {
+  height: 38px;
 
-        input {
-          height: 38px;
-          padding-left: 40px;
-          padding-right: 12px;
-          font-size: 14px;
-          font-family: inherit;
+  border-radius: 4px;
+}
 
-          &::placeholder {
-            color: cv('text');
-          }
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-clear::before {
+  border-left: none;
+}
 
-          @media (max-width: 1080px) {
-            &::placeholder {
-              color: transparent;
-            }
-          }
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-clear .magic-box-icon::before {
+  display: none;
+}
 
-          @include media("<tablet") {
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay {
+  position: relative;
 
-            &::placeholder {
-              color: cv('text');
-            }
-          }
-        }
-      }
+  height: 38px;
+  padding-left: 40px;
+  padding-right: 12px;
+}
 
-      &.magic-box-notEmpty .magic-box-clear {
-        height: 38px;
-        width: 48px;
-        position: relative;
-        background-image: url("/img/icons/icon--close.svg");
-        background-repeat: no-repeat;
-        background-position: 50%;
-        background-size: 30%;
-      }
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
+  content: "";
 
-      &.has-suggestions-hidden {
-        .magic-box-suggestions {
-          display: none !important;
-        }
-      }
-      .magic-box-suggestion {
-        font-size: 14px;
-      }
+  position: absolute;
+  top: 13px;
+  left: 10px;
 
-    }
-  }
+  font: 13px "FontAwesome", sans-serif;
+  color: cv("header");
 
   @include media("<desktop") {
-    border: 1px solid cv('body', 'border');
-    border-radius: 4px;
+    color: cv("text", "darker");
+  }
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
+  height: 38px;
+  padding-left: 40px;
+  padding-right: 12px;
+
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
+  color: cv("text");
+
+  @media (max-width: 1080px) {
+    color: transparent;
+  }
+
+  @include media("<tablet") {
+    color: cv("text");
+  }
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box.magic-box-notEmpty .magic-box-clear {
+  position: relative;
+
+  height: 38px;
+  width: 48px;
+
+  background-image: url("/img/icons/icon--close.svg");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 30%;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box.has-suggestions-hidden .magic-box-suggestions {
+  display: none !important;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-suggestion {
+  font-size: 14px;
+}
+
+@include media("<desktop") {
+  .search--wrapper {
     height: 40px;
+
+    border: 1px solid cv("body", "border");
+    border-radius: 4px;
   }
 }
