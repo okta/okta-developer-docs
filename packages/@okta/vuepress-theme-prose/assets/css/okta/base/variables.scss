@@ -1,68 +1,66 @@
-/* Abstracts specifically for developer docs. Many are provided through `mixins.scss`. */
-
-/* More generic abstracts are available from Nim: https://design-docs.trexcloud.com*/
-
 /* Paths */
 $asset-path: "/assets";
 
 /* Typography */
-$font-family: "ABC Whyte", Helvetica, Arial, sans-serif;
-$font-family--alt: "museo", Helvetica, Arial, sans-serif;
+$font-family: "ABC Whyte", "Helvetica", "Arial", sans-serif;
+$font-family--alt: "museo", "Helvetica", "Arial", sans-serif;
 
 $font-size: (
-  "small":            14px,
-  "base":             16px,
-  "button":           14px,
-  "h6":               20px,
-  "h5":               22px,
-  "h4":               24px,
-  "h3":               28px,
-  "h2":               32px,
-  "h1":               36px,
-  "new-small":        12px,
-  "new-h2":           28px,
-  "new-h1":           44px,
+  "small": 14px,
+  "base": 16px,
+  "button": 14px,
+  "h6": 20px,
+  "h5": 22px,
+  "h4": 24px,
+  "h3": 28px,
+  "h2": 32px,
+  "h1": 36px,
+  "new-small": 12px,
+  "new-h2": 28px,
+  "new-h1": 44px,
 );
 
 $font-weight: (
-  "x-small":          300,
-  "small":            400,
-  "base":             400,
-  "button":           600,
-  "h6":               500,
-  "h5":               500,
-  "h4":               500,
-  "h3":               500,
-  "h2":               500,
-  "h1":               500,
-  "light":            300,
-  "semibold":         500,
-  "mediumbold":       600,
-  "bold":             700,
-  "new-h2":           500,
-  "new-h1":           500
+  "x-small": 300,
+  "small": 400,
+  "base": 400,
+  "button": 600,
+  "h6": 500,
+  "h5": 500,
+  "h4": 500,
+  "h3": 500,
+  "h2": 500,
+  "h1": 500,
+  "light": 300,
+  "semibold": 500,
+  "mediumbold": 600,
+  "bold": 700,
+  "new-h2": 500,
+  "new-h1": 500
 );
 
 $line-height: (
-  "small":            24px,
-  "base":             26px,
-  "h6":               30px,
-  "h5":               32px,
-  "h4":               34px,
-  "h3":               38px,
-  "h2":               42px,
-  "h1":               46px,
-  "large":            56px,
-  "new-h1":           52px,
-  "new-h2":           36px,
-  "new-small":        20px,
-  "new-button":       38px,
+  "small": 24px,
+  "base": 26px,
+  "h6": 30px,
+  "h5": 32px,
+  "h4": 34px,
+  "h3": 38px,
+  "h2": 42px,
+  "h1": 46px,
+  "large": 56px,
+  "new-h1": 52px,
+  "new-h2": 36px,
+  "new-small": 20px,
+  "new-button": 38px,
 );
 
 /* Colors */
 
 /* Raw values (not preferred) */
+
 /* Whites */
+
 $white: #ffffff;
 $white-3: #fafafa;
 $white-smoke-4: #eeeeee;
@@ -112,7 +110,9 @@ $solitude-4: #dbe3e7;
 $summer-sky: #46b3e9;
 $turquoise: #5ce5bc;
 $white-lilac-2: #e6e6e8;
+
 /* Greens */
+
 $cyprus-2: #153b56;
 $islamic-green: #009900;
 $puerto-rico: #4cbf9c;
@@ -126,44 +126,44 @@ $blue-violet: #963fe6;
 
 /* Functional map (preferred) - for example: `get-color("default")` */
 $colors: (
-  "black":                  $black,
-  "white":                  $white,
-  "default":                $eclipse-2,
-  "accent":                 $navy-blue,
-  "blue-bright":            $navy-blue,
-  "blue-bright-hover":      $pacific-blue-3,
-  "blue-medium":            $summer-sky,
-  "blue-medium-hover":      $maya-blue,
-  "blue-light":             $columbia-blue,
-  "blue-light-hover":       $maya-blue-2,
-  "green":                  $puerto-rico-5,
-  "green-hover":            $turquoise,
-  "green-dark":             $puerto-rico,
-  "green-dark-hover":       $turquoise,
-  "green-light":            $shamrock,
-  "green-light-hover":      $screamin-green,
-  "charcoal":               $dim-gray-3,
-  "charcoal-hover":         $suva-gray-4,
-  "gray-dark":              $periglacial-blue,
-  "gray-dark-hover":        $mystic,
-  "gray-medium":            $iron,
-  "gray-medium-hover":      $lily-white,
-  "gray-light":             $white-lilac-2,
-  "gray-light-hover":       $mischka,
-  "gray-lighter":           $gainsboro-8,
-  "gray-lighter-hover":     $white-smoke-4,
-  "gray-lightest":          $white-3,
-  "gray-lightest-hover":    $columbia-blue,
-  "blue-products":          $pattens-blue,
-  "new-gray-dark":          $eclipse-2,
-  "red":                    $light-coral,
-  "ebony-clay":             $midnight,
-  "elephant":               $cyprus-2,
-  "big-stone":              $blue-whale,
-  "matisse":                $dark-cerulean,
-  "iron":                   $ghost,
-  "cerise":                 $cerise,
-  "code-background":        $white-smoke-10,
+  "black": $black,
+  "white": $white,
+  "default": $eclipse-2,
+  "accent": $navy-blue,
+  "blue-bright": $navy-blue,
+  "blue-bright-hover": $pacific-blue-3,
+  "blue-medium": $summer-sky,
+  "blue-medium-hover": $maya-blue,
+  "blue-light": $columbia-blue,
+  "blue-light-hover": $maya-blue-2,
+  "green": $puerto-rico-5,
+  "green-hover": $turquoise,
+  "green-dark": $puerto-rico,
+  "green-dark-hover": $turquoise,
+  "green-light": $shamrock,
+  "green-light-hover": $screamin-green,
+  "charcoal": $dim-gray-3,
+  "charcoal-hover": $suva-gray-4,
+  "gray-dark": $periglacial-blue,
+  "gray-dark-hover": $mystic,
+  "gray-medium": $iron,
+  "gray-medium-hover": $lily-white,
+  "gray-light": $white-lilac-2,
+  "gray-light-hover": $mischka,
+  "gray-lighter": $gainsboro-8,
+  "gray-lighter-hover": $white-smoke-4,
+  "gray-lightest": $white-3,
+  "gray-lightest-hover": $columbia-blue,
+  "blue-products": $pattens-blue,
+  "new-gray-dark": $eclipse-2,
+  "red": $light-coral,
+  "ebony-clay": $midnight,
+  "elephant": $cyprus-2,
+  "big-stone": $blue-whale,
+  "matisse": $dark-cerulean,
+  "iron": $ghost,
+  "cerise": $cerise,
+  "code-background": $white-smoke-10,
 );
 
 /* Layout */
@@ -179,33 +179,33 @@ $line-break: 20px;
 $gutter-width: 20px;
 
 $breakpoints: (
-  "xx-small":               320px,
-  "x-small":                480px,
-  "small":                  768px,
-  "tablet":                 768px,
-  "medium-small":           900px,
-  "medium":                 1024px,
-  "large":                  1200px,
-  "doc-min-toc":            1265px,
-  "x-large":                1400px,
-  "xx-large":               1600px
+  "xx-small": 320px,
+  "x-small": 480px,
+  "small": 768px,
+  "tablet": 768px,
+  "medium-small": 900px,
+  "medium": 1024px,
+  "large": 1200px,
+  "doc-min-toc": 1265px,
+  "x-large": 1400px,
+  "xx-large": 1600px
 );
 
 $spacing: (
-  "xx-small":               5px,
-  "x-small":                10px,
-  "small":                  20px,
-  "medium":                 40px,
-  "large":                  60px,
-  "x-large":                80px,
-  "xx-large":               120px
+  "xx-small": 5px,
+  "x-small": 10px,
+  "small": 20px,
+  "medium": 40px,
+  "large": 60px,
+  "x-large": 80px,
+  "xx-large": 120px
 );
 
 /* Transitions */
 $transition-speed: (
-  "x-slow":                 0.8s,
-  "slow":                   0.6s,
-  "normal":                 0.4s,
-  "fast":                   0.2s,
-  "x-fast":                 0.1s
+  "x-slow": 0.8s,
+  "slow": 0.6s,
+  "normal": 0.4s,
+  "fast": 0.2s,
+  "x-fast": 0.1s
 );
