@@ -39,7 +39,7 @@ Creates an Import Session object
 
 #### Response body
 
-Returns an [Import Session object](#import-session-object)
+Returns an [Import Session](#import-session-object) object
 
 #### Possible errors
 
@@ -60,15 +60,15 @@ This request creates an Import Session object.
 curl -L -X POST 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions' \
 -H 'Accept: application/json' \
 -H 'Content-Type: application/json' \
--H 'Authorization: SSWS ${apiKey}' \
+-H 'Authorization: SSWS ${apiToken}' \
 ```
 
 ##### Response
 
 ```json
 {
-  "id": "uij4bjiw3eY00uuhR0g7",
-  "identitySourceId": "0oa4bjizmkh7KAJau0g7",
+  "id": "${sessionId}",
+  "identitySourceId": "${identitySourceId}",
   "status": "CREATED",
   "importType": "INCREMENTAL"
 }
@@ -96,22 +96,46 @@ Loads bulk data into an Import Session for inserting or updating user profiles i
 
 #### Response body
 
-None ???
+None
 
 #### Use example
 
-This request upserts a set of external user profiles to the Import Session.
+This request upserts a set of external user profiles to the Import Session:
 
 ##### Request
 
 ```bash
-curl -v -X POST \
-???
+curl -X POST
+https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/{sessionId}/bulk-upsert
+-H 'accept: application/json'
+-H 'authorization: SSWS ${apiToken}'
+-H 'cache-control: no-cache'
+-H 'content-type: application/json'
+-d '{
+  "entityType": "USERS",
+  "profiles": [
+    {
+      "externalId": "${extUserId111}}",
+      "profile": {
+        "userName": "isaac.i.brock@example.com",
+        "firstName": "Isaac",
+        "lastName": "Brock",
+        "email": "isaac.i.brock@example.com",
+        "secondEmail": "ibrock.test@example.com",
+        "mobilePhone": "555-123-4567",
+        "homeAddress": "Kirkland, WA"
+      }
+    }
+  ]
+}'
 ```
 
 ##### Response
 
-???
+```http
+HTTP/1.1 202 Accepted
+Content-Type: application/json
+```
 
 ### Bulk delete user data
 
@@ -135,7 +159,7 @@ Loads bulk user data into an Import Session for deactivation
 
 #### Response body
 
-Returns ???
+None
 
 #### Use example
 
@@ -144,16 +168,33 @@ This request loads a set of external IDs for user deactivation
 ##### Request
 
 ```bash
-curl -v -X POST \
-???
+curl -X POST
+https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/{sessionId}/bulk-delete
+-H 'accept: application/json'
+-H 'authorization: SSWS ${apiToken}'
+-H 'cache-control: no-cache'
+-H 'content-type: application/json'
+-d '{
+  "entityType": "USERS",
+  "profiles": [
+    {
+      "externalId": "${extUserId1}"
+    },
+    {
+      "externalId": "${extUserId2}"
+    },
+    {
+      "externalId": "${extUserId3}"
+    }
+  ]
+}'
 ```
 
 ##### Response
 
-```json
-{
-???
-}
+```http
+HTTP/1.1 202 Accepted
+Content-Type: application/json
 ```
 
 ### Retrieve an Import Session
@@ -171,25 +212,32 @@ Retrieves an Import Session by its ID
 
 #### Response body
 
-The requested ??? object
+The requested [Import Session](#import-session-object) object
 
 #### Use example
 
-This request...:
+This request retrieves an Import Session with ${sessionId} ID:
 
 ##### Request
 
 ```bash
-curl -v -X GET \
-???
+curl -X GET
+https://${yourOktaDomain}}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}
+-H 'accept: application/json'
+-H 'authorization: SSWS ${apiToken}'
+-H 'cache-control: no-cache'
+-H 'content-type: application/json'
 ```
 
 ##### Response
 
 ```json
 {
-  ???
-} 
+  "id": "${sessionId}",
+  "identitySourceId": "${identitySourceId}",
+  "status": "CREATED",
+  "importType": "INCREMENTAL"
+}
 ```
 
 ##### Error response example
@@ -215,17 +263,17 @@ Fetches the active Import Session for an identity source. An Import Session with
 
 #### Response body
 
-A list of active [Import Session objects](#import-session-object)
+List of active [Import Session](#import-session-object) objects
 
 #### Use example
 
-This request...:
+This request returns a list of active Import Sessions for the identity source with ID `${identitySourceId}`.
 
 ##### Request
 
 ```bash
 curl -L -X GET 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions' \
--H 'Authorization: SSWS ${apiKey}' \
+-H 'Authorization: SSWS ${apiToken}' \
 -H 'Accept: application/json' \
 -H 'Content-Type: application/json'  
 ```
@@ -235,8 +283,8 @@ curl -L -X GET 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySour
 ```json
 [
    {
-       "id": "uij4bjiw3eY00uuhR0g7",
-       "identitySourceId": "0oa4bjizmkh7KAJau0g7",
+       "id": "${sessionId}",
+       "identitySourceId": "${identitySourceId}",
        "status": "CREATED",
        "importType": "INCREMENTAL"
    }
@@ -267,7 +315,7 @@ Triggers the import process of the user data in an Import Session into Okta.
 
 #### Response body
 
-Returns ???
+Returns the triggered [Import Session](#import-session-object) object.
 
 #### Possible errors
 
@@ -282,20 +330,28 @@ Here you can provide a list of error IDs and their descriptions that are specifi
 
 #### Use example
 
+This request triggers the data import process for a session:
+
 ##### Request
 
-This request ???
-
 ```bash
-???
+curl -X PUT
+https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/start-import
+-H 'accept: application/json'
+-H 'authorization: SSWS ${apiToken}'
+-H 'cache-control: no-cache'
+-H 'content-type: application/json'
 ```
 
 ##### Response
 
 ```json
 {
- ???
-} 
+  "id": "${sessionId}",
+  "identitySourceId": "${identitySourceId}",
+  "status": "TRIGGERED",
+  "importType": "INCREMENTAL"
+}
 ```
 
 ### Cancel an Import Session
@@ -313,7 +369,7 @@ Deletes all the loaded bulk user data in an Import Session and cancels the sessi
 
 #### Response body
 
-N/A
+None
 
 #### Possible errors
 
@@ -332,7 +388,12 @@ The following request cancels an Import Session with an `id` value of `${session
 ##### Request
 
 ```bash
-???
+curl -X DELETE
+https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}
+-H 'accept: application/json'
+-H 'authorization: SSWS ${apiToken}'
+-H 'cache-control: no-cache'
+-H 'content-type: application/json'
 ```
 
 ##### Response
@@ -352,12 +413,16 @@ Content-Type: application/json
 | ----------- | -------------- | ------------- |
 | `id` | String | The unique identifier for the Import Session |
 | `identitySourceId` | String | The unique identifier obtained from creating a Customer Identity Source integration in Okta |
-| `status` | Enum: `CREATED`, `TRIGGERED`, `COMPLETED`, `CLOSED`, `EXPIRED` | The current status of the Import Session:<br><ul><li>CREATED: New Import Session that hasn't been processed. You can load bulk user data in this stage.</li><li>TRIGGERED: Okta is processing the import data in this session. You can't load bulk user data at this stage.</li><li>COMPLETED: The bulk user data was processed and imported into Okta.</li><li>CLOSED: The Import Session was cancelled and isn't available for further activity.<li>EXPIRED: This Import Session had the `CREATED` status and had timed-out after 24 hours of inactivity.</li></ul>|
+| `status` | Enum: `CREATED`, `TRIGGERED`, `COMPLETED`, `CLOSED`, `EXPIRED`, `ERROR` | The current status of the Import Session:<br><ul><li>CREATED: New Import Session that hasn't been processed. You can load bulk user data in this stage.</li><li>TRIGGERED: Okta is processing the import data in this session. You can't load bulk user data at this stage.</li><li>COMPLETED: The bulk user data was processed and imported into Okta.</li><li>CLOSED: The Import Session was cancelled and isn't available for further activity.<li>EXPIRED: This Import Session had the `CREATED` status and had timed-out after 24 hours of inactivity.</li><li>ERROR: The Import Session encountered an error during import data processing.</li></ul>|
 
 #### Import Session example
- 
+
 ```json
 {
+  "id": "${sessionId}",
+  "identitySourceId": "${identitySourceId}",
+  "status": "CREATED",
+  "importType": "INCREMENTAL"
 }
 ```
 
@@ -368,28 +433,21 @@ Content-Type: application/json
 | Property           | Type                           | Description               |
 | ------------------ | ------------------------------ | ------------------------------ |
 | `externalId`        | String                 | The unique identifier for the user in the external HR source |
-| `profile`          | [Profile object](#profile-object) | A short description ??? |
+| `profile`          | [Profile object](/docs/reference/api/users/#profile-object) | Contains a set of standard and custom profile properties for a user.  |
 
 #### External Profile object example
 
 ```json
 {
-  ???
-}
-```
-
-### Profile object
-
-#### Profile properties
-
-| Property           | Type                           | Description               |
-| ------------------ | ------------------------------ | ------------------------------ |
-| A list of attributes defined in ???       | ???                 | ??? |
-
-#### Profile object example
-
-```json
-{
-  ???
+  "externalId": "${extUserId}",
+  "profile": {
+    "userName": "isaac.i.brock@example.com",
+    "firstName": "Isaac",
+    "lastName": "Brock",
+    "email": "isaac.i.brock@example.com",
+    "secondEmail": "ibrock.test@example.com",
+    "mobilePhone": "555-123-4567",
+    "homeAddress": "Kirkland, WA"
+  }
 }
 ```
