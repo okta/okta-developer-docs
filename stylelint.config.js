@@ -99,7 +99,23 @@ module.exports = {
     "value-no-vendor-prefix": true,
 
     // Max & min
-    "max-nesting-depth": 1,
+    "max-nesting-depth": [
+      1,
+      {
+        ignoreAtRules: [
+          "if",
+          "else",
+          "include",
+          "each",
+          "mixin",
+          "extend",
+          "return",
+          "function",
+          "for",
+          "warm"
+        ]
+      }
+    ],
     "number-max-precision": 3,
 
     // Notation
