@@ -18,6 +18,7 @@ This guide outlines how to develop a custom client to manage an identity source 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
+* Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable the feature. <!-- IDENTITY_SOURCE_APPS FF needs to be enabled-->
 * [A Custom Identity Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source) integration configured in your Okta org
  <!--(https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm)-->
 * [An Okta API token](https://developer.okta.com/docs/guides/create-an-api-token/main/) to make secure API calls
@@ -64,7 +65,7 @@ You can only process one Import Session at a time (for a specific Custom Identit
 * You can't create a new Import Session in less than five minutes of an active Import Session associated with the same identity source. If Okta receives a new Import Session request within five minutes of an active Import Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 - Bad Request response.
 * If there are no API requests in 24 hours for an Import Session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
 
-> **Note:** If you receive a 400 Bad Request from a create Import Session request, then ensure that there isn't an active Import Session for the same identity source. Use the [Retrieve the active Import Session](/docs/reference/api/xaas/#retrieve-the-active-import-session) request to return the active Import Session for an identity source.
+> **Note:** If you receive a 400 Bad Request from a create Import Session request, then ensure that there isn't an active Import Session for the same identity source. Use the [Retrieve active Import Sessions](/docs/reference/api/xaas/#retrieve-active-import-sessions) request to return the active Import Session for an identity source.
 
 ### Bulk-user-load requests
 
@@ -215,55 +216,8 @@ Use these steps to insert or update a set of user data profiles from your HR sou
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
     * **401 Unauthorized**: The API key isn't valid.
 
-4. Monitor the Import Session until the data processing completes by reviewing the status of the session.
+4. You can monitor the Import Session until the data processing completes by reviewing the status of the session. See [Monitor Import Sessions](#monitor-import-sessions).
 
-    You can use either [Retrieve an Import Session by ID](/docs/reference/api/xaas/#retrieve-an-import-session) or [Retrieve the active Import Session](/docs/reference/api/xaas/#retrieve-the-active-import-session) API requests to retrieve Import Session properties:
-
-    * [Retrieve an Import Session by ID](/docs/reference/api/xaas/#retrieve-an-import-session): This request returns the Import Session properties for a specific session ID. Data processing completed if the returned session status is `COMPLETED`.
-
-       ```bash
-       curl -i -X GET \
-          'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
-       -H 'Authorization: SSWS ${apiKey}' \
-       -H 'Content-Type: application/json' 
-       ```
-
-       Possible returned responses:
-         * **200 OK**: The data import process completed successfully and returns the following properties:
-
-           ```json
-           {
-             "id": "{sessionId}",
-             "identitySourceId": "{identitySourceId}",
-             "status": "COMPLETED",
-             "importType": "INCREMENTAL"
-           }
-           ```
-
-        * **400 Bad Request**: The Import Session ID is unknown.
-        * **401 Unauthorized**: The API key isn't valid.
-
-    * [Retrieve the active Import Session](/docs/reference/api/xaas/#retrieve-the-active-import-session): This request returns the properties for a session that has the `CREATED` or `TRIGGERED` status for a specific identity source. Data processing completed for an identity source if no active Import Session is returned (since a session that contains the `COMPLETED` status isn't considered active).
-
-      ```bash
-       curl -i -X GET \
-          'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions \
-       -H 'Authorization: SSWS ${apiKey}' \
-       -H 'Content-Type: application/json' 
-       ```
-
-       Possible returned responses:
-         * **200 OK**: The request was successful and returns an empty list of active sessions:
-
-           ```json
-           []
-           ```
-
-        * **401 Unauthorized**: The API key isn't valid.
-    
-    > **Note:** Alternatively, you can use the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console to monitor the import process job. When the job completes, a summary of the import process appears in the Import Monitoring dashboard.
-
-    
 ### Bulk deactivate user data
 
 When users are deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta doesn't delete user profile objects, it deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.  
@@ -356,53 +310,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
     * **401 Unauthorized**: The API key isn't valid.
 
-4. Monitor the Import Session until the data processing completes by reviewing the status of the session.
-
-    You can use either [Retrieve an Import Session by ID](/docs/reference/api/xaas/#retrieve-an-import-session) or [Retrieve the active Import Session](/docs/reference/api/xaas/#retrieve-the-active-import-session) API requests to retrieve Import Session properties:
-
-    * [Retrieve an Import Session by ID](/docs/reference/api/xaas/#retrieve-an-import-session): This request returns the Import Session properties for a specific session ID. Data processing completed if the returned session status is `COMPLETED`.
-
-       ```bash
-       curl -i -X GET \
-          'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
-       -H 'Authorization: SSWS ${apiKey}' \
-       -H 'Content-Type: application/json' 
-       ```
-
-       Possible returned responses:
-         * **200 OK**: The data import process completed successfully and returns the following properties:
-
-           ```json
-           {
-             "id": "{sessionId}",
-             "identitySourceId": "{identitySourceId}",
-             "status": "COMPLETED",
-             "importType": "INCREMENTAL"
-           }
-           ```
-
-        * **400 Bad Request**: The Import Session ID is unknown.
-        * **401 Unauthorized**: The API key isn't valid.
-
-    * [Retrieve the active Import Session](/docs/reference/api/xaas/#retrieve-the-active-import-session): This request returns the properties for a session that has the `CREATED` or `TRIGGERED` status for a specific identity source. Data processing completed for an identity source if no active Import Session is returned (since a session that contains the `COMPLETED` status isn't considered active).
-
-      ```bash
-       curl -i -X GET \
-          'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions \
-       -H 'Authorization: SSWS ${apiKey}' \
-       -H 'Content-Type: application/json' 
-       ```
-
-       Possible returned responses:
-         * **200 OK**: The request was successful and returns an empty list of active sessions:
-
-           ```json
-           []
-           ```
-
-        * **401 Unauthorized**: The API key isn't valid.
-
-    > **Note:** Alternatively, you can use the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console to monitor the import process job. When the job completes, a summary of the import process appears in the Import Monitoring dashboard.
+4. You can monitor the Import Session until the data processing completes by reviewing the status of the session. See [Monitor Import Sessions](#monitor-import-sessions).
 
 ### Cancel an Import Session
 
@@ -419,6 +327,85 @@ curl -i -X DELETE \
 
 Possible returned responses:
 
-* **204 No content**: The Import Session cancelled successfully. All bulk user data is removed from the session.
+* **204 No Content**: The Import Session cancelled successfully. All bulk user data is removed from the session.
 * **400 Bad Request**: The Import Session ID is unknown.
 * **401 Unauthorized**: The API key isn't valid.
+
+### Monitor Import Sessions
+
+To monitor Import Session activity for an identity source, you can use either [Retrieve an Import Session by ID](/docs/reference/api/xaas/#retrieve-an-import-session) or [Retrieve active Import Sessions](/docs/reference/api/xaas/#retrieve-active-import-sessions) API requests to retrieve Import Session properties.
+
+#### Retrieve an Import Session by ID
+
+The [Retrieve an Import Session by ID](/docs/reference/api/xaas#retrieve-an-import-session) request returns the Import Session properties for a specific session ID. Data processing completed if the returned session status is `COMPLETED`.
+
+```bash
+curl -i -X GET \
+  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
+-H 'Authorization: SSWS ${apiKey}' \
+-H 'Content-Type: application/json' 
+```
+
+Possible returned responses:
+
+* **200 OK**: The data import process completed successfully and returns the following properties:
+
+  ```json
+  {
+    "id": "{sessionId}",
+    "identitySourceId": "{identitySourceId}",
+    "status": "COMPLETED",
+    "importType": "INCREMENTAL"
+  }
+  ```
+
+* **400 Bad Request**: The Import Session ID is unknown.
+* **401 Unauthorized**: The API key isn't valid.
+
+#### Retrieve active Import Sessions
+
+The [Retrieve active Import Sessions](/docs/reference/api/xaas/#retrieve-the-active-import-session) request returns a list of active Import Sessions for an identity source to determine which sessions are currently processing and actively being worked on. An Import Session is considered active if it has the `CREATED` or `TRIGGERED` status. Data processing completed for an identity source if no active Import Session is returned (since a session that contains the `COMPLETED` status isn't considered active).
+
+```bash
+curl -i -X GET \
+  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions \
+-H 'Authorization: SSWS ${apiKey}' \
+-H 'Content-Type: application/json' 
+```
+
+Possible returned responses:
+
+* **200 OK**: The request was successful and returns an empty list of active sessions:
+
+  ```json
+  []
+  ```
+
+* **200 OK**: The request was successful and returns a list of active sessions:
+
+  ```json
+  [
+    {
+      "id": "{sessionId1}",
+      "identitySourceId": "{identitySourceId}",
+      "status": "CREATED",
+      "importType": "INCREMENTAL"
+    },
+    {
+      "id": "{sessionId2}",
+      "identitySourceId": "{identitySourceId}",
+      "status": "TRIGGERED",
+      "importType": "INCREMENTAL"
+    },
+    {
+      "id": "{sessionId3}",
+      "identitySourceId": "{identitySourceId}",
+      "status": "TRIGGERED",
+      "importType": "INCREMENTAL"
+    }
+  ]
+  ```
+
+* **401 Unauthorized**: The API key isn't valid.
+
+> **Note:** Alternatively, you can use the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page in the Admin Console to monitor the import process job. When the job completes, a summary of the import process appears in the Import Monitoring dashboard.
