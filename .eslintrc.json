@@ -55,6 +55,7 @@
       "vue/no-mutating-props": "off",
       "no-extra-boolean-cast": "off",
       "no-global-assign": "off",
+      "vue/this-in-template": "off",
       "vue/attributes-order": ["error", {
         "order": [
           "OTHER_ATTR",
