@@ -1,31 +1,31 @@
 <template>
   <div class="event-types">
     <p>
-      <input 
-        :value="search" 
-        type="text" 
+      <input
+        :value="search"
+        type="text"
         name="filter"
         autocomplete="off"
         autocorrect="off"
         autocapitalize="off"
         spellcheck="false"
-        placeholder="Search event types for..." 
-        id="event-type-search" 
+        placeholder="Search event types for..."
+        id="event-type-search"
         @input="updateSearch"
       >
-      <select 
-        name="release" 
-        markdown="block" 
-        id="event-type-release" 
+      <select
+        name="release"
+        markdown="block"
+        id="event-type-release"
         v-model="release"
       >
         <option :value="null">
           All Releases
         </option>
-        <option 
+        <option
           :value="release"
-          v-for="release in releases" 
-          :key="release" 
+          v-for="release in releases"
+          :key="release"
         >
           {{ release }}
         </option>
@@ -34,41 +34,41 @@
     <div id="event-type-count">
       Found <b>{{ resultCount }}</b> matches
     </div>
-    <div 
-      class="event-type" 
-      v-for="eventType in filteredEventTypes" 
+    <div
+      class="event-type"
+      v-for="eventType in filteredEventTypes"
       :key="eventType.id"
     >
-      <h4 
-        :id="eventType.id | titleAsId" 
+      <h4
+        :id="eventType.id | titleAsId"
         v-html="$options.filters.title(eventType.id)"
       >
       </h4>
 
-      <div 
-        class="event-type-mappings" 
+      <div
+        class="event-type-mappings"
         v-if="eventType.mappings.length > 0"
       >
         <b>Legacy event types: </b> {{ eventType.mappings.join(', ') }}
       </div>
 
-      <p 
-        class="event-type-description" 
+      <p
+        class="event-type-description"
         v-if="eventType.description"
       >
         {{ eventType.description }}
       </p>
-      <p 
-        class="event-type-description" 
+      <p
+        class="event-type-description"
         v-else
       >
         No Description
       </p>
 
       <div class="event-type-tags">
-        <code 
-          class="event-type-tag" 
-          v-for="tag in eventType.tags" 
+        <code
+          class="event-type-tag"
+          v-for="tag in eventType.tags"
           :key="tag"
         >
           {{ tag }}
@@ -176,88 +176,96 @@
 </script>
 
 <style scoped lang="scss">
-  @import '../assets/css/abstracts/_colors.scss';
+  @import "../assets/css/abstracts/_colors.scss";
 
-  $border_color: map-get(map-get($colors, 'form'), 'input-border');
-  $link_color: map-get(map-get($colors, 'link'), 'base');
+  $border_color: map-get(map-get($colors, "form"), "input-border");
+  $link_color: map-get(map-get($colors, "link"), "base");
 
-  .event-types {
-    .PageContent-main {
-      padding-right: 0;
+  .event-types .PageContent-main {
+    padding-right: 0;
+  }
+
+  .event-types #event-type-search {
+    width: 100%;
+    padding: 0.5rem 0.3rem;
+
+    font-size: 1em;
+
+    border: 2px solid $border_color;
+  }
+
+  .event-types #event-type-search::placeholder {
+    color: $border_color;
+  }
+
+  .event-types #event-type-release {
+    margin-top: 1em;
+  }
+
+  .event-types #event-type-count {
+    margin-top: -1em;
+    margin-left: 0.3em;
+
+    font-size: 0.8em;
+  }
+
+  .event-types .event-type h4 {
+    margin: 25px 0 0;
+    padding: 6px 10px;
+    clear: left;
+
+    color: $link_color;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    overflow: hidden;
+    border-left: 3px solid $link_color;
+
+    &::before {
+      content: "";
+
+      margin-right: 8px;
+
+      font-family: "fontawesome", sans-serif;
     }
+  }
 
-    #event-type-search {
-      width: 100%;
-      font-size: 1em;
-      padding: 0.5rem 0.3rem;
-      border: 2px solid $border_color;
-    }
+  .event-types .event-type .event-type-mappings {
+    margin: -1em 0;
+    padding: 10px 15px;
 
-    #event-type-search::placeholder {
-      color: $border_color;
-    }
+    word-break: break-all;
+    font-size: 0.8em;
+  }
 
-    #event-type-release {
-      margin-top: 1em;
-    }
+  .event-types .event-type .event-type-description {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  .event-types .event-type .event-type-tag::before {
+    content: "";
 
-    #event-type-count {
-      margin-top: -1em;
-      margin-left: 0.3em;
-      font-size: 0.8em;
-    }
+    padding: 2px 4px;
 
-    .event-type {
-      h4 {
-        margin: 25px 0 0;
-        padding: 6px 10px;
-        clear: left;
-        overflow: hidden;
-        border-left: 3px solid $link_color;
-        color: $link_color;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
+    font-family: "fontawesome", sans-serif;
+  }
+  .event-types .event-type .event-type-tag {
+    display: block;
+    margin: 2px;
+    padding: 1px 3px;
+    float: left;
 
-      h4::before {
-        content: '\f0a2';
-        margin-right: 8px;
-        font-family: fontawesome;
-      }
+    font-size: 0.7em;
 
-      .event-type-mappings {
-        margin: -1em 0;
-        padding: 10px 15px;
-        word-break: break-all;
-        font-size: 0.8em;
-      }
+    border-radius: 3px;
+    background-color: #ffffff;
+  }
 
-      .event-type-description {
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
+  .event-types .event-type .event-type-release {
+    clear: both;
 
-      .event-type-tag::before {
-        content: '\f02b';
-        padding: 2px 4px;
-        font-family: fontawesome;
-      }
+    font-size: 0.8em;
 
-      .event-type-tag {
-        display: block;
-        margin: 2px;
-        padding: 1px 3px;
-        float: left;
-        border-radius: 3px;
-        background-color: #ffffff;
-        font-size: 0.7em;
-      }
-
-      .event-type-release {
-        clear: both;
-        opacity: 0.7;
-        font-size: 0.8em;
-      }
-    }
+    opacity: 0.7;
   }
 </style>
