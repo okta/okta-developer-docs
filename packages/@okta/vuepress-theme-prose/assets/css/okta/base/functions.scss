@@ -126,7 +126,9 @@
       @if $divider == 0 {
         $result: $result * 10;
       } @else {
+
         /* Move the decimal dot to the left */
+
         $divider: $divider * 10;
         $number: $number / $divider;
       }
