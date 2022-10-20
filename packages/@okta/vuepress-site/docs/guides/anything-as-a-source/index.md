@@ -233,10 +233,10 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
            ```json
            {
-               "id": "{sessionId}",
-               "identitySourceId": "{identitySourceId}",
-               "status": "COMPLETED",
-               "importType": "INCREMENTAL"
+             "id": "{sessionId}",
+             "identitySourceId": "{identitySourceId}",
+             "status": "COMPLETED",
+             "importType": "INCREMENTAL"
            }
            ```
 
@@ -311,13 +311,13 @@ When users are deactivated or deleted from your HR source, you need to reflect t
         "entityType": "USERS",
         "profiles": [
           {
-            "externalId": "${userId1}",
+            "externalId": "${userId1}"
           },
           {
             "externalId": "${userId2}"
           },
           {
-            "externalId": "${userId3}",
+            "externalId": "${userId3}"
           }
         ]
     }'
@@ -345,11 +345,11 @@ When users are deactivated or deleted from your HR source, you need to reflect t
     * **200 OK**: The data import process started successfully and returns the following properties:
 
         ```json
-          {
-            "id": "{sessionId}",
-            "identitySourceId": "{identitySourceId}",
-            "status": "TRIGGERED",
-            "importType": "INCREMENTAL"
+        {
+          "id": "{sessionId}",
+          "identitySourceId": "{identitySourceId}",
+          "status": "TRIGGERED",
+          "importType": "INCREMENTAL"
         }
         ```
 
@@ -374,10 +374,10 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
            ```json
            {
-               "id": "{sessionId}",
-               "identitySourceId": "{identitySourceId}",
-               "status": "COMPLETED",
-               "importType": "INCREMENTAL"
+             "id": "{sessionId}",
+             "identitySourceId": "{identitySourceId}",
+             "status": "COMPLETED",
+             "importType": "INCREMENTAL"
            }
            ```
 
