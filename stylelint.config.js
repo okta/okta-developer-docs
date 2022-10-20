@@ -103,7 +103,6 @@ module.exports = {
     // Handled by pretty printers
     "color-hex-case": "lower",
     "number-leading-zero": "always",
-    "number-no-trailing-zeros": true,
     "string-quotes": "double",
     "unit-case": "lower",
     "property-case": "lower"
