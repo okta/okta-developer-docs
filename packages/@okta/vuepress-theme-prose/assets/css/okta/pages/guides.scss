@@ -220,9 +220,7 @@ $big-spacing: 3rem;
   position: relative;
   top: -1px;
 
-  display: flex; /* fallback */
-  flex-wrap: wrap;
-  display: grid; /* fallback */
+  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15ch, 1fr));
   padding: 0;
 
