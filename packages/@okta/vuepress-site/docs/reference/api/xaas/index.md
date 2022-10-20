@@ -21,7 +21,7 @@ The XaaS API has the following CRUD operations:
 * [Bulk upsert user data](#bulk-upsert-user-data)
 * [Bulk delete user data](#bulk-delete-user-data)
 * [Retrieve an Import Session](#retrieve-an-import-session)
-* [Retrieve the active Import Session](#retrieve-the-active-import-session)
+* [Retrieve active Import Sessions](#retrieve-active-import-sessions)
 * [Trigger an Import Session](#trigger-an-import-session)
 * [Cancel an Import Session](#cancel-an-import-session)
 
@@ -41,18 +41,17 @@ Creates an Import Session object
 
 Returns an [Import Session](#import-session-object) object
 
-#### Possible errors
+##### Possible errors
 
-Here you can provide a list of error IDs and their descriptions that are specific to this API.
+See [Possible common errors](#possible-common-errors) for all XaaS API endpoints. The following are possible errors specific to this endpoint:
 
-| Error ID    | Description    |
-| ----------- | -------------- |
-| `propertyA` | A description  |
-| `propertyB` | A description  |
+| Error code  | HTTP code    | Description    |
+| ----------- | -----------  | -------------- |
+| `E0000001` | 400 Bad Request | There is an existing Import Session with a `CREATED` or `TRIGGERED` status for the same identity source. |
 
 #### Use example
 
-This request creates an Import Session object.
+This request creates an Import Session object:
 
 ##### Request
 
@@ -67,8 +66,8 @@ curl -L -X POST 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySou
 
 ```json
 {
-  "id": "${sessionId}",
-  "identitySourceId": "${identitySourceId}",
+  "id": "{sessionId}",
+  "identitySourceId": "{identitySourceId}",
   "status": "CREATED",
   "importType": "INCREMENTAL"
 }
@@ -98,15 +97,25 @@ Loads bulk data into an Import Session for inserting or updating user profiles i
 
 None
 
+##### Possible errors
+
+See [Possible common errors](#possible-common-errors) for all XaaS API endpoints. The following are possible errors specific to this endpoint:
+
+| Error code  | HTTP code    | Description    |
+| ----------- | -----------  | -------------- |
+| `E0000003` | 400 Bad Request | There is no payload in the bulk-upsert request. |
+| `E0000001` | 400 Bad Request | The `profiles` array is missing or empty in the bulk-upsert request. |
+| `E0000003` | 400 Bad Request | The `entityType` property value is invalid. |
+
 #### Use example
 
-This request upserts a set of external user profiles to the Import Session:
+This request upserts a set of external user profiles to the Import Session with an `id` value of `${sessionId}`:
 
 ##### Request
 
 ```bash
 curl -X POST
-https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/{sessionId}/bulk-upsert
+https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-upsert
 -H 'accept: application/json'
 -H 'authorization: SSWS ${apiToken}'
 -H 'cache-control: no-cache'
@@ -115,7 +124,7 @@ https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/{
   "entityType": "USERS",
   "profiles": [
     {
-      "externalId": "${extUserId111}}",
+      "externalId": "${extUserId1}",
       "profile": {
         "userName": "isaac.i.brock@example.com",
         "firstName": "Isaac",
@@ -161,15 +170,25 @@ Loads bulk user data into an Import Session for deactivation
 
 None
 
+##### Possible errors
+
+See [Possible common errors](#possible-common-errors) for all XaaS API endpoints. The following are possible errors specific to this endpoint:
+
+| Error code  | HTTP code    | Description    |
+| ----------- | -----------  | -------------- |
+| `E0000003` | 400 Bad Request | There is no payload in the bulk-delete request. |
+| `E0000001` | 400 Bad Request | The `profiles` array is missing or empty in the bulk-delete request. |
+| `E0000003` | 400 Bad Request | The `entityType` property value is invalid. |
+
 #### Use example
 
-This request loads a set of external IDs for user deactivation
+This request loads a set of external IDs for user deactivation in an Import Session with an `id` value of `${sessionId}`
 
 ##### Request
 
 ```bash
 curl -X POST
-https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/{sessionId}/bulk-delete
+https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-delete
 -H 'accept: application/json'
 -H 'authorization: SSWS ${apiToken}'
 -H 'cache-control: no-cache'
@@ -214,9 +233,13 @@ Retrieves an Import Session by its ID
 
 The requested [Import Session](#import-session-object) object
 
+##### Possible errors
+
+See [Possible common errors](#possible-common-errors) for all XaaS API endpoints.
+
 #### Use example
 
-This request retrieves an Import Session with ${sessionId} ID:
+This request retrieves an Import Session with an `id` value of `${sessionId}`:
 
 ##### Request
 
@@ -233,27 +256,18 @@ https://${yourOktaDomain}}/api/v1/identity-sources/${identitySourceId}/sessions/
 
 ```json
 {
-  "id": "${sessionId}",
-  "identitySourceId": "${identitySourceId}",
+  "id": "{sessionId}",
+  "identitySourceId": "{identitySourceId}",
   "status": "CREATED",
   "importType": "INCREMENTAL"
 }
 ```
 
-##### Error response example
-
-Here you can show any errors that are specific to this API. One error example per
-section
-
-```http
-???
-```
-
-### Retrieve the active Import Session
+### Retrieve active Import Sessions
 
 <ApiOperation method="get" url="/api/v1/identity-sources/${identitySourceId}/sessions" />
 
-Fetches the active Import Session for an identity source. An Import Session with a `CREATED` or `TRIGGERED` status is considered active.
+Fetches active Import Sessions for an identity source. An Import Session with a `CREATED` or `TRIGGERED` status is considered active.
 
 #### Request path parameters
 
@@ -265,9 +279,13 @@ Fetches the active Import Session for an identity source. An Import Session with
 
 List of active [Import Session](#import-session-object) objects
 
+##### Possible errors
+
+See [Possible common errors](#possible-common-errors) for all XaaS API endpoints.
+
 #### Use example
 
-This request returns a list of active Import Sessions for the identity source with ID `${identitySourceId}`.
+This request returns a list of active Import Sessions for the identity source with an `id` value of `${identitySourceId}`:
 
 ##### Request
 
@@ -282,29 +300,44 @@ curl -L -X GET 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySour
 
 ```json
 [
-   {
-       "id": "${sessionId}",
-       "identitySourceId": "${identitySourceId}",
-       "status": "CREATED",
-       "importType": "INCREMENTAL"
-   }
+  {
+    "id": "{sessionId1}",
+    "identitySourceId": "{identitySourceId}",
+    "status": "CREATED",
+    "importType": "INCREMENTAL"
+  },
+  {
+    "id": "{sessionId2}",
+    "identitySourceId": "{identitySourceId}",
+    "status": "TRIGGERED",
+    "importType": "INCREMENTAL"
+  },
+  {
+    "id": "{sessionId3}",
+    "identitySourceId": "{identitySourceId}",
+    "status": "TRIGGERED",
+    "importType": "INCREMENTAL"
+  },
+  {
+    "id": "{sessionId4}",
+    "identitySourceId": "{identitySourceId}",
+    "status": "TRIGGERED",
+    "importType": "INCREMENTAL"
+  },
+  {
+    "id": "{sessionId5}",
+    "identitySourceId": "{identitySourceId}",
+    "status": "TRIGGERED",
+    "importType": "INCREMENTAL"
+  }
 ]
- 
-```
-
-##### Error response example 
-
-Here you can show any errors that are specific to this API. One error example per section
-
-```http
-Hello error
 ```
 
 ### Trigger an Import Session
 
 <ApiOperation method="put" url="/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/start-import" />
 
-Triggers the import process of the user data in an Import Session into Okta.
+Triggers the import process of the user data in an Import Session into Okta
 
 #### Request path parameters
 
@@ -315,22 +348,19 @@ Triggers the import process of the user data in an Import Session into Okta.
 
 #### Response body
 
-Returns the triggered [Import Session](#import-session-object) object.
+Returns the triggered [Import Session](#import-session-object) object
 
-#### Possible errors
+##### Possible errors
 
-??? This section is optional
+See [Possible common errors](#possible-common-errors) for all XaaS API endpoints. The following are possible errors specific to this endpoint:
 
-Here you can provide a list of error IDs and their descriptions that are specific to this API.
-
-| Error ID    | Description    |
-| ----------- | -------------- |
-| `propertyA` | A description  |
-| `propertyB` | A description  |
+| Error code  | HTTP code    | Description    |
+| ----------- | -----------  | -------------- |
+| `E0000001` | 400 Bad Request | The Import Session was already triggered and doesn't have the `CREATED` status. |
 
 #### Use example
 
-This request triggers the data import process for a session:
+This request triggers the data import process for an Import Session with an `id` value of `${sessionId}`:
 
 ##### Request
 
@@ -347,8 +377,8 @@ https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/$
 
 ```json
 {
-  "id": "${sessionId}",
-  "identitySourceId": "${identitySourceId}",
+  "id": "{sessionId}",
+  "identitySourceId": "{identitySourceId}",
   "status": "TRIGGERED",
   "importType": "INCREMENTAL"
 }
@@ -356,7 +386,7 @@ https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/$
 
 ### Cancel an Import Session
 
-<ApiOperation method="delete" url="/api/v1//identity-sources/${identitySourceId}/sessions/${sessionId}" />
+<ApiOperation method="delete" url="/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}" />
 
 Deletes all the loaded bulk user data in an Import Session and cancels the session for further activity. Only Import Sessions with the `CREATED` status can be canceled.
 
@@ -371,19 +401,17 @@ Deletes all the loaded bulk user data in an Import Session and cancels the sessi
 
 None
 
-#### Possible errors
+##### Possible errors
 
-Here you can provide a list of error IDs and their descriptions that are specific
-to this API.
+See [Possible common errors](#possible-common-errors) for all XaaS API endpoints. The following are possible errors specific to this endpoint:
 
-| Error ID    | Description    |
-| ----------- | -------------- |
-| `propertyA` | A description  |
-| `propertyB` | A description  |
+| Error code  | HTTP code    | Description    |
+| ----------- | -----------  | -------------- |
+| `E0000001` | 400 Bad Request | The Import Session to cancel doesn't have the `CREATED` status. Only sessions with the `CREATED` status can be canceled. |
 
 #### Use example
 
-The following request cancels an Import Session with an `id` value of `${sessionId}`.
+The following request cancels an Import Session with an `id` value of `${sessionId}`:
 
 ##### Request
 
@@ -413,14 +441,16 @@ Content-Type: application/json
 | ----------- | -------------- | ------------- |
 | `id` | String | The unique identifier for the Import Session |
 | `identitySourceId` | String | The unique identifier obtained from creating a Customer Identity Source integration in Okta |
-| `status` | Enum: `CREATED`, `TRIGGERED`, `COMPLETED`, `CLOSED`, `EXPIRED`, `ERROR` | The current status of the Import Session:<br><ul><li>CREATED: New Import Session that hasn't been processed. You can load bulk user data in this stage.</li><li>TRIGGERED: Okta is processing the import data in this session. You can't load bulk user data at this stage.</li><li>COMPLETED: The bulk user data was processed and imported into Okta.</li><li>CLOSED: The Import Session was cancelled and isn't available for further activity.<li>EXPIRED: This Import Session had the `CREATED` status and had timed-out after 24 hours of inactivity.</li><li>ERROR: The Import Session encountered an error during import data processing.</li></ul>|
+| `status` | Enum: `CREATED`, `TRIGGERED`, `COMPLETED`, `CLOSED`, `EXPIRED` | The current status of the Import Session:<br><ul><li>CREATED: New Import Session that hasn't been processed. You can load bulk user data in this stage.</li><li>TRIGGERED: Okta is processing the import data in this session. You can't load bulk user data in this stage.</li><li>COMPLETED: The bulk user data was processed and imported into Okta.</li><li>CLOSED: The Import Session was canceled and isn't available for further activity.<li>EXPIRED: This Import Session had the `CREATED` status and timed-out after 24 hours of inactivity.</li></ul>|
+
+<!--Murty Devarakonda (Oct 20): ERROR status isn't documented because it will be removed.-->
 
 #### Import Session example
 
 ```json
 {
-  "id": "${sessionId}",
-  "identitySourceId": "${identitySourceId}",
+  "id": "{sessionId}",
+  "identitySourceId": "{identitySourceId}",
   "status": "CREATED",
   "importType": "INCREMENTAL"
 }
@@ -433,13 +463,13 @@ Content-Type: application/json
 | Property           | Type                           | Description               |
 | ------------------ | ------------------------------ | ------------------------------ |
 | `externalId`        | String                 | The unique identifier for the user in the external HR source |
-| `profile`          | [Profile object](/docs/reference/api/users/#profile-object) | Contains a set of standard and custom profile properties for a user.  |
+| `profile`          | [Profile object](/docs/reference/api/users/#profile-object) | Contains a set of external user attributes and their values that are mapped to Okta standard and custom profile properties. See [Profile object](/docs/reference/api/users/#profile-object) and Declaration of a Custom Identity Source Schema in [Using anything as a source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source)  |
 
 #### External Profile object example
 
 ```json
 {
-  "externalId": "${extUserId}",
+  "externalId": "{extUserId}",
   "profile": {
     "userName": "isaac.i.brock@example.com",
     "firstName": "Isaac",
@@ -451,3 +481,13 @@ Content-Type: application/json
   }
 }
 ```
+
+#### Possible common errors
+
+The following are common errors for the XaaS API:
+
+| Error code  | HTTP code    | Description    |
+| ----------- | -----------  | -------------- |
+| `E0000011` | 401 Unauthorized | The API token is invalid. |
+| `E0000007` | 404 Not Found  | The Customer Identity Source integration ID is invalid. |
+| `E0000001` | 400 Bad Request  | The Import Session ID is invalid. |
