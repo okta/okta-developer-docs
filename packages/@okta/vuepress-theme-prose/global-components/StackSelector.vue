@@ -1,11 +1,11 @@
 <template>
-  <div 
-    :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'no-snippet': !snippet, 'display-inline': inline }" 
-    v-show="isVisible()" 
+  <div
+    :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'no-snippet': !snippet, 'display-inline': inline }"
+    v-show="isVisible()"
     v-if="options.length"
   >
-    <div 
-      class="selector-control" 
+    <div
+      class="selector-control"
       v-if="!noSelector"
     >
       <span class="instructions-label">
@@ -13,20 +13,20 @@
       </span>
 
       <nav class="select-dropdown">
-        <v-select 
-          :options="options" 
-          :searchable="true" 
-          :multiple="false" 
-          :clearable="false" 
-          v-model="selectedOption" 
+        <v-select
+          :options="options"
+          :searchable="true"
+          :multiple="false"
+          :clearable="false"
+          v-model="selectedOption"
           @input="inputChanged"
         >
           <template #selected-option="{title, css}">
             <i :class="css"></i><span class="framework">{{ title }}</span>
           </template>
           <template #option="{title, link, css}">
-            <div 
-              class="dropdown-item" 
+            <div
+              class="dropdown-item"
               :key="link"
             >
               <i :class="css"></i><span class="framework">{{ title }}</span>
@@ -35,19 +35,19 @@
         </v-select>
       </nav>
     </div>
-    <aside 
-      class="stack-content" 
+    <aside
+      class="stack-content"
       v-if="snippet"
     >
-      <Content 
-        :pageKey="snippetComponentKey" 
-        v-if="snippetComponentKey" 
+      <Content
+        :pageKey="snippetComponentKey"
+        v-if="snippetComponentKey"
       />
     </aside>
   </div>
-  <div 
+  <div
     class="no-stack-content"
-    v-else 
+    v-else
   >
     No code snippets defined
   </div>
@@ -181,28 +181,29 @@
   }
 
   .no-stack-content {
-    border: 1px solid #d66;
     padding: 10px;
+
+    border: 1px solid #dd6666;
   }
-  .no-selector {
-    &::v-deep ol[start] {
-      margin-top: -0.75rem;
-    }
+
+  .no-selector::v-deep ol[start] {
+    margin-top: -0.75rem;
   }
-  .no-snippet {
-    .selector-control {
-      border-bottom: 0;
-    }
+
+  .no-snippet .selector-control {
+    border-bottom: 0;
   }
+
   .display-inline {
     display: inline;
+  }
 
-    .stack-content {
-      display: inline;
+  .display-inline .stack-content {
+    display: inline;
+  }
 
-      & > div, &::v-deep p {
-        display: inline;
-      }
-    }
+  .display-inline .stack-content > div,
+  .display-inline .stack-content::v-deep p {
+    display: inline;
   }
 </style>
