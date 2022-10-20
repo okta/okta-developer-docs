@@ -342,14 +342,11 @@ export default {
     color: $link_color;
 
     cursor: pointer;
+    font-size: 14px;
   }
 
   .error-codes .error-code .toggleErrorExample .underline:hover {
     text-decoration: underline;
-  }
-
-  .error-codes .error-code .toggleErrorExample {
-    font-size: 14px;
   }
 
   .error-codes .error-code .toggleErrorExample::before {
