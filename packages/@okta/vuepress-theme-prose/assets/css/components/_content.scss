@@ -1,14 +1,12 @@
-.generated-content {
-  & .content__default > *,
-  & .content__default + p {
-    display: none !important;
-  }
+.generated-content .content__default > *,
+.generated-content .content__default + p {
+  display: none !important;
+}
 
-  & > p {
-    margin: 0.625rem 0 1.5rem;
-    padding-left: 1.25rem;
-    display: block !important;
-  }
+.generated-content > p {
+  margin: 0.625rem 0 1.5rem;
+  padding-left: 1.25rem;
+  display: block !important;
 }
 
 .generated-content .content__default p:nth-of-type(1),
@@ -25,286 +23,316 @@
 .content--container {
   display: flex;
   padding: 0;
+}
 
-  a[href*="app.getpostman.com"] {
-    display: block;
-    margin-top: 0.5rem;
-  }
+.content--container a[href*="app.getpostman.com"] {
+  display: block;
+  margin-top: 0.5rem;
+}
 
-  code {
-    // line breakes single <code> text if it necessary.
-    white-space: pre-wrap; /* css-3 */
-    word-break: break-word;
-  }
+.content--container code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
 
-  pre {
-    overflow-x: auto;
-    code {
-      // I'm assuming that all code examples with <pre> tag includes multiple lines.
-      // That's why all white-spaces should be in the right position for good readability.
-      // In case of code example with multiple lines it will not break line. <pre> scroll will do the trick.
-      white-space: pre;
-      word-break: keep-all;
-    }
-  }
-  
-  h1,
-  h3 {
-    word-break: break-word;
-  }
+.content--container pre {
+  overflow-x: auto;
+}
 
-  @include media(">=tablet") {
+.content--container pre code {
+  white-space: pre;
+  word-break: keep-all;
+}
+
+.content--container h1,
+.content--container h3 {
+  word-break: break-word;
+}
+
+@include media(">=tablet") {
+  .content--container {
     flex-direction: row;
-
-    // Normalize usual look in case screen > tablet.
-    code {
-      white-space: normal;
-      word-break: normal;
-    }
-
-    h1,
-    h3 {
-      word-break: normal;
-    }
   }
 
-  .video-tutorial {
-    max-width: 650px;
+  .content--container code {
+    white-space: normal;
+    word-break: normal;
   }
 
-  .sidebar-area {
-    width: 18.5vw;
-    min-width: 266px;
-    position: sticky;
-    overflow: auto;
-    overflow-x: hidden;
-    background: cv('body');
-    top: 142px;
-    @include media("<desktop-xl") {
-      top: 125px;
-    }
-    @include media("<desktop") {
-      display: none;
-    }
-    .sidebar-fade {
-      display: block;
-      position: sticky;
-      width: 100%;
-      height: 176px;
-      background: linear-gradient(3.53deg, #F7FAFF 38.14%, rgba(247, 250, 255, 0) 83.09%);
-      z-index: 2;
-      left: 0;
-      bottom: 0;
-      transition: .3s;
-    }
-    &:hover {
-      .sidebar-fade {
-        opacity: 0;
-        visibility: hidden;
-        z-index: -1;
-      }
-    }
-    &.no-fade {
-      .sidebar-fade {
-        display: none;
-      }
-    }
-    &.show-scroll-up {
-      .scroll-up {
-        display: block;
-      }
-    }
+  .content--container h1,
+  .content--container h3 {
+    word-break: normal;
+  }
+}
+
+.content--container .video-tutorial {
+  max-width: 650px;
+}
+
+.content--container .sidebar-area {
+  position: sticky;
+  top: 142px;
+
+  width: 18.5vw;
+  min-width: 266px;
+
+  overflow: auto;
+  overflow-x: hidden;
+  background: cv("body");
+
+  @include media("<desktop-xl") {
+    top: 125px;
   }
 
-  .content-area {
-    flex: 1;
-    max-width: calc(82% - 266px);
-    padding: 23px 59px;
-    &-full {
-      max-width: 100%;
-      padding: 0 59px;
-    }
-    @include media("<desktop-xl") {
-      max-width: calc(100% - 266px);
-      padding: 40px 57px 30px;
-    }
-    @include media("<desktop") {
-      width: 100%;
-      max-width: 100%;
-      padding: 30px 20px 40px;
-    }
-    @include media(">=tablet") {
-      a {
-        word-break: normal;
-      }
-    }
+  @include media("<desktop") {
+    display: none;
+  }
+}
 
-    .content__default {
-      @include media("<desktop-xl") {
-        margin-top: 20px;
-      }
-    }
+.content--container .sidebar-area .sidebar-fade {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
 
-    a {
-      text-decoration: underline;
-      word-break: break-word;
-    }
+  display: block;
+  width: 100%;
+  height: 176px;
 
-    .language-tabs a,
-    .language-ctas a,
-    a.card {
-      text-decoration: none;
-    }
+  background: linear-gradient(3.53deg, #f7faff 38.14%, rgb(247 250 255 / 0) 83.09%);
 
-    .dropdown-button {
-      position: relative;
+  transition: 0.3s;
+}
 
-      .caret {
-        font-size: 5px;
-        vertical-align: middle;
-        margin-left: 6px;
-        letter-spacing: 0;
-      }
+.content--container .sidebar-area:hover .sidebar-fade {
+  z-index: -1;
 
-      .dropdown-button-options {
-        display: none;
-        position: absolute;
-        z-index: 50;
-        margin-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        width: 100%;
-        border: 1px solid transparent;
-        border-radius: 4px;
-        text-align: left;
-        font-weight: 600;
-        background-color: white;
-      }
-      .dropdown-button-option-value {
-        margin-top: 0.5rem;
-        padding-left: 0.5rem;
-        &:hover {
-          background: cv("gray", "100");
-        }
-      }
-      a {
-        font-size: 14px;
-        color: cv("blue", "900");
-      }
-      &:hover,
-      &:active {
-        .dropdown-button-options {
-          &:before {
-            content: "";
-            position: absolute;
-            top: -10px;
-            left: 0;
-            width: 100%;
-            height: 10px;
-          }
-          display: block;
-          border: 1px solid cv("blue", "900");
-        }
-      }
+  visibility: hidden;
 
-      @include media("<desktop") {
-        &:hover {
-          .dropdown-button-options {
-            display: none;
-          }
-        }
-        &.dropdown-button-expanded {
-          &:hover {
-            .dropdown-button-options {
-              &:before {
-                content: "";
-                position: absolute;
-                top: -10px;
-                left: 0;
-                width: 100%;
-                height: 10px;
-              }
-              display: block;
-              border: 1px solid cv("blue", "900");
-            }
-          }
-        }
-      }
-    }
-    
-    a.header-link svg {
-      width: 1rem;
-      display: none;
-    }
+  opacity: 0;
+}
 
-    h2:hover a.header-link svg,
-    h3:hover a.header-link svg,
-    h4:hover a.header-link svg,
-    h5:hover a.header-link svg,
-    h6:hover a.header-link svg {
-      display: inline-block;
-    }
+.content--container .sidebar-area.no-fade .sidebar-fade {
+  display: none;
+}
 
-    div[class^="language-"] {
-      position: relative;
-      @include media(">=tablet") {
-        td img {
-          width: 100%;
-          max-width: 100%;
-        }
-      }
-      margin-top: $base-spacing;
-      margin-bottom: $base-spacing;
-    }
+.content--container .sidebar-area.show-scroll-up .scroll-up {
+  display: block;
+}
 
-    table {
-      position: relative;
-      overflow-x: scroll;
+.content--container .content-area {
+  flex: 1;
+  max-width: calc(82% - 266px);
+  padding: 23px 59px;
+}
 
-      @include media(">=tablet") {
-        td img {
-          width: 100%;
-          max-width: 100%;
-        }
-      }
-      margin-top: $base-spacing;
-      margin-bottom: $base-spacing;
-    }
+.content--container .content-area-full {
+  max-width: 100%;
+  padding: 0 59px;
+}
 
-    h5 {
-      margin-top: 2rem;
-    }
+@include media("<desktop-xl") {
+  .content--container .content-area {
+    max-width: calc(100% - 266px);
+    padding: 40px 57px 30px;
+  }
+}
 
-    p > code {
-      overflow-wrap: break-word;
-    }
+@include media("<desktop") {
+  .content--container .content-area {
+    width: 100%;
+    max-width: 100%;
+    padding: 30px 20px 40px;
+  }
+}
 
-    .stack-selector {
-      display: none;
+@include media(">=tablet") {
+  .content--container .content-area a {
+    word-break: normal;
+  }
+}
 
-      @include media("<=desktop-xl") {
-        display: block;
-      }
-    }
+@include media("<desktop-xl") {
+  .content--container .content-area .content__default {
+    margin-top: 20px;
+  }
+}
+
+.content--container .content-area a {
+  text-decoration: underline;
+  word-break: break-word;
+}
+
+.content--container .content-area .language-tabs a,
+.content--container .content-area .language-ctas a,
+.content--container .content-area a.card {
+  text-decoration: none;
+}
+
+.content--container .content-area .dropdown-button {
+  position: relative;
+}
+
+.content--container .content-area .dropdown-button .caret {
+  margin-left: 6px;
+
+  font-size: 5px;
+  vertical-align: middle;
+  letter-spacing: 0;
+}
+
+.content--container .content-area .dropdown-button .dropdown-button-options {
+  position: absolute;
+  z-index: 50;
+
+  display: none;
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+
+  text-align: left;
+  font-weight: 600;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+
+.content--container .content-area .dropdown-button .dropdown-button-option-value {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.content--container .content-area .dropdown-button .dropdown-button-option-value:hover {
+  background: cv("gray", "100");
+}
+
+.content--container .content-area .dropdown-button a {
+  font-size: 14px;
+  color: cv("blue", "900");
+}
+
+.content--container .content-area .dropdown-button:hover .dropdown-button-options,
+.content--container .content-area .dropdown-button:active .dropdown-button-options {
+  display: block;
+
+  border: 1px solid cv("blue", "900");
+}
+
+.content--container .content-area .dropdown-button:hover .dropdown-button-options::before,
+.content--container .content-area .dropdown-button:active .dropdown-button-options::before {
+  content: "";
+
+  position: absolute;
+  top: -10px;
+  left: 0;
+
+  width: 100%;
+  height: 10px;
+}
+
+@include media("<desktop") {
+  .content--container .content-area .dropdown-button:hover .dropdown-button-options {
+    display: none;
   }
 
-  .on-this-page {
-    width: 18%;
+  .content--container .content-area .dropdown-button.dropdown-button-expanded:hover .dropdown-button-options {
+    display: block;
+
+    border: 1px solid cv("blue", "900");
   }
 
-  &.navigation-only {
-    @include media("<desktop") {
-      padding: 0;
-      .sidebar-area {
-        display: block;
-        width: 100%;
-      }
-    }
+  .content--container .content-area .dropdown-button.dropdown-button-expanded:hover .dropdown-button-options::before {
+    content: "";
+
+    position: absolute;
+    top: -10px;
+    left: 0;
+
+    width: 100%;
+    height: 10px;
+  }
+}
+
+.content--container .content-area a.header-link svg {
+  width: 1rem;
+  display: none;
+}
+
+.content--container .content-area h2:hover a.header-link svg,
+.content--container .content-area h3:hover a.header-link svg,
+.content--container .content-area h4:hover a.header-link svg,
+.content--container .content-area h5:hover a.header-link svg,
+.content--container .content-area h6:hover a.header-link svg {
+  display: inline-block;
+}
+
+.content--container .content-area div[class^="language-"] {
+  position: relative;
+
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
+}
+
+@include media(">=tablet") {
+  .content--container .content-area div[class^="language-"] td img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.content--container .content-area table {
+  position: relative;
+
+  margin-top: $base-spacing;
+  margin-bottom: $base-spacing;
+
+  overflow-x: scroll;
+}
+
+@include media(">=tablet") {
+  .content--container .content-area table td img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.content--container .content-area h5 {
+  margin-top: 2rem;
+}
+
+.content--container .content-area p > code {
+  overflow-wrap: break-word;
+}
+
+.content--container .content-area .stack-selector {
+  display: none;
+}
+
+@include media("<=desktop-xl") {
+  .content--container .content-area .stack-selector {
+    display: block;
+  }
+}
+
+.content--container .on-this-page {
+  width: 18%;
+}
+
+@include media("<desktop") {
+  .content--container.navigation-only {
+    padding: 0;
   }
 
-  &.navigation-only .content-area {
-    @include media("<desktop") {
-      display: none;
-    }
+  .content--container.navigation-only .sidebar-area {
+    display: block;
+    width: 100%;
+  }
+}
+
+@include media("<desktop") {
+  .content--container.navigation-only .content-area {
+    display: none;
   }
 }
 
@@ -312,6 +340,7 @@
   width: 77px;
   min-width: auto;
 }
+
 .aside-hidden .content-area {
   max-width: calc(100% - 77px);
 }
