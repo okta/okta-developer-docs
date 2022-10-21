@@ -89,7 +89,14 @@ module.exports = {
     "unit-no-unknown": true,
 
     // Allowed, disallowed & required
+    "color-hex-alpha": "never",
     "at-rule-no-vendor-prefix": true,
+    "declaration-no-important": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
     "color-named": "never",
     "function-url-no-scheme-relative": true,
     "length-zero-no-unit": true,
