@@ -14,14 +14,30 @@ module.exports = {
     ],
   ],
 
+  "extends": "stylelint-config-standard-scss",
+
   "rules": {
     // General / Sheet
     "indentation": 2,
     "max-empty-lines": 1,
+    "max-line-length": [
+      80,
+      {
+        "severity": "warning"
+      }
+    ],
     "no-empty-first-line": true,
     "no-eol-whitespace": true,
     "no-extra-semicolons": true,
     "no-missing-end-of-source-newline": true,
+
+    // Descending
+    "no-descending-specificity": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
 
     // Duplicate
     "declaration-block-no-duplicate-custom-properties": true,
@@ -58,25 +74,7 @@ module.exports = {
 
     // Unknown
     "annotation-no-unknown": true,
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": [
-          "if",
-          "else",
-          "include",
-          "each",
-          "mixin",
-          "extend",
-          "return",
-          "function",
-          "for",
-          "warn",
-          "while"
-        ]
-      }
-    ],
-    "scss/at-rule-no-unknown": true,
+    "at-rule-no-unknown": true,
     "media-feature-name-no-unknown": true,
     "no-unknown-animations": true,
     "property-no-unknown": true,
@@ -91,7 +89,14 @@ module.exports = {
     "unit-no-unknown": true,
 
     // Allowed, disallowed & required
+    "color-hex-alpha": "never",
     "at-rule-no-vendor-prefix": true,
+    "declaration-no-important": [
+      true,
+      {
+        "severity": "warning"
+      }
+    ],
     "color-named": "never",
     "function-url-no-scheme-relative": true,
     "length-zero-no-unit": true,
