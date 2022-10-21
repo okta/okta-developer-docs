@@ -121,10 +121,12 @@ module.exports = {
     ],
 
     // Notation
+    "alpha-value-notation": "number",
     "color-function-notation": "modern",
     "color-hex-length": "long",
     "font-weight-notation": "numeric",
     "hue-degree-notation": "angle",
+    "import-notation": "string",
     "keyframe-selector-notation": "percentage",
     "selector-pseudo-element-colon-notation": "double",
 
