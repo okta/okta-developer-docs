@@ -14,6 +14,8 @@ module.exports = {
     ],
   ],
 
+  "extends": "stylelint-config-standard-scss",
+
   "rules": {
     // General / Sheet
     "indentation": 2,
@@ -72,25 +74,7 @@ module.exports = {
 
     // Unknown
     "annotation-no-unknown": true,
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": [
-          "if",
-          "else",
-          "include",
-          "each",
-          "mixin",
-          "extend",
-          "return",
-          "function",
-          "for",
-          "warn",
-          "while"
-        ]
-      }
-    ],
-    "scss/at-rule-no-unknown": true,
+    "at-rule-no-unknown": true,
     "media-feature-name-no-unknown": true,
     "no-unknown-animations": true,
     "property-no-unknown": true,
