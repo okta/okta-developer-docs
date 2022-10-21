@@ -104,24 +104,21 @@ module.exports = {
     "value-no-vendor-prefix": true,
 
     // Max & min
-    "max-nesting-depth": [
+    "declaration-block-single-line-max-declarations": 1,
+    "max-nesting-depth": 1,
+    "number-max-precision": 2,
+    "selector-max-attribute": [
       1,
       {
-        ignoreAtRules: [
-          "if",
-          "else",
-          "include",
-          "each",
-          "mixin",
-          "extend",
-          "return",
-          "function",
-          "for",
-          "warm"
-        ]
+        "severity": "warning"
       }
     ],
-    "number-max-precision": 3,
+    "selector-max-combinators": [
+      2,
+      {
+        "severity": "warning"
+      }
+    ],
 
     // Notation
     "color-function-notation": "modern",
