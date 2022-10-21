@@ -138,6 +138,8 @@ module.exports = {
     // Not handled by pretty printers
     "value-keyword-case": "lower",
     "function-name-case": "lower",
+    "custom-property-empty-line-before": "always",
+    "rule-empty-line-before": "always",
     "selector-type-case": "lower",
     "comment-empty-line-before": "always",
     "comment-whitespace-inside": "always",
