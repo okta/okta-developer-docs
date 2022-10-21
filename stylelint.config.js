@@ -18,6 +18,12 @@ module.exports = {
     // General / Sheet
     "indentation": 2,
     "max-empty-lines": 1,
+    "max-line-length": [
+      80,
+      {
+        "severity": "warning"
+      }
+    ],
     "no-empty-first-line": true,
     "no-eol-whitespace": true,
     "no-extra-semicolons": true,
