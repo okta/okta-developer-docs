@@ -17,10 +17,10 @@ This guide explains how to build and submit an API service integration to the Ok
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* The API Service Integration feature enabled in your org. Contact your Okta account team to enable the feature.
+   > **Note:** Your org needs to have the API Service Integration feature enabled. Contact your Okta account team to enable the feature.
 * A service app that needs to access Okta APIs for your customer
 
-> **Note:** Currently, Okta only supports OAuth APIs listed in [Scopes and supported endpoints](/docs/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). We're working towards supporting scopes for all Okta API endpoints.
+
 ---
 
 ## Overview
@@ -28,7 +28,9 @@ This guide explains how to build and submit an API service integration to the Ok
 A service-to-service app where where a backend service or a daemon calls [Okta management APIs](/docs/reference/core-okta-api/) for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration.
 API service integrations access Okta APIs using the OAuth 2.0 Client Credentials grant flow, where access is not associated with a user and resources can be restricted with scoped access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
-If you have an API service integration for your app in the OIN, your customers can configure the OAuth 2.0 Client Credentials flow for an instance of your app with their Okta tenant org. Each customer Okta org has its own authorization server. When a customer authorizes your API service integration to access their org, Okta generates a unique set of credentials (client ID and client secret) for that org.
+> **Note:** Currently, Okta only supports OAuth APIs listed in [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). We're working towards supporting scopes for all Okta API endpoints.
+
+If you have an API service integration for your app in the OIN, your customers can configure your integration to implement the OAuth 2.0 Client Credentials flow with their Okta tenant org. Each customer Okta org has its own authorization server. When a customer authorizes your API service integration to access their org, Okta generates a unique set of credentials (client ID and client secret) for that org.
 You must collect and store these credentials for each customer to allow your integration to work with your customer's Okta org.
 
 ### API service integration Client Credentials grant flow
@@ -80,7 +82,7 @@ To implement the Client Credentials grant flow in your integration, provide an i
 
 ### Selecting scopes
 
-You must specify the resources and actions that your API service app requires to do its job. Use the least-privilege principle and only specify the minimal scopes and actions required. See the list of available Okta [Scopes and supported endpoints](/docs/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
+You must specify the resources and actions that your API service app requires to do its job. Use the least-privilege principle and only specify the minimal scopes required. See the list of available Okta [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
 There are two types of scope: read and manage. Read scopes can only view resources, while manage scopes can read, create, update, and delete resources. You don't need to request a read scope when you request a manage scope because manage scopes already includes read access.
 
@@ -91,13 +93,13 @@ There are two types of scope: read and manage. Read scopes can only view resourc
 | Update | No | Yes |
 | Delete | No | Yes |
 
-#### Silent downscoping
+##### Silent downscoping
 
-The Okta Org Authorization Server returns all scopes that you request, provided that you registered those scopes along with your integration. Currently, API service integrations don't support optional scopes. You can request only a subset of your-integration-supported scopes when requesting an access token from the `/token` endpoint.
+The Okta Org Authorization Server returns all scopes that you request if you registered those scopes along with your integration. Currently, API service integrations don't support optional scopes. You can request a subset of your-integration-supported scopes when requesting an access token from the `/token` endpoint. For example, if you registered the `okta.users.manage`, `okta.groups.manage`, and `okta.apps.manage` scopes for your integration, but your service only needs to retrieve and update Okta groups for a specific task, then your access token request only requires the `okta.groups.manage` scope.
 
-It doesn't matter whether you have permissions for all the scopes that you request. If the scopes requested exist in the app's grants collection, those scopes are sent back in the access token. However, when you make a request to perform an action that you don't have permission to perform, the token doesn't work, and you receive an error.
+It doesn't matter whether your org has permissions for all the scopes that you request. If the scopes requested is registered with your integration, those scopes are sent back in the access token. However, when your service uses the access token to make a request to perform an action that your org doesn't have permission to perform, the access token doesn't work and the resource server responds with an error.
 
-For example, suppose a customer's grant collection includes the `okta.authorizationServers.manage` scope. A Read Only admin can request and get an access token that contains the scope, but when they attempt to perform a modification, such as modifying an authorization server using `/api/v1/authorizationServers`, the operation fails because the admin lacks the necessary permissions.
+For example, suppose an access token contains the `okta.authorizationServers.manage` scope. A service can use the access token to modify the authorization server, such as using `PUT /api/v1/authorizationServers/` endpoint, the operation fails because this operation isn't allowed in the org.
 
 ### Request an access token
 
@@ -110,14 +112,14 @@ Your service app integration needs to request an access token to securely access
 1. Base64 encode the string and set it in the Authorization header:
 
      ```json
-     Authorization: Basic ${Base64(<client_id>:<client_secret>)}
+     Authorization: Basic ${Base64(${client_id}:${client_secret})}
      ```
 
-1. Make a request to the /token endpoint with these query parameters:
-     * grant_type set to client_credentials
-     * scope must be at least one of the Okta API scopes
+1. Make a request to the `/token` endpoint with these query parameters:
+     * `grant_type` set to `client_credentials`
+     * `scope` must be at least one of the Okta API scopes
 
-1. If the request is successful, the token is be returned in the body of the response (see example below)
+1. If the request is successful, the token is be returned in the body of the response.
 
 Example /token request:
 
@@ -170,7 +172,7 @@ curl -X GET "https://${customerOktaDomain}/api/v1/users"
 1. Click **Add New Submission** or **Edit** an existing submission.
 1. On the **OAuth** tab, toggle on **OAUTH Support**.
 1. Under **Enable scopes**, click **Add Another**.
-1. Enter the name of a scope you would like to request from Okta admins. A scope corresponds to a resource you would like to access in the Okta API (users, logs, etc) and a level of access (read or manage). [A full list of scopes is here](/docs/guides/implement-oauth-for-okta/main/). The sections below have more information about scopes.
+1. Enter the name of a scope you would like to request from Okta admins. A scope corresponds to a resource you would like to access in the Okta API (users, logs, etc) and a level of access (read or manage). See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). The sections below have more information about scopes.
 1. Repeat steps 4 and 5 above for each scope you would like to access.
 
 ### Test your integration
