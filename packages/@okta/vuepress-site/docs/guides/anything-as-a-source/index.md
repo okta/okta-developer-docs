@@ -18,10 +18,10 @@ This guide outlines how to develop a custom client to manage an identity source 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
-* Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable the feature. <!-- IDENTITY_SOURCE_APPS FF needs to be enabled-->
-* [A Custom Identity Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source) integration configured in your Okta org
+   * [A Custom Identity Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source) integration configured in your Okta org
  <!--(https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm)-->
-* [An Okta API token](https://developer.okta.com/docs/guides/create-an-api-token/main/) to make secure API calls
+   * [An Okta API token](https://developer.okta.com/docs/guides/create-an-api-token/main/) to make secure API calls
+     >  **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable the feature. <!-- IDENTITY_SOURCE_APPS FF needs to be enabled-->
 * An HR source from which you want to synchronize user data with Okta
 * A custom client to add XaaS API integration
 
@@ -60,10 +60,10 @@ The XaaS API synchronizing data flow uses an [Import Session](/docs/reference/xa
 You can only process one Import Session at a time (for a specific Custom Identity Source integration) to avoid conflicts. The following are additional Import Session behaviors:
 
 * You can only load data to an Import Session when it’s in the `CREATED` status.
-* A Custom Identity Source integration can only have one active Import Session at a time. An Import Session with the `CREATED` or `TRIGGERED` status is considered active.
-* You can’t process an Import Session in parallel for the same identity source.
+* An Import Session with the `CREATED` or `TRIGGERED` status is considered active.
 * You can't create a new Import Session in less than five minutes of an active Import Session associated with the same identity source. If Okta receives a new Import Session request within five minutes of an active Import Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 - Bad Request response.
 * If there are no API requests in 24 hours for an Import Session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
+* You can’t process an Import Session in parallel for the same identity source.
 
 > **Note:** If you receive a 400 Bad Request from a create Import Session request, then ensure that there isn't an active Import Session for the same identity source. Use the [Retrieve active Import Sessions](/docs/reference/api/xaas/#retrieve-active-import-sessions) request to return the active Import Session for an identity source.
 
@@ -122,6 +122,7 @@ For detailed API calls, see the following guidelines for specific use case flows
 * [Bulk import user data](#bulk-import-user-data)
 * [Bulk deactivate user data](#bulk-deactivate-user-data)
 * [Cancel an Import Session](#cancel-an-import-session)
+* [Monitor Import Sessions](#monitor-import-sessions)
 
 ### Bulk import user data
 
@@ -393,12 +394,6 @@ Possible returned responses:
     },
     {
       "id": "{sessionId2}",
-      "identitySourceId": "{identitySourceId}",
-      "status": "TRIGGERED",
-      "importType": "INCREMENTAL"
-    },
-    {
-      "id": "{sessionId3}",
       "identitySourceId": "{identitySourceId}",
       "status": "TRIGGERED",
       "importType": "INCREMENTAL"
