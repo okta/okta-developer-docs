@@ -49,6 +49,7 @@
     "mocha": "^9.2.2",
     "recursive-readdir": "^2.2.2",
     "remove": "^0.1.5",
+    "stylelint": "^14.14.0",
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-standard": "^28.0.0",
     "vue-eslint-parser": "^9.1.0"
@@ -57,8 +58,8 @@
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.4.0",
     "broken-link-checker": "^0.7.8",
     "serve-handler": "^6.1.3",
-    "stylelint": "^14.14.0",
     "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.3.0",
     "vuepress": "1.9.7",
     "vuepress-plugin-chunkload-redirect": "^1.0.3",
