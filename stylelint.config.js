@@ -55,6 +55,7 @@ module.exports = {
     "function-calc-no-unspaced-operator": true,
     "keyframe-declaration-no-important": true,
     "named-grid-areas-no-invalid": true,
+    "no-invalid-position-at-import-rule": true,
     "string-no-newline": true,
 
     // Irregular
