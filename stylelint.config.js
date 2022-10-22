@@ -165,6 +165,7 @@ module.exports = {
     "hue-degree-notation": "angle",
     "import-notation": "string",
     "keyframe-selector-notation": "percentage",
+    "selector-not-notation": "simple",
     "selector-pseudo-element-colon-notation": "double",
 
     // Quotes
