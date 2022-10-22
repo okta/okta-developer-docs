@@ -132,8 +132,26 @@ module.exports = {
         "severity": "warning"
       }
     ],
+    "selector-max-class": [
+      2,
+      {
+        "severity": "warning"
+      }
+    ],
     "selector-max-combinators": [
       2,
+      {
+        "severity": "warning"
+      }
+    ],
+    "selector-max-id": [
+      0,
+      {
+        "severity": "warning"
+      }
+    ],
+    "selector-max-universal": [
+      0,
       {
         "severity": "warning"
       }
