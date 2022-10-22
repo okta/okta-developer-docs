@@ -89,18 +89,37 @@ module.exports = {
     "unit-no-unknown": true,
 
     // Allowed, disallowed & required
-    "color-hex-alpha": "never",
+    // At-rule
     "at-rule-no-vendor-prefix": true,
+
+    // Color
+    "color-hex-alpha": "never",
+    "color-named": "never",
+
+    // Declaration
     "declaration-no-important": [
       true,
       {
         "severity": "warning"
       }
     ],
-    "color-named": "never",
+
+    // Function
     "function-url-no-scheme-relative": true,
+
+    // Length
     "length-zero-no-unit": true,
+
+    // Media feature
+    "media-feature-name-no-vendor-prefix": true,
+
+    // Property
+    "property-no-vendor-prefix": true,
+
+    // Selector
     "selector-no-vendor-prefix": true,
+
+    // Value
     "value-no-vendor-prefix": true,
 
     // Max & min
