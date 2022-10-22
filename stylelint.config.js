@@ -276,7 +276,8 @@ module.exports = {
           "padding-top",
           "padding-right",
           "padding-bottom",
-          "padding-left"
+          "padding-left",
+          "box-sizing"
         ]
       },
 
