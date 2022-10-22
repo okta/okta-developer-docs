@@ -1,12 +1,12 @@
 "use strict";
 
 module.exports = {
-  plugins: [
+  "plugins": [
     "stylelint-scss",
     "stylelint-order"
   ],
-
-  processors: [
+  "extends": "stylelint-config-standard-scss",
+  "processors": [
     [
       "@mapbox/stylelint-processor-arbitrary-tags",
       {
@@ -14,9 +14,6 @@ module.exports = {
       },
     ],
   ],
-
-  "extends": "stylelint-config-standard-scss",
-
   "rules": {
     // General / Sheet
     "indentation": 2,
