@@ -79,12 +79,7 @@ module.exports = {
     "no-unknown-animations": true,
     "property-no-unknown": true,
     "selector-pseudo-class-no-unknown": true,
-    "selector-pseudo-element-no-unknown": [
-      true,
-      {
-        ignorePseudoElements: ["v-deep"]
-      }
-    ],
+    "selector-pseudo-element-no-unknown": true,
     "selector-type-no-unknown": true,
     "unit-no-unknown": true,
 
