@@ -11,7 +11,7 @@ The Okta Anything-as-a-Source (XaaS) API provides a mechanism to synchronize an 
 
 ## Get started
 
-Explore the XaaS API: [![Run in Postman](https://run.pstmn.io/button.svg)](linkhere).
+Explore the XaaS API: [![Run in Postman](https://run.pstmn.io/button.svg)](linkhere)
 
 ## Anything-as-a-Source API operations
 
@@ -463,7 +463,7 @@ Content-Type: application/json
 | Property           | Type                           | Description               |
 | ------------------ | ------------------------------ | ------------------------------ |
 | `externalId`        | String                 | The unique identifier for the user in the external HR source |
-| `profile`          | [Profile object](/docs/reference/api/users/#profile-object) | Contains a set of external user attributes and their values that are mapped to Okta standard and custom profile properties. See [Profile object](/docs/reference/api/users/#profile-object) and Declaration of a Custom Identity Source Schema in [Using anything as a source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source)  |
+| `profile`          | [Profile object](/docs/reference/api/users/#profile-object) | Contains a set of external user attributes and their values that are mapped to Okta standard and custom profile properties. See [Profile object](/docs/reference/api/users/#profile-object) and Declaration of a Custom Identity Source Schema in [Using anything as a source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source).  |
 
 #### External Profile object example
 
@@ -482,7 +482,7 @@ Content-Type: application/json
 }
 ```
 
-#### Possible common errors
+### Possible common errors
 
 The following are common errors for the XaaS API:
 
