@@ -71,7 +71,9 @@ app -> client: Response
 
 ## Build your API service integration
 
-This section provides you a guideline of the component and requests you require to build your API service integration using basic `curl` commands . You can use OAuth 2.0 SDKs in your preferred language to implement the OAuth 2.0 Client Credentials flow. For an example of how to implement the Client Credentials flow using Spring Boot, see the [How to use Client Credentials flow with Spring Security](https://developer.okta.com/blog/2021/05/05/client-credentials-spring-security) blog. This example uses the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) library.
+This section provides you a guideline of the component and requests you require to build your API service integration using basic `curl` commands . You can use OAuth 2.0 SDKs in your preferred language to implement the OAuth 2.0 Client Credentials flow.
+
+For an example of how to implement the Client Credentials flow using Spring Boot, see the [How to use Client Credentials flow with Spring Security](https://developer.okta.com/blog/2021/05/05/client-credentials-spring-security) blog. This example uses the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) library. You can ignore the custom scopes and authorization server part of the example since it doesn't apply to the API service integration use case.
 
 ### Collect and save customer credentials
 
@@ -83,7 +85,7 @@ To implement the Client Credentials grant flow in your integration, provide an i
 * client ID
 * client secret
 
-> **Note:** This guide refers to these domain and credentials as `${customerOktaDomain}`, `${client_id}`, and `${client_secret}` variables.
+> **Note:** This guide refers to these domain and credentials as `${customerOktaDomain}`, `${clientId}`, and `${clientSecret}` variables.
 
 ### Selecting scopes
 
@@ -105,14 +107,19 @@ The Okta Org Authorization Server returns all scopes that you request if you reg
 Your service app integration needs to request an access token to securely access the Okta APIs. Use the following configuration variables to form the access token request:
 
 * `${customerOktaDomain}`: Your customer's Okta tenant (org) domain
-* `${client_id}`: Your customer's client ID
-* `${client_secret}`: Your customer's client secret
+* `${clientId}`: Your customer's client ID
+* `${clientSecret}`: Your customer's client secret
+* `${scopes}`: The resource scopes required for the access token
+
+> **Note:** If you're using an OAuth 2.0 library, you typically need to you configure an OAuth client class with a `tokenUri` parameter, as well as the `clientId` and `clientSecret`. Specify the `tokenUri` string as `https://${customerOktaDomain}/oauth2/default/v1/token`. If you require a `issuer` parameter, use the `https://${customerOktaDomain}/oauth2/default/` string for the built-in authorization server in the Okta org.
+
+The following is the process for using a Basic Authorization header for the `/token` request:
 
 1. Base64 encode the string and set it in the Authorization header:
 
-     ```json
-     Authorization: Basic ${Base64(${client_id}:${client_secret})}
-     ```
+   ```http
+   Authorization: Basic ${Base64(${client_id}:${client_secret})}
+   ```
 
 1. Make a request to the `/token` endpoint with these query parameters:
      * `grant_type` set to `client_credentials`
@@ -120,19 +127,17 @@ Your service app integration needs to request an access token to securely access
 
 1. If the request is successful, the token is be returned in the body of the response.
 
-Example /token request:
+   Example `/token` request:
 
-[ Include code snippets in several languages we support, ultimately SDK examples. ]
-
-```bash
-curl --request POST \
-  --url https://${customerOktaDomain}/oauth2/v1/token \
-  --header 'Accept: application/json' \
-  --header 'Authorization: Basic MG9hY...' \
-  --header 'Cache-control: no-cache' \
-  --header 'Content-type: application/x-www-form-urlencoded' \
-  --data 'grant_type=client_credentials&scope=okta.users.read okta.groups.read
-```
+   ```bash
+   curl --request POST \
+     --url https://${customerOktaDomain}/oauth2/v1/token \
+     --header 'Accept: application/json' \
+     --header 'Authorization: Basic MG9hY...' \
+     --header 'Cache-control: no-cache' \
+     --header 'Content-type: application/x-www-form-urlencoded' \
+     --data 'grant_type=client_credentials&scope=okta.users.read okta.groups.read
+   ```
 
 Successful response example:
 ```json
