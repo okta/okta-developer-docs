@@ -73,8 +73,16 @@ module.exports = {
 
     // Unknown
     "annotation-no-unknown": true,
-    "at-rule-no-unknown": true,
-    "function-no-unknown": true,
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": [
+          "cv"
+        ]
+      }
+    ],
     "media-feature-name-no-unknown": true,
     "no-unknown-animations": true,
     "property-no-unknown": true,
@@ -162,6 +170,9 @@ module.exports = {
     "keyframe-selector-notation": "percentage",
     "selector-not-notation": "simple",
     "selector-pseudo-element-colon-notation": "double",
+
+    // Pattern
+    "selector-class-pattern": false,
 
     // Quotes
     "font-family-name-quotes": "always-unless-keyword",
