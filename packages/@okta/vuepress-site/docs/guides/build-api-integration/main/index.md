@@ -20,6 +20,10 @@ This guide explains how to build and submit an API service integration to the Ok
    > **Note:** The API Service Integration is a [Self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. Enable this feature in your org to obtain the API service integration capability.
 * A service app that needs to access Okta APIs for your customer
 
+**Sample code**
+
+* See [How to use Client Credentials flow with Spring Security](https://developer.okta.com/blog/2021/05/05/client-credentials-spring-security) blog for an example of a Client Credentials grant flow using the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) library.
+
 ---
 
 ## Overview
@@ -34,7 +38,7 @@ You must [collect and store these credentials](#collect-and-save-customer-creden
 
 ### API service integration Client Credentials grant flow
 
-At a high-level, the OAuth 2.0 Client Credentials flow for an API service integration has the following steps:
+At a high-level, the OAuth 2.0 Client Credentials grant flow for an API service integration has the following steps:
 
 1. Your customer's instance of your service integration makes an authorization request to their Okta Authorization Server using their client credentials.
 
@@ -67,9 +71,11 @@ app -> client: Response
 
 ## Build your API service integration
 
+This section provides you a guideline of the component and requests you require to build your API service integration using basic `curl` commands . You can use OAuth 2.0 SDKs in your preferred language to implement the OAuth 2.0 Client Credentials flow. For an example of how to implement the Client Credentials flow using Spring Boot, see the [How to use Client Credentials flow with Spring Security](https://developer.okta.com/blog/2021/05/05/client-credentials-spring-security) blog. This example uses the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) library.
+
 ### Collect and save customer credentials
 
-Okta generates a unique set of credentials (client ID and client secret) for your customer when they register your integration in their Okta org. See [HOC&mdash;Set up an API service integration](https://www.figma.com/proto/1hqMxP4MrqXR07atucaGvM/OAuth-API-Integrations---Partner-Mocks?node-id=1550%3A9898&starting-point-node-id=1550%3A9668). You must collect and store these credentials for each customer to allow your integration to work with the customer's Okta org.
+Okta generates a unique set of credentials (client ID and client secret) for your customer when they install your integration in their Okta org. See [HOC&mdash;Set up an API service integration](https://www.figma.com/proto/1hqMxP4MrqXR07atucaGvM/OAuth-API-Integrations---Partner-Mocks?node-id=1550%3A9898&starting-point-node-id=1550%3A9668). You must collect and store these credentials for each customer to allow your integration to work with the customer's Okta org.
 
 To implement the Client Credentials grant flow in your integration, provide an interface to collect and store these API service integration credentials:
 
@@ -92,13 +98,7 @@ There are two types of scope: read and manage. Read scopes can only view resourc
 | Update | No | Yes |
 | Delete | No | Yes |
 
-##### Silent downscoping
-
 The Okta Org Authorization Server returns all scopes that you request if you registered those scopes along with your integration. Currently, API service integrations don't support optional scopes. You can request a subset of your-integration-supported scopes when requesting an access token from the `/token` endpoint. For example, if you registered the `okta.users.manage`, `okta.groups.manage`, and `okta.apps.manage` scopes for your integration, but your service only needs to retrieve and update Okta groups for a specific task, then you can specify only the `okta.groups.manage` scope in your access token request.
-
-It doesn't matter whether your org has permissions for all the scopes that you request. If the scopes requested is registered with your integration, those scopes are sent back in the access token. However, when your service uses the access token to make a request to perform an action that your org doesn't have permission to perform, the access token doesn't work and the resource server responds with an error.
-
-For example, suppose an access token contains the `okta.authorizationServers.manage` scope. A service can use the access token to modify the authorization server, such as using `PUT /api/v1/authorizationServers/` endpoint, the operation fails because this operation isn't allowed in the org.
 
 ### Request an access token
 
