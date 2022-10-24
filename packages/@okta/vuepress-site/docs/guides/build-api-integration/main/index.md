@@ -4,7 +4,7 @@ excerpt: Learn how to build and register an API service integration to the Okta 
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
+<ApiLifecycle access="ea" /><!--For both Classic and Identity Engine-->
 
 This guide explains how to build and submit an API service integration to the Okta Integration Network (OIN) for review and publishing.
 
@@ -42,7 +42,7 @@ At a high-level, the OAuth 2.0 Client Credentials grant flow for an API service 
 
 1. Your customer's instance of your service integration makes an authorization request to their Okta Authorization Server using their client credentials.
 
-   Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the authorization request. See [HOC&mdash;Set up an API service integration](https://www.figma.com/proto/1hqMxP4MrqXR07atucaGvM/OAuth-API-Integrations---Partner-Mocks?node-id=1550%3A9898&starting-point-node-id=1550%3A9668). After your integration is installed, the customer obtains their client credentials and passes them to your team so that they can configure the customer's integration instance. See [Collect and save customer credentials](#collect-and-save-customer-credentials). The customer's instance of your integration can now make an authorization request to Okta. See [Request for access token](#request-an-access-token).
+   Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the authorization request. See [Set up an API service integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations)<!--https://www.figma.com/proto/1hqMxP4MrqXR07atucaGvM/OAuth-API-Integrations---Partner-Mocks?node-id=1550%3A9898&starting-point-node-id=1550%3A9668-->. After your integration is installed, the customer obtains their client credentials and passes them to your team so that they can configure the customer's integration instance. See [Collect and save customer credentials](#collect-and-save-customer-credentials). The customer's instance of your integration can now make an authorization request to Okta. See [Request for access token](#request-an-access-token).
 
 2. If the credentials in the authorization request for a token are accurate, Okta responds with an access token.
 
@@ -117,15 +117,13 @@ The following is the process for using a Basic Authorization header for the `/to
 
 1. Base64 encode the string and set it in the Authorization header:
 
-   ```http
+   ```sh
    Authorization: Basic ${Base64(${client_id}:${client_secret})}
    ```
 
 1. Make a request to the `/token` endpoint with these query parameters:
-     * `grant_type` set to `client_credentials`
-     * `scope` must be at least one of the Okta API scopes
-
-1. If the request is successful, the token is be returned in the body of the response.
+   * `grant_type` set to `client_credentials`
+   * `scope` must be at least one of the Okta API scopes
 
    Example `/token` request:
 
@@ -138,6 +136,10 @@ The following is the process for using a Basic Authorization header for the `/to
      --header 'Content-type: application/x-www-form-urlencoded' \
      --data 'grant_type=client_credentials&scope=okta.users.read okta.groups.read
    ```
+
+1. If the request is successful, the token is be returned in the body of the response.
+
+   
 
 Successful response example:
 ```json
