@@ -22,27 +22,27 @@ This guide explains how to build and submit an API service integration to the Ok
 
 **Sample code**
 
-* See [How to use Client Credentials flow with Spring Security](https://developer.okta.com/blog/2021/05/05/client-credentials-spring-security) blog for an example of a Client Credentials grant flow using the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) library.
+* See [How to use Client Credentials flow with Spring Security](https://developer.okta.com/blog/2021/05/05/client-credentials-spring-security) blog for an example of a Client Credentials flow using the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) library.
 
 ---
 
 ## Overview
 
 A service-to-service app where where a backend service or a daemon calls [Okta management APIs](/docs/reference/core-okta-api/) for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration.
-API service integrations access Okta APIs using the OAuth 2.0 Client Credentials grant flow, where access is not associated with a user and resources can be restricted with scoped access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+API service integrations access Okta APIs using the OAuth 2.0 [Client Credentials flow](/docs/concepts/oauth-openid/#client-credentials-flow), where access is not associated with a user and resources can be restricted with scoped access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
 > **Note:** Currently, Okta only supports OAuth APIs listed in [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). We're working towards supporting scopes for all Okta API endpoints.
 
 If you have an API service integration for your app in the OIN, your customers can configure your integration to use the OAuth 2.0 Client Credentials flow with their Okta tenant org. Each customer Okta org has its own authorization server. When a customer authorizes your API service integration to access their org, Okta generates a unique set of credentials (client ID and client secret) for that org.
 You must [collect and store these credentials](#collect-and-save-customer-credentials) for each customer to allow your integration to work with your customer's Okta org.
 
-### API service integration Client Credentials grant flow
+### API service integration Client Credentials flow
 
-At a high-level, the OAuth 2.0 Client Credentials grant flow for an API service integration has the following steps:
+At a high-level, the OAuth 2.0 Client Credentials flow for an API service integration has the following steps:
 
 1. Your customer's instance of your service integration makes an authorization request to their Okta Authorization Server using their client credentials.
 
-   Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the authorization request. See [Set up an API service integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations)<!--https://www.figma.com/proto/1hqMxP4MrqXR07atucaGvM/OAuth-API-Integrations---Partner-Mocks?node-id=1550%3A9898&starting-point-node-id=1550%3A9668-->. After your integration is installed, the customer obtains their client credentials and passes them to your team so that they can configure the customer's integration instance. See [Collect and save customer credentials](#collect-and-save-customer-credentials). The customer's instance of your integration can now make an authorization request to Okta. See [Request for access token](#request-an-access-token).
+   Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the authorization request. See [Set up an API service integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations) for Admin Console instructions for your customer. After your integration is installed, the customer obtains their client credentials and passes them to your team so that they can configure the customer's integration instance. See [Collect and save customer credentials](#collect-and-save-customer-credentials). The customer's instance of your integration can now make an authorization request to Okta. See [Request for access token](#request-an-access-token).
 
 2. If the credentials in the authorization request for a token are accurate, Okta responds with an access token.
 
@@ -77,9 +77,9 @@ For an example of how to implement the Client Credentials flow using Spring Boot
 
 ### Collect and save customer credentials
 
-Okta generates a unique set of credentials (client ID and client secret) for your customer when they install your integration in their Okta org. See [HOC&mdash;Set up an API service integration](https://www.figma.com/proto/1hqMxP4MrqXR07atucaGvM/OAuth-API-Integrations---Partner-Mocks?node-id=1550%3A9898&starting-point-node-id=1550%3A9668). You must collect and store these credentials for each customer to allow your integration to work with the customer's Okta org.
+Okta generates a unique set of credentials (client ID and client secret) for your customer when they install your integration in their Okta org. See [Set up an API service integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations). You must collect and store these credentials for each customer to allow your integration to work with the customer's Okta org.
 
-To implement the Client Credentials grant flow in your integration, provide an interface to collect and store these API service integration credentials:
+To implement the Client Credentials flow in your integration, provide an interface to collect and store these API service integration credentials:
 
 * Okta tenant (organization) domain (for example, `acme.okta.com`)
 * client ID
@@ -111,21 +111,21 @@ Your service app integration needs to request an access token to securely access
 * `${clientSecret}`: Your customer's client secret
 * `${scopes}`: The resource scopes required for the access token
 
-> **Note:** If you're using an OAuth 2.0 library, you typically need to you configure an OAuth client class with a `tokenUri` parameter, as well as the `clientId` and `clientSecret`. Specify the `tokenUri` string as `https://${customerOktaDomain}/oauth2/default/v1/token`. If you require a `issuer` parameter, use the `https://${customerOktaDomain}/oauth2/default/` string for the built-in authorization server in the Okta org.
+> **Note:** If you're using an OAuth 2.0 library, you typically need to you configure an OAuth client class with a `tokenUri` parameter, as well as the `clientId` and `clientSecret` parameters. Specify the `tokenUri` string as `https://${customerOktaDomain}/oauth2/v1/token`.
 
-The following is the process for using a Basic Authorization header for the `/token` request:
+The following is the process for using a Basic authorization header for the `/token` request:
 
-1. Base64 encode the string and set it in the Authorization header:
+1. Base64 encode the string and set it in the authorization header:
 
    ```sh
    Authorization: Basic ${Base64(${client_id}:${client_secret})}
    ```
 
-1. Make a request to the `/token` endpoint with these query parameters:
+1. Make a request to the [/token](/docs/reference/api/oidc/#token) endpoint with these query parameters:
    * `grant_type` set to `client_credentials`
    * `scope` must be at least one of the Okta API scopes
 
-   Example `/token` request:
+   Request example:
 
    ```bash
    curl --request POST \
@@ -139,32 +139,34 @@ The following is the process for using a Basic Authorization header for the `/to
 
 1. If the request is successful, the token is be returned in the body of the response.
 
-   
+   Successful response example:
 
-Successful response example:
-```json
-{
-    "token_type": "Bearer",
-    "expires_in": 3600,
-    "access_token": "eyJraWQiOiJ.....UfThlJ7w",
-    "scope": "okta.users.read okta.groups.read"
-}
-```
+   ```json
+   {
+      "token_type": "Bearer",
+      "expires_in": 3600,
+      "access_token": "eyJraWQiOiJ.....UfThlJ7w",
+      "scope": "okta.users.read okta.groups.read"
+   }
+   ```
 
-Error response example:
-```json
-{
-    "error": "invalid_client",
-    "error_description": "The client secret supplied for a confidential client is invalid."
-}
-```
+   Error response example:
 
-See a [list of token endpoint errors](https://developer.okta.com/docs/reference/api/oidc/#possible-errors-4).
+   ```json
+   {
+      "error": "invalid_client",
+      "error_description": "The client secret supplied for a confidential client is invalid."
+   }
+   ```
+
+   See the [list of token endpoint errors](https://developer.okta.com/docs/reference/api/oidc/#possible-errors-4).
 
 ### Make Okta API requests
 
-When you have an access token, you can use it to make requests to the [Core Okta API]. Set the access token as a bearer token in an authorization header.
+When you have an access token, you can use it to make requests to the [Core Okta APIs](/docs/reference/core-okta-api/). Set the access token as a bearer token in an authorization header.
+
 Example request:
+
 ```bash
 curl -X GET "https://${customerOktaDomain}/api/v1/users"
     -H "Accept: application/json"
@@ -173,6 +175,8 @@ curl -X GET "https://${customerOktaDomain}/api/v1/users"
 ```
 
 ## Submit your API service integration
+
+After you have completed and tested your 
 
 1. Go to the [OIN Manager](https://oinmanager.okta.com/) and log in with the credentials of the Okta org you will use to build and submit your integration.
 1. Click **Add New Submission** or **Edit** an existing submission.
