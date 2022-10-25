@@ -1,22 +1,20 @@
-@import
-  "okta/base",
+@import "okta/base";
 
-  "okta/components/Button.scss",
-  "okta/components/FrameworkIconBlock",
+@import "okta/components/Button";
+@import "okta/components/FrameworkIconBlock";
 
-  "okta/global/fontawesome",
-  "okta/global/fontello",
+@import "okta/global/fontawesome";
+@import "okta/global/fontello";
 
-  "okta/pages/quickstarts",
-  "okta/pages/guides",
+@import "okta/pages/quickstarts";
+@import "okta/pages/guides";
 
-  "okta/icons/all.scss"
-;
+@import "okta/icons/all";
 
 .guide-featured footer {
+  margin: 0;
   padding: 1.5rem;
   padding-top: 0.75rem;
-  margin: 0;
 
   background-color: transparent;
 }
@@ -30,11 +28,14 @@
   top: -1px;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15ch, 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(15ch, 1fr)
+  );
   max-width: none;
   padding: 0;
 
   background: #fafafa;
-  list-style-type: none;
   border-bottom: 1px solid #b7bcc0;
+  list-style-type: none;
 }
