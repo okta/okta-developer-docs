@@ -4,12 +4,14 @@
   background-color: cv("code");
 }
 
-.tree-nav-toggle svg path:nth-child(1) {
-  fill: cv("white");
-}
+.tree-nav-toggle svg path {
+  &:nth-child(1) {
+    fill: cv("white");
+  }
 
-.tree-nav-toggle svg path:nth-child(2) {
-  fill: cv("link");
+  &:nth-child(2) {
+    fill: cv("link");
+  }
 }
 
 .tree-nav-toggle::before {
@@ -54,18 +56,18 @@
 }
 
 .tree-nav .sections .tree-nav-link i.opened + span {
-  color: cv("link");
   font-weight: 500;
+  color: cv("link");
 }
 
 .tree-nav .sections .tree-nav-link i.opened + a {
-  color: cv("link");
   font-weight: 500;
+  color: cv("link");
 }
 
 .tree-nav .sections .tree-nav-link i.opened + a span {
-  color: cv("link");
   font-weight: 500;
+  color: cv("link");
 }
 
 .tree-nav .sections .tree-nav-link > i.parent svg path {
@@ -82,14 +84,14 @@
 
 .tree-nav .sections .tree-nav-link.router-link-active {
   color: cv("action");
-}
 
-.tree-nav .sections .tree-nav-link.router-link-active::before {
-  background-color: cv("link");
-  mask: url("/img/icons/angle-right.svg") no-repeat center center;
-  background-image: none !important;
-  mask-repeat: no-repeat;
-  mask-position: center;
+  &::before {
+    background-color: cv("link");
+    background-image: none !important;
+    mask: url("/img/icons/angle-right.svg") no-repeat center center;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
 }
 
 .tree-nav .scroll-up svg path {
@@ -103,5 +105,9 @@
 }
 
 .page-body .content--container .sidebar-fade {
-  background: linear-gradient(3.53deg, cv("code") 38.14%, rgb(247 250 255 / 0) 83.09%);
+  background: linear-gradient(
+    3.53deg,
+    cv("code") 38.14%,
+    rgb(247 250 255 / 0) 83.09%
+  );
 }
