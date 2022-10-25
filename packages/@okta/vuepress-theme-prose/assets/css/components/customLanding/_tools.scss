@@ -12,38 +12,38 @@
 .customLanding-tools__content h2 {
   margin: 0;
 
+  font-weight: 400;
   font-size: 36px;
   line-height: 45px;
-  font-weight: 400;
   color: cv("header", "nav-link");
 }
 
 .customLanding-tools__content p {
+  max-width: 615px;
   margin-top: 16px;
   margin-bottom: 52px;
-  max-width: 615px;
 
   font-size: 16px;
-  color: cv("text");
   line-height: 26px;
+  color: cv("text");
 }
 
 .customLanding-tools__title {
   margin-top: 57px;
   margin-bottom: 0;
 
+  font-weight: 500;
   font-size: 22px;
   line-height: 28px;
-  font-weight: 500;
   color: cv("header", "nav-link");
 }
 
 .customLanding-tools__title-bg {
   position: relative;
 
-  padding: 24px 40px;
   display: inline-block;
   margin: 0;
+  padding: 24px 40px;
 
   background-color: cv("body", "custom-bg-gray");
   border-radius: 70px;
