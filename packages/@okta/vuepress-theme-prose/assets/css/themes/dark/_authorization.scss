@@ -16,8 +16,8 @@
 }
 
 .authorization-layout .authorization-layout--content input[type="submit"] {
-  color: cv("body");
   font-weight: 500;
+  color: cv("body");
 
   background-color: cv("link");
   border-color: cv("link");
@@ -25,8 +25,8 @@
 
 .authorization-layout .authorization-layout--content a.social-btn,
 .authorization-layout .authorization-layout--content button.social-btn {
-  color: cv("text");
   font-weight: 500;
+  color: cv("text");
 
   background-color: cv("link", "gray");
 }
@@ -43,10 +43,10 @@
 }
 
 .authorization-layout .authorization-layout--content .auth0-banner--logo::after {
+  background-color: cv("white") !important;
   background-image: none !important;
   mask-repeat: no-repeat;
   mask-position: center;
-  background-color: cv("white") !important;
   mask-image: url("/img/logos/auth0-inc-logo.svg");
 }
 
