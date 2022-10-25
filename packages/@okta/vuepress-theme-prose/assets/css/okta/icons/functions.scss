@@ -2,6 +2,5 @@
 // Note: Do not modify this file directly.
 
 @function unicode($str) {
-  /* stylelint-disable */
-  @return unquote("'")+unquote(str-insert($str, '\\', 1))+unquote("'");
+  @return unquote("'") + unquote(str-insert($str, "\\", 1)) + unquote("'");
 }
