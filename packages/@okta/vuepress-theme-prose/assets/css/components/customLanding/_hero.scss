@@ -1,9 +1,9 @@
 .customLanding-hero {
-  padding: 64px 0 84px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 64px 0 84px;
 }
 
 .customLanding-hero__content {
@@ -16,45 +16,45 @@
   margin-top: 0;
   margin-bottom: 22px;
 
-  color: cv("gray", "600");
-  text-transform: uppercase;
-  font-size: 0.75rem;
   font-weight: 700;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: cv("gray", "600");
 }
 
 .customLanding-hero__content h2 {
   margin-top: 0;
-  margin-bottom: 2.875rem;
+  margin-bottom: 2.88rem;
 
-  font-size: 2.25rem;
   font-weight: 400;
+  font-size: 2.25rem;
   color: cv("header", "nav-link");
 }
 
 .customLanding-hero__content p {
-  margin-bottom: 2.875rem;
+  margin-bottom: 2.88rem;
 
+  font-weight: 300;
   font-size: 18px;
   line-height: 27px;
-  font-weight: 300;
 }
 
 .customLanding-hero__content p span {
   display: inline-block;
   margin-bottom: 0;
 
+  font-weight: 500;
   font-size: 18px;
   line-height: 27px;
-  font-weight: 500;
 }
 
 .customLanding-hero__content h3 {
-  margin-bottom: 0.937rem;
+  margin-bottom: 0.94rem;
 
+  font-weight: 500;
   font-size: 1.25rem;
   line-height: 1.5rem;
-  font-weight: 500;
   color: cv("header", "nav-link");
 }
 
@@ -62,40 +62,42 @@
   display: block;
   margin-bottom: 7px;
 
-  font-size: 1rem;
   font-weight: 300;
-  line-height: 1.188rem;
+  font-size: 1rem;
+  line-height: 1.19rem;
 }
 
 .customLanding-hero__button {
+  display: inline-block;
   margin-bottom: 50px;
   padding: 14px 20px;
-  display: inline-block;
+
+  font-weight: 400;
+  font-size: 18px;
 
   text-align: center;
   color: cv("body", "white");
-  font-size: 18px;
-  font-weight: 400;
 
   background-color: cv("link", "darker");
-}
 
-.customLanding-hero__button:hover {
-  color: cv("body", "white");
+  &:hover {
+    color: cv("body", "white");
 
-  background-color: cv("link");
-}
+    background-color: cv("link");
+  }
 
-.customLanding-hero__button:visited,
-.customLanding-hero__button:active,
-.customLanding-hero__button:focus {
-  color: cv("body", "white");
+  &:visited,
+  &:active,
+  &:focus {
+    color: cv("body", "white");
+  }
 }
 
 .customLanding-hero__link {
-  color: cv("link");
   display: inline-block;
+
   font-weight: 500;
+  color: cv("link");
 }
 
 .customLanding-hero__image svg {
