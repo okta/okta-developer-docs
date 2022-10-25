@@ -3,11 +3,11 @@
   align-items: center;
   width: fit-content;
 
+  background: cv("gray", "000");
   border-top: 1px solid cv("gray", "300");
   border-right: 1px solid cv("gray", "300");
   border-bottom: 1px solid cv("gray", "300");
   border-radius: 0.25em;
-  background: cv("gray", "000");
 
   @include media("<tablet") {
     width: auto;
