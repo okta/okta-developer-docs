@@ -11,11 +11,12 @@
 }
 
 .breadcrumb--container ol {
-  list-style: none;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   padding: 0 0 9px;
-  flex-wrap: wrap;
+
+  list-style: none;
 }
 
 .breadcrumb--container ol li {
@@ -37,10 +38,10 @@
 .breadcrumb--container ol li span {
   padding-right: 7px;
 
+  font-weight: 500;
+  font-size: 12px;
   text-decoration: none !important;
   color: cv("text", "darker");
-  font-size: 12px;
-  font-weight: 500;
 
   @include media("<desktop-xl") {
     padding-right: 7px;
