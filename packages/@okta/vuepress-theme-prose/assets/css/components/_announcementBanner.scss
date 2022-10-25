@@ -38,12 +38,12 @@
 }
 
 .announcement-banner--content {
-  height: 100%;
-  padding: 0 40px 0 135px;
-  margin-right: 344px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
+  margin-right: 344px;
+  padding: 0 40px 0 135px;
 
   @include media("<desktop-xl") {
     padding: 0 57px;
@@ -59,8 +59,8 @@
 }
 
 .announcement-banner--title {
-  font-size: 21px;
   font-weight: 500;
+  font-size: 21px;
   line-height: 1.32em;
 
   @include media("<=desktop-xl") {
@@ -88,33 +88,33 @@
 }
 
 .announcement-banner--cta {
-  margin-left: 10px;
   flex: 0 0 auto;
+  margin-left: 10px;
 
-  font-size: 18px;
   font-weight: 500;
+  font-size: 18px;
   color: cv("blue", "500");
+
+  &:hover {
+    border-bottom: 0;
+  }
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: cv("blue", "500");
+
+    border-bottom: 1px solid currentcolor;
+  }
 
   @include media("<=desktop-xl") {
     font-size: 14px;
   }
 
   @include media("<=desktop") {
-    margin-left: 0;
     margin-top: 10px;
+    margin-left: 0;
   }
-}
-
-.announcement-banner--cta:link,
-.announcement-banner--cta:visited {
-  color: cv("blue", "500");
-  text-decoration: none;
-
-  border-bottom: 1px solid currentcolor;
-}
-
-.announcement-banner--cta:hover {
-  border-bottom: 0;
 }
 
 .announcement-banner--logo {
