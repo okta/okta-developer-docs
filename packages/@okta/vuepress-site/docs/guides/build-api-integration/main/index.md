@@ -176,14 +176,21 @@ curl -X GET "https://${customerOktaDomain}/api/v1/users"
 
 ## Submit your API service integration
 
-After you have completed and tested your 
+After you have completed and tested your API service integration, submit it to Okta for verification:
 
-1. Go to the [OIN Manager](https://oinmanager.okta.com/) and log in with the credentials of the Okta org you will use to build and submit your integration.
+1. Navigate to the [OIN Manager](https://oinmanager.okta.com/) and click **Start Submission Form**.
+1. Sign in with the credentials of the Okta org you use to build and submit your integration.
 1. Click **Add New Submission** or **Edit** an existing submission.
-1. On the **OAuth** tab, toggle on **OAUTH Support**.
-1. Under **Enable scopes**, click **Add Another**.
-1. Enter the name of a scope you would like to request from Okta admins. A scope corresponds to a resource you would like to access in the Okta API (users, logs, etc) and a level of access (read or manage). See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). The sections below have more information about scopes.
-1. Repeat steps 4 and 5 above for each scope you would like to access.
+1. In the **General Settings** tab, specify values in the **App Information**, **Customer Support** and **Test Account** sections. See [Configure general settings](/docs/guides/submit-app/openidconnect/main/#configure-general-settings) for field descriptions.
+1. On the **OAUTH** tab, select **On** from the **OAUTH Support** dropdown menu.
+   The **OAuth Settings** appears and the **Client Credentials** grant type is automatically selected.
+1. Under **Enable scopes**, click **+ Add Another** specify a scope for your app integration.
+
+   * Enter the name of a scope you would like to request from Okta admins. A scope corresponds to a resource you would like to access in the Okta API (users, logs, etc) and a level of access (read or manage). See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). The sections below have more information about scopes.
+
+   ** Click **+Add Another** for additional scopes you want to grant.
+
+1. Specify the URL to the integration configuration instructions for your customer under **Link to configuration guide**.
 
 ### Test your integration
 
@@ -207,4 +214,5 @@ To update a test instance, repeat the procedure above for Authorizing a test ins
 [ Include code snippets in several languages we support, ultimately SDK examples. ]
 
 ## Support
+
 If you need help or have an issue, post a question in the [Okta Developer Forum](https://devforum.okta.com/c/questions/oin-submissions/19).
