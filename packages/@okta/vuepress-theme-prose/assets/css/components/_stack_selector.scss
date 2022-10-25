@@ -30,8 +30,8 @@ $small-spacing: 0.75rem;
   padding: 0.65rem 0.5rem 0.5rem 0;
 
   font-weight: 500;
-  white-space: nowrap;
   font-size: 1rem;
+  white-space: nowrap;
   color: #1d1d21;
 
   @include media(">desktop-xl") {
@@ -42,22 +42,22 @@ $small-spacing: 0.75rem;
 .stack-selector .selector-control .icon {
   width: 24px;
   height: 24px;
-}
 
-.stack-selector .selector-control .icon::before,
-.stack-selector .selector-control .icon::after {
-  width: 24px;
-  height: 24px;
-  display: inline-block;
+  &::before,
+  &::after {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
 
-  font-size: 24px;
-  line-height: 24px;
-  vertical-align: middle;
-  text-align: center;
+    font-size: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+    text-align: center;
 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 20px 20px;
+    background-position: center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+  }
 }
 
 .stack-selector .selector-control .select-dropdown {
@@ -71,15 +71,15 @@ $small-spacing: 0.75rem;
   top: 1px;
 
   display: flex;
-  width: 100%;
   align-items: center;
+  width: 100%;
+
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: cv("text");
 
   background: transparent;
-
-  white-space: nowrap;
-  text-decoration: none;
-  color: cv("text");
-  text-overflow: ellipsis;
 }
 
 .stack-selector .selector-control .vs__search {
@@ -88,12 +88,12 @@ $small-spacing: 0.75rem;
 }
 
 .stack-selector .selector-control .vs__dropdown-toggle {
-  min-height: 45px;
-  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: nowrap;
+  min-height: 45px;
+  padding: 0.5rem;
 
   font-size: 14px;
 
@@ -102,15 +102,15 @@ $small-spacing: 0.75rem;
 
 .stack-selector .selector-control .vs__dropdown-toggle .vs__selected-options {
   flex-basis: auto;
+  max-width: 93%;
   padding: 0;
   padding-left: 0.5rem;
-  max-width: 93%;
 }
 
 .stack-selector .selector-control .vs__dropdown-toggle .vs__selected-options .vs__selected {
+  max-width: 90%;
   margin: 0;
   padding: 0;
-  max-width: 90%;
 
   border: 0;
 }
@@ -137,30 +137,32 @@ $small-spacing: 0.75rem;
 }
 
 .stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option {
-  padding: 0.7rem 1rem;
   width: 100%;
   margin: 0;
+  padding: 0.7rem 1rem;
 
   border: none;
   border-bottom: 1px solid cv("gray", "100");
-}
 
-.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option:last-child {
-  border-bottom: none;
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 .stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight {
+  box-sizing: border-box;
+
   color: inherit;
 
   background: inherit;
   border: 1px solid cv("action");
-  box-sizing: border-box;
-}
 
-.stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight:last-child {
-  border: 1px solid cv("action");
-  border-radius: 0 0 4px 4px;
-  box-sizing: border-box;
+  &:last-child {
+    box-sizing: border-box;
+
+    border: 1px solid cv("action");
+    border-radius: 0 0 4px 4px;
+  }
 }
 
 .stack-selector .stack-content {
