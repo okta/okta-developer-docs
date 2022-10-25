@@ -1,10 +1,10 @@
 $container-width: 1340px;
 $container-width-desktop-large: 1600px;
 
-/* Paths */
+// Paths
 $asset-path: "/assets";
 
-/* Typography */
+// Typography
 $font-family: "ABC Whyte", "Helvetica", "Arial", sans-serif;
 $font-family--alt: "museo", "Helvetica", "Arial", sans-serif;
 
@@ -58,7 +58,7 @@ $line-height: (
   "new-button": 38px,
 );
 
-/* Transitions */
+// Transitions
 $transition-speed: (
   "x-slow": 0.8s,
   "slow": 0.6s,
