@@ -144,7 +144,7 @@ The following is the process for using a Basic authorization header for the `/to
      --header 'Authorization: Basic MG9hY...' \
      --header 'Cache-control: no-cache' \
      --header 'Content-type: application/x-www-form-urlencoded' \
-     --data 'grant_type=client_credentials&scope=okta.users.read okta.groups.read
+     --data 'grant_type=client_credentials&scope=okta.users.read okta.groups.read'
    ```
 
 1. If the request is successful, the token is be returned in the body of the response.
