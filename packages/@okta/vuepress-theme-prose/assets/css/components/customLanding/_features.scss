@@ -3,8 +3,8 @@
 
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 60px 0;
 }
 
@@ -29,32 +29,32 @@
 
 .customLanding-features__col {
   width: 370px;
-}
 
-.customLanding-features__col:last-child {
-  width: 415px;
-  padding: 41px 43px 41px 54px;
+  &:last-child {
+    width: 415px;
+    padding: 41px 43px 41px 54px;
 
-  border-radius: 12px;
-  background-color: cv("body", "custom-bg-white");
+    background-color: cv("body", "custom-bg-white");
+    border-radius: 12px;
+  }
 }
 
 @media (max-width: 1110px) {
   .customLanding-features__col {
     width: 100%;
     margin-bottom: 20px;
-  }
 
-  .customLanding-features__col:last-child {
-    width: 100%;
+    &:last-child {
+      width: 100%;
+    }
   }
 }
 
 .customLanding-features__title {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
   margin-bottom: 20px;
 }
 
@@ -81,31 +81,31 @@
 
 .customLanding-features__button {
   display: inline-block;
+  padding: 0.63rem 1.25rem;
 
-  color: cv("body", "white");
   font-weight: 400;
+  color: cv("body", "white");
 
   background-color: cv("blue", "900");
-  padding: 0.625rem 1.25rem;
-}
 
-.customLanding-features__button:hover {
-  color: cv("body", "white");
+  &:hover {
+    color: cv("body", "white");
 
-  background-color: cv("link");
-}
+    background-color: cv("link");
+  }
 
-.customLanding-features__button:visited,
-.customLanding-features__button:active,
-.customLanding-features__button:focus {
-  color: cv("body", "white");
+  &:visited,
+  &:active,
+  &:focus {
+    color: cv("body", "white");
+  }
 }
 
 .customLanding-features__caption {
   margin: 0 0 15px;
 
-  font-size: 16px;
   font-weight: 500;
+  font-size: 16px;
   line-height: 20px;
   color: cv("header", "nav-link");
 }
@@ -115,26 +115,26 @@
 
   margin-bottom: 10px;
 
+  font-weight: 400;
   font-size: 14px;
   line-height: 18px;
   color: cv("header", "nav-link");
-  font-weight: 400;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 8px;
+    left: -18px;
+
+    width: 4px;
+    height: 4px;
+
+    background-color: cv("body", "gray");
+    border-radius: 50%;
+  }
 }
 
 .customLanding-features__list-item a {
   font-weight: 400;
-}
-
-.customLanding-features__list-item::before {
-  content: "";
-
-  position: absolute;
-  top: 8px;
-  left: -18px;
-
-  width: 4px;
-  height: 4px;
-
-  background-color: cv("body", "gray");
-  border-radius: 50%;
 }
