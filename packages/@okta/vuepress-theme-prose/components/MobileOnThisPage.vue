@@ -1,22 +1,22 @@
 <template>
-  <div 
-    class="mobile-on-this-page" 
+  <div
+    class="mobile-on-this-page"
     v-show="options.length > 0"
   >
     <h3 class="mobile-header">
       On this page
     </h3>
-    <v-select 
-      :searchable="false" 
-      :multiple="false" 
-      :clearable="false" 
-      :options="options" 
-      v-model="selectedOption" 
+    <v-select
+      :searchable="false"
+      :multiple="false"
+      :clearable="false"
+      :options="options"
+      v-model="selectedOption"
       @input="inputChanged"
     >
       <template #option="{label, isSubheading}">
-        <div 
-          class="dropdown-item" 
+        <div
+          class="dropdown-item"
           :class="{subheading: isSubheading}"
         >
           {{ label }}
@@ -29,7 +29,7 @@
 <script>
   export default {
     name: 'MobileOnThisPage',
-    data: ()=>({ 
+    data: ()=>({
       selectedOption: {}
     }),
     computed: {
@@ -54,6 +54,6 @@
 </script>
 
 <style lang="scss">
-@import "vue-select/src/scss/vue-select.scss";
+  @import "vue-select/src/scss/vue-select.scss";
 </style>
 
