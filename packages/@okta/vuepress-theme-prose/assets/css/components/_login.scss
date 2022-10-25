@@ -1,10 +1,10 @@
 .login {
-  width: 100%;
-  max-width: 1272px;
   display: inline-flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
-  flex-direction: column;
+  width: 100%;
+  max-width: 1272px;
 
   font-size: 16px;
 }
@@ -26,17 +26,17 @@
   box-shadow: 0 6px 18px rgb(65 65 75 / 0.5);
 
   @include media("<tablet") {
-    padding: 10px;
     width: 100%;
+    padding: 10px;
   }
 }
 
 .login .login--form .splitter {
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 20px;
   margin: 0 0 17px;
-  justify-content: center;
-  align-items: center;
 }
 
 .login .login--form .splitter span:nth-child(2) {
@@ -45,9 +45,9 @@
 
 .login .login--form .splitter span:nth-child(1),
 .login .login--form .splitter span:nth-child(3) {
-  height: 0;
-  flex-grow: 1;
   display: none;
+  flex-grow: 1;
+  height: 0;
 
   border: 2px solid cv("header");
 }
