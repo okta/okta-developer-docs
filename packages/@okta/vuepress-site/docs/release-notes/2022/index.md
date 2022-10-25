@@ -4,6 +4,22 @@ title: Okta API Products release notes 2022
 
 ## October
 
+### Weekly release 2022.10.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.10.2](#bugs-fixed-in-2022-10-2)                      | October 26, 2022         |
+
+#### Bugs fixed in 2022.10.2
+
+* A `/token` request that used the `code` parameter failed when the **Groups claim type** in the app was set to **Expression** and the group number exceeded 100. (OKTA-518536)
+
+* A `/token` request that used the `code` parameter and the `refresh_token` grant type failed when the **Groups claim type** in the app was set to either **Expression** or **Filter** and the group number exceeded 100. (OKTA-531605)
+
+* When a user entered their credentials in the widget (version 6.6.1) during self-service registration, their information was cleared if the username didn't exist in the org. (OKTA-532293)
+
+* When a user authenticated using the device authorization flow, the user had to visit the verification URI twice when agentless desktop single sign-on (DSSO) was configured. (OKTA-501601)
+
 ### Monthly release 2022.10.0
 
 | Change | Expected in Preview Orgs |
