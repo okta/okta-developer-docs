@@ -35,8 +35,8 @@
 .page-body .content--container .vs__dropdown-menu .vs__dropdown-option {
   color: cv("text");
 
-  border-color: transparent !important;
   background-color: cv("code");
+  border-color: transparent !important;
 }
 
 .page-body .content--container .vs__dropdown-menu .vs__dropdown-option--highlight {
@@ -56,7 +56,7 @@
 
 .page-title [class^="icon-"]::before,
 [class*=" icon-"]::before {
-  line-height: 2.875rem;
+  line-height: 2.88rem;
 }
 
 .api-label-ie {
