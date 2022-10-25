@@ -1,4 +1,4 @@
-/* Sets color from color map */
+// Sets color from color map
 @mixin color($_color) {
   @if type-of($_color) == string and index(map-keys($colors), $_color) {
     color: map-get($colors, $_color);
@@ -7,7 +7,7 @@
   }
 }
 
-/* Sets font size responsively */
+// Sets font size responsively
 @mixin font-size($_size) {
   @if type-of($_size) == string and index(map-keys($font-size), $_size) {
     @if type-of(map-get($font-size, $_size)) == "map" {
@@ -20,7 +20,7 @@
             font-size: map-get($_stack, $key);
             $first: false;
           } @else {
-            @include media("<"+$key) {
+            @include media("<" + $key) {
               font-size: map-get($_stack, $key);
             }
           }
@@ -34,7 +34,7 @@
   }
 }
 
-/* Sets font weight responsively */
+// Sets font weight responsively
 @mixin font-weight($_weight) {
   @if type-of($_weight) == string and index(map-keys($font-weight), $_weight) {
     @if type-of(map-get($font-weight, $_weight)) == "map" {
@@ -47,7 +47,7 @@
             font-weight: map-get($_stack, $key);
             $first: false;
           } @else {
-            @include media("<"+$key) {
+            @include media("<" + $key) {
               font-weight: map-get($_stack, $key);
             }
           }
@@ -61,7 +61,7 @@
   }
 }
 
-/* Sets line height responsively */
+// Sets line height responsively
 @mixin line-height($_height) {
   @if type-of($_height) == string and index(map-keys($line-height), $_height) {
     @if type-of(map-get($line-height, $_height)) == "map" {
@@ -74,7 +74,7 @@
             line-height: map-get($_stack, $key);
             $first: false;
           } @else {
-            @include media("<"+$key) {
+            @include media("<" + $key) {
               line-height: map-get($_stack, $key);
             }
           }
@@ -88,11 +88,11 @@
   }
 }
 
-/* Set the gutter width independently of the default */
+// Set the gutter width independently of the default
 @mixin gutter-width($_gutter-width) {
+  margin-right: $_gutter-width / -2;
   margin-bottom: ($line-break * 2) - $_gutter-width;
   margin-left: $_gutter-width / -2;
-  margin-right: $_gutter-width / -2;
 
   &:last-child {
     margin-bottom: $_gutter-width * -1;
@@ -108,7 +108,7 @@
   }
 }
 
-/* Sets margins relative to root em */
+// Sets margins relative to root em
 @mixin margin($_margins: $lineHeight auto) {
   $_result: ();
 
@@ -135,7 +135,7 @@
   }
 }
 
-/* Sets margins relative to root em */
+// Sets margins relative to root em
 @mixin padding($_paddings: $lineHeight auto) {
   $_result: ();
 
@@ -152,7 +152,7 @@
   padding: $_result;
 }
 
-/* Sets transition based on defaults */
+// Sets transition based on defaults
 @mixin transition($_properties...) {
   $_result: ();
 
