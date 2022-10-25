@@ -4026,7 +4026,7 @@ The default user profile is based on the [System for Cross-Domain Identity Manag
 | managerId           | `id` of a user's manager                                                                                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 | manager             | displayName of the user's manager                                                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 
-> **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code. For example, `en_US` specifies the language English and country US. If not set, this value i s `end_US` by default.
+> **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code. For example, `en_US` specifies the language English and country US. If not set, this value is `en_US` by default.
 
 ##### Okta login
 
