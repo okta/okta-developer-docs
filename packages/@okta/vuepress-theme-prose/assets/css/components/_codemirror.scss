@@ -39,15 +39,15 @@
 }
 
 .CodeMirror.cm-s-default .CodeMirror-code {
-  padding: 0 20px;
   margin: 30px 0;
+  padding: 0 20px;
 
-  line-height: 1.53em;
   font-size: 15px;
+  line-height: 1.53em;
 
   @include media("<desktop") {
-    padding: 0 15px;
     margin: 20px 0;
+    padding: 0 15px;
   }
 }
 
@@ -55,8 +55,8 @@
   border-right-width: 0 !important;
 
   @include media("<desktop") {
-    max-width: 100%;
     min-width: 0 !important;
+    max-width: 100%;
   }
 }
 
