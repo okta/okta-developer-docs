@@ -60,16 +60,6 @@ At a high-level, the OAuth 2.0 Client Credentials flow for an API service integr
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 skinparam monochrome true
-participant "Service app (customer instance)" as client
-participant "Authorization Server (customer Okta org)" as okta
-participant "Resource Server (customer Okta APIs)" as app
-client -> okta: Access token request to /token
-okta -> client: Access token response
-client -> app: Request with access token
-app -> client: Response
-
-api-service-creds-flow-1:
-skinparam monochrome true
 participant "Your app (customer tenant)" as client
 participant "Authorization Server (customer tenant Okta org)" as okta
 participant "Resource Server (customer tenant Okta APIs)" as app
