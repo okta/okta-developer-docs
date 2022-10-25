@@ -12,6 +12,6 @@
 .Button--blueDarkOutline:visited {
   color: cv("text");
 
-  border-color: cv("text");
   background-color: cv("body", "obscure");
+  border-color: cv("text");
 }
