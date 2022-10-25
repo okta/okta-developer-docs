@@ -1,7 +1,7 @@
-/* Paths */
+// Paths
 $asset-path: "/assets";
 
-/* Typography */
+// Typography
 $font-family: "ABC Whyte", "Helvetica", "Arial", sans-serif;
 $font-family--alt: "museo", "Helvetica", "Arial", sans-serif;
 
@@ -55,12 +55,11 @@ $line-height: (
   "new-button": 38px,
 );
 
-/* Colors */
+// Colors
 
-/* Raw values (not preferred) */
+// Raw values (not preferred)
 
-/* Whites */
-
+// Whites
 $white: #ffffff;
 $white-3: #fafafa;
 $white-smoke-4: #eeeeee;
@@ -111,8 +110,7 @@ $summer-sky: #46b3e9;
 $turquoise: #5ce5bc;
 $white-lilac-2: #e6e6e8;
 
-/* Greens */
-
+// Greens
 $cyprus-2: #153b56;
 $islamic-green: #009900;
 $puerto-rico: #4cbf9c;
@@ -124,7 +122,7 @@ $cerise: #e22866;
 $lavender-3: #f7fbfd;
 $blue-violet: #963fe6;
 
-/* Functional map (preferred) - for example: `get-color("default")` */
+// Functional map (preferred) - for example: `get-color("default")`
 $colors: (
   "black": $black,
   "white": $white,
@@ -166,7 +164,7 @@ $colors: (
   "code-background": $white-smoke-10,
 );
 
-/* Layout */
+// Layout
 $site-width: 1280px;
 $new-site-width: 1120px;
 $new-narrow-site-width: 760px;
@@ -201,7 +199,7 @@ $spacing: (
   "xx-large": 120px
 );
 
-/* Transitions */
+// Transitions
 $transition-speed: (
   "x-slow": 0.8s,
   "slow": 0.6s,
