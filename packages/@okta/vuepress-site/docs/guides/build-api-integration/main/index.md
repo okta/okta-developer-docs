@@ -172,7 +172,6 @@ Example request:
 ```bash
 curl -X GET "https://${customerOktaDomain}/api/v1/users"
     -H "Accept: application/json"
-    -H "Content-Type: application/json"
     -H "Authorization: Bearer ${accessToken}"
 ```
 
