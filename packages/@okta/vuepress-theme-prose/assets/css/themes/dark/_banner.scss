@@ -9,9 +9,9 @@
 }
 
 .announcement-banner--logo {
+  width: 100%;
   max-width: 245px;
   height: 100%;
-  width: 100%;
 
   background: url("/img/homepage/announcement-large--dark.png") 50% 0 no-repeat;
   background-size: cover;
@@ -21,8 +21,7 @@
 
     max-width: 74px;
 
-    background: url("/img/homepage/announcement-small--dark.png") 50% 50%
-      no-repeat;
+    background: url("/img/homepage/announcement-small--dark.png") 50% 50% no-repeat;
     background-size: contain;
   }
 
