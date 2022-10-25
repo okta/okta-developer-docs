@@ -176,9 +176,6 @@ module.exports = {
     "selector-not-notation": "simple",
     "selector-pseudo-element-colon-notation": "double",
 
-    // Pattern
-    "selector-class-pattern": false,
-
     // Quotes
     "font-family-name-quotes": "always-unless-keyword",
     "function-url-quotes": "always",
