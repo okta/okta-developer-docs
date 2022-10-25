@@ -1,3 +1,4 @@
+// Palette light theme
 :root {
   --c-white: #ffffff;
   --c-gray-000: #ffffff;
@@ -62,6 +63,7 @@
   --c-gray-sm: #f8f8f9;
   --c-dark-gray: #d9d9d9;
 
+  // Variables colors for light theme
   --c-cerise: var(--c-cerise-red);
   --c-body-base: var(--c-lightgray-200);
   --c-body-lighter: var(--c-lightgray-300);
@@ -96,6 +98,7 @@
   --c-body-gray: var(--c-dark-gray);
 }
 
+// Palette dark theme
 .dark-theme {
   --c-gray-900: #17171b;
   --c-gray-800: #1d1d21;
@@ -136,6 +139,7 @@
   --c-gray-blue: #92bcff;
   --c-blue-000: #121212;
 
+  // Variables colors for dark theme
   --c-body-base: var(--c-gray-800);
   --c-body-lighter: var(--c-gray-800);
   --c-header-base: var(--c-gray-700);
