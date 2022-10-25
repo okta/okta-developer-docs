@@ -1,16 +1,29 @@
 .is-button-cerise-outline {
   padding: 1em 3em;
 
+  font-weight: 400;
   color: cv("gray", "000");
   text-decoration: none;
-  font-weight: 400;
 
   border-color: cv("header");
   background-color: transparent;
+
+  &:hover,
+  &:visited {
+    color: cv("gray", "000");
+
+    border-color: cv("header");
+    background-color: transparent;
+  }
+
+  &:disabled {
+    color: cv("gray", "000");
+
+    border-color: cv("header");
+    background-color: transparent;
+  }
 }
 
-.is-button-cerise-outline:hover,
-.is-button-cerise-outline:visited,
 .is-button-cerise-outline.is-button-hover {
   color: cv("gray", "000");
 
@@ -26,28 +39,39 @@
   background-color: transparent;
 }
 
-.is-button-cerise-outline:disabled {
-  color: cv("gray", "000");
-
-  border-color: cv("header");
-  background-color: transparent;
-}
-
 .is-button-cerise {
   padding: 1em 3em;
 
+  font-weight: 500;
   color: cv("gray", "000");
   text-decoration: none;
-  font-weight: 500;
 
   border-color: cv("header");
   background-color: cv("header");
 
   cursor: pointer;
+
+  &:hover,
+  &:visited {
+    color: cv("gray", "000");
+
+    border-color: cv("header");
+    background-color: cv("header");
+  }
+
+  &:focus {
+    border-color: cv("header");
+    background-color: cv("header");
+  }
+
+  &:disabled {
+    color: cv("header");
+
+    border-color: cv("header");
+    background-color: cv("header");
+  }
 }
 
-.is-button-cerise:hover,
-.is-button-cerise:visited,
 .is-button-cerise.is-button-hover {
   color: cv("gray", "000");
 
@@ -55,15 +79,7 @@
   background-color: cv("header");
 }
 
-.is-button-cerise:focus,
 .is-button-cerise.is-button-focus {
-  border-color: cv("header");
-  background-color: cv("header");
-}
-
-.is-button-cerise:disabled {
-  color: cv("header");
-
   border-color: cv("header");
   background-color: cv("header");
 }
