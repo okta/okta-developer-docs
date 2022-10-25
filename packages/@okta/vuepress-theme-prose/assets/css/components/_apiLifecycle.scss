@@ -1,15 +1,15 @@
 .api-label {
-  padding: 3px 10px;
   display: inline-block;
+  padding: 3px 10px;
 
-  color: #ffffff;
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
+  color: #ffffff;
   vertical-align: baseline;
 
-  border-radius: 0.25em;
   background: cv("success", "dark");
+  border-radius: 0.25em;
 }
 
 .api-label i {
