@@ -12,8 +12,8 @@
   flex-direction: row;
   padding: 12px 24px;
 
-  color: #212126;
   font-size: 14px;
+  color: #212126;
 }
 
 .nutrition-facts .fact-item:not(:last-child) {
@@ -22,6 +22,7 @@
 
 .nutrition-facts .fact-item .fact-item-title {
   flex-basis: 35%;
+
   font-weight: 900;
 }
 
