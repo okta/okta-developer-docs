@@ -4,10 +4,10 @@
   left: 0;
   z-index: 4;
 
-  padding: 0 31px;
-  width: 100%;
   display: flex;
   align-items: center;
+  width: 100%;
+  padding: 0 31px;
 
   background-color: cv("header", "nav");
   overflow-x: auto;
@@ -29,44 +29,44 @@
 
   font-size: 14px;
   line-height: 21px;
-  color: cv("header", "nav-link");
   white-space: nowrap;
-}
+  color: cv("header", "nav-link");
 
-.header-nav a::before {
-  content: attr(title);
+  &::before {
+    content: attr(title);
 
-  display: block;
-  height: 0;
+    display: block;
+    height: 0;
 
-  font-weight: 700;
+    font-weight: 700;
 
-  overflow: hidden;
-  visibility: hidden;
-}
+    overflow: hidden;
+    visibility: hidden;
+  }
 
-.header-nav a:last-child {
-  margin-right: 0;
-}
+  &::after {
+    content: "";
 
-.header-nav a::after {
-  content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
 
-  position: absolute;
-  bottom: 0;
-  left: 0;
+    width: 100%;
+    height: 2px;
 
-  width: 100%;
-  height: 2px;
+    background-color: transparent;
+  }
 
-  background-color: transparent;
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .header-nav a.router-link-active {
-  color: cv("link");
   font-weight: 700;
-}
+  color: cv("link");
 
-.header-nav a.router-link-active::after {
-  background-color: cv("link");
+  &::after {
+    background-color: cv("link");
+  }
 }
