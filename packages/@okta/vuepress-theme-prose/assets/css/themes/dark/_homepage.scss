@@ -14,11 +14,13 @@
   background: cv("body", "homepage-lighter-block") url("/img/homepage/gray-to-black-bg.svg") repeat-x left bottom;
 }
 
-.homepage--assurance-block-margin .col-xl-4:nth-child(1) span, .homepage--assurance-block-margin .col-xl-4:nth-child(2) span, .homepage--assurance-block-margin .col-xl-4:nth-child(3) span {
+.homepage--assurance-block-margin .col-xl-4:nth-child(1) span,
+.homepage--assurance-block-margin .col-xl-4:nth-child(2) span,
+.homepage--assurance-block-margin .col-xl-4:nth-child(3) span {
+  background-color: cv("action") !important;
   background-image: none !important;
   mask-repeat: no-repeat;
   mask-position: center;
-  background-color: cv("action") !important;
 }
 
 .homepage--assurance-block-margin .col-xl-4:nth-child(1) span {
@@ -33,24 +35,27 @@
   mask-image: url("/img/homepage/standards.svg");
 }
 
-.homepage--customize-your-app-margin, .homepage--partners-block-margin {
-  background-color: cv("body", "homepage-lighter-block");
+.homepage--customize-your-app-margin,
+.homepage--partners-block-margin {
   margin-bottom: 0;
+
+  background-color: cv("body", "homepage-lighter-block");
 }
 
 .homepage--customize-your-app-margin {
-  padding-bottom: 4.688rem;
-}
+  padding-bottom: 4.69rem;
 
-.homepage--customize-your-app-margin::before {
-  background: cv("body") url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+  &::before {
+    background: cv("body") url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
+  }
 }
 
 .homepage--partners-block-margin {
-  padding-bottom: 3.625rem;
+  padding-bottom: 3.63rem;
 }
 
-.oin--bg, .oin--bg:last-of-type {
+.oin--bg,
+.oin--bg:last-of-type {
   background: cv("body") url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom !important;
 }
 
