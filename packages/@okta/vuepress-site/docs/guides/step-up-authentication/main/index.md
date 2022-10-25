@@ -3,7 +3,6 @@ title: Step-up authentication using ACR values
 excerpt: Learn how to use the `acr_values` parameter in authorization requests to require different authentication levels of assurance.
 layout: Guides
 ---
-<ApiLifecycle access="ea" />
 
 This guide explains how to include the `acr_values` parameter in your authorization requests to increase the level of end-user assurance.
 
