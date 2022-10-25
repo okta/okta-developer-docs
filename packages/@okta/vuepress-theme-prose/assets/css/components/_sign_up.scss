@@ -17,12 +17,12 @@
 }
 
 .signup .signup--content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: 1195px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
   margin: 0 auto;
 
   font-size: 16px;
@@ -131,10 +131,10 @@
 
 .signup .signup--content .signup--form .splitter {
   display: flex;
-  height: 20px;
-  margin: 0 0 17px;
   justify-content: center;
   align-items: center;
+  height: 20px;
+  margin: 0 0 17px;
 }
 
 .signup .signup--content .signup--form .splitter span:nth-child(2) {
@@ -143,9 +143,9 @@
 
 .signup .signup--content .signup--form .splitter span:nth-child(1),
 .signup .signup--content .signup--form .splitter span:nth-child(3) {
-  height: 0;
-  flex-grow: 1;
   display: none;
+  flex-grow: 1;
+  height: 0;
 
   border: 2px solid cv("header");
 }
@@ -163,9 +163,9 @@
 }
 
 .signup .signup--description {
-  padding: 0;
-  max-width: 604px;
   width: 44%;
+  max-width: 604px;
+  padding: 0;
 
   color: cv("text", "darker");
 
@@ -195,8 +195,8 @@
 .signup .signup--description h1 {
   margin-bottom: 35px;
 
-  font-size: 48px;
   font-weight: 300;
+  font-size: 48px;
 
   @include media("<desktop") {
     font-size: 36px;
@@ -214,6 +214,6 @@
 .signup .signup--description a:visited,
 .signup .signup--description a:focus,
 .signup .signup--description a:hover {
-  color: #ffffff;
   text-decoration: underline;
+  color: #ffffff;
 }
