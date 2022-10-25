@@ -1,7 +1,7 @@
 .quickstart--content .code-selector {
+  margin-top: $base-spacing;
   margin-bottom: 10px;
   padding: 20px;
-  margin-top: $base-spacing;
 
   background-color: cv("header");
   border-radius: 5px;
@@ -13,22 +13,23 @@
   display: inline-block;
   height: 42px;
   margin-right: 20px;
-  padding-left: 15px;
   padding-right: 15px;
+  padding-left: 15px;
 
+  line-height: 32px;
   text-decoration: none;
   color: cv("gray", "000");
-  line-height: 32px;
+
+  &:hover {
+    text-decoration: none;
+
+    border-bottom: 2px solid cv("gray", "000");
+
+    cursor: pointer;
+  }
 }
 
-.quickstart--content .code-selector a:hover {
-  text-decoration: none;
-
-  cursor: pointer;
-}
-
-.quickstart--content .code-selector a.active,
-.quickstart--content .code-selector a:hover {
+.quickstart--content .code-selector a.active {
   border-bottom: 2px solid cv("gray", "000");
 }
 
@@ -41,9 +42,9 @@
   margin-top: 0;
   margin-bottom: 1.5rem;
 
-  color: cv("gray", "000");
-  font-size: 18px;
   font-weight: 100;
+  font-size: 18px;
+  color: cv("gray", "000");
 }
 
 .quickstart--content .code-selector li {
