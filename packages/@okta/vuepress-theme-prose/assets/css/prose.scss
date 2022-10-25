@@ -1,30 +1,30 @@
-@import "~@okta/odyssey/src/scss/odyssey.scss";
-@import "~include-media/dist/_include-media.scss";
-@import "~prismjs/themes/prism-solarizedlight.css";
+@import "~@okta/odyssey/src/scss/odyssey";
+@import "~include-media/dist/_include-media";
+@import "~prismjs/themes/prism-solarizedlight";
 
-/* Abstracts */
+// Abstracts
 @import "abstracts/breakpoints";
 @import "abstracts/colors";
 @import "abstracts/variables";
 
-/* Icons */
+// Icons
 @import "okta/global/fontawesome";
 @import "okta/global/fontello";
 @import "okta/icons/all";
 
-/* Specific image styles */
+// Specific image styles
 @import "okta/global/image-sizing";
 
-/* Base */
+// Base
 @import "base/typography";
-@import "base/mixins.scss";
+@import "base/mixins";
 
-/* Layouts */
-@import "layouts/layout.scss";
-@import "layouts/authorizationLayout.scss";
-@import "layouts/darktheme.scss";
+// Layouts
+@import "layouts/layout";
+@import "layouts/authorizationLayout";
+@import "layouts/darktheme";
 
-/* Components */
+// Components
 @import "components/announcementBanner";
 @import "components/apiLifecycle";
 @import "components/apiOperation";
@@ -71,7 +71,7 @@
 @import "components/termsAndConditionsDialog";
 @import "components/nutritionFacts";
 
-/* Custom Landing */
+// Custom Landing
 @import "components/customLanding/main";
 @import "components/customLanding/hero";
 @import "components/customLanding/about";
@@ -80,6 +80,6 @@
 @import "components/customLanding/explore";
 @import "components/customLanding/start";
 
-/* Pages */
+// Pages
 @import "okta/pages/multi-tenancy";
 @import "okta/pages/oie-embedded-sdk";
