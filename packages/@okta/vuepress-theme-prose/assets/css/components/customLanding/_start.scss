@@ -9,8 +9,8 @@
 .customLanding-start h2 {
   margin: 0 0 30px;
 
-  font-size: 32px;
   font-weight: 400;
+  font-size: 32px;
   line-height: 1.3;
   color: cv("header", "nav-link");
 }
@@ -18,42 +18,42 @@
 .customLanding-start p {
   margin: 0;
 
-  font-size: 18px;
   font-weight: 400;
+  font-size: 18px;
   line-height: 1.7;
   color: cv("header", "nav-link");
 }
 
 .customLanding-start__actions {
-  margin-top: 36px;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  margin-top: 36px;
 }
 
 .customLanding-start__button {
   display: inline-block;
   margin-right: 40px;
-  padding: 0.625rem 1.25rem;
+  padding: 0.63rem 1.25rem;
 
-  color: cv("body", "white");
   font-weight: 500;
+  color: cv("body", "white");
 
   background-color: cv("blue", "900");
   border-radius: 4px;
-}
 
-.customLanding-start__button:hover {
-  color: cv("body", "white");
+  &:hover {
+    color: cv("body", "white");
 
-  background-color: cv("link");
-}
+    background-color: cv("link");
+  }
 
-.customLanding-start__button:visited,
-.customLanding-start__button:active,
-.customLanding-start__button:focus {
-  color: cv("body", "white");
+  &:visited,
+  &:active,
+  &:focus {
+    color: cv("body", "white");
+  }
 }
 
 .customLanding-start__link {
