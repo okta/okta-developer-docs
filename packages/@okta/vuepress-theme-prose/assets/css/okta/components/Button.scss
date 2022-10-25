@@ -12,11 +12,11 @@
   height: 45px;
   padding: 0 20px;
 
-  border: 2px solid transparent;
-  border-radius: 3px;
-
   line-height: 45px;
   text-decoration: none;
+
+  border: 2px solid transparent;
+  border-radius: 3px;
 
   cursor: pointer;
 
@@ -26,8 +26,8 @@
 
   &:active,
   &:hover {
-    color: $black;
     text-decoration: none;
+    color: $black;
 
     border-color: $black;
   }
@@ -73,8 +73,8 @@
   height: 54px;
   padding: 0 30px;
 
-  font-size: get-font-size("button") + 2;
   font-weight: 600;
+  font-size: get-font-size("button") + 2;
   line-height: 50px;
 
   border-radius: 5px;
