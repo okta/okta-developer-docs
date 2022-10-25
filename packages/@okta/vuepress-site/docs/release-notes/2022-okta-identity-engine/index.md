@@ -10,7 +10,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Invalid phone numbers rejected](/#invalid-phone-numbers-rejected)                | October 26, 2022         |
+| [Invalid phone numbers rejected](#invalid-phone-numbers-rejected)                | October 26, 2022         |
 | [Bugs fixed in 2022.10.2](#bugs-fixed-in-2022-10-2)                      | October 26, 2022         |
 
 #### Invalid phone numbers rejected
