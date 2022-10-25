@@ -1,8 +1,7 @@
-/* Generated from okta-core sha: 900f683 */
+// Generated from okta-core sha: 900f683
+// Note: Do not modify this file directly
 
-/* Note: Do not modify this file directly */
-
-/* Okta colors */
+// Okta colors
 $primary-color: #007dc1;
 $primary-border-color: #005380;
 $primary-accent-color: #026ca4;
@@ -22,7 +21,7 @@ $warning-color: #f1d10d;
 $error-color: #e34843;
 $teach-color: #835ab1;
 
-/* Text */
+// Text
 $body-font-family: "montserrat", "Arial", "Helvetica", sans-serif;
 $body-font-size: 13px;
 $small-font-size: 12px;
@@ -36,24 +35,24 @@ $component-heading-color: #919191;
 $form-heading-color: $secondary-color-text;
 $paragraph-margin: $paragraph-line-height / 2;
 
-/* Buttons */
+// Buttons
 $btn-bg-color-primary: $secondary-color;
 $btn-bg-color-default: #fefefe;
 $btn-bg-color-danger: #e24545;
 $btn-bg-color-teach: $teach-color;
 
-/* Tabs */
+// Tabs
 $tab-bg-color: transparent;
 $tab-border-color: #dadada;
 $tab-border-color-active: $secondary-color;
 
-/* Background colors */
+// Background colors
 $component-bg-color: #f9f9f9;
 $component-bg-color-light: #fbfbfb;
 $component-bg-color-dark: #f2f2f2;
 $item-count-bg-color: #cacaca;
 
-/* Borders */
+// Borders
 $border-color-default: #dddddd;
 $border-color-light: #eeeeee;
 $border-bottom-color-default: #dadada;
@@ -64,10 +63,10 @@ $border-radius-top-right-default: 3px;
 $border-radius-bottom-left-default: 3px;
 $border-radius-bottom-right-default: 3px;
 
-/* Box shadow */
+// Box shadow
 $box-shadow-default: 0 2px 0 rgb(175 175 175 / 0.12);
 
-/* Common colors */
+// Common colors
 $black: #000000;
 $white: #ffffff;
 $red: #ff0000;
