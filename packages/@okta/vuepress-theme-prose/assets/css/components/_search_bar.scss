@@ -114,10 +114,12 @@
 
     font: 13px "FontAwesome", sans-serif;
     color: cv("header");
+  }
+}
 
-    @include media("<desktop") {
-      color: cv("text", "darker");
-    }
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
+  @include media("<desktop") {
+    color: cv("text", "darker");
   }
 }
 
@@ -131,14 +133,16 @@
 
   &::placeholder {
     color: cv("text");
+  }
+}
 
-    @media (max-width: 1080px) {
-      color: transparent;
-    }
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
+  @media (max-width: 1080px) {
+    color: transparent;
+  }
 
-    @include media("<tablet") {
-      color: cv("text");
-    }
+  @include media("<tablet") {
+    color: cv("text");
   }
 }
 
