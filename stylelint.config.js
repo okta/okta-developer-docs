@@ -28,7 +28,6 @@ module.exports = {
     "font-family-no-duplicate-names": true,
     "keyframe-block-no-duplicate-selectors": true,
     "no-duplicate-at-import-rules": true,
-    "no-duplicate-selectors": true,
 
     // Empty
     "block-no-empty": true,
