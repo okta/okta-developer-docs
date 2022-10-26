@@ -104,20 +104,18 @@
   height: 38px;
   padding-right: 12px;
   padding-left: 40px;
-
-  &::before {
-    content: "";
-
-    position: absolute;
-    top: 13px;
-    left: 10px;
-
-    font: 13px "FontAwesome", sans-serif;
-    color: cv("header");
-  }
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
+  content: "";
+
+  position: absolute;
+  top: 13px;
+  left: 10px;
+
+  font: 13px "FontAwesome", sans-serif;
+  color: cv("header");
+
   @include media("<desktop") {
     color: cv("text", "darker");
   }
@@ -130,13 +128,11 @@
 
   font-size: 14px;
   font-family: inherit;
-
-  &::placeholder {
-    color: cv("text");
-  }
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
+  color: cv("text");
+
   @media (max-width: 1080px) {
     color: transparent;
   }
