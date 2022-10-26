@@ -17,8 +17,8 @@
   }
 
   @include media("<tablet") {
-    margin-right: 0;
     width: 100%;
+    margin-right: 0;
   }
 }
 
@@ -40,23 +40,23 @@
   }
 
   @include media("<tablet") {
+    width: 100%;
     height: auto;
     margin-right: 0;
     margin-left: 0;
-    width: 100%;
   }
 }
 
 .selector-tile--header {
-  padding: 0 10px 7px 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 0;
+  padding: 0 10px 7px 0;
 
-  font-size: 14px;
   font-weight: 500;
+  font-size: 14px;
   color: cv("text", "darker");
 
   border-bottom: 2px solid cv("text", "darker");
@@ -64,8 +64,8 @@
   @include media("<desktop") {
     padding: 0 0 8px;
 
-    font-size: 21px;
     font-weight: 500;
+    font-size: 21px;
 
     border-bottom-width: 1px;
   }
@@ -77,8 +77,8 @@
 }
 
 .selector-tile--header > i {
-  color: cv("text", "darker");
   font-size: 8px;
+  color: cv("text", "darker");
 
   @include media("<desktop") {
     font-size: 16px;
@@ -98,8 +98,8 @@
 .selector-tile--data--item {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 11px 10px 12px;
 
   text-decoration: none;
@@ -120,9 +120,9 @@
 }
 
 .selector-tile--data--item > img {
+  display: block;
   width: 25px;
   height: 25px;
-  display: block;
 
   border-radius: 50%;
 
@@ -135,11 +135,11 @@
 .selector-tile--data--item > span {
   display: block;
   flex-grow: 1;
-  padding-left: 13px;
   padding-right: 10px;
+  padding-left: 13px;
 
-  font-size: 14px;
   font-weight: 500;
+  font-size: 14px;
   line-height: 1rem;
 
   @include media("<desktop") {
