@@ -205,7 +205,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../assets/css/abstracts/_colors.scss";
+  @import "../assets/css/abstracts/_colors";
 
   $border_color: map-get(map-get($colors, "form"), "input-border");
   $link_color: map-get(map-get($colors, "link"), "base");
