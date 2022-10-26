@@ -22,9 +22,9 @@ $magenta: #e22866;
 }
 
 .oin .oin--leader {
+  max-width: 640px;
   margin: 0 auto;
   padding: 128px 0 180px;
-  max-width: 640px;
 
   text-align: center;
 }
@@ -36,8 +36,8 @@ $magenta: #e22866;
 }
 
 .oin p.oin--subtitle {
-  font-size: 20px;
   font-weight: 400;
+  font-size: 20px;
   line-height: 30px;
 }
 
@@ -57,8 +57,8 @@ $magenta: #e22866;
 }
 
 .oin .oin--integration {
-  margin: 64px auto;
   flex-grow: 1;
+  margin: 64px auto;
 
   text-align: center;
 }
@@ -70,9 +70,9 @@ $magenta: #e22866;
 }
 
 .oin .oin--integration .oin--integration-content {
-  width: 100%;
   display: flex;
   justify-content: space-around;
+  width: 100%;
   margin: 70px 0 0 0;
 
   @include media("<tablet") {
@@ -81,15 +81,15 @@ $magenta: #e22866;
 }
 
 .oin .oin--integration .oin--integration-content .oin-guide {
-  margin: 0 60px 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 60px 90px;
 }
 
 .oin .oin--develop {
-  margin: 64px auto;
   flex-grow: 1;
+  margin: 64px auto;
 
   text-align: center;
 }
@@ -109,9 +109,9 @@ $magenta: #e22866;
 }
 
 .oin .oin--develop .oin--develop-content h2 {
+  font-weight: 500;
   font-size: 22px;
   line-height: 32px;
-  font-weight: 500;
 }
 
 .oin .oin--develop .oin--develop-content .oin--develop-tiles {
@@ -122,12 +122,12 @@ $magenta: #e22866;
 }
 
 .oin .oin--develop .oin--develop-content .oin--develop-tiles .tile {
-  margin: 0 15px 30px;
-  padding: 30px 20px;
-  flex: 1 1 165px;
   display: flex;
+  flex: 1 1 165px;
   flex-direction: column;
   align-items: center;
+  margin: 0 15px 30px;
+  padding: 30px 20px;
 
   box-shadow: 0 6px 25px 0 rgb(5 5 5 / 0.2);
   border-radius: 3px;
