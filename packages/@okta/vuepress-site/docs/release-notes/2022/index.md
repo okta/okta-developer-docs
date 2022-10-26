@@ -18,7 +18,7 @@ title: Okta API Products release notes 2022
 
 * When a user entered their credentials in the widget (version 6.6.1) during self-service registration, their information was cleared if the username didn't exist in the org. (OKTA-532293)
 
-* When a user authenticated using the device authorization flow, the user had to visit the verification URI twice when agentless desktop single sign-on (DSSO) was configured. (OKTA-501601)
+* When a user authenticated using the device authorization flow, the user had to visit the verification URI twice when Agentless Desktop Single Sign-on (DSSO) was configured. (OKTA-501601)
 
 ### Monthly release 2022.10.0
 
