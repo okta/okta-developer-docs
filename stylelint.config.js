@@ -5,7 +5,6 @@ module.exports = {
     "stylelint-scss",
     "stylelint-order"
   ],
-  "extends": "stylelint-config-standard-scss",
   "processors": [
     [
       "@mapbox/stylelint-processor-arbitrary-tags",
@@ -18,24 +17,10 @@ module.exports = {
     // General / Sheet
     "indentation": 2,
     "max-empty-lines": 1,
-    "max-line-length": [
-      80,
-      {
-        "severity": "warning"
-      }
-    ],
     "no-empty-first-line": null,
     "no-eol-whitespace": true,
     "no-extra-semicolons": true,
     "no-missing-end-of-source-newline": true,
-
-    // Descending
-    "no-descending-specificity": [
-      true,
-      {
-        "severity": "warning"
-      }
-    ],
 
     // Duplicate
     "declaration-block-no-duplicate-custom-properties": true,
@@ -55,12 +40,6 @@ module.exports = {
     "function-calc-no-unspaced-operator": true,
     "keyframe-declaration-no-important": true,
     "named-grid-areas-no-invalid": true,
-    "no-invalid-position-at-import-rule": [
-      true,
-      {
-        "severity": "warning"
-      }
-    ],
     "string-no-newline": true,
 
     // Irregular
@@ -80,14 +59,7 @@ module.exports = {
     "annotation-no-unknown": true,
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
-    "function-no-unknown": [
-      true,
-      {
-        "ignoreFunctions": [
-          "cv"
-        ]
-      }
-    ],
+    "function-no-unknown": null,
     "media-feature-name-no-unknown": true,
     "no-unknown-animations": true,
     "property-no-unknown": true,
@@ -110,12 +82,6 @@ module.exports = {
     "color-named": "never",
 
     // Declaration
-    "declaration-no-important": [
-      true,
-      {
-        "severity": "warning"
-      }
-    ],
     "declaration-empty-line-before": null,
 
     // Function
@@ -140,36 +106,6 @@ module.exports = {
     "declaration-block-single-line-max-declarations": 1,
     "max-nesting-depth": 1,
     "number-max-precision": 2,
-    "selector-max-attribute": [
-      1,
-      {
-        "severity": "warning"
-      }
-    ],
-    "selector-max-class": [
-      2,
-      {
-        "severity": "warning"
-      }
-    ],
-    "selector-max-combinators": [
-      2,
-      {
-        "severity": "warning"
-      }
-    ],
-    "selector-max-id": [
-      0,
-      {
-        "severity": "warning"
-      }
-    ],
-    "selector-max-universal": [
-      0,
-      {
-        "severity": "warning"
-      }
-    ],
 
     // Notation
     "alpha-value-notation": "number",
