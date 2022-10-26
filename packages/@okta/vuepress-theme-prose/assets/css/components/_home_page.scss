@@ -347,7 +347,8 @@
   background-color: cv("text", "darker");
 }
 
-.homepage--code-example--cm-wrapper .CodeMirror pre.CodeMirror-line, .homepage--code-example--cm-wrapper .CodeMirror .CodeMirror pre.CodeMirror-line-like {
+.homepage--code-example--cm-wrapper .CodeMirror pre.CodeMirror-line,
+.homepage--code-example--cm-wrapper .CodeMirror .CodeMirror pre.CodeMirror-line-like {
   @include media("<desktop") {
     white-space: break-spaces;
     word-break: break-word;
@@ -407,6 +408,7 @@
 .homepage--live-widget #okta-sign-in .o-form-fieldset {
   margin-bottom: 13px;
 }
+
 .homepage--live-widget #okta-sign-in .o-form .input-fix,
 .homepage--live-widget #okta-sign-in .o-form .textarea-fix {
   height: 34px;
@@ -501,7 +503,9 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.homepage--welcome-leia--actions .act-btn:hover, .homepage--welcome-leia--actions .act-btn:active, .homepage--welcome-leia--actions .act-btn:focus {
+.homepage--welcome-leia--actions .act-btn:hover,
+.homepage--welcome-leia--actions .act-btn:active,
+.homepage--welcome-leia--actions .act-btn:focus {
   color: inherit;
 }
 
@@ -546,6 +550,7 @@
     transform: translateY(10px);
   }
 }
+
 .isHome .width-adjuster {
   max-width: 100%;
 }

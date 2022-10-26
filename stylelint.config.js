@@ -5,6 +5,7 @@ module.exports = {
     "stylelint-scss",
     "stylelint-order"
   ],
+  "extends": "stylelint-config-standard-scss",
   "processors": [
     [
       "@mapbox/stylelint-processor-arbitrary-tags",
@@ -128,6 +129,27 @@ module.exports = {
     "selector-type-case": "lower",
     "comment-empty-line-before": "always",
     "comment-whitespace-inside": "always",
+    "selector-class-pattern": null,
+    "no-invalid-position-at-import-rule": null,
+    "no-descending-specificity": null,
+    "selector-id-pattern": null,
+    "shorthand-property-no-redundant-values": null,
+    "scss/percent-placeholder-pattern": null,
+    "scss/dollar-variable-pattern": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "keyframes-name-pattern": null,
+    "max-line-length": null,
+    "scss/dollar-variable-empty-line-before": null,
+    "scss/no-global-function-names": null,
+    "scss/at-extend-no-missing-placeholder": null,
+    "declaration-colon-newline-after": null,
+    "custom-property-empty-line-before": null,
+    "scss/at-if-no-null": null,
+    "scss/at-rule-conditional-no-parentheses": null,
+    "at-rule-empty-line-before": null,
+    "custom-property-pattern": null,
+    "value-list-max-empty-lines": null,
+    "scss/at-import-no-partial-leading-underscore": null,
 
     // Handled by pretty printers
     "color-hex-case": "lower",
