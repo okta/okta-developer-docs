@@ -62,7 +62,9 @@ This object contains a number of sub-objects, each of which provides some type o
 
 ## Objects in response you send
 
-The `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
+The `commands` and `error` objects that you can return in the JSON payload of your response are defined in the following sections.
+
+<HookResponseSize/>
 
 ### commands
 
