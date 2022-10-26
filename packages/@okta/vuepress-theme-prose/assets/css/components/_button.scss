@@ -2,52 +2,52 @@
   padding: 1em 3em;
 
   font-weight: 400;
-  color: cv("gray", "000");
   text-decoration: none;
+  color: cv("gray", "000");
 
-  border-color: cv("header");
   background-color: transparent;
+  border-color: cv("header");
 
   &:hover,
   &:visited {
     color: cv("gray", "000");
 
-    border-color: cv("header");
     background-color: transparent;
+    border-color: cv("header");
   }
 
   &:disabled {
     color: cv("gray", "000");
 
-    border-color: cv("header");
     background-color: transparent;
+    border-color: cv("header");
   }
 }
 
 .is-button-cerise-outline.is-button-hover {
   color: cv("gray", "000");
 
-  border-color: cv("header");
   background-color: transparent;
+  border-color: cv("header");
 }
 
 .is-button-cerise-outline:focus,
 .is-button-cerise-outline.is-button-focus {
   color: cv("gray", "000");
 
-  border-color: cv("header");
   background-color: transparent;
+  border-color: cv("header");
 }
 
 .is-button-cerise {
   padding: 1em 3em;
 
   font-weight: 500;
-  color: cv("gray", "000");
   text-decoration: none;
+  color: cv("gray", "000");
 
-  border-color: cv("header");
   background-color: cv("header");
+  border-color: cv("header");
 
   cursor: pointer;
 
@@ -55,44 +55,36 @@
   &:visited {
     color: cv("gray", "000");
 
-    border-color: cv("header");
     background-color: cv("header");
+    border-color: cv("header");
   }
 
   &:focus {
-    border-color: cv("header");
     background-color: cv("header");
+    border-color: cv("header");
   }
 
   &:disabled {
     color: cv("header");
 
-    border-color: cv("header");
     background-color: cv("header");
+    border-color: cv("header");
   }
 }
 
 .is-button-cerise.is-button-hover {
   color: cv("gray", "000");
 
-  border-color: cv("header");
   background-color: cv("header");
+  border-color: cv("header");
 }
 
 .is-button-cerise.is-button-focus {
-  border-color: cv("header");
   background-color: cv("header");
+  border-color: cv("header");
 }
 
 %Button {
-  @include font-size("button");
-  @include font-weight("button");
-  @include transition(
-    normal background,
-    normal border,
-    normal color
-  );
-
   display: inline-block;
   height: 45px;
   padding: 0 20px;
@@ -111,8 +103,8 @@
 
   &:active,
   &:hover {
-    color: cv("gray", "900");
     text-decoration: none;
+    color: cv("gray", "900");
 
     border-color: cv("gray", "900");
   }
@@ -120,11 +112,17 @@
   &:visited {
     color: cv("gray", "900");
   }
+
+  @include font-size("button");
+  @include font-weight("button");
+  @include transition(
+    normal background,
+    normal border,
+    normal color
+  );
 }
 
 .Button {
-  @extend %Button;
-
   color: cv("header", "base");
 
   border-color: cv("header", "base");
@@ -139,14 +137,17 @@
   &:visited {
     color: cv("header", "base");
   }
+
+  @extend %Button;
 }
 
 .Button--small {
   height: 30px;
   padding: 0 12px;
 
-  border-width: 1px;
   line-height: 28px;
+
+  border-width: 1px;
 }
 
 .Button--rounded {
@@ -154,11 +155,11 @@
 }
 
 .Button--large {
+  height: 54px;
   padding: 0 30px;
 
-  font-size: get-font-size("button") + 2;
   font-weight: 600;
-  height: 54px;
+  font-size: get-font-size("button") + 2;
   line-height: 50px;
 
   border-radius: 5px;
@@ -169,8 +170,6 @@
 }
 
 .Button--blue {
-  @extend %Button;
-
   color: cv("gray", "000");
 
   background-color: cv("action", "dark");
@@ -187,21 +186,17 @@
   &:visited {
     color: cv("gray", "000");
   }
+
+  @extend %Button;
 }
 
 .Button--blueDarkOutline {
-  @extend %Button;
-
-  @include media("<tablet") {
-    padding: 0 12px;
-  }
-
-  color: cv("blue", "900");
   white-space: nowrap;
+  color: cv("blue", "900");
 
-  border-radius: 4px;
   background-color: #ffffff;
   border-color: cv("blue", "900");
+  border-radius: 4px;
 
   &:active,
   &:hover {
@@ -214,11 +209,15 @@
   &:visited {
     color: cv("blue", "900");
   }
+
+  @extend %Button;
+
+  @include media("<tablet") {
+    padding: 0 12px;
+  }
 }
 
 .Button--blueOutline {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -230,11 +229,11 @@
   &:visited {
     color: cv("action", "base");
   }
+
+  @extend %Button;
 }
 
 .Button--green {
-  @extend %Button;
-
   color: cv("gray", "000");
 
   background-color: cv("success", "dark");
@@ -251,11 +250,11 @@
   &:visited {
     color: cv("gray", "000");
   }
+
+  @extend %Button;
 }
 
 .Button--greenOutline {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -267,11 +266,11 @@
   &:visited {
     color: cv("success", "dark");
   }
+
+  @extend %Button;
 }
 
 .Button--white {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -284,11 +283,11 @@
   &:visited {
     color: cv("action", "base");
   }
+
+  @extend %Button;
 }
 
 .Button--whiteOutline {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -300,11 +299,11 @@
   &:visited {
     color: cv("gray", "000");
   }
+
+  @extend %Button;
 }
 
 .Button--whiteOutlineOpaque {
-  @extend %Button;
-
   background-color: rgb(255 255 255 / 0.25);
 
   &,
@@ -314,11 +313,11 @@
 
     border-color: cv("gray", "000");
   }
+
+  @extend %Button;
 }
 
 .Button--red {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -331,11 +330,11 @@
   &:visited {
     color: cv("gray", "000");
   }
+
+  @extend %Button;
 }
 
 .Button--redOutline {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -348,6 +347,8 @@
   &:visited {
     color: cv("header");
   }
+
+  @extend %Button;
 }
 
 .Button--blue[target="_blank"]:not([href^="mailto:"])::after,
@@ -358,7 +359,7 @@
 }
 
 .button {
-  font-family: $font-family;
-  font-size: 1rem;
   font-weight: 500;
+  font-size: 1rem;
+  font-family: $font-family;
 }
