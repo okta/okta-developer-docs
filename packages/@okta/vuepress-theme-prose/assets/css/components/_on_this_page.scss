@@ -8,8 +8,8 @@
   position: sticky;
   top: 175px;
 
-  padding-right: 1rem;
   flex: 0 0 auto;
+  padding-right: 1rem;
 
   color: cv("action");
 
@@ -26,8 +26,8 @@
 .on-this-page a {
   padding: 3px 0;
 
-  color: cv("text");
   line-height: 1.2rem;
+  color: cv("text");
 }
 
 .on-this-page a:visited {
@@ -35,24 +35,25 @@
 }
 
 .on-this-page .title {
-  margin-left: 0.8rem;
   margin-bottom: 14px;
+  margin-left: 0.8rem;
 
+  font-weight: 500;
   font-size: 1rem;
   color: cv("gray", "900");
-  font-weight: 500;
 }
 
 .on-this-page .links {
   padding-left: 1rem;
 
-  border-left: 3px solid cv("gray", "100");
   font-size: 14px;
+
+  border-left: 3px solid cv("gray", "100");
 }
 
 .on-this-page a.router-link-active {
-  color: cv("link");
   font-weight: 500;
+  color: cv("link");
 
   border-left: 3px solid cv("action", "base");
 }
@@ -63,8 +64,8 @@
 }
 
 .on-this-page ul li {
-  margin-left: 0;
   margin-bottom: 4px;
+  margin-left: 0;
 }
 
 .on-this-page ul li a.router-link-active {
@@ -107,12 +108,12 @@
 }
 
 .mobile-on-this-page .vs__dropdown-toggle {
-  min-height: 45px;
-  padding: 0.5rem;
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: nowrap;
+  min-height: 45px;
+  padding: 0.5rem;
 
   font-size: 14px;
 
@@ -121,8 +122,8 @@
 
 .mobile-on-this-page .vs__dropdown-toggle .vs__selected-options {
   flex-basis: auto;
-  padding: 0;
   max-width: 95%;
+  padding: 0;
 }
 
 .mobile-on-this-page .vs__dropdown-toggle .vs__selected-options .vs__selected {
@@ -149,13 +150,13 @@
 
   padding: 0;
 
-  overflow-x: hidden;
   border-top-style: initial;
+  overflow-x: hidden;
 }
 
 .mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option {
-  padding: 0.7rem 1rem;
   width: 100%;
+  padding: 0.7rem 1rem;
 
   color: cv("gray", "900");
 
