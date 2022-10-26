@@ -23,8 +23,8 @@ header.page-header .header--logo img {
 
 header.page-header .menu--slideout {
   display: flex;
-  align-items: center;
   flex: 1 0 auto;
+  align-items: center;
 }
 
 header.page-header .menu--items:last-child {
@@ -38,8 +38,8 @@ header.page-header .search--slideout {
 }
 
 header.page-header .header--links {
-  flex: 1 0 auto;
   display: flex;
+  flex: 1 0 auto;
   justify-content: space-between;
   padding: 0 37px;
 }
@@ -53,8 +53,8 @@ header.page-header .header--links .menu--slideout-home {
 }
 
 header.page-header .sign-up--button {
-  flex-shrink: 0;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   height: 38px;
   padding: 7px 12px;
@@ -92,8 +92,9 @@ header.page-header .mobile--toggles .mobile--toggle > span {
   background: cv("body", "white");
   border-radius: 3px;
 
-  transform-origin: 4px 0;
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), margin 0.05s ease, opacity 0.55s ease;
+
+  transform-origin: 4px 0;
 }
 
 header.page-header .mobile--toggles .mobile--toggle > span:first-child {
@@ -163,8 +164,8 @@ header.page-header .link[target="_blank"]:not([href^="mailto:"])::after {
   vertical-align: middle;
 
   background-image: url("/img/icons/external--white.svg");
-  background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
 
   opacity: 0.5;
 }
@@ -177,8 +178,8 @@ header.page-header .link:focus {
 
 @include media("<desktop-xl") {
   header.page-header {
-    padding: 0 35px;
     height: 70px;
+    padding: 0 35px;
   }
 
   header.page-header .header--logo > img {
@@ -191,8 +192,8 @@ header.page-header .link:focus {
   }
 
   header.page-header .search--slideout {
-    margin-left: 24px;
     max-width: 168px;
+    margin-left: 24px;
   }
 
   header.page-header .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
@@ -208,8 +209,8 @@ header.page-header .link:focus {
   }
 
   header.page-header .sign-up--button {
-    padding: 7px 10px;
     margin-left: 10px;
+    padding: 7px 10px;
 
     font-size: 14px;
   }
@@ -265,10 +266,10 @@ header.page-header .link:focus {
   }
 
   header.page-header .menu--slideout .header--links {
-    order: 2;
-    width: 100%;
     flex: 0;
     flex-direction: column;
+    order: 2;
+    width: 100%;
     padding: 16px;
 
     border-top: 0.5px solid rgb(255 255 255 / 0.15);
@@ -319,8 +320,8 @@ header.page-header .link:focus {
 
     display: block;
 
-    font-size: 14px;
     font-weight: 300;
+    font-size: 14px;
     line-height: 1.5em;
   }
 
@@ -343,6 +344,7 @@ header.page-header .link:focus {
   header.page-header .menu--slideout .header--links > ul.menu--items li a.link::after,
   header.page-header .menu--slideout .header--links > ul.menu--items li span.link::after {
     transform: rotate(-90deg);
+
     transition: transform 300ms ease-in-out;
   }
 
@@ -386,6 +388,7 @@ header.page-header .link:focus {
     left: -17px;
 
     transform: rotate(90deg);
+
     transition: none;
   }
 
@@ -395,18 +398,18 @@ header.page-header .link:focus {
 
     font-size: 1rem;
 
-    border: none;
     background: url("/img/icons/arrow-right-white.svg") no-repeat right center;
+    border: none;
   }
 
   header.page-header .search--slideout {
     z-index: 1;
 
-    max-width: 100%;
+    flex: none;
     width: 100%;
+    max-width: 100%;
     margin: 20px 0 0;
     padding: 16px;
-    flex: none;
 
     background-color: cv("body", "white");
   }
