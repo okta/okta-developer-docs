@@ -16,28 +16,24 @@
 .content__default div.half img {
   width: 75%;
   max-width: 350px;
-}
 
-.content__default div.quarter img {
-  width: 50%;
-}
-
-// On wider screens, overwrite the width for the half and quarter-size images so they appear smaller
-.content__default div.three-quarter img {
-  @media (min-width: 768px) {
-    width: 75%;
-  }
-}
-
-.content__default div.half img {
   @media (min-width: 768px) {
     width: 50%;
   }
 }
 
 .content__default div.quarter img {
+  width: 50%;
+
   @media (min-width: 768px) {
     width: 25%;
+  }
+}
+
+// On wider screens, overwrite the width for the half and quarter-size images so they appear smaller
+.content__default div.three-quarter img {
+  @media (min-width: 768px) {
+    width: 75%;
   }
 }
 
