@@ -18,10 +18,10 @@
 }
 
 .page-body .content--container blockquote {
+  background-color: cv("body", "obscure");
   border-top-color: transparent;
   border-right-color: transparent;
   border-bottom-color: transparent;
-  background-color: cv("body", "obscure");
 }
 
 .page-body .content--container .vs__selected {
