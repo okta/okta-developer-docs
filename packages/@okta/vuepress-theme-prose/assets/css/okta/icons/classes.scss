@@ -7,8 +7,8 @@
 @charset "UTF-8";
 
 // General styling for all classes with the word icon in it
-[class^='-16'],
-[class*='-16'] {
+[class^="-16"],
+[class*="-16"] {
   position: relative;
 
   box-sizing: border-box;
@@ -24,10 +24,10 @@
 
   display: block;
 
-  font-family: "okticon", sans-serif;
-  font-size: 16px;
-  font-style: normal !important;
   font-weight: 300 !important;
+  font-style: normal !important;
+  font-size: 16px;
+  font-family: "okticon", sans-serif;
   text-indent: 0;
   white-space: normal;
 }
@@ -44,12 +44,12 @@
 
   display: block;
 
-  white-space: normal;
-  text-indent: 0;
-  font-size: 14px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 14px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
 }
 
 [class^="-24"],
@@ -59,43 +59,43 @@
   vertical-align: top;
 }
 
-[class^='-24']::before,
-[class*='-24']::before,
-[class^='-24']::after,
-[class*='-24']::after {
+[class^="-24"]::before,
+[class*="-24"]::before,
+[class^="-24"]::after,
+[class*="-24"]::after {
   position: absolute;
 
   display: block;
 
-  white-space: normal;
-  text-indent: 0;
-  font-size: 24px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 24px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
 }
 
-[class^='-48'],
-[class*='-48'] {
+[class^="-48"],
+[class*="-48"] {
   box-sizing: border-box;
 
   vertical-align: top;
 }
 
-[class^='-48']::before,
-[class*='-48']::before,
-[class^='-48']::after,
-[class*='-48']::after {
+[class^="-48"]::before,
+[class*="-48"]::before,
+[class^="-48"]::after,
+[class*="-48"]::after {
   position: absolute;
 
   display: block;
 
-  white-space: normal;
-  text-indent: 0;
-  font-size: 48px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 48px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
 }
 
 h1 {
@@ -120,12 +120,12 @@ h1 {
 
   display: inherit;
 
-  white-space: normal;
-  text-indent: 0;
-  font-size: 32px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 32px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
 }
 
 // Rotate and flip icons
@@ -147,12 +147,12 @@ h1 {
 
   display: block;
 
-  white-space: normal;
-  text-indent: 0;
-  font-size: 16px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 16px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
 }
 
 .admin-banner .dismiss-icon::before {
@@ -175,11 +175,11 @@ h1 {
 
 #hide-getting-started.dismiss-icon {
   position: absolute;
-  right: 5px;
   top: 5px;
+  right: 5px;
 
-  margin: 0;
   float: none;
+  margin: 0;
 }
 
 #hide-getting-started.dismiss-icon:hover {
@@ -202,12 +202,12 @@ h1 {
   position: absolute;
   right: 15px;
 
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
-  text-decoration: none;
-  text-align: center;
   font-size: 16px;
+  font-family: "okticon", sans-serif;
+  text-align: center;
+  text-decoration: none;
 }
 
 #hide-getting-started-shortcut::before {
@@ -232,12 +232,12 @@ h1 {
 
   display: block;
 
-  white-space: normal;
-  text-indent: 0;
-  font-size: 66px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 66px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
   color: $icon-color-white;
 }
 
@@ -249,12 +249,12 @@ h1 {
 
   display: block;
 
-  white-space: normal;
-  text-indent: 0;
-  font-size: 80px;
-  font-family: "okticon";
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 80px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
   color: $icon-color-info;
 }
 
@@ -266,12 +266,12 @@ h1 {
 
   display: block;
 
-  white-space: normal;
-  text-indent: 0;
-  font-size: 80px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 80px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
   color: #000000;
 }
 
@@ -533,15 +533,15 @@ h1 {
 .help-14::before {
   content: $cir-help;
 
-  color: $icon-color-warning;
   font-size: 14px;
+  color: $icon-color-warning;
 }
 
 .help-13::before {
   content: $cir-help;
 
-  color: $icon-color-light;
   font-size: 14px;
+  color: $icon-color-light;
 }
 
 .feedback-16::before {
@@ -785,8 +785,8 @@ h1 {
 .next-13::before {
   content: $chevron-small;
 
-  color: $icon-color-dark;
   font-size: 16px;
+  color: $icon-color-dark;
 }
 
 .org-settings-16::before {
@@ -938,13 +938,13 @@ h1 {
 
   display: block;
 
-  color: $icon-color-light;
-  white-space: normal;
-  text-indent: 0;
-  font-size: 16px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 16px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
+  color: $icon-color-light;
 
   @include icon-rotate180;
 }
@@ -956,13 +956,13 @@ h1 {
 
   display: block;
 
-  color: $icon-color-light;
-  white-space: normal;
-  text-indent: 0;
-  font-size: 16px;
-  font-family: "okticon";
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 16px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
+  color: $icon-color-light;
 }
 
 .collapse-gray .icon::before {
@@ -972,13 +972,13 @@ h1 {
 
   display: block;
 
-  white-space: normal;
-  text-indent: 0;
-  color: $icon-color-light;
-  font-size: 16px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 16px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
+  color: $icon-color-light;
 
   @include icon-rotate90;
 }
@@ -1697,8 +1697,8 @@ h1 {
 .asterisk-16::before {
   content: $asterisk;
 
-  color: $icon-color-info;
   font-size: 12px;
+  color: $icon-color-info;
 }
 
 .asterisk-16-white::before {
@@ -1738,14 +1738,15 @@ h1 {
 
   display: block;
 
-  color: $icon-color-green;
-  white-space: normal;
-  text-indent: 0;
-  font-size: 16px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 16px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
+  color: $icon-color-green;
 }
+
 .success-icon::before {
   content: $cir-success;
 
@@ -1753,13 +1754,13 @@ h1 {
 
   display: block;
 
-  color: $icon-color-green;
-  white-space: normal;
-  text-indent: 0;
-  font-size: 16px;
-  font-family: "okticon", sans-serif;
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 16px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
+  color: $icon-color-green;
 }
 
 // 24x24 icons
@@ -2583,7 +2584,6 @@ h1 {
   color: #ffffff;
 }
 
-
 // 48x48 icons
 .teach-48::before {
   content: $teach;
@@ -2610,13 +2610,13 @@ h1 {
   display: block;
   margin-left: 345px;
 
-  color: $icon-color-light;
-  font-size: 100px;
-  white-space: normal;
-  text-indent: 0;
-  font-family: 'okticon';
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 100px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
+  color: $icon-color-light;
 }
 
 #universal-directory-profiles .data-list-empty-img::after {
@@ -2628,15 +2628,14 @@ h1 {
   display: block;
   margin-left: 345px;
 
-  color: $icon-color-light;
-  font-size: 100px;
-  white-space: normal;
-  text-indent: 0;
-  font-family: "okticon";
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 100px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
+  color: $icon-color-light;
 }
-
 
 // Agent Light Icons
 [class^="-light"]::before,
@@ -2647,12 +2646,12 @@ h1 {
 
   display: block;
 
-  font-size: 14px;
-  white-space: normal;
-  text-indent: 0;
-  font-family: "okticon";
   font-weight: 300 !important;
   font-style: normal !important;
+  font-size: 14px;
+  font-family: "okticon", sans-serif;
+  text-indent: 0;
+  white-space: normal;
 }
 
 .green-light::before {
@@ -2680,13 +2679,13 @@ h1 {
 
   display: block;
 
-  color: $icon-color-light;
   font-weight: 300 !important;
   font-style: normal !important;
   font-size: 14px;
   font-family: "okticon", sans-serif;
-  white-space: normal;
   text-indent: 0;
+  white-space: normal;
+  color: $icon-color-light;
 }
 
 .legend-light::before {
