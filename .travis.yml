@@ -9,6 +9,8 @@ install: yarn install
 before_script: "yarn build"
 script:
   - "./scripts/travis.sh"
+  - "yarn stylelint:scss"
+  - "yarn stylelint:vue"
 dist: xenial
 env:
   global:
