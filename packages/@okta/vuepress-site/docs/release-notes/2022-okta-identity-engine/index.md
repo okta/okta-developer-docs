@@ -25,7 +25,7 @@ Okta now rejects attempts to enroll a toll-free, premium, fixed-line (SMS), or a
 
 * When a user entered their credentials in the widget (version 6.6.1) during self-service registration, their information was cleared if the username didn't exist in the org. (OKTA-532293)
 
-* The MyAccount API didn't send notifications for Add Email calls with a false `sendEmail` parameter. (OKTA-539268)
+* The MyAccount API didn't send a notice of pending email address change for Add Email calls with a false `sendEmail` parameter. (OKTA-539268)
 
 * An opened session in Classic Engine couldn't be closed for a user (`DELETE /session/me`) after upgrading to Identity Engine. (OKTA-517093)
 
