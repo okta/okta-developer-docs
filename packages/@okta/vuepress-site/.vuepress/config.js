@@ -9,6 +9,8 @@ const signInWidgetMajorVersion = 6;
 const projectRootDir = Path.resolve(__dirname, '../../../../');
 const outputDir = Path.resolve(__dirname, '../dist/');
 
+const ESLintPlugin = require('eslint-webpack-plugin');
+
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
 function configUris() {
@@ -281,8 +283,18 @@ module.exports = ctx => ({
       level: 2
     }
   },
-
-  plugins: {
+  devServer: {
+    overlay: {
+      warnings: true,
+      errors: true
+    }
+  },
+  lintOnSave: process.env.NODE_ENV !== 'prod',
+  plugins: [
+    new ESLintPlugin({
+      
+    }),
+    {
     'code-copy': {},
     'vuepress-plugin-chunkload-redirect': {},
     'sitemap': {
@@ -326,7 +338,7 @@ module.exports = ctx => ({
       ]
     },
     '@okta/vuepress-plugin-qualtrics-feedback': {}
-  },
+  }],
 
   extraWatchFiles: [
     '.vuepress/nav/*',

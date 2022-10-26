@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
-    "build": "yarn workspace @okta/vuepress-site build",
+    "build": "yarn vue-check && yarn workspace @okta/vuepress-site build",
     "broken-link-checker:all": "node scripts/broken-link-checker all",
     "broken-link-checker:internal": "node scripts/broken-link-checker internal",
     "broken-link-checker:external": "node scripts/broken-link-checker external",
@@ -26,6 +26,7 @@
     "update-event-types": "bash scripts/update-event-types.sh",
     "update-error-codes": "bash scripts/update-error-codes.sh",
     "update-oauth2-error-codes": "bash scripts/update-oauth2-error-codes.sh",
+    "md-check": "mdspell --en-us -a -n -r '**/*.md' '!**/node_modules/**/*.md' '!packages/@okta/vuepress-site/test_page/index.md'",
     "vue-check": "./node_modules/.bin/eslint packages/@okta/vuepress-theme-prose/**/*.vue",
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\""
@@ -44,6 +45,7 @@
     "eslint": "^8.25.0",
     "eslint-plugin-vue": "^9.6.0",
     "eslint-plugin-vue-a11y": "0.0.31",
+    "eslint-webpack-plugin": "^3.2.0",
     "if-env": "^1.0.4",
     "jest": "^27.5.1",
     "mocha": "^9.2.2",
@@ -56,7 +58,11 @@
   },
   "dependencies": {
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.4.0",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "broken-link-checker": "^0.7.8",
+    "eslint-loader": "^4.0.2",
+    "markdown-spellcheck": "^1.3.1",
     "postcss": "^8.4.18",
     "serve-handler": "^6.1.3",
     "stylelint-config-standard-scss": "^5.0.0",

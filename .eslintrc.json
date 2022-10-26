@@ -20,7 +20,6 @@
         "vue-a11y"
     ],
     "rules": {
-      // "vue-a11y/rule-name": 2,
       "vue/html-self-closing": ["error", {
         "html": {
           "void": "never",
