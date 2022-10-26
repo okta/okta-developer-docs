@@ -6176,6 +6176,11 @@ eslint-plugin-vue@^9.6.0:
     vue-eslint-parser "^9.0.1"
     xml-name-validator "^4.0.0"
 
+eslint-pre-commit-hook@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/eslint-pre-commit-hook/-/eslint-pre-commit-hook-2.0.7.tgz#842ac4856877a90f0be1764477bbf1acec6bcd3d"
+  integrity sha512-UczFv41W9k6/57Y/TBdhBG5a2zF/s0SL7aFdiaE/qW6gqKSijJF+dySSGFkyHuS7/CSED2J1HJv+rGrxn3peAQ==
+
 eslint-scope@5.1.1, eslint-scope@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/eslint-scope/-/eslint-scope-5.1.1.tgz#e786e59a66cb92b3f6c1fb0d508aab174848f48c"
@@ -11756,11 +11761,6 @@ postcss-safe-parser@^6.0.0:
   resolved "https://registry.npmjs.org/postcss-safe-parser/-/postcss-safe-parser-6.0.0.tgz"
   integrity sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==
 
-postcss-scss@^4.0.2:
-  version "4.0.5"
-  resolved "https://registry.npmjs.org/postcss-scss/-/postcss-scss-4.0.5.tgz"
-  integrity sha512-F7xpB6TrXyqUh3GKdyB4Gkp3QL3DDW1+uI+gxx/oJnUt/qXI4trj5OGlp9rOKdoABGULuqtqeG+3HEVQk4DjmA==
-
 postcss-selector-parser@^3.0.0:
   version "3.1.2"
   resolved "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-3.1.2.tgz"
@@ -13634,15 +13634,6 @@ stylelint-config-html@>=1.0.0:
   resolved "https://registry.npmjs.org/stylelint-config-html/-/stylelint-config-html-1.1.0.tgz"
   integrity sha512-IZv4IVESjKLumUGi+HWeb7skgO6/g4VMuAYrJdlqQFndgbj6WJAXPhaysvBiXefX79upBdQVumgYcdd17gCpjQ==
 
-stylelint-config-recommended-scss@^7.0.0:
-  version "7.0.0"
-  resolved "https://registry.npmjs.org/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-7.0.0.tgz"
-  integrity sha512-rGz1J4rMAyJkvoJW4hZasuQBB7y9KIrShb20l9DVEKKZSEi1HAy0vuNlR8HyCKy/jveb/BdaQFcoiYnmx4HoiA==
-  dependencies:
-    postcss-scss "^4.0.2"
-    stylelint-config-recommended "^8.0.0"
-    stylelint-scss "^4.0.0"
-
 stylelint-config-recommended-vue@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/stylelint-config-recommended-vue/-/stylelint-config-recommended-vue-1.4.0.tgz"
@@ -13656,26 +13647,6 @@ stylelint-config-recommended@>=6.0.0, stylelint-config-recommended@^9.0.0:
   version "9.0.0"
   resolved "https://registry.npmjs.org/stylelint-config-recommended/-/stylelint-config-recommended-9.0.0.tgz"
   integrity sha512-9YQSrJq4NvvRuTbzDsWX3rrFOzOlYBmZP+o513BJN/yfEmGSr0AxdvrWs0P/ilSpVV/wisamAHu5XSk8Rcf4CQ==
-
-stylelint-config-recommended@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/stylelint-config-recommended/-/stylelint-config-recommended-8.0.0.tgz"
-  integrity sha512-IK6dWvE000+xBv9jbnHOnBq01gt6HGVB2ZTsot+QsMpe82doDQ9hvplxfv4YnpEuUwVGGd9y6nbaAnhrjcxhZQ==
-
-stylelint-config-standard-scss@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.npmjs.org/stylelint-config-standard-scss/-/stylelint-config-standard-scss-5.0.0.tgz"
-  integrity sha512-zoXLibojHZYPFjtkc4STZtAJ2yGTq3Bb4MYO0oiyO6f/vNxDKRcSDZYoqN260Gv2eD5niQIr1/kr5SXlFj9kcQ==
-  dependencies:
-    stylelint-config-recommended-scss "^7.0.0"
-    stylelint-config-standard "^26.0.0"
-
-stylelint-config-standard@^26.0.0:
-  version "26.0.0"
-  resolved "https://registry.npmjs.org/stylelint-config-standard/-/stylelint-config-standard-26.0.0.tgz"
-  integrity sha512-hUuB7LaaqM8abvkOO84wh5oYSkpXgTzHu2Zza6e7mY+aOmpNTjoFBRxSLlzY0uAOMWEFx0OMKzr+reG1BUtcqQ==
-  dependencies:
-    stylelint-config-recommended "^8.0.0"
 
 stylelint-config-standard@^28.0.0:
   version "28.0.0"
@@ -13692,7 +13663,7 @@ stylelint-order@^5.0.0:
     postcss "^8.3.11"
     postcss-sorting "^7.0.1"
 
-stylelint-scss@^4.0.0, stylelint-scss@^4.3.0:
+stylelint-scss@^4.3.0:
   version "4.3.0"
   resolved "https://registry.npmjs.org/stylelint-scss/-/stylelint-scss-4.3.0.tgz"
   integrity sha512-GvSaKCA3tipzZHoz+nNO7S02ZqOsdBzMiCx9poSmLlb3tdJlGddEX/8QzCOD8O7GQan9bjsvLMsO5xiw6IhhIQ==
