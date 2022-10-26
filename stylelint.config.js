@@ -146,6 +146,10 @@ module.exports = {
     "custom-property-empty-line-before": null,
     "scss/at-if-no-null": null,
     "scss/at-rule-conditional-no-parentheses": null,
+    "at-rule-empty-line-before": null,
+    "custom-property-pattern": null,
+    "value-list-max-empty-lines": null,
+    "scss/at-import-no-partial-leading-underscore": null,
 
     // Handled by pretty printers
     "color-hex-case": "lower",
