@@ -25,9 +25,9 @@
   max-height: calc(100% - 64px);
   padding: 37px 0 31px 0;
 
-  overflow-y: auto;
   background-color: #ffffff;
   box-shadow: 0 6px 25px cv("blue", "whale");
+  overflow-y: auto;
 
   @import "../components/form";
 }
