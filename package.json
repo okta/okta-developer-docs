@@ -29,7 +29,8 @@
     "md-check": "mdspell --en-us -a -n -r '**/*.md' '!**/node_modules/**/*.md' '!packages/@okta/vuepress-site/test_page/index.md'",
     "vue-check": "./node_modules/.bin/eslint packages/@okta/vuepress-theme-prose/**/*.vue",
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
-    "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\""
+    "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
+    "stylelint": "npm run stylelint:scss && npm run stylelint:vue"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
