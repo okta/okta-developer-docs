@@ -92,7 +92,12 @@ module.exports = {
     "no-unknown-animations": true,
     "property-no-unknown": true,
     "selector-pseudo-class-no-unknown": true,
-    "selector-pseudo-element-no-unknown": true,
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["v-deep"]
+      }
+    ],
     "selector-type-no-unknown": true,
     "unit-no-unknown": true,
 
@@ -111,6 +116,7 @@ module.exports = {
         "severity": "warning"
       }
     ],
+    "declaration-empty-line-before": null,
 
     // Function
     "function-url-no-scheme-relative": true,
