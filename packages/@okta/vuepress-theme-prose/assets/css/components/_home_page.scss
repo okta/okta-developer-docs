@@ -52,8 +52,8 @@
 }
 
 .homepage--section-margins {
-  padding-left: 135px;
   padding-right: 135px;
+  padding-left: 135px;
 
   @include media("<desktop-xl") {
     padding: 40px 57px;
@@ -65,8 +65,8 @@
 }
 
 .homepage--top-section {
-  padding-bottom: 103px;
   padding-top: 47px;
+  padding-bottom: 103px;
 
   background: #ffffff url("/img/homepage/white-to-gray-bg.svg") repeat-x left bottom;
 
@@ -92,8 +92,8 @@
   background: cv("body", "lighter") url("/img/homepage/gray-to-white-bg.svg") repeat-x left bottom;
 
   @include media("<desktop") {
-    padding-bottom: 165px;
     padding-top: 91px;
+    padding-bottom: 165px;
   }
 }
 
@@ -109,8 +109,8 @@
 .homepage--customize-your-app-margin {
   position: relative;
 
-  margin-bottom: 75px;
   min-height: 600px;
+  margin-bottom: 75px;
   padding-top: 20px;
 
   @include media("<desktop-xl") {
@@ -167,15 +167,15 @@
 
   margin: 0 0 9px;
 
-  font-size: 1em;
   font-weight: 500;
+  font-size: 1em;
 
   @include media("<tablet") {
-    padding: 0 0 16px;
     margin-bottom: 21px;
+    padding: 0 0 16px;
 
-    text-align: center;
     font-size: 21px;
+    text-align: center;
   }
 }
 
@@ -203,15 +203,15 @@
   margin-top: 60px;
   margin-bottom: 60px;
 
-  font-size: 32px;
   font-weight: 300;
+  font-size: 32px;
 
   @include media("<tablet") {
-    margin-bottom: 49px;
     margin-top: 25px;
+    margin-bottom: 49px;
 
-    text-align: center;
     font-size: 28px;
+    text-align: center;
   }
 }
 
@@ -230,9 +230,9 @@
 }
 
 .homepage--sub-heading h2 {
+  margin-top: 71px;
   margin-bottom: 8px;
   padding-bottom: 0;
-  margin-top: 71px;
 
   font-size: 24px;
 
@@ -242,8 +242,8 @@
     margin: 2px 0 21px;
     padding-bottom: 16px;
 
-    text-align: center;
     font-size: 21px;
+    text-align: center;
   }
 }
 
@@ -258,8 +258,8 @@
 
   @include media("<tablet") {
     font-size: 16px;
-    text-align: center;
     line-height: 1.45rem;
+    text-align: center;
   }
 }
 
@@ -284,9 +284,9 @@
 }
 
 .homepage--examples {
-  padding-top: 36px;
-  margin: 0 -70px;
   justify-content: center;
+  margin: 0 -70px;
+  padding-top: 36px;
 
   @include media("<desktop-xl") {
     flex-direction: column;
@@ -299,25 +299,25 @@
 }
 
 .homepage--code-example {
-  height: 400px;
-  margin-bottom: 30px;
-  margin-right: 37px;
   min-width: 563px;
+  height: 400px;
+  margin-right: 37px;
+  margin-bottom: 30px;
 
   background-color: cv("text", "darker");
+  box-shadow: 0 9px 25px rgb(0 0 0 / 0.24);
   border: 1.5px solid #2a4c63;
   border-radius: 10px;
-  box-shadow: 0 9px 25px rgb(0 0 0 / 0.24);
   overflow: hidden;
 
   @include media("<desktop-xl") {
-    margin-bottom: 25px;
     margin-right: 0;
+    margin-bottom: 25px;
   }
 
   @include media("<desktop") {
-    min-width: 0;
     width: 100%;
+    min-width: 0;
     height: auto;
   }
 }
@@ -326,8 +326,9 @@
   height: 50px;
   padding: 10px 20px;
 
-  background: #192e3a;
   font-size: 16px;
+
+  background: #192e3a;
 }
 
 .homepage--code-example--cm-wrapper {
@@ -359,9 +360,9 @@
   margin-bottom: 30px;
 
   background-color: #f9f9f9;
+  box-shadow: 0 10px 15px rgb(0 0 0 / 0.1);
   border: 1px solid #cecece;
   border-radius: 10px;
-  box-shadow: 0 10px 15px rgb(0 0 0 / 0.1);
   overflow: hidden;
 
   @include media("<tablet") {
@@ -445,22 +446,22 @@
   height: 425px;
   padding: 10% 15%;
 
-  border-radius: 10px;
-  border: 1px solid cv("text", "lighter");
   background-color: #ffffff;
   box-shadow: 0 20px 24px rgb(0 0 0 / 0.13);
+  border: 1px solid cv("text", "lighter");
+  border-radius: 10px;
 
   @include media("<desktop") {
-    padding: 30px 10px;
     justify-content: space-evenly;
+    padding: 30px 10px;
   }
 }
 
 .homepage--welcome-leia--header {
   margin-bottom: 28px;
 
-  font-size: 28px;
   font-weight: 500;
+  font-size: 28px;
   text-align: center;
   color: cv("link", "darker");
 
@@ -470,9 +471,9 @@
 .homepage--welcome-leia--info {
   margin-bottom: 47px;
 
-  text-align: center;
   font-size: 1rem;
   line-height: 1.7rem;
+  text-align: center;
 }
 
 .homepage--welcome-leia--actions {
@@ -490,10 +491,10 @@
   margin-bottom: 20px;
   padding: 8px 24px;
 
-  color: inherit;
-  text-decoration: none;
-  font-size: 14px;
   font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  color: inherit;
 
   border-radius: 0.25rem;
 
@@ -534,8 +535,8 @@
   right: 17px;
   z-index: 1;
 
-  text-transform: uppercase;
   letter-spacing: 1px;
+  text-transform: uppercase;
 
   cursor: pointer;
 }
