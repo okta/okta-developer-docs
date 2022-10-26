@@ -33,14 +33,16 @@ header.page-header .menu--slideout .header--links > ul.menu--items li span.link:
 header.page-header .menu--slideout .header--links > ul.menu--items.expanded li.opened > span {
   @include media("<desktop") {
     color: cv("action");
+  }
+}
 
-    &::after {
-      background-image: none !important;
-      background-color: cv("action") !important;
-      mask-repeat: no-repeat;
-      mask-position: center;
-      mask-image: url("/img/icons/chevron-down-gray.svg");
-    }
+header.page-header .menu--slideout .header--links > ul.menu--items.expanded li.opened > span::after {
+  @include media("<desktop") {
+    background-color: cv("action") !important;
+    background-image: none !important;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-image: url("/img/icons/chevron-down-gray.svg");
   }
 }
 
