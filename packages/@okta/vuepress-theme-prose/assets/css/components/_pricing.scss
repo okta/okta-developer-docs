@@ -20,16 +20,16 @@
 .pricing h1.pricing--title {
   margin: 0 0 16px;
 
-  font-size: 32px;
   font-weight: 400;
+  font-size: 32px;
   line-height: 42px;
 }
 
 .pricing p.pricing--subtitle {
   max-width: initial;
 
-  font-size: 18px;
   font-weight: 400;
+  font-size: 18px;
   line-height: 31px;
 }
 
@@ -60,11 +60,11 @@
 }
 
 .pricing .selector-lozenge.multiple .lozenge {
-  padding: 2px 8px;
   flex-grow: 1;
+  padding: 2px 8px;
 
-  border-radius: 40px;
   border: 1px solid cv("blue", "900");
+  border-radius: 40px;
 
   cursor: pointer;
 }
@@ -101,14 +101,14 @@
   width: 100%;
   padding: 18px 50px 16px 24px;
 
-  color: cv("body", "white");
-  font-size: 18px;
   font-weight: 400;
-  text-align: left;
+  font-size: 18px;
   line-height: 1em;
+  text-align: left;
+  color: cv("body", "white");
 
-  border: none;
   background: cv("blue", "900");
+  border: none;
   border-radius: 6px;
   outline: none;
 
@@ -122,8 +122,8 @@
   top: 19px;
   right: 18px;
 
-  height: 14px;
   width: 14px;
+  height: 14px;
   margin: auto;
 
   background-image: url("/img/icons/icon--plus.svg");
@@ -139,13 +139,13 @@
   background-color: cv("body", "white");
   border: 1px solid cv("blue", "900");
   border-top: 0;
-  border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 .pricing .pricing-collapsible-item.is-active .pricing-collapsible-item-title {
-  border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .pricing .pricing-collapsible-item.is-active .pricing-collapsible-item-title::before {
@@ -161,8 +161,8 @@
 }
 
 .pricing .pricing--costs .pricing-section {
-  padding: 30px 0;
   display: flex;
+  padding: 30px 0;
 
   @include media("<tablet") {
     flex-direction: column;
@@ -170,13 +170,13 @@
 }
 
 .pricing .pricing--costs .pricing-card {
-  margin: 0 32px 0 0;
   flex-grow: 1;
   flex-basis: 0;
+  margin: 0 32px 0 0;
 
+  box-shadow: 0 5px 25px rgb(0 0 0 / 0.25);
   border: 1px solid cv("blue", "900");
   border-radius: 15px;
-  box-shadow: 0 5px 25px rgb(0 0 0 / 0.25);
 
   @include media("<desktop") {
     margin-right: 20px;
@@ -199,13 +199,13 @@
 .pricing .pricing--costs .pricing-card-top {
   position: relative;
 
-  padding: 20px;
   display: flex;
   flex-direction: column;
+  padding: 20px;
 
   border-radius: inherit;
-  border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .pricing .pricing--costs .pricing-card-top .selector-lozenge {
@@ -276,8 +276,8 @@
 }
 
 .pricing .pricing--costs .pricing-card-bottom ul li {
-  padding: 0 5px 0 25px;
   margin: 0 0 8px;
+  padding: 0 5px 0 25px;
 
   line-height: 1.5em;
 
@@ -315,12 +315,12 @@
 }
 
 .pricing .pricing--plans .pricing-card-column {
-  padding: 20px 15px;
   display: flex;
   flex-basis: 22%;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 20px 15px;
 
   text-align: center;
 
@@ -338,8 +338,8 @@
 }
 
 .pricing .pricing--plans .pricing-card-column.pricing-card-row-header {
-  padding-left: 0;
   align-items: flex-start;
+  padding-left: 0;
 
   text-align: left;
 
@@ -387,8 +387,8 @@
 }
 
 .pricing .pricing--faq {
-  margin: 40px auto;
   flex-grow: 1;
+  margin: 40px auto;
 
   text-align: left;
 }
