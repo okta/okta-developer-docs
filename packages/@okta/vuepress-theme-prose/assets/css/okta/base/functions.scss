@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 // Removes any unit from the variable
 @function remove-unit($_value) {
   @return $_value / ($_value * 0 + 1);

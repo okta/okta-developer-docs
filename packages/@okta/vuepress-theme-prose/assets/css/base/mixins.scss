@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 // Sets font size responsively
 @mixin font-size($_size) {
   @if type-of($_size) == string and index(map-keys($font-size), $_size) {

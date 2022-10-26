@@ -1,3 +1,5 @@
+/* stylelint-disable */
+
 // Sets color from color map
 @mixin color($_color) {
   @if type-of($_color) == string and index(map-keys($colors), $_color) {
