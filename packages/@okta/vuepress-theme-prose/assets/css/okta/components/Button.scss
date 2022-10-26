@@ -1,13 +1,4 @@
 %Button {
-  @include color("black");
-  @include font-size("button");
-  @include font-weight("button");
-  @include transition(
-    normal background,
-    normal border,
-    normal color
-  );
-
   display: inline-block;
   height: 45px;
   padding: 0 20px;
@@ -35,11 +26,18 @@
   &:visited {
     @include color("black");
   }
+
+  @include color("black");
+  @include font-size("button");
+  @include font-weight("button");
+  @include transition(
+    normal background,
+    normal border,
+    normal color
+  );
 }
 
 .Button {
-  @extend %Button;
-
   color: get-color("accent");
 
   border-color: get-color("accent");
@@ -54,6 +52,8 @@
   &:visited {
     color: get-color("accent");
   }
+
+  @extend %Button;
 }
 
 .Button--small {
@@ -85,8 +85,6 @@
 }
 
 .Button--blue {
-  @extend %Button;
-
   color: get-color("white");
 
   background-color: $navy-blue;
@@ -103,11 +101,11 @@
   &:visited {
     color: get-color("white");
   }
+
+  @extend %Button;
 }
 
 .Button--blueOutline {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -119,11 +117,11 @@
   &:visited {
     color: get-color("blue-bright");
   }
+
+  @extend %Button;
 }
 
 .Button--green {
-  @extend %Button;
-
   color: get-color("white");
 
   background-color: get-color("green-dark");
@@ -140,11 +138,11 @@
   &:visited {
     color: get-color("white");
   }
+
+  @extend %Button;
 }
 
 .Button--greenOutline {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -156,11 +154,11 @@
   &:visited {
     color: get-color("green-dark");
   }
+
+  @extend %Button;
 }
 
 .Button--white {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -173,11 +171,11 @@
   &:visited {
     color: get-color("blue-bright");
   }
+
+  @extend %Button;
 }
 
 .Button--whiteOutline {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -189,11 +187,11 @@
   &:visited {
     color: get-color("white");
   }
+
+  @extend %Button;
 }
 
 .Button--whiteOutlineOpaque {
-  @extend %Button;
-
   background-color: rgb(255 255 255 / 0.25);
 
   &,
@@ -203,11 +201,11 @@
 
     border-color: get-color("white");
   }
+
+  @extend %Button;
 }
 
 .Button--red {
-  @extend %Button;
-
   &,
   &:active,
   &:hover {
@@ -220,6 +218,8 @@
   &:visited {
     color: get-color("white");
   }
+
+  @extend %Button;
 }
 
 .Button--blue[target="_blank"]:not([href^="mailto:"])::after,
