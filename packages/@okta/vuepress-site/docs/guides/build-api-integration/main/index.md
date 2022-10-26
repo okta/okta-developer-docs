@@ -1,23 +1,23 @@
 ---
 title: Build an API service integration
-excerpt: Learn how to build and register an API service integration to the Okta Integration Network.
+excerpt: Learn how to build, test, and register an API service integration to the Okta Integration Network.
 layout: Guides
 ---
 
 <ApiLifecycle access="ea" /><!--For both Classic and Identity Engine-->
 
-This guide explains how to build and submit an API service integration to the Okta Integration Network (OIN) for review and publishing.
+This guide explains how to build, test, and submit an API service integration to the Okta Integration Network (OIN) for review and publishing.
 
 ---
 
 **Learning outcomes**
 
-* Learn how to build an API service integration that can be published in the OIN.
+* Learn how to build, test, and submit an API service integration that can be published in the OIN.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-   > **Note:** The API Service Integration is a [Self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. Enable this feature in your org to obtain the API service integration capability.
+   > **Note:** The API Service Integration is a [Self-service Early Access (EA)](/docs/reference/releases-at-okta/#early-access-ea) feature. Enable this feature in your org to obtain the API service integration capability.
 * A service app that needs to access Okta APIs for your customer
 
 **Sample code**
@@ -61,7 +61,7 @@ app -> client: Response
 
 1. Your customer's service app instance makes an access token request to their Okta Authorization Server using their client credentials.
 
-   Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the access token request. See [Set up an API service integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations) for customer tenant Admin Console instructions. After your integration is installed, the customer obtains their client credentials and passes them to your team so that they can configure the customer's integration instance. See [Collect and save customer credentials](#collect-and-save-customer-credentials). The customer's instance of your integration can now make an access token request to Okta. See [Request for access token](#request-an-access-token).
+   Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the access token request. See [Set up an API service integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations) for customer tenant Admin Console instructions. After your integration is installed, the customer obtains their client credentials and passes them to your team so that they can configure the customer's app instance. See [Collect and save customer credentials](#collect-and-save-customer-credentials). The customer's app instance can now make an access token request to Okta. See [Request for access token](#request-an-access-token).
 
 2. If the credentials in the token request are accurate, Okta responds with an access token.
 
@@ -73,7 +73,7 @@ app -> client: Response
 
 ## Build your API service integration
 
-This section provides you a guideline of the component and requests you require to build your API service integration using basic `curl` commands . You can use OAuth 2.0 SDKs in your preferred language to implement the OAuth 2.0 Client Credentials flow.
+This section provides you with a guideline of the required components, artifacts, and requests to build your API service integration using basic cURL commands. You can use an OAuth 2.0 SDK in your preferred language to implement the OAuth 2.0 Client Credentials flow.
 
 For an example of how to implement the Client Credentials flow using Spring Boot, see [How to use Client Credentials flow with Spring Security](https://developer.okta.com/blog/2021/05/05/client-credentials-spring-security). This blog example uses the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) library. You can ignore the custom scopes and authorization server part of the example since it doesn't apply to the API service integration use case.
 
@@ -118,7 +118,7 @@ To register your API service registration:
 1. On the **General Settings** tab, specify values in the **App Information**, **Customer Support** and **Test Account** sections. See [Configure general settings](/docs/guides/submit-app/openidconnect/main/#configure-general-settings) for field descriptions.
 1. On the **OAUTH** tab, select **On** from the **OAUTH Support** dropdown menu.
 
-   The **OAuth Settings** appears and the **Client Credentials** grant type is selected. This is the only supported grant type for OAuth 2.0 API service integrations.
+   The **OAuth Settings** appear and the **Client Credentials** grant type is selected. This is the only supported grant type for OAuth 2.0 API service integrations.
 1. Under **Enable scopes**, click **+ Add Another** to specify a scope for your app integration.
 
    * Enter the Okta API scope to grant access from your integration. See [Scope selection](#scope-selection).
@@ -136,11 +136,11 @@ Use the test functionality in the OIN Manager to obtain test integration credent
    Your browser redirects to the Authorize integration page in your Okta org.
 
 1. From the Authorize integration page, click **Install and Authorize**.
-1. Copy the client secret from the dialog and paste it into your service app or securely store it for later use.
+1. Copy the client secret from the dialog and securely store it for your integration test.
 1. Click **Done** to dismiss the dialog.
-1. On the integration details page, copy the Okta domain and client ID and paste it into  your service app or securely store it for later use.
+1. On the integration details page, copy the Okta domain and client ID and securely store it for your integration test.
 
-For testing purposes, use the Okta domain, client ID, and client secret obtained from your test integration to make an access token request, and subsequently an API request using the valid access token returned.
+For testing purposes, use the Okta domain, client ID, and client secret obtained from your test integration to make an access token request, and subsequently an API request using the valid access token returned. See [Test your API service flow](#test-your-api-service-flow).
 
 ### Request an access token
 
@@ -217,9 +217,9 @@ curl -X GET "https://${customerOktaDomain}/api/v1/users"
 
 ### Test your API service flow
 
-Use the credentials from your test integration (Okta domain, client ID and secret) to test your service app. You can use the [interface that you build](#collect-and-save-customer-credentials) or enter the credentials manually for quick testing. Trigger a process from your service app to access Okta endpoints and verify that the process works as intended.
+Use the credentials from your test integration (Okta domain, client ID and secret) to test your service app. You can use the [interface that you build](#collect-and-save-customer-credentials) or enter the credentials manually to configure your service app. Trigger a process from your service app to access Okta endpoints and verify that the process works as intended.
 
-After you completed testing and are satisfied your API service integration, you can [submit it to Okta](#submit-for-review) for verification.
+After you completed testing and are satisfied with your API service integration, you can [submit it to Okta](#submit-for-review) for verification.
 
 ### Edit your API service integration submission
 
@@ -253,7 +253,7 @@ After you tested your API service integration and specified all fields and artif
 
 At this point, the Okta OIN team is notified and your submission goes through a series of testing and verification processes. The OIN team will email you for required updates and corrections. The OIN Manager also displays the latest status of your submission.
 
-When your integration reaches the Publish stage, your integration is available on the OIN catalog and your customers can see your API service integration installation option from their Okta org.
+When your integration reaches the Publish stage, your integration is available on the OIN catalog and your customers can see your API service integration install option from their Okta org.
 
 ## Support
 

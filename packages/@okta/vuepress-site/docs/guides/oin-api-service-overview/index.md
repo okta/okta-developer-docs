@@ -10,7 +10,7 @@ meta:
 > **Note:** The API Service Integration is a [Self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. Enable this feature in your org to obtain the API service integration capability.
 <!-- Need OAUTH_ADMIN_CONSENT_DIALOG FF enabled in monolith org -->
 
-Service apps that access or modify Okta resources, like system logs, apps, sessions, and policies can be published in the Okta Integration Network (OIN) as an API service integration. This integration allows your service app to access your customer tenant Okta org through [Okta management APIs](/docs/reference/core-okta-api/) using OAuth 2.0.
+Service apps that access or modify Okta resources, like system logs, apps, sessions, and policies can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer tenant Okta org through [Okta management APIs](/docs/reference/core-okta-api/) using OAuth 2.0.
 
 Previously, if you have a service app requiring Okta management API access, you need to use an API token that was tied to a specific Okta user and you can't restrict access to certain resources. With an OAuth 2.0 API service integration, your service app can have secure, reliable, and granular access to Okta APIs without being associated with a user.
 
@@ -24,7 +24,7 @@ API service integrations access [Okta management APIs](/docs/reference/core-okta
 | ------ | :------------------- | :----------------------- |
 | **Use cases** | <ul><li>Log entries need to have the application name instead of a user name for auditing purposes.</li> <li>API requests aren't initiated by a user action (for example, a user clicking a button or starting a script).</li> <li>The application that requests API access is hosted on a secure server (this type of application is also known as a confidential client).</li></ul> | <ul><li>A new custom application is configured from a user entry form.</li> <li>An admin user takes action by making API requests.</li></ul> |
 | **Examples** | <ul><li>An app that access certain types of Okta system log entries for occasional analysis</li> <li>An app that sends risk signals to Okta</li> <li>An app that occasionally syncs Okta user profile information to another system</li></ul> |  <ul><li>An IT support ticketing system integration that allows an Okta admin to assign an application directly from the access request support ticket</li></ul> |
-| **Best-fit API integration** | If these use cases and examples describe your needs, then implementing an API service integration for the OIN is a best-fit solution. See [Build an API service integration](/docs/guides/build-api-service-integration/).  | If these use cases and examples describe your needs, then implementing a user-based API integration is a better solution. User-based API integrations aren't currently supported in the OIN. See [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/main/) to learn more about user-based API integrations. |
+| **Best-fit API integration** | If these use cases and examples describe your needs, then implementing an API service integration for the OIN is a best-fit solution. See [Build an API service integration](/docs/guides/build-api-integration/).  | If these use cases and examples describe your needs, then implementing a user-based API integration is a better solution. User-based API integrations aren't currently supported in the OIN. See [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/main/) to learn more about user-based API integrations. |
 
 ## API service integration benefits
 
@@ -40,6 +40,6 @@ Before API service integrations were supported in the OIN, Okta API tokens were 
 
 ## Next steps
 
-Ready to get started? Sign up for a [free developer-edition Okta org](/signup) and see [Build an API service integration](/docs/guides/build-api-integration/).
+Ready to get started? Sign up for a free [developer-edition Okta org](/signup) and see [Build an API service integration](/docs/guides/build-api-integration/).
 
 Post your questions on the [Okta Developer Forum](https://devforum.okta.com/c/questions/oin-submissions/19) if you need help or have an issue.
