@@ -24,7 +24,7 @@ module.exports = {
         "severity": "warning"
       }
     ],
-    "no-empty-first-line": true,
+    "no-empty-first-line": null,
     "no-eol-whitespace": true,
     "no-extra-semicolons": true,
     "no-missing-end-of-source-newline": true,
@@ -48,7 +48,7 @@ module.exports = {
     // Empty
     "block-no-empty": true,
     "comment-no-empty": true,
-    "no-empty-source": true,
+    "no-empty-source": null,
 
     // Invalid
     "color-no-invalid-hex": true,
