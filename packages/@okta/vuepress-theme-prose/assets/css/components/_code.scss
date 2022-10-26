@@ -1,8 +1,8 @@
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
   margin-top: $base-spacing;
   margin-bottom: $base-spacing;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 
   background: #f4f4f4;
 }
@@ -18,13 +18,13 @@ pre[class*="language-"] .code-copy {
 :not([class*="language-"]) > code {
   padding: 0.1rem 0.4rem;
 
-  white-space: normal;
-  line-height: 1.43;
-  color: #333333;
   font-size: 80%;
   font-family: "Menlo", "Monaco", "Consolas", "Courier New", monospace;
+  line-height: 1.43;
+  white-space: normal;
+  color: #333333;
 
-  border-radius: 2px;
-  border: 1px solid cv("gray", "200");
   background: cv("gray", "100");
+  border: 1px solid cv("gray", "200");
+  border-radius: 2px;
 }

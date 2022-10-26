@@ -1,0 +1,145 @@
+.announcement-banner {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  min-height: 140px;
+
+  color: cv("blue", "900");
+
+  background-color: cv("blue", "000");
+
+  @include media("<=tablet") {
+    min-height: 190px;
+  }
+}
+
+.announcement-banner--close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 35px;
+
+  cursor: pointer;
+
+  @include media("<=desktop") {
+    background-color: cv("blue", "000");
+  }
+}
+
+.announcement-banner--close > i {
+  pointer-events: none;
+}
+
+.announcement-banner--content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin-right: 344px;
+  padding: 0 40px 0 135px;
+
+  @include media("<desktop-xl") {
+    padding: 0 57px;
+  }
+
+  @include media("<desktop") {
+    padding: 0 33px;
+  }
+
+  @include media("<=tablet") {
+    margin-right: 98px;
+  }
+}
+
+.announcement-banner--title {
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 1.32em;
+
+  @include media("<=desktop-xl") {
+    font-size: 14px;
+  }
+}
+
+.announcement-banner--description-wrapper {
+  display: flex;
+  align-items: start;
+
+  @include media("<=desktop") {
+    flex-direction: column;
+  }
+}
+
+.announcement-banner--description {
+  margin-bottom: 0;
+
+  font-size: 20px;
+
+  @include media("<=desktop-xl") {
+    font-size: 14px;
+  }
+}
+
+.announcement-banner--cta {
+  flex: 0 0 auto;
+  margin-left: 10px;
+
+  font-weight: 500;
+  font-size: 18px;
+  color: cv("blue", "500");
+
+  &:hover {
+    border-bottom: 0;
+  }
+
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: cv("blue", "500");
+
+    border-bottom: 1px solid currentcolor;
+  }
+
+  @include media("<=desktop-xl") {
+    font-size: 14px;
+  }
+
+  @include media("<=desktop") {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}
+
+.announcement-banner--logo {
+  position: absolute;
+  top: 0;
+  right: 100px;
+  z-index: 1;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  @include media("<=tablet") {
+    top: -2px;
+    right: 3px;
+  }
+}
+
+.announcement-banner--logo--large {
+  @include media("<=tablet") {
+    display: none;
+  }
+}
+.announcement-banner--logo--small {
+  @include media(">tablet") {
+    display: none;
+  }
+}

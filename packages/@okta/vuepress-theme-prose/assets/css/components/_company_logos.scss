@@ -1,0 +1,63 @@
+.company-logos--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include media("<tablet") {
+    text-align: center;
+  }
+}
+
+.company-logos--wrapper h1 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 50px;
+  color: #ffffff;
+}
+.company-logos--wrapper h4 {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.company-logos--wrapper .company-logos--icons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+
+  @include media("<tablet") {
+    justify-content: center;
+  }
+}
+
+.company-logos--wrapper .company-logos--icons .company-logos--icon {
+  width: 85px;
+  height: 45px;
+  margin: 0 10px 45px;
+
+  @include media("<tablet") {
+    margin: 0 20px 20px;
+  }
+}
+
+.company-logos--wrapper.company-logos--centered {
+  align-items: center;
+
+  text-align: center;
+}
+
+.company-logos--wrapper:not(.company-logos--centered) .company-logos--icon {
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.company-logos--wrapper.company-logos--small .company-logos--icons .company-logos--icon {
+  width: 88px;
+}

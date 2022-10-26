@@ -1,0 +1,31 @@
+#okta-sign-in.main-page-widget-wrapper {
+  width: 100%;
+  margin: 0;
+
+  border: none;
+}
+
+#okta-sign-in.main-page-widget-wrapper .okta-form-title.o-form-head {
+  font-weight: 700;
+  color: #5e5e5e;
+}
+
+#okta-sign-in.main-page-widget-wrapper .okta-form-label.o-form-label {
+  font-weight: 700;
+  color: #777777;
+}
+
+#okta-sign-in.main-page-widget-wrapper .okta-form-input-field input {
+  color: #5e5e5e;
+}
+
+#okta-sign-in.main-page-widget-wrapper .button.button-primary {
+  color: #ffffff;
+
+  background: linear-gradient(#369f95, #32948a);
+  box-shadow:
+    rgb(0 0 0 / 0.15) 0 1px 0,
+    rgb(255 255 255 / 0.1) 0 1px 0 0 inset;
+  border-color: #23665f;
+  border-bottom-color: #205e58;
+}

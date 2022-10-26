@@ -4,9 +4,9 @@
   font-family: "okta";
   src: url("#{$asset-path}/fonts/okta.eot?37443478");
   src: url("#{$asset-path}/fonts/okta.eot?37443478#iefix") format("embedded-opentype"),
-       url("#{$asset-path}/fonts/okta.woff?37443478") format("woff"),
-       url("#{$asset-path}/fonts/okta.ttf?37443478") format("truetype"),
-       url("#{$asset-path}/fonts/okta.svg?37443478#okta") format("svg");
+    url("#{$asset-path}/fonts/okta.woff?37443478") format("woff"),
+    url("#{$asset-path}/fonts/okta.ttf?37443478") format("truetype"),
+    url("#{$asset-path}/fonts/okta.svg?37443478#okta") format("svg");
 }
 
 [class^="icon-"]::before,

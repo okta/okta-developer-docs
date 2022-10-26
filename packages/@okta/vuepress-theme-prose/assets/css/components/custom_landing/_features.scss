@@ -1,0 +1,140 @@
+.customLanding-features__row {
+  position: relative;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 0;
+}
+
+.customLanding-features__row:not(:last-child) svg {
+  display: block;
+}
+
+.customLanding-features__row svg {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+
+  display: none;
+  width: 100%;
+}
+
+@media (max-width: 1110px) {
+  .customLanding-features__row {
+    flex-wrap: wrap;
+  }
+}
+
+.customLanding-features__col {
+  width: 370px;
+
+  &:last-child {
+    width: 415px;
+    padding: 41px 43px 41px 54px;
+
+    background-color: cv("body", "custom-bg-white");
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 1110px) {
+  .customLanding-features__col {
+    width: 100%;
+    margin-bottom: 20px;
+
+    &:last-child {
+      width: 100%;
+    }
+  }
+}
+
+.customLanding-features__title {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.customLanding-features__title img {
+  width: 30px;
+}
+
+.customLanding-features__title h3 {
+  margin: 0;
+  padding-left: 16px;
+
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 28px;
+  color: cv("header", "nav-link");
+}
+
+.customLanding-features__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: cv("header", "nav-link");
+}
+
+.customLanding-features__button {
+  display: inline-block;
+  padding: 0.63rem 1.25rem;
+
+  font-weight: 400;
+  color: cv("body", "white");
+
+  background-color: cv("blue", "900");
+
+  &:hover {
+    color: cv("body", "white");
+
+    background-color: cv("link");
+  }
+
+  &:visited,
+  &:active,
+  &:focus {
+    color: cv("body", "white");
+  }
+}
+
+.customLanding-features__caption {
+  margin: 0 0 15px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: cv("header", "nav-link");
+}
+
+.customLanding-features__list-item {
+  position: relative;
+
+  margin-bottom: 10px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: cv("header", "nav-link");
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 8px;
+    left: -18px;
+
+    width: 4px;
+    height: 4px;
+
+    background-color: cv("body", "gray");
+    border-radius: 50%;
+  }
+}
+
+.customLanding-features__list-item a {
+  font-weight: 400;
+}

@@ -27,8 +27,8 @@
 .app-footer {
   position: relative;
 
-  padding: 94px 64px;
   flex-shrink: 0;
+  padding: 94px 64px;
 
   background-color: cv("header");
 
@@ -71,8 +71,8 @@
   font-size: 14px;
   line-height: 1.3em;
   letter-spacing: 1.5px;
-  color: cv("body", "white");
   text-transform: uppercase;
+  color: cv("body", "white");
 
   @include media("<desktop-xl") {
     margin-bottom: 20px;
@@ -86,9 +86,9 @@
     position: relative;
 
     flex: 1 0 100%;
+    order: 5;
     margin-bottom: 0;
     padding-top: 19px;
-    order: 5;
   }
 }
 
@@ -118,8 +118,8 @@
 
   @include media("<desktop-xl") {
     flex: 1 0 50%;
-    margin-bottom: 46px;
     order: 3;
+    margin-bottom: 46px;
   }
 
   @include media("<phone") {
@@ -130,9 +130,9 @@
 .app-footer .footer--columns .more {
   @include media("<desktop-xl") {
     flex: 1 0 50%;
+    order: 4;
     margin-bottom: 32px;
     padding-left: 18px;
-    order: 4;
   }
 
   @include media("<phone") {
@@ -204,8 +204,8 @@
 
   font-weight: 400;
   font-size: 20px;
-  text-transform: none;
   letter-spacing: 0.5px;
+  text-transform: none;
 
   @include media("<desktop-xl") {
     margin-bottom: 16px;
@@ -230,13 +230,13 @@
   bottom: 94px;
   left: auto;
 
+  clear: both;
   margin: 38px 0 0;
   padding: 38px 0 0;
-  clear: both;
 
-  color: cv("body", "white");
-  font-size: 1em;
   font-weight: 500;
+  font-size: 1em;
+  color: cv("body", "white");
 
   @include media("<desktop-xl") {
     position: relative;
@@ -254,9 +254,9 @@
 }
 
 .app-footer .footer--columns .copyright::before {
-  @include separator;
-
   top: 0;
+
+  @include separator;
 }
 
 .app-footer a.link {

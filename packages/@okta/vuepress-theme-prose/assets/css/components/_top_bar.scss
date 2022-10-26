@@ -1,0 +1,363 @@
+$gray-900: #2f3f4a;
+
+.top-bar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 27px 30px;
+
+  font-size: 14px;
+
+  @include media("<desktop") {
+    justify-content: space-between;
+    height: 75px;
+    padding: 20px 30px;
+  }
+}
+
+.top-bar-nav--logo {
+  position: relative;
+  z-index: 15;
+
+  display: block;
+  flex-shrink: 0;
+  height: 32px;
+}
+
+.top-bar-nav--logo svg {
+  width: 92px;
+
+  fill: cv("gray", "000");
+}
+
+.top-bar-nav .navigation {
+  position: relative;
+
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  justify-content: center;
+  max-width: calc(100% - 20px);
+  padding-left: 51px;
+
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 1.5px;
+}
+
+.top-bar-nav .navigation .menu {
+  position: relative;
+
+  display: flex;
+  flex-direction: inherit;
+  align-items: center;
+  justify-content: space-between;
+
+  text-transform: uppercase;
+}
+
+@include media("<desktop") {
+  .top-bar-nav .navigation .menu {
+    flex-direction: column;
+    align-items: flex-start;
+    height: calc(100vh - 245px);
+
+    overflow: scroll;
+  }
+
+  .top-bar-nav .navigation .menu li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    letter-spacing: 1.5px;
+  }
+}
+
+@include media(">desktop") {
+  .top-bar-nav .navigation .menu > li {
+    display: flex;
+    align-items: center;
+    height: 38px;
+    margin-right: 22px;
+  }
+}
+
+.top-bar-nav .navigation .menu a {
+  line-height: 24px;
+  letter-spacing: 1.5px;
+  color: #ffffff;
+}
+
+.top-bar-nav .navigation .menu a.active {
+  border-bottom: 2px solid #ffffff;
+}
+
+.top-bar-nav .navigation .menu a:hover {
+  color: $white;
+}
+
+@include media("<desktop") {
+  .top-bar-nav .navigation .menu a {
+    font-weight: 300;
+    font-size: 16px;
+  }
+
+  .top-bar-nav .navigation .menu a.active {
+    padding: none;
+
+    border: none;
+  }
+}
+
+.top-bar-nav .navigation .menu .hasSubMenu {
+  position: relative;
+}
+
+.top-bar-nav .navigation .menu .hasSubMenu .caret {
+  margin-left: 6px;
+
+  font-size: 5px;
+  letter-spacing: 0;
+  color: $white;
+  vertical-align: middle;
+
+  @include media("<desktop") {
+    display: none;
+  }
+}
+
+.top-bar-nav .navigation .menu .hasSubMenu .submenu {
+  display: none;
+}
+
+.top-bar-nav .navigation .menu .hasSubMenu .submenu .non-link {
+  display: block;
+  padding: 5px 25px;
+
+  font-size: 18px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #142430;
+
+  cursor: default;
+}
+
+.top-bar-nav .navigation .menu .hasSubMenu .submenu .divider {
+  margin: 10px 24px;
+
+  border-top: 1px solid #d2d2d6;
+}
+
+@include media("<desktop") {
+  .top-bar-nav .navigation .menu .hasSubMenu .submenu {
+    display: block;
+    margin-left: 10px;
+  }
+
+  .top-bar-nav .navigation .menu .hasSubMenu .submenu .non-link {
+    padding: 0;
+
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  }
+
+  .top-bar-nav .navigation .menu .hasSubMenu .submenu .divider {
+    display: none;
+  }
+}
+
+@include media(">desktop") {
+  .top-bar-nav .navigation .menu .hasSubMenu:hover .submenu {
+    position: absolute;
+    top: 46px;
+    left: 50%;
+    z-index: 50;
+
+    display: block;
+    padding: 25px 0;
+
+    background: #f4f4f4;
+    box-shadow: rgb(0 0 0 / 0.3) 0 2px 10px;
+    border-radius: 3px;
+
+    transform: translateX(-50%);
+  }
+
+  .top-bar-nav .navigation .menu .hasSubMenu:hover .submenu::before {
+    content: "";
+
+    position: absolute;
+    top: -10px;
+    left: 50%;
+
+    display: block;
+
+    border-right: solid 20px transparent;
+    border-bottom: solid 20px #f4f4f4;
+    border-left: solid 20px transparent;
+
+    transform: translateX(-50%);
+  }
+
+  .top-bar-nav .navigation .menu .hasSubMenu:hover .submenu > li {
+    display: block;
+
+    font-weight: 600;
+    white-space: nowrap;
+    color: #e22866;
+  }
+
+  .top-bar-nav .navigation .menu .hasSubMenu:hover .submenu > li > a.link {
+    display: block;
+    width: 100%;
+    padding: 5px 25px;
+
+    color: #e22866;
+
+    transition: 0.4s color;
+  }
+
+  .top-bar-nav .navigation .menu .hasSubMenu:hover .submenu > li > a.link:hover {
+    color: #ffffff;
+
+    background: #e22866;
+  }
+
+  .top-bar-nav .navigation .menu .hasSubMenu:hover::before {
+    content: "";
+
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+
+    display: block;
+    height: 90px;
+  }
+}
+
+.top-bar-nav .navigation .buttons-block {
+  display: flex;
+  margin-left: auto;
+}
+
+.top-bar-nav .navigation .buttons-block--button {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 41px;
+  margin-left: 30px;
+  padding: 0 45px;
+
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+
+  border: 2px solid cv("link");
+  border-radius: 3px;
+}
+
+.top-bar-nav .navigation .buttons-block--button.red {
+  color: #ffffff;
+
+  background: cv("header");
+}
+
+@include media("<desktop") {
+  .top-bar-nav .navigation .buttons-block--button {
+    margin: 0;
+  }
+}
+
+@include media("<desktop") {
+  .top-bar-nav .navigation .buttons-block {
+    justify-content: space-around;
+    margin-bottom: 35px;
+    margin-left: 0;
+  }
+}
+
+@include media("<desktop") {
+  .top-bar-nav .navigation {
+    display: none;
+  }
+
+  .top-bar-nav .navigation.expanded {
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    min-width: 100%;
+    height: calc(100vh - 75px);
+    margin: 0;
+    padding: 35px;
+
+    background-color: #153b56;
+  }
+
+  .top-bar-nav .navigation.expanded .menu {
+    display: flex;
+  }
+}
+
+.top-bar-nav--controls {
+  display: flex;
+  align-content: inherit;
+  justify-items: inherit;
+}
+
+.top-bar-nav--controls .search-icon {
+  align-self: center;
+  width: 40px;
+  height: 24px;
+  margin-left: 20px;
+
+  background: url("https://developer.okta.com/sites/all/themes/developer/media/icon-search.svg") center no-repeat;
+  background-size: contain;
+  border: none;
+  outline: none;
+}
+
+.top-bar-nav--controls .search-icon.active {
+  background: url("https://developer.okta.com/sites/all/themes/developer/media/icon-close.svg") center no-repeat;
+}
+
+.top-bar-nav--controls .search-icon:hover {
+  cursor: pointer;
+}
+
+.top-bar-nav--controls--toggle {
+  display: flex;
+  width: 2em;
+  height: 40px;
+  margin-left: 1rem;
+
+  cursor: pointer;
+}
+
+@include media(">desktop") {
+  .top-bar-nav--controls--toggle {
+    display: none;
+  }
+}
+
+.top-bar-nav--controls--toggle svg.toggle {
+  width: 1.4em;
+
+  fill: cv("link");
+}
+
+.top-bar-nav--controls--toggle svg.toggle-close {
+  width: 1.6em;
+
+  fill: cv("gray", "200");
+}

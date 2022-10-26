@@ -6,23 +6,23 @@ input[type="text"],
 input[type="submit"],
 input[type="button"],
 select {
-  width: 100%;
-  padding: 0 20px;
-  height: 38px;
   display: inline-block;
+  width: 100%;
+  height: 38px;
   margin: 5px 0 0;
+  padding: 0 20px;
 
-  color: cv("text");
-  font-size: 16px;
   font-weight: 400;
+  font-size: 16px;
   line-height: 24px;
-  text-rendering: auto;
   letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0;
-  text-shadow: none;
   text-align: start;
+  text-indent: 0;
+  text-transform: none;
+  text-shadow: none;
+  word-spacing: normal;
+  color: cv("text");
+  text-rendering: auto;
 
   background-color: $white;
   border: 1px solid cv("form", "input-border");
@@ -56,8 +56,8 @@ select {
 
   background-image: url("/img/icons/select-input-arrow.svg");
   background-position: calc(100% - 22px) center;
-  background-repeat: no-repeat;
   background-size: auto;
+  background-repeat: no-repeat;
   border-radius: 4px;
 
   cursor: pointer;
@@ -67,14 +67,14 @@ a.btn,
 input.btn,
 button.btn {
   display: block;
-  padding: 16px 20px;
   height: auto;
+  padding: 16px 20px;
 
-  font-family: inherit;
   font-weight: 600;
   font-size: 16px;
-  color: $white;
+  font-family: inherit;
   text-align: center;
+  color: $white;
 
   background-color: cv("header");
   border: 1px solid cv("header");

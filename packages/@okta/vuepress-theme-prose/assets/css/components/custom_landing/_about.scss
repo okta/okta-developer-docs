@@ -1,0 +1,72 @@
+.customLanding-about {
+  padding: 56px 0 87px;
+
+  color: cv("header", "nav-link");
+}
+
+.customLanding-about h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45px;
+  color: cv("header", "nav-link");
+}
+
+.customLanding-about p {
+  max-width: 783px;
+  margin-bottom: 0;
+
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.customLanding-about__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 783px;
+  margin-top: 60px;
+}
+
+.customLanding-about__info {
+  margin-right: 20px;
+}
+
+.customLanding-about__info h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: cv("header", "nav-link");
+}
+
+.customLanding-about__info span {
+  display: inline-block;
+  max-width: 474px;
+
+  font-size: 16px;
+  line-height: 25px;
+  color: cv("text");
+}
+
+.customLanding-about__resourses {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.customLanding-about__explore {
+  display: flex;
+  align-items: center;
+}
+
+.customLanding-about__explore a {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+}

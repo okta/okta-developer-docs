@@ -1,0 +1,48 @@
+.language-tabs {
+  display: flex;
+  margin: 0;
+  padding: 20px;
+
+  background-color: cv("header");
+  border-radius: 5px;
+  list-style: none !important;
+}
+
+.language-tabs a {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+
+  text-decoration: none;
+  color: cv("gray", "000");
+}
+
+.language-tabs a.router-link-exact-active,
+.language-tabs a:hover {
+  border-bottom: 1px solid cv("gray", "000");
+}
+
+.language-tabs a i {
+  margin-right: 0.5rem;
+}
+
+.language-ctas {
+  display: flex;
+
+  @include media("<desktop") {
+    flex-wrap: wrap;
+  }
+}
+
+.language-ctas li {
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+}
+
+.language-reference {
+  display: flex;
+}
+
+.language-reference .icon {
+  width: 16px;
+}

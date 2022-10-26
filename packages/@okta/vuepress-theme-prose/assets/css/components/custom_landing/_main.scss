@@ -1,0 +1,75 @@
+.custom-landing {
+  margin: 0 -59px;
+}
+
+.customLanding {
+  width: 100%;
+}
+
+.customLanding-waves {
+  position: relative;
+}
+
+.customLanding-waves-top {
+  margin-top: 77px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: -77px;
+    left: 0;
+
+    width: 100%;
+    height: 77px;
+
+    background: url("/img/customLanding/custom-bg-gray-top.svg") 50% 50% no-repeat;
+    background-size: cover;
+  }
+}
+
+.customLanding-waves-bottom {
+  margin-bottom: 77px;
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    bottom: -77px;
+    left: 0;
+
+    width: 100%;
+    height: 77px;
+
+    background: url("/img/customLanding/custom-bg-gray-top.svg") 50% 50% no-repeat;
+    background-size: cover;
+
+    transform: rotate(180deg);
+  }
+}
+
+.customLanding-white {
+  background-color: cv("body", "custom-bg-white");
+}
+
+.customLanding-gray {
+  background-color: cv("body", "custom-bg-gray");
+}
+
+.customLanding-wrapper {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 59px;
+}
+
+.customLanding-wrapper a {
+  text-decoration: none !important;
+}
+
+.dark-theme .customLanding-waves-top::before {
+  background: url("/img/customLanding/custom-bg-gray-top-dark.svg") 50% 50% no-repeat;
+}
+
+.dark-theme .customLanding-waves-bottom::after {
+  background: url("/img/customLanding/custom-bg-gray-top-dark.svg") 50% 50% no-repeat;
+}

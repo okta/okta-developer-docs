@@ -1,0 +1,45 @@
+.page-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+
+  @include media("<desktop-xl") {
+    margin-bottom: 0;
+  }
+}
+
+.page-title--section {
+  margin: 0;
+  padding: 0;
+
+  font-size: 1.3em;
+  line-height: 2em;
+}
+
+.page-title--updated {
+  margin: 0;
+  padding: 0;
+
+  font-size: 1em;
+  line-height: 1.2em;
+  color: $text-sub;
+}
+
+.page-title--updated .updated-at a::after {
+  display: none;
+}
+
+.page-title h1 {
+  margin: 5px 0 7px;
+
+  font-size: 36px;
+  line-height: 1.3em;
+
+  @include media("<desktop-xl") {
+    margin-top: 30px;
+  }
+}
+
+.page-title h1 i {
+  margin-top: -5px;
+}

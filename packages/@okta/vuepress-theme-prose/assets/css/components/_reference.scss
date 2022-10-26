@@ -11,8 +11,8 @@
 .reference--list {
   display: flex;
   flex-direction: column;
-  max-height: 20rem;
   flex-wrap: wrap;
+  max-height: 20rem;
 
   @include media(">=tablet") {
     flex-direction: row;
@@ -33,9 +33,9 @@
 .reference--list a {
   display: flex;
 
-  color: cv("action");
-  text-transform: uppercase;
   letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: cv("action");
 }
 
 .reference--sections {

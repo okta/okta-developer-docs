@@ -1,16 +1,16 @@
 .brand_font {
-  font-family: $font-family;
-  font-style: normal;
   font-weight: 300;
+  font-style: normal;
+  font-family: $font-family;
 }
 
 #SearchPage {
   position: relative;
 
-  padding: 30px;
-  margin-left: auto;
-  margin-right: auto;
   max-width: 1280px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 30px;
 }
 
 #SearchPage .coveo-main-section {
@@ -18,9 +18,9 @@
 }
 
 #SearchPage .coveo-results-column {
+  max-width: 800px;
   margin: 0 auto;
   padding: 0;
-  max-width: 800px;
 }
 
 #SearchPage .coveo-results-column.coveo-no-results {
@@ -53,12 +53,13 @@
 }
 
 #SearchPage .coveo-facet-header {
-  @extend .brand_font;
-
   padding-top: 0;
 
   color: cv("text", "darker");
+
   background: none;
+
+  @extend .brand_font;
 }
 
 #SearchPage .coveo-facet-header-title {
@@ -72,10 +73,10 @@
 
 #SearchPage .CoveoQuerySummary,
 #SearchPage .coveo-summary-section {
-  @extend .brand_font;
-
-  color: cv("text");
   font-weight: 300;
+  color: cv("text");
+
+  @extend .brand_font;
 }
 
 #SearchPage .CoveoQuerySummary .coveo-highlight,
@@ -98,8 +99,8 @@
   height: 16px;
   margin-right: 8px;
 
-  border-radius: 4px;
   border-color: cv("form", "input-border");
+  border-radius: 4px;
 }
 
 #SearchPage .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox {
@@ -138,8 +139,8 @@
 }
 
 #SearchPage .coveo-facet-values {
-  padding-bottom: 48px;
   margin-bottom: 48px;
+  padding-bottom: 48px;
 
   border-bottom: 1px solid cv("body", "border");
 }
@@ -147,24 +148,24 @@
 #SearchPage .coveo-facet-value-caption {
   margin: 0 0 8px;
 
-  color: cv("text", "darker");
-  font-size: 16px;
   font-weight: 400;
+  font-size: 16px;
   line-height: 16px;
+  color: cv("text", "darker");
 }
 
 #SearchPage .coveo-pager-list-item,
 #SearchPage .coveo-pager-list-item-text,
 #SearchPage .coveo-pager-anchor,
 #SearchPage .coveo-active {
-  @extend .brand_font;
-
-  color: cv("link");
   font-weight: 500;
   text-decoration: none;
+  color: cv("link");
 
-  border: none;
   background: none;
+  border: none;
+
+  @extend .brand_font;
 }
 
 #SearchPage .coveo-pager-list {
@@ -173,23 +174,23 @@
 }
 
 #SearchPage .coveo-pager-list-item {
-  @extend .brand_font;
-
-  width: 36px;
-  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 36px;
+  height: 36px;
 
   font-weight: 500;
   font-size: 16px;
 
   border-radius: 3px;
+
+  @extend .brand_font;
 }
 
 #SearchPage .coveo-pager-list-item:hover {
-  color: cv("link");
   text-decoration: none;
+  color: cv("link");
 
   border: none;
 }
@@ -216,9 +217,9 @@
 
 #SearchPage .coveo-pager-next-icon,
 #SearchPage .coveo-pager-previous-icon {
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
 }
 
 #SearchPage .coveo-pager-next-icon-svg,
@@ -247,9 +248,9 @@
 }
 
 #SearchPage .CoveoResultLink, #SearchPage .CoveoResultLink:visited {
-  color: cv("link");
-  font-size: 16px;
   font-weight: 500;
+  font-size: 16px;
+  color: cv("link");
 }
 
 #SearchPage .CoveoResultLink:hover, #SearchPage .CoveoResultLink:focus {
@@ -259,14 +260,15 @@
 }
 
 #SearchPage .CoveoResultLink.coveo-printable-uri-part {
-  color: cv("text");
-  font-size: 14px;
   font-weight: 400;
+  font-size: 14px;
+  color: cv("text");
 }
 
 #SearchPage .is-secondary .CoveoResultLink {
-  color: cv("text");
   font-size: 14px;
+  color: cv("text");
+
   outline: none;
 }
 
@@ -284,17 +286,17 @@
   padding-right: calc(#{$icon-size} + 5px);
 
   background-image: url("/img/icons/external--gray.svg");
-  background-repeat: no-repeat;
   background-position: 100% 50%;
   background-size: $icon-size;
+  background-repeat: no-repeat;
 }
 
 #SearchPage .CoveoExcerpt {
-  @extend .brand_font;
-
-  color: cv("text");
   font-size: 16px;
   line-height: 1.5;
+  color: cv("text");
+
+  @extend .brand_font;
 }
 
 #SearchPage .CoveoPrintableUri {
@@ -302,24 +304,24 @@
 }
 
 #SearchPage .CoveoResult {
-  @extend .brand_font;
-
   padding: 5px 0;
 
   color: cv("text");
 
   border: none;
+
+  @extend .brand_font;
 }
 
 #SearchPage .CoveoFacet {
-  @extend .brand_font;
-
   margin-top: 0;
 
   font-weight: 700;
 
-  border: none;
   background: none;
+  border: none;
+
+  @extend .brand_font;
 }
 
 #SearchPage .CoveoFieldValue {
@@ -327,22 +329,22 @@
 }
 
 #SearchPage .CoveoFieldValue .highlight {
-  padding: 7px;
   display: inline-block;
+  padding: 7px;
 
-  color: cv("text", "darker");
+  font-weight: 400;
   font-size: 16px;
   line-height: 16px;
-  font-weight: 400;
+  color: cv("text", "darker");
 
   background: cv("body");
   border-radius: 4px;
 }
 
 #SearchPage .CoveoFieldValue .highlight .coveo-clickable {
-  color: cv("text", "darker");
   font-weight: 400;
   text-decoration: none;
+  color: cv("text", "darker");
 }
 
 #SearchPage .CoveoFieldValue.date span {
@@ -357,19 +359,19 @@
 }
 
 #SearchPage .coveo-dropdown-header-wrapper .coveo-facet-dropdown-header {
-  @extend .brand_font;
-
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 50%;
   margin-bottom: 20px;
+
+  @extend .brand_font;
 }
 
 #SearchPage .coveo-dropdown-header-wrapper .coveo-facet-dropdown-header > p {
-  @extend .brand_font;
-
   font-weight: 400;
+
+  @extend .brand_font;
 }
 
 #SearchPage .CoveoPager {
@@ -382,22 +384,22 @@
 }
 
 #SearchPage .CoveoBreadcrumb {
-  @extend .brand_font;
-
   padding: 5px 0;
 
   border-color: cv("text");
+
+  @extend .brand_font;
 }
 
 #SearchPage .coveo-facet-column-heading {
-  @extend .brand_font;
-
   margin: 0 0 20px;
 
-  color: cv("text", "darker");
   font-weight: 500;
   font-size: 18px;
   line-height: 18px;
+  color: cv("text", "darker");
+
+  @extend .brand_font;
 }
 
 #SearchPage .coveo-facet-help {
@@ -405,11 +407,11 @@
 }
 
 #SearchPage .coveo-facet-help p {
-  @extend .brand_font;
-
   color: cv("text", "darker");
 
   visibility: visible;
+
+  @extend .brand_font;
 }
 
 #SearchPage .coveo-facet-help a {
@@ -463,9 +465,9 @@
   }
 
   #SearchPage .coveo-facet-column {
+    float: none;
     margin: 0;
     padding: 0;
-    float: none;
   }
 
   #SearchPage .coveo-facet-column .coveo-facet-header,
@@ -476,8 +478,8 @@
   }
 
   #SearchPage .CoveoResultList {
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
   }
 
   #SearchPage .CoveoFacet + .coveo-facet-help {
@@ -485,8 +487,8 @@
   }
 
   #SearchPage .CoveoPager + .coveo-facet-help {
-    padding-top: 30px;
     display: block;
+    padding-top: 30px;
   }
 }
 

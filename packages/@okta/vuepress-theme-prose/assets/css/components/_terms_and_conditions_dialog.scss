@@ -1,0 +1,77 @@
+.dialog-text {
+  font-size: 14px;
+}
+
+.dialog-text .marketing-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-text .marketing-c .title {
+  margin: 0 0 8px 0;
+
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.dialog-text .marketing-c .title span {
+  color: #bbbbbb;
+}
+
+.dialog-text .marketing-c .gdpr-condition {
+  display: flex;
+  align-items: center;
+  margin: 0 0 24px 0;
+  padding: 12px 16px;
+
+  font-size: 14px;
+
+  background-color: #f5f5f6;
+}
+
+.dialog-text .marketing-c .gdpr-condition input[type="checkbox"] {
+  margin: 0 16px 0 0;
+}
+
+.dialog-text .tac-row {
+  margin: 8px 0 24px 0;
+}
+
+.dialog-text select {
+  display: block;
+}
+
+.dialog-text label {
+  cursor: pointer;
+}
+
+.agree-policy .splitter {
+  margin: 0 0 24px 0;
+
+  border-top: 1px solid cv("body", "border");
+}
+
+.terms-conditions-btns {
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px 0 0 0;
+}
+
+.terms-conditions-btns .btn-container {
+  width: auto;
+}
+
+.terms-conditions-btns .btn-container:nth-child(1) {
+  margin-right: 15px;
+}
+
+.terms-conditions-btns .btn-container .btn {
+  display: table-cell;
+  height: 32px;
+  padding: 0 15px;
+
+  font-size: 14px;
+  vertical-align: middle;
+
+  border: 1px solid cv("link", "darker");
+}

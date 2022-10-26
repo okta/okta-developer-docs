@@ -1,0 +1,17 @@
+.edit-on-github {
+  margin: 105px 0 2rem 0;
+
+  font-size: 0.9rem;
+  text-align: right;
+
+  @include media("<tablet") {
+    display: none;
+  }
+}
+
+.edit-on-github .fa {
+  margin-right: 5px;
+
+  font-size: 1.2rem;
+  color: #000000;
+}

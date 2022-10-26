@@ -1,0 +1,72 @@
+.header-nav {
+  position: fixed;
+  top: 87px;
+  left: 0;
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 31px;
+
+  background-color: cv("header", "nav");
+  overflow-x: auto;
+
+  @include media("<desktop-xl") {
+    top: 70px;
+  }
+
+  @include media("<tablet") {
+    top: 60px;
+  }
+}
+
+.header-nav a {
+  position: relative;
+
+  margin-right: 28px;
+  padding: 18px 0 16px;
+
+  font-size: 14px;
+  line-height: 21px;
+  white-space: nowrap;
+  color: cv("header", "nav-link");
+
+  &::before {
+    content: attr(title);
+
+    display: block;
+    height: 0;
+
+    font-weight: 700;
+
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: transparent;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.header-nav a.router-link-active {
+  font-weight: 700;
+  color: cv("link");
+
+  &::after {
+    background-color: cv("link");
+  }
+}
