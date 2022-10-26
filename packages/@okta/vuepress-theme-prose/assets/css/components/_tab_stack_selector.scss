@@ -65,11 +65,11 @@
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
   color: #5c6971;
 
   background: transparent;
   border-bottom: 1px solid #b7bcc0;
+  overflow: hidden;
 
   transition-timing-function: ease-in-out;
   transition-duration: 250ms;
