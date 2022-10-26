@@ -211,11 +211,15 @@ export default {
 
 <style>
   .slide-fade-enter-active {
-    transition: all 0.8s ease;
+    transition-timing-function: ease;
+    transition-duration: 0.8s;
+    transition-property: all;
   }
 
   .slide-fade-leave-active {
-    transition: all 0.3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    transition-timing-function: cubic-bezier(1, 0.5, 0.8, 1);
+    transition-duration: 0.3s;
+    transition-property: all;
   }
 
   .slide-fade-enter,
