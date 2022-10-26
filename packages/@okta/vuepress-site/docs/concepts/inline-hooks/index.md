@@ -116,7 +116,7 @@ Always included is `data.context`, providing context information. In general, `d
 
 Your service receives the request from Okta and needs to respond to it. The response needs to include an HTTP response code and will usually also include a JSON payload. In particular, you will typically include a `commands` object in the JSON payload to specify actions for Okta to execute or to communicate information back to Okta.
 
->**Note:** The size of your response payload must be less than 256 KB.
+<HookResponseSize/>
 
 ### HTTP status code
 
