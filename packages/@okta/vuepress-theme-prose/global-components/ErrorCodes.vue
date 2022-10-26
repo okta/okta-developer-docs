@@ -231,8 +231,8 @@ export default {
 
   .error-codes .error-codes-search-container {
     display: flex;
-    align-items: center;
     flex-direction: row;
+    align-items: center;
     margin-bottom: 20px;
   }
 
@@ -298,21 +298,21 @@ export default {
     margin-top: -1em;
     margin-left: 0.3em;
 
-    color: #888888;
     font-size: 0.9em;
+    color: #888888;
   }
 
   .error-codes .error-code h4 {
+    clear: left;
     margin: 25px 0 0;
     padding: 6px 10px;
-    clear: left;
 
-    color: $link_color;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: $link_color;
 
-    overflow: hidden;
     border-left: 3px solid $link_color;
+    overflow: hidden;
   }
 
   .error-codes .error-code h4 .title-error-code {
@@ -328,8 +328,8 @@ export default {
   }
 
   .error-codes .error-code pre {
-    padding: 0.5rem;
     margin: 0;
+    padding: 0.5rem;
 
     white-space: pre-line;
   }
@@ -339,10 +339,10 @@ export default {
   }
 
   .error-codes .error-code .toggleErrorExample {
+    font-size: 14px;
     color: $link_color;
 
     cursor: pointer;
-    font-size: 14px;
   }
 
   .error-codes .error-code .toggleErrorExample .underline:hover {
@@ -371,8 +371,8 @@ export default {
     margin: -1em 0;
     padding: 10px 15px;
 
-    color: #888888;
     font-size: 0.9em;
+    color: #888888;
   }
 
   .error-codes .error-code .error-code-description {
@@ -398,14 +398,14 @@ export default {
 
   .error-codes .error-code .error-code-tag {
     display: block;
+    float: left;
     margin: 2px;
     padding: 1px 3px;
-    float: left;
 
     font-size: 0.7em;
 
-    border-radius: 3px;
     background-color: #ffffff;
+    border-radius: 3px;
   }
 
   .error-codes .error-code .error-code-release {
