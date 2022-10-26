@@ -210,16 +210,16 @@
   }
 
   .event-types .event-type h4 {
+    clear: left;
     margin: 25px 0 0;
     padding: 6px 10px;
-    clear: left;
 
-    color: $link_color;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: $link_color;
 
-    overflow: hidden;
     border-left: 3px solid $link_color;
+    overflow: hidden;
 
     &::before {
       content: "";
@@ -234,14 +234,15 @@
     margin: -1em 0;
     padding: 10px 15px;
 
-    word-break: break-all;
     font-size: 0.8em;
+    word-break: break-all;
   }
 
   .event-types .event-type .event-type-description {
     margin-top: 10px;
     margin-bottom: 5px;
   }
+
   .event-types .event-type .event-type-tag::before {
     content: "";
 
@@ -249,16 +250,17 @@
 
     font-family: "fontawesome", sans-serif;
   }
+
   .event-types .event-type .event-type-tag {
     display: block;
+    float: left;
     margin: 2px;
     padding: 1px 3px;
-    float: left;
 
     font-size: 0.7em;
 
-    border-radius: 3px;
     background-color: #ffffff;
+    border-radius: 3px;
   }
 
   .event-types .event-type .event-type-release {
