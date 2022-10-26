@@ -199,7 +199,8 @@
   display: none;
 }
 
-#SearchPage .coveo-active:hover, #SearchPage .coveo-active > .coveo-pager-anchor {
+#SearchPage .coveo-active:hover,
+#SearchPage .coveo-active > .coveo-pager-anchor {
   text-decoration: none;
   color: cv("text", "darker");
 }
@@ -247,13 +248,15 @@
   @extend .brand_font;
 }
 
-#SearchPage .CoveoResultLink, #SearchPage .CoveoResultLink:visited {
+#SearchPage .CoveoResultLink,
+#SearchPage .CoveoResultLink:visited {
   font-weight: 500;
   font-size: 16px;
   color: cv("link");
 }
 
-#SearchPage .CoveoResultLink:hover, #SearchPage .CoveoResultLink:focus {
+#SearchPage .CoveoResultLink:hover,
+#SearchPage .CoveoResultLink:focus {
   color: cv("link");
 
   cursor: pointer;
