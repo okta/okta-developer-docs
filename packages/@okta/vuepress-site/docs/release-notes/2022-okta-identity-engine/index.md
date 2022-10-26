@@ -27,7 +27,7 @@ Okta now rejects attempts to enroll a toll-free, premium, fixed-line (SMS), or a
 
 * The MyAccount API didn't send notifications for Add Email calls with a false `sendEmail` parameter. (OKTA-539268)
 
-* An opened user session in Classic Engine couldn't be closed (`DELETE /session/me`) after upgrading to Identity Engine. (OKTA-517093)
+* An opened session in Classic Engine couldn't be closed for a user (`DELETE /session/me`) after upgrading to Identity Engine. (OKTA-517093)
 
 * Custom app integrations didn't include the `mfa` and `pwd` factors in `session.amr` claims during federated sessions. (OKTA-541859)
 
