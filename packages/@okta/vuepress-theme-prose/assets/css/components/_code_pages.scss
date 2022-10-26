@@ -3,9 +3,9 @@
   margin: 0;
   padding: 20px;
 
-  list-style: none !important;
   background-color: cv("header");
   border-radius: 5px;
+  list-style: none !important;
 }
 
 .language-tabs a {
@@ -13,8 +13,8 @@
   align-items: center;
   margin-right: 1rem;
 
-  color: cv("gray", "000");
   text-decoration: none;
+  color: cv("gray", "000");
 }
 
 .language-tabs a.router-link-exact-active,
