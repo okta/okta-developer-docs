@@ -6,7 +6,9 @@ addons:
   chrome: stable
 before_install: "source scripts/helpers.sh"
 install: yarn install
-before_script: "yarn build"
+before_script:
+  - "yarn lint:all"
+  - "yarn build"
 script:
   - "./scripts/travis.sh"
 dist: xenial
