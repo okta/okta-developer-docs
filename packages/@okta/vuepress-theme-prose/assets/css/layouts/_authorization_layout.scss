@@ -14,10 +14,16 @@
 
 .authorization-layout .row {
   display: flex;
-  margin: 0 -24px 17px 0;
+  margin-top: 0;
+  margin-right: -24px;
+  margin-bottom: 17px;
+  margin-left: 0;
 
   @include media("<tablet") {
-    margin: 0 0 24px 0;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 24px;
+    margin-left: 0;
   }
 }
 
@@ -25,7 +31,10 @@
   position: relative;
 
   flex: 1;
-  padding: 0 24px 0 0;
+  padding-top: 0;
+  padding-right: 24px;
+  padding-bottom: 0;
+  padding-left: 0;
 
   @include media("<tablet") {
     padding: 0;
@@ -35,10 +44,16 @@
 .authorization-layout .authorization-layout--header {
   display: flex;
   align-items: center;
-  margin: 0 0 111px 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 111px;
+  margin-left: 0;
 
   @include media("<desktop-xl") {
-    margin: 0 0 50px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 50px;
+    margin-left: 0;
     padding: 0 35px;
   }
 
@@ -49,18 +64,27 @@
 
 .authorization-layout .authorization-layout--content {
   margin: 0 auto;
-  padding: 110px 64px 98px;
+  padding-top: 110px;
+  padding-right: 64px;
+  padding-bottom: 98px;
+  padding-left: 64px;
   max-width: 1440px;
 
   @import "../components/form";
 
   @include media("<desktop") {
-    padding: 40px 20px 50px;
+    padding-top: 40px;
+    padding-right: 20px;
+    padding-bottom: 50px;
+    padding-left: 20px;
   }
 }
 
 .authorization-layout .authorization-layout--content .logo-wrapper {
-  margin: 36px 0 0 0;
+  margin-top: 36px;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
   width: 100%;
 }
 
@@ -92,7 +116,10 @@
 
   display: flex;
   align-self: center;
-  margin: 0 26px 0 66px;
+  margin-top: 0;
+  margin-right: 26px;
+  margin-bottom: 0;
+  margin-left: 66px;
   min-width: 97px;
 
   &::after {
@@ -111,7 +138,10 @@
   }
 
   @include media("<tablet") {
-    margin: 30px 0 50px 0;
+    margin-top: 30px;
+    margin-right: 0;
+    margin-bottom: 50px;
+    margin-left: 0;
     min-width: 118px;
   }
 }
