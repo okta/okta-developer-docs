@@ -31,7 +31,10 @@
   width: 370px;
 
   &:last-child {
-    padding: 41px 43px 41px 54px;
+    padding-top: 41px;
+    padding-right: 43px;
+    padding-bottom: 41px;
+    padding-left: 54px;
     width: 415px;
 
     border-radius: 12px;
