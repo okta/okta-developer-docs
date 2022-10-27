@@ -222,8 +222,14 @@ export default {
 <style scoped lang="scss">
   @import "../assets/css/abstracts/_colors";
 
-  $border_color: map-get(map-get($colors, "form"), "input-border");
-  $link_color: map-get(map-get($colors, "link"), "base");
+  $border_color: map-get(
+    map-get($colors, "form"),
+    "input-border"
+  );
+  $link_color: map-get(
+    map-get($colors, "link"),
+    "base"
+  );
 
   .error-codes .PageContent-main {
     padding-right: 0;
