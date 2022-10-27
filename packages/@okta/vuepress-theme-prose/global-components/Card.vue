@@ -1,39 +1,39 @@
 <template>
-  <SmartLink 
+  <SmartLink
     classes="card is-card-action is-card-clickable"
-    :item="{ link: href }" 
+    :item="{ link: href }"
   >
     <header class="card--header">
-      <figure 
-        class="card--header-icon" 
+      <figure
+        class="card--header-icon"
         v-if="headerIcon"
       >
-        <i 
-          class="icon-75" 
+        <i
+          class="icon-75"
           :class="headerIcon"
         ></i>
       </figure>
-      <figure 
-        class="card--header-icon" 
+      <figure
+        class="card--header-icon"
         v-else-if="headerImage"
       >
         <div>
-          <img 
-            class="card--header-img" 
-            :src="headerImage" 
+          <img
+            class="card--header-img"
+            :src="headerImage"
             :alt="headerImage"
           >
         </div>
       </figure>
       <section class="card--header-main-own">
-        <h2 
-          class="card--title" 
+        <h2
+          class="card--title"
           v-if="cardTitle"
         >
           {{ cardTitle }}
         </h2>
-        <section 
-          class="card--meta" 
+        <section
+          class="card--meta"
           v-if="cardMeta"
         >
           {{ cardMeta }}
@@ -47,8 +47,8 @@
         </slot>
       </p>
     </section>
-    <footer 
-      class="card--footer" 
+    <footer
+      class="card--footer"
       v-if="showFooter"
     >
       <section class="card--actions">
@@ -95,5 +95,3 @@ export default {
     },
 };
 </script>
-
-<style scoped></style>
