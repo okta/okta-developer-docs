@@ -74,6 +74,15 @@
     "wait-for-localhost-cli": "^3.0.0"
   },
   "resolutions": {
-    "cypress/**/async": "3.2.3"
+    "cypress/**/async": "3.2.3",
+    "vuepress/**/css-what": "^6.1.0",
+    "vuepress/**/glob-parent": "^6.0.2",
+    "vuepress/**/got": "11.8.5",
+    "vuepress/**/ini": "^1.3.7",
+    "vuepress/**/json-schema": "^0.4.0",
+    "vuepress/**/node-forge": "^1.3.1",
+    "vuepress/**/normalize-url": "^6.0.1",
+    "vuepress/**/nth-check": "^2.1.1",
+    "vuepress/**/unset-value": "^2.0.1"
   }
 }

@@ -43,6 +43,8 @@ This specifies the default action Okta is set to take. Okta will take this actio
 
 The objects that you can return in the JSON payload of your response are an array of one or more `commands` objects, which specify commands to be executed by Okta.
 
+<HookResponseSize/>
+
 ### commands
 
 For the password import inline hook, the `commands` object lets you specify whether Okta should accept the end user's login credentials as valid or not.
