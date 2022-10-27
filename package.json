@@ -44,6 +44,7 @@
     "chai-as-promised": "*",
     "chalk": "^2.4.2",
     "cypress": "^9.6.0",
+    "editorconfig-checker": "^4.0.2",
     "eslint": "^8.25.0",
     "eslint-plugin-vue": "^9.6.0",
     "eslint-plugin-vue-a11y": "0.0.31",
