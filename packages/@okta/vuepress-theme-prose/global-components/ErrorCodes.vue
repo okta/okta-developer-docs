@@ -242,8 +242,8 @@ export default {
     }
 
     .error-codes .error-codes-search-container input#error-code-search {
-      width: 100%;
       margin: 0 0 10px 0;
+      width: 100%;
     }
 
     .error-codes .error-codes-search-container .status-wrapper {
@@ -281,9 +281,9 @@ export default {
     padding-bottom: 10px;
     padding-left: 10px;
 
-    font-size: 18px;
-
     border: 2px solid $border_color;
+
+    font-size: 18px;
   }
 
   .error-codes #error-code-search::placeholder {
@@ -306,13 +306,13 @@ export default {
     clear: left;
     margin: 25px 0 0;
     padding: 6px 10px;
+    overflow: hidden;
+
+    border-left: 3px solid $link_color;
 
     text-overflow: ellipsis;
     white-space: nowrap;
     color: $link_color;
-
-    border-left: 3px solid $link_color;
-    overflow: hidden;
   }
 
   .error-codes .error-code h4 .title-error-code {
@@ -402,10 +402,10 @@ export default {
     margin: 2px;
     padding: 1px 3px;
 
-    font-size: 0.7em;
-
-    background-color: #ffffff;
     border-radius: 3px;
+    background-color: #ffffff;
+
+    font-size: 0.7em;
   }
 
   .error-codes .error-code .error-code-release {
