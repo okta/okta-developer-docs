@@ -2,10 +2,10 @@
 title: Anything-as-a-Source (XaaS)
 category: management
 ---
- 
+
 # Anything-as-a-Source (XaaS) API
 
-<ApiLifecycle access="ea" />
+<ApiLifecycle access="ea" /><!--LEA for both Classic and Identity Engine. Okta needs to turn on IDENTITY_SOURCE_APPS FF (not Self-Service)-->
 
 The Okta Anything-as-a-Source (XaaS) API provides a mechanism to synchronize an HR source (the custom identity source) with Okta user profiles in an org. See [Build an XaaS custom client integration](https://6346d2bcc01af01731982563--reverent-murdock-829d24.netlify.app/docs/guides/anything-as-a-source/) for details.
 
