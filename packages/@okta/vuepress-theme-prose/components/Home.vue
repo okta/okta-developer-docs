@@ -3,6 +3,11 @@
     <div class="content--container">
       <Sidebar />
       <div class="width-adjuster">
+        <AnnouncementBanner>
+          <template v-slot:description>
+            We've got a new API reference in the works! With a fresh look and feel, our new API content will be easier to navigate and contribute to. <a href="https://preview.redoc.ly/oktadev/rchan-content-import-d5936630/">Try it out now</a>.
+          </template>
+        </AnnouncementBanner>
         <div class="justify-content-center">
           <div class="homepage--elevated">
             <div class="homepage--top-section homepage--section-margins">
