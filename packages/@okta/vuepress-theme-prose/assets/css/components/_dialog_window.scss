@@ -20,7 +20,10 @@
 }
 
 .dialog {
-  padding: 37px 0 31px 0;
+  padding-top: 37px;
+  padding-right: 0;
+  padding-bottom: 31px;
+  padding-left: 0;
   max-width: 645px;
   height: auto;
   max-height: calc(100% - 64px);
@@ -34,10 +37,10 @@
 
 .dialog a {
   color: cv("link");
-}
 
-.dialog a:hover {
-  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .dialog p {
@@ -48,11 +51,17 @@
 
 .dialog .dialog--header,
 .dialog .dialog--body {
-  padding: 0 32px 0 32px;
+  padding-top: 0;
+  padding-right: 32px;
+  padding-bottom: 0;
+  padding-left: 32px;
 }
 
 .dialog .dialog--header {
-  margin: 0 0 6px 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 6px;
+  margin-left: 0;
 
   font-size: 28px;
   color: cv("text", "darker");
@@ -63,5 +72,8 @@
 }
 
 .dialog .dialog--footer {
-  padding: 0 32px 0 32px;
+  padding-top: 0;
+  padding-right: 32px;
+  padding-bottom: 0;
+  padding-left: 32px;
 }
