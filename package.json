@@ -30,7 +30,8 @@
     "vue-check": "./node_modules/.bin/eslint packages/@okta/vuepress-theme-prose/**/*.vue",
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
-    "stylelint": "npm run stylelint:scss && npm run stylelint:vue"
+    "stylelint": "npm run stylelint:scss && npm run stylelint:vue",
+    "lint:all": "npm run vue-check && npm run stylelint"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
