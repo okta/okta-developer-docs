@@ -186,12 +186,12 @@
   }
 
   .event-types #event-type-search {
-    width: 100%;
     padding: 0.5rem 0.3rem;
-
-    font-size: 1em;
+    width: 100%;
 
     border: 2px solid $border_color;
+
+    font-size: 1em;
   }
 
   .event-types #event-type-search::placeholder {
@@ -213,13 +213,13 @@
     clear: left;
     margin: 25px 0 0;
     padding: 6px 10px;
+    overflow: hidden;
+
+    border-left: 3px solid $link_color;
 
     text-overflow: ellipsis;
     white-space: nowrap;
     color: $link_color;
-
-    border-left: 3px solid $link_color;
-    overflow: hidden;
 
     &::before {
       content: "";
@@ -257,10 +257,10 @@
     margin: 2px;
     padding: 1px 3px;
 
-    font-size: 0.7em;
-
-    background-color: #ffffff;
     border-radius: 3px;
+    background-color: #ffffff;
+
+    font-size: 0.7em;
   }
 
   .event-types .event-type .event-type-release {
