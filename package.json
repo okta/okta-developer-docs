@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
-    "build": "yarn vue-check && yarn workspace @okta/vuepress-site build",
+    "build": "yarn lint:all && yarn workspace @okta/vuepress-site build",
     "broken-link-checker:all": "node scripts/broken-link-checker all",
     "broken-link-checker:internal": "node scripts/broken-link-checker internal",
     "broken-link-checker:external": "node scripts/broken-link-checker external",
@@ -30,8 +30,8 @@
     "vue-check": "./node_modules/.bin/eslint packages/@okta/vuepress-theme-prose/**/*.vue",
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
-    "stylelint": "npm run stylelint:scss && npm run stylelint:vue",
-    "lint:all": "npm run vue-check && npm run stylelint"
+    "stylelint": "yarn stylelint:scss && yarn stylelint:vue",
+    "lint:all": "yarn vue-check && yarn stylelint"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
