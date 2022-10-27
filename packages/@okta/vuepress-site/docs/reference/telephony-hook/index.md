@@ -66,7 +66,9 @@ Provides information on the properties of the message being sent to the OTP requ
 
 ## Objects in the response that you send
 
-For the telephony inline hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
+For the telephony inline hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined in the following sections.
+
+<HookResponseSize/>
 
 ### commands
 

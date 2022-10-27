@@ -8,6 +8,8 @@ title: Sign in with password and phone factors
 
 This guide covers the use case for a user sign-in flow with password and phone factors.
 
+<StackSnippet snippet="pwdoptionalusecase" inline />
+
 ---
 
 **Learning outcomes**

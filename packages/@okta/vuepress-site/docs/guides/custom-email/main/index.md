@@ -239,7 +239,7 @@ You can reference any Okta User Profile attribute in your email templates.
 | `${user.profile.zipCode}` | Available in all templates |
 | `${user.profile.countryCode}` | Available in all templates |
 | `${user.groups.names}` | Available in all templates |
-| `${user.group.ids}` | Available in all templates |
+| `${user.groups.ids}` | Available in all templates |
 | `${app.id}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
 | `${app.name}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |
 | `${app.label}` | Available in all templates</br></br><ApiLifecycle access="ie" /> |

@@ -5,10 +5,10 @@
       <div class="width-adjuster">
         <AnnouncementBanner>
           <template #description>
-            Want to leverage Okta’s reach and get more people to use your app? 
-            <a 
-              href="https://surveys.okta.com/jfe/form/SV_1FFAqyUKBLAtUr4?jfefe=new" 
-              target="_blank" 
+            Want to leverage Okta’s reach and get more people to use your app?
+            <a
+              href="https://surveys.okta.com/jfe/form/SV_1FFAqyUKBLAtUr4?jfefe=new"
+              target="_blank"
               rel="noopener noreferrer"
             >
               Take this survey to qualify for our integrator pilot program!
@@ -174,7 +174,6 @@ const SIDE_BY_SIDE_BREAKPOINT = 1200;
 export default {
   name: "Home",
   components: {
-    AnnouncementBanner: () => import("../global-components/AnnouncementBanner"),
     Sidebar: () => import("../components/Sidebar"),
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),

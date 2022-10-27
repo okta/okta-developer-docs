@@ -13,6 +13,8 @@ For a general introduction to Okta inline hooks, see [inline hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
+For steps to set up and activate the registration inline hook, see [Set up and activate the registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/#set-up-your-glitch-project).
+
 For steps to enable this inline hook, see [Enabling a registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/#enable-the-registration-inline-hook).
 
 For an example implementation of this inline hook, see [Registration inline hook](/docs/guides/registration-inline-hook/nodejs/main/).
@@ -93,7 +95,11 @@ Using the `com.okta.action.update` [command](#supported-commands) in your respon
 
 ## Response objects that you send
 
-The objects that you can return in the JSON payload of your response are an array of one or more `commands`, to be executed by Okta, or an `error` object, to indicate problems with the registration request. These objects are defined as follows:
+The objects that you can return in the JSON payload of your response are an array of one or more `commands`, to be executed by Okta, or an `error` object, to indicate problems with the registration request. 
+
+<HookResponseSize/>
+
+The response objects are defined as follows:
 
 ### commands
 

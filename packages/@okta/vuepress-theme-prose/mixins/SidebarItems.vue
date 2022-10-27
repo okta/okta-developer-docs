@@ -8,7 +8,7 @@ import {
   reference,
   releaseNotes
 } from "../const/navbar.const";
-      
+
 export default {
   data() {
     return {
@@ -30,7 +30,7 @@ export default {
     },
     getNavigationData() {
       this.navigation = this.getNavigation().map(nav => {
-        this.addStatesToLink(nav);     
+        this.addStatesToLink(nav);
         return nav;
       });
       return this.navigation;
@@ -55,7 +55,7 @@ export default {
             const splittedPath = parent.path.split('/')
             if (parent.path.indexOf(parentTitle) >= 0) {
               path = parent.path.replace(parentTitle, this.sanitizeTitle(link));
-            } else if (parent.path == '/code/') { 
+            } else if (parent.path == '/code/') {
               path = `/${splittedPath[1]}/${this.sanitizeTitle(link)}/`;
             } else {
               path = `/${splittedPath[1]}/${splittedPath[2]}/${this.sanitizeTitle(link)}/`;
@@ -108,7 +108,8 @@ export default {
               // Special value for guide that only has one section and should be
               // linked at the parent
               if (guide.sections.length === 1 && firstSection.name === 'main') {
-                current.title = firstSection.title;
+                // firstSection.title;
+                current.title = current.title; // eslint-disable-line
                 current.path = firstSection.makeLink(guide.frameworks.includes(framework) ? framework : guide.mainFramework);
                 current.frameworks = guide.frameworks;
               } else {
