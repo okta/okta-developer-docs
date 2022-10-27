@@ -941,8 +941,8 @@ Declarations of logically related properties are grouped in the following order:
 
 - ``Positioning``
 - ``Block model``
-- ``Typography``
 - ``Decoration``
+- ``Typography``
 - ``Animation``
 - ``Various``
 
@@ -974,6 +974,12 @@ The order of declaring detailed rules, such as font-size, font-family, line-heig
   margin: 10px;
   padding: 10px;
 
+  /* Visual */
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  opacity: 1;
+
   /* Typography */
   font-family: "Arial", sans-serif;
   font-style: normal;
@@ -982,12 +988,6 @@ The order of declaring detailed rules, such as font-size, font-family, line-heig
   font-weight: 700;
   text-align: center;
   color: #333333;
-
-  /* Visual */
-  background-color: #f5f5f5;
-  border: 1px solid #e5e5e5;
-  border-radius: 3px;
-  opacity: 1;
 
   /* Animation */
   transition: color 1s;
