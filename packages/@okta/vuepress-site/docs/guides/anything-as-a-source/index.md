@@ -80,7 +80,7 @@ You can load up to 200 KB of data in a single bulk-user-load (`/bulk-upsert` or 
 
 ### Bulk user profile data
 
-The bulk-user-load request contains an array of [User Profile Data](/docs/reference/api/xaas/#profile-object) objects that contain the following:
+The bulk-user-load request contains an array of [External User Profile data](/docs/reference/api/xaas/#external-profile-object) objects that contain the following:
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This value is used as a key to determine if a new user needs to be created or if an existing user needs to be updated.
 
@@ -128,7 +128,7 @@ For detailed API calls, see the following guidelines for specific use case flows
 
 Use these steps to insert or update a set of user data profiles from your HR source to Okta:
 
-1. [Create an Import Session](/docs/reference/api/xaas/):
+1. [Create an Import Session](/docs/reference/api/xaas/#create-an-import-session):
 
    ```bash
     curl -i -X POST \
@@ -191,7 +191,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
     * **401 Unauthorized**: The API key isn't valid.
 
-3. [Trigger the data import process](/docs/reference/api/xaas):
+3. [Trigger the data import process](/docs/reference/api/xaas/#trigger-an-import-session):
 
     After you've loaded all your user profiles to insert or update, start the import processing job to add users to the Okta Universal Directory:
 
@@ -221,15 +221,15 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
 ### Bulk deactivate user data
 
-When users are deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta doesn't delete user profile objects, it deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.  
+When users are deactivated or deleted from your HR source, you need to reflect that status in Okta. Okta doesn't delete user profile objects, it deactivates the users that are no longer active. Use these steps to deactivate a set of user data profiles from Okta.
 
-1. [Create an Import Session](/docs/reference/api/xaas/):
+1. [Create an Import Session](/docs/reference/api/xaas/#create-an-import-session):
 
    ```bash
     curl -i -X POST \
       'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions' \
     -H 'Authorization: SSWS ${apiKey}' \
-    -H 'Content-Type: application/json' 
+    -H 'Content-Type: application/json'
     ```
 
     Possible returned responses:
@@ -285,7 +285,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
     * **400 Bad Request**: Another active Import Session exists for the same identity source.
     * **401 Unauthorized**: The API key isn't valid.
 
-3. [Trigger the data import process](/docs/reference/api/xaas):
+3. [Trigger the data import process](/docs/reference/api/xaas/#trigger-an-import-session):
 
     After you've imported all your user IDs, start the processing job to deactivate users from the Okta Universal Directory:
 
@@ -293,7 +293,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
     curl -i -X PUT \
       'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/session/${sessionId}/start-import' \
     -H 'Authorization: SSWS ${apiKey}' \
-    -H 'Content-Type: application/json' 
+    -H 'Content-Type: application/json'
     ```
 
     Possible returned responses:
@@ -323,7 +323,7 @@ Use the [Cancel an Import Session](/docs/reference/api/xaas/#cancel-an-import-se
 curl -i -X DELETE \
   'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
 -H 'Authorization: SSWS ${apiKey}' \
--H 'Content-Type: application/json' 
+-H 'Content-Type: application/json'
 ```
 
 Possible returned responses:
@@ -365,7 +365,7 @@ Possible returned responses:
 
 #### Retrieve active Import Sessions
 
-The [Retrieve active Import Sessions](/docs/reference/api/xaas/#retrieve-the-active-import-session) request returns a list of active Import Sessions for an identity source to determine which sessions are currently processing and actively being worked on. An Import Session is considered active if it has the `CREATED` or `TRIGGERED` status. Data processing completed for an identity source if no active Import Session is returned (since a session that contains the `COMPLETED` status isn't considered active).
+The [Retrieve active Import Sessions](/docs/reference/api/xaas/#retrieve-active-import-sessions) request returns a list of active Import Sessions for an identity source to determine which sessions are currently processing and actively being worked on. An Import Session is considered active if it has the `CREATED` or `TRIGGERED` status. Data processing completed for an identity source if no active Import Session is returned (since a session that contains the `COMPLETED` status isn't considered active).
 
 ```bash
 curl -i -X GET \
