@@ -15,7 +15,11 @@
 }
 
 .tree-nav-toggle::before {
-  background: linear-gradient(-90deg, cv("code"), transparent);
+  background: linear-gradient(
+    -90deg,
+    cv("code"),
+    transparent
+  );
 }
 
 .tree-nav .children-active > a {
