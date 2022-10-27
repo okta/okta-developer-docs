@@ -15,14 +15,14 @@
 }
 
 .pricing .pricing-collapsible-item-content {
-  background-color: cv("body") !important;
   border-color: cv("body", "obscure") !important;
+  background-color: cv("body") !important;
 }
 
 .pricing .selector-lozenge.multiple .lozenge {
-  color: cv("link", "faq");
-
   border-color: cv("link", "faq");
+
+  color: cv("link", "faq");
 }
 
 .pricing .selector-lozenge.multiple .lozenge.active {

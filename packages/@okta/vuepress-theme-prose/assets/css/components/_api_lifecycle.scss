@@ -2,14 +2,14 @@
   display: inline-block;
   padding: 3px 10px;
 
+  border-radius: 0.25em;
+  background: cv("success", "dark");
+
   font-weight: 400;
   text-align: center;
   white-space: nowrap;
   color: #ffffff;
   vertical-align: baseline;
-
-  background: cv("success", "dark");
-  border-radius: 0.25em;
 }
 
 .api-label i {
@@ -27,9 +27,9 @@
 .api-label-beta {
   margin-bottom: $base-spacing;
 
-  color: cv("gray", "900");
-
   background: cv("yellow");
+
+  color: cv("gray", "900");
 }
 
 .api-label-ea {

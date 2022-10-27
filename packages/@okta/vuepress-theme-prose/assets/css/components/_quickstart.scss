@@ -3,27 +3,27 @@
   margin-bottom: 10px;
   padding: 20px;
 
-  background-color: cv("header");
   border-radius: 5px;
+  background-color: cv("header");
 }
 
 .quickstart--content .code-selector a {
   position: relative;
 
   display: inline-block;
-  height: 42px;
   margin-right: 20px;
   padding-right: 15px;
   padding-left: 15px;
+  height: 42px;
 
   line-height: 32px;
   text-decoration: none;
   color: cv("gray", "000");
 
   &:hover {
-    text-decoration: none;
-
     border-bottom: 2px solid cv("gray", "000");
+
+    text-decoration: none;
 
     cursor: pointer;
   }

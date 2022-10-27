@@ -7,6 +7,8 @@ body,
 body {
   display: none;
 
+  background-color: cv("body");
+
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
@@ -14,8 +16,6 @@ body {
   line-height: 1.5;
   color: cv("text", "darker");
   font-feature-settings: "lnum", "pnum";
-
-  background-color: cv("body");
 }
 
 body.loaded {
@@ -39,8 +39,8 @@ body.loaded {
 }
 
 .container {
-  max-width: $container-width;
   margin: 0 auto;
+  max-width: $container-width;
 
   @include media(">=desktop-xx-large") {
     max-width: $container-width-desktop-large;
@@ -100,8 +100,8 @@ a > img + span > svg.icon.outbound {
 
 ol:not([class]),
 ul:not([class]) {
-  max-width: 100%;
   margin-left: 5px;
+  max-width: 100%;
 }
 
 p {

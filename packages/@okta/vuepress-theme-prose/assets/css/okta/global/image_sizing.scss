@@ -1,10 +1,10 @@
 // Basic styling to be applied to all images inside the main content column
 .content__default div img {
   display: block;
-  max-width: 100%;
-  height: auto;
   margin: 0 auto;
   margin-bottom: 24px;
+  max-width: 100%;
+  height: auto;
 }
 
 // Mobile-first sizing, applied by default if below media query does not kick in (i.e. it's a narrow screen)

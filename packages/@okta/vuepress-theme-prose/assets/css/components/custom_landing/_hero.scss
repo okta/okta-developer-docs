@@ -1,8 +1,8 @@
 .customLanding-hero {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 64px 0 84px;
 }
 
@@ -72,18 +72,17 @@
   margin-bottom: 50px;
   padding: 14px 20px;
 
+  background-color: cv("link", "darker");
+
   font-weight: 400;
   font-size: 18px;
-
   text-align: center;
   color: cv("body", "white");
 
-  background-color: cv("link", "darker");
-
   &:hover {
-    color: cv("body", "white");
-
     background-color: cv("link");
+
+    color: cv("body", "white");
   }
 
   &:visited,

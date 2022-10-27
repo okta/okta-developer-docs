@@ -47,10 +47,10 @@ table tbody {
 }
 
 table th {
+  border-bottom: 1px solid get-color("gray-medium");
+
   font-weight: 500;
   vertical-align: top;
-
-  border-bottom: 1px solid get-color("gray-medium");
 
   @include padding(x-small x-small small);
 }

@@ -5,10 +5,10 @@
 .authorization-layout .authorization-layout--content input[type="text"],
 .authorization-layout .authorization-layout--content input[type="button"],
 .authorization-layout .authorization-layout--content select {
-  color: cv("text");
-
-  background-color: cv("code");
   border-color: cv("text", "accent");
+  background-color: cv("code");
+
+  color: cv("text");
 }
 
 .authorization-layout .authorization-layout--content a.btn {
@@ -16,25 +16,25 @@
 }
 
 .authorization-layout .authorization-layout--content input[type="submit"] {
+  border-color: cv("link");
+  background-color: cv("link");
+
   font-weight: 500;
   color: cv("body");
-
-  background-color: cv("link");
-  border-color: cv("link");
 }
 
 .authorization-layout .authorization-layout--content a.social-btn,
 .authorization-layout .authorization-layout--content button.social-btn {
+  background-color: cv("link", "gray");
+
   font-weight: 500;
   color: cv("text");
-
-  background-color: cv("link", "gray");
 }
 
 .authorization-layout .authorization-layout--content .auth0-banner {
-  color: cv("text", "accent");
-
   background-color: cv("code");
+
+  color: cv("text", "accent");
 }
 
 .authorization-layout .authorization-layout--content .auth0-banner a:link,

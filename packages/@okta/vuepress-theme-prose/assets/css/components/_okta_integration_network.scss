@@ -22,9 +22,9 @@ $magenta: #e22866;
 }
 
 .oin .oin--leader {
-  max-width: 640px;
   margin: 0 auto;
   padding: 128px 0 180px;
+  max-width: 640px;
 
   text-align: center;
 }
@@ -72,8 +72,8 @@ $magenta: #e22866;
 .oin .oin--integration .oin--integration-content {
   display: flex;
   justify-content: space-around;
-  width: 100%;
   margin: 70px 0 0 0;
+  width: 100%;
 
   @include media("<tablet") {
     flex-direction: column;
@@ -144,8 +144,8 @@ $magenta: #e22866;
 }
 
 .oin .oin--develop .oin--develop-content .oin--develop-tiles .tile img {
-  height: 50px;
   margin-bottom: 30px;
+  height: 50px;
 }
 
 .oin .oin--develop .oin--develop-content .oin--develop-tiles .tile h3 {
@@ -155,8 +155,8 @@ $magenta: #e22866;
 .oin .oin--develop .oin--develop-content .oin--develop-tiles .tile.empty {
   display: none;
 
-  background-color: transparent;
   box-shadow: none;
+  background-color: transparent;
 
   @include media("<tablet") {
     display: none;

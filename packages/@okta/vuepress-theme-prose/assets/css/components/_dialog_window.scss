@@ -5,29 +5,29 @@
   bottom: 0;
   left: 0;
 
+  margin: auto;
   width: 100%;
   height: 100%;
-  margin: auto;
 
   background-color: rgb(29 29 33 / 0.75);
 }
 
 .dialog-container {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   height: 100%;
 }
 
 .dialog {
+  padding: 37px 0 31px 0;
   max-width: 645px;
   height: auto;
   max-height: calc(100% - 64px);
-  padding: 37px 0 31px 0;
-
-  background-color: #ffffff;
-  box-shadow: 0 6px 25px cv("blue", "whale");
   overflow-y: auto;
+
+  box-shadow: 0 6px 25px cv("blue", "whale");
+  background-color: #ffffff;
 
   @import "../components/form";
 }

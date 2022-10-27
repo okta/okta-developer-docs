@@ -13,10 +13,9 @@ $small-spacing: 0.75rem;
 
 .stack-selector .selector-control .framework {
   padding-left: 10px;
+  overflow: hidden;
 
   text-overflow: ellipsis;
-
-  overflow: hidden;
 }
 
 .stack-selector .selector-control nav {
@@ -49,14 +48,14 @@ $small-spacing: 0.75rem;
     width: 24px;
     height: 24px;
 
+    background-position: center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+
     font-size: 24px;
     line-height: 24px;
     text-align: center;
     vertical-align: middle;
-
-    background-position: center;
-    background-size: 20px 20px;
-    background-repeat: no-repeat;
   }
 }
 
@@ -74,12 +73,12 @@ $small-spacing: 0.75rem;
   align-items: center;
   width: 100%;
 
+  background: transparent;
+
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: cv("text");
-
-  background: transparent;
 }
 
 .stack-selector .selector-control .vs__search {
@@ -90,27 +89,27 @@ $small-spacing: 0.75rem;
 .stack-selector .selector-control .vs__dropdown-toggle {
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
   justify-content: space-between;
-  min-height: 45px;
+  align-items: center;
   padding: 0.5rem;
-
-  font-size: 14px;
+  min-height: 45px;
 
   border-color: cv("text", "darker");
+
+  font-size: 14px;
 }
 
 .stack-selector .selector-control .vs__dropdown-toggle .vs__selected-options {
   flex-basis: auto;
-  max-width: 93%;
   padding: 0;
   padding-left: 0.5rem;
+  max-width: 93%;
 }
 
 .stack-selector .selector-control .vs__dropdown-toggle .vs__selected-options .vs__selected {
-  max-width: 90%;
   margin: 0;
   padding: 0;
+  max-width: 90%;
 
   border: 0;
 }
@@ -131,15 +130,15 @@ $small-spacing: 0.75rem;
   z-index: 50;
 
   padding: 0;
+  overflow-x: hidden;
 
   border-top-style: initial;
-  overflow-x: hidden;
 }
 
 .stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option {
-  width: 100%;
   margin: 0;
   padding: 0.7rem 1rem;
+  width: 100%;
 
   border: none;
   border-bottom: 1px solid cv("gray", "100");
@@ -152,10 +151,10 @@ $small-spacing: 0.75rem;
 .stack-selector .selector-control .vs__dropdown-menu .vs__dropdown-option--highlight {
   box-sizing: border-box;
 
-  color: inherit;
-
-  background: inherit;
   border: 1px solid cv("action");
+  background: inherit;
+
+  color: inherit;
 
   &:last-child {
     box-sizing: border-box;

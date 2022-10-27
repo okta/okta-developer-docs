@@ -1,7 +1,7 @@
 .customLanding-start {
-  max-width: 700px;
   margin: 0 auto;
   padding: 60px 32px 100px;
+  max-width: 700px;
 
   text-align: center;
 }
@@ -27,8 +27,8 @@
 .customLanding-start__actions {
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: 36px;
 }
 
@@ -37,16 +37,16 @@
   margin-right: 40px;
   padding: 0.63rem 1.25rem;
 
+  border-radius: 4px;
+  background-color: cv("blue", "900");
+
   font-weight: 500;
   color: cv("body", "white");
 
-  background-color: cv("blue", "900");
-  border-radius: 4px;
-
   &:hover {
-    color: cv("body", "white");
-
     background-color: cv("link");
+
+    color: cv("body", "white");
   }
 
   &:visited,

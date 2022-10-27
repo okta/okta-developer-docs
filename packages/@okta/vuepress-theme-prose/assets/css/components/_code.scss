@@ -18,13 +18,13 @@ pre[class*="language-"] .code-copy {
 :not([class*="language-"]) > code {
   padding: 0.1rem 0.4rem;
 
+  border: 1px solid cv("gray", "200");
+  border-radius: 2px;
+  background: cv("gray", "100");
+
   font-size: 80%;
   font-family: "Menlo", "Monaco", "Consolas", "Courier New", monospace;
   line-height: 1.43;
   white-space: normal;
   color: #333333;
-
-  background: cv("gray", "100");
-  border: 1px solid cv("gray", "200");
-  border-radius: 2px;
 }

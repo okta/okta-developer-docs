@@ -7,10 +7,15 @@ input[type="submit"],
 input[type="button"],
 select {
   display: inline-block;
-  width: 100%;
-  height: 38px;
   margin: 5px 0 0;
   padding: 0 20px;
+  width: 100%;
+  height: 38px;
+
+  border: 1px solid cv("form", "input-border");
+  border-radius: 3px;
+  background-color: $white;
+  appearance: textfield;
 
   font-weight: 400;
   font-size: 16px;
@@ -23,11 +28,6 @@ select {
   word-spacing: normal;
   color: cv("text");
   text-rendering: auto;
-
-  background-color: $white;
-  border: 1px solid cv("form", "input-border");
-  border-radius: 3px;
-  appearance: textfield;
 }
 
 input[type="text"]:focus,
@@ -54,11 +54,11 @@ input[type="button"]:disabled {
 select {
   padding: 0 20px;
 
+  border-radius: 4px;
   background-image: url("/img/icons/select-input-arrow.svg");
   background-position: calc(100% - 22px) center;
   background-size: auto;
   background-repeat: no-repeat;
-  border-radius: 4px;
 
   cursor: pointer;
 }
@@ -67,18 +67,18 @@ a.btn,
 input.btn,
 button.btn {
   display: block;
-  height: auto;
   padding: 16px 20px;
+  height: auto;
+
+  border: 1px solid cv("header");
+  border-radius: 3px;
+  background-color: cv("header");
 
   font-weight: 600;
   font-size: 16px;
   font-family: inherit;
   text-align: center;
   color: $white;
-
-  background-color: cv("header");
-  border: 1px solid cv("header");
-  border-radius: 3px;
 }
 
 a.btn:hover,
@@ -90,12 +90,12 @@ button.btn:hover {
 a.social-btn,
 input.social-btn,
 button.social-btn {
-  width: 100%;
   padding: 16px 20px;
-
-  color: cv("link", "darker");
+  width: 100%;
 
   background-color: transparent;
+
+  color: cv("link", "darker");
 }
 
 a.social-btn i.fa,

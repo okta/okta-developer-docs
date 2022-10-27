@@ -7,10 +7,10 @@
 #SearchPage {
   position: relative;
 
-  max-width: 1280px;
   margin-right: auto;
   margin-left: auto;
   padding: 30px;
+  max-width: 1280px;
 }
 
 #SearchPage .coveo-main-section {
@@ -18,9 +18,9 @@
 }
 
 #SearchPage .coveo-results-column {
-  max-width: 800px;
   margin: 0 auto;
   padding: 0;
+  max-width: 800px;
 }
 
 #SearchPage .coveo-results-column.coveo-no-results {
@@ -55,9 +55,9 @@
 #SearchPage .coveo-facet-header {
   padding-top: 0;
 
-  color: cv("text", "darker");
-
   background: none;
+
+  color: cv("text", "darker");
 
   @extend .brand_font;
 }
@@ -95,9 +95,9 @@
 #SearchPage .coveo-facet-value .coveo-facet-value-checkbox {
   top: -1px;
 
+  margin-right: 8px;
   width: 16px;
   height: 16px;
-  margin-right: 8px;
 
   border-color: cv("form", "input-border");
   border-radius: 4px;
@@ -108,8 +108,8 @@
 }
 
 #SearchPage .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox svg {
-  fill: $white;
   stroke-width: 2;
+  fill: $white;
 }
 
 #SearchPage .coveo-facet-value .coveo-facet-value-checkbox-svg .coveo-hook-svg {
@@ -158,12 +158,12 @@
 #SearchPage .coveo-pager-list-item-text,
 #SearchPage .coveo-pager-anchor,
 #SearchPage .coveo-active {
+  border: none;
+  background: none;
+
   font-weight: 500;
   text-decoration: none;
   color: cv("link");
-
-  background: none;
-  border: none;
 
   @extend .brand_font;
 }
@@ -175,24 +175,24 @@
 
 #SearchPage .coveo-pager-list-item {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   width: 36px;
   height: 36px;
 
+  border-radius: 3px;
+
   font-weight: 500;
   font-size: 16px;
-
-  border-radius: 3px;
 
   @extend .brand_font;
 }
 
 #SearchPage .coveo-pager-list-item:hover {
+  border: none;
+
   text-decoration: none;
   color: cv("link");
-
-  border: none;
 }
 
 #SearchPage .coveo-facet-footer {
@@ -269,10 +269,10 @@
 }
 
 #SearchPage .is-secondary .CoveoResultLink {
+  outline: none;
+
   font-size: 14px;
   color: cv("text");
-
-  outline: none;
 }
 
 #SearchPage .is-secondary .CoveoResultLink:hover,
@@ -309,9 +309,9 @@
 #SearchPage .CoveoResult {
   padding: 5px 0;
 
-  color: cv("text");
-
   border: none;
+
+  color: cv("text");
 
   @extend .brand_font;
 }
@@ -319,10 +319,10 @@
 #SearchPage .CoveoFacet {
   margin-top: 0;
 
-  font-weight: 700;
-
-  background: none;
   border: none;
+  background: none;
+
+  font-weight: 700;
 
   @extend .brand_font;
 }
@@ -335,13 +335,13 @@
   display: inline-block;
   padding: 7px;
 
+  border-radius: 4px;
+  background: cv("body");
+
   font-weight: 400;
   font-size: 16px;
   line-height: 16px;
   color: cv("text", "darker");
-
-  background: cv("body");
-  border-radius: 4px;
 }
 
 #SearchPage .CoveoFieldValue .highlight .coveo-clickable {
@@ -363,10 +363,10 @@
 
 #SearchPage .coveo-dropdown-header-wrapper .coveo-facet-dropdown-header {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 50%;
+  align-items: center;
   margin-bottom: 20px;
+  width: 50%;
 
   @extend .brand_font;
 }

@@ -20,9 +20,9 @@ table::-webkit-scrollbar-track,
 .sidebar-area::-webkit-scrollbar-thumb,
 table::-webkit-scrollbar-thumb,
 .CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
-  background-color: cv("breadcrumb", "svg");
   border: 2px solid cv("body", "obscure");
   border-radius: 6px;
+  background-color: cv("breadcrumb", "svg");
 }
 
 .page-body {

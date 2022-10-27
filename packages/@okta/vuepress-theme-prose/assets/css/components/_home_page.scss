@@ -16,10 +16,10 @@
 .homepage {
   min-height: 100vh;
 
+  background-color: cv("body", "lighter");
+
   font-family: $font-family;
   color: cv("text");
-
-  background-color: cv("body", "lighter");
 }
 
 .homepage .content--container {
@@ -109,9 +109,9 @@
 .homepage--customize-your-app-margin {
   position: relative;
 
-  min-height: 600px;
   margin-bottom: 75px;
   padding-top: 20px;
+  min-height: 600px;
 
   @include media("<desktop-xl") {
     margin-bottom: 0;
@@ -299,16 +299,16 @@
 }
 
 .homepage--code-example {
-  min-width: 563px;
-  height: 400px;
   margin-right: 37px;
   margin-bottom: 30px;
+  min-width: 563px;
+  height: 400px;
+  overflow: hidden;
 
-  background-color: cv("text", "darker");
   box-shadow: 0 9px 25px rgb(0 0 0 / 0.24);
   border: 1.5px solid #2a4c63;
   border-radius: 10px;
-  overflow: hidden;
+  background-color: cv("text", "darker");
 
   @include media("<desktop-xl") {
     margin-right: 0;
@@ -323,12 +323,12 @@
 }
 
 .homepage--code-example--header {
-  height: 50px;
   padding: 10px 20px;
-
-  font-size: 16px;
+  height: 50px;
 
   background: #192e3a;
+
+  font-size: 16px;
 }
 
 .homepage--code-example--cm-wrapper {
@@ -342,9 +342,9 @@
 .homepage--code-example--cm-wrapper .CodeMirror {
   height: 100%;
 
-  color: #ffffff;
-
   background-color: cv("text", "darker");
+
+  color: #ffffff;
 }
 
 .homepage--code-example--cm-wrapper .CodeMirror pre.CodeMirror-line,
@@ -356,15 +356,15 @@
 }
 
 .homepage--live-widget {
+  margin-bottom: 30px;
   width: 334px;
   max-width: 334px;
-  margin-bottom: 30px;
+  overflow: hidden;
 
-  background-color: #f9f9f9;
   box-shadow: 0 10px 15px rgb(0 0 0 / 0.1);
   border: 1px solid #cecece;
   border-radius: 10px;
-  overflow: hidden;
+  background-color: #f9f9f9;
 
   @include media("<tablet") {
     max-width: 100%;
@@ -429,10 +429,10 @@
 }
 
 .homepage--live-widget #okta-sign-in.main-page-widget-wrapper .button.button-primary {
-  text-transform: none;
-
-  background: #1662dd;
   border: none;
+  background: #1662dd;
+
+  text-transform: none;
 }
 
 .homepage--live-widget #okta-sign-in.main-page-widget-wrapper .okta-form-label.o-form-label {
@@ -445,13 +445,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 425px;
   padding: 10% 15%;
+  height: 425px;
 
-  background-color: #ffffff;
   box-shadow: 0 20px 24px rgb(0 0 0 / 0.13);
   border: 1px solid cv("text", "lighter");
   border-radius: 10px;
+  background-color: #ffffff;
 
   @include media("<desktop") {
     justify-content: space-evenly;
@@ -493,12 +493,12 @@
   margin-bottom: 20px;
   padding: 8px 24px;
 
+  border-radius: 0.25rem;
+
   font-weight: 500;
   font-size: 14px;
   text-decoration: none;
   color: inherit;
-
-  border-radius: 0.25rem;
 
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -510,10 +510,10 @@
 }
 
 .homepage--welcome-leia--actions--cta.act-btn {
-  color: #ffffff;
-
-  background: cv("header");
   border-color: cv("header");
+  background: cv("header");
+
+  color: #ffffff;
 }
 
 .homepage--welcome-leia--actions--cta.act-btn:hover {
@@ -521,16 +521,16 @@
 }
 
 .homepage--welcome-leia--actions--docs.act-btn {
-  color: cv("header");
-
   border-color: cv("header");
+
+  color: cv("header");
 }
 
 .homepage--welcome-leia--actions--docs.act-btn:hover {
-  color: #ffffff;
-
-  background: cv("header");
   border-color: cv("header");
+  background: cv("header");
+
+  color: #ffffff;
 }
 
 .homepage--welcome-leia--close {

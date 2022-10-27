@@ -48,9 +48,9 @@
 }
 
 .authorization-layout .authorization-layout--content {
-  max-width: 1440px;
   margin: 0 auto;
   padding: 110px 64px 98px;
+  max-width: 1440px;
 
   @import "../components/form";
 
@@ -60,8 +60,8 @@
 }
 
 .authorization-layout .authorization-layout--content .logo-wrapper {
-  width: 100%;
   margin: 36px 0 0 0;
+  width: 100%;
 }
 
 .authorization-layout .authorization-layout--content .logo-wrapper .company-logos--wrapper h4 {
@@ -76,11 +76,11 @@
   display: flex;
   padding: 30px;
 
+  background-color: #f2f5ff;
+
   font-weight: 500;
   font-size: 22px;
   color: #00297a;
-
-  background-color: #f2f5ff;
 
   @include media("<tablet") {
     flex-direction: column-reverse;
@@ -92,8 +92,8 @@
 
   display: flex;
   align-self: center;
-  min-width: 97px;
   margin: 0 26px 0 66px;
+  min-width: 97px;
 
   &::after {
     content: "";
@@ -102,17 +102,17 @@
     right: 0;
 
     display: inline-block;
+    margin-left: 7px;
     min-width: 63px;
     max-width: 63px;
     height: 30px;
-    margin-left: 7px;
 
     background: url("/img/logos/auth0-inc-logo.svg") 50% 50% no-repeat;
   }
 
   @include media("<tablet") {
-    min-width: 118px;
     margin: 30px 0 50px 0;
+    min-width: 118px;
   }
 }
 
@@ -131,10 +131,10 @@
 
   &:link,
   &:visited {
+    border-bottom: 1px solid currentcolor;
+
     text-decoration: none;
     color: #00297a;
-
-    border-bottom: 1px solid currentcolor;
   }
 }
 

@@ -1,99 +1,99 @@
 .is-button-cerise-outline {
   padding: 1em 3em;
 
+  border-color: cv("header");
+  background-color: transparent;
+
   font-weight: 400;
   text-decoration: none;
   color: cv("gray", "000");
 
-  background-color: transparent;
-  border-color: cv("header");
-
   &:hover,
   &:visited {
-    color: cv("gray", "000");
-
-    background-color: transparent;
     border-color: cv("header");
+    background-color: transparent;
+
+    color: cv("gray", "000");
   }
 
   &:disabled {
-    color: cv("gray", "000");
-
-    background-color: transparent;
     border-color: cv("header");
+    background-color: transparent;
+
+    color: cv("gray", "000");
   }
 }
 
 .is-button-cerise-outline.is-button-hover {
-  color: cv("gray", "000");
-
-  background-color: transparent;
   border-color: cv("header");
+  background-color: transparent;
+
+  color: cv("gray", "000");
 }
 
 .is-button-cerise-outline:focus,
 .is-button-cerise-outline.is-button-focus {
-  color: cv("gray", "000");
-
-  background-color: transparent;
   border-color: cv("header");
+  background-color: transparent;
+
+  color: cv("gray", "000");
 }
 
 .is-button-cerise {
   padding: 1em 3em;
 
+  border-color: cv("header");
+  background-color: cv("header");
+
   font-weight: 500;
   text-decoration: none;
   color: cv("gray", "000");
-
-  background-color: cv("header");
-  border-color: cv("header");
 
   cursor: pointer;
 
   &:hover,
   &:visited {
-    color: cv("gray", "000");
-
-    background-color: cv("header");
     border-color: cv("header");
+    background-color: cv("header");
+
+    color: cv("gray", "000");
   }
 
   &:focus {
-    background-color: cv("header");
     border-color: cv("header");
+    background-color: cv("header");
   }
 
   &:disabled {
-    color: cv("header");
-
-    background-color: cv("header");
     border-color: cv("header");
+    background-color: cv("header");
+
+    color: cv("header");
   }
 }
 
 .is-button-cerise.is-button-hover {
-  color: cv("gray", "000");
-
-  background-color: cv("header");
   border-color: cv("header");
+  background-color: cv("header");
+
+  color: cv("gray", "000");
 }
 
 .is-button-cerise.is-button-focus {
-  background-color: cv("header");
   border-color: cv("header");
+  background-color: cv("header");
 }
 
 %Button {
   display: inline-block;
-  height: 45px;
   padding: 0 20px;
-
-  line-height: 43px;
-  text-decoration: none;
+  height: 45px;
 
   border: 1px solid transparent;
   border-radius: 3px;
+
+  line-height: 43px;
+  text-decoration: none;
 
   cursor: pointer;
 
@@ -103,10 +103,10 @@
 
   &:active,
   &:hover {
+    border-color: cv("gray", "900");
+
     text-decoration: none;
     color: cv("gray", "900");
-
-    border-color: cv("gray", "900");
   }
 
   &:visited {
@@ -123,15 +123,15 @@
 }
 
 .Button {
-  color: cv("header", "base");
-
   border-color: cv("header", "base");
+
+  color: cv("header", "base");
 
   &:active,
   &:hover {
-    color: linear-gradient(cv("header", "base"), cv("gray", "000"), 75%);
-
     border-color: linear-gradient(cv("header", "base"), cv("gray", "000"), 75%);
+
+    color: linear-gradient(cv("header", "base"), cv("gray", "000"), 75%);
   }
 
   &:visited {
@@ -142,12 +142,12 @@
 }
 
 .Button--small {
-  height: 30px;
   padding: 0 12px;
-
-  line-height: 28px;
+  height: 30px;
 
   border-width: 1px;
+
+  line-height: 28px;
 }
 
 .Button--rounded {
@@ -155,14 +155,14 @@
 }
 
 .Button--large {
-  height: 54px;
   padding: 0 30px;
+  height: 54px;
+
+  border-radius: 5px;
 
   font-weight: 600;
   font-size: get-font-size("button") + 2;
   line-height: 50px;
-
-  border-radius: 5px;
 }
 
 .Button--large.Button--rounded {
@@ -170,17 +170,17 @@
 }
 
 .Button--blue {
-  color: cv("gray", "000");
-
-  background-color: cv("action", "dark");
   border-color: cv("action", "dark");
+  background-color: cv("action", "dark");
+
+  color: cv("gray", "000");
 
   &:active,
   &:hover {
-    color: cv("gray", "000");
-
-    background-color: cv("action", "dark");
     border-color: cv("action", "dark");
+    background-color: cv("action", "dark");
+
+    color: cv("gray", "000");
   }
 
   &:visited {
@@ -191,19 +191,19 @@
 }
 
 .Button--blueDarkOutline {
+  border-color: cv("blue", "900");
+  border-radius: 4px;
+  background-color: #ffffff;
+
   white-space: nowrap;
   color: cv("blue", "900");
 
-  background-color: #ffffff;
-  border-color: cv("blue", "900");
-  border-radius: 4px;
-
   &:active,
   &:hover {
-    color: cv("blue", "900");
-
-    background-color: #ffffff;
     border-color: cv("blue", "900");
+    background-color: #ffffff;
+
+    color: cv("blue", "900");
   }
 
   &:visited {
@@ -221,9 +221,9 @@
   &,
   &:active,
   &:hover {
-    color: cv("action", "base");
-
     border-color: cv("action", "base");
+
+    color: cv("action", "base");
   }
 
   &:visited {
@@ -234,17 +234,17 @@
 }
 
 .Button--green {
-  color: cv("gray", "000");
-
-  background-color: cv("success", "dark");
   border-color: cv("success", "dark");
+  background-color: cv("success", "dark");
+
+  color: cv("gray", "000");
 
   &:active,
   &:hover {
-    color: cv("gray", "000");
-
-    background-color: cv("success", "base");
     border-color: cv("success", "base");
+    background-color: cv("success", "base");
+
+    color: cv("gray", "000");
   }
 
   &:visited {
@@ -258,9 +258,9 @@
   &,
   &:active,
   &:hover {
-    color: cv("success", "dark");
-
     border-color: cv("success", "dark");
+
+    color: cv("success", "dark");
   }
 
   &:visited {
@@ -274,10 +274,10 @@
   &,
   &:active,
   &:hover {
-    color: cv("action", "base");
-
-    background-color: cv("gray", "000");
     border-color: cv("gray", "000");
+    background-color: cv("gray", "000");
+
+    color: cv("action", "base");
   }
 
   &:visited {
@@ -291,9 +291,9 @@
   &,
   &:active,
   &:hover {
-    color: cv("gray", "000");
-
     border-color: cv("gray", "000");
+
+    color: cv("gray", "000");
   }
 
   &:visited {
@@ -309,9 +309,9 @@
   &,
   &:active,
   &:hover {
-    color: cv("gray", "000");
-
     border-color: cv("gray", "000");
+
+    color: cv("gray", "000");
   }
 
   @extend %Button;
@@ -321,10 +321,10 @@
   &,
   &:active,
   &:hover {
-    color: cv("gray", "000");
-
-    background-color: cv("header");
     border-color: cv("header");
+    background-color: cv("header");
+
+    color: cv("gray", "000");
   }
 
   &:visited {
@@ -338,10 +338,10 @@
   &,
   &:active,
   &:hover {
-    color: cv("header");
-
-    background-color: transparent;
     border-color: cv("header");
+    background-color: transparent;
+
+    color: cv("header");
   }
 
   &:visited {

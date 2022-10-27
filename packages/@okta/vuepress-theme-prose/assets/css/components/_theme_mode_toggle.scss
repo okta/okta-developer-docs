@@ -1,12 +1,12 @@
 .toggle-switch {
   display: flex;
   align-items: center;
-  height: 43px;
   margin-left: 1.75rem;
   padding: 0 0.56rem;
+  height: 43px;
 
-  background: cv("theme-toggle", "bg");
   border-radius: 30px;
+  background: cv("theme-toggle", "bg");
 }
 
 .toggle-switch span {

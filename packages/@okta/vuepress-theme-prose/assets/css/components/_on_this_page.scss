@@ -10,16 +10,15 @@
 
   flex: 0 0 auto;
   padding-right: 1rem;
+  overflow-y: auto;
 
   color: cv("action");
-
-  overflow-y: auto;
 
   @include media(">=tablet") {
     top: 170px;
 
-    min-height: 450px;
     padding-bottom: 40px;
+    min-height: 450px;
   }
 }
 
@@ -46,16 +45,16 @@
 .on-this-page .links {
   padding-left: 1rem;
 
-  font-size: 14px;
-
   border-left: 3px solid cv("gray", "100");
+
+  font-size: 14px;
 }
 
 .on-this-page a.router-link-active {
+  border-left: 3px solid cv("action", "base");
+
   font-weight: 500;
   color: cv("link");
-
-  border-left: 3px solid cv("action", "base");
 }
 
 .on-this-page ul {
@@ -110,20 +109,20 @@
 .mobile-on-this-page .vs__dropdown-toggle {
   display: flex;
   flex-wrap: nowrap;
-  align-items: center;
   justify-content: space-between;
-  min-height: 45px;
+  align-items: center;
   padding: 0.5rem;
-
-  font-size: 14px;
+  min-height: 45px;
 
   border-color: cv("text", "darker");
+
+  font-size: 14px;
 }
 
 .mobile-on-this-page .vs__dropdown-toggle .vs__selected-options {
   flex-basis: auto;
-  max-width: 95%;
   padding: 0;
+  max-width: 95%;
 }
 
 .mobile-on-this-page .vs__dropdown-toggle .vs__selected-options .vs__selected {
@@ -136,9 +135,9 @@
 }
 
 .mobile-on-this-page .vs__dropdown-toggle .vs__search {
-  height: 0;
   margin: 0;
   padding: 0;
+  height: 0;
 }
 
 .mobile-on-this-page .vs__dropdown-toggle .vs__open-indicator {
@@ -149,26 +148,25 @@
   z-index: 50;
 
   padding: 0;
+  overflow-x: hidden;
 
   border-top-style: initial;
-  overflow-x: hidden;
 }
 
 .mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option {
-  width: 100%;
   padding: 0.7rem 1rem;
-
-  color: cv("gray", "900");
+  width: 100%;
 
   border-bottom: 1px solid cv("gray", "100");
+
+  color: cv("gray", "900");
 }
 
 .mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option .dropdown-item {
   width: 100%;
+  overflow: hidden;
 
   text-overflow: ellipsis;
-
-  overflow: hidden;
 }
 
 .mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option .dropdown-item.subheading {
@@ -180,8 +178,8 @@
 }
 
 .mobile-on-this-page .vs__dropdown-menu .vs__dropdown-option--highlight {
-  color: inherit;
-
-  background: inherit;
   border: 1px solid cv("action");
+  background: inherit;
+
+  color: inherit;
 }

@@ -18,17 +18,17 @@
 .tree-nav {
   position: relative;
 
-  width: 100%;
-  min-height: 100%;
   margin-bottom: -176px;
   padding: 34px 30px 3rem 49px;
+  width: 100%;
+  min-height: 100%;
 
   background: cv("body", "sidebar");
 
   @include media("<tablet") {
     flex-basis: 0;
-    width: 100%;
     padding: 1rem 0 0 0;
+    width: 100%;
   }
 }
 
@@ -54,8 +54,8 @@
   width: 10px;
   height: calc(100% - 8px);
 
-  background-color: #e7edf9;
   border-radius: 10px;
+  background-color: #e7edf9;
 
   @media (max-width: 1438px) {
     left: -38px;
@@ -87,14 +87,14 @@
   z-index: 2;
 
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  margin-left: -36px;
   width: 52px;
   height: 52px;
-  margin-left: -36px;
 
-  background-color: cv("body", "sidebar-toggle");
   border-radius: 50%;
+  background-color: cv("body", "sidebar-toggle");
 
   cursor: pointer;
 }
@@ -192,8 +192,8 @@
   position: relative;
 
   display: inline-flex;
-  align-items: baseline;
   justify-content: flex-start;
+  align-items: baseline;
   width: 100%;
 
   font-weight: 300;
@@ -205,11 +205,11 @@
 }
 
 .tree-nav .sections .tree-nav-link-parent a {
+  overflow: hidden;
+
   font-size: 14px;
   text-overflow: ellipsis;
   color: cv("link", "darker");
-
-  overflow: hidden;
 }
 
 .tree-nav .sections .tree-nav-link i.opened {
@@ -251,11 +251,10 @@
 
 .tree-nav .sections .tree-nav-link > span.text-holder {
   margin-left: 0;
+  overflow: hidden;
 
   text-overflow: ellipsis;
   white-space: nowrap;
-
-  overflow: hidden;
 }
 
 .tree-nav .sections .tree-nav-link > i.parent {

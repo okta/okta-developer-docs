@@ -36,15 +36,15 @@
 .pricing .selector-lozenge {
   display: flex;
 
-  font-size: 14px;
-
   border-radius: 40px;
+
+  font-size: 14px;
 }
 
 .pricing .selector-lozenge .lozenge {
-  background-color: transparent;
-  border: 0;
   outline: 0;
+  border: 0;
+  background-color: transparent;
 }
 
 .pricing .selector-lozenge.single {
@@ -70,9 +70,9 @@
 }
 
 .pricing .selector-lozenge.multiple .lozenge.active {
-  color: cv("gray", "000");
-
   background-color: cv("blue", "900");
+
+  color: cv("gray", "000");
 
   cursor: initial;
 }
@@ -98,19 +98,19 @@
 .pricing .pricing-collapsible-item .pricing-collapsible-item-title {
   position: relative;
 
-  width: 100%;
   padding: 18px 50px 16px 24px;
+  width: 100%;
+
+  outline: none;
+  border: none;
+  border-radius: 6px;
+  background: cv("blue", "900");
 
   font-weight: 400;
   font-size: 18px;
   line-height: 1em;
   text-align: left;
   color: cv("body", "white");
-
-  background: cv("blue", "900");
-  border: none;
-  border-radius: 6px;
-  outline: none;
 
   cursor: pointer;
 }
@@ -122,9 +122,9 @@
   top: 19px;
   right: 18px;
 
+  margin: auto;
   width: 14px;
   height: 14px;
-  margin: auto;
 
   background-image: url("/img/icons/icon--plus.svg");
 
@@ -134,13 +134,13 @@
 .pricing .pricing-collapsible-item .pricing-collapsible-item-content {
   display: none;
 
-  font-size: 16px;
-
-  background-color: cv("body", "white");
   border: 1px solid cv("blue", "900");
   border-top: 0;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
+  background-color: cv("body", "white");
+
+  font-size: 16px;
 }
 
 .pricing .pricing-collapsible-item.is-active .pricing-collapsible-item-title {
@@ -258,11 +258,11 @@
 .pricing .pricing--costs .pricing-card-bottom {
   padding: 20px;
 
-  font-size: 14px;
-
   border-radius: inherit;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+
+  font-size: 14px;
 
   @include media("<tablet") {
     flex-direction: column;
@@ -280,9 +280,9 @@
   margin: 0 0 8px;
   padding: 0 5px 0 25px;
 
-  line-height: 1.5em;
-
   background: url("/img/icons/icon--union.svg") no-repeat left center;
+
+  line-height: 1.5em;
 }
 
 .pricing .pricing--plans {
@@ -293,9 +293,9 @@
   font-size: 16px;
 
   @include media("<tablet") {
-    font-size: 14px;
-
     background-image: none;
+
+    font-size: 14px;
   }
 }
 
@@ -319,8 +319,8 @@
   display: flex;
   flex-basis: 22%;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 20px 15px;
 
   text-align: center;
@@ -342,9 +342,9 @@
   align-items: flex-start;
   padding-left: 0;
 
-  text-align: left;
-
   background-color: transparent;
+
+  text-align: left;
 }
 
 .pricing .pricing--plans .showInMobile {

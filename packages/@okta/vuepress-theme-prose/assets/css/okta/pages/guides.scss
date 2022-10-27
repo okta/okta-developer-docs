@@ -49,22 +49,22 @@ $big-spacing: 3rem;
   flex-direction: column;
   width: 50%;
 
-  text-decoration: none;
-
-  background: #ffffff;
   box-shadow: 0 3px 6px rgb(47 63 74 / 0.2);
   border: 0;
   border-radius: 3px;
+  background: #ffffff;
+
+  text-decoration: none;
 
   transition: box-shadow 200ms linear;
 
   cursor: pointer;
 
   &:hover {
+    box-shadow: 0 6px 24px rgb(47 63 74 / 0.2);
+
     text-decoration: none;
     color: inherit;
-
-    box-shadow: 0 6px 24px rgb(47 63 74 / 0.2);
   }
 
   &:first-child {
@@ -83,8 +83,8 @@ $big-spacing: 3rem;
   position: relative;
 
   display: flex;
-  align-items: center;
   justify-content: flex-start;
+  align-items: center;
   margin: 0;
   padding: 1.5rem;
   padding-bottom: 0.75rem;
@@ -126,8 +126,8 @@ $big-spacing: 3rem;
 
 .guides-navigation {
   flex: 0 0 auto;
-  width: 270px;
   padding-right: 1rem;
+  width: 270px;
 }
 
 .guides-navigation ul,
@@ -147,8 +147,8 @@ $big-spacing: 3rem;
     content: "";
 
     display: inline-block;
-    width: $icon-size;
     margin-left: -($icon-size);
+    width: $icon-size;
 
     font-family: "FontAwesome", sans-serif;
   }
@@ -162,8 +162,8 @@ $big-spacing: 3rem;
   content: "•";
 
   display: inline-block;
-  width: $icon-size;
   margin-left: -($icon-size);
+  width: $icon-size;
 
   text-align: center;
 }
@@ -174,10 +174,10 @@ $big-spacing: 3rem;
   margin-left: -($indent);
   padding-left: $indent;
 
-  font-weight: 700;
-
-  background-color: #e5edfb;
   border-bottom: 2px solid #000000;
+  background-color: #e5edfb;
+
+  font-weight: 700;
 }
 
 .guides-navigation a {
@@ -206,15 +206,16 @@ $big-spacing: 3rem;
   margin-left: -($indent);
   padding-left: $indent;
 
-  background-color: #e5edfb;
   border-bottom: 2px solid #000000;
+  background-color: #e5edfb;
 }
 
 .stack-selector {
   position: relative;
 
-  border-radius: 3px;
   overflow: hidden;
+
+  border-radius: 3px;
 }
 
 .stack-selector nav.tabs ul {
@@ -228,28 +229,28 @@ $big-spacing: 3rem;
   );
   padding: 0;
 
-  background: $gray-000;
   border-bottom: 1px solid $border-color;
+  background: $gray-000;
   list-style-type: none;
 }
 
 .stack-selector nav.tabs ul li {
   display: inline-block;
   flex-grow: 1;
-  max-width: 30ch;
   margin: 0;
+  max-width: 30ch;
 }
 
 .stack-selector nav.tabs ul li.current a {
-  font-weight: 600;
-  color: $gray-900;
-
   border-bottom-width: 3px;
   border-bottom-color: $action-base;
 
+  font-weight: 600;
+  color: $gray-900;
+
   &:hover {
-    background: transparent;
     border-bottom-color: $action-base;
+    background: transparent;
   }
 }
 
@@ -269,39 +270,38 @@ $big-spacing: 3rem;
   top: 1px;
 
   display: flex;
-  width: 100%;
-  height: 3rem;
   padding: $small-spacing;
   box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  overflow: hidden;
+
+  border-bottom: 1px solid $border-color;
+  background: transparent;
 
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: $text-color;
 
-  background: transparent;
-  border-bottom: 1px solid $border-color;
-  overflow: hidden;
-
   transition-timing-function: ease-in-out;
   transition-duration: 250ms;
   transition-property: color, background, border-color, border-width;
 
   &:hover {
-    color: $gray-900;
-
-    background: #e5edfb;
     border-bottom-width: 3px;
     border-bottom-color: $action-dark;
+    background: #e5edfb;
+
+    color: $gray-900;
   }
 }
 
 .stack-selector nav.tabs ul li a .framework {
   padding-left: 10px;
+  overflow: hidden;
 
   text-overflow: ellipsis;
-
-  overflow: hidden;
 }
 
 .stack-selector .stack-content {

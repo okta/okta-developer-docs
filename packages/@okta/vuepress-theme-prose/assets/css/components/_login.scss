@@ -18,25 +18,25 @@
 .login .login--form {
   display: flex;
   flex-direction: column;
-  width: 588px;
   margin: 0;
   padding: 40px 48px 40px 48px;
+  width: 588px;
 
-  background-color: #ffffff;
   box-shadow: 0 6px 18px rgb(65 65 75 / 0.5);
+  background-color: #ffffff;
 
   @include media("<tablet") {
-    width: 100%;
     padding: 10px;
+    width: 100%;
   }
 }
 
 .login .login--form .splitter {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 20px;
+  align-items: center;
   margin: 0 0 17px;
+  height: 20px;
 }
 
 .login .login--form .splitter span:nth-child(2) {

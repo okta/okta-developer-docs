@@ -1,13 +1,13 @@
 %Button {
   display: inline-block;
-  height: 45px;
   padding: 0 20px;
-
-  line-height: 45px;
-  text-decoration: none;
+  height: 45px;
 
   border: 2px solid transparent;
   border-radius: 3px;
+
+  line-height: 45px;
+  text-decoration: none;
 
   cursor: pointer;
 
@@ -17,10 +17,10 @@
 
   &:active,
   &:hover {
+    border-color: $black;
+
     text-decoration: none;
     color: $black;
-
-    border-color: $black;
   }
 
   &:visited {
@@ -38,15 +38,15 @@
 }
 
 .Button {
-  color: get-color("accent");
-
   border-color: get-color("accent");
+
+  color: get-color("accent");
 
   &:active,
   &:hover {
-    color: linear-gradient(get-color("accent"), get-color("white"), 75%);
-
     border-color: linear-gradient(get-color("accent"), get-color("white"), 75%);
+
+    color: linear-gradient(get-color("accent"), get-color("white"), 75%);
   }
 
   &:visited {
@@ -57,12 +57,12 @@
 }
 
 .Button--small {
-  height: 30px;
   padding: 0 12px;
-
-  line-height: 28px;
+  height: 30px;
 
   border-width: 1px;
+
+  line-height: 28px;
 }
 
 .Button--rounded {
@@ -70,14 +70,14 @@
 }
 
 .Button--large {
-  height: 54px;
   padding: 0 30px;
+  height: 54px;
+
+  border-radius: 5px;
 
   font-weight: 600;
   font-size: get-font-size("button") + 2;
   line-height: 50px;
-
-  border-radius: 5px;
 }
 
 .Button--large.Button--rounded {
@@ -85,17 +85,17 @@
 }
 
 .Button--blue {
-  color: get-color("white");
-
-  background-color: $navy-blue;
   border-color: $navy-blue;
+  background-color: $navy-blue;
+
+  color: get-color("white");
 
   &:active,
   &:hover {
-    color: get-color("white");
-
-    background-color: $navy-blue;
     border-color: $navy-blue;
+    background-color: $navy-blue;
+
+    color: get-color("white");
   }
 
   &:visited {
@@ -109,9 +109,9 @@
   &,
   &:active,
   &:hover {
-    color: get-color("blue-bright");
-
     border-color: get-color("blue-bright");
+
+    color: get-color("blue-bright");
   }
 
   &:visited {
@@ -122,17 +122,17 @@
 }
 
 .Button--green {
-  color: get-color("white");
-
-  background-color: get-color("green-dark");
   border-color: get-color("green-dark");
+  background-color: get-color("green-dark");
+
+  color: get-color("white");
 
   &:active,
   &:hover {
-    color: get-color("white");
-
-    background-color: get-color("green-dark-hover");
     border-color: get-color("green-dark-hover");
+    background-color: get-color("green-dark-hover");
+
+    color: get-color("white");
   }
 
   &:visited {
@@ -146,9 +146,9 @@
   &,
   &:active,
   &:hover {
-    color: get-color("green-dark");
-
     border-color: get-color("green-dark");
+
+    color: get-color("green-dark");
   }
 
   &:visited {
@@ -162,10 +162,10 @@
   &,
   &:active,
   &:hover {
-    color: get-color("blue-bright");
-
-    background-color: get-color("white");
     border-color: get-color("white");
+    background-color: get-color("white");
+
+    color: get-color("blue-bright");
   }
 
   &:visited {
@@ -179,9 +179,9 @@
   &,
   &:active,
   &:hover {
-    color: get-color("white");
-
     border-color: get-color("white");
+
+    color: get-color("white");
   }
 
   &:visited {
@@ -197,9 +197,9 @@
   &,
   &:active,
   &:hover {
-    color: get-color("white");
-
     border-color: get-color("white");
+
+    color: get-color("white");
   }
 
   @extend %Button;
@@ -209,10 +209,10 @@
   &,
   &:active,
   &:hover {
-    color: get-color("white");
-
-    background-color: get-color("header");
     border-color: get-color("header");
+    background-color: get-color("header");
+
+    color: get-color("white");
   }
 
   &:visited {

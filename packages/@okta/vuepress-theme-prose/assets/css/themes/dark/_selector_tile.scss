@@ -1,7 +1,7 @@
 .selector-tile--header {
-  color: cv("action");
-
   border-bottom: 1px solid cv("action");
+
+  color: cv("action");
 
   &:hover {
     color: cv("text");
@@ -26,9 +26,9 @@
   border-bottom-color: transparent;
 
   &:hover {
-    color: cv("text");
-
     background: cv("text", "accent");
+
+    color: cv("text");
   }
 }
 

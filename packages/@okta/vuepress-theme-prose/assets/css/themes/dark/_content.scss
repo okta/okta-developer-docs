@@ -7,10 +7,10 @@
 }
 
 .page-body .content--container :not([class*="language-"]) > code {
-  color: cv("text");
-
-  background-color: cv("text", "accent");
   border-color: transparent;
+  background-color: cv("text", "accent");
+
+  color: cv("text");
 }
 
 .page-body .content--container .edit-on-github .fa {
@@ -18,10 +18,10 @@
 }
 
 .page-body .content--container blockquote {
-  background-color: cv("body", "obscure");
   border-top-color: transparent;
-  border-right-color: transparent;
   border-bottom-color: transparent;
+  border-right-color: transparent;
+  background-color: cv("body", "obscure");
 }
 
 .page-body .content--container .vs__selected {
@@ -33,10 +33,10 @@
 }
 
 .page-body .content--container .vs__dropdown-menu .vs__dropdown-option {
-  color: cv("text");
-
-  background-color: cv("code");
   border-color: transparent !important;
+  background-color: cv("code");
+
+  color: cv("text");
 }
 
 .page-body .content--container .vs__dropdown-menu .vs__dropdown-option--highlight {
@@ -60,15 +60,15 @@
 }
 
 .api-label-ie {
-  color: cv("text");
-
-  background-color: cv("link", "signup");
   border-color: cv("text");
+  background-color: cv("link", "signup");
+
+  color: cv("text");
 }
 
 .api-label-limited-ga {
-  color: cv("text");
-
-  background-color: cv("cyan");
   border-color: cv("text");
+  background-color: cv("cyan");
+
+  color: cv("text");
 }

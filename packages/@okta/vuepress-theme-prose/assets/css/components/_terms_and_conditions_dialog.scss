@@ -24,9 +24,9 @@
   margin: 0 0 24px 0;
   padding: 12px 16px;
 
-  font-size: 14px;
-
   background-color: #f5f5f6;
+
+  font-size: 14px;
 }
 
 .dialog-text .marketing-c .gdpr-condition input[type="checkbox"] {
@@ -67,11 +67,11 @@
 
 .terms-conditions-btns .btn-container .btn {
   display: table-cell;
-  height: 32px;
   padding: 0 15px;
+  height: 32px;
+
+  border: 1px solid cv("link", "darker");
 
   font-size: 14px;
   vertical-align: middle;
-
-  border: 1px solid cv("link", "darker");
 }

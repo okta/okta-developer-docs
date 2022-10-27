@@ -75,10 +75,10 @@
 
   width: 18.5vw;
   min-width: 266px;
-
-  background: cv("body");
   overflow: auto;
   overflow-x: hidden;
+
+  background: cv("body");
 
   @include media("<desktop-xl") {
     top: 125px;
@@ -122,27 +122,27 @@
 
 .content--container .content-area {
   flex: 1;
-  max-width: calc(82% - 266px);
   padding: 23px 59px;
+  max-width: calc(82% - 266px);
 }
 
 .content--container .content-area-full {
-  max-width: 100%;
   padding: 0 59px;
+  max-width: 100%;
 }
 
 @include media("<desktop-xl") {
   .content--container .content-area {
-    max-width: calc(100% - 266px);
     padding: 40px 57px 30px;
+    max-width: calc(100% - 266px);
   }
 }
 
 @include media("<desktop") {
   .content--container .content-area {
+    padding: 30px 20px 40px;
     width: 100%;
     max-width: 100%;
-    padding: 30px 20px 40px;
   }
 }
 
@@ -186,16 +186,16 @@
   z-index: 50;
 
   display: none;
-  width: 100%;
   margin-top: 0.5rem;
   padding-bottom: 0.5rem;
+  width: 100%;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #ffffff;
 
   font-weight: 600;
   text-align: left;
-
-  background-color: #ffffff;
-  border: 1px solid transparent;
-  border-radius: 4px;
 }
 
 .content--container .content-area .dropdown-button .dropdown-button-option-value {

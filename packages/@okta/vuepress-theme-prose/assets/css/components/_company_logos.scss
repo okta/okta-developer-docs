@@ -23,8 +23,8 @@
 .company-logos--wrapper .company-logos--icons {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   max-width: 800px;
 
@@ -34,9 +34,9 @@
 }
 
 .company-logos--wrapper .company-logos--icons .company-logos--icon {
+  margin: 0 10px 45px;
   width: 85px;
   height: 45px;
-  margin: 0 10px 45px;
 
   @include media("<tablet") {
     margin: 0 20px 20px;

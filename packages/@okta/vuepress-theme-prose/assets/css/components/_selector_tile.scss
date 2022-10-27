@@ -8,17 +8,17 @@
 }
 
 .selector-tiles .selector-tile-item {
-  width: 100%;
   margin: 0 36px 0 0;
+  width: 100%;
 
   @include media("<bootstrap-xl") {
-    width: 47%;
     margin-right: 6%;
+    width: 47%;
   }
 
   @include media("<tablet") {
-    width: 100%;
     margin-right: 0;
+    width: 100%;
   }
 }
 
@@ -40,34 +40,34 @@
   }
 
   @include media("<tablet") {
-    width: 100%;
-    height: auto;
     margin-right: 0;
     margin-left: 0;
+    width: 100%;
+    height: auto;
   }
 }
 
 .selector-tile--header {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 0;
   padding: 0 10px 7px 0;
+
+  border-bottom: 2px solid cv("text", "darker");
 
   font-weight: 500;
   font-size: 14px;
   color: cv("text", "darker");
 
-  border-bottom: 2px solid cv("text", "darker");
-
   @include media("<desktop") {
     padding: 0 0 8px;
 
+    border-bottom-width: 1px;
+
     font-weight: 500;
     font-size: 21px;
-
-    border-bottom-width: 1px;
   }
 }
 
@@ -98,14 +98,14 @@
 .selector-tile--data--item {
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 11px 10px 12px;
+
+  border-bottom: 1px solid cv("text", "lighter");
 
   text-decoration: none;
   color: cv("text", "darker");
-
-  border-bottom: 1px solid cv("text", "lighter");
 
   @include media("<desktop") {
     padding-right: 0;
@@ -160,9 +160,9 @@
 }
 
 .selector-tile--data--item:hover {
-  color: cv("link", "darker");
-
   background: cv("blue", "000");
+
+  color: cv("link", "darker");
 }
 
 .selector-tile--data--item:hover > i {

@@ -2,10 +2,10 @@ header.page-header {
   position: relative;
 
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  height: 87px;
+  align-items: center;
   padding: 0 50px;
+  height: 87px;
 
   background-color: cv("header");
 }
@@ -33,8 +33,8 @@ header.page-header .menu--items:last-child {
 
 header.page-header .search--slideout {
   flex: 1 1 260px;
-  max-width: 336px;
   margin-left: 61px;
+  max-width: 336px;
 }
 
 header.page-header .header--links {
@@ -56,17 +56,17 @@ header.page-header .sign-up--button {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  height: 38px;
   padding: 7px 12px;
+  height: 38px;
+
+  outline: none;
+  border: 1px solid cv("body", "white");
+  border-radius: 4px;
+  background: cv("header");
 
   font-weight: 400;
   font-size: 14px;
   color: cv("body", "white");
-
-  background: cv("header");
-  border: 1px solid cv("body", "white");
-  border-radius: 4px;
-  outline: none;
 }
 
 header.page-header .mobile--toggles {
@@ -85,12 +85,12 @@ header.page-header .mobile--toggles .mobile--toggle > span {
   z-index: 1;
 
   display: block;
+  margin-bottom: 5px;
   width: 18px;
   height: 2px;
-  margin-bottom: 5px;
 
-  background: cv("body", "white");
   border-radius: 3px;
+  background: cv("body", "white");
 
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), margin 0.05s ease, opacity 0.55s ease;
 
@@ -157,9 +157,9 @@ header.page-header .link[target="_blank"]:not([href^="mailto:"])::after {
   content: "";
 
   display: none;
+  margin-left: 0.5em;
   width: 11px;
   height: 11px;
-  margin-left: 0.5em;
 
   vertical-align: middle;
 
@@ -178,8 +178,8 @@ header.page-header .link:focus {
 
 @include media("<desktop-xl") {
   header.page-header {
-    height: 70px;
     padding: 0 35px;
+    height: 70px;
   }
 
   header.page-header .header--logo > img {
@@ -192,8 +192,8 @@ header.page-header .link:focus {
   }
 
   header.page-header .search--slideout {
-    max-width: 168px;
     margin-left: 24px;
+    max-width: 168px;
   }
 
   header.page-header .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
@@ -251,12 +251,12 @@ header.page-header .link:focus {
     left: 0;
     z-index: -1;
 
-    max-width: none;
     margin: 0;
     padding: 0 0 20px;
+    max-width: none;
+    overflow-y: auto;
 
     background-color: cv("body", "white");
-    overflow-y: auto;
   }
 
   header.page-header .menu--slideout.opened {
@@ -269,8 +269,8 @@ header.page-header .link:focus {
     flex: 0;
     flex-direction: column;
     order: 2;
-    width: 100%;
     padding: 16px;
+    width: 100%;
 
     border-top: 0.5px solid rgb(255 255 255 / 0.15);
   }
@@ -397,20 +397,20 @@ header.page-header .link:focus {
     margin: 0 32px 0 0;
     padding: 0 16px 0 0;
 
-    font-size: 1rem;
-
-    background: url("/img/icons/arrow-right-white.svg") no-repeat right center;
     border: none;
+    background: url("/img/icons/arrow-right-white.svg") no-repeat right center;
+
+    font-size: 1rem;
   }
 
   header.page-header .search--slideout {
     z-index: 1;
 
     flex: none;
-    width: 100%;
-    max-width: 100%;
     margin: 20px 0 0;
     padding: 16px;
+    width: 100%;
+    max-width: 100%;
 
     background-color: cv("body", "white");
   }

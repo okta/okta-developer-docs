@@ -19,10 +19,10 @@
 }
 
 .CodeMirror {
-  color: cv("text");
-
-  background-color: cv("code");
   border-color: transparent;
+  background-color: cv("code");
+
+  color: cv("text");
 }
 
 .CodeMirror-gutters {
@@ -63,18 +63,18 @@ pre[class*="language-"] {
 }
 
 .homepage--code-example {
-  background-color: cv("body");
   border-color: transparent;
+  background-color: cv("body");
 }
 
 .homepage--code-example--cm-wrapper .CodeMirror {
-  background-color: cv("body");
   border-color: transparent;
+  background-color: cv("body");
 }
 
 .api-uri-template {
-  background-color: cv("body", "obscure");
   border-color: cv("body");
+  background-color: cv("body", "obscure");
 }
 
 .api-uri-put strong {

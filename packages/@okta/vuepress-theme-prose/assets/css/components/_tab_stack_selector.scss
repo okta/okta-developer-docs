@@ -1,8 +1,9 @@
 .stack-selector {
   position: relative;
 
-  border-radius: 3px;
   overflow: hidden;
+
+  border-radius: 3px;
 }
 
 .stack-selector nav.tabs ul {
@@ -16,29 +17,29 @@
   );
   padding: 0;
 
-  background: #fafafa;
   border-bottom: 1px solid #b7bcc0;
+  background: #fafafa;
   list-style-type: none;
 }
 
 .stack-selector nav.tabs ul li {
   display: inline-block;
   flex-grow: 1;
-  max-width: 30ch;
   margin: 0;
+  max-width: 30ch;
 }
 
 .stack-selector nav.tabs ul li.current a {
-  font-weight: 600;
-  color: #2f3f4a;
-
   border-bottom-width: 3px;
   border-bottom-color: #1662dd;
+
+  font-weight: 600;
+  color: #2f3f4a;
 }
 
 .stack-selector nav.tabs ul li.current a:hover {
-  background: transparent;
   border-bottom-color: #1662dd;
+  background: transparent;
 }
 
 .stack-selector nav.tabs ul li .icon {
@@ -57,19 +58,19 @@
   top: 1px;
 
   display: flex;
-  width: 100%;
-  height: 3rem;
   padding: 0.75rem;
   box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  overflow: hidden;
+
+  border-bottom: 1px solid #b7bcc0;
+  background: transparent;
 
   text-decoration: none;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: #5c6971;
-
-  background: transparent;
-  border-bottom: 1px solid #b7bcc0;
-  overflow: hidden;
 
   transition-timing-function: ease-in-out;
   transition-duration: 250ms;
@@ -77,19 +78,19 @@
 }
 
 .stack-selector nav.tabs ul li a:hover {
-  color: #2f3f4a;
-
-  background: #e5edfb;
   border-bottom-width: 3px;
   border-bottom-color: #124a94;
+  background: #e5edfb;
+
+  color: #2f3f4a;
 }
 
 .stack-selector nav.tabs ul li a .framework {
   padding-left: 10px;
 
-  text-overflow: ellipsis;
-
   overflow: hidden;
+
+  text-overflow: ellipsis;
 }
 
 .stack-selector .stack-content {

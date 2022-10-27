@@ -55,8 +55,8 @@
   justify-content: space-between;
 
   @include media("<desktop-xl") {
-    width: 83%;
     margin: 0 auto;
+    width: 83%;
   }
 }
 
@@ -105,8 +105,8 @@
 .app-footer .footer--columns .social ul.link-list {
   display: flex;
   justify-content: space-between;
-  max-width: 256px;
   margin: 0 auto;
+  max-width: 256px;
 }
 
 .app-footer .footer--columns .social span.link-list--text {
@@ -243,9 +243,9 @@
     bottom: auto;
 
     order: 6;
-    width: 100%;
     margin-top: 28px;
     padding-top: 28px;
+    width: 100%;
 
     text-align: center;
 

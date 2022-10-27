@@ -9,22 +9,22 @@
   flex-direction: column;
   width: 50%;
 
-  text-decoration: none !important;
-
-  background: #ffffff;
   box-shadow: 0 3px 6px rgb(47 63 74 / 0.2);
   border: 0;
   border-radius: 3px;
+  background: #ffffff;
+
+  text-decoration: none !important;
 
   transition: box-shadow 200ms linear;
 
   cursor: pointer;
 
   &:hover {
+    box-shadow: 0 6px 24px rgb(47 63 74 / 0.2);
+
     text-decoration: none;
     color: inherit;
-
-    box-shadow: 0 6px 24px rgb(47 63 74 / 0.2);
   }
 
   &:first-child {
@@ -47,8 +47,8 @@
   position: relative;
 
   display: flex;
-  align-items: center;
   justify-content: flex-start;
+  align-items: center;
   margin: 0;
   padding: 1.5rem;
   padding-bottom: 0.75rem;

@@ -19,11 +19,11 @@
 .signup .signup--content {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
   width: 100%;
   max-width: 1195px;
-  margin: 0 auto;
 
   font-size: 16px;
   color: cv("text", "darker");
@@ -34,17 +34,17 @@
 }
 
 .signup .signup--content .signup--form {
-  width: 45%;
-  max-width: 517px;
   margin: 0;
   padding: 65px 32px;
+  width: 45%;
+  max-width: 517px;
 
-  background-color: #ffffff;
   box-shadow: 0 6px 18px rgb(65 65 75 / 0.5);
+  background-color: #ffffff;
 
   @include media("<desktop") {
-    width: 100%;
     margin-bottom: 100px;
+    width: 100%;
   }
 
   @include media("<tablet") {
@@ -77,9 +77,9 @@
 }
 
 .signup .signup--content .signup--form .consent--section .consent--section-text {
+  margin: 24px 0 10px 0;
   width: 100%;
   max-width: inherit;
-  margin: 24px 0 10px 0;
 
   font-size: 12px;
   line-height: 20px;
@@ -105,9 +105,9 @@
 }
 
 .signup .signup--content .signup--form .consent--section .consent--section-agree label input {
+  margin: 0 8px 0 0;
   width: 16px;
   height: 16px;
-  margin: 0 8px 0 0;
 }
 
 .signup .signup--content .signup--form .error-msg {
@@ -131,10 +131,10 @@
 
 .signup .signup--content .signup--form .splitter {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 20px;
+  align-items: center;
   margin: 0 0 17px;
+  height: 20px;
 }
 
 .signup .signup--content .signup--form .splitter span:nth-child(2) {
@@ -163,9 +163,9 @@
 }
 
 .signup .signup--description {
+  padding: 0;
   width: 44%;
   max-width: 604px;
-  padding: 0;
 
   color: cv("text", "darker");
 

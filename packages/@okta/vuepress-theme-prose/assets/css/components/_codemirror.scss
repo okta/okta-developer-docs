@@ -22,8 +22,8 @@
 }
 
 .CodeMirror.cm-s-default .CodeMirror-gutters {
-  background: none;
   border: none;
+  background: none;
 }
 
 .CodeMirror.cm-s-default .CodeMirror-linenumber {
@@ -71,7 +71,7 @@
 .CodeMirror.cm-s-default .CodeMirror-line::selection,
 .CodeMirror.cm-s-default .CodeMirror-line > span::selection,
 .CodeMirror.cm-s-default .CodeMirror-line > span > span::selection {
-  color: cv("code", "string");
-
   background: transparent;
+
+  color: cv("code", "string");
 }

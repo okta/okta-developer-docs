@@ -2,8 +2,8 @@
   margin-bottom: 10px;
   padding: 20px;
 
-  background-color: get-color("ebony-clay");
   border-radius: 5px;
+  background-color: get-color("ebony-clay");
 }
 
 .code-selector h3 {
@@ -18,10 +18,10 @@
   position: relative;
 
   display: inline-block;
-  height: 42px;
   margin-right: 20px;
   padding-right: 15px;
   padding-left: 15px;
+  height: 42px;
 
   line-height: 32px;
   color: $white;
@@ -60,8 +60,8 @@
 }
 
 .PageContent-main#quickstart-body {
-  max-width: 1050px;
   padding: 64px 0;
+  max-width: 1050px;
 }
 
 .example-content-well {
@@ -88,24 +88,24 @@
 }
 
 .quickstart-page h2 {
+  border-bottom: none;
+
   font-weight: 100;
   font-size: 23px;
-
-  border-bottom: none;
 }
 
 .quickstart-page h3 {
+  border-bottom: none;
+
   font-weight: 100;
   font-size: 21px;
-
-  border-bottom: none;
 }
 
 .quickstart-page h4 {
+  border-bottom: none;
+
   font-weight: 100;
   font-size: 18px;
-
-  border-bottom: none;
 }
 
 .quickstart-page .TableOfContents-item.active {

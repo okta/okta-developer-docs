@@ -1,6 +1,6 @@
 #okta-sign-in.main-page-widget-wrapper {
-  width: 100%;
   margin: 0;
+  width: 100%;
 
   border: none;
 }
@@ -20,12 +20,12 @@
 }
 
 #okta-sign-in.main-page-widget-wrapper .button.button-primary {
-  color: #ffffff;
-
-  background: linear-gradient(#369f95, #32948a);
   box-shadow:
     rgb(0 0 0 / 0.15) 0 1px 0,
     rgb(255 255 255 / 0.1) 0 1px 0 0 inset;
   border-color: #23665f;
   border-bottom-color: #205e58;
+  background: linear-gradient(#369f95, #32948a);
+
+  color: #ffffff;
 }

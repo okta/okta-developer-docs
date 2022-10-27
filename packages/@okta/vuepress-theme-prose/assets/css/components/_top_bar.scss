@@ -10,8 +10,8 @@ $gray-900: #2f3f4a;
 
   @include media("<desktop") {
     justify-content: space-between;
-    height: 75px;
     padding: 20px 30px;
+    height: 75px;
   }
 }
 
@@ -37,8 +37,8 @@ $gray-900: #2f3f4a;
   flex-grow: 1;
   flex-direction: row;
   justify-content: center;
-  max-width: calc(100% - 20px);
   padding-left: 51px;
+  max-width: calc(100% - 20px);
 
   font-weight: 500;
   line-height: 24px;
@@ -50,8 +50,8 @@ $gray-900: #2f3f4a;
 
   display: flex;
   flex-direction: inherit;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 
   text-transform: uppercase;
 }
@@ -77,8 +77,8 @@ $gray-900: #2f3f4a;
   .top-bar-nav .navigation .menu > li {
     display: flex;
     align-items: center;
-    height: 38px;
     margin-right: 22px;
+    height: 38px;
   }
 }
 
@@ -157,13 +157,13 @@ $gray-900: #2f3f4a;
   .top-bar-nav .navigation .menu .hasSubMenu .submenu .non-link {
     padding: 0;
 
+    border-bottom: 1px solid rgb(255 255 255 / 0.2);
+
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #ffffff;
-
-    border-bottom: 1px solid rgb(255 255 255 / 0.2);
   }
 
   .top-bar-nav .navigation .menu .hasSubMenu .submenu .divider {
@@ -181,9 +181,9 @@ $gray-900: #2f3f4a;
     display: block;
     padding: 25px 0;
 
-    background: #f4f4f4;
     box-shadow: rgb(0 0 0 / 0.3) 0 2px 10px;
     border-radius: 3px;
+    background: #f4f4f4;
 
     transform: translateX(-50%);
   }
@@ -197,9 +197,9 @@ $gray-900: #2f3f4a;
 
     display: block;
 
-    border-right: solid 20px transparent;
     border-bottom: solid 20px #f4f4f4;
     border-left: solid 20px transparent;
+    border-right: solid 20px transparent;
 
     transform: translateX(-50%);
   }
@@ -214,8 +214,8 @@ $gray-900: #2f3f4a;
 
   .top-bar-nav .navigation .menu .hasSubMenu:hover .submenu > li > a.link {
     display: block;
-    width: 100%;
     padding: 5px 25px;
+    width: 100%;
 
     color: #e22866;
 
@@ -223,9 +223,9 @@ $gray-900: #2f3f4a;
   }
 
   .top-bar-nav .navigation .menu .hasSubMenu:hover .submenu > li > a.link:hover {
-    color: #ffffff;
-
     background: #e22866;
+
+    color: #ffffff;
   }
 
   .top-bar-nav .navigation .menu .hasSubMenu:hover::before {
@@ -250,23 +250,23 @@ $gray-900: #2f3f4a;
   display: flex;
   align-content: center;
   align-items: center;
-  height: 41px;
   margin-left: 30px;
   padding: 0 45px;
+  height: 41px;
+
+  border: 2px solid cv("link");
+  border-radius: 3px;
 
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #ffffff;
-
-  border: 2px solid cv("link");
-  border-radius: 3px;
 }
 
 .top-bar-nav .navigation .buttons-block--button.red {
-  color: #ffffff;
-
   background: cv("header");
+
+  color: #ffffff;
 }
 
 @include media("<desktop") {
@@ -296,10 +296,10 @@ $gray-900: #2f3f4a;
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
-    min-width: 100%;
-    height: calc(100vh - 75px);
     margin: 0;
     padding: 35px;
+    min-width: 100%;
+    height: calc(100vh - 75px);
 
     background-color: #153b56;
   }
@@ -311,20 +311,20 @@ $gray-900: #2f3f4a;
 
 .top-bar-nav--controls {
   display: flex;
-  align-content: inherit;
   justify-items: inherit;
+  align-content: inherit;
 }
 
 .top-bar-nav--controls .search-icon {
   align-self: center;
+  margin-left: 20px;
   width: 40px;
   height: 24px;
-  margin-left: 20px;
 
+  outline: none;
+  border: none;
   background: url("https://developer.okta.com/sites/all/themes/developer/media/icon-search.svg") center no-repeat;
   background-size: contain;
-  border: none;
-  outline: none;
 }
 
 .top-bar-nav--controls .search-icon.active {
@@ -337,9 +337,9 @@ $gray-900: #2f3f4a;
 
 .top-bar-nav--controls--toggle {
   display: flex;
+  margin-left: 1rem;
   width: 2em;
   height: 40px;
-  margin-left: 1rem;
 
   cursor: pointer;
 }

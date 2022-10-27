@@ -1,7 +1,7 @@
 .signup .signup--content .signup--form {
-  background-color: cv("body", "obscure");
   box-shadow: 0 24px 54px rgb(0 0 0 / 0.21);
   border-radius: 4px;
+  background-color: cv("body", "obscure");
 }
 
 .signup--description p {
@@ -18,10 +18,10 @@
   min-width: 1rem;
   min-height: 1rem;
 
-  background-color: cv("code");
+  outline: 0;
   border: 1px solid cv("border", "checkbox");
   border-radius: 4px;
-  outline: 0;
+  background-color: cv("code");
   appearance: none;
 
   cursor: pointer;

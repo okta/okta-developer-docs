@@ -6,11 +6,11 @@
 
   display: flex;
   align-items: center;
-  width: 100%;
   padding: 0 31px;
+  width: 100%;
+  overflow-x: auto;
 
   background-color: cv("header", "nav");
-  overflow-x: auto;
 
   @include media("<desktop-xl") {
     top: 70px;
@@ -37,11 +37,10 @@
 
     display: block;
     height: 0;
-
-    font-weight: 700;
-
     overflow: hidden;
     visibility: hidden;
+
+    font-weight: 700;
   }
 
   &::after {
