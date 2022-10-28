@@ -253,22 +253,27 @@ module.exports = ctx => ({
   chainWebpack(config) {
     config.module
       .rule('string-replacement')
-      .test(/(\.md|\.vue)$/)
-      .use('string-replace-loaded')
-      .loader('string-replace-loader')
-      .options({
-        multiple: convertReplacementStrings({
-          /* KEYS HERE GET WRAPPED IN '-=OKTA_REPLACE_WITH_XXX=-'
-           *
-           * Changes WILL require restarting `yarn dev` :(
-           */
-          WIDGET_VERSION: WIDGET_VERSION,
-          TEST_JUNK: 'this is a test replacement', // Leave for testing
-        })
-      });
+        .test(/(\.md|\.vue)$/)
+        .use('string-replace-loaded')
+          .loader('string-replace-loader')
+          .options({
+            multiple: convertReplacementStrings({
+              /* KEYS HERE GET WRAPPED IN '-=OKTA_REPLACE_WITH_XXX=-'
+              *
+              * Changes WILL require restarting `yarn dev` :(
+              */
+              WIDGET_VERSION: WIDGET_VERSION,
+              TEST_JUNK: 'this is a test replacement', // Leave for testing
+            })
+          })
+          .end()
+        .test(/\.vue$/)
+        .use('vue-loader')
+          .loader('vue-loader')
+          .end();
   },
 
-  evergreen: false,
+  evergreen: true,
 
   markdown: {
     extendMarkdown: md => {
