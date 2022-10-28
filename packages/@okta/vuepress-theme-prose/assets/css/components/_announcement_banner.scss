@@ -127,20 +127,20 @@
 
   overflow: hidden;
 
+  &--large {
+    @include media("<=tablet") {
+      display: none;
+    }
+  }
+
+  &--small {
+    @include media(">tablet") {
+      display: none;
+    }
+  }
+
   @include media("<=tablet") {
     top: -2px;
     right: 3px;
-  }
-}
-
-.announcement-banner--logo--large {
-  @include media("<=tablet") {
-    display: none;
-  }
-}
-
-.announcement-banner--logo--small {
-  @include media(">tablet") {
-    display: none;
   }
 }
