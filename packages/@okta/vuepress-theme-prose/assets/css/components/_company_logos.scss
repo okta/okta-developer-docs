@@ -34,12 +34,18 @@
 }
 
 .company-logos--wrapper .company-logos--icons .company-logos--icon {
-  margin: 0 10px 45px;
+  margin-top: 0;
+  margin-right: 10px;
+  margin-bottom: 45px;
+  margin-left: 10px;
   width: 85px;
   height: 45px;
 
   @include media("<tablet") {
-    margin: 0 20px 20px;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
   }
 }
 
