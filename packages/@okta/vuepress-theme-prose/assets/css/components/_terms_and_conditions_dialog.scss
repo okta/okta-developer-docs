@@ -59,10 +59,10 @@
 
 .terms-conditions-btns .btn-container {
   width: auto;
-}
 
-.terms-conditions-btns .btn-container:nth-child(1) {
-  margin-right: 15px;
+  &:nth-child(1) {
+    margin-right: 15px;
+  }
 }
 
 .terms-conditions-btns .btn-container .btn {
