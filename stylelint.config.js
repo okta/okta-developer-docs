@@ -107,7 +107,10 @@ module.exports = {
     "max-nesting-depth": [
       1,
       {
-        "ignoreAtRules": ["media"]
+        "ignoreAtRules": [
+          "media",
+          "include"
+        ]
       }
     ],
     "number-max-precision": 2,
