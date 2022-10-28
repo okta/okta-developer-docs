@@ -4,10 +4,10 @@
 
 .cards-own .is-card-clickable {
   border: 1px solid cv("breadcrumb", "link");
-}
 
-.cards-own .is-card-clickable:hover,
-.cards-own .is-card-clickable:active {
-  box-shadow: none;
-  background: cv("body", "obscure");
+  &:hover,
+  &:active {
+    box-shadow: none;
+    background: cv("body", "obscure");
+  }
 }
