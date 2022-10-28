@@ -13,7 +13,7 @@
     <div class="authorization-layout--footer">
       <Footer />
     </div>
-    <portal-target 
+    <portal-target
       name="dialog-wrapper"
     />
   </div>
@@ -33,5 +33,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/css/prose";
+  @import "../assets/css/prose";
 </style>
