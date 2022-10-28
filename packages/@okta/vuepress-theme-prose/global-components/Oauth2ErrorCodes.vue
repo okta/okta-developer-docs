@@ -207,8 +207,14 @@
 <style scoped lang="scss">
   @import "../assets/css/abstracts/_colors";
 
-  $border_color: map-get(map-get($colors, "form"), "input-border");
-  $link_color: map-get(map-get($colors, "link"), "base");
+  $border_color: map-get(
+    map-get($colors, "form"),
+    "input-border"
+  );
+  $link_color: map-get(
+    map-get($colors, "link"),
+    "base"
+  );
 
   .error-codes .PageContent-main {
     padding-right: 0;
@@ -221,15 +227,15 @@
 
   .error-codes .reset-search {
     cursor: pointer;
-  }
 
-  .error-codes .reset-search::before {
-    content: "";
+    &::before {
+      content: "";
 
-    margin-left: 8px;
+      margin-left: 8px;
 
-    font-family: "fontawesome", sans-serif;
-    text-align: center;
+      font-family: "fontawesome", sans-serif;
+      text-align: center;
+    }
   }
 
   .error-codes select {
@@ -248,10 +254,10 @@
     border: 2px solid $border_color;
 
     font-size: 18px;
-  }
 
-  .error-codes #error-code-search::placeholder {
-    color: $border_color;
+    &::placeholder {
+      color: $border_color;
+    }
   }
 
   .error-codes #error-code-release {
@@ -277,18 +283,18 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     color: $link_color;
+
+    &::before {
+      content: "";
+
+      margin-right: 8px;
+
+      font-family: "fontawesome", sans-serif;
+    }
   }
 
   .error-codes .error-code h4 .title-error-code {
     font-family: "Menlo", "Monaco", "Consolas", "Courier New", monospace;
-  }
-
-  .error-codes .error-code h4::before {
-    content: "";
-
-    margin-right: 8px;
-
-    font-family: "fontawesome", sans-serif;
   }
 
   .error-codes .error-code pre {
@@ -309,19 +315,19 @@
     color: $link_color;
 
     cursor: pointer;
+
+    &::before {
+      content: "";
+
+      margin-right: 8px;
+
+      font-family: "fontawesome", sans-serif;
+      text-decoration: none;
+    }
   }
 
   .error-codes .error-code .toggleErrorExample .underline:hover {
     text-decoration: underline;
-  }
-
-  .error-codes .error-code .toggleErrorExample::before {
-    content: "";
-
-    margin-right: 8px;
-
-    font-family: "fontawesome", sans-serif;
-    text-decoration: none;
   }
 
   .error-codes .error-code .toggleErrorExample.open::before {
@@ -346,14 +352,6 @@
     margin-bottom: 5px;
   }
 
-  .error-codes .error-code .error-code-tag::before {
-    content: "";
-
-    padding: 2px 4px;
-
-    font-family: "fontawesome", sans-serif;
-  }
-
   .error-codes .error-code .error-code-tag.world::before {
     content: "";
 
@@ -372,6 +370,14 @@
     background-color: #ffffff;
 
     font-size: 0.7em;
+
+    &::before {
+      content: "";
+
+      padding: 2px 4px;
+
+      font-family: "fontawesome", sans-serif;
+    }
   }
 
   .error-codes .error-code .error-code-release {
