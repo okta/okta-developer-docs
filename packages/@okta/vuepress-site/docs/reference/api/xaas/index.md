@@ -319,7 +319,7 @@ curl -L -X GET 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySour
 
 ### Trigger an Identity Source Session
 
-<ApiOperation method="put" url="/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/start-import" />
+<ApiOperation method="post" url="/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/start-import" />
 
 Triggers the import process of loaded data in an Identity Source Session into Okta
 
@@ -349,7 +349,7 @@ This request triggers the data import process for an Identity Source Session wit
 ##### Request
 
 ```bash
-curl -X PUT
+curl -X POST
 https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/start-import
 -H 'accept: application/json'
 -H 'authorization: SSWS ${apiToken}'
