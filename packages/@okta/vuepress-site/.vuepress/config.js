@@ -265,15 +265,15 @@ module.exports = ctx => ({
               WIDGET_VERSION: WIDGET_VERSION,
               TEST_JUNK: 'this is a test replacement', // Leave for testing
             })
-          });
-        //   .end()
-        // .test(/\.vue$/)
-        // .use('vue-loader')
-        //   .loader('vue-loader')
-        //   .end();
+          })
+          .end()
+        .test(/(\.md|\.vue)$/)
+        .use('vue-loader')
+          .loader('vue-loader')
+          .end();
   },
 
-  evergreen: false,
+  evergreen: true,
 
   markdown: {
     extendMarkdown: md => {
