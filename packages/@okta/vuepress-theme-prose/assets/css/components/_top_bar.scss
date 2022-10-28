@@ -86,23 +86,21 @@ $gray-900: #2f3f4a;
   line-height: 24px;
   letter-spacing: 1.5px;
   color: #ffffff;
+
+  &:hover {
+    color: $white;
+  }
+
+  @include media("<desktop") {
+    font-weight: 300;
+    font-size: 16px;
+  }
 }
 
 .top-bar-nav .navigation .menu a.active {
   border-bottom: 2px solid #ffffff;
-}
 
-.top-bar-nav .navigation .menu a:hover {
-  color: $white;
-}
-
-@include media("<desktop") {
-  .top-bar-nav .navigation .menu a {
-    font-weight: 300;
-    font-size: 16px;
-  }
-
-  .top-bar-nav .navigation .menu a.active {
+  @include media("<desktop") {
     padding: none;
 
     border: none;
@@ -342,10 +340,8 @@ $gray-900: #2f3f4a;
   height: 40px;
 
   cursor: pointer;
-}
 
-@include media(">desktop") {
-  .top-bar-nav--controls--toggle {
+  @include media(">desktop") {
     display: none;
   }
 }
