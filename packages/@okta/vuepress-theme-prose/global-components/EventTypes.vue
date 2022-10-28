@@ -178,8 +178,14 @@
 <style scoped lang="scss">
   @import "../assets/css/abstracts/_colors";
 
-  $border_color: map-get(map-get($colors, "form"), "input-border");
-  $link_color: map-get(map-get($colors, "link"), "base");
+  $border_color: map-get(
+    map-get($colors, "form"),
+    "input-border"
+  );
+  $link_color: map-get(
+    map-get($colors, "link"),
+    "base"
+  );
 
   .event-types .PageContent-main {
     padding-right: 0;
@@ -192,10 +198,10 @@
     border: 2px solid $border_color;
 
     font-size: 1em;
-  }
 
-  .event-types #event-type-search::placeholder {
-    color: $border_color;
+    &::placeholder {
+      color: $border_color;
+    }
   }
 
   .event-types #event-type-release {
@@ -211,7 +217,10 @@
 
   .event-types .event-type h4 {
     clear: left;
-    margin: 25px 0 0;
+    margin-top: 25px;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
     padding: 6px 10px;
     overflow: hidden;
 
@@ -243,14 +252,6 @@
     margin-bottom: 5px;
   }
 
-  .event-types .event-type .event-type-tag::before {
-    content: "";
-
-    padding: 2px 4px;
-
-    font-family: "fontawesome", sans-serif;
-  }
-
   .event-types .event-type .event-type-tag {
     display: block;
     float: left;
@@ -261,6 +262,14 @@
     background-color: #ffffff;
 
     font-size: 0.7em;
+
+    &::before {
+      content: "";
+
+      padding: 2px 4px;
+
+      font-family: "fontawesome", sans-serif;
+    }
   }
 
   .event-types .event-type .event-type-release {
