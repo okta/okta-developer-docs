@@ -32,7 +32,7 @@
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "stylelint": "yarn stylelint:scss && yarn stylelint:vue",
     "lint:all": "yarn vue-check && yarn stylelint",
-    "editorconfig": "npx editorconfig-checker"
+    "editorconfig": "yarn editorconfig-checker"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
