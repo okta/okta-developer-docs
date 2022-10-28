@@ -1,14 +1,19 @@
+// base
 @import "okta/base";
 
+// components
 @import "okta/components/button";
 @import "okta/components/framework_icon_block";
 
+// global
 @import "okta/global/fontawesome";
 @import "okta/global/fontello";
 
+// pages
 @import "okta/pages/quickstarts";
 @import "okta/pages/guides";
 
+// icons
 @import "okta/icons/all";
 
 .guide-featured footer {
