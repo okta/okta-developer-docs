@@ -10,16 +10,16 @@
     >
       <HeaderNav />
 
-      
-      <div 
-        class="content" 
+
+      <div
+        class="content"
         v-if="$page.frontmatter.component"
       >
         <component :is="$page.frontmatter.component" />
       </div>
 
-      <div 
-        class="content" 
+      <div
+        class="content"
         v-else-if="$page.frontmatter.customLandingPage"
       >
         <div
@@ -31,17 +31,17 @@
           <Sidebar />
           <div class="content-area content-area-full col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <div class="content-custom">
-              <component 
+              <component
                 :is="currentCustomLanding"
-                v-if="currentCustomLanding" 
+                v-if="currentCustomLanding"
               />
             </div>
           </div>
         </div>
       </div>
 
-      <div 
-        class="content" 
+      <div
+        class="content"
         v-else
       >
         <div
@@ -58,9 +58,9 @@
             <PageTitle />
             <ContentPage />
             <GeneratedContent v-if="$page.frontmatter.generated" />
-            <div 
+            <div
               class="edit-on-github"
-              v-if="!$page.frontmatter.generated" 
+              v-if="!$page.frontmatter.generated"
             >
               <span class="fa fa-github"></span>
               <span>
@@ -175,7 +175,7 @@ export default {
     $route(to, from) {
       this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
-      
+
       // On route change check if base path has changed.
       // If true, re-render sidebar.
       // We want to check if it's a 'real' route change (re-render sidebar) or just a page scroll
@@ -184,7 +184,7 @@ export default {
         // Previously we tried to remove re-render logic but seems it
         // caused additional bugs (https://oktainc.atlassian.net/browse/OKTA-419090, https://oktainc.atlassian.net/browse/OKTA-419134)
         // See https://github.com/okta/okta-developer-docs/pull/2170 <-- PR that gets rid of re-render sidebar logic
-        this.appContext.treeNavDocs = this.getNavigationData();   
+        this.appContext.treeNavDocs = this.getNavigationData();
       }
     }
   },
@@ -199,8 +199,8 @@ export default {
     window.addEventListener("resize", this.onResize);
     this.redirIfRequired();
   },
-  
-  
+
+
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
   },
@@ -244,5 +244,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/css/prose";
+  @import "../assets/css/prose";
 </style>
