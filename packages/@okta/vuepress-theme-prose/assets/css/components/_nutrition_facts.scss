@@ -14,10 +14,10 @@
 
   font-size: 14px;
   color: #212126;
-}
 
-.nutrition-facts .fact-item:not(:last-child) {
-  border-bottom: 1px solid #d7d7dc;
+  &:not(:last-child) {
+    border-bottom: 1px solid #d7d7dc;
+  }
 }
 
 .nutrition-facts .fact-item .fact-item-title {
