@@ -9,10 +9,6 @@ table td {
   padding: 0.3rem 0.5rem;
 }
 
-table a svg.icon.outbound {
-  display: none;
-}
-
 table thead tr {
   border-bottom: 0.2em solid cv("gray", "600");
 }
@@ -24,4 +20,8 @@ table thead tr th {
 
 table tbody tr {
   border-bottom: 0.05em solid cv("gray", "500");
+}
+
+table a svg.icon.outbound {
+  display: none;
 }
