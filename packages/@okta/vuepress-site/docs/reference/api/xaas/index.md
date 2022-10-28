@@ -423,8 +423,8 @@ Content-Type: application/json
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
-| `id` | String | The unique identifier for the Identity Source Session |
-| `identitySourceId` | String | The unique identifier obtained from creating a Custom Identity Source integration in Okta |
+| `id` | String | Unique identifier for the Identity Source Session |
+| `identitySourceId` | String | Unique identifier obtained from creating a Custom Identity Source integration in Okta |
 | `status` | String (enum: `CREATED`, `TRIGGERED`, `COMPLETED`, `CLOSED`, `EXPIRED`) | The current status of the Identity Source Session:<br><ul><li>CREATED: This is the status for a new Identity Source Session that hasn't been processed. You can upload bulk data in this stage.</li><li>TRIGGERED: Okta is processing the import data in this session. You can't load bulk data in this stage.</li><li>COMPLETED: The bulk data was processed and imported into Okta.</li><li>CLOSED: The Identity Source Session was canceled and isn't available for further activity.<li>EXPIRED: This Identity Source Session had the `CREATED` status and timed-out after 24 hours of inactivity.</li></ul>|
 
 <!--Murty Devarakonda (Oct 20): ERROR status isn't documented because it will be removed.-->
@@ -446,7 +446,7 @@ Content-Type: application/json
 
 | Property           | Type                           | Description               |
 | ------------------ | ------------------------------ | ------------------------------ |
-| `externalId`        | String                 | The unique identifier for the user in the external HR source |
+| `externalId`        | String                 | Unique identifier for the user in the external HR source |
 | `profile`          | [Profile object](/docs/reference/api/users/#profile-object) | Contains a set of external user attributes and their values that are mapped to Okta standard and custom profile properties. See [Profile object](/docs/reference/api/users/#profile-object) and Declaration of a Custom Identity Source Schema in [Using anything as a source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source).  |
 
 #### Identity Source User Profile For Upsert object example
@@ -472,7 +472,7 @@ Content-Type: application/json
 
 | Property           | Type                           | Description               |
 | ------------------ | ------------------------------ | ------------------------------ |
-| `externalId`        | String                 | The unique identifier for the user in the external HR source |
+| `externalId`        | String                 | Unique identifier for the user in the external HR source |
 
 #### Identity Source User Profile For Delete object example
 
