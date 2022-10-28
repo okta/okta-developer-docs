@@ -11,6 +11,10 @@
   margin: 0 36px 0 0;
   width: 100%;
 
+  &:last-child {
+    margin-right: 0;
+  }
+
   @include media("<bootstrap-xl") {
     margin-right: 6%;
     width: 47%;
@@ -26,10 +30,6 @@
   @include media("<bootstrap-xl") {
     margin-right: 0;
   }
-}
-
-.selector-tiles .selector-tile-item:last-child {
-  margin-right: 0;
 }
 
 .selector-tile {
@@ -61,6 +61,13 @@
   font-size: 14px;
   color: cv("text", "darker");
 
+  &:hover,
+  &:visited,
+  &:active,
+  &:focus {
+    color: cv("text", "darker");
+  }
+
   @include media("<desktop") {
     padding: 0 0 8px;
 
@@ -85,16 +92,6 @@
   }
 }
 
-.selector-tile--header:hover {
-  color: cv("text", "darker");
-}
-
-.selector-tile--header:visited,
-.selector-tile--header:active,
-.selector-tile--header:focus {
-  color: cv("text", "darker");
-}
-
 .selector-tile--data--item {
   display: flex;
   flex-direction: row;
@@ -107,16 +104,22 @@
   text-decoration: none;
   color: cv("text", "darker");
 
+  &:hover {
+    background: cv("blue", "000");
+
+    color: cv("link", "darker");
+  }
+
+  &:visited,
+  &:active,
+  &:focus {
+    color: cv("text", "darker");
+  }
+
   @include media("<desktop") {
     padding-right: 0;
     padding-left: 0;
   }
-}
-
-.selector-tile--data--item:visited,
-.selector-tile--data--item:active,
-.selector-tile--data--item:focus {
-  color: cv("text", "darker");
 }
 
 .selector-tile--data--item > img {
@@ -157,12 +160,6 @@
   @include media("<desktop") {
     font-size: 16px;
   }
-}
-
-.selector-tile--data--item:hover {
-  background: cv("blue", "000");
-
-  color: cv("link", "darker");
 }
 
 .selector-tile--data--item:hover > i {
