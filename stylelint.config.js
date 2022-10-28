@@ -104,7 +104,12 @@ module.exports = {
 
     // Max & min
     "declaration-block-single-line-max-declarations": 1,
-    "max-nesting-depth": 1,
+    "max-nesting-depth": [
+      1,
+      {
+        "ignoreAtRules": ["media"]
+      }
+    ],
     "number-max-precision": 2,
 
     // Notation
