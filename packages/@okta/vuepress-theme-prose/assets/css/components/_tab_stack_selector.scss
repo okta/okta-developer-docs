@@ -35,22 +35,22 @@
 
   font-weight: 600;
   color: #2f3f4a;
-}
 
-.stack-selector nav.tabs ul li.current a:hover {
-  border-bottom-color: #1662dd;
-  background: transparent;
+  &:hover {
+    border-bottom-color: #1662dd;
+    background: transparent;
+  }
 }
 
 .stack-selector nav.tabs ul li .icon {
   width: 24px;
   height: 24px;
-}
 
-.stack-selector nav.tabs ul li .icon::before,
-.stack-selector nav.tabs ul li .icon::after {
-  font-size: 24px;
-  line-height: 24px;
+  &::before,
+  &::after {
+    font-size: 24px;
+    line-height: 24px;
+  }
 }
 
 .stack-selector nav.tabs ul li a {
@@ -75,14 +75,14 @@
   transition-timing-function: ease-in-out;
   transition-duration: 250ms;
   transition-property: color, background, border-color, border-width;
-}
 
-.stack-selector nav.tabs ul li a:hover {
-  border-bottom-width: 3px;
-  border-bottom-color: #124a94;
-  background: #e5edfb;
+  &:hover {
+    border-bottom-width: 3px;
+    border-bottom-color: #124a94;
+    background: #e5edfb;
 
-  color: #2f3f4a;
+    color: #2f3f4a;
+  }
 }
 
 .stack-selector nav.tabs ul li a .framework {
