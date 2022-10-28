@@ -6,6 +6,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 60px 0;
+
+  @media (max-width: 1110px) {
+    flex-wrap: wrap;
+  }
 }
 
 .customLanding-features__row:not(:last-child) svg {
@@ -21,12 +25,6 @@
   width: 100%;
 }
 
-@media (max-width: 1110px) {
-  .customLanding-features__row {
-    flex-wrap: wrap;
-  }
-}
-
 .customLanding-features__col {
   width: 370px;
 
@@ -39,17 +37,15 @@
 
     border-radius: 12px;
     background-color: cv("body", "custom-bg-white");
-  }
-}
 
-@media (max-width: 1110px) {
-  .customLanding-features__col {
-    margin-bottom: 20px;
-    width: 100%;
-
-    &:last-child {
+    @media (max-width: 1110px) {
       width: 100%;
     }
+  }
+
+  @media (max-width: 1110px) {
+    margin-bottom: 20px;
+    width: 100%;
   }
 }
 
