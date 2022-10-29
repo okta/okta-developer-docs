@@ -242,7 +242,7 @@ You can click **Test in Okta** again from the OIN Manager to install another tes
 
 ### Submit for review
 
-After you tested your API service integration and specified all fields and artifacts in the OIN Manager, you can submit your integration to Okta.
+After you test your API service integration and specify all fields and artifacts in the OIN Manager, you can submit your integration to Okta.
 
 1. Sign in to [OIN Manager](https://oinmanager.okta.com/) and click **Edit** next to your API service integration submission.
 1. From the **OAUTH** tab, click **Submit for Review** on the right side of your page.
