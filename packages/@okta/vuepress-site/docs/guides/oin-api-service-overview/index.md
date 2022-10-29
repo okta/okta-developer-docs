@@ -28,7 +28,7 @@ API service integrations access [Okta management APIs](/docs/reference/core-okta
 
 ## API service integration benefits
 
-Before API service integrations were supported in the OIN, Okta API tokens were a common way for integrations to access the Okta management APIs. API service integrations offer improved security and reliability:
+Before the OIN supported API service integrations, Okta API tokens were a common way for integrations to access the Okta management APIs. API service integrations offer improved security and reliability:
 
 | &nbsp; | &nbsp; |
 | ------ | ------ |
