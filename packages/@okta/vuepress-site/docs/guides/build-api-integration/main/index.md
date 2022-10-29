@@ -33,7 +33,7 @@ API service integrations access Okta APIs using the OAuth 2.0 [Client Credential
 
 > **Note:** Currently, Okta only supports the OAuth APIs listed in [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
-If you have an API service integration for your app in the OIN, your customers can configure your integration to use the OAuth 2.0 Client Credentials flow with their Okta tenant org. Each customer Okta org has its own authorization server. When a customer authorizes your API service integration to access their org, Okta generates a unique set of credentials (client ID and client secret) for that org.
+Customers can use any API service integration listed in the OIN catalog with their Okta tenant org. Each customer Okta org has its own authorization server that supports the Client Credentials flow. When a customer authorizes your API service integration to access their org, Okta generates a unique set of credentials (client ID and client secret) for that org.
 You must [collect and store these credentials](#collect-and-save-customer-credentials) for each customer to allow your integration to work with your customer's Okta org.
 
 ### API service integration Client Credentials flow
