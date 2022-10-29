@@ -238,7 +238,7 @@ If the fields that you update affect the test integration instance in your Okta 
 
 To remove the test API service integration in your Okta org, click **Revoke** from the integration details page in your Okta Admin Console. This action revokes the scope grants, client ID and secret from the test integration that you installed previously.
 
-You can click **Test in Okta** again from the OIN Manager to install another test integration instance in your Okta org. This action is useful when you make an update to your submission in the OIN Manager (for example, modifying the scopes or name of the integration), and want to see the updates reflected in the test integration instance.
+You can click **Test in Okta** again from the OIN Manager to install another test integration instance in your Okta org. This action is useful when you update your submission in the OIN Manager (for example, modifying the scopes or name of the integration) and want to see the updates reflected in the test integration instance.
 
 ### Submit for review
 
