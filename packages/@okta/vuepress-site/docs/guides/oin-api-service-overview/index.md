@@ -33,7 +33,7 @@ Before the OIN supported API service integrations, Okta API tokens were a common
 | &nbsp; | &nbsp; |
 | ------ | ------ |
 | **Access granularity** | Using OAuth 2.0 scopes, you can restrict access request to specific resources instead of all the resources that a user can access. |
-| **Configuration experience** | API service integrations can be discovered and added directly from the OIN catalog. You don't need to create a service account or an anonymous activity user for the integration. |
+| **Configuration experience** | You can discover API service integrations and add them directly from the OIN catalog. You don't need to create a service account or an anonymous activity user for the integration. |
 | **Service integration** | Okta API tokens represent a user, which means they're not a great fit for service integrations where a user context isn’t needed or desirable. |
 | **Reliability** | Okta API tokens expire after 30 days of inactivity or when a user leaves the Okta org. After being authorized, API service integrations can request a new access token whenever necessary and without manual action from an admin. |
 | **Rotation** | Okta API tokens must be rotated manually. API service integration access tokens can be rotated programmatically. |
