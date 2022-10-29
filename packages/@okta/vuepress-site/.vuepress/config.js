@@ -61,10 +61,8 @@ module.exports = ctx => ({
      */
     ['script', {}, `
       window.dataLayer = window.dataLayer || [];
-
       var isProduction = window.location.hostname === 'developer.okta.com';
       if (isProduction) {
-
         // START Google Tag Manager - main container
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -72,7 +70,6 @@ module.exports = ctx => ({
         '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-KXMLV58');
         // END Google Tag Manager
-
       }
     `],
     ['script', {}, `
@@ -253,27 +250,22 @@ module.exports = ctx => ({
   chainWebpack(config) {
     config.module
       .rule('string-replacement')
-        .test(/(\.md|\.vue)$/)
-        .use('string-replace-loaded')
-          .loader('string-replace-loader')
-          .options({
-            multiple: convertReplacementStrings({
-              /* KEYS HERE GET WRAPPED IN '-=OKTA_REPLACE_WITH_XXX=-'
-              *
-              * Changes WILL require restarting `yarn dev` :(
-              */
-              WIDGET_VERSION: WIDGET_VERSION,
-              TEST_JUNK: 'this is a test replacement', // Leave for testing
-            })
-          })
-          .end()
-        .test(/(\.md|\.vue)$/)
-        .use('vue-loader')
-          .loader('vue-loader')
-          .end();
+      .test(/(\.md|\.vue)$/)
+      .use('string-replace-loaded')
+      .loader('string-replace-loader')
+      .options({
+        multiple: convertReplacementStrings({
+          /* KEYS HERE GET WRAPPED IN '-=OKTA_REPLACE_WITH_XXX=-'
+           *
+           * Changes WILL require restarting `yarn dev` :(
+           */
+          WIDGET_VERSION: WIDGET_VERSION,
+          TEST_JUNK: 'this is a test replacement', // Leave for testing
+        })
+      });
   },
 
-  evergreen: true,
+  evergreen: false,
 
   markdown: {
     extendMarkdown: md => {
@@ -286,6 +278,7 @@ module.exports = ctx => ({
       level: 2
     }
   },
+
   plugins: {
     'code-copy': {},
     'vuepress-plugin-chunkload-redirect': {},
