@@ -81,7 +81,7 @@ For an example of how to implement the Client Credentials flow using Spring Boot
 
 Okta generates a unique set of credentials (client ID and client secret) for your customer when they install your integration in their Okta org. See [Set up an API service integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations).
 
-You must collect and store these credentials for each customer to allow your integration to work with the customer's Okta org. To implement the Client Credentials flow in your integration, provide an interface to collect and store these API service integration credentials:
+You must store these credentials for each customer to allow your integration to work with the customer's Okta org. To implement the Client Credentials flow in your integration, provide an interface to collect and store these API service integration credentials:
 
 * Okta tenant (organization) domain (for example, `acme.okta.com`)
 * client ID
