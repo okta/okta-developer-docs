@@ -605,7 +605,7 @@ export const guides = [
             ],
           },
           {
-            title: "API service integration",
+            title: "API service integrations",
             path: "/docs/guides/oin-api-service-overview/",
             subLinks: [
               {
