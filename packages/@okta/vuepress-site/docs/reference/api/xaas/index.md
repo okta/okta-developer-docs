@@ -427,8 +427,6 @@ Content-Type: application/json
 | `identitySourceId` | String | Unique identifier obtained from creating a Custom Identity Source integration in Okta |
 | `status` | String (enum: `CREATED`, `TRIGGERED`, `COMPLETED`, `CLOSED`, `EXPIRED`) | The current status of the Identity Source Session:<br><ul><li>CREATED: This is the status for a new Identity Source Session that hasn't been processed. You can upload bulk data in this stage.</li><li>TRIGGERED: Okta is processing the import data in this session. You can't load bulk data in this stage.</li><li>COMPLETED: The bulk data was processed and imported into Okta.</li><li>CLOSED: The Identity Source Session was canceled and isn't available for further activity.<li>EXPIRED: This Identity Source Session had the `CREATED` status and timed-out after 24 hours of inactivity.</li></ul>|
 
-<!--Murty Devarakonda (Oct 20): ERROR status isn't documented because it will be removed.-->
-
 #### Identity Source Session example
 
 ```json
