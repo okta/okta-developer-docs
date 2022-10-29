@@ -38,7 +38,7 @@ You must [collect and store these credentials](#collect-and-save-customer-creden
 
 ### API service integration Client Credentials flow
 
-At a high-level, the OAuth 2.0 Client Credentials flow for an API service integration has the following steps:
+At a high level, the OAuth 2.0 Client Credentials flow for an API service integration has the following steps:
 
 <div class="full">
 
