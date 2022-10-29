@@ -73,7 +73,7 @@ app -> client: Response
 
 ## Build your API service integration
 
-This section provides you with a guideline of the required components, artifacts, and requests to build your API service integration using basic cURL commands. You can use an OAuth 2.0 library in your preferred language to implement the OAuth 2.0 Client Credentials flow.
+This section outlines the components, artifacts, and requests required to build your API service integration using basic cURL commands. You can use an OAuth 2.0 library in your preferred language to implement the OAuth 2.0 Client Credentials flow.
 
 For an example of how to implement the Client Credentials flow using Spring Boot, see [How to use Client Credentials flow with Spring Security](https://developer.okta.com/blog/2021/05/05/client-credentials-spring-security). This blog example uses the [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot) library. You can ignore the custom scopes and authorization server part of the example since it doesn't apply to the API service integration use case.
 
