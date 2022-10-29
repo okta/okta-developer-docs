@@ -5,7 +5,9 @@ node_js:
 addons:
   chrome: stable
 before_install: "source scripts/helpers.sh"
-install: travis_wait 30 yarn install
+install:
+  - yarn install
+  - travis_wait 30 mvn install
 before_script:
   - "yarn lint:all"
   - "yarn build"
