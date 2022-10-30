@@ -128,17 +128,19 @@ See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#author
 The following is an example request to the `/authorize` endpoint for an [authorization code](/docs/guides/implement-grant-type/authcode/main/) flow and includes the `offline_access` scope.
 
 ```bash
-GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}
- &response_type=code
- &scope=openid%20offline_access
- &redirect_uri=ourApp%3A%2Fcallback
- &state=237c671a-29d7-11eb-adc1-0242ac120002
+curl -x GET https://${yourOktaDomain}/oauth2/default/v1/authorize
+?client_id=${clientId}
+response_type=code
+&scope=openid%20offline_access
+&redirect_uri=ourApp%3A%2Fcallback
+&state=237c671a-29d7-11eb-adc1-0242ac120002
 ```
 
-The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow and includes the `offline_access` scope.
+The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/#request-an-authorization-code) flow and includes the `offline_access` scope.
 
 ```bash
-https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}
+curl -x GET https://${yourOktaDomain}/oauth2/default/v1/authorize
+?client_id=${clientId}
 &response_type=code
 &scope=openid%20offline_access
 &redirect_uri=yourApp%3A%2Fcallback
@@ -163,18 +165,16 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/toke
 -d 'scope=openid offline_access'
 ```
 
-The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
+The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/#exchange-the-code-for-tokens). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
 -H 'Accept: application/json' \
--H 'Authorization: Basic ${Base64(${clientId}:${clientSecret})}' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
 -d 'grant_type=authorization_code' \
 -d 'redirect_uri=${redirectUri}' \
 -d 'code=iyz1Lpim4NgN6gDQdT1a9PJDVTaCdxG1wJMYiUkfGts' \
--d 'state=419946f0-29d7-11eb-adc1-0242ac120002' \
--d 'scope=openid offline_access' \
+-d 'client_id=${clientId}' \
 -d 'code_verifier=M25iVXpKU3puUjFjYWg3T1NDTDQtcW1rOUY5YXlwalNoc0hhaoxifmZHag'
 ```
 
