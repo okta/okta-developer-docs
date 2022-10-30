@@ -130,7 +130,7 @@ The following is an example request to the `/authorize` endpoint for an [authori
 ```bash
 curl -x GET https://${yourOktaDomain}/oauth2/default/v1/authorize
 ?client_id=${clientId}
-response_type=code
+&response_type=code
 &scope=openid%20offline_access
 &redirect_uri=ourApp%3A%2Fcallback
 &state=237c671a-29d7-11eb-adc1-0242ac120002
