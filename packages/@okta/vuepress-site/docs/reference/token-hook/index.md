@@ -66,7 +66,9 @@ The set of scopes that have been granted. For descriptions of the scopes that ca
 
 ## Objects in the response that you send
 
-For the token inline hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
+For the token inline hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined in the following sections.
+
+<HookResponseSize/>
 
 ### commands
 
