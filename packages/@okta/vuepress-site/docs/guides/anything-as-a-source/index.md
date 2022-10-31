@@ -50,7 +50,7 @@ The Identity Sources API synchronizing data flow uses an [Identity Source Sessio
 ### Identity Source Session status
 
 * **CREATED**: The Identity Source Session object has been created for a specific Custom Identity Source integration, and you can load data to the session at this stage. No data import processing has been invoked, and you can cancel the session at this stage.
-* **TRIGGERED**:  Okta is processing the loaded data in the Identity Source Session. You can’t load new data to the Identity Source Session object at this stage, and you can't cancel the session. You can view sessions with this status in the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page from the Admin Console.
+* **TRIGGERED**:  Okta is processing the uploaded data in the Identity Source Session. You can’t load new data to the Identity Source Session object at this stage, and you can't cancel the session. You can view sessions with this status in the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page from the Admin Console.
 * **COMPLETED**:  The data in the Identity Source Session object has been processed by Okta. You can’t upload new data to the Identity Source Session object if it has the `COMPLETED` status. The synchronization data job is considered complete.
 * **CLOSED**: The session is cancelled and isn't available for further activity. You can only cancel Identity Source Sessions with the `CREATED` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a cancelled Identity Source Session.
 * **EXPIRED**: This status indicates that the Identity Source Session has timed out during the data loading stage. An Identity Source Session with the `CREATED` status expires from 24 hours of inactivity.
@@ -64,7 +64,7 @@ You can only process one Identity Source Session at a time (for a specific Custo
 * An Identity Source Session with the `CREATED` or `TRIGGERED` status is considered active.
 * If there are no API requests in 24 hours for an Identity Source Session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
 * You can’t process an Identity Source Session in parallel for the same identity source. If you trigger a session for an identity source that already has a session processing, then the newly triggered session is queued until the current import process completes.
-* You can't create a new Identity Source Session in less than five minutes of an active session associated with the same identity source. If Okta receives a new Identity Source Session request within five minutes of an active Identity Source Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
+* You can't create a new Identity Source Session in less than five minutes after triggering an active session associated with the same identity source. If Okta receives a new Identity Source Session request within five minutes of an active Identity Source Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
 
 > **Note:** You can use the [List active Identity Source Sessions](/docs/reference/api/xaas/#list-active-identity-source-sessions) request to return active Identity Source Sessions for an identity source.
 
