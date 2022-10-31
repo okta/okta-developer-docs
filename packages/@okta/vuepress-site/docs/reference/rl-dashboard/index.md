@@ -83,7 +83,7 @@ The APIs table shows each API and its corresponding rate limit for your org. The
 
 </div>
 
-You can sort on all the columns. The Trendline is sorted by the current usage. Use the **Filters** dropdown list to filter between all APIs and those that are rate limit multiplier eligible or have the multiplier applied.
+You can sort on all the columns. The Trendline is sorted by the current usage. Use the **Filters** dropdown list to filter between all APIs that have rate-limit multipliers applied or that are multiplier eligible.
 
 Each API is a link that navigates you to the [dashboard view of API rate limits and violations](#API-rate-limits-and-violations) where you can obtain more details on the API.
 
