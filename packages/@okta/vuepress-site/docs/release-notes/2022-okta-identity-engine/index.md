@@ -6,6 +6,33 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## October
 
+### Weekly release 2022.10.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Invalid phone numbers rejected](#invalid-phone-numbers-rejected)                | October 26, 2022         |
+| [Bugs fixed in 2022.10.2](#bugs-fixed-in-2022-10-2)                      | October 26, 2022         |
+
+#### Invalid phone numbers rejected
+
+Okta now rejects attempts to enroll a toll-free, premium, fixed-line (SMS), or any other invalid or unrecognized phone number. This ensures that only valid phone numbers are used for multifactor authentication or device enrollment. See [Configure and use telephony](https://help.okta.com/okta_help.htm?type=oie&id=ext-telephony-how-to) or the [Enroll Factor API](/docs/reference/api/authn/#enroll-factor). <!--OKTA-437305-->
+
+#### Bugs fixed in 2022.10.2
+
+* A `/token` request that used the authorization code flow failed when the **Groups claim type** in the app was set to **Expression** and the group number exceeded 100. (OKTA-518536)
+
+* A `/token` request that used the `refresh_token` grant type failed when the **Groups claim type** in the app was set to either **Expression** or **Filter** and the group number exceeded 100. (OKTA-531605)
+
+* When a user entered their credentials in the widget (version 6.6.1) during self-service registration, their information was cleared if the username didn't exist in the org. (OKTA-532293)
+
+* The MyAccount API didn't send a notice of pending email address change for Add Email calls with a false `sendEmail` parameter. (OKTA-539268)
+
+* An opened session in Classic Engine couldn't be closed for a user (`DELETE /session/me`) after upgrading to Identity Engine. (OKTA-517093)
+
+* Custom app integrations didn't include the `mfa` and `pwd` factors in `session.amr` claims during federated sessions. (OKTA-541859)
+
+* Admins were able to set the `loginRedirectUrl` using the Apps API. (OKTA-540515)
+
 ### Weekly release 2022.10.1
 
 | Change | Expected in Preview Orgs |
@@ -32,7 +59,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
 | [Manage embedded widget sign-in support is EA in Preview](#manage-embedded-widget-sign-in-support-is-ea-in-preview) | October 5, 2022 |
 | [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
-| [OAuth 2.0 authentication for inline hooks is EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ea-in-preview) | October 5, 2022 |
+| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
 | [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
 | [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
 
@@ -84,7 +111,7 @@ Okta provides the Okta Sign-In Widget out of the box so that customers can authe
 
 Okta provides a default authorization server so that customers can quickly get started. If a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label in the Admin Console. <!--OKTA-536276-->
 
-#### OAuth 2.0 authentication for inline hooks is EA in Preview
+#### OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview
 
 Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
 
