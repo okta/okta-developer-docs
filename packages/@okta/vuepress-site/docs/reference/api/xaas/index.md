@@ -212,53 +212,6 @@ HTTP/1.1 202 Accepted
 Content-Type: application/json
 ```
 
-### Retrieve an Identity Source Session
-
-<ApiOperation method="get" url="/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}" />
-
-Retrieves an Identity Source Session by its ID
-
-#### Request path parameters
-
-| Parameter | Type        | Description   |
-| --------- | ----------- | ------------- |
-| `identitySourceId`  | String | The identity source ID obtained from creating a Custom Identity Source integration in Okta |
-| `sessionId`  | String | The ID for the Identity Source Session to retrieve |
-
-#### Response body
-
-The requested [Identity Source Session object](#identity-source-session-object)
-
-##### Possible errors
-
-See [Possible common errors](#possible-common-errors) for all Identity Sources API endpoints.
-
-#### Use example
-
-This request retrieves an Identity Source Session with an `id` value of `${sessionId}`:
-
-##### Request
-
-```bash
-curl -X GET
-https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}
--H 'accept: application/json'
--H 'authorization: SSWS ${apiToken}'
--H 'cache-control: no-cache'
--H 'content-type: application/json'
-```
-
-##### Response
-
-```json
-{
-  "id": "{sessionId}",
-  "identitySourceId": "{identitySourceId}",
-  "status": "CREATED",
-  "importType": "INCREMENTAL"
-}
-```
-
 ### List active Identity Source Sessions
 
 <ApiOperation method="get" url="/api/v1/identity-sources/${identitySourceId}/sessions" />
@@ -315,6 +268,52 @@ curl -L -X GET 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySour
     "importType": "INCREMENTAL"
   }
 ]
+```
+### Retrieve an Identity Source Session
+
+<ApiOperation method="get" url="/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}" />
+
+Retrieves an Identity Source Session by its ID
+
+#### Request path parameters
+
+| Parameter | Type        | Description   |
+| --------- | ----------- | ------------- |
+| `identitySourceId`  | String | The identity source ID obtained from creating a Custom Identity Source integration in Okta |
+| `sessionId`  | String | The ID for the Identity Source Session to retrieve |
+
+#### Response body
+
+The requested [Identity Source Session object](#identity-source-session-object)
+
+##### Possible errors
+
+See [Possible common errors](#possible-common-errors) for all Identity Sources API endpoints.
+
+#### Use example
+
+This request retrieves an Identity Source Session with an `id` value of `${sessionId}`:
+
+##### Request
+
+```bash
+curl -X GET
+https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}
+-H 'accept: application/json'
+-H 'authorization: SSWS ${apiToken}'
+-H 'cache-control: no-cache'
+-H 'content-type: application/json'
+```
+
+##### Response
+
+```json
+{
+  "id": "{sessionId}",
+  "identitySourceId": "{identitySourceId}",
+  "status": "CREATED",
+  "importType": "INCREMENTAL"
+}
 ```
 
 ### Trigger an Identity Source Session

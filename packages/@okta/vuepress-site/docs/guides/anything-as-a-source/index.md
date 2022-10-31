@@ -335,34 +335,7 @@ Possible returned responses:
 
 ### Monitor Identity Source Sessions
 
-To monitor Identity Source Session activity for an identity source, you can use either [Retrieve an Identity Source Session by ID](#retrieve-an-identity-source-session-by-id) or [Retrieve active Identity Source Sessions](#retrieve-active-identity-source-sessions) requests to retrieve session properties.
-
-#### Retrieve an Identity Source Session by ID
-
-The [Retrieve an Identity Source Session](/docs/reference/api/xaas/#retrieve-an-identity-source-session) request returns the Identity Source Session properties for a specific session ID. Data processing completed if the returned session status is `COMPLETED`.
-
-```bash
-curl -i -X GET \
-  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
--H 'Authorization: SSWS ${apiKey}' \
--H 'Content-Type: application/json'
-```
-
-Possible returned responses:
-
-* **200 OK**: The data import process completed successfully and returns the following properties:
-
-  ```json
-  {
-    "id": "{sessionId}",
-    "identitySourceId": "{identitySourceId}",
-    "status": "COMPLETED",
-    "importType": "INCREMENTAL"
-  }
-  ```
-
-* **400 Bad Request**: The Identity Source Session ID is unknown.
-* **401 Unauthorized**: The API key isn't valid.
+To monitor Identity Source Session activity for an identity source, you can use either [Retrieve active Identity Source Sessions](#retrieve-active-identity-source-sessions) or [Retrieve an Identity Source Session by ID](#retrieve-an-identity-source-session-by-id)requests to retrieve session properties.
 
 #### Retrieve active Identity Source Sessions
 
@@ -405,3 +378,30 @@ Possible returned responses:
 * **401 Unauthorized**: The API key isn't valid.
 
 > **Note:** Alternatively, you can use the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page from the Okta Admin Console to monitor the import process job. When the job completes, a summary of the import process appears in the Import Monitoring dashboard.
+
+#### Retrieve an Identity Source Session by ID
+
+The [Retrieve an Identity Source Session](/docs/reference/api/xaas/#retrieve-an-identity-source-session) request returns the Identity Source Session properties for a specific session ID. Data processing completed if the returned session status is `COMPLETED`.
+
+```bash
+curl -i -X GET \
+  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
+-H 'Authorization: SSWS ${apiKey}' \
+-H 'Content-Type: application/json'
+```
+
+Possible returned responses:
+
+* **200 OK**: The data import process completed successfully and returns the following properties:
+
+  ```json
+  {
+    "id": "{sessionId}",
+    "identitySourceId": "{identitySourceId}",
+    "status": "COMPLETED",
+    "importType": "INCREMENTAL"
+  }
+  ```
+
+* **400 Bad Request**: The Identity Source Session ID is unknown.
+* **401 Unauthorized**: The API key isn't valid.
