@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="ea" /><!--LEA for both Classic and Identity Engine. Okta needs to turn on IDENTITY_SOURCE_APPS FF (not Self-Service)-->
 
-The Okta Identity Sources API provides a mechanism to synchronize an HR source (the custom identity source) with Okta user profiles in an org. This API supports the Anything-as-a-Source (XaaS) solution. See [Build an Anything-as-a-Source custom client integration](https://6346d2bcc01af01731982563--reverent-murdock-829d24.netlify.app/docs/guides/anything-as-a-source/).
+The Okta Identity Sources API provides a mechanism to synchronize an HR source (the custom identity source) with Okta user profiles in an org. This API supports the Anything-as-a-Source (XaaS) feature. See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/).
 
 ## Identity Sources API operations
 
@@ -426,7 +426,7 @@ Content-Type: application/json
 | `id` | String | Unique identifier for the Identity Source Session |
 | `identitySourceId` | String | Unique identifier obtained from creating a Custom Identity Source integration in Okta |
 | `status` | String (enum: `CREATED`, `TRIGGERED`, `COMPLETED`, `CLOSED`, `EXPIRED`) | The current status of the Identity Source Session:<br><ul><li>CREATED: This is the status for a new Identity Source Session that hasn't been processed. You can upload bulk data in this stage.</li><li>TRIGGERED: Okta is processing the import data in this session. You can't load bulk data in this stage.</li><li>COMPLETED: The bulk data was processed and imported into Okta.</li><li>CLOSED: The Identity Source Session was canceled and isn't available for further activity.<li>EXPIRED: This Identity Source Session had the `CREATED` status and timed-out after 24 hours of inactivity.</li></ul>|
-
+| `importType` | String (enum: `INCREMENTAL`) | The import type for the Identity Source Session. Currently, only `INCREMENTAL` is supported. |
 #### Identity Source Session example
 
 ```json

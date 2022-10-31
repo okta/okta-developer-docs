@@ -20,7 +20,7 @@ This guide outlines how to develop a custom client to manage an identity source 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
    * [A Custom Identity Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source) integration configured in your Okta org
  <!--(https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm)-->
-   * [An Okta API token](https://developer.okta.com/docs/guides/create-an-api-token/main/) to make secure API calls
+   * [An Okta API token](/docs/guides/create-an-api-token/) to make secure API calls
      >  **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable the feature. <!-- IDENTITY_SOURCE_APPS FF needs to be enabled-->
 * An HR source from which you want to synchronize user data with Okta
 * A custom client to add Identity Sources API integration
@@ -45,7 +45,7 @@ This guide outlines the Identity Sources API flow so that you can develop your c
 
 ### Identity Source Session
 
-The Identity Sources API synchronizing data flow uses an [Identity Source Session](/docs/reference/xaas/#identity-source-session-object) object to encapsulate the data upload and the data import processing tasks. You need to create an Identity Source Session object each time that you want to synchronize data from the HR source to Okta. The Identity Source Session object uses the following `status` values to indicate each stage of the synchronization process flow.
+The Identity Sources API synchronizing data flow uses an [Identity Source Session](/docs/reference/api/xaas/#identity-source-session-object) object to encapsulate the data upload and the data import processing tasks. You need to create an Identity Source Session object each time that you want to synchronize data from the HR source to Okta. The Identity Source Session object uses the following `status` values to indicate each stage of the synchronization process flow.
 
 ### Identity Source Session status
 
@@ -95,7 +95,7 @@ Before you start to build your XaaS data synchronization client, you need to set
 
 * Your Okta org domain URL (`${yourOktaDomain}`) for API requests
 * Your Custom Identity Source ID (`${identitySourceId}`): The unique identifier that you obtained from [configuring a Custom Identity Source integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source) in your Okta org
-* An API token (`${apiKey}`}: [Obtain an API token from your Okta org](/docs/guides/create-an-api-token/main/) to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
+* An API token (`${apiKey}`}: Obtain an [API token](/docs/guides/create-an-api-token/main/) from your Okta org to make secure API calls to Okta. Use this API token in the SSWS Authorization header.
 
 Code your XaaS data synchronization client with the following generalized API flow:
 
@@ -339,7 +339,7 @@ To monitor Identity Source Session activity for an identity source, you can use 
 
 #### Retrieve an Identity Source Session by ID
 
-The [Retrieve an Identity Source Session by ID](/docs/reference/api/xaas#retrieve-an-identity-source-session) request returns the Identity Source Session properties for a specific session ID. Data processing completed if the returned session status is `COMPLETED`.
+The [Retrieve an Identity Source Session](/docs/reference/api/xaas/#retrieve-an-identity-source-session) request returns the Identity Source Session properties for a specific session ID. Data processing completed if the returned session status is `COMPLETED`.
 
 ```bash
 curl -i -X GET \
