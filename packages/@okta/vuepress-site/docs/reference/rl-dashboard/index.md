@@ -79,7 +79,7 @@ The APIs table shows each API and its corresponding rate limit for your org. The
 
 <div class="three-quarter">
 
-![Displays the APIs table with corresponding rate limits for each API.](/img/rate-limits/rl_dashboard10.png)
+![Displays the APIs table with corresponding rate limits for each API.](/img/rate-limits/rl_dashboard9.png)
 
 </div>
 
