@@ -74,9 +74,25 @@ Your service needs to handle the inline hook by responding to Okta's request. Th
 
 Okta uses an HTTPS POST request to call your service.
 
+### Inline hook security
+
+To secure the communication channel between Okta and your external service, you have the option of using HTTP headers or OAuth 2.0 tokens.
+
+### OAuth 2.0
+
+OAuth 2.0 tokens provide enhanced security between Okta and your external service, and you can configure them for the following methods: client secret (`client_secret_post`) and private key (`private_key_jwt`). <!-- Okta uses the RS256 algorithm -->
+
+#### Client secret post
+
+The client secret method (`client_secret_post`) uses a generated client ID and secret to obtain a token from the authorization server. The OAuth 2.0 inline hook request includes the token as a signed JWT. Your external service must verify the JWT to authenticate the inline hook call. See [OAuth 2.0: Client Secret](/docs/guides/common-hook-set-up-steps/#oauth-2-0-client-secret).
+
+#### Private key
+
+The private key method (`private_key_jwt`) uses a generated key, which includes a private key and a public key. A JWT is generated using the private key and sent to the authorization server. The authorization server uses the public key to verify the JWT and returns an access token as a signed JWT. The OAuth 2.0 inline hook request includes the signed JWT. Your external service must verify the JWT to authenticate the inline hook call. See [OAuth 2.0: Private Key](/docs/guides/common-hook-set-up-steps/#oauth-2-0-private-key).
+
 ### HTTP header
 
-The header of the request sent by Okta includes the following fields:
+Support is provided for header-based authentication to authenticate every request received by your external service. The header of the request sent by Okta includes the following fields:
 
 ```http
 Accept: application/json
@@ -86,7 +102,7 @@ Authorization: ${key}
 
 #### Authorization header
 
-The Authorization header is a secret string you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This is not an Okta authorization token, it is simply a text string you decide on.)
+The Authorization header (`Authorization: ${key}` is a secret string that you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.) See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/#http-header-basic-authentication).
 
 ### JSON request payload objects
 
@@ -95,10 +111,6 @@ The JSON payload is where Okta provides specific information about the process f
 The objects providing this information are nested within a larger object called `data`.
 
 Always included is `data.context`, providing context information. In general, `data.context` encapsulates Okta objects that your external service cannot affect, while objects in `data` that are outside of `data.context` encapsulate objects that your external service does have the ability to affect, by means of the commands it sends in its response.
-
-### Security
-
-To secure the communication channel between Okta and your external service, HTTPS is used for requests, and support is provided for header-based authentication. Okta recommends that you implement an authentication scheme using the authentication header, to be used to authenticate every request received by your external service.
 
 ## The response
 

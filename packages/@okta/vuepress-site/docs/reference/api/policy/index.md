@@ -1153,6 +1153,7 @@ The following conditions may be applied to the global session policy.
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
 | access                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
 | requireFactor           | Indicates if multifactor authentication is required                                                                                                                      | Boolean                                         | No                            | false   |
+| primaryFactor <ApiLifecycle access="ie" /> | Indicates the primary factor used to establish a session for the org. Supported values: `PASSWORD_IDP_ANY_FACTOR` (users can use any factor required by the app authentication policy to establish a session), `PASSWORD_IDP` (users must always use a password to establish a session)  | String | Yes, if `access` is set to `ALLOW`                        | N/A   |
 | factorPromptMode        | Indicates if the User should be challenged for a second factor (MFA) based on the device being used, a Factor session lifetime, or on every sign-in attempt. | `DEVICE`, `SESSION` or `ALWAYS`                 | Yes, if `requireFactor` is set to `true` | N/A     |
 | rememberDeviceByDefault | Indicates if Okta should automatically remember the device                                                                                                                | Boolean                                         | No                            | false   |
 | factorLifetime          | Interval of time that must elapse before the User is challenged for MFA, if the Factor prompt mode is set to `SESSION`                                                    | Integer                                         | Yes, if `requireFactor` is `true` | N/A     |
@@ -1428,7 +1429,13 @@ The Password Policy determines the requirements for a user's password length and
          "minUpperCase": 1,
          "minNumber": 1,
          "minSymbol": 0,
-         "excludeUsername": true
+         "excludeUsername": true,
+         "dictionary": {
+                        "common": {
+                            "exclude": false
+                        }
+                    },
+         "excludeAttributes": []
        },
        "age": {
          "maxAgeDays": 0,
@@ -1503,11 +1510,9 @@ The Password Policy determines the requirements for a user's password length and
 | minSymbol                                 | Indicates if a password must contain at least one symbol (For example: !@#$%^&*): `0` indicates no, `1` indicates yes                      | integer                                                             | No       | 1           |
 | excludeUsername                           | Indicates if the Username must be excluded from the password                                                                   | boolean                                                             | No       | true        |
 | excludeAttributes                         | The User profile attributes whose values must be excluded from the password: currently only supports `firstName` and `lastName` | Array                                                               | No       | Empty Array |
-| dictionary <ApiLifecycle access="beta" /> | Weak password dictionary lookup settings                                                                                        | [Weak Password Dictionary object](#weak-password-dictionary-object) | No       | N/A         |
+| dictionary | Weak password dictionary lookup settings                                                                                        | [Weak Password Dictionary object](#weak-password-dictionary-object) | No       | N/A         |
 
 ###### Weak Password Dictionary object
-
-> **Note:** Weak password lookup is a <ApiLifecycle access="beta" /> feature.
 
 Specifies how lookups for weak passwords are done. Designed to be extensible with multiple possible dictionary types against which to do lookups.
 
@@ -1525,7 +1530,7 @@ Specifies how lookups for weak passwords are done. Designed to be extensible wit
 
 | Property       | Description                                                                                                                          | Data Type | Required | Default |
 | ---            | ---                                                                                                                                  | ---       | ---      | ---     |
-| maxAgeDays     | Specifies how long (in days) a password remains valid before it expireds: `0` indicates no limit                                       | integer   | No       | 0       |
+| maxAgeDays     | Specifies how long (in days) a password remains valid before it expires: `0` indicates no limit                                       | integer   | No       | 0       |
 | expireWarnDays | Specifies the number of days prior to password expiration when a User is warned to reset their password: `0` indicates no warning | integer   | No       | 0       |
 | minAgeMinutes  | Specifies the minimum time interval (in minutes) between password changes: `0` indicates no limit                                      | integer   | No       | 0       |
 | historyCount   | Specifies the number of distinct passwords that a User must create before they can reuse a previous password: `0` indicates none       | integer   | No       | 0       |

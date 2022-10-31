@@ -1763,6 +1763,11 @@ h1 {
 //        code/language icons (32px and generic)            //
 //----------------------------------------------------------//
 
+.icon.scim::before {
+  content:'';
+  background-image: url('/img/icons/scim_dark.svg');
+}
+
 .icon-laptop::before,
 .icon-laptop-32::before {
   content: $laptop;
