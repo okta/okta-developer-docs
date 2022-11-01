@@ -1034,24 +1034,22 @@ export const architectureCenter = [
         cards: true,
         subLinks: [
           {
-            title: 'Okta DevOps Pipeline',
-            path: '/architecture-center/okta-devops-pipeline/'
-          },
-          {
-            title: 'Multi AS',
-            path: '/architecture-center/multi-as/'
-          },
-          {
-            title: 'IDX Deployment Models',
-            path: '/architecture-center/idx-deployment-models/'
-          },
-          {
             title: 'Directory Coexistence',
-            path: '/architecture-center/directory-coexistence/'
-          },
-          {
-            title: 'Directory Coexistence Model Deployment',
-            path: '/architecture-center/directory-coexistence-model-deployment/'
+            path: '/architecture-center/directory-coexistence/',
+            subLinks: [
+              {
+                title: 'Active directory to Okta',
+                path: '/architecture-center/ad-to-okta'
+              },
+              {
+                title: 'LDAP to Okta',
+                path: '/architecture-center/ldap-to-okta'
+              },
+              {
+                title: 'Database to Okta',
+                path: '/architecture-center/db-to-okta/'
+              }
+            ]
           }
         ]
       }
