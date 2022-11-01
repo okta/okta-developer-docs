@@ -136,7 +136,7 @@ Use the test functionality in the OIN Manager to obtain test integration credent
 
    Your browser redirects to the Authorize integration page in your Okta org.
 
-   > **Note:** The **Test in Okta** option isn't available if you are missing required fields in the submission or have enabled another protocol tab (for example, OIDC or SAML) by mistake.
+   > **Note:** The **Test in Okta** option isn't available if you're missing required fields in the submission or have enabled another protocol tab (for example, OIDC or SAML) by mistake.
 
 1. From the Authorize integration page, click **Install and Authorize**.
 1. Copy the client secret from the dialog and securely store it for your integration test.
