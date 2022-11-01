@@ -84,7 +84,7 @@ You must store these credentials for each customer to allow your integration to 
 * client ID
 * client secret
 
-> **Note:** This guide refers to these domain and credentials as `${customerOktaDomain}`, `${clientId}`, and `${clientSecret}` variables.
+> **Note:** This guide refers to these values as `${customerOktaDomain}`, `${clientId}`, and `${clientSecret}` variables.
 
 ### Scope selection
 
