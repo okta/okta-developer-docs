@@ -229,7 +229,7 @@ After you complete testing and are satisfied with your API service integration, 
 To edit your API service integration submission fields:
 
 1. From the [OIN Manager](https://oinmanager.okta.com/), click **Edit** next to your integration submission.
-1. Edit the fields you want to modify.
+1. Edit the fields that you want to modify.
 
 The OIN Manager saves the values in the fields automatically.
 
