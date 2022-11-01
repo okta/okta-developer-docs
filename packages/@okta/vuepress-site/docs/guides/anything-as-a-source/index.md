@@ -13,15 +13,15 @@ This guide outlines how to develop a custom client to manage an identity source 
 
 **Learning outcomes**
 
-* Learn how to use the Identity Sources API to manage a Custom Identity Source integration with Okta.
+* Learn how to use the Identity Sources API to manage an Anything-as-a-Source integration with Okta.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
    * [A Custom Identity Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source) integration configured in your Okta org
- <!--(https://okta.github.io/doc_reviews/en-us/Content/Topics/users-groups-profiles/usgp-anything-as-a-source.htm)-->
+      >  **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature. <!-- IDENTITY_SOURCE_APPS FF needs to be enabled-->
    * [An Okta API token](/docs/guides/create-an-api-token/) to make secure API calls
-     >  **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable the feature. <!-- IDENTITY_SOURCE_APPS FF needs to be enabled-->
+
 * An HR source from which you want to synchronize user data with Okta
 * A custom client to add Identity Sources API integration
 
@@ -29,7 +29,7 @@ This guide outlines how to develop a custom client to manage an identity source 
 
 ## Overview
 
-The Okta Anything-as-a-Source (XaaS) solution provides your organization with the ability to integrate any HR source into your Okta org. The HR source acts as a source-of-truth, and users are pushed and mapped to Okta user profiles in the Okta Universal Directory. There are two methods to implement the XaaS integration:
+The Okta Anything-as-a-Source (XaaS) integration provides your organization with the ability to connect any HR source to your Okta org. The HR source acts as a source of truth, and users are pushed and mapped to Okta user profiles in the Okta Universal Directory. There are two methods to implement the XaaS integration:
 
 * Using Okta Workflows
 
@@ -49,7 +49,7 @@ The Identity Sources API synchronizing data flow uses an [Identity Source Sessio
 
 ### Identity Source Session status
 
-* **CREATED**: The Identity Source Session object has been created for a specific Custom Identity Source integration, and you can load data to the session at this stage. No data import processing has been invoked, and you can cancel the session at this stage.
+* **CREATED**: The Identity Source Session object has been created for a specific Custom Identity Source integration, and you can load data to the session at this stage. Data import processing hasn't been invoked, and you can cancel the session at this stage.
 * **TRIGGERED**:  Okta is processing the uploaded data in the Identity Source Session. You can’t load new data to the Identity Source Session object at this stage, and you can't cancel the session. You can view sessions with this status in the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page from the Admin Console.
 * **COMPLETED**:  The data in the Identity Source Session object has been processed by Okta. You can’t upload new data to the Identity Source Session object if it has the `COMPLETED` status. The synchronization data job is considered complete.
 * **CLOSED**: The session is cancelled and isn't available for further activity. You can only cancel Identity Source Sessions with the `CREATED` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a cancelled Identity Source Session.
@@ -226,7 +226,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
 
 1. [Create an Identity Source Session](/docs/reference/api/xaas/#create-an-identity-source-session):
 
-   ```bash
+    ```bash
     curl -i -X POST \
       'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions' \
     -H 'Authorization: SSWS ${apiKey}' \
@@ -276,7 +276,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
             "externalId": "${userId3}"
           }
         ]
-    }'
+      }'
     ```
 
     > **Note:** If the `externalId` of the user profile in the bulk-delete data isn't matched to a user in Okta, then the user profile is silently ignored.
@@ -322,7 +322,7 @@ Use the [Cancel an Identity Source Session](/docs/reference/api/xaas/#cancel-an-
 
 ```bash
 curl -i -X DELETE \
-  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
+  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}' \
 -H 'Authorization: SSWS ${apiKey}' \
 -H 'Content-Type: application/json'
 ```
@@ -335,7 +335,7 @@ Possible returned responses:
 
 ### Monitor Identity Source Sessions
 
-To monitor Identity Source Session activity for an identity source, you can use either [Retrieve active Identity Source Sessions](#retrieve-active-identity-source-sessions) or [Retrieve an Identity Source Session by ID](#retrieve-an-identity-source-session-by-id)requests to retrieve session properties.
+To monitor Identity Source Session activity for an identity source, you can use either [Retrieve active Identity Source Sessions](#retrieve-active-identity-source-sessions) or [Retrieve an Identity Source Session by ID](#retrieve-an-identity-source-session-by-id) requests to retrieve session properties.
 
 #### Retrieve active Identity Source Sessions
 
@@ -343,7 +343,7 @@ The [List active Identity Source Sessions](/docs/reference/api/xaas/#list-active
 
 ```bash
 curl -i -X GET \
-  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions \
+  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions' \
 -H 'Authorization: SSWS ${apiKey}' \
 -H 'Content-Type: application/json'
 ```
@@ -385,7 +385,7 @@ The [Retrieve an Identity Source Session](/docs/reference/api/xaas/#retrieve-an-
 
 ```bash
 curl -i -X GET \
-  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId} \
+  'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}' \
 -H 'Authorization: SSWS ${apiKey}' \
 -H 'Content-Type: application/json'
 ```

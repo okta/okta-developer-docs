@@ -9,6 +9,10 @@ category: management
 
 The Okta Identity Sources API provides a mechanism to synchronize an HR source (the custom identity source) with Okta user profiles in an org. This API supports the Anything-as-a-Source (XaaS) feature. See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/).
 
+## Get started
+
+Explore the Identity Sources API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cc287b89079ff245ee4a)
+
 ## Identity Sources API operations
 
 The Identity Sources API has the following CRUD operations:
@@ -16,8 +20,8 @@ The Identity Sources API has the following CRUD operations:
 * [Create an Identity Source Session](#create-an-identity-source-session)
 * [Upload bulk upsert data](#upload-bulk-upsert-data)
 * [Upload bulk delete data](#upload-bulk-delete-data)
-* [Retrieve an Identity Source Session](#retrieve-an-identity-source-session)
 * [List active Identity Source Sessions](#list-active-identity-source-sessions)
+* [Retrieve an Identity Source Session](#retrieve-an-identity-source-session)
 * [Trigger an Identity Source Session](#trigger-an-identity-source-session)
 * [Cancel an Identity Source Session](#cancel-an-identity-source-session)
 
@@ -55,7 +59,7 @@ This request creates an Identity Source Session object:
 curl -L -X POST 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions' \
 -H 'Accept: application/json' \
 -H 'Content-Type: application/json' \
--H 'Authorization: SSWS ${apiToken}' \
+-H 'Authorization: SSWS ${apiToken}'
 ```
 
 ##### Response
@@ -110,12 +114,12 @@ This request upserts a set of external user profiles to the Identity Source Sess
 ##### Request
 
 ```bash
-curl -X POST
-https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-upsert
--H 'accept: application/json'
--H 'authorization: SSWS ${apiToken}'
--H 'cache-control: no-cache'
--H 'content-type: application/json'
+curl -i -X POST \
+   'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-upsert' \
+-H 'accept: application/json' \
+-H 'authorization: SSWS ${apiToken}' \
+-H 'cache-control: no-cache' \
+-H 'content-type: application/json' \
 -d '{
   "entityType": "USERS",
   "profiles": [
@@ -183,26 +187,26 @@ This request loads a set of external IDs for user deactivation in an Identity So
 ##### Request
 
 ```bash
-curl -X POST
-https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-delete
--H 'accept: application/json'
--H 'authorization: SSWS ${apiToken}'
--H 'cache-control: no-cache'
--H 'content-type: application/json'
+curl -i -X POST \
+   'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/bulk-delete' \
+-H 'accept: application/json' \
+-H 'authorization: SSWS ${apiToken}' \
+-H 'cache-control: no-cache' \
+-H 'content-type: application/json' \
 -d '{
-  "entityType": "USERS",
-  "profiles": [
-    {
-      "externalId": "${extUserId1}"
-    },
-    {
-      "externalId": "${extUserId2}"
-    },
-    {
-      "externalId": "${extUserId3}"
-    }
-  ]
-}'
+    "entityType": "USERS",
+    "profiles": [
+      {
+        "externalId": "${extUserId1}"
+      },
+      {
+        "externalId": "${extUserId2}"
+      },
+      {
+        "externalId": "${extUserId3}"
+      }
+    ]
+  }'
 ```
 
 ##### Response
@@ -297,11 +301,10 @@ This request retrieves an Identity Source Session with an `id` value of `${sessi
 ##### Request
 
 ```bash
-curl -X GET
-https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}
--H 'accept: application/json'
--H 'authorization: SSWS ${apiToken}'
--H 'cache-control: no-cache'
+curl -X GET 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}' \
+-H 'accept: application/json' \
+-H 'authorization: SSWS ${apiToken}' \
+-H 'cache-control: no-cache' \
 -H 'content-type: application/json'
 ```
 
@@ -348,11 +351,10 @@ This request triggers the data import process for an Identity Source Session wit
 ##### Request
 
 ```bash
-curl -X POST
-https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/start-import
--H 'accept: application/json'
--H 'authorization: SSWS ${apiToken}'
--H 'cache-control: no-cache'
+curl -X POST 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}/start-import' \
+-H 'accept: application/json' \
+-H 'authorization: SSWS ${apiToken}' \
+-H 'cache-control: no-cache' \
 -H 'content-type: application/json'
 ```
 
@@ -399,11 +401,10 @@ The following request cancels an Identity Source Session with an `id` value of `
 ##### Request
 
 ```bash
-curl -X DELETE
-https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}
--H 'accept: application/json'
--H 'authorization: SSWS ${apiToken}'
--H 'cache-control: no-cache'
+curl -X DELETE 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}' \
+-H 'accept: application/json' \
+-H 'authorization: SSWS ${apiToken}' \
+-H 'cache-control: no-cache' \
 -H 'content-type: application/json'
 ```
 
@@ -424,7 +425,7 @@ Content-Type: application/json
 | ----------- | -------------- | ------------- |
 | `id` | String | Unique identifier for the Identity Source Session |
 | `identitySourceId` | String | Unique identifier obtained from creating a Custom Identity Source integration in Okta |
-| `status` | String (enum: `CREATED`, `TRIGGERED`, `COMPLETED`, `CLOSED`, `EXPIRED`) | The current status of the Identity Source Session:<br><ul><li>CREATED: This is the status for a new Identity Source Session that hasn't been processed. You can upload bulk data in this stage.</li><li>TRIGGERED: Okta is processing the import data in this session. You can't load bulk data in this stage.</li><li>COMPLETED: The bulk data was processed and imported into Okta.</li><li>CLOSED: The Identity Source Session was canceled and isn't available for further activity.<li>EXPIRED: This Identity Source Session had the `CREATED` status and timed-out after 24 hours of inactivity.</li></ul>|
+| `status` | String (enum: `CREATED`, `TRIGGERED`, `COMPLETED`, `CLOSED`, `EXPIRED`) | The current status of the Identity Source Session:<br><ul><li>`CREATED`: This is a new Identity Source Session that hasn't been processed. You can upload bulk data in this stage.</li><li>`TRIGGERED`: Okta is processing the import data in this session. You can't load bulk data in this stage.</li><li>`COMPLETED`: The bulk data was processed and imported into Okta.</li><li>`CLOSED`: The Identity Source Session was canceled and isn't available for further activity.<li>`EXPIRED`: This Identity Source Session had the `CREATED` status and timed-out after 24 hours of inactivity.</li></ul>|
 | `importType` | String (enum: `INCREMENTAL`) | The import type for the Identity Source Session. Currently, only `INCREMENTAL` is supported. |
 #### Identity Source Session example
 
