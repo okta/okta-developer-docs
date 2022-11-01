@@ -220,7 +220,7 @@ curl -X GET "https://${customerOktaDomain}/api/v1/users"
 
 ### Test your API service flow
 
-Use the credentials from your test integration (Okta domain, client ID and secret) to test your service app. You can use the [interface that you build](#save-customer-credentials) or enter the credentials manually to configure your service app. Trigger a process from your service app to access Okta endpoints and verify that the process works as intended.
+Use the credentials from your test integration (Okta domain, client ID, and secret) to test your service app. You can use the [interface that you build](#save-customer-credentials) or enter the credentials manually to configure your service app. Trigger a process from your service app to access Okta endpoints and verify that the process works as intended.
 
 After you complete testing and are satisfied with your API service integration, you can [submit it to Okta](#submit-for-review) for verification.
 
