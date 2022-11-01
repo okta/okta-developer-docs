@@ -254,7 +254,7 @@ After you test your API service integration and specify all fields and artifacts
 
 1. Click **Submit for Review** from the dialog to confirm the submission.
 
-The system notifies the Okta OIN team, and your submission goes through a series of testing and verification processes. The OIN team will email you for required updates and corrections. The OIN Manager also displays the latest status of your submission.
+The system notifies the Okta OIN team, and your submission goes through a series of testing and verification processes. The OIN team emails you for required updates and corrections. The OIN Manager also displays the latest status of your submission.
 
 When your integration reaches the Publish stage, your integration is available on the OIN catalog and your customers can see an option to install it from their Okta org.
 
