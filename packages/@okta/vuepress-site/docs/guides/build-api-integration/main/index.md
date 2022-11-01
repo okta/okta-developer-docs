@@ -6,13 +6,9 @@ layout: Guides
 
 <ApiLifecycle access="ea" /><!--For both Classic and Identity Engine-->
 
-This guide explains how to build, test, and submit an API service integration to the Okta Integration Network (OIN) for review and publishing.
+Build, test, and submit an API service integration to the Okta Integration Network (OIN) for review and publication.
 
 ---
-
-**Learning outcomes**
-
-* Learn how to build, test, and submit an API service integration that can be published in the OIN.
 
 **What you need**
 
@@ -41,9 +37,9 @@ You must collect and [store these credentials](#save-customer-credentials) for e
 
 At a high level, the OAuth 2.0 Client Credentials flow for an API service integration has the following steps:
 
-<div class="full">
+<div class="three-quarter">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for API service integration's Client Credentials flow](/img/oin/api-service-creds-flow.svg)
+![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for API service integration's Client Credentials flow](/img/oin/api-service-creds-flow.png)
 
 </div>
 
