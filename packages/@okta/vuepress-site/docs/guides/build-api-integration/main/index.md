@@ -109,7 +109,7 @@ The [Okta Org Authorization Server](/docs/concepts/auth-servers/#org-authorizati
 
 The OIN Manager provides a mechanism to register and install your integration in your Okta org (similar to how your customer admins would install your integration) and obtain the credentials to test your Client Credentials flow. Your test integration is available only on your Okta org during the test.
 
-> **Note:** The test install and authorize screens, from the OIN Manager test option, are the same screens your customers will experience when your service integration is in the OIN. After you publish your integration in the OIN catalog, it appears in the **Applications** > **API Service Integrations** page of your customer's Admin Console.
+> **Note:** The test install and authorize pages, from the OIN Manager test option, are the same pages your customers experience when your service integration is in the OIN. After you publish your integration in the OIN catalog, it appears in the **Applications** > **API Service Integrations** page of your customer's Admin Console.
 
 To register your API service registration:
 
