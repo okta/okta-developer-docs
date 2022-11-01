@@ -30,7 +30,7 @@ This guide explains how to build, test, and submit an API service integration to
 ## Overview
 
 A service-to-service app where a backend service or a daemon calls [Okta management APIs](/docs/reference/core-okta-api/) for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration.
-API service integrations access Okta APIs using the OAuth 2.0 [Client Credentials flow](/docs/concepts/oauth-openid/#client-credentials-flow), where access is not associated with a user and resources can be restricted with scoped access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
+API service integrations access Okta APIs using the OAuth 2.0 [Client Credentials flow](/docs/concepts/oauth-openid/#client-credentials-flow), where access isn't associated with a user and you can restrict resources with scoped access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
 > **Note:** Currently, Okta only supports the OAuth APIs listed in [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
