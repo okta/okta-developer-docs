@@ -132,6 +132,7 @@ guides:
  - device-context
  - pwd-optional-best-practices
  - pwd-optional-overview
+ - build-api-integration
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
