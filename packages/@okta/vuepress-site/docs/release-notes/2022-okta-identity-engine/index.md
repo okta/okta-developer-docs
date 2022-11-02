@@ -12,7 +12,7 @@ title: Okta Identity Engine API Products release notes 2022
 |--------------------------------------------------------------------------|--------------------------|
 | [Improvements to the self-service password reset experience are GA in Production](#self-service-password-reset-improvements-are-ga-in-production) | July 7, 2022 |
 | [Improvements to the self-service unlock process are GA in Production](#self-service-unlock-improvements-are-ga-in-production) | August 10, 2022 |
-| [Improvements to the sign-in experience are GA in Preview](#improvements-to-the-sign-in-experience-are-ga-in-preview) | November 3, 2022 |
+| [Improvements to the sign-in experience are GA in Preview](#sign-in-experience-improvements-are-ga-in-preview) | November 3, 2022 |
 | [Manage embedded widget sign-in support is GA in Preview](#manage-embedded-widget-sign-in-support-is-ga-in-preview) | October 5, 2022 |
 | [Step-up authentication using ACR values is GA in Preview](#step-up-authentication-using-acr-values-is-ga-in-preview) | August 31, 2022 |
 | [Authenticator enrollment using the `/authorize` endpoint is EA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ea-in-preview) | November 3, 2022 |
@@ -21,8 +21,8 @@ title: Okta Identity Engine API Products release notes 2022
 | [New rate limits dashboard filter](#new-rate-limits-dashboard-filter) | November 3, 2022 |
 | [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | November 3, 2022 |
 | [Integrate with Anything-as-a-Source is EA in Preview](#integrate-with-anything-as-a-source-is-ea-in-preview) | November 3, 2022 |
-| [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022110) | November 2, 2022 |
-| [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022110) | November 2, 2022|
+| [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022110) | November 3, 2022 |
+| [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022110) | November 3, 2022|
 
 #### Self-service password reset improvements are GA in Production
 
@@ -32,7 +32,7 @@ Previously, the self-service password reset (SSPR) flow created unnecessary fric
 
 Previously, the self-service unlock (SSU) flow created unnecessary friction in the end-user experience. The newly enhanced SSU feature introduces a seamless magic link experience in emails sent to unlock accounts. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the application. See the `${oneTimePassword}` and `${unlockAccountLink}` [VTL variables](/docs/guides/custom-email/main/#use-vtl-variables) used in the [Email Magic link](/docs/guides/email-magic-links-overview/) [custom email template](/docs/guides/email-magic-links-overview/aspnet/main/#use-custom-email-templates). This feature is currently available for new orgs only. <!--OKTA-499520-->
 
-#### Improvements to the sign-in experience are GA in Preview
+#### Sign-in experience improvements are GA in Preview
 
 When users create an account using the Sign Up link in the Sign-In Widget, they enter their first and family names along with their email address on the first page. The Sign-In Widget then displays the authenticators page, where users enter a password and configure any other mandatory authenticators. To streamline the sign-up process, the Self-Service Registration with Password feature allows you to show the password entry on the first page of the enrollment form instead. See [Collect profile information and register users](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-verification). <!--OKTA-543643-->
 
@@ -74,7 +74,7 @@ Leveraging XaaS for identity source integration improves time to value, security
 
 #### Developer documentation updates in 2022.11.0
 
-* We’ve got a [new API reference in the works](/docs/api/). With a fresh look and feel, our new API content will be easier to navigate and features a wider variety of code examples. Content is continuously being added — please try it out and help us improve the site by providing feedback.
+* We’ve got a [new API reference in the works](/docs/api/). With a fresh look and feel, our new API content will be easier to navigate and features a wider variety of code examples. Content is continuously being added &mdash; please try it out and help us improve the site by providing feedback.
 
 * A new set of guides to support the creation of a password-optional or passwordless sign-in experience for your apps is now online. [Find them all here](/docs/guides/pwd-optional-overview/aspnet/main/).
 
