@@ -38,7 +38,7 @@ title: IAM terminology
 
 - **Policy:** A set of rules and conditions that help you manage your users, such as restricting access to members of a certain group or requiring additional authentication factors to access a sensitive app. See [What are policies](/docs/concepts/policies/).
 
-- **Profile:** The data record where information about an individual user, group, or other entity is stored. A typical profile contains attributes such as the type of profile, a name, and other profile type-specific data. See [User profiles](/docs/concepts/user-profiles/) and [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes).
+- **Profile:** The data record where information about an individual user, group, or other entity is stored. A typical profile contains attributes such as the type of profile, a name, and other profile type-specific data. See [User profiles](/docs/) and [Work with profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes).
 
 - **Progressive profiling:** Incrementally add information to user profiles or have Okta request additional info after users register. Use it to require less data when users register and collect reliable user demographic data later. You can also use it to collect additional data if profile requirements change, such as if an application requires new app profile data. See [How to Use Progressive Profiling as a Privacy Tool](https://www.okta.com/blog/2019/02/how-to-use-progressive-profiling-as-a-privacy-tool/).
 

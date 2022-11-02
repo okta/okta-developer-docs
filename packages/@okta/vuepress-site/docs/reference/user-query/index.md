@@ -713,4 +713,4 @@ See [Find Users](/docs/reference/api/users/#list-users) in the Users API referen
 ## See also
 
 - [Users API](/docs/reference/api/users)
-- [User profiles](/docs/concepts/user-profiles/)
+- [User profiles](/docs/)
