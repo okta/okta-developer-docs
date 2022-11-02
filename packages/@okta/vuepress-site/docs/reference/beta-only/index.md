@@ -1,5 +1,5 @@
 ---
-title: APIs only documented on the new beta reference
+title: APIs documented only on the new beta reference
 ---
 
 # APIs documented only on the new beta reference
