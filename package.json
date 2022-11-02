@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
-    "build": "yarn lint:all && yarn workspace @okta/vuepress-site build",
+    "build": "yarn workspace @okta/vuepress-site build",
     "broken-link-checker:all": "node scripts/broken-link-checker all",
     "broken-link-checker:internal": "node scripts/broken-link-checker internal",
     "broken-link-checker:external": "node scripts/broken-link-checker external",
@@ -50,7 +50,7 @@
     "eslint-plugin-vue": "^9.6.0",
     "eslint-plugin-vue-a11y": "0.0.31",
     "eslint-webpack-plugin": "^3.2.0",
-    "husky": "^8.0.1",
+    "husky": "^4.3.8",
     "if-env": "^1.0.4",
     "jest": "^27.5.1",
     "lint-staged": "^13.0.3",
@@ -90,5 +90,17 @@
     "vuepress/**/normalize-url": "^6.0.1",
     "vuepress/**/nth-check": "^2.1.1",
     "vuepress/**/unset-value": "^2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "packages/@okta/vuepress-theme-prose/**/*.scss": "yarn stylelint:scss",
+    "packages/@okta/vuepress-theme-prose/**/*.vue": [
+      "yarn stylelint:vue",
+      "yarn vue-check"
+    ]
   }
 }
