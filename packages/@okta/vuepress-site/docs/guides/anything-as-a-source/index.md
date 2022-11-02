@@ -298,7 +298,7 @@ When users are deactivated or deleted from your HR source, you need to reflect t
     ```
 
     Possible returned responses:
-    * **200 OK**: The data import process started successfully and returns the following properties:
+    * **200 OK**: The data import process started successfully and returned the following properties:
 
         ```json
         {
