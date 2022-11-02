@@ -182,7 +182,7 @@ See [Possible common errors](#possible-common-errors) for all Identity Sources A
 
 #### Use example
 
-This request loads a set of external IDs for user deactivation in an Identity Source Session with an `id` value of `${sessionId}`
+This request loads a set of external IDs for user deactivation in an Identity Source Session with an `id` value of `${sessionId}`:
 
 ##### Request
 
