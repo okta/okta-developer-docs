@@ -22,16 +22,25 @@ Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io
 
 Registers a new inline hook to your organization in `ACTIVE` status. You need to pass an [Inline Hook object](#inline-hook-object) in the JSON payload of your request. That object represents the set of required information about the inline hook that you are registering, including:
 
- - The URI of your external service endpoint
- - The type of inline hook you are registering
+* The URI of your external service endpoint
+* The type of inline hook you are registering
+* The type of authentication you are registering
 
-In addition, the object lets you specify a secret API key that you want Okta to pass to your external service endpoint (so that your external service can check for its presence as a security measure).
+There are two authentication options that you can configure for your inline hook: HTTP headers and OAuth 2.0 tokens.
 
-> **Note:** The API key you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs.
+HTTP headers let you specify a secret API key that you want Okta to pass to your external service endpoint (so that your external service can check for its presence as a security measure).
+
+> **Note:** The API key that you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs.
 
 You can also optionally specify extra headers that you want Okta to pass to your external service with each call.
 
-Your external service's endpoint needs to be a valid HTTPS endpoint, and therefore the URI you specify should always begin with `https://`.
+To configure HTTP header authentication, see parameters for the [Config object for HTTP headers](#config-object-for-http-headers).
+
+<ApiLifecycle access="ea" /> OAuth 2.0 tokens provide enhanced security between Okta and your external service and can be configured for the following types: client secret and private key.
+
+To configure OAuth 2.0 authentication, see parameters for the [Config object for OAuth 2.0](#config-object-for-oauth-2-0).
+
+> **Note:** Your external service's endpoint needs to be a valid HTTPS endpoint, and therefore the URI you specify should always begin with `https://`.
 
 The total number of inline hooks that you can create in an Okta org is limited to 50, which is a combined total for any combination of inline hook types.
 
@@ -43,10 +52,9 @@ The total number of inline hooks that you can create in an Okta org is limited t
 
 ##### Response parameters
 
-The response is an [Inline Hook object](#inline-hook-object) that represents the inline hook that was registered. The `id` property returned in the response serves as the unique ID for the registered inline hook, which you can specify when invoking other CRUD operations.
+The response is an [Inline Hook object](#inline-hook-object) that represents the inline hook that was registered. The `id` property returned with the response serves as the unique ID for the registered inline hook, which you can specify when invoking other CRUD operations.
 
-##### Request example
-
+##### HTTP header request example
 
 ```bash
 curl -v -X POST \
@@ -80,7 +88,7 @@ curl -v -X POST \
 
 > **Note:** `X-Other-Header` is an example of an additional optional header, with its value specified as `some-other-value`. For each optional header, you choose the name and value that you want Okta to pass to your external service.
 
-##### Response example
+##### HTTP header response example
 
 
 ```json
@@ -114,6 +122,73 @@ curl -v -X POST \
 ```
 
 > **Note:** The `channel.authScheme.value` property isn't returned in the response. You set it in your request, but it isn't exposed in any responses.
+
+##### OAuth 2.0 request example
+
+```bash
+curl -v -X POST \
+ -H 'Authorization: SSWS ${api_token}' \
+ -H 'Content-Type: application/json' \
+ -H Accept: application/json' \
+ -d '{
+   "version": "1.0.0",
+   "type": "com.okta.saml.tokens.transform",
+   "name": "My Inline Hook",
+   "channel": {
+       "type": "OAUTH",
+       "version": "1.0.0",
+       "config": {
+           "headers": [
+               {
+                   "key": "x-header-value",
+                   "value": "value"
+               }
+           ],
+           "method": "POST",
+           "uri": "https://oauthinlinehook.com",
+           "clientId": "clientId",
+           "clientSecret": "secret",
+           "tokenUrl": "https://oauthinlinehook.com/oauth/token",
+           "authType": "client_secret_post",
+           "scope": "custom"
+       }
+   }
+ }' 'https://${yourOktaDomain}/api/v1/inlineHooks'
+
+```
+
+##### OAuth 2.0 response example
+
+```json
+{
+   "id": "cal1u30j5tPBLkKIG685",
+   "status": "ACTIVE",
+   "name": "My Inline Hook",
+   "type": "com.okta.saml.tokens.transform",
+   "version": "1.0.0",
+   "channel": {
+       "type": "OAUTH",
+       "version": "1.0.0",
+       "config": {
+           "uri": "https://oauthinlinehook.com",
+           "headers": [
+               {
+                   "key": "x-header-value",
+                   "value": "value"
+               }
+           ],
+           "method": "POST",
+           "authScheme": null,
+           "clientId": "clientId",
+           "tokenUrl": "https://oauthinlinehook.com/oauth/token",
+           "authType": "client_secret_post",
+           "scope": "custom"
+       }
+   },
+   "created": "2022-09-07T15:15:39.000Z",
+   "lastUpdated": "2022-09-07T15:15:39.000Z",
+}
+```
 
 ### Get inline hook
 
@@ -327,7 +402,7 @@ curl -v -X PUT \
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
 | id         | The ID of the inline hook that you want to activate                                   | Path         | String                                      | TRUE     |
 
-Activates the inline hook that match the provided `id`
+Activates the inline hook that matches the provided `id`
 
 ##### Response parameters
 
@@ -386,7 +461,7 @@ curl -v -X POST \
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
 | id         | The ID of the inline hook that you want to deactivate                                   | Path         | String                                      | TRUE     |
 
-Deactivates the inline hook that match the provided `id`
+Deactivates the inline hook that matches the provided `id`
 
 ##### Response parameters
 
@@ -664,19 +739,27 @@ curl -v -X POST \
 }
 ```
 
-### Inline Hook object
+## Inline hook objects
 
-| Property       | Description                                                                                         | DataType                            | Nullable   | Unique   | ReadOnly   | Validation                                        |
+The inline hook management API provides the following objects:
+
+* [Inline hook object](#inline-hook-object)
+* [Channel object](#channel-object)
+* [Config object for HTTP headers](#config-object-for-http-headers)
+* [Config object for OAuth 2.0](#config-object-for-oauth-2-0)
+
+### Inline hook object
+
+| Property       | Description                                                                                         | Data type                            | Nullable   | Unique   | Read-only   | Validation                                        |
 | -------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- | -------- | ---------- | ------------------------------------------------- |
 | id             | Unique key for the inline hook                                                                     | String                              | FALSE      | TRUE     | TRUE       | System assigned                                          |
-| status         | Status of the inline hook. `INACTIVE` will block execution.                                         | String                              | FALSE      | FALSE    | FALSE      | System assigned. Will be either `ACTIVE` or `INACTIVE`.            |
+| status         | Status of the inline hook. `INACTIVE` blocks execution.                                         | String                              | FALSE      | FALSE    | FALSE      | System assigned. Values supported: `ACTIVE` or `INACTIVE`.            |
 | name           | Display name for the inline hook                                                                   | String                              | FALSE      | TRUE     | FALSE      | Must be between 1 and 255 characters in length   |
 | type           | Type of the inline hook. See the list of [Supported inline hook types](#supported-inline-hook-types).   | inlineHookType                      | FALSE      | FALSE    | TRUE       | Immutable after inline hook creation             |
 | version        | Version of the inline hook type. The currently supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number                |
 | channel | Properties of the communications channel that are used to contact your external service                     | [Channel object](#channel-object)   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
 | created        | Date of inline hook creation                                                                       | String (Date)                       | TRUE       | FALSE    | TRUE       | System assigned                                          |
 | lastUpdated    | Date of inline hook update                                                                         | String (Date)                       | TRUE       | FALSE    | TRUE       | System assigned                                          |
-
 
 ```json
 {
@@ -710,32 +793,104 @@ curl -v -X POST \
 
 ### Channel object
 
-| Property | Description                                                                     | DataType                                | Nullable | Unique | Validation                                        |
+| Property | Description                                                                     | Data type                                | Nullable | Unique | Validation                                        |
 |----------|---------------------------------------------------------------------------------|-----------------------------------------|----------|--------|---------------------------------------------------|
-| type     | The channel type. Currently the only supported type is `HTTP`.                  | channelType                             | FALSE    | FALSE  | TRUE|Must match a valid channel type.             |
-| version  | Version of the channel. The currently supported version is "1.0.0".             | String                                  | FALSE    | FALSE  | Must match a valid version number                |
-| config   | Properties of the communications channel that are used to contact your external service. | [Channel Config object](#config-object) | FALSE    | FALSE  | Validation is determined by the specific channel. |
+| type     | The channel type. Must be `HTTP` or `OAUTH`.                  | channel type                             | FALSE    | FALSE  | TRUE|Must match a valid channel type.             |
+| version  | Version of the channel. Supported version: "1.0.0".             | String                                  | FALSE    | FALSE  | Must match a valid version number                |
+| config   | Properties of the communications channel that are used to contact your external service. | [HTTP config](#config-object-for-http-headers) or [OAuth 2.0 config](#config-object-for-oauth-2-0)| FALSE    | FALSE  | Validation is determined by the specific channel. |
 
+### Config object for HTTP headers
 
-### Config object
-
-| Property   | Description                                                                                                | DataType                                | Required | Unique | ReadOnly | Validation                                                                                                             |
+| Property   | Description                                                                                                | Data  type                                | Required | Unique | Read-only | Validation                                                                                                             |
 |------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------|----------|--------|----------|------------------------------------------------------------------------------------------------------------------------|
-| uri        | External service endpoint to call to execute the inline hook handler                                      | String                                  | TRUE     | FALSE  | TRUE     | Must begin with `https://`. Maximum length 1024 characters. No white space allowed. The URI must be reachable by Okta. |
+| uri        | External service endpoint to call to execute the inline hook handler                                      | String                                  | TRUE     | FALSE  | TRUE     | Must begin with `https://`. Maximum length: 1024 characters. No white space allowed. The URI must be reachable by Okta. |
 | headers    | An optional list of key/value pairs for headers that you should send with the request to the external service | JSON object                             | FALSE    | FALSE  | FALSE    | Some reserved headers, such as `Accept`, are disallowed.                                                               |
-| authScheme | The authentication scheme to use for this request                                                          | [AuthScheme object](#authscheme-object) | FALSE    | FALSE  | FALSE    | Valid `authscheme` object|                                                                                            |
+| authScheme | The authentication scheme to use for this request                                                       | [AuthScheme object](#authscheme-object) | FALSE    | FALSE  | FALSE    | Valid `authscheme` object|                                                                                            |
 
-### AuthScheme object
+#### AuthScheme object
 
-| Property | Description                                                                    | DataType   | Required   | ReadOnly |
+| Property | Description                                                                    | Data type   | Required   | Read-only |
 | -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
-| type     | The authentication scheme type. Currently the only supported type is `HEADER`. | String     | TRUE       | FALSE    |
+| type     | The authentication scheme type. Supported type: `HEADER`. | String     | TRUE       | FALSE    |
 | key      | The header name for the authorization header                                  | String     | TRUE       | FALSE    |
 | value    | The header value. This secret value is passed to your external service endpoint. Your external service can check for it as a security measure.                                                               | String     | TRUE       | TRUE     |
 
 To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value` to the Base64-encoded string of "username:password". Ensure that you include the scheme (including the space) as part of the `value` parameter. For example, `Basic YWRtaW46c3VwZXJzZWNyZXQ=`. See [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication).
 
-### Supported inline hook types
+### Config object for OAuth 2.0
+
+<ApiLifecycle access="ea" />
+
+| Property   | Description                                                                                                | DataType                                | Required | Unique | Read-only | Validation                                                                                                             |
+|------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------|----------|--------|----------|------------------------------------------------------------------------------------------------------------------------|
+| uri        | External service endpoint to call to execute the inline hook handler                                      | String                                  | TRUE     | FALSE  | TRUE     | Must begin with `https://`. Maximum length: 1024 characters. No white space allowed. The URI must be reachable by Okta. |
+| headers    | An optional list of key/value pairs for headers that you should send with the request to the external service | JSON object                             | FALSE    | FALSE  | FALSE    | Some reserved headers, such as `Accept`, are disallowed.                                                               |
+| method | Request method for external service endpoint calls                                                      |  | TRUE    | FALSE  | FALSE    | Valid method. Only accepts `POST`.|
+| authType | The authentication method for the token endpoint: `client_secret_post` or `private_key_jwt`                                                     |  | TRUE    | FALSE  | FALSE    | Valid authType parameters: [client_secret_post](#authtype-parameters-for-client-secret-post) or [private_key_jwt](/#authtype-parameters-for-private-key-jwt)|
+
+#### Config object parameters for client_secret_post
+
+| Property | Description                                                                    | Data type   | Required   | Read-only |
+| -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
+| clientId | A publicly exposed string provided by the service that is used to identify the OAuth application and build authorization URLs | String     | TRUE       | FALSE    |
+| clientSecret | A private value provided by the service used to authenticate the identity of the application to the service                               | String     | TRUE       | FALSE    |
+| tokenUrl | The URI where inline hooks can exchange an authorization code for access and refresh tokens | String | TRUE | FALSE |
+| scope | (Optional) Include the scopes that allow you to perform the actions on the hook endpoint that you want to access | String | FALSE | FALSE |
+| authScheme | Not applicable. Must be `null`.                                              | `null`    | FALSE      | TRUE     |
+| hookKeyId  | Not applicable. Must be `null`.                                              | `null`    | FALSE      | TRUE     |
+
+#### Example object parameters for client_secret_post
+
+```json
+"config": {
+           "headers": [
+               {
+                   "key": "x-header-value",
+                   "value": "value"
+               }
+           ],
+           "method": "POST",
+           "uri": "https://oauthinlinehook.com",
+           "clientId": "clientId",
+           "clientSecret": "secret",
+           "tokenUrl": "https://oauthinlinehook.com/oauth/token",
+           "authType": "client_secret_post",
+           "scope": "custom"
+}
+```
+
+#### Config object parameters for private_key_jwt
+
+| Property | Description                                                                    | Data type   | Required   | Read-only |
+| -------- | ------------------------------------------------------------------------------ | ---------- | ---------- | -------- |
+| clientId | A publicly exposed string provided by the service that is used to identify the OAuth application and build authorization URLs | String     | TRUE       | FALSE    |
+| clientSecret | Not applicable. Must be `null`.                               | `null`    | FALSE      | FALSE    |
+| tokenUrl | The URI where inline hooks can exchange an authorization code for access and refresh tokens |  String | TRUE | FALSE |
+| scope | (Optional) Include the scopes that allow you to perform the actions on the hook endpoint that you want to access | String | FALSE | FALSE |
+| authScheme | Not applicable. Must be `null`.                                              | `null`   | FALSE    | TRUE     |
+| hookKeyId  | An ID value of the Hook key pair generated from key management API                                              | String    | TRUE      | TRUE     |
+
+#### Example object parameters for private_key_jwt
+
+```json
+"config": {
+           "headers": [
+               {
+                   "key": "x-header-value",
+                   "value": "value"
+               }
+           ],
+           "method": "POST",
+           "uri": "https://oauthinlinehook.com",
+           "hookKeyId": "HKY1tkbl4TRJpYfP4685",
+           "tokenUrl": "https://oauthinlinehook.com/oauth/token",
+           "authType": "private_key_jwt",
+           "scope": "custom"
+        }
+
+```
+
+## Supported inline hook types
 
 When registering an inline hook, you need to specify what type it is. The following types are currently supported:
 

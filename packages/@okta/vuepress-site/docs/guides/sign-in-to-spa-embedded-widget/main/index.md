@@ -24,6 +24,9 @@ Before you integrate Okta authentication to your app, register your app in your 
 
    * Enter an application name.
    * Select the **Interaction Code** checkbox.
+
+      <VerifyICGrantType />
+
    * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to a URI that is appropriate for your app. For example, `http://localhost:8080/login/callback` if you're using the sample app.
    * Set **Sign-out redirect URIs** to a URI that is appropriate for your app. For example, `http://localhost:8080` if you're using the sample app.
@@ -40,6 +43,9 @@ Before you integrate Okta authentication to your app, register your app in your 
    > **Note:** Be sure to also [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
 
 1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and then editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure that the **Interaction Code** checkbox is selected.
+
+   <VerifyICGrantType />
+
 1. In the **Security** > **API** > **Trusted Origins** page, ensure that there is an entry for your sign-in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
 
 ### Okta org app integration configuration settings
