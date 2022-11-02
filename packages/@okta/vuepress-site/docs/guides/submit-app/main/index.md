@@ -87,6 +87,10 @@ The following flowchart outlines the entire process:
 
 ![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png)
 
+<!--
+Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3265%3A30940  isv_portal_submission_flow
+-->
+
 </div>
 
 ### Submission support
