@@ -2215,7 +2215,8 @@ Policy Rule conditions aren't supported for this policy.
                 "activationRequirements": {
                     "emailVerification": true
                 },
-                "uiSchemaId": "uis44fio9ifOCwJAO1d7"
+                "uiSchemaId": "uis44fio9ifOCwJAO1d7",
+                "enrollAuthenticators": null
             }
         }
 ```
@@ -2234,5 +2235,6 @@ Policy Rule conditions aren't supported for this policy.
 | `targetGroupIds`             | (Optional, max 1 entry) The `id` of a Group that this User should be added to                                                     | Array   | No | N/A                                                                                                                                                                                                                         |
 | `unknownUserAction`          | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)                                               | String  | YES | N/A                                                                                                                                                                                                                        |
 | `uiSchemaId`                 | Value created by the backend. If present all policy updates must include this attribute/value.                                               | String  | Required if Present | N/A                                                                                                                                                                                                                        |
+| `enrollAuthenticators` | Additional authenticator fields that can be used on the first page of user registration (Valid values: `password`) | Array | No | N/A |
 
 > **Note:** The Profile Enrollment Action object can't be modified to set the `access` property to `DENY` after the policy is created.
