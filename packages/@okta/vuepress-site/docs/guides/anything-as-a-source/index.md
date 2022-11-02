@@ -29,7 +29,7 @@ This guide outlines how to develop a custom client to manage an identity source 
 
 ## Overview
 
-The Okta Anything-as-a-Source (XaaS) integration provides your organization with the ability to connect any HR source to your Okta org. The HR source acts as a source of truth, and users are pushed and mapped to Okta user profiles in the Okta Universal Directory. There are two methods to implement the XaaS integration:
+The Okta Anything-as-a-Source (XaaS) integration provides your organization with the ability to source identities from any HR source to your Okta org. The HR source acts as a source of truth, and users are pushed and mapped to Okta user profiles in the Okta Universal Directory. There are two methods to implement the XaaS integration:
 
 * Using Okta Workflows
 
@@ -63,7 +63,7 @@ You can only process one Identity Source Session at a time (for a specific Custo
 * There can only be one Identity Source Session in the `CREATED` status for an identity source.
 * An Identity Source Session with the `CREATED` or `TRIGGERED` status is considered active.
 * If there are no API requests in 24 hours for an Identity Source Session that has the `CREATED` status, then the status is set to `EXPIRED` and the session can no longer be used.
-* You can’t process an Identity Source Session in parallel for the same identity source. If you trigger a session for an identity source that already has a session processing, then the newly triggered session is queued until the current import process completes.
+* Okta processes the sessions synchronously (not in parallel) for an identity source. If you trigger multiple sessions for an identity source, then the sessions are queued up for sequential processing.
 * You can't create a new Identity Source Session in less than five minutes after triggering an active session associated with the same identity source. If Okta receives a new Identity Source Session request within five minutes of an active Identity Source Session with the `CREATED` or the `TRIGGERED` status, Okta returns a 400 Bad Request response.
 
 > **Note:** You can use the [List active Identity Source Sessions](/docs/reference/api/xaas/#list-active-identity-source-sessions) request to return active Identity Source Sessions for an identity source.
