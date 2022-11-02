@@ -392,7 +392,7 @@ curl -i -X GET \
 
 Possible returned responses:
 
-* **200 OK**: The data import process completed successfully and returns the following properties:
+* **200 OK**: The data import process completed successfully and returned the following properties:
 
   ```json
   {
