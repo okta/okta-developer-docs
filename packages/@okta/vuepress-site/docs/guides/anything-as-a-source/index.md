@@ -381,7 +381,7 @@ Possible returned responses:
 
 #### Retrieve an Identity Source Session by ID
 
-The [Retrieve an Identity Source Session](/docs/reference/api/xaas/#retrieve-an-identity-source-session) request returns the Identity Source Session properties for a specific session ID. Data processing completed if the returned session status is `COMPLETED`.
+The [Retrieve an Identity Source Session](/docs/reference/api/xaas/#retrieve-an-identity-source-session) request returns the Identity Source Session properties for a specific session ID. Data processing is completed if the returned session status is `COMPLETED`.
 
 ```bash
 curl -i -X GET \
