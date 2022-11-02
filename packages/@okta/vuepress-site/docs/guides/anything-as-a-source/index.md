@@ -350,7 +350,7 @@ curl -i -X GET \
 
 Possible returned responses:
 
-* **200 OK**: The request was successful and returns an empty list of active sessions:
+* **200 OK**: The request was successful and returned an empty list of active sessions:
 
   ```json
   []
