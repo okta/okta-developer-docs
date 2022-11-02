@@ -1,4 +1,4 @@
-1. [Create an app](https://developer.paypal.com/docs/api-basics/manage-apps/#create-or-edit-sandbox-and-live-apps) and [configure it](https://developer.paypal.com/docs/log-in-with-paypal/integrate/#enable-log-in-with-paypal) at PayPal.
+1. [Create an app](https://developers.login.gov/testing/) and [configure it](https://developer.paypal.com/docs/log-in-with-paypal/integrate/#enable-log-in-with-paypal) at PayPal.
 
 1. When you create an application at the IdP, you must provide a redirect URI for authentication.
 

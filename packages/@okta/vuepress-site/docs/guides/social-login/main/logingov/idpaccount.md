@@ -1,1 +1,1 @@
-[PayPal](https://www.paypal.com/signin). You can also test using a PayPal sandbox. See [PayPal sandbox testing guide](https://developer.paypal.com/docs/api-basics/sandbox/)
+[Login.gov](https://secure.login.gov/). You can also test using Login.gov's identity sandbox. See [Login.gov - Partner Dashboard](https://dashboard.int.identitysandbox.gov/)
