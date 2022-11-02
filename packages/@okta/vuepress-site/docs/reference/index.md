@@ -2,17 +2,17 @@
 title: Reference overview
 ---
 
-> **Try our new API reference beta!** We’ve got a new API reference in the works. With a fresh look and feel, our new API content will be easier to navigate and contribute to. This reference is in BETA and content is continuously being added. [Try it out](https://preview.redoc.ly/oktadev/rchan-content-import-d5936630/) and help us improve the site by [providing feedback](#).
+> **We've got a new API reference in the works!** With a fresh look and feel, our new API content features a more logical navigation and a wider variety of code examples. [Try the beta now](https://developer.okta.com/docs/api/) and help us improve the site by [providing feedback](https://forms.gle/Y9XmNNTF2rPQwive7).
 
 # Reference overview
 
 Details on parameters, requests, and responses for Okta's API endpoints.
 
-## APIs only documented on the new Beta reference
+## APIs only documented on the new beta reference
 
-In some cases, APIs have only been documented on the [new Beta reference site](https://preview.redoc.ly/oktadev/rchan-content-import-d5936630/). This section provides a list of those, so they can be found more easily.
+In some cases, APIs have only been documented on the [new beta reference site](https://developer.okta.com/docs/api/). This section provides a list of those, so they can be found more easily.
 
-* [Agent Pools](https://preview.redoc.ly/oktadev/rchan-content-import-d5936630/openapi/okta-management/management/tag/AgentPools/)
+* [Agent Pools](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/#tag/AgentPools)
 
 ## Core Okta API
 

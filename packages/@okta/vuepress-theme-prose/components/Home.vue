@@ -5,7 +5,8 @@
       <div class="width-adjuster">
         <AnnouncementBanner>
           <template v-slot:description>
-            We've got a new API reference in the works! With a fresh look and feel, our new API content will be easier to navigate and contribute to. <a href="https://preview.redoc.ly/oktadev/rchan-content-import-d5936630/">Try it out now</a>.
+            <strong>We've got a new API reference in the works!</strong><br>
+            With a fresh look and feel, our new API content features a more logical navigation and a wider variety of code examples. <a href="https://developer.okta.com/docs/api/">Try the beta now</a>.
           </template>
         </AnnouncementBanner>
         <div class="justify-content-center">
