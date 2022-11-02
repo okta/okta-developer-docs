@@ -85,7 +85,7 @@ The bulk-load request contains an array of external [Identity Source User Profil
 
 * `externalId`: The unique identifier from the HR source and is assumed to be immutable (never updated for a specific user). This value is used as a key to determine if a new user needs to be created or if an existing user needs to be updated.
 
-* `profile`:  The set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declaration of a Custom Identity Source Schema in  [Using anything as a source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source).
+* `profile`: The set of attributes from the HR source to synchronize with the Okta user profile. User profiles are mapped according to the attribute mappings that you specified in your Custom Identity Source configuration. See Declaration of a Custom Identity Source Schema in  [Using anything as a source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source).
 
 > **Note:** You can only load user profile data to an Identity Source Session object with the `"entityType": "USERS"` property. Group data load isn’t currently supported.
 
