@@ -373,7 +373,7 @@ curl -X POST 'https://${yourOktaDomain}/api/v1/identity-sources/${identitySource
 
 <ApiOperation method="delete" url="/api/v1/identity-sources/${identitySourceId}/sessions/${sessionId}" />
 
-Deletes all the loaded bulk data in an Identity Source Session and cancels the session for further activity. Only Identity Source Sessions with the `CREATED` status can be canceled.
+Deletes all the loaded bulk data in an Identity Source Session and cancels the session for further activity. You can only cancel Identity Source Sessions with the `CREATED` status.
 
 #### Request path parameters
 
