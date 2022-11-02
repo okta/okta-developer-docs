@@ -53,7 +53,7 @@ The Identity Sources API synchronizing data flow uses an [Identity Source Sessio
 * **TRIGGERED**: Okta is processing the uploaded data in the Identity Source Session. You can’t load new data to the Identity Source Session object at this stage, and you can't cancel the session. You can view sessions with this status in the [Import Monitoring](https://help.okta.com/okta_help.htm?id=ext-view-import-monitoring-dashboard) page from the Admin Console.
 * **COMPLETED**: The data in the Identity Source Session object has been processed by Okta. You can’t upload new data to the Identity Source Session object if it has the `COMPLETED` status. The synchronization data job is considered complete.
 * **CLOSED**: The session is cancelled and isn't available for further activity. You can only cancel Identity Source Sessions with the `CREATED` status. You can't cancel a session that has been triggered or completed. Previously loaded data is deleted from a cancelled Identity Source Session.
-* **EXPIRED**: This status indicates that the Identity Source Session has timed out during the data loading stage. An Identity Source Session with the `CREATED` status expires from 24 hours of inactivity.
+* **EXPIRED**: This status indicates that the Identity Source Session has timed out during the data loading stage. An Identity Source Session with the `CREATED` status expires after 24 hours of inactivity.
 
 ### Identity Source Session process
 
