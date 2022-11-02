@@ -14,13 +14,13 @@ title: Okta Identity Engine API Products release notes 2022
 | [Improvements to the self-service unlock process are GA in Production](#self-service-unlock-improvements-are-ga-in-production) | August 10, 2022 |
 | [Improvements to the sign-in experience are GA in Preview](#improvements-to-the-sign-in-experience-are-ga-in-preview) | November 3, 2022 |
 | [Manage embedded widget sign-in support is GA in Preview](#manage-embedded-widget-sign-in-support-is-ga-in-preview) | October 5, 2022 |
-| [Step-up authentication using ACR values is GA in Preview](#step-up-authentication-using-acr-values-is-ga-in-preview) | June 8, 2022 |
-|  | October 5, 2022 |
-|  | October 5, 2022 |
-|  | October 5, 2022 |
-|  | October 5, 2022 |
-|  | August 31, 2022 |
-|  | October 5, 2022 |
+| [Step-up authentication using ACR values is GA in Preview](#step-up-authentication-using-acr-values-is-ga-in-preview) | August 31, 2022 |
+| [Authenticator enrollment using the `/authorize` endpoint is EA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ea-in-preview) | November 3, 2022 |
+| [Loading page animation feature for the Brands API is in GA](#loading-page-animation-feature-for-the-brands-api-is-in-ga) | October 5, 2022 |
+| [API service integrations is Self-Service EA in Preview](#api-service-integrations-is-self-service-ea-in-preview) | November 3, 2022 |
+| [New rate limits dashboard filter](#new-rate-limits-dashboard-filter) | November 3, 2022 |
+| [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | November 3, 2022 |
+| [Integrate with Anything-as-a-Source is EA in Preview](#integrate-with-anything-as-a-source-is-ea-in-preview) | November 3, 2022 |
 | [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022110) | November 2, 2022 |
 | [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022110) | November 2, 2022|
 
@@ -38,23 +38,59 @@ When users create an account using the Sign Up link in the Sign-In Widget, they 
 
 #### Manage embedded widget sign-in support is GA in Preview
 
-Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The Embedded widget sign-in support toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improves the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
+Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The Embedded widget sign-in support toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improves the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled). <!--OKTA-543996-->
 
 #### Step-up authentication using ACR values is GA in Preview
 
-Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the acr_values parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/).
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the acr_values parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/). <!--OKTA-544153-->
 
+#### Authenticator enrollment using the `/authorize` endpoint is EA in Preview
 
+Authenticator enrollment provides a standardized way for a user to enroll a new authenticator using the OAuth `/authorize` endpoint. This feature uses query parameters such as `prompt` and `enroll_amr_values` to specify which authenticator the user wants to enroll. It also automatically verifies at least two factors as long the user has already enrolled two or more factors. <!--OKTA-544671-->
+
+#### Loading page animation feature for the Brands API is in GA
+
+When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#theme-object) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!--OKTA-544951-->
+
+#### API service integrations is Self-Service EA in Preview
+
+A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through [Okta management APIs]() using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN]. OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration]. <!--OKTA-532102-->
+
+#### New rate limits dashboard filter
+
+You can now filter the APIs listed on the rate limits dashboard by their rate limit multiplier eligibility status. See [Rate limit monitoring](/docs/reference/rl-dashboard). <!--OKTA-524847-->
+
+#### Improved ThreatInsight coverage
+
+ThreatInsight has increased coverage for enabled orgs. More malicious requests are now flagged for orgs with ThreatInsight configured. <!--OKTA-536921-->
+
+#### Integrate with Anything-as-a-Source is EA in Preview
+
+To get Okta’s HR-driven provisioning and LCM functionality for an HR integration, customers previously had to use one of five pre-integrated HR systems or build complex custom code with the Okta Users API to replicate some of Okta’s LCM functionality for other identity sources.
+
+With Anything-as-a-Source (XaaS), customers now have the flexibility to connect any identity source to Okta and realize the full benefits of HR-driven provisioning with a simpler solution. The XaaS feature provides two integration methods: a low-code/no-code integration (through Okta Workflows), as well as a custom client integration using the new [Identity Sources API]. See [Build an Anything-as-a-Source custom client integration].
+
+Leveraging XaaS for identity source integration improves time to value, security posture, and IT efficiency by reducing or eliminating the need for complex architecture to import identities into Okta. <!--OKTA-543496-->
 
 #### Developer documentation updates in 2022.11.0
 
-* 
+* We’ve got a [new API reference in the works](/docs/api/). With a fresh look and feel, our new API content will be easier to navigate and features a wider variety of code examples. Content is continuously being added — please try it out and help us improve the site by providing feedback.
+
+* A new set of guides to support the creation of a password-optional or passwordless sign-in experience for your apps is now online. [Find them all here](/docs/guides/pwd-optional-overview/aspnet/main/).
 
 #### Bugs fixed in 2022.11.0
 
-* Users were able to make more than five attempts to activate their One-Time Password (OTP) based factors. (OKTA-429940)
+* Requests to the `/api/v1/brands/*/templates/email/` endpoint to manage email templates returned an HTTP 404 error. (OKTA-545178)
 
+* PATCH requests to the `/iam/resource-sets/${resourceSetIdOrLabel}/resources` endpoint with duplicate resources returned duplicate resources. (OKTA-476449)
 
+* Users were sometimes signed out of Okta right after signing in if the tokens returned were too large. (OKTA-476449)
+
+* Some orgs experienced internal server errors during outbound SAML federation. (OKTA-544628)
+
+* A long text string was displayed outside of the General Settings page in OIN Manager. (OKTA-532898)
+
+* The **Enter your Post Logout Redirect URI** field for OIDC settings in OIN Manager didn’t accept all valid URLs.
 
 ## October
 
