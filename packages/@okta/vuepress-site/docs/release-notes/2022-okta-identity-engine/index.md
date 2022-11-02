@@ -4,6 +4,58 @@ title: Okta Identity Engine API Products release notes 2022
 
 <ApiLifecycle access="ie" />
 
+## November
+
+### Monthly release 2022.11.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Improvements to the self-service password reset experience are GA in Production](#self-service-password-reset-improvements-are-ga-in-production) | July 7, 2022 |
+| [Improvements to the self-service unlock process are GA in Production](#self-service-unlock-improvements-are-ga-in-production) | August 10, 2022 |
+| [Improvements to the sign-in experience are GA in Preview](#improvements-to-the-sign-in-experience-are-ga-in-preview) | November 3, 2022 |
+| [Manage embedded widget sign-in support is GA in Preview](#manage-embedded-widget-sign-in-support-is-ga-in-preview) | October 5, 2022 |
+| [Step-up authentication using ACR values is GA in Preview](#step-up-authentication-using-acr-values-is-ga-in-preview) | June 8, 2022 |
+|  | October 5, 2022 |
+|  | October 5, 2022 |
+|  | October 5, 2022 |
+|  | October 5, 2022 |
+|  | August 31, 2022 |
+|  | October 5, 2022 |
+| [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022110) | November 2, 2022 |
+| [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022110) | November 2, 2022|
+
+#### Self-service password reset improvements are GA in Production
+
+Previously, the self-service password reset (SSPR) flow created unnecessary friction in the user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset where the password meets the application’s assurance policy, the user is signed directly to the app. See [Configure the Email authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-email). This feature is currently available for new orgs only. <!--OKTA-499517-->
+
+#### Self-service unlock improvements are GA in Production
+
+Previously, the self-service unlock (SSU) flow created unnecessary friction in the end-user experience. The newly enhanced SSU feature introduces a seamless magic link experience in emails sent to unlock accounts. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the application. See the `${oneTimePassword}` and `${unlockAccountLink}` [VTL variables](/docs/guides/custom-email/main/#use-vtl-variables) used in the [Email Magic link](/docs/guides/email-magic-links-overview/) [custom email template](/docs/guides/email-magic-links-overview/aspnet/main/#use-custom-email-templates). This feature is currently available for new orgs only. <!--OKTA-499520-->
+
+#### Improvements to the sign-in experience are GA in Preview
+
+When users create an account using the Sign Up link in the Sign-In Widget, they enter their first and family names along with their email address on the first page. The Sign-In Widget then displays the authenticators page, where users enter a password and configure any other mandatory authenticators. To streamline the sign-up process, the Self-Service Registration with Password feature allows you to show the password entry on the first page of the enrollment form instead. See [Collect profile information and register users](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-verification). <!--OKTA-543643-->
+
+#### Manage embedded widget sign-in support is GA in Preview
+
+Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The Embedded widget sign-in support toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improves the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
+
+#### Step-up authentication using ACR values is GA in Preview
+
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the acr_values parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/).
+
+
+
+#### Developer documentation updates in 2022.11.0
+
+* 
+
+#### Bugs fixed in 2022.11.0
+
+* Users were able to make more than five attempts to activate their One-Time Password (OTP) based factors. (OKTA-429940)
+
+
+
 ## October
 
 ### Weekly release 2022.10.2
@@ -200,7 +252,7 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 | [Non-deletable default authorization server is EA in Preview](#non-deletable-default-authorization-server-is-ea-in-preview) | August 31, 2022 |
 | [PKCE validation for OIDC app integrations is GA in Production](#pkce-validation-for-oidc-app-integrations-is-ga-in-production) | July 7, 2022 |
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | July 7, 2022 |
-| [Step-up authentication using ACR values is EA in Preview](#step-up-authentication-using-acr-values-is-ea-in-preview) | August 31, |
+| [Step-up authentication using ACR values is EA in Preview](#step-up-authentication-using-acr-values-is-ea-in-preview) | August 31, 2022 |
 | [API for suppressing email notifications is GA](#api-for-suppressing-email-notifications-is-in-general-availability) | May 11, 2022 |
 | [Access Denied error message customization is GA in Preview](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
 | [Dynamic IdP routing is GA in Preview](#dynamic-idp-routing-is-ga-in-preview) | June 8, 2022 |
