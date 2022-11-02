@@ -1,8 +1,8 @@
 ---
-title: APIs only documented on the new Beta reference
+title: APIs only documented on the new beta reference
 ---
 
-# APIs only documented on the new beta reference
+# APIs documented only on the new beta reference
 
 We've got a new API reference in the works! With a fresh look and feel, our new API content features a more logical navigation and a wider variety of code examples. [Try the beta now](https://developer.okta.com/docs/api/) and help us improve the site by [providing feedback](https://forms.gle/Y9XmNNTF2rPQwive7).
 

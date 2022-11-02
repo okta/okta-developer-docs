@@ -967,7 +967,7 @@ export const reference = [
         ],
       },
       {
-        title: "Beta-only ref docs",
+        title: "Beta-only Reference Docs",
         path: "/docs/reference/beta-only/",
       },
       {
