@@ -15,8 +15,8 @@ title: Okta API Products release notes 2022
 | [New rate limits dashboard filter](#new-rate-limits-dashboard-filter) | November 3, 2022 |
 | [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | November 3, 2022 |
 | [Integrate with Anything-as-a-Source is EA in Preview](#integrate-with-anything-as-a-source-is-ea-in-preview) | November 3, 2022 |
-| [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022110) | November 3, 2022 |
-| [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022110) | November 3, 2022|
+| [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022-11-0) | November 3, 2022 |
+| [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022-11-0) | November 3, 2022|
 
 #### Step-up authentication using ACR values is GA in Preview
 
@@ -58,7 +58,7 @@ Leveraging XaaS for identity source integration improves time to value, security
 
 #### Bugs fixed in 2022.11.0
 
-* Requests to the `/api/v1/brands/*/templates/email/` endpoint to manage email templates returned an HTTP 404 error. (OKTA-545178)
+* Requests to the `/api/v1/brands/*/templates/email/` endpoint returned an HTTP 404 error. (OKTA-545178)
 
 * PATCH requests to the `/iam/resource-sets/${resourceSetIdOrLabel}/resources` endpoint with duplicate resources returned duplicate resources. (OKTA-476449)
 
