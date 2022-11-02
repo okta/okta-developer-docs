@@ -8,7 +8,7 @@ title: Reference overview
 
 Details on parameters, requests, and responses for Okta's API endpoints.
 
-## APIs only documented on the new beta reference
+## APIs documented only on the new beta reference
 
 In some cases, APIs have only been documented on the [new beta reference site](https://developer.okta.com/docs/api/). This section provides a list of those, so that you can easily find them.
 
