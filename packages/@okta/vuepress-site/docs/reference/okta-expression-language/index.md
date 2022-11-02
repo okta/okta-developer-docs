@@ -21,12 +21,13 @@ When you create an Okta expression, you can reference any attribute that lives o
 
 ### Okta User Profile
 
-Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, just reference `user` and specify the attribute variable name.
-
+Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, specify `user.` and the attribute variable name. For a list of core User Profile attributes, see [Default Profile properties](/docs/reference/api/users/#default-profile-properties).
 
 | Syntax            | Definitions                                                                   | examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |
 | `user.$attribute` | `user` reference to the Okta User<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
+
+> **Note:** You can also access the User ID for each user with the following expression: `user.getInternalProperty("id")`.
 
 ### Application User Profile
 
@@ -186,6 +187,8 @@ Group functions return either an array of groups or **True** or **False**.
 > **Note:** The `Groups.contains`, `Groups.startsWith`, and `Groups.endsWith` group functions are designed to work only with group claims. You can't use these functions with property mappings.
 
 > **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
+
+> **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, app user profile attributes aren’t updated or reapplied when the user’s group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
 
 For an example using group functions and for more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 

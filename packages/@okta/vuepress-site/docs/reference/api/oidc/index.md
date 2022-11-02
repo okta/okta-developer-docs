@@ -101,7 +101,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 | scope                            | `openid` is required for authentication requests. Other [scopes](#access-token-scopes-and-claims) may also be included.                                                                                                                                                                                                                                                                                                                            | Query       | String    | TRUE       |
 | sessionToken                     | Okta one-time session token. This allows an API-based user sign-in flow (rather than the Okta sign-in UI). Session tokens can be obtained via the [Authentication API](/docs/reference/api/authn/).                                                                                                                                                                                                                                                        | Query       | String    | FALSE      |
 | state                            | A value to be returned in the token. The client application can use it to remember the state of its interaction with the end user at the time of the authentication call. It can contain alphanumeric, comma, period, underscore, and hyphen characters. See [Parameter details](#parameter-details).                                                                                                                                               | Query       | String    | TRUE       |
-| acr_values <ApiLifecycle access="ea" /> | An optional parameter that can be included in the authentication request. This parameter increases the level of user assurance. Values supported: `urn:okta:loa:1fa:pwd`, `urn:okta:loa:1fa:any`, `urn:okta:loa:2fa:any`,<br> `urn:okta:loa:2fa:any:ifpossible` <ApiLifecycle access="ie" />,<br> `phr` <ApiLifecycle access="ie" />, `phrh` <ApiLifecycle access="ie" /> .<br>See [Predefined acr values](/docs/guides/step-up-authentication/main/#predefined-parameter-values) for more information on the predefined values supported by Okta. | Query | String  | FALSE |
+| acr_values <ApiLifecycle access="ea" /> | An optional parameter that can be included in the authentication request. This parameter increases the level of user assurance. Values supported: `urn:okta:loa:1fa:pwd`, `urn:okta:loa:1fa:any`, `urn:okta:loa:2fa:any`,<br> `urn:okta:loa:2fa:any:ifpossible` <ApiLifecycle access="ie" />,<br> `phr` <ApiLifecycle access="ie" />,<br> `phrh` <ApiLifecycle access="ie" /> .<br>See [Predefined acr values](/docs/guides/step-up-authentication/main/#predefined-parameter-values) for more information on the predefined values supported by Okta. | Query | String  | FALSE |
 
 #### Parameter details
 
@@ -313,6 +313,7 @@ The following pushed authorization request initiates the flow. The request retur
 ```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 "https://${yourOktaDomain}/oauth2/default/v1/par" \
 -d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}&response_type=${responseType}&response_mode=${responseMode}&state=${state}&nonce=${nonce}"
 ```
@@ -382,6 +383,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 ```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 "https://${yourOktaDomain}/oauth2/default/v1/device/authorize" \
 -d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}"
 ```
@@ -470,6 +472,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 ```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 "https://${yourOktaDomain}/oauth2/default/v1/token" \
 -d "client_id=${clientId}&client_secret=${clientSecret}&grant_type=authorization_code&redirect_uri=${redirectUri}&code=${code}"
 ```
@@ -1529,7 +1532,6 @@ Claims in the payload are either base claims, independent of scope (always retur
 | name                | profile            | User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the user's locale and preferences.                                                                      | String          | John Doe                                                                                                                          |
 | preferred_username  | profile            | The Okta login (username) for the end user.                                                                                                                                                                                         | String          | john.doe@example.com                                                                                                              |
 | nickname            | profile            | Casual name of the user that may or may not be the same as the `given_name`.                                                                                                                                                          | String          | Jimmy                                                                                                                             |
-| preferred_username  | profile            | The chosen login (username) for the end user. By default this is the Okta username.                                                                                                                                                 | String          | john.doe@example.com                                                                                                              |
 | given_name          | profile            | Given name(s) or first name(s) of the user. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.                                               | String          | John                                                                                                                              |
 | middle_name         | profile            | Middle name(s) of the user. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names aren't used.  | String          | James                                                                                                                             |
 | family_name         | profile            | Surname(s) or last name(s) of the user. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.                                | String          | Doe                                                                                                                               |

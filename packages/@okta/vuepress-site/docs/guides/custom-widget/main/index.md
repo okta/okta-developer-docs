@@ -131,7 +131,44 @@ Defines a global `OktaUtil` JavaScript object that contains methods used to comp
 
 By calling the `OktaUtil.getRequestContext()` method, JavaScript code on your sign-in page can inspect the current request and make decisions based on the target application or other details.
 
-Here's what is returned from `getRequestContext()`:
+If you're using Okta Identity Engine, the following object is returned by invoking `OktaUtil.getRequestContext()`:
+
+```json
+{
+  "app": {
+    "type": "object",
+    "value": {
+      "name": "sample_client",
+      "label": "Demo App",
+      "id": "0oadday782XUlHyp90h3"
+    }
+  },
+  "authentication": {
+    "type": "object",
+    "value": {
+      "request": {
+        "max_age": -1,
+        "scope": "openid",
+        "display": "page",
+        "response_type": "code",
+        "redirect_uri": "https://example.com/enduser/callback",
+        "state": "VqpCUgGCSYkbwuCfnqHLSehAJvI5En1XxtywWxfiGSXQ0bVeSNKMh4gscswtUhPa",
+        "code_challenge_method": "S256",
+        "nonce": "i2Q3rgA3fPGx3f9yfuglKc0PdzZRB8tODSoJFWMZSccH6Hi4dhIXGl6PNFj0pyUo",
+        "code_challenge": "C0bfLXeyH61AWEyznLh-JsZP55uJTJqxGAhXBcH-lO8",
+        "response_mode": "query"
+      },
+      "protocol": {},
+      "issuer": {
+        "name": "default",
+        "uri": "https://{yourOktaDomain}/oauth2/default"
+      }
+    }
+  }
+}
+```
+
+Okta Classic Engine users get the following object returned from `OktaUtil.getRequestContext()`:
 
 ```json
 {
@@ -161,13 +198,16 @@ Here's what is returned from `getRequestContext()`:
 }
 ```
 
-For an OpenID Connect application, the application's client ID is stored in the request context's target for that object:
+For an OpenID Connect application, the application's client ID is stored in the request context object and is retrievable using the following commands:
 
 ```javascript
+// Identity Engine
+OktaUtil.getRequestContext().app.value.id
+// Classic
 OktaUtil.getRequestContext().target.clientId
 ```
 
-There is also additional information available in the `target`, such as `label`.
+There is also additional information available about the client app, such as `label`.
 
 > **Note:** The `getRequestContext()` method only returns a value when the Okta-hosted sign-in page is loaded in the context of an application (such as SP-initiated flows in SAML or the `/authorize` route for OpenID Connect). Otherwise, it returns `undefined`.
 
@@ -206,6 +246,10 @@ You can modify the look of the initial sign-in page using parameters in the `con
 <div class="three-quarter">
 
 ![Screenshot of basic Okta Sign-In Widget](/img/siw/widget_theming.png)
+
+<!--
+Image source: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3238%3A30940  widget-theming
+ -->
 
 </div>
 
@@ -492,9 +536,22 @@ The Okta-hosted sign-in page is application-aware. This means that your client-s
 
 When the page renders, an object called `OktaUtil` exists on the page. By calling the `OktaUtil.getRequestContext()` method, scripts on the page can get details about the current request.
 
-To access the application's client ID (which uniquely identifies the application), write a function to safely get `target.clientId` from the request context:
+To access the application's client ID (which uniquely identifies the application), write a function to safely get the client ID from the request context:
 
 ```html
+// Identity Engine
+<script>
+  function getClientId() {
+    if (!OktaUtil) return undefined;
+
+    var requestContext = OktaUtil.getRequestContext();
+    if (requestContext && requestContext.app && requestContext.app.value.id) {
+      return requestContext.app.value.id;
+    }
+  }
+</script>
+
+// Classic
 <script>
   function getClientId() {
     if (!OktaUtil) return undefined;
@@ -509,7 +566,7 @@ To access the application's client ID (which uniquely identifies the application
 
 Elsewhere in your file, using the method above, you can inspect the client ID and take action. For example, if you had a CSS file on your server that was for a particular client's CSS:
 
-> **Note:** To locate the `clientId` for an app, in the Admin Console, go to **Applications** > **Applications**. Select the app integration that you need the `clientId` for. On the **General** tab, copy the ID from the **Client ID** box in the **Client Credentials** section.
+> **Note:** To locate the client ID for an app, in the Admin Console, go to **Applications** > **Applications**. Select the app integration that you need the client ID for. On the **General** tab, copy the ID from the **Client ID** box in the **Client Credentials** section.
 
 ```html
 <script>
@@ -522,7 +579,7 @@ Elsewhere in your file, using the method above, you can inspect the client ID an
 
     link.type = 'text/css';
     link.rel = 'stylesheet';
-    link.href = 'https://example.com/styles/' + client_id + '.css';
+    link.href = 'https://example.com/styles/' + clientId + '.css';
     head.appendChild(link);
   }
 </script>
