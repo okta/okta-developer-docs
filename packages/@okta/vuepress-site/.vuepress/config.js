@@ -4,7 +4,7 @@ const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Path = require('path')
-const signInWidgetMajorVersion = 6;
+const signInWidgetMajorVersion = 7;
 
 const projectRootDir = Path.resolve(__dirname, '../../../../');
 const outputDir = Path.resolve(__dirname, '../dist/');
