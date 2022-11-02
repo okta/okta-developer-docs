@@ -140,7 +140,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
 
     Possible returned responses:
 
-    * **200 OK**: The Identity Source Session created successfully and returns an `id` property. Save the `id` value to make further API calls.
+    * **200 OK**: The Identity Source Session was created successfully, and the `id` property was returned in the response. Save the `id` value to make further API calls.
 
       ```json
       {
