@@ -4813,6 +4813,7 @@ Okta supports the following enterprise and social Identity Provider types:
 | `GITLAB`     | [GitLab](https://gitlab.com/users/sign_in)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `read_user`, `profile`, `email` |
 | `GOOGLE`     | [Google](https://accounts.google.com/signup)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
 | `LINKEDIN`   | [LinkedIn](https://developer.linkedin.com/)&nbsp;as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `r_emailaddress`, `r_liteprofile` |
+| `LOGINGOV`   | [Login.gov](https://developers.login.gov/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
 | `MICROSOFT`  | [Microsoft Enterprise SSO](https://azure.microsoft.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile`, `https://graph.microsoft.com/User.Read` |
 | `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
 | `PAYPAL`     | [Paypal](https://www.paypal.com/signin)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |

@@ -1,1 +1,1 @@
-[Login.gov](https://secure.login.gov/). You can also test using Login.gov's identity sandbox. See [Login.gov - Partner Dashboard](https://dashboard.int.identitysandbox.gov/)
+[Login.gov](https://secure.login.gov/). You also need a testing account at Login.gov's identity sandbox. See [Login.gov - Partner Dashboard](https://dashboard.int.identitysandbox.gov/).

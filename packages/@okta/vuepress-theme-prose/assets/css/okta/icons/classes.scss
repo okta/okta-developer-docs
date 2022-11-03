@@ -1723,6 +1723,11 @@ h1 {
   background-image: url('/img/icons/line-20.png');
 }
 
+.icon.logingov::before {
+  content:'';
+  background-image: url('/img/idp-logos/login-gov-logo.svg');
+}
+
 .icon.paypal::before {
   content:'';
   background-image: url('/img/icons/paypal.png');
