@@ -32,7 +32,7 @@ When redirecting applications, you can use the [loading page variant property](/
 
 #### API service integrations is Self-Service EA in Preview
 
-A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through [Okta management APIs]() using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN]. OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration]. <!--OKTA-532102-->
+A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through [Okta management APIs](/docs/reference/core-okta-api/#manage-okta-objects) using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN]. OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration]. <!--OKTA-532102-->
 
 #### New rate limits dashboard filter
 
@@ -44,7 +44,7 @@ ThreatInsight has increased coverage for enabled orgs. More malicious requests a
 
 #### Integrate with Anything-as-a-Source is EA in Preview
 
-To get Okta’s HR-driven provisioning and LCM functionality for an HR integration, customers previously had to use one of five pre-integrated HR systems or build complex custom code with the Okta Users API to replicate some of Okta’s LCM functionality for other identity sources.
+To get Okta’s HR-driven provisioning and Lifecycle Management (LCM) functionality for an HR integration, customers previously had to use one of five pre-integrated HR systems or build complex custom code with the Okta Users API to replicate some of Okta’s LCM functionality for other identity sources.
 
 With Anything-as-a-Source (XaaS), customers now have the flexibility to connect any identity source to Okta and realize the full benefits of HR-driven provisioning with a simpler solution. The XaaS feature provides two integration methods: a low-code/no-code integration (through Okta Workflows), as well as a custom client integration using the new [Identity Sources API]. See [Build an Anything-as-a-Source custom client integration].
 
