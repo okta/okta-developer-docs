@@ -1,3 +1,5 @@
+At Azure AD, create the client application that you want to use for authenticating and authorizing your users.
+
 1. Create an Azure AD app using these [instructions](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 
 2. In the **Redirect URI** section of the page, paste the Okta redirect URI. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the Identity Provider (IdP). This is the URL where the IdP returns the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URL has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and then the callback endpoint.

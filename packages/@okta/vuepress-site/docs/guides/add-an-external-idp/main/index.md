@@ -13,13 +13,13 @@ This document explains how to configure <StackSnippet snippet="idp" inline /> as
 
 **Learning outcomes**
 
-Configure an external Identity Provider so that your users can quickly sign up or sign in to your application using their social Identity Provider account.
+Configure an external Identity Provider so that your users can quickly sign up or sign in to your application using their Identity Provider account.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An application that you want to add authentication to. You can [create a new app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
-* An account <StackSnippet snippet="idpaccount" inline />.
+* An account <StackSnippet snippet="idpaccount" inline />
 
 ---
 
@@ -30,8 +30,6 @@ Okta manages the connection to the IdP for your application. The connection sits
 > **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
 ## Create an app at the Identity Provider
-
-At <StackSnippet snippet="idp" inline />, create the client application that you want to use for authenticating and authorizing your users.
 
 <StackSnippet snippet="appatidp" />
 

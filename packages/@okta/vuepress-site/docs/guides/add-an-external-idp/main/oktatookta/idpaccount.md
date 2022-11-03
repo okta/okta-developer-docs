@@ -1,1 +1,1 @@
-with [Okta](https://developer.okta.com/signup/)
+with [Okta](https://developer.okta.com/signup/).
