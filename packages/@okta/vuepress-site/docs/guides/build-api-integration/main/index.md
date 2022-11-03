@@ -58,7 +58,7 @@ app -> client: Response
 
 1. Your customer's service app instance makes an access token request to their Okta Authorization Server using their client credentials.
 
-   Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the access token request. See [Set up an API service integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations) for customer tenant Admin Console instructions. After installing your integration, the customer obtains their client credentials and passes them to your app. The customer's app instance can now make an access token request to Okta. See [Request for access token](#request-an-access-token).
+   Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the access token request. See [API Service Integrations](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations) for customer tenant Admin Console instructions. After installing your integration, the customer obtains their client credentials and passes them to your app. The customer's app instance can now make an access token request to Okta. See [Request for access token](#request-an-access-token).
 
 2. If the credentials in the token request are accurate, Okta responds with an access token.
 
