@@ -26,7 +26,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Self-service password reset improvements are GA in Production
 
-Previously, the self-service password reset (SSPR) flow created unnecessary friction in the user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset where the password meets the application’s assurance policy, the user is signed directly to the app. See [Configure the Email authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-email). This feature is currently available for new orgs only. <!--OKTA-499517-->
+Previously, the self-service password reset (SSPR) flow created unnecessary friction in the user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset, where the password meets the application’s assurance policy, the user is signed directly in to the app. See [Configure the Email authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-email). This feature is currently available for new orgs only. <!--OKTA-499517-->
 
 #### Self-service unlock improvements are GA in Production
 
