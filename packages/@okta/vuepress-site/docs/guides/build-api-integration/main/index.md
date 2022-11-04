@@ -13,7 +13,7 @@ Build, test, and submit an API service integration to the Okta Integration Netwo
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-   > **Note:** The API Service Integration is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable this feature.
+   > **Note:** The API Service Integrations is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable this feature.
 <!-- Need OAUTH_ADMIN_CONSENT_DIALOG FF enabled -->
 * A service app that needs to access Okta APIs for your customer
 
