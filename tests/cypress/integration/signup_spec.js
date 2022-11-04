@@ -1,7 +1,7 @@
 import { DialogWindow } from "../page-objects/DialogWindow";
 import { SignUpPage } from "../page-objects/SignUpPage";
 
-describe('Sign up page check spec', () => {
+describe.skip('Sign up page check spec', () => {
   const signUpPage = new SignUpPage();
   const dialogWindow = new DialogWindow();
 
