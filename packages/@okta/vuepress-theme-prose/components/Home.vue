@@ -3,6 +3,12 @@
     <div class="content--container">
       <Sidebar />
       <div class="width-adjuster">
+        <AnnouncementBanner>
+          <template v-slot:description>
+            <strong>We've got a new API reference in the works!</strong><br>
+            With a fresh look and feel, our new API content features a more logical navigation and a wider variety of code examples. <a href="https://developer.okta.com/docs/api/">Try the beta now</a>.
+          </template>
+        </AnnouncementBanner>
         <div class="justify-content-center">
           <div class="homepage--elevated">
             <div class="homepage--top-section homepage--section-margins">
