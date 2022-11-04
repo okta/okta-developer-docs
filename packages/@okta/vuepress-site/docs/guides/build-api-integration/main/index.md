@@ -58,7 +58,7 @@ app -> client: Response
 
 1. Your customer's service app instance makes an access token request to their Okta Authorization Server using their client credentials.
 
-   Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the access token request. See [Add an API Service Integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-api-service-integration) for customer tenant Admin Console instructions. After installing your integration, the customer obtains their client credentials and passes them to your app. The customer's app instance can now make an access token request to Okta. See [Request for access token](#request-an-access-token).
+   Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the access token request. See [Add an API Service Integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations) for customer tenant Admin Console instructions. After installing your integration, the customer obtains their client credentials and passes them to your app. The customer's app instance can now make an access token request to Okta. See [Request for access token](#request-an-access-token).
 
 2. If the credentials in the token request are accurate, Okta responds with an access token.
 
@@ -76,7 +76,7 @@ This section outlines the components, artifacts, and requests required to build 
 
 ### Save customer credentials
 
-Okta generates a unique set of credentials (client ID and client secret) for your customer when they install your integration in their Okta org. See [Add an API Service Integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-api-service-integration).
+Okta generates a unique set of credentials (client ID and client secret) for your customer when they install your integration in their Okta org. See [Add an API Service Integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-api-service-integrations).
 
 You must store these credentials for each customer to allow your integration to work with the customer's Okta org. To implement the Client Credentials flow in your integration, provide an interface to collect and store these API service integration credentials:
 
