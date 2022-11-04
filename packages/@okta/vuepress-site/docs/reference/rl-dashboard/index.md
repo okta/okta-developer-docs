@@ -83,11 +83,11 @@ The APIs table shows each API and its corresponding rate limit for your org. The
 
 </div>
 
-You can sort on all the columns. The Trendline is sorted by the current usage.
+You can sort on all the columns. The Trendline is sorted by the current usage. Use the **Filters** dropdown list to filter between all APIs that have rate-limit multipliers applied or that are multiplier eligible.
 
 Each API is a link that navigates you to the [dashboard view of API rate limits and violations](#API-rate-limits-and-violations) where you can obtain more details on the API.
 
-You can perform a search or filter your table list by making an entry in the Search textbox. You can also perform a "lookup" with the Search textbox. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that will be applied to calls that are made against that `requestURI`.
+You can perform a search in your table list by making an entry in the Search box. You can also perform a "lookup" with the Search. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that will be applied to calls that are made against that `requestURI`.
 
 ### Change rate limit settings
 
