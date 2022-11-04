@@ -9,7 +9,7 @@ title: Okta API Products release notes 2022
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [Step-up authentication using ACR values is GA in Preview](#step-up-authentication-using-acr-values-is-ga-in-preview) | August 31, 2022 |
-| [Authenticator enrollment using the `/authorize` endpoint is EA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ea-in-preview) | November 3, 2022 |
+| [Authenticator enrollment using the /authorize endpoint is EA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ea-in-preview) | November 3, 2022 |
 | [Loading page animation feature for the Brands API is in GA](#loading-page-animation-feature-for-the-brands-api-is-in-ga) | October 5, 2022 |
 | [API service integrations is Self-Service EA in Preview](#api-service-integrations-is-self-service-ea-in-preview) | November 3, 2022 |
 | [New rate limits dashboard filter](#new-rate-limits-dashboard-filter) | November 3, 2022 |
@@ -22,7 +22,7 @@ title: Okta API Products release notes 2022
 
 Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/). <!--OKTA-544153-->
 
-#### Authenticator enrollment using the `/authorize` endpoint is EA in Preview
+#### Authenticator enrollment using the /authorize endpoint is EA in Preview
 
 Authenticator enrollment provides a standardized way for a user to enroll a new authenticator using the OAuth `/authorize` endpoint. This feature uses query parameters such as `prompt` and `enroll_amr_values` to specify which authenticator the user wants to enroll. It also automatically verifies at least two factors as long the user has already enrolled two or more factors. <!--OKTA-544671-->
 
@@ -32,7 +32,7 @@ When redirecting applications, you can use the [loading page variant property](/
 
 #### API service integrations is Self-Service EA in Preview
 
-A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through [Okta management APIs](/docs/reference/core-okta-api/) using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/). <!--OKTA-532102-->
+A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/). <!--OKTA-532102-->
 
 #### New rate limits dashboard filter
 
