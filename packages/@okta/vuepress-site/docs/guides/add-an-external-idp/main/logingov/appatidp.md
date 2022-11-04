@@ -7,12 +7,23 @@ At Login.gov, you need to first register your app integration in Login.gov's ide
 1. Click **Create a new test app** from the Apps tab and specify the following attributes specific to the Okta test integration:
 
     * **Production Configuration**: Select **No**.
-    * **App Name**: Specify app test name.
-    * **Friendly name**: Specify a friendly name to label the app.
+    * **App Name**: Specify app name.
+    * **Friendly name**: Specify a friendly name to display during sign-in.
     * **Team**: Select the previously configured team to test the integration.
     * **Authentication protocol**: Select **OpenID Connect Private Key JWT**.
-    * **Level of Service**: 
+    * **Identity Assurance Level (IAL)**: Select **IAL1 (standard)**.
+    * **Default Authentication Assurance Level (AAL)**: 
+    * Attribute bundle: email, all_emails, verified_at, x509_subject, x509_presented
+    * Issuer: urn: gove:gsa:open...app_name
+    * **Enable <prompt=logn>**: checkbox "Enabled"
+    * Allow Email NameID Format: "Enabled" checkbox
+    * Logo: 
+    * **Certifiates**: Upload the public cert (choose a file)
+    * **Pubsh notification URL**
+    * **Redirect URIs**:
+    * Active: Yes/No
 
+Click **Create test app**
 
 1. Follow the Login.gov sandbox instructions to register your app and specify the following information:
    * **redirect_uri**: `https://${yourCompanySubdomain}.okta.com/oauth2/v1/authorize/callback`
