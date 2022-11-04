@@ -164,21 +164,7 @@
             <div class="row error-color" v-if="error !== null">
               {{ error }}
             </div>
-            <div class="row signup--submit">
-              <label class="field-wrapper" for="signup" id="submitbutton">
-                <a class="btn pending" v-if="isPending">
-                  <img src="/img/ajax-loader-white.gif" />
-                </a>
-                <input
-                  type="submit"
-                  class="btn"
-                  :disabled="!validationService.isValidForm()"
-                  id="signup"
-                  value="Sign up"
-                  v-else
-                />
-              </label>
-            </div>
+          
 
             <div class="consent--section" v-show="displayConsent">
               <div class="consent--section-text">
@@ -211,33 +197,7 @@
               </div>
             </div>
           </form>
-          <div class="splitter">
-            <span></span>
-            <span>or</span>
-            <span></span>
-          </div>
-          <div class="row">
-            <div class="field-wrapper">
-              <button
-                id="continue-github"
-                class="btn social-btn"
-                @click="openTermsConditionsDialog(uris.github)"
-              >
-                <i class="fa fa-github"></i> Continue with GitHub
-              </button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="field-wrapper">
-              <button
-                id="continue-google"
-                class="btn social-btn"
-                @click="openTermsConditionsDialog(uris.google)"
-              >
-                <span class="google-logo"></span> Continue with Google
-              </button>
-            </div>
-          </div>
+        
           <TermsAndConditionsDialog
             v-if="isShowTermsConditionsDialog"
             :socialUrl="socialUrl"
