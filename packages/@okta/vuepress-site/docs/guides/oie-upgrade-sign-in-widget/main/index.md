@@ -152,21 +152,6 @@ idps: [
 
 This is now optional as the Sign-In Widget automatically includes IdPs based on Identity Engine routing rules.
 
-### Smart card IdP
-
-[Smart card IdP](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow) is no longer supported.
-
-Remove the authentication settings for the smart card IdP (`piv`):
-
-```JavaScript
-piv: {
-  certAuthUrl: '/your/cert/validation/endpoint',
-  text: 'Authenticate with a Smart Card',
-  className: 'custom-style',
-  isCustomDomain: true
-}
-```
-
 ### Bootstrapping from a recovery token
 
 If you're initializing the widget with a recovery token, the `recoveryToken` setting appears, for example:
