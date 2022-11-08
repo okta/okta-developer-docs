@@ -84,7 +84,6 @@ Pass the values using the widget's `config` object.
       config.clientId = /*[[${oktaClientId}]]*/ '{clientId}';
       config.otp = /*[[${otp}]]*/ '{otp}';
       config.redirectUri = /*[[${redirectUri}]]*/ '{redirectUri}';
-      config.useInteractionCodeFlow = true;
       config.interactionHandle = /*[[${interactionHandle}]]*/ '{interactionHandle}';
       config.codeChallenge = /*[[${codeChallenge}]]*/ '{codeChallenge}';
       config.codeChallengeMethod = /*[[${codeChallengeMethod}]]*/ '{codeChallengeMethod}';
@@ -104,6 +103,8 @@ Pass the values using the widget's `config` object.
       /*]]>*/
   </script>
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the code above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the code above.
 
 ### 3: Display password reset prompt and complete password recovery flow
 

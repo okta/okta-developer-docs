@@ -43,13 +43,14 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
          "offline_access"
       ]
    },
-   "useInteractionCodeFlow":true,
    "state":"${state}",
    "otp":"${otp}",
    "codeChallenge":"${codechallenge}",
    "codeChallengeMethod":"S256"
 }
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `"useInteractionCodeFlow": true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `"useClassicEngine" = true` in the configuration settings.
 
 ### 2: Load the Widget
 
