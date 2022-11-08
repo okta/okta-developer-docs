@@ -5,6 +5,8 @@ meta:
     content: Okta supports authentication with Login.gov as an external Identity Provider. Set up the Login.gov IdP using OpenID Connect with private key JWT in Okta.
 ---
 
+<ApiLifecycle access="ea" />
+
 This document explains how to configure Login.gov as an [external Identity Provider](/docs/concepts/identity-providers/) for your application by creating an Identity Provider in Okta, creating an application at Login.gov, testing the configuration, and creating a sign-in button.
 
 ---
@@ -42,19 +44,16 @@ Login.gov requires you to [test your app integration](https://developers.login.g
 1. In the configure dialog, define the following:
 
    * **Name**: Enter a name for the IdP configuration.
-   * **Scopes**: Leave the defaults. These scopes are included when Okta makes an OpenID Connect request to the IdP. See [Login.gov OIDC scopes for required attributes](https://developers.login.gov/attributes/).
-
-      > **Note:** By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 
    * **Client ID**: Specify your Okta org URL. This is typically in the format `https://${yourCompanySubdomain}.okta.com`. If you configured a custom domain in your Okta org, specify your custom URL.
-   * **Authentication type**: Select **Public key/private key** to automatically generate a public and private key pair. The public key is available for download when you click **Finish**.
 
+   * **Private key**: The public/private key is available for download when you click **Finish**.
       > **Note:** The **Public key/private key** option is an <ApiLifecycle access="ea" /> (Self-Service) feature.
 
-   * **Authorize requests**: Select **Enable signed requests** to send request parameters to the OpenID provider as an encoded JWT instead of passing the parameters in the URL. <ApiLifecycle access="ea" />
-   * **Algorithm**: Select the algorithm to use for the signed requests from the dropdown list. If you are using the **Public key/private key** option, you must specify a signing algorithm, for example: **RSA256**. <ApiLifecycle access="ea" />
+   * **Scopes**: Leave the defaults (`profile`, `profile:name`, `email`). These scopes are included when Okta makes an OpenID Connect request to the IdP. See [Login.gov OIDC scopes for required attributes](https://developers.login.gov/attributes/).
 
-      > **Note:** The **Algorithm** is used to sign authorize requests and to generate bearer assertions when you use a private/public key pair for `/token` endpoint authentication.
+   * **Type of Identity Verification**: The maximum level of [identity assurance](https://developers.login.gov/oidc/#ial-values) available for this application. Select **ial/1** for standard MFA-protected email-based sign-in.
+   * **AAL value**: Select the [authentication assurance level](https://developers.login.gov/oidc/#aal-values) required.
 
    In the **Endpoints** section:
 
