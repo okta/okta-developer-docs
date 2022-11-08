@@ -37,3 +37,29 @@ In the optional **Authentication Settings** section:
     > **Note:** When you use Okta for B2B or multi-tenancy use cases, select this checkbox. This helps you scope a subset of users in the org and enforce identifier constraints, such as email suffixes.
 
     For example, you could restrict an IdP for use only with users who have `@company.com` as their email address using the following expression: `^[A-Za-z0-9._%+-]+@company\.com`.
+
+
+------
+* **Name**: Enter a name for the Identity Provider in Okta.
+* **Client ID**: Paste the generated client ID from your <StackSnippet snippet="idp" inline /> application.
+* **Client Secret**: Paste the generated client secret from your <StackSnippet snippet="idp" inline /> application. ??? Remove this? Since it's not supported in Login.gov???
+* **Scopes**: Leave the defaults for a simple sign-in flow. You can also add scopes. See [OIDC scopes for required attributes](https://developers.login.gov/attributes/).
+
+----
+Is this even needed? As only OIE supports this?
+
+```javascript
+    config.idps= [
+        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
+    ];
+    config.idpDisplay = "SECONDARY";
+```
+
+or
+
+```javascript
+    config.idps= [
+        { type: 'LOGINGOV_SANDBOX', id: 'Your_IDP_ID' }
+    ];
+    config.idpDisplay = "SECONDARY";
+```
