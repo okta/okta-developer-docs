@@ -30,7 +30,7 @@ Not sure what an Identity Provider is? See [External Identity Providers](/docs/c
   <Card href="/docs/guides/social-login/gitlab/main" headerImage="/img/idp-logos/gitlab.svg">GitLab</Card>
   <Card href="/docs/guides/social-login/google/main/" headerImage="/img/idp-logos/google.svg">Google</Card>
   <Card href="/docs/guides/social-login/linkedin/main/" headerImage="/img/idp-logos/linkedin.png">LinkedIn</Card>
-  <Card href="/docs/guides/add-an-external-idp/logingov/main/" headerImage="/img/idp-logos/login-gov-logo.svg">Login.gov</Card>
+  <Card href="/docs/guides/add-logingov-idp/main/" headerImage="/img/idp-logos/login-gov-logo.svg">Login.gov</Card>
   <Card href="/docs/guides/social-login/microsoft/main/" headerImage="/img/idp-logos/microsoft.svg">Microsoft</Card>
   <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect</Card>
   <Card href="/docs/guides/social-login/paypal/main" headerImage="/img/idp-logos/paypal.png">Paypal</Card>

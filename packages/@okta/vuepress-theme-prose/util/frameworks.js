@@ -55,7 +55,6 @@ const COMMON_NAME_TO_FANCY_NAME = {
   facebook: 'Facebook',
   google: 'Google',
   linkedin: 'LinkedIn',
-  logingov: 'Login.gov',
   microsoft: 'Microsoft',
   nodeexpress: 'Node Express',
   'node-express': 'Node Express',

@@ -132,6 +132,7 @@ guides:
  - device-context
  - pwd-optional-best-practices
  - pwd-optional-overview
+ - add-logingov-idp
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

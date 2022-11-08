@@ -1,4 +1,0 @@
-at [Login.gov](https://secure.login.gov/). You also need a testing account at Login.gov's identity sandbox. See [Login.gov - Partner Dashboard](https://dashboard.int.identitysandbox.gov/).
-<br><br>
-> **Note:** The [self-service Early Access](/docs/concepts/feature-lifecycle-management/#self-service-features) **Private Key JWT Client Authentication for OIDC IdP** feature needs to be enabled for this IdP configuration. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable this feature. <ApiLifecycle access="ea" />
-<!-- Need SUPPORT_PRIVATE_KEY_JWT_FOR_OIDC_IDP FF enabled -->
