@@ -2053,7 +2053,7 @@ The base User Profile is based on the [System for Cross-Domain Identity Manageme
 | countryCode       | Country name component of the User's address (`country`)                                                                         | String   | TRUE     | FALSE  | FALSE    |           |           | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166)  |
 | postalAddress     | Mailing address component of the User's address                                                                                  | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | preferredLanguage | User's preferred written or spoken languages                                                                                 | String   | TRUE     | FALSE  | FALSE    |           |           | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                       |
-| locale            | User's default location for purposes of localizing items such as currency, date time format, numerical representations, and so on. | String   | TRUE     | FALSE  | FALSE    |           |           | See the Note after the table for more details.                                                                                        |
+| locale            | User's default location for purposes of localizing items such as currency, date time format, numerical representations, and so on. | String   | FALSE (default)    | FALSE  | FALSE    |           |           | See [Locale format](#locale-format)details.                                                                                        |
 | timezone          | User's time zone                                                                                                             | String   | TRUE     | FALSE  | FALSE    |           |           | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                             |
 | userType          | Used to describe the organization to the User relationship such as "Employee" or "Contractor"                                          | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | employeeNumber    | Organization or company assigned unique identifier for the User                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
@@ -2064,9 +2064,11 @@ The base User Profile is based on the [System for Cross-Domain Identity Manageme
 | managerId         | `id` of the User's manager                                                                                                     | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | manager           | DisplayName of the User's manager                                                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 
-> **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 two letter country code. For example: 'en_US' specifies the language English and country US.
-
 > **Note:** The `userType` field is an arbitrary string value and isn't related to the newer [User Types](/docs/reference/api/user-types) feature.
+
+##### Locale format
+
+A locale value is a concatenation of the ISO 639-1 two-letter language code, an underscore, and the ISO 3166-1 two-letter country code. For example: `en_US` specifies the language English and country US. This value is `en_US` by default.
 
 ##### Login pattern validation
 
