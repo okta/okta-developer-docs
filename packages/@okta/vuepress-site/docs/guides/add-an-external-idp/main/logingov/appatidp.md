@@ -1,4 +1,4 @@
-At Login.gov, you need to first register your app integration in Login.gov's identity sandbox for testing before you can enable the integration for production. See [Testing your app](https://developers.login.gov/testing/).
+At Login.gov, you need to first register your app integration in Login.gov's identity sandbox for testing before you can enable it for production. See [Testing your app](https://developers.login.gov/testing/).
 
 1. Sign in to the [Partner Dashboard](https://dashboard.int.identitysandbox.gov/) and register your app for testing.
 
@@ -11,34 +11,15 @@ At Login.gov, you need to first register your app integration in Login.gov's ide
     * **Friendly name**: Specify a friendly name to display during sign-in.
     * **Team**: Select the previously configured team to test the integration.
     * **Authentication protocol**: Select **OpenID Connect Private Key JWT**.
-    * **Identity Assurance Level (IAL)**: Select **IAL1 (standard)**.
-    * **Default Authentication Assurance Level (AAL)**: 
-    * Attribute bundle: email, all_emails, verified_at, x509_subject, x509_presented
-    * Issuer: urn: gove:gsa:open...app_name
-    * **Enable <prompt=logn>**: checkbox "Enabled"
-    * Allow Email NameID Format: "Enabled" checkbox
-    * Logo: 
-    * **Certifiates**: Upload the public cert (choose a file)
-    * **Pubsh notification URL**
-    * **Redirect URIs**:
-    * Active: Yes/No
+    * **Identity Assurance Level (IAL)**: Select the maximum level of identity assurance available for this application. For example, select **IAL1** for standard MFA-protected email-based sign-in.
+    * **Default Authentication Assurance Level (AAL)**: Select AAL required. You can leave the field empty for the default level.
+    * **Attribute bundle**: Select the default attributes for Login.gov to return during authentication. Select at least **email**.
+    * **Issuer**: Specify your Okta URL as the identifier of your app integration. For example, if your Okta subdomain is `company`, then specify `https://company.okta.com` as the Issuer.
+    * **Certificates**: Upload the public certificate file from your generated public/private key pair. If you created your public/private key pair with Okta, upload the **okta_public_key.pem** file you created in [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
+    * **Redirect URIs**: Specify your Okta redirect URI: `https://${yourCompanySubdomain}.okta.com/oauth2/v1/authorize/callback`. For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-Click **Create test app**
+1. Click **Create test app**.
 
-1. Follow the Login.gov sandbox instructions to register your app and specify the following information:
-   * **redirect_uri**: `https://${yourCompanySubdomain}.okta.com/oauth2/v1/authorize/callback`
-
-      The redirect URI sent in the authorize request from the client must match the redirect URI set at the IdP. This URI is where the IdP sends the authentication response (the access token and the ID token). It needs to be a secure domain that you own. For example, if your Okta subdomain is `company`, then the URI would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
-
-    * **scope**: Specify the scopes required for your app. Ensure that the `openid` scope is included.
-
-1. Save the generated Login.gov client ID and ??? values. You need them to configure your **Login.gov IdP (Sandbox)** in Okta.
+After you registered your app integration at Login.gov's sandbox, you need to [create an Identity Provider in Okta](#create-an-identity-provider-in-okta) before you can start testing your integration.
 
 > **Note:** After you tested your integration with Login.gov sandbox environment, you can request [Login.gov for production deployment](https://developers.login.gov/production/).
-You also need to add the redirect URI to the appropriate section. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the Identity Provider (IdP). This is the URL where the IdP returns the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URL has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and then the callback endpoint.
-
-For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
-
-Include all base domains (Okta domain and custom domain) that your users will interact with in the allowed redirect URI list.
-
-> **Note:** If you've built your own custom Identity Provider, you need the client ID and the client secret generated for the Identity Provider so you can add it to the Okta configuration in the next section.
