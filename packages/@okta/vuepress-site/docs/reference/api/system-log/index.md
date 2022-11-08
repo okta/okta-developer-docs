@@ -235,7 +235,7 @@ Describes the user, app, client, or other entity (actor) who performs an action 
 | type        | Type of actor                                  | String              | FALSE    |
 | alternateId | Alternative ID of the actor                        | String              | TRUE     |
 | displayName | Display name of the actor                          | String              | TRUE     |
-| detail      | Details about the actor                            | Map[String->Object] | TRUE     |
+| detailEntry | Details about the actor                            | Map[String->Object] | TRUE     |
 
 ### Target object
 
@@ -247,7 +247,7 @@ The entity that an actor performs an action on. Targets can be anything, such as
 | type        | Type of a target                                             | String              | FALSE    |
 | alternateId | Alternative ID of a target                                   | String              | TRUE     |
 | displayName | Display name of a target                                     | String              | TRUE     |
-| detail      | Details on a target                                         | Map[String->Object] | TRUE     |
+| detailEntry | Details on a target                                         | Map[String->Object] | TRUE     |
 
 ```json
 {
