@@ -6,7 +6,6 @@ meta:
 ---
 ???Question: Should we add the following labels on this topic?
 * <ApiLifecycle access="ea" /> (since public/private JWT key is EA)
-* <ApiLifecycle access="ie" /> (can you configure this IdP for Classic?)
 
 This document explains how to configure Login.gov as an [external Identity Provider](/docs/concepts/identity-providers/) for your application by creating an Identity Provider in Okta, creating an application at Login.gov, testing the configuration, and creating a sign-in button.
 
