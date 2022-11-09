@@ -5,8 +5,6 @@ meta:
     content: Okta supports authentication with Login.gov as an external Identity Provider. Set up the Login.gov IdP using OpenID Connect with private key JWT in Okta.
 ---
 
-<ApiLifecycle access="ea" />
-
 This document explains how to configure Login.gov as an [external Identity Provider](/docs/concepts/identity-providers/) for your application by creating an Identity Provider in Okta, creating an application at Login.gov, testing the configuration, and creating a sign-in button.
 
 ---
@@ -39,7 +37,7 @@ Login.gov requires you to [test your app integration](https://developers.login.g
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 
-1. Select **Add Identity Provider** and then select **Login.gov IdP (Sandbox)** (or **Login.gov IdP** for production). Click **Next**.
+1. Select **Add Identity Provider** and then select **Login.gov IdP (Sandbox)** for testing identity sandbox or **Login.gov IdP** for production. Click **Next**.
 
 1. In the configure dialog, define the following:
 
@@ -55,39 +53,43 @@ Login.gov requires you to [test your app integration](https://developers.login.g
    * **Type of Identity Verification**: The maximum level of [identity assurance](https://developers.login.gov/oidc/#ial-values) available for this application. Select **ial/1** for standard MFA-protected email-based sign-in.
    * **AAL value**: Select the [authentication assurance level](https://developers.login.gov/oidc/#aal-values) required.
 
-   In the **Endpoints** section:
-
-   Add the following endpoint URLs for Login.gov IdP. You can obtain the appropriate endpoints and the required scopes in the well-known configuration document for the IdP (for example, `https://${theIdPdomain}/.well-known/openid-configuration`).
-
-   * **Issuer**: The identifier of the OIDC provider. Use `https://idp.int.identitysandbox.gov/` for the Login.gov's identity sandbox or `http://idp.int.login.gov/` for Login.gov production.
-   * **Authorization endpoint**: The URL of the Identity Provider's OAuth 2.0 authorization endpoint. Use `https://int.identitysandbox.gov/openid_connect/authorize` for Login.gov identity sandbox or `https://int.login.gov/openid_connect/authorize` for Login.gov production.
-   * **Token endpoint**: The URL of the Identity Provider's token endpoint for obtaining access and ID tokens. Use `https://idp.int.identitysandbox.gov/api/openid_connect/token` for Login.gov identity sandbox or `https://int.login.gov/openid_connect/token` for Login.gov production.
-   * **JWKS endpoint**: The URL of the Identity Provider's JSON Web Key Set document. This document contains signing keys that are used to validate the signatures from the provider. For example: `https://${theIdPdomain}/oauth2/v1/keys`
-   * **Userinfo endpoint (optional)**: The endpoint for getting identity information about the user. For example: `https://${theIdPdomain}/oauth2/v1/userinfo`.
-
-   > **Note:** Okta requires an access token returned from the Identity Provider if you add the `/userinfo` endpoint URL.
-
    In the optional **Authentication Settings** section:
 
-   * **IdP Username**: This is the expression (written in Okta Expression Language) that is used to convert an Identity Provider attribute to the application user's `username`. This Identity Provider username is used for matching an application user to an Okta User.
+   * **IdP username**: This is the expression (written in Okta Expression Language) that is used to convert an IdP attribute to the application user's `username`. This IdP username is used for matching an application user to an Okta User.
 
-      For example, the value `idpuser.email` means that it takes the email attribute passed by the Identity Provider and maps it to the Okta application user's `username` property.
+      For example, the value `idpuser.email` means that it takes the email attribute passed by the IdP and maps it to the Okta application user's `username` property.
 
       You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
 
-   * **Filter > Only allow usernames that match defined RegEx Pattern**: Select this option to only authenticate users with transformed usernames that match a regular expression pattern in the text field that appears. This filters the IdP username to prevent the IdP from authenticating unintended users. Users are only authenticated if the transformed username matches the regular expression pattern.
-
-      > **Note:** When you use Okta for B2B or multi-tenancy use cases, select this checkbox. This helps you scope a subset of users in the org and enforce identifier constraints, such as email suffixes.
-
-      For example, you could restrict an IdP for use only with users who have `@company.com` as their email address using the following expression: `^[A-Za-z0-9._%+-]+@company\.com`.
+   * **Match against:** Specifies which attributes of existing users in Okta are compared to the IdP username to determine if an account link needs to be established. If an existing account link is found, no comparison is performed.
+   * **Account link policy:** Specifies whether Okta automatically links an incoming IdP user to the matched Okta user. If disabled, Okta doesn't link an incoming IdP user to an existing Okta user and relies solely on manually or previously linked accounts.
+   * **Auto-link restrictions:** Restrict auto-linking based on whether the Okta user is a member of any of the specified groups.
+   * **If no match is found:** Select **Create new user(JIT)** or **Redirect to Okta sign-in page**.
 
 1. Click **Finish**. A page appears that displays the IdP's configuration.
 
-> **Note:** If you want to use a specific **Redirect Domain** instead of the **Dynamic** default, you can use either **Org URL** or **Custom URL**. See `issuerMode` in the [Identity Provider attributes](/docs/reference/api/idps/#identity-provider-attributes) section.
-
-5. Copy both the **Authorize URL** and the **Redirect URI**, and then paste into a text editor for use in upcoming steps. If you are using a public and private key pair, click **Download public key**. The key is downloaded in JSON format.
+1. Copy both the **Authorize URL** and the **Redirect URI**, and then paste into a text editor for use [in the upcoming steps](#create-an-app-at-the-identity-provider). If you are using a public and private key pair, click **Download public key**. The key is downloaded in JSON format.
 
 > **Note:** When you are setting up your IdP in Okta, there are a number of settings that allow you to finely control the social sign-in behavior. While the provider-specific instructions show one possible configuration, [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning) discusses configuration options in more detail so that you can choose the right configuration for your use case.
+
+> **Note:** You need to configure two IdPs in Okta:
+> 1. **Login.gov IdP (Sandbox)** for testing
+> 2. **Login.gov IdP** for production
+
+### Attribute mappings
+
+Map specific Login.gov attributes to your Okta user profile:
+
+1. In the Admin Console, go to **Directory** > **Profile Editor**.
+1. Select the Okta **User (default)** profile.
+1. Click **+ Add Attribute** and add the following three attributes:
+   * `login_aal` (string)
+   * `login_ial` (string)
+1. Navigate to **Directory** > **Profile Editor** > **Identity Providers**.
+1. Click **Mappings** next to the Login.gov IdP you created previously.
+1. Select **Login.gov IdP to Okta User** tab, map the following then click **Save mappings**:
+   * Map **ial** to **login_ial**
+   * Map **aal** to **login_aal**
 
 ## Create an app at the Identity Provider
 
@@ -99,29 +101,33 @@ At Login.gov, you need to first register your app integration in Login.gov's ide
 
 1. Click **Create a new test app** from the Apps tab and specify the following attributes specific to the Okta test integration:
 
-    * **Production Configuration**: Select **No**.
+    * **Production Configuration**: Select **No** for testing.
     * **App Name**: Specify app name.
     * **Friendly name**: Specify a friendly name to display during sign-in.
     * **Team**: Select the previously configured team to test the integration.
     * **Authentication protocol**: Select **OpenID Connect Private Key JWT**.
-    * **Identity Assurance Level (IAL)**: Select the maximum level of identity assurance available for this application. For example, select **IAL1** for standard MFA-protected email-based sign-in.
-    * **Default Authentication Assurance Level (AAL)**: Select AAL required. You can leave the field empty for the default level.
-    * **Attribute bundle**: Select the default attributes for Login.gov to return during authentication. Select at least **email**.
+    * **Identity Assurance Level (IAL)**: Select the maximum level of identity assurance available for your app. Ensure that this value matches the **Type of Identity Verification** value specified in [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
+    * **Default Authentication Assurance Level (AAL)**: Select AAL required. Ensure that this value matches the **AAL value** specified in [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
+    * **Attribute bundle**: Select the default attributes for Login.gov to return during authentication. Select at least **email**, **profile**, and **profile:email**.
     * **Issuer**: Specify your Okta URL as the identifier of your app integration. For example, if your Okta subdomain is `company`, then specify `https://company.okta.com` as the Issuer.
-    * **Certificates**: Upload the public certificate file from your generated public/private key pair. If you created your public/private key pair with Okta, upload the **okta_public_key.pem** file you created in [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
-    * **Redirect URIs**: Specify your Okta redirect URI: `https://${yourCompanySubdomain}.okta.com/oauth2/v1/authorize/callback`. For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
+    * **Certificates**: Upload the public key file you downloaded from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
+    * **Redirect URIs**: Specify your Okta **Redirect URI** you copied from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta). For example, if you don't have a custom domain, this value is typically `https://${yourCompanySubdomain}.okta.com/oauth2/v1/authorize/callback`.
 
 1. Click **Create test app**.
 
-After you registered your app integration at Login.gov's sandbox, you need to [create an Identity Provider in Okta](#create-an-identity-provider-in-okta) before you can start testing your integration.
-
-> **Note:** After you tested your integration with Login.gov sandbox environment, you can request [Login.gov for production deployment](https://developers.login.gov/production/).
+> **Note:** Login.gov configures the production deployment for you. You can request [Login.gov for a production deployment](https://developers.login.gov/production/) after you finish testing.
 
 ## Test the integration
 
 You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use Login.gov as the Identity Provider.
 
-Alternatively, you can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generates an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
+Alternatively, you can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generates an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. For example:
+
+```bash
+https://${yourOktaDomain}/oauth2/v1/authorize?idp=${yourIdPId}&client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&scope=${scopes}&redirect_uri=${redirectUri}&state=${state}&nonce=${nonce}
+```
+
+ The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
 
 > **Note:** Use this step to test your authorization URL as an HTML link. For information on testing your authorization URL using the Sign-In Widget, Okta-hosted sign-in page, or AuthJS, see the [next section](#use-the-identity-provider-to-sign-in).
 >
