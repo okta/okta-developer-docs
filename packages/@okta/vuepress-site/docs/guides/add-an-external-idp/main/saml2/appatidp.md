@@ -1,5 +1,3 @@
-At the SAML IdP, create the client application that you want to use for authenticating and authorizing your users.
-
 Access the external SAML Identity Provider that you want to integrate with and gather the following information for use in configuring the SAML Identity Provider in Okta in the next step. Make sure that the SAML Identity Provider supports Service Provider-initiated SAML.
 
 > **Note:** If you need a quick and easy SAML Identity Provider to use for testing purposes, you can try using this [SAML Identity Provider on GitHub](https://github.com/mcguinness/saml-idp).

@@ -4,6 +4,9 @@ meta:
   - name: description
     content: Okta supports authentication with Login.gov as an external Identity Provider. Set up the Login.gov IdP using OpenID Connect with private key JWT in Okta.
 ---
+???Question: Should we add the following labels on this topic?
+* <ApiLifecycle access="ea" /> (since public/private JWT key is EA)
+* <ApiLifecycle access="ie" /> (can you configure this IdP for Classic?)
 
 This document explains how to configure Login.gov as an [external Identity Provider](/docs/concepts/identity-providers/) for your application by creating an Identity Provider in Okta, creating an application at Login.gov, testing the configuration, and creating a sign-in button.
 
@@ -48,7 +51,7 @@ Login.gov requires you to [test your app integration](https://developers.login.g
    * **Private key**: The public/private key is available for download when you click **Finish**.
       > **Note:** The **Public key/private key** option is an <ApiLifecycle access="ea" /> (Self-Service) feature.
 
-   * **Scopes**: Leave the defaults (`profile`, `profile:name`, `email`). These scopes are included when Okta makes an OpenID Connect request to the IdP. See [Login.gov OIDC scopes for required attributes](https://developers.login.gov/attributes/).
+   * **Scopes**: Leave the defaults (`profile`, `profile:name`, `email`) for IAL1 assurance. These scopes are included when Okta makes an OpenID Connect request to the IdP. See [Login.gov OIDC scopes for required attributes](https://developers.login.gov/attributes/).
 
    * **Type of Identity Verification**: The maximum level of [identity assurance](https://developers.login.gov/oidc/#ial-values) available for this application. Select **ial/1** for standard MFA-protected email-based sign-in.
    * **AAL value**: Select the [authentication assurance level](https://developers.login.gov/oidc/#aal-values) required.
@@ -88,8 +91,8 @@ Map specific Login.gov attributes to your Okta user profile:
 1. Navigate to **Directory** > **Profile Editor** > **Identity Providers**.
 1. Click **Mappings** next to the Login.gov IdP you created previously.
 1. Select **Login.gov IdP to Okta User** tab, map the following then click **Save mappings**:
-   * Map **ial** to **login_ial**
-   * Map **aal** to **login_aal**
+   * Map `ial` to `login_ial`
+   * Map `aal` to `login_aal`
 
 ## Create an app at the Identity Provider
 
@@ -124,7 +127,15 @@ You can test your integration by configuring a [routing rule](https://help.okta.
 Alternatively, you can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generates an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. For example:
 
 ```bash
-https://${yourOktaDomain}/oauth2/v1/authorize?idp=${yourIdPId}&client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&scope=${scopes}&redirect_uri=${redirectUri}&state=${state}&nonce=${nonce}
+https://${yourOktaDomain}/oauth2/v1/authorize?
+  idp=${yourIdPId}&
+  client_id=${clientId}&
+  response_type=${responseType}&
+  response_mode=${responseMode}&
+  scope=${scopes}&
+  redirect_uri=${redirectUri}&
+  state=${state}&
+  nonce=${nonce}
 ```
 
  The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
@@ -135,7 +146,9 @@ https://${yourOktaDomain}/oauth2/v1/authorize?idp=${yourIdPId}&client_id=${clien
 
 In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
 
-* `client_id`: Use the `client_id` value that you obtained from the OpenID Connect client application in the previous section. This is not the `client_id` from the Identity Provider.
+* `idp`: Your `${yourIdPId}` value you obtained from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
+
+* `client_id`: Use the `${clientId}` value that you obtained from your OpenID Connect client application. This is not the `${clientId}` from the Identity Provider.
 
 * `response_type`: Determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, use `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, use `code`.
 
@@ -149,12 +162,19 @@ In the URL, replace `${yourOktaDomain}` with your org's base URL, and then repla
 
 * `nonce`: A string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. Can be any value.
 
+> **???Do we need this**
+>* `acr_values`: The type of identity versification must be specified. Use:
+>   * `http://idmanagement.gov/ns/assurance/ial/1` for IAL1
+>   * `http://idmanagement.gov/ns/assurance/ial/2` for IAL2
+>
+>  Use escape characters for your `acr_values` in the URL. For example: `acr_values=http%3A%2F%2Fidmanagement.gov%2Fns%2Fassurance%2Fial%2F1`
+
 For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
 
 An example of a complete URL looks like this:
 
 ```bash
-https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_id}&response_type=id_token&response_mode=fragment&scope=openid%20email&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo
+https://${yourOktaDomain}/oauth2/v1/authorize?idp=${yourIdpId}&client_id=${clientId}&response_type=id_token&response_mode=fragment&scope=openid%20email&redirect_uri=https%3A%2F%2F${yourAppRedirectUrl}%2F&state=WM6D&nonce=YsG76jo
 
 ```
 
@@ -191,21 +211,20 @@ Okta also offers an easily embeddable JavaScript widget that reproduces the look
 
 ```javascript
     config.idps= [
-        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
-    ];
-    config.idpDisplay = "SECONDARY";
-```
-
-or
-
-```javascript
-    config.idps= [
         { type: 'LOGINGOV_SANDBOX', id: 'Your_IDP_ID' }
     ];
     config.idpDisplay = "SECONDARY";
 ```
 
 You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign in with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
+
+> **Note:** For production environment, use the following Okta Sign-In Widget configuration:
+> ```javascript
+>    config.idps= [
+>        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
+>    ];
+>    config.idpDisplay = "SECONDARY";
+>```
 
 ### Custom Okta-hosted sign-in page
 
@@ -216,10 +235,18 @@ If you configured a [Sign-In Widget](/docs/guides/custom-widget/main/#style-the-
 
 ```js
 config.idps= [
-  {type: 'IdentityProviderName', id: 'Your_IDP_ID_Here'}
+  {type: 'LOGINGOV_SANDBOX', id: 'Your_IDP_ID'}
 ];
 config.idpDisplay ="SECONDARY";
 ```
+
+> **Note:** For production environment, use the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
+> ```javascript
+>    config.idps= [
+>        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
+>    ];
+>    config.idpDisplay = "SECONDARY";
+>```
 
 ### AuthJS
 

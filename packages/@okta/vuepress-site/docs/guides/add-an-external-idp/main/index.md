@@ -31,6 +31,8 @@ Okta manages the connection to the IdP for your application. The connection sits
 
 ## Create an app at the Identity Provider
 
+At the <StackSnippet snippet="idp" inline /> IdP, create the client application that you want to use for authenticating and authorizing your users.
+
 <StackSnippet snippet="appatidp" />
 
 ## Create an Identity Provider in Okta
