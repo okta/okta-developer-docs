@@ -39,7 +39,7 @@ The Okta Anything-as-a-Source (XaaS) integration provides your organization with
 
 With either method, you need to first define your HR source in your Okta org. This is referred to as the Custom Identity Source integration. Okta provides you with a Custom Identity Source unique identifier that you can use in your Okta Workflow or custom client to identify the HR source. See Create and configure a Custom Identity Source in [Use Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-xaas).
 
-This guide outlines the Identity Sources API flow so that you can develop your custom client for the XaaS integration. For XaaS integrations using [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf), see **Okta connector** action cards for bulk user import and identity source session management.
+This guide outlines the Identity Sources API flow so that you can develop your custom client for the XaaS integration. For XaaS integrations using [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf), see Okta connector action cards for bulk user import and identity-source session management.
 
 ## Identity Sources API concepts
 
