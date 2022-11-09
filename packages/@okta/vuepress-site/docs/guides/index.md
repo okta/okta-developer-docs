@@ -132,6 +132,7 @@ guides:
  - device-context
  - pwd-optional-best-practices
  - pwd-optional-overview
+ - build-api-integration
  - add-logingov-idp
 ---
 

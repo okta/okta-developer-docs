@@ -609,6 +609,16 @@ export const guides = [
             ],
           },
           {
+            title: "API service integrations",
+            path: "/docs/guides/oin-api-service-overview/",
+            subLinks: [
+              {
+                title: "Build an API service integration",
+                guideName: "build-api-integration",
+              },
+            ],
+          },
+          {
             title: "Primer for OIN OIDC",
             path: "/docs/guides/oin-oidc-overview/main/",
             subLinks: [
@@ -657,6 +667,16 @@ export const guides = [
           {
             title: "Set up step-up authn with ACR values",
             guideName: "step-up-authentication"
+          },
+          
+        ],
+      },
+      {
+        title: "Manage users",
+        subLinks: [
+          { 
+            title: "Anything-as-a-Source integration",
+            path: "/docs/guides/anything-as-a-source/",
           }
         ],
       },
@@ -900,6 +920,7 @@ export const reference = [
           { title: "Factors", path: "/docs/reference/api/factors/" },
           { title: "Features", path: "/docs/reference/api/features/" },
           { title: "Groups", path: "/docs/reference/api/groups/" },
+          { title: "Identity Sources", path: "/docs/reference/api/xaas/" },
           { title: "Key Management", path: "/docs/reference/api/hook-keys/" },
           { title: "Linked Objects", path: "/docs/reference/api/linked-objects/"},
           { title: "Log Streaming", path: "/docs/reference/api/log-streaming/"},
@@ -969,6 +990,10 @@ export const reference = [
             path: "/docs/reference/scim/scim-11/",
           },
         ],
+      },
+      {
+        title: "Beta-only Reference Docs",
+        path: "/docs/reference/beta-only/",
       },
       {
         title: "Postman Collections",
