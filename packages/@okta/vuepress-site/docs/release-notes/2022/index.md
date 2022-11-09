@@ -14,7 +14,6 @@ title: Okta API Products release notes 2022
 | [API service integrations is Self-Service EA in Preview](#api-service-integrations-is-self-service-ea-in-preview) | November 3, 2022 |
 | [New rate limits dashboard filter](#new-rate-limits-dashboard-filter) | November 3, 2022 |
 | [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | November 3, 2022 |
-| [Integrate with Anything-as-a-Source is EA in Preview](#integrate-with-anything-as-a-source-is-ea-in-preview) | November 3, 2022 |
 | [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022-11-0) | November 3, 2022 |
 | [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022-11-0) | November 3, 2022|
 
@@ -41,14 +40,6 @@ You can now filter the APIs listed on the rate limits dashboard by their rate li
 #### Improved ThreatInsight coverage
 
 ThreatInsight has increased coverage for enabled orgs. More malicious requests are now flagged for orgs with ThreatInsight configured. <!--OKTA-536921-->
-
-#### Integrate with Anything-as-a-Source is EA in Preview
-
-To get Okta’s HR-driven provisioning and Lifecycle Management (LCM) functionality for an HR integration, customers previously had to use one of five pre-integrated HR systems or build complex custom code with the Okta Users API to replicate some of Okta’s LCM functionality for other identity sources.
-
-With Anything-as-a-Source (XaaS), customers now have the flexibility to connect any identity source to Okta and realize the full benefits of HR-driven provisioning with a simpler solution. The XaaS feature provides two integration methods: a low-code/no-code integration (through Okta Workflows), as well as a custom client integration using the new [Identity Sources API](/docs/reference/api/xaas/). See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/).
-
-Leveraging XaaS for identity source integration improves time to value, security posture, and IT efficiency by reducing or eliminating the need for complex architecture to import identities into Okta. <!--OKTA-543496-->
 
 #### Developer documentation updates in 2022.11.0
 
