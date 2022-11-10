@@ -97,7 +97,6 @@ Finally, add the JavaScript that loads the Widget into the `div` element. The pa
   config.clientId = "{{ .ClientId }}";
   config.redirectUri = "http://localhost:8000/login/callback";
   config.interactionHandle = "{{ .InteractionHandle }}";
-  config.useInteractionCodeFlow = "true";
   config.codeChallenge = "{{ .Pkce.CodeChallenge }}";
   config.codeChallengeMethod = "{{ .Pkce.CodeChallengeMethod }}";
   config.debug = true;
@@ -122,6 +121,8 @@ Finally, add the JavaScript that loads the Widget into the `div` element. The pa
     });
 </script>
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = "true";` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = "true";` in the configuration settings.
 
 ### 4: Complete the sign-in page load
 

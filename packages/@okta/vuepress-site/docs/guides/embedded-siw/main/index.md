@@ -210,8 +210,7 @@ Create an app integration in the Okta org that represents the application you wa
         var oktaConfig = {
           issuer: "https://${yourOktaDomain}/oauth2/default",
           redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
-          clientId: "${yourClientId}",
-          useInteractionCodeFlow: true
+          clientId: "${yourClientId}"
         }
         // Search for URL Parameters to see if a user is being routed to the application to recover password
         var searchParams = new URL(window.location.href).searchParams;
@@ -247,6 +246,8 @@ Create an app integration in the Okta org that represents the application you wa
     </body>
   </html>
   ```
+
+  > **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the `oktaConfig` settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in `oktaConfig`.
 
 3. Configure the code in `index.html` with values for your Okta org application integration:
 
@@ -287,7 +288,6 @@ const signIn = new OktaSignIn({
   clientId: '${clientId}',
   // must be in the list of redirect URIs enabled for the OIDC app
   redirectUri: '${redirectUri}',
-  useInteractionCodeFlow: true,
   authParams: {
     issuer: 'https://${yourOktaDomain}/oauth2/default'
   }

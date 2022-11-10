@@ -241,6 +241,8 @@ export class LoginComponent implements OnInit {
 }
 ```
 
+> **Note:** In Okta Sign-In Widget version 7+, [Okta Identity Engine](/docs/guides/oie-intro) is enabled by default. If you are using version 7+ and want to use Okta Classic Engine rather than Identity Engine, you need to specify `useClassicEngine: true` in the [configuration options](https://github.com/okta/okta-signin-widget#configuration) passed into the `new OktaSignIn()` call.
+
 ### Connect the Routes
 
 The `OktaAuthModule` handles different authentication flows for your application, so it requires your OpenID Connect configuration. By default `okta/okta-angular` redirects to the Okta Sign-In Page when the user is not authenticated. We override this behavior by passing an `onAuthRequired` function to the `OktaAuthGuard`. For more information, see [using a custom login-page](https://github.com/okta/okta-angular#using-a-custom-login-page).
