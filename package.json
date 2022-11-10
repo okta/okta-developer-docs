@@ -38,6 +38,7 @@
   "author": "Brian Retterer <brian.retterer@okta.com>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@ls-lint/ls-lint": "^1.11.2",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
     "axios": "^0.26.1",
