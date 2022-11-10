@@ -1814,7 +1814,7 @@ For brevity, the following response doesn't include all available properties.
             "title": "HEC Token",
             "description": "The token from your Splunk Cloud HTTP Event Collector (HEC).",
             "type": "string",
-            "writeOnce": false,
+            "writeOnce": true,
             "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
           }
         },
