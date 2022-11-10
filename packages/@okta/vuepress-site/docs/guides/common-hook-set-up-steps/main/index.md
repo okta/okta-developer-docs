@@ -77,6 +77,8 @@ After including the `npm` packages, add the following code snippet in your proje
 
 ### OAuth 2.0: Client Secret
 
+<ApiLifecycle access="ea" />
+
 The OAuth 2.0 Client Secret method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org and add code to decode the JWT from the Okta inline hook call:
 
 * Create an app integration.
@@ -153,6 +155,8 @@ app.all('*', authenticationRequired); // Require authentication for all routes
 <RegistrationHookXref/>
 
 ### OAuth 2.0: Private Key
+
+<ApiLifecycle access="ea" />
 
 The OAuth 2.0 private key method sends a signed JWT to your external service. To use this method, you must make the following configurations to your org and add code to decode the JWT from the Okta inline hook call:
 

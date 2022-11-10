@@ -1409,6 +1409,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
   * The following properties can also be configured in the App Wizard and on the **General** tab in the Admin Console: `tos_uri`, `policy_uri`, and `logo_uri` and can be set using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
+  * After an app is created, you can't change the `application_type`.
 
 
 
@@ -7865,6 +7866,7 @@ Specifies access settings for the application
   }
 }
 ```
+> **Note:** The `loginRedirectUrl` field is deprecated in Identity Engine.
 
 ### Visibility object
 

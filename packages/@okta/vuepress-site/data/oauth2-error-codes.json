@@ -1,6 +1,6 @@
 {
-  "release" : "2022.10.1",
-  "build" : "2022.10.1-begin-172-g89b201af9033",
+  "release" : "2022.11.1",
+  "build" : "2022.11.1-begin-169-gd7cdd4d71de2",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -261,6 +261,13 @@
     "errorCode" : "authorization_pending",
     "errorDescription" : "The device authorization is pending. Please try again later."
   }, {
+    "title" : "Ciba authorization pending",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_authorization_pending",
+    "errorCode" : "authorization_pending",
+    "errorDescription" : "The authorization request is still pending as the user hasn't yet been authenticated."
+  }, {
     "title" : "Client credentials self scope requested",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -309,6 +316,13 @@
     "internalErrorCode" : "expired_token",
     "errorCode" : "expired_token",
     "errorDescription" : "The device code has expired."
+  }, {
+    "title" : "Ciba expired auth req ID",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_expired_auth_req_id",
+    "errorCode" : "expired_token",
+    "errorDescription" : "The 'auth_req_id' is invalid or has expired. Make a new authentication request."
   }, {
     "title" : "ID token does not match session",
     "statusCode" : 400,
@@ -568,6 +582,20 @@
     "internalErrorCode" : "request_object_jwks_not_configured",
     "errorCode" : "invalid_client",
     "errorDescription" : "The client does not have a JWKSet configured, but the request object requires one."
+  }, {
+    "title" : "Ciba request grant type not configured",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "ciba_request_grant_type_not_configured",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client doesn't have the 'urn:openid:params:grant-type:ciba' grant type configured."
+  }, {
+    "title" : "Ciba request signed algo not configured",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "ciba_request_signed_algo_not_configured",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client doesn't have a RequestObjectSigningAlgorithm configured for signing authentication requests for the Client-Initiated Backchannel Authentication flow."
   }, {
     "title" : "Jwks URI no key",
     "statusCode" : 401,
@@ -891,10 +919,17 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Browser requests to the token endpoint must be made from one of the registered Trusted Origins."
   }, {
+    "title" : "Invalid response type for authenticator enrollment",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_response_type_for_authenticator_enrollment",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Authenticator enrollment requires 'none' response_type."
+  }, {
     "title" : "Unsupported api resource for none response type",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "`unsupported_api_resource_for_none_response_type`",
+    "internalErrorCode" : "unsupported_api_resource_for_none_response_type",
     "errorCode" : "invalid_request",
     "errorDescription" : "'resource' parameter is not supported for request with 'none' as response_type."
   }, {
@@ -1253,14 +1288,21 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "ciba_request_invalid_hint",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The ciba request must contain only one of 'id_token_hint' or 'login_hint'."
+    "errorDescription" : "The Client-Initiated Backchannel Authentication Flow must contain only one of 'id_token_hint' or 'login_hint'."
   }, {
     "title" : "Ciba request missing ID token hint",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "ciba_request_missing_id_token_hint",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The ciba request is missing 'id_token_hint'."
+    "errorDescription" : "The Client-Initiated Backchannel Authentication Flow is missing 'id_token_hint'."
+  }, {
+    "title" : "Ciba request unknown user ID",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_request_unknown_user_id",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The hint provided in the request did not match a user assigned to the client app."
   }, {
     "title" : "Pushed authorization request URI present",
     "statusCode" : 400,
@@ -1493,19 +1535,19 @@
     "errorCode" : "invalid_scope",
     "errorDescription" : "One or more scopes are not configured for the authorization server resource."
   }, {
+    "title" : "Ciba request invalid scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_request_invalid_scope",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The Client-Initiated Backchannel Authentication Flow must contain 'openid' scope."
+  }, {
     "title" : "Ciba request missing scope",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "ciba_request_missing_scope",
     "errorCode" : "invalid_scope",
     "errorDescription" : "No scopes were requested."
-  }, {
-    "title" : "Ciba request invalid scope",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "ciba_request_invalid_scope",
-    "errorCode" : "invalid_scope",
-    "errorDescription" : "The ciba request must contain 'openid' scope."
   }, {
     "title" : "Invalid social token",
     "statusCode" : 400,
@@ -1849,6 +1891,13 @@
     "internalErrorCode" : "slow_down",
     "errorCode" : "slow_down",
     "errorDescription" : "Slow down the polling frequency. Please try again later."
+  }, {
+    "title" : "Ciba slow down",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_slow_down",
+    "errorCode" : "slow_down",
+    "errorDescription" : "Slow down the polling frequency. Try again later."
   }, {
     "title" : "Temporarily unavailable",
     "statusCode" : 400,

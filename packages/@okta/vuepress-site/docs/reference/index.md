@@ -2,9 +2,17 @@
 title: Reference overview
 ---
 
+> **We've got a new API reference in the works!** With a fresh look and feel, our new API content features a more logical navigation and a wider variety of code examples. [Try the beta now](https://developer.okta.com/docs/api/) and help us improve the site by [providing feedback](https://forms.gle/Y9XmNNTF2rPQwive7).
+
 # Reference overview
 
 Details on parameters, requests, and responses for Okta's API endpoints.
+
+## APIs documented only on the new beta reference
+
+In some cases, APIs have only been documented on the [new beta reference site](https://developer.okta.com/docs/api/). This section provides a list of those, so that you can easily find them.
+
+* [Agent Pools](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AgentPools/#tag/AgentPools)
 
 ## Core Okta API
 
