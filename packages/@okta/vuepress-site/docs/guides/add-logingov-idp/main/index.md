@@ -5,8 +5,6 @@ meta:
     content: Okta supports authentication with Login.gov as an external Identity Provider. Set up the Login.gov IdP using OpenID Connect with private key JWT in Okta.
 ---
 
-<ApiLifecycle access="ea" /> ??? PM Question: Is this feature EA?(since public/private JWT key is EA)
-
 This document explains how to configure Login.gov as an [external Identity Provider](/docs/concepts/identity-providers/) for your application by creating an Identity Provider in Okta, creating an application at Login.gov, testing the configuration, and creating a Login.gov sign-in option.
 
 ---
