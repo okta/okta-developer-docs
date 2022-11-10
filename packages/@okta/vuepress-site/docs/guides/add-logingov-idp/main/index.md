@@ -110,9 +110,86 @@ At Login.gov, you need to first register your app integration in Login.gov's ide
 
 ## Test the integration
 
-You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use Login.gov as the Identity Provider.
+To test your integration, you need to first configure a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use Login.gov as the Identity Provider.
 
-Alternatively, you can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generates an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. For example:
+There are four ways to initiate the IdP sign-in flow:
+
+* [Use an embedded Okta Sign-In Widget](#use-an-embedded-okta-sign-in-widget)
+* [Use a custom Okta-hosted Sign-In Widget](#use-a-custom-okta-hosted-sign-in-widget)
+* [Use an HTML link](#use-an-html-link)
+* [Use the AuthJS SDK](#use-the-authjs-sdk)
+
+### Use an embedded Okta Sign-In Widget
+
+Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page for your client app. See [Embedded Sign-In Widget use cases](/docs/guides/embedded-sign-in-widget-use-cases/) for Identity Engine or [Embedded Okta Sign-In Widget fundamentals](/docs/guides/archive-embedded-siw/main/) for Classic Engine.
+
+To test Login.gov IdP sign-in with your embedded widget app, navigate to your app's sign-in page and click the **Sign in with Login.gov** option. This option directs you to the Login.gov sign-in page. Use your Login.gov credentials to test the sign-in flow.
+
+#### Embedded widget with Identity Engine
+
+If you're using Okta Identity Engine, the **Sign in with Login.gov** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required.
+
+#### Embedded widget with Classic Engine
+
+If you're using Okta Classic Engine, you still need to configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). In addition, you need to add the following code to your Okta Sign-In Widget configuration to display the **Sign in with Login.gov** button:
+
+```javascript
+    config.idps= [
+        { type: 'LOGINGOV_SANDBOX', id: 'Your_IDP_ID' }
+    ];
+    config.idpDisplay = "SECONDARY";
+```
+
+You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign in with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
+
+> **Note:** For production environment, use the following Okta Sign-In Widget configuration:
+> ```javascript
+>    config.idps= [
+>        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
+>    ];
+>    config.idpDisplay = "SECONDARY";
+>```
+
+### Use a custom Okta-hosted Sign-In Widget
+
+If your client app uses Okta [redirect authentication](#/docs/concepts/redirect-vs-embedded/#redirect-authentication), then to test the Login.gov IdP sign-in flow, navigate to your app's sign-in page and click the **Sign in with Login.gov** option. This option directs you to the Login.gov sign-in page. Use your Login.gov credentials to test the sign-in flow.
+
+#### Okta-hosted widget with Identity Engine
+
+If you're using Okta Identity Engine, the **Sign in with Login.gov** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional configuration is required.
+
+#### Okta-hosted widget with Classic Engine
+
+If you're using Okta Classic Engine, you still need to configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). In addition, you need to customize your [Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) to display the **Sign in with Login.gov** option.
+
+Add the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line in the **Custom Sign in** tab:
+
+```js
+config.idps= [
+  {type: 'LOGINGOV_SANDBOX', id: 'Your_IDP_ID'}
+];
+config.idpDisplay ="SECONDARY";
+```
+
+> **Note:** For production environment, use the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
+> ```javascript
+>    config.idps= [
+>        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
+>    ];
+>    config.idpDisplay = "SECONDARY";
+>```
+
+### Use an HTML link
+
+You can use the authorize URL to simulate the authorization flow from your browser.
+Test this in your browser's privacy or incognito mode to avoid false positive or negative results. If everything is configured properly:
+
+* The user is redirected to the Identity Provider's sign-in page.
+* After successful authentication, the user is redirected to the redirect URI that you specified, along with an `#id_token=` fragment in the URL. The value of this parameter is your Okta OpenID Connect ID token.
+
+If something is configured incorrectly, the authorization response contains error information to help you resolve the issue.
+
+The Okta Identity Provider that you created generates an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. For example:
 
 ```bash
 https://${yourOktaDomain}/oauth2/v1/authorize?
@@ -126,11 +203,7 @@ https://${yourOktaDomain}/oauth2/v1/authorize?
   nonce=${nonce}
 ```
 
- The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
-
-> **Note:** Use this step to test your authorization URL as an HTML link. For information on testing your authorization URL using the Sign-In Widget, Okta-hosted sign-in page, or AuthJS, see the [next section](#use-the-identity-provider-to-sign-in).
->
-> If you are using Authorization Code with PKCE as the grant type, you must generate and store the PKCE. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics). Okta recommends that you use the [AuthJS SDK](https://github.com/okta/okta-auth-js#signinwithredirectoptions) with this grant type.
+> **Note:** If you are using Authorization Code with PKCE as the grant type for your client app, you must generate and store the PKCE. See [Implement authorization by grant type](/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics). Okta recommends that you use the [AuthJS SDK](https://github.com/okta/okta-auth-js#signinwithredirectoptions) with this grant type.
 
 In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
 
@@ -154,22 +227,7 @@ In the URL, replace `${yourOktaDomain}` with your org's base URL, and then repla
 
 For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
 
-## Use the Identity Provider to sign in
-
-To test your authorization URL, enter the complete authorization URL in a browser. Do this in your browser's privacy or incognito mode to avoid false positive or negative results.
-
-If everything is configured properly:
-
-* The user is redirected to the Identity Provider's sign-in page.
-* After successful authentication, the user is redirected to the redirect URI that you specified, along with an `#id_token=` fragment in the URL. The value of this parameter is your Okta OpenID Connect ID token.
-
-If something is configured incorrectly, the authorization response contains error information to help you resolve the issue.
-
-There are four primary ways to kick off the sign-in flow.
-
-### HTML Link
-
-Create a link that the user clicks to sign in. The HREF for that link is the authorize URL that you created in the previous section. For example:
+Create a link that the user clicks to sign in. The HREF for that link is the authorize URL with your specified values. For example:
 
 ```html
 `<a href="https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oaaq9pjc2ujmFZexample&client_id=GkGw4K49N4UEE1example&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=${yourAppRedirectUrl}&state=WM6D&nonce=YsG76jo">Sign in with Login.gov</a>`
@@ -178,53 +236,7 @@ Create a link that the user clicks to sign in. The HREF for that link is the aut
 
 After the user clicks the link, they are prompted to sign in with Login.gov. After successful sign in, the user is returned to the specified `redirect_uri` along with an ID token in JWT format.
 
-### Okta Sign-In Widget
-
-> **Note:** This section only applies to Okta Classic Engine.<br>
-> If you're using Okta Identity Engine, the **Sign in with IdP** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional code is required. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version and [Upgrade your widget](/docs/guides/oie-upgrade-sign-in-widget/main/#idp-discovery) for upgrade considerations to Identity Engine.
-
-Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with Login.gov** button by adding the following code to your Okta Sign-In Widget configuration:
-
-```javascript
-    config.idps= [
-        { type: 'LOGINGOV_SANDBOX', id: 'Your_IDP_ID' }
-    ];
-    config.idpDisplay = "SECONDARY";
-```
-
-You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign in with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
-
-> **Note:** For production environment, use the following Okta Sign-In Widget configuration:
-> ```javascript
->    config.idps= [
->        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
->    ];
->    config.idpDisplay = "SECONDARY";
->```
-
-### Custom Okta-hosted sign-in page
-
-> **Note:** This section only applies to Okta Classic Engine.<br>
-> If you're using Okta Identity Engine, the **Sign in with IdP** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
-
-If you configured a [Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget), you can add a **Sign in with Login.gov** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
-
-```js
-config.idps= [
-  {type: 'LOGINGOV_SANDBOX', id: 'Your_IDP_ID'}
-];
-config.idpDisplay ="SECONDARY";
-```
-
-> **Note:** For production environment, use the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
-> ```javascript
->    config.idps= [
->        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
->    ];
->    config.idpDisplay = "SECONDARY";
->```
-
-### AuthJS
+### Use the AuthJS SDK
 
 If you don't want pre-built views, or need deeper levels of customization, then you can use the same AuthJS SDK that the Sign-in Widget is built with. See the `idp` option in the [AuthJS SDK GitHub repo](https://github.com/okta/okta-auth-js#usage-guide).
 
