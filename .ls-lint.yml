@@ -1,11 +1,9 @@
 ls:
-    packages/@okta/vuepress-theme-prose:
-      .vue: PascalCase
-      .js: snake_case
-      .scss: regex:_[a-zA-Z]+(_[a-zA-Z]+)* # regex for snake_case because for .scss shortname - 'snake_case' not working ¯\_(ツ)_/¯
-    scripts:
-      .dir: snake_case
+  .vue: PascalCase
+  .js: snake_case
+  .scss: regex:_[a-zA-Z]+(_[a-zA-Z]+)* # regex for snake_case because for .scss shortname - 'snake_case' not working ¯\_(ツ)_/¯
+  .dir: snake_case
 
-ignore: 
-    - .git 
+ignore:
+    - .git
     - node_modules
