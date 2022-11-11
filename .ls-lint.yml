@@ -5,5 +5,5 @@ ls:
   .dir: snake_case
 
 ignore:
-    - .git
-    - node_modules
+  - .git
+  - node_modules
