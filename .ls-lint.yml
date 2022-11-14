@@ -1,5 +1,5 @@
 ls:
-  packages/@okta/vuepress-theme-prose:
+  packages/@okta/vuepress-theme-prose/*:
     .vue: PascalCase
     .js: snake_case | point.case
     .scss: regex:?[a-zA-Z]+(_[a-zA-Z]+)* # regex for snake_case because for .scss shortname - 'snake_case' not working ¯\_(ツ)_/¯
