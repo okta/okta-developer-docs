@@ -19,7 +19,7 @@ See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-t
 
 #### Initialize the Sign-In Widget
 
-When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the `useInteractionCodeFlow=true` configuration option to enable Identity Engine features in the embedded Sign-In Widget.
+When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app.
 
 ```html
 <script th:inline="javascript">
@@ -29,7 +29,6 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
     config.baseUrl = /*[[${oktaBaseUrl}]]*/ 'https://{yourOktaDomain}';
     config.clientId = /*[[${oktaClientId}]]*/ '{clientId}';
     config.redirectUri = /*[[${redirectUri}]]*/ '{redirectUri}';
-    config.useInteractionCodeFlow = true;
     config.interactionHandle = /*[[${interactionHandle}]]*/ '{interactionHandle}';
     config.codeChallenge = /*[[${codeChallenge}]]*/ '{codeChallenge}';
     config.codeChallengeMethod = /*[[${codeChallengeMethod}]]*/ '{codeChallengeMethod}';
@@ -60,6 +59,8 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
 ```
 
 See [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/) for more details.
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
 
 Complete integrating your embedded app with the Identity Engine Java SDK libraries. See the [Basic sign-in flow using the Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/java/main/) use case for a guide on how to handle the callback from the Sign-In Widget. Refer to the [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information on SDK usage.
 

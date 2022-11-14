@@ -168,5 +168,5 @@ Now that you understand how to set up self-service registration, you can learn h
 
 ## See also
 
-* [Embedded Okta Sign-In Widget fundamentals](/docs/guides/archive-embedded-siw/main/)
+* [Embedded Okta Sign-In Widget fundamentals](/docs/guides/archive-embedded-siw/)
 * [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)

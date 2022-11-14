@@ -54,7 +54,6 @@ The `WidgetConfig` uses values defined in the `config.js` file and is referenced
           issuer: issuer,
           scopes: scopes,
         },
-        useInteractionCodeFlow: true,
         state,
         otp,
         interactionHandle,
@@ -62,6 +61,8 @@ The `WidgetConfig` uses values defined in the `config.js` file and is referenced
         codeChallengeMethod,
       };
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in the configuration settings.
 
 The Okta Sign-In Widget renders in the sign-in page when the `router.get('/login', (req, res, next) =>` call is triggered.
 

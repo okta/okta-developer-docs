@@ -506,7 +506,7 @@ Updates the settings for a client Application from your organization
 | clientId  | `client_id` of a specific client   | URL       | String                                       | TRUE     |
 | settings  | OAuth client registration settings | Body      | [Client settings](#client-application-object) | TRUE     |
 
-> **Note:** You must specifiy all settings when you update a client Application. Partial updates aren't supported. If any settings are missing when you update a client Application, the update fails. The exceptions are: `client_secret_expires_at` or `client_id_issued_at` must not be included in the request, and the `client_secret` can be omitted.
+> **Note:** You must specify all settings when you update a client Application. Partial updates aren't supported. If any settings are missing when you update a client Application, the update fails. The exceptions are: `client_secret_expires_at`, `client_id_issued_at`, and `client_secret`. These settings must not be included in the request.
 
 ##### Response parameters
 

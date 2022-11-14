@@ -86,7 +86,9 @@ For Identity Engine, the widget is configured differently. You can remove some s
 
 ### Interaction Code flow
 
-Identity Engine uses the [Interaction Code grant type](/docs/concepts/interaction-code) to manage user interactions, such as registration or multifactor authentication. For embedded Sign-In Widget (self-hosted) deployments, the Interaction Code flow is the only supported authentication flow with Identity Engine. You must set the new `useInteractionCodeFlow=true` [configuration option](https://github.com/okta/okta-signin-widget#useinteractioncodeflow) in your embedded widget:
+Identity Engine uses the [Interaction Code grant type](/docs/concepts/interaction-code) to manage user interactions, such as registration or multifactor authentication. For embedded Sign-In Widget (self-hosted) deployments, the Interaction Code flow is the only supported authentication flow with Identity Engine.
+
+In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the `config` object:
 
 ```JavaScript
 var config = {
@@ -94,6 +96,17 @@ var config = {
   clientId: '{{oidcAppClientId}}',
   redirectUri: '{{oidcAppRedirectUri}}',
   useInteractionCodeFlow: true
+}
+```
+
+If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in your `config` object:
+
+```JavaScript
+var config = {
+  issuer: '{{authServerUri}}',
+  clientId: '{{oidcAppClientId}}',
+  redirectUri: '{{oidcAppRedirectUri}}',
+  useClassicEngine: true
 }
 ```
 
@@ -140,7 +153,7 @@ features: {
 
 ### OpenID Connect/social authentication
 
-You no longer require the `idps` JavaScript object in the widget, and can remove it.
+You no longer require the `idps` JavaScript object in the widget and can remove it.
 
 ```JavaScript
 idps: [
@@ -150,22 +163,7 @@ idps: [
 ]
 ```
 
-This is now optional as the Sign-In Widget will automatically include IdPs based on Identity Engine routing rules.
-
-### Smart card IdP
-
-[Smart card IdP](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow) is no longer supported.
-
-Remove the authentication settings for the smart card IdP (`piv`):
-
-```JavaScript
-piv: {
-  certAuthUrl: '/your/cert/validation/endpoint',
-  text: 'Authenticate with a Smart Card',
-  className: 'custom-style',
-  isCustomDomain: true,
-}
-```
+This is now optional as the Sign-In Widget automatically includes IdPs based on Identity Engine routing rules.
 
 ### Bootstrapping from a recovery token
 
@@ -175,13 +173,13 @@ If you're initializing the widget with a recovery token, the `recoveryToken` set
 recoveryToken: 'x0whAcR02i0leKtWMZVc'
 ```
 
-The recovery token is dynamic and is automatically passed into the initialization of the widget. A value in the `recoveryToken` setting currently doesn't have any effect on widget function, though, the setting takes effect in the future.
+The recovery token is dynamic and is automatically passed into the initialization of the widget. A value in the `recoveryToken` setting currently doesn't have any effect on widget function, though the setting takes effect in the future.
 
 ### Okta dashboard or custom dashboard sign-in flow
 
-For an Okta dashboard sign-in, you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget.
+For an Okta dashboard sign-in flow, you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget.
 
-Remove the redirect configuration (`setCookieAndRedirect()`) line, shown in the following snippet:
+Remove the redirect configuration (`setCookieAndRedirect()`) line shown in the following snippet:
 
 ```JavaScript
 function success(res) {

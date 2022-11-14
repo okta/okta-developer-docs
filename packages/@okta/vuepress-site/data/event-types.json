@@ -1,6 +1,6 @@
 {
-  "release" : "2022.09.1",
-  "build" : "2022.09.1-begin-126-g0b0d930b7cfa",
+  "release" : "2022.11.1",
+  "build" : "2022.11.1-begin-169-gd7cdd4d71de2",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -169,6 +169,10 @@
   }, {
     "id" : "threat-insight-configuration",
     "description" : "ThreatInsight Configuration.",
+    "tags" : [ ]
+  }, {
+    "id" : "risk",
+    "description" : "Risk Detection.",
     "tags" : [ ]
   }, {
     "id" : "sse-events",
@@ -483,6 +487,10 @@
     "description" : "Inline Hook.",
     "tags" : [ ]
   }, {
+    "id" : "hook-key",
+    "description" : "Hook Key.",
+    "tags" : [ ]
+  }, {
     "id" : "event-hook",
     "description" : "Event Hook.",
     "tags" : [ ]
@@ -795,6 +803,10 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "access",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "pam",
     "description" : "",
     "tags" : [ ]
@@ -806,6 +818,40 @@
   "versions" : [ {
     "version" : "V2",
     "eventTypes" : [ {
+      "id" : "access.request.create",
+      "category" : "id-fabric",
+      "description" : "Access request created. Can be used to audit access to an Okta resource or to trigger downstream automation that depends on request creation. Okta Identity Governance API can be used to get more details about the created request.",
+      "info" : {
+        "created" : "2022-10-01",
+        "release" : "2022.11.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "access", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AccessRequestDebugData",
+        "actor" : null,
+        "targets" : [ "AccessRequestResourceDetails" ]
+      }
+    }, {
+      "id" : "access.request.resolve",
+      "category" : "id-fabric",
+      "description" : "Access request resolved. Can be used to audit access to an Okta resource or to trigger downstream automation that depends on request resolution. Okta Identity Governance API can be used to get more details about the resolved request.",
+      "info" : {
+        "created" : "2022-10-01",
+        "release" : "2022.11.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "access", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AccessRequestDebugData",
+        "actor" : null,
+        "targets" : [ "AccessRequestResourceDetails" ]
+      }
+    }, {
       "id" : "analytics.reports.export.download",
       "category" : "analytics",
       "description" : "A user has downloaded an export file that Okta has generated for a report available in the admin console. This event may be used to identify access by a user to a report data set from Okta. This may be useful to audit access to report data for security investigations, compliance audits, and evaluation of the utility of a report within the Org. This event only indicates that a user has downloaded the export file. The user that downloaded it may not be the user that requested generation of the export file. See analytics.reports.export.request and analytics.reports.export.generate for related actions.",
@@ -1631,7 +1677,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke_failure", "app.oauth2.as.consent.revoke_success" ],
       "schema" : {
         "debugData" : null,
@@ -1648,7 +1694,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.implicit.as_success" ],
       "schema" : {
         "debugData" : null,
@@ -1665,7 +1711,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.implicit.client_success" ],
       "schema" : {
         "debugData" : null,
@@ -1682,7 +1728,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.implicit.scope_success" ],
       "schema" : {
         "debugData" : null,
@@ -1699,7 +1745,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.implicit.user_success" ],
       "schema" : {
         "debugData" : null,
@@ -1716,7 +1762,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.user_failure", "app.oauth2.as.consent.revoke.user_success" ],
       "schema" : {
         "debugData" : null,
@@ -1733,7 +1779,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-as-runtime", "oauth2-custom-as" ],
       "mappings" : [ "app.oauth2.as.consent.revoke.user.client_failure", "app.oauth2.as.consent.revoke.user.client_success" ],
       "schema" : {
         "debugData" : null,
@@ -11499,6 +11545,57 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.hook.key.created",
+      "category" : "extensibility",
+      "description" : "Create a new hook key. This event can be used to identify when an admin created a new hook key. When triggered, this events contains information about the created hook key.",
+      "info" : {
+        "created" : "2022-09-29",
+        "release" : "2022.10.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "hook-key" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "HookKeyResourceDetails" ]
+      }
+    }, {
+      "id" : "system.hook.key.deleted",
+      "category" : "extensibility",
+      "description" : "Delete a hook key. This event can be used to identify when an admin deleted a hook key. When triggered, this events contains information about the deleted hook key.",
+      "info" : {
+        "created" : "2022-09-29",
+        "release" : "2022.10.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "hook-key" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "HookKeyResourceDetails" ]
+      }
+    }, {
+      "id" : "system.hook.key.updated",
+      "category" : "extensibility",
+      "description" : "Update a hook key. This event can be used to identify when an admin updated a hook key. When triggered, this events contains information about the updated hook key.",
+      "info" : {
+        "created" : "2022-09-29",
+        "release" : "2022.10.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "hook-key" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "HookKeyResourceDetails" ]
+      }
+    }, {
       "id" : "system.idp.lifecycle.activate",
       "category" : "federation",
       "description" : "Fired when an Identity provider is activated. This can be used to audit that an identity provider has been activated. When fired, this event indicates an Identity provider was activated. This event also indicates the type of the identity provider that was activated.",
@@ -12075,6 +12172,74 @@
         "debugData" : null,
         "actor" : null,
         "targets" : null
+      }
+    }, {
+      "id" : "system.import.session.cancelled",
+      "category" : "sync",
+      "description" : "Cancel an import session. This event can be used to identify when an admin cancel import session. This event includes details when the import session be canceled.",
+      "info" : {
+        "created" : "2022-09-19",
+        "release" : "2022.10.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.session.created",
+      "category" : "sync",
+      "description" : "Create a new import session. This event can be used to identify when an admin start new import session. This event includes details when the import process be created.",
+      "info" : {
+        "created" : "2022-09-19",
+        "release" : "2022.10.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.session.expired",
+      "category" : "sync",
+      "description" : "Expired an import session. This event can be used to identify when the session is expired. This event includes details when the session is expired.",
+      "info" : {
+        "created" : "2022-09-19",
+        "release" : "2022.10.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.session.triggered",
+      "category" : "sync",
+      "description" : "Triggered an import session to start importing. This event can be used to identify when an admin trigger the import job from an open session. This event includes details when the import process be triggered.",
+      "info" : {
+        "created" : "2022-09-19",
+        "release" : "2022.10.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "import", "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemImportDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "system.import.start",
@@ -14185,6 +14350,23 @@
         "targets" : null
       }
     }, {
+      "id" : "user.risk.change",
+      "category" : "adaptive",
+      "description" : "Indicates a user's risk level has changed. This can be used to monitor risk level changes for users. This event is fired when Okta determines that a user is associated with activity or context that indicate risk.",
+      "info" : {
+        "created" : "2022-08-17",
+        "release" : "2023.01.2"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "risk", "security" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "user.session.access_admin_app",
       "category" : "ace",
       "description" : "User accessing Okta admin app.",
@@ -14576,6 +14758,23 @@
         "targets" : null
       }
     }, {
+      "id" : "workflows.user.folder.delete",
+      "category" : "wax-insights",
+      "description" : "Fires when a user deletes a folder in Workflows. Can be used to audit when a user deletes a folder in Workflows. A folder deletion event may trigger other deletion requests; if the deleted folder is not empty and contains inactive flows and/or tables, Workflows will delete the inactive flows and tables (though it may not be immediately after).",
+      "info" : {
+        "created" : "2022-07-12",
+        "release" : "2022.11.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "workflows.user.table.create",
       "category" : "wax-insights",
       "description" : "This event can be used by any admin or security team member to monitor the creation of new tables in the Workflows platform. The target fields provide information on the user that created the table and the new table. Other table lifecycle events include workflows.user.table.view, workflows.user.table.update, and workflows.user.table.delete. Note that this event doesn't fire when a table is imported.  For that, users can reference workflows.user.table.import or workflows.user.folder.import.",
@@ -14798,6 +14997,251 @@
       }
     } ],
     "schemas" : {
+      "AccessRequestDebugData" : {
+        "name" : "AccessRequestDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "access_request_source" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "WEB", "SLACK" ]
+          },
+          "access_request_status" : {
+            "type" : "Enum",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OPEN", "RESOLVED" ]
+          },
+          "last_resolved_at" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "1666156939565", "1698156939565" ]
+          },
+          "access_request_subject" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Need access to jira", "Need access to photoshop" ]
+          },
+          "requester_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:appUserId",
+            "examples" : [ "00urwnivsyU2CzqJu0h7", "00upewqg0cn0p3x1H0h7" ]
+          },
+          "request_type_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "519ad20a5ccefb000985fd15", "5193f6595ccefb00098633f0", "51b1956465c98c00082ef4ff" ]
+          },
+          "owner_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:appUserId",
+            "examples" : [ "00urwnivsyU2CzqJu0h7", "00upewqg0cn0p3x1H0h7" ]
+          },
+          "team_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "519ad20a5ccefb000985fd15", "5193f6595ccefb00098633f0" ]
+          },
+          "permalink_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "3", "4" ]
+          },
+          "access_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "618ad20a5ccefb000985fd15", "6193f6595ccefb00098633f0", "61b1956465c98c00082ef4ff" ]
+          }
+        }
+      },
       "AdAgentDebugData" : {
         "name" : "AdAgentDebugData",
         "properties" : {
@@ -14816,6 +15260,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -14998,6 +15450,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -15154,6 +15614,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -15319,6 +15787,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -15509,6 +15985,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -15682,6 +16166,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -15846,6 +16338,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -16035,6 +16535,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -16241,6 +16749,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -16405,6 +16921,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -16650,6 +17174,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -17032,6 +17564,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -17197,6 +17737,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -17361,6 +17909,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -17543,6 +18099,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -17679,6 +18243,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "burst_rate_limit_bucket_uuid" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "f5f7674e-80e9-3f20-9786-836092249386", "829400b4-1a84-11ed-8f46-0af459d38fe2" ]
+          },
           "user_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -17755,6 +18327,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -17972,6 +18552,14 @@
             "format" : "boolean",
             "examples" : [ "true", "false" ]
           },
+          "session_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:importSessionId",
+            "examples" : [ "uijftq0yb394T3Ay01t7", "uijfb994ziZRNo8JQ1t7" ]
+          },
           "job_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -18137,6 +18725,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -18272,6 +18868,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "call_telephony_provider" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "VONAGE", "AMAZON SNS" ]
           },
           "phone_number" : {
             "type" : "String",
@@ -18334,6 +18938,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -18469,6 +19081,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "call_telephony_provider" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "VONAGE", "AMAZON SNS" ]
           },
           "phone_number" : {
             "type" : "String",
@@ -18554,6 +19174,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -18784,6 +19412,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -19009,6 +19645,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -19271,6 +19915,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -19499,6 +20151,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -19737,6 +20397,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -19902,6 +20570,22 @@
       "EmailDeliveryDebugData" : {
         "name" : "EmailDeliveryDebugData",
         "properties" : {
+          "category" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "email_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ ]
+          },
           "app_context_name" : {
             "type" : "String",
             "sensitive" : false,
@@ -19954,6 +20638,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -20144,6 +20836,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -20308,6 +21008,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -20490,6 +21198,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -20654,6 +21370,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -20828,6 +21552,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -21001,6 +21733,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -21173,6 +21913,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -21394,6 +22142,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -21736,6 +22492,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -21900,6 +22664,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -22090,6 +22862,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -22262,6 +23042,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -22556,6 +23344,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -22736,6 +23532,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -22921,6 +23725,14 @@
             "format" : "boolean",
             "examples" : [ "true", "false" ]
           },
+          "state_token_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb", "00bMktAiPaI0Jo97bpiKxEw7drTgtukJKs33abrSpb", "00zEfSRIpELrl87ndYiHNkvOEbyEPrBmTYuf9dsGLl" ]
+          },
           "login_result" : {
             "type" : "Enum",
             "sensitive" : false,
@@ -22949,6 +23761,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -23131,6 +23951,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -23304,6 +24132,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -23468,6 +24304,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -23634,6 +24478,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -23769,6 +24621,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "auth_req_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "dc73355f-51c5-4fc2-8fa0-62a430c19798", "b282a466-7a90-47fe-a9a0-32936b5588e5" ]
           },
           "response_time" : {
             "type" : "Integer",
@@ -24023,6 +24883,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -24212,6 +25080,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -24384,6 +25260,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -24854,6 +25738,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -25083,6 +25975,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -25296,6 +26196,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -25477,6 +26385,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -25613,6 +26529,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "rate_limit_bucket_uuid" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "f5f7674e-80e9-3f20-9786-836092249386", "829400b4-1a84-11ed-8f46-0af459d38fe2" ]
+          },
           "rate_limit_seconds_to_reset" : {
             "type" : "Integer",
             "sensitive" : false,
@@ -25705,6 +26629,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -25870,6 +26802,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -26059,6 +26999,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -26465,6 +27413,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -26654,6 +27610,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -26826,6 +27790,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -27040,6 +28012,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -27228,6 +28208,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -27426,6 +28414,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -27599,6 +28595,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -27734,6 +28738,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "sms_telephony_provider" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "VONAGE", "AMAZON SNS" ]
           },
           "transaction_id" : {
             "type" : "String",
@@ -27804,6 +28816,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -27939,6 +28959,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "sms_telephony_provider" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "VONAGE", "AMAZON SNS" ]
           },
           "transaction_id" : {
             "type" : "String",
@@ -28045,6 +29073,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -28299,6 +29335,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -28455,6 +29499,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -28672,6 +29724,14 @@
             "format" : "boolean",
             "examples" : [ "true", "false" ]
           },
+          "session_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:importSessionId",
+            "examples" : [ "uijftq0yb394T3Ay01t7", "uijfb994ziZRNo8JQ1t7" ]
+          },
           "job_id" : {
             "type" : "String",
             "sensitive" : false,
@@ -28804,6 +29864,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -29026,6 +30094,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -29223,6 +30299,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -29387,6 +30471,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -29553,6 +30645,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -29689,6 +30789,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "prompting_policy_types" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OKTA_SIGN_ON", "ACCESS" ]
+          },
           "factor_intent" : {
             "type" : "String",
             "sensitive" : false,
@@ -29696,6 +30804,22 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "LOGIN", "CREDENTIAL_ENROLLMENT", "CREDENTIAL_RECOVERY" ]
+          },
+          "push_with_number_challenge_response_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OV_WITH_CHALLENGE_RESPONSE_VALID", "OV_WITH_CHALLENGE_RESPONSE_INVALID", "OV_WITH_CHALLENGE_RESPONSE_ERROR", "OV_WITH_CHALLENGE_RESPONSE_NOT_APPLICABLE" ]
+          },
+          "push_only_response_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OV_RESPONSE_APPROVE", "OV_RESPONSE_DENY", "OV_RESPONSE_ERROR" ]
           },
           "factor" : {
             "type" : "String",
@@ -29725,6 +30849,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -29898,6 +31030,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -30080,6 +31220,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -30252,6 +31400,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -30458,6 +31614,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -30631,6 +31795,14 @@
             "format" : "text",
             "examples" : [ ]
           },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
             "sensitive" : false,
@@ -30795,6 +31967,14 @@
             "customer" : true,
             "format" : "text",
             "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
           },
           "log_only_security_data" : {
             "type" : "LogOnlySecurityData",
@@ -31034,6 +32214,43 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "SUCCESS" ]
+          }
+        }
+      },
+      "AccessRequestResourceDetails" : {
+        "name" : "AccessRequestResourceDetails",
+        "properties" : {
+          "display_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "displayName",
+            "examples" : [ "Need access to Jira" ]
+          },
+          "alternate_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "3", "4" ]
+          },
+          "type" : {
+            "type" : "Enum",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ACCESS_REQUEST" ]
+          },
+          "id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "618ad20a1234fb000985fd15", "619ad20a1234fb000985fd15", "620ad20a1234fb000985fd15" ]
           }
         }
       },
@@ -31623,6 +32840,35 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "OktaMfaEnroll", "Password", "wifi", "OktaSignOn", "group_rule", "IdpDiscovery", "ommEnroll", "OAuthAuthzPolicy", "user_lifecycle" ]
+          }
+        }
+      },
+      "HookKeyResourceDetails" : {
+        "name" : "HookKeyResourceDetails",
+        "properties" : {
+          "key_alias" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:keyAlias",
+            "examples" : [ "ebf7aa48-bc18-4398-a2c0-4dd275fa6157" ]
+          },
+          "hook_key_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "myHookKey" ]
+          },
+          "hook_key_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:hookKeyId",
+            "examples" : [ "HKY24617SXJ6AeA8m0g4" ]
           }
         }
       },

@@ -149,6 +149,9 @@ Create an app integration in the Okta org that represents the application you wa
 
    * Enter an application name.
    * Select the **Interaction Code** checkbox.
+
+      <VerifyICGrantType />
+
    * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to `http://localhost:3000/`.
    * Set **Sign-out redirect URIs** to `http://localhost:3000/`.
@@ -164,6 +167,9 @@ Create an app integration in the Okta org that represents the application you wa
    > **Note:** Be sure to also [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
 
 1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** checkbox is selected.
+
+    <VerifyICGrantType />
+
 1. In the **Security** > **API** > **Trusted Origins** page, ensure that there is an entry for your sign in redirect URI. See [Enable CORS](/docs/guides/enable-cors/).
 
 > **Note:** From the **General** tab of your app integration, save the generated **Client ID** value, which is used in the next section.
@@ -204,8 +210,7 @@ Create an app integration in the Okta org that represents the application you wa
         var oktaConfig = {
           issuer: "https://${yourOktaDomain}/oauth2/default",
           redirectUri: '${https://${yourAppRedirectUri} configured in your Okta OIDC app integration}',
-          clientId: "${yourClientId}",
-          useInteractionCodeFlow: true
+          clientId: "${yourClientId}"
         }
         // Search for URL Parameters to see if a user is being routed to the application to recover password
         var searchParams = new URL(window.location.href).searchParams;
@@ -241,6 +246,8 @@ Create an app integration in the Okta org that represents the application you wa
     </body>
   </html>
   ```
+
+  > **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the `oktaConfig` settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in `oktaConfig`.
 
 3. Configure the code in `index.html` with values for your Okta org application integration:
 
@@ -281,7 +288,6 @@ const signIn = new OktaSignIn({
   clientId: '${clientId}',
   // must be in the list of redirect URIs enabled for the OIDC app
   redirectUri: '${redirectUri}',
-  useInteractionCodeFlow: true,
   authParams: {
     issuer: 'https://${yourOktaDomain}/oauth2/default'
   }

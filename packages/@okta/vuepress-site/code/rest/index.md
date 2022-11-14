@@ -28,11 +28,15 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
 6. Click **Continue** and then **Import** to confirm your environment import.
 7. In the upper-right corner, click the box that lists the environments and then select `${yourOktaDomain}` from the list. The initial value is `No Environment` if you just installed Postman.
 
-   <div class="three-quarter">
+<div class="three-quarter">
 
-   ![Postman environment list box: Displays an arrow pointing to the box in the upper-right corner of the window that contains environments for use with Postman](/img/postman/postman_environment_list.png)
+![Postman environment list box: Displays an arrow pointing to the box in the upper-right corner of the window that contains environments for use with Postman](/img/postman/postman_environment_list.png)
 
-   </div>
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3236%3A30994  postman_environment_list
+   -->
+
+</div>
 
 8. In the upper-right corner, next to `${yourOktaDomain}`, click **Environment quick look** ![Postman environment quick look button](/img/postman/postman_eye_icon_button.png  "Displays the eye icon button").
 9. In the upper-right corner of the **${yourOktaDomain}** dialog box, click **Edit**.
@@ -41,6 +45,10 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
 
 ![Postman environment quick look edit link: Displays an arrow pointing to the edit link in the upper-right corner of the ${yourOktaDomain} dialog box](/img/postman/postman_environment_quick_look_edit.png)
 
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3236%3A31016  postman_environment_quick_look_edit
+ -->
+
 </div>
 
 10. In the **Manage Environments** dialog box, do the following:
@@ -48,11 +56,15 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
     * For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL, for example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
     * For the `apikey` variable, in the **Initial Value** and **Current Value** columns, enter your API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
-    <div class="three-quarter">
+<div class="three-quarter">
 
-    ![Displays arrows that points to the Environment Name box and the url and apikey variables in the Manage Environments dialog box](/img/postman/postman_manage_environments_dialog.png)
+![Displays arrows that points to the Environment Name box and the url and apikey variables in the Manage Environments dialog box](/img/postman/postman_manage_environments_dialog.png)
 
-    </div>
+<!--
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3236%3A31047  postman_manage_environments_dialog
+-->
+
+</div>
 
 11. Scroll to the bottom of the dialog box and click **Update**.
 12. To close the dialog box, click the **X** in the upper-right corner.

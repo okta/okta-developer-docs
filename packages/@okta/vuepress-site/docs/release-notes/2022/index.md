@@ -2,6 +2,147 @@
 title: Okta API Products release notes 2022
 ---
 
+## November
+
+### Monthly release 2022.11.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Step-up authentication using ACR values is GA in Preview](#step-up-authentication-using-acr-values-is-ga-in-preview) | August 31, 2022 |
+| [Authenticator enrollment using the /authorize endpoint is EA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ea-in-preview) | November 3, 2022 |
+| [Loading page animation feature for the Brands API is in GA](#loading-page-animation-feature-for-the-brands-api-is-in-ga) | October 5, 2022 |
+| [API service integrations is Self-Service EA in Preview](#api-service-integrations-is-self-service-ea-in-preview) | November 3, 2022 |
+| [New rate limits dashboard filter](#new-rate-limits-dashboard-filter) | November 3, 2022 |
+| [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | November 3, 2022 |
+| [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022-11-0) | November 3, 2022 |
+| [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022-11-0) | November 3, 2022|
+
+#### Step-up authentication using ACR values is GA in Preview
+
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/). <!--OKTA-544153-->
+
+#### Authenticator enrollment using the /authorize endpoint is EA in Preview
+
+Authenticator enrollment provides a standardized way for a user to enroll a new authenticator using the OAuth `/authorize` endpoint. This feature uses query parameters such as `prompt` and `enroll_amr_values` to specify which authenticator the user wants to enroll. It also automatically verifies at least two factors as long the user has already enrolled two or more factors. <!--OKTA-544671-->
+
+#### Loading page animation feature for the Brands API is in GA
+
+When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#theme-object) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!--OKTA-544951-->
+
+#### API service integrations is Self-Service EA in Preview
+
+A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/). <!--OKTA-532102-->
+
+#### New rate limits dashboard filter
+
+You can now filter the APIs listed on the rate limits dashboard by their rate limit multiplier eligibility status. See [Rate limit monitoring](/docs/reference/rl-dashboard). <!--OKTA-524847-->
+
+#### Improved ThreatInsight coverage
+
+ThreatInsight has increased coverage for enabled orgs. More malicious requests are now flagged for orgs with ThreatInsight configured. <!--OKTA-536921-->
+
+#### Developer documentation updates in 2022.11.0
+
+* We’ve got a [new API reference in the works](https://developer.okta.com/docs/api/). With a fresh look and feel, our new API content will be easier to navigate and features a wider variety of code examples. Content is continuously being added &mdash; please try it out and help us improve the site by providing feedback.
+
+* A new set of guides to support the creation of a password-optional or passwordless sign-in experience for your apps is now online. [Find them all here](/docs/guides/pwd-optional-overview/aspnet/main/).
+
+#### Bugs fixed in 2022.11.0
+
+* Requests to the `/api/v1/brands/*/templates/email/` endpoint returned an HTTP 404 error. (OKTA-545178)
+
+* PATCH requests to the `/iam/resource-sets/${resourceSetIdOrLabel}/resources` endpoint with duplicate resources returned duplicate resources. (OKTA-476449)
+
+* A long text string was displayed outside of the General Settings page in OIN Manager. (OKTA-532898)
+
+* The **Enter your Post Logout Redirect URI** field for OIDC settings in OIN Manager didn’t accept all valid URLs. (OKTA-532900)
+
+## October
+
+### Weekly release 2022.10.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.10.2](#bugs-fixed-in-2022-10-2)                      | October 26, 2022         |
+
+#### Bugs fixed in 2022.10.2
+
+* A `/token` request that used the authorization code flow failed when the **Groups claim type** in the app was set to **Expression** and the group number exceeded 100. (OKTA-518536)
+
+* A `/token` request that used the `refresh_token` grant type failed when the **Groups claim type** in the app was set to either **Expression** or **Filter** and the group number exceeded 100. (OKTA-531605)
+
+* When a user entered their credentials in the widget (version 6.6.1) during self-service registration, their information was cleared if the username didn't exist in the org. (OKTA-532293)
+
+* When a user authenticated using the device authorization flow, the user had to visit the verification URI twice when Agentless Desktop Single Sign-on (DSSO) was configured. (OKTA-501601)
+
+### Monthly release 2022.10.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Additional measures for suspicious SMS and Voice requests](#additional-measures-for-suspicious-sms-and-voice-requests) | October 5, 2022 |
+| [Dynamic IdP routing is GA in Production](#dynamic-idp-routing-is-ga-in-production) | June 8, 2022 |
+| [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | October 5, 2022 |
+| [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
+| [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
+| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
+| [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
+| [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
+
+#### Additional measures for suspicious SMS and Voice requests
+
+Additional measures are now applied to block suspicious SMS and Voice traffic from countries that are typically at risk of toll fraud attacks. Blocked transactions display a deny status in the System Log.
+<!--OKTA-532681-->
+
+#### Dynamic IdP routing is GA in Production
+
+Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing). <!--OKTA-520972-->
+
+#### Improved ThreatInsight coverage
+
+ThreatInsight has increased coverage for enabled orgs. More malicious requests are now flagged for orgs with ThreatInsight configured. <!--OKTA-531586-->
+
+#### Improved User API sort
+
+The Users API now supports sorting results by the top-level User object properties `status`, `lastUpdated`, and `type.id`. <!--OKTA-513502-->
+
+#### Non-deletable default authorization server is GA in Production
+
+Okta provides a default authorization server so that customers can quickly get started. If a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label in the Admin Console. <!--OKTA-536276-->
+
+#### OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview
+
+Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
+
+To improve the security of inline hooks, Okta now supports authentication with OAuth 2.0 access tokens. Tokens ensure secure calls to external web services.
+
+When creating inline hooks in the Admin Console (or by API), administrators or developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: Client Secret or Private Key. A new [Key Management API](/docs/reference/api/hook-keys/) and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
+
+Using the OAuth 2.0 framework provides better security than Basic Authentication or custom headers, and is less work than setting up an IP allowlisting solution. Clients also have the ability to use access tokens minted by their own custom authorization servers to guarantee that Okta is calling their client web services and isn't triggered by any external actors. See [Add an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook). <!--OKTA-537306-->
+
+#### Developer documentation updates in 2022.10.0
+
+* A new [Key Management API](/docs/reference/api/hook-keys/) is available under the Core Okta APIs. This reference manages JWKs used with OAuth 2.0 authentication for inline hooks.
+
+* A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available at **Guides > Hooks**. Use this guide to implement a working example of a SAML assertion inline hook.
+
+* The OIN Manager has a new Get Support section that provides common developer.okta.com guides relating to OIN integrations and the submission process.
+
+#### Bugs fixed in 2022.10.0
+
+* Users were able to make more than five attempts to activate their One-Time Password (OTP) based factors. (OKTA-429940)
+
+* Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
+
+* Searching for users with the Users API returned a 503 Service Unavailable error if the call included a `sortBy` parameter with an invalid `after` parameter. (OKTA-504265)
+
+* When an OIN client was set to invisible, the client was still incorrectly returned if a GET request was made using the Dynamic Client Registration API (`/oauth2/v1/clients`). (OKTA-515362)
+
+* When the Factors API verify endpoint (`/users/${userId}/factors/${factorId}/verify`) was called on behalf of a user, an HTTP 403 Forbidden error was returned. (OKTA-523738)
+
+* An error message didn’t appear when a deleted app instance was assigned to a role. (OKTA-531308)
+
+* A `GET /api/v1/groups` request with an invalid search operator returned a 504 Timeout error instead of a 400 Bad Request error with an appropriate message. (OKTA-535035)
+
 ## September
 
 ### Weekly release 2022.09.3
