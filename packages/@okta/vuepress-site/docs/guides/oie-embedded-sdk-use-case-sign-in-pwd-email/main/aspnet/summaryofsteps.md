@@ -1,4 +1,4 @@
-The following summarizes the steps involved in a sign-in flow with a password and email.
+The following summarizes the steps involved in a sign-in flow with a password and email:
 
 <div class="full">
 
