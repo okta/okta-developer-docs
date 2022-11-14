@@ -4,7 +4,7 @@ title: Sign in with password and email factors
 
 <ApiLifecycle access="ie" />
 
-> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. Security enforcement is expected to be based on the client request context’s IP address and user agent. However, since these values are currently being derived from the server application rather than the client, this enforcement is not available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) will not work until we can find a solution to the issue.
+> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. Security enforcement is expected to be based on the client request context's IP address and user agent. However, since these values are currently being derived from the server application rather than the client, this enforcement is not available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) will not work until we can find a solution to the issue.
 
 Enable a password and email sign-in flow in your application using the embedded SDK.
 
@@ -15,7 +15,7 @@ Enable a password and email sign-in flow in your application using the embedded 
 **Learning outcomes**
 
 * Configure your Okta org to use the email authenticator.
-* Challenge a user’s identity with password and email factors.
+* Challenge a user's identity with password and email factors.
 
 **What you need**
 
