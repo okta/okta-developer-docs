@@ -2,9 +2,9 @@
 
 Build a sign-in page for your app that captures both the username and the password.
 
-<div class="half">
+<div class="half border">
 
-![Displays the Java SDK sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-java.png)
+![A sign-in page with username and password fields and a Sign in button](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g1r7.png)
 
 </div>
 
@@ -15,9 +15,9 @@ val beginResponse = idxAuthenticationWrapper.begin()
 val proceedContext = beginResponse.proceedContext
 ```
 
-### 2: The user enters their credentials
+### 2: The user submits their username and password
 
-After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
+After the user submits their username and password, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 
 ```kotlin
 val authenticationResponse =
@@ -35,9 +35,9 @@ If the password is validated, the `IDXAuthenticationWrapper.authenticate()` meth
 
 After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In the following example, the email address is the only authenticator:
 
-<div class="half">
+<div class="half border">
 
-![Displays the verify email authenticator selection page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify-java.png)
+![A Choose Your Authenticator page with the choices of email and phone, and a Next button](/img/oie-embedded-sdk/wireframes/choose-authenticator-email-phone-form-g2r28.png)
 
 </div>
 
@@ -53,9 +53,9 @@ val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(procee
 
 The Java SDK sends this selection to Okta. Okta sends a code to the user's email and the Java SDK returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION`. This status indicates that the authentication flow is waiting for an authenticator verification, in this case, an email verification code. You need to build a form to capture the code from the user.
 
-<div class="half">
+<div class="half border">
 
-![Displays the email verification code input form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code-java.png)
+![A form to enter an email verification code, and a Submit button](/img/oie-embedded-sdk/wireframes/enter-verification-code-form-g2r5.png)
 
 </div>
 
@@ -72,3 +72,5 @@ val authenticationResponse =
 ```
 
 If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+
+> **Note**: For more information, see [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/android/main/).
