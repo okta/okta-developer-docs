@@ -2,6 +2,6 @@ The following summarizes the steps involved in a sign-in flow with a password an
 
 <div class="full">
 
-![Displays a sequence diagram of the sign-in with email and password flow](/img/oie-embedded-sdk/oie-embedded-android-sign-in-pwd-email.png)
+![Displays a sequence diagram of the sign-in with email and password flow](/img/oie-embedded-sdk/oie-embedded-android-sign-in-pwd-email-flow-diagram.png)
 
 </div>
