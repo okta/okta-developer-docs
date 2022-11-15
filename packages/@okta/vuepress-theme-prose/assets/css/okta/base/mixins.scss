@@ -6,12 +6,19 @@
 
 @mixin color($_color) {
 
-  @if type-of($_color) == string and index(map-keys($colors), $_color) {
-    color: map-get($colors, $_color);
-  } @else {
-    color: $_color;
-  }
+	@if type-of($_color) == string and index(map-keys($colors), $_color) {
+
+		color: map-get($colors, $_color);
+
+	} @else {
+
+		color: $_color;
+
+	}
+
 }
+
+
 
 //---------------------------------------------------------------
 // Sets font size responsively
@@ -19,34 +26,49 @@
 
 @mixin font-size($_size) {
 
-  @if type-of($_size) == string and index(map-keys($font-size), $_size) {
+	@if type-of($_size) == string and index(map-keys($font-size), $_size) {
 
-    @if type-of(map-get($font-size, $_size)) == "map" {
+		@if type-of(map-get($font-size, $_size)) == 'map' {
 
-      $_stack: map-get($font-size, $_size);
-      $first: true;
+			$_stack: map-get($font-size, $_size);
+			$first: true;
 
-      @each $key in list-reverse(map-keys($_stack)) {
-        @if index(map-keys($breakpoints), $key) {
+			@each $key in list-reverse(map-keys($_stack)) {
+				@if index(map-keys($breakpoints), $key) {
 
-          @if $first {
-            font-size: map-get($_stack, $key);
-            $first: false;
-          } @else {
+					@if $first {
 
-            @include media("<"+$key) {
-              font-size: map-get($_stack, $key);
-            }
-          }
-        }
-      }
-    } @else {
-      font-size: map-get($font-size, $_size);
-    }
-  } @else {
-    font-size: $_size;
-  }
+						font-size: map-get($_stack, $key);
+						$first: false;
+
+					} @else {
+
+						@include media('<'+$key) {
+
+							font-size: map-get($_stack, $key);
+
+						}
+
+					}
+
+				}
+			}
+
+		} @else {
+
+			font-size: map-get($font-size, $_size);
+
+		}
+
+	} @else {
+
+		font-size: $_size;
+
+	}
+
 }
+
+
 
 //---------------------------------------------------------------
 // Sets font weight responsively
@@ -54,34 +76,49 @@
 
 @mixin font-weight($_weight) {
 
-  @if type-of($_weight) == string and index(map-keys($font-weight), $_weight) {
+	@if type-of($_weight) == string and index(map-keys($font-weight), $_weight) {
 
-    @if type-of(map-get($font-weight, $_weight)) == "map" {
+		@if type-of(map-get($font-weight, $_weight)) == 'map' {
 
-      $_stack: map-get($font-weight, $_weight);
-      $first: true;
+			$_stack: map-get($font-weight, $_weight);
+			$first: true;
 
-      @each $key in list-reverse(map-keys($_stack)) {
-        @if index(map-keys($breakpoints), $key) {
+			@each $key in list-reverse(map-keys($_stack)) {
+				@if index(map-keys($breakpoints), $key) {
 
-          @if $first {
-            font-weight: map-get($_stack, $key);
-            $first: false;
-          } @else {
+					@if $first {
 
-            @include media("<"+$key) {
-              font-weight: map-get($_stack, $key);
-            }
-          }
-        }
-      }
-    } @else {
-      font-weight: map-get($font-weight, $_weight);
-    }
-  } @else {
-    font-weight: $_weight;
-  }
+						font-weight: map-get($_stack, $key);
+						$first: false;
+
+					} @else {
+
+						@include media('<'+$key) {
+
+							font-weight: map-get($_stack, $key);
+
+						}
+
+					}
+
+				}
+			}
+
+		} @else {
+
+			font-weight: map-get($font-weight, $_weight);
+
+		}
+
+	} @else {
+
+		font-weight: $_weight;
+
+	}
+
 }
+
+
 
 //---------------------------------------------------------------
 // Sets line height responsively
@@ -89,57 +126,75 @@
 
 @mixin line-height($_height) {
 
-  @if type-of($_height) == string and index(map-keys($line-height), $_height) {
+	@if type-of($_height) == string and index(map-keys($line-height), $_height) {
 
-    @if type-of(map-get($line-height, $_height)) == "map" {
+		@if type-of(map-get($line-height, $_height)) == 'map' {
 
-      $_stack: map-get($line-height, $_height);
-      $first: true;
+			$_stack: map-get($line-height, $_height);
+			$first: true;
 
-      @each $key in list-reverse(map-keys($_stack)) {
-        @if index(map-keys($breakpoints), $key) {
+			@each $key in list-reverse(map-keys($_stack)) {
+				@if index(map-keys($breakpoints), $key) {
 
-          @if $first {
-            line-height: map-get($_stack, $key);
-            $first: false;
-          } @else {
+					@if $first {
 
-            @include media("<"+$key) {
-              line-height: map-get($_stack, $key);
-            }
-          }
-        }
-      }
-    } @else {
-      line-height: map-get($line-height, $_height);
-    }
-  } @else {
-    line-height: $_height;
-  }
+						line-height: map-get($_stack, $key);
+						$first: false;
+
+					} @else {
+
+						@include media('<'+$key) {
+
+							line-height: map-get($_stack, $key);
+
+						}
+
+					}
+
+				}
+			}
+
+		} @else {
+
+			line-height: map-get($line-height, $_height);
+
+		}
+
+	} @else {
+
+		line-height: $_height;
+
+	}
+
 }
+
+
 
 //---------------------------------------------------------------
 // Set the gutter width independently of the default
 //---------------------------------------------------------------
 @mixin gutter-width($_gutter-width) {
-  margin-right: $_gutter-width / -2;
 
-  margin-bottom: ($line-break * 2) - $_gutter-width;
-  margin-left: $_gutter-width / -2;
+	margin-bottom: ($line-break * 2) - $_gutter-width;
+	margin-left: $_gutter-width / -2;
+	margin-right: $_gutter-width / -2;
 
-  &:last-child {
-    margin-bottom: $_gutter-width * -1;
-  }
+	&:last-child {
+		margin-bottom: $_gutter-width * -1;
+	}
 
-  + .row {
-    margin-bottom: $_gutter-width - ($line-break * 2);
-  }
+	+ .row {
+		margin-bottom: $_gutter-width - ($line-break * 2);
+	}
 
-  [class*="col-"],
-  .col {
-    padding: 0 ($_gutter-width / 2) ($_gutter-width);
-  }
+	[class*=col-],
+	.col {
+		padding: 0 ($_gutter-width / 2) ($_gutter-width);
+	}
+
 }
+
+
 
 //---------------------------------------------------------------
 // Sets margins relative to root em
@@ -147,35 +202,43 @@
 
 @mixin margin($_margins: $lineHeight auto) {
 
-  $_result: ();
+	$_result: ();
 
-  margin: $_result;
+	@each $_margin in $_margins {
 
-  &:first-child {
-    margin-top: 0;
-  }
+		@if $_margin == 'auto' {
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+			$_result: append($_result, auto);
 
-  @each $_margin in $_margins {
+		} @else if type-of($_margin) == string and index(map-keys($spacing), $_margin) {
 
-    @if $_margin == "auto" {
+			$_result: append($_result, map-get($spacing, $_margin));
 
-      $_result: append($_result, auto);
-    } @else if type-of($_margin) == string and index(map-keys($spacing), $_margin) {
+		} @else if type-of($_margin) == string and str-slice($_margin, 1, 1) == '-' and index(map-keys($spacing), str-slice($_margin, 2)) {
 
-      $_result: append($_result, map-get($spacing, $_margin));
-    } @else if type-of($_margin) == string and str-slice($_margin, 1, 1) == "-" and index(map-keys($spacing), str-slice($_margin, 2)) {
+			$_result: append($_result, map-get($spacing, str-slice($_margin, 2)) * -1);
 
-      $_result: append($_result, map-get($spacing, str-slice($_margin, 2)) * -1);
-    } @else {
+		} @else {
 
-      $_result: append($_result, $_margin);
-    }
-  }
+			$_result: append($_result, $_margin);
+		}
+
+
+	}
+
+	margin: $_result;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
 }
+
+
 
 //---------------------------------------------------------------
 // Sets margins relative to root em
@@ -183,24 +246,30 @@
 
 @mixin padding($_paddings: $lineHeight auto) {
 
-  $_result: ();
+	$_result: ();
 
-  padding: $_result;
+	@each $_padding in $_paddings {
 
-  @each $_padding in $_paddings {
+		@if type-of($_padding) == string and index(map-keys($spacing), $_padding) {
 
-    @if type-of($_padding) == string and index(map-keys($spacing), $_padding) {
+			$_result: append($_result, map-get($spacing, $_padding));
 
-      $_result: append($_result, map-get($spacing, $_padding));
-    } @else if type-of($_padding) == string and str-slice($_padding, 1, 1) == "-" and index(map-keys($spacing), str-slice($_padding, 2)) {
+		} @else if type-of($_padding) == string and str-slice($_padding, 1, 1) == '-' and index(map-keys($spacing), str-slice($_padding, 2)) {
 
-      $_result: append($_result, map-get($spacing, str-slice($_padding, 2)) * -1);
-    } @else {
+			$_result: append($_result, map-get($spacing, str-slice($_padding, 2)) * -1);
 
-      $_result: append($_result, $_padding);
-    }
-  }
+		} @else {
+
+			$_result: append($_result, $_padding);
+
+		}
+	}
+
+	padding: $_result;
+
 }
+
+
 
 //---------------------------------------------------------------
 // Sets transition based on defaults
@@ -208,36 +277,40 @@
 
 @mixin transition($_properties...) {
 
-  $_result: ();
+	$_result: ();
 
-  transition: $_result;
+	@if length($_properties) == 0 {
+		$_properties: (
+			'normal all'
+		);
+	}
 
-  @if length($_properties) == 0 {
-    $_properties: (
-      "normal all"
-    );
-  }
+	@for $i from 1 through length($_properties) {
 
-  @for $i from 1 through length($_properties) {
+		$_property: nth($_properties, $i);
+		$_subResult: ();
 
-    $_property: nth($_properties, $i);
-    $_subResult: ();
+		@if type-of($_property) == string {
+			$_property: explode($_property, ' ');
+		}
 
-    @if type-of($_property) == string {
-      $_property: explode($_property, " ");
-    }
+		@each $_sub-property in $_property {
 
-    @each $_sub-property in $_property {
+			@if type-of($_sub-property) == string and index(map-keys($transition-speed), $_sub-property) {
 
-      @if type-of($_sub-property) == string and index(map-keys($transition-speed), $_sub-property) {
+				$_subResult: append($_subResult, map-get($transition-speed, $_sub-property));
 
-        $_subResult: append($_subResult, map-get($transition-speed, $_sub-property));
-      } @else {
+			} @else {
 
-        $_subResult: append($_subResult, unquote($_sub-property));
-      }
-    }
+				$_subResult: append($_subResult, unquote($_sub-property));
 
-    $_result: append($_result, $_subResult, comma);
-  }
+			}
+
+		}
+
+		$_result: append($_result, $_subResult, comma);
+	}
+
+	transition: $_result;
+
 }
