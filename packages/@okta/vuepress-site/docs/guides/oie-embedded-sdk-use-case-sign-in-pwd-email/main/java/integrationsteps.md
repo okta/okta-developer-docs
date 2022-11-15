@@ -18,20 +18,19 @@ When the user submits their username and password, create an `AuthenticationOpti
 
 ```java
 // Begin authentication challenge flow
-AuthenticationResponse beginResponse =
-  idxAuthenticationWrapper.begin(constructRequestContext());
+AuthenticationResponse beginResponse = 
+    idxAuthenticationWrapper.begin(constructRequestContext());
 
 // Remember the user’s state
 ProceedContext proceedContext = beginResponse.getProceedContext();
 
 // set the user's credentials
 AuthenticationOptions authenticationOptions =
-   new AuthenticationOptions(username, password);
+    new AuthenticationOptions(username, password);
 
 // submit username and password
 AuthenticationResponse authenticationResponse =
-   idxAuthenticationWrapper.authenticate(
-      authenticationOptions, proceedContext);
+    idxAuthenticationWrapper.authenticate(authenticationOptions, proceedContext);
 ```
 
 ### 3: Your app displays a list of authenticators
@@ -92,6 +91,7 @@ When the user correctly verifies their identity using the email authenticator, t
 ```java
 VerifyAuthenticatorOptions verifyAuthenticatorOptions =
     new VerifyAuthenticatorOptions(code);
+
 AuthenticationResponse authenticationResponse =
     idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 
