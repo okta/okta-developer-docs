@@ -1,7 +1,7 @@
 <template>
   <DialogWindow
-    @close="closeTermsConditionsDialog()"
     title="Tell us more about yourself"
+    @close="closeTermsConditionsDialog()"
   >
     <div class="dialog-text">
       <p>
@@ -12,44 +12,54 @@
         Country/Region
         <select
           name="Country"
-          id="tac-country"
           class="tac-row"
+          id="tac-country"
           ref="countryEl"
           v-model="selectedCountry"
-          @change="
+          @onBlur="
             region = $event.target.value;
             resetFields();
           "
         >
         
-          <option disabled selected></option>
           <option
-            v-for="country in countriesList"
-            v-bind:key="country.value"
+            disabled
+            selected
+          ></option>
+          <option
             :value="country.value"
-            >{{ country.name }}</option
-          >
+            v-for="country in countriesList"
+            :key="country.value"
+          >{{ country.name }}</option>
         </select>
       </label>
-      <label for="tac-regionData" v-show="region.list.length">
+      <label
+        for="tac-regionData"
+        v-show="region.list.length"
+      >
         {{ region.type }}
         <select
           name="Region"
-          id="tac-regionData"
           class="tac-row"
+          id="tac-regionData"
           ref="regionDataEl"
           v-model="selectedRegion"
         >
-          <option disabled selected></option>
           <option
-            v-for="regionData in region.list"
-            v-bind:key="regionData.name"
+            disabled
+            selected
+          ></option>
+          <option
             :value="regionData.value"
-            >{{ regionData.name }}</option
-          >
+            v-for="regionData in region.list"
+            :key="regionData.name"
+          >{{ regionData.name }}</option>
         </select>
       </label>
-      <div class="marketing-c" v-show="isGDPRCountry">
+      <div
+        class="marketing-c"
+        v-show="isGDPRCountry"
+      >
         <div class="title">
           Marketing Communication <span> - Optional</span>
         </div>
@@ -57,10 +67,10 @@
           <input
             type="checkbox"
             name=""
+            checked="false"
             id="okta-contact"
             ref="gdprBoxEl"
-            checked="false"
-          />
+          >
           <label for="okta-contact">
             I agree that Okta may contact me with marketing communications. See
             Privacy Policy for details on how to unsubscribe.
@@ -68,16 +78,21 @@
         </div>
       </div>
     </div>
-    <template v-slot:footer>
-      <div class="agree-policy" v-show="selectedCountry">
+    <template #footer>
+      <div
+        class="agree-policy"
+        v-show="selectedCountry"
+      >
         <div class="splitter"></div>
         <p>
           By clicking "continue", I agree to the applicable Free Trial terms in
-          <SmartLink :item="{ link: '/terms/' }">Okta's Terms</SmartLink> and
+          <SmartLink :item="{ link: '/terms/' }">
+            Okta's Terms
+          </SmartLink> and
           the processing of my personal data by Okta as described in the
-          <SmartLink :item="{ link: '/privacy-policy/' }"
-            >Privacy Policy</SmartLink
-          >.
+          <SmartLink :item="{ link: '/privacy-policy/' }">
+            Privacy Policy
+          </SmartLink>.
         </p>
       </div>
       <div class="terms-conditions-btns">
@@ -87,17 +102,17 @@
             class="btn social-btn"
             value="Cancel"
             @click="closeTermsConditionsDialog()"
-          />
+          >
         </div>
         <div class="btn-container">
           <input
             type="button"
             class="btn red-button"
-            @click="!isDisabledSocialAuth && setTaCUrlAndRedirect()"
             :class="{ 'btn-disabled': isDisabledSocialAuth }"
             value="Continue"
             :disabled="isDisabledSocialAuth"
-          />
+            @click="!isDisabledSocialAuth && setTaCUrlAndRedirect()"
+          >
         </div>
       </div>
     </template>
@@ -125,7 +140,7 @@ export default {
   props: {
     socialUrl: {
       required: true,
-      type: ""
+      type: String
     }
   },
   data() {
@@ -147,6 +162,7 @@ export default {
           return true;
         }
       }
+      return false;
     },
     region: {
       get() {
@@ -172,6 +188,7 @@ export default {
       if (GDPR_COUNTRIES.includes(this.selectedCountry)) {
         return true;
       }
+      return false;
     }
   },
   methods: {

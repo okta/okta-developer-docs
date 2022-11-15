@@ -1,0 +1,75 @@
+{
+  "env": {
+      "browser": true,
+      "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/recommended",
+    "plugin:vue-a11y/base"
+  ],
+  "overrides": [
+  ],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+  },
+  "plugins": [
+      "vue",
+      "vue-a11y"
+  ],
+  "rules": {
+    "vue/html-self-closing": ["error", {
+      "html": {
+        "void": "never",
+        "normal": "never",
+        "component": "always"
+      },
+      "svg": "always",
+      "math": "always"
+    }],
+    
+    "vue/html-indent": ["error", 2, {
+      "attribute": 1,
+      "baseIndent": 1,
+      "closeBracket": 0,
+      "alignAttributesVertically": true,
+      "ignores": []
+    }],
+    "vue/multi-word-component-names": "off",
+    "vue/no-reserved-component-names": "off",
+    "vue/require-prop-types": "off",
+    "vue/attribute-hyphenation": "off",
+    "vue/require-default-prop": "off",
+    "vue/no-template-shadow": "off",
+    "vue-a11y/click-events-have-key-events": "off",
+    "vue-a11y/form-has-label": "off",
+    "vue/no-v-html": "off",
+    "vue-a11y/label-has-for": "off",
+    "no-undef": "off",
+    "no-unused-vars": "off",
+    "vue/no-side-effects-in-computed-properties": "off",
+    "no-prototype-builtins": "off",
+    "vue/no-mutating-props": "off",
+    "no-extra-boolean-cast": "off",
+    "no-global-assign": "off",
+    "vue/this-in-template": "off",
+    "vue/attributes-order": ["error", {
+      "order": [
+        "OTHER_ATTR",
+        "DEFINITION",
+        "LIST_RENDERING",
+        "CONDITIONALS",
+        "RENDER_MODIFIERS",
+        "GLOBAL",
+        ["UNIQUE", "SLOT"],
+        "TWO_WAY_BINDING",
+        "OTHER_DIRECTIVES",
+        "EVENTS",
+        "CONTENT"
+      ],
+      "alphabetical": false
+    }]
+  }
+}

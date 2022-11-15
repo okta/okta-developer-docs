@@ -1,5 +1,8 @@
 <template>
-  <label class="toggle-switch switch-theme" @click="toggleDarkMode">
+  <label
+    class="toggle-switch switch-theme"
+    @click="toggleDarkMode"
+  >
     <span :class="{'light-mode': true, 'active': !isDarkMode}"></span>
     <span :class="{'dark-mode': true, 'active': isDarkMode}"></span>
   </label>

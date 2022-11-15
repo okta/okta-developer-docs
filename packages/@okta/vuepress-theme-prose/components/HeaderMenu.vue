@@ -1,6 +1,5 @@
 <template>
   <div class="header--links">
-    
     <MenuItems
       :items="$themeConfig.primary_left_nav"
       :itemCss="'link link--small link--semi-bold'"
@@ -22,7 +21,6 @@
     name: "HeaderMenu",
     components: {
       MenuItems: () => import("../components/MenuItems.vue"),
-      MenuItem: () => import("../components/MenuItem.vue"),
       DocsMenuItems: () => import("../components/DocsMenuItems.vue"),
     },
     data() {
