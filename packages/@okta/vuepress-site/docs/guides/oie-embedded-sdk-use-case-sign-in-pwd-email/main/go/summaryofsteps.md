@@ -1,7 +1,7 @@
-The sequence of steps for the sign-in with password and email flow is shown below.
+The following summarizes the steps involved in a sign-in flow with a password and email:
 
 <div class="full">
 
-![Displays a diagram of the sign-in flow using the email factor with the Golang sample application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-sign-on-email-factor.png)
+![Displays a sequence diagram of the sign-in with email and password flow](/img/oie-embedded-sdk/oie-embedded-go-sign-in-pwd-email-flow-diagram.png)
 
 </div>
