@@ -29,7 +29,7 @@
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "stylelint": "yarn stylelint:scss && yarn stylelint:vue",
-    "eslint": "yarn eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
+    "eslint": "./node_modules/.bin/eslint packages/@okta/vuepress-theme-prose/**/*.vue",
     "lint-all": "yarn stylelint && yarn eslint"
   },
   "repository": "git@github.com:okta/okta.github.io",
