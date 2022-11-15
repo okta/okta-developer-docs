@@ -2005,7 +2005,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/clients" />
 
-Lists all Client Resources for which the specified Policy has tokens
+Lists all Client Resources for which the specified Policy is configured.
 
 #### Request parameters
 
