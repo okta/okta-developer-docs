@@ -15,7 +15,7 @@
 <script>
   export default {
     name: 'MobileOnThisPage',
-    data: ()=>({ 
+    data: ()=>({
      selectedOption: {}
     }),
     computed: {
@@ -40,6 +40,6 @@
 </script>
 
 <style lang="scss">
-@import "vue-select/src/scss/vue-select.scss";
+@import "vue-select/src/scss/vue-select";
 </style>
 

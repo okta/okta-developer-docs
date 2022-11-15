@@ -1,6 +1,6 @@
 <template>
   <li :class="{
-    'link-wrap': true, 
+    'link-wrap': true,
     'subnav-active': link.iHaveChildrenActive,
     hidden: hidden }">
     <router-link
@@ -54,7 +54,7 @@
             :to="link.path"
             v-slot="{ href, navigate }"
           >
-            <a 
+            <a
               :href="href"
               @click="navigate"
               :class="{
@@ -63,7 +63,7 @@
               :title="link.title"
               >
               <slot>
-                <span 
+                <span
                   class="text-holder">
                     {{ link.title }}
                 </span>
@@ -194,13 +194,16 @@ export default {
 </script>
 
 <style>
-.slide-fade-enter-active {
-  transition: all .8s ease;
-}
-.slide-fade-leave-active {
-  transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.slide-fade-enter, .slide-fade-leave-to {
-  opacity: 0;
-}
+  .slide-fade-enter-active {
+    transition: all 0.8s ease;
+  }
+
+  .slide-fade-leave-active {
+    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  .slide-fade-enter,
+  .slide-fade-leave-to {
+    opacity: 0;
+  }
 </style>

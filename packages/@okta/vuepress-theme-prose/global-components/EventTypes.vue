@@ -125,88 +125,98 @@
 </script>
 
 <style scoped lang="scss">
-  @import '../assets/css/abstracts/_colors.scss';
+  @import "../assets/css/abstracts/_colors";
 
-  $border_color: map-get(map-get($colors, 'form'), 'input-border');
-  $link_color: map-get(map-get($colors, 'link'), 'base');
+  $border_color: map-get(map-get($colors, "form"), "input-border");
+  $link_color: map-get(map-get($colors, "link"), "base");
 
-  .event-types {
-    .PageContent-main {
-      padding-right: 0;
-    }
+  .event-types .PageContent-main {
+    padding-right: 0;
+  }
 
-    #event-type-search {
-      width: 100%;
-      font-size: 1em;
-      padding: 0.5rem 0.3rem;
-      border: 2px solid $border_color;
-    }
+  .event-types #event-type-search {
+    padding: 0.5rem 0.3rem;
+    width: 100%;
 
-    #event-type-search::placeholder {
-      color: $border_color;
-    }
+    border: 2px solid $border_color;
 
-    #event-type-release {
-      margin-top: 1em;
-    }
+    font-size: 1em;
+  }
 
-    #event-type-count {
-      margin-top: -1em;
-      margin-left: 0.3em;
-      font-size: 0.8em;
-    }
+  .event-types #event-type-search::placeholder {
+    color: $border_color;
+  }
 
-    .event-type {
-      h4 {
-        margin: 25px 0 0;
-        padding: 6px 10px;
-        clear: left;
-        overflow: hidden;
-        border-left: 3px solid $link_color;
-        color: $link_color;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
+  .event-types #event-type-release {
+    margin-top: 1em;
+  }
 
-      h4::before {
-        content: '\f0a2';
-        margin-right: 8px;
-        font-family: fontawesome;
-      }
+  .event-types #event-type-count {
+    margin-top: -1em;
+    margin-left: 0.3em;
 
-      .event-type-mappings {
-        margin: -1em 0;
-        padding: 10px 15px;
-        word-break: break-all;
-        font-size: 0.8em;
-      }
+    font-size: 0.8em;
+  }
 
-      .event-type-description {
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
+  .event-types .event-type h4 {
+    clear: left;
+    margin: 25px 0 0;
+    padding: 6px 10px;
+    overflow: hidden;
 
-      .event-type-tag::before {
-        content: '\f02b';
-        padding: 2px 4px;
-        font-family: fontawesome;
-      }
+    border-left: 3px solid $link_color;
 
-      .event-type-tag {
-        display: block;
-        margin: 2px;
-        padding: 1px 3px;
-        float: left;
-        border-radius: 3px;
-        background-color: #ffffff;
-        font-size: 0.7em;
-      }
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: $link_color;
+  }
 
-      .event-type-release {
-        clear: both;
-        opacity: 0.7;
-        font-size: 0.8em;
-      }
-    }
+  .event-types .event-type h4::before {
+    content: "";
+
+    margin-right: 8px;
+
+    font-family: "fontawesome";
+  }
+
+  .event-types .event-type .event-type-mappings {
+    margin: -1em 0;
+    padding: 10px 15px;
+
+    font-size: 0.8em;
+    word-break: break-all;
+  }
+
+  .event-types .event-type .event-type-description {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .event-types .event-type .event-type-tag::before {
+    content: "";
+
+    padding: 2px 4px;
+
+    font-family: "fontawesome";
+  }
+
+  .event-types .event-type .event-type-tag {
+    display: block;
+    float: left;
+    margin: 2px;
+    padding: 1px 3px;
+
+    border-radius: 3px;
+    background-color: #ffffff;
+
+    font-size: 0.7em;
+  }
+
+  .event-types .event-type .event-type-release {
+    clear: both;
+
+    opacity: 0.7;
+
+    font-size: 0.8em;
   }
 </style>

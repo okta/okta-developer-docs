@@ -1,12 +1,12 @@
-.login {
-  .login--form {
-    background-color: cv("code");
-    box-shadow: 0px 6px 18px cv("code");
-    .fa-github:before {
-      color: cv("link", 'github');
-    }
-    .goto-signup a {
-      color: cv("link");
-    }
-  }
+.login .login--form {
+  box-shadow: 0 6px 18px cv("code");
+  background-color: cv("code");
+}
+
+.login .login--form .fa-github::before {
+  color: cv("link", "github");
+}
+
+.login .login--form .goto-signup a {
+  color: cv("link");
 }

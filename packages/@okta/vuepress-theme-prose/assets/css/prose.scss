@@ -1,5 +1,5 @@
-@import "~@okta/odyssey/src/scss/odyssey.scss";
-@import "~include-media/dist/_include-media.scss";
+@import "~@okta/odyssey/src/scss/odyssey";
+@import "~include-media/dist/_include-media";
 @import "~prismjs/themes/prism-solarizedlight.css";
 
 // Abstracts
@@ -17,12 +17,12 @@
 
 // Base
 @import "base/typography";
-@import "base/mixins.scss";
+@import "base/mixins";
 
 // Layouts
-@import "layouts/layout.scss";
-@import "layouts/authorizationLayout.scss";
-@import "layouts/darktheme.scss";
+@import "layouts/layout";
+@import "layouts/authorizationLayout";
+@import "layouts/darktheme";
 
 // Components
 @import "components/announcementBanner";

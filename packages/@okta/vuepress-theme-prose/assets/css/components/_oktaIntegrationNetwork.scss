@@ -3,154 +3,169 @@ $darkerBlue: #142430;
 $gray: #d3d2d6;
 $magenta: #e22866;
 
-.oin {
-  .oin--bg {
-    background: #fff url('/img/homepage/white-to-gray-bg.svg') repeat-x left bottom;
+.oin .oin--bg {
+  background: #ffffff url("/img/homepage/white-to-gray-bg.svg") repeat-x left bottom;
+}
 
-    &:last-of-type {
-      background: none;
-    }
+.oin .oin--bg:last-of-type {
+  background: none;
+}
+
+.oin .oin--container {
+  max-width: 1280px;
+}
+
+.oin .Button--red,
+.oin .Button--whiteOutline,
+.oin .Button--redOutline {
+  white-space: nowrap;
+}
+
+.oin .oin--leader {
+  margin: 0 auto;
+  padding: 128px 0 180px;
+  max-width: 640px;
+
+  text-align: center;
+}
+
+.oin h1.oin--title {
+  margin: 0 0 64px;
+
+  line-height: 64px;
+}
+
+.oin p.oin--subtitle {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.oin .oin-alt-bg {
+  background: cv("body", "lighter") url("/img/homepage/gray-to-white-bg.svg") repeat-x left bottom;
+}
+
+.oin .oin--background-curve {
+  display: none;
+
+  line-height: 0;
+}
+
+.oin .oin--background-curve img {
+  width: 100%;
+  height: 80px;
+}
+
+.oin .oin--integration {
+  flex-grow: 1;
+  margin: 64px auto;
+
+  text-align: center;
+}
+
+.oin .oin--integration .oin--integration-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.oin .oin--integration .oin--integration-content {
+  display: flex;
+  justify-content: space-around;
+  margin: 70px 0 0 0;
+  width: 100%;
+}
+
+.oin .oin--integration .oin--integration-content .oin-guide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 60px 90px;
+}
+@include media("<tablet") {
+  .oin .oin--integration .oin--integration-content {
+    flex-direction: column;
   }
-  .oin--container {
-    max-width: 1280px;
+}
+
+.oin .oin--develop {
+  flex-grow: 1;
+  margin: 64px auto;
+
+  text-align: center;
+}
+
+.oin .oin--develop .oin--develop-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.oin .oin--develop .oin--develop-header h1 {
+  margin-bottom: 64px;
+}
+
+.oin .oin--develop .oin--develop-content {
+  margin: 128px 0 0 0;
+}
+
+.oin .oin--develop .oin--develop-content h2 {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.oin .oin--develop .oin--develop-content .oin--develop-tiles {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 64px 0;
+}
+
+.oin .oin--develop .oin--develop-content .oin--develop-tiles .tile {
+  display: flex;
+  flex: 1 1 165px;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 15px 30px;
+  padding: 30px 20px;
+
+  box-shadow: 0 6px 25px 0 rgb(5 5 5 / 0.2);
+  border-radius: 3px;
+
+  transition: 0.4s;
+}
+
+.oin .oin--develop .oin--develop-content .oin--develop-tiles .tile:hover {
+  box-shadow: 0 6px 25px 0 rgb(5 5 5 / 0.4);
+}
+
+.oin .oin--develop .oin--develop-content .oin--develop-tiles .tile img {
+  margin-bottom: 30px;
+  height: 50px;
+}
+
+.oin .oin--develop .oin--develop-content .oin--develop-tiles .tile h3 {
+  margin-top: 0;
+}
+
+.oin .oin--develop .oin--develop-content .oin--develop-tiles .tile.empty {
+  display: none;
+
+  box-shadow: none;
+  background-color: transparent;
+}
+@include media("<desktop") {
+  .oin .oin--develop .oin--develop-content .oin--develop-tiles .tile {
+    flex: 1 1 340px;
   }
 
-  .Button--red, .Button--whiteOutline, .Button--redOutline {
-    white-space: nowrap;
+  .oin .oin--develop .oin--develop-content .oin--develop-tiles .tile.empty {
+    display: block;
   }
-  
-  .oin--leader {
-    margin: 0 auto;
-    text-align: center;
-    padding: 128px 0 180px;
-    max-width: 640px;
-  }
-
-  h1.oin--title {
-    margin: 0 0 64px;
-    line-height: 64px;
-  }
-
-  p.oin--subtitle {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 30px;
-  }
-
-  .oin-alt-bg {
-    background: cv('body', 'lighter') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
-  }
-
-  .oin--background-curve {
-    line-height: 0;
+}
+@include media("<tablet") {
+  .oin .oin--develop .oin--develop-content .oin--develop-tiles .tile.empty {
     display: none;
-    img {
-      width: 100%;
-      height: 80px;
-    }
-  }
-
-  .oin--integration {
-    text-align: center;
-    margin: 64px auto;
-    flex-grow: 1;
-
-    .oin--integration-header{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .oin--integration-content {
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      margin: 70px 0 0 0;
-
-      .oin-guide {
-        margin: 0 60px 90px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      @include media('<tablet') {
-        flex-direction: column;
-      }
-    }
-  }
-
-  .oin--develop {
-    text-align: center;
-    margin: 64px auto;
-    flex-grow: 1;
-
-    .oin--develop-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      h1 {
-        margin-bottom: 64px;
-      }
-    }
-
-    .oin--develop-content {
-      margin: 128px 0 0 0;
-
-      h2 {
-        font-size: 22px;
-        line-height: 32px;
-        font-weight: 500;
-      }
-
-      .oin--develop-tiles {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-        margin: 64px 0;
-
-        .tile {
-          margin: 0 15px 30px;
-          padding: 30px 20px;
-          flex: 1 1 165px;
-          box-shadow: 0 6px 25px 0 rgba(5, 5, 5, 0.2);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          border-radius: 3px;
-          transition: .4s;
-
-          &:hover {
-            box-shadow: 0 6px 25px 0 rgba(5,5,5,.4);
-          }
-
-          img {
-            height: 50px;
-            margin-bottom: 30px;
-          }
-
-          h3 {
-            margin-top: 0;
-          }
-
-          &.empty {
-            background-color: transparent;
-            box-shadow: none;
-            display: none;
-          }
-
-          @include media('<desktop') {
-            flex: 1 1 340px;
-            &.empty {
-              display: block;
-            }
-          }
-          @include media('<tablet') {
-            &.empty {
-              display: none;
-            }
-          }
-        }
-      }
-    }
   }
 }

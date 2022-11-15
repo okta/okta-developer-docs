@@ -2,46 +2,55 @@
 // Note: Do not modify this file directly.
 
 .facebook-square-16::before {
-  color: $icon-color-facebook;
   content: $facebook-square;
+
+  color: $icon-color-facebook;
 }
 
 .facebook-16::before {
-  color: $icon-color-facebook;
   content: $facebook;
+
+  color: $icon-color-facebook;
 }
 
 .google-square-16::before {
-  color: $icon-color-google;
   content: $google-square;
+
+  color: $icon-color-google;
 }
 
 .google-16::before {
-  color: $icon-color-google;
   content: $google;
+
+  color: $icon-color-google;
 }
 
 .twitter-square-16::before {
-  color: $icon-color-dark;
   content: $twitter-square;
+
+  color: $icon-color-dark;
 }
 
 .twitter-16::before {
-  color: $icon-color-dark;
   content: $twitter;
+
+  color: $icon-color-dark;
 }
 
 .linkedin-square-16::before {
-  color: $icon-color-dark;
   content: $linkedin-square;
+
+  color: $icon-color-dark;
 }
 
 .linkedin-16::before {
-  color: $icon-color-dark;
   content: $linkedin;
+
+  color: $icon-color-dark;
 }
 
 .openid-16::before {
-  color: $icon-color-dark;
   content: $openid;
+
+  color: $icon-color-dark;
 }

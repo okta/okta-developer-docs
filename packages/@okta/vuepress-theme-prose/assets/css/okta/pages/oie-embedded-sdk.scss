@@ -1,16 +1,15 @@
 .oie-embedded-sdk {
-
-  .common-image-format{
+  .common-image-format {
     text-align: center;
   }
 
   .common-image-format-vertical-margin {
-      margin-top: 20px;
-      margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .bordered-image > p > img {
-    border: 1px solid cv('gray', '200');
+    border: 1px solid cv("gray", "200");
     border-radius: 46px;
   }
 }

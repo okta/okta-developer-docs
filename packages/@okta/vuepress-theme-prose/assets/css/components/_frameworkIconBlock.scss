@@ -1,8 +1,9 @@
 .framework-icon-block {
   display: flex;
-  i { 
+
+  i {
+    display: block;
     margin-right: 5px;
     cursor: pointer;
-    display: block;
   }
 }

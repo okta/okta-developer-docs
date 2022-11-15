@@ -1,140 +1,179 @@
 .selector-tiles {
   display: flex;
   justify-content: space-between;
+}
 
-  @include media("<bootstrap-xl") {
-    flex-wrap: wrap;
+.selector-tiles .selector-tile-item {
+  margin: 0 36px 0 0;
+  width: 100%;
+}
+
+.selector-tiles .selector-tile-item:last-child {
+  margin-right: 0;
+}
+@include media("<bootstrap-xl") {
+  .selector-tiles .selector-tile-item {
+    margin-right: 6%;
+    width: 47%;
   }
 
-  .selector-tile-item {
-    width: 100%;
-    margin: 0 36px 0 0;
-
-    @include media("<bootstrap-xl") {
-      width: 47%;
-      margin-right: 6%;
-      &:nth-child(2n) {
-        margin-right: 0;
-      }
-    }
-
-    @include media("<tablet") {
-      margin-right: 0;
-      width: 100%;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
+  .selector-tiles .selector-tile-item:nth-child(2n) {
+    margin-right: 0;
   }
 }
-.selector-tile{
-  box-sizing: border-box;
+@include media("<tablet") {
+  .selector-tiles .selector-tile-item {
+    margin-right: 0;
+    width: 100%;
+  }
+}
+@include media("<bootstrap-xl") {
+  .selector-tiles {
+    flex-wrap: wrap;
+  }
+}
 
-  @include media("<bootstrap-xl") {
+.selector-tile {
+  box-sizing: border-box;
+}
+
+.selector-tile--header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 0 10px 7px 0;
+
+  border-bottom: 2px solid cv("text", "darker");
+
+  font-weight: 500;
+  font-size: 14px;
+  color: cv("text", "darker");
+}
+
+.selector-tile--header > i,
+.selector-tile--header span {
+  display: block;
+}
+
+.selector-tile--header > i {
+  font-size: 8px;
+  color: cv("text", "darker");
+}
+@include media("<desktop") {
+  .selector-tile--header > i {
+    font-size: 16px;
+  }
+}
+
+.selector-tile--header:hover {
+  color: cv("text", "darker");
+}
+
+.selector-tile--header:visited,
+.selector-tile--header:active,
+.selector-tile--header:focus {
+  color: cv("text", "darker");
+}
+@include media("<desktop") {
+  .selector-tile--header {
+    padding: 0 0 8px;
+
+    border-bottom-width: 1px;
+
+    font-weight: 500;
+    font-size: 21px;
+  }
+}
+
+.selector-tile--data--item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 10px 12px;
+
+  border-bottom: 1px solid cv("text", "lighter");
+
+  text-decoration: none;
+  color: cv("text", "darker");
+}
+
+.selector-tile--data--item:visited,
+.selector-tile--data--item:active,
+.selector-tile--data--item:focus {
+  color: cv("text", "darker");
+}
+
+.selector-tile--data--item > img {
+  display: block;
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+}
+@include media("<desktop") {
+  .selector-tile--data--item > img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.selector-tile--data--item > span {
+  display: block;
+  flex-grow: 1;
+  padding-right: 10px;
+  padding-left: 13px;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1rem;
+}
+@include media("<desktop") {
+  .selector-tile--data--item > span {
+    font-size: 18px;
+  }
+}
+
+.selector-tile--data--item > i {
+  display: block;
+
+  font-weight: 100;
+  font-size: 8px;
+  color: cv("tile", "angle");
+}
+@include media("<desktop") {
+  .selector-tile--data--item > i {
+    font-size: 16px;
+  }
+}
+
+.selector-tile--data--item:hover {
+  background: cv("blue", "000");
+
+  color: cv("link", "darker");
+}
+
+.selector-tile--data--item:hover > i {
+  color: cv("link", "darker");
+}
+@include media("<desktop") {
+  .selector-tile--data--item {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+@include media("<bootstrap-xl") {
+  .selector-tile {
     margin-bottom: 48px;
   }
-  @include media("<tablet") {
-    height: auto;
+}
+@include media("<tablet") {
+  .selector-tile {
     margin-right: 0;
     margin-left: 0;
     width: 100%;
-  }
-
-  &--header{
-    font-size: 14px;
-    font-weight: 500;
-    padding: 0 10px 7px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    color: cv('text', 'darker');
-    margin-bottom: 0;
-    border-bottom: 2px solid cv('text', 'darker');
-
-    @include media("<desktop"){
-      font-size: 21px;
-      font-weight: 500;
-      padding: 0 0 8px;
-      border-bottom-width: 1px;
-    }
-
-    >i,span{
-      display: block;
-    }
-    >i{
-      color: cv('text', 'darker');
-      font-size: 8px;
-      @include media("<desktop"){
-        font-size: 16px;
-      }
-    }
-    &:hover {
-      color: cv('text', 'darker');
-    }
-    &:visited,&:active,&:focus{
-      color: cv('text', 'darker');
-    }
-  }
-  &--data{
-    &--item{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      padding: 11px 10px 12px;
-      text-decoration: none;
-      color: cv('text', 'darker');
-      border-bottom: 1px solid cv('text', 'lighter');
-
-      @include media("<desktop") {
-        padding-left: 0;
-        padding-right: 0;
-      }
-
-      &:visited,&:active,&:focus{
-        color: cv('text', 'darker');
-      }
-
-      >img{
-        border-radius: 50%;
-        width: 25px;
-        height: 25px;
-        display: block;
-        @include media("<desktop"){
-          width: 30px;
-          height: 30px;
-        }
-      }
-      >span{
-        font-size: 14px;
-        font-weight: 500;
-        display: block;
-        flex-grow: 1;
-        padding-left: 13px;
-        padding-right: 10px;
-        line-height: 1rem;
-        @include media("<desktop"){
-          font-size: 18px;
-        }
-      }
-      >i{
-        display: block;
-        font-weight: 100;
-        font-size: 8px;
-        color: cv('tile', 'angle');
-        @include media("<desktop"){
-          font-size: 16px;
-        }
-      }
-      &:hover{
-        color: cv('link', 'darker');
-        background: cv('blue', '000');
-        >i {
-          color: cv('link', 'darker');
-        }
-      }
-    }
+    height: auto;
   }
 }

@@ -1,49 +1,47 @@
 // scss-lint:disable Indentation, TrailingSemicolon
 
 @import
+  "okta/base",
 
+  "okta/components/Button",
+  "okta/components/FrameworkIconBlock",
 
-  'okta/base',
-  
-  'okta/components/Button.scss',
-  'okta/components/FrameworkIconBlock',
+  "okta/global/fontawesome",
+  "okta/global/fontello",
 
+  "okta/pages/quickstarts",
+  "okta/pages/guides",
 
-  'okta/global/fontawesome',
-  'okta/global/fontello',
-
-  'okta/pages/quickstarts',
-  'okta/pages/guides',
-
-  'okta/icons/all.scss'
+  "okta/icons/all"
 ;
 
 // scss-lint:enable Indentation, TrailingSemicolon
 
 .guide-featured footer {
+  margin: 0;
   padding: 1.5rem;
   padding-top: 0.75rem;
+
   background-color: transparent;
-  margin: 0;
 }
 
 .guide-content {
-
   p {
     max-width: none;
   }
 
   .stack-selector nav.tabs ul {
-    background: #fafafa;
-    display: flex;
-    flex-wrap: wrap;
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(15ch,1fr));
     position: relative;
-    padding: 0;
     top: -1px;
-    list-style-type: none;
-    border-bottom: 1px solid #b7bcc0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15ch, 1fr));
+    flex-wrap: wrap;
+    padding: 0;
     max-width: none;
+
+    border-bottom: 1px solid #b7bcc0;
+    background: #fafafa;
+    list-style-type: none;
   }
 }

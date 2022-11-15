@@ -1,313 +1,352 @@
 @mixin separator {
-  content: '';
+  content: "";
+
   position: absolute;
   bottom: 37px;
   left: 0;
+
   width: 34px;
   height: 1px;
-  background: cv('link', 'footer');
+
+  background: cv("link", "footer");
 }
+
 @mixin separator-full-width {
-  content: '';
+  content: "";
+
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 0;
+
   width: 100%;
   height: 1px;
-  background: cv('link', 'footer');
+
+  background: cv("link", "footer");
 }
 
 .app-footer {
   position: relative;
-  background-color: cv('header');
-  padding: 94px 64px;
+
   flex-shrink: 0;
+  padding: 94px 64px;
 
-  @include media("<desktop-xl") {
-    padding: 60px 0;
+  background-color: cv("header");
+}
+
+.app-footer p {
+  color: cv("body", "white");
+}
+
+.app-footer p a {
+  text-decoration: underline;
+}
+
+.app-footer .italic {
+  font-style: italic;
+}
+
+.app-footer .footer--columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.app-footer .footer--columns .footer--column {
+  flex: 0 0 170px;
+}
+
+.app-footer .footer--columns .footer--column .column--header {
+  margin: 0 0 35px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.3em;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: cv("body", "white");
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns .footer--column .column--header {
+    margin-bottom: 20px;
+  }
+}
+
+.app-footer .footer--columns .social {
+  flex: 0 0 120px;
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns .social {
+    position: relative;
+
+    flex: 1 0 100%;
+    order: 5;
+    margin-bottom: 0;
+    padding-top: 19px;
   }
 
-  p {
-    color: cv('body', 'white');
-    a {
-      text-decoration: underline;
-    }
+  .app-footer .footer--columns .social::after {
+    @include separator-full-width;
   }
 
-  .italic {
-    font-style: italic;
+  .app-footer .footer--columns .social .column--header {
+    display: none;
   }
 
-  .footer--columns {
+  .app-footer .footer--columns .social ul.link-list {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-
-    @include media("<desktop-xl") {
-      width: 83%;
-      margin: 0 auto;
-    }
-
-    .footer--column {
-      flex: 0 0 170px;
-
-      .column--header {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1.3em;
-        letter-spacing: 1.5px;
-        color: cv('body', 'white');
-        text-transform: uppercase;
-        margin: 0 0 35px;
-
-        @include media("<desktop-xl") {
-          margin-bottom: 20px;
-        }
-      }
-    }
-
-    .social {
-      flex: 0 0 120px;
-      @include media("<desktop-xl") {
-        flex: 1 0 100%;
-        margin-bottom: 0;
-        padding-top: 19px;
-        order: 5;
-        position: relative;
-
-        &::after {
-          @include separator-full-width;
-        }
-
-        .column--header {
-          display: none;
-        }
-
-        ul.link-list {
-          display: flex;
-          justify-content: space-between;
-          max-width: 256px;
-          margin: 0 auto;
-        }
-
-        span.link-list--text {
-          display: none;
-        }
-      }
-    }
-
-    .contact {
-      flex: 0 0 170px;
-      @include media("<desktop-xl") {
-        flex: 1 0 50%;
-        margin-bottom: 46px;
-        order: 3;
-      }
-
-      @include media('<phone') {
-        flex: 1 0 100%;
-      }
-    }
-
-    .more {
-      @include media("<desktop-xl") {
-        flex: 1 0 50%;
-        margin-bottom: 32px;
-        padding-left: 18px;
-        order: 4;
-      }
-
-      @include media('<phone') {
-        flex: 1 0 100%;
-        padding-left: 0;
-      }
-    }
-
-    .need-support, .websites {
-      @include media("<desktop-xl") {
-        flex: 1 0 100% !important;
-        justify-content: center;
-        padding-bottom: 68px;
-        position: relative;
-        &::after {
-          @include separator;
-        }
-      }
-    }
-
-    .websites {
-      flex: 0 0 300px;
-
-      @include media("<desktop-xl") {
-        flex: 1 0 40%;
-        margin-bottom: 0;
-        order: 2;
-        padding-bottom: 73px;
-        margin-bottom: 8px;
-      }
-
-      @include media('<tablet') {
-        flex: 1 0 100%;
-      }
-
-      .website {
-        display: flex;
-        flex-direction: column;
-
-        & + .website {
-          margin-top: 37px;
-          @include media("<desktop-xl") {
-            margin-top: 25px;
-          }
-        }
-
-        .description {
-          font-size: 16px;
-          line-height: 1.7em;
-          letter-spacing: 0.01em;
-          color: cv('text', 'lighter');
-          margin-top: 6px;
-        }
-      }
-    }
-
-    .need-support {
-      flex: 0 0 245px;
-      position: relative;
-
-      .column--header {
-        font-weight: 400;
-        font-size: 20px;
-        text-transform: none;
-        margin-bottom: 20px;
-        letter-spacing: .5px;
-
-        @include media("<desktop-xl") {
-          margin-bottom: 16px;
-        }
-      }
-
-      p {
-        line-height: 1.8em;
-        color: cv('body', 'white');
-        a {
-          color: cv('body', 'white');
-        }
-        @include media("<desktop-xl") {
-          line-height: 1.6rem;
-        }
-      }
-    }
-
-    .copyright {
-      color: cv('body', 'white');
-      font-size: 1em;
-      font-weight: 500;
-      clear: both;
-      margin: 38px 0 0;
-      padding: 38px 0 0;
-      position: absolute;
-      left: auto;
-      bottom: 94px;
-
-      &::before {
-        @include separator;
-        top: 0;
-      }
-      @include media("<desktop-xl") {
-        position: relative;
-        bottom: auto;
-        order: 6;
-        width: 100%;
-        text-align: center;
-        margin-top: 28px;
-        padding-top: 28px;
-        &:before {
-          @include separator-full-width;
-        }
-      }
-    }
+    margin: 0 auto;
+    max-width: 256px;
   }
 
-  a.link {
-    font-size: inherit;
-    line-height: 1.3em;
-    color: cv('text', 'lighter');
+  .app-footer .footer--columns .social span.link-list--text {
+    display: none;
+  }
+}
 
-    &:hover {
-      text-decoration: underline;
-    }
+.app-footer .footer--columns .contact {
+  flex: 0 0 170px;
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns .contact {
+    flex: 1 0 50%;
+    order: 3;
+    margin-bottom: 46px;
+  }
+}
+@include media("<phone") {
+  .app-footer .footer--columns .contact {
+    flex: 1 0 100%;
+  }
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns .more {
+    flex: 1 0 50%;
+    order: 4;
+    margin-bottom: 32px;
+    padding-left: 18px;
+  }
+}
+@include media("<phone") {
+  .app-footer .footer--columns .more {
+    flex: 1 0 100%;
+    padding-left: 0;
+  }
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns .need-support,
+  .app-footer .footer--columns .websites {
+    position: relative;
 
-    &--small {
-      font-size: 14px;
-    }
-
-    &--bold {
-      font-weight: 400;
-    }
-
-    &--uppercase {
-      text-transform: uppercase;
-    }
-
-    &--underline {
-      text-decoration: underline;
-    }
-
-    &--spacing-large {
-      letter-spacing: 1.5px;
-    }
-
-    &--heading {
-      color: cv('body', 'white');
-    }
-
-    &[target='_blank']:not([href^='mailto:']) {
-      &.link--with-chevron-right {
-        &::after {
-          background-image: url('/img/icons/chevron-right.svg');
-        }
-      }
-    }
+    flex: 1 0 100% !important;
+    justify-content: center;
+    padding-bottom: 68px;
   }
 
-  ul.link-list {
-    margin-left: 0;
-    padding-inline-start: 0;
+  .app-footer .footer--columns .need-support::after,
+  .app-footer .footer--columns .websites::after {
+    @include separator;
+  }
+}
 
-    li.link-list--item {
-      margin-top: 20px;
+.app-footer .footer--columns .websites {
+  flex: 0 0 300px;
+}
 
-      @include media("<desktop-xl") {
-        margin-top: 8px;
-      }
+.app-footer .footer--columns .websites .website {
+  display: flex;
+  flex-direction: column;
+}
 
-      a.link-list--link {
-        font-size: 16px;
-        line-height: 1.2em;
-        display: flex;
-        align-items: center;
+.app-footer .footer--columns .websites .website + .website {
+  margin-top: 37px;
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns .websites .website + .website {
+    margin-top: 25px;
+  }
+}
 
-        
-      }
+.app-footer .footer--columns .websites .website .description {
+  margin-top: 6px;
 
-      i.link-list--icon {
-        display: flex;
-        font-size: 16px;
+  font-size: 16px;
+  line-height: 1.7em;
+  letter-spacing: 0.01em;
+  color: cv("text", "lighter");
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns .websites {
+    flex: 1 0 40%;
+    order: 2;
+    margin-bottom: 8px;
+    padding-bottom: 73px;
+  }
+}
+@include media("<tablet") {
+  .app-footer .footer--columns .websites {
+    flex: 1 0 100%;
+  }
+}
 
-        svg {
-          width: 1.2em;
-          height: 1.2em;
-          fill: cv('body', 'white');
-          path {
-            fill: cv('body', 'white');
-          }
-        }
-      }
+.app-footer .footer--columns .need-support {
+  position: relative;
 
-      i.link-list--icon + span.link-list--text {
-        margin-left: 16px;
-      }
-    }
+  flex: 0 0 245px;
+}
+
+.app-footer .footer--columns .need-support .column--header {
+  margin-bottom: 20px;
+
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  text-transform: none;
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns .need-support .column--header {
+    margin-bottom: 16px;
+  }
+}
+
+.app-footer .footer--columns .need-support p {
+  line-height: 1.8em;
+  color: cv("body", "white");
+}
+
+.app-footer .footer--columns .need-support p a {
+  color: cv("body", "white");
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns .need-support p {
+    line-height: 1.6rem;
+  }
+}
+
+.app-footer .footer--columns .copyright {
+  position: absolute;
+  bottom: 94px;
+  left: auto;
+
+  clear: both;
+  margin: 38px 0 0;
+  padding: 38px 0 0;
+
+  font-weight: 500;
+  font-size: 1em;
+  color: cv("body", "white");
+}
+
+.app-footer .footer--columns .copyright::before {
+  top: 0;
+  @include separator;
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns .copyright {
+    position: relative;
+    bottom: auto;
+
+    order: 6;
+    margin-top: 28px;
+    padding-top: 28px;
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .app-footer .footer--columns .copyright::before {
+    @include separator-full-width;
+  }
+}
+@include media("<desktop-xl") {
+  .app-footer .footer--columns {
+    margin: 0 auto;
+    width: 83%;
+  }
+}
+
+.app-footer a.link {
+  font-size: inherit;
+  line-height: 1.3em;
+  color: cv("text", "lighter");
+}
+
+.app-footer a.link:hover {
+  text-decoration: underline;
+}
+
+.app-footer a.link--small {
+  font-size: 14px;
+}
+
+.app-footer a.link--bold {
+  font-weight: 400;
+}
+
+.app-footer a.link--uppercase {
+  text-transform: uppercase;
+}
+
+.app-footer a.link--underline {
+  text-decoration: underline;
+}
+
+.app-footer a.link--spacing-large {
+  letter-spacing: 1.5px;
+}
+
+.app-footer a.link--heading {
+  color: cv("body", "white");
+}
+
+.app-footer a.link[target="_blank"]:not([href^="mailto:"]).link--with-chevron-right::after {
+  background-image: url("/img/icons/chevron-right.svg");
+}
+
+.app-footer ul.link-list {
+  margin-left: 0;
+  padding-inline-start: 0;
+}
+
+.app-footer ul.link-list li.link-list--item {
+  margin-top: 20px;
+}
+
+.app-footer ul.link-list li.link-list--item a.link-list--link {
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  line-height: 1.2em;
+}
+
+.app-footer ul.link-list li.link-list--item i.link-list--icon {
+  display: flex;
+
+  font-size: 16px;
+}
+
+.app-footer ul.link-list li.link-list--item i.link-list--icon svg {
+  width: 1.2em;
+  height: 1.2em;
+
+  fill: cv("body", "white");
+}
+
+.app-footer ul.link-list li.link-list--item i.link-list--icon svg path {
+  fill: cv("body", "white");
+}
+
+.app-footer ul.link-list li.link-list--item i.link-list--icon + span.link-list--text {
+  margin-left: 16px;
+}
+@include media("<desktop-xl") {
+  .app-footer ul.link-list li.link-list--item {
+    margin-top: 8px;
+  }
+}
+@include media("<desktop-xl") {
+  .app-footer {
+    padding: 60px 0;
   }
 }

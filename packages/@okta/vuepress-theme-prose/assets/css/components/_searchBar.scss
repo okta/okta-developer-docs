@@ -1,163 +1,177 @@
 .SearchBox .CoveoOmnibox {
-  border-color: #b7bcc0;
-  height: 45px;
   width: 85%;
   max-width: 710px;
-  @include media("<desktop") {
-    max-width: 100%;
+  height: 45px;
+
+  border-color: #b7bcc0;
+}
+@include media("<desktop") {
+  .SearchBox .CoveoOmnibox {
     width: 100%;
+    max-width: 100%;
   }
 }
 
 .SearchBar {
-  top: 0px;
+  top: 0;
   left: 0;
-  @include media(">desktop") {
+}
+
+.SearchBar .Wrap {
+  width: 100%;
+}
+@include media(">desktop") {
+  .SearchBar {
     top: 95px;
   }
-
-  @include media(">859px") {
+}
+@include media(">859px") {
+  .SearchBar {
     top: 75px;
-  }
-
-  .Wrap {
-    width: 100%;
   }
 }
 
 .search--wrapper {
   position: relative;
+
   width: 100%;
   height: 38px;
+
   border-radius: 4px;
-  background-color: white;
+  background-color: #ffffff;
+}
 
-  .input--icon {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    top: 11px;
-    left: 12px;
+.search--wrapper .input--icon {
+  position: absolute;
+  top: 11px;
+  left: 12px;
+
+  width: 15px;
+  height: 15px;
+}
+
+.search--wrapper .SearchBox.CoveoSearchInterface {
+  min-width: initial;
+  max-width: initial;
+}
+
+.search--wrapper .SearchBox .search--form {
+  display: flex;
+}
+
+.search--wrapper .SearchBox .search--form .CoveoSearchButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: content-box;
+  width: 94px;
+  height: auto;
+
+  border: none;
+  border-left: 2px solid cv("header");
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1em;
+  color: cv("header");
+}
+
+.search--wrapper .SearchBox .search--form .CoveoSearchButton::before {
+  display: none;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box {
+  width: 100%;
+  height: 38px;
+
+  border: none;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input {
+  height: 38px;
+
+  border-radius: 4px;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-clear::before {
+  border-left: none;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-clear .magic-box-icon::before {
+  display: none;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay {
+  position: relative;
+
+  padding-right: 12px;
+  padding-left: 40px;
+  height: 38px;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
+  content: "";
+
+  position: absolute;
+  top: 13px;
+  left: 10px;
+
+  font: 13px "FontAwesome";
+  color: cv("header");
+}
+@include media("<desktop") {
+  .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
+    color: cv("text", "darker");
   }
+}
 
-  .SearchBox {
-    &.CoveoSearchInterface {
-      min-width: initial;
-      max-width: initial;
-    }
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
+  padding-right: 12px;
+  padding-left: 40px;
+  height: 38px;
 
-    .search--form {
-      display: flex;
+  font-size: 14px;
+  font-family: inherit;
+}
 
-      .CoveoSearchButton {
-        color: cv('header');
-        border: none;
-        height: auto;
-        width: 94px;
-        line-height: 1em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-left: 2px solid cv('header');
-        box-sizing: content-box;
-        font-size: 14px;
-        font-weight: 600;
-        &:before {
-          display: none;
-        }
-      }
-    }
-
-    .CoveoOmnibox.magic-box {
-      width: 100%;
-      height: 38px;
-      border: none;
-
-      .magic-box-input {
-        height: 38px;
-        border-radius: 4px;
-
-        .magic-box-clear {
-          &:before {
-            border-left: none;
-          }
-
-          .magic-box-icon:before {
-            display: none;
-          }
-        }
-
-        .magic-box-underlay {
-          height: 38px;
-          padding-left: 40px;
-          padding-right: 12px;
-          position: relative;
-
-          &::before {
-            position: absolute;
-            content: "\f002";
-            font: 13px FontAwesome;
-            left: 10px;
-            top: 13px;
-            color: cv('header');
-
-            @include media("<desktop") {
-              color: cv('text', 'darker');
-            }
-          }
-        }
-
-        input {
-          height: 38px;
-          padding-left: 40px;
-          padding-right: 12px;
-          font-size: 14px;
-          font-family: inherit;
-
-          &::placeholder {
-            color: cv('text');
-          }
-
-          @media (max-width: 1080px) {
-            &::placeholder {
-              color: transparent;
-            }
-          }
-
-          @include media("<tablet") {
-
-            &::placeholder {
-              color: cv('text');
-            }
-          }
-        }
-      }
-
-      &.magic-box-notEmpty .magic-box-clear {
-        height: 38px;
-        width: 48px;
-        position: relative;
-        background-image: url("/img/icons/icon--close.svg");
-        background-repeat: no-repeat;
-        background-position: 50%;
-        background-size: 30%;
-      }
-
-      &.has-suggestions-hidden {
-        .magic-box-suggestions {
-          display: none !important;
-        }
-      }
-      .magic-box-suggestion {
-        font-size: 14px;
-      }
-
-    }
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
+  color: cv("text");
+}
+@media (max-width: 1080px) {
+  .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
+    color: transparent;
   }
+}
+@include media("<tablet") {
+  .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
+    color: cv("text");
+  }
+}
 
-  @include media("<desktop") {
-    border: 1px solid cv('body', 'border');
-    border-radius: 4px;
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box.magic-box-notEmpty .magic-box-clear {
+  position: relative;
+
+  width: 48px;
+  height: 38px;
+
+  background-image: url("/img/icons/icon--close.svg");
+  background-position: 50%;
+  background-size: 30%;
+  background-repeat: no-repeat;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box.has-suggestions-hidden .magic-box-suggestions {
+  display: none !important;
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-suggestion {
+  font-size: 14px;
+}
+@include media("<desktop") {
+  .search--wrapper {
     height: 40px;
+
+    border: 1px solid cv("body", "border");
+    border-radius: 4px;
   }
 }

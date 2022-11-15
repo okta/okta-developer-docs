@@ -1,64 +1,64 @@
 .company-logos--wrapper {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+}
 
-  h1 {
-    color: white;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 50px;
+.company-logos--wrapper h1 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 50px;
+  color: #ffffff;
+}
+
+.company-logos--wrapper h4 {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.company-logos--wrapper .company-logos--icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.company-logos--wrapper .company-logos--icons .company-logos--icon {
+  margin: 0 10px 45px;
+  width: 85px;
+  height: 45px;
+}
+@include media("<tablet") {
+  .company-logos--wrapper .company-logos--icons {
+    justify-content: center;
   }
 
-  h4 {
-    color: white;
-    font-size: 16px;
+  .company-logos--wrapper .company-logos--icons .company-logos--icon {
+    margin: 0 20px 20px;
   }
+}
 
-  @include media("<tablet") {
+.company-logos--wrapper.company-logos--centered {
+  align-items: center;
+
+  text-align: center;
+}
+
+.company-logos--wrapper:not(.company-logos--centered) .company-logos--icon:first-child {
+  margin-left: 0;
+}
+
+.company-logos--wrapper:not(.company-logos--centered) .company-logos--icon:last-child {
+  margin-right: 0;
+}
+
+.company-logos--wrapper.company-logos--small .company-logos--icons .company-logos--icon {
+  width: 88px;
+}
+@include media("<tablet") {
+  .company-logos--wrapper {
     text-align: center;
-  }
-
-  .company-logos--icons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 800px;
-
-    .company-logos--icon {
-      width: 85px;
-      height: 45px;
-      margin: 0 10px 45px;
-    }
-
-    @include media("<tablet") {
-      justify-content: center;
-      .company-logos--icon {
-        margin: 0 20px 20px;
-      }
-    }
-  }
-
-  &.company-logos--centered {
-    text-align: center;
-    align-items: center;
-  }
-  &:not(.company-logos--centered) {
-    .company-logos--icon:first-child {
-      margin-left: 0;
-    }
-    .company-logos--icon:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &.company-logos--small {
-    .company-logos--icons {
-      .company-logos--icon {
-        width: 88px;
-      }
-    }
   }
 }

@@ -2,24 +2,30 @@
   span.cm-variable {
     color: cv("text");
   }
+
   span.cm-comment {
     color: cv("breadcrumb", "svg");
   }
+
   span.cm-property {
     color: cv("code", "property");
   }
+
   span.cm-keyword {
     color: cv("code", "keyword");
   }
+
   span.cm-string {
     color: cv("code", "define");
   }
 }
 
 .CodeMirror {
-  color: cv("text");
-  background-color: cv("code");
   border-color: transparent;
+  background-color: cv("code");
+
+  color: cv("text");
+
   &-gutters {
     background-color: cv("code");
   }
@@ -59,19 +65,21 @@ pre[class*="language-"] {
 }
 
 .homepage--code-example {
-  background-color: cv("body");
   border-color: transparent;
+  background-color: cv("body");
+
   &--cm-wrapper .CodeMirror {
-    background-color: cv("body");
     border-color: transparent;
+    background-color: cv("body");
   }
 }
 
 .api-uri {
   &-template {
-    background-color: cv("body", "obscure");
     border-color: cv("body");
+    background-color: cv("body", "obscure");
   }
+
   &-put strong {
     color: cv("link");
   }

@@ -1,51 +1,63 @@
-.assurance-item{
+.assurance-item {
   display: flex;
   flex-direction: column;
-  width: 100%;
   align-items: flex-start;
   margin-bottom: 49px;
-  @include media("<=bootstrap-xl"){
+  width: 100%;
+}
+
+.assurance-item--rounded {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 112px;
+  height: 112px;
+
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.assurance-item--rounded span {
+  min-width: 60px;
+  min-height: 60px;
+}
+
+.assurance-item--content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 30px 0 0;
+  padding: 0;
+  height: 100%;
+}
+
+.assurance-item--content--title {
+  margin-bottom: 10px;
+
+  font-weight: 500;
+  font-size: 18px;
+  color: cv("text", "darker");
+}
+
+.assurance-item--content--description {
+  font-size: 16px;
+  color: cv("text");
+}
+@include media("<desktop") {
+  .assurance-item--content {
+    text-align: center;
+  }
+}
+@include media("<=bootstrap-xl") {
+  .assurance-item {
     margin-bottom: 30px;
   }
-  @include media("<desktop"){
+}
+@include media("<desktop") {
+  .assurance-item {
     align-items: center;
     margin-bottom: 60px;
-  }
-  &--rounded{
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 112px;
-    height: 112px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    border-radius: 50%;
-    span {
-      min-height: 60px;
-      min-width: 60px;
-    }
-  }
-  &--content{
-    margin: 30px 0 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    @include media("<desktop"){
-      text-align: center;
-    }
-    &--title{
-      font-size: 18px;
-      color: cv('text', 'darker');
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-    &--description{
-      color: cv('text');
-      font-size: 16px;
-    }
   }
 }

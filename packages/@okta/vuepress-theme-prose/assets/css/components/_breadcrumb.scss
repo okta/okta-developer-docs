@@ -1,61 +1,66 @@
 .breadcrumb {
   padding: 0;
+}
 
-  &--container {
-    padding: 0px;
+.breadcrumb--container {
+  padding: 0;
+}
 
-    ol {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      padding: 0 0 9px;
-      flex-wrap: wrap;
+.breadcrumb--container ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 0 9px;
+  list-style: none;
+}
 
-      li {
-        display: flex;
-        align-items: center;
-        margin: 0 9px 0 0;
-        padding: 9px 0 0;
+.breadcrumb--container ol li {
+  display: flex;
+  align-items: center;
+  margin: 0 9px 0 0;
+  padding: 9px 0 0;
+}
 
-        @include media("<desktop-xl") {
-          margin-right: 7px;
-        }
-        @include media("<tablet") {
-          padding-top: 4px;
-        }
+.breadcrumb--container ol li a,
+.breadcrumb--container ol li span {
+  padding-right: 7px;
 
-        a, span {
-          text-decoration: none !important;
-          color: cv('text', 'darker');
-          font-size: 12px;
-          font-weight: 500;
-          padding-right: 7px;
-
-          @include media("<desktop-xl") {
-            padding-right: 7px;
-          }
-        }
-        a {
-          color: cv('link');
-        }
-        &:first-child {
-          a, span {
-            color: cv('text', 'darker');
-          }
-        }
-        &:last-child {
-          svg {
-            display: none;
-          }
-        }
-      }
-
-    }
-
+  font-weight: 500;
+  font-size: 12px;
+  text-decoration: none !important;
+  color: cv("text", "darker");
+}
+@include media("<desktop-xl") {
+  .breadcrumb--container ol li a,
+  .breadcrumb--container ol li span {
+    padding-right: 7px;
   }
+}
 
-  @include media("<desktop-xl") {
+.breadcrumb--container ol li a {
+  color: cv("link");
+}
+
+.breadcrumb--container ol li:first-child a,
+.breadcrumb--container ol li:first-child span {
+  color: cv("text", "darker");
+}
+
+.breadcrumb--container ol li:last-child svg {
+  display: none;
+}
+@include media("<desktop-xl") {
+  .breadcrumb--container ol li {
+    margin-right: 7px;
+  }
+}
+@include media("<tablet") {
+  .breadcrumb--container ol li {
+    padding-top: 4px;
+  }
+}
+@include media("<desktop-xl") {
+  .breadcrumb {
     padding-bottom: 0;
   }
-
 }

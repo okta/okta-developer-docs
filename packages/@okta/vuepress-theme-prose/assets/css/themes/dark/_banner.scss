@@ -1,33 +1,46 @@
 .announcement-banner {
   background-color: cv("code");
+
   color: cv("text");
-  &--description {
-    color: cv("text");
+}
+
+.announcement-banner--description {
+  color: cv("text");
+}
+
+.announcement-banner--logo {
+  width: 100%;
+  max-width: 245px;
+  height: 100%;
+
+  background: url("/img/homepage/announcement-large--dark.png") 50% 0 no-repeat;
+  background-size: cover;
+}
+
+.announcement-banner--logo img {
+  display: none;
+}
+@include media("<=tablet") {
+  .announcement-banner--logo {
+    right: 0;
+
+    max-width: 74px;
+
+    background: url("/img/homepage/announcement-small--dark.png") 50% 50% no-repeat;
+    background-size: contain;
   }
-  &--logo {
-    background: url(/img/homepage/announcement-large--dark.png) 50% 0 no-repeat;
-    background-size: cover;
-    max-width: 245px;
-    height: 100%;
-    width: 100%;
-    img {
-      display: none;
-    }
-    @include media("<=tablet") {
-      max-width: 74px;
-      right: 0;
-      background: url(/img/homepage/announcement-small--dark.png) 50% 50%
-        no-repeat;
-      background-size: contain;
-    }
-    @include media("<=tablet") {
-      max-width: 97px;
-    }
+}
+@include media("<=tablet") {
+  .announcement-banner--logo {
+    max-width: 97px;
   }
-  &--close {
-    background-color: transparent;
-    @include media("<=tablet") {
-      background-color: cv("body", "orange");
-    }
+}
+
+.announcement-banner--close {
+  background-color: transparent;
+}
+@include media("<=tablet") {
+  .announcement-banner--close {
+    background-color: cv("body", "orange");
   }
 }
