@@ -1,19 +1,19 @@
 ---
-title: Customize the Okta URL and email notification domains
-excerpt: Learn how to add a custom domain name to your Okta organization and configure a custom email notification domain.
+title: Customize domain and email address
+excerpt: Learn how to add a custom domain configure a custom email address.
 layout: Guides
 ---
 
-This guide explains how to customize your Okta org with your URL domain name and how to configure a custom email domain so that you can present a branded experience to your end users.
+This guide explains how to customize your Okta org with your custom domain and how to configure a custom email address so that you can present a branded experience to your end users.
 
-> **Note:** You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom URL domain (Okta-managed or using your own TLS certificate). You must sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
+> **Note:** You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom domain (Okta-managed or using your own TLS certificate). You must sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
 
 ---
 
 **Learning outcomes**
 
-* Customize the Okta URL domain (Okta-managed or using your own TLS certificate).
-* Configure a custom email notification domain.
+* Customize the Okta subdomain (Okta-managed or using your own TLS certificate).
+* Configure a custom email address.
 
 **What you need**
 
@@ -27,28 +27,28 @@ For customizing a domain using your own TLS certificate:
 * A valid TLS certificate (PEM-encoded) for your subdomain
 * A 2048-bit private key (PEM-encoded)
 
-For configuring a custom email notification domain:
+For configuring a custom email address:
 
 * Access to the DNS records of your public custom domain
 * An implementation of the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implemented SPF in your custom domain, ensure that you update the SPF record.
 
 ---
 
-## About Okta URL domain customization
+## About Okta domain customization
 
-You can customize your Okta organization by replacing the Okta domain name with your own domain name. Your customized domain name allows you to create a seamless branded experience for your users so that all URLs look like your app.
+You can customize your Okta organization by replacing the Okta domain name with your own domain name. Your customized domain allows you to create a seamless branded experience for your users so that all URLs look like your app.
 
 For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. Okta orgs host pages on subdomains such as `example.okta.com`. You can create a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2) for the Okta domain, allowing you to alias it to another subdomain that you own, like `login.example.com`.
 
-> **Note:** You must first customize the Okta URL domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) or [error pages](/docs/guides/custom-error-pages/).
+> **Note:** You must first setup a custom domain if you also want to customize the Okta-hosted [sign-in page](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) or [error pages](/docs/guides/custom-error-pages/).
 
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain. See [Validate your TLS certificate](#validate-your-tls-certificate).
 
-You can also [configure a custom email notification domain](#about-custom-email-domain-configuration) to present a branded experience to your end users.
+You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
 
 ### Caveats
 
-* You must provide a subdomain for customizing the Okta URL domain. Okta doesn't support the use of a root domain name.
+* You must provide a subdomain for customizing the Okta org domain. Okta doesn't support the use of a root domain name.
 
 * If you use an Okta-managed TLS certificate, you don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, keep the following in mind:
 
@@ -61,11 +61,11 @@ You can also [configure a custom email notification domain](#about-custom-email-
 
 * If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
-* If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, your user is prompted to sign in again. To avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
+* If you sign a user in with your new custom domain and they try to SSO into previous OIDC integrations made with the org domain, your user is prompted to sign in again. To avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
-* When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
+* When you implement a custom domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom domain to your users. One way to communicate the change is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
 
-* When an admin signs in to the custom URL domain and then accesses the Admin Console from their user dashboard, the org URL changes from the custom URL to the Okta domain.
+* When an admin signs in to the custom domain and then accesses the Admin Console from their user dashboard, the org domain changes from the custom domain to the Okta domain.
 
 * If you disable a custom domain, the `issuerMode` for Identity Providers, Authorization Servers, and OpenID Connect apps is set back to `ORG_URL`.
 
@@ -85,7 +85,7 @@ This method of configuring a custom domain is recommended because Okta manages y
 
 > **Note:** You don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record to use an Okta-managed TLS certificate. However, if you do have a CAA record, keep the following in mind:
 >
->   * If it's your first time setting up a custom domain URL with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
+>   * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
 >   * If you already have an Okta-managed TLS certificate and you later get a CAA record, Okta may be unable to renew your certificate.
 
 1. In the Admin Console, go to **Customizations** > **Domain**.
@@ -148,7 +148,7 @@ If you receive the previous error, consult with the person in your organization 
 3. Click **Get started**.
 4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Bring your own certificate (advanced)**.
     * The **Next** button appears if the configuration is incomplete.
-    * The **Update Certification** button appears if a custom URL domain is already configured for your org. To delete the current configuration, click **Restore to default**.
+    * The **Update Certification** button appears if a custom domain is already configured for your org. To delete the current configuration, click **Restore to default**.
 
 ### Add your subdomain information
 
@@ -210,7 +210,7 @@ Okta serves traffic over HTTPS (TLS) on your custom domain. Use this section to 
 
 > **Note:** After you click **Finish**, it can take up to 15 minutes for the domain and certificate to be ready and testable.
 
-## Confirm that your custom URL works
+## Confirm that your custom domain works
 
 Use the link that appears in the **Confirmation** section of the CNAME step to confirm that Okta is serving traffic over HTTPS (TLS) for your custom domain.
 
@@ -219,7 +219,7 @@ Use the link that appears in the **Confirmation** section of the CNAME step to c
 1. Click the link, for example, `https://login.example.com`. The Okta Sign-In page should appear.
 2. Back at the CNAME step, click **Finish**.
 
-It may take up to 48 hours for these changes to propagate. Warning notices may appear on your custom URL domain until propagation is finished. If your changes don't appear within 48 hours, return to the configuration wizard and confirm your settings.
+It may take up to 48 hours for these changes to propagate. Warning notices may appear on your custom domain until propagation is finished. If your changes don't appear within 48 hours, return to the configuration wizard and confirm your settings.
 
 You can also use a tool such as `dig` or `nslookup` to test and verify that your DNS is a properly configured domain.
 
@@ -237,11 +237,11 @@ There are websites available for flushing the caches for [Google DNS](https://go
 
 ## Update other Okta settings
 
-After you add your custom URL, some features or APIs require additional configuration to reflect that change.
+After you add your custom domain, some features or APIs require additional configuration to reflect that change.
 
 ### Update Custom Authorization Server
 
-After you customize your Okta domain URL, existing [Custom Authorization Servers](/docs/concepts/auth-servers/) continue to use the Okta organization URL until you change it. All new Custom Authorization Servers use the custom URL by default.
+After you customize your Okta domain, existing [Custom Authorization Servers](/docs/concepts/auth-servers/) continue to use the Okta org URL until you change it. All new Custom Authorization Servers use the custom domain by default.
 
 You need to update existing Custom Authorization Servers to return the custom domain as the `issuer` value:
 
@@ -311,13 +311,13 @@ You need to update your Authorization Server to use your custom domain to fix th
 3. Change the **Issuer** to use **Custom URL**.
 4. Try `./well-known/openid-configuration` again. It should now display your custom domain.
 
-## About custom email notification domains
+## About custom email addresses
 
-A custom email domain allows you to present a branded experience to your end users. Emails that Okta sends to your end users appears to come from your custom email domain instead of `noreply@okta.com`. You can switch to a different custom domain or revert to the default Okta domain, but you can use only one email domain at a time.
+A custom email address allows you to present a branded experience to your end users. Emails that Okta sends to your end users appears to come from your custom email address instead of `noreply@okta.com`. You can switch to a different custom email address or revert to the default Okta domain, but you can use only one email domain at a time.
 
-Okta sends your super admins a confirmation email after your custom domain is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default domain `noreply@okta.com` until the problem is resolved.
+Okta sends your super admins a confirmation email after your custom email address is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default address `noreply@okta.com` until the problem is resolved.
 
-## Configure a custom email notification domain
+## Configure a custom email address
 
 1. In the Admin Console, go to **Customizations** > **Emails**.
 
