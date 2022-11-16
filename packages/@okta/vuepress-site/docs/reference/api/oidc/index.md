@@ -436,7 +436,7 @@ You can post the following parameters as a part of the URL-encoded form values t
 | request_expiry          | A positive integer allowing the client to request the `expires_in` value for the `auth_req_id` that the server returns. Max value is five minutes.                                              | Integer  | FALSE    |
 | request                 | A JWT created by the client that enables requests to be passed as a single, self-contained parameter. See [Parameter details](#client-initiated-backchannel-authentication-parameter-details).  | JWT      | FALSE    |
 
->  **Note:** Only one of `login_hint` or `id_token_hint` must be specified in the authentication request.
+>  **Note:** You can specify either `login_hint` or `id_token_hint` in the authentication request, not both.
 
 #### Client-Initiated Backchannel Authentication Parameter details
 
