@@ -472,7 +472,7 @@ You can post the following parameters as a part of the URL-encoded form values t
 | unauthorized_client      | The client isn't authorized to use this authentication flow.                                                                                                                                               |
 | access_denied            | The server denied the request.                                                                                                                                                                             |
 
-#### Request examples
+#### CIBA request examples
 
 ###### Request with `login_hint`
 
