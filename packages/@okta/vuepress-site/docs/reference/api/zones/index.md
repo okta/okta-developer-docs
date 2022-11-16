@@ -4,8 +4,6 @@ category: management
 ---
 # Zones API
 
-> This API is an <ApiLifecycle access="ea" /> feature.
-
 The Okta Zones API provides operations to manage Zones in your organization. There are two usage Zone types: Policy Network Zones and Blocklist Network Zones. Policy Network Zones are used to guide policy decisions. Blocklist Network Zones are used to deny access from certain IP addresses, locations, proxy types, or Autonomous System Numbers (ASNs) before policy evaluation.
 
 A default system Policy Network Zone is provided in your Okta org. You can use the Zones API to modify the default Policy Network Zone or to create a custom Policy or Blocklist Network Zone. When you create your custom Zone, you can specify if the Zone is an IP Zone or a Dynamic Zone. An IP Zone allows you to define network perimeters around a set of IPs, whereas a Dynamic Zone allows you to define network perimeters around location, IP type, and ASNs.

@@ -1,6 +1,6 @@
 {
-  "release" : "2022.10.1",
-  "build" : "2022.10.1-begin-172-g89b201af9033",
+  "release" : "2022.11.1",
+  "build" : "2022.11.1-begin-169-gd7cdd4d71de2",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1474,14 +1474,6 @@
     "errorSummary" : "Api validation failed due to conflict: {0}",
     "errorDescription" : null
   }, {
-    "title" : "Sign in page cannot update default brand exception",
-    "includesExceptionMessage" : true,
-    "statusCode" : 403,
-    "statusReasonPhrase" : "Forbidden",
-    "errorCode" : "E0000196",
-    "errorSummary" : "Cannot update sign-in page settings for the default brand.",
-    "errorDescription" : null
-  }, {
     "title" : "Email domain already exists exception",
     "includesExceptionMessage" : true,
     "statusCode" : 409,
@@ -1496,14 +1488,6 @@
     "statusReasonPhrase" : "Not Found",
     "errorCode" : "E0000198",
     "errorSummary" : "Email domain not found.",
-    "errorDescription" : null
-  }, {
-    "title" : "Error page cannot update default brand exception",
-    "includesExceptionMessage" : true,
-    "statusCode" : 403,
-    "statusReasonPhrase" : "Forbidden",
-    "errorCode" : "E0000199",
-    "errorSummary" : "Cannot update error page settings for the default brand.",
     "errorDescription" : null
   }, {
     "title" : "Brand cannot delete default exception",
@@ -1576,6 +1560,46 @@
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000208",
     "errorSummary" : "Failed to get access token. The request was invalid, reason: {0}.",
+    "errorDescription" : null
+  }, {
+    "title" : "Aaguid group violation exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000209",
+    "errorSummary" : "{0} cannot be modified/deleted because it is currently being used in an Enroll Policy. Please make changes to the Enroll Policy before modifying/deleting the group.",
+    "errorDescription" : null
+  }, {
+    "title" : "Built in groups type exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000211",
+    "errorSummary" : "Roles cannot be granted to built-in groups: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid origin header exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000212",
+    "errorSummary" : "Origin validation failed.",
+    "errorDescription" : null
+  }, {
+    "title" : "Cannot update page settings for default brand exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000213",
+    "errorSummary" : "Cannot update page settings for the default brand.",
+    "errorDescription" : null
+  }, {
+    "title" : "User has no enrollments that are ciba enabled",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000214",
+    "errorSummary" : "User has no custom authenticator enrollments that have CIBA as a transactionType",
     "errorDescription" : null
   } ]
 }

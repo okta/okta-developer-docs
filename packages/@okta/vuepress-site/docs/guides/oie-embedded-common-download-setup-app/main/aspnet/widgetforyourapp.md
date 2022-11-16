@@ -24,7 +24,7 @@ See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-t
 
 #### Configure and initialize the Sign-In Widget
 
-When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the `useInteractionCodeFlow` option to `true` to enable Identity Engine features in the embedded Sign-In Widget.
+When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app.
 
 The following JSON sample shows you a set of Sign-In Widget configurations for initialization.
 
@@ -43,13 +43,14 @@ The following JSON sample shows you a set of Sign-In Widget configurations for i
          "offline_access"
       ]
    },
-   "useInteractionCodeFlow":true,
    "state":"${state}",
    "otp":"${otp}",
    "codeChallenge":"${codechallenge}",
    "codeChallengeMethod":"S256"
 }
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `"useInteractionCodeFlow": true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `"useClassicEngine": true` in the configuration settings.
 
 Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (shown as `widgetConfig` in the following sample). Call `showSignInAndRedirect()` to render the Widget on the sign-in page.
 

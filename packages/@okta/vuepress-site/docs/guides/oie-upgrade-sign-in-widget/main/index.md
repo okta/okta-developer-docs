@@ -86,7 +86,9 @@ For Identity Engine, the widget is configured differently. You can remove some s
 
 ### Interaction Code flow
 
-Identity Engine uses the [Interaction Code grant type](/docs/concepts/interaction-code) to manage user interactions, such as registration or multifactor authentication. For embedded Sign-In Widget (self-hosted) deployments, the Interaction Code flow is the only supported authentication flow with Identity Engine. You must set the new `useInteractionCodeFlow=true` [configuration option](https://github.com/okta/okta-signin-widget#useinteractioncodeflow) in your embedded widget:
+Identity Engine uses the [Interaction Code grant type](/docs/concepts/interaction-code) to manage user interactions, such as registration or multifactor authentication. For embedded Sign-In Widget (self-hosted) deployments, the Interaction Code flow is the only supported authentication flow with Identity Engine.
+
+In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the `config` object:
 
 ```JavaScript
 var config = {
@@ -94,6 +96,17 @@ var config = {
   clientId: '{{oidcAppClientId}}',
   redirectUri: '{{oidcAppRedirectUri}}',
   useInteractionCodeFlow: true
+}
+```
+
+If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in your `config` object:
+
+```JavaScript
+var config = {
+  issuer: '{{authServerUri}}',
+  clientId: '{{oidcAppClientId}}',
+  redirectUri: '{{oidcAppRedirectUri}}',
+  useClassicEngine: true
 }
 ```
 
@@ -151,21 +164,6 @@ idps: [
 ```
 
 This is now optional as the Sign-In Widget automatically includes IdPs based on Identity Engine routing rules.
-
-### Smart card IdP
-
-[Smart card IdP](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow) is no longer supported.
-
-Remove the authentication settings for the smart card IdP (`piv`):
-
-```JavaScript
-piv: {
-  certAuthUrl: '/your/cert/validation/endpoint',
-  text: 'Authenticate with a Smart Card',
-  className: 'custom-style',
-  isCustomDomain: true
-}
-```
 
 ### Bootstrapping from a recovery token
 

@@ -99,11 +99,12 @@ var signIn = new OktaSignIn({
    baseUrl: '${yourOktaDomain}',
    clientId: '${yourClientId}',
    redirectUri: '${yourSignInRedirectUrl}',
-   useInteractionCodeFlow: true,
    otp: searchParams.get('otp'),
    state: searchParams.get('state')
 });
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the `OktaSignIn()` constructor call shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in `OktaSignIn()`.
 
 The code for your endpoint will also need to check the user is working from the same device and browser. The Sign-In Widget takes care of the rest. The sign in with email only guide covers how to do this.
 

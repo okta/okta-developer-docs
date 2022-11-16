@@ -20,7 +20,7 @@ See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-t
 
 #### Configure and initialize the Sign-In Widget
 
-When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the `useInteractionCodeFlow` option to `true` to enable Identity Engine features in the embedded Sign-In Widget.
+When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app.
 
 Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (`config`). Call `showSignInAndRedirect()` to render the Widget on the sign-in page.
 
@@ -32,7 +32,6 @@ Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget config
   config.clientId = "{{ .ClientId }}";
   config.redirectUri = "http://localhost:8000/login/callback";
   config.interactionHandle = "{{ .InteractionHandle }}";
-  config.useInteractionCodeFlow = "true";
   config.codeChallenge = "{{ .Pkce.CodeChallenge }}";
   config.codeChallengeMethod = "{{ .Pkce.CodeChallengeMethod }}";
   config.debug = true;
@@ -56,5 +55,7 @@ Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget config
     });
 </script>
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `config.useInteractionCodeFlow = true;` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `config.useClassicEngine = true;` in the configuration settings.
 
 See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main) for further details on integrating the Sign-In Widget into your app.

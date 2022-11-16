@@ -3,7 +3,6 @@ title: Step-up authentication using ACR values
 excerpt: Learn how to use the `acr_values` parameter in authorization requests to require different authentication levels of assurance.
 layout: Guides
 ---
-<ApiLifecycle access="ea" />
 
 This guide explains how to include the `acr_values` parameter in your authorization requests to increase the level of end-user assurance.
 
@@ -32,7 +31,7 @@ Today an authorization server relies on [authentication policies](/docs/referenc
 
 Okta has created predefined `acr_values` that are described in the [Predefined parameter values](#predefined-parameter-values) section. You can include one of these values, based on your use case, in the client authorization request to request a different authentication assurance. The authorization server returns an access token and/or an ID token that contains the `acr` claim. This claim conveys information about the level of assurance that the user verified at the time of authentication. The resource server can then validate these parameters to ensure that the user verified the required level of assurance.
 
-> **Note:** You can also specify a `max_age` parameter value to require an elapsed time frame. This guide focuses on the use of the `acr_values` parameter. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
+> **Note:** You can specify a `max_age` parameter value to require an elapsed time frame. Additionally, if you want to ignore the existing session and reauthenticate the user each time, pass `max_age=0` in the request. For Classic Engine, pass `max_age=1`. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
 
 Okta's [redirect deployment model](/docs/concepts/redirect-vs-embedded/#redirect-authentication) supports the use of the `acr_values` parameter. The parameter works with any OpenID Connect application, such as web, native, or SPA, and it’s supported by both the [Okta Org Authorization Server and custom authorization servers](/docs/concepts/auth-servers/).
 
@@ -40,7 +39,7 @@ Okta's [redirect deployment model](/docs/concepts/redirect-vs-embedded/#redirect
 
 In Okta Identity Engine, assurances from policies are always evaluated in order of factor verification, constraints, and re-authentication. The [global session policy](/docs/concepts/policies/#sign-on-policies) is evaluated first, then the authentication policy, and then the `acr_values` parameter in the request. The authentication policy is always evaluated before the `acr_values` parameter.
 
-In Okta Classic Engine when a user doesn't have a session, the more restrictive policy is evaluated first. If the Okta sign-on policy is more restrictive, then that is evaluated first. Otherwise, the application sign-on policy is evaluated. When an ACR value is passed in the authorize request and the application sign-on policy is more restrictive, the application sign-on policy is evaluated. If it isn’t more restrictive, then the `acr_values` parameter in the request is evaluated. When a user already has a session, the application sign-on policy is always applied first. Then, if the application sign-on policy requirements are satisfied, the `acr_values` parameter in the request is evaluated.
+In Okta Classic Engine when a user doesn't have a session, the more restrictive policy is evaluated first, such as the Okta sign-on policy or the application sign-on policy. Additionally, if an assurance requirement is more restrictive, such as an `acr_values` parameter, that is evaluated first. The second most restrictive policy or assurance requirement is then evaluated and so on. When a user already has a session, the application sign-on policy is always evaluated first. Then, the `acr_values` parameter in the request.
 
 In both Identity Engine and Classic Engine, if the user has a session, the previously satisfied authenticators are considered before prompting for factors that are required by the `acr_values` parameter in the request. Additionally, if the user is unable to satisfy the level of assurance, Okta returns an [error](https://openid.net/specs/openid-connect-unmet-authentication-requirements-1_0.html) (`error=unmet_authentication_requirements`) to the callback endpoint.
 
@@ -57,8 +56,8 @@ The following predefined optional parameters are available for use in your autho
 | Parameter value<br> for `acr_values` | Description           | Parameter Type   | DataType   |
 | :----------------------- | :----------------------------------------- | :--------------- | :--------- |
 | `urn:okta:loa:1fa:any`   | Any one factor. Allows one factor authentication with no requirements on which factor. | Query | String |
-| `urn:okta:loa:2fa:any`   | Any two factors. Allows two factor authentication with no requirements on which factors. | Query | String |
 | `urn:okta:loa:1fa:pwd`   | Password only. Allows one factor authentication that requires the user’s password. | Query | String |
+| `urn:okta:loa:2fa:any`   | Any two factors. Allows two factor authentication with no requirements on which factors. | Query | String |
 | `urn:okta:loa:2fa:any:ifpossible`<br><br><ApiLifecycle access="ie" /> | Any two factors if possible. Allows two factor authentication with no requirements on which factors. Any two factors are presented only if the user is enrolled, otherwise any one factor is presented. | Query | String |
 | `phr`<br><br><ApiLifecycle access="ie" /> | Phishing-Resistant. Requires users to provide possession factors that cryptographically verify the sign-in server (the origin). Currently, only FIDO2/WebAuthn satisfies this requirement. Because phishing resistance implies [device binding](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators), that constraint is selected automatically when `phr` is specified. | Query | String |
 | `phrh`<br><br> <ApiLifecycle access="ie" /> | Phishing-Resistant Hardware-Protected. Requires that you store keys being used to authenticate in secure hardware (TPM, Secure Enclave) on the device. Currently, only Okta Verify meets this constraint. Because hardware protection implies [device binding](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-authenticators), that constraint is selected automatically when `phrh` is specified. | Query | String |
@@ -90,10 +89,10 @@ The following is an example authorization request using the `urn:okta:loa:1fa:an
 **Request**
 
 ```bash
-https://${yourOktadomain}/oauth2/default/v1/authorize?client_id={clientId}
+https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
 &response_type=code
 &scope=openid
-&redirect_uri=https://${yourOktadomain}/authorization-code/callback
+&redirect_uri=https://${yourOktaDomain}/authorization-code/callback
 &state=296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
 &acr_values=urn:okta:loa:1fa:any
 ```
@@ -114,7 +113,7 @@ The tokens are truncated for brevity.
 }
 ```
 
-To check the returned ID token payload, copy the values and paste them into any JWT decoder (for example: `<https://jwt.io/>`). Using a JWT decoder, confirm that the token contains the `acr` claim.
+To check the returned ID token payload, copy the values and paste them into any JWT decoder (for example: `https://jwt.io/`). Using a JWT decoder, confirm that the token contains the `acr` claim.
 
 **ID token**
 
@@ -122,7 +121,7 @@ To check the returned ID token payload, copy the values and paste them into any 
 {
   "sub": "00u47ijy7sRLaeSdC0g7",
   "ver": 1,
-  "iss": "https://{yourOktadomain}/oauth2/default",
+  "iss": "https://{yourOktaDomain}/oauth2/default",
   "aud": "0oa48e74ox4t7mQJX0g7",
   "iat": 1661289624,
   "exp": 1661293224,
@@ -143,7 +142,7 @@ To check the returned ID token payload, copy the values and paste them into any 
 {
   "ver": 1,
   "jti": "AT.NovJtQ_NrJ6cgy3h1-638ArovwYXWslu0teQ2M3Ux9c",
-  "iss": "https://{yourOktadomain}/oauth2/default",
+  "iss": "https://{yourOktaDomain}/oauth2/default",
   "aud": "api://default",
   "iat": 1661289624,
   "exp": 1661293224,

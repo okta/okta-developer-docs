@@ -80,6 +80,8 @@ To secure the communication channel between Okta and your external service, you 
 
 ### OAuth 2.0
 
+<ApiLifecycle access="ea" />
+
 OAuth 2.0 tokens provide enhanced security between Okta and your external service, and you can configure them for the following methods: client secret (`client_secret_post`) and private key (`private_key_jwt`). <!-- Okta uses the RS256 algorithm -->
 
 #### Client secret post
@@ -115,6 +117,8 @@ Always included is `data.context`, providing context information. In general, `d
 ## The response
 
 Your service receives the request from Okta and needs to respond to it. The response needs to include an HTTP response code and will usually also include a JSON payload. In particular, you will typically include a `commands` object in the JSON payload to specify actions for Okta to execute or to communicate information back to Okta.
+
+<HookResponseSize/>
 
 ### HTTP status code
 

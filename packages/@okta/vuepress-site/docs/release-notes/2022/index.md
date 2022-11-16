@@ -2,7 +2,78 @@
 title: Okta API Products release notes 2022
 ---
 
+## November
+
+### Monthly release 2022.11.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Step-up authentication using ACR values is GA in Preview](#step-up-authentication-using-acr-values-is-ga-in-preview) | August 31, 2022 |
+| [Authenticator enrollment using the /authorize endpoint is EA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ea-in-preview) | November 3, 2022 |
+| [Loading page animation feature for the Brands API is in GA](#loading-page-animation-feature-for-the-brands-api-is-in-ga) | October 5, 2022 |
+| [API service integrations is Self-Service EA in Preview](#api-service-integrations-is-self-service-ea-in-preview) | November 3, 2022 |
+| [New rate limits dashboard filter](#new-rate-limits-dashboard-filter) | November 3, 2022 |
+| [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | November 3, 2022 |
+| [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022-11-0) | November 3, 2022 |
+| [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022-11-0) | November 3, 2022|
+
+#### Step-up authentication using ACR values is GA in Preview
+
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/). <!--OKTA-544153-->
+
+#### Authenticator enrollment using the /authorize endpoint is EA in Preview
+
+Authenticator enrollment provides a standardized way for a user to enroll a new authenticator using the OAuth `/authorize` endpoint. This feature uses query parameters such as `prompt` and `enroll_amr_values` to specify which authenticator the user wants to enroll. It also automatically verifies at least two factors as long the user has already enrolled two or more factors. <!--OKTA-544671-->
+
+#### Loading page animation feature for the Brands API is in GA
+
+When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#theme-object) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!--OKTA-544951-->
+
+#### API service integrations is Self-Service EA in Preview
+
+A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/). <!--OKTA-532102-->
+
+#### New rate limits dashboard filter
+
+You can now filter the APIs listed on the rate limits dashboard by their rate limit multiplier eligibility status. See [Rate limit monitoring](/docs/reference/rl-dashboard). <!--OKTA-524847-->
+
+#### Improved ThreatInsight coverage
+
+ThreatInsight has increased coverage for enabled orgs. More malicious requests are now flagged for orgs with ThreatInsight configured. <!--OKTA-536921-->
+
+#### Developer documentation updates in 2022.11.0
+
+* We’ve got a [new API reference in the works](https://developer.okta.com/docs/api/). With a fresh look and feel, our new API content will be easier to navigate and features a wider variety of code examples. Content is continuously being added &mdash; please try it out and help us improve the site by providing feedback.
+
+* A new set of guides to support the creation of a password-optional or passwordless sign-in experience for your apps is now online. [Find them all here](/docs/guides/pwd-optional-overview/aspnet/main/).
+
+#### Bugs fixed in 2022.11.0
+
+* Requests to the `/api/v1/brands/*/templates/email/` endpoint returned an HTTP 404 error. (OKTA-545178)
+
+* PATCH requests to the `/iam/resource-sets/${resourceSetIdOrLabel}/resources` endpoint with duplicate resources returned duplicate resources. (OKTA-476449)
+
+* A long text string was displayed outside of the General Settings page in OIN Manager. (OKTA-532898)
+
+* The **Enter your Post Logout Redirect URI** field for OIDC settings in OIN Manager didn’t accept all valid URLs. (OKTA-532900)
+
 ## October
+
+### Weekly release 2022.10.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.10.2](#bugs-fixed-in-2022-10-2)                      | October 26, 2022         |
+
+#### Bugs fixed in 2022.10.2
+
+* A `/token` request that used the authorization code flow failed when the **Groups claim type** in the app was set to **Expression** and the group number exceeded 100. (OKTA-518536)
+
+* A `/token` request that used the `refresh_token` grant type failed when the **Groups claim type** in the app was set to either **Expression** or **Filter** and the group number exceeded 100. (OKTA-531605)
+
+* When a user entered their credentials in the widget (version 6.6.1) during self-service registration, their information was cleared if the username didn't exist in the org. (OKTA-532293)
+
+* When a user authenticated using the device authorization flow, the user had to visit the verification URI twice when Agentless Desktop Single Sign-on (DSSO) was configured. (OKTA-501601)
 
 ### Monthly release 2022.10.0
 
@@ -13,7 +84,7 @@ title: Okta API Products release notes 2022
 | [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | October 5, 2022 |
 | [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
 | [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
-| [OAuth 2.0 authentication for inline hooks is EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ea-in-preview) | October 5, 2022 |
+| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
 | [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
 | [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
 
@@ -38,7 +109,7 @@ The Users API now supports sorting results by the top-level User object properti
 
 Okta provides a default authorization server so that customers can quickly get started. If a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label in the Admin Console. <!--OKTA-536276-->
 
-#### OAuth 2.0 authentication for inline hooks is EA in Preview
+#### OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview
 
 Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
 
