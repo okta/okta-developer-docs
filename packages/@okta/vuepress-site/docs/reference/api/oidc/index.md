@@ -438,7 +438,7 @@ You can post the following parameters as a part of the URL-encoded form values t
 
 >  **Note:** You can specify either `login_hint` or `id_token_hint` in the authentication request, not both.
 
-#### Client-Initiated Backchannel Authentication Parameter details
+#### Client-Initiated Backchannel Authentication parameter details
 
 * `request`:
 
