@@ -4592,13 +4592,13 @@ redirects:
   - from: /docs/guides/protect-your-api/springboot/next-steps/index.html
     to: /docs/guides/protect-your-api/springboot/main/#next-steps
   - from: /docs/guides/token-inline-hook/-/test
-    to: /docs/guides/token-inline-hook/-/main/#test-the-token-inline-hook
+    to: /docs/guides/token-inline-hook/-/main/#preview-the-token-inline-hook)
   - from: /docs/guides/token-inline-hook/-/test/index.html
-    to: /docs/guides/token-inline-hook/-/main/#test-the-token-inline-hook
+    to: /docs/guides/token-inline-hook/-/main/#preview-the-token-inline-hook)
   - from: /docs/guides/token-inline-hook/nodejs/test
-    to: /docs/guides/token-inline-hook/nodejs/main/#test-the-token-inline-hook
+    to: /docs/guides/token-inline-hook/nodejs/main/#preview-the-token-inline-hook)
   - from: /docs/guides/token-inline-hook/nodejs/test/index.html
-    to: /docs/guides/token-inline-hook/nodejs/main/#test-the-token-inline-hook
+    to: /docs/guides/token-inline-hook/nodejs/main/#preview-the-token-inline-hook)
   - from: /docs/guides/token-inline-hook/-/extend-express
     to: /docs/guides/token-inline-hook/-/main/#extend-the-sample-express-application
   - from: /docs/guides/token-inline-hook/-/extend-express/index.html
