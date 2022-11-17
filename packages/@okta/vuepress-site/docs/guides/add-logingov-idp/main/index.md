@@ -171,7 +171,7 @@ config.idps= [
 config.idpDisplay ="SECONDARY";
 ```
 
-> **Note:** For production environment, use the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
+> **Note:** For a production environment, use the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
 > ```javascript
 >    config.idps= [
 >        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
