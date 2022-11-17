@@ -1,13 +1,13 @@
-.cards-own {
-  .card--main {
-    color: cv("text");
-  }
-  .is-card-clickable {
-    border: 1px solid cv("breadcrumb", "link");
-    &:hover,
-    &:active {
-      background: cv("body", "obscure");
-      box-shadow: none;
-    }
-  }
+.cards-own .card--main {
+  color: cv("text");
+}
+
+.cards-own .is-card-clickable {
+  border: 1px solid cv("breadcrumb", "link");
+}
+
+.cards-own .is-card-clickable:hover,
+.cards-own .is-card-clickable:active {
+  box-shadow: none;
+  background: cv("body", "obscure");
 }
