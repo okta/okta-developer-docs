@@ -2136,7 +2136,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 }
 ```
 
-##### Any 2 Factors with 1 being a hardware-protected Authenticator
+##### Any two Factors with one being a hardware-protected Authenticator
 
 ```json
 {
