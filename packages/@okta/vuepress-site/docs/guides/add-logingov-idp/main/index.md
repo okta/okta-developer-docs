@@ -123,7 +123,7 @@ There are four ways to initiate the IdP sign-in flow:
 
 Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page for your client app. See [Embedded Sign-In Widget use cases](/docs/guides/embedded-sign-in-widget-use-cases/) for Identity Engine or [Embedded Okta Sign-In Widget fundamentals](/docs/guides/archive-embedded-siw/main/) for Classic Engine.
 
-To test Login.gov IdP sign-in with your embedded widget app, navigate to your app's sign-in page and click the **Sign in with Login.gov** option. This option directs you to the Login.gov sign-in page. Use your Login.gov credentials to test the sign-in flow.
+To test the Login.gov IdP sign-in flow with your embedded widget app, navigate to your app's sign-in page and click the **Sign in with Login.gov** option. This option directs you to the Login.gov sign-in page. Use your Login.gov credentials to test the sign-in flow.
 
 #### Embedded widget with Identity Engine
 
