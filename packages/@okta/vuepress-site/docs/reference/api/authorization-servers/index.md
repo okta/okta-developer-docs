@@ -399,6 +399,8 @@ HTTP/1.1 204 No Content
 * [Create a Policy](#create-a-policy)
 * [Update a Policy](#update-a-policy)
 * [Delete a Policy](#delete-a-policy)
+* [Activate a Policy](#activate-a-policy)
+* [Deactivate a Policy](#deactivate-a-policy)
 
 #### Policy object
 
@@ -639,6 +641,63 @@ curl -v -X DELETE \
 
 ##### Response example
 
+```http
+HTTP/1.1 204 No Content
+```
+
+#### Activate a Policy
+
+<ApiOperation method="POST" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/lifecycle/activate" />
+
+Activate a Policy specified by the `policyId`
+
+##### Request parameters
+
+| Parameter               | Description                         | Type     | Required |
+| :---------------------- | :------------------------------     | :------- | :------- |
+| authorizationServerId            | ID of a Custom Authorization Server | String   | True     |
+| policyId                | ID of a Policy                      | String   | True     |
+
+##### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/lifecycle/activate"
+```
+
+##### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
+#### Deactivate a Policy
+
+<ApiOperation method="POST" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/lifecycle/deactivate" />
+
+Activate a Policy specified by the `policyId`
+
+##### Request parameters
+
+| Parameter               | Description                         | Type     | Required |
+| :---------------------- | :------------------------------     | :------- | :------- |
+| authorizationServerId            | ID of a Custom Authorization Server | String   | True     |
+| policyId                | ID of a Policy                      | String   | True     |
+
+##### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/lifecycle/deactivate"
+```
+
+##### Response example
 
 ```http
 HTTP/1.1 204 No Content
@@ -652,6 +711,8 @@ HTTP/1.1 204 No Content
 * [Create a Policy Rule](#create-a-policy-rule)
 * [Update a Policy Rule](#update-a-policy-rule)
 * [Delete a Policy Rule](#delete-a-policy-rule)
+* [Activate a Policy Rule](#activate-a-policy-rule)
+* [Deactivate a Policy Rule](#deactivate-a-policy-rule)
 
 #### Policy Rule Object
 
@@ -863,6 +924,68 @@ curl -v -X DELETE \
 ```http
 HTTP/1.1 204 No Content
 ```
+
+
+#### Activate a Policy Rule
+
+<ApiOperation method="POST" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/rules/${ruleId}/lifecycle/activate" />
+
+Activate a Policy Rule specified by the `policyId` and `ruleId`
+
+##### Request parameters
+
+| Parameter               | Description                         | Type     | Required |
+| :---------------------- | :------------------------------     | :------- | :------- |
+| authorizationServerId            | ID of a Custom Authorization Server | String   | True     |
+| policyId                | ID of a Policy                      | String   | True     |
+| ruleId                  | ID of a Rule                        | String   | True     |
+
+##### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/rules/${ruleId}/lifecycle/activate"
+```
+
+##### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
+#### Deactivate a Policy Rule
+
+<ApiOperation method="POST" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/rules/${ruleId}/lifecycle/deactivate" />
+
+Activate a Policy Rule specified by the `policyId` and `ruleId`
+
+##### Request parameters
+
+| Parameter               | Description                         | Type     | Required |
+| :---------------------- | :------------------------------     | :------- | :------- |
+| authorizationServerId            | ID of a Custom Authorization Server | String   | True     |
+| policyId                | ID of a Policy                      | String   | True     |
+| ruleId                  | ID of a Rule                        | String   | True     |
+
+##### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/rules/${ruleId}/lifecycle/deactivate"
+```
+
+##### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
 
 ### Scope operations
 
@@ -1319,6 +1442,7 @@ HTTP/1.1 204 No Content
 ### Key Store operations
 
 * [Get Authorization Server Keys](#get-authorization-server-keys)
+* [Get Authorization Server Key](#get-authorization-server-key)
 * [Rotate Authorization Server Keys](#rotate-authorization-server-keys)
 
 #### Credentials object
@@ -1368,7 +1492,7 @@ When you use these API endpoints to create or modify a Certificate JSON Web Key 
             "use": "sig",
             "_links": {
               "self": {
-                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/credentials/keys/{keyID}",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/default/credentials/keys/{keyId}",
                 "hints": {
                     "allow": [
                         "GET"
@@ -1404,7 +1528,7 @@ Returns the current, future, and expired [Keys](#certificate-json-web-key-object
 
 | Parameter               | Description   | Type   | Required |
 | :---------------------- | :------------ | :----- | :------- |
-| authorizationServerId            | description   | type   | True     |
+| authorizationServerId            | ID of a Custom Authorization Server   | String   | True     |
 
 ##### Request example
 
@@ -1425,7 +1549,10 @@ curl -v -X GET \
         "status": "ACTIVE",
         "alg": "RS256",
         "e": "AQAB",
-        "n": "g0MirhrysJMPm_wK45jvMbbyanfhl-jmTBv0o69GeifPaISaXGv8LKn3-CyJvUJcjjeHE17KtumJWVxUDRzFqtIMZ1ctCZyIAuWO0nLKilg7_EIDXJrS8k14biqkPO1lXGFwtjo3zLHeFSLw6sWf-CEN9zv6Ff3IAXb-RMYpfh-bVrWHH2PJr5HLJuIJIOLWxIgWsWCxjLW-UKI3la-gsahqTnm_r1LSCSYr6N4C-fh--w2_BW8DzTHalBYe76bNr0d7AqtR4tGazmrvc79Wa2bjyxmhhN1u9jSaZQqq-3VZEod8q35v1LoXniJQ4a2W8nDVqb6h4E8MUKYOpljTfQ",
+        "n": "g0MirhrysJMPm_wK45jvMbbyanfhl-jmTBv0o69GeifPaISaXGv8LKn3-CyJvUJcjjeHE17KtumJWVxUDRzFqtIMZ1ctCZyIAuWO0n
+              LKilg7_EIDXJrS8k14biqkPO1lXGFwtjo3zLHeFSLw6sWf-CEN9zv6Ff3IAXb-RMYpfh-bVrxIgWsWCxjLW-UKI3la-gs0nWHH2PJr5HLJuI
+              JIOL5HLJuIJIOLWahqTnm_r1LSCSYr6N4C-fh--w2_BW8DzTHalBYe76bNr0d7AqtR4tGazmrvrc79Wa2bjyxmhhN1u9jSaZQqq-3VZEod8q3,
+              WHH2PJ5v1LoXniJQ4a2W8nDVqb6h4E8MUKYOpljTfQ",
         "kid": "RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
         "kty": "RSA",
         "use": "sig",
@@ -1445,9 +1572,9 @@ curl -v -X GET \
         "alg": "RS256",
         "e": "AQAB",
         "n": "l1hZ_g2sgBE3oHvu34T-5XP18FYJWgtul_nRNg-5xra5ySkaXEOJUDRERUG0HrR42uqf9jYrUTwg9fp-SqqNIdHRaN8EwRSDRsKAwK
-        3 HIJ2NJfgmrrO2ABkeyUq6rzHxAumiKv1iLFpSawSIiTEBJERtUCDcjbbqyHVFuivIFgH8L37 - XDIDb0XG - R8DOoOHLJPTpsgH - rJe
-        M5w96VIRZInsGC5OGWkFdtgk6OkbvVd7_TXcxLCpWeg1vlbmX - 0 TmG5yjSj7ek05txcpxIqYu - 7 FIGT0KKvXge_BOSEUlJpBhLKU28
-        OtsOnmc3NLIGXB - GeDiUZiBYQdPR - myB4ZoQ ",
+              3 HIJ2NJfgmrrO2ABkeyUq6rzHxAumiKv1iLFpSawSIiTEBJERtUCDcjbbqyHVFuivIFgH8L37 - XDIDb0XG - R8DOoOHLJPTpsgH - rJe
+              M5w96VIRZInsGC5OGWkFdtgk6OkbvVd7_TXcxLCpWeg1vlbmX - 0 TmG5yjSj7ek05txcpxIqYu - 7 FIGT0KKvXge_BOSEUlJpBhLKU28
+              OtsOnmc3NLIGXB - GeDiUZiBYQdPR - myB4ZoQ ",
         "kid": "Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
         "kty": "RSA",
         "use": "sig",
@@ -1467,9 +1594,9 @@ curl -v -X GET \
         "alg": "RS256",
         "e": "AQAB",
         "n": "lC4ehVB6W0OCtNPnz8udYH9Ao83B6EKnHA5eTcMOap_lQZ-nKtS1lZwBj4wXRVc1XmS0d2OQFA1VMQ-dHLDE3CiGfsGqWbaiZFdW7U
-        GLO1nAwfDdH6xp3xwpKOMewDXbAHJlXdYYAe2ap - CE9c5WLTUBU6JROuWcorHCNJisj1aExyiY5t3JQQVGpBz2oUIHo7NRzQoKimvp
-        dMvMzcYnTlk1dhlG11b1GTkBclprm1BmOP7Ltjd7aEumOJWS67nKcAZzl48Zyg5KtV11V9F9dkGt25qHauqFKL7w3wu - DYhT0hmyFc
-        wn - tXS6e6HQbfHhR_MQxysLtDGOk2ViWv8AQ ",
+              GLO1nAwfDdH6xp3xwpKOMewDXbAHJlXdYYAe2ap - CE9c5WLTUBU6JROuWcorHCNJisj1aExyiY5t3JQQVGpBz2oUIHo7NRzQoKimvp
+              dMvMzcYnTlk1dhlG11b1GTkBclprm1BmOP7Ltjd7aEumOJWS67nKcAZzl48Zyg5KtV11V9F9dkGt25qHauqFKL7w3wu - DYhT0hmyFc
+              wn - tXS6e6HQbfHhR_MQxysLtDGOk2ViWv8AQ ",
         "kid": "h5Sr3LXcpQiQlAUVPdhrdLFoIvkhRTAVs_h39bQnxlU",
         "kty": "RSA",
         "use": "sig",
@@ -1487,9 +1614,59 @@ curl -v -X GET \
 ]
 ```
 
-* The listed `ACTIVE` Key is used to sign tokens issued by the Authorization Aerver.
+* The listed `ACTIVE` Key is used to sign tokens issued by the Authorization Server.
 * The listed `NEXT` Key is the next Key that the Authorization Server uses to sign tokens when Keys are rotated. The NEXT Key might not be listed if it hasn't been generated yet.
 * The listed `EXPIRED` Key is the previous Key that the Authorization Server used to sign tokens. The EXPIRED Key might not be listed if no Key has expired or the expired Key has been deleted.
+
+#### Get Authorization Server Key
+
+<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/credentials/keys/${keyId}" />
+
+Returns the Key specified by the `keyId`
+
+##### Request parameters
+
+| Parameter               | Description   | Type   | Required |
+| :---------------------- | :------------ | :----- | :------- |
+| authorizationServerId   | ID of a Custom Authorization Server   | String   | True     |
+| keyId                   | The certificate's Key ID   | String   | True     |
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/credentials/keys/${keyId}"
+```
+
+##### Response example
+
+```json
+{
+    "status": "NEXT",
+    "alg": "RS256",
+    "e": "AQAB",
+    "n": "l1hZ_g2sgBE3oHvu34T-5XP18FYJWgtul_nRNg-5xra5ySkaXEOJUDRERUG0HrR42uqf9jYrUTwg9fp-SqqNIdHRaN8EwRSDRsKAwK
+          3 HIJ2NJfgmrrO2ABkeyUq6rzHxAumiKv1iLFpSawSIiTEBJERtUCDcjbbqyHVFuivIFgH8L37 - XDIDb0XG - R8DOoOHLJPTpsgH - rJe
+          M5w96VIRZInsGC5OGWkFdtgk6OkbvVd7_TXcxLCpWeg1vlbmX - 0 TmG5yjSj7ek05txcpxIqYu - 7 FIGT0KKvXge_BOSEUlJpBhLKU28
+          OtsOnmc3NLIGXB - GeDiUZiBYQdPR - myB4ZoQ ",
+    "kid": "Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
+    "kty": "RSA",
+    "use": "sig",
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/credentials/keys/{keyId}",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+
+```
 
 #### Rotate Authorization Server Keys
 
@@ -1525,7 +1702,10 @@ curl -v -X POST \
         "status": "ACTIVE",
         "alg": "RS256",
         "e": "AQAB",
-        "n": "g0MirhrysJMPm_wK45jvMbbyanfhl-jmTBv0o69GeifPaISaXGv8LKn3-CyJvUJcjjeHE17KtumJWVxUDRzFqtIMZ1ctCZyIAuWO0nLKilg7_EIDXJrS8k14biqkPO1lXGFwtjo3zLHeFSLw6sWf-CEN9zv6Ff3IAXb-RMYpfh-bVrWHH2PJr5HLJuIJIOLWxIgWsWCxjLW-UKI3la-gsahqTnm_r1LSCSYr6N4C-fh--w2_BW8DzTHalBYe76bNr0d7AqtR4tGazmrvc79Wa2bjyxmhhN1u9jSaZQqq-3VZEod8q35v1LoXniJQ4a2W8nDVqb6h4E8MUKYOpljTfQ",
+        "n": "g0MirhrysJMPm_wK45jvMbbyanfhl-jmTBv0o69GeifPaISaXGv8LKn3-CyJvUJcjjeHE17KtumJWVxUDRzFqtIMZ1ctCZyIAuWO0n
+              LKilg7_EIDXJrS8k14biqkPO1lXGFwtjo3zLHeFSLw6sWf-CEN9zv6Ff3IAXb-RMYpfh-bVrxIgWsWCxjLW-UKI3la-gs0nWHH2PJr5HLJuI
+              JIOL5HLJuIJIOLWahqTnm_r1LSCSYr6N4C-fh--w2_BW8DzTHalBYe76bNr0d7AqtR4tGazmrvrc79Wa2bjyxmhhN1u9jSaZQqq-3VZEod8q3,
+              WHH2PJ5v1LoXniJQ4a2W8nDVqb6h4E8MUKYOpljTfQ",
         "kid": "Y3vBOdYT-l-I0j-gRQ26XjutSX00TeWiSguuDhW3ngo",
         "kty": "RSA",
         "use": "sig",
@@ -1545,9 +1725,9 @@ curl -v -X POST \
         "alg": "RS256",
         "e": "AQAB",
         "n": "l1hZ_g2sgBE3oHvu34T-5XP18FYJWgtul_nRNg-5xra5ySkaXEOJUDRERUG0HrR42uqf9jYrUTwg9fp-SqqNIdHRaN8EwRSDRsKAwK
-        3 HIJ2NJfgmrrO2ABkeyUq6rzHxAumiKv1iLFpSawSIiTEBJERtUCDcjbbqyHVFuivIFgH8L37 - XDIDb0XG - R8DOoOHLJPTpsgH - rJe
-        M5w96VIRZInsGC5OGWkFdtgk6OkbvVd7_TXcxLCpWeg1vlbmX - 0 TmG5yjSj7ek05txcpxIqYu - 7 FIGT0KKvXge_BOSEUlJpBhLKU28
-        OtsOnmc3NLIGXB - GeDiUZiBYQdPR - myB4ZoQ ",
+              3 HIJ2NJfgmrrO2ABkeyUq6rzHxAumiKv1iLFpSawSIiTEBJERtUCDcjbbqyHVFuivIFgH8L37 - XDIDb0XG - R8DOoOHLJPTpsgH - rJe
+              M5w96VIRZInsGC5OGWkFdtgk6OkbvVd7_TXcxLCpWeg1vlbmX - 0 TmG5yjSj7ek05txcpxIqYu - 7 FIGT0KKvXge_BOSEUlJpBhLKU28
+              OtsOnmc3NLIGXB - GeDiUZiBYQdPR - myB4ZoQ ",
         "kid": "T5dZ1dYT-l-I0j-gRQ82XjutSX00TeWiSguuDhW3zdf",
         "kty": "RSA",
         "use": "sig",
@@ -1567,9 +1747,9 @@ curl -v -X POST \
         "alg": "RS256",
         "e": "AQAB",
         "n": "lC4ehVB6W0OCtNPnz8udYH9Ao83B6EKnHA5eTcMOap_lQZ-nKtS1lZwBj4wXRVc1XmS0d2OQFA1VMQ-dHLDE3CiGfsGqWbaiZFdW7U
-        GLO1nAwfDdH6xp3xwpKOMewDXbAHJlXdYYAe2ap - CE9c5WLTUBU6JROuWcorHCNJisj1aExyiY5t3JQQVGpBz2oUIHo7NRzQoKimvp
-        dMvMzcYnTlk1dhlG11b1GTkBclprm1BmOP7Ltjd7aEumOJWS67nKcAZzl48Zyg5KtV11V9F9dkGt25qHauqFKL7w3wu - DYhT0hmyFc
-        wn - tXS6e6HQbfHhR_MQxysLtDGOk2ViWv8AQ ",
+              GLO1nAwfDdH6xp3xwpKOMewDXbAHJlXdYYAe2ap - CE9c5WLTUBU6JROuWcorHCNJisj1aExyiY5t3JQQVGpBz2oUIHo7NRzQoKimvp
+              dMvMzcYnTlk1dhlG11b1GTkBclprm1BmOP7Ltjd7aEumOJWS67nKcAZzl48Zyg5KtV11V9F9dkGt25qHauqFKL7w3wu - DYhT0hmyFc
+              wn - tXS6e6HQbfHhR_MQxysLtDGOk2ViWv8AQ ",
         "kid": "RQ8DuhdxCczyMvy7GNJb4Ka3lQ99vrSo3oFBUiZjzzc",
         "kty": "RSA",
         "use": "sig",
@@ -1817,6 +1997,49 @@ curl -v -X GET \
                 "href": "https://{yourOktaDomain}/api/v1/authorizationServers/{authorizationServerId}/clients/{clientId}/tokens"
             }
         }
+    }
+]
+```
+
+### List Client Resources for a specified Policy
+
+<ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/clients" />
+
+Lists all Client Resources for which the specified Policy is configured.
+
+#### Request parameters
+
+| Parameter                | Description                      | Parameter Type   | DataType   | Required |
+| :----------------------- | :------------------------------- | :--------------- | :--------- | :------- |
+| authorizationServerId    | ID of the Authorization Server   | URL              | String     | TRUE     |
+| policyId                 | ID of a Policy                   | URL              | String     | TRUE     |
+
+#### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/policies/${policyId}/clients"
+```
+
+#### Response example
+
+```json
+[
+    {
+        "client_id": "0oabskvc6442nkvQO0h7",
+        "client_id_issued_at": 1651642760,
+        "client_secret_expires_at": 0,
+        "client_name": "My App",
+        "client_uri": null,
+        "logo_uri": null,
+        "redirect_uris": [],
+        "response_types": ["token"],
+        "grant_types": ["client_credentials"],
+        "token_endpoint_auth_method": "client_secret_basic",
+        "application_type": "service"
     }
 ]
 ```
