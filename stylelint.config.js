@@ -61,7 +61,7 @@ module.exports = {
 
     // Allowed, disallowed & required
     // Color
-    "color-hex-alpha": "always",
+    "color-hex-alpha": "never",
     "color-named": "never",
 
     // Length
@@ -119,7 +119,6 @@ module.exports = {
     "declaration-bang-space-after": "always",
     "declaration-bang-space-before": "always",
     "declaration-colon-space-after": "always",
-    "declaration-colon-space-before": "always",
 
     // Declaration block
     "declaration-block-trailing-semicolon": "always",
