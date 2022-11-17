@@ -176,7 +176,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
     * [Style the Sign-In Widget](/docs/guides/custom-widget/)
     * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
-    * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+    * [Customize domain and email address](/docs/guides/custom-url-domain/)
     * [Customize email notifications and email domains](/docs/guides/custom-email/)
 
 5. Deploy to production

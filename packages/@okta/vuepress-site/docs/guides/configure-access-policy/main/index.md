@@ -212,7 +212,7 @@ You should now understand how to configure an access policy.
 
 You can customize and style various Okta assets to match your company's visual identity and branding:
 
-* [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+* [Customize domain and email address](/docs/guides/custom-url-domain/)
 * [SMS customization](/docs/guides/custom-sms-messaging/)
 * [Email customization](/docs/guides/custom-email/)
 * [Style the Sign-In Widget](/docs/guides/custom-widget/)
