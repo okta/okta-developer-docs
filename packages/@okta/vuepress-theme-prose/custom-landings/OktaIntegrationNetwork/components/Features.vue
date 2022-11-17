@@ -59,7 +59,7 @@
                     id: 2,
                     title: 'Secure API service applications',
                     text: 'Secure your API service applications with Okta using OAuth 2.0.',
-                    link: '/docs/guides/oin-api-overview/',
+                    link: '/docs/guides/oin-api-service-overview/',
                     linkText: 'Get started with API service integrations',
                     list: [
                         'support your customers with app access to Okta APIs',
