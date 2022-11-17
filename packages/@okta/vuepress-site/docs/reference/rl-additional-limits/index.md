@@ -135,8 +135,10 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * Identity Engine App Intent <ApiLifecycle access="ie" />
 * `/oauth2/v1`
 * `/oauth2/v1/authorize`
+* `/oauth2/v1/token`
 * `/oauth2/${authorizationServerId}/v1`
 * `/oauth2/${authorizationServerId}/v1/authorize`
+* `/oauth2/${authorizationServerId}/v1/token`
 
 [Single User/Group/App reads (GET only)](/docs/reference/rl-dynamic-scale/)
 
