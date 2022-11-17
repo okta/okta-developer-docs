@@ -31,16 +31,16 @@
                 {
                     id: 1,
                     caption: 'Learn',
-                    text: 'Understand how Okta works and how to implement solutions for your use cases. Get started by signing up for a [free Okta developer org] and trying the [Quickstart] examples.',
+                    text: 'Understand [how Okta works] and how to implement solutions for your use cases. Get started by signing up for a [free Okta developer org] and trying the [Quickstart] examples.',
                     link: 'Learn more',
                     path: '/docs/concepts/how-okta-works/'
                 },
                 {
                     id: 2,
                     caption: 'Design & build',
-                    text: 'OIN is a catalog and a support system. View [SSO] and [Lifecycle] integration guides to help you to design, build, and test your integration before you submit it for verification.',
-                    link: 'View guides',
-                    path: '/docs/guides/#publish-an-integration-in-the-oin'
+                    text: 'OIN is a catalog and a support system. View [SSO], [Lifecycle], and [service app] integration guides to help you to design, build, and test your integration before you submit it for verification. Get support from the [Okta Developer Forum] during your build journey.',
+                    link: 'Sign-up for Okta',
+                    path: '/signup'
                 },
                 {
                     id: 3,
@@ -52,7 +52,9 @@
                 {
                     id: 4,
                     caption: 'Launch your integration',
-                    text: 'Congratulations! Your integration is Okta verified and trusted by thousands of customers who use the OIN. Now, it’s time to spread the word.'
+                    text: 'Congratulations! Your integration is Okta verified and trusted by thousands of customers who use the OIN. Now, it’s time to spread the word.',
+                    link: 'View catalog',
+                    path: 'https://okta.com/integrations/'
                 }
             ]
         }

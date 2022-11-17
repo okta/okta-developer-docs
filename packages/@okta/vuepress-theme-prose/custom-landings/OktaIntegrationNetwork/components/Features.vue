@@ -56,6 +56,17 @@
                     ]
                 },
                 {
+                    id: 2,
+                    title: 'Secure API service applications',
+                    text: 'Secure your API service applications with Okta using OAuth 2.0.',
+                    link: '/docs/guides/oin-api-overview/',
+                    linkText: 'Get started with API service integrations',
+                    list: [
+                        'support your customers with app access to Okta APIs',
+                        'have access Okta APIs without user association (service-to-service implementation)'
+                    ]
+                },
+                {
                     id: 3,
                     title: 'Risk signal sharing',
                     text: "Connect to Okta's risk APIs to share risk signals and make it easier for your customers to protect their users and data.",
@@ -63,8 +74,7 @@
                     linkText: 'Get Started with Risk Signal Sharing',
                     list: [
                         '<a href="/docs/guides/third-party-risk-integration/main">Use the Risk Signal API</a> to unite risk signals with access decisions and secure digital experiences',
-                        'Enhance security efficacy against targeted identity attacks',
-                        'Start your journey towards continuous authentication'
+                        'Enhance security efficacy against targeted identity attacks'
                     ]
                 }
             ]
