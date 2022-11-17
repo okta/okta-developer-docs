@@ -89,7 +89,7 @@ At Login.gov, you need to first register your app integration in Login.gov's ide
 
 1. Follow instructions at [Testing your app](https://developers.login.gov/testing/) to create a team and add users to that team.
 
-1. Click **Create a new test app** from the Apps tab and specify the following attributes specific to the Okta test integration:
+1. Click **Create a new test app** from the **Apps** tab and specify the following attributes specific to the Okta test integration:
 
     * **Production Configuration**: Select **No** for testing.
     * **App Name**: Specify app name.
