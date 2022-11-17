@@ -209,7 +209,7 @@ In the URL, replace `${yourOktaDomain}` with your org's base URL, and then repla
 
 * `idp`: Your `${yourIdPId}` value that you obtained from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
 
-* `client_id`: Use the `${clientId}` value that you obtained from your OpenID Connect client application. This is not the **Client ID** value from the Identity Provider.
+* `client_id`: Use the `${clientId}` value that you obtained from your OpenID Connect client application. This isn't the **Client ID** value from the Identity Provider.
 
 * `response_type`: Determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, use `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, use `code`.
 
