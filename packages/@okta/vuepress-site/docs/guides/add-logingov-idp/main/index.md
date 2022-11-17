@@ -131,7 +131,7 @@ If you're using Okta Identity Engine, the **Sign in with Login.gov** option is a
 
 #### Embedded widget with Classic Engine
 
-If you're using Okta Classic Engine, you still need to configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). In addition, you need to add the following code to your Okta Sign-In Widget configuration to display the **Sign in with Login.gov** button:
+If you're using Classic Engine, you still need to configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). Additionally, you need to add the following code to your Okta Sign-In Widget configuration to display the **Sign in with Login.gov** button:
 
 ```javascript
     config.idps= [
