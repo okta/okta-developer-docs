@@ -50,7 +50,7 @@ Login.gov requires you to [test your app integration](https://developers.login.g
 
    * **Scopes**: Leave the defaults (`profile`, `profile:name`, `email`) for IAL1 assurance. These scopes are included when Okta makes an OpenID Connect request to the IdP. See [Login.gov OIDC scopes for required attributes](https://developers.login.gov/attributes/).
 
-   * **Type of Identity Verification**: The maximum level of [identity assurance](https://developers.login.gov/oidc/#ial-values) available for this application. Select **ial/1** for standard MFA-protected email-based sign-in.
+   * **Type of Identity Verification**: The maximum level of [identity assurance](https://developers.login.gov/oidc/#ial-values) available for this application. Select **ial/1** for standard MFA-protected email-based sign-in flows.
    * **AAL value**: Select the [authentication assurance level](https://developers.login.gov/oidc/#aal-values) required.
       > **Note:** If you leave the default value, the IdP requires a user to be authenticated with a second factor: `urn:gov:gsa:ac:classes:sp:PasswordProtectedTransport:duo`.
 
