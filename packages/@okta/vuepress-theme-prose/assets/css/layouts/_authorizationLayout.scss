@@ -24,7 +24,7 @@
   padding: 0 24px 0 0;
 }
 
-@include media("<tablet"6) {
+@include media("<tablet") {
   .authorization-layout .row .field-wrapper {
     padding: 0;
   }
