@@ -223,7 +223,7 @@ In the URL, replace `${yourOktaDomain}` with your org's base URL, and then repla
 
 * `nonce`: A string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. Can be any value.
 
-> **Note:** When Okta sends the authorize request to Login.gov, it adds the required `acr_values` based on the type of identity verification you specified in the Login.gov IdP configuration.
+> **Note:** When Okta sends the authorize request to Login.gov, it adds the required `acr_values` based on the type of identity verification that you specified in the Login.gov IdP configuration.
 
 For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
 
