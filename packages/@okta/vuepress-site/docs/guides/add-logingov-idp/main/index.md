@@ -238,7 +238,7 @@ After the user clicks the link, they are prompted to sign in with Login.gov. Aft
 
 ### Use the AuthJS SDK
 
-If you don't want pre-built views, or need deeper levels of customization, then you can use the same AuthJS SDK that the Sign-in Widget is built with. See the `idp` option in the [AuthJS SDK GitHub repo](https://github.com/okta/okta-auth-js#usage-guide).
+If you don't want pre-built views, or need deeper levels of customization, then you can use the same AuthJS SDK that the Sign-In Widget is built with. See the `idp` option in the [AuthJS SDK GitHub repo](https://github.com/okta/okta-auth-js#usage-guide).
 
 ## Next steps
 
