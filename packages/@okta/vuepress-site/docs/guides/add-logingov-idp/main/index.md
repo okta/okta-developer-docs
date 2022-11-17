@@ -102,7 +102,7 @@ At Login.gov, you need to first register your app integration in Login.gov's ide
     * **Attribute bundle**: Select the default attributes for Login.gov to return during authentication. Select at least **email**, **profile**, and **profile:email**.
     * **Issuer**: Specify a string that matches the **Client ID** value in your Okta Login.gov IdP configuration from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta). Typically, your Okta org URL is used. For example, if your Okta subdomain is `company`, then specify `https://company.okta.com`.
     * **Certificates**: Upload the public key file that you downloaded from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
-    * **Redirect URIs**: Specify your Okta **Redirect URI** you copied from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta). For example, if you don't have a custom domain, this value is usually `https://${yourCompanySubdomain}.okta.com/oauth2/v1/authorize/callback`.
+    * **Redirect URIs**: Specify the Okta **Redirect URI** that you copied from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta). For example, if you don't have a custom domain, this value is usually `https://${yourCompanySubdomain}.okta.com/oauth2/v1/authorize/callback`.
 
 1. Click **Create test app**.
 
