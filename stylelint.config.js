@@ -85,9 +85,6 @@ module.exports = {
     "font-weight-notation": "numeric",
     "hue-degree-notation": "angle",
 
-    // Pattern
-    "selector-nested-pattern": "^&(:|::)[a-z]$",
-
     // Quotes
     "font-family-name-quotes": "always-unless-keyword",
     "function-url-quotes": "always",
@@ -126,6 +123,9 @@ module.exports = {
     // Block
     "block-closing-brace-empty-line-before": "never",
     "block-closing-brace-newline-after": "always",
+
+    // Selector list
+    "selector-list-comma-newline-after": "always",
 
     // At-rule
     "at-rule-name-case": "lower",
