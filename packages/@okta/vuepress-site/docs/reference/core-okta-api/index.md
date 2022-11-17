@@ -200,7 +200,7 @@ You can interact with Okta APIs that use scoped OAuth 2.0 access tokens for a nu
 Refer to the following guides for OAuth 2.0 and OpenID Connect authentication implementations:
 * For user access token requests, see [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/).
 * For service access token requests, see [Implement OAuth for Okta with service app](/docs/guides/implement-oauth-for-okta-serviceapp/).
-* For partner service apps in the Okta Integration Network (OIN), see [Build an API service integrations](/docs/guides/build-api-integration/main/).
+* For partner service apps in the Okta Integration Network (OIN), see [Build an API service integration](/docs/guides/build-api-integration/main/).
 
 #### API token authentication
 
