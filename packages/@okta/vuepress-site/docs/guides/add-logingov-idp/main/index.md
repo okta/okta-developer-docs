@@ -19,7 +19,7 @@ Configure Login.gov as an external Identity Provider so that your users can quic
 * An application that you want to add authentication to. You can [create a new app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
 * An account at [Login.gov](https://secure.login.gov/). You also need a testing account at Login.gov's identity sandbox. See [Login.gov - Partner Dashboard](https://dashboard.int.identitysandbox.gov/).
 
-> **Note:** The <ApiLifecycle access="ea" /> **Private Key JWT Client Authentication for OIDC IdP** feature needs to be enabled for the Login.gov IdP configuration. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable this Self-Service feature.
+> **Note:** You need to enable the <ApiLifecycle access="ea" /> **Private Key JWT Client Authentication for OIDC IdP** feature for the Login.gov IdP configuration. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable this Self-Service feature.
 
 ---
 
