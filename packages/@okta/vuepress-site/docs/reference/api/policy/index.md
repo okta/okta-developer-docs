@@ -2119,7 +2119,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 }
 ```
 
-##### Any hardware-protected key-based Authenticator
+##### Any hardware-protected Authenticator
 
 ```json
 {
@@ -2128,9 +2128,6 @@ The number of Authenticator class constraints in each Constraint object must be 
   "constraints": [
     {
       "possession": {
-        "methods": [
-          "WEBAUTHN"
-        ],
         "hardwareProtection": "REQUIRED"
       }
     }
@@ -2139,7 +2136,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 }
 ```
 
-##### Any 2 Factors with 1 being a hardware-protected key-based Authenticator
+##### Any 2 Factors with 1 being a hardware-protected Authenticator
 
 ```json
 {
@@ -2148,9 +2145,6 @@ The number of Authenticator class constraints in each Constraint object must be 
   "constraints": [
     {
       "possession": {
-        "methods": [
-          "WEBAUTHN"
-        ],
         "hardwareProtection": "REQUIRED"
       }
     }
