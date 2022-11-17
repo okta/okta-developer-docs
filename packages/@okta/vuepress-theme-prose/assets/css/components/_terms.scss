@@ -1,32 +1,26 @@
-.terms {
+.terms .terms--container {
+  max-width: 668px;
+}
 
-  .terms--container {
-    max-width: 668px;
-  }
+.terms .terms--leader {
+  flex-grow: 1;
+  margin: 100px 0 30px;
 
-  .terms--leader {
-    margin: 100px 0 30px;
-    flex-grow: 1;
-    text-align: center;
-  }
+  text-align: center;
+}
 
-  .terms--text {
-    margin: 0 0 100px;
-  }
+.terms .terms--text {
+  margin: 0 0 100px;
+}
 
-  a {
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+.terms a:hover {
+  text-decoration: underline;
+}
 
-  p {
-    max-width: initial;
-  }
+.terms p {
+  max-width: initial;
+}
 
-  ul {
-    li {
-      margin-bottom: 0.3rem;
-    }
-  }
+.terms ul li {
+  margin-bottom: 0.3rem;
 }

@@ -94,8 +94,6 @@ module.exports = {
     "value-keyword-case": "lower",
     "function-name-case": "lower",
     "selector-type-case": "lower",
-    "rule-empty-line-before": "always",
-    "at-rule-empty-line-before": "always",
 
     // Handled by pretty printers
     "color-hex-case": "lower",
@@ -113,7 +111,6 @@ module.exports = {
     "property-case": "lower",
 
     // Declaration
-    "declaration-bang-space-after": "always",
     "declaration-bang-space-before": "always",
     "declaration-colon-space-after": "always",
 
