@@ -156,7 +156,7 @@ If your client app uses Okta [redirect authentication](#/docs/concepts/redirect-
 
 #### Okta-hosted widget with Identity Engine
 
-If you're using Okta Identity Engine, the **Sign in with Login.gov** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional configuration is required.
+If you're using Identity Engine, the **Sign in with Login.gov** option is available on the widget after you [create an Identity Provider in your Okta org](#create-an-identity-provider-in-okta) and configure the [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules). No additional configuration is required.
 
 #### Okta-hosted widget with Classic Engine
 
