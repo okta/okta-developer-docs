@@ -142,7 +142,7 @@ If you're using Classic Engine, you still need to configure the [routing rule](h
 
 You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign-in flows with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
 
-> **Note:** For production environment, use the following Okta Sign-In Widget configuration:
+> **Note:** For a production environment, use the following Okta Sign-In Widget configuration:
 > ```javascript
 >    config.idps= [
 >        { type: 'LOGINGOV', id: 'Your_IDP_ID' }
