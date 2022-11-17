@@ -19,7 +19,6 @@ module.exports = {
     "indentation": 2,
     "max-empty-lines": 1,
     "no-empty-first-line": null,
-    "no-eol-whitespace": true,
     "no-extra-semicolons": true,
     "no-missing-end-of-source-newline": true,
 
