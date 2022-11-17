@@ -207,7 +207,7 @@ https://${yourOktaDomain}/oauth2/v1/authorize?
 
 In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
 
-* `idp`: Your `${yourIdPId}` value you obtained from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
+* `idp`: Your `${yourIdPId}` value that you obtained from [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
 
 * `client_id`: Use the `${clientId}` value that you obtained from your OpenID Connect client application. This is not the **Client ID** value from the Identity Provider.
 
