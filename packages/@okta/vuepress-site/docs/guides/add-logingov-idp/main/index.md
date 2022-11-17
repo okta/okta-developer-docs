@@ -93,7 +93,7 @@ At Login.gov, you need to first register your app integration in Login.gov's ide
 
     * **Production Configuration**: Select **No** for testing.
     * **App Name**: Specify app name.
-    * **Friendly name**: Specify a friendly name to display during sign-in.
+    * **Friendly name**: Specify a friendly name to display during the sign-in flow.
     * **Team**: Select the previously configured team to test the integration.
     * **Authentication protocol**: Select **OpenID Connect Private Key JWT**.
     * **Identity Assurance Level (IAL)**: Select the maximum level of identity assurance available for your app. Ensure that this value matches the **Type of Identity Verification** value specified in [Create an Identity Provider in Okta](#create-an-identity-provider-in-okta).
