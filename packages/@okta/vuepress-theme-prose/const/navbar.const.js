@@ -570,6 +570,9 @@ export const guides = [
         title: "Okta Integration Network",
         customLandingPage: true,
         subLinks: [
+          { title: "OIN Markdown landing page",
+            path: "/docs/guides/oin-landing/",
+          },
           {
             title: "Single Sign-On",
             path: "/docs/guides/oin-sso-overview/",

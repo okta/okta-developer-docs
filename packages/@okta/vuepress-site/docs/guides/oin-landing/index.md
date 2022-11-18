@@ -5,7 +5,6 @@ meta:
     content: Landing page for Okta Integration Network in developer docs portal
 ---
 
-
 The Okta Integration Network (OIN) is the deepest catalog of the integrations IT pros use to secure their organizations’ infrastructures and give workforces seamless access to the technology they need. Connect Okta workforce customers to your app by adding your integration to the OIN catalog.
 
 Browse the thousands of available integrations <a href='https://okta.com/integrations' class='Button--blueDarkOutline' data-proofer-ignore><span>Explore the OIN catalog</span></a>
@@ -69,3 +68,7 @@ Build this if you want to:
 Sign up for a free developer-edition Okta org for a sandbox where you can build and test your enterprise app integrations. Post your questions on the Okta Developer Forum if you’re already working on something and need help.
 
 <a href='/signup' class='Button--blue' data-proofer-ignore><span>Sign up for Okta</span></a> <a href='https://devforum.okta.com/' class='Button--blueDarkOutline' data-proofer-ignore><span>Post a question</span></a>
+
+<div class="quarter">
+![OIN folder](/img/customLanding/customLanding-hero.svg "OIN Folder")
+</div>
