@@ -63,7 +63,7 @@
                     linkText: 'Get started with API service integrations',
                     list: [
                         'support your customers with app access to Okta APIs',
-                        'have access Okta APIs without user association (service-to-service implementation)'
+                        'access Okta APIs without user association (service-to-service implementation)'
                     ]
                 },
                 {
