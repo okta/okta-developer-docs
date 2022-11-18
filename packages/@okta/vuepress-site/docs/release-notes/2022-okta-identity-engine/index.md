@@ -1031,7 +1031,7 @@ Rotating client secrets without service or application downtime is a challenge. 
 
 #### Custom Domains with Okta-Managed Certificates is GA in Production
 
-When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-Managed Certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) auto renew through a Let's Encrypt integration, a free certificate authority. Since Okta handles certificate renewals, this reduces customer developer maintenance costs and the high risk of a site outage when certificates expire.  <!--OKTA-459338-->
+When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed Certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) auto renew through a Let's Encrypt integration, a free certificate authority. Since Okta handles certificate renewals, this reduces customer developer maintenance costs and the high risk of a site outage when certificates expire.  <!--OKTA-459338-->
 
 #### Bug fixed in 2022.02.0
 
