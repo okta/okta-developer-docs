@@ -35,7 +35,7 @@ AuthenticationResponse authenticationResponse =
 
 ### 3: Your app displays a list of authenticators
 
-`authenticate()` returns an `AuthenticationResponse` object. Query its `AuthenticationStatus` property to discover the current status of the authentication process. A status of `AWAITING_AUTHENTICATOR_SELECTION` indicates that the user has supplied the correct password and must select a secondary authentication factor to verify their identity.
+`IdxAuthenticationWrapper.authenticate()` returns an `AuthenticationResponse` object. Query its `AuthenticationStatus` property to discover the current status of the authentication process. A status of `AWAITING_AUTHENTICATOR_SELECTION` indicates that the user has supplied the correct password and must select a secondary authentication factor to verify their identity.
 
 Display all of the authenticators that the user has enrolled and are ready for use.
 
@@ -103,4 +103,4 @@ switch (authenticationStatus) {
 
 Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.
 
-> **Note**:  You can request basic user information from Okta's OpenID Connect authorization server once a user has signed in successfully. See [Get the user profile information](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information).
+> **Note**: You can request basic user information from Okta's OpenID Connect authorization server after a user has signed in successfully. See [Get the user profile information](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information).

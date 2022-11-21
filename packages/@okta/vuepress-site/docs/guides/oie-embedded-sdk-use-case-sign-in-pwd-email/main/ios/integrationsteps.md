@@ -62,7 +62,7 @@ in
 
 When the user enters their credentials and initiates the sign-in flow,
 call the `login` method, passing in the username, password,
-and `completion` closure. This closure is invoked once when the sign-in completes
+and `completion` closure. This closure is invoked after when the sign-in completes
 and returns either a fatal error or success with a token.
 
 ```swift
@@ -204,7 +204,7 @@ public class MultifactorLogin {
     }
 
     // Method used to verify a factor. When a factor is selected, the user will
-    // receive a verification code. Once they receive it, you will use this method
+    // receive a verification code. After they receive it, you will use this method
     // to supply it back to Okta.
     public func verify(code: String) {
         guard let remediation = response?.remediations[.challengeAuthenticator] ?? response?.remediations[.enrollAuthenticator]

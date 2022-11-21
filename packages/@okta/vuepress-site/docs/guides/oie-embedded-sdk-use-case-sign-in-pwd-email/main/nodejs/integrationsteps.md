@@ -21,7 +21,7 @@ const transaction = await authClient.idx.authenticate({ username, password });
 
 ### 3: Your app displays a list of authenticators
 
-`authenticate()` returns an `IdxTransaction` object with a status of `PENDING` and `nextStep.name` of `select-authenticator-authenticate`. This indicates that the user has supplied the correct password and must select a secondary authentication factor to verify their identity.
+`OktaAuth.idx.authenticate()` returns an `IdxTransaction` object with a status of `PENDING` and `nextStep.name` of `select-authenticator-authenticate`. This indicates that the user has supplied the correct password and must select a secondary authentication factor to verify their identity.
 
 ```javascript
 {
@@ -48,7 +48,7 @@ const transaction = await authClient.idx.authenticate({ username, password });
 }
 ```
 
-Display all of the authenticators that the user has enrolled and are ready for use. You can find the names and IDs of the available authenticators in the `options` array.
+Display all the authenticators the user has enrolled and are ready for use. You can find the names and IDs of the available authenticators in the `options` array.
 
 <div class="half border">
 
@@ -94,4 +94,4 @@ When the user correctly verifies their identity using the email authenticator, t
 
 Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.
 
-> Note:  You can request basic user information from Okta's OpenID Connect authorization server once a user has signed in successfully. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#integration-steps).
+> **Note**: You can request basic user information from Okta's OpenID Connect authorization server after a user has signed in successfully. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#integration-steps).

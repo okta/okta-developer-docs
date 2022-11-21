@@ -1,1 +1,1 @@
-Before you build a sign-in flow with password and email factors, you need to configure the Okta org to accept both factors in your app. To learn how to do this, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#update-configurations).
+Before you build a sign-in flow with password and email factors, you must configure the Okta org to accept both factors in your app. To learn how to do this, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#update-configurations).

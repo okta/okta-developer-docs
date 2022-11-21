@@ -1,6 +1,6 @@
 ### 1: Your app displays the sign-in page
 
-When the user navigates to the sing-in page and the application loads for the first time, create a new SDK `Client` object by calling `NewClient()`.
+When the user navigates to the sign-in page and the application loads for the first time, create a new SDK `Client` object by calling `NewClient`.
 
 ```go
 idx, err := idx.NewClient(
@@ -22,7 +22,7 @@ Display a sign-in page that captures the username and password.
 
 </div>
 
-During page load, call `Client.InitLogin()`. This returns an object of type `LoginResponse` that is used to initiate the sign-in process with Okta.
+During page load, call `Client.InitLogin`. This returns an object of type `LoginResponse` that is used to initiate the sign-in process with Okta.
 
 ```go
 lr, err := s.idxClient.InitLogin(context.TODO())
@@ -33,7 +33,7 @@ if err != nil {
 
 ### 2: The user submits their username and password
 
-When the user submits their username and password, create an `IdentifyRequest` object and assign its `identifier` and `password` properties to the values entered by the user. Pass this object as a parameter to `LoginResponse.Identify()`.
+When the user submits their username and password, create an `IdentifyRequest` object and assign its `identifier` and `password` properties to the values entered by the user. Pass this object as a parameter to `LoginResponse.Identify`.
 
 ```go
 ir := &idx.IdentifyRequest{
@@ -54,7 +54,7 @@ if err != nil {
 
 ### 3: Your app displays a list of authenticators
 
-`Identify()` returns `error` and `LoginResponse` objects. The `error` object contains any errors thrown in the user sign-in. The `LoginResponse`'s `Token` property contains any ID and access tokens returned by the server if the user has logged in successfully. If the `error` object is `nil` and the `LoginResponse.Token()` returns `nil`, the user needs to confirm their identity with additional factors.
+`Identify` returns `error` and `LoginResponse` objects. The `error` object contains any errors thrown in the user sign-in. The `LoginResponse`'s `Token` property contains any ID and access tokens returned by the server if the user has signed in successfully. If the `error` object is `nil` and the `LoginResponse.Token` returns `nil`, the user needs to confirm their identity with additional factors.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
@@ -92,7 +92,7 @@ Use the other [LoginStep](https://github.com/okta/okta-idx-golang/blob/master/id
 
 ### 4: The user submits the email authenticator
 
-When the user submits the email authenticator, call `LoginResponse.VerifyEmail()`. Identity Engine sends a verification email to the user if the call is succcessful.
+When the user submits the email authenticator, call `LoginResponse.VerifyEmail`. Identity Engine sends a verification email to the user if the call is succcessful.
 
 ```go
 if !ok || !invCode.(bool) {
@@ -117,7 +117,7 @@ Display a page for the user to submit the verification code from their email.
 
 ### 5: The user submits the email verification code
 
-When the user checks their email for the code and submits it, pass it as a parameter to `LoginResponse.ConfirmEmail()`.
+When the user checks their email for the code and submits it, pass it as a parameter to `LoginResponse.ConfirmEmail`.
 
 ```go
  //Get LoginResponse from session
@@ -143,7 +143,7 @@ s.ViewData["InvalidEmailCode"] = false
 
 ### 6: Your app handles an authentication success response
 
-If the request to verify the code is successful, `LoginResponse.Token()` now returns the required tokens (access, refresh, ID) for authenticated user activity. Store the tokens in session for later use and then redirect the user to the default signed-in home page.
+If the request to verify the code is successful, `LoginResponse.Token` now returns the required tokens (access, refresh, ID) for authenticated user activity. Store the tokens in session for later use and then redirect the user to the default signed-in home page.
 
 ```go
  //If we have tokens we have success, so lets store tokens
@@ -165,4 +165,4 @@ if lr.Token() != nil {
 }
 ```
 
-> **Note**:  You can request basic user information from Okta's OpenID Connect authorization server once a user has signed in successfully. See [Get the user profile information](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information).
+> **Note**: You can request basic user information from Okta's OpenID Connect authorization server after a user has signed in successfully. See [Get the user profile information](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information).

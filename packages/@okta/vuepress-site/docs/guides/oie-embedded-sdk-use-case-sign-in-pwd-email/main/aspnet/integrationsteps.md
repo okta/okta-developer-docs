@@ -46,7 +46,7 @@ switch (authnResponse?.AuthenticationStatus)
 }
 ```
 
-You can find the names and IDs of the available authenticators in the `AuthenticationResponse` object's `Authenticators` collection. You should redirect the user to an authenticator list page that displays all of the authenticators that the user has enrolled and are ready for use. For example:
+You can find the names and IDs of the available authenticators in the `AuthenticationResponse` object's `Authenticators` collection. You should redirect the user to an authenticator list page that displays all the authenticators that the user has enrolled and are ready for use. For example:
 
 <div class="half border">
 
@@ -101,4 +101,4 @@ return View(view, model);
 
 Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.
 
-> Note:  You can request basic user information from Okta's OpenID Connect authorization server once a user has signed in successfully. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information).
+> **Note**: You can request basic user information from Okta's OpenID Connect authorization server after a user has signed in successfully. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information).
