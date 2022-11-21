@@ -22,7 +22,7 @@ sections:
 
 - Okta®, Auth0®, and the Okta® and Auth0® Logos are registered trademarks of Okta, Inc. in the U.S. and other countries.
 
-- Okta's Terms of Service for its Intellectual Property <a href="https://www.okta.com/terms-of-service/" target="_blank">can be found here</a>.
+- See <a href="https://www.okta.com/terms-of-service/" target="_blank">Okta's Terms of Service</a> for its Intellectual Property.
 
 - <hr />
 
@@ -36,7 +36,7 @@ sections:
 
 - Java is a registered trademark of Oracle.
 
-- Python is a registered trademark of the PSF. The Python logos (in several variants) are use trademarks of the PSF as well.
+- Python is a registered trademark of the PSF. The Python logos (in several variants) are trademarks of the PSF as well.
 
 - Facebook, React, and React Native are trademarks of META PLATFORMS, INC.
 
@@ -52,17 +52,17 @@ sections:
 
 - OpenID® is a trademark (registered in numerous countries) of the OpenID Foundation.
 
-- Paypal, and the Paypal logo are registered trademarks or trademarks of Paypal, Inc.
+- Paypal and the Paypal logo are registered trademarks or trademarks of Paypal, Inc.
 
 - The PHP logo is available under a Creative Commons Attribution-Share Alike 4.0 International license.
 
-- Salesforce, and the Salesforce logos (in various forms) are trademarks of salesforce.com, Inc.
+- Salesforce and the Salesforce logos (in various forms) are trademarks of salesforce.com, Inc.
 
-- OASIS, SAML and Security Assertion Markup Language are trademarks of OASIS, the open standards consortium where the <a href="http://saml.xml.org/saml-specifications" target="_blank">SAML specification</a> is owned and developed. SAML is a copyrighted © work of OASIS Open. All rights reserved.
+- OASIS, SAML, and Security Assertion Markup Language are trademarks of OASIS, the open standards consortium where the <a href="http://saml.xml.org/saml-specifications" target="_blank">SAML specification</a> is owned and developed. SAML is a copyrighted © work of OASIS Open. All rights reserved.
 
 - Spotify and the Spotify logos (in several variants) are registered trademarks or trademarks of Spotify AB.
 
-- Vue.js and the Vue.js logo are trademarks or registered trademarks of Evan You
+- Vue.js and the Vue.js logo are trademarks or registered trademarks of Evan You.
 
 - Xero and the Xero logo are registered trademarks of Xero Limited.
 
