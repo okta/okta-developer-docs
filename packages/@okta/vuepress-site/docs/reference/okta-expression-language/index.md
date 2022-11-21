@@ -129,6 +129,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 | `Arrays.clear(array)`            | Array                               | `Arrays.clear({10, 20, 30})`                        | `{ }`              |
 | `Arrays.get(array, position)`    | -                                   | `Arrays.get({0, 1, 2}, 0)`                          | 0                  |
 | `Arrays.flatten(list of values)` | Array                               | `Arrays.flatten(10, {20, 30}, 40)`                  | `{10, 20, 30, 40}` |
+| `Arrays.flatten(string)`         | Array                               | `Arrays.flatten("10,20,30,40")`                     | `{10, 20, 30, 40}` |
 | `Arrays.contains(array, value)`  | Boolean                             | `Arrays.contains({10, 20, 30}, 10)`                 | true               |
 |                                  |                                     | `Arrays.contains({10, 20, 30}, 50)`                 | false              |
 | `Arrays.size(array)`             | Integer                             | `Arrays.size({10, 20, 30})`                         | 3                  |
