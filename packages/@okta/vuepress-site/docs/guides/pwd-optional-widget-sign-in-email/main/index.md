@@ -42,12 +42,12 @@ The following summarizes the steps involved in the password-optional sign-in flo
 
 The user enters their username and clicks **Next** to start the sign-in flow.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![The Sign-In Widget sign-in page with a Username field and a Next button.](/img/pwd-optional/pwd-optional-widget-sign-in-page.png)
+![The Okta Sign-In Widget's sign-in form with a field for a username, next button, and links to reset your password and sign up](/img/wireframes/widget-sign-in-form-username-only-sign-up-forgot-your-password-links.png)
 
 <!--
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=2188%3A1717 pwd-optional-widget-sign-in-page
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3401%3A37287&t=vr9MuCR8C4rCt3hC-1 widget-sign-in-form-username-only-sign-up-forgot-your-password-links
  -->
 
 </div>
@@ -61,12 +61,13 @@ The Sign-In Widget displays a page for the user to start verifying their identit
 
 The user clicks **Send me an email** to begin the email challenge flow.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![The Sign-In Widget verify-email page with a Send me an email button.](/img/pwd-optional/pwd-optional-widget-send-email-page.png)
+![The Okta Sign-In Widget's prompt to enter the code or click a link sent in an email to the user. Also a button to resend the email](/img/wireframes/widget-send-email-form.png)
 
 <!--
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=2188%3A1775 pwd-optional-widget-send-email-page
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3401%3A37261&t=vr9MuCR8C4rCt3hC-1 widget-send-email-form
  -->
 
 </div>

@@ -14,7 +14,7 @@ const oktaAuth = (() => {
 
 The user starts the change primary email flow by clicking an **Edit** link next to the **Primary Email Address** field. Add an **Edit** link that gives the user an entry point to change their email.
 
-<div class="half border">
+<div class="half wireframe-border">
 
 ![Screenshot showing an edit link next to the primary email address.](/img/pwd-optional/pwd-optional-react-change-primary-email-edit-email.png)
 
@@ -26,7 +26,7 @@ The user starts the change primary email flow by clicking an **Edit** link next 
 
 When the user clicks the **Edit** link, display a dialog for the user to submit their new email address.
 
-<div class="half border">
+<div class="half wireframe-border">
 
 ![Screenshot showing a page with a new primary email input field and continue button.](/img/pwd-optional/pwd-optional-react-change-primary-email-submit-email.png)
 
@@ -89,7 +89,7 @@ Build the logic that handles this response and sends the user to a dialog where 
 
 The user opens the email sent by Identity Engine and copies the one-time password (OTP) to your app. Create a dialog to allow the user to enter and submit the OTP.
 
-<div class="half border">
+<div class="half wireframe-border">
 
 ![Screenshot showing a page with an OTP input field and continue button.](/img/pwd-optional/pwd-optional-react-change-primary-email-verify-email.png)
 

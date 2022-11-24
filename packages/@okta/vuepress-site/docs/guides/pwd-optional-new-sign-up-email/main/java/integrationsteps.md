@@ -4,11 +4,14 @@
 
 Add a link to your app's sign-in page. When the user clicks this link, redirect them to a sign-up page where they can sign up for a new account.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![A simple sign-in page with a sign-up link.](/img/pwd-optional/pwd-optional-sign-up-link-sign-in-page.png)
+![A sign-in form with a field for the username and links to the sign up and forgot your password forms](/img/wireframes/sign-in-form-username-only-sign-up-forgot-your-password-links.png)
 
-<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1975%3A2792 pwd-optional-sign-up-link-sign-in-page -->
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3401%3A37178&t=vr9MuCR8C4rCt3hC-1 sign-in-form-username-only-sign-up-forgot-your-password-links
+ -->
 
 </div>
 
@@ -16,11 +19,14 @@ Add a link to your app's sign-in page. When the user clicks this link, redirect 
 
 Create a sign-up page that captures the user's first name, last name, and email address.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![A simple sign-up page with first name, last name, and email fields, and submit button.](/img/pwd-optional/pwd-optional-sign-up-page.png)
+![A create account form with fields for first name, last name, and email address, and a create account button](/img/wireframes/create-account-first-last-name-email.png)
 
-<!-- Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1975%3A2791 pwd-optional-sign-up-page -->
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1 create-account-first-last-name-email
+ -->
 
 </div>
 
@@ -86,13 +92,13 @@ boolean canSkip = authenticationWrapper.isSkipAuthenticatorPresent(response.getP
 
 If `true` &mdash; and all the listed authenticators are optional &mdash; add a **Skip** button to the form to skip their enrollment. If `false`, you should omit the **Skip** button.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![A form showing a list of authenticators to enroll, and Submit, Cancel, and Skip buttons.](/img/pwd-optional/pwd-optional-sign-up-authenticators-page.png)
+![A choose your authenticator form with google and okta verify options and next, skip, and cancel buttons](/img/wireframes/choose-authenticator-google-okta-verify-with-skip-and-cancel.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1978%3A1741 pwd-optional-sign-up-authenticators-page
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3401%3A37205&t=vr9MuCR8C4rCt3hC-1 choose-authenticator-google-okta-verify-with-skip-and-cancel
  -->
 
 </div>
