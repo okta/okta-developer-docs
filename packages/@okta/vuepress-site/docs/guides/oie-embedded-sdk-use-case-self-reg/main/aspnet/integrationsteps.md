@@ -326,12 +326,12 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
    <div class="half wireframe-border">
    ![A form with a field for a phone number, formatting advice and a next button](/img/wireframes/enter-phone-number-form.png)
 
+   </div>
+
    <!--
 
 	Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37078&t=2h5Mmz3COBLhqVzv-1 enter-phone-number-form
 	-->
-
-   </div>
 
    > **Note:** The SDK requires that the phone number be in the following format: `+#######`, including the beginning plus (+) sign.
 
@@ -385,12 +385,13 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
    ![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
 
+
+   </div>
+
    <!--
 
    Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37154&t=vr9MuCR8C4rCt3hC-1 enter-verification-code-form-with-sms-message
    -->
-
-   </div>
 
 6. Submit phone code
 
