@@ -4,9 +4,14 @@
 
 Build a sign-in page that captures both the user’s name and password, as shown in the following example:
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![Displays a sign-in page with the username and password fields and a Login button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![A sign-in form with fields for username and password and a sign in button](/img/wireframes/sign-in-form-username-and-password.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-and-password
+ -->
 
 </div>
 
@@ -28,9 +33,14 @@ The user is redirected to an authenticator list page that displays the email fac
 
 The next step is to show the email factor to the user in an authenticator list page. If not already done, build a page to display the list of authenticators from the previous step. In this use case, only the email factor appears, as shown in the following sample.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![Displays a Select Authenticator page that includes an email field and a Select button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify-nodejs.png)
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-email-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-email-only
+ -->
 
 </div>
 
@@ -51,9 +61,14 @@ The next step is to redirect the user to the email verification code page.
 
 If not already done, build the email verification code page that accepts the code from the email.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![Displays a Challenge Email Authenticator page that includes a verification code field and a Verify button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code-nodejs.png)
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
 </div>
 
