@@ -23,19 +23,14 @@ recovery flow.
 
 <div class="half wireframe-border">
 
-![Reset password form with an email field](/img/oie-embedded-sdk/wireframes/reset-password-form-enter-email-g2r3.png)
-
-</div>
+![A reset password form with an email address field and a next button](/img/wireframes/reset-password-email-only.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36756&t=wzNwSZkdctajVush-1 reset-password-email-only
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 3
-
--->
+</div>
 
 ### 3: The user enters their email and initiates password recovery
 
@@ -86,19 +81,14 @@ Build a page that captures this code.
 
 <div class="half wireframe-border">
 
-![Email verification code input form](/img/oie-embedded-sdk/wireframes/enter-verification-code-form-g2r5.png)
-
-</div>
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 5
-
--->
+</div>
 
 ### 5: Submit the verification code
 
@@ -131,19 +121,14 @@ to a page that allows them to enter their new password.
 
 <div class="half wireframe-border">
 
-![Password reset new password form](/img/oie-embedded-sdk/wireframes/reset-password-form-choose-new-password-g2r6.png)
-
-</div>
+![A reset password form with two fields to enter and to confirm a new password and a next button](/img/wireframes/reset-password-new-password-fields.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36886&t=2h5Mmz3COBLhqVzv-1 reset-password-new-password-fields
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 6
-
--->
+</div>
 
 ### 7: Submit the new password
 
