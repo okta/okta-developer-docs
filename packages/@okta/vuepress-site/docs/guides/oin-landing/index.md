@@ -7,6 +7,12 @@ meta:
 
 The Okta Integration Network (OIN) is the deepest catalog of the integrations IT pros use to secure their organizations’ infrastructures and give workforces seamless access to the technology they need. Connect Okta workforce customers to your app by adding your integration to the OIN catalog.
 
+<div class="quarter">
+
+![OIN folder](/img/customLanding/customLanding-hero.svg "OIN Folder")
+
+</div>
+
 Browse the thousands of available integrations <a href='https://okta.com/integrations' class='Button--blueDarkOutline' data-proofer-ignore><span>Explore the OIN catalog</span></a>
 
 <!--class='Button--blue'-->
@@ -43,16 +49,16 @@ Build this if you want to:
 * Use [SCIM](/docs/concepts/scim/) to manage users in cloud-based systems
 * Provide custom onboarding and offboarding flows with [Workflows Connector Builder](https://help.okta.com/wf/en-us/Content/Topics/Workflows/connector-builder/connector-builder.htm)
 
-### Secure API service applications
+### Connect to the Okta API
 
-<span style="width: 36px;display:inline-block">![API](/img/customLanding/features-2.svg)</span> Secure your API service applications with Okta using OAuth 2.0.
+<span style="width: 36px;display:inline-block">![API](/img/customLanding/features-2.svg)</span> Access and manage Okta resources directly from your application with an API service integration.
 
 <a href='/docs/guides/oin-api-service-overview/' class='Button--blueDarkOutline' data-proofer-ignore><span>Get started with API service integrations</span></a>
 
 Build this if you want to:
 
-* support your customers with app access to Okta APIs
-* access Okta APIs without user association (service-to-service implementation)
+* Securely access Okta API endpoints using OAuth 2.0 without user association (service-to-service use case)
+* Allow customers to find and configure your integration through the Okta Integration Network catalog
 
 ### Risk signal sharing
 
@@ -67,8 +73,7 @@ Build this if you want to:
 
 Sign up for a free developer-edition Okta org for a sandbox where you can build and test your enterprise app integrations. Post your questions on the Okta Developer Forum if you’re already working on something and need help.
 
+<p align=center>
 <a href='/signup' class='Button--blue' data-proofer-ignore><span>Sign up for Okta</span></a> <a href='https://devforum.okta.com/' class='Button--blueDarkOutline' data-proofer-ignore><span>Post a question</span></a>
 
-<div class="quarter">
-![OIN folder](/img/customLanding/customLanding-hero.svg "OIN Folder")
-</div>
+</p>

@@ -1,5 +1,5 @@
 <template>
-  <section class="customLanding-white customLanding-waves customLanding-waves-bottom customLanding-waves-top">
+  <section class="customLanding-gray">
     <div class="customLanding-wrapper">
         <div class="customLanding-features">
         <h2>What integrations can I build?</h2>
@@ -56,25 +56,14 @@
                     ]
                 },
                 {
-                    id: 2,
-                    title: 'Secure API service applications',
-                    text: 'Secure your API service applications with Okta using OAuth 2.0.',
+                    id: 3,
+                    title: 'Connect to the Okta API',
+                    text: 'Access and manage Okta resources directly from your application with an API service integration.',
                     link: '/docs/guides/oin-api-service-overview/',
                     linkText: 'Get started with API service integrations',
                     list: [
-                        'support your customers with app access to Okta APIs',
-                        'access Okta APIs without user association (service-to-service implementation)'
-                    ]
-                },
-                {
-                    id: 3,
-                    title: 'Risk signal sharing',
-                    text: "Connect to Okta's risk APIs to share risk signals and make it easier for your customers to protect their users and data.",
-                    link: '',
-                    linkText: 'Get Started with Risk Signal Sharing',
-                    list: [
-                        '<a href="/docs/guides/third-party-risk-integration/main">Use the Risk Signal API</a> to unite risk signals with access decisions and secure digital experiences',
-                        'Enhance security efficacy against targeted identity attacks'
+                        'Securely access Okta API endpoints using OAuth 2.0 without user association (service-to-service use case)',
+                        'Allow customers to find and configure your integration through the Okta Integration Network catalog'
                     ]
                 }
             ]

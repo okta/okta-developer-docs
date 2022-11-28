@@ -1,5 +1,5 @@
 <template>
-  <section class="customLanding-gray">
+  <section class="customLanding-white customLanding-waves customLanding-waves-bottom customLanding-waves-top">
     <div class="customLanding-wrapper">
         <div class="customLanding-explore">
             <h2>Explore the integration process</h2>
@@ -31,22 +31,22 @@
                 {
                     id: 1,
                     caption: 'Learn',
-                    text: 'Understand [how Okta works] and how to implement solutions for your use cases. Get started by signing up for a [free Okta developer org] and trying the [Quickstart] examples.',
-                    link: 'Learn more',
-                    path: '/docs/concepts/how-okta-works/'
+                    text: 'Understand how Okta works and how to implement solutions for your use cases. Get started by signing up for a free Okta developer org and trying the quickstart examples.',
+                    link: 'Try quickstart examples',
+                    path: '/docs/guides/quickstart/'
                 },
                 {
                     id: 2,
                     caption: 'Design & build',
-                    text: 'OIN is a catalog and a support system. View [SSO], [Lifecycle], and [service app] integration guides to help you to design, build, and test your integration before you submit it for verification. Get support from the [Okta Developer Forum] during your build journey.',
-                    link: 'Sign-up for Okta',
-                    path: '/signup'
+                    text: 'OIN is a catalog and a support system. View SSO, lifecycle, and service app integration guides to help you to design, build, and test your integration before you submit it for verification. Get support from the Okta Developer Forum during your build journey.',
+                    link: 'Start with SSO',
+                    path: '/docs/guides/oin-sso-overview/'
                 },
                 {
                     id: 3,
                     caption: 'Get Okta verified',
                     text: 'Prepare submission requirements and use the OIN Manager portal to submit your integration for verification. The OIN team runs diagnostics and works with you to validate your integration for publication.',
-                    link: 'Learn more',
+                    link: 'Publish your app',
                     path: '/docs/guides/submit-app'
                 },
                 {
