@@ -15,6 +15,7 @@ guides:
  - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
+ - configure-ciba
  - configure-native-sso
  - configure-signon-policy
  - configure-user-scoped-account-management

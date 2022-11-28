@@ -487,6 +487,10 @@ export const guides = [
             guideName: "customize-authz-server",
           },
           {
+            title: "Configure CIBA",
+            guideName: "configure-ciba",
+          },
+          {
             title: "Configure SSO for native apps",
             guideName: "configure-native-sso",
           },
