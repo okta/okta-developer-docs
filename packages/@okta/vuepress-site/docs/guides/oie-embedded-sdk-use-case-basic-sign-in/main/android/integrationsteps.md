@@ -24,7 +24,7 @@ Begin the authentication process by calling the Java SDK's `IDXAuthenticationWra
 
 After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 
-```kotlin
+```java
     fun signIn() {
         if (!viewModel.isValid()) return
 
@@ -32,7 +32,6 @@ After the user submits their credentials, call `IDXAuthenticationWrapper.authent
             // Need to begin the transaction again, in case an error occurred.
             val beginResponse = authenticationWrapper.begin()
             handleTerminalTransitions(beginResponse)?.let { return@proceed it }
-
 
             val options = AuthenticationOptions(viewModel.username, viewModel.password)
             val response = authenticationWrapper.authenticate(options, beginResponse.proceedContext)

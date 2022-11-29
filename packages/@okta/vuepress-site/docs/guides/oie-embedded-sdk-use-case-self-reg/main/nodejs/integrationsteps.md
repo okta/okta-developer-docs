@@ -44,6 +44,7 @@ router.post('/register', async (req, res, next) => {
   handleTransaction({ req, res, next, authClient, transaction });
 });
 ```
+
 If the org's application is properly configured with multiple factors, `idx.register` returns a response with `Idx.Status:PENDING` and a `nextStep` field requiring an authenticator key that needs to be verified. If you completed the steps properly in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the authenticator is **password** (`Authenticator: AuthenticatorKey.OKTA_PASSWORD`). The next steps, as shown in the SDK sample application, are handled by `handleTransaction.js` for the subsequent flows.
 
 ```JavaScript
@@ -133,11 +134,11 @@ Based on the configuration described in [Set up your Okta org for a multifactor 
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with only a phone authenticator option, and next and skip buttons](/img/wireframes/choose-authenticator-form-phone-only-with-skip-option.png)
+![A choose your authenticator form with only a phone authenticator option, and next and skip buttons](/img/wireframes/choose-authenticator-form-phone-only-with-skip.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37043&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only-with-skip-option
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37043&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only-with-skip
  -->
 
 </div>
