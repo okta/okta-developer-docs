@@ -4,11 +4,11 @@ Add a link that allows the user to submit their username to begin the password r
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and links to the sign up and forgot your password forms](/img/wireframes/sign-in-form-sign-up-forgot-your-password-links.png)
+![A sign-in form with fields for username and password, a sign-in button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-sign-up-forgot-your-password-links
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
  -->
 
 </div>
@@ -19,11 +19,11 @@ Next, build a password recovery page that allows the user to enter their account
 
 <div class="half wireframe-border">
 
-![A reset password form with an email address field and a next button](/img/wireframes/reset-password-email-only.png)
+![A reset password form with an email address field and a next button](/img/wireframes/reset-password-form-email-only.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36756&t=wzNwSZkdctajVush-1 reset-password-email-only
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36756&t=wzNwSZkdctajVush-1  reset-password-form-email-only
  -->
 
 </div>
@@ -74,11 +74,11 @@ Using this response, display a list of authenticators to the user. In this case 
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-email-only.png)
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-email-only
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
  -->
 
 </div>
@@ -118,11 +118,11 @@ Create a password reset page that allows the user to enter their new password.
 
 <div class="half wireframe-border">
 
-![A reset password form with two fields to enter and to confirm a new password and a next button](/img/wireframes/reset-password-new-password-fields.png)
+![A reset password form with two fields to enter and to confirm a new password and a next button](/img/wireframes/reset-password-form-new-password-fields.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36886&t=2h5Mmz3COBLhqVzv-1 reset-password-new-password-fields
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36886&t=2h5Mmz3COBLhqVzv-1  reset-password-form-new-password-fields
  -->
 
 </div>

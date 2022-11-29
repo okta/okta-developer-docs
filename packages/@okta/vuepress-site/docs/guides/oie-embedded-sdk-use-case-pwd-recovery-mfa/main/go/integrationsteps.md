@@ -23,11 +23,11 @@ recovery flow.
 
 <div class="half wireframe-border">
 
-![A reset password form with an email address field and a next button](/img/wireframes/reset-password-email-only.png)
+![A reset password form with an email address field and a next button](/img/wireframes/reset-password-form-email-only.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36756&t=wzNwSZkdctajVush-1 reset-password-email-only
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36756&t=wzNwSZkdctajVush-1  reset-password-form-email-only
  -->
 
 </div>
@@ -121,11 +121,11 @@ to a page that allows them to enter their new password.
 
 <div class="half wireframe-border">
 
-![A reset password form with two fields to enter and to confirm a new password and a next button](/img/wireframes/reset-password-new-password-fields.png)
+![A reset password form with two fields to enter and to confirm a new password and a next button](/img/wireframes/reset-password-form-new-password-fields.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36886&t=2h5Mmz3COBLhqVzv-1 reset-password-new-password-fields
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36886&t=2h5Mmz3COBLhqVzv-1  reset-password-form-new-password-fields
  -->
 
 </div>

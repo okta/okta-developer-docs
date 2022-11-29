@@ -21,11 +21,11 @@ Build a sign-in page that captures both the user's name and password, similar to
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and a sign in button](/img/wireframes/sign-in-form-username-and-password.png)
+![A sign-in form with fields for username and password and a sign-in button](/img/wireframes/sign-in-form-username-password.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-and-password
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
  -->
 
 </div>
@@ -82,7 +82,7 @@ The following wireframe includes Facebook and Google IdP sign-in options.
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
+![A sign-in form with fields for username and password, a sign-in button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
 
 <!--
 

@@ -21,11 +21,11 @@ Build a sign-in page that captures the user's name and password.
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and a sign in button](/img/wireframes/sign-in-form-username-and-password.png)
+![A sign-in form with fields for username and password and a sign-in button](/img/wireframes/sign-in-form-username-password.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-and-password
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
  -->
 
 </div>

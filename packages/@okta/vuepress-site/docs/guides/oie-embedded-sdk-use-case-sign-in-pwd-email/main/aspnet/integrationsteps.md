@@ -5,11 +5,11 @@ password. An example is shown below:
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and a sign in button](/img/wireframes/sign-in-form-username-and-password.png)
+![A sign-in form with fields for username and password and a sign-in button](/img/wireframes/sign-in-form-username-password.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-and-password
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
  -->
 
 </div>
@@ -56,11 +56,11 @@ The next step is to show the email factor to the user in an authenticator list p
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-email-only.png)
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-email-only
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
  -->
 
 </div>

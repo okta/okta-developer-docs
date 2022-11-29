@@ -44,7 +44,7 @@ The following wireframe shows a typical sign-in form with Facebook sign-in butto
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
+![A sign-in form with fields for username and password, a sign-in button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
 
 <!--
 

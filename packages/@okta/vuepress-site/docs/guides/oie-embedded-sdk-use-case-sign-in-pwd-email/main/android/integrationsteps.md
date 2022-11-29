@@ -4,11 +4,11 @@ Build a sign-in page for your app that captures both the username and the passwo
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and a sign in button](/img/wireframes/sign-in-form-username-and-password.png)
+![A sign-in form with fields for username and password and a sign-in button](/img/wireframes/sign-in-form-username-password.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-and-password
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
  -->
 
 </div>
@@ -42,11 +42,11 @@ After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of au
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-email-only.png)
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-email-only
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
  -->
 
 </div>

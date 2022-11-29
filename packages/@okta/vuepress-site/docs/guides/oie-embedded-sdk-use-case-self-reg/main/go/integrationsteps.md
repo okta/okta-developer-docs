@@ -21,11 +21,11 @@ Build a sign-up page that captures the user's first name, last name, and email.
 
 <div class="half wireframe-border">
 
-![A create account form with fields for first name, last name, and email address, and a create account button](/img/wireframes/create-account-first-last-name-email.png)
+![A create account form with fields for first name, last name, and email address, and a create account button](/img/wireframes/ create-account-form-first-last-name-email.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1 create-account-first-last-name-email
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1  create-account-form-first-last-name-email
  -->
 
 </div>
@@ -66,11 +66,11 @@ Create a page for the user to enter their password.
 
 <div class="half wireframe-border">
 
-![A set password form with two fields to enter and to confirm a password and a submit button](/img/wireframes/set-password-new-password-fields.png)
+![A set password form with two fields to enter and to confirm a password and a submit button](/img/wireframes/set-password-form-new-password-fields.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36973&t=2h5Mmz3COBLhqVzv-1 set-password-new-password-fields
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36973&t=2h5Mmz3COBLhqVzv-1 set-password-form-new-password-fields
  -->
 
 </div>
@@ -170,11 +170,11 @@ An example wireframe is shown below.
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with email and phone authenticator options and a next button](/img/wireframes/choose-authenticator-email-phone.png)
+![A choose your authenticator form with email and phone authenticator options and a next button](/img/wireframes/choose-authenticator-form-email-phone.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37020&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-email-phone
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37020&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-email-phone
  -->
 
 </div>
@@ -260,11 +260,11 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with only a phone authenticator option, and next and skip buttons](/img/wireframes/choose-authenticator-phone-only-with-skip-option.png)
+![A choose your authenticator form with only a phone authenticator option, and next and skip buttons](/img/wireframes/choose-authenticator-form-phone-only-with-skip-option.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37043&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-phone-only-with-skip-option
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37043&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only-with-skip-option
  -->
 
 </div>

@@ -4,11 +4,11 @@ The self-registration flow begins when the user clicks the **Sign up** link. On 
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and links to the sign up and forgot your password forms](/img/wireframes/sign-in-form-sign-up-forgot-your-password-links.png)
+![A sign-in form with fields for username and password, a sign-in button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-sign-up-forgot-your-password-links
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
  -->
 
 </div>
@@ -19,11 +19,11 @@ The next step for the user after they click the **Sign up** link is to enter bas
 
 <div class="half wireframe-border">
 
-![A create account form with fields for first name, last name, and email address, and a create account button](/img/wireframes/create-account-first-last-name-email.png)
+![A create account form with fields for first name, last name, and email address, and a create account button](/img/wireframes/ create-account-form-first-last-name-email.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1 create-account-first-last-name-email
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1  create-account-form-first-last-name-email
  -->
 
 </div>
@@ -63,11 +63,11 @@ The next step is to build a page that shows a user the required factors that nee
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with only a password authenticator option and a next button](/img/wireframes/choose-authenticator-password-only.png)
+![A choose your authenticator form with only a password authenticator option and a next button](/img/wireframes/choose-authenticator-form-password-only.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36946&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-password-only
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36946&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-password-only
  -->
 
 </div>
@@ -131,11 +131,11 @@ After `AwaitingAuthenticatorVerification` is returned, the next step is to build
 
 <div class="half wireframe-border">
 
-![A set password form with two fields to enter and to confirm a password and a submit button](/img/wireframes/set-password-new-password-fields.png)
+![A set password form with two fields to enter and to confirm a password and a submit button](/img/wireframes/set-password-form-new-password-fields.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36973&t=2h5Mmz3COBLhqVzv-1 set-password-new-password-fields
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36973&t=2h5Mmz3COBLhqVzv-1 set-password-form-new-password-fields
  -->
 
 </div>
@@ -164,11 +164,11 @@ The `AwaitingAuthenticatorEnrollment` status is returned because the required em
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with email and phone authenticator options and a next button](/img/wireframes/choose-authenticator-email-phone.png)
+![A choose your authenticator form with email and phone authenticator options and a next button](/img/wireframes/choose-authenticator-form-email-phone.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37020&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-email-phone
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37020&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-email-phone
  -->
 
 </div>
@@ -284,11 +284,11 @@ The remaining authenticator should display the phone factor to the user. Since t
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with only a phone authenticator option, and next and skip buttons](/img/wireframes/choose-authenticator-phone-only-with-skip-option.png)
+![A choose your authenticator form with only a phone authenticator option, and next and skip buttons](/img/wireframes/choose-authenticator-form-phone-only-with-skip-option.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37043&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-phone-only-with-skip-option
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37043&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only-with-skip-option
  -->
 
 </div>

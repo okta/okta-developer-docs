@@ -4,7 +4,7 @@ Add a link to your app's sign-in page. When the user clicks this link, redirect 
 
 <div class="half wireframe-border">
 
-![A sign-in form with a field for the username and links to the sign up and forgot your password forms](/img/wireframes/sign-in-form-username-only-sign-up-forgot-your-password-links.png)
+![A sign-in form with a field for the username, a sign-in button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-only-sign-up-forgot-your-password-links.png)
 
 <!--
 
@@ -19,11 +19,11 @@ Create a sign-up page that captures the user's first name, last name, and email 
 
 <div class="half wireframe-border">
 
-![A create account form with fields for first name, last name, and email address, and a create account button](/img/wireframes/create-account-first-last-name-email.png)
+![A create account form with fields for first name, last name, and email address, and a create account button](/img/wireframes/ create-account-form-first-last-name-email.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1 create-account-first-last-name-email
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1  create-account-form-first-last-name-email
  -->
 
 </div>
@@ -70,11 +70,11 @@ Create and display a page that lists the remaining authenticators. Check the `Ca
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with google and okta verify options and next, skip, and cancel buttons](/img/wireframes/choose-authenticator-google-okta-verify-with-skip-and-cancel.png)
+![A choose your authenticator form with google and okta verify options and next, skip, and cancel buttons](/img/wireframes/choose-authenticator-form-google-okta-verify-with-skip-and-cancel.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3401%3A37205&t=vr9MuCR8C4rCt3hC-1 choose-authenticator-google-okta-verify-with-skip-and-cancel
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3401%3A37205&t=vr9MuCR8C4rCt3hC-1 choose-authenticator-form-google-okta-verify-with-skip-and-cancel
  -->
 
 </div>
