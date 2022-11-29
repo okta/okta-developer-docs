@@ -21,11 +21,11 @@ Build a sign-up page that captures the user's first name, last name, and email.
 
 <div class="half wireframe-border">
 
-![A create account form with fields for first name, last name, and email address, and a create account button](/img/wireframes/ create-account-form-first-last-name-email.png)
+![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/ sign-up-form-first-last-name-email.png)
 
 <!--
 
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1  create-account-form-first-last-name-email
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1  sign-up-form-first-last-name-email
  -->
 
 </div>
