@@ -36,7 +36,7 @@ This guide uses the [Okta Authenticator Sample App](https://github.com/okta/okta
 
 Organizations are constantly looking for ways to strike a balance between offering a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses CIBA to provide customers with a simple and secure transaction verification solution.
 
-CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device and the device where the user verifies the transaction is called the verification device.
+CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device and the device where the user verifies the transaction is called the authentication device.
 
 ### CIBA grant-type flow
 
@@ -71,15 +71,15 @@ as -> client: Returns requested tokens
 
     To identify the user that additional authentication is being requested for, the request must include either a previously issued ID token (obtained during the user’s initial authorization) as an `id_token_hint` or the user’s username (email address) as a `login_hint`.
 
-    > **Note:** The `id_token_hint` is used in cases where the user signed in to the application running on the consumption device and was authenticated by the Okta authorization server. The user is also in control of both the consumption and authentication device.
+    > **Note:** The `id_token_hint` is used in cases where the user is signed in to the application running on the consumption device, and the user is authenticated by the same authorization server. The user is also in control of both the consumption and authentication devices.
 
 2. The authorization server validates the authentication request and the user identification, and then sends the backchannel authentication response with the authentication request ID (`auth_req_id`) to the client.
 
-3. Okta sends a backchannel request for user consent/authorization to a branded authenticator on the user’s device (authentication device). That request contains all the information needed to authenticate the user without asking them for their credentials.
+3. Okta sends a backchannel request for user approval to a branded authenticator on the user’s device (authentication device). That request contains all the information needed to authenticate the user without asking them for their credentials.
 
 4. The client (consumption device) begins to poll the `/token` endpoint including the `auth_req_id` in the request.
 
-5. An authorization error is sent to the client if the authorization server hasn’t received user consent yet.
+5. An authorization error is sent to the client if the authorization server hasn’t received user approval yet.
 
 6. The user sees the custom branded push notification on their device and approves it.
 
@@ -128,7 +128,7 @@ You can also use the [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-a
 | `grant_types`                | `urn:openid:params:grant-type:ciba`     |
 | `backchannel_authentication_request_signing_alg` | (Optional) The signing algorithm for CIBA signed requests using JWT. If this value isn't set and a JWT signed request is sent, the request fails. |
 | `backchannel_custom_authenticator_id` | The ID of the custom authenticator that authenticates the user.           |
-| `backchannel_token_delivery_mode`| (Optional) How CIBA is delivered. Valid types include `poll`, `ping`, and `push`. Since `poll` is the only value currently supported, this parameter is optional. |
+| `backchannel_token_delivery_mode`| (Optional) How CIBA is delivered. Supported value: `poll`. Since `poll` is the only value supported, this parameter is optional. |
 
 > **Note:** The parameters `backchannel_token_delivery_mode`, `backchannel_authentication_request_signing_alg`, and `backchannel_custom_authenticator_id` are only available if the client has `urn:openid:params:grant-type:ciba` defined as one of its allowed `grant_types`. See the [Settings](/docs/reference/api/apps/#settings-10) table on the Apps API Reference page for more information on these new parameters.
 
@@ -195,8 +195,7 @@ Use the Devices SDK and your app to enroll a custom authenticator for the test u
    The sample app is set up to include the **Enable CIBA transactions** option by default for the user to enable CIBA themselves in the mobile app. However, you can implement CIBA in your app any way that you want, for example, create an enrollment flow that turns CIBA on by default, making it transparent to users.
 8. Click **Ok** at the success dialog and close the Security Settings screen.
 9. Leave your test user signed in to the authentication device (the Magenta Bank app on the xCode simulator).
-
-   > **Note:** See the [MyAccount API](/docs/reference/api/myaccount/) for examples of [enrolling](?link to new api operation?) and [updating](?link to new api operation?) a custom app authenticator to use CIBA by adding `CIBA` to the `transactionTypes` array.
+  <!-- > **Note:** See the [MyAccount API](/docs/reference/api/myaccount/) for examples of [enrolling](?link to new api operation?) and [updating](?link to new api operation?) a custom app authenticator to use CIBA by adding `CIBA` to the `transactionTypes` array.<
 
 ## Test the CIBA flow
 
