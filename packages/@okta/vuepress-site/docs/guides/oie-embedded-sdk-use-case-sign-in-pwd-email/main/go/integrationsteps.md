@@ -21,7 +21,7 @@ Build a sign-in page that captures the username and password.
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and a sign-in button](/img/wireframes/sign-in-form-username-password.png)
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
 
 <!--
 

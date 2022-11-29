@@ -32,7 +32,7 @@ Display &mdash; either statically or dynamically using `IdxTransaction` &mdash; 
 
 <div class="half wireframe-border">
 
-![A sign-in form with a field for the username, a sign-in button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-only-sign-up-forgot-your-password-links.png)
+![A sign-in form with a field for the username, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-only-sign-up-forgot-your-password-links.png)
 
 <!--
 

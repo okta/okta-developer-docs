@@ -52,7 +52,7 @@ The previous code snippet is rendered as a **Sign in with Facebook** button, as 
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password, a sign-in button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
+![A sign-in form with fields for username and password, a next button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
 
 <!--
 

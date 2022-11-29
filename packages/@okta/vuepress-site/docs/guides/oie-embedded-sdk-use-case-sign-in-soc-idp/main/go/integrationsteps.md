@@ -21,7 +21,7 @@ Build a sign-in page that captures both the user's name and password, similar to
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password and a sign-in button](/img/wireframes/sign-in-form-username-password.png)
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
 
 <!--
 
@@ -82,7 +82,7 @@ The following wireframe includes Facebook and Google IdP sign-in options.
 
 <div class="half wireframe-border">
 
-![A sign-in form with fields for username and password, a sign-in button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
+![A sign-in form with fields for username and password, a next button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
 
 <!--
 
