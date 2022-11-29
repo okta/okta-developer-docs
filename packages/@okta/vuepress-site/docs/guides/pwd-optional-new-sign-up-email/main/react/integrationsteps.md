@@ -164,7 +164,7 @@ Display a page that lists the remaining authenticators and allows the user to sk
 
 <div class="half wireframe-border">
 
-![A choose your authenticator form with google and okta verify options and next, skip, and cancel buttons](/img/wireframes/choose-authenticator-form-google-okta-verify-with-skip-and-cancel.png)
+![A choose your authenticator form with google and Okta verify options and next, skip, and cancel buttons](/img/wireframes/choose-authenticator-form-google-okta-verify-with-skip-and-cancel.png)
 
 <!--
 

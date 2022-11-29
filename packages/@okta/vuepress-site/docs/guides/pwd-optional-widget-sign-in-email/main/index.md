@@ -63,7 +63,7 @@ The user clicks **Send me an email** to begin the email challenge flow.
 
 <div class="half wireframe-border">
 
-![The Okta Sign-In Widget's prompt to enter the code or click a link sent in an email to the user. Also a button to resend the email](/img/wireframes/widget-send-email-form.png)
+![The Okta Sign-In Widget's prompt to enter the code or click a link sent in an email to the user. Also, a button to resend the email](/img/wireframes/widget-send-email-form.png)
 
 <!--
 
