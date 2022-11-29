@@ -195,7 +195,7 @@ Use the Devices SDK and your app to enroll a custom authenticator for the test u
    The sample app is set up to include the **Enable CIBA transactions** option by default for the user to enable CIBA themselves in the mobile app. However, you can implement CIBA in your app any way that you want, for example, create an enrollment flow that turns CIBA on by default, making it transparent to users.
 8. Click **Ok** at the success dialog and close the Security Settings screen.
 9. Leave your test user signed in to the authentication device (the Magenta Bank app on the xCode simulator).
-  <!-- > **Note:** See the [MyAccount API](/docs/reference/api/myaccount/) for examples of [enrolling](?link to new api operation?) and [updating](?link to new api operation?) a custom app authenticator to use CIBA by adding `CIBA` to the `transactionTypes` array.<
+  <!-- **Note:** See the [MyAccount API](/docs/reference/api/myaccount/) for examples of [enrolling](?link to new api operation?) and [updating](?link to new api operation?) a custom app authenticator to use CIBA by adding `CIBA` to the `transactionTypes` array. -->
 
 ## Test the CIBA flow
 
