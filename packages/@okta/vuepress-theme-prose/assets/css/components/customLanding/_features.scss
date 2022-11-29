@@ -1,16 +1,5 @@
 .customLanding {
     &-features {
-        padding: 56px 0 44px;
-
-        h2 {
-            margin: 0 0 0px;
-            max-width: 540px;
-            font-size: 36px;
-            font-weight: 400;
-            line-height: 1.25;
-            color: cv('header', 'nav-link');
-        }
-
         &__row {
             display: flex;
             flex-flow: row nowrap;
@@ -89,7 +78,6 @@
           color: cv('body', 'white');
           display: inline-block;
           font-weight: 400;
-          border-radius: 4px;
           &:hover {
             color: cv('body', 'white');
             background-color: cv('link');
