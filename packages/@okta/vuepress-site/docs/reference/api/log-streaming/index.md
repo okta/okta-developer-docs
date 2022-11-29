@@ -237,7 +237,7 @@ curl -v -X GET \
     "created": "2021-11-30T15:16:09.000Z",
     "status": "ACTIVE",
     "settings": {
-      "host": "acme.splunkcloud.com",
+      "host": "acme.splunkcloud.com"
     },
     "_links": {
       "self": {
