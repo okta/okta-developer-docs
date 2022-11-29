@@ -5,8 +5,9 @@
   }
 
   .copyright--leader {
-    margin: 100px 0 30px;
     flex-grow: 1;
+    margin: 100px 0 30px;
+
     text-align: center;
   }
 
@@ -14,19 +15,15 @@
     margin: 0 0 100px;
   }
 
-  a {
-    &:hover {
-      text-decoration: underline;
-    }
+  a:hover {
+    text-decoration: underline;
   }
 
   p {
     max-width: initial;
   }
 
-  ul {
-    li {
-      margin-bottom: 0.3rem;
-    }
+  ul li {
+    margin-bottom: 0.3rem;
   }
 }
