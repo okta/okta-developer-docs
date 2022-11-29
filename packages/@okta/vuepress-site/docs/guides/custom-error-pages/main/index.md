@@ -43,7 +43,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 > **Note:** There is no draft mode in the code editor. When you click **Publish**, your changes go live. If you want to test changes without impacting production, use a test or development org.
 
 1. In the Admin Console, go to **Customizations** > **Branding**.
-2. In the **Okta-hosted Error Pages box**, click **Edit**.
+2. In the **Okta-hosted Error Pages** box, click **Edit**.
 3. To open the code editor, turn on the toggle next to **Code editor**.
 
    > **Note:** The code editor toggle only appears if you connect to Okta using a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).

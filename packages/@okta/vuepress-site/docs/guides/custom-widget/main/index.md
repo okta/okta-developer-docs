@@ -18,6 +18,7 @@ This guide explains how to customize the Sign-In Widget when Okta is hosting it 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * (Okta-hosted) [Custom URL domain](/docs/guides/custom-url-domain/main/)
 * (Self-hosted) [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) installed into your project with configured authentication scenarios
+* (Self-hosted) The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
 
 **Sample code**
 
@@ -49,22 +50,26 @@ The **Custom Sign-In Page** offers basic and advanced customization options to c
 
 To access this page:
 
-* Okta Identity Engine: In the Admin Console, go to **Customizations** > **Sign-in page code editor**.
+* Okta Identity Engine: In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the Sign-in page section.
 * Okta Classic Engine: In the Admin Console, go to **Settings** > **Customization**. On the **Customization Page**, click the **Custom Sign in** tab.
 
-### Change the Okta Sign-In Widget version
+### About the Okta Sign-In Widget version
 
-The Okta-hosted sign-in page uses the [Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-hosted-sign-in-page-default) component to interact with the user. If you aren't familiar with the Okta Sign-In Widget, Okta recommends that you select the highest **Major Version** and the latest **Minor Version** (default). For details about the Okta Sign-In Widget capabilities that are supported by major and minor versions, see the [GitHub releases page](https://github.com/okta/okta-signin-widget/releases).
+The Okta-hosted sign-in page uses the [Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-hosted-sign-in-page-default) component to interact with the user.
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in the configuration settings.
+
+<!--- If you aren't familiar with the Okta Sign-In Widget, Okta recommends that you select the highest **Major Version** and the latest **Minor Version** (default). For details about the Okta Sign-In Widget capabilities that are supported by major and minor versions, see the [GitHub releases page](https://github.com/okta/okta-signin-widget/releases). --->
 
 1. To make changes to the major and minor versions, select **Edit** in the **Okta Sign-In Widget Version** section header.
 2. Make your changes, and then click **Save** at the bottom of the page.
 
 ### Change headings and labels
 
-To change the heading and labels, and to customize help links on the sign-in page, make changes to the **Sign-In Page** section.
+To change the heading and labels, and to customize help links on the sign-in page, make changes to the **Labels** section.
 
-1. Click **Edit** in the **Sign-In Page** section header.
-2. Use the form fields on the left side of the page to customize links, labels, and headings.
+1. Click the **Labels** tab.
+2. Locate the component type that you want to update and click **Edit**.
 
 You can also customize the placeholder text that appears in recovery flows when end users click account recovery links (for example, Forgot password and Unlock account). If you leave a label field blank, Okta uses the default text.
 
@@ -72,14 +77,47 @@ You can also customize the placeholder text that appears in recovery flows when 
 
 ### Use the embedded HTML editor
 
-If you are familiar with using HTML and want to change the page layout, colors, button shapes, and other elements, use the embedded HTML editor in the middle of the page. You can modify the current HTML/CSS and JavaScript or paste your own code.
+Use the code editor to modify any HTML, CSS, or JavaScript on the widget. See [Customization examples](#customization-examples) for snippets that you can update and use.
 
-1. Make changes directly in the embedded editor.
-2. Click **Preview** to preview your changes before you publish.
-3. Click **Reset to Default** if you need to remove all of your customizations and restore the default HTML/CSS and JavaScript code.
-4. Click **Save and Publish** when you finish.
+> **Note:** There is no draft mode in the code editor. When you click **Publish**, your changes go live. If you want to test changes without impacting production, use a test or development org.
+
+1. In the Admin Console, go to **Customizations** > **Branding**.
+2. In the **Sign-in page** box, click **Edit**.
+3. To open the code editor, turn on the toggle next to **Code editor**.
+
+   > **Note:** The code editor toggle only appears if you connect to Okta using a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).
+
+4. Make changes directly in the editor. If you enter `{`, `(`, or `.` you see a list of available variables that you can use. See [Use variables](#use-variables).
+   * Click **Preview** to see your changes in a new browser window before you publish.
+   * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
+
+   > **Note:** The Admin Console auto-saves your changes every few seconds. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
+
+5. Click **Publish** to commit your changes.
 
 > **Note:** See the [Customization examples](#customization-examples) section for examples that you can alter and use on your hosted sign-in page.
+
+#### Use variables
+
+The Okta Sign-In Widget template is written using [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the widget. To see the variables in a code sample, refer to the error page default code in the code editor. See [Use the embedded HTML editor](#use-the-embedded-html-editor).
+
+Variables with double curly braces (`{{`) return escaped HTML by default. Escaping allows you to show "special" characters in HTML. For example, `<p>hello</p>` displays as a paragraph element and the `<p>` tags don't render. For the `<p>` tags to render, escape or replace the `<p>` tags by using `&lt;p&gt; hello &lt;/p&gt;`. In this example, `&lt;p&gt;` escapes `<` and `&lt;/p&gt;` escapes `>`.
+
+Triple curly braces (`{{{`) are only used for the `errorDescription` variable to return unescaped HTML.
+
+| Variable | Contains |
+|----------|-------------|
+| <span v-pre>`{{orgName}}`</span> | The org name title |
+| <span v-pre>`{{errorSummary}}`</span> | The error title text |
+| <span v-pre>`{{bgImageUrl}}`</span> | The URL to the background image configured for your application. You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the background image in all instances where the variable is used, including your custom sign-in page. If you want to change only the background image for your custom error pages, include the URL to the image instead of the variable. |
+| <span v-pre>`{{orgLogo}}`</span> | The logo image that has been configured for your application. You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page. If you want to change only the logo image for your custom error pages, include the URL to the image instead of the variable. |
+| <span v-pre>`{{{errorDescription}}}`</span> | A detailed description of the error |
+| <span v-pre>`{{back}}`</span> | The text "Go to Homepage". When the user clicks the button, they are returned to the sign-in page. |
+| <span v-pre>`{{technicalDetails}}`</span> | Any additional messaging, if the error code has any. Here are sample technical details for an error code:</br>"If you are using custom expressions like `\{0}`, make sure that the field `customField` is present in the user profile. Please review your attribute list and make the appropriate change."</br>See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code). |
+| <span v-pre>`{{buttonText}}`</span> | Inserts the button text based on the page context. When the user selects the button, they are directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> variable is also supported for the same purpose. |
+| <span v-pre>`{{buttonHref}}`</span> | The hyperlink for the button |
+| <span v-pre>`{{themedStylesUrl}}`</span> | The URL for the themed style sheet |
+| <span v-pre>`{{faviconUrl}}`</span> | The URL for the favicon |
 
 ### Use the Brands API
 
