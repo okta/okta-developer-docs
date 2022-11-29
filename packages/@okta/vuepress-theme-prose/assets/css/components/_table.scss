@@ -2,38 +2,26 @@ table {
   display: block;
   margin-top: $base-spacing;
   margin-bottom: $base-spacing;
+}
 
-  th, td {
-    padding: 0.3rem 0.5rem;
+table th,
+table td {
+  padding: 0.3rem 0.5rem;
+}
 
-  }
+table a svg.icon.outbound {
+  display: none;
+}
 
-  a {
-    svg.icon.outbound {
-      display: none;
-    }
-  }
+table thead tr {
+  border-bottom: 0.2em solid cv("gray", "600");
+}
 
-  
+table thead tr th {
+  font-weight: 600;
+  text-align: left;
+}
 
-  thead {
-
-    tr {
-      border-bottom: 0.2em solid cv('gray', '600');
-
-      th {
-        font-weight: 600;
-        text-align: left;
-      }
-    
-    }
-
-  }
-
-  tbody {
-
-    tr {
-      border-bottom: 0.05em solid cv('gray', '500');
-    }
-  }
+table tbody tr {
+  border-bottom: 0.05em solid cv("gray", "500");
 }

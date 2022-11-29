@@ -141,161 +141,180 @@
 </script>
 
 <style scoped lang="scss">
-  @import '../assets/css/abstracts/_colors.scss';
+  @import "../assets/css/abstracts/_colors";
 
-  $border_color: map-get(map-get($colors, 'form'), 'input-border');
-  $link_color: map-get(map-get($colors, 'link'), 'base');
+  $border_color: map-get(map-get($colors, "form"), "input-border");
+  $link_color: map-get(map-get($colors, "link"), "base");
 
-  .error-codes {
-    .PageContent-main {
-      padding-right: 0;
-    }
-
-    .error-codes-search-container {
-      display: flex;
-      align-items: center;
-    }
-
-    .reset-search {
-      cursor: pointer;
-    }
-
-    .reset-search::before {
-      content: '\f00d';
-      margin-left: 8px;
-      font-family: fontawesome;
-      text-align: center;
-    }
-
-    select {
-      height: 45px;
-      border: 2px solid $border_color;
-    }
-
-    #error-code-search {
-      flex: 1;
-      margin-right: 10px;
-      border: 2px solid $border_color;
-      font-size: 18px;
-      padding-top:10px;
-      padding-bottom: 10px;
-      padding-left: 10px;
-    }
-
-    #error-code-search::placeholder {
-      color: $border_color;
-    }
-
-    #error-code-release {
-      margin-top: 1em;
-    }
-
-    #error-code-count {
-      margin-top: -1em;
-      margin-left: 0.3em;
-      color: #888888;
-      font-size: 0.9em;
-    }
-
-    .error-code {
-      h4 {
-        margin: 25px 0 0;
-        padding: 6px 10px;
-        clear: left;
-        overflow: hidden;
-        border-left: 3px solid $link_color;
-        color: $link_color;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-
-      }
-
-      h4 .title-error-code {
-        font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-      }
-
-      h4::before {
-        content: '\f071';
-        margin-right: 8px;
-        font-family: fontawesome;
-      }
-
-      pre {
-        padding: 5px 0px;
-        margin: 0px;
-        white-space: pre-line;
-      }
-
-      pre code {
-        white-space: pre;
-        padding-left: 20px;
-      }
-
-      .toggleErrorExample {
-        color: $link_color;
-        cursor: pointer;
-
-        .underline:hover {
-          text-decoration: underline;
-        }
-      }
-
-      .toggleErrorExample {
-        font-size: 14px;
-      }
-      .toggleErrorExample:before {
-        content: '\f0a9';
-        margin-right: 8px;
-        font-family: fontawesome;
-        text-decoration: none;
-      }
-      .toggleErrorExample.open::before {
-        content: '\f0ab';
-        margin-right: 8px;
-        font-family: fontawesome;
-        text-decoration: none;
-      }
-
-      .error-code-mappings {
-        margin: -1em 0;
-        padding: 10px 15px;
-        color: #888888;
-        font-size: 0.9em;
-      }
-
-      .error-code-description {
-        margin-top: 10px;
-        margin-bottom: 5px;
-      }
-
-      .error-code-tag::before {
-        content: '\f02b';
-        padding: 2px 4px;
-        font-family: fontawesome;
-      }
-
-      .error-code-tag.world::before {
-        content: '\f0ac';
-        padding: 2px 4px;
-        font-family: fontawesome;
-      }
-
-      .error-code-tag {
-        display: block;
-        margin: 2px;
-        padding: 1px 3px;
-        float: left;
-        border-radius: 3px;
-        background-color: #ffffff;
-        font-size: 0.7em;
-      }
-
-      .error-code-release {
-        clear: both;
-        opacity: 0.7;
-        font-size: 0.8em;
-      }
-    }
+  .error-codes .PageContent-main {
+    padding-right: 0;
   }
 
+  .error-codes .error-codes-search-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .error-codes .reset-search {
+    cursor: pointer;
+  }
+
+  .error-codes .reset-search::before {
+    content: "";
+
+    margin-left: 8px;
+
+    font-family: "fontawesome";
+    text-align: center;
+  }
+
+  .error-codes select {
+    height: 45px;
+
+    border: 2px solid $border_color;
+  }
+
+  .error-codes #error-code-search {
+    flex: 1;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+
+    border: 2px solid $border_color;
+
+    font-size: 18px;
+  }
+
+  .error-codes #error-code-search::placeholder {
+    color: $border_color;
+  }
+
+  .error-codes #error-code-release {
+    margin-top: 1em;
+  }
+
+  .error-codes #error-code-count {
+    margin-top: -1em;
+    margin-left: 0.3em;
+
+    font-size: 0.9em;
+    color: #888888;
+  }
+
+  .error-codes .error-code h4 {
+    clear: left;
+    margin: 25px 0 0;
+    padding: 6px 10px;
+    overflow: hidden;
+
+    border-left: 3px solid $link_color;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: $link_color;
+  }
+
+  .error-codes .error-code h4 .title-error-code {
+    font-family: "Menlo", "Monaco", "Consolas", "Courier New", monospace;
+  }
+
+  .error-codes .error-code h4::before {
+    content: "";
+
+    margin-right: 8px;
+
+    font-family: "fontawesome";
+  }
+
+  .error-codes .error-code pre {
+    margin: 0;
+    padding: 5px 0;
+
+    white-space: pre-line;
+  }
+
+  .error-codes .error-code pre code {
+    padding-left: 20px;
+
+    white-space: pre;
+  }
+
+  .error-codes .error-code .toggleErrorExample {
+    font-size: 14px;
+    color: $link_color;
+
+    cursor: pointer;
+  }
+
+  .error-codes .error-code .toggleErrorExample .underline:hover {
+    text-decoration: underline;
+  }
+
+  .error-codes .error-code .toggleErrorExample:before {
+    content: "";
+
+    margin-right: 8px;
+
+    font-family: "fontawesome";
+    text-decoration: none;
+  }
+
+  .error-codes .error-code .toggleErrorExample.open::before {
+    content: "";
+
+    margin-right: 8px;
+
+    font-family: "fontawesome";
+    text-decoration: none;
+  }
+
+  .error-codes .error-code .error-code-mappings {
+    margin: -1em 0;
+    padding: 10px 15px;
+
+    font-size: 0.9em;
+    color: #888888;
+  }
+
+  .error-codes .error-code .error-code-description {
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .error-codes .error-code .error-code-tag::before {
+    content: "";
+
+    padding: 2px 4px;
+
+    font-family: "fontawesome";
+  }
+
+  .error-codes .error-code .error-code-tag.world::before {
+    content: "";
+
+    padding: 2px 4px;
+
+    font-family: "fontawesome";
+  }
+
+  .error-codes .error-code .error-code-tag {
+    display: block;
+    float: left;
+    margin: 2px;
+    padding: 1px 3px;
+
+    border-radius: 3px;
+    background-color: #ffffff;
+
+    font-size: 0.7em;
+  }
+
+  .error-codes .error-code .error-code-release {
+    clear: both;
+
+    opacity: 0.7;
+
+    font-size: 0.8em;
+  }
 </style>

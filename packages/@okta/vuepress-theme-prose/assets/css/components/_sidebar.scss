@@ -1,13 +1,9 @@
 @mixin active-link {
-  color: cv('text', 'darker');
   font-weight: 400;
+  color: cv("text", "darker");
 
-  &> i.parent {
-    svg {
-      path {
-        fill: cv('link', 'darker');
-      }
-    }
+  & > i.parent svg path {
+    fill: cv("link", "darker");
   }
 }
 
@@ -21,237 +17,292 @@
 
 .tree-nav {
   position: relative;
+
+  margin-bottom: -176px;
+  padding: 34px 30px 3rem 49px;
   width: 100%;
   min-height: 100%;
-  padding: 34px 30px 3rem 49px;
-  background: cv('body', 'sidebar');
-  margin-bottom: -176px;
-  .sections {
-    position: relative;
+
+  background: cv("body", "sidebar");
+}
+
+.tree-nav .sections {
+  position: relative;
+}
+
+.tree-nav > .sections {
+  margin-top: -52px;
+}
+
+.tree-nav > .sections > li {
+  margin-top: 0;
+}
+
+.tree-nav .sections.bordered:before {
+  content: "";
+
+  position: absolute;
+  top: 4px;
+  left: -43px;
+
+  width: 10px;
+  height: calc(100% - 8px);
+
+  border-radius: 10px;
+  background-color: #e7edf9;
+}
+
+@media (max-width: 1439px) {
+  .tree-nav .sections.bordered:before {
+    left: -38px;
   }
-  & > .sections {
-    margin-top: -52px;
-    & > li {
-      margin-top: 0;
-    }
+}
+
+.tree-nav > .sections:before,
+.tree-nav > .sections > li > .sections:before {
+  display: none;
+}
+
+.tree-nav > .sections > li > .sections > li,
+.tree-nav > .sections > li > .sections > li > .sections > li,
+.tree-nav > .sections > li > .sections > li > .sections > li > .sections > li {
+  margin-top: 8px;
+}
+
+.tree-nav > .sections > .link-wrap > .tree-nav-link,
+.tree-nav > .sections > .link-wrap > .tree-nav-link a {
+  font-weight: 400;
+  font-size: 16px;
+  color: cv("link", "darker");
+}
+
+.tree-nav-toggle {
+  position: sticky;
+  top: 27px;
+  right: 14px;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -36px;
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+  background-color: cv("body", "sidebar-toggle");
+  cursor: pointer;
+}
+
+.tree-nav-toggle:before {
+  content: "";
+
+  position: absolute;
+  right: 15px;
+  z-index: 2;
+
+  display: none;
+  width: 60px;
+  height: 20px;
+
+  background: linear-gradient(-90deg, cv("body", "sidebar"), transparent);
+}
+
+.tree-nav-toggle svg {
+  position: relative;
+  z-index: 3;
+  transform: rotate(180deg);
+}
+
+.tree-nav-toggle.active {
+  right: -10px;
+
+  margin-left: calc(100% - 36px);
+
+  background-color: transparent;
+}
+
+.tree-nav-toggle.active svg {
+  transform: rotate(0);
+}
+
+.tree-nav-toggle.active:before {
+  display: block;
+}
+
+.tree-nav .sections li > .sections {
+  margin-left: 22px;
+  padding-left: 0;
+}
+
+.tree-nav .sections:first-child > .link-wrap > .tree-nav-link > .text-holder {
+  @include active-link;
+}
+
+.tree-nav .sections:first-child > .link-wrap > .tree-nav-link.router-link-active > .text-holder {
+  color: cv("link");
+}
+
+.tree-nav .sections .link-wrap {
+  margin-top: 12px;
+}
+
+.tree-nav .sections .link-wrap a {
+  font-size: 14px;
+  color: cv("link", "bluelight");
+}
+
+.tree-nav .sections .link-wrap a.router-link-active span {
+  font-weight: 400;
+  color: cv("link", "darker");
+}
+
+.tree-nav .sections .link-wrap a.router-link-active:before {
+  background-color: cv("link", "active-router") !important;
+  background-image: none !important;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url("/img/icons/angle-right.svg");
+  mask-image: url("/img/icons/angle-right.svg");
+}
+
+.tree-nav .sections .link-wrap span {
+  font-size: 14px;
+  white-space: nowrap;
+  color: cv("link", "darker");
+}
+
+.tree-nav .sections .link-wrap .blank-divider {
+  cursor: default;
+
+  margin-top: 12px;
+  margin-left: -17px;
+
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.tree-nav .sections .tree-nav-link {
+  position: relative;
+
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: baseline;
+  width: 100%;
+
+  font-weight: 300;
+  font-size: 1em;
+  text-decoration: none;
+  color: cv("text");
+  cursor: pointer;
+}
+
+.tree-nav .sections .tree-nav-link-parent a {
+  overflow: hidden;
+
+  font-size: 14px;
+  text-overflow: ellipsis;
+  color: cv("link", "darker");
+}
+
+.tree-nav .sections .tree-nav-link i.opened {
+  margin-bottom: 2px;
+}
+
+.tree-nav .sections .tree-nav-link i.opened svg {
+  min-width: 5px;
+}
+
+.tree-nav .sections .tree-nav-link i.opened svg path {
+  color: cv("link", "darker");
+}
+
+.tree-nav .sections .tree-nav-link i.opened + span {
+  font-weight: 400;
+  color: cv("link", "darker");
+}
+
+.tree-nav .sections .tree-nav-link i.opened + a {
+  font-weight: 400;
+  color: cv("link", "darker");
+}
+
+.tree-nav .sections .tree-nav-link i.opened + a span {
+  font-weight: 400;
+  color: cv("link", "darker");
+}
+
+.tree-nav .sections .tree-nav-link.children-active {
+  @include active-link;
+}
+
+.tree-nav .sections .tree-nav-link.router-link-active {
+  color: cv("link");
+  @include active-link;
+}
+
+.tree-nav .sections .tree-nav-link > span.text-holder {
+  margin-left: 0;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tree-nav .sections .tree-nav-link > i.parent {
+  position: absolute;
+  top: 6px;
+  left: -19px;
+
+  padding-right: 5px;
+
+  font-size: 9px;
+
+  transition: transform 0.3s;
+}
+
+.tree-nav .sections .tree-nav-link > i.parent svg path {
+  fill: rgb(0 41 122 / 0.3);
+}
+
+.tree-nav .sections .tree-nav-link > i.parent.opened {
+  transform: rotate(90deg);
+
+  top: 7px;
+  left: -22px;
+}
+
+@include media("<desktop-xl") {
+  .tree-nav .sections .tree-nav-link > i.parent.opened {
+    left: -17px;
   }
-  .sections.bordered {
-    &:before {
-      content: '';
-      position: absolute;
-      left: -43px;
-      top: 4px;
-      height: calc(100% - 8px);
-      width: 10px;
-      border-radius: 10px;
-      background-color: #E7EDF9;
-    }
-    @media (max-width: 1439px) {
-      &:before {
-        left: -38px;
-      }
-    }
+}
+
+@include media("<desktop-xl") {
+  .tree-nav .sections .tree-nav-link > i.parent {
+    left: -14px;
   }
-  & > .sections,
-  & > .sections > li > .sections {
-    &:before {
-      display: none;
-    }
-  } 
-  & > .sections > li > .sections > li,
-  & > .sections > li > .sections > li > .sections > li,
-  & > .sections > li > .sections > li > .sections > li > .sections > li {
-    margin-top: 8px;
-  }
-  & > .sections > .link-wrap > .tree-nav-link,
-  & > .sections > .link-wrap > .tree-nav-link a {
-    color: cv('link', 'darker');
-    font-weight: 400;
-    font-size: 16px;
-  }
-  &-toggle {
-    position: sticky;
-    right: 14px;
-    top: 27px;
-    border-radius: 50%;
-    width: 52px;
-    height: 52px;
-    background-color: cv('body', 'sidebar-toggle');
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 2;
-    margin-left: -36px;
-    &:before {
-      content: '';
-      position: absolute;
-      right: 15px;
-      width: 60px;
-      background: linear-gradient(-90deg, cv('body', 'sidebar'), transparent);
-      height: 20px;
-      z-index: 2;
-      display: none;
-    }
-    svg {
-      position: relative;
-      z-index: 3;
-      transform: rotate(180deg);
-    }
-    &.active {
-      margin-left: calc(100% - 36px);
-      right: -10px;
-      background-color: transparent;
-      svg {
-        transform: rotate(0);
-      }
-      &:before {
-        display: block;
-      }
-    }
-  }
-  @include media("<tablet") {
+}
+
+.tree-nav .hidden {
+  display: none;
+}
+
+.tree-nav .scroll-up {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+
+  display: none;
+  cursor: pointer;
+}
+
+@include media("<tablet") {
+  .tree-nav {
     flex-basis: 0;
-    width: 100%;
     padding: 1rem 0 0 0;
-  }
-  .sections {
-    li > .sections {
-      padding-left: 0;
-      margin-left: 22px;
-    }
-    &:first-child {
-      & > .link-wrap > .tree-nav-link {
-        &> .text-holder {
-          @include active-link;
-        }
-        &.router-link-active {
-          &> .text-holder {
-            color: cv('link');
-          }
-        }
-      }
-    }
-    .link-wrap {
-      margin-top: 12px;
-      a {
-        color: cv('link', 'bluelight');
-        font-size: 14px;
-        &.router-link-active {
-          span {
-            color: cv('link', 'darker');
-            font-weight: 400;
-          }
-          &:before {
-            background-image: none !important;
-            mask-repeat: no-repeat;
-            mask-position: center;
-            background-color: cv("link", "active-router") !important;
-            -webkit-mask-image: url("/img/icons/angle-right.svg");
-            mask-image: url("/img/icons/angle-right.svg");
-          }
-        }
-      }
-      span {
-        color: cv('link', 'darker');
-        font-size: 14px;
-        white-space: nowrap;
-      }
-      .blank-divider {
-        cursor: default;
-        margin-top: 12px;
-        margin-left: -17px;
-        font-weight: 400;
-        font-size: 14px;
-        white-space: nowrap;
-      }
-    }
-    .tree-nav-link {
-      position: relative;
-      display: inline-flex;
-      align-items: baseline;
-      justify-content: flex-start;
-      font-size: 1em;
-      font-weight: 300;
-      text-decoration: none;
-      color: cv('text');
-      cursor: pointer;
-      width: 100%;
-      &-parent a {
-        color: cv('link', 'darker');
-        font-size: 14px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      i.opened {
-        margin-bottom: 2px;
-        svg {
-          min-width: 5px;
-          path {
-            color: cv('link', 'darker');
-          }
-        }
-        & + span {
-          color: cv('link', 'darker');
-          font-weight: 400;
-        }
-        & + a {
-          color: cv('link', 'darker');
-          font-weight: 400;
-          span {
-            color: cv('link', 'darker');
-            font-weight: 400;
-          }
-        }
-      }
-      &.children-active {
-        @include active-link;
-      }
-      &.router-link-active {
-        @include active-link;
-        color: cv('link');
-      }
-      > span.text-holder {
-        margin-left: 0px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      > i.parent {
-        transition: transform .3s;
-        position: absolute;
-        left: -19px;
-        top: 6px;
-        font-size: 9px;
-        padding-right: 5px;
-        svg {
-          path {
-            fill: rgba(0, 41, 122, .3);
-          }
-        }
-        @include media("<desktop-xl") {
-          left: -14px;
-        }
-        &.opened {
-          transform: rotate(90deg);
-          top: 7px;
-          left: -22px;
-          @include media("<desktop-xl") {
-            left: -17px;
-          }
-        }
-      }
-    }
-  }
-  .hidden {
-    display: none;
-  }
-  .scroll-up {
-    cursor: pointer;
-    position: absolute;
-    left: 20px;
-    bottom: 16px;
-    display: none;
+    width: 100%;
   }
 }
 

@@ -3,19 +3,20 @@
 }
 
 .thank-you--title {
-  text-align: center;
   margin-top: -5px;
   margin-bottom: 15px;
 
-  img {
-    min-width: 40px;
-    margin-bottom: 10px;
-  }
+  text-align: center;
+}
 
-  h2 {
-    margin: .5em 0;
-    margin-bottom: 16px;
-  }
+.thank-you--title img {
+  margin-bottom: 10px;
+  min-width: 40px;
+}
+
+.thank-you--title h2 {
+  margin: 0.5em 0;
+  margin-bottom: 16px;
 }
 
 .thank-you--description {
