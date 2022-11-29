@@ -18,7 +18,7 @@ Okta orgs host pages on subdomains and each org is assigned a URL. The typical o
 
 You can customize your Okta org URL by replacing the Okta domain name with your own domain name. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.companyname.com`.
 
-Each organization also has an administrator URL to sign in to the administrator console. The admin URL is the subdomain plus `-admin` (for example, `companyname-admin.okta.com`). If you have [customized your org URL](/docs/guides/custom-url-domain/), access the admin console using your un-customized URL.
+Each organization also has an administrator URL to sign in to the administrator console. The admin URL is the subdomain plus `-admin` (for example, `companyname-admin.okta.com`). If you have [customized your domain](/docs/guides/custom-url-domain/), access the admin console using your un-customized domain.
 
 ### Preview and production
 Okta orgs come in two varieties: preview orgs and production orgs.

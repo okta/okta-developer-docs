@@ -48,8 +48,8 @@ The specific steps to upgrade your widget depend on your [user authentication de
 
 The widget upgrade for a redirect sign-in flow depends on whether you configured a custom URL domain:
 
-* If you haven't configured a [custom URL Domain](/docs/guides/custom-url-domain/) and don't have customizations outside of simple branding styles, your widget is automatically upgraded to the latest version when it's loaded from the content delivery network (CDN).
-* If you've configured a [custom URL domain](/docs/guides/custom-url-domain/) and have other customizations, admins must update the widget version in the Admin Console.
+* If you haven't configured a [custom domain](/docs/guides/custom-url-domain/) and don't have customizations outside of simple branding styles, your widget is automatically upgraded to the latest version when it's loaded from the content delivery network (CDN).
+* If you've configured a [custom domain](/docs/guides/custom-url-domain/) and have other customizations, admins must update the widget version in the Admin Console.
 
 To update the widget:
 
@@ -57,7 +57,7 @@ To update the widget:
 
    In the **Okta Sign-In Widget Version** section, check that the **Major Version** is the highest version available and **Minor Version** is **latest**. The widget is always the latest version if you're not using a custom URL domain.
 
-2. If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version. Click **Edit** in the **Okta Sign-In Widget Version** section and then select the **Major Version** and **Minor Version** fields.
+2. If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version. Click **Edit** in the **Okta Sign-In Widget Version** section and then select the **Major Version** and **Minor Version** fields.
 
 3. Click **Save** at the bottom of the page.
 

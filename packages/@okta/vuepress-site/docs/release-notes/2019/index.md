@@ -636,7 +636,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -686,7 +686,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -748,7 +748,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -777,7 +777,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -827,7 +827,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
