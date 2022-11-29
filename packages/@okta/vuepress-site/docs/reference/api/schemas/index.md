@@ -3388,7 +3388,7 @@ with the following keywords:
 | Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
 | :---------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
 | writeOnce|Determines whether the property can be updated once it has been created|Boolean|FALSE|FALSE|TRUE|
-| writeOnly|Determines whether the property will be returned by Okta. This is to protect sensitive data|Boolean|FALSE|FALSE|TRUE|
+| writeOnly|Determines whether the property is returned by Okta to protect sensitive data|Boolean|FALSE|FALSE|TRUE|
 | errorMessage|Error messages for properties of this Log Stream object|[Error Message object](#error-message-object)|FALSE|TRUE|TRUE|
 
 #### Log Stream Schema object description details
