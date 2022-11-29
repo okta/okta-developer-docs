@@ -19,7 +19,7 @@ The next step for the user after they click the **Sign up** link is to enter bas
 
 <div class="half wireframe-border">
 
-![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/ sign-up-form-first-last-name-email.png)
+![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
 
 <!--
 

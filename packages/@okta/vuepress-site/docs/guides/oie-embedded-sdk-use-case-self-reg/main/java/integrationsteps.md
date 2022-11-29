@@ -17,7 +17,7 @@ You need to create a form to capture the user's new account details.
 
 <div class="half wireframe-border">
 
-![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/ sign-up-form-first-last-name-email.png)
+![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
 
 <!--
 

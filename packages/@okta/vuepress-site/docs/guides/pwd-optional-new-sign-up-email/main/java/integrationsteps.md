@@ -21,7 +21,7 @@ Create a sign-up page that captures the user's first name, last name, and email 
 
 <div class="half wireframe-border">
 
-![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/ sign-up-form-first-last-name-email.png)
+![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
 
 <!--
 
