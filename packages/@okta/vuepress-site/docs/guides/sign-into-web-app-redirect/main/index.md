@@ -160,7 +160,7 @@ Your website may enable anonymous access for some content but require a user to 
 ## Next steps
 
 * [Protect your API endpoints](/docs/guides/protect-your-api/).
-* [Customize the Okta URL and email notification domains](https://developer.okta.com/docs/guides/custom-url-domain/main/)
+* [Custom domain and email address](https://developer.okta.com/docs/guides/custom-url-domain/main/)
 * [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
 * [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/)
 * [Multi-tenant solutions](https://developer.okta.com/docs/concepts/multi-tenancy/)

@@ -42,7 +42,7 @@ Redirect authentication through the Okta-hosted Sign-In Widget is considered the
 
 </div>
 
-The user or system is redirected to Okta for credential verification and is then provided authenticated access to the client application and other Service Providers. When a user signs in to the client application, they are redirected to Okta using a protocol like SAML or OpenID Connect (OIDC). After the user signs in (based on policies that are configured in Okta), Okta redirects the user back to your application. You can customize your app's [URL domain](/docs/guides/custom-url-domain/) and the [Sign-In Widget style](/docs/guides/custom-widget/) to match your brand.
+The user or system is redirected to Okta for credential verification and is then provided authenticated access to the client application and other Service Providers. When a user signs in to the client application, they are redirected to Okta using a protocol like SAML or OpenID Connect (OIDC). After the user signs in (based on policies that are configured in Okta), Okta redirects the user back to your application. You can customize your app's [domain](/docs/guides/custom-url-domain/) and the [Sign-In Widget style](/docs/guides/custom-widget/) to match your brand.
 
 > **Note**: [Single Sign-On (SSO)](/docs/guides/build-sso-integration/) is supported for redirect authentication. That is, Okta may create a session (based on the Okta policies, for example), and then other integrated applications can use SSO to sign users in.
 

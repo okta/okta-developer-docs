@@ -177,7 +177,7 @@ An Okta organization (org) is a root object and a container for all other Okta o
 
 Every org has users and apps. These are the only mandatory items that you must configure for your org to use Okta. You can create users in Okta, import users through directory integrations or application integrations. Applications are connections to public apps (such as Office 365) or proprietary applications (such as your own apps).
 
-Okta orgs host pages on subdomains, and a unique URL is assigned to each org. The typical org URL is the tenant name (the subdomain), and then the domain name. Each org has an admin URL to sign in to the Admin Console. You can [customize the organization and admin URLs](/docs/guides/custom-url-domain/main/).
+Okta orgs host pages on subdomains, and a unique URL is assigned to each org. The typical org URL is the tenant name (the subdomain), and then the domain name. Each org has an admin URL to sign in to the Admin Console. You can [customize the domain](/docs/guides/custom-url-domain/main/).
 
 There are two types of organizations &mdash; production and preview:
 

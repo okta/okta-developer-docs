@@ -1,55 +1,62 @@
-.customLanding {
-    &-start {
-        max-width: 700px;
-        margin: 0 auto;
-        padding: 60px 32px 100px;
-        text-align: center;
+.customLanding-start {
+  margin: 0 auto;
+  padding: 60px 32px 100px;
+  max-width: 700px;
 
-        h2 {
-            margin: 0 0 30px;
-            font-size: 32px;
-            font-weight: 400;
-            line-height: 1.3;
-            color: cv('header', 'nav-link');
-        }
+  text-align: center;
+}
 
-        p {
-            margin: 0;
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 1.7;
-            color: cv('header', 'nav-link');
-        }
+.customLanding-start h2 {
+  margin: 0 0 30px;
 
-        &__actions {
-            margin-top: 36px;
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: center;
-            align-items: center;
-        }
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.3;
+  color: cv("header", "nav-link");
+}
 
-        &__button {
-          display: inline-block;
-          margin-right: 40px;
-          background-color: cv('blue', '900');
-          padding: 0.625rem 1.25rem;
-          color: cv('body', 'white');
-          display: inline-block;
-          font-weight: 500;
-          border-radius: 4px;
-          &:hover {
-            color: cv('body', 'white');
-            background-color: cv('link');
-          }
-          &:visited,
-          &:active,
-          &:focus {
-            color: cv('body', 'white');
-          }
-        }
-        &__link {
-          font-weight: 500;
-        }
-    }
+.customLanding-start p {
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.7;
+  color: cv("header", "nav-link");
+}
+
+.customLanding-start__actions {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
+}
+
+.customLanding-start__button {
+  display: inline-block;
+  display: inline-block;
+  margin-right: 40px;
+  padding: 0.625rem 1.25rem;
+
+  border-radius: 4px;
+  background-color: cv("blue", "900");
+
+  font-weight: 500;
+  color: cv("body", "white");
+}
+
+.customLanding-start__button:hover {
+  background-color: cv("link");
+
+  color: cv("body", "white");
+}
+
+.customLanding-start__button:visited,
+.customLanding-start__button:active,
+.customLanding-start__button:focus {
+  color: cv("body", "white");
+}
+
+.customLanding-start__link {
+  font-weight: 500;
 }
