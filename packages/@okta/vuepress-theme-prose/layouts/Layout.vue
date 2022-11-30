@@ -101,6 +101,7 @@ export default {
     Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
     Errors: () => import("../components/Errors.vue"),
+	 Copyright: () => import("../components/Copyright.vue"),
   },
   mixins: [SidebarItems],
   data() {

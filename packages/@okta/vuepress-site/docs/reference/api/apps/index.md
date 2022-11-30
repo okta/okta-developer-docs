@@ -1355,7 +1355,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 ###### Details
 
 * `issuer_mode` is visible if the Custom URL Domain is configured or the Dynamic Issuer Mode feature is enabled. <br>
-If you have [configured a custom URL domain](/docs/guides/custom-url-domain/), the issuer is returned in the appropriate OpenID Connect token response. When a custom URL domain is configured, the default value for new apps is `CUSTOM_URL`. <br>
+If you have [configured a custom domain](/docs/guides/custom-url-domain/), the issuer is returned in the appropriate OpenID Connect token response. When a custom URL domain is configured, the default value for new apps is `CUSTOM_URL`. <br>
 If the Dynamic Issuer Mode feature is enabled, you can set `issuer_mode` to `DYNAMIC`. When you use `DYNAMIC`, the request for the ID token made from the custom domain has the custom URL as the issuer. The request for the ID token made from an Okta org has the Org URL as the issuer. When this feature is enabled, the default value for new apps is `DYNAMIC`.<br>
 You can change the `issuer_mode` value using the API or the Admin Console. To enable the Dynamic Issuer Mode feature, contact [Support](https://support.okta.com/help/open_case).
 
