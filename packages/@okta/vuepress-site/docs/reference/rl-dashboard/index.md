@@ -89,6 +89,8 @@ Each API is a link that navigates you to the [dashboard view of API rate limits 
 
 You can perform a search in your table list by making an entry in the Search box. You can also perform a "lookup" with the Search. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that will be applied to calls that are made against that `requestURI`.
 
+> **Note:** You can view rate limits for endpoints that include parameter matching. For example, `api/v1/users?search=*`. This example returns all rate limit data on user searches.
+
 ### Change rate limit settings
 
 #### Client-based rate limiting
