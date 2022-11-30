@@ -1,3 +1,7 @@
+.customLanding-features {
+  padding: 60px 0px 0px;
+}
+
 .customLanding-features__row {
   position: relative;
 
@@ -64,6 +68,16 @@
   width: 30px;
 }
 
+.customLanding-features h2 {
+  margin: 0 0 0px;
+  max-width: 540px;
+
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.25;
+  color: cv("header", "nav-link");
+}
+
 .customLanding-features__title h3 {
   margin: 0;
   padding-left: 16px;
@@ -84,7 +98,7 @@
 .customLanding-features__button {
   display: inline-block;
   padding: 0.625rem 1.25rem;
-
+  border-radius: 4px;
   background-color: cv("blue", "900");
 
   font-weight: 400;
