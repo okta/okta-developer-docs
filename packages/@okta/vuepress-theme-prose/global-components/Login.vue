@@ -3,38 +3,55 @@
     <h1>Welcome back to Okta</h1>
     <div class="login--form">
       <div class="row">
-        <label class="field-wrapper" for="login-email">
-          <a class="btn" :href="uris.email">
+        <label
+          class="field-wrapper"
+          for="login-email"
+        >
+          <a
+            class="btn"
+            :href="uris.email"
+          >
             Sign In With Email
           </a>
         </label>
       </div>
       <div class="splitter">
-        <span></span>
+        <span />
         <span>or</span>
-        <span></span>
+        <span />
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" :href="uris.github">
-            <i class="fa fa-github"></i> Continue with GitHub
+          <a
+            class="btn social-btn"
+            :href="uris.github"
+          >
+            <i class="fa fa-github" /> Continue with GitHub
           </a>
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" :href="uris.google">
-            <span class="google-logo"></span> Continue with Google
+          <a
+            class="btn social-btn"
+            :href="uris.google"
+          >
+            <span class="google-logo" /> Continue with Google
           </a>
         </div>
       </div>
       <div class="row goto-signup">
         Need an account?
-        <SmartLink :item="{ link: '/signup/' }">Sign up</SmartLink>
+        <SmartLink :item="{ link: '/signup/' }">
+          Sign up
+        </SmartLink>
       </div>
     </div>
     <div class="logo-wrapper">
-      <CompanyLogos withHeading small />
+      <CompanyLogos
+        with-heading
+        small
+      />
     </div>
   </div>
 </template>

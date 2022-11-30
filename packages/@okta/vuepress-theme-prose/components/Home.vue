@@ -4,7 +4,7 @@
       <Sidebar />
       <div class="width-adjuster">
         <AnnouncementBanner>
-          <template v-slot:description>
+          <template #description>
             <strong>We've got a new API reference in the works!</strong><br>
             With a fresh look and feel, our new API content features a more logical navigation and a wider variety of code examples. <a href="https://developer.okta.com/docs/api/">Try the beta now</a>.
           </template>
@@ -21,7 +21,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                   <h6>Auth for All</h6>
                   <p class="homepage--section-description">
-                    Quickly deploy auth that protects your apps,<br />
+                    Quickly deploy auth that protects your apps,<br>
                     APIs, and infrastructure
                   </p>
                 </div>
@@ -37,11 +37,11 @@
 
               <div class="homepage--selector-block-margin selector-tiles">
                 <div
-                  class="selector-tile-item"
                   v-for="(tile, index) in $page.frontmatter.tiles"
                   :key="index"
+                  class="selector-tile-item"
                 >
-                  <SelectorTile :tileData="tile" />
+                  <SelectorTile :tile-data="tile" />
                 </div>
               </div>
             </div>
@@ -50,15 +50,15 @@
             >
               <div class="row flex justify-content-around">
                 <div
-                  class="col-xl-4 col-lg-4 col-md-4 col-sm-12"
                   v-for="(assurance, index) in $page.frontmatter.assurances"
                   :key="index"
+                  class="col-xl-4 col-lg-4 col-md-4 col-sm-12"
                 >
                   <AssuranceItem :item="assurance" />
                 </div>
               </div>
             </div>
-           <!-- <div
+            <!-- <div
               class="homepage--customize-your-app-margin homepage--section-margins"
             >
               <h2
@@ -146,8 +146,8 @@
               </div>
             </div> -->
             <div>
-            <br>
-            <br>
+              <br>
+              <br>
             <!-- empty div for spacing  -->
             </div>
             <div
@@ -187,6 +187,9 @@ export default {
     this.onResize();
     window.addEventListener("resize", this.onResize);
   },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
+  },
   methods: {
     onResize() {
       this.isInMobileViewport = window.innerWidth < SIDE_BY_SIDE_BREAKPOINT;
@@ -199,9 +202,6 @@ export default {
         this.pseudoAuthorizedCodeBlock = !this.pseudoAuthorizedCodeBlock;
       }
     }
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.onResize);
   }
 };
 </script>

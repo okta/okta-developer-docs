@@ -13,7 +13,7 @@
     <div class="authorization-layout--footer">
       <Footer />
     </div>
-    <portal-target name="dialog-wrapper"></portal-target>
+    <portal-target name="dialog-wrapper" />
   </div>
 </template>
 
