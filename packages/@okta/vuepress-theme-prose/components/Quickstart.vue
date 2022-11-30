@@ -1,5 +1,5 @@
 <template>
-  <p>This quickstart has moved to our <a :href="this.redirectUrl">new Guides</a>.</p>
+  <p>This quickstart has moved to our <a :href="redirectUrl">new Guides</a>.</p>
 </template>
 <script>
   export default {

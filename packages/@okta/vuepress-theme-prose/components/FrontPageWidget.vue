@@ -1,5 +1,8 @@
 <template>
-  <div class="main-page-widget-wrapper" id="okta-sign-in"></div>
+  <div
+    id="okta-sign-in"
+    class="main-page-widget-wrapper"
+  />
 </template>
 
 <script>

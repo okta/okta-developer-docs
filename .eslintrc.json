@@ -1,0 +1,25 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/recommended"
+  ],
+  "rules": {
+    "vue/no-reserved-component-names": "off",
+    "vue/no-v-html": "off",
+    "vue/return-in-computed-property": "off",
+    "vue/multi-word-component-names": "off",
+    "vue/require-default-prop": "off",
+    "vue/no-unused-components": "off",
+    "no-unused-vars": "off",
+    "vue/require-v-for-key": "off",
+    "no-prototype-builtins": "off",
+    "vue/require-prop-types": "off",
+    "no-undef": "off",
+    "vue/no-side-effects-in-computed-properties": "off",
+    "vue/no-template-shadow": "off",
+    "vue/no-mutating-props": "off",
+    "vue/require-prop-type-constructor": "off",
+    "no-global-assign": "off",
+    "vue/prop-name-casing": "off"
+  }
+}

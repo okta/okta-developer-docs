@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
-    "build": "yarn stylelint && yarn workspace @okta/vuepress-site build",
+    "build": "yarn lint-all && yarn workspace @okta/vuepress-site build",
     "broken-link-checker:all": "node scripts/broken-link-checker all",
     "broken-link-checker:internal": "node scripts/broken-link-checker internal",
     "broken-link-checker:external": "node scripts/broken-link-checker external",
@@ -28,7 +28,9 @@
     "update-oauth2-error-codes": "bash scripts/update-oauth2-error-codes.sh",
     "stylelint": "yarn stylelint:scss && yarn stylelint:vue",
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
-    "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\""
+    "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
+    "eslint": "./node_modules/.bin/eslint packages/@okta/vuepress-theme-prose/**/*.vue",
+    "lint-all": "yarn eslint && yarn stylelint"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
@@ -49,7 +51,9 @@
     "stylelint": "^14.15.0",
     "stylelint-scss": "^4.3.0",
     "stylelint-order": "^5.0.0",
-    "@mapbox/stylelint-processor-arbitrary-tags": "^0.4.0"
+    "@mapbox/stylelint-processor-arbitrary-tags": "^0.4.0",
+    "eslint": "^8.28.0",
+    "eslint-plugin-vue": "^9.8.0"
   },
   "dependencies": {
     "broken-link-checker": "^0.7.8",
