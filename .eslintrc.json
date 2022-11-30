@@ -36,6 +36,9 @@
     "no-extra-boolean-cast": "off",
     "no-global-assign": "off",
     "vue/this-in-template": "off",
+    "vue/prop-name-casing": "off",
+    "vue/return-in-computed-property": "off",
+    "vue/require-prop-type-constructor": "off",
     "vue/attributes-order": ["error", {
       "order": [
         "OTHER_ATTR",

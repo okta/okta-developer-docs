@@ -1,13 +1,13 @@
 <template>
   <ul class="menu--items menu--desktop">
     <MenuItem
-      v-for="(item, index) in items"
-      :key="index"
       :item="item"
       :index="index"
       :itemCss="itemCss"
       :subItemCss="subItemCss"
-      ></MenuItem>
+      v-for="(item, index) in items"
+      :key="index"
+    />
   </ul>
 </template>
 

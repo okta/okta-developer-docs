@@ -1,30 +1,54 @@
 <template>
-  <div :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'no-snippet': !snippet, 'display-inline': inline }" v-show="isVisible()" v-if="options.length">
-    <div class="selector-control" v-if="!noSelector">
+  <div
+    :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'no-snippet': !snippet, 'display-inline': inline }"
+    v-show="isVisible()"
+    v-if="options.length"
+  >
+    <div
+      class="selector-control"
+      v-if="!noSelector"
+    >
       <span class="instructions-label">
         Instructions for
       </span>
 
       <nav class="select-dropdown">
-        <v-select :options="options" v-model="selectedOption" :searchable="true" :multiple="false" :clearable="false" v-on:input="inputChanged">
+        <v-select
+          :options="options"
+          :searchable="true"
+          :multiple="false"
+          :clearable="false"
+          v-model="selectedOption"
+          @input="inputChanged"
+        >
           <template #selected-option="{title, css}">
-            <i :class="css"></i><span class="framework">{{title}}</span>
+            <i :class="css"></i><span class="framework">{{ title }}</span>
           </template>
           <template #option="{title, link, css}">
-            <div class="dropdown-item" :key="link">
-
-              <i :class="css"></i><span class="framework">{{title}}</span>
-
+            <div
+              class="dropdown-item"
+              :key="link"
+            >
+              <i :class="css"></i><span class="framework">{{ title }}</span>
             </div>
           </template>
-      </v-select>
+        </v-select>
       </nav>
     </div>
-    <aside class="stack-content" v-if="snippet">
-      <Content v-if="snippetComponentKey" :pageKey="snippetComponentKey" />
+    <aside
+      class="stack-content"
+      v-if="snippet"
+    >
+      <Content
+        :pageKey="snippetComponentKey"
+        v-if="snippetComponentKey"
+      />
     </aside>
   </div>
-  <div v-else class="no-stack-content">
+  <div
+    class="no-stack-content"
+    v-else
+  >
     No code snippets defined
   </div>
 </template>
@@ -53,41 +77,6 @@
         offsetFromViewport: null,
         hasFocus: false,
       };
-    },
-    methods: {
-      handleScroll() {
-        // beforeUpdated was somehow AFTER the viewport offsets were calculated for new content
-        // thus we need to save this from before they swap tabs within the StackSelector
-        this.offsetFromViewport = this.$el.getBoundingClientRect().top;
-      },
-      inputChanged: function(value) {
-        if (value && value.link) {
-          this.hasFocus = true;
-          this.$router.push(value.link);
-
-          // After new value selected we record new route value and prev value into shared stackSelectorData object
-          // to be able to use it in SidebarItem.vue component
-          this.stackSelectorData.from = this.selectedOption.link;
-          this.stackSelectorData.to = value.link;
-        }
-      },
-      isVisible: function() {
-        if(this.$page.frontmatter.showStackSelector == false && !this.noSelector) {
-          return false;
-        }
-        return true;
-      }
-    },
-    created () {
-      if(typeof window !== "undefined") {
-        window.addEventListener('scroll', this.handleScroll);
-      }
-    },
-    destroyed () {
-      this.stackSelector = false
-      if(typeof window !== "undefined") {
-        window.removeEventListener('scroll', this.handleScroll);
-      }
     },
     computed: {
       guideName() {
@@ -139,6 +128,17 @@
         }
       }
     },
+    created () {
+      if(typeof window !== "undefined") {
+        window.addEventListener('scroll', this.handleScroll);
+      }
+    },
+    destroyed () {
+      this.stackSelector = false
+      if(typeof window !== "undefined") {
+        window.removeEventListener('scroll', this.handleScroll);
+      }
+    },
     updated() {
       // If we are the Stack Selector that was focused (clicked on),
       // scroll that we stay in the same position relative to the viewport
@@ -147,6 +147,30 @@
           window.scroll(0, this.$el.offsetTop - this.offsetFromViewport );
           this.hasFocus = false;
         });
+      }
+    },
+    methods: {
+      handleScroll() {
+        // beforeUpdated was somehow AFTER the viewport offsets were calculated for new content
+        // thus we need to save this from before they swap tabs within the StackSelector
+        this.offsetFromViewport = this.$el.getBoundingClientRect().top;
+      },
+      inputChanged: function(value) {
+        if (value && value.link) {
+          this.hasFocus = true;
+          this.$router.push(value.link);
+
+          // After new value selected we record new route value and prev value into shared stackSelectorData object
+          // to be able to use it in SidebarItem.vue component
+          this.stackSelectorData.from = this.selectedOption.link;
+          this.stackSelectorData.to = value.link;
+        }
+      },
+      isVisible: function() {
+        if(this.$page.frontmatter.showStackSelector == false && !this.noSelector) {
+          return false;
+        }
+        return true;
       }
     },
   };

@@ -1,6 +1,5 @@
 <template>
   <div class="header--links">
-    
     <MenuItems
       :items="$themeConfig.primary_left_nav"
       :itemCss="'link link--small link--semi-bold'"
@@ -17,12 +16,11 @@
 </template>
 
 <script>
-  
+
   export default {
     name: "HeaderMenu",
     components: {
       MenuItems: () => import("../components/MenuItems.vue"),
-      MenuItem: () => import("../components/MenuItem.vue"),
       DocsMenuItems: () => import("../components/DocsMenuItems.vue"),
     },
     data() {
@@ -37,9 +35,9 @@
           this.$themeConfig.primary_left_nav,
           this.$themeConfig.primary_right_nav
         );
-     
+
         this.menu = this.updateMenuProps(this.menu);
-        
+
         return this.menu;
       },
       updateMenuProps: function(menu) {
@@ -52,7 +50,7 @@
 
           if (el.text) {
             el.title = el.text;
-            el.path = el.link;        
+            el.path = el.link;
           }
 
           if (el.children) {
@@ -60,7 +58,7 @@
             el.subLinks.map(update);
           }
 
-          return el;     
+          return el;
         });
         return menu;
       },

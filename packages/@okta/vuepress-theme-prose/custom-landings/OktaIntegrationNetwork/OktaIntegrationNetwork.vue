@@ -10,9 +10,8 @@
 </template>
 
 <script>
-	export default {
+  export default {
     name: 'OktaIntegrationNetwork',
-    inject: ["appContext"],
     components: {
       CustomLandingHero: () => import("./components/Hero.vue"),
       CustomLandingAbout: () => import("./components/About.vue"),
@@ -20,6 +19,7 @@
       CustomLandingFeatures: () => import("./components/Features.vue"),
       CustomLandingExplore: () => import("./components/Explore.vue"),
       CustomLandingStart: () => import("./components/Start.vue")
-    }
+    },
+    inject: ["appContext"]
   }
 </script>

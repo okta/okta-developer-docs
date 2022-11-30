@@ -1,27 +1,75 @@
 <template>
   <div class="event-types">
     <p>
-    <input type="text" id="event-type-search" name="filter" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search event types for..." :value="search" @input="updateSearch"/>
-    <select id="event-type-release" name="release" markdown="block" v-model="release">
-      <option :value="null">All Releases</option>
-      <option v-for="release in releases" v-bind:key="release" v-bind:value="release">
-        {{ release }}
-      </option>
-    </select>
+      <input
+        type="text"
+        name="filter"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="Search event types for..."
+        :value="search"
+        id="event-type-search"
+        @input="updateSearch"
+      >
+      <select
+        name="release"
+        markdown="block"
+        id="event-type-release"
+        v-model="release"
+      >
+        <option :value="null">
+          All Releases
+        </option>
+        <option
+          :value="release"
+          v-for="release in releases"
+          :key="release"
+        >
+          {{ release }}
+        </option>
+      </select>
     </p>
-    <div id="event-type-count">Found <b>{{ resultCount }}</b> matches</div>
-    <div class="event-type" v-for="eventType in filteredEventTypes" :key="eventType.id">
-      <h4 :id="eventType.id | titleAsId" v-html="$options.filters.title(eventType.id)"></h4>
+    <div id="event-type-count">
+      Found <b>{{ resultCount }}</b> matches
+    </div>
+    <div
+      class="event-type"
+      v-for="eventType in filteredEventTypes"
+      :key="eventType.id"
+    >
+      <h4
+        :id="eventType.id | titleAsId"
+        v-html="$options.filters.title(eventType.id)"
+      ></h4>
 
-      <div class="event-type-mappings" v-if="eventType.mappings.length > 0">
+      <div
+        class="event-type-mappings"
+        v-if="eventType.mappings.length > 0"
+      >
         <b>Legacy event types: </b> {{ eventType.mappings.join(', ') }}
       </div>
 
-      <p class="event-type-description" v-if="eventType.description">{{ eventType.description}}</p>
-      <p class="event-type-description" v-else>No Description</p>
+      <p
+        class="event-type-description"
+        v-if="eventType.description"
+      >
+        {{ eventType.description }}
+      </p>
+      <p
+        class="event-type-description"
+        v-else
+      >
+        No Description
+      </p>
 
       <div class="event-type-tags">
-        <code class="event-type-tag" v-for="tag in eventType.tags" :key="tag">{{ tag }}</code>
+        <code
+          class="event-type-tag"
+          v-for="tag in eventType.tags"
+          :key="tag"
+        >{{ tag }}</code>
       </div>
       <div class="event-type-release">
         Since: <SmartLink :item="{link: '/docs/release-notes/', text: eventType.info.release}" />
@@ -38,17 +86,16 @@
     components: {
       SmartLink: () => import("../components/SmartLink"),
     },
-    created() {
-      this.eventTypes = eventTypes.versions
-        .find(version => version.version == "V2").eventTypes
-        .filter(eventType => !eventType.beta && !eventType.internal)
-      this.releases = _.chain(this.eventTypes)
-        .map(eventType => eventType.info)
-        .map(info => info.release)
-        .uniq()
-        .sort()
-        .reverse()
-        .value()
+    filters: {
+      title: function (value) {
+        const parts = value.split('.')
+        let res = "<b>" + parts[0] + "</b>."
+        parts.shift()
+        return res + parts.join('.')
+      },
+      titleAsId: function (value) {
+        return value.replace(/[\s_.]/g, '');
+      }
     },
     data() {
       return {
@@ -84,17 +131,6 @@
         return  this.filteredEventTypes.length
       }
     },
-    filters: {
-      title: function (value) {
-        const parts = value.split('.')
-        let res = "<b>" + parts[0] + "</b>."
-        parts.shift()
-        return res + parts.join('.')
-      },
-      titleAsId: function (value) {
-        return value.replace(/[\s_.]/g, '');
-      }
-    },
     watch: {
       search() {
         this.addHistory()
@@ -102,6 +138,18 @@
       release() {
         this.addHistory()
       }
+    },
+    created() {
+      this.eventTypes = eventTypes.versions
+        .find(version => version.version == "V2").eventTypes
+        .filter(eventType => !eventType.beta && !eventType.internal)
+      this.releases = _.chain(this.eventTypes)
+        .map(eventType => eventType.info)
+        .map(info => info.release)
+        .uniq()
+        .sort()
+        .reverse()
+        .value()
     },
     methods: {
       updateSearch: _.debounce(function(e) {

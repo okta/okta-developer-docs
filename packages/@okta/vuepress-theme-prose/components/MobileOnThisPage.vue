@@ -1,11 +1,25 @@
 <template>
-  <div class="mobile-on-this-page" v-show="options.length > 0">
-    <h3 class="mobile-header">On this page</h3>
-    <v-select :options="options" v-model="selectedOption" :searchable="false" :multiple="false" :clearable="false" v-on:input="inputChanged">
-
+  <div
+    class="mobile-on-this-page"
+    v-show="options.length > 0"
+  >
+    <h3 class="mobile-header">
+      On this page
+    </h3>
+    <v-select
+      :options="options"
+      :searchable="false"
+      :multiple="false"
+      :clearable="false"
+      v-model="selectedOption"
+      @input="inputChanged"
+    >
       <template #option="{label, isSubheading}">
-        <div class="dropdown-item" v-bind:class="{subheading: isSubheading}">
-          {{label}}
+        <div
+          class="dropdown-item"
+          :class="{subheading: isSubheading}"
+        >
+          {{ label }}
         </div>
       </template>
     </v-select>

@@ -1,7 +1,16 @@
 <template>
-  <div v-if="bannerIsOpened" class="announcement-banner">
-    <div v-on:click="handleBannerClose" class="announcement-banner--close">
-      <i v-on:click="handleBannerClose" class="fa fa-times"></i>
+  <div
+    class="announcement-banner"
+    v-if="bannerIsOpened"
+  >
+    <div
+      class="announcement-banner--close"
+      @click="handleBannerClose"
+    >
+      <i
+        class="fa fa-times"
+        @click="handleBannerClose"
+      ></i>
     </div>
     <div class="announcement-banner--content">
       <span class="announcement-banner--title">
@@ -12,11 +21,11 @@
           <slot name="description"></slot>
         </p>
         <a
-          v-if="ctaHref && ctaText"
           :href="ctaHref"
           class="announcement-banner--cta"
           target="_blank"
           rel="noopener noreferrer"
+          v-if="ctaHref && ctaText"
         >
           {{ ctaText }}
         </a>
@@ -26,23 +35,23 @@
       <img
         class="announcement-banner--logo--large"
         src="/img/homepage/announcement-large.png"
-      />
+      >
       <img
         class="announcement-banner--logo--small"
         src="/img/homepage/announcement-small.png"
-      />
+      >
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  name: "AnnouncementBanner",
   props: {
     title: String,
     ctaHref: String,
     ctaText: String
   },
-  name: "announcementBanner",
   data() {
     return {
       bannerIsOpened: true

@@ -1,47 +1,102 @@
 <template>
   <div class="error-codes">
     <p class="error-codes-search-container">
-    <input type="text" id="error-code-search" name="filter" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search error codes for... (Titles, Http Status, or Error Code)" :value="search" @input="updateSearch"/>
+      <input
+        type="text"
+        name="filter"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        placeholder="Search error codes for... (Titles, Http Status, or Error Code)"
+        :value="search"
+        id="error-code-search"
+        @input="updateSearch"
+      >
 
-    <select id="error-codes-release" name="release" markdown="block" v-model="filterStatusCode">
-      <option :value="null">Status Codes</option>
-      <option v-for="statusCode in statusCodes" v-bind:key="statusCode.statusCode" v-bind:value="statusCode.statusCode">
-        {{ statusCode.statusCode }} - {{ statusCode.statusReasonPhrase}}
-      </option>
-    </select>
-    <span class="reset-search" @click="resetSearch" title="Reset Search"></span>
+      <select
+        name="release"
+        markdown="block"
+        id="error-codes-release"
+        v-model="filterStatusCode"
+      >
+        <option :value="null">
+          Status Codes
+        </option>
+        <option
+          :value="statusCode.statusCode"
+          v-for="statusCode in statusCodes"
+          :key="statusCode.statusCode"
+        >
+          {{ statusCode.statusCode }} - {{ statusCode.statusReasonPhrase }}
+        </option>
+      </select>
+      <span
+        class="reset-search"
+        title="Reset Search"
+        @click="resetSearch"
+      ></span>
     </p>
-    <div id="error-code-count">Found <b>{{ resultCount }}</b> matches</div>
-    <div class="error-code" v-for="oktaError in filteredErrorCodes" :key="oktaError.errorCode">
+    <div id="error-code-count">
+      Found <b>{{ resultCount }}</b> matches
+    </div>
+    <div
+      class="error-code"
+      v-for="oktaError in filteredErrorCodes"
+      :key="oktaError.errorCode"
+    >
       <h4 :id="oktaError.errorCode">
-        <span class="title-error-code" v-html="$options.filters.titleErrorCode(oktaError)"></span>
-        <span>{{oktaError.title}} <a :href="'#'+oktaError.errorCode" aria-hidden="true" class="header-anchor header-link"><i class="fa fa-link"></i></a></span>
+        <span
+          class="title-error-code"
+          v-html="$options.filters.titleErrorCode(oktaError)"
+        ></span>
+        <span>{{ oktaError.title }} <a
+          :href="'#'+oktaError.errorCode"
+          aria-hidden="true"
+          class="header-anchor header-link"
+        ><i class="fa fa-link"></i></a></span>
       </h4>
       <div class="error-code-mappings">
         <b>HTTP Status: </b> <code>{{ oktaError.statusCode }} {{ oktaError.statusReasonPhrase }}</code>
       </div>
-      <p class="error-code-description" v-if="oktaError.errorDescription" v-html="oktaError.errorDescription"></p>
-      <p class="error-code-description" v-else v-html="oktaError.errorSummary"></p>
+      <p
+        class="error-code-description"
+        v-if="oktaError.errorDescription"
+        v-html="oktaError.errorDescription"
+      ></p>
+      <p
+        class="error-code-description"
+        v-else
+        v-html="oktaError.errorSummary"
+      ></p>
       <div class="example">
-        <h6 class="toggleErrorExample" :class="{open: openExample == oktaError.errorCode}" @click="toggleResponseExample(oktaError.errorCode)"><span class="underline"><span v-if="openExample == oktaError.errorCode">Hide</span><span v-else>Show</span> Example Error Response</span></h6>
+        <h6
+          class="toggleErrorExample"
+          :class="{open: openExample == oktaError.errorCode}"
+          @click="toggleResponseExample(oktaError.errorCode)"
+        >
+          <span class="underline"><span v-if="openExample == oktaError.errorCode">Hide</span><span v-else>Show</span> Example Error Response</span>
+        </h6>
 
-        <pre class="language-http" v-if="openExample == oktaError.errorCode">
+        <pre
+          class="language-http"
+          v-if="openExample == oktaError.errorCode"
+        >
           <code>
-<span class="token response-status">HTTP/1.1 <span class="token property">{{oktaError.statusCode}} {{oktaError.statusReasonPhrase}}</span></span>
+<span class="token response-status">HTTP/1.1 <span class="token property">{{ oktaError.statusCode }} {{ oktaError.statusReasonPhrase }}</span></span>
 <span class="token header-name keyword">Content-Type:</span> application/json
 <span class="token application/json">
 <span class="token punctuation">{</span>
-    <span class="token property">"errorCode"</span><span class="token punctuation">:</span> <span class="token string">"{{oktaError.errorCode}}"</span><span class="token punctuation">,</span>
-    <span class="token property">"errorSummary"</span><span class="token punctuation">:</span> <span class="token string">"{{oktaError.errorSummary}}"</span><span class="token punctuation">,</span>
-    <span class="token property">"errorLink"</span><span class="token punctuation">:</span> <span class="token string">"https://developer.okta.com/docs/reference/error-codes/#{{oktaError.errorCode}}"</span><span class="token punctuation">,</span>
-    <span class="token property">"errorId"</span><span class="token punctuation">:</span> <span class="token string">"{{errorId()}}"</span><span class="token punctuation">,</span>
+    <span class="token property">"errorCode"</span><span class="token punctuation">:</span> <span class="token string">"{{ oktaError.errorCode }}"</span><span class="token punctuation">,</span>
+    <span class="token property">"errorSummary"</span><span class="token punctuation">:</span> <span class="token string">"{{ oktaError.errorSummary }}"</span><span class="token punctuation">,</span>
+    <span class="token property">"errorLink"</span><span class="token punctuation">:</span> <span class="token string">"https://developer.okta.com/docs/reference/error-codes/#{{ oktaError.errorCode }}"</span><span class="token punctuation">,</span>
+    <span class="token property">"errorId"</span><span class="token punctuation">:</span> <span class="token string">"{{ errorId() }}"</span><span class="token punctuation">,</span>
     <span class="token property">"errorCauses"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </span>
           </code>
         </pre>
-    </div>
-
+      </div>
     </div>
   </div>
 </template>
@@ -51,16 +106,11 @@
   import _ from 'lodash'
 
   export default {
-    created() {
-      this.errorCodes = errorCodes
-      this.statusCodes = _.chain(this.errorCodes.errors)
-        .uniqBy(function(error) {
-          return error.statusCode
-        })
-        .sortBy(function(error) {
-          return error.statusCode
-        })
-        .value()
+    filters: {
+      titleErrorCode: function (oktaError) {
+        const parts = oktaError.errorCode.split(/(E0+)(\d+)/)
+        return parts[1] + "<b>" + parts[2] + "</b>: "
+      },
     },
     data() {
       return {
@@ -95,11 +145,16 @@
         this.addHistory()
       }
     },
-    filters: {
-      titleErrorCode: function (oktaError) {
-        const parts = oktaError.errorCode.split(/(E0+)(\d+)/)
-        return parts[1] + "<b>" + parts[2] + "</b>: "
-      },
+    created() {
+      this.errorCodes = errorCodes
+      this.statusCodes = _.chain(this.errorCodes.errors)
+        .uniqBy(function(error) {
+          return error.statusCode
+        })
+        .sortBy(function(error) {
+          return error.statusCode
+        })
+        .value()
     },
     methods: {
       resetSearch() {

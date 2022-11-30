@@ -13,7 +13,7 @@
     <div class="authorization-layout--footer">
       <Footer />
     </div>
-    <portal-target name="dialog-wrapper"></portal-target>
+    <portal-target name="dialog-wrapper" />
   </div>
 </template>
 
@@ -23,7 +23,6 @@ export default {
   components: {
     Footer: () => import("../components/Footer"),
     Header: () => import("../components/Header"),
-    SmartLink: () => import("../components/SmartLink"),
   },
   mounted: function() {
     import("../util/pendo");

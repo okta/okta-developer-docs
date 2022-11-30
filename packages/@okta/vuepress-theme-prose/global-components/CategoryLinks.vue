@@ -1,9 +1,18 @@
 <template>
   <ul class="category--links">
-    <li v-for="link in links" :key="link.path" :class="{'is-active': $page.path === link.path}">
-      <router-link :to="link.path">{{ link.title }}</router-link>
+    <li
+      :class="{'is-active': $page.path === link.path}"
+      v-for="link in links"
+      :key="link.path"
+    >
+      <router-link :to="link.path">
+        {{ link.title }}
+      </router-link>
       <br v-if="link.frontmatter.excerpt && showExcerpt">
-      <span class="description" v-if="link.frontmatter.excerpt && showExcerpt">{{ link.frontmatter.excerpt }}</span>
+      <span
+        class="description"
+        v-if="link.frontmatter.excerpt && showExcerpt"
+      >{{ link.frontmatter.excerpt }}</span>
     </li>
   </ul>
 </template>

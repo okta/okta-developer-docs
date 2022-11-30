@@ -1,6 +1,11 @@
 <template>
   <div class="framework-icon-block">
-    <i v-for="icon in icons" :key="icon" :class="icon.css" :title="icon.title"></i>
+    <i
+      :class="icon.css"
+      :title="icon.title"
+      v-for="icon in icons"
+      :key="icon"
+    ></i>
   </div>
 </template>
 
