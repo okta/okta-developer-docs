@@ -2267,7 +2267,7 @@ See the [Customized Sign-in Page API reference](https://developer.okta.com/docs/
 
 ## Sign-out page operations
 
-Please see the [sign-out page API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings) on the new beta reference site.
+See the [Customized Sign-out Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings) on the new beta reference site.
 
 ## Error page operations
 
