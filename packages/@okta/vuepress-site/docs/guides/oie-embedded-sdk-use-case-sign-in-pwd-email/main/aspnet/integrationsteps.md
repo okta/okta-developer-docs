@@ -1,7 +1,6 @@
-### 1: Build a sign-in page on the client
+### 1: Your app displays the sign-in page
 
-Build a sign-in page that captures both the user's name and
-password. An example is shown below:
+Build a sign-in page for your app that captures both the username and the password.
 
 <div class="half wireframe-border">
 
@@ -14,45 +13,45 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 2: Authenticate the user credentials
+> **Note**: The account's username is also its primary email address.
 
-When the user initiates the sign-in (for example, by clicking the **Continue** button), create an `AuthenticationOptions` object and set the `Username` and `Password` properties to the values entered in by the user. Send this object to the `AuthenticateAsync` method for the `IdxClient`.
+### 2: The user submits their username and password
+
+When the user submits their username and password, create an `AuthenticationOptions` object and assign its `Username` and `Password` properties to the values entered by the user. Pass this object as a parameter to `IdxClient.AuthenticateAsync()`.
 
 ```csharp
- var idxAuthClient = new IdxClient();
- var authnOptions = new Okta.Idx.Sdk.AuthenticationOptions()
-      {
-          Username = model.UserName,
-          Password = model.Password,
-      };
+var _idxClient = new IdxClient();
+var authnOptions = new AuthenticationOptions {
+   Username = model.UserName,
+   Password = model.Password
+};
 
-var authnResponse = await idxAuthClient.AuthenticateAsync(authnOptions).ConfigureAwait
-(false);
+var authnResponse = await _idxClient
+   .AuthenticateAsync(authnOptions).ConfigureAwait(false);
+
 ```
 
-### 3: Handle the response from the sign-in flow
+### 3: Your app displays a list of authenticators
 
-If the username and password are valid, `AuthenticateAsync` should return an `AuthenticationStatus` of `AwaitingChallengeAuthenticatorSelection`. The `AwaitingChallengeAuthenticatorSelection` status indicates that an additional factor needs to be verified before the sign-in. In addition to the status, the `Authenticators` property should return the **email** factor.
-
-The user should be redirected to the authenticator list page that displays the email factor as an authenticator to be verified. See the following sample code for more details.
+`AuthenticateAsync()` returns an `AuthenticationResponse` object. Query its `AuthenticationStatus` property for the current status of the authentication process. A status of `AwaitingChallengeAuthenticatorSelection` indicates that the user has supplied the correct password and must select a secondary authentication factor to verify their identity.
 
 ```csharp
-var authnResponse = await _idxClient.AuthenticateAsync(authnOptions).ConfigureAwait(false);
-Session["idxContext"] = authnResponse.IdxContext;
-
 switch (authnResponse?.AuthenticationStatus)
-     {
-         ...
-         case AuthenticationStatus.AwaitingChallengeAuthenticatorSelection:
-              Session["authenticators"] =
-              ViewModelHelper.ConvertToAuthenticatorViewModelList(authnResponse.Authenticators);
-              Session["isChallengeFlow"] = true;
-              return RedirectToAction("SelectAuthenticator", "Manage");
+{
+   case AuthenticationStatus.AwaitingChallengeAuthenticatorSelection:
+      Session["authenticators"] = ViewModelHelper.
+         ConvertToAuthenticatorViewModelList(authnResponse.Authenticators);
+      Session["isChallengeFlow"] = true;
+      return RedirectToAction("SelectAuthenticator", "Manage");
+
+   // other case statements
+
+   default:
+      return View("Login", model);
+}
 ```
 
-### 4: Show the email factor in the authenticator list
-
-The next step is to show the email factor to the user in an authenticator list page. If not already done, build a page to display the list of authenticators from the previous step. In this use case, only the email factor appears, as shown in the following sample.
+You can find the names and IDs of the available authenticators in the `AuthenticationResponse` object's `Authenticators` collection. You should redirect the user to an authenticator list page that displays all the authenticators that the user has enrolled and are ready for use. For example:
 
 <div class="half wireframe-border">
 
@@ -65,80 +64,51 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 5: Call the SelectChallengeAuthenticatorAsync method
+### 4: The user submits the email authenticator
 
-When the user selects the **email** factor, a call to `SelectChallengeAuthenticatorAsync` is made that sends a verification code to the user's email. The method accepts a `SelectAuthenticatorOptions` parameter, which is used to pass in the email factor ID.
-
-If the call is successful, the method should return `AwaitingAuthenticatorVerification`, which indicates that the SDK is ready for the verification code. The next step is to redirect the user to the email verification code page.
+When the user submits the email authenticator, create a `SelectAuthenticatorOptions` object and assign its `AuthenticatorId` property to the email authenticator ID. Pass this object as a parameter to `IdxClient.SelectChallengeAuthenticatorAsync()`.
 
 ```csharp
 var selectAuthenticatorOptions = new SelectAuthenticatorOptions
-                       {
-                           AuthenticatorId = model.AuthenticatorId,
-                       };
-
-selectAuthenticatorResponse = await
-     _idxClient.SelectChallengeAuthenticatorAsync(selectAuthenticatorOptions,
-     (IIdxContext)Session["IdxContext"]);
-
-     Session["IdxContext"] = selectAuthenticatorResponse.IdxContext;
-
-switch (selectAuthenticatorResponse?.AuthenticationStatus)
 {
-...
-     case AuthenticationStatus.AwaitingAuthenticatorVerification:
-          return RedirectToAction("VerifyAuthenticator", "Manage");
+    AuthenticatorId = model.AuthenticatorId,
+};
+
+selectAuthenticatorResponse = await _idxClient.SelectChallengeAuthenticatorAsync
+  (selectAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-### 6: Show the email verification code page
+### 5: The user verifies their identity with the email authenticator
 
-If not already done, build the email verification code page that will accept the code from the email.
+Identity Engine sends a verification email to the user if the call is successful. The returned `AuthenticationResponse` object has an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. This status indicates that Identity Engine is waiting for the user to check their email and either click the magic link or enter the OTP.
 
-<div class="half wireframe-border">
+To learn how to support verification with magic links or OTP, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#_5-submit-the-email-authenticator).
 
-![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
+### 6: Your app handles an authentication success response
 
-<!--
-
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
- -->
-
-</div>
-
-### 7: Call the VerifyAuthenticatorAsync method
-
-The next step is to call `VerifyAuthenticatorAsync`. In the email verification use case, the code passed into `VerifyAuthenticatorAsync` will be the code found in the verification email.
+When the user correctly verifies their identity using the email authenticator, the returned `AuthenticationResponse` object has an `AuthenticationStatus` of `Success`. Call `AuthenticationHelper.GetIdentityFromTokenResponseAsync()` to retrieve the user's OIDC claims information and pass it into your application. The user has now signed in.
 
 ```csharp
-var idxAuthClient = new IdxClient(null);
-           var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
-           {
-               Code = code,
-           };
+var authnResponse = await _idxClient.VerifyAuthenticatorAsync(
+   verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+Session["idxContext"] = authnResponse.IdxContext;
 
-var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+switch (authnResponse.AuthenticationStatus)
+{
+
+   case AuthenticationStatus.Success:
+      ClaimsIdentity identity = await AuthenticationHelper
+         .GetIdentityFromTokenResponseAsync(
+            _idxClient.Configuration, authnResponse.TokenInfo);
+      _authenticationManager.SignIn(new AuthenticationProperties(), identity);
+      return RedirectToAction("Index", "Home");
+
+   // other case statements
+}
+
+return View(view, model);
 ```
 
-### 8: Handle the response
+Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.
 
-The next step is to handle the response from `VerifyAuthenticatorAsync`. If the email code was valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page, which is the user profile page in the sample app.
-
-```csharp
-var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions,
-    (IIdxContext)Session["idxContext"]);
-    Session["idxContext"] = authnResponse.IdxContext;
-    switch (authnResponse.AuthenticationStatus)
-         {
-              ...
-              case AuthenticationStatus.Success:
-                   ClaimsIdentity identity = await
-                   AuthenticationHelper.GetIdentityFromTokenResponseAsync(
-                   _idxClient.Configuration, authnResponse.TokenInfo);
-                   _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-                   return RedirectToAction("Index", "Home");
-         }
-```
-
-### 9 (Optional): Get the user profile information
-
-Optionally, you can obtain basic user information after a successful sign-in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information).
+> **Note**: You can request basic user information from Okta's OpenID Connect authorization server after a user has signed in successfully. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information).

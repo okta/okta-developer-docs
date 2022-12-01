@@ -1,11 +1,6 @@
 ### Summary
 
-The following steps document how to integrate the sample code into your
-application. The sample code wraps the SDK's functionality using a more
-prescriptive and explicit interface. It converts the SDK's generic remediation
-interface into explicit authentication steps and automatically executes steps
-such as the code-to-token exchange. The following diagram illustrates this call flow
-from your applications's UI to the sample code, SDK, and API. The Integrating code component in the diagram represents the code you need to write to call the sample code's interface.
+The following steps document how to integrate the sample code into your application. The sample code wraps the SDK's functionality using a more prescriptive and explicit interface. It converts the SDK's generic remediation interface into explicit authentication steps and automatically executes steps such as the code-to-token exchange. The following diagram illustrates this call flow from your applications's UI to the sample code, SDK, and API. The Integrating code component in the diagram represents the code you need to write to call the sample code's interface.
 
 <div class="full">
 
@@ -15,14 +10,9 @@ from your applications's UI to the sample code, SDK, and API. The Integrating co
 
 ### Steps
 
-#### 1: Launch the app and initialize the SDK
+#### 1: Your app displays the sign-in page
 
-The first step is to initialize the SDK when the user opens your app.
-This is done by creating an instance of `MultifactorLogin` and passing
-into its initializer a `configuration` object and `stephandler` closure.
-The `stephandler` closure is called whenever application interaction is requested
-during the password recovery flow. In this case it's called for the following
-user interactions:
+The first step is to initialize the SDK when the user opens your app. This is done by creating an instance of `MultifactorLogin` and passing into its initializer a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever application interaction is requested during the password recovery flow. In this case it's called for the following user interactions:
 
 1. Choose the email factor for authentication
 2. Verify the email verification code
@@ -53,17 +43,11 @@ self.authHandler = MultifactorLogin(configuration: configuration)
 }
 ```
 
-For more information on how to set the `configuration` parameter, see
-[SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk)
-in
-[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main).
+For more information on how to set the `configuration` parameter, see [SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk) in [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main).
 
 #### 2: The user initiates the sign-in flow
 
-When the user enters their credentials and initiates the sign-in flow,
-call the `login` method, passing in the username, password,
-and `completion` closure. This closure is invoked once when the sign-in completes
-and returns either a fatal error or success with a token.
+When the user enters their credentials and initiates the sign-in flow, call the `login` method, passing in the username, password, and `completion` closure. This closure is invoked after when the sign-in completes and returns either a fatal error or success with a token.
 
 ```swift
  self.authHandler.login(username: "user@example.com",
@@ -80,15 +64,11 @@ and returns either a fatal error or success with a token.
 
 #### 3: Send the user to the home page after a successful sign-in flow
 
-The final integration step is to send the user to the default home page
-after successful sign-in. Optionally, you can obtain basic user information after a
-successful sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
+The final integration step is to send the user to the default home page after successful sign-in. Optionally, you can obtain basic user information after a successful sign-in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
 
 ## Sample code
 
-The following sample code is also located in Okta's
-[okta-idx-swift repository](https://github.com/okta/okta-idx-swift/blob/master/Samples/Signin%20Samples/BasicLogin.swift).
+The following sample code is also located in Okta's [okta-idx-swift repository](https://github.com/okta/okta-idx-swift/blob/master/Samples/Signin%20Samples/BasicLogin.swift).
 
 ```swift
 public class MultifactorLogin {
@@ -204,7 +184,7 @@ public class MultifactorLogin {
     }
 
     // Method used to verify a factor. When a factor is selected, the user will
-    // receive a verification code. Once they receive it, you will use this method
+    // receive a verification code. After they receive it, you will use this method
     // to supply it back to Okta.
     public func verify(code: String) {
         guard let remediation = response?.remediations[.challengeAuthenticator] ?? response?.remediations[.enrollAuthenticator]

@@ -20,9 +20,9 @@ val beginResponse = idxAuthenticationWrapper.begin()
 val proceedContext = beginResponse.proceedContext
 ```
 
-### 2: The user enters their credentials
+### 2: The user submits their username and password
 
-After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
+After the user submits their username and password, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 
 ```kotlin
 val authenticationResponse =
@@ -87,3 +87,5 @@ val authenticationResponse =
 ```
 
 If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
+
+> **Note**: For more information, see [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/android/main/).
