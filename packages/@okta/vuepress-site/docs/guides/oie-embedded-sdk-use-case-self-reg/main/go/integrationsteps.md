@@ -17,23 +17,18 @@ if err != nil {
 
 ### 2: Navigate to the sign-up page
 
-Build a sign-in page that captures the user's first name, last name, and email.
+Build a sign-up page that captures the user's first name, last name, and email.
 
 <div class="half wireframe-border">
 
-![Create Account form with first name, last name, and email fields](/img/oie-embedded-sdk/wireframes/create-account-form-g2r25.png)
-
-</div>
+![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1  sign-up-form-first-last-name-email
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 25
-
--->
+</div>
 
 ### 3: Submit the sign-up information
 
@@ -71,19 +66,14 @@ Create a page for the user to enter their password.
 
 <div class="half wireframe-border">
 
-![Set password form with new password and confirm new password fields](/img/oie-embedded-sdk/wireframes/set-password-form-g2r27.png)
-
-</div>
+![A set password form with two fields to enter and to confirm a password and a submit button](/img/wireframes/set-password-form-new-password-fields.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36973&t=2h5Mmz3COBLhqVzv-1 set-password-form-new-password-fields
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 27
-
--->
+</div>
 
 ### 5: Submit the password
 
@@ -180,19 +170,14 @@ An example wireframe is shown below.
 
 <div class="half wireframe-border">
 
-![Choose authenticator form with Email and Phone options](/img/oie-embedded-sdk/wireframes/choose-authenticator-email-phone-form-g2r28.png)
-
-</div>
+![A choose your authenticator form with email and phone authenticator options and a next button](/img/wireframes/choose-authenticator-form-email-phone.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37020&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-email-phone
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 28
-
--->
+</div>
 
 ### 7: Submit the email factor for verification
 
@@ -220,19 +205,14 @@ email confirmation code.
 
 <div class="half wireframe-border">
 
-![Email verification code input form](/img/oie-embedded-sdk/wireframes/enter-verification-code-form-g2r5.png)
-
-</div>
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 5
-
--->
+</div>
 
 ### 8: Submit the verification code
 
@@ -280,19 +260,14 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 
 <div class="half wireframe-border">
 
-![Choose authenticator form with Phone option and skip button](/img/oie-embedded-sdk/wireframes/choose-authenticator-phone-optional-form-g2r30.png)
-
-</div>
+![A choose your authenticator form with only a phone authenticator option, and next and skip buttons](/img/wireframes/choose-authenticator-form-phone-only-with-skip.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37043&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only-with-skip
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 30
-
--->
+</div>
 
 ### 10: Skip the phone factor
 

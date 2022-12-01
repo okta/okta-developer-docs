@@ -4,19 +4,14 @@ Build a sign-in page that captures the username and password, similar to the fol
 
 <div class="half wireframe-border">
 
-![Sign-in form with a 'Forgot your password?' link](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g2r2.png)
-
-</div>
+![A sign-in form with fields for username and password, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 2
-
--->
+</div>
 
 When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object and set its `username` and `password` properties to the values entered by the user. Send this object to `idx.authenticate` to start the authentication process. See [idx.Authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information. This call begins the multifactor authentication flow.
 
@@ -38,19 +33,14 @@ In this use case, only the **Phone** factor appears in the list of authenticator
 
 <div class="half wireframe-border">
 
-![Choose authenticator form with phone option](/img/oie-embedded-sdk/wireframes/choose-authenticator-phone-form-g3r18.png)
-
-</div>
+![A choose your authenticator form with only a phone authenticator option and a next button](/img/wireframes/choose-authenticator-form-phone-only.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36858&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 3, row 18
-
--->
+</div>
 
 >**Note:** For the SDK sample application, each user must set up a phone number for phone verification to see this authenticator option in the page.
 
@@ -71,19 +61,14 @@ Build the phone verification method entry page that accepts either SMS or voice 
 
 <div class="half wireframe-border">
 
-![Phone verification factor selection form](/img/oie-embedded-sdk/wireframes/choose-message-type-verification-code-g2r33.png)
-
-</div>
+![A choose your phone verification method form with SMS and Voice options and a next button](/img/wireframes/choose-phone-verification-method-form.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37129&t=vr9MuCR8C4rCt3hC-1 choose-phone-verification-method-form
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 33
-
--->
+</div>
 
 When the user enters a phone verification method (either SMS or voice verification) and clicks **Next**, a call to `idx.authenticate` is made that passes in the following values:
 
@@ -105,19 +90,14 @@ Build a page that accepts the code sent to the user's phone number through SMS. 
 
 <div class="half wireframe-border">
 
-![Phone number entry form](/img/oie-embedded-sdk/wireframes/sms-enter-verification-code-form-g2r42.png)
-
-</div>
+![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37154&t=vr9MuCR8C4rCt3hC-1 enter-verification-code-form-with-sms-message
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 42
-
--->
+</div>
 
 The next step is to call `idx.authenticate` passing in the verification code `{ verification: '123'}`.
 

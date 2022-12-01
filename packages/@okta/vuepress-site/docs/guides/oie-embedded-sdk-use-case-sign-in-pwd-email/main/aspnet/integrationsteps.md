@@ -1,10 +1,15 @@
 ### 1: Your app displays the sign-in page
 
-Create a sign-in page that captures the user's username and password:
+Build a sign-in page for your app that captures both the username and the password.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![A sign-in page with username and password fields and a Sign in button](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g1r7.png)
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
 </div>
 
@@ -48,9 +53,14 @@ switch (authnResponse?.AuthenticationStatus)
 
 You can find the names and IDs of the available authenticators in the `AuthenticationResponse` object's `Authenticators` collection. You should redirect the user to an authenticator list page that displays all the authenticators that the user has enrolled and are ready for use. For example:
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![A Choose Your Authenticator page with the choices of email and phone, and a Next button](/img/oie-embedded-sdk/wireframes/choose-authenticator-email-phone-form-g2r28.png)
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
+ -->
 
 </div>
 

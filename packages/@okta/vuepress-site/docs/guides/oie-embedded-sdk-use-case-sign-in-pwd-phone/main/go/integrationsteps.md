@@ -21,19 +21,14 @@ Build a sign-in page that captures both the user's name and password.
 
 <div class="half wireframe-border">
 
-![Sign-in form with a 'Forgot your password?' link](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g2r2.png)
-
-</div>
+![A sign-in form with fields for username and password, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 2
-
--->
+</div>
 
 During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
 `LoginResponse` that is used to initate the sign-in process with Okta.  The object
@@ -103,27 +98,20 @@ return
 
 ### 5: Show an option to choose the phone factor
 
-The next step is to build a page that allows the user to choose a factor
-to continue the authentication flow.
+The next step is to build a page that allows the user to choose a factor to continue the authentication flow.
 
 <div class="half wireframe-border">
 
-![Choose authenticator form with phone option](/img/oie-embedded-sdk/wireframes/choose-authenticator-phone-form-g3r18.png)
-
-</div>
+![A choose your authenticator form with only a phone authenticator option and a next button](/img/wireframes/choose-authenticator-form-phone-only.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36858&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
+</div>
 
-Group 3, row 18
-
--->
-
-When the page loads call the `LoginResponse` object's `HasStep`method once for the `LoginStepPhoneVerification` and `LoginStepPhoneInitialVerification` constants. If the method returns `true` for either constants, show the
-phone factor option.
+When the page loads call the `LoginResponse` object's `HasStep`method once for the `LoginStepPhoneVerification` and `LoginStepPhoneInitialVerification` constants. If the method returns `true` for either constants, show the phone factor option.
 
 ```go
 clr, _ := s.cache.Get("loginResponse")
@@ -174,19 +162,14 @@ This code is used to create a form for the user to enter their phone number to r
 
 <div class="half wireframe-border">
 
-![Phone number entry form](/img/oie-embedded-sdk/wireframes/auth-enter-phone-number-form-g2r32.png)
-
-</div>
+![A form with a field for a phone number, formatting advice and a next button](/img/wireframes/enter-phone-number-form.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37078&t=2h5Mmz3COBLhqVzv-1 enter-phone-number-form
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 32
-
--->
+</div>
 
 ### 7: Submit the phone factor details
 
@@ -213,19 +196,14 @@ and optional phone number, they need to enter the verification code from their p
 
 <div class="half wireframe-border">
 
-![Phone number entry form](/img/oie-embedded-sdk/wireframes/sms-enter-verification-code-form-g2r42.png)
-
-</div>
+![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37154&t=vr9MuCR8C4rCt3hC-1 enter-verification-code-form-with-sms-message
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 42
-
--->
+</div>
 
 ### 9: Submit the verification code
 

@@ -21,19 +21,14 @@ Build a sign-in page that captures both the user's name and password, similar to
 
 <div class="half wireframe-border">
 
-![Displays the simple sign-in form for Java SDK](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g1r7.png)
-
-</div>
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 1, row 7
-
--->
+</div>
 
 During page load, call the `Client` object's `InitLogin()` method. This method returns an object of type
 `LoginResponse` that is used to initiate the sign-in process with Okta.  The object
@@ -87,19 +82,14 @@ The following wireframe includes Facebook and Google IdP sign-in options.
 
 <div class="half wireframe-border">
 
-![Displays an example social sign-in form](/img/oie-embedded-sdk/wireframes/oie-embedded-sdk-signin-idp-options-g1r12.png)
-
-</div>
+![A sign-in form with fields for username and password, a next button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36701&t=wzNwSZkdctajVush-1 sign-in-form-username-password-facebook-google
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 1, row 12
-
--->
+</div>
 
 ### 4: The user selects the Facebook sign-in link
 

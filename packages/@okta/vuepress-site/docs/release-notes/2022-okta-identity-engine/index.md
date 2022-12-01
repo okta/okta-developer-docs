@@ -6,6 +6,18 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## November
 
+### Weekly release 2022.11.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.11.1](#bugs-fixed-in-2022-11-1)                      | November 30, 2022            |
+
+#### Bugs fixed in 2022.11.1
+
+* Some orgs that performed multifactor authentication with the Custom OTP, Okta On-Prem MFA agent, or YubiKey OTP authenticators experienced internal server errors during outbound SAML and OAuth 2.0 authorization flows. (OKTA-489101)
+
+* The wrong response code (500) was sent when an admin attempted to use the app target or group target operations of the Administrator Role API with a custom role binding identifier. (OKTA-529688)
+
 ### Monthly release 2022.11.0
 
 | Change | Expected in Preview Orgs |
