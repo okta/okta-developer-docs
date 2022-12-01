@@ -29,7 +29,7 @@ See [Customize email notifications > Use app context](/docs/guides/custom-email/
 App intent links are used to signal intent to access an application. These links are protocol-specific endpoints that you can use to initiate a sign-in flow to an application. Both Identity Provider and Service Provider initiated flows are supported.
 
 Example app intent link for a SAML application:
-`http://&{yourOktaDomain}/app/mysamlapp_1/${appInstanceID}/sso/saml`
+`http://${yourOktaDomain}/app/mysamlapp_1/${appInstanceID}/sso/saml`
 
 Prior to Okta Identity Engine, these endpoints were accessible only with a session. Unauthenticated traffic was redirected to a centralized sign-in page (`/login/login.htm`) with a `fromUri` that represented the app that was originally attempted (the app intent link). This occurred before the request was assessed for rate limiting. A session was established and the request was processed. The user was then redirected to the relevant app intent link through an intermediate redirect to the generic app single-sign on endpoint (`/app/{app}/{instanceId}/{linkName}`). The app intent link endpoint validated that the user was assigned to the application, and then enforced the app sign-on policy.
 
