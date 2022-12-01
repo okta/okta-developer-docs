@@ -8,7 +8,7 @@ title: Okta API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Bug fixed in 2022.11.1](#bug-fixed-in-2022-11-1)                      | November 17, 2022            |
+| [Bug fixed in 2022.11.1](#bug-fixed-in-2022-11-1)                      | November 30, 2022            |
 
 #### Bug fixed in 2022.11.1
 
