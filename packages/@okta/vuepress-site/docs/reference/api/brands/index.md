@@ -2271,7 +2271,7 @@ See the [Customized Sign-out Page API reference](https://developer.okta.com/docs
 
 ## Error page operations
 
-Please see the [error page API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getErrorPage) on the new beta reference site.
+See the [Customized Error Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getErrorPage) on the new beta reference site.
 
 ## Brand API Objects
 
