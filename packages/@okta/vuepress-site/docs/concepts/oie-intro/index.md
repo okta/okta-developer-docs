@@ -22,7 +22,7 @@ Identity Engine unlocks many new capabilities.
 
 Identity Engine makes the app context available when a user enters an authentication flow. Context variables are available in our email templates, allowing customers to dynamically customize email style and content based on the app that an email notification is triggered from.
 
-[Customize email notifications > Use app context](/docs/guides/custom-email/main/#use-app-context)
+See [Customize email notifications > Use app context](/docs/guides/custom-email/main/#use-app-context).
 
 ### App intent links
 
