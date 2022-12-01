@@ -2263,7 +2263,7 @@ HTTP/1.1 200 OK
 
 ## Sign-in page operations
 
-Please see the [sign-in page API documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage) on the new beta reference site.
+See the [Customized Sign-in Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage) on the new beta reference site.
 
 ## Sign-out page operations
 
