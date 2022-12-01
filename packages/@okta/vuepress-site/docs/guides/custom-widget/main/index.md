@@ -51,18 +51,6 @@ The **Custom Sign-In Page** offers basic and advanced customization options to c
 To access this page:
 
 * Okta Identity Engine: In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the Sign-in page section.
-* Okta Classic Engine: In the Admin Console, go to **Settings** > **Customization**. On the **Customization Page**, click the **Custom Sign in** tab.
-
-### About the Okta Sign-In Widget version
-
-The Okta-hosted sign-in page uses the [Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-hosted-sign-in-page-default) component to interact with the user.
-
-> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in the configuration settings.
-
-<!--- If you aren't familiar with the Okta Sign-In Widget, Okta recommends that you select the highest **Major Version** and the latest **Minor Version** (default). For details about the Okta Sign-In Widget capabilities that are supported by major and minor versions, see the [GitHub releases page](https://github.com/okta/okta-signin-widget/releases). --->
-
-1. To make changes to the major and minor versions, select **Edit** in the **Okta Sign-In Widget Version** section header.
-2. Make your changes, and then click **Save** at the bottom of the page.
 
 ### Change headings and labels
 
@@ -622,6 +610,15 @@ Elsewhere in your file, using the method above, you can inspect the client ID an
   }
 </script>
 ```
+
+### About the Sign-In Widget version
+
+The Okta-hosted sign-in page uses the [Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-hosted-sign-in-page-default) component to interact with the user.
+
+If you aren't familiar with the Okta Sign-In Widget, Okta recommends that you select the highest **Major Version** and the latest **Minor Version** (default). For details about the Okta Sign-In Widget capabilities that are supported by major and minor versions, see the [GitHub releases page](https://github.com/okta/okta-signin-widget/releases).
+
+1. To make changes to the major and minor versions, select **Edit** in the **Okta Sign-In Widget Version** section header.
+2. Make your changes, and then click **Save** at the bottom of the page.
 
 ## See also
 
