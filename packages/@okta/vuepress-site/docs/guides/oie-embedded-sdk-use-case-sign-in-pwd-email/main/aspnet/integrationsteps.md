@@ -1,11 +1,16 @@
 ### 1: Build a sign-in page on the client
 
-Build a sign-in page that captures both the user’s name and
+Build a sign-in page that captures both the user's name and
 password. An example is shown below:
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
 </div>
 
@@ -49,9 +54,14 @@ switch (authnResponse?.AuthenticationStatus)
 
 The next step is to show the email factor to the user in an authenticator list page. If not already done, build a page to display the list of authenticators from the previous step. In this use case, only the email factor appears, as shown in the following sample.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example verify Email form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify.png)
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
+ -->
 
 </div>
 
@@ -84,9 +94,14 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 If not already done, build the email verification code page that will accept the code from the email.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an example verify Email form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code.png)
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
 </div>
 

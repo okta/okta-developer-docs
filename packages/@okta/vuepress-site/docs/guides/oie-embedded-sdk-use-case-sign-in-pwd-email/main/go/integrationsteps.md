@@ -19,9 +19,14 @@ if err != nil {
 
 Build a sign-in page that captures the username and password.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
 </div>
 
@@ -97,9 +102,14 @@ return
 The next step is to build a page that allows the user to choose a factor
 to continue the authentication flow.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an option to choose verification through the email factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-email-verify-page.png)
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
+ -->
 
 </div>
 
@@ -142,9 +152,14 @@ if !ok || !invCode.(bool) {
 The next step is to build the code verification page. After the user chooses the email factor
 to validate their identity, the user needs to enter the verification code from their email.
 
-<div class="half">
+<div class="half wireframe-border">
 
-![Displays an option to choose verification through the email factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-email-code-confirm-page.png)
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
 </div>
 

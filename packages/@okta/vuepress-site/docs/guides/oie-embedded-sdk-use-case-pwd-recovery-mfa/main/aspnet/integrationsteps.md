@@ -4,19 +4,14 @@ The first step is to create a forgot password link on the sign-in page that redi
 
 <div class="half wireframe-border">
 
-![Sign-in form with a 'Forgot your password?' link](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g2r2.png)
-
-</div>
+![A sign-in form with fields for username and password, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 2
-
--->
+</div>
 
 ### 2: Create the reset password page
 
@@ -24,19 +19,14 @@ Create a page that accepts the user's email address and contains a button to sta
 
 <div class="half wireframe-border">
 
-![Reset password form with an email field](/img/oie-embedded-sdk/wireframes/reset-password-form-enter-email-g2r3.png)
-
-</div>
+![A reset password form with an email address field and a next button](/img/wireframes/reset-password-form-email-only.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36756&t=wzNwSZkdctajVush-1  reset-password-form-email-only
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 3
-
--->
+</div>
 
 ### 3: Make a call to the RecoverPasswordAsync method
 
@@ -68,19 +58,14 @@ Create a page to show the authenticators that are returned from the `RecoverPass
 
 <div class="half wireframe-border">
 
-![Recovery factor list to use (only email for this use case)](/img/oie-embedded-sdk/wireframes/choose-authenticator-email-form-g2r4.png)
-
-</div>
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 4
-
--->
+</div>
 
 ### 5: Make a call to the SelectRecoveryAuthenticatorAsync method
 
@@ -107,19 +92,14 @@ Redirect the user to a code verification page when your app receives the `Awaiti
 
 <div class="half wireframe-border">
 
-![Email verification code input form](/img/oie-embedded-sdk/wireframes/enter-verification-code-form-g2r5.png)
-
-</div>
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 5
-
--->
+</div>
 
 Create a code verification page with a code input field and a button or link to submit the code to Okta for verification.
 
@@ -148,19 +128,14 @@ Create a change password page that allows the user to enter their new password a
 
 <div class="half wireframe-border">
 
-![Password reset new password form](/img/oie-embedded-sdk/wireframes/reset-password-form-choose-new-password-g2r6.png)
-
-</div>
+![A reset password form with two fields to enter and to confirm a new password and a next button](/img/wireframes/reset-password-form-new-password-fields.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36886&t=2h5Mmz3COBLhqVzv-1  reset-password-form-new-password-fields
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 2, row 6
-
--->
+</div>
 
 ### 9: Make a call to the ChangePasswordAsync method
 

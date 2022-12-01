@@ -30,12 +30,13 @@ The method returns an `IdxTransaction` object that contains field metadata that 
 
 Display &mdash; either statically or dynamically using `IdxTransaction` &mdash; an input field for the user's username.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![A sign-in page with a username field and a Next button.](/img/pwd-optional/pwd-optional-sign-in-page.png)
+![A sign-in form with a field for the username, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-only-sign-up-forgot-your-password-links.png)
 
 <!--
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1978%3A1743 pwd-optional-sign-in-page
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3401%3A37178&t=vr9MuCR8C4rCt3hC-1 sign-in-form-username-only-sign-up-forgot-your-password-links
  -->
 
 </div>
@@ -85,12 +86,13 @@ Build the logic that handles this response and sends the user to a dialog where 
 
 The user opens the email sent by Identity Engine. Create a dialog in your app where the user can submit the OTP from the email to Identity Engine.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![A form with an OTP input field and a verify button.](/img/pwd-optional/pwd-optional-react-sign-up-verify-otp.png)
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
 
 <!--
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=2842%3A4925 pwd-optional-react-sign-up-verify-otp
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
  -->
 
 </div>
