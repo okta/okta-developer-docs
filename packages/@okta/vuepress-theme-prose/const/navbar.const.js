@@ -487,7 +487,7 @@ export const guides = [
             guideName: "customize-authz-server",
           },
           {
-            title: "Configure CIBA",
+            title: "Transactional verification using CIBA",
             guideName: "configure-ciba",
           },
           {

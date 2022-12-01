@@ -1,6 +1,6 @@
 ---
-title: Configure CIBA
-excerpt: How to configure CIBA for use with a custom authenticator
+title: Transactional verification using CIBA
+excerpt: How to use transactional verification with CIBA and a custom authenticator
 layout: Guides
 sections:
 - main
