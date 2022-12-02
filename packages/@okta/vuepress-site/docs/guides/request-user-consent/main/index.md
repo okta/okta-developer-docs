@@ -58,20 +58,18 @@ Use the following steps to display the user consent dialog as part of an OpenID 
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
 1. Click **Save**.
-1. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, from the left navigation select **Security** and then **API**.
+1. To enable consent for [scopes](/docs/reference/api/authorization-servers/#create-a-scope), from the left navigation select **Security** and then **API**.
 1. On the **Authorization Servers** tab, select **default** (custom authorization server) in the table. In this example, we are enabling consent for a default custom authorization server scope.
 1. Select the **Scopes** tab.
 1. Click the edit icon for the **phone** scope. The Edit Scope dialog appears.
-1. For this use case example, select **Required**. The options available include:
+1. In the **User consent** section, select **Require user consent for this scope**. This indicates that the user must grant the app access to the information (scope) or they can't sign in to the app. The **Block services from requesting this scope** checkbox is automatically selected.
+
+    The **Block services from requesting this scope** checkbox strictly enforces user consent for the scope. When you select this checkbox, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the checkbox. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
 
     * **Not required**: Indicates that the user isn't required to grant the app access to the information (scope).
     * **Optional**: Indicates that the user can skip granting the app access to the information (scope). The scope is excluded from the authorization request. If a user skips this scope, the next time that they sign in, Okta doesn't prompt them for the skipped scope. If you later make the scope required for the app, include `prompt=consent` in the request, and the user is prompted to grant the app access to that scope.
 
     > **Note:** When you include `prompt=consent` in the authorization request, the user is prompted for all consent enabled scopes. This includes scopes that are required and optional, even if the user has already given consent.
-
-    * **Required**: Indicates that the user must grant the app access to the information (scope) or they can't sign in to the app. The **Block services from requesting this scope** checkbox is automatically selected.
-
-        The **Block services from requesting this scope** check box strictly enforces end-user consent for the scope. When you select this checkbox, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the checkbox. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
 
 1. Click **Save**.
 
