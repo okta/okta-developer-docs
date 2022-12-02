@@ -1,7 +1,6 @@
-### 1: The user navigates to the home page
+### 1: Your app displays the sign-in page
 
-When the user navigates to the home page and the application loads, create a new
-SDK Client object by calling the `NewClient` method.
+When the user navigates to the sign-in page and the application loads for the first time, create a new SDK `Client` object by calling `NewClient`.
 
 ```go
 idx, err := idx.NewClient(
@@ -15,66 +14,52 @@ if err != nil {
 }
 ```
 
-### 2: Capture credentials with the sign-in page
+Display a sign-in page that captures the username and password.
 
-Build a sign-in page that captures the username and password.
+<div class="half wireframe-border">
 
-<div class="half">
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
 
-![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
 </div>
 
-During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initiate the sign-in process with Okta. The object
-also contains a list of available social Identity Providers (IdPs) that is discussed in more detail in the
-[Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main/)
-use case.
+During page load, call `Client.InitLogin`. This returns an object of type `LoginResponse` that is used to initiate the sign-in process with Okta.
 
 ```go
 lr, err := s.idxClient.InitLogin(context.TODO())
 if err != nil {
-	log.Fatalf("Could not initalize login: %s", err.Error())
+   log.Fatalf("Could not initalize login: %s", err.Error())
 }
 ```
 
-### 3: Submit the credentials
+### 2: The user submits their username and password
 
-After the user enters their credentials and submits their sign-in request,
-create an `IdentityRequest` object, passing in the username and password from the
-sign-in form.
+When the user submits their username and password, create an `IdentifyRequest` object and assign its `identifier` and `password` properties to the values entered by the user. Pass this object as a parameter to `LoginResponse.Identify`.
 
 ```go
-    ir := &idx.IdentifyRequest{
-        Identifier: r.FormValue("identifier"),
-        Credentials: idx.Credentials{
-            Password: r.FormValue("password"),
-        },
-    }
-```
+ir := &idx.IdentifyRequest{
+   Identifier: r.FormValue("identifier"),
+   Credentials: idx.Credentials{
+      Password: r.FormValue("password"),
+   },
+}
 
-Next, call the `Identify` method of the `LoginResponse` object obtained in
-[Step 2](#_2-capture-credentials-with-the-sign-in-page), passing in the `IdentifyRequest`
-created in the previous step.
-
-```go
 lr, err = lr.Identify(context.TODO(), ir)
 if err != nil {
-    session.Values["Errors"] = err.Error()
-    session.Save(r, w)
-    http.Redirect(w, r, "/login", http.StatusFound)
-    return
+   session.Values["Errors"] = err.Error()
+   session.Save(r, w)
+   http.Redirect(w, r, "/login", http.StatusFound)
+   return
 }
 ```
 
-### 4: Determine whether additional factors are required
+### 3: Your app displays a list of authenticators
 
-The `Identity` method returns `LoginResponse` and `error`
-objects. Use the `error` object to determine if there were errors in the
-user sign-in. If the `error` object is `nil` and `LoginResponse` object's
-`Token` property is equal to `nil`, then the user needs to confirm their identity
-with additional factors. The following code from the sample application shows
-a redirect to a factors page when there are no errors or tokens in the `LoginResponse`.
+`Identify` returns `error` and `LoginResponse` objects. The `error` object contains any errors thrown in the user sign-in. The `LoginResponse`'s `Token` property contains any ID and access tokens returned by the server if the user has signed in successfully. If the `error` object is `nil` and the `LoginResponse.Token` returns `nil`, the user needs to confirm their identity with additional factors.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
@@ -85,27 +70,22 @@ if err != nil {
 if lr.Token() != nil {
  //Login completion code
 }
-
- //Additional factors required -  redirect to factors page
-s.cache.Set("loginResponse", lr, time.Minute*5)
-http.Redirect(w, r, "/login/factors", http.StatusFound)
-return
 ```
 
-### 5: Show an option to choose the email factor
+Display a list of all of the authenticators that the user has enrolled and are ready for use. For example:
 
-The next step is to build a page that allows the user to choose a factor
-to continue the authentication flow.
+<div class="half wireframe-border">
 
-<div class="half">
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
 
-![Displays an option to choose verification through the email factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-email-verify-page.png)
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
+ -->
 
 </div>
 
-During page load, call `LoginResponse` object's `HasStep` method, passing in the
- `LoginStepEmailVerification` constant. If the method returns `true`, display
- the email factor option.
+During page load, call `LoginResponse` object's `HasStep` method, passing in the  `LoginStepEmailVerification` constant. If the method returns `true`, display the email factor option.
 
 ```go
 clr, _ := s.cache.Get("loginResponse")
@@ -118,11 +98,11 @@ if lr.HasStep(idx.LoginStepEmailVerification) {
 }
 ```
 
-### 6: Submit the email factor to verify the user's identity
+Use the other [LoginStep](https://github.com/okta/okta-idx-golang/blob/master/identify.go#L692)s to populate the rest of the list.
 
-When the user selects the email factor and clicks submit, call the `LoginResponse` object's
-`VerifyEmail` method. Calling this method instructs the Okta org server to send an
-email to the email address the user provided in [Step 3](#_3-submit-the-credentials).
+### 4: The user submits the email authenticator
+
+When the user submits the email authenticator, call `LoginResponse.VerifyEmail`. Identity Engine sends a verification email to the user if the call is succcessful.
 
 ```go
 if !ok || !invCode.(bool) {
@@ -137,21 +117,22 @@ if !ok || !invCode.(bool) {
 
 ```
 
-### 7: Show the email code verification page
+Display a page for the user to submit the verification code from their email.
 
-The next step is to build the code verification page. After the user chooses the email factor
-to validate their identity, the user needs to enter the verification code from their email.
+<div class="half wireframe-border">
 
-<div class="half">
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
 
-![Displays an option to choose verification through the email factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-email-code-confirm-page.png)
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
 </div>
 
-### 8: Submit the verification code
+### 5: The user submits the email verification code
 
-After the user checks their email for the code and submits it, call the `LoginResponse` object's `ConfirmEmail`
-method to verify the code. For this use case the method should return tokens signifying a successful sign-in.
+When the user checks their email for the code and submits it, pass it as a parameter to `LoginResponse.ConfirmEmail`.
 
 ```go
  //Get LoginResponse from session
@@ -175,11 +156,9 @@ s.ViewData["InvalidEmailCode"] = false
 
 ```
 
-### 9: Store the tokens in a session
+### 6: Your app handles an authentication success response
 
-Store the tokens from the `LoginResponse` object in session to be used for
-additional calls. After the tokens are stored, redirect the user to the
-default signed-in home page.
+If the request to verify the code is successful, `LoginResponse.Token` now returns the required tokens (access, refresh, ID) for authenticated user activity. Store the tokens in session for later use and then redirect the user to the default signed-in home page.
 
 ```go
  //If we have tokens we have success, so lets store tokens
@@ -201,6 +180,4 @@ if lr.Token() != nil {
 }
 ```
 
-### 10 (Optional): Get the user profile information
-
-Optionally, you can obtain basic user information after a successful user sign-in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information) for more information.
+> **Note**: You can request basic user information from Okta's OpenID Connect authorization server after a user has signed in successfully. See [Get the user profile information](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information).

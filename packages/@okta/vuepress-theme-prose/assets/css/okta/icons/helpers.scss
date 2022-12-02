@@ -22,13 +22,13 @@ $error-color: #e34843;
 $teach-color: #835ab1;
 
 // Text
-$body-font-family: 'montserrat', Arial, Helvetica, sans-serif;
+$body-font-family: "montserrat", arial, helvetica, sans-serif;
 $body-font-size: 13px;
 $small-font-size: 12px;
-$code-font-family: 'anonymous-pro', 'Andale Mono', 'Courier New', Courier, monospace;
+$code-font-family: "anonymous-pro", "Andale Mono", "Courier New", courier, monospace;
 $text-color-dark: #5e5e5e;
 $text-color-light: #a7a7a7;
-$text-color-darker: #444;
+$text-color-darker: #444444;
 $text-color-placeholder: #a1a1a1;
 $paragraph-line-height: 18px;
 $component-heading-color: #919191;
@@ -53,8 +53,8 @@ $component-bg-color-dark: #f2f2f2;
 $item-count-bg-color: #cacaca;
 
 // Borders
-$border-color-default: #ddd;
-$border-color-light: #eee;
+$border-color-default: #dddddd;
+$border-color-light: #eeeeee;
 $border-bottom-color-default: #dadada;
 $border-default: 1px solid $border-color-default;
 $border-radius-default: 3px;
@@ -64,9 +64,9 @@ $border-radius-bottom-left-default: 3px;
 $border-radius-bottom-right-default: 3px;
 
 // Box shadow
-$box-shadow-default: 0 2px 0 rgba(175, 175, 175, 0.12);
+$box-shadow-default: 0 2px 0 rgb(175 175 175 / 0.12);
 
 // Common colors
-$black: #000;
-$white: #fff;
-$red: #f00;
+$black: #000000;
+$white: #ffffff;
+$red: #ff0000;

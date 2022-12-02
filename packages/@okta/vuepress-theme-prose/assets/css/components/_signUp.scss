@@ -1,203 +1,232 @@
-.signup {
-  a {
-    color: cv('link');
+.signup a {
+  color: cv("link");
+}
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+.signup a:hover {
+  text-decoration: underline;
+}
 
-  @include media("<tablet") {
-    padding: 0 36px;
-  }
-
-  @include media("<475px") {
-    padding: 10px;
-  }
-
-  .signup--content {
-  width: 100%;
-  max-width: 1195px;
+.signup .signup--content {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  font-size: 16px;
   margin: 0 auto;
-  color: cv('text', 'darker');
-    
-    @include media("<desktop") {
-      justify-content: center;
-    }
+  width: 100%;
+  max-width: 1195px;
 
-    .signup--form {
-      width: 45%;
-      max-width: 517px;
-      margin: 0;
-      padding: 65px 32px;
-      background-color: #fff;
-      box-shadow: 0px 6px 18px rgba(65, 65, 75, 0.5);
+  font-size: 16px;
+  color: cv("text", "darker");
+}
 
-      @include media("<desktop") {
-        width: 100%;
-        margin-bottom: 100px;
-      }
+.signup .signup--content .signup--form {
+  margin: 0;
+  padding: 65px 32px;
+  width: 45%;
+  max-width: 517px;
 
-      @include media("<tablet") {
-        padding: 10px;
-      }
+  box-shadow: 0 6px 18px rgb(65 65 75 / 0.5);
+  background-color: #ffffff;
+}
 
-      .user-name {
-        display: flex;
+.signup .signup--content .signup--form .user-name {
+  display: flex;
+}
 
-        .row:nth-child(1) {
-          margin-right: 0px;
-        }
+.signup .signup--content .signup--form .user-name .row:nth-child(1) {
+  margin-right: 0;
+}
 
-        @include media("<tablet") {
-          flex-direction: column;
-
-          .row:nth-child(1) {
-            margin-right: 0;
-          }
-        }
-      }
-
-      .signup--recaptcha {
-        padding-top: 16px;
-      }
-      .signup--submit {
-        padding-top: 8px;
-      }
-
-      .consent--section {
-        .consent--section-text {
-          font-size: 12px;
-          line-height: 20px;
-          width: 100%;
-          text-align: justify;
-          max-width: inherit;
-          margin: 24px 0 10px 0;
-
-          p {
-            max-width: 100%;
-          }
-        }
-
-        .consent--section-agree {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-
-          label {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-
-            input {
-              width: 16px;
-              height: 16px;
-              margin: 0 8px 0 0;
-            }
-          }
-        }
-      }
-
-      .error-msg {
-        position: absolute;
-        bottom: -17px;
-        left: 0;
-        font-size: 0.8rem;
-      }
-
-      a.pending {
-        cursor: wait;
-        img {
-          vertical-align: middle;
-          width: 15px;
-          height: 15px;
-        }
-      }
-
-      .splitter {
-        display: flex;
-        height: 20px;
-        margin: 0 0 17px;
-        justify-content: center;
-        align-items: center;
-
-        span:nth-child(2) {
-          margin: 0 16px;
-        }
-        span:nth-child(1),
-        span:nth-child(3) {
-          height: 0;
-          flex-grow: 1;
-          border: 2px solid cv("header");
-          display: none;
-        }
-      }
-
-      .goto-signin {
-        justify-content: center;
-        margin: 0;
-        padding-top: 15px;
-        font-size: 0.9em;
-
-        a {
-          text-indent: 5px;
-        }
-      }
-    }
+@include media("<tablet") {
+  .signup .signup--content .signup--form .user-name {
+    flex-direction: column;
   }
 
-  .signup--description {
-    padding: 0;
-    max-width: 604px;
-    width: 44%;
-    color: cv('text','darker');
+  .signup .signup--content .signup--form .user-name .row:nth-child(1) {
+    margin-right: 0;
+  }
+}
 
-    @include media("<desktop") {
-      width: 100%;
-    }
+.signup .signup--content .signup--form .signup--recaptcha {
+  padding-top: 16px;
+}
 
-    p, li {
-      font-size: 20px;
-      line-height: 1.7rem;
-    }
-    p {
-      margin-bottom: 28px;
-    }
-    ul {
-      li {
-        margin-bottom: 5px;
-      }
-    }
-    p + ul {
-      margin-top: 0;
-    }
+.signup .signup--content .signup--form .signup--submit {
+  padding-top: 8px;
+}
 
-    h1 {
-      font-size: 48px;
-      font-weight: 300;
-      margin-bottom: 35px;
+.signup .signup--content .signup--form .consent--section .consent--section-text {
+  margin: 24px 0 10px 0;
+  width: 100%;
+  max-width: inherit;
 
-      @include media("<desktop") {
-        font-size: 36px;
-      }
-    }
-    h2, h3, h4, h5 {
-      margin-bottom: 2rem;
-    }
+  font-size: 12px;
+  line-height: 20px;
+  text-align: justify;
+}
 
-    a {
-      &,
-      &:visited,
-      &:focus,
-      &:hover {
-        color: white;
-        text-decoration: underline;
-      }
-    }
+.signup .signup--content .signup--form .consent--section .consent--section-text p {
+  max-width: 100%;
+}
+
+.signup .signup--content .signup--form .consent--section .consent--section-agree {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.signup .signup--content .signup--form .consent--section .consent--section-agree label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.signup .signup--content .signup--form .consent--section .consent--section-agree label input {
+  margin: 0 8px 0 0;
+  width: 16px;
+  height: 16px;
+}
+
+.signup .signup--content .signup--form .error-msg {
+  position: absolute;
+  bottom: -17px;
+  left: 0;
+
+  font-size: 0.8rem;
+}
+
+.signup .signup--content .signup--form a.pending {
+  cursor: wait;
+}
+
+.signup .signup--content .signup--form a.pending img {
+  vertical-align: middle;
+
+  width: 15px;
+  height: 15px;
+}
+
+.signup .signup--content .signup--form .splitter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 17px;
+  height: 20px;
+}
+
+.signup .signup--content .signup--form .splitter span:nth-child(2) {
+  margin: 0 16px;
+}
+
+.signup .signup--content .signup--form .splitter span:nth-child(1),
+.signup .signup--content .signup--form .splitter span:nth-child(3) {
+  display: none;
+  flex-grow: 1;
+  height: 0;
+
+  border: 2px solid cv("header");
+}
+
+.signup .signup--content .signup--form .goto-signin {
+  justify-content: center;
+  margin: 0;
+  padding-top: 15px;
+
+  font-size: 0.9em;
+}
+
+.signup .signup--content .signup--form .goto-signin a {
+  text-indent: 5px;
+}
+
+@include media("<desktop") {
+  .signup .signup--content .signup--form {
+    margin-bottom: 100px;
+    width: 100%;
+  }
+}
+
+@include media("<tablet") {
+  .signup .signup--content .signup--form {
+    padding: 10px;
+  }
+}
+
+@include media("<desktop") {
+  .signup .signup--content {
+    justify-content: center;
+  }
+}
+
+.signup .signup--description {
+  padding: 0;
+  width: 44%;
+  max-width: 604px;
+
+  color: cv("text", "darker");
+}
+
+.signup .signup--description p,
+.signup .signup--description li {
+  font-size: 20px;
+  line-height: 1.7rem;
+}
+
+.signup .signup--description p {
+  margin-bottom: 28px;
+}
+
+.signup .signup--description ul li {
+  margin-bottom: 5px;
+}
+
+.signup .signup--description p + ul {
+  margin-top: 0;
+}
+
+.signup .signup--description h1 {
+  margin-bottom: 35px;
+
+  font-weight: 300;
+  font-size: 48px;
+}
+
+@include media("<desktop") {
+  .signup .signup--description h1 {
+    font-size: 36px;
+  }
+}
+
+.signup .signup--description h2,
+.signup .signup--description h3,
+.signup .signup--description h4,
+.signup .signup--description h5 {
+  margin-bottom: 2rem;
+}
+
+.signup .signup--description a,
+.signup .signup--description a:visited,
+.signup .signup--description a:focus,
+.signup .signup--description a:hover {
+  text-decoration: underline;
+  color: #ffffff;
+}
+
+@include media("<desktop") {
+  .signup .signup--description {
+    width: 100%;
+  }
+}
+
+@include media("<tablet") {
+  .signup {
+    padding: 0 36px;
+  }
+}
+
+@include media("<475px") {
+  .signup {
+    padding: 10px;
   }
 }

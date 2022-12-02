@@ -4,6 +4,16 @@ title: Okta API Products release notes 2022
 
 ## November
 
+### Weekly release 2022.11.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.11.1](#bug-fixed-in-2022-11-1)                      | November 30, 2022            |
+
+#### Bug fixed in 2022.11.1
+
+* The wrong response code (500) was sent when an admin attempted to use the app target or group target operations of the Administrator Role API with a custom role binding identifier. (OKTA-529688)
+
 ### Monthly release 2022.11.0
 
 | Change | Expected in Preview Orgs |

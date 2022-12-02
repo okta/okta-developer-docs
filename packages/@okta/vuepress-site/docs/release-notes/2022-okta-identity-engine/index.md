@@ -6,6 +6,18 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## November
 
+### Weekly release 2022.11.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.11.1](#bugs-fixed-in-2022-11-1)                      | November 30, 2022            |
+
+#### Bugs fixed in 2022.11.1
+
+* Some orgs that performed multifactor authentication with the Custom OTP, Okta On-Prem MFA agent, or YubiKey OTP authenticators experienced internal server errors during outbound SAML and OAuth 2.0 authorization flows. (OKTA-489101)
+
+* The wrong response code (500) was sent when an admin attempted to use the app target or group target operations of the Administrator Role API with a custom role binding identifier. (OKTA-529688)
+
 ### Monthly release 2022.11.0
 
 | Change | Expected in Preview Orgs |
@@ -1031,7 +1043,7 @@ Rotating client secrets without service or application downtime is a challenge. 
 
 #### Custom Domains with Okta-Managed Certificates is GA in Production
 
-When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-Managed Certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) auto renew through a Let's Encrypt integration, a free certificate authority. Since Okta handles certificate renewals, this reduces customer developer maintenance costs and the high risk of a site outage when certificates expire.  <!--OKTA-459338-->
+When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed Certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) auto renew through a Let's Encrypt integration, a free certificate authority. Since Okta handles certificate renewals, this reduces customer developer maintenance costs and the high risk of a site outage when certificates expire.  <!--OKTA-459338-->
 
 #### Bug fixed in 2022.02.0
 

@@ -157,28 +157,27 @@
   }
 
   .no-stack-content {
-    border: 1px solid #d66;
     padding: 10px;
+
+    border: 1px solid #dd6666;
   }
-  .no-selector {
-    &::v-deep ol[start] {
-      margin-top: -0.75rem;
-    }
+
+  .no-selector::v-deep ol[start] {
+    margin-top: -0.75rem;
   }
-  .no-snippet {
-    .selector-control {
-      border-bottom: 0;
-    }
+
+  .no-snippet .selector-control {
+    border-bottom: 0;
   }
+
   .display-inline {
     display: inline;
-
-    .stack-content {
-      display: inline;
-
-      & > div, &::v-deep p {
-        display: inline;
-      }
-    }
+  }
+  .display-inline .stack-content {
+    display: inline;
+  }
+  .display-inline .stack-content > div,
+  .display-inline .stack-content::v-deep p {
+    display: inline;
   }
 </style>

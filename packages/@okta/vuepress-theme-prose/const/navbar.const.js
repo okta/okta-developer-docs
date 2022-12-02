@@ -541,7 +541,7 @@ export const guides = [
         title: "Brand and Customize",
         subLinks: [
           {
-            title: "Okta URL & email notification domains",
+            title: "Domain and email address",
             guideName: "custom-url-domain",
           },
           {

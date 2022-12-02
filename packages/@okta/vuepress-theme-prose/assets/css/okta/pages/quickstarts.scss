@@ -1,94 +1,111 @@
 .code-selector {
-  background-color: get-color('ebony-clay');
-  border-radius: 5px;
   margin-bottom: 10px;
   padding: 20px;
 
-  h3 {
-    color: $white;
-    font-size: 18px;
-    font-weight: lighter;
-    margin-bottom: 5px;
-  }
-
-  a {
-    color: $white;
-    display: inline-block;
-    height: 42px;
-    line-height: 32px;
-    margin-right: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-    &:hover{
-      cursor: pointer;
-      text-decoration: none;
-    }
-    &.active,
-    &:hover {
-      border-bottom: 2px solid $white;
-    }
-    .icon {
-      left: 5px;
-      position: absolute;
-    }
-  }
-
-  li.with-icon a{
-    padding-left: 45px;
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-    li {
-      display: inline-block;
-      list-style-type: none;
-    }
-  }
+  border-radius: 5px;
+  background-color: get-color("ebony-clay");
 }
 
-// Disable the margin width determined by the parent CSS.
+.code-selector h3 {
+  margin-bottom: 5px;
+
+  font-weight: 100;
+  font-size: 18px;
+  color: $white;
+}
+
+.code-selector a {
+  position: relative;
+
+  display: inline-block;
+  margin-right: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 42px;
+
+  line-height: 32px;
+  color: $white;
+}
+
+.code-selector a:hover {
+  cursor: pointer;
+
+  text-decoration: none;
+}
+
+.code-selector a.active,
+.code-selector a:hover {
+  border-bottom: 2px solid $white;
+}
+
+.code-selector a .icon {
+  position: absolute;
+  left: 5px;
+}
+
+.code-selector li.with-icon a {
+  padding-left: 45px;
+}
+
+.code-selector ul {
+  margin: 0;
+  padding: 0;
+}
+
+.code-selector ul li {
+  display: inline-block;
+  list-style-type: none;
+}
+
 .PageContent-main#quickstart-body {
-  max-width: 1050px;
   padding: 64px 0;
+  max-width: 1050px;
 }
-
 
 .example-content-well {
   padding: 10px 0;
-  h1, h2, h3, h4, h5, h6 {
-    padding-top: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    border-top: none;
-  }
-  pre {
-    padding: 15px;
-    margin-top: 5px;
-    margin-bottom: none;
-  }
 }
 
-.quickstart-page {
-  h2 {
-    border-bottom: none;
-    font-size: 23px;
-    font-weight: lighter;
-  }
-  h3 {
-    border-bottom: none;
-    font-size: 21px;
-    font-weight: lighter;
-  }
-  h4 {
-    border-bottom: none;
-    font-size: 18px;
-    font-weight: lighter;
-  }
-  .TableOfContents-item{
-    &.active {
-      border-left-color: get-color('accent');
-    }
-  }
+.example-content-well h1,
+.example-content-well h2,
+.example-content-well h3,
+.example-content-well h4,
+.example-content-well h5,
+.example-content-well h6 {
+  margin-top: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  border-top: none;
+}
+
+.example-content-well pre {
+  margin-top: 5px;
+  margin-bottom: none;
+  padding: 15px;
+}
+
+.quickstart-page h2 {
+  border-bottom: none;
+
+  font-weight: 100;
+  font-size: 23px;
+}
+
+.quickstart-page h3 {
+  border-bottom: none;
+
+  font-weight: 100;
+  font-size: 21px;
+}
+
+.quickstart-page h4 {
+  border-bottom: none;
+
+  font-weight: 100;
+  font-size: 18px;
+}
+
+.quickstart-page .TableOfContents-item.active {
+  border-left-color: get-color("accent");
 }
