@@ -157,7 +157,7 @@ The token inline hook is ready for preview and testing. You now have the followi
 
 1. From the **Configure Inline Hook request** block, complete the following fields:
 
-    * **Select a user**: A user in your org associated with your application.
+    * **Select a user**: A user in your org associated with your application
     * **Select an application**: Your OIDC sample application name.
     * **Select an authorization server**: Your authorization server name. In this example, `default`.
     * **Select a grant type**: Your application's grant type. In this example, `Authorization Code`.
