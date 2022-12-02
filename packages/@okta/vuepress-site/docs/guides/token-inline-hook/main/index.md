@@ -149,7 +149,7 @@ The token inline hook is ready for preview and testing. You now have the followi
 
 ### Preview the token inline hook
 
-1. Navigate to Inline Hooks (**Workflow** > **Inline Hooks**) in your Admin Console.
+1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 
 1. Click the token inline hook name (in this example, "Patient Token Hook").
 
