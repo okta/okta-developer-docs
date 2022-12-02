@@ -44,7 +44,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 2. In the **Error Page** box, click **Edit**.
 3. To open the code editor, turn on the toggle next to **Code editor**.
 
-   > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).
+   > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/).
 
 4. Make changes directly in the editor. If you enter `{`, `(`, or `.` you see a list of available variables that you can use. See [Use variables](#use-variables).
    * Click **Preview** to see your changes in a new browser window before you publish.
