@@ -212,7 +212,7 @@ For more information on implementing inline hooks, see the documentation for spe
 
 A hook preview feature is available for the following hooks: SAML, telephony, token, and registration inline hooks. Use this feature to view a sample request body and evaluate and troubleshoot the response from your external service. See [Troubleshoot hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) and [Preview an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-preview-inline-hooks).
 
-The [Okta System Log](/docs/reference/api/system-log/) also captures events related to inline hook setup and execution, which you can use to troubleshoot your implementation. To see descriptions of the relevant event types, query the Event Types catalog with the query parameter `inline_hook`:
+The [Okta System Log](/docs/reference/api/system-log/) also captures events related to inline hook setup and execution that you can use to troubleshoot your implementation. You can see descriptions of the relevant event types by querying the Event Types catalog with the `inline_hook` query parameter:
 
 <https://developer.okta.com/docs/reference/api/event-types/>
 
