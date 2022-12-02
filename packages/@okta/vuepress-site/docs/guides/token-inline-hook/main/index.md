@@ -160,7 +160,7 @@ The token inline hook is ready for preview and testing. You now have the followi
     * **Select a user**: A user in your org associated with your application
     * **Select an application**: Your OIDC sample application name
     * **Select an authorization server**: Your authorization server name. In this example, use `default`.
-    * **Select a grant type**: Your application's grant type. In this example, `Authorization Code`.
+    * **Select a grant type**: Your application's grant type. In this example, use `Authorization Code`.
     * **Select scopes**: The granted scopes.
 
     >**Note:** Based on your grant type selection, preview fields may vary.
