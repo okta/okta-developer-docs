@@ -7853,7 +7853,7 @@ Specifies access settings for the application
 | Property         | Description                                | DataType | Nullable | Default | MinLength | MaxLength | Validation |
 | ---------------- | ------------------------------------------ | -------- | -------- | ------- | --------- | --------- | ---------- |
 | errorRedirectUrl | Custom error page for this application     | String   | TRUE     | NULL    |           |           |            |
-| loginRedirectUrl | Custom login page for this application     | String   | TRUE     | NULL    |           |           |            |
+| loginRedirectUrl  <ApiLifecycle access="deprecated" /> | Custom login page for this application     | String   | TRUE     | NULL    |           |           |            |
 | selfService      | Enable self-service application assignment | Boolean  | TRUE     | FALSE   |           |           |            |
 
 > **Note:** The `errorRedirectUrl` and `loginRedirectUrl` default to the organization default pages when empty.
@@ -7866,7 +7866,7 @@ Specifies access settings for the application
   }
 }
 ```
-> **Note:** The `loginRedirectUrl` field is deprecated in Identity Engine.
+> **Note:** The `loginRedirectUrl` is a <ApiLifecycle access="deprecated" /> parameter.
 
 ### Visibility object
 
