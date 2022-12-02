@@ -32,13 +32,13 @@ This guide explains how to customize the Sign-In Widget when Okta is hosting it 
 
 The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the Widget depends on whether Okta is hosting it (redirect authentication) or you are embedding it in your app (embedded authentication).
 
-* Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the Okta-hosted sign-in page using easy controls or an embedded HTML editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
+* Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the Okta-hosted sign-in page using easy controls or a code editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
 
 * Embedded authentication: After you have [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project and configured the authentication scenarios that you want to support, you can then customize the widget. You can apply customizations to match your branding using CSS and JavaScript. See [Style for embedded authentication](#style-for-embedded-authentication).
 
 ## Style for redirect authentication
 
-You can add any HTML, CSS, or JavaScript to the sign-in page and also customize the sign-in page [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using the Okta-hosted Sign-In Widget, how to use the macros and request context, and also how to bypass the custom sign-in page.
+You can add any HTML, CSS, or JavaScript to the sign-in page and also customize it [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using redirect authentication, how to use the macros and request context, and also how to bypass the custom sign-in page.
 
 > **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
 
@@ -46,40 +46,27 @@ You can add any HTML, CSS, or JavaScript to the sign-in page and also customize 
 
 The **Custom Sign-In Page** offers basic and advanced customization options to create a completely transformed sign-in experience.
 
-> **Note:** Before you can customize for redirect authentication, you must customizee your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
+> **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
 
 To access this page:
 
 * Okta Identity Engine: In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the Sign-in page section.
 
-### Change headings and labels
-
-To change the heading and labels, and to customize help links on the sign-in page, make changes to the **Labels** section.
-
-1. Click the **Labels** tab.
-2. Locate the component type that you want to update and click **Edit**.
-
-You can also customize the placeholder text that appears in recovery flows when end users click account recovery links (for example, Forgot password and Unlock account). If you leave a label field blank, Okta uses the default text.
-
-> **Note:** Although Okta displays default labels, links, and headings in the end user's display language or browser language, Okta doesn't display localized versions of customized text and links. Text that you change here is hard-coded. To specify multiple localized versions of headings and labels, use the [Sign-in Widget text configuration options](https://github.com/okta/okta-signin-widget/#language-and-text).
-
-### Use the embedded HTML editor
+### Use the code editor
 
 Use the code editor to modify any HTML, CSS, or JavaScript on the widget. See [Customization examples](#customization-examples) for snippets that you can update and use.
-
-> **Note:** There is no draft mode in the code editor. When you click **Publish**, your changes go live. If you want to test changes without impacting production, use a test or development org.
 
 1. In the Admin Console, go to **Customizations** > **Branding**.
 2. In the **Sign-in page** box, click **Edit**.
 3. To open the code editor, turn on the toggle next to **Code editor**.
 
-   > **Note:** The code editor toggle only appears if you connect to Okta using a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).
+   > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).
 
 4. Make changes directly in the editor. If you enter `{`, `(`, or `.` you see a list of available variables that you can use. See [Use variables](#use-variables).
    * Click **Preview** to see your changes in a new browser window before you publish.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
 
-   > **Note:** The Admin Console auto-saves your changes every few seconds. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
+   > **Note:** To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
 
 5. Click **Publish** to commit your changes.
 

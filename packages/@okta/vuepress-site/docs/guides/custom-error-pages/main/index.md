@@ -44,13 +44,13 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
 2. In the **Error Page** box, click **Edit**.
 3. To open the code editor, turn on the toggle next to **Code editor**.
 
-   > **Note:** The code editor toggle only appears if you connect to Okta using a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).
+   > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).
 
 4. Make changes directly in the editor. If you enter `{`, `(`, or `.` you see a list of available variables that you can use. See [Use variables](#use-variables).
    * Click **Preview** to see your changes in a new browser window before you publish.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
 
-   > **Note:** The Admin Console auto-saves your changes every few seconds. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
+   > **Note:** To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
 
 5. Click **Publish** to commit your changes.
 
