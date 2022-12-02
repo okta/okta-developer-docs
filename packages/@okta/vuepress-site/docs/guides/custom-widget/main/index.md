@@ -16,37 +16,37 @@ This guide explains how to customize the Sign-In Widget when Okta is hosting it 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* (Okta-hosted) [Custom URL domain](/docs/guides/custom-url-domain/main/)
-* (Self-hosted) [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) installed into your project with configured authentication scenarios
-* (Self-hosted) The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
+* (Redirect authentication): [Custom URL domain](/docs/guides/custom-url-domain/main/)
+* Redirect authentication: The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
+* (Embedded authentication): [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) installed into your project with configured authentication scenarios
 
 **Sample code**
 
-* [Okta-hosted](#use-macros-and-request-context)
-* [Self-hosted](#style-the-self-hosted-sign-in-widget)
+* [Redirect authentication](#use-macros-and-request-context)
+* [Embedded authentication](#style-the-self-hosted-sign-in-widget)
 * [Customization examples](#customization-examples)
 
 ---
 
 ## About the Sign-In Widget
 
-The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the Widget depends on whether Okta is hosting it or you are embedding it in your app (self-hosting the Widget).
+The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the Widget depends on whether Okta is hosting it (redirect authentication) or you are embedding it in your app (embedded authentication).
 
-* Okta-hosted Sign-In Widget: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the Okta-hosted sign-in page using easy controls or an embedded HTML editor that is provided. See [Style the Okta-hosted Sign-In Widget](#style-the-okta-hosted-sign-in-widget).
+* Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the Okta-hosted sign-in page using easy controls or an embedded HTML editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
 
-* Self-hosted Sign-in Widget: After you have [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project and configured the authentication scenarios that you want to support, you can then customize the widget. You can apply customizations to match your branding using CSS and JavaScript. See [Style the self-hosted Sign-In Widget](#style-the-self-hosted-sign-in-widget).
+* Embedded authentication: After you have [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project and configured the authentication scenarios that you want to support, you can then customize the widget. You can apply customizations to match your branding using CSS and JavaScript. See [Style for embedded authentication](#style-for-embedded-authentication).
 
-## Style the Okta-hosted Sign-In Widget
+## Style for redirect authentication
 
 You can add any HTML, CSS, or JavaScript to the sign-in page and also customize the sign-in page [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using the Okta-hosted Sign-In Widget, how to use the macros and request context, and also how to bypass the custom sign-in page.
 
-> **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
+> **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
 
 ### Edit the sign-in page
 
 The **Custom Sign-In Page** offers basic and advanced customization options to create a completely transformed sign-in experience.
 
-> **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
+> **Note:** Before you can customize for redirect authentication, you must customizee your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes).
 
 To access this page:
 
@@ -261,7 +261,7 @@ Example:
  <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
 ```
 
-## Style the self-hosted Sign-In Widget
+## Style for embedded authentication
 
 This section discusses the customization options that you have when you are self-hosting the Sign-In Widget.
 
