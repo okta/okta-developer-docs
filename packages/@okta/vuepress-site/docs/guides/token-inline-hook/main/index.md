@@ -167,7 +167,7 @@ The token inline hook is ready for preview and testing. You now have the followi
 
 1. From the **Preview example Inline Hook request** block, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
 
-   >**Note:** You can also **Edit** this call for development or testing purposes.
+   >**Note:** You can also click **Edit** to modify this call for development or testing purposes.
 
 1. From the **View service's response** block, click **View Response**. A response appears from your external service in JSON format, which either adds a claim to the token or doesn't based on your external service's logic.
 
