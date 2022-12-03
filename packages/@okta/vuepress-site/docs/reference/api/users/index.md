@@ -2614,6 +2614,7 @@ Generates a one-time token (OTT) that can be used to reset a user's password.  T
 
 This operation will transition the user to the status of `RECOVERY` and the user will not be able to login or initiate a forgot password flow until they complete the reset flow.
 
+This operation provides an option to delete all the user' sessions.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
 >**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
 
 ##### Request parameters
@@ -2623,6 +2624,7 @@ This operation will transition the user to the status of `RECOVERY` and the user
 | --------- | ------------------------------------------------ | ---------- | -------- | -------- | ------- |
 | id        | `id` of user                                     | URL        | String   | TRUE     |         |
 | sendEmail | Sends reset password email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
+| revokeSessions | When set to `true`, revokes all user sessions, except for the current session | Query      | Boolean  | FALSE    | FALSE   |
 
 To ensure a successful password recovery lookup if an email address is associated with multiple users:
 
@@ -3032,17 +3034,20 @@ curl -v -X POST \
 
 Changes a user's password by validating the user's current password
 
+This operation provides an option to delete all the sessions of the specified user.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
+
 This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_EXPIRED`, or `RECOVERY` status that have a valid [password credential](#password-object)
 
 ##### Request parameters
 
 
-| Parameter    | Description                                             | Param Type | DataType                             | Required |
-| ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |
-| id           | `id` of user                                            | URL        | String                               | TRUE     |
-| strict       | If true, validates against password minimum age policy  | Query      | String                               | FALSE    |
-| oldPassword  | Current password for user                               | Body       | [Password object](#password-object)  | TRUE     |
-| newPassword  | New password for user                                   | Body       | [Password object](#password-object)  | TRUE     |
+| Parameter    | Description                                             | Param Type | DataType                             | Required | Default |
+| ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |---------|
+| id           | `id` of user                                            | URL        | String                               | TRUE     |         |
+| strict       | If true, validates against password minimum age policy  | Query      | String                               | FALSE    | FALSE   |
+| oldPassword  | Current password for user                               | Body       | [Password object](#password-object)  | TRUE     |         |
+| newPassword  | New password for user                                   | Body       | [Password object](#password-object)  | TRUE     |         |
+| revokeSessions | When set to `true`, revokes all user sessions, except for the current session | Body       | boolean                              | FALSE    | FALSE  |
 
 ##### Response parameters
 
@@ -3061,7 +3066,8 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "oldPassword": { "value": "tlpWENT2m" },
-  "newPassword": { "value": "uTVM,TPw55" }
+  "newPassword": { "value": "uTVM,TPw55" },
+  "revokeSessions" : true
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
 ```
 
