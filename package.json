@@ -59,7 +59,7 @@
     "wait-for-localhost-cli": "^3.0.0"
   },
   "resolutions": {
-    "cypress/**/async": "3.2.3",
+    "cypress/**/async": "3.2.4",
     "cypress/**/qs": "6.11.0",
     "vuepress/**/css-what": "^6.1.0",
     "vuepress/**/glob-parent": "^6.0.2",
