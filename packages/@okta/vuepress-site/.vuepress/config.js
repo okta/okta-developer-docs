@@ -215,7 +215,8 @@ module.exports = ctx => ({
         items: [
           { text: 'Contact our team', link: 'https://www.okta.com/contact/', target: '_self' },
           { text: 'Contact sales', link: 'https://www.okta.com/contact-sales/', target: '_self' },
-          { text: 'Terms & conditions', link: '/terms/' },
+          { text: 'Developer Service Terms', link: '/terms/' },
+          { text: 'Site Terms', link: 'https://www.okta.com/terms-of-service/' },
 			 { text: 'Privacy policy', link: 'https://www.okta.com/privacy-policy/', target: '_self' },
 			 { text: 'Copyright', link: '/copyright/' },
         ]
