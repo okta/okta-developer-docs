@@ -35,7 +35,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "axios": "^0.26.1",
-    "chai": "^4.3.6",
+    "chai": "^4.3.7",
     "chai-as-promised": "*",
     "chalk": "^2.4.2",
     "cypress": "^9.7.0",
