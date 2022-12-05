@@ -1,4 +1,4 @@
-1. Create and register an [OAuth](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) app at GitHub.
+1. Create and register an [OAuth](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) app at [GitHub](https://github.com/settings/applications/new).
 
 1. When you create an application at the IdP, you must provide a redirect URI for authentication.
 
