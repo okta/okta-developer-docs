@@ -34,6 +34,7 @@
   "author": "Brian Retterer <brian.retterer@okta.com>",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@mapbox/stylelint-processor-arbitrary-tags": "^0.4.0",
     "axios": "^0.26.1",
     "chai": "^4.3.7",
     "chai-as-promised": "*",
@@ -42,14 +43,13 @@
     "if-env": "^1.0.4",
     "jest": "^27.5.1",
     "mocha": "^9.2.2",
+    "postcss": "^8.4.19",
+    "postcss-scss": "^4.0.6",
     "recursive-readdir": "^2.2.2",
     "remove": "^0.1.5",
-    "postcss": "^8.4.19",
-    "postcss-scss": "^4.0.5",
     "stylelint": "^14.15.0",
-    "stylelint-scss": "^4.3.0",
     "stylelint-order": "^5.0.0",
-    "@mapbox/stylelint-processor-arbitrary-tags": "^0.4.0"
+    "stylelint-scss": "^4.3.0"
   },
   "dependencies": {
     "broken-link-checker": "^0.7.8",
