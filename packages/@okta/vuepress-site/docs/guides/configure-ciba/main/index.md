@@ -40,7 +40,7 @@ CIBA extends OIDC to define a decoupled flow where the authentication or transac
 
 ### CIBA grant-type flow
 
-<div class="full">
+<div class="three-quarter">
 
 ![Sequence diagram that displays the back and forth between the client, authorization server, and authentication device for the client-initiated backchannel authentication flow](/img/authorization/CIBAflow.png)
 
