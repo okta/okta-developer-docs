@@ -137,7 +137,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 |                                  |                                     | `Arrays.isEmpty(NULL)`                              | true              |
 | `Arrays.toCsvString(array)`      | String                              | `Arrays.toCsvString({"This", "is", " a ", "test"})` | This,is, a ,test   |
 
-> **Note:** You can use comma-separated strings (for example, CSV files) as an input parameter for all `Arrays*` functions. These values are converted into arrays.
+> **Note:** You can use comma-separated values (CSV) as an input parameter for all `Arrays*` functions. These values are converted into arrays. For example, `Arrays.flatten(10, {20, 30} 40)` returns the output `{10, 20, 30, 40}`.
 
 ### Conversion functions
 
