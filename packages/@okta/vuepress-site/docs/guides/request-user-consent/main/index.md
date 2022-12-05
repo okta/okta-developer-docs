@@ -64,12 +64,12 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 1. Click the edit icon for the **phone** scope. The Edit Scope dialog appears.
 1. For this use case example, select **Required** in the **User consent** section. **Required** indicates that the user must grant the app access to the information (scope) or they can't sign in to the app. The other options available include:
 
-    * **Implicit**: The default setting. Indicates that ?????????
+    * **Implicit**: The default setting. Indicates that the user doesn't have to grant the app access to the information. User consent is implied.
     * **Optional**: Indicates that the user can skip granting the app access to the information (scope). The scope is excluded from the authorization request. If a user skips this scope, the next time that they sign in, Okta doesn't prompt them for the skipped scope. If you later make the scope required for the app, include `prompt=consent` in the request, and the user is prompted to grant the app access to that scope.
 
     > **Note:** When you include `prompt=consent` in the authorization request, the user is prompted for all consent enabled scopes. This includes scopes that are required and optional, even if the user has already given consent.
 
-1. When you select **User consent** as **Required**, the **Block services from requesting this scope** checkbox is automatically selected.
+1. When you select **User consent** as **Required** or **Optional**, the **Block services from requesting this scope** checkbox is automatically selected.
 
     The **Block services from requesting this scope** checkbox strictly enforces user consent for the scope. When you select this checkbox, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the checkbox. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
 
