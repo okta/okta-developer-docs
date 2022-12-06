@@ -2413,10 +2413,6 @@ redirects:
     to: /docs/guides/social-login/github/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/github/configure-idp-in-okta
     to: /docs/guides/social-login/github/main/#create-the-identity-provider-in-okta
-  - from: /docs/guides/add-an-external-idp/github/main/index.html
-    to: /docs/guides/social-login/github/main/
-  - from: /docs/guides/add-an-external-idp/github/main
-    to: /docs/guides/social-login/github/main/
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta
