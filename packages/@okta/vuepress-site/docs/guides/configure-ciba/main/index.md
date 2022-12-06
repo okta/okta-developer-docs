@@ -7,7 +7,7 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="ea" />
 
-This guide explains how to build transactional verification using a Client-Initiated Backchannel Authentication (CIBA) grant and a custom branded authenticator.
+This guide explains how to build transactional verification using a Client-Initiated Backchannel Authentication (CIBA) grant and a custom-branded authenticator.
 
 ---
 
@@ -81,7 +81,7 @@ as -> client: Returns requested tokens
 
 5. An authorization error is sent to the client if the authorization server hasn’t received user approval yet.
 
-6. The user sees the custom branded push notification on their device and approves it.
+6. The user sees the custom-branded push notification on their device and approves it.
 
 7. The client (consumption device) polls the authorization server again.
 
@@ -104,14 +104,14 @@ Create an Okta OIDC client app integration to represent the consumption device, 
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 2. Click **Create App Integration**.
-3. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose which type of application that you want to integrate with Okta. In this use case example, we use **Web Application**.
+3. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose which type of application that you want to integrate with Okta. In this example, select **Web Application**.
 4. Click **Next**.
 5. Enter a name for your app integration.
 6. Select the **Client-initiated backchannel authentication flow (CIBA)** checkbox as a **Grant type**.
 7. Select the custom authenticator that you [previously configured using the Mobile SDK](https://github.com/okta/okta-mobile-swift) from the **Preferred authenticator for CIBA** dropdown list.
 8. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns the tokens after the user finishes authenticating. You can use the default URI for this exercise.
 
-    > **Note:** You can leave the rest of the default values, as they work with this guide for testing purposes.
+    > **Note:** You can leave the rest of the default values as they work with this guide for testing purposes.
 
 9. In the **Assignments** section, select **Allow everyone in your organization to access**.
 10. Click **Save**. The settings page for the app integration appears, showing the **General** tab.
@@ -126,7 +126,7 @@ You can also use the [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-a
 | Parameter                    | Value                                                                        |
 | :--------------------------- | :--------------------------------------------------------------------------- |
 | `grant_types`                | `urn:openid:params:grant-type:ciba`     |
-| `backchannel_authentication_request_signing_alg` | (Optional) The signing algorithm for CIBA signed requests using JWT. If this value isn't set and a JWT signed request is sent, the request fails. |
+| `backchannel_authentication_request_signing_alg` | (Optional) The signing algorithm for CIBA-signed requests using JWT. If this value isn't set and a JWT-signed request is sent, the request fails. |
 | `backchannel_custom_authenticator_id` | The ID of the custom authenticator that authenticates the user.           |
 | `backchannel_token_delivery_mode`| (Optional) How CIBA is delivered. Supported value: `poll`. Since `poll` is the only value supported, this parameter is optional. |
 
@@ -173,28 +173,28 @@ You can also use the [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-a
 
 ### Configure an authorization server access policy to use CIBA
 
-You can use either the Okta Org Authorization Server or a custom authorization server with CIBA. In this use case example, we use the `default` custom authorization server.
+You can use either the Okta Org Authorization Server or a custom authorization server with CIBA. In this example, use the `default` custom authorization server.
 
 1. In the Admin Console, go to **Security** > **API**.
-2. On the **Authorization Servers** tab, select the edit icon to the right of the authorization server that you want to use. In this use case example, we are using the `default` custom authorization server.
+2. On the **Authorization Servers** tab, select the edit icon to the right of the authorization server that you want to use. In this example, use the `default` custom authorization server.
 3. Select **Access Policies**.
 4. Select the edit icon for the Default Policy Rule.
-5. Select **Client-initiated backchannel authentication (CIBA)** as a grant type and click **Update Rule**.
+5. Select **Client-initiated backchannel authentication (CIBA)** as a grant type and click **Update rule**.
 
 ## Enroll a custom authenticator to use CIBA
 
-Use the Devices SDK and your app to enroll a custom authenticator for the test user. In this use case example, we are using the Okta Authenticator Sample App and the xCode simulator to enroll the authenticator. See the **What you need** section if you haven’t set up the sample app.
+Use the Devices SDK and your app to enroll a custom authenticator for the test user. In this example, use the Okta Authenticator Sample App and the Xcode simulator to enroll the authenticator. See the **What you need** section if you haven’t set up the sample app.
 
 1. In the **PushSampleApp** directory of the Okta Devices SDK, run the Okta Authenticator Sample App and then open the mobile app in the simulator.
 2. Click **Sign In**, enter the test user’s credentials, and click **Sign In**.
 3. Complete any additional two-factor authentication required and click **Verify**.
-4. On the Sign in securely using push notifications screen, click **Set up**.
+4. On the **Sign in securely using push notifications** screen, click **Set up**.
 5. On the Security Settings screen, slide to enable **Sign in with push notifications**.
 6. Click **Ok** at the confirmation dialog. Additional security setting options then appear, including **Enable CIBA transactions**.
 7. Slide to select **Enable CIBA transactions**.<br>
    The sample app is set up to include the **Enable CIBA transactions** option by default for the user to enable CIBA themselves in the mobile app. However, you can implement CIBA in your app any way that you want, for example, create an enrollment flow that turns CIBA on by default, making it transparent to users.
 8. Click **Ok** at the success dialog and close the Security Settings screen.
-9. Leave your test user signed in to the authentication device (the Magenta Bank app on the xCode simulator).
+9. Leave your test user signed in to the authentication device (the Magenta Bank app on the Xcode simulator).
   <!-- **Note:** See the [MyAccount API](/docs/reference/api/myaccount/) for examples of [enrolling](?link to new api operation?) and [updating](?link to new api operation?) a custom app authenticator to use CIBA by adding `CIBA` to the `transactionTypes` array. -->
 
 ## Test the CIBA flow
@@ -203,7 +203,7 @@ This section walks you through how to test the CIBA authentication flow using th
 
 ### Base64-encode the client ID and secret
 
-The call to the `/bc/authorize` endpoint and to the `/token` endpoint requires authentication. In this case, it’s a Basic Auth digest of the client ID and secret of the OIDC client that you created in [an earlier section of the guide](#create-an-oidc-client-integration-and-enable-CIBA). You can find them on the client’s **General** tab in the **Client Credentials** section.
+The call to the `/bc/authorize` endpoint and to the `/token` endpoint requires authentication. In this case, it’s a Basic Auth digest of the client ID and secret of the OIDC client that you created in [an earlier section of the guide](#create-an-oidc-client-integration-and-enable-ciba). You can find them on the client’s **General** tab in the **Client Credentials** section.
 
 To use a Basic Authorization header in both the `/bc/authorize` and `/token` requests, Base64-encode the string and set it in the Authorization header:
 
@@ -220,7 +220,7 @@ The CIBA challenge request is sent by an OIDC client to an Okta authorization se
 | Parameter                    | Value                                                                        |
 | :--------------------------- | :--------------------------------------------------------------------------- |
 | `binding_message`| (Optional) A human-readable message that appears on the authentication device to identify the transaction. |
-| `id_token_hint` | An ID token that was issued during initial user authentication. The token is passed back as a hint to identify the user for whom additional authentication is being requested. You can specify either `login_hint` or `id_token_hint` in the authentication request, not both. This parameter isn’t used in this use case example. |
+| `id_token_hint` | An ID token that was issued during initial user authentication. The token is passed back as a hint to identify the user for whom additional authentication is being requested. You can specify either `login_hint` or `id_token_hint` in the authentication request, not both. This parameter isn’t used in this example. |
 | `login_hint` | Information that identifies the user for whom authentication is being requested. This is typically the user’s email address. You can specify either `login_hint` or `id_token_hint` in the authentication request, not both. |
 | `request`| If you are using `private_key_jwt` as the [token endpoint authentication method](/docs/reference/api/apps/#credentials), this is the JWT created by the client that enables you to pass requests as a single, self-contained parameter. See [Parameter details](/docs/reference/api/oidc/#client-initiated-backchannel-authentication-parameter-details). |
 | `request_expiry`| (Optional) A positive integer that allows the client to request how long (in seconds) the authentication request is valid. This value is returned in the response from the authorization server as the `expires_in` parameter. If your request doesn’t contain this parameter, the default time that the request is valid is 300 seconds. |
