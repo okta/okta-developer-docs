@@ -15,7 +15,6 @@ module.exports = {
     "vue/no-side-effects-in-computed-properties": "off",
     "vue/no-template-shadow": "off",
     "vue/require-prop-type-constructor": "off",
-    "vue/singleline-html-element-content-newline": "off",
     "vue/prop-name-casing": "off",
     "vue/no-mutating-props": "off",
     "no-unused-vars": "off",
