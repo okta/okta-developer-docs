@@ -14,7 +14,7 @@ This guide explains how to build transactional verification using a Client-Initi
 **Learning outcomes**
 
 * Understand the OpenID Connect Client-Initiated Backchannel Authentication (CIBA) flow.
-* Set up your OIDC client and an  Okta authorization server to use the CIBA grant type.
+* Set up your OIDC client and an Okta authorization server to use the CIBA grant type.
 * Implement the CIBA grant flow in Okta using an Okta custom authenticator.
 
 **What you need**
