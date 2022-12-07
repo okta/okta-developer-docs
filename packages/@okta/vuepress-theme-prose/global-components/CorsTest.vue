@@ -88,8 +88,6 @@
 </template>
 
 <script>
-  const axios = require('axios')
-
   export default {
     data() {
       return {
@@ -103,17 +101,17 @@
       testCors: function() {
         this.info = null
         this.error = null
-        axios.defaults.withCredentials = true;
-        axios
-          .get('https://'+this.domain+'/api/v1/users/me')
-          .then(response => {
-            this.info = response
-            this.error = null
-          })
-          .catch(error => {
-            this.info = null
-            this.error = true
-          })
+        window.fetch(`https://${this.domain}/api/v1/users/me`, {
+          credentials: 'include'
+        })
+          .then((response) => response.json())
+          .then((response) => {
+            this.info = response;
+            this.error = null;
+          }, () => {
+            this.info = null;
+            this.error = true;
+          });
       }
     }
   }

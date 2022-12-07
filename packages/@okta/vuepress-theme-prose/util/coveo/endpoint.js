@@ -1,4 +1,3 @@
-import axios from "axios";
 import jwt_decode from "jwt-decode";
 import { DateTime } from "luxon";
 
@@ -30,10 +29,12 @@ const _getToken = () => {
 };
 
 const _renewToken = () => {
-  return axios.get(TOKEN_ENDPOINT).then(({ data: { token } }) => {
-    storage.setItem(COVEO_KEY, token);
-    return token;
-  });
+  return window.fetch(TOKEN_ENDPOINT)
+    .then((response) => response.json())
+    .then(({ token }) => {
+      storage.setItem(COVEO_KEY, token);
+      return token;
+    });
 };
 
 const configureCoveoEndpoint = async () => {
