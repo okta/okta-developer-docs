@@ -69,7 +69,7 @@ export const concepts = [
       },
       {
         title: "Okta Identity Engine Overview",
-        path: "/docs/guides/oie-intro/",
+        path: "/docs/concepts/oie-intro/",
       },
       {
         title: "Okta Organizations",

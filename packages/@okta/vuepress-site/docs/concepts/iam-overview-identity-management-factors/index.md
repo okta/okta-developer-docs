@@ -89,7 +89,7 @@ You can use Identity Engine features to:
 
 Learn more:
 
-- [Okta Identity Engine Overview](/docs/guides/oie-intro/) elaborates on Identity Engine's benefits, deployment models, SDKs, and sample apps.
+- [Okta Identity Engine Overview](/docs/concepts/oie-intro/) elaborates on Identity Engine's benefits, deployment models, SDKs, and sample apps.
 
 - [Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=csh-oie) has links for learning more about OIE.
 
