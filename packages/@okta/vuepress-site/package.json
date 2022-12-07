@@ -28,7 +28,6 @@
   "dependencies": {
     "@okta/vuepress-plugin-qualtrics-feedback": "^1.0.0",
     "bootstrap": "^4.6.1",
-    "codemirror": "^5.65.3",
     "esm": "^3.0.0",
     "js-yaml": "^3.13.1",
     "markdown-it": "^12.3.2",
