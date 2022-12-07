@@ -505,7 +505,7 @@ curl -v -X POST \
 -d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}&binding_message=${binding_message}&id_token_hint=${id_token_hint}"
 ```
 
-###### Request with signed `request`
+##### Request with signed `request`
 
 ```bash
 curl -v -X POST \
