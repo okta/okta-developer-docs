@@ -18,6 +18,8 @@ title: Okta Identity Engine API Products release notes 2022
 
 * The wrong response code (500) was sent when an admin attempted to use the app target or group target operations of the Administrator Role API with a custom role binding identifier. (OKTA-529688)
 
+* Inline hook requests configured to use OAuth 2.0 authentication sent expired access tokens in the authorization header. (OKTA-551186)
+
 ### Monthly release 2022.11.0
 
 | Change | Expected in Preview Orgs |
