@@ -485,7 +485,7 @@ You can post the following parameters as a part of the URL-encoded form values t
 
 #### CIBA request examples
 
-###### Request with `login_hint`
+##### Request with `login_hint`
 
 ```bash
 curl -v -X POST \
