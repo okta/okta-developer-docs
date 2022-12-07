@@ -1346,6 +1346,8 @@ curl -v -X GET \
 
 Lists all users that match the filter criteria. To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
 
+> **Note:** Results from the filter parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
+
 This operation:
 
 - Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
@@ -1506,6 +1508,8 @@ Finds users who match the specified query.  To ensure optimal performance, Okta 
 
 Use the `q` parameter for a simple lookup of users by name, for example when creating a people picker.
 The value of `q` is matched against `firstName`, `lastName`, or `email`.
+
+> **Note:** Results from the query parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
 
 
 This operation:
