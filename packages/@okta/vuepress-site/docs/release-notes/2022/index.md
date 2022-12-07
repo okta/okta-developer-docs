@@ -32,7 +32,7 @@ Before implementing a token inline hook, you can now preview the hook request an
 
 #### Revoke user sessions is GA in Preview
 
-You can end all Okta sessions for an end user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSession` parameter in the [Users API](/docs/reference/api/users/#change-password). <!-- OKTA-542645-->
+You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSession` parameter in the [Users API](/docs/reference/api/users/#change-password). <!-- OKTA-542645-->
 
 #### Step-up authentication using ACR values is GA in Prod
 
