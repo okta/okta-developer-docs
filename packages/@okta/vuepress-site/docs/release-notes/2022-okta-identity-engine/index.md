@@ -57,7 +57,8 @@ Earlier versions of the self-service registration (SSR) flow used a complicated 
 
 #### Transactional verification with CIBA is EA in Preview
 
-Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
+Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-Initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
+
 CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device and the device where the user verifies the transaction is called the authentication device. See [Create OIDC app integrations](/docs/guides/). <!-- OKTA-553199-->
 
 #### Manage embedded widget sign-in support is GA in Prod
