@@ -34,14 +34,14 @@ Stable version series are supported by Okta for use in production code. Semantic
 
 ### Retiring
 
-When a new major version of a library is released, the old major version series is marked as **retiring**. Retiring libraries are supported by Okta for at least nine months. After this period of time, the version series is officially retired (below).
+When a new major version of a library is released, the old major version series is marked as **retiring**. Retiring libraries are supported by Okta for at six months. After this period of time, the version series is officially retired (below).
 
-For example, if version 2.0.0 of `okta-sdk-foobar` is published in January, the 1.x series of `okta-sdk-foobar` (any version starting 1) is officially supported until at least September. The retirement dates are posted in the library's readme or documentation.
+For example, if version 2.0.0 of `okta-sdk-foobar` is published in January, the 1.x series of `okta-sdk-foobar` (any version starting 1) is officially supported until July. The retirement dates are posted in the library's readme or documentation.
 
 ### Retired
 
 Retired version series are no longer supported by Okta and are no longer recommended for production use. Okta doesn't publish new features or bug fixes for retired versions, except for critical security fixes (at our discretion).
 
-For example, after `okta-sdk-foobar` version 1.x has a retiring period (of at least nine months), it's no longer supported. Customers and developers are encouraged to upgrade to 2.0.0 or later.
+For example, after `okta-sdk-foobar` version 1.x has a retiring period (of six months), it's no longer supported. Customers and developers are encouraged to upgrade to 2.0.0 or later.
 
 When in doubt, check GitHub! The library's readme clearly states any versions that are retiring or are retired.
