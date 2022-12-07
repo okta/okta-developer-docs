@@ -495,7 +495,7 @@ curl -v -X POST \
 -d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}&binding_message=${binding_message}&login_hint=${login_hint}"
 ```
 
-###### Request with `id_token_hint`
+##### Request with `id_token_hint`
 
 ```bash
 curl -v -X POST \
