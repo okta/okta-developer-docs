@@ -12,14 +12,14 @@ title: Okta Identity Engine API Products release notes 2022
 |--------------------------------------------------------------------------|--------------------------|
 | [Preview the token inline hook](#preview-the-token-inline-hook)                       | December 7, 2022         |
 | [Revoke user sessions is GA in Preview](#revoke-user-sessions-is-ga-in-preview)                       | December 7, 2022         |
-| [Step-up authentication using ACR values is GA in Prod](#step-up-authentication-using-acr-values-is-ga-in-prod)                       | December 7, 2022         |
+| [Step-up authentication using ACR values is GA in Prod](#step-up-authentication-using-acr-values-is-ga-in-prod)                       | August 31, 2022         |
 | [Redirect added to end of sign-in flow](#redirect-added-to-end-of-sign-in-flow)                       | December 7, 2022         |
-| [Loading Page Animation feature for the Brands API is GA in Production](#loading-page-animation-feature-for-the-brands-api-is-ga-in-production)                       | December 7, 2022         |
+| [Loading Page Animation feature for the Brands API is GA in Production](#loading-page-animation-feature-for-the-brands-api-is-ga-in-production)                       | July 7, 2022         |
 | [Rate limit parameter matching](#rate-limit-parameter-matching)                       | December 7, 2022         |
-| [Improvements to the sign-in experience](#rate-limit-parameter-matching)                       | December 7, 2022         |
-| [Improvements to the self-service registration experience](#rate-limit-parameter-matching)                       | December 7, 2022         |
-| [Transactional verification with CIBA is EA in Preview](#rate-limit-parameter-matching)                       | December 7, 2022         |
-| [Manage embedded widget sign-in support is GA in Prod](#rate-limit-parameter-matching)                       | December 7, 2022         |
+| [Improvements to the sign-in experience](#improvements-to-the-sign-in-experience)                       | November 3, 2022         |
+| [Improvements to the self-service registration experience](#improvements-to-the-self-service-registration-experience)                       | July 7, 2022         |
+| [Transactional verification with CIBA is EA in Preview](#transactional-verification-with-ciba-is-ea-in-preview)                       | December 7, 2022         |
+| [Manage embedded widget sign-in support is GA in Prod](#manage-embedded-widget-sign-in-support-is-ga-in-prod)                       | October 5, 2022         |
 | [Bugs fixed in 2022.12.0](#bugs-fixed-in-2022-12-0)                       | December 7, 2022         |
 
 #### Preview the token inline hook
