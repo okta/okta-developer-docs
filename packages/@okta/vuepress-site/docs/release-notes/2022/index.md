@@ -52,7 +52,7 @@ The Rate Limit dashboard in the Admin Console now supports parameter matching fo
 
 #### Bugs fixed in 2022.12.0
 
-* Okta didn’t route SMS requests to the backup telephony providers through a round-robin distribution when a resend request is made to the Factors Verify endpoint (`/api/v1/users/${userId}/factors/${factorId}/verify`). (OKTA-508973)
+* Okta didn’t route SMS requests to the backup telephony providers through a round-robin distribution when a resend request was made to the Factors Verify endpoint (`/api/v1/users/${userId}/factors/${factorId}/verify`). (OKTA-508973)
 
 * An admin role couldn’t be assigned to a user or group if the role was constrained to a group with group membership rules or to a group with more than 5000 members. (OKTA-546310)
 
