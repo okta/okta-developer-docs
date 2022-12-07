@@ -58,30 +58,6 @@
                 </div>
               </div>
             </div>
-           <!-- <div
-              class="homepage--customize-your-app-margin homepage--section-margins"
-            >
-              <h2
-                class="homepage--main-heading homepage--color-main text-center"
-              >
-                Customize your sign-in
-              </h2>
-              <div class="flex align-items-center homepage--examples">
-                <div
-                  v-if="!pseudoAuthorizedCodeBlock"
-                  class="homepage--code-example"
-                >
-                  <div class="homepage--code-example--cm-wrapper">
-                    <FrontPageCodeMirror />
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <div>
-            <br>
-            <br>
-            <!-- empty div for spacing  -->
-            </div>
             <div
               class="homepage--partners-block-margin homepage--section-margins"
             >
@@ -101,7 +77,6 @@ export default {
     Sidebar: () => import("../components/Sidebar"),
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),
-    FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
   },
