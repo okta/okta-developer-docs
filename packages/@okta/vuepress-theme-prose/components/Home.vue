@@ -58,98 +58,6 @@
                 </div>
               </div>
             </div>
-           <!-- <div
-              class="homepage--customize-your-app-margin homepage--section-margins"
-            >
-              <h2
-                class="homepage--main-heading homepage--color-main text-center"
-              >
-                Customize your sign-in
-              </h2>
-              <div class="flex align-items-center homepage--examples">
-                <div
-                  v-if="!pseudoAuthorizedCodeBlock"
-                  class="homepage--code-example"
-                >
-                  <div class="homepage--code-example--cm-wrapper">
-                    <FrontPageCodeMirror />
-                  </div>
-                </div>
-
-                <div v-if="!pseudoAuthorized" class="homepage--live-widget">
-                  <FrontPageWidget @authLeia="togglePseudoAuth" />
-                </div>
-                <div
-                  v-if="pseudoAuthorized"
-                  class="col-sm-12 col-xs-12 col-lg-10"
-                >
-                  <div class="homepage--welcome-leia">
-                    <div
-                      class="homepage--welcome-leia--close"
-                      @click="togglePseudoAuth"
-                    >
-                      <svg
-                        class="close-icon"
-                        stroke="#00297A"
-                        stroke-width="2"
-                        xmlns="http://www.w3.org/2000/svg"
-                        x="0px"
-                        y="0px"
-                        viewBox="0 0 79.2 79.2"
-                        width="32"
-                      >
-                        <line
-                          stroke-width="5"
-                          class="st1"
-                          x1="23.3"
-                          y1="55.9"
-                          x2="55.9"
-                          y2="23.3"
-                        ></line>
-                        <line
-                          stroke-width="5"
-                          class="st1"
-                          x1="23.3"
-                          y1="23.3"
-                          x2="55.9"
-                          y2="55.9"
-                        ></line>
-                      </svg>
-                    </div>
-                    <div class="homepage--welcome-leia--header">
-                      Welcome, Leia
-                    </div>
-                    <div class="homepage--welcome-leia--info">
-                      Okta makes authentication straightforward. Connect your
-                      apps, choose an identity provider (or use ours), add
-                      users, configure rules, customize your login page, and
-                      then gain insights from our built in reports.
-                    </div>
-                    <div class="homepage--welcome-leia--actions">
-                      <SmartLink
-                        :item="{ link: '/signup/' }"
-                        classes="homepage--welcome-leia--actions--cta act-btn"
-                      >
-                        Sign up for Okta
-                      </SmartLink>
-                      <SmartLink
-                        :item="{
-                          link: '/code/javascript/okta_sign-in_widget/'
-                        }"
-                        classes="homepage--welcome-leia--actions--docs act-btn"
-                      >
-                        View widget docs
-                      </SmartLink>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> -->
-            <div>
-            <br>
-            <br>
-            <!-- empty div for spacing  -->
-            </div>
             <div
               class="homepage--partners-block-margin homepage--section-margins"
             >
@@ -163,45 +71,20 @@
 </template>
 
 <script>
-const SIDE_BY_SIDE_BREAKPOINT = 1200;
-
 export default {
   name: "Home",
   components: {
     Sidebar: () => import("../components/Sidebar"),
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),
-    FrontPageWidget: () => import("../components/FrontPageWidget"),
-    FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
   },
 
   data() {
     return {
-      pseudoAuthorized: false,
       pseudoAuthorizedCodeBlock: false
     };
   },
-  mounted() {
-    this.onResize();
-    window.addEventListener("resize", this.onResize);
-  },
-  methods: {
-    onResize() {
-      this.isInMobileViewport = window.innerWidth < SIDE_BY_SIDE_BREAKPOINT;
-    },
-    togglePseudoAuth(e) {
-      if (this.isInMobileViewport) {
-        this.pseudoAuthorized = !this.pseudoAuthorized;
-      } else {
-        this.pseudoAuthorized = !this.pseudoAuthorized;
-        this.pseudoAuthorizedCodeBlock = !this.pseudoAuthorizedCodeBlock;
-      }
-    }
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.onResize);
-  }
 };
 </script>
