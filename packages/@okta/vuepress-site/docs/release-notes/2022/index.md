@@ -36,7 +36,7 @@ You can end all Okta sessions for a user when resetting their password. All sess
 
 #### Step-up authentication using ACR values is GA in Prod
 
-Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the acr_values parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication](/docs/guides/step-up-authentication/main/) using ACR values. <!-- OKTA-552809-->
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication](/docs/guides/step-up-authentication/main/). <!-- OKTA-552809-->
 
 #### Redirect added to end of sign-in flow
 
