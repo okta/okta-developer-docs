@@ -24,7 +24,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 #### Preview the token inline hook
 
-Before implementing a token inline hook, you can now preview the hook request and the external-service response in the Admin Console. This feature aids in the development and testing of inline hooks before releasing to a production environment. In the Admin Console, click **Preview** from the **Actions** menu or the **Preview** tab for the individual hook to preview the token inline hook call. See [Preview and test the token inline hook](/docs/guides/token-inline-hook/nodejs/main/#test-the-token-inline-hook). <!-- OKTA-546727-->
+Before implementing a token inline hook, you can now preview the hook request and the external-service response in the Admin Console. This feature aids in the development and testing of inline hooks before releasing to a production environment. In the Admin Console, click **Preview** from the **Actions** menu or the **Preview** tab for the individual hook to preview the token inline hook call. See [Preview an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-preview-inline-hooks) and [Preview and test the token inline hook](/docs/guides/token-inline-hook/nodejs/main/#preview-and-test-the-token-inline-hook). <!-- OKTA-546727-->
 
 #### Revoke user sessions is GA in Preview
 
