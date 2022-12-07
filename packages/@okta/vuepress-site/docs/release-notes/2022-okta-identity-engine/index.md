@@ -48,7 +48,7 @@ The Rate Limit dashboard in the Admin Console now supports parameter matching fo
 
 #### Improvements to the sign-in experience
 
-When users create an account using the "Sign Up" link in the Sign-In Widget, they enter their first and family names along with their email address on the first page. The next step of Sign-In Widget displays the authenticators page, where users enter a password and configure any other mandatory authenticators. To streamline the sign-up process,
+When users create an account using the "Sign Up" link in the Sign-In Widget, they enter their first and family names along with their email address on the first page. The next step of the Sign-In Widget displays the authenticators page, where users enter a password and configure any other mandatory authenticators. To streamline the sign-up process, the Self-Service Registration with Password feature allows you to configure the enrollment form to show the password entry on the first page instead. See [Collect profile information and register users](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-verification). <!-- OKTA-551456-->
 the Self-Service Registration with Password feature allows you to configure the enrollment form to show the password entry on the first page instead. See [Collect profile information and register users](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-verification). <!-- OKTA-551456-->
 
 #### Improvements to the self-service registration experience
