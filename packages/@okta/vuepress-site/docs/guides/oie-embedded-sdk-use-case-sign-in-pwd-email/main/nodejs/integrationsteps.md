@@ -1,64 +1,107 @@
-> **Note:** These steps describe integrating the Okta email OTP flow into your app. To learn more about Okta email including how to integrate Okta email using magic links, see the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/).
+### 1: Your app displays the sign-in page
 
-### 1: Build a sign-in page on the client and authenticate the user credentials
+Create a sign-in page that captures the user's username and password:
 
-Build a sign-in page that captures both the user’s name and password, as shown in the following example:
+<div class="half wireframe-border">
 
-<div class="half border">
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
 
-![Displays a sign-in page with the username and password fields and a Login button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
 </div>
 
-When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object and set its `username` and `password` properties to the values entered by the user. Send this object to the [`idx.authenticate`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) method to start the authentication process. This call begins the multi-factor authentication flow.
+> **Note**: The account's username is also its primary email address.
 
-If the username and password are valid, `idx.authenticate` returns a status of `Idx.Status:PENDING`. This status indicates that an additional factor needs to be verified before the user signs in. In addition to the status, the `nextStep` field that is included in the response identifies the input parameters of the next step, which in this case is for the email authenticator key:
+### 2: The user submits their username and password
 
-```JavaScript
- status, // IdxStatus.PENDING
-  nextStep: {
-    inputs, // [{ name: 'authenticator', ... }]
-    options // [{ name: 'email', ... }, ...]
+When the user submits their `username` and `password`, pass them as parameters to `OktaAuth.idx.authenticate()`.
+
+```javascript
+const authClient = getAuthClient(req);
+const transaction = await authClient.idx.authenticate({ username, password });
+```
+
+### 3: Your app displays a list of authenticators
+
+`OktaAuth.idx.authenticate()` returns an `IdxTransaction` object with a status of `PENDING` and `nextStep.name` of `select-authenticator-authenticate`. This indicates that the user has supplied the correct password and must select a secondary authentication factor to verify their identity.
+
+```javascript
+{
+   status: "PENDING",
+   nextStep: {
+      name: "select-authenticator-authenticate",
+      inputs: [
+         {
+         name: "authenticator",
+         type: "string",
+         },
+      ],
+      options: [
+         {
+            label: "Email",
+            value: "okta_email",
+         },
+         {
+            label: "Phone",
+            value: "okta_phone",
+         }
+      ],
+   },
 }
 ```
 
-The user is redirected to an authenticator list page that displays the email factor as an authenticator to be verified.
+Display all the authenticators the user has enrolled and are ready for use. You can find the names and IDs of the available authenticators in the `options` array.
 
-### 2: Show the email factor in the authenticator list
+<div class="half wireframe-border">
 
-The next step is to show the email factor to the user in an authenticator list page. If not already done, build a page to display the list of authenticators from the previous step. In this use case, only the email factor appears, as shown in the following sample.
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
 
-<div class="half border">
+<!--
 
-![Displays a Select Authenticator page that includes an email field and a Select button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify-nodejs.png)
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
+ -->
 
 </div>
 
-When the user selects the **email** factor, call `idx.authenticate` and pass in the authentication email authentication key, `({ authenticator: AuthenticatorKey.OKTA_EMAIL })`. With this call, Okta sends a verification code to the user's email.
+### 4: The user submits the email authenticator
 
-If the call is successful, the method returns a status of `Idx.Status:PENDING`, which indicates that the SDK is ready for the verification code. The `nextStep` field identifies the input parameter of the next step, which is a verification code in this case:
+When the user submits the email authenticator, pass the authenticator's ID as a parameter to `OktaAuth.idx.authenticate()`.
 
-```JavaScript
-status, // IdxStatus.PENDING
-  nextStep: {
-    inputs // [{ name: 'verificationCode', ... }]
+```javascript
+const transaction = await authClient.idx.authenticate({ authenticatorId });
+handleTransaction({ req, res, next, authClient, transaction });
+```
+
+### 5: The user verifies their identity with the email authenticator
+
+Identity Engine sends a verification email to the user if the call is successful. The returned `IdxTransaction` object has a status of `PENDING` and `nextStep.name` of `challenge-authenticator`. This status indicates that Identity Engine is waiting for the user to check their email and either click the magic link or enter the OTP.
+
+To learn how to support verification with magic links or OTP, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#_3-display-otp-input-page).
+
+### 6: Your app handles an authentication success response
+
+When the user correctly verifies their identity using the email authenticator, the returned `IdxTransaction` object has a status of `SUCCESS`, along with ID and access tokens. The user has now signed in.
+
+```javascript
+{
+  status: "SUCCESS",
+  tokens: {
+    accessToken: {
+      accessToken: "eyJraWQiOiJLSWdvVHlt...",
+      expiresAt: 1656106249,
+      tokenType: "Bearer",
+    },
+    idToken: {
+      idToken: "eyJraWQiOiJLSWdvVHltSGlL...",
+      expiresAt: 1656106249,
+    },
+  },
 }
 ```
 
-The next step is to redirect the user to the email verification code page.
+Store these tokens for future requests and redirect the user to the default page after a successful sign-in attempt.
 
-### 3: Show the email verification code page
-
-If not already done, build the email verification code page that accepts the code from the email.
-
-<div class="half border">
-
-![Displays a Challenge Email Authenticator page that includes a verification code field and a Verify button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code-nodejs.png)
-
-</div>
-
-The next step is to call `idx.authenticate` and pass in the email verification code (for example,`({ verificationCode: '1213' })`) and handle the response from the call. If the email code is valid, the method returns a status of `Idx.Status:SUCCESS` and tokens. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page.
-
-### 4 (Optional): Get the user profile information
-
-Optionally, you can obtain basic user information after a successful sign-in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#get-the-user-profile-information).
+> **Note**: You can request basic user information from Okta's OpenID Connect authorization server after a user has signed in successfully. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#integration-steps).

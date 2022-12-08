@@ -1,7 +1,7 @@
-The sequence of steps for the sign in with password and email flow is shown below.
+The following summarizes the steps involved in a sign-in flow using password and email:
 
 <div class="full">
 
-![Displays a sequence diagram of the sign-in with email and password flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email.png)
+![Displays a sequence diagram of the sign-in with email and password flow](/img/oie-embedded-sdk/oie-embedded-dotnet-sign-in-pwd-email-flow-diagram.png)
 
 </div>

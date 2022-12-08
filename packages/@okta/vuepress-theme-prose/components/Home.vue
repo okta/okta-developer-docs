@@ -163,23 +163,18 @@
 </template>
 
 <script>
-const SIDE_BY_SIDE_BREAKPOINT = 1200;
-
 export default {
   name: "Home",
   components: {
     Sidebar: () => import("../components/Sidebar"),
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),
-    FrontPageWidget: () => import("../components/FrontPageWidget"),
-    FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
   },
 
   data() {
     return {
-      pseudoAuthorized: false,
       pseudoAuthorizedCodeBlock: false
     };
   },

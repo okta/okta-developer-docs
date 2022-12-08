@@ -4,12 +4,13 @@
 
 Create a sign-in page that captures the user's username.
 
-<div class="half border">
+<div class="half wireframe-border">
 
-![A sign-in page with a username field and a Next button.](/img/pwd-optional/pwd-optional-sign-in-page.png)
+![A sign-in form with a field for the username, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-only-sign-up-forgot-your-password-links.png)
 
 <!--
-Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=1978%3A1743 pwd-optional-sign-in-page
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3401%3A37178&t=vr9MuCR8C4rCt3hC-1 sign-in-form-username-only-sign-up-forgot-your-password-links
  -->
 
 </div>
