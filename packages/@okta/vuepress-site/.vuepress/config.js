@@ -74,7 +74,7 @@ module.exports = ctx => ({
         // END Google Tag Manager
 
       }
-    `],
+    `]/* Removed as per OKTA-557387,
     ['script', {}, `
       var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,api:2020.09, text: { 'msg': 'Your web browser ({brow_name}) is not supported. For the best site experience, we recommend updating your browser. <br> <a{up_but}>Update browser</a> <a{ignore_but}>Ignore</a>' } };
       function $buo_f(){
@@ -84,7 +84,7 @@ module.exports = ctx => ({
       };
       try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
       catch(e){window.attachEvent("onload", $buo_f)}
-    `]
+    `]*/
   ],
   title: "Okta Developer",
   description: "Secure, scalable, and highly available authentication and user management for any app.",
