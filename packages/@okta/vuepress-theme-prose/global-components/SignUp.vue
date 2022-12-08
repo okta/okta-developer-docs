@@ -413,6 +413,7 @@ export default {
           .then(() => {
             // Reset error in case of transient failure that succeeds later
             this.error = null;
+            this.isPending = false;
 
             if (window.dataLayer) {
               // Google Analytics email signup success event
@@ -421,13 +422,11 @@ export default {
 
             // Redirect user to success landing page
             window.location.assign("/signup/thank-you/");
-          })
-          .catch(err => {
+
+          }, (err) => {
             this.handleApiError(err);
-          })
-          .finally(() => {
             this.isPending = false;
-          });
+          })
       }
     },
 

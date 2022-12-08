@@ -1,4 +1,3 @@
-// import axios from "axios";
 export class Api {
   postHeaders = {
     "content-type": "application/json"
@@ -8,17 +7,6 @@ export class Api {
   }
 
   httpRequest(method, url, options = { headers: {}, body: {}, params: {} }) {
-    // return axios({
-    //   method,
-    //   baseURL: this.baseUrl,
-    //   url,
-    //   headers: {
-    //     ...options.headers
-    //   },
-    //   data: options.body,
-    //   params: options.params,
-    // });
-
     const urlWithParams =  options.params ? `${url}?${(new URLSearchParams(options.params)).toString()}` : url;
     return window.fetch(`${this.baseUrl}${urlWithParams}`, {
       method: method,

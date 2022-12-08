@@ -92,19 +92,24 @@ export class SignUpValidation {
   }
 
   async _isWorkEmail(email) {
-    const oktaApi = new Api('https://www.okta.com/oktaapi');
-    try {
-      const { data: { valid, message } } = await oktaApi
-        .get('/ft/email', {
-          params: { email },
-        });
+    let isWorkEmail;
+    // TEMP
+    // const oktaApi = new Api('https://www.okta.com/oktaapi');
+    const oktaApi = new Api('https://www.atko.biz/oktaapi');
+    // TEMP
+    
+    await oktaApi
+      .get('/ft/email', {
+        params: { email },
+      }).then(({ valid }) => {
+        isWorkEmail = valid;
+      }, (err) => {
+        console.error(err);
+        // If the API fails, log the error
+        // and assume the email was a work email
+        isWorkEmail = true;
+      });
 
-      return valid;
-    } catch (err) {
-      console.error(err);
-      // If the API fails, log the error
-      // and assume the email was a work email
-      return true;
-    };
+    return isWorkEmail;
   }
 }
