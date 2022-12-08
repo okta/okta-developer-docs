@@ -52,7 +52,7 @@ You can also [configure a custom email address](#about-custom-email-addresses) t
 
 * If you use an Okta-managed TLS certificate, you don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, keep the following in mind:
 
-    * If you already have an Okta-managed TLS certificate and you later get a CAA record, Okta will be unable to renew your certificate unless you add letsencrypt.org to the issuers list, or remove the CAA record. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
+    * If you have an Okta-managed TLS certificate and you later get a CAA record, Okta can't renew your certificate. You must either add letsencrypt.org to the issuers list or remove the CAA record. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
 
 * Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
 
