@@ -139,7 +139,6 @@ SCIM:
 
 * [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
 * [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
-* [Fuze](http://images.em.fuze.com/Web/ThinkingPhones/%7Be980dc53-8c7e-4758-b5e5-3fa20845c561%7D_Fuze_Admin_Guide_-_Okta_Provisioning_(1).pdf) (PDF link)
 * [Zscaler](https://help.zscaler.com/zia/saml-scim-configuration-guide-okta)
 
 ### Content
