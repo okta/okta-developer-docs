@@ -15,9 +15,9 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 ### 2: Authenticate the user credentials
 
-When the user initiates the sign-in process, your app needs to:
+When the user initiates the sign-in process, your application needs to:
 
-* Create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file
+* Create a new `OktaAuth` object, which is `authClient` in the SDK sample application's `login.js` file
 * Set its `username` and `password` properties to the values entered by the user
 * Send this object to [`idx.authenticate()`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) to authenticate the user
 
@@ -57,8 +57,8 @@ module.exports = function handleTransaction({
 
 #### Success status
 
-For a successful sign-in response, the `IdxStatus` field indicates a success `IdxStatus.SUCCESS`, retrieves the token from the response, and processes the authenticated user in the app. The SDK sample application
-saves the tokens to storage in the `handleTransaction.js` file and redirects the user back to the home page.
+For a successful sign-in response, the `IdxStatus` field has the `IdxStatus.SUCCESS`value. In the `handleTransaction.js` file, the switch statement handles the success case, which processes the authenticated user by
+saving the tokens to storage and redirecting the user back to the home page.
 
 ```JavaScript
 case IdxStatus.SUCCESS:
@@ -74,7 +74,7 @@ case IdxStatus.SUCCESS:
 
 #### Other authentication statuses
 
-You need to handle other returned `IdxStatus` cases if the user didn't sign in successfully. For example, in the SDK application's `handleTransactions.js` file:
+You need to handle other returned `IdxStatus` cases if the user didn't sign in successfully. For example, in the SDK sample application's `handleTransactions.js` file, the switch statement handles the other statuses:
 
 ```JavaScript
  switch (status) {
@@ -112,4 +112,4 @@ You need to handle other returned `IdxStatus` cases if the user didn't sign in s
 
 ### 4 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server (see the next section).
+Optionally, you can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server.
