@@ -1,4 +1,4 @@
-name: Build and Test
+name: '[dev.okta] build and checks'
 
 on:
   pull_request:
@@ -24,5 +24,5 @@ jobs:
         cache: 'npm'
     - run: yarn install --frozen-lockfile
     - run: yarn build
-    - run: ./scripts/travis.sh
+    - run: ./scripts/yarn-checks.sh
       shell: bash

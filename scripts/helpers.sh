@@ -112,13 +112,13 @@ function check_for_quickstart_pages_in_sitemap() {
     fi
 }
 
-function fold() {
+function group() {
     local name=$1
     local command="${@:2}"
-    echo -en "travis_fold:start:${name}\\r"
+    echo -en "::group::${name}\\r"
     echo "\$ ${command}"
     ${command}
-    echo -en "travis_fold:end:${name}\\r"
+    echo -en "::endgroup::${name}\\r"
 }
 
 function send_promotion_message() {
