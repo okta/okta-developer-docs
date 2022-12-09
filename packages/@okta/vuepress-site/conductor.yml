@@ -5555,3 +5555,7 @@ redirects:
     to: /docs/guides/sign-in-to-spa-authjs/vue/main/
   - from: /code/vue/okta_vue
     to: /docs/guides/sign-in-to-spa-authjs/vue/main/
+  - from: /docs/guides/oie-intro
+    to: /docs/concepts/oie-intro/
+  - from: /docs/guides/oie-intro/index.html
+    to: /docs/concepts/oie-intro/

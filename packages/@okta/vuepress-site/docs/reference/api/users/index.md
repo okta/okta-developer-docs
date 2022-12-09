@@ -2618,6 +2618,7 @@ Generates a one-time token (OTT) that can be used to reset a user's password.  T
 
 This operation will transition the user to the status of `RECOVERY` and the user will not be able to login or initiate a forgot password flow until they complete the reset flow.
 
+This operation provides an option to delete all the user' sessions.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
 >**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
 
 ##### Request parameters
@@ -2627,6 +2628,7 @@ This operation will transition the user to the status of `RECOVERY` and the user
 | --------- | ------------------------------------------------ | ---------- | -------- | -------- | ------- |
 | id        | `id` of user                                     | URL        | String   | TRUE     |         |
 | sendEmail | Sends reset password email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
+| revokeSessions | When set to `true`, revokes all user sessions, except for the current session | Query      | Boolean  | FALSE    | FALSE   |
 
 To ensure a successful password recovery lookup if an email address is associated with multiple users:
 
@@ -3036,17 +3038,20 @@ curl -v -X POST \
 
 Changes a user's password by validating the user's current password
 
+This operation provides an option to delete all the sessions of the specified user.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
+
 This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_EXPIRED`, or `RECOVERY` status that have a valid [password credential](#password-object)
 
 ##### Request parameters
 
 
-| Parameter    | Description                                             | Param Type | DataType                             | Required |
-| ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |
-| id           | `id` of user                                            | URL        | String                               | TRUE     |
-| strict       | If true, validates against password minimum age policy  | Query      | String                               | FALSE    |
-| oldPassword  | Current password for user                               | Body       | [Password object](#password-object)  | TRUE     |
-| newPassword  | New password for user                                   | Body       | [Password object](#password-object)  | TRUE     |
+| Parameter    | Description                                             | Param Type | DataType                             | Required | Default |
+| ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |---------|
+| id           | `id` of user                                            | URL        | String                               | TRUE     |         |
+| strict       | If true, validates against password minimum age policy  | Query      | String                               | FALSE    | FALSE   |
+| oldPassword  | Current password for user                               | Body       | [Password object](#password-object)  | TRUE     |         |
+| newPassword  | New password for user                                   | Body       | [Password object](#password-object)  | TRUE     |         |
+| revokeSessions | When set to `true`, revokes all user sessions, except for the current session | Body       | boolean                              | FALSE    | FALSE  |
 
 ##### Response parameters
 
@@ -3065,7 +3070,8 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "oldPassword": { "value": "tlpWENT2m" },
-  "newPassword": { "value": "uTVM,TPw55" }
+  "newPassword": { "value": "uTVM,TPw55" },
+  "revokeSessions" : true
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
 ```
 
@@ -4114,17 +4120,20 @@ The password specified in the value property must meet the default password poli
 
 ##### Hashed Password object
 
-Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, and MD5 hashing functions for password import. A hashed password may be specified in a Password object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
+Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, MD5 and PBKDF2 hashing functions for password import. A hashed password may be specified in a Password object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
 
 > **Note:** Because the plain text password isn't specified when a hashed password is provided, password policy isn't applied.
 
 | Property | Type | Description |
 | -------- | ----- | ---------- |
-| algorithm  | String   | The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5. |
-| value      | String   | For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded `value` of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the `salt` to the `password`, depending on the `saltOrder`. If a `salt` was not used in the `source` system, then this should just be the the Base64 encoded `value` of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password. |
+| algorithm  | String   | The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1, MD5 or PBKDF2. |
+| value      | String   | For SHA-512, SHA-256, SHA-1, MD5 and PBKDF2, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded `value` of the SHA-512/SHA-256/SHA-1/MD5/PBKDF2 digest that was computed by either pre-fixing or post-fixing the `salt` to the `password`, depending on the `saltOrder`. If a `salt` was not used in the `source` system, then this should just be the the Base64 encoded `value` of the password's SHA-512/SHA-256/SHA-1/MD5/PBKDF2 digest. For BCRYPT, This is the actual radix64-encoded hashed password. |
 | salt       | String   | Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash. |
 | workFactor | Number  | Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20. |
 | saltOrder  | String   | Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms. |
+| iterationCount  | Number   | The number of iterations used when hashing passwords using PBKDF2. Must be >= 4096. Only required for PBKDF2 algorithm. |
+| keySize  | Number   | Size of the derived key in bytes. Only required for PBKDF2 algorithm. |
+| digestAlgorithm  | String   | Algorithm used to generate the key. Currently we support "SHA256_HMAC" and "SHA512_HMAC“. Only required for PBKDF2 algorithm. |
 
 ###### BCRYPT Hashed Password object example
 
@@ -4187,6 +4196,21 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
     "salt": "TXlTYWx0",
     "saltOrder": "PREFIX",
     "value": "jqACjUUFXM1XE6NiLALAbA=="
+  }
+}
+```
+
+###### PBKDF2 Hashed Password object example
+
+```bash
+"password" : {
+  "hash": {
+    "algorithm": "PBKDF2",
+    "salt": "RBDXRWs9",
+    "value": "eKe8/dcL5gvRsMmp7WwxZq0Y7WAodielIcLaelLlgNs=",
+    "iterationCount" : 4096,
+    "keySize" : 32,
+    "digestAlgorithm" : "SHA512_HMAC"
   }
 }
 ```

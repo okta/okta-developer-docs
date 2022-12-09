@@ -23,7 +23,7 @@
 
 <script>
 const DEFAULT_LINK = "/docs/reference/releases-at-okta/";
-const IE_LINK = "/docs/guides/oie-intro/";
+const IE_LINK = "/docs/concepts/oie-intro/";
 const DEPRECATED_LINK = "/docs/reference/releases-at-okta/#deprecation";
 
 export default {
