@@ -67,9 +67,7 @@ Use the following steps to display the user consent dialog as part of an OpenID 
     * **Implicit**: The default setting. Indicates that the user doesn't have to grant the app access to the information. User consent is implied.
     * **Optional**: Indicates that the user can skip granting the app access to the information (scope). Scopes that the user skips aren't included in the authorization response. After a user skips a scope, the next time that they sign in, Okta doesn't prompt them for it. If you later make the scope required for the app, the user is then prompted to grant the app access to that scope.
 
-    > **Note:** When you include `prompt=consent` in the authorization request, the user is prompted for all consent-enabled scopes. This includes scopes that are required or optional, even if the user has already given consent or skipped a scope.
-
-    previous required scope made optional - force consent...they can skip it if they want and it won't be included in the authorization response.
+    > **Note:** When you include `prompt=consent` in the authorization request, the user is prompted for all consent-enabled scopes. This includes scopes that are required or optional, even when the user has already given consent or skipped a scope. Additionally, when previously required scopes appear in the dialog, the user has the option to then skip those scopes.
 
 1. When you select **User consent** as **Required** or **Optional**, the **Block services from requesting this scope** checkbox is automatically selected.
 
@@ -81,76 +79,78 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 
 The following section provides example requests for enabling the consent dialog using the APIs. You must first verify that the `consent_method` property is set to `REQUIRED` and then enable consent for the scope.
 
-### Check the consent method value for an app
+### Update the consent method for an app
 
-Make sure that the `consent_method` parameter for the app is set to `REQUIRED`:
+1. Verify that the `consent_method` parameter for the app is set to `REQUIRED`:
 
-* Do a [List applications](/docs/reference/api/apps/#list-applications-with-defaults) to locate the `applicationId` of the app.
-* Do a [Get application](/docs/reference/api/apps/#get-application) using the `applicationId` and verify that the `consent_method` parameter is set to `REQUIRED`.
+    * Do a [List applications](/docs/reference/api/apps/#list-applications-with-defaults) to locate the `applicationId` of the app.
+    * Do a [Get application](/docs/reference/api/apps/#get-application) using the `applicationId` and verify that the `consent_method` parameter is set to `REQUIRED`.
 
-If the `consent_method` is set to `TRUSTED`, you need to update that parameter. The following example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
+2. If the `consent_method` is set to `TRUSTED`, you need to update that parameter. The following example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`.
 
-> **Note:** Check the **Settings** [table](/docs/reference/api/apps/#settings-10) in the **Add OAuth 2.0 Client Application** section of the Apps API reference for information on these properties. In most cases, `REQUIRED` is the correct value.
+    > **Note:** Check the **Settings** [table](/docs/reference/api/apps/#settings-10) in the **Add OAuth 2.0 Client Application** section of the Apps API reference for information on these properties. In most cases, `REQUIRED` is the correct value.
 
-```json
-{
-    "id": "0oaosna3ilNxgPTmk0h7",
-    "name": "oidc_client",
-    "label": "ConsentWebApp",
-    "status": "ACTIVE",
-    "signOnMode": "OPENID_CONNECT",
-    "credentials": {
-        "userNameTemplate": {
-            "template": "${source.login}",
-            "type": "BUILT_IN"
-        },
-        "signing": {
-            "kid": "5gbe0HpzAYj2rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
-        },
-        "oauthClient": {
-            "autoKeyRotation": true,
-            "client_id": "0oaosna3ilNxgPTmk0h7",
-            "token_endpoint_auth_method": "client_secret_basic"
-        }
-    },
-   "settings": {
-        "app": {},
-        "notifications": {
-            "vpn": {
-                "network": {
-                    "connection": "DISABLED"
-                },
-                "message": null,
-                "helpUrl": null
+    ```json
+    {
+        "id": "0oaosna3ilNxgPTmk0h7",
+        "name": "oidc_client",
+        "label": "ConsentWebApp",
+        "status": "ACTIVE",
+        "signOnMode": "OPENID_CONNECT",
+        "credentials": {
+         "userNameTemplate": {
+             "template": "${source.login}",
+             "type": "BUILT_IN"
+         },
+            "signing": {
+              "kid": "5gbe0HpzAYj2rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
+         },
+            "oauthClient": {
+             "autoKeyRotation": true,
+              "client_id": "0oaosna3ilNxgPTmk0h7",
+             "token_endpoint_auth_method": "client_secret_basic"
             }
-        },
-        "oauthClient": {
-            "client_uri": null,
-            "logo_uri": null,
-            "redirect_uris": [
+     },
+     "settings": {
+         "app": {},
+         "notifications": {
+             "vpn": {
+                 "network": {
+                     "connection": "DISABLED"
+                  },
+                 "message": null,
+                 "helpUrl": null
+             }
+            },
+         "oauthClient": {
+             "client_uri": null,
+             "logo_uri": null,
+             "redirect_uris": [
                 "https://{yourOktaDomain}/authorization-code/callback"
-            ],
-            "response_types": [
-                "code",
-                "token",
-                "id_token"
-            ],
-            "grant_types": [
-                "authorization_code",
-                "implicit"
-            ],
-            "initiate_login_uri": "https://{yourOktaDomain}/authorization-code/callback",
-            "application_type": "web",
-            "consent_method": "REQUIRED",
-            "issuer_mode": "CUSTOM_URL"
+             ],
+             "response_types": [
+                 "code",
+                 "token",
+                 "id_token"
+             ],
+             "grant_types": [
+                 "authorization_code",
+                 "implicit"
+             ],
+                "initiate_login_uri": "https://{yourOktaDomain}/authorization-code/callback",
+                "application_type": "web",
+                 "consent_method": "REQUIRED",
+                 "issuer_mode": "CUSTOM_URL"
+            }
         }
     }
-}
-```
+    ```
 
 ### Update Scope consent
 
-To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by updating the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`. You can also set the `consent` property for the scope to `FLEXIBLE` or `OPTIONAL`. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties).
+To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by updating the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`, `FLEXIBLE` or `OPTIONAL`. In this example, set `consent` to `REQUIRED`.
+
+> **Note:** See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on scope properties and how to use them.
 
 This example shows the JSON body for a PUT request to the default custom authorization server (`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/scopes/${scopeId}`) to update the `phone` scope. You need the following information for the request:
 
@@ -166,6 +166,22 @@ This example shows the JSON body for a PUT request to the default custom authori
     "system": true,
     "metadataPublish": "ALL_CLIENTS",
     "consent": "REQUIRED",
+    "default": false
+}
+```
+
+To update scope consent to `OPTIONAL`, set `consent` to `REQUIRED` and include the `optional` parameter set to `true`:
+
+```json
+{
+    "id": "scpixa2zmc8Eumvjb0h7",
+    "name": "phone",
+    "displayName": "phone",
+    "description": "Allows this application to access your phone number.",
+    "system": true,
+    "metadataPublish": "ALL_CLIENTS",
+    "consent": "REQUIRED",
+    "optional": true,
     "default": false
 }
 ```
