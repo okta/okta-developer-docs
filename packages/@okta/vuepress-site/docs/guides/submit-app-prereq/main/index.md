@@ -17,7 +17,6 @@ You need to prepare all the artifacts required before the submission.
 
 If you are an independent software vendor (ISV), Okta customer, or IT system integrator who wants to add their integration to the [Okta Integration Network](https://www.okta.com/integrations/), read this guide for prerequisites and guidelines for the submission process.
 
-Test 
 
 * [Integration logo guidelines](#integration-logo-guidelines)
 * [Integration description guidelines](#integration-description-guidelines)
