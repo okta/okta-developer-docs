@@ -133,7 +133,7 @@ If the email already exists for the current user, the response returns a 409 CON
 
 ```bash
 curl -v -X POST \
--H "Authorization: Bearer ${token}" \
+-H "Authorization: Bearer ${BEARER_TOKEN}" \
 -H "Accept: application/json; okta-version=1.0.0" \
 "https://${yourOktaDomain}/idp/myaccount/emails"
 ```
