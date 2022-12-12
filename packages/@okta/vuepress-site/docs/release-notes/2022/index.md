@@ -8,15 +8,15 @@ title: Okta API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Password history policy enforced in strict mode is GA in Preview](#password-history-policy-enforced-in-strict-mode-is-ga-in-preview)                       | December 7, 2022         |
-| [PBKDF2 Hashing Algorithm support is GA in Preview](#pbkdf2-hashing-algorithm-support-is-ga-in-preview)                       | December 7, 2022         |
-| [Preview the token inline hook](#preview-the-token-inline-hook)                       | December 7, 2022         |
-| [Revoke user sessions is GA in Preview](#revoke-user-sessions-is-ga-in-preview)                       | December 7, 2022         |
+| [Password history policy enforced in strict mode is GA in Preview](#password-history-policy-enforced-in-strict-mode-is-ga-in-preview)                       | December 9, 2022         |
+| [PBKDF2 Hashing Algorithm support is GA in Preview](#pbkdf2-hashing-algorithm-support-is-ga-in-preview)                       | December 9, 2022         |
+| [Preview the token inline hook](#preview-the-token-inline-hook)                       | December 9, 2022         |
+| [Revoke user sessions is GA in Preview](#revoke-user-sessions-is-ga-in-preview)                       | December 9, 2022         |
 | [Step-up authentication using ACR values is GA in Prod](#step-up-authentication-using-acr-values-is-ga-in-prod)                       | August 31, 2022         |
-| [Redirect added to end of sign-in flow](#redirect-added-to-end-of-sign-in-flow)                       | December 7, 2022         |
+| [Redirect added to end of sign-in flow](#redirect-added-to-end-of-sign-in-flow)                       | December 9, 2022         |
 | [Loading Page Animation feature for the Brands API is GA in Production](#loading-page-animation-feature-for-the-brands-api-is-ga-in-production)                       | July 7, 2022         |
-| [Rate limit parameter matching](#rate-limit-parameter-matching)                       | December 7, 2022         |
-| [Bugs fixed in 2022.12.0](#bugs-fixed-in-2022-12-0)                       | December 7, 2022         |
+| [Rate limit parameter matching](#rate-limit-parameter-matching)                       | December 9, 2022         |
+| [Bugs fixed in 2022.12.0](#bugs-fixed-in-2022-12-0)                       | December 9, 2022         |
 
 #### Password history policy enforced in strict mode is GA in Preview
 
