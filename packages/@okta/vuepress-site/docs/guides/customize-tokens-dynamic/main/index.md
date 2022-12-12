@@ -115,7 +115,7 @@ You can use this function anywhere to get a list of Groups of which the current 
 | :----------------- | :-------------------------------------------  | :------------- | :------------------------------------ |
 | app                | Application type or App ID                    | FALSE          | `"OKTA"`,`"0oa13c5hnZFqZsoS00g4"`, `"active_directory"`|
 | pattern            | Search term                                   | FALSE          | `"Eastern-Region"`, `"Eastern"`, `"-Region"`|
-| limit              | Maximum number of Groups returned. Must be a valid EL expression and evaluate to a value between 1 to 100. **Note:** When you use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) and [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flows, you can specify any number of groups returned. There is no maximum group limit. | FALSE | `1`, `50`, `100`|
+| limit              | Maximum number of Groups returned. Must be a valid EL expression and evaluate to a value between 1 to 100. **Note:** When you use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) and [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flows, you can specify any number of maximum groups returned. | FALSE | `1`, `50`, `100`|
 
 > **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using G Suite). If you are targeting groups that may have duplicate group names (such as Google Groups), use the `getFilteredGroups` Group function instead.
 >
