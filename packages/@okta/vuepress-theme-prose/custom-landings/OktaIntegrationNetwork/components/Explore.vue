@@ -2,7 +2,7 @@
   <section class="customLanding-white customLanding-waves customLanding-waves-bottom customLanding-waves-top">
     <div class="customLanding-wrapper">
         <div class="customLanding-explore">
-            <h2>Explore the integration process</h2>
+            <h2>Explore the integration process.</h2>
             <p class="customLanding-explore__desc">Our step-by-step guides walk you through every phase of building your integration.</p>
             <div class="customLanding-explore__list">
                 <div class="customLanding-explore__item" v-for="({ id, caption, text, link, path }) in list" :key="caption">

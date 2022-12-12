@@ -4,11 +4,11 @@
       <div class="customLanding-hero">
         <div class="customLanding-hero__content">
           <h1>Okta Integration Network</h1>
-          <h2>Publish your integration to the fastest-growing cloud security ecosystem</h2>
+          <h2>Publish your integration to the fastest-growing cloud security ecosystem.</h2>
           <p>The Okta Integration Network (OIN) is a catalog of integrations that enterprises use to give their workforce seamless access to the technology they need. Connect workforce customers to your app by adding your integration to the OIN.
           <br></br>
           <a class="customLanding-hero__button" href="/signup/">Get started now</a>
-          <br></br>Browse the thousands of available integrations
+          <br></br>Browse the thousands of available integrations.
           <span><a href="https://www.okta.com/integrations/" target="_blank">Explore the OIN catalog</a></span>
           </p>
         </div>
