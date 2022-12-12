@@ -31,7 +31,7 @@ You can configure which scopes aren't required, which are optional, and which ar
 
 When an application needs to get a new access token from an authorization server, the user isn't prompted for consent if they already consented to the specified scopes. Consent grants remain valid until the user or admin manually revokes them, or until the user, application, authorization server, or scope is deactivated or deleted.
 
-> **Note:** The user only has to grant consent once for an attribute per authorization server.
+> **Note:** The user only has to grant consent once for a scope per authorization server.
 
 When a consent dialog appears depends on the values of three elements:
 
@@ -65,9 +65,11 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 1. For this use case example, select **Required** in the **User consent** section. **Required** indicates that the user must grant the app access to the information (scope) or they can't sign in to the app. The other options available include:
 
     * **Implicit**: The default setting. Indicates that the user doesn't have to grant the app access to the information. User consent is implied.
-    * **Optional**: Indicates that the user can skip granting the app access to the information (scope). The scope is excluded from the authorization request. If a user skips this scope, the next time that they sign in, Okta doesn't prompt them for the skipped scope. If you later make the scope required for the app, include `prompt=consent` in the request, and the user is prompted to grant the app access to that scope.
+    * **Optional**: Indicates that the user can skip granting the app access to the information (scope). Scopes that the user skips aren't included in the authorization response. After a user skips a scope, the next time that they sign in, Okta doesn't prompt them for it. If you later make the scope required for the app, the user is then prompted to grant the app access to that scope.
 
-    > **Note:** When you include `prompt=consent` in the authorization request, the user is prompted for all consent enabled scopes. This includes scopes that are required and optional, even if the user has already given consent.
+    > **Note:** When you include `prompt=consent` in the authorization request, the user is prompted for all consent-enabled scopes. This includes scopes that are required or optional, even if the user has already given consent or skipped a scope.
+
+    previous required scope made optional - force consent...they can skip it if they want and it won't be included in the authorization response.
 
 1. When you select **User consent** as **Required** or **Optional**, the **Block services from requesting this scope** checkbox is automatically selected.
 
@@ -226,7 +228,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
 4. Paste the request URL into a browser. The User Consent dialog appears. Click **Allow** to create the grant.
 
-    > **Note:** The user only has to grant consent once for an attribute per authorization server.
+    > **Note:** The user only has to grant consent once for a scope per authorization server.
 
 ## Verification
 
