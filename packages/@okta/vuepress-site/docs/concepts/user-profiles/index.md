@@ -15,7 +15,7 @@ You can manage user profile design and customization for your org, as well as in
 
 See also [Users, Groups, and Profiles](https://help.okta.com/okta_help.htm?id=ext_User_Lifecycle_Overview).
 
-## What is the Okta Universal Directory?
+## What is the Okta Universal Directory
 
 The Okta Universal Directory is the service that stores all the information on your users (user profiles) for your organization. Depending on the setup for your org, the Universal Directory can serve as the “single-source-of-truth” for your users.
 

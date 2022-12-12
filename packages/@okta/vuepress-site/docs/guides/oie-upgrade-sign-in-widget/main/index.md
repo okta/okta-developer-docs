@@ -32,7 +32,7 @@ This article teaches you how to upgrade the widget when it is used in any of the
 * Okta-hosted sign-in page (customizable): Okta provides a sign-in page that you can customize and make available under a custom domain that is a subdomain of your company's top-level domain.
 * Embedded (self-hosted): You can embed the widget directly into your application.
 
-After you've completed the widget upgrade, review [Okta Identity Engine overview](/docs/guides/oie-intro/) to take advantage of new features in Identity Engine.
+After you've completed the widget upgrade, review [Okta Identity Engine overview](/docs/concepts/oie-intro/) to take advantage of new features in Identity Engine.
 
 ## Best practice for widget maintenance
 

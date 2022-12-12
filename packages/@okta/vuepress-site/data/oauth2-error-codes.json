@@ -1,6 +1,6 @@
 {
-  "release" : "2022.11.1",
-  "build" : "2022.11.1-begin-169-gd7cdd4d71de2",
+  "release" : "2022.12.1",
+  "build" : "2022.12.1-begin-115-g51ea9cea0e4f",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -253,6 +253,20 @@
     "internalErrorCode" : "invalid_username",
     "errorCode" : "access_denied",
     "errorDescription" : "Transformed username '{0}' is invalid."
+  }, {
+    "title" : "Password expired",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "password_expired",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The user's password is expired."
+  }, {
+    "title" : "Ciba feature not supported",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_feature_not_supported",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The Client-Initiated Backchannel Authentication flow currently only supports web applications."
   }, {
     "title" : "Authorization pending",
     "statusCode" : 400,
@@ -947,12 +961,12 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'nonce' parameter is not supported for request with 'none' as response_type."
   }, {
-    "title" : "Invalid max age for none response type",
+    "title" : "Invalid max age for enroll authenticator prompt",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "invalid_max_age_for_none_response_type",
+    "internalErrorCode" : "invalid_max_age_for_enroll_authenticator_prompt",
     "errorCode" : "invalid_request",
-    "errorDescription" : "'max_age' parameter is not supported for request with 'none' as response_type."
+    "errorDescription" : "'max_age' parameter must have the value '0' for request with 'enroll_authenticator' as prompt."
   }, {
     "title" : "Invalid prompt for none response type",
     "statusCode" : 400,
@@ -968,12 +982,12 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'enroll_amr_values' parameter must have valid space delimited authenticators list for request with 'none' as response_type."
   }, {
-    "title" : "Invalid acr values for none response type",
+    "title" : "Invalid acr values for enroll authenticator prompt",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "invalid_acr_values_for_none_response_type",
+    "internalErrorCode" : "invalid_acr_values_for_enroll_authenticator_prompt",
     "errorCode" : "invalid_request",
-    "errorDescription" : "'acr_values' parameter must be omitted or only have the value 'urn:okta:loe:2fa:any' for request with 'none' as response_type."
+    "errorDescription" : "'acr_values' parameter must have the value 'urn:okta:loa:2fa:any:ifpossible' for request with 'enroll_authenticator' as prompt."
   }, {
     "title" : "Unknown IdP",
     "statusCode" : 400,
