@@ -106,7 +106,7 @@
                     list: [
                         'Streamline the sign-in flow',
                         'Use Okta for identity management and secure access',
-                        'Federate using <a href="/docs/concepts/saml/">SAML</a> or <a href="/docs/guides/oin-oidc-overview/main/">OIDC</a>'
+                        'Federate using <a href="/docs/guides/oin-oidc-overview/main/">OIDC</a> or <a href="/docs/concepts/saml/">SAML</a>'
                     ]
                 },
                 {
@@ -123,14 +123,13 @@
                 },
                 {
                     id: 3,
-                    title: 'Risk signal sharing',
-                    text: "Connect to Okta's risk APIs to share risk signals and make it easier for your customers to protect their users and data.",
-                    link: '',
-                    linkText: 'Get Started with Risk Signal Sharing',
+                    title: 'Connect to the Okta API',
+                    text: "Access and manage Okta resources directly from your application with an API service integration.",
+                    link: '/docs/guides/oin-api-service-overview/',
+                    linkText: 'Get started with API service integrations',
                     list: [
-                        '<a href="/docs/guides/third-party-risk-integration/main">Use the Risk Signal API</a> to unite risk signals with access decisions and secure digital experiences',
-                        'Enhance security efficacy against targeted identity attacks',
-                        'Start your journey towards continuous authentication'
+                        'Securely access Okta API endpoints using OAuth 2.0 without user association (service-to-service use case)',
+                        'Allow customers to find and configure your integration through the Okta Integration Network catalog'
                     ]
                 }
             ]

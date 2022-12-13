@@ -1,4 +1,4 @@
-<template>  
+<template>
   <section class="customLanding-white customLanding-waves customLanding-waves-bottom">
     <div class="customLanding-wrapper">
       <div class="customLanding-hero">

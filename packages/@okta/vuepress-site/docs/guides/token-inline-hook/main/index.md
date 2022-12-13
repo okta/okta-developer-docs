@@ -137,15 +137,39 @@ This extension renders the [ID token](/docs/reference/api/oidc/#id-token), and i
 
 <StackSelector snippet="extend-application" noSelector/>
 
-## Test the token inline hook
+## Preview and test the token inline hook
 
-The token inline hook is now ready for testing. You now have the following applications configured:
+The token inline hook is ready for preview and testing. You now have the following applications configured:
 
 * The Okta-Hosted-Login sample application (`samples-nodejs-express-4`) is ready to authenticate users from your Okta org.
 *  The external service (Glitch.com project) is ready with code to receive and respond to an Okta token inline hook call.
 *  The Okta org is set up to call the external service when a token inline hook is triggered by a user sign-in from the Okta-Hosted-Login sample application, and ready to receive a response.
 
 >**Note:** Make sure you have users assigned to your application and at least one user is part of the [Patients data store](/docs/guides/token-inline-hook/#check-against-the-data-store/) in your Glitch application.
+
+### Preview the token inline hook
+
+1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
+
+1. Click the token inline hook name (in this example, "Patient Token Hook").
+
+1. Click **Preview**.
+
+1. From the **Configure Inline Hook request** block, complete the following fields:
+
+    * **Select a user**: A user in your org associated with your application
+    * **Select an application**: Your OIDC sample application name
+    * **Select an authorization server**: Your authorization server name. In this example, use `default`.
+    * **Select a grant type**: Your application's grant type. In this example, use `Authorization Code`.
+    * **Select scopes**: The granted scopes
+
+    >**Note:** Based on your grant type selection, preview fields may vary.
+
+1. From the **Preview example Inline Hook request** block, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
+
+   >**Note:** You can also click **Edit** to modify this call for development or testing purposes.
+
+1. From the **View service's response** block, click **View Response**. A response appears from your external service in JSON format, which either adds a claim to the token or doesn't based on your external service's logic.
 
 ### Test your hook
 
@@ -157,12 +181,12 @@ The token inline hook is now ready for testing. You now have the following appli
 
 4. Navigate to your Glitch.com project and open the Console Logs window (**Tools** > **Logs**).
 
-5. Return to your sample application and sign in with an Okta user who is NOT in the Patients data store.
+5. Return to your sample application and sign in with an Okta user who is NOT in the Patients' data store.
 
     * The user should sign in as normal; only the user name should appear in the Glitch log window.
-    * If you extended the sample application, click `My Profile` in the left-hand navigation pane. Only the the user info claims are included in the table.
+    * If you extended the sample application, click `My Profile` in the left-hand navigation pane. Only the user info claims are included in the table.
 
-6. Sign out of the sample application, and now sign in with an Okta user who IS in the Patients data store.
+6. Sign out of the sample application, and now sign in with an Okta user who IS in the Patients' data store.
 
     * The user should sign in as normal; however, this user should have a patient ID displayed in the Glitch console output, as well as a successful implementation record of the token inline hook, available for review in your Okta org System Log (**Reports** > **System Log**).
     * If you extended the sample application, click `My Profile` in the left-hand navigation pane. The patient ID is added as part of the Claims table.
