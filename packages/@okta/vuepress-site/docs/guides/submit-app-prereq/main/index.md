@@ -17,27 +17,59 @@ You need to prepare all the artifacts required before the submission.
 
 If you are an independent software vendor (ISV), Okta customer, or IT system integrator who wants to add their integration to the [Okta Integration Network](https://www.okta.com/integrations/), read this guide for prerequisites and guidelines for the submission process.
 
+* [Logo guidelines](#logo-guidelines)
+* [Description guidelines](#Description-guidelines)
+* [Category guidelines](#category-guidelines)
+* [Test credential guidelines](#test-credential-guidelines)
+* [Customer configuration document guidelines](#customer-configuration-document-guidelines)
 
-* [Integration logo guidelines](#integration-logo-guidelines)
-* [Integration description guidelines](#integration-description-guidelines)
-* [Integration category guidelines](#integration-category-guidelines)
-* [Integration test credential guidelines](#integration-test-credential-guidelines)
-* [Integration customer document guidelines](#integration-test-credential-guidelines)
+## Logo guidelines
 
-## Integration logo guidelines
+The integration logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must adhere to the following guidelines:
 
-This guide covers submissions that use one or more of these protocols:
+* The logo must have a 1:1 (square) aspect ratio.
 
-### Avoid using a logo with a trademark
+   > **Note:** OIN integration icons are placed in a 200 x 200 pixels square.
 
-### Prioritize SVG format file with a transparent background
+* Avoid logos with the trademark (:tm:) symbol.
 
-* If you are able to find the SVG file for the logo, use it.
-* If you are not able to find the SVG file for the logo, do the following:
-* Consider if you can convert high res PNGs into SVGs if no SVGs are available.
-If the result is still undesirable, please notify the VCD team before moving forward. Thanks!
+* Avoid logos with both an icon and a wordmark.
 
-### Prioritize a 1:1 ratio (square) app icon, not a wordmark lockup
+* A logo in SVG format is preferred (high resolution PNG or GIF formats are also acceptable).
+
+* A transparent background is preferred.
+
+<div class="full">
+
+![OIN acceptable logos](/img/oin/oin-logo-file-checklist.jpg)
+
+</div>
+
+### Adhere to the logo guidelines
+
+If your logo doesn't meet the OIN logo requirements, the following are suggestions for you to adhere to the guidelines:
+
+#### My logo is not in SVG format
+
+If you have a high resolution PNG file, try to convert it to an SVG file. If you have difficulty with converting your image, contact the OIN team.
+
+#### My logo is not square
+
+If your integration logo is not square, consider using your website's favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image. You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is fitted into a 200 x 200 pixels square. If you are struggling to create a suitable logo, contact the OIN team.
+
+<div class="full">
+
+![OIN acceptable logos](/img/oin/oin-logo-size-guide.jpg)
+
+</div>
+
+### Example of acceptable logos
+
+<div class="full">
+
+![OIN acceptable logos](/img/oin/oin-logo-guide.jpg)
+
+</div>
 
 ## Integration description guidelines
 
@@ -55,12 +87,7 @@ Provide a detailed explanation of each Category
 
 Why they are required - how they differ from each SSO functionality.
 
-## Integration customer document guidelines
-
-List all the different requirements for OIDC/SCIM
-
-You need to prepare a customer-facing configuration guide
----
+## Customer configuration document guidelines
 
 A configuration guide helps your customers understand how to configure your Okta integration to work with your cloud application.
 
@@ -90,7 +117,6 @@ SCIM:
 
 * [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
 * [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
-* [Fuze](http://images.em.fuze.com/Web/ThinkingPhones/%7Be980dc53-8c7e-4758-b5e5-3fa20845c561%7D_Fuze_Admin_Guide_-_Okta_Provisioning_(1).pdf) (PDF link)
 * [Zscaler](https://help.zscaler.com/zia/saml-scim-configuration-guide-okta)
 
 ### Content
