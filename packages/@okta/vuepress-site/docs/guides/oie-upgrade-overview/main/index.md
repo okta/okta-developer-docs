@@ -11,7 +11,7 @@ To leverage the power of [Okta Identity Engine](/docs/guides/oie-intro/) and to 
 ## Plan your upgrade
 
 * **IMPORTANT**: Talk to your Okta account team and get their support and input. Okta assistance is currently a requirement for carrying out the [Okta org](/docs/concepts/okta-organizations/) upgrade process.
-* Review the [Identity Engine new features](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-features) guide to get an idea of what features you are using, if any, that require remediations (meaning they need adjustment before we can proceed with an upgrade). For example, some Classic Engine features may not be supported in Identity Engine in their current form.
+* Review the [Identity Engine feature changes](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-features) guide to get an idea of what features you are using, if any, that require remediations (meaning they need adjustment before we can proceed with an upgrade). For example, some Classic Engine features may not be supported in Identity Engine in their current form.
 
 ## Org upgrade process
 
