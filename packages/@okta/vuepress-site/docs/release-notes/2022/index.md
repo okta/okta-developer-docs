@@ -4,6 +4,16 @@ title: Okta API Products release notes 2022
 
 ## December
 
+### Weekly release 2022.12.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.12.1](#bug-fixed-in-2022-12-1)                         |December 14, 2022            |
+
+#### Bug fixed in 2022.12.1
+
+A List Users API call made with a search parameter didn’t return deactivated users with a `login` property that started with the Okta User `id`. (OKTA-537805)
+
 ### Monthly release 2022.12.0
 
 | Change | Expected in Preview Orgs |
