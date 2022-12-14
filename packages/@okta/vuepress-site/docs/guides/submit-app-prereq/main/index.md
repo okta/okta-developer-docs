@@ -39,9 +39,11 @@ The integration logo that you submit to the OIN Manager in the **General Setting
 
 * A transparent background is preferred.
 
+* The logo file size must be smaller than one MB.
+
 <div class="full">
 
-![OIN acceptable logos](/img/oin/oin-logo-file-checklist.jpg)
+![OIN acceptable logos](/img/oin/oin-logo-file-checklist.png)
 
 </div>
 
@@ -59,7 +61,7 @@ If your integration logo is not square, consider using your website's favicon. A
 
 <div class="full">
 
-![OIN acceptable logos](/img/oin/oin-logo-size-guide.jpg)
+![OIN acceptable logos](/img/oin/oin-logo-size-guide.png)
 
 </div>
 
@@ -67,7 +69,7 @@ If your integration logo is not square, consider using your website's favicon. A
 
 <div class="full">
 
-![OIN acceptable logos](/img/oin/oin-logo-guide.jpg)
+![OIN acceptable logos](/img/oin/oin-logo-guide.png)
 
 </div>
 
@@ -95,11 +97,9 @@ You need to provide a configuration guide as part of the OIN submission process.
 
 >**Note:** A configuration guide is required for SCIM and OIDC integrations. It's optional for SAML integrations, as Okta supplies its own documentation with the apps.
 
-You can create the guide in whatever format works best for you: a Web page, a Google or Word doc, or a PDF are all acceptable.
+You can create the guide in whatever format works best for you: a webpage, a Google or Word doc, or a PDF are all acceptable.
 
-### Examples
-
-Some examples of detailed configuration guides:
+### Configuration guide examples
 
 OIDC:
 
@@ -121,11 +121,11 @@ SCIM:
 
 ### Content
 
-Your configuration guide should include the following sections:
+The following are section suggestions for your configuration guide:
 
 #### Prerequisites
 
-In this section, specify any prerequisites required before your customer configures your integration in Okta. Examples may include enabling specific Okta features or SKUs, enabling API access to your SCIM server, or adding a particular version of an integration in Okta.
+In this section, specify any prerequisites required before your customer configures your integration in Okta. Examples may include enabling specific Okta features, enabling API access to your SCIM server, or adding a particular version of an integration in Okta.
 
 For example:
 
@@ -151,7 +151,7 @@ Also include any restrictions. For example:
 
 Okta can't update user attributes for Admin users. This is an API limitation.
 
-> **Note:** You can briefly describe what each feature does. See the guides from the earlier SCIM section for examples.
+> **Note:** You can briefly describe what each feature does. See the SCIM guides from the earlier example section.
 
 #### Procedure
 
