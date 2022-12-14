@@ -316,6 +316,10 @@ You can send yourself a test email to see how a custom email template looks and 
 1. Click the email icon to the right of the email template that you have customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
 
+## Known Issues
+
+- End users at free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-industry standard email processing. Okta's Org API allows you to [retry blocked](/docs/reference/api/org/#email-address-bounces-operations)) emails the free.fr inbox provider continues to block email notifications. There are no known workaround beyond asking the end user to retrigger the email tih a different email address.
+
 ## See also
 
 Read more on customizing and styling various Okta assets to match your company's visual identity and branding:
