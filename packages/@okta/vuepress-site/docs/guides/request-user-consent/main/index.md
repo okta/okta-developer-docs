@@ -150,7 +150,7 @@ The following section provides example requests for enabling the consent dialog 
 
 To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by updating the `consent` property for the scope from `IMPLICIT` (the default) to either `REQUIRED` or `FLEXIBLE`. In this example, set `consent` to `REQUIRED`.
 
-To make consent of a scope optional, set the `consent` property to `REQUIRED` and include `"optional": true` <ApiLifecycle access="ea" /> in the request.
+To make consent of a scope optional, set the `consent` property to either `REQUIRED` or `FLEXIBLE` and include `"optional": true` <ApiLifecycle access="ea" /> in the request.
 
 > **Note:** See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on scope properties and how to use them.
 
