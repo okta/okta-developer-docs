@@ -365,7 +365,7 @@ To revoke consent for a user, you can revoke one consent that is granted or all 
 
 ### Revoke one Grant
 
-To revoke one grant for a user, use the `grantId` that you want to revoke for a user in a DELETE request:
+To [revoke one grant for a user](/docs/reference/api/users/#revoke-a-grant-for-a-user), use the `grantId` that you want to revoke for a user in a DELETE request:
 
 **Example request**
 
@@ -376,8 +376,6 @@ curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/${userId}/grants/${grantId}"
 ```
-
-> **Note:** See [Revoke a Grant for a User](/docs/reference/api/users/#revoke-a-grant-for-a-user).
 
 ### Revoke all Grants
 
