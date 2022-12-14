@@ -119,7 +119,7 @@ SCIM:
 * [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
 * [Zscaler](https://help.zscaler.com/zia/saml-scim-configuration-guide-okta)
 
-### Content
+### Configuration guide content
 
 The following are section suggestions for your configuration guide:
 
