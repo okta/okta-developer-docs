@@ -27,7 +27,7 @@ If you are an independent software vendor (ISV), Okta customer, or IT system int
 
 The integration logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must adhere to the following guidelines:
 
-* The logo must have a 1:1 (square) aspect ratio.
+* The ideal logo has a 1:1 (square) aspect ratio.
 
    > **Note:** OIN integration icons are placed in a 200 x 200 pixels square.
 
@@ -35,13 +35,13 @@ The integration logo that you submit to the OIN Manager in the **General Setting
 
 * Avoid logos with both an icon and a wordmark.
 
-* A logo in SVG format is preferred (high resolution PNG or GIF formats are also acceptable).
+* The ideal logo is in SVG format (high resolution PNG or GIF formats are also acceptable).
 
-* A transparent background is preferred.
+* If the background color isn't part of your logo color scheme, then you need to use a transparent background.
 
 * The logo file size must be smaller than one MB.
 
-<div class="full">
+<div class="three-quarter">
 
 ![OIN acceptable logos](/img/oin/oin-logo-file-checklist.png)
 
@@ -49,15 +49,15 @@ The integration logo that you submit to the OIN Manager in the **General Setting
 
 ### Adhere to the logo guidelines
 
-If your logo doesn't meet the OIN logo requirements, the following are suggestions for you to adhere to the guidelines:
+If your logo doesn't meet the OIN requirements, the following are suggestions for you to adhere to the guidelines:
 
-#### My logo is not in SVG format
+#### My logo isn't in SVG format
 
-If you have a high resolution PNG file, try to convert it to an SVG file. If you have difficulty with converting your image, contact the OIN team.
+High resolution PNG, GIF, or SVG logo images are acceptable in the OIN catalog, although SVG images are preferred. If possible, you can convert your high resolution PNG or GIF file to an SVG file. If you have difficulty with converting your image to an acceptable format, contact the OIN team.
 
-#### My logo is not square
+#### My logo isn't square
 
-If your integration logo is not square, consider using your website's favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image. You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is fitted into a 200 x 200 pixels square. If you are struggling to create a suitable logo, contact the OIN team.
+If your integration logo isn't square, consider using your website's favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image. You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is fitted into a 200 x 200 pixels space. If you have additional logo questions, contact the OIN team.
 
 <div class="full">
 
@@ -81,9 +81,24 @@ Can you send me a new description of the app to describe what the app integratio
 
 Infinipoint enables enterprises of all sizes to automate cyber hygiene across their entire IT estate with unprecedented speed and scale. For the benefit of single-sign-on, Okta's Infinipoint integration gives your team the ability to securely manage and secure the organisation's IT assets.
 
-## Integration category guidelines
+## Use case description guidelines
 
-Provide a detailed explanation of each Category
+Integrations are organized by use cases in the OIN catalog. From the OIN Manager, you can specify the use case categories that your app supports in the **General Settings** > **App use case** field. You can select up to five use cases. Use the following description list to determine the appropriate use case category for your integration:
+
+| Use case | Integration capability |
+| -------- | ---------------------- |
+| [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) (most common) | Enables users to access your application from any device with a single entry of their Okta user credentials. This use case is appropriate for SAML and OpenID Connect (OIDC) integrations. |
+| [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta’s APIs using OAuth 2.0.  |
+| [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. Integrations in this use case are API service integrations that poll the Okta API for System Logs using OAuth 2.0. |
+| [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for HR solutions using SCIM or Workflow Connectors. |
+| [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring compliance requirements are met as user roles evolve and access levels change. Integrations in this use case are either SCIM or Workflow Connector integrations. |
+| Identity Proofing | Enabling user self-verification, through document-based and/or knowledge-based proofs, to improve identity assurance and approve access for authorized individuals. |
+| Identity Governance and Administration (IGA) | Giving the right people access to the right tools at the right time. |
+| Zero Trust | Securely enabling access for users regardless of their location, device, or network. |
+| **Bot or Fraud Detection** | Providing protection from inauthentic, forged, or otherwise fradulent attempts to register, login, recover, or perform identity-related transactions. Most integrations in this category are API Service Integrations sending risk signals to Okta using OAuth 2.0. |
+| **Multi-factor Authentication (MFA)** | Providing an additional layer of security for an organization’s cloud, mobile, and web applications and data. |
+| **Risk Signal Sharing** | Providing enriched context on clients, applications, users and other first party subjects to augment and inform Okta's adaptive authentication and authorization decisions. |
+| **Apps for Good** | Pre-built integrations with leading apps for enabling your workforce to give back |
 
 ## Integration test credential guidelines
 
@@ -122,6 +137,11 @@ SCIM:
 ### Configuration guide content
 
 The following are section suggestions for your configuration guide:
+
+* [Prerequisites](#prerequisites)
+* [Supported features](#supported-features)
+* [Procedure](#procedure)
+* [Troubleshooting tips](#troubleshooting-and-tips)
 
 #### Prerequisites
 
