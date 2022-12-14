@@ -744,7 +744,7 @@ This operation:
   - `sortBy` can be any single property, for example `sortBy=profile.name`
   - `sortOrder` is optional and defaults to ascending
   - `sortOrder` is ignored if `sortBy` is not present
-  - Users with the same value for the `sortBy` property will be ordered by `id`
+  - Groups with the same value for the `sortBy` property will be ordered by `id`
 
 | Search Term Example                                       | Description                                                               |
 | :-------------------------------------------------------- | :------------------------------------------------------------------------ |
