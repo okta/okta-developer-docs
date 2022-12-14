@@ -5496,6 +5496,7 @@ curl -v -X POST \
          "_embedded":{
             "challenge":{
                "challenge":"K0UNqWlz2TCCDd5qEkBf",
+               "userVerification": "preferred",
                "extensions":{
                }
             }
