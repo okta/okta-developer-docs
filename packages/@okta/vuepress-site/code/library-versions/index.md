@@ -42,6 +42,6 @@ For example, if version 2.0.0 of `okta-sdk-example` is published in January, the
 
 Retired version series are no longer supported by Okta and are no longer recommended for production use. Okta doesn't publish new features or bug fixes for retired versions, except for critical security fixes (at our discretion).
 
-For example, after `okta-sdk-foobar` version 1.x has a retiring period (of six months), it's no longer supported. Customers and developers are encouraged to upgrade to 2.0.0 or later.
+For example, after `okta-sdk-example` version 1.x has a retiring period (of six months), it's no longer supported. Customers and developers are encouraged to upgrade to 2.0.0 or later.
 
 When in doubt, check GitHub! The library's readme clearly states any versions that are retiring or are retired.
