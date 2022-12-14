@@ -148,8 +148,8 @@ curl -v -X GET \
                 ]
             }
         },
-        "devices": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/devices",
+        "users": {
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
             "hints": {
                 "allow": [
                     "GET"
