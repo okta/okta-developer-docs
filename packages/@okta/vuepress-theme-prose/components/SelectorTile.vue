@@ -1,23 +1,30 @@
 <template>
   <div class="selector-tile">
-      <router-link :to='tileData.link' class="selector-tile--header">
-        <span>
-          {{tileData.name}}
-        </span>
-        <i class="fa fa-chevron-right"></i>
-      </router-link>
-   <div class="selector-tile--data">
-      <SelectorTileItem v-for="item in tileData.items" :key="item.name" :tileItem="item" />
-   </div>
+    <router-link
+      :to="tileData.link"
+      class="selector-tile--header"
+    >
+      <span>
+        {{ tileData.name }}
+      </span>
+      <i class="fa fa-chevron-right" />
+    </router-link>
+    <div class="selector-tile--data">
+      <SelectorTileItem
+        v-for="item in tileData.items"
+        :key="item.name"
+        :tile-item="item"
+      />
+    </div>
   </div>
 </template>
 
 <script>
   export default {
     name: 'SelectorTile',
-    props: ['tileData'],
     components: {
       SelectorTileItem: () => import('../components/SelectorTileItem.vue'),
-    }
+    },
+    props: ['tileData']
   }
 </script>

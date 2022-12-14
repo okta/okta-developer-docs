@@ -1,5 +1,9 @@
 <template>
-  <StackSelector noSelector :snippet="snippet" :inline="inline" />
+  <StackSelector
+    no-selector
+    :snippet="snippet"
+    :inline="inline"
+  />
 </template>
 
 <script>

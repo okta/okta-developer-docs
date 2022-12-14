@@ -1,7 +1,7 @@
 <template>
   <DialogWindow
-    @close="closeTermsConditionsDialog()"
     title="Tell us more about yourself"
+    @close="closeTermsConditionsDialog()"
   >
     <div class="dialog-text">
       <p>
@@ -11,56 +11,66 @@
       <label for="tac-country">
         Country/Region
         <select
-          name="Country"
           id="tac-country"
-          class="tac-row"
           ref="countryEl"
           v-model="selectedCountry"
+          name="Country"
+          class="tac-row"
           @change="
             region = $event.target.value;
             resetFields();
           "
         >
         
-          <option disabled selected></option>
+          <option
+            disabled
+            selected
+          />
           <option
             v-for="country in countriesList"
-            v-bind:key="country.value"
+            :key="country.value"
             :value="country.value"
-            >{{ country.name }}</option
-          >
+          >{{ country.name }}</option>
         </select>
       </label>
-      <label for="tac-regionData" v-show="region.list.length">
+      <label
+        v-show="region.list.length"
+        for="tac-regionData"
+      >
         {{ region.type }}
         <select
-          name="Region"
           id="tac-regionData"
-          class="tac-row"
           ref="regionDataEl"
           v-model="selectedRegion"
+          name="Region"
+          class="tac-row"
         >
-          <option disabled selected></option>
+          <option
+            disabled
+            selected
+          />
           <option
             v-for="regionData in region.list"
-            v-bind:key="regionData.name"
+            :key="regionData.name"
             :value="regionData.value"
-            >{{ regionData.name }}</option
-          >
+          >{{ regionData.name }}</option>
         </select>
       </label>
-      <div class="marketing-c" v-show="isGDPRCountry">
+      <div
+        v-show="isGDPRCountry"
+        class="marketing-c"
+      >
         <div class="title">
           Marketing Communication <span> - Optional</span>
         </div>
         <div class="gdpr-condition">
           <input
-            type="checkbox"
-            name=""
             id="okta-contact"
             ref="gdprBoxEl"
+            type="checkbox"
+            name=""
             checked="false"
-          />
+          >
           <label for="okta-contact">
             I agree that Okta may contact me with marketing communications. See
             Privacy Policy for details on how to unsubscribe.
@@ -68,16 +78,21 @@
         </div>
       </div>
     </div>
-    <template v-slot:footer>
-      <div class="agree-policy" v-show="selectedCountry">
-        <div class="splitter"></div>
+    <template #footer>
+      <div
+        v-show="selectedCountry"
+        class="agree-policy"
+      >
+        <div class="splitter" />
         <p>
           By clicking "continue", I agree to the applicable Free Trial terms in
-          <SmartLink :item="{ link: '/terms/' }">Okta's Terms</SmartLink> and
+          <SmartLink :item="{ link: '/terms/' }">
+            Okta's Terms
+          </SmartLink> and
           the processing of my personal data by Okta as described in the
-          <SmartLink :item="{ link: '/privacy-policy/' }"
-            >Privacy Policy</SmartLink
-          >.
+          <SmartLink :item="{ link: '/privacy-policy/' }">
+            Privacy Policy
+          </SmartLink>.
         </p>
       </div>
       <div class="terms-conditions-btns">
@@ -87,17 +102,17 @@
             class="btn social-btn"
             value="Cancel"
             @click="closeTermsConditionsDialog()"
-          />
+          >
         </div>
         <div class="btn-container">
           <input
             type="button"
             class="btn red-button"
-            @click="!isDisabledSocialAuth && setTaCUrlAndRedirect()"
             :class="{ 'btn-disabled': isDisabledSocialAuth }"
             value="Continue"
             :disabled="isDisabledSocialAuth"
-          />
+            @click="!isDisabledSocialAuth && setTaCUrlAndRedirect()"
+          >
         </div>
       </div>
     </template>
