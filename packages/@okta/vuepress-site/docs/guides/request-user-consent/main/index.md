@@ -198,11 +198,9 @@ After you define the scopes that you want to require consent for, prepare an aut
     * Client ID
     * Redirect URI
 
-2. Use the default custom authorization server's authorization endpoint:
+2. Use the default custom authorization server's authorization endpoint, for example, `https://{yourOktaDomain}/oauth2/default/v1/authorize`.
 
     > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
-
-    A default custom authorization endpoint looks like this where the `${authorizationServerId}` is `default`: `https://{yourOktaDomain}/oauth2/default/v1/authorize`
 
 3. Add the following query parameters to the URL:
 
