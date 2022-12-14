@@ -741,7 +741,7 @@ This operation:
   - The [source](#group-attributes) of groups with type of `APP_GROUP`, accessed as `source.id`.
 
 - Accepts `sortBy` and `sortOrder` parameters.
-  - `sortBy` can be any single property, for example `sortBy=profile.lastName`
+  - `sortBy` can be any single property, for example `sortBy=profile.name`
   - `sortOrder` is optional and defaults to ascending
   - `sortOrder` is ignored if `sortBy` is not present
   - Users with the same value for the `sortBy` property will be ordered by `id`
