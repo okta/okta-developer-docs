@@ -36,7 +36,7 @@ Stable version series are supported by Okta for use in production code. Semantic
 
 When a new major version of a library is released, the old major version series is marked as **retiring**. Retiring libraries are supported by Okta for six months. After this period of time, the version series is officially retired (below).
 
-For example, if version 2.0.0 of `okta-sdk-foobar` is published in January, the 1.x series of `okta-sdk-foobar` (any version starting 1) is officially supported until July. The retirement dates are posted in the library's readme or documentation.
+For example, if version 2.0.0 of `okta-sdk-example` is published in January, the 1.x series of `okta-sdk-example` (any version starting 1) is officially supported until July. The retirement dates are posted in the library's readme or documentation.
 
 ### Retired
 
