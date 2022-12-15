@@ -4318,7 +4318,7 @@ redirects:
   - from: /docs/guides/submit-app/-/overview
     to: /docs/guides/submit-app/
   - from: /docs/guides/submit-app/-/create-guide
-    to: /docs/guides/submit-app/-/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/-/submission1-general
     to: /docs/guides/submit-app/-/main/#configure-general-settings
   - from: /docs/guides/submit-app/-/submission2-specific
@@ -4330,7 +4330,7 @@ redirects:
   - from: /docs/guides/submit-app/-/overview/index.html
     to: /docs/guides/submit-app/
   - from: /docs/guides/submit-app/-/create-guide/index.html
-    to: /docs/guides/submit-app/-/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/-/submission1-general/index.html
     to: /docs/guides/submit-app/-/main/#configure-general-settings
   - from: /docs/guides/submit-app/-/submission2-specific/index.html
@@ -4342,7 +4342,7 @@ redirects:
   - from: /docs/guides/submit-app/openidconnect/overview
     to: /docs/guides/submit-app/openidconnect/main
   - from: /docs/guides/submit-app/openidconnect/create-guide
-    to: /docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/openidconnect/submission1-general
     to: /docs/guides/submit-app/openidconnect/main/#configure-general-settings
   - from: /docs/guides/submit-app/openidconnect/submission2-specific
@@ -4356,7 +4356,7 @@ redirects:
   - from: /docs/guides/submit-app/openidconnect/overview/index.html
     to: /docs/guides/submit-app/openidconnect/main
   - from: /docs/guides/submit-app/openidconnect/create-guide/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/openidconnect/submission1-general/index.html
     to: /docs/guides/submit-app/openidconnect/main/#configure-general-settings
   - from: /docs/guides/submit-app/openidconnect/submission2-specific/index.html
@@ -4370,7 +4370,7 @@ redirects:
   - from: /docs/guides/submit-app/saml2/overview
     to: /docs/guides/submit-app/saml2/main
   - from: /docs/guides/submit-app/saml2/create-guide
-    to: /docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/saml2/submission1-general
     to: /docs/guides/submit-app/saml2/main/#configure-general-settings
   - from: /docs/guides/submit-app/saml2/submission2-specific
@@ -4382,7 +4382,7 @@ redirects:
   - from: /docs/guides/submit-app/saml2/overview/index.html
     to: /docs/guides/submit-app/saml2/main
   - from: /docs/guides/submit-app/saml2/create-guide/index.html
-    to: /docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/saml2/submission1-general/index.html
     to: /docs/guides/submit-app/saml2/main/#configure-general-settings
   - from: /docs/guides/submit-app/saml2/submission2-specific/index.html
@@ -4394,7 +4394,7 @@ redirects:
   - from: /docs/guides/submit-app/scim/overview
     to: /docs/guides/submit-app/scim/main
   - from: /docs/guides/submit-app/scim/create-guide
-    to: /docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/submission1-general
     to: /docs/guides/submit-app/scim/main/#configure-general-settings
   - from: /docs/guides/submit-app/scim/submission2-specific
@@ -4405,8 +4405,14 @@ redirects:
     to: /docs/guides/submit-app/scim/main/#update-your-published-integration
   - from: /docs/guides/submit-app/scim/overview/index.html
     to: /docs/guides/submit-app/scim/main
+  - from: /docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guideline
+  - from: /docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guideline
+  - from: /docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guideline
   - from: /docs/guides/submit-app/scim/create-guide/index.html
-    to: /docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/submission1-general/index.html
     to: /docs/guides/submit-app/scim/main/#configure-general-settings
   - from: /docs/guides/submit-app/scim/submission2-specific/index.html

@@ -13,12 +13,12 @@ This guide walks you through the process of submitting a SCIM, OIDC, or SAML 2.0
 
 **Learning outcomes**
 
-* Submit a new app to the OIN.
-* Update a previously-submitted app.
+* Understand how to submit a new app to the OIN.
+* Understand how to update or delete a previously-submitted app.
 
 **What you need**
 
-A functional integration created and tested in accordance with one of our OIN guides &mdash; [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/) or [Build a Single-Sign On integration](/docs/guides/build-sso-integration/).
+A functional integration created and tested in accordance with one of our OIN guides (see [Build a Single-Sign On integration](/docs/guides/build-sso-integration/) or [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/))
 
 ---
 
@@ -39,7 +39,7 @@ This guide covers submissions that use one or more of these protocols:
 
     >**Note:** ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
-* [Security Assertion Markup Language (SAML)](https://en.wikipedia.org/wiki/SAML_2.0)
+* [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
 
     >**Note:** SAML integrations must use SHA256 encryption for security. If you are using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 
@@ -47,8 +47,15 @@ This guide covers submissions that use one or more of these protocols:
 
 After you have built a functioning app integration, a few steps are required to submit it to Okta for review and publication in the OIN:
 
-1. Create a [customer-facing configuration guide](#prepare-a-customer-facing-configuration-guide).
-    >**Note:** This guide is required for SCIM and OIDC OIN apps. It's optional for SAML integrations, as Okta provides its own documentation for those apps. The guide is supplied with your published app.
+1. Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the various items required during submission. See the following guidelines:
+    * [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines)
+    * [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines)
+    * [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines)
+    * [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines)
+    * [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines)
+
+        >**Note:** This guide is required for SCIM and OIDC OIN apps. It's optional for SAML integrations, as Okta provides its own documentation for those apps. The guide is supplied with your published app.
+
 1. [Submit your integration](#submit-an-integration) to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata that's required to create a customized integration for publication in the OIN.
     >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact your Okta account team or post on our [forum](https://devforum.okta.com/) to request temporary activation of this capability when submitting a SCIM app integration.
 
@@ -108,87 +115,6 @@ If you need help during the submission process, use the Get Support section on t
 If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
 >**Note:** All integrations in the OIN catalog are public. If you want to submit a request to create a private app integration for an application that uses SCIM 1.1 or Profile Sourcing, or for an application that uses a custom header expression for the Header Auth, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim) to create your integration and submit your app through the [OIN Manager](https://oinmanager.okta.com). The Okta OIN team works with you to create an internal-only integration that isn't included in the OIN.
-
-## Prepare a customer-facing configuration guide
-
-A configuration guide helps your customers understand how to configure your Okta integration to work with your cloud application.
-
-You need to provide a configuration guide as part of the OIN submission process. Your guide is provided to administrators through the Okta Admin Console. Okta checks your document for general adherence to the configuration guide instructions. After your integration is published to the OIN, you can make the link public or customer‐accessible.
-
->**Note:** A configuration guide is required for SCIM and OIDC integrations. It's optional for SAML integrations, as Okta supplies its own documentation with the apps.
-
-You can create the guide in whatever format works best for you: a Web page, a Google or Word doc, or a PDF are all acceptable.
-
-### Examples
-
-Some examples of detailed configuration guides:
-
-OIDC:
-
-* [Cerby](https://docs.google.com/document/d/e/2PACX-1vRiswyNyRPVYfEMEwPsbMO8Qn11BjAO-FfUsWBBit_IYe88tzQCHTmMPtmF8uPV044HmXQR13adj3LO/pub)
-* [Upwave](https://help.upwave.io/en/articles/4129778-okta-configuration-guide)
-
-SAML:
-
-* [GitHub Enterprise](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github_Enterprise.html)
-* [Runscope](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Runscope.html)
-* [Salesforce](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-in-Salesforce.html)
-* [Zoom.us](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Zoom.us.html)
-
-SCIM:
-
-* [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
-* [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
-* [Fuze](http://images.em.fuze.com/Web/ThinkingPhones/%7Be980dc53-8c7e-4758-b5e5-3fa20845c561%7D_Fuze_Admin_Guide_-_Okta_Provisioning_(1).pdf) (PDF link)
-* [Zscaler](https://help.zscaler.com/zia/saml-scim-configuration-guide-okta)
-
-### Content
-
-Your configuration guide should include the following sections:
-
-#### Prerequisites
-
-In this section, specify any prerequisites required before your customer configures your integration in Okta. Examples may include enabling specific Okta features or SKUs, enabling API access to your SCIM server, or adding a particular version of an integration in Okta.
-
-For example:
-
-When using SAML as the SSO mode with provisioning, you need to enable a specific account plan on the application side for silent activation.
-
-#### Supported features
-
-In this section of your guide, you want to outline what features your application supports. For example:
-
-* IdP-initiated SSO
-* SP-initiated SSO
-* SLO (Single Log Out)
-* Force Authentication
-* Create Users
-* Update User Attributes
-* Deactivate Users
-* Import Users
-* Import Groups
-* Sync Password
-* Profile Sourcing (formerly called Profile Mastering)
-
-Also include any restrictions. For example:
-
-Okta can't update user attributes for Admin users. This is an API limitation.
-
-> **Note:** You can briefly describe what each feature does. See the guides from the earlier SCIM section for examples.
-
-#### Procedure
-
-This section constitutes the majority of your guide and explains all the configuration steps needed to get your customers set up with your integration. Detail all settings and include any screenshots that can assist the user.
-
-Also include any best practices for your procedure, such as guidance on setting mappings for attributes, especially required attributes that don't have a default mapping. For example:
-
-> **Note:** The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`. Assign the mapping to the correct value for your organization.
-
-#### Troubleshooting and tips
-
-You need to only include this section if there are known issues that apply to the entire configuration. In general, you should include best practices with the step-by-step procedure instructions.
-
-You may also want to include information on how to contact your organization if the customer has any support queries.
 
 ## Submit an integration
 

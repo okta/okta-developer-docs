@@ -64,7 +64,7 @@ High resolution PNG, GIF, or SVG logo images are acceptable in the OIN catalog, 
 
 #### My logo isn't square
 
-If your integration logo isn't square, consider using your website's favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image. You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is fitted into a 200 x 200 pixels space. If you have additional logo questions, contact the OIN team.
+If your integration logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image. You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is fitted into a 200 x 200 pixels space. If you have additional logo questions, contact the OIN team.
 
 <div class="full">
 
@@ -84,10 +84,11 @@ If your integration logo isn't square, consider using your website's favicon. Al
 
 An app description is displayed on your integration tile in the OIN catalog. You can specify your app description in the **General Settings** > **App description** field from the OIN Manager. See the [OIN catalog](https://www.okta.com/integrations/) for examples of existing app descriptions.
 
-Prepare an app description that describes what your integration offers and the features supported. You can also provide value-added messaging for your integration. Your description needs to be less than 1023 characters. Depending on the browser screen size, your description may be truncated in the OIN integration tile from the catalog. However, your entire description is displayed in the Integration detail page.
+Prepare an app description that describes what your integration offers and the features supported. You can also provide value-added messaging for your integration. Your description needs to be less than 1024 characters. The app description content appears in your Integration detail page, under the **Overview** header in the OIN catalog.
 
 For example, the following is an app description for a fictitious app called Infinipoint:
 
+> **Overview** <br></br>
 > Infinipoint enables enterprises of all sizes to automate cyber hygiene across their entire IT estate with unprecedented speed and scale. For the benefit of single-sign-on, Okta's Infinipoint integration gives your team the ability to securely manage and secure the organiation's IT assets.
 
 ## Use case guidelines
