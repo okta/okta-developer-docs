@@ -1,0 +1,42 @@
+name: 'Netlify'
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  deploy-preview:
+    if: github.repository_owner == 'okta' && github.event.label.name == 'preview'
+    name: 'deploy preview'
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=3584'
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - name: Checkout repository!
+      uses: actions/checkout@v3
+    - name: Setup node - ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+    - name: Build preview
+      run: yarn preview
+    - run: ls
+    - name: Deploy preview to Netlify
+      uses: nwtgck/actions-netlify@v2.0.0
+      with:
+        publish-dir: 'packages/@okta/vuepress-site/dist'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions"
+        enable-pull-request-comment: true
+        overwrites-pull-request-comment: true
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
