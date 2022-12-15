@@ -16,13 +16,13 @@ This guide provides you with a list of requirements you need prepare prior to su
 
 **What you need**
 
-* a built and tested OIN integration that is ready for verification
+* a built and tested OIN integration that is ready for Okta verification
 
 ---
 
 ## Overview
 
-Prior to using the [OIN Manager](https://oinmanager.okta.com) to submit your completed integration, you need to review the following guidelines to prepare for the artifacts requested during the submission process:
+Prior to using the [OIN Manager](https://oinmanager.okta.com) to submit your OIN integration, you need to review the following guidelines to prepare for the artifacts requested during the submission process:
 
 * [Logo guidelines](#logo-guidelines)
 * [App description guidelines](#app-description-guidelines)
@@ -32,7 +32,7 @@ Prior to using the [OIN Manager](https://oinmanager.okta.com) to submit your com
 
 ## Logo guidelines
 
-The integration logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must adhere to the following guidelines:
+The integration logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following guidelines:
 
 * The ideal logo has a 1:1 (square) aspect ratio.
 
@@ -54,13 +54,13 @@ The integration logo that you submit to the OIN Manager in the **General Setting
 
 </div>
 
-### Adhere to the logo guidelines
+### Comply with the logo guidelines
 
-If your logo doesn't meet the OIN requirements, the following are suggestions for you to adhere to the guidelines:
+If your logo doesn't meet the OIN requirements, the following are suggestions for you to conform to the guidelines:
 
 #### My logo isn't in SVG format
 
-High resolution PNG, GIF, or SVG logo images are acceptable in the OIN catalog, although SVG images are preferred. If possible, you can convert your high resolution PNG or GIF file to an SVG file. If you have difficulty with converting your image to an acceptable format, contact the OIN team.
+High resolution PNG, GIF, or SVG logo images are acceptable in the OIN catalog, although, SVG images are preferred. If possible, you can convert your high resolution PNG or GIF file to an SVG file. If you have difficulty with converting your image to an acceptable format, contact the OIN team.
 
 #### My logo isn't square
 
@@ -84,11 +84,11 @@ If your integration logo isn't square, consider using your website's favicon. Al
 
 An app description is displayed on your integration tile in the OIN catalog. You can specify your app description in the **General Settings** > **App description** field from the OIN Manager. See the [OIN catalog](https://www.okta.com/integrations/) for examples of existing app descriptions.
 
-Prepare an app description that describes what your integration offers and the features supported. You can also provide value-added messaging for your integration. Your description needs to be less than 256 (???) characters.
+Prepare an app description that describes what your integration offers and the features supported. You can also provide value-added messaging for your integration. Your description needs to be less than 1023 characters. Depending on the browser screen size, your description may be truncated in the OIN integration tile from the catalog. However, your entire description is displayed in the Integration detail page.
 
 For example, the following is an app description for a fictitious app called Infinipoint:
 
-> Infinipoint enables enterprises of all sizes to automate cyber hygiene across their entire IT estate with unprecedented speed and scale. For the benefit of single-sign-on, Okta's Infinipoint integration gives your team the ability to securely manage and secure the organisation's IT assets.
+> Infinipoint enables enterprises of all sizes to automate cyber hygiene across their entire IT estate with unprecedented speed and scale. For the benefit of single-sign-on, Okta's Infinipoint integration gives your team the ability to securely manage and secure the organiation's IT assets.
 
 ## Use case guidelines
 
@@ -118,6 +118,8 @@ Depending on the use case of our app, the permissions and roles for your test ac
 * For an SSO integration, you can provide a regular, non-admin user test account for the OIN team to test Single Sign-On with your app.
 * For a lifecycle management integration, you can provide a test account with HR admin privileges to onboard, change roles, or offboard employees on your app.
 * For an API service integration, you can provide a test account with privileges to trigger an API process on your app.
+
+> **Note:** Ensure that proper scopes are defined for OAuth 2.0 authentication.
 
 In general, the test account provides the OIN team with the ability to verify that your integration flow works as expected for your use case. Provide the necessary permissions required for your app. If you have further questions, contact the OIN team.
 
