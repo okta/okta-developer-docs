@@ -3936,6 +3936,7 @@ The following providers are supported:
 
 | Provider   | Description                   |
 | ---------- | ----------------------------- |
+| `CUSTOM`   | Custom                        |
 | `DUO`      | Duo Security                  |
 | `FIDO`     | Fido                          |
 | `GOOGLE`   | Google                        |
@@ -3950,6 +3951,7 @@ Each provider supports a subset of a factor types. The following table lists the
 
 | Provider   | Factor Type           |
 | ---------- | --------------------- |
+| `CUSTOM`   | `token:hotp`          |
 | `DUO`      | `web`                 |
 | `FIDO`     | `webauthn`            |
 | `GOOGLE`   | `token:software:totp` |
