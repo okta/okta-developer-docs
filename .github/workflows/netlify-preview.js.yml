@@ -1,12 +1,10 @@
 name: '[dev.okta] Netlify preview'
 
-on:
-  issue_comment:                                     
-    types: [created, edited, deleted]
+on: workflow_dispatch
 
 jobs:
   deploy:
-    if: github.repository_owner == 'francoislehoux-okta' && github.event.issue.pull_request
+    if: github.repository_owner == 'francoislehoux-okta'
     
     name: 'Deploy preview to Netlify'
     runs-on: ubuntu-latest
@@ -19,18 +17,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        ref: ${{ github.event.pull_request.head.sha }}
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Run Netlify
-      if: contains(github.event.comment.body, '@netlify preview')   # check the comment if it contains the keywords
-      run: |
-        echo Deploying
-    - name: test
-      if: ${{ !contains(github.event.comment.body, '@netlify preview') }}  # check the comment if it contains the keywords
-      run: |
-        echo Will not use Netlify deploy
