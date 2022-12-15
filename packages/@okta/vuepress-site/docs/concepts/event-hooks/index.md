@@ -67,7 +67,7 @@ When Okta calls your external service, it enforces a default timeout of 3 second
 
 See [Your Service's Responses to Event Delivery Requests](#your-service-s-responses-to-event-delivery-requests) below for more information on the HTTP responses you need to send.
 
-> **Note:** If multiple event hook requests are identified as failing (timing out), the event hooks are deactivated for 15 minutes to improve system performance.
+> **Note:** If event hook requests are identified as failing (timing out) consistently, Okta skips the deliveries for that hook for 15 minutes to improve system performance.
 
 ### HTTP Headers
 
