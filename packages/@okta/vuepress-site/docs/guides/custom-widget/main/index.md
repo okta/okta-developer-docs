@@ -1,17 +1,17 @@
 ---
-title: Style the Sign-In Widget
-excerpt: Learn how to customize the self-hosted sign-in Widget and the Okta-hosted sign-in Widget.
+title: Style the sign-in page
+excerpt: Learn how to customize the sign-in page for both redirect and embedded authentication models.
 layout: Guides
 ---
 
-This guide explains how to customize the Sign-In Widget when Okta is hosting it or when you are embedding it in your app.
+This guide explains how to customize the sign-in page for both redirect and embedded authentication models.
 
 ---
 
 **Learning outcomes**
 
 * Add stylesheets and custom JavaScript.
-* (Self-hosted) Modify strings and customize localization content.
+* (Redirect authentication): Modify strings and customize localization content.
 
 **What you need**
 
@@ -23,18 +23,18 @@ This guide explains how to customize the Sign-In Widget when Okta is hosting it 
 **Sample code**
 
 * [Redirect authentication](#use-macros-and-request-context)
-* [Embedded authentication](#style-the-self-hosted-sign-in-widget)
+* [Embedded authentication](#style-for-embedded-authentication)
 * [Customization examples](#customization-examples)
 
 ---
 
-## About the Sign-In Widget
+## About the sign-in page
 
-The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the Widget depends on whether Okta is hosting it (redirect authentication) or you are embedding it in your app (embedded authentication).
+The sign-in page is a JavaScript library that gives you a fully-featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the sign-in page depends on whether Okta is hosting it (redirect authentication) or you are embedding it in your app (embedded authentication).
 
-* Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the Okta-hosted sign-in page using easy controls or a code editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
+* Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the page using easy controls or a code editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
 
-* Embedded authentication: After you have [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project and configured the authentication scenarios that you want to support, you can then customize the widget. You can apply customizations to match your branding using CSS and JavaScript. See [Style for embedded authentication](#style-for-embedded-authentication).
+* Embedded authentication: After you have [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project and configured the authentication scenarios that you want to support, you can then customize the sign-in page. You can apply customizations to match your branding using CSS and JavaScript. See [Style for embedded authentication](#style-for-embedded-authentication).
 
 ## Style for redirect authentication
 
@@ -54,7 +54,7 @@ To access this page:
 
 ### Use the code editor
 
-Use the code editor to modify any HTML, CSS, or JavaScript on the widget. See [Customization examples](#customization-examples) for snippets that you can update and use.
+Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. See [Customization examples](#customization-examples) for snippets that you can update and use.
 
 1. In the Admin Console, go to **Customizations** > **Branding**.
 2. In the **Sign-in page** box, click **Edit**.
@@ -72,7 +72,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the widget. See [C
 
 #### Use variables
 
-The Okta Sign-In Widget template is written using [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the widget. To see the variables in a code sample, refer to the error page default code in the code editor. See [Use the embedded HTML editor](#use-the-embedded-html-editor).
+The Okta sign-in page template is written with [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the sign-in page. To see the variables in a code sample, refer to the error page default code in the code editor. See [Use the code editor](#use-the-code-editor).
 
 Variables with double curly braces (`{{`) return escaped HTML by default. Escaping allows you to show "special" characters in HTML. For example, `<p>hello</p>` displays as a paragraph element and the `<p>` tags don't render. For the `<p>` tags to render, escape or replace the `<p>` tags by using `&lt;p&gt; hello &lt;/p&gt;`. In this example, `&lt;p&gt;` escapes `<` and `&lt;/p&gt;` escapes `>`.
 
@@ -94,9 +94,9 @@ Triple curly braces (`{{{`) are only used for the `errorDescription` variable to
 
 ### Use the Brands API
 
-The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted sign-in widget, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain. To find out more about this feature and how to use it, see [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
+The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted sign-in page, error pages, email templates, and end-user dashboard all at once, without needing to set a customized Okta URL domain. To find out more about this feature and how to use it, see [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
 
-### Bypass the Custom Sign-In Page
+### Bypass the custom sign-in page
 
 Use the `/login/default` backdoor sign-in URL to bypass the custom sign-in page. If, for example, something goes wrong with your customizations and your sign-in page won't load, add `/login/default` to the end of your Okta URL to bring up the default sign-in page and enter your credentials:
 
@@ -122,7 +122,7 @@ Example:
 
 #### <span v-pre>`{{{SignInWidgetResources}}}`</span>
 
-Inserts the JavaScript and CSS files required to use the Okta Sign-In Widget.
+Inserts the JavaScript and CSS files required to use the Okta sign-in page.
 
 #### <span v-pre>`{{bgImageUrl}}`</span>
 
@@ -248,15 +248,15 @@ Example:
 
 ## Style for embedded authentication
 
-This section discusses the customization options that you have when you are self-hosting the Sign-In Widget.
+This section discusses the customization options that you have when you are self-hosting the sign-in page.
 
 ### Initial sign-in page
 
-You can modify the look of the initial sign-in page using parameters in the `config` section of the main Widget initialization block.
+You can modify the look of the initial sign-in page using parameters in the `config` section of the main initialization block.
 
 <div class="three-quarter">
 
-![Screenshot of basic Okta Sign-In Widget](/img/siw/widget_theming.png)
+![Screenshot of basic Okta sign-in widget](/img/siw/widget_theming.png)
 
 <!--
 Image source: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3238%3A30940  widget-theming
@@ -333,11 +333,9 @@ var config = {
 
 ### Modify the CSS
 
-In addition to the parameters in the Widget's `config`, you can also modify the CSS or override the default styles with your own.
+In addition to the parameters in the `config` of the sign-in page, you can also modify the CSS or override the default styles.
 
-### CSS customization examples
-
-This section provides examples that you can use to make your own customizations to the widget.
+This section provides examples that you can use to make your own customizations to the sign-in page.
 
 #### Background
 
@@ -407,7 +405,7 @@ Position:
 }
 ```
 
-#### Identity Provider buttons
+#### Identity provider buttons
 
 ```css
 #okta-sign-in.auth-container .custom-style {
@@ -417,7 +415,7 @@ Position:
 
 ### Video Tutorial
 
-For a more in-depth look at styling the widget, you can watch this video:
+For a more in-depth look at styling the sign-in page, you can watch this video:
 
 <div style="text-align: center">
 
@@ -427,9 +425,9 @@ For a more in-depth look at styling the widget, you can watch this video:
 
 ### Modify strings
 
-To modify strings in the Widget, you can override any of the properties set in [login.properties](https://github.com/okta/okta-signin-widget/blob/master/packages/@okta/i18n/src/properties/login.properties). You override these properties by specifying new values for them inside an `i18n` object in the Widget's `config` section.
+To modify strings on the sign-in page, you can override any of the properties set in [login.properties](https://github.com/okta/okta-signin-widget/blob/master/packages/@okta/i18n/src/properties/login.properties). You override these properties by specifying new values for them inside an `i18n` object in the `config` section of the sign-in page.
 
-You can modify any of the labels found in the Widget by providing new values for them.
+You can modify any of the labels found on the sign-in page by providing new values for them.
 
 ```javascript
 var config = {

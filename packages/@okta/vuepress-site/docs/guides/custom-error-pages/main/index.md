@@ -50,7 +50,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the error page. Se
    * Click **Preview** to see your changes in a new browser window before you publish.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
 
-   > **Note:** To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
+   > **Note:** The console restores the previous published version of the code. To revert to the 0-state/default, toggle the code editor off.
 
 5. Click **Publish** to commit your changes.
 
