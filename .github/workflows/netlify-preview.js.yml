@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    if: github.repository_owner == 'okta' && github.event.issue.pull_request
+    if: github.repository_owner == 'francoislehoux-okta' && github.event.issue.pull_request
     
     name: 'Deploy preview to Netlify'
     runs-on: ubuntu-latest
