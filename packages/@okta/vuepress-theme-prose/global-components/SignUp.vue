@@ -183,15 +183,11 @@
             <div class="consent--section" v-show="displayConsent">
               <div class="consent--section-text">
                 <p>
-                  By clicking “SIGN UP” I agree to the applicable Free Trial terms
-                  in
-                  <SmartLink :item="{ link: '/terms/', target: '_blank' }"
-                    >Okta’s Terms of Service</SmartLink
-                  >
-                  during my use of the Free Trial Service and Okta’s
-                  <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }"
-                    >Privacy Policy</SmartLink
-                  >.
+                  By clicking "SIGN UP" I agree to the
+                  <SmartLink :item="{ link: '/terms/', target: '_blank' }">Developer Edition Subscription Agreement</SmartLink>
+                  and Okta’s
+                  <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }">Privacy Policy</SmartLink>
+                  during my use of the Okta Developer Edition Service.
                 </p>
                 <p>
                   I agree that Okta may contact me with marketing communications.

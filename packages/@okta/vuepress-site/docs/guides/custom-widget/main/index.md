@@ -120,7 +120,11 @@ Inserts a URL to the background image configured in your Okta organization. This
 Example:
 
 ```html
-<div class="login-bg-image" style="background-image: {{bgImageUrl}}"></div>
+<style>
+  #login-bg-image-id {
+    background-image: {{bgImageUrl}}
+  }
+</style>
 ```
 
 #### <span v-pre>`{{{OktaUtil}}}`</span>

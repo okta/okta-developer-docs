@@ -2405,6 +2405,14 @@ redirects:
     to: /docs/guides/social-login/apple/main/
   - from: /docs/guides/add-an-external-idp/apple/main
     to: /docs/guides/social-login/apple/main/
+  - from: /docs/guides/add-an-external-idp/github/before-you-begin/index.html
+    to: /docs/guides/social-login/github/main/
+  - from: /docs/guides/add-an-external-idp/github/before-you-begin
+    to: /docs/guides/social-login/github/main/
+  - from: /docs/guides/add-an-external-idp/github/configure-idp-in-okta/index.html
+    to: /docs/guides/social-login/github/main/#create-the-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/github/configure-idp-in-okta
+    to: /docs/guides/social-login/github/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta
@@ -5553,3 +5561,7 @@ redirects:
     to: /docs/guides/sign-in-to-spa-authjs/vue/main/
   - from: /code/vue/okta_vue
     to: /docs/guides/sign-in-to-spa-authjs/vue/main/
+  - from: /docs/guides/oie-intro
+    to: /docs/concepts/oie-intro/
+  - from: /docs/guides/oie-intro/index.html
+    to: /docs/concepts/oie-intro/

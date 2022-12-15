@@ -252,11 +252,12 @@ After setting up an external service and an event hook or inline hook, you may n
 
 ### Preview tab
 
-An [Inline Hook Preview](https://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks) tab, accessible in the Admin Console, is available for the following three inline hooks:
+An [Inline Hook Preview](https://help.okta.com/okta_help.htm?type=oie&id=ext-preview-inline-hooks) tab, accessible in the Admin Console, is available for the following inline hooks:
 
 * Registration inline hook
 * SAML inline hook
 * Telephony inline hook
+* Token inline hook
 
 Before enabling the hook, the preview tab can run a sample Okta request call and receive the external service response. Review the request and response formats to make sure responses are accurate.
 

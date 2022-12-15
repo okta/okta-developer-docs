@@ -2,6 +2,7 @@
   <section class="customLanding-gray">
     <div class="customLanding-wrapper">
         <div class="customLanding-features">
+        <h2>What integrations can I build?</h2>
             <div class="customLanding-features__row" v-for="({ id, title, text, link, linkText, list }) in rows" :key="title">
                 <div class="customLanding-features__col">
                     <div class="customLanding-features__title">
@@ -39,7 +40,7 @@
                     list: [
                         'Streamline the sign-in flow',
                         'Use Okta for identity management and secure access',
-                        'Federate using <a href="/docs/concepts/saml/">SAML</a> or <a href="/docs/guides/oin-oidc-overview/main/">OIDC</a>'
+                        'Federate using <a href="/docs/guides/oin-oidc-overview/main/">OIDC</a> or <a href="/docs/concepts/saml/">SAML</a>'
                     ]
                 },
                 {
@@ -51,19 +52,18 @@
                     list: [
                         'Synchronize your app user profiles with Okta profiles',
                         'Use <a href="/docs/concepts/scim/">SCIM</a> to manage users in cloud-based systems',
-                        'Provide custom onboarding and offboarding flows with <a href="https://help.okta.com/wf/en-us/Content/Topics/Workflows/connector-builder/connector-builder.htm" target="_blank">Workflows Connector Builder</a>'
+                        'Provide custom onboarding and offboarding flows with <a href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" target="_blank">Workflows Connector Builder</a>'
                     ]
                 },
                 {
                     id: 3,
-                    title: 'Risk signal sharing',
-                    text: "Connect to Okta's risk APIs to share risk signals and make it easier for your customers to protect their users and data.",
-                    link: '',
-                    linkText: 'Get Started with Risk Signal Sharing',
+                    title: 'Connect to the Okta API',
+                    text: "Access and manage Okta resources directly from your application with an API service integration.",
+                    link: '/docs/guides/oin-api-service-overview/',
+                    linkText: 'Get started with API service integrations',
                     list: [
-                        '<a href="/docs/guides/third-party-risk-integration/main">Use the Risk Signal API</a> to unite risk signals with access decisions and secure digital experiences',
-                        'Enhance security efficacy against targeted identity attacks',
-                        'Start your journey towards continuous authentication'
+                        'Securely access Okta API endpoints using OAuth 2.0 without user association (service-to-service use case)',
+                        'Allow customers to find and configure your integration through the Okta Integration Network catalog'
                     ]
                 }
             ]

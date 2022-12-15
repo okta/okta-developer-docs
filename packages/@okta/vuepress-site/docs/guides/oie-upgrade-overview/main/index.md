@@ -6,12 +6,12 @@ meta:
 ---
 <ApiLifecycle access="ie" />
 
-To leverage the power of [Okta Identity Engine](/docs/guides/oie-intro/) and to easily adopt new features, migrate your existing orgs and apps from Okta Classic Engine onto Identity Engine. Upgrading to Identity Engine allows you to implement many new capabilities in Okta's access management products and provides more flexibility to manage your user authentication. This document provides an overview of the upgrade process for customer identity & developer use cases.
+To leverage the power of [Okta Identity Engine](/docs/concepts/oie-intro/) and to easily adopt new features, migrate your existing orgs and apps from Okta Classic Engine onto Identity Engine. Upgrading to Identity Engine allows you to implement many new capabilities in Okta's access management products and provides more flexibility to manage your user authentication. This document provides an overview of the upgrade process for customer identity & developer use cases.
 
 ## Plan your upgrade
 
 * **IMPORTANT**: Talk to your Okta account team and get their support and input. Okta assistance is currently a requirement for carrying out the [Okta org](/docs/concepts/okta-organizations/) upgrade process.
-* Review the [Identity Engine new features](https://help.okta.com/oie/en-us/Content/Topics/identity-engine-upgrade/features.htm) guide to get an idea of what features you are using, if any, that require remediations (meaning they need adjustment before we can proceed with an upgrade). For example, some Classic Engine features may not be supported in Identity Engine in their current form.
+* Review the [Identity Engine feature changes](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-features) guide to get an idea of what features you are using, if any, that require remediations (meaning they need adjustment before we can proceed with an upgrade). For example, some Classic Engine features may not be supported in Identity Engine in their current form.
 
 ## Org upgrade process
 
