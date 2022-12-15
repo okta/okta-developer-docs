@@ -21,4 +21,7 @@ jobs:
       with:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        build_directory: 'build'
+        install_command: 'yarn install --frozen-lockfile'
+        build_command: 'yarn build'
         node_version: 14
