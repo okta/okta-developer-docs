@@ -1,15 +1,10 @@
 name: 'Netlify'
 
-on:
-  issue_comment:
-    types: [created]
+on: workflow_dispatch
 
 jobs:
   deploy-preview:
-    # This runs only for okta/okta-developer-docs
-    # This runs only for PR comments
-    # This runs only if PR comment is "/netlify preview"
-    if: github.repository_owner == 'francoislehoux-okta' && github.event.issue.pull_request && contains(github.event.comment.body, '/netlify preview')
+    if: github.repository_owner == 'francoislehoux-okta'
     name: 'deploy preview'
     runs-on: ubuntu-latest
     env:
@@ -20,18 +15,11 @@ jobs:
         node-version: [14.x]
 
     steps:
-    - name: Is Organization Member
-      uses: JamesSingleton/is-organization-member@1.0.0
-      id: is_org_member
-      with:
-        organization: okta
-        username: ${{ github.event.issue.user.login }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-    - name: User not allowed to trigger previews
-      if: steps.is_org_member.outputs.result == false
+    - name: Has secrets?
+      if: secrets.NETLIFY_AUTH_TOKEN && secrets.NETLIFY_SITE_ID
       run: |
-        echo "User not allowed to trigger previews"
-        echo exit 1
+        echo "Not allowed to trigger previews"
+        exit 1
     - name: Checkout repository!
       uses: actions/checkout@v3
     - name: Setup node - ${{ matrix.node-version }}
