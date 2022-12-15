@@ -5,14 +5,32 @@ on:
     types: [created]
 
 jobs:
+  check-secrets:
+    runs-on: ubuntu-latest
+    environment: Netlify
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    
+    steps:
+      - name: Has secrets?
+        if: env.NETLIFY_AUTH_TOKEN == '' || env.NETLIFY_SITE_ID == ''
+        run: exit 1
+      
+      - uses: vishnudxb/cancel-workflow@v1.2
+        if: failure()
+        with:
+          repo: okta/okta-developer-docs
+          workflow_id: ${{ github.run_id }}
+          access_token: ${{ github.token }}
+
   deploy-preview:
     # This runs only for okta/okta-developer-docs
     # This runs only for PR comments
     # This runs only if PR comment is "/netlify preview"
     if: github.repository_owner == 'okta' && github.event.issue.pull_request && contains(github.event.comment.body, '/netlify preview')
-    environment: Netlify
-    name: 'deploy preview'
     runs-on: ubuntu-latest
+    environment: Netlify
     env:
       NODE_OPTIONS: '--max_old_space_size=3584'
 
@@ -23,15 +41,24 @@ jobs:
     steps:
     - name: Checkout repository!
       uses: actions/checkout@v3
+
+    - name: Checkout Pull Request
+      run: hub pr checkout ${{ github.event.issue.number }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Setup node - ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+
     - name: Install dependencies
       run: yarn install --frozen-lockfile
+
     - name: Build preview
-      run: yarn preview
+      run: yarn build
+
     - name: Deploy preview to Netlify
       uses: nwtgck/actions-netlify@v2.0.0
       with:
@@ -41,5 +68,5 @@ jobs:
         enable-pull-request-comment: true
         overwrites-pull-request-comment: false
       env:
-        NETLIFY_AUTH_TOKEN: ${{ env.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
