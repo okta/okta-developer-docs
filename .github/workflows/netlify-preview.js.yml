@@ -20,9 +20,9 @@ jobs:
         node-version: [14.x]
 
     steps:
-    - name: Check if organization member
+    - name: Is Organization Member
+      uses: JamesSingleton/is-organization-member@1.0.0
       id: is_org_member
-      uses: jamessingleton/is-organization-member@v1.0.1
       with:
         organization: okta
         username: ${{ github.event.issue.user.login }}
