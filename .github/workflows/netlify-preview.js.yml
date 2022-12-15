@@ -1,10 +1,15 @@
 name: 'Netlify'
 
-on: workflow_dispatch
+on:
+  issue_comment:
+    types: [created]
 
 jobs:
   deploy-preview:
-    if: github.repository_owner == 'okta'
+    # This runs only for okta/okta-developer-docs
+    # This runs only for PR comments
+    # This runs only if PR comment is "/netlify preview"
+    if: github.repository_owner == 'okta' && github.event.issue.pull_request && contains(github.event.comment.body, '/netlify preview')
     environment: Netlify
     name: 'deploy preview'
     runs-on: ubuntu-latest
@@ -26,7 +31,7 @@ jobs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
     - name: Build preview
-      run: yarn build
+      run: yarn preview
     - name: Deploy preview to Netlify
       uses: nwtgck/actions-netlify@v2.0.0
       with:
