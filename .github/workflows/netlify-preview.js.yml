@@ -1,12 +1,11 @@
 name: 'Netlify'
 
-on:
-  pull_request:
-    types: [labeled]
+on: workflow_dispatch
 
 jobs:
   deploy-preview:
-    if: github.repository_owner == 'okta' && github.event.label.name == 'preview'
+    if: github.repository_owner == 'okta'
+    environment: Netlify
     name: 'deploy preview'
     runs-on: ubuntu-latest
     env:
@@ -28,7 +27,6 @@ jobs:
       run: yarn install --frozen-lockfile
     - name: Build preview
       run: yarn preview
-    - run: ls
     - name: Deploy preview to Netlify
       uses: nwtgck/actions-netlify@v2.0.0
       with:
@@ -38,5 +36,5 @@ jobs:
         enable-pull-request-comment: true
         overwrites-pull-request-comment: false
       env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        NETLIFY_AUTH_TOKEN: ${{ env.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ env.NETLIFY_SITE_ID }}
