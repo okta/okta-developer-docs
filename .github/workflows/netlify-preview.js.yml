@@ -1,4 +1,4 @@
-name: '[dev.okta] Netlify preview'
+name: '[dev.okta] netlify preview'
 
 on: workflow_dispatch
 
@@ -22,3 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - uses: jsmrcaga/action-netlify-deploy@1.8.2
+      with:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
