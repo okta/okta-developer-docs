@@ -22,7 +22,7 @@ This guide explains how to customize the sign-in page for both redirect and embe
 
 **Sample code**
 
-* [Redirect authentication](#use-macros-and-request-context)
+* [Redirect authentication](#use-variables-and-request-context)
 * [Embedded authentication](#style-for-embedded-authentication)
 * [Customization examples](#customization-examples)
 
@@ -38,7 +38,7 @@ The sign-in page is a JavaScript library that gives you a fully-featured and cus
 
 ## Style for redirect authentication
 
-You can add any HTML, CSS, or JavaScript to the sign-in page and also customize it [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using redirect authentication, how to use the macros and request context, and also how to bypass the custom sign-in page.
+You can add any HTML, CSS, or JavaScript to the sign-in page and also customize it [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using redirect authentication, how to use the variables and request context, and also how to bypass the custom sign-in page.
 
 > **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/).
 
@@ -70,28 +70,6 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. 
 
 > **Note:** See the [Customization examples](#customization-examples) section for examples that you can alter and use on your hosted sign-in page.
 
-#### Use variables
-
-The Okta sign-in page template is written with [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the sign-in page. To see the variables in a code sample, refer to the error page default code in the code editor. See [Use the code editor](#use-the-code-editor).
-
-Variables with double curly braces (`{{`) return escaped HTML by default. Escaping allows you to show "special" characters in HTML. For example, `<p>hello</p>` displays as a paragraph element and the `<p>` tags don't render. For the `<p>` tags to render, escape or replace the `<p>` tags by using `&lt;p&gt; hello &lt;/p&gt;`. In this example, `&lt;p&gt;` escapes `<` and `&lt;/p&gt;` escapes `>`.
-
-Triple curly braces (`{{{`) are only used for the `errorDescription` variable to return unescaped HTML.
-
-| Variable | Contains |
-|----------|-------------|
-| <span v-pre>`{{orgName}}`</span> | The org name title |
-| <span v-pre>`{{errorSummary}}`</span> | The error title text |
-| <span v-pre>`{{bgImageUrl}}`</span> | The URL to the background image configured for your application. You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the background image in all instances where the variable is used, including your custom sign-in page. If you want to change only the background image for your custom error pages, include the URL to the image instead of the variable. |
-| <span v-pre>`{{orgLogo}}`</span> | The logo image that has been configured for your application. You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page. If you want to change only the logo image for your custom error pages, include the URL to the image instead of the variable. |
-| <span v-pre>`{{{errorDescription}}}`</span> | A detailed description of the error |
-| <span v-pre>`{{back}}`</span> | The text "Go to Homepage". When the user clicks the button, they are returned to the sign-in page. |
-| <span v-pre>`{{technicalDetails}}`</span> | Any additional messaging, if the error code has any. Here are sample technical details for an error code:</br>"If you are using custom expressions like `\{0}`, make sure that the field `customField` is present in the user profile. Please review your attribute list and make the appropriate change."</br>See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code). |
-| <span v-pre>`{{buttonText}}`</span> | Inserts the button text based on the page context. When the user selects the button, they are directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> variable is also supported for the same purpose. |
-| <span v-pre>`{{buttonHref}}`</span> | The hyperlink for the button |
-| <span v-pre>`{{themedStylesUrl}}`</span> | The URL for the themed style sheet |
-| <span v-pre>`{{faviconUrl}}`</span> | The URL for the favicon |
-
 ### Use the Brands API
 
 The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted sign-in page, error pages, email templates, and end-user dashboard all at once, without needing to set a customized Okta URL domain. To find out more about this feature and how to use it, see [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
@@ -106,9 +84,15 @@ https://${yourOktaDomain}/login/default
 
 This URL only bypasses changes that you have made to the HTML in the HTML editor. It doesn't bypass changes that you made using the controls on the left side of the page.
 
-### Use macros and request context
+### Use variables and request context
 
-The following macros in the HTML contain the configuration parameters for certain page elements. These macros inject specific content or functionality automatically.
+The Okta sign-in page template is written with [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the sign-in page. To see the variables in a code sample, refer to the error page default code in the code editor. See [Use the code editor](#use-the-code-editor).
+
+Variables with double curly braces (`{{`) return escaped HTML by default. Escaping allows you to show "special" characters in HTML. For example, `<p>hello</p>` displays as a paragraph element and the `<p>` tags don't render. For the `<p>` tags to render, escape or replace the `<p>` tags by using `&lt;p&gt; hello &lt;/p&gt;`. In this example, `&lt;p&gt;` escapes `<` and `&lt;/p&gt;` escapes `>`.
+
+Triple curly braces (`{{{`) are only used for the `errorDescription` variable to return unescaped HTML.
+
+The following variables in the HTML contain the configuration parameters for certain page elements. These variables inject specific content or functionality automatically.
 
 #### <span v-pre>`{{pageTitle}}`</span>
 
@@ -224,7 +208,7 @@ There is also additional information available about the client app, such as `la
 
 See [Per-application customization](#per-application-customization) for an example of what you can do with request context.
 
-> **Note:** The following macros are only available when the Theme Builder feature is enabled in your org.
+> **Note:** The following variables are only available when the Theme Builder feature is enabled in your org.
 
 #### <span v-pre>`{{themedStylesUrl}}`</span>
 
