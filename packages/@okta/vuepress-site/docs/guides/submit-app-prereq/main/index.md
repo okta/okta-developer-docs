@@ -1,26 +1,33 @@
 ---
-title: Requirements for OIN submission
+title: OIN submission requirements
 meta:
   - name: description
     content: Use this guide to prepare all the requirements prior to submitting your integration to Okta for publication in the Okta Integration Network.
 layout: Guides
 ---
 
-This guide provides you with a list of requirements you need prepare prior to submitting your integration for publication in the Okta Integration Network (OIN).
+This guide provides you with a list of requirements you need prepare prior to submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/).
+
+---
+
+**Learning outcome**
+
+* Understand the requirements necessary for the submission process using the OIN Manager.
+
+**What you need**
+
+* a built and tested OIN integration that is ready for verification
 
 ---
 
 ## Overview
 
-Use the OIN Manager (ISV portal) to submit your integration.
-You need to prepare all the artifacts required before the submission.
-
-If you are an independent software vendor (ISV), Okta customer, or IT system integrator who wants to add their integration to the [Okta Integration Network](https://www.okta.com/integrations/), read this guide for prerequisites and guidelines for the submission process.
+Prior to using the [OIN Manager](https://oinmanager.okta.com) to submit your completed integration, you need to review the following guidelines to prepare for the artifacts requested during the submission process:
 
 * [Logo guidelines](#logo-guidelines)
-* [Description guidelines](#Description-guidelines)
-* [Category guidelines](#category-guidelines)
-* [Test credential guidelines](#test-credential-guidelines)
+* [App description guidelines](#app-description-guidelines)
+* [Use case guidelines](#use-case-guidelines)
+* [Test account guidelines](#test-account-guidelines)
 * [Customer configuration document guidelines](#customer-configuration-document-guidelines)
 
 ## Logo guidelines
@@ -73,15 +80,17 @@ If your integration logo isn't square, consider using your website's favicon. Al
 
 </div>
 
-## Integration description guidelines
+## App description guidelines
 
-App Description
+An app description is displayed on your integration tile in the OIN catalog. You can specify your app description in the **General Settings** > **App description** field from the OIN Manager. See the [OIN catalog](https://www.okta.com/integrations/) for examples of existing app descriptions.
 
-Can you send me a new description of the app to describe what the app integration offers (write up a description of what features the app integration supports, including the value of partnering with Okta (ie SSO)? Here are some examples:
+Prepare an app description that describes what your integration offers and the features supported. You can also provide value-added messaging for your integration. Your description needs to be less than 256 (???) characters.
 
-Infinipoint enables enterprises of all sizes to automate cyber hygiene across their entire IT estate with unprecedented speed and scale. For the benefit of single-sign-on, Okta's Infinipoint integration gives your team the ability to securely manage and secure the organisation's IT assets.
+For example, the following is an app description for a fictitious app called Infinipoint:
 
-## Use case description guidelines
+> Infinipoint enables enterprises of all sizes to automate cyber hygiene across their entire IT estate with unprecedented speed and scale. For the benefit of single-sign-on, Okta's Infinipoint integration gives your team the ability to securely manage and secure the organisation's IT assets.
+
+## Use case guidelines
 
 Integrations are organized by use cases in the OIN catalog. From the OIN Manager, you can specify the use case categories that your app supports in the **General Settings** > **App use case** field. You can select up to five use cases. Use the following description list to determine the appropriate use case category for your integration:
 
@@ -91,18 +100,26 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 | [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta’s APIs using OAuth 2.0.  |
 | [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. Integrations in this use case are API service integrations that poll the Okta API for System Logs using OAuth 2.0. |
 | [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for HR solutions using SCIM or Workflow Connectors. |
-| [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring compliance requirements are met as user roles evolve and access levels change. Integrations in this use case are either SCIM or Workflow Connector integrations. |
-| Identity Proofing | Enabling user self-verification, through document-based and/or knowledge-based proofs, to improve identity assurance and approve access for authorized individuals. |
-| Identity Governance and Administration (IGA) | Giving the right people access to the right tools at the right time. |
-| Zero Trust | Securely enabling access for users regardless of their location, device, or network. |
-| **Bot or Fraud Detection** | Providing protection from inauthentic, forged, or otherwise fradulent attempts to register, login, recover, or perform identity-related transactions. Most integrations in this category are API Service Integrations sending risk signals to Okta using OAuth 2.0. |
-| **Multi-factor Authentication (MFA)** | Providing an additional layer of security for an organization’s cloud, mobile, and web applications and data. |
-| **Risk Signal Sharing** | Providing enriched context on clients, applications, users and other first party subjects to augment and inform Okta's adaptive authentication and authorization decisions. |
-| **Apps for Good** | Pre-built integrations with leading apps for enabling your workforce to give back |
+| [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring compliance requirements are met as user roles evolve and access levels change.  This use case is most common with either SCIM or Workflow Connector integrations. |
+| [Identity Proofing](https://www.okta.com/integrations/?category=identity-proofing) | Enables user self-verification to improve identity assurance and approve access for authorized individuals using document-based and/or knowledge-based proofs |
+| [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Provides the right people access to the right tools at the right time |
+| [Zero Trust](https://www.okta.com/integrations/?category=zero-trust) | Enables secure access for users regardless of their location, device, or network |
+| [Bot or Fraud Detection](https://www.okta.com/integrations/?category=bot-or-fraud-detection) | Provides protection from inauthentic, forged, or otherwise fradulent attempts to register, sign-in, recover, or perform identity-related transactions. Most integrations in this use case are API service integrations that send risk signals to Okta using OAuth 2.0. |
+| [Multi-factor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an additional layer of security with multifactor authentication for an organization’s cloud, mobile, and web apps |
+| [Risk Signal Sharing](https://www.okta.com/integrations/?category=risk-signal-sharing)| Provides enriched context on clients, apps, users, and other first-party subjects to augment and inform Okta's adaptive authentication and authorization decisions |
+| [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) | Pre-built integrations with leading apps that enable your workforce to give back |
 
-## Integration test credential guidelines
+## Test account guidelines
 
-Why they are required - how they differ from each SSO functionality.
+You need to create a test account on your app so that the OIN team can use it to test and verify your integration. The test account details and credentials are specified  in the **General Settings** > **Test Account** fields from the OIN Manager.
+
+Depending on the use case of our app, the permissions and roles for your test account are varied. For example:
+
+* For an SSO integration, you can provide a regular, non-admin user test account for the OIN team to test Single Sign-On with your app.
+* For a lifecycle management integration, you can provide a test account with HR admin privileges to onboard, change roles, or offboard employees on your app.
+* For an API service integration, you can provide a test account with privileges to trigger an API process on your app.
+
+In general, the test account provides the OIN team with the ability to verify that your integration flow works as expected for your use case. Provide the necessary permissions required for your app. If you have further questions, contact the OIN team.
 
 ## Customer configuration document guidelines
 
