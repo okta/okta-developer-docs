@@ -27,7 +27,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: User not allowed to trigger previews
       if: steps.is_org_member.outputs.result == false
-      uses: |
+      run: |
         echo "User not allowed to trigger previews"
         echo exit 1
     - name: Checkout repository!
