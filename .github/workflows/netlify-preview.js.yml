@@ -26,7 +26,7 @@ jobs:
     - name: Install dependencies
       run: yarn install --frozen-lockfile
     - name: Build preview
-      run: yarn preview
+      run: yarn build
     - name: Deploy preview to Netlify
       uses: nwtgck/actions-netlify@v2.0.0
       with:
