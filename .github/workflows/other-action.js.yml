@@ -23,7 +23,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: yarn install --frozen-lockfile
-    - run: yarn build
+    - run: yarn preview
     - uses: jsmrcaga/action-netlify-deploy@1.8.2
       with:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
