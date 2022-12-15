@@ -1,12 +1,13 @@
 name: 'Netlify'
 
-on:
-  pull_request:
-    types: [labeled]
+on: issue_comment
 
 jobs:
   deploy-preview:
-    if: github.repository_owner == 'okta' && github.event.label.name == 'preview'
+    # This runs only for okta/okta-developer-docs
+    # This runs only for PR comments
+    # This runs only if PR comment is "@netlify preview"
+    if: github.repository_owner == 'okta' && github.event.issue.pull_request && contains(github.event.comment.body, '@netlify preview')
     name: 'deploy preview'
     runs-on: ubuntu-latest
     env:
