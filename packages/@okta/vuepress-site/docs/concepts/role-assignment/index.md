@@ -176,6 +176,12 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
   https://${yourOktaDomain}/api/v1/groups/${memberGroupId}
   ```
 
+* [A specific Client Application](/docs/reference/api/oauth-clients/#get-an-oauth-client) <ApiLifecycle access="beta" />
+
+  ``` http
+  https://${yourOktaDomain}/oauth2/v1/clients/${clientId}
+  ```
+
 ### Standard Resource Sets
 <ApiLifecycle access="ea" />
 The following resource sets are currently supported out of the box and can be used to assign admins only when used with

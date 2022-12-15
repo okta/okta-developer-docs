@@ -1015,6 +1015,39 @@ curl -v -X POST \
 }
 ```
 
+#### Request example with client application <ApiLifecycle access="beta" />
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+      "role": "cr0Yq6IJxGIr0ouum0g3",
+      "members": [
+        "https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4"
+      ]
+}' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+```
+
+#### Response example
+
+```json
+{
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3"
+    },
+    "bindings": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+    },
+    "resource-set": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+    }
+  }
+}
+```
+
 ### Add more Members to a Binding
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}/members" />
@@ -1048,6 +1081,38 @@ curl -v -X PATCH \
       "additions": [
         "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
         "https://${yourOktaDomain}/api/v1/users/00u67DU2qNCjNZYO0g3"
+      ]
+    }' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4/members"
+```
+
+#### Response example
+
+```json
+{
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3"
+    },
+    "bindings": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings"
+    },
+    "resource-set": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+    }
+  }
+}
+```
+
+#### Request example with client application <ApiLifecycle access="beta" />
+
+```bash
+curl -v -X PATCH \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+      "additions": [
+        "https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4"
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4/members"
 ```
@@ -1118,6 +1183,32 @@ curl -v -X GET \
       "_links": {
         "self": {
           "href": "https://{yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "binding": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/${resource-set-id}/bindings/${role-id-or-name}"
+    },
+    "next": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/${resource-set-id}/bindings/${role-id-or-name}/members?after=${last-member-id}"
+    }
+  }
+}
+```
+#### Response example with client application <ApiLifecycle access="beta" />
+
+```json
+{
+  "members": [
+    {
+      "id": "irb5vzkeQKc56r5G10g4",
+      "created": "2022-12-14T00:00:00.000Z",
+      "lastUpdated": "2022-12-14T00:00:00.000Z",
+      "_links": {
+        "self": {
+          "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4"
         }
       }
     }
@@ -3448,3 +3539,20 @@ The ID of a Member is unique to the Binding, whereas the link that points to the
       }
     }
 ```
+
+##### Client Application as member <ApiLifecycle access="beta" />
+
+```json
+    {
+      "id": "irb5vzkeQKc56r5G10g4",
+      "created": "2022-12-14T00:00:00.000Z",
+      "lastUpdated": "2022-12-14T00:00:00.000Z",
+      "_links": {
+        "self": {
+          "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4"
+        }
+      }
+    }
+```
+
+
