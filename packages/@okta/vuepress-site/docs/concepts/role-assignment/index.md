@@ -164,21 +164,22 @@ The following are the supported resources.
 
 To specify Binding Members, use the REST URL of the corresponding Okta API:
 
-* [A specific User](/docs/reference/api/users/#get-user)
+* [A specific user](/docs/reference/api/users/#get-user)
 
-  ``` http
+  ```bash
   https://${yourOktaDomain}/api/v1/users/${memberUserId}
   ```
 
-* [A specific Group](/docs/reference/api/groups/#get-group)
+* [A specific group](/docs/reference/api/groups/#get-group)
 
-  ``` http
+  ```bash
   https://${yourOktaDomain}/api/v1/groups/${memberGroupId}
   ```
 
-* [A specific Client Application](/docs/reference/api/oauth-clients/#get-an-oauth-client) <ApiLifecycle access="beta" />
+<ApiLifecycle access="beta" />
+* [A specific client application](/docs/reference/api/oauth-clients/#get-an-oauth-client)
 
-  ``` http
+  ```bash
   https://${yourOktaDomain}/oauth2/v1/clients/${clientId}
   ```
 
