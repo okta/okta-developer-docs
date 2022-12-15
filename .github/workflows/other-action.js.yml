@@ -27,10 +27,11 @@ jobs:
       run: yarn install --frozen-lockfile
     - name: Build preview
       run: yarn preview
+    - run: ls
     - name: Deploy preview to Netlify
       uses: nwtgck/actions-netlify@v2.0.0
       with:
-        publish-dir: '.vuepress/dist'
+        publish-dir: 'packages/@okta/vuepress-site/dist'
         github-token: ${{ secrets.GITHUB_TOKEN }}
         deploy-message: "Deploy from GitHub Actions"
         enable-pull-request-comment: true
