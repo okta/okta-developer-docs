@@ -1,0 +1,42 @@
+name: '[dev.okta] preview'
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    if: github.repository_owner == 'francoislehoux-okta'
+    
+    name: 'Deploy preview to Netlify'
+    runs-on: ubuntu-latest
+    env:
+      NODE_OPTIONS: '--max_old_space_size=3584'
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: yarn install --frozen-lockfile
+    - run: yarn build
+    - uses: jsmrcaga/action-netlify-deploy@1.8.2
+      with:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    - name: Deploy to Netlify
+      uses: nwtgck/actions-netlify@v2.0.0
+      with:
+        publish-dir: './dist'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions"
+        enable-pull-request-comment: true
+        overwrites-pull-request-comment: true
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      timeout-minutes: 1
