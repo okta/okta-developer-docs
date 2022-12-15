@@ -24,10 +24,6 @@ jobs:
         cache: 'npm'
     - run: yarn install --frozen-lockfile
     - run: yarn preview
-    - uses: jsmrcaga/action-netlify-deploy@1.8.2
-      with:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     - name: Deploy to Netlify
       uses: nwtgck/actions-netlify@v2.0.0
       with:
