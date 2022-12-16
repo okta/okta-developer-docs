@@ -67,7 +67,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
     * GIF and JPEG/JPG formats are also acceptable
     * A colored background is acceptable if it's a part of the logo color scheme
 
-### Comply with the logo guidelines
+### Logo guideline tips
 
 If your logo doesn't meet the OIN requirements, the following are suggestions for you to conform to the guidelines:
 
