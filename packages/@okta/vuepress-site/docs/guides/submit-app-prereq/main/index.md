@@ -30,41 +30,53 @@ Prior to using the [OIN Manager](https://oinmanager.okta.com) to submit your OIN
 * [Test account guidelines](#test-account-guidelines)
 * [Customer configuration document guidelines](#customer-configuration-document-guidelines)
 
+Before you follow the submission guidelines, ensure that your integration does not contain [unsupported OIN features](#unsupported-oin-features).
+
+## Unsupported features in the OIN
+
+(or use "OIN limitations" as the header for this section???)
+
+Integrations with the following Okta features can't be published in the OIN catalog:
+
+> **SWA apps:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, existing SWA apps are still maintained by the OIN team.
+
+> **Authorization server:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+
+> **Refresh token:**  The `refresh_token` option isn't supported for apps published in OIN.
+
+> **Unsupported scopes:** <br>
+> * `offline_access` scope isn't available since refresh tokens aren't supported for apps published in OIN.
+> * `groups` claims as described in the supported [Scopes](/docs/reference/api/oidc/#scopes) section isn't supported.
+
+
 ## Logo guidelines
 
-The integration logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following guidelines:
+The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following guidelines:
 
-* The ideal logo has a 1:1 (square) aspect ratio.
+* The logo file size must be less than one MB.
+* The recommended logo dimension has a 1:1 (square) aspect ratio.
 
-   > **Note:** OIN integration icons are placed in a 200 x 200 pixels square.
+   > **Note:** OIN app icons are placed in a 200 x 200 pixels grid.
 
-* Avoid logos with the trademark (:tm:) symbol.
+* The recommended logo contains only a logomark and not a logotype (such as a company icon and not the company name).
+
+   > **Note:** The company name is already listed in plain text in the OIN catalog, so adding a company name image is redundant.
 
 * Avoid logos with both an icon and a wordmark.
-
-* The ideal logo is in SVG format (high resolution PNG or GIF formats are also acceptable).
-
-* If the background color isn't part of your logo color scheme, then you need to use a transparent background.
-
-* The logo file size must be smaller than one MB.
-
-<div class="three-quarter">
-
-![OIN acceptable logos](/img/oin/oin-logo-file-checklist.png)
-
-</div>
+* Avoid logos with the trademark (:tm:) symbol.
+* The recommended logo is an image in PNG format with a transparent background.
+    * GIF and JPEG/JPG formats are also acceptable
+    * A colored background is acceptable if it's a part of the logo color scheme
 
 ### Comply with the logo guidelines
 
 If your logo doesn't meet the OIN requirements, the following are suggestions for you to conform to the guidelines:
 
-#### My logo isn't in SVG format
+* If your logo isn't in one of the acceptable formats, ask your design team to convert your existing logo to the preferred PNG format. If you have difficulty with converting your image to an acceptable format, contact the OIN team.
 
-High resolution PNG, GIF, or SVG logo images are acceptable in the OIN catalog, although, SVG images are preferred. If possible, you can convert your high resolution PNG or GIF file to an SVG file. If you have difficulty with converting your image to an acceptable format, contact the OIN team.
+* If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 
-#### My logo isn't square
-
-If your integration logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image. You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is fitted into a 200 x 200 pixels space. If you have additional logo questions, contact the OIN team.
+* You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is fitted into a 200 x 200 pixels space. If you have additional logo questions, contact the OIN team.
 
 <div class="full">
 
@@ -82,14 +94,9 @@ If your integration logo isn't square, consider using your website favicon. Alte
 
 ## App description guidelines
 
-An app description is displayed on your integration tile in the OIN catalog. You can specify your app description in the **General Settings** > **App description** field from the OIN Manager. See the [OIN catalog](https://www.okta.com/integrations/) for examples of existing app descriptions.
+An app description is displayed on your integration tile in the OIN catalog. You can specify your app description in the **General Settings** > **App description** field from the OIN Manager. The app description content appears in your Integration detail page, under the **Overview** header in the OIN catalog. See the [OIN catalog](https://www.okta.com/integrations/) for examples of existing app descriptions in their associated Integration page.
 
-Prepare an app description that describes what your integration offers and the features supported. You can also provide value-added messaging for your integration. Your description needs to be less than 1024 characters. The app description content appears in your Integration detail page, under the **Overview** header in the OIN catalog.
-
-For example, the following is an app description for a fictitious app called Infinipoint:
-
-> **Overview** <br></br>
-> Infinipoint enables enterprises of all sizes to automate cyber hygiene across their entire IT estate with unprecedented speed and scale. For the benefit of single-sign-on, Okta's Infinipoint integration gives your team the ability to securely manage and secure the organiation's IT assets.
+Prepare an app description that describes what your integration offers and the supported features. You can also provide value-added messaging for your integration. Your description needs to be less than 1024 characters.
 
 ## Use case guidelines
 
@@ -113,6 +120,16 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 ## Test account guidelines
 
 You need to create a test account on your app so that the OIN team can use it to test and verify your integration. The test account details and credentials are specified  in the **General Settings** > **Test Account** fields from the OIN Manager.
+
+??? Work on:
+
+We need a test user with admin access who has the rights to configure SSO for SAML/SCIM. Even if your support team has configured SSO or SCIM, we need access to verify if users and/or groups on the application end are created by SCIM Provisioning or SAML/OIDC (JiT).
+
+In general, the test account allows the OIN team to verify that your integration flow works as expected for your use case.
+
+We prefer isvtest@okta.com to be a test user. If you can't use this email to create a test user, you can provide a specific account in a different domain.
+
+??? Perhaps remove/merge with the above ???
 
 Depending on the use case of our app, the permissions and roles for your test account are varied. For example:
 

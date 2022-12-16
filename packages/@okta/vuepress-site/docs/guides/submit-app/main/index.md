@@ -118,15 +118,16 @@ If you have questions or need additional support to publish your app integration
 
 ## Submit an integration
 
-To start your integration submission, open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
+1. To start your integration submission, open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
-Sign in using your development org credentials and click **Add New Submission** to create a new submission instance.
+1. Sign in using your development org credentials and click **Add New Submission** to create a new submission instance.
 
-If you want to review an in-progress submission, click **View** beside the name of your integration.
+1. If you want to review an in-progress submission, click **View** beside the name of your integration.
 
-Begin defining your submission by specifying details in the [General Settings](#configure-general-settings) and [protocol specific](#configure-protocol-specific-settings) tabs.
+    > **Note:** If you need to update an integration, see [Update your published integration](#update-your-published-integration).
 
-If you need to update an integration, see [Update your published integration](#update-your-published-integration).
+1. Begin defining your submission by specifying details in the [General Settings](#configure-general-settings) and [protocol specific](#configure-protocol-specific-settings) tabs.
+
 
 ### Configure general settings
 
