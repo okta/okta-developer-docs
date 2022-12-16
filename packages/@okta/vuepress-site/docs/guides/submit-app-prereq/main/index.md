@@ -32,15 +32,13 @@ Prior to using the [OIN Manager](https://oinmanager.okta.com) to submit your OIN
 
 Before you follow the submission guidelines, ensure that your integration does not contain [unsupported OIN features](#unsupported-oin-features).
 
-## Unsupported features in the OIN
-
-(or use "OIN limitations" as the header for this section???)
+## OIN limitations
 
 Integrations with the following Okta features can't be published in the OIN catalog:
 
 > **SWA apps:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, existing SWA apps are still maintained by the OIN team.
 
-> **Authorization server:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+> **Custom authorization server:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
 > **Refresh token:**  The `refresh_token` option isn't supported for apps published in OIN.
 
@@ -48,6 +46,7 @@ Integrations with the following Okta features can't be published in the OIN cata
 > * `offline_access` scope isn't available since refresh tokens aren't supported for apps published in OIN.
 > * `groups` claims as described in the supported [Scopes](/docs/reference/api/oidc/#scopes) section isn't supported.
 
+<ApiAmProdWarning />
 
 ## Logo guidelines
 
