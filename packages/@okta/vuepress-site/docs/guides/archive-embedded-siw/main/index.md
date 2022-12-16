@@ -356,7 +356,7 @@ See the following examples:
     - [Custom Sign In Example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
 - iOS:
     - [Authenticate a User](https://github.com/okta/okta-auth-swift#authenticate-a-user)
-    - [Okta iOS Custom Sign In Example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+    - [Okta iOS Custom Sign In Example](https://github.com/okta/samples-ios/tree/legacy-samples/custom-sign-in)
 
 <!--
 - React Native
