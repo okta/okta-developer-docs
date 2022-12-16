@@ -30,7 +30,7 @@ Prior to using the [OIN Manager](https://oinmanager.okta.com) to submit your OIN
 * [Test account guidelines](#test-account-guidelines)
 * [Customer configuration document guidelines](#customer-configuration-document-guidelines)
 
-Before you follow the submission guidelines, ensure that your integration does not contain [unsupported OIN features](#unsupported-oin-features).
+Before you follow the submission guidelines, ensure that your integration doesn't use unsupported OIN Okta features. See [OIN limitations](#oin-limitations).
 
 ## OIN limitations
 
@@ -40,10 +40,10 @@ Integrations with the following Okta features can't be published in the OIN cata
 
 > **Custom authorization server:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
-> **Refresh token:**  The `refresh_token` option isn't supported for apps published in OIN.
+> **Refresh token:**  Refresh tokes aren't supported for apps published in the OIN.
 
 > **Unsupported scopes:** <br>
-> * `offline_access` scope isn't available since refresh tokens aren't supported for apps published in OIN.
+> * `offline_access` scope isn't available since refresh tokens aren't supported for apps published in the OIN.
 > * `groups` claims as described in the supported [Scopes](/docs/reference/api/oidc/#scopes) section isn't supported.
 
 <ApiAmProdWarning />
@@ -118,27 +118,16 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 
 ## Test account guidelines
 
-You need to create a test account on your app so that the OIN team can use it to test and verify your integration. The test account details and credentials are specified  in the **General Settings** > **Test Account** fields from the OIN Manager.
+You need to create a test account on your app so that the OIN team can use it to test and verify your integration. The test account details and credentials are specified in the **General Settings** > **Test Account** fields from the OIN Manager.
 
-??? Work on:
+In general, the test account allows the OIN team to verify that your integration flow works as expected for your use case. The test account is typically an admin user in your app with additional privileges depending on your user case.
 
-We need a test user with admin access who has the rights to configure SSO for SAML/SCIM. Even if your support team has configured SSO or SCIM, we need access to verify if users and/or groups on the application end are created by SCIM Provisioning or SAML/OIDC (JiT).
-
-In general, the test account allows the OIN team to verify that your integration flow works as expected for your use case.
-
-We prefer isvtest@okta.com to be a test user. If you can't use this email to create a test user, you can provide a specific account in a different domain.
-
-??? Perhaps remove/merge with the above ???
-
-Depending on the use case of our app, the permissions and roles for your test account are varied. For example:
-
-* For an SSO integration, you can provide a regular, non-admin user test account for the OIN team to test Single Sign-On with your app.
-* For a lifecycle management integration, you can provide a test account with HR admin privileges to onboard, change roles, or offboard employees on your app.
-* For an API service integration, you can provide a test account with privileges to trigger an API process on your app.
+* For a lifecycle management integration, ensure that your admin test account has HR admin privileges to onboard, change roles, or offboard employees on your app.
+* For an SSO or SCIM integration, ensure your admin test account has privileges to configure SSO and SCIM (even if your app is already configured with SSO or SCIM). The OIN team needs to verify whether users and/or groups were created by SCIM provisioning or by SAML/OIDC (JiT) on your application.
+* For an API service integration, ensure that your admin test account has privileges configure system settings and to trigger API processes on your app.
+* `isvtest@okta.com` is the recommended test account username, however, you can provide an alternative username with a different domain.
 
 > **Note:** Ensure that proper scopes are defined for OAuth 2.0 authentication.
-
-In general, the test account provides the OIN team with the ability to verify that your integration flow works as expected for your use case. Provide the necessary permissions required for your app. If you have further questions, contact the OIN team.
 
 ## Customer configuration document guidelines
 
@@ -189,7 +178,7 @@ When using SAML as the SSO mode with provisioning, you need to enable a specific
 
 #### Supported features
 
-In this section of your guide, you want to outline what features your application supports. For example:
+In this section of your guide, list the features that your application supports. For example:
 
 * IdP-initiated SSO
 * SP-initiated SSO
