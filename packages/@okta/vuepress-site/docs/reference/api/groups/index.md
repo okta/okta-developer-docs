@@ -182,8 +182,8 @@ Enumerates Groups in your organization with pagination. A subset of Groups can b
 | search | Searches for groups with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
 
 > **Notes:** The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).<br><br>
-Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.
-
+Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.<br><br>
+Results from the filter or query parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
 ###### Filters
 
 The following expressions are supported for Groups with the `filter` query parameter:
@@ -1140,14 +1140,14 @@ Creates a Group rule to dynamically add users to the specified Group if they mat
 ##### Request parameters
 
 
-| Parameter                           | Description                                             | ParamType | DataType                          | Required | 
-| ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- | 
+| Parameter                           | Description                                             | ParamType | DataType                          | Required |
+| ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- |
 | name                                | name of the Group rule (min character 1; max characters 50)                                  | Body      | String                            | TRUE     |         |
-| type                                | `group_rule`                                            | Body      | String                            | TRUE     | 
-| conditions.expression.value         | Okta expression that would result in a boolean value    | Body      | String                            | TRUE     | 
-| conditions.expression.type          | `urn:okta:expression:1.0`                               | Body      | String                            | TRUE     | 
-| conditions.people.users.exclude     | userIds that would be excluded when rules are processed | Body      | String                            | FALSE    | 
-| conditions.people.groups.exclude    | currently not supported                                 | Body      | String                            | FALSE    | 
+| type                                | `group_rule`                                            | Body      | String                            | TRUE     |
+| conditions.expression.value         | Okta expression that would result in a boolean value    | Body      | String                            | TRUE     |
+| conditions.expression.type          | `urn:okta:expression:1.0`                               | Body      | String                            | TRUE     |
+| conditions.people.users.exclude     | userIds that would be excluded when rules are processed | Body      | String                            | FALSE    |
+| conditions.people.groups.exclude    | currently not supported                                 | Body      | String                            | FALSE    |
 | actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added.        | Body      | String                            | TRUE     |
 
 ##### Response parameters
@@ -1240,15 +1240,15 @@ You can't currently update the action section.
 ##### Request parameters
 
 
-| Parameter                           | Description                                    | ParamType | DataType                          | Required | 
-| ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- | 
-| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added| Body      | String                            | TRUE     | 
+| Parameter                           | Description                                    | ParamType | DataType                          | Required |
+| ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- |
+| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added| Body      | String                            | TRUE     |
 | conditions.expression.type           | `urn:okta:expression:1.0 `                     | Body      | String                            | TRUE     |
-| conditions.expression.value          | okta expression that would result in a boolean value | Body      | String                     | TRUE     | 
-| conditions.people.groups.exclude     | currently not supported                        | Body      | String                            | FALSE    | 
+| conditions.expression.value          | okta expression that would result in a boolean value | Body      | String                     | TRUE     |
+| conditions.people.groups.exclude     | currently not supported                        | Body      | String                            | FALSE    |
 | conditions.people.users.exclude      | userIds that would be excluded when rules are processed | Body      | String                   | FALSE    |         |
-| id                                  | ID of the rule to be updated                   | URL       | String                            | TRUE     | 
-| name                                | name of the Group rule (min character 1; max characters 50)                              | Body      | String                            | TRUE     | 
+| id                                  | ID of the rule to be updated                   | URL       | String                            | TRUE     |
+| name                                | name of the Group rule (min character 1; max characters 50)                              | Body      | String                            | TRUE     |
 
 ##### Response parameters
 

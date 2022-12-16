@@ -1,6 +1,6 @@
 {
-  "release" : "2022.11.1",
-  "build" : "2022.11.1-begin-169-gd7cdd4d71de2",
+  "release" : "2022.12.1",
+  "build" : "2022.12.1-begin-115-g51ea9cea0e4f",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1503,7 +1503,7 @@
     "statusCode" : 409,
     "statusReasonPhrase" : "Conflict",
     "errorCode" : "E0000201",
-    "errorSummary" : "A brand associated with a domain cannot be deleted.",
+    "errorSummary" : "A brand associated with a custom domain or email doamin cannot be deleted.",
     "errorDescription" : null
   }, {
     "title" : "Brand name already exist exception",
@@ -1536,14 +1536,6 @@
     "statusReasonPhrase" : "Too Many Requests",
     "errorCode" : "E0000205",
     "errorSummary" : "You have reached the limit of call requests, please try again later.",
-    "errorDescription" : null
-  }, {
-    "title" : "Brand domain delete mapping failure exception",
-    "includesExceptionMessage" : true,
-    "statusCode" : 409,
-    "statusReasonPhrase" : "Conflict",
-    "errorCode" : "E0000206",
-    "errorSummary" : "Failed to delete the mapping for the provided brandId and domainId.",
     "errorDescription" : null
   }, {
     "title" : "Incorrect username or password exception",
@@ -1600,6 +1592,14 @@
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000214",
     "errorSummary" : "User has no custom authenticator enrollments that have CIBA as a transactionType",
+    "errorDescription" : null
+  }, {
+    "title" : "API endpoint no longer available",
+    "includesExceptionMessage" : true,
+    "statusCode" : 410,
+    "statusReasonPhrase" : "Gone",
+    "errorCode" : "E0000215",
+    "errorSummary" : "This endpoint has been deprecated.",
     "errorDescription" : null
   } ]
 }

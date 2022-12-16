@@ -1,6 +1,6 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import moment from "moment";
+import { DateTime } from "luxon";
 
 import storage from '../localStorage'
 
@@ -19,9 +19,9 @@ const _getToken = () => {
 
   // Invalidate token if about to expire
   const decoded = jwt_decode(token);
-  const now = moment();
-  const expWithBuffer = moment.unix(decoded.exp).subtract(5, "minutes");
-  if (now.isAfter(expWithBuffer)) {
+  const now = DateTime.now();
+  const expWithBuffer = DateTime.fromSeconds(decoded.exp).minus({ minutes: 5 });
+  if (now > expWithBuffer) {
     storage.removeItem(COVEO_KEY);
     return;
   } else {

@@ -38,25 +38,6 @@
   mask-image: url("/img/homepage/standards.svg");
 }
 
-.homepage--customize-your-app-margin,
-.homepage--partners-block-margin {
-  margin-bottom: 0;
-
-  background-color: cv("body", "homepage-lighter-block");
-}
-
-.homepage--customize-your-app-margin {
-  padding-bottom: 4.6875rem;
-}
-
-.homepage--customize-your-app-margin::before {
-  background: cv("body") url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom;
-}
-
-.homepage--partners-block-margin {
-  padding-bottom: 3.625rem;
-}
-
 .oin--bg,
 .oin--bg:last-of-type {
   background: cv("body") url("/img/homepage/black-to-gray-bg.svg") repeat-x left bottom !important;

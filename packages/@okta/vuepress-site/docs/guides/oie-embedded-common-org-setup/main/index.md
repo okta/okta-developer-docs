@@ -139,7 +139,7 @@ To ensure that only password-optional users can **sign in** without a password a
 4. Ensure that password-optional users never fall through to the default policy. The default policy should always have a password as a required authenticator.
 5. Explicitly exclude your main admin account from any further password-optional policies you create.
 
-> **Note**: See also [Set up password-optional sign-in experience](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/password-optional/password-optional-disabled.htm).
+> **Note**: See also [Set up password-optional sign-in experience](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless).
 
 #### Common password-optional setup tasks
 
