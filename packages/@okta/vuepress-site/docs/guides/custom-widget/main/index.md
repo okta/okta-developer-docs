@@ -50,7 +50,7 @@ The **Custom Sign-In Page** offers basic and advanced customization options to c
 
 To access this page:
 
-* Okta Identity Engine: In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the Sign-in page section.
+In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the Sign-in page section.
 
 ### Use the code editor
 
@@ -60,13 +60,13 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. 
 2. In the **Sign-in page** box, click **Edit**.
 3. To open the code editor, turn on the toggle next to **Code editor**.
 
-   > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).
+   > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/).
 
 4. Make changes directly in the editor. If you enter `{`, `(`, or `.` you see a list of available variables that you can use. See [Use variables](#use-variables).
    * Click **Save to draft**, then **Preview**, **Revert** or **Publish**.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
 
-   > **Note:** To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
+   > **Note:** To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. Turning off the code editor restores the default HTML/CSS and JavaScript code.
 
 > **Note:** See the [Customization examples](#customization-examples) section for examples that you can alter and use on your hosted sign-in page.
 
