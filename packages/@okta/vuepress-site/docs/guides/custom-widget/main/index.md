@@ -84,7 +84,7 @@ https://${yourOktaDomain}/login/default
 
 This URL only bypasses changes that you have made to the HTML in the HTML editor. It doesn't bypass changes that you made using the controls on the left side of the page.
 
-### Use variables and request context
+### Use variables
 
 The Okta sign-in page template is written with [Mustache](http://mustache.github.io/mustache.5.html) and uses predefined variables to insert relevant values into the sign-in page. To see the variables in a code sample, refer to the error page default code in the code editor. See [Use the code editor](#use-the-code-editor).
 
@@ -122,7 +122,7 @@ Example:
 
 Defines a global `OktaUtil` JavaScript object that contains methods used to complete the Okta sign-in flow. When an application uses the Okta-hosted sign-in page to sign a user in, information (called request context) is available about the target application and the request.
 
-### Request context
+### Use request context
 
 By calling the `OktaUtil.getRequestContext()` method, JavaScript code on your sign-in page can inspect the current request and make decisions based on the target application or other details.
 
