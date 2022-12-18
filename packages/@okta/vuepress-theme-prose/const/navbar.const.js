@@ -1034,24 +1034,60 @@ export const architectureCenter = [
         cards: true,
         subLinks: [
           {
-            title: 'Okta DevOps Pipeline',
-            path: '/architecture-center/okta-devops-pipeline/'
-          },
-          {
-            title: 'Multi AS',
-            path: '/architecture-center/multi-as/'
-          },
-          {
-            title: 'IDX Deployment Models',
-            path: '/architecture-center/idx-deployment-models/'
-          },
-          {
             title: 'Directory Coexistence',
-            path: '/architecture-center/directory-coexistence/'
+            path: '/architecture-center/directory-coexistence/',
+            subLinks: [
+              {
+                title: 'Active directory to Okta',
+                path: '/architecture-center/ad-to-okta'
+              },
+              {
+                title: 'LDAP to Okta',
+                path: '/architecture-center/ldap-to-okta'
+              },
+              {
+                title: 'Database to Okta',
+                path: '/architecture-center/db-to-okta/'
+              }
+            ]
           },
           {
-            title: 'Directory Coexistence Model Deployment',
-            path: '/architecture-center/directory-coexistence-model-deployment/'
+            title: 'Managing Multiple Okta Deployments',
+            path: '/architecture-center/mmod/',
+            subLinks: [
+              {
+                title: 'Create a working Terraform repo',
+                path: '/architecture-center/create-terraform-repo'
+              },
+              {
+                title: 'Create a Terraform Cloud workspace',
+                path: '/architecture-center/create-terraform-workspace'
+              },
+              {
+                title: 'Configure auto-plan on check-in',
+                path: '/architecture-center/terraform-autoplan-checkin'
+              },
+              {
+                title: 'Create resources via Terraform',
+                path: '/architecture-center/create-resources-terraform'
+              },
+              {
+                title: 'Update resources via Terraform',
+                path: '/architecture-center/update-resources-terraform'
+              },
+              {
+                title: 'Deploy resources to production via Terraform',
+                path: '/architecture-center/deploy-to-production-terraform'
+              },
+              {
+                title: 'Change asset and rerun plan in production to simulate drift',
+                path: '/architecture-center/simulate-drift-terraform'
+              },
+              {
+                title: 'Add workflow to trigger daily production plan run via terraform (optional)',
+                path: '/architecture-center/trigger-daily-production-plan-terraform'
+              }
+            ]
           }
         ]
       }
