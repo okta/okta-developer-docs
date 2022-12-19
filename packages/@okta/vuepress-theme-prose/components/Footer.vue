@@ -2,14 +2,17 @@
   <footer class="app-footer">
     <div class="footer--columns">
       <div class="footer--column need-support">
-        <h4 class="column--header">{{ config.footer_nav.need_support.heading }}</h4> 
+        <h4 class="column--header">
+          {{ config.footer_nav.need_support.heading }}
+        </h4> 
         <p>
           You can contact your Okta account team or ask us on our
           <SmartLink
             :item="{ link: config.forum_url, target: '_self' }"
             classes="link"
           >
-            forum</SmartLink>.
+            forum
+          </SmartLink>.
         </p>
       </div>
       <div class="footer--column social">
@@ -18,16 +21,19 @@
         </h4>
         <ul class="link-list">
           <li
-            class="link-list--item"
             v-for="(item, itemIndex) in config.footer_nav.social.items"
             :key="itemIndex"
+            class="link-list--item"
           >
-            <SmartLink :item="item" classes="link link-list--link">
+            <SmartLink
+              :item="item"
+              classes="link link-list--link"
+            >
               <i
-                class="link-list--icon"
                 v-if="item.icon"
+                class="link-list--icon"
                 v-html="item.icon"
-              ></i>
+              />
               <span class="link-list--text">{{ item.text }}</span>
             </SmartLink>
           </li>
@@ -39,11 +45,14 @@
         </h4>
         <ul class="link-list">
           <li
-            class="link-list--item"
             v-for="(item, itemIndex) in config.footer_nav.contact.items"
             :key="itemIndex"
+            class="link-list--item"
           >
-            <SmartLink :item="item" classes="link link-list--link">
+            <SmartLink
+              :item="item"
+              classes="link link-list--link"
+            >
               <span class="link-list--text">{{ item.text }}</span>
             </SmartLink>
           </li>
@@ -55,11 +64,14 @@
         </h4>
         <ul class="link-list">
           <li
-            class="link-list--item"
             v-for="(item, itemIndex) in config.footer_nav.more.items"
             :key="itemIndex"
+            class="link-list--item"
           >
-            <SmartLink :item="item" classes="link link-list--link">
+            <SmartLink
+              :item="item"
+              classes="link link-list--link"
+            >
               <span class="link-list--text">{{ item.text }}</span>
             </SmartLink>
           </li>
@@ -67,9 +79,9 @@
       </div>
       <div class="footer--column websites">
         <div
-          class="website"
           v-for="(item, itemIndex) in config.footer_nav.websites.items"
           :key="itemIndex"
+          class="website"
         >
           <SmartLink
             :item="item"

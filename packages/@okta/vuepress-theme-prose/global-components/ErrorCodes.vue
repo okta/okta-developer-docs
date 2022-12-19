@@ -2,8 +2,8 @@
   <div class="error-codes">
     <div class="error-codes-search-container">
       <input
-        type="text"
         id="error-code-search"
+        type="text"
         name="filter"
         autocomplete="off"
         autocorrect="off"
@@ -12,90 +12,88 @@
         placeholder="Search error codes for... (Titles, HTTP Status, or Error Code)"
         :value="search"
         @input="updateSearch"
-      />
+      >
       <div class="status-wrapper">
         <select
           id="error-codes-release"
+          v-model="filterStatusCode"
           name="release"
           markdown="block"
-          v-model="filterStatusCode"
         >
-          <option :value="null">Status Codes</option>
+          <option :value="null">
+            Status Codes
+          </option>
           <option
             v-for="statusCode in statusCodes"
-            v-bind:key="statusCode.statusCode"
-            v-bind:value="statusCode.statusCode"
+            :key="statusCode.statusCode"
+            :value="statusCode.statusCode"
           >
             {{ statusCode.statusCode }} - {{ statusCode.statusReasonPhrase }}
           </option>
         </select>
         <span
           class="reset-search"
-          @click="resetSearch"
           title="Reset Search"
-        ></span>
+          @click="resetSearch"
+        />
       </div>
     </div>
     <div id="error-code-count">
       Found <b>{{ resultCount }}</b> matches
     </div>
     <div
-      class="error-code"
       v-for="oktaError in filteredErrorCodes"
       :key="oktaError.errorCode"
+      class="error-code"
     >
       <h4 :id="oktaError.errorCode">
         <span
           class="title-error-code"
           v-html="$options.filters.titleErrorCode(oktaError)"
-        ></span>
-        <span
-          >{{ oktaError.title }}
+        />
+        <span>{{ oktaError.title }}
           <a
             :href="'#' + oktaError.errorCode"
             aria-hidden="true"
             class="header-anchor header-link"
-            ><i class="fa fa-link"></i></a
-        ></span>
+          ><i class="fa fa-link" /></a></span>
       </h4>
       <div class="error-code-mappings">
         <b>HTTP Status: </b>
-        <code
-          >{{ oktaError.statusCode }} {{ oktaError.statusReasonPhrase }}</code
-        >
+        <code>{{ oktaError.statusCode }} {{ oktaError.statusReasonPhrase }}</code>
       </div>
       <p
-        class="error-code-description"
         v-if="oktaError.errorDescription"
-        v-html="oktaError.errorDescription"
-      ></p>
-      <p
         class="error-code-description"
+        v-html="oktaError.errorDescription"
+      />
+      <p
         v-else
+        class="error-code-description"
         v-html="oktaError.errorSummary"
-      ></p>
+      />
       <div class="example">
         <h6
           class="toggleErrorExample"
           :class="{ open: openExample == oktaError.errorCode }"
           @click="toggleResponseExample(oktaError.errorCode)"
         >
-          <span class="underline"
-            ><span v-if="openExample == oktaError.errorCode">Hide</span
-            ><span v-else>Show</span> Example Error Response</span
-          >
+          <span class="underline"><span v-if="openExample == oktaError.errorCode">Hide</span><span v-else>Show</span> Example Error Response</span>
         </h6>
 
-        <pre class="language-http" v-if="openExample == oktaError.errorCode">
+        <pre
+          v-if="openExample == oktaError.errorCode"
+          class="language-http"
+        >
           <code>
-<span class="token response-status">HTTP/1.1 <span class="token property">{{oktaError.statusCode}} {{oktaError.statusReasonPhrase}}</span></span>
+<span class="token response-status">HTTP/1.1 <span class="token property">{{ oktaError.statusCode }} {{ oktaError.statusReasonPhrase }}</span></span>
 <span class="token header-name keyword">Content-Type:</span> application/json
 <span class="token application/json">
 <span class="token punctuation">{</span>
-    <span class="token property">"errorCode"</span><span class="token punctuation">:</span> <span class="token string">"{{oktaError.errorCode}}"</span><span class="token punctuation">,</span>
-    <span class="token property">"errorSummary"</span><span class="token punctuation">:</span> <span class="token string">"{{oktaError.errorSummary}}"</span><span class="token punctuation">,</span>
-    <span class="token property">"errorLink"</span><span class="token punctuation">:</span> <span class="token string">{{oktaError.errorCode}}</span><span class="token punctuation">,</span>
-    <span class="token property">"errorId"</span><span class="token punctuation">:</span> <span class="token string">"{{errorId()}}"</span><span class="token punctuation">,</span>
+    <span class="token property">"errorCode"</span><span class="token punctuation">:</span> <span class="token string">"{{ oktaError.errorCode }}"</span><span class="token punctuation">,</span>
+    <span class="token property">"errorSummary"</span><span class="token punctuation">:</span> <span class="token string">"{{ oktaError.errorSummary }}"</span><span class="token punctuation">,</span>
+    <span class="token property">"errorLink"</span><span class="token punctuation">:</span> <span class="token string">{{ oktaError.errorCode }}</span><span class="token punctuation">,</span>
+    <span class="token property">"errorId"</span><span class="token punctuation">:</span> <span class="token string">"{{ errorId() }}"</span><span class="token punctuation">,</span>
     <span class="token property">"errorCauses"</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </span>
@@ -111,16 +109,11 @@ import errorCodes from "./../../vuepress-site/data/error-codes.json";
 import _ from "lodash";
 
 export default {
-  created() {
-    this.errorCodes = errorCodes;
-    this.statusCodes = _.chain(this.errorCodes.errors)
-      .uniqBy(function(error) {
-        return error.statusCode;
-      })
-      .sortBy(function(error) {
-        return error.statusCode;
-      })
-      .value();
+  filters: {
+    titleErrorCode: function(oktaError) {
+      const parts = oktaError.errorCode.split(/(E0+)(\d+)/);
+      return parts[1] + "<b>" + parts[2] + "</b>: ";
+    }
   },
   data() {
     return {
@@ -158,11 +151,16 @@ export default {
       this.addHistory();
     }
   },
-  filters: {
-    titleErrorCode: function(oktaError) {
-      const parts = oktaError.errorCode.split(/(E0+)(\d+)/);
-      return parts[1] + "<b>" + parts[2] + "</b>: ";
-    }
+  created() {
+    this.errorCodes = errorCodes;
+    this.statusCodes = _.chain(this.errorCodes.errors)
+      .uniqBy(function(error) {
+        return error.statusCode;
+      })
+      .sortBy(function(error) {
+        return error.statusCode;
+      })
+      .value();
   },
   methods: {
     resetSearch() {
