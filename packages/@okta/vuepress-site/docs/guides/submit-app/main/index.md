@@ -118,14 +118,15 @@ If you have questions or need additional support to publish your app integration
 
 1. To start your integration submission, open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
-1. Sign in using your development org credentials and click **Add New Submission** to create a new submission instance.
+1. Sign in to the OIN Manager with your Okta development org credentials. If you have multiple Okta orgs, select the org that contains your developed app integration.
+
+1. Click **Add New Submission** to create a new submission instance.
 
 1. If you want to review an in-progress submission, click **View** beside the name of your integration.
 
     > **Note:** If you need to update an integration, see [Update your published integration](#update-your-published-integration).
 
-1. Begin defining your submission by specifying details in the [General Settings](#configure-general-settings) and [protocol specific](#configure-protocol-specific-settings) tabs.
-
+1. Begin defining your submission by specifying details in the [General settings](#configure-general-settings) and [protocol specific](#configure-protocol-specific-settings) tabs.
 
 ### Configure general settings
 
@@ -133,7 +134,7 @@ On the General Settings page, fill in the basic information about your integrati
 
 #### App information
 
-* **Does your app exist in the OIN?**: Indicate if your integration exists in the OIN. 
+* **Does your app exist in the OIN?**: Indicate if your integration exists in the OIN.
 
    * If your integration already exists in the OIN, provide the **Existing OIN app name** so that the Okta OIN team can locate it.
 
@@ -143,7 +144,7 @@ On the General Settings page, fill in the basic information about your integrati
 
 * **App website**:  Provide a link to your product or service homepage or a specific location on your website where users can learn more about your integration.
 
-* **App use case**: Specify one or more use cases for Okta to categorize your integration in the OIN catalog. Click **Add Another** to choose up to five use cases. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines).
+* **Use case(s)**: Specify one or more use cases for Okta to categorize your integration in the OIN catalog. Click **+ Add Another** to choose up to five use cases. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines).
 
 * **App description**: Give a general description of your application and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines).
 
@@ -151,7 +152,7 @@ On the General Settings page, fill in the basic information about your integrati
 
 #### Customer support
 
-* **Support contacts**: Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the drop-down menu to specify if you are adding an email, a URL, or a phone number and click **Add Another** to add additional contacts. Okta shares this information with customers in the OIN catalog description for your app integration.
+* **Support contacts**: Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the drop-down menu to specify if you are adding an email, a URL, or a phone number and click **+ Add Another** to add additional contacts. Okta shares this information with customers in the OIN catalog description for your app integration.
 
 * **Escalation support contact**: This should be an email distribution list for Okta to use when contacting your company about your integration. It can be a phone number, but ideally when there is an issue with your integration, Okta wants to reach as many people as possible without creating any bottlenecks. Make sure that the contact provided here isn't a generic contact such as `support@example.com` or a 1-800 number. The escalation contact should be a contact list that Okta can reach out to in an emergency. This contact information isn't shared with customers.
 
@@ -177,15 +178,13 @@ For each protocol, click the appropriate tab name and change the protocol suppor
 
 #### Instance URL
 
-For each protocol, enter the **Okta instance URL** for your integration in the first field.
+**Provide the instance URL for your app where Okta will retrieve configuration details:** Specify the Okta app instance URL for your integration in the first field. To retrieve your Okta app instance URL from your development org:
 
-To get your Okta instance URL in your development org:
-
-1. In the Okta Admin Console, go to **Applications** > **Applications** to see all the integrations in your org.
-1. Click the name of the app integration that you are going to submit.
-1. On the settings page, confirm that the settings match what you want as the global defaults for all customers.
-1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
-1. Back in the OIN Manager, paste that URL into your submission.
+   1. In the Okta Admin Console, go to **Applications** > **Applications** to see all the integrations in your org.
+    1. Click the name of the app integration that you are going to submit.
+    1. On the settings page, confirm that the settings match what you want as the global defaults for all customers.
+    1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
+    1. Back in the OIN Manager, paste that URL in the first field of your protocol tab for your submission.
 
 <!--
 1. Click the **General** tab.
