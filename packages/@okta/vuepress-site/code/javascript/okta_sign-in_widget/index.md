@@ -346,7 +346,7 @@ See the following Okta Classic Engine examples:
 
 - Android:
     - [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
-    - [Custom sign-in example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
+    - [Custom sign-in example](https://github.com/okta/samples-android/tree/legacy-samples/custom-sign-in)
 - iOS:
     - [Authenticate a user](https://github.com/okta/okta-auth-swift#authenticate-a-user)
     - [Okta iOS custom sign-in example](https://github.com/okta/samples-ios/tree/legacy-samples/custom-sign-in)
