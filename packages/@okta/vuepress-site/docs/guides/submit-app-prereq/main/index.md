@@ -32,22 +32,6 @@ Prior to using the [OIN Manager](https://oinmanager.okta.com) to submit your OIN
 
 Before you follow the submission guidelines, ensure that your integration doesn't use unsupported OIN Okta features. See [OIN limitations](#oin-limitations).
 
-## OIN limitations
-
-Integrations with the following Okta features can't be published in the OIN catalog:
-
-> **SWA apps:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, existing SWA apps are still maintained by the OIN team.
-
-> **Custom authorization server:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
-
-> **Refresh token:**  Refresh tokes aren't supported for apps published in the OIN.
-
-> **Unsupported scopes:** <br>
-> * `offline_access` scope isn't available since refresh tokens aren't supported for apps published in the OIN.
-> * `groups` claims as described in the supported [Scopes](/docs/reference/api/oidc/#scopes) section isn't supported.
-
-<ApiAmProdWarning />
-
 ## Logo guidelines
 
 The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following guidelines:
@@ -61,13 +45,13 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
    > **Note:** The company name is already listed in plain text in the OIN catalog, so adding a company name image is redundant.
 
-* Avoid logos with both an icon and a wordmark.
-* Avoid logos with the trademark (:tm:) symbol.
+* Don't use logos with both an icon and a wordmark.
+* Don't use logos with the trademark (:tm:) symbol.
 * The recommended logo is an image in PNG format with a transparent background.
     * GIF and JPEG/JPG formats are also acceptable
     * A colored background is acceptable if it's a part of the logo color scheme
 
-### Logo guideline tips
+### Logo tips
 
 If your logo doesn't meet the OIN requirements, the following are suggestions for you to conform to the guidelines:
 
@@ -83,7 +67,7 @@ If your logo doesn't meet the OIN requirements, the following are suggestions fo
 
 </div>
 
-### Example of acceptable logos
+### Examples of acceptable logos
 
 <div class="full">
 
@@ -95,7 +79,7 @@ If your logo doesn't meet the OIN requirements, the following are suggestions fo
 
 An app description is displayed on your integration tile in the OIN catalog. You can specify your app description in the **General Settings** > **App description** field from the OIN Manager. The app description content appears in your Integration detail page, under the **Overview** header in the OIN catalog. See the [OIN catalog](https://www.okta.com/integrations/) for examples of existing app descriptions in their associated Integration page.
 
-Prepare an app description that describes what your integration offers and the supported features. You can also provide value-added messaging for your integration. Your description needs to be less than 1024 characters.
+Prepare an app description that describes what your integration offers and the supported features. You can also provide value-added messaging for your integration. Your description needs to be less than 1024 characters. See an app description example in this [ServiceNow Integration detail](https://www.okta.com/integrations/servicenow-ud/) page.
 
 ## Use case guidelines
 
@@ -120,14 +104,13 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 
 You need to create a test account on your app so that the OIN team can use it to test and verify your integration. The test account details and credentials are specified in the **General Settings** > **Test Account** fields from the OIN Manager.
 
-In general, the test account allows the OIN team to verify that your integration flow works as expected for your use case. The test account is typically an admin user in your app with additional privileges depending on your user case.
+In general, the test account allows the OIN team to verify that your integration flow works as expected for your use case. The test account is typically an admin user in your app with additional privileges depending on your use case:
 
 * For a lifecycle management integration, ensure that your admin test account has HR admin privileges to onboard, change roles, or offboard employees on your app.
 * For an SSO or SCIM integration, ensure your admin test account has privileges to configure SSO and SCIM (even if your app is already configured with SSO or SCIM). The OIN team needs to verify whether users and/or groups were created by SCIM provisioning or by SAML/OIDC (JiT) on your application.
 * For an API service integration, ensure that your admin test account has privileges configure system settings and to trigger API processes on your app.
-* `isvtest@okta.com` is the recommended test account username, however, you can provide an alternative username with a different domain.
 
-> **Note:** Ensure that proper scopes are defined for OAuth 2.0 authentication.
+> **Note:** The OIN team recommends `isvtest@okta.com` as the test account username, however, you can provide an alternative username with a different domain.
 
 ## Customer configuration document guidelines
 
@@ -138,26 +121,6 @@ You need to provide a configuration guide as part of the OIN submission process.
 >**Note:** A configuration guide is required for SCIM and OIDC integrations. It's optional for SAML integrations, as Okta supplies its own documentation with the apps.
 
 You can create the guide in whatever format works best for you: a webpage, a Google or Word doc, or a PDF are all acceptable.
-
-### Configuration guide examples
-
-OIDC:
-
-* [Cerby](https://docs.google.com/document/d/e/2PACX-1vRiswyNyRPVYfEMEwPsbMO8Qn11BjAO-FfUsWBBit_IYe88tzQCHTmMPtmF8uPV044HmXQR13adj3LO/pub)
-* [Upwave](https://help.upwave.io/en/articles/4129778-okta-configuration-guide)
-
-SAML:
-
-* [GitHub Enterprise](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github_Enterprise.html)
-* [Runscope](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Runscope.html)
-* [Salesforce](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-in-Salesforce.html)
-* [Zoom.us](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Zoom.us.html)
-
-SCIM:
-
-* [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
-* [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
-* [Zscaler](https://help.zscaler.com/zia/saml-scim-configuration-guide-okta)
 
 ### Configuration guide content
 
@@ -211,3 +174,39 @@ Also include any best practices for your procedure, such as guidance on setting 
 You need to only include this section if there are known issues that apply to the entire configuration. In general, you should include best practices with the step-by-step procedure instructions.
 
 You may also want to include information on how to contact your organization if the customer has any support queries.
+
+### Configuration guide examples
+
+OIDC:
+
+* [Cerby](https://docs.google.com/document/d/e/2PACX-1vRiswyNyRPVYfEMEwPsbMO8Qn11BjAO-FfUsWBBit_IYe88tzQCHTmMPtmF8uPV044HmXQR13adj3LO/pub)
+* [Upwave](https://help.upwave.io/en/articles/4129778-okta-configuration-guide)
+
+SAML:
+
+* [GitHub Enterprise](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github_Enterprise.html)
+* [Runscope](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Runscope.html)
+* [Salesforce](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-in-Salesforce.html)
+* [Zoom.us](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Zoom.us.html)
+
+SCIM:
+
+* [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
+* [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
+* [Zscaler](https://help.zscaler.com/zia/saml-scim-configuration-guide-okta)
+
+## OIN limitations
+
+Integrations with the following Okta features can't be published in the OIN catalog:
+
+* **SWA apps:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, existing SWA apps are still maintained by the OIN team.
+
+* **Custom authorization server:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+
+* **Refresh token:**  Refresh tokens aren't supported for apps published in the OIN.
+
+* **Unsupported scopes:** <br>
+   * `offline_access` scope isn't available since refresh tokens aren't supported for apps published in the OIN
+   * `groups` claims as described in the supported [Scopes](/docs/reference/api/oidc/#scopes) section isn't supported
+
+<ApiAmProdWarning />
