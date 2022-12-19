@@ -349,9 +349,14 @@
 
 .aside-hidden .sidebar-area {
   width: 77px;
-  min-width: auto;
+  min-width: 0;
 }
 
 .aside-hidden .content-area {
   max-width: calc(100% - 77px);
+}
+.arch--container {
+  display: flex;
+  padding: 0;
+  justify-content: flex-start;
 }

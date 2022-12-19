@@ -1,12 +1,8 @@
 <template>
   <div>
     <div v-for="link in links" :key="link.title">
-      <router-link
-        :to="link.path"
-      >
-        <a :href="link.path">
-          <slot>{{link.title}}</slot>
-        </a>
+      <router-link :to="link.path">
+        <slot>{{link.title}}</slot>
       </router-link>
       <div class="generated-content" v-if="link.description">
         <Content :pageKey="getPageKey(link.path)" slot-key="description"/>

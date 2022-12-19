@@ -86,7 +86,6 @@
 
 <script>
 import { guideFromPath } from "../util/guides"
-
 export default {
   name: "SidebarItem",
   props: ["link"],
@@ -127,7 +126,6 @@ export default {
     link() {
       this.setData();
     },
-
     // Will triggers when StackSelector component will change it value.
     "stackSelectorData.to"() {
       // After StackSelector value has changed, route link will be modified.
@@ -141,7 +139,6 @@ export default {
         this.link.path = this.getNewLinkPath(this.link.path, newFramework);
       }
     },
-
     sublinksExpanded(isActivated, _) {
       if (isActivated) {
         // element.scrollIntoViewIfNeeded is not supported by Firefox
@@ -158,7 +155,6 @@ export default {
       }
     }
   },
-
   methods: {
     getNewLinkPath(path, newFramework) {
       const framework = guideFromPath(path).framework;
@@ -192,7 +188,6 @@ export default {
   }
 };
 </script>
-
 <style>
   .slide-fade-enter-active {
     transition: all 0.8s ease;
