@@ -54,7 +54,7 @@ Some installation notes:
 
 ### Run ngrok
 
-After installing ngrok, ensure that it's running by creating a "tunnel" into a local port (8082 in this example). If you installed directly into your project folder, sample-app, run the following command in your terminal:
+After installing ngrok, ensure that it's running by creating a "tunnel" into a local port (8082 in this example). If you installed directly into your project folder (for example, sample-app), run the following command in your terminal:
 
 ```shell
 sample-app > ./ngrok http 8082
@@ -92,7 +92,7 @@ Each call to your local application appears in the interface and includes the re
 
 <div class="three-quarter border">
 
-![A screen shot of the ngrok web interface that includes the response body, header, and other details.](/img/hooks/ngrok-and-event-hooks-web-interface.png)
+![A screen shot of the ngrok inspection interface that includes details of a call.](/img/hooks/ngrok-and-event-hooks-web-interface.png)
 
 </div>
 
@@ -130,7 +130,13 @@ You must verify the event hook to prove that your external service controls the 
 
 To complete the one-time verification of the event hook:
 
-* After creating the event hook, and if your ngrok session and local application are ready to handle the request, click **Verify** to complete the one-time verification step.
+* After creating the event hook, and:
+
+  * Your local application server is running (`>node server.js`).
+
+  * Your local ngrok session is running (and the forwarding URL is the same as the URL field defined in the Event hook)
+
+  Click **Verify** to complete the one-time verification step.
 
 or
 
@@ -150,22 +156,16 @@ To run a test of your event hook:
 
 1. Ensure that both your ngrok session and local sample application are running.
 1. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
-    * Go to **Directory** > **People**, and click **Add Person**. As an example, add the user John Doe with the following fields:
-        * **First Name:** John
-        * **Last Name:** Doe
-        * **User Name:** john.doe@example.com
+    * Go to **Directory** > **People**, and click **Add person**. As an example, add the user John Doe with the following fields:
+        * **First name:** John
+        * **Last name:** Doe
+        * **Username:** john.doe@example.com
 
 1. Navigate back to your local application's console. If the event hook was successful, the following message appears:
 
     `The user john.doe@example.com has been added to the Okta org!`
 
-1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface, from which you can review the complete call response body, header, and other details. Clicking **Replay** on the ngrok inspection interface replays the event hook call to assist in development. See [Replay the event hook](#replay-the-event-hook).
-
-    <div class="half border">
-
-    ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/hooks/ngrok-and-event-hooks-web-interface-small.png)
-
-    </div>
+1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface, from which you can review the complete call response body, header, and other details. See [Review ngrok inspection interface](/docs/guides/event-hook-ngrok/nodejs/main/#review-ngrok-inspection-interface). Clicking **Replay** on the ngrok inspection interface replays the event hook call to assist in development. See [Replay the event hook](#replay-the-event-hook).
 
 ### Preview the event hook
 
@@ -190,13 +190,7 @@ To run a preview call of your event hook:
 
      `The user john.doe@example.com has been added to the Okta org!`
 
-1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface, from which you can review the response body, header, and other details.
-
-    <div class="half border">
-
-    ![A screen shot of the ngrok inspection interface that includes details of a call.](/img/hooks/ngrok-and-event-hooks-web-interface-small.png)
-
-    </div>
+1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface, from which you can review the response body, header, and other details. See [Review ngrok inspection interface](/docs/guides/event-hook-ngrok/nodejs/main/#review-ngrok-inspection-interface).
 
 ### Replay the event hook
 
