@@ -37,7 +37,7 @@ Before you follow the submission guidelines, ensure that your integration doesn'
 The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following guidelines:
 
 * The logo file size must be less than one MB.
-* The recommended logo dimension has a 1:1 (square) aspect ratio.
+* The recommended logo dimension is square (1:1 aspect ratio).
 
    > **Note:** OIN app icons are placed in a 200 x 200 pixels grid.
 
@@ -146,34 +146,32 @@ In this section of your guide, list the features that your application supports.
 * IdP-initiated SSO
 * SP-initiated SSO
 * SLO (Single Log Out)
-* Force Authentication
-* Create Users
-* Update User Attributes
-* Deactivate Users
-* Import Users
-* Import Groups
-* Sync Password
-* Profile Sourcing (formerly called Profile Mastering)
+* Force authentication
+* Create users
+* Update user attributes
+* Deactivate users
+* Import users
+* Import groups
+* Sync password
+* Profile sourcing
 
 Also include any restrictions. For example:
 
 Okta can't update user attributes for Admin users. This is an API limitation.
 
-> **Note:** You can briefly describe what each feature does. See the SCIM guides from the earlier example section.
+> **Note:** You can briefly describe what each feature does. See the SCIM guides from [Configuration guide examples](#configuration-guide-examples).
 
 #### Procedure
 
 This section constitutes the majority of your guide and explains all the configuration steps needed to get your customers set up with your integration. Detail all settings and include any screenshots that can assist the user.
 
-Also include any best practices for your procedure, such as guidance on setting mappings for attributes, especially required attributes that don't have a default mapping. For example:
+Also include any best practices for your procedure, such as SCIM guidance on setting mappings for attributes, especially required attributes that don't have a default mapping. For example:
 
 > **Note:** The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`. Assign the mapping to the correct value for your organization.
 
 #### Troubleshooting and tips
 
-You need to only include this section if there are known issues that apply to the entire configuration. In general, you should include best practices with the step-by-step procedure instructions.
-
-You may also want to include information on how to contact your organization if the customer has any support queries.
+Include this section if there are known issues that apply to the entire configuration. You can include best practices with the step-by-step procedure instructions. You can also include information on how to contact your organization if the customer has any support queries.
 
 ### Configuration guide examples
 
@@ -210,3 +208,7 @@ Integrations with the following Okta features can't be published in the OIN cata
    * `groups` claims as described in the supported [Scopes](/docs/reference/api/oidc/#scopes) section isn't supported
 
 <ApiAmProdWarning />
+
+## Next step
+
+Ready to submit your app? See [Publish an OIN integration](/docs/guides/submit-app/).

@@ -636,14 +636,13 @@ export const guides = [
               },
             ],
           },
-          { title: "Publish an OIN integration",
-            path: "/docs/guides/submit-app/main/",
-            subLinks: [
-               {
-                title: "OIN submission requirements",
-                guideName: "submit-app-prereq",
-              },
-            ],
+          {
+            title: "OIN submission requirements",
+            guideName: "submit-app-prereq",
+          },
+          {
+            title: "Publish an OIN integration",
+            guideName: "submit-app",
           },
         ],
       },

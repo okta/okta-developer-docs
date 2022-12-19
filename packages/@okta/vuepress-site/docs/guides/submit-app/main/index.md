@@ -54,8 +54,6 @@ After you have built a functioning app integration, a few steps are required to 
     * [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines)
     * [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines)
 
-        >**Note:** This guide is required for SCIM and OIDC OIN apps. It's optional for SAML integrations, as Okta provides its own documentation for those apps. The guide is supplied with your published app.
-
 1. [Submit your integration](#submit-an-integration) to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata that's required to create a customized integration for publication in the OIN.
     >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact your Okta account team or post on our [forum](https://devforum.okta.com/) to request temporary activation of this capability when submitting a SCIM app integration.
 
@@ -145,11 +143,11 @@ On the General Settings page, fill in the basic information about your integrati
 
 * **App website**:  Provide a link to your product or service homepage or a specific location on your website where users can learn more about your integration.
 
-* **App use case**: Specify one or more use cases for Okta to categorize your integration in the OIN catalog. Click **Add Another** to choose up to five use cases.
+* **App use case**: Specify one or more use cases for Okta to categorize your integration in the OIN catalog. Click **Add Another** to choose up to five use cases. See [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines).
 
-* **App description**: Give a general description of your application and what the Okta integration does. For examples, see the overview section for any of the integrations listed on the [OIN](https://www.okta.com/integrations/).
+* **App description**: Give a general description of your application and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines).
 
-* **App icon**: Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be smaller than 1 MB in size. For best results, use a PNG image with a transparent background, a landscape orientation, and use a minimum resolution of 420 x 120 pixels to prevent upscaling.
+* **App icon**: Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be smaller than 1 MB in size. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines).
 
 #### Customer support
 
@@ -159,7 +157,7 @@ On the General Settings page, fill in the basic information about your integrati
 
 #### Test account
 
-The Okta OIN team requires a dedicated account on your application to run their tests. This test account needs to be kept active beyond the submission period in case Okta needs to update or troubleshoot your app integration.
+The Okta OIN team requires a dedicated account on your application to run their tests. This test account needs to be kept active beyond the submission period in case Okta needs to update or troubleshoot your app integration. See [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines).
 
 * **Test account URL**: This is a static URL to sign in to your application. An Okta OIN team member navigates to this URL and uses the account credentials you provide in the subsequent fields to sign in to your application.
 
@@ -205,7 +203,6 @@ Each of the supported protocols has different configuration settings for the rem
 As you add configuration information about your integration to the submission page, the indicators in the top right show your progress towards 100% completion.
 
 You must include all required information before you can click **Submit for Review** to move your integration into the submission phase.
-
 
 ## Update your published integration
 
