@@ -4414,11 +4414,11 @@ redirects:
   - from: /docs/guides/submit-app/scim/overview/index.html
     to: /docs/guides/submit-app/scim/main
   - from: /docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide
-    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guideline
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide
-    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guideline
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide
-    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guideline
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/create-guide/index.html
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/submission1-general/index.html
