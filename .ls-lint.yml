@@ -1,0 +1,7 @@
+ls:
+  packages/@okta/vuepress-theme-prose/*:
+    .scss: snake_case
+    .dir: kebab-case
+
+ignore:
+  - packages/@okta/vuepress-theme-prose/assets/fonts

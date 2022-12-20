@@ -109,7 +109,7 @@ export default {
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
-      import("../custom-landings/OktaIntegrationNetwork/OktaIntegrationNetwork.vue"),
+      import("../custom-landings/okta-integration-network/OktaIntegrationNetwork.vue"),
     Search: () => import("../components/Search.vue"),
     Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),

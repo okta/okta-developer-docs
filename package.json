@@ -30,7 +30,8 @@
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
-    "lint-all": "yarn eslint && yarn stylelint"
+    "lint:ls-lint": "ls-lint",
+    "lint-all": "yarn eslint && yarn stylelint && yarn lint:ls-lint"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
@@ -53,7 +54,8 @@
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.3.0",
     "eslint": "^8.28.0",
-    "eslint-plugin-vue": "^9.8.0"
+    "eslint-plugin-vue": "^9.8.0",
+    "@ls-lint/ls-lint": "^1.11.2"
   },
   "dependencies": {
     "broken-link-checker": "^0.7.8",
