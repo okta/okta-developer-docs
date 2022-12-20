@@ -63,7 +63,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. 
    > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/).
 
 4. Make changes directly in the editor. If you enter `{`, `(`, or `.` you see a list of available variables that you can use. See [Use variables](#use-variables).
-   * Click **Save to draft**, then **Preview**, **Revert** or **Publish**.
+   * Click **Save to draft**, then **Preview**, **Revert**, or **Publish**.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
 
    > **Note:** To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. Turning off the code editor restores the default HTML/CSS and JavaScript code.
