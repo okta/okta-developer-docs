@@ -525,7 +525,7 @@ Example:
 
 ### Per-application customization
 
-The sign-in widget for embedded authentication is application-aware. This means that your client-side customizations can understand which application caused the sign-in page to load. This is useful when you have multiple applications or brands that you want to support.
+The Sign-In Widget for embedded authentication is application aware. This means that your client-side customizations can understand which application caused the sign-in page to load. This is useful when you have multiple applications or brands that you want to support.
 
 When the page renders, an object called `OktaUtil` exists on the page. By calling the `OktaUtil.getRequestContext()` method, scripts on the page can get details about the current request.
 
