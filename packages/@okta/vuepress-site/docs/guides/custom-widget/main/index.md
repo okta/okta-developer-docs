@@ -240,7 +240,7 @@ You can modify the look of the initial sign-in page using parameters in the `con
 
 <div class="three-quarter">
 
-![Screenshot of basic Okta sign-in widget](/img/siw/widget_theming.png)
+![Screenshot of basic Okta Sign-In Widget](/img/siw/widget_theming.png)
 
 <!--
 Image source: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3238%3A30940  widget-theming
