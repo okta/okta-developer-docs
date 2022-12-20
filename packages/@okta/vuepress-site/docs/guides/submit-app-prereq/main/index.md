@@ -30,7 +30,7 @@ Prior to using the [OIN Manager](https://oinmanager.okta.com) to submit your OIN
 * [Test account guidelines](#test-account-guidelines)
 * [Customer configuration document guidelines](#customer-configuration-document-guidelines)
 
-Before you follow the submission guidelines, ensure that your integration doesn't use unsupported OIN Okta features. See [OIN limitations](#oin-limitations).
+Before you submit your integration, ensure that your integration doesn't use unsupported OIN Okta features. See [OIN limitations](#oin-limitations).
 
 ## Logo guidelines
 
@@ -59,7 +59,7 @@ If your logo doesn't meet the OIN requirements, the following are suggestions fo
 
 * If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 
-* You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is fitted into a 200 x 200 pixels space. If you have additional logo questions, contact the OIN team.
+* You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is fitted into a 200 x 200 pixels space. If you have additional logo questions, contact the [OIN team](mailto:oin@okta.com).
 
 <div class="full">
 
@@ -95,7 +95,7 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 | [Identity Proofing](https://www.okta.com/integrations/?category=identity-proofing) | Enables user self-verification to improve identity assurance and approve access for authorized individuals using document-based and/or knowledge-based proofs |
 | [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Provides the right people access to the right tools at the right time |
 | [Zero Trust](https://www.okta.com/integrations/?category=zero-trust) | Enables secure access for users regardless of their location, device, or network |
-| [Bot or Fraud Detection](https://www.okta.com/integrations/?category=bot-or-fraud-detection) | Provides protection from inauthentic, forged, or otherwise fradulent attempts to register, sign-in, recover, or perform identity-related transactions. Most integrations in this use case are API service integrations that send risk signals to Okta using OAuth 2.0. |
+| [Bot or Fraud Detection](https://www.okta.com/integrations/?category=bot-or-fraud-detection) | Provides protection from inauthentic, forged, or otherwise fraudulent attempts to register, sign-in, recover, or perform identity-related transactions. Most integrations in this use case are API service integrations that send risk signals to Okta using OAuth 2.0. |
 | [Multi-factor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an additional layer of security with multifactor authentication for an organization’s cloud, mobile, and web apps |
 | [Risk Signal Sharing](https://www.okta.com/integrations/?category=risk-signal-sharing)| Provides enriched context on clients, apps, users, and other first-party subjects to augment and inform Okta's adaptive authentication and authorization decisions |
 | [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) | Pre-built integrations with leading apps that enable your workforce to give back |

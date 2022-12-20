@@ -118,7 +118,7 @@ If you have questions or need additional support to publish your app integration
 
 1. To start your integration submission, open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
-1. Sign in to the OIN Manager with your Okta development org credentials. If you have multiple Okta orgs, select the org that contains your developed app integration.
+1. Sign in to the OIN Manager with your Okta development org credentials. Ensure that this org contains your developed app integration for submission.
 
 1. Click **Add New Submission** to create a new submission instance.
 
@@ -152,7 +152,7 @@ On the General Settings page, fill in the basic information about your integrati
 
 #### Customer support
 
-* **Support contacts**: Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the drop-down menu to specify if you are adding an email, a URL, or a phone number and click **+ Add Another** to add additional contacts. Okta shares this information with customers in the OIN catalog description for your app integration.
+* **Support contacts**: Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the dropdown menu to specify if you are adding an email, a URL, or a phone number and click **+ Add Another** to add additional contacts. Okta shares this information with customers in the OIN catalog description for your app integration.
 
 * **Escalation support contact**: This should be an email distribution list for Okta to use when contacting your company about your integration. It can be a phone number, but ideally when there is an issue with your integration, Okta wants to reach as many people as possible without creating any bottlenecks. Make sure that the contact provided here isn't a generic contact such as `support@example.com` or a 1-800 number. The escalation contact should be a contact list that Okta can reach out to in an emergency. This contact information isn't shared with customers.
 
@@ -174,7 +174,7 @@ Your application needs to support at least one protocol for interacting with Okt
 
 You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SAML and SCIM, you can create the submission with the SAML and SCIM protocol details. At a later date, when you add OIDC support to your application, you can return to your integration submission, activate the OIDC support panel, and add in the details needed for Okta to enable OIDC support.
 
-For each protocol, click the appropriate tab name and change the protocol support drop-down box from **Off** to **On**.
+For each protocol, click the appropriate tab name and change the protocol support dropdown menu from **Off** to **On**.
 
 <StackSnippet snippet="protocol-name" />
 
@@ -186,7 +186,7 @@ For each protocol, click the appropriate tab name and change the protocol suppor
    1. Click the name of the app integration that you're going to submit.
    1. On the settings page, confirm that the settings match what you want as the global defaults for all customers.
    1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
-   1. Back in the OIN Manager, paste that URL in the **Provide the instance URL for your app where Okta will retrieve configuration details:** field of your submission protocol tab.
+   1. Back in the OIN Manager, paste that URL in the **Provide the instance URL for your app where Okta will retrieve configuration details** field of your submission protocol tab.
 
 <!--
 1. Click the **General** tab.
@@ -253,7 +253,7 @@ Removing an app integration from the OIN doesn't prohibit existing users from ac
 
 Finally, if you intend to remove your back-end application support for the Okta app integration, alert your customer admins about the change and if you are deploying a replacement solution.
 
-## See also 
+## See also
 
 * [SAML - Frequently Asked Questions](/docs/concepts/saml/faqs/)
 * [SCIM - Frequently Asked Questions](/docs/concepts/scim/faqs/)
