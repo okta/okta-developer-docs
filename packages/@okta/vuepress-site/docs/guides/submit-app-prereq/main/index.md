@@ -108,7 +108,7 @@ In general, the test account allows the OIN team to verify that your integration
 
 * For a lifecycle management integration, ensure that your admin test account has HR admin privileges to onboard, change roles, or offboard employees on your app.
 * For an SSO or SCIM integration, ensure your admin test account has privileges to configure SSO and SCIM (even if your app is already configured with SSO or SCIM). The OIN team needs to verify whether users and/or groups were created by SCIM provisioning or by SAML/OIDC (JiT) on your application.
-* For an API service integration, ensure that your admin test account has privileges configure system settings and to trigger API processes on your app.
+* For an API service integration, ensure that your admin test account has privileges configure an API integration and trigger API requests in your application.
 
 > **Note:** The OIN team recommends `isvtest@okta.com` as the test account username, however, you can provide an alternative username with a different domain.
 
