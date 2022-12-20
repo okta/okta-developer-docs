@@ -549,7 +549,7 @@ export const guides = [
             guideName: "custom-url-domain",
           },
           {
-            title: "Sign-In Widget",
+            title: "Sign-in page",
             guideName: "custom-widget",
           },
           {

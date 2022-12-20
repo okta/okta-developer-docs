@@ -40,19 +40,17 @@ The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, a
 
 Use the code editor to modify any HTML, CSS, or JavaScript on the error page. See [Customization examples](#customization-examples) for snippets that you can update and use.
 
-> **Note:** There is no draft mode in the code editor. When you click **Publish**, your changes go live. If you want to test changes without impacting production, use a test or development org.
-
 1. In the Admin Console, go to **Customizations** > **Branding**.
-2. In the **Okta-hosted Error Pages box**, click **Edit**.
+2. In the **Error Page** box, click **Edit**.
 3. To open the code editor, turn on the toggle next to **Code editor**.
 
-   > **Note:** The code editor toggle only appears if you connect to Okta using a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).
+   > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/).
 
 4. Make changes directly in the editor. If you enter `{`, `(`, or `.` you see a list of available variables that you can use. See [Use variables](#use-variables).
    * Click **Preview** to see your changes in a new browser window before you publish.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
 
-   > **Note:** The Admin Console auto-saves your changes every few seconds. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
+   > **Note:** The console restores the previous published version of the code. To revert to the 0-state/default, toggle the code editor off.
 
 5. Click **Publish** to commit your changes.
 
