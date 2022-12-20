@@ -353,10 +353,10 @@ See the following examples:
 
 - Android:
     - [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
-    - [Custom Sign In Example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
+    - [Custom Sign In Example](https://github.com/okta/samples-android/tree/legacy-samples/custom-sign-in)
 - iOS:
     - [Authenticate a User](https://github.com/okta/okta-auth-swift#authenticate-a-user)
-    - [Okta iOS Custom Sign In Example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+    - [Okta iOS Custom Sign In Example](https://github.com/okta/samples-ios/tree/legacy-samples/custom-sign-in)
 
 <!--
 - React Native
