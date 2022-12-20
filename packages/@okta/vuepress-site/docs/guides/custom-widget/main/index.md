@@ -582,7 +582,7 @@ Elsewhere in your file, using the method above, you can inspect the client ID an
 
 The Okta-hosted sign-in page uses the [Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-hosted-sign-in-page-default) component to interact with the user.
 
-If you aren't familiar with the Okta Sign-In Widget, Okta recommends that you select the highest **Major Version** and the latest **Minor Version** (default). For details about the Okta Sign-In Widget capabilities that are supported by major and minor versions, see the [GitHub releases page](https://github.com/okta/okta-signin-widget/releases).
+If you aren't familiar with the Sign-In Widget, Okta recommends that you select the highest **Major Version** and the latest **Minor Version** (default). For details about the Sign-In Widget capabilities that are supported by major and minor versions, see the [GitHub releases page](https://github.com/okta/okta-signin-widget/releases).
 
 1. To make changes to the major and minor versions, select **Edit** in the **Okta Sign-In Widget Version** section header.
 2. Make your changes, and then click **Save** at the bottom of the page.
