@@ -11,9 +11,10 @@
     * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
     * **Help Text**: Any descriptive text to be shown to administrators when installing your app integration.
     * **Type**: The property type for your parameter. Options are "String", "URL", or "HTTPS URL".
-  * Click **Save** to add the variable to the list.
 
-  After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
+    Click **Save** to add the variable to the list.
+
+    After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
 
   * **Construct your dynamic Base URL by copying the variables above and pasting them where applicable**: Provide the Base URL that your integration uses when sending an outbound call to your SCIM server.
 

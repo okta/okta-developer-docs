@@ -37,7 +37,7 @@ This guide covers submissions that use one or more of these protocols:
 
     >**Note:** To support the potentially large numbers of Okta orgs accessing an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
 
-    >**Note:** ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
+    > **Note:** ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
 * [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
 
@@ -148,7 +148,7 @@ On the General Settings page, fill in the basic information about your integrati
 
 * **App description**: Give a general description of your application and what the Okta integration does. See [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines).
 
-* **App icon**: Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be smaller than 1 MB in size. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines).
+* **App icon**: Upload a PNG, JPG, or GIF file of a logo to accompany your integration in the catalog. The logo file must be less than one MB in size. See [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines).
 
 #### Customer support
 
@@ -176,15 +176,17 @@ You can submit protocol support details all together or asynchronously. For exam
 
 For each protocol, click the appropriate tab name and change the protocol support drop-down box from **Off** to **On**.
 
-#### Instance URL
+<StackSnippet snippet="protocol-name" />
 
-**Provide the instance URL for your app where Okta will retrieve configuration details:** Specify the Okta app instance URL for your integration in the first field. To retrieve your Okta app instance URL from your development org:
+* **Provide the instance URL for your app where Okta will retrieve configuration details:** Specify the Okta instance URL for your integration.
 
-   1. In the Okta Admin Console, go to **Applications** > **Applications** to see all the integrations in your org.
-    1. Click the name of the app integration that you are going to submit.
-    1. On the settings page, confirm that the settings match what you want as the global defaults for all customers.
-    1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
-    1. Back in the OIN Manager, paste that URL in the first field of your protocol tab for your submission.
+   To retrieve your Okta instance URL from your development org:
+
+   1. From the Okta Admin Console, navigate to **Applications** > **Applications** to see all the integrations in your org.
+   1. Click the name of the app integration that you're going to submit.
+   1. On the settings page, confirm that the settings match what you want as the global defaults for all customers.
+   1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
+   1. Back in the OIN Manager, paste that URL in the **Provide the instance URL for your app where Okta will retrieve configuration details:** field of your submission protocol tab.
 
 <!--
 1. Click the **General** tab.
@@ -193,11 +195,9 @@ For each protocol, click the appropriate tab name and change the protocol suppor
 1. Paste that value into your submission.
 -->
 
-#### Protocol-specific settings
-
-Each of the supported protocols has different configuration settings for the remainder of the submission.
-
 <StackSnippet snippet="submit" />
+
+<br>
 
 As you add configuration information about your integration to the submission page, the indicators in the top right show your progress towards 100% completion.
 

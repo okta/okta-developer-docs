@@ -12,7 +12,7 @@
 
 * **What is the unique SAML identifier for authentication: the subject NameID or a specific SAML attribute?**: What identifier is used by the integration to perform authentication against your SAML application? If you are using an attribute different than the `NameID` attribute, what is the name of that attribute?
 
-* **Link to configuration guide**: Your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to configure SSO between Okta and your systems. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
+* **Optional: link to configuration guide**: Your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to configure SSO between Okta and your systems. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
 
 #### Configure variables
 
@@ -22,7 +22,8 @@
     * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
     * **Help Text**: Any descriptive text to be shown to administrators about the variable when they install your app integration.
     * **Type**: The property type for your parameter. Options are "String", "URL", or "HTTPS URL".
-    * Click **Save** to add the variable to the list.
+
+    Click **Save** to add the variable to the list.
 
     After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
 
@@ -66,7 +67,8 @@
       * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application. For example, `${org.slobase}`.
       * **Help Text**: Any descriptive text to be shown to administrators about the variable when they install your app integration.
       * **Type**: The property type for your parameter. Options are "String", "URL", or "HTTPS URL".
-      * Click **Save** to add the variable to the list.
+
+      Click **Save** to add the variable to the list.
 
       After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
 
@@ -76,7 +78,7 @@
 
     The Single Logout URL and SP Issuer should be specified in the test application.
 
-    >**Note:** Okta only supports single logout requests.
+    >**Note:** Okta only supports Single Logout requests.
 
 * **Do you require a default relay state**: The default relay state is the page where your users land after they successfully sign in. If you have this configured, enter a specific application resource for an IdP-initiated Single Sign-On (SSO) scenario.
 
