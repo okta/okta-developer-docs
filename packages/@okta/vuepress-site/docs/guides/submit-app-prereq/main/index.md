@@ -37,23 +37,21 @@ Before you submit your integration, ensure that your integration doesn't use uns
 The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following guidelines:
 
 * The logo file size must be less than one MB.
-* The recommended logo dimension is square (1:1 aspect ratio).
+* The logo dimension must be square (1:1 aspect ratio).
 
    > **Note:** OIN app icons are placed in a 200 x 200 pixels grid.
 
-* The recommended logo contains only a logomark and not a logotype (such as a company icon and not the company name).
+* Don't use logos with both an icon and a wordmark.
+* Don't use just a wordmark logo (such as the company name).
 
    > **Note:** The company name is already listed in plain text in the OIN catalog, so adding a company name image is redundant.
 
-* Don't use logos with both an icon and a wordmark.
 * Don't use logos with the trademark (:tm:) symbol.
 * The recommended logo is an image in PNG format with a transparent background.
     * GIF and JPEG/JPG formats are also acceptable
     * A colored background is acceptable if it's a part of the logo color scheme
 
 ### Logo tips
-
-If your logo doesn't meet the OIN requirements, the following are suggestions for you to conform to the guidelines:
 
 * If your logo isn't in one of the acceptable formats, ask your design team to convert your existing logo to the preferred PNG format. If you have difficulty with converting your image to an acceptable format, contact the OIN team.
 
@@ -120,7 +118,7 @@ You need to provide a configuration guide as part of the OIN submission process.
 
 >**Note:** A configuration guide is required for SCIM and OIDC integrations. It's optional for SAML integrations, as Okta supplies its own documentation with the apps.
 
-You can create the guide in whatever format works best for you: a webpage, a Google or Word doc, or a PDF are all acceptable.
+You can create the guide in whatever format works best for you (a webpage, a Google doc, or a PDF are all acceptable), but you need to provide an accessible link to the doc for verification.
 
 ### Configuration guide content
 
