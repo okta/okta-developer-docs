@@ -6,13 +6,13 @@ meta:
 layout: Guides
 ---
 
-This guide provides you with a list of requirements you need prepare prior to submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/).
+This guide provides you with a list of requirements you need to prepare prior to submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/).
 
 ---
 
 **Learning outcome**
 
-* Understand the requirements necessary for the submission process using the OIN Manager.
+* Understand the requirements necessary for the submission process using the [OIN Manager](https://oinmanager.okta.com).
 
 **What you need**
 
@@ -22,7 +22,7 @@ This guide provides you with a list of requirements you need prepare prior to su
 
 ## Overview
 
-Prior to using the [OIN Manager](https://oinmanager.okta.com) to submit your OIN integration, you need to review the following guidelines to prepare for the artifacts requested during the submission process:
+Prior to using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, you need to review the following guidelines to prepare for the artifacts requested during the submission process:
 
 * [Logo guidelines](#logo-guidelines)
 * [App description guidelines](#app-description-guidelines)
@@ -53,7 +53,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 ### Logo tips
 
-* If your logo isn't in one of the acceptable formats, ask your design team to convert your existing logo to the preferred PNG format. If you have difficulty with converting your image to an acceptable format, contact the OIN team.
+* If your logo isn't in one of the acceptable formats, ask your design team to convert your existing logo to the preferred PNG format. If you have difficulty with converting your image to an acceptable format, contact the [OIN team](mailto:oin@okta.com).
 
 * If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 
@@ -75,13 +75,13 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 ## App description guidelines
 
-An app description is displayed on your integration tile in the OIN catalog. You can specify your app description in the **General Settings** > **App description** field from the OIN Manager. The app description content appears in your Integration detail page, under the **Overview** header in the OIN catalog. See the [OIN catalog](https://www.okta.com/integrations/) for examples of existing app descriptions in their associated Integration page.
+The content in the OIN Manager **General Settings** > **App description** field appears in your Integration detail page (under the **Overview** heading) when your integration is published in the OIN catalog. See the [OIN catalog](https://www.okta.com/integrations/) &nbsp;for examples of existing descriptions in their associated Integration detail page.
 
-Prepare an app description that describes what your integration offers and the supported features. You can also provide value-added messaging for your integration. Your description needs to be less than 1024 characters. See an app description example in this [ServiceNow Integration detail](https://www.okta.com/integrations/servicenow-ud/) page.
+In the **App description** field, describe the value that you provide to customers by partnering with Okta. Your description needs to be less than 1024 characters. See a description example in this [ServiceNow Integration detail](https://www.okta.com/integrations/servicenow-ud/) &nbsp;page.
 
 ## Use case guidelines
 
-Integrations are organized by use cases in the OIN catalog. From the OIN Manager, you can specify the use case categories that your app supports in the **General Settings** > **App use case** field. You can select up to five use cases. Use the following description list to determine the appropriate use case category for your integration:
+Integrations are organized by use cases in the OIN catalog. From the OIN Manager, you can specify the use case categories that your integration supports in the **General Settings** > **App use case** field. You can select up to five use cases. Use the following description list to determine the appropriate use case category for your integration:
 
 | Use case | Integration capability |
 | -------- | ---------------------- |
@@ -96,17 +96,17 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 | [Bot or Fraud Detection](https://www.okta.com/integrations/?category=bot-or-fraud-detection) | Provides protection from inauthentic, forged, or otherwise fraudulent attempts to register, sign-in, recover, or perform identity-related transactions. Most integrations in this use case are API service integrations that send risk signals to Okta using OAuth 2.0. |
 | [Multi-factor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an additional layer of security with multifactor authentication for an organization’s cloud, mobile, and web apps |
 | [Risk Signal Sharing](https://www.okta.com/integrations/?category=risk-signal-sharing)| Provides enriched context on clients, apps, users, and other first-party subjects to augment and inform Okta's adaptive authentication and authorization decisions |
-| [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) | Pre-built integrations with leading apps that enable your workforce to give back |
+| [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) | Pre-built integrations with leading apps that enable your workforce to give back. If your organization belongs in the Apps For Good use case, you first need approval from the Apps for Good team. Email [AppsForGood@okta.com](mailto:AppsForGood@okta.com) to request approval.  |
 
 ## Test account guidelines
 
-You need to create a test account on your app so that the OIN team can use it to test and verify your integration. The test account details and credentials are specified in the **General Settings** > **Test Account** fields from the OIN Manager.
+You need to create a test account for your app so that the OIN team can use it to test and verify your integration. The test account details and credentials are specified in the **General Settings** > **Test Account** fields from the OIN Manager.
 
 In general, the test account allows the OIN team to verify that your integration flow works as expected for your use case. The test account is typically an admin user in your app with additional privileges depending on your use case:
 
 * For a lifecycle management integration, ensure that your admin test account has HR admin privileges to onboard, change roles, or offboard employees on your app.
 * For an SSO or SCIM integration, ensure your admin test account has privileges to configure SSO and SCIM (even if your app is already configured with SSO or SCIM). The OIN team needs to verify whether users and/or groups were created by SCIM provisioning or by SAML/OIDC (JiT) on your application.
-* For an API service integration, ensure that your admin test account has privileges configure an API integration and trigger API requests in your application.
+* For an API service integration, ensure that your admin test account has privileges to configure an API integration and trigger API requests in your application.
 
 > **Note:** The OIN team recommends `isvtest@okta.com` as the test account username, however, you can provide an alternative username with a different domain.
 
@@ -195,7 +195,7 @@ SCIM:
 
 Integrations with the following Okta features can't be published in the OIN catalog:
 
-* **SWA apps:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, existing SWA apps are still maintained by the OIN team.
+* **SWA apps:** SWA integrations are no longer accepted for publication in the OIN catalog. However, existing SWA integrations are still maintained by the OIN team.
 
 * **Custom authorization server:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
