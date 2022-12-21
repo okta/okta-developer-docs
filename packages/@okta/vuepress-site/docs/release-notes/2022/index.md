@@ -12,7 +12,7 @@ title: Okta API Products release notes 2022
 
 #### Bugs fixed in 2022.12.2
 
-* PUT requests to the `/brands/{brandId}/pages/sign-in/preview` and `/brands/{brandId}/pages/sign-in` endpoints under certain conditions returned a `null` response body with an HTTP 400 Bad Request error. (OKTA-551632)
+* PAttempts to save sign-in page edits sometimes failed when using the full-feature code editor. (OKTA-551632)
 
 * If an admin added redirect URIs that reached the maximum character limit, they couldn't edit the redirect URI list using the Apps API. (OKTA-476668)
 
