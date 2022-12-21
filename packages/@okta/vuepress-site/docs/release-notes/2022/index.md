@@ -4,6 +4,18 @@ title: Okta API Products release notes 2022
 
 ## December
 
+### Weekly release 2022.12.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.12.2](#busg-fixed-in-2022-12-2)                         |December 21, 2022            |
+
+#### Bugs fixed in 2022.12.2
+
+* UPDATE requests to the `/brands/{brandId}/pages/sign-in/preview` and `/brands/{brandId}/pages/sign-in` endpoints sometimes returned a `null` response that resulted in an HTTP 400 Bad Request error. (OKTA-551632)
+
+* If an admin added redirect URIs and reached the character limit, they couldn't edit the redirect URI list using the Apps API. (OKTA-476668)
+
 ### Weekly release 2022.12.1
 
 | Change | Expected in Preview Orgs |
