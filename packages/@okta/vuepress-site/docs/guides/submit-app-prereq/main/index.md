@@ -41,8 +41,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
    > **Note:** OIN app icons are placed in a 200 x 200 pixels grid.
 
-* Don't use logos with both an icon and a wordmark.
-* Don't use just a wordmark logo (such as the company name).
+* Submit an icon rather than a wordmark (a logo that includes the company or product name).
 
    > **Note:** The company name is already listed in plain text in the OIN catalog, so adding a company name image is redundant.
 
