@@ -14,7 +14,7 @@ title: Okta API Products release notes 2022
 
 * PAttempts to save sign-in page edits sometimes failed when using the full-feature code editor. (OKTA-551632)
 
-* If an admin added redirect URIs that reached the maximum character limit, they couldn't edit the redirect URI list using the Apps API. (OKTA-476668)
+* If an admin added a redirect URI that reached the character limit, then they couldn't edit the redirect URI list using the Apps API.  (OKTA-476668)
 
 ### Weekly release 2022.12.1
 

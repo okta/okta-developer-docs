@@ -16,7 +16,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 * Attempts to save sign-in page edits sometimes failed when using the full-feature code editor. (OKTA-551632)
 
-* If an admin added redirect URIs that reached the maximum character limit, they couldn't edit the redirect URI list using the Apps API. (OKTA-476668)
+* If an admin added a redirect URI that reached the character limit, then they couldn't edit the redirect URI list using the Apps API.  (OKTA-476668)
 
 * When an admin viewed a user's profile, an error sometimes occurred. (OKTA-558220)
 
