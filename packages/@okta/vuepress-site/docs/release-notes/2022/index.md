@@ -14,7 +14,7 @@ title: Okta API Products release notes 2022
 
 * PUT requests to the `/brands/{brandId}/pages/sign-in/preview` and `/brands/{brandId}/pages/sign-in` endpoints under certain conditions returned a `null` response body with an HTTP 400 Bad Request error. (OKTA-551632)
 
-* If an admin added redirect URIs and reached the character limit, they couldn't edit the redirect URI list using the Apps API. (OKTA-476668)
+* If an admin added redirect URIs that reached the maximum character limit, they couldn't edit the redirect URI list using the Apps API. (OKTA-476668)
 
 ### Weekly release 2022.12.1
 
