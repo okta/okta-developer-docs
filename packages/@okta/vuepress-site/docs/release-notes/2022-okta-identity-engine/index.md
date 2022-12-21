@@ -6,11 +6,19 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## December
 
-### Weekly release 2022.12.1
+### Weekly release 2022.12.2
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Bugs fixed in 2022.12.1](#bugs-fixed-in-2022-12-1)                      |December 14, 2022            |
+| [Bugs fixed in 2022.12.2](#bugs-fixed-in-2022-12-2)                      |December 21, 2022            |
+
+#### Bugs fixed in 2022.12.2
+
+* UPDATE requests to the `/brands/{brandId}/pages/sign-in/preview` and `/brands/{brandId}/pages/sign-in` endpoints sometimes returned a `null` response that resulted in an HTTP 400 Bad Request error. (OKTA-551632)
+
+* If an admin added redirect URIs and reached the character limit, they couldn't edit the redirect URI list using the Apps API. (OKTA-476668)
+
+* When an admin viewed a user's profile, an error sometimes occurred. (OKTA-558220)
 
 #### Bugs fixed in 2022.12.1
 
