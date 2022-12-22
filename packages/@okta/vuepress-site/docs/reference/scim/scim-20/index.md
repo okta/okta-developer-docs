@@ -732,8 +732,8 @@ If these three requirements are met, Okta sends a request to add the specified u
         "displayName": "Test SCIMv2",
         "members": [
                 {
-                "value": "ba1d5d09-fbb0-4178-addf-06bf5539939b",
-                "display": "Margarita.Rubinjan66@example.com"
+                "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+                "display": "test.user@okta.local"
                 }
         ]
     }
@@ -750,7 +750,12 @@ Content-Type: text/json;charset=UTF-8
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
     "id": "abf4dd94-a4c0-4f67-89c9-76b03340cb9b",
     "displayName": "Test SCIMv20",
-    "members": null,
+    "members": [
+        {
+            "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+            "display": "test.user@okta.local"
+        }
+     ],
     "meta": {
         "resourceType": "Group"
     }
