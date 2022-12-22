@@ -4,6 +4,18 @@ title: Okta API Products release notes 2022
 
 ## December
 
+### Weekly release 2022.12.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.12.2](#bugs-fixed-in-2022-12-2)                         |December 21, 2022            |
+
+#### Bugs fixed in 2022.12.2
+
+* Attempts to save sign-in page edits sometimes failed when using the full-feature code editor. (OKTA-551632)
+
+* If an admin added a redirect URI that reached the character limit, then they couldn't edit the redirect URI list using the Apps API.  (OKTA-476668)
+
 ### Weekly release 2022.12.1
 
 | Change | Expected in Preview Orgs |
