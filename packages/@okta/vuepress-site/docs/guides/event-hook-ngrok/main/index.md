@@ -134,7 +134,7 @@ To complete the one-time verification of the event hook:
 
   * Your local application server is running (`>node server.js`).
 
-  * Your local ngrok session is running (and the forwarding URL is the same as the URL field defined in the Event hook)
+  * Your local ngrok session is running (and the forwarding URL is the same as the URL field defined in the Event hook).
 
   Click **Verify** to complete the one-time verification step.
 
