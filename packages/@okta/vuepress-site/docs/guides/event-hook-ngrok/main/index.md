@@ -165,7 +165,7 @@ To run a test of your event hook:
 
     `The user john.doe@example.com has been added to the Okta org!`
 
-1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface, from which you can review the complete call response body, header, and other details. See [Review ngrok inspection interface](/docs/guides/event-hook-ngrok/nodejs/main/#review-ngrok-inspection-interface). Clicking **Replay** on the ngrok inspection interface replays the event hook call to assist in development. See [Replay the event hook](#replay-the-event-hook).
+1. Check your ngrok inspection interface (`http://localhost:4040`). Each call recorded by ngrok appears in the interface from which you can review the complete call response body, header, and other details. See [Review ngrok inspection interface](/docs/guides/event-hook-ngrok/nodejs/main/#review-ngrok-inspection-interface). Click **Replay** on the ngrok inspection interface to replay the event hook call to assist in development. See [Replay the event hook](#replay-the-event-hook).
 
 ### Preview the event hook
 
