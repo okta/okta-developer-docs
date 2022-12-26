@@ -55,6 +55,8 @@
 }
 
 .content--container .sidebar-area {
+  --sidebar-area-transition: all 0.1s cubic-bezier(0.14, 0.04, 1, 0.91);
+
   position: sticky;
   top: 142px;
 
@@ -64,6 +66,13 @@
   overflow-x: hidden;
 
   background: cv("body");
+
+  transition: var(--sidebar-area-transition);
+  will-change: width, min-width;
+
+  @media (prefers-reduced-motion: reduce) {
+    --sidebar-area-transition: none;
+  }
 }
 
 .content--container .sidebar-area .sidebar-fade {
@@ -349,7 +358,7 @@
 
 .aside-hidden .sidebar-area {
   width: 77px;
-  min-width: auto;
+  min-width: 0;
 }
 
 .aside-hidden .content-area {
