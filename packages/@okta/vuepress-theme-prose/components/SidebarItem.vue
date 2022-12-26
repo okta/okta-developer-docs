@@ -85,7 +85,7 @@
         </a>
       </router-link>
     </div>
-    <transition name="slide-fade">
+    <transition name="sidebar-list">
       <ul
         v-if="entityType === types.parent"
         v-show="sublinksExpanded || isCurrentPage(link.path)"
@@ -211,16 +211,32 @@ export default {
 </script>
 
 <style>
-  .slide-fade-enter-active {
-    transition: all 0.8s ease;
+  .sidebar-list-enter-active {
+    transition-timing-function: cubic-bezier(0.14, 0.04, 1, 0.91), ease-in;
+    transition-duration: 2s, 0.5s;
+    transition-property: max-height, opacity;
   }
 
-  .slide-fade-leave-active {
-    transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
-  }
-
-  .slide-fade-enter,
-  .slide-fade-leave-to {
+  .sidebar-list-enter,
+  .sidebar-list-leave-to {
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
+  }
+
+  .sidebar-list-enter-to,
+  .sidebar-list-leave {
+    max-height: 9999px;
+    opacity: 1;
+    will-change: max-height, transform;
+  }
+
+  .sidebar-list-leave-active {
+    transition-duration: 0.55s, 0.4s, 0.3s;
+    transition-property: max-height, opacity, transform;
+  }
+
+  .sidebar-list-leave-to {
+    transform: translateY(-10px);
   }
 </style>
