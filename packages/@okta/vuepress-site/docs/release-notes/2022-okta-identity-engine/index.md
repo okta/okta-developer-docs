@@ -690,6 +690,8 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 
 * Sometimes an error occurred when an admin attempted to edit a resource set that included a deleted app. (OKTA-510483)
 
+* Making a POST reset factors request to `/api/v1/users/${userId}/lifecycle/reset_factors` didn't reset the enrolled phone authenticator. (OKTA-463900)
+
 ## June
 
 ### Weekly release 2022.06.3
