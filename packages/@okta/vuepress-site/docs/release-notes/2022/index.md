@@ -452,6 +452,7 @@ When the `/api/v1/users/${userId}/roles` or
 | [Deprecated MyAccount API endpoints now have limited availability](#deprecated-myaccount-api-endpoints-now-have-limited-availability) | July 7, 2022|
 | [Loading Page Animation feature for the Brands API is EA in Preview](#loading-page-animation-feature-for-the-brands-api-is-ea-in-preview) | July 7, 2022|
 | [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-oidc-app-integrations-is-self-service-ea-in-preview) | July 7, 2022|
+| [Reset Factors endpoint includes new optional request parameter](#reset-factors-endpoint-includes-new-optional-request-parameter) | July 7, 2022|
 | [Signed request support for generic SAML IdP is GA in Preview](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | July 7, 2022 |
 | [Support for Okta Resource Name is GA in Preview](#support-for-okta-resource-name-is-ga-in-preview) | July 7, 2022|
 | [The Loading Page API is EA in Preview](#the-loading-page-api-is-ea-in-preview) | July 7, 2022|
@@ -474,6 +475,12 @@ When redirecting applications, you can use the [loading page variant property](/
 #### PKCE validation for OIDC app integrations is Self-Service EA in Preview
 
 You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-506682 -->
+
+#### Reset Factors endpoint includes new optional request parameter
+
+The `/reset_factors` endpoint has a new optional request parameter for the Reset Factor lifecycle operation. You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor with one call by setting the `removeRecoveryEnrollment` parameter to `true` when making a POST request to the `/reset_factors` endpoint (`/users/${userId}/lifecycle/reset_factors`).
+
+Additionally, this change brings the `/reset_factors` endpoint to parity with how individual factors are reset using the `/users/${userId}/factors/${factorId}` endpoint. For example, when the Email Factor is reset, the email is auto-enrolled. <!-- OKTA-500168 -->
 
 #### Signed request support for generic SAML IdP is GA in Preview
 
