@@ -7,14 +7,15 @@ layout: Guides
 ---
 
 
-This guide walks you through the process of submitting a SCIM, OIDC, or SAML 2.0 app to the Okta Integration Network (OIN), including preparing and configuring new integrations and updating previously published integrations.
+This guide walks you through the process of submitting a SCIM, OIDC, or SAML 2.0 app to the Okta Integration Network (OIN). It also shows you how to update a previously published integration or delete a draft submission.
 
 ---
 
 **Learning outcomes**
 
 * Understand how to submit a new app to the OIN.
-* Understand how to update or delete a previously-submitted app.
+* Understand how to update a previously published integration.
+* Understand how to delete a draft submission or delete a published integration.
 
 **What you need**
 
@@ -26,7 +27,7 @@ A functional integration created and tested in accordance with one of our OIN gu
 
 The Okta Integration Network (OIN) is the identity industry’s broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. By adding your integration to the OIN, you can gain exposure to thousands of Okta customers who can discover your integration and deploy your application to millions of users. OIN integrations speed adoption by simplifying configuration steps and reducing friction for your customers.
 
-If you are an independent software vendor (ISV), Okta customer, or IT system integrator who wants to add their integration to the [Okta Integration Network](https://www.okta.com/integrations/), read this guide for instructions on how to submit your integration. Adding your integration to the Okta Integration Network is completely free.
+If you're an independent software vendor (ISV), Okta customer, or IT system integrator who wants to add their integration to the [Okta Integration Network](https://www.okta.com/integrations/), read this guide for instructions on how to submit your integration. Adding your integration to the Okta Integration Network is completely free.
 
 ### Protocols supported
 
@@ -41,7 +42,7 @@ This guide covers submissions that use one or more of these protocols:
 
 * [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
 
-    >**Note:** SAML integrations must use SHA256 encryption for security. If you are using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
+    >**Note:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 
 ### Submission process
 
@@ -102,7 +103,7 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 Getting your app integration in the OIN catalog involves two phases: creating a functional integration and submitting it through the OIN publication process. For each phase in the process, Okta has an associated support stream to assist you.
 
-When you are constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/).
+When you're constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
 If you need help during the submission process, use the Get Support section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
 
@@ -138,7 +139,7 @@ On the General Settings page, fill in the basic information about your integrati
 
    * If your integration already exists in the OIN, provide the **Existing OIN app name** so that the Okta OIN team can locate it.
 
-   * **What changes are you making to the existing OIN integration?**: If your integration already exists in the OIN, summarize the changes that you are requesting in your update. This summary helps the Okta OIN team address your changes.
+   * **What changes are you making to the existing OIN integration?**: If your integration already exists in the OIN, summarize the changes that you're requesting in your update. This summary helps the Okta OIN team address your changes.
 
 * **App name**: Provide a name for your integration. This is the main title used for your integration in the OIN.
 
@@ -152,7 +153,7 @@ On the General Settings page, fill in the basic information about your integrati
 
 #### Customer support
 
-* **Support contacts**: Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the dropdown menu to specify if you are adding an email, a URL, or a phone number and click **+ Add Another** to add additional contacts. Okta shares this information with customers in the OIN catalog description for your app integration.
+* **Support contacts**: Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the dropdown menu to specify if you're adding an email, a URL, or a phone number and click **+ Add Another** to add additional contacts. Okta shares this information with customers in the OIN catalog description for your app integration.
 
 * **Escalation support contact**: This should be an email distribution list for Okta to use when contacting your company about your integration. It can be a phone number, but ideally when there is an issue with your integration, Okta wants to reach as many people as possible without creating any bottlenecks. Make sure that the contact provided here isn't a generic contact such as `support@example.com` or a 1-800 number. The escalation contact should be a contact list that Okta can reach out to in an emergency. This contact information isn't shared with customers.
 
@@ -174,7 +175,7 @@ Your application needs to support at least one protocol for interacting with Okt
 
 You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SAML and SCIM, you can create the submission with the SAML and SCIM protocol details. At a later date, when you add OIDC support to your application, you can return to your integration submission, activate the OIDC support panel, and add in the details needed for Okta to enable OIDC support.
 
-For each protocol, click the appropriate tab name and change the protocol support dropdown menu from **Off** to **On**.
+For each protocol, click the appropriate tab name and select **On** from the protocol support dropdown menu.
 
 <StackSnippet snippet="protocol-name" />
 
@@ -251,7 +252,7 @@ If you want to remove an app integration that is already published to the OIN ca
 
 Removing an app integration from the OIN doesn't prohibit existing users from accessing it. The app integration won't be removed from end-user dashboards until an admin for the customer's org removes the app integration from the org.
 
-Finally, if you intend to remove your back-end application support for the Okta app integration, alert your customer admins about the change and if you are deploying a replacement solution.
+Finally, if you intend to remove your back-end application support for the Okta app integration, alert your customer admins about the change and if you're deploying a replacement solution.
 
 ## See also
 

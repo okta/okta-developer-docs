@@ -12,11 +12,11 @@ This guide provides you with a list of requirements you need to prepare prior to
 
 **Learning outcome**
 
-* Understand the requirements necessary for the submission process using the [OIN Manager](https://oinmanager.okta.com).
+* Understand the requirements necessary to submit your integration using the [OIN Manager](https://oinmanager.okta.com).
 
 **What you need**
 
-* a built and tested OIN integration that is ready for Okta verification
+* a built and tested OIN integration that's ready for Okta verification
 
 ---
 
@@ -39,7 +39,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 * The logo file size must be less than one MB.
 * The logo dimension must be square (1:1 aspect ratio).
 
-   > **Note:** OIN app icons are placed in a 200 x 200 pixels grid.
+   > **Note:** OIN app icons are placed in a 200 x 200 pixel grid.
 
 * Submit an icon rather than a wordmark (a logo that includes the company or product name).
 
@@ -56,7 +56,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 * If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 
-* You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is fitted into a 200 x 200 pixels space. If you have additional logo questions, contact the [OIN team](mailto:oin@okta.com).
+* You can use a slightly non-square icon, but take into account the scaling that occurs when your logo is resized to fit a 200 x 200 pixel area. If you have additional logo questions, contact the [OIN team](mailto:oin@okta.com).
 
 <div class="full">
 
@@ -86,14 +86,14 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 | -------- | ---------------------- |
 | [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) (most common) | Enables users to access your application from any device with a single entry of their Okta user credentials. This use case is appropriate for SAML and OpenID Connect (OIDC) integrations. |
 | [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta’s APIs using OAuth 2.0.  |
-| [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. Integrations in this use case are API service integrations that poll the Okta API for System Logs using OAuth 2.0. |
+| [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. API service integrations that poll the Okta API for System Logs using OAuth 2.0 support this use case. |
 | [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for HR solutions using SCIM or Workflow Connectors. |
-| [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring compliance requirements are met as user roles evolve and access levels change.  This use case is most common with either SCIM or Workflow Connector integrations. |
+| [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring compliance requirements are met as user roles evolve and access levels change. This use case is most common with either SCIM or Workflow Connector integrations. |
 | [Identity Proofing](https://www.okta.com/integrations/?category=identity-proofing) | Enables user self-verification to improve identity assurance and approve access for authorized individuals using document-based and/or knowledge-based proofs |
 | [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Provides the right people access to the right tools at the right time |
 | [Zero Trust](https://www.okta.com/integrations/?category=zero-trust) | Enables secure access for users regardless of their location, device, or network |
 | [Bot or Fraud Detection](https://www.okta.com/integrations/?category=bot-or-fraud-detection) | Provides protection from inauthentic, forged, or otherwise fraudulent attempts to register, sign-in, recover, or perform identity-related transactions. Most integrations in this use case are API service integrations that send risk signals to Okta using OAuth 2.0. |
-| [Multi-factor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an additional layer of security with multifactor authentication for an organization’s cloud, mobile, and web apps |
+| [Multi-factor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an additional layer of security with multifactor authentication for an organization's cloud, mobile, and web apps |
 | [Risk Signal Sharing](https://www.okta.com/integrations/?category=risk-signal-sharing)| Provides enriched context on clients, apps, users, and other first-party subjects to augment and inform Okta's adaptive authentication and authorization decisions |
 | [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) | Pre-built integrations with leading apps that enable your workforce to give back. If your organization belongs in the Apps For Good use case, you first need approval from the Apps for Good team. Email [AppsForGood@okta.com](mailto:AppsForGood@okta.com) to request approval.  |
 
