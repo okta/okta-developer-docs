@@ -139,7 +139,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 
 > **Note:** You can use comma-separated values (CSV) as an input parameter for all `Arrays*` functions. These values are converted into arrays.
 
-> **Note:** If any argument to `Arrays.flatten` is `NULL`, the function will return `NULL`.
+> **Note:** If any input parameter to `Arrays.flatten` is `NULL`, the function will return `NULL`.
 
 ### Conversion functions
 
@@ -258,16 +258,17 @@ The functions above are often used in tandem to check whether a user has an AD o
 
 ## Constants and operators
 
-| Common Actions                                                                              | Example                                     |
-| ----------------                                                                            | --------                                    |
-| Refer to a `String` constant                                                                | `'Hello world'`                             |
-| Refer to an `Integer` constant                                                              | `1234`                                      |
-| Refer to a `Number` constant                                                                | `3.141`                                     |
-| Refer to a `Boolean` constant                                                               | `true`                                      |
-| Refer to an `Array` element                                                                 | `{1, 2, 3}[0]` or `user.arrayProperty[0]`   |
-| Concatenate two strings                                                                     | `user.firstName + user.lastName`            |
-| Concatenate two strings with space                                                          | `user.firstName + " " + user.lastName`      |
-| Ternary operator example:<br>If group code is 123, assign value of Sales, else assign Other | `user.groupCode == 123 ? 'Sales' : 'Other'` |
+| Common Actions                                                                                                                    | Example                                         |
+| ----------------                                                                                                                  | --------                                        |
+| Refer to a `String` constant                                                                                                      | `'Hello world'`                                 |
+| Refer to an `Integer` constant                                                                                                    | `1234`                                          |
+| Refer to a `Number` constant                                                                                                      | `3.141`                                         |
+| Refer to a `Boolean` constant                                                                                                     | `true`                                          |
+| Refer to an `Array` element                                                                                                       | `{1, 2, 3}[0]` or `user.arrayProperty[0]`       |
+| Concatenate two strings                                                                                                           | `user.firstName + user.lastName`                |
+| Concatenate two strings with space                                                                                                | `user.firstName + " " + user.lastName`          |
+| Ternary operator example:<br>If group code is 123, assign value of Sales, else assign Other                                       | `user.groupCode == 123 ? 'Sales' : 'Other'`     |
+| Elvis operator<br>If `Groups.startsWith("OKTA", "TEST", 100)` is non-NULL, return that value, otherwise return `{}` (empty list)  | `Groups.startsWith("OKTA", "TEST", 100) ?: {}`  |
 
 ## Conditional expressions
 
