@@ -696,7 +696,7 @@ To add or remove users inside a specific pushed Group object on the SCIM server,
 
 If these three requirements are met, Okta sends a request to add the specified users to the Group object on the SCIM server.
 
-* For all new OIN app integrations, this request to update a Group object is sent through a PATCH method request.
+* For all new OIN app integrations, a PATCH method request is used to update a Group object. For example:
 
     ```http
     PATCH /scim/v2/Groups/abf4dd94-a4c0-4f67-89c9-76b03340cb9b HTTP/1.1
