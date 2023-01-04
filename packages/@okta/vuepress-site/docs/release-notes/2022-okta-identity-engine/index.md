@@ -6,6 +6,16 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## December
 
+### Weekly release 2022.12.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.12.3](#bugs-fixed-in-2022-12-3)                       |January 5, 2023           |
+
+#### Bug fixed in 2022.12.3
+
+An error occurred if a request was made to the `/authorize` endpoint of a custom authorization server and the `prompt` parameter value was set to `enroll_authenticator`. (OKTA-552063)
+
 ### Weekly release 2022.12.2
 
 | Change | Expected in Preview Orgs |
