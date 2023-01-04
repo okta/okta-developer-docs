@@ -139,6 +139,8 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 
 > **Note:** You can use comma-separated values (CSV) as an input parameter for all `Arrays*` functions. These values are converted into arrays.
 
+> **Note:** If any argument to `Arrays.flatten` is `NULL`, the function will return `NULL`.
+
 ### Conversion functions
 
 ##### Data conversion functions
