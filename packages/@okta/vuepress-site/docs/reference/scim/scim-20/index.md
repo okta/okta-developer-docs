@@ -720,7 +720,7 @@ If these three requirements are met, Okta sends a request to add the specified u
     }
     ```
 
-* For custom app integrations created using the AIW, this request to update a Group object is sent through a PUT request.
+* For custom app integrations created using the AIW, a PUT method request is used to update a Group object. For example:
 
     ```http
     PUT /scim/v2/Groups/abf4dd94-a4c0-4f67-89c9-76b03340cb9b HTTP/1.1
