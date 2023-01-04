@@ -201,8 +201,8 @@ Integrations with the following Okta features can't be published in the OIN cata
 * **Refresh token:**  Refresh tokens aren't supported for apps published in the OIN.
 
 * **Unsupported scopes:** <br>
-   * `offline_access` scope isn't available since refresh tokens aren't supported for apps published in the OIN
-   * `groups` claims as described in the supported [Scopes](/docs/reference/api/oidc/#scopes) section isn't supported
+   * `offline_access` scope isn't available since refresh tokens aren't supported for apps published in the OIN.
+   * `groups` claims (as described in the supported [Scopes](/docs/reference/api/oidc/#scopes) section) isn't supported.
 
 <ApiAmProdWarning />
 
