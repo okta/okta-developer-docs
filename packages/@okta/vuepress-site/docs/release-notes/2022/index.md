@@ -480,7 +480,7 @@ You can now require Proof Key for Code Exchange (PKCE) as an additional verifica
 
 The `/reset_factors` endpoint has a new optional request parameter for the Reset Factor lifecycle operation. You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor with one call by setting the `removeRecoveryEnrollment` parameter to `true` when making a POST request to the `/reset_factors` endpoint (`/users/${userId}/lifecycle/reset_factors`).
 
-Additionally, this change brings the `/reset_factors` endpoint to parity with how individual factors are reset using the `/users/${userId}/factors/${factorId}` endpoint. For example, when the Email Factor is reset, the email is auto-enrolled. <!-- OKTA-500168 -->
+Additionally, this change brings the `/reset_factors` endpoint to parity with how individual factors are reset using the `/users/${userId}/factors/${factorId}` endpoint. For example, when the Email Factor is reset, the email is auto-enrolled if email is configured as a required Factor in the enrollment policy. <!-- OKTA-500168 -->
 
 #### Signed request support for generic SAML IdP is GA in Preview
 
