@@ -125,6 +125,27 @@ Example:
 </head>
 ```
 
+## About Content Security Policy (CSP) for custom domains
+
+If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to customize [CSP](https://content-security-policy.com/) for your org. Okta has a default CSP that can break customizations to Okta-hosted error pages.
+
+To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
+
+> **Note:** You need to have CSP for custom domains enabled in your org.
+
+> **Note:** CSP customizations only take effect on custom domains.
+
+### Configure CSP for custom domains
+
+1. In the Admin Console, go to **Customizations** > **Branding**.
+2. In the **Pages** panel, click **Edit** for **Error pages**.
+3. Click **Settings**.
+4. In the **Content Security Policy** panel, click **Edit**. Set the following:
+   - **Trusted external resources**: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or https://mydomain.com/images. Click **Add**.
+   - **Report UI**: Enter the URI to which you want to send report details.
+   - **Enforcement**: Select **Enforced** to block any resources that the CSP doesn't trust. Use **Not enforced** for testing only.
+5. Click **Save to draft**.
+
 ## Next steps
 
 Read more about other customization options:
