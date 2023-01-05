@@ -52,6 +52,7 @@ After you have built a functioning app integration, a few steps are required to 
     * [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines)
     * [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines)
     * [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines)
+    * [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines)
     * [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines)
     * [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines)
 
