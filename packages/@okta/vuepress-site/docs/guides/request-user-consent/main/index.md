@@ -50,9 +50,6 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect app that you want to require user consent for.
 1. On the **General** tab, scroll down to the **User Consent** section and verify that the **Require consent** checkbox is selected. If it isn't, click **Edit** and select **Require consent**.
-
-    > **Note:** If the **User Consent** section doesn't appear, you don't have the API Access Management and the User Consent features enabled. To enable these features, contact [Support](https://support.okta.com/help/open_case?_).
-
 1. In this example, we use the **Implicit** flow for testing purposes. In the **Application** section, select **Implicit** flow and then both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type**.
 
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
@@ -63,6 +60,8 @@ Use the following steps to display the user consent dialog as part of an OpenID 
 1. Select the **Scopes** tab.
 1. Click the edit icon for the **phone** scope. The Edit Scope dialog appears.
 1. For this use case example, select **Required** in the **User consent** section. **Required** indicates that the user must grant the app access to the information (scope) or they can't sign in to the app. The other options available include:
+
+    > **Note:** If these options don't appear, you don't have the optional consent feature enabled. To enable it in your org, select **Settings** > **Features**, locate **OAuth 2.0 optional consent**, and slide to enable.
 
     * **Implicit**: The default setting. Indicates that the user doesn't have to grant the app access to the information. User consent is implied.
     * **Optional** <ApiLifecycle access="ea" />: Indicates that the user can skip granting the app access to the information (scope). Scopes that the user skips aren't included in the authorization response. After a user skips a scope, the next time that they sign in, Okta doesn't prompt them for it. If you later make the scope required for the app, the user is then prompted to grant the app access to that scope.
