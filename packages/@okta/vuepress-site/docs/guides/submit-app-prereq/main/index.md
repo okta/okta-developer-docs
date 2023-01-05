@@ -27,6 +27,7 @@ Prior to using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit you
 * [Logo guidelines](#logo-guidelines)
 * [App description guidelines](#app-description-guidelines)
 * [Use case guidelines](#use-case-guidelines)
+* [Customer support contact guidelines](#customer-support-contact-guidelines)
 * [Test account guidelines](#test-account-guidelines)
 * [Customer configuration document guidelines](#customer-configuration-document-guidelines)
 
@@ -96,6 +97,17 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 | [Multi-factor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an additional layer of security with multifactor authentication for an organization's cloud, mobile, and web apps |
 | [Risk Signal Sharing](https://www.okta.com/integrations/?category=risk-signal-sharing)| Provides enriched context on clients, apps, users, and other first-party subjects to augment and inform Okta's adaptive authentication and authorization decisions |
 | [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) | Pre-built integrations with leading apps that enable your workforce to give back. If your organization belongs in the Apps For Good use case, you first need approval from the Apps for Good team. Email [AppsForGood@okta.com](mailto:AppsForGood@okta.com) to request approval.  |
+
+## Customer support contact guidelines
+
+You need to specify support contacts for your integration in the **General Settings** > **Customer Support** fields from the OIN Manager. There are two types of contacts that you must provide:
+
+* **Support contacts**: These are public support contacts that are visible from your Integration detail page in the OIN catalog. These contacts are for customers who need assistance with your integration. You can provide more than one of the following contact options:
+    * **URL**: A link to an FAQ or a troubleshooting guide (see an [OIN URL support contact example](https://www.okta.com/integrations/onfido/) )
+    * **Email**: An email support contact, such as `support@your-app.com` (see an [OIN email support contact example](https://www.okta.com/integrations/careervillage/) )
+    * **Phone Number**: A public phone number that customers can call for support
+
+* **Escalation support contact**: This is a private support contact for Okta to use when contacting your company about your integration. It isn't shared with customers. Okta needs to reach your company's escalation support team in an emergency, so ideally you need to provide a monitored email distribution list. You can also provide a phone number, but ensure that the phone number (or email) isn't a general support contact that's queued with regular enquiries.
 
 ## Test account guidelines
 
@@ -194,7 +206,7 @@ SCIM:
 
 Integrations with the following Okta features can't be published in the OIN catalog:
 
-* **SWA apps:** SWA integrations are no longer accepted for publication in the OIN catalog. However, existing SWA integrations are still maintained by the OIN team.
+* **SWA apps:** Secure Web Authentication (SWA) integrations are no longer accepted for publication in the OIN catalog. However, existing SWA integrations are still maintained by the OIN team. If you need to update your existing SWA integration, contact the [OIN team](mailto:oin@okta.com).
 
 * **Custom authorization server:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 

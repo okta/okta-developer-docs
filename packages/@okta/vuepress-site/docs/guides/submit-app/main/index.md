@@ -155,7 +155,9 @@ On the General Settings page, fill in the basic information about your integrati
 
 * **Support contacts**: Include one or more public contact points for users who need assistance with your integration. You can also add a link to an FAQ or a troubleshooting guide. Use the dropdown menu to specify if you're adding an email, a URL, or a phone number and click **+ Add Another** to add additional contacts. Okta shares this information with customers in the OIN catalog description for your app integration.
 
-* **Escalation support contact**: This should be an email distribution list for Okta to use when contacting your company about your integration. It can be a phone number, but ideally when there is an issue with your integration, Okta wants to reach as many people as possible without creating any bottlenecks. Make sure that the contact provided here isn't a generic contact such as `support@example.com` or a 1-800 number. The escalation contact should be a contact list that Okta can reach out to in an emergency. This contact information isn't shared with customers.
+* **Escalation support contact**: This is an email distribution list for Okta to use when contacting your company about your integration. Okta can use this escalation contact in an emergency, so make sure that the contact provided here isn't a generic contact, such as `support@example.com` or a 1-800 number. This contact information isn't shared with customers.
+
+See [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines).
 
 #### Test account
 
