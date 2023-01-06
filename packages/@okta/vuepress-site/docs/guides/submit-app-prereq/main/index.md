@@ -215,6 +215,9 @@ Integrations with the following Okta features can't be published in the OIN cata
 * **Unsupported scopes:** <br>
    * `offline_access` scope isn't available since refresh tokens aren't supported for apps published in the OIN.
    * `groups` claims (as described in the supported [Scopes](/docs/reference/api/oidc/#scopes) section) isn't supported.
+   * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
+
+* **SAML encryption:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 
 <ApiAmProdWarning />
 
