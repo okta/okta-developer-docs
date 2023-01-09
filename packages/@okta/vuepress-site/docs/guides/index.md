@@ -15,6 +15,7 @@ guides:
  - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
+ - configure-ciba
  - configure-native-sso
  - configure-signon-policy
  - configure-user-scoped-account-management
@@ -192,11 +193,11 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
     * [Registration inline hook example](/docs/guides/registration-inline-hook/)
 
-## Publish an integration
+## Publish an integration in the OIN
 
 Partner integrations connect your app or service to our mutual customers. One of the most common integrations is Single Sign-On (SSO), which gives Okta users the ability to sign in directly to your application through Okta. Many partners also build provisioning integrations (using the SCIM protocol) to automate lifecycle management use cases for their customers. Integrations can also extend Okta's functionality or integrate with your service in more complex ways.
 
-Integrations can be published publicly in the Okta Integration network catalog, but that's entirely optional.
+You can publish your integration in the Okta Integration Network (OIN) catalog to expose your app to thousands of Okta workforce customers.
 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 

@@ -2014,8 +2014,8 @@ Multifactor Authentication (MFA) is the use of more than one Factor. MFA is the 
 | `factorMode`         | String            | The number of factors required to satisfy this assurance level                                                         | `1FA`, `2FA`                                                                                      |
 | `type`         | String            | The Verification Method type                                                         | `ASSURANCE`     |
 | `constraints`        | Array of [Constraint Object](#constraints)           | A JSON array that contains nested Authenticator Constraint objects that are organized by the Authenticator class        | [Constraint Object](#constraints) that consists of a `POSSESSION` constraint, a `KNOWLEDGE` constraint, or both. See [Verification Method JSON Examples](#verification-method-json-examples).  |
-| `reauthenticateIn`   | String (ISO 8601) | The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals.                                  | N/A                                                                                              |
-| `inactivityPeriod`   | String (ISO 8601) | The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.                                               | N/A                                                                                               |
+| `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate, regardless of user activity. Keep in mind that the re-authentication intervals for `constraints` (see [Constraint object](#constraints)) take precedent over this value. | ISO 8601 period format for recurring time intervals (for example: `PT2H`, `PT0S`, `PT43800H`, and so on)  |
+| `inactivityPeriod`   | String (ISO 8601) | The inactivity duration after which the user must re-authenticate  | ISO 8601 period format (for example: `PT2H`)  |
 
 #### Constraints
 
@@ -2063,7 +2063,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `deviceBound` | String            | Indicates if device-bound Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `phishingResistant` | String            | Indicates if phishing-resistant Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
-| `reauthenticateIn`   | String (ISO 8601) | The duration after which the end user must re-authenticate regardless of user activity. Use the ISO 8601 Period format for recurring time intervals.                            | N/A                                                                                               | N/A|
+| `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the [Verification Method object](#verification-method-object)'s `reauthenticateIn` interval.     | ISO 8601 period format for recurring time intervals (for example: `PT1H`) | N/A|
 
 #### Verification Method JSON examples
 

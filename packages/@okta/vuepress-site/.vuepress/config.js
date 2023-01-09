@@ -74,16 +74,6 @@ module.exports = ctx => ({
         // END Google Tag Manager
 
       }
-    `],
-    ['script', {}, `
-      var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,api:2020.09, text: { 'msg': 'Your web browser ({brow_name}) is not supported. For the best site experience, we recommend updating your browser. <br> <a{up_but}>Update browser</a> <a{ignore_but}>Ignore</a>' } };
-      function $buo_f(){
-      var e = document.createElement("script");
-      e.src = "//browser-update.org/update.min.js";
-      document.body.appendChild(e);
-      };
-      try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
-      catch(e){window.attachEvent("onload", $buo_f)}
     `]
   ],
   title: "Okta Developer",
@@ -215,7 +205,8 @@ module.exports = ctx => ({
         items: [
           { text: 'Contact our team', link: 'https://www.okta.com/contact/', target: '_self' },
           { text: 'Contact sales', link: 'https://www.okta.com/contact-sales/', target: '_self' },
-          { text: 'Terms & conditions', link: '/terms/' },
+          { text: 'Developer Service Terms', link: '/terms/' },
+          { text: 'Site Terms', link: 'https://www.okta.com/terms-of-service/' },
 			 { text: 'Privacy policy', link: 'https://www.okta.com/privacy-policy/', target: '_self' },
 			 { text: 'Copyright', link: '/copyright/' },
         ]

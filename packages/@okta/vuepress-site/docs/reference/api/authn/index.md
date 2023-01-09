@@ -1804,17 +1804,20 @@ Content-Type: application/json
 
 Changes a user's password by providing the existing password and the new password for authentication transactions with either the `PASSWORD_EXPIRED` or `PASSWORD_WARN` state
 
+This operation provides an option to revoke all the sessions of the specified user, except for the current session, if the endpoint is called by the user.
+
 * A user *must* change their expired password for an authentication transaction with `PASSWORD_EXPIRED` status to successfully complete the transaction.
 * A user *may* opt-out of changing their password (skip) when the transaction has a `PASSWORD_WARN` status.
 
 #### Request parameters for change password
 
 
-| Parameter   | Description                                                      | Param Type | DataType  | Required |
-| ----------- | ---------------------------------------------------------------- | ---------- | --------- | -------- |
-| newPassword | New password for user                                            | Body       | String    | TRUE     |
-| oldPassword | User's current password that is expired or about to expire       | Body       | String    | TRUE     |
-| stateToken  | [state token](#state-token) for the current transaction              | Body       | String    | TRUE     |
+| Parameter   | Description                                                      | Param Type | DataType  | Required | Default |
+| ----------- | ---------------------------------------------------------------- | ---------- | --------- | -------- |---------|
+| newPassword | New password for user                                            | Body       | String    | TRUE     |         |
+| oldPassword | User's current password that is expired or about to expire       | Body       | String    | TRUE     |         |
+| revokeSessions | When set to `true`, revokes all user sessions, except for the current session | Body       | boolean   | FALSE    | FALSE   |
+| stateToken  | [state token](#state-token) for the current transaction          | Body       | String    | TRUE     |         |
 
 #### Response parameters for change password
 
@@ -5493,6 +5496,7 @@ curl -v -X POST \
          "_embedded":{
             "challenge":{
                "challenge":"K0UNqWlz2TCCDd5qEkBf",
+               "userVerification": "preferred",
                "extensions":{
                }
             }
@@ -6571,7 +6575,7 @@ Validates a [recovery token](#recovery-token) that was distributed to the end us
 | Parameter     | Description                                                                                                    | Param Type | DataType | Required |
 | ------------- | ----------------------------------------------------------------------------------------------------------     | ---------- | -------- | -------- |
 | recoveryToken | [Recovery token](#recovery-token) that was distributed to the end user via out-of-band mechanism such as email | Body       | String   | TRUE     |
-| options                                        | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |    
+| options                                        | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |
 
 ##### Options object
 
@@ -6776,13 +6780,16 @@ curl -v -X POST \
 
 Resets a user's password to complete a recovery transaction with a `PASSWORD_RESET` [state](#transaction-state)
 
+This operation provides an option to revoke all the sessions of the specified user, except for the current session.
+
 ##### Request parameters for reset password
 
 
-| Parameter    | Description                                         | Param Type | DataType | Required |
-| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |
-| newPassword  | User's new password                                 | Body       | String   | TRUE     |
-| stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |
+| Parameter    | Description                                         | Param Type | DataType | Required | Default |
+| ------------ | --------------------------------------------------- | ---------- | -------- | -------- |---------|
+| newPassword  | User's new password                                 | Body       | String   | TRUE     |         |
+| stateToken   | [state token](#state-token) for the current transaction | Body       | String   | TRUE     |        |
+| revokeSessions | When set to `true`, revokes all user sessions, except for the current session | Body       | boolean  | FALSE        | FALSE |
 
 ##### Response parameters for reset password
 
@@ -6833,7 +6840,8 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "stateToken": "00lMJySRYNz3u_rKQrsLvLrzxiARgivP8FB_1gpmVb",
-  "newPassword": "Ch-ch-ch-ch-Changes!"
+  "newPassword": "Ch-ch-ch-ch-Changes!",
+  "revokeSessions": true
 }' "https://${yourOktaDomain}/api/v1/authn/credentials/reset_password"
 ```
 

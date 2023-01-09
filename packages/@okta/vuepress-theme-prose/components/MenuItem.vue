@@ -6,27 +6,47 @@
     }"
     @click="isOpen = !isOpen"
   >
-    <SmartLink v-if="item.link" :item="item" :classes="itemCss" />
-    <span v-else-if="item.text" v-html="item.text" :class="itemCss"></span>
-    <div v-else-if="item.type === 'divider'" class="menu--divider"></div>
-    <div v-else-if="item.type === 'icons'" class="menu--icons">
+    <SmartLink
+      v-if="item.link"
+      :item="item"
+      :classes="itemCss"
+    />
+    <span
+      v-else-if="item.text"
+      :class="itemCss"
+      v-html="item.text"
+    />
+    <div
+      v-else-if="item.type === 'divider'"
+      class="menu--divider"
+    />
+    <div
+      v-else-if="item.type === 'icons'"
+      class="menu--icons"
+    >
       <SmartLink
         v-for="(icon, index) in item.icons"
         :key="index"
         :item="icon"
         classes="menu--icon"
       >
-        <i v-if="icon.icon" v-html="icon.icon"></i>
+        <i
+          v-if="icon.icon"
+          v-html="icon.icon"
+        />
       </SmartLink>
     </div>
 
-    <ul v-if="item.children && item.children.length" class="submenu--items">
+    <ul
+      v-if="item.children && item.children.length"
+      class="submenu--items"
+    >
       <MenuItem
         v-for="(child, index) in item.children"
         :key="index"
         :item="child"
-        :itemCss="subItemCss"
-      ></MenuItem>
+        :item-css="subItemCss"
+      />
     </ul>
   </li>
 </template>

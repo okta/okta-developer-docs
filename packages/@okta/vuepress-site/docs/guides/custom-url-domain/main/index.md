@@ -12,7 +12,7 @@ This guide explains how to customize your Okta org with your custom domain and h
 
 **Learning outcomes**
 
-* Customize the Okta subdomain (Okta-managed or using your own TLS certificate).
+* Customize the Okta subdomain (using an Okta-managed certificate or using your own TLS certificate).
 * Configure a custom email address.
 
 **What you need**
@@ -52,8 +52,10 @@ You can also [configure a custom email address](#about-custom-email-addresses) t
 
 * If you use an Okta-managed TLS certificate, you don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, keep the following in mind:
 
-    * If it's your first time setting up a custom domain URL with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
-    * If you already have an Okta-managed TLS certificate and you later get a CAA record, Okta may be unable to renew your certificate.
+    * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
+
+    * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add `letsencrypt.org` to the issuers list or remove the CAA record.
+
 
 * Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
 
@@ -83,10 +85,13 @@ Yes. When you turn the custom domain on, the Okta domain (for example, `example.
 
 This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own TLS certificate.
 
+> **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact your Okta account team or post on our [forum](https://devforum.okta.com/) to request a seamless migration with no downtime.
+
 > **Note:** You don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record to use an Okta-managed TLS certificate. However, if you do have a CAA record, keep the following in mind:
 >
->   * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
->   * If you already have an Okta-managed TLS certificate and you later get a CAA record, Okta may be unable to renew your certificate.
+>  * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
+>
+>  * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add letsencrypt.org to the issuers list or remove the CAA record.
 
 1. In the Admin Console, go to **Customizations** > **Domain**.
 2. In the **Custom URL Domain** box, click **Edit**.
@@ -262,37 +267,6 @@ Additionally, you may want to change the issuer for your OpenID Connect apps tha
 ### Update app endpoints
 
 If you have apps that use Okta endpoints with the uncustomized URL domain, update them to use the custom URL domain.
-
-## Optional: Create a custom domain within Cloudflare
-
-If you need to set up a custom domain, you can use Cloudflare.
-
-### Transfer your domain and create a certificate
-
-> **Note:** [Sign up for Cloudflare](https://dash.cloudflare.com/sign-up) if you don't have an account.
-
-Sign in to Cloudflare and select **+Add Site**. It's best if you point an entire domain at Cloudflare. For example, `example.com`. The free plan is good enough for these steps.
-
-After transferring your domain, you need to create an origin CA certificate:
-
-1. Select the **SSL/TLS** app, and then click **Origin Server**.
-2. Click **Create Certificate** to open the **Origin Certificate Installation** dialog box.
-3. Select **Let Cloudflare generate a private key and a CSR**.
-4. Change **Certificate Validity** to **1 year** (Okta rejects certificates with a 15-year expiration), and then click **Next**.
-5. Copy the **Origin Certificate** to a `tls.cert` file on your hard drive, and then copy the **Private key** to `private.key`.
-6. In Okta, go to **Customization** > **Domain Name** > **Edit** > **Get Started**.
-7. Enter a subdomain name (for example: `id.example.com`) and click **Next**. You are prompted to verify domain ownership.
-8. In Cloudflare, add the specified `TXT` record using the **DNS** > **+ Add record** option.
-9. In Okta, select **Verify** > **Next**.
-10. In the **Certificate** box, copy/paste the contents of `tls.cert`.
-
-    > **Note:** On a Mac you can use `cat tls.cert | pbcopy` in a terminal to copy the file to your clipboard.
-
-11. Paste the contents of `private.key` in the **Private key** box. Click **Next**.
-12. You are prompted to add a [CNAME record](https://datatracker.ietf.org/doc/html/rfc1035#section-3.2.2). Add this to your Cloudflare DNS, and then click **Finish**.
-13. Wait until `https://<id.domain.name>` resolves in your browser before you continue.
-
-> **Note:** When you first try this, it's possible that your network caches DNS entries, and you won't be able to get to `id.example.com`. As a workaround, you can tether with your phone, then graph the IP address and add it as an entry to your `hosts`.
 
 ### Configure a custom domain for your Authorization Server
 

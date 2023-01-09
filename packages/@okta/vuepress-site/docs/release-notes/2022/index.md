@@ -2,17 +2,101 @@
 title: Okta API Products release notes 2022
 ---
 
+## December
+
+### Weekly release 2022.12.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.12.2](#bugs-fixed-in-2022-12-2)                         |December 21, 2022            |
+
+#### Bugs fixed in 2022.12.2
+
+* Attempts to save sign-in page edits sometimes failed when using the full-feature code editor. (OKTA-551632)
+
+* If an admin added a redirect URI that reached the character limit, then they couldn't edit the redirect URI list using the Apps API.  (OKTA-476668)
+
+### Weekly release 2022.12.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.12.1](#bug-fixed-in-2022-12-1)                         |December 14, 2022            |
+
+#### Bug fixed in 2022.12.1
+
+A List Users API call made with a search parameter didn’t return deactivated users with a `login` property that started with the Okta User `id`. (OKTA-537805)
+
+### Monthly release 2022.12.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Password history policy enforced in strict mode is GA in Preview](#password-history-policy-enforced-in-strict-mode-is-ga-in-preview)                       | December 9, 2022         |
+| [PBKDF2 Hashing Algorithm support is GA in Preview](#pbkdf2-hashing-algorithm-support-is-ga-in-preview)                       | December 9, 2022         |
+| [Preview the token inline hook](#preview-the-token-inline-hook)                       | December 9, 2022         |
+| [Revoke user sessions is GA in Preview](#revoke-user-sessions-is-ga-in-preview)                       | December 9, 2022         |
+| [Step-up authentication using ACR values is GA in Prod](#step-up-authentication-using-acr-values-is-ga-in-prod)                       | August 31, 2022         |
+| [Redirect added to end of sign-in flow](#redirect-added-to-end-of-sign-in-flow)                       | December 9, 2022         |
+| [Loading Page Animation feature for the Brands API is GA in Production](#loading-page-animation-feature-for-the-brands-api-is-ga-in-production)                       | July 7, 2022         |
+| [Rate limit parameter matching](#rate-limit-parameter-matching)                       | December 9, 2022         |
+| [Bugs fixed in 2022.12.0](#bugs-fixed-in-2022-12-0)                       | December 9, 2022         |
+
+#### Password history policy enforced in strict mode is GA in Preview
+
+When an admin [updates passwords](/docs/reference/api/users/#update-user) and sets the `strict` parameter to `true`, the [password history policy](/docs/reference/api/policy/#age-object) is now enforced.<!-- OKTA-548415-->
+
+#### PBKDF2 Hashing Algorithm support is GA in Preview
+
+Okta allows user passwords imported from a database to be imported as hashed passwords. In addition to the currently supported hashing algorithm formats, Okta now supports Password-Based Key Derivation Function 2 (PBKDF2). This hashing algorithm is used to reduce the vulnerabilities of brute-force attacks. <!-- OKTA-552532-->
+
+#### Preview the token inline hook
+
+Before implementing a token inline hook, you can now preview the hook request and the external-service response in the Admin Console. This feature aids in the development and testing of inline hooks before releasing to a production environment. In the Admin Console, click **Preview** from the **Actions** menu or the **Preview** tab for the individual hook to preview the token inline hook call. See [Preview an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-preview-inline-hooks) and [Preview and test the token inline hook](/docs/guides/token-inline-hook/nodejs/main/#preview-and-test-the-token-inline-hook). <!-- OKTA-546727-->
+
+#### Revoke user sessions is GA in Preview
+
+You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSession` parameter in the [Users API](/docs/reference/api/users/#change-password). <!-- OKTA-542645-->
+
+#### Step-up authentication using ACR values is GA in Prod
+
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication](/docs/guides/step-up-authentication/main/). <!-- OKTA-552809-->
+
+#### Redirect added to end of sign-in flow
+
+When an authentication flow begins at an org's Okta or custom domain and then finishes with a callback from an external Identity Provider to a custom or Okta domain, another redirect is now performed to get the browser to the original domain where the flow began. This enables the browser to then send the same device token in the callback that was used in the first request. <!-- OKTA-553160-->
+
+#### Loading Page Animation feature for the Brands API is GA in Production
+
+When redirecting applications, you can use the loading page variant property (`loadingPageTouchPointVariant`) of the [Brands API](/docs/reference/api/brands/#theme-object) to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-552673-->
+
+#### Rate limit parameter matching
+
+The Rate Limit dashboard in the Admin Console now supports parameter matching for API endpoints. This update provides more granular rate limit information for endpoints that include a query of the form `?{parameter}=*`. See [Rate limit dashboard](/docs/reference/rl-dashboard/#apis-table). <!-- OKTA-559269-->
+
+#### Bugs fixed in 2022.12.0
+
+* Okta didn’t route SMS requests to the backup telephony providers through a round-robin distribution when a resend request was made to the Factors Verify endpoint (`/api/v1/users/${userId}/factors/${factorId}/verify`). (OKTA-508973)
+
+* An admin role couldn’t be assigned to a user or group if the role was constrained to a group with group membership rules or to a group with more than 5000 members. (OKTA-546310)
+
+* When a DELETE request to the `/api/v1/authorizationServers/<authServerID>/clients/<clientID>/tokens` endpoint was called for large scale operations, an HTTP 500 Internal Server Error was returned. (OKTA-536037)
+
+* When an admin deleted groups in quick succession using the Groups API, the groups weren't always removed from the Identity Provider that they were associated with. (OKTA-540853)
+
+* When the full-featured code editor was enabled, updates to email customizations, custom error pages, and the sign-in page didn't trigger system log events. (OKTA-553284)
+
 ## November
 
 ### Weekly release 2022.11.1
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Bug fixed in 2022.11.1](#bug-fixed-in-2022-11-1)                      | November 30, 2022            |
+| [Bugs fixed in 2022.11.1](#bugs-fixed-in-2022-11-1)                      | November 30, 2022            |
 
-#### Bug fixed in 2022.11.1
+#### Bugs fixed in 2022.11.1
 
 * The wrong response code (500) was sent when an admin attempted to use the app target or group target operations of the Administrator Role API with a custom role binding identifier. (OKTA-529688)
+
+* Inline hook requests configured to use OAuth 2.0 authentication sent expired access tokens in the authorization header. (OKTA-551186)
 
 ### Monthly release 2022.11.0
 
@@ -368,6 +452,7 @@ When the `/api/v1/users/${userId}/roles` or
 | [Deprecated MyAccount API endpoints now have limited availability](#deprecated-myaccount-api-endpoints-now-have-limited-availability) | July 7, 2022|
 | [Loading Page Animation feature for the Brands API is EA in Preview](#loading-page-animation-feature-for-the-brands-api-is-ea-in-preview) | July 7, 2022|
 | [PKCE validation for OIDC app integrations is Self-Service EA in Preview](#pkce-validation-for-oidc-app-integrations-is-self-service-ea-in-preview) | July 7, 2022|
+| [Reset Factors endpoint includes new optional request parameter](#reset-factors-endpoint-includes-new-optional-request-parameter) | July 7, 2022|
 | [Signed request support for generic SAML IdP is GA in Preview](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | July 7, 2022 |
 | [Support for Okta Resource Name is GA in Preview](#support-for-okta-resource-name-is-ga-in-preview) | July 7, 2022|
 | [The Loading Page API is EA in Preview](#the-loading-page-api-is-ea-in-preview) | July 7, 2022|
@@ -390,6 +475,12 @@ When redirecting applications, you can use the [loading page variant property](/
 #### PKCE validation for OIDC app integrations is Self-Service EA in Preview
 
 You can now require Proof Key for Code Exchange (PKCE) as an additional verification for any OpenID Connect app integration except service apps. This more closely aligns with the OAuth Security Best Current Practice recommendation to use PKCE with the authorization code flow regardless of the client type. Use the `pkce_required` [property](/docs/reference/api/apps/#oauth-credential-object) with the Apps API to require PKCE for your app. <!-- OKTA-506682 -->
+
+#### Reset Factors endpoint includes new optional request parameter
+
+The `/reset_factors` endpoint has a new optional request parameter for the Reset Factor lifecycle operation. You can now remove the phone factor (for example: SMS/Voice) as both a recovery method and a factor with one call by setting the `removeRecoveryEnrollment` parameter to `true` when making a POST request to the `/reset_factors` endpoint (`/users/${userId}/lifecycle/reset_factors`).
+
+Additionally, this change brings the `/reset_factors` endpoint to parity with how individual factors are reset using the `/users/${userId}/factors/${factorId}` endpoint. For example, when the Email Factor is reset, the email is auto-enrolled if email is configured as a required Factor in the enrollment policy. <!-- OKTA-500168 -->
 
 #### Signed request support for generic SAML IdP is GA in Preview
 
