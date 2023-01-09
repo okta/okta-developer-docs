@@ -16,7 +16,7 @@ This guide provides you with a list of requirements you need to prepare prior to
 
 **What you need**
 
-* a built and tested OIN integration that's ready for Okta verification
+* A built and tested OIN integration that's ready for Okta verification
 
 ---
 
