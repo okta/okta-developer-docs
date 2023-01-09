@@ -44,7 +44,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 * Submit an icon rather than a wordmark (a logo that includes the company or product name).
 
-   > **Note:** The company name is already listed in plain text in the OIN catalog, so adding a company name image is redundant.
+   > **Note:** The OIN catalog already lists the product name in plain text. Logos with text can appear redundant.
 
 * Don't use logos with the trademark (:tm:) symbol.
 * The recommended logo is an image in PNG format with a transparent background.
