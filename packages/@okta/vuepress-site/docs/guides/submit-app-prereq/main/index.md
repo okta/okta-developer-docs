@@ -12,11 +12,11 @@ This guide provides you with a list of requirements you need to prepare prior to
 
 **Learning outcome**
 
-* Understand the requirements necessary to submit your integration using the [OIN Manager](https://oinmanager.okta.com).
+Understand the requirements necessary to submit your integration using the [OIN Manager](https://oinmanager.okta.com).
 
 **What you need**
 
-* A built and tested OIN integration that's ready for Okta verification
+A built and tested OIN integration that's ready for Okta verification
 
 ---
 
@@ -31,23 +31,23 @@ Prior to using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit you
 * [Test account guidelines](#test-account-guidelines)
 * [Customer configuration document guidelines](#customer-configuration-document-guidelines)
 
-Before you submit your integration, ensure that your integration doesn't use unsupported OIN Okta features. See [OIN limitations](#oin-limitations).
+Before you submit your integration, ensure that your integration doesn't use Okta features that aren't supported in the OIN. See [OIN limitations](#oin-limitations).
 
 ## Logo guidelines
 
 The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following guidelines:
 
-* The logo file size must be less than one MB.
-* The logo dimension must be square (1:1 aspect ratio).
+* Submit a logo file that's less than one MB in size.
+* Submit a square-dimensioned logo that has a 1:1 aspect ratio.
 
    > **Note:** OIN app icons are placed in a 200 x 200 pixel grid.
 
-* Submit an icon rather than a wordmark (a logo that includes the company or product name).
+* Submit an icon rather than a wordmark (a graphic that includes the company or product name).
 
    > **Note:** The OIN catalog already lists the product name in plain text. Logos with text can appear redundant.
 
-* Don't use logos with the trademark (:tm:) symbol.
-* The recommended logo is an image in PNG format with a transparent background.
+* Don't submit a logo with the trademark (:tm:) symbol.
+* Submit a logo image that's in PNG format with a transparent background.
     * GIF and JPEG/JPG formats are also acceptable
     * A colored background is acceptable if it's a part of the logo color scheme
 
