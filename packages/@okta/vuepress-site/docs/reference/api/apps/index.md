@@ -7871,7 +7871,7 @@ Specifies access settings for the application
   }
 }
 ```
-> **Note:** The `loginRedirectUrl` field is deprecated in Identity Engine.
+> **Note:** The `loginRedirectUrl` field is deprecated in Identity Engine. TEST
 
 ### Visibility object
 
