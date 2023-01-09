@@ -687,7 +687,7 @@ The Splunk Cloud Settings object specifies the configuration for the `splunk_clo
 ```json
 {
   "edition": "aws",
-  "host": "acme.splunkcloud.com"
+  "host": "acme.splunkcloud.com",
   "token": "11111111-1111-2222-2222-222222222222"
 }
 ```
