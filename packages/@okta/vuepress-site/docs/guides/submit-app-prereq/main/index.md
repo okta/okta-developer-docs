@@ -105,7 +105,7 @@ You need to specify support contacts for your integration in the **General Setti
     * **Email**: An email support contact, such as `support@your-app.com` (see an [OIN email support contact example](https://www.okta.com/integrations/careervillage/) )
     * **Phone Number**: A public phone number that customers can call for support
 
-* **Escalation support contact**: This is a private support contact used by Okta to contact your organization. It isn't shared with customers. In an emergency, Okta may need to reach your company's escalation support team, so this should be a monitored email distribution list. If you provide a phone number, don’t use a general support contact queues with regular enquiries.
+* **Escalation support contact**: This is a private support contact used by Okta to contact your organization. It isn't shared with customers. In an emergency, Okta may need to reach your company's escalation support team, so this should be a monitored email distribution list or a phone number. Don’t use a general support contact that queues regular customer inquiries.
 
 ## Test account guidelines
 
