@@ -89,7 +89,7 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 | [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for HR solutions using SCIM or Workflow Connectors. |
 | [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring compliance requirements are met as user roles evolve and access levels change. This use case is most common with either SCIM or Workflow Connector integrations. |
 | [Identity Proofing](https://www.okta.com/integrations/?category=identity-proofing) | Enables user self-verification to improve identity assurance and approve access for authorized individuals using document-based and/or knowledge-based proofs |
-| [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Provides the right people access to the right tools at the right time |
+| [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Simplifies and manages an organization's identity and access lifecycles across multiple systems |
 | [Zero Trust](https://www.okta.com/integrations/?category=zero-trust) | Enables secure access for users regardless of their location, device, or network |
 | [Bot or Fraud Detection](https://www.okta.com/integrations/?category=bot-or-fraud-detection) | Provides protection from inauthentic, forged, or otherwise fraudulent attempts to register, sign-in, recover, or perform identity-related transactions. Most integrations in this use case are API service integrations that send risk signals to Okta using OAuth 2.0. |
 | [Multi-factor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an additional layer of security with multifactor authentication for an organization's cloud, mobile, and web apps |
@@ -140,13 +140,17 @@ The following are section suggestions for your configuration guide:
 
 In this section, specify any prerequisites required before your customer configures your integration in Okta. Examples may include enabling specific Okta features, enabling API access to your SCIM server, or adding a particular version of an integration in Okta.
 
-For example:
+##### Prerequisite example:
 
 When using SAML as the SSO mode with provisioning, you need to enable a specific account plan on the application side for silent activation.
 
 #### Supported features
 
-In this section of your guide, list the features that your application supports. For example:
+In this section of your guide, list the features that your application supports and include any restrictions or limitations.
+
+> **Note:** You can briefly describe what each feature does. See the SCIM guides from [Configuration guide examples](#scim-examples).
+
+##### Supported feature example:
 
 * IdP-initiated SSO
 * SP-initiated SSO
@@ -160,19 +164,17 @@ In this section of your guide, list the features that your application supports.
 * Sync password
 * Profile sourcing
 
-Also include any restrictions. For example:
-
 Okta can't update user attributes for Admin users. This is an API limitation.
-
-> **Note:** You can briefly describe what each feature does. See the SCIM guides from [Configuration guide examples](#configuration-guide-examples).
 
 #### Procedure
 
-This section constitutes the majority of your guide and explains all the configuration steps needed to get your customers set up with your integration. Detail all settings and include any screenshots that can assist the user.
+This section explains all the configuration steps needed to get your customers set up with your integration. Detail all settings and include any screenshots that can assist the user.
 
-Also include any best practices for your procedure, such as SCIM guidance on setting mappings for attributes, especially required attributes that don't have a default mapping. For example:
+Also include any best practices for your procedure, such as SCIM guidance on setting mappings for attributes, especially required attributes that don't have a default mapping.
 
-> **Note:** The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`. Assign the mapping to the correct value for your organization.
+##### Procedure note example:
+
+The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`. Assign the mapping to the correct value for your organization.
 
 #### Troubleshooting and tips
 
@@ -180,19 +182,19 @@ Include this section if there are known issues that apply to the entire configur
 
 ### Configuration guide examples
 
-OIDC:
+##### OIDC examples:
 
 * [Cerby](https://docs.google.com/document/d/e/2PACX-1vRiswyNyRPVYfEMEwPsbMO8Qn11BjAO-FfUsWBBit_IYe88tzQCHTmMPtmF8uPV044HmXQR13adj3LO/pub)
 * [Upwave](https://help.upwave.io/en/articles/4129778-okta-configuration-guide)
 
-SAML:
+##### SAML examples:
 
 * [GitHub Enterprise](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github_Enterprise.html)
 * [Runscope](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Runscope.html)
 * [Salesforce](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-in-Salesforce.html)
 * [Zoom.us](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Zoom.us.html)
 
-SCIM:
+##### SCIM examples:
 
 * [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
 * [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
@@ -206,11 +208,11 @@ Integrations with the following Okta features can't be published in the OIN cata
 
 * **Custom authorization server:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
-* **Refresh token:**  Refresh tokens aren't supported for apps published in the OIN.
+* **Refresh token:**  Refresh tokens aren't supported for integrations published in the OIN.
 
 * **Unsupported scopes:** <br>
-   * `offline_access` scope isn't available because refresh tokens aren't supported for apps published in the OIN.
-   * `groups` claims (as described in the supported [Scopes](/docs/reference/api/oidc/#scopes) section) isn't supported.
+   * `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
+   * `groups` scope isn't supported for integrations published in the OIN. This scope is a custom scope for Okta.
    * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
 * **SAML encryption:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
