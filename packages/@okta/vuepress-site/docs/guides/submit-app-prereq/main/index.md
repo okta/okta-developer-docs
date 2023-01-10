@@ -75,7 +75,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 ## App description guidelines
 
-After your integration is published, the content in the OIN Manager **General Settings** > **App description** field is displayed on the Integration detail page under the **Overview** heading. Descriptions must be less than 1024 characters and should describe what the integration provides to customers by partnering with Okta. See an app description example in this [Integration detail page](https://www.okta.com/integrations/servicenow-ud/).
+After your integration is published, the content in the OIN Manager **General Settings** > **App description** field is displayed on the Integration detail page under the **Overview** heading. Descriptions must be less than 1024 characters and should describe the value that you provide to customers by partnering with Okta. See an app description example in this [Integration detail page](https://www.okta.com/integrations/servicenow-ud/).
 
 ## Use case guidelines
 
