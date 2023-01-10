@@ -135,7 +135,7 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 
 > **Note:** CSP customizations only take effect on custom domains.
 
-### Configure CSP for custom domains
+### Customize the default CSP
 
 1. In the Admin Console, go to **Customizations** > **Branding**.
 2. In the **Pages** panel, click **Edit** for **Error pages**.
