@@ -591,7 +591,7 @@ If you aren't familiar with the Sign-In Widget, Okta recommends that you select 
 1. To make changes to the major and minor versions, select **Edit** in the **Okta Sign-In Widget Version** section header.
 2. Make your changes, and then click **Save** at the bottom of the page.
 
-## About the Content Security Policy (CSP) for your custom domain
+## Content Security Policy (CSP) for your custom domain
 
 If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to customize the default [CSP](https://content-security-policy.com/) for your org. Okta has a default CSP that can break customizations to the sign-in page.
 

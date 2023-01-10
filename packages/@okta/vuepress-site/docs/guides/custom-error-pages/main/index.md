@@ -125,7 +125,7 @@ Example:
 </head>
 ```
 
-## About the Content Security Policy (CSP) for your custom domain
+## Content Security Policy (CSP) for your custom domain
 
 If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to customize the default [CSP](https://content-security-policy.com/) for your org. Okta has a default CSP that can break customizations to Okta-hosted error pages.
 
