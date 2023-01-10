@@ -271,10 +271,6 @@ export const guides = [
                     title: "User sign out (local app)",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
-                  {
-                    title: "Limitations and workarounds",
-                    guideName: "oie-embedded-sdk-limitations",
-                  },
                 ],
               },
               {
