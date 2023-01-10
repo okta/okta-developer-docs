@@ -593,7 +593,7 @@ If you aren't familiar with the Sign-In Widget, Okta recommends that you select 
 
 ## About the Content Security Policy (CSP) for your custom domain
 
-If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to customize [CSP](https://content-security-policy.com/) for your org. Okta has a default CSP that can break customizations to the sign-in page.
+If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to customize the default [CSP](https://content-security-policy.com/) for your org. Okta has a default CSP that can break customizations to the sign-in page.
 
 To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
 
