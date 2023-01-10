@@ -35,7 +35,7 @@ Before you submit your integration, ensure that your integration doesn't use Okt
 
 ## Logo guidelines
 
-The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following guidelines:
+The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following:
 
 * Submit a logo file that's less than one MB in size.
 * Submit a square-dimensioned logo that has a 1:1 aspect ratio.
@@ -123,11 +123,9 @@ In general, the test account allows the OIN team to verify that your integration
 
 A configuration guide helps your customers understand how to configure your Okta integration to work with your cloud application.
 
-You need to provide a configuration guide as part of the OIN submission process. Your guide is provided to administrators through the Okta Admin Console. Okta checks your document for general adherence to the configuration guide instructions. After your integration is published to the OIN, you can make the link public or customer‐accessible.
+You need to provide a configuration guide as part of the OIN submission process. The guide can be in any format that is accessible through a URL link (such as a webpage, a Google doc, or a PDF). During the OIN verification process, the link to your configuration guide needs to be accessible by the OIN team so that they can check your document for general adherence to the configuration instructions. After your integration is published to the OIN, you can make the link public or customer‐accessible. Your guide is provided to administrators through the Okta Admin Console.
 
->**Note:** A configuration guide is required for SCIM and OIDC integrations. It's optional for SAML integrations, as Okta supplies its own documentation with the apps.
-
-You can create the guide in whatever format works best for you (a webpage, a Google doc, or a PDF are all acceptable), but you need to provide an accessible link to the doc for verification.
+>**Note:** A configuration guide is required for all integrations, but optional for SAML integrations. Okta already supplies documentation for SAML integrations.
 
 ### Configuration guide content
 
