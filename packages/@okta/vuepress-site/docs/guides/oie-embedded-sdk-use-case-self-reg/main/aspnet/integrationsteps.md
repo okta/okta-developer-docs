@@ -290,7 +290,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
 ### 17: Handle the phone authenticator options
 
-#### Option 1: Enroll and verify the phone authenticator
+#### 18 Option 1: Enroll and verify the phone authenticator
 
 1. Start phone verification
 
@@ -423,7 +423,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
    }
    ```
 
-#### Option 2: Skip phone enrollment
+#### 19 Option 2: Skip phone enrollment
 
 1. If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor:
 
