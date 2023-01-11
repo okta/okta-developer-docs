@@ -237,8 +237,7 @@ curl -v -X GET \
     "created": "2021-11-30T15:16:09.000Z",
     "status": "ACTIVE",
     "settings": {
-      "host": "acme.splunkcloud.com",
-      "token": "1e652bb8-3ef8-427b-9f00-222e1bbe3832"
+      "host": "acme.splunkcloud.com"
     },
     "_links": {
       "self": {
@@ -697,7 +696,7 @@ The Splunk Cloud Settings object specifies the configuration for the `splunk_clo
 
 ```json
 {
-  "host": "acme.splunkcloud.com"
+  "host": "acme.splunkcloud.com",
   "token": "11111111-1111-2222-2222-222222222222"
 }
 ```
@@ -707,6 +706,6 @@ The Splunk Cloud Settings object specifies the configuration for the `splunk_clo
 | Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
 | host            | The domain name for your Splunk Cloud instance. Don't include `http` or `https` in the string. For example: `acme.splunkcloud.com`                                       | String                                                         | FALSE    | FALSE   | FALSE     |      17     |     116      |
-| token     | The HEC token for your Splunk Cloud HTTP Event Collector             | String (GUID format)  | FALSE | FALSE | FALSE  |  36 |  36   |
+| token     | The HEC token for your Splunk Cloud HTTP Event Collector. The token value is set during object creation, but isn't returned.            | String (GUID format)  | FALSE | FALSE | FALSE  |  36 |  36   |
 
 
