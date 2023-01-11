@@ -12,7 +12,7 @@ title: Okta Identity Engine API Products release notes 2023
 |--------------------------------------------------------------------------|--------------------------|
 | [Custom app login](#custom-app-login) | January 11, 2023 |
 | [Full regional support for AWS EventBridge Log Stream integrations is EA in Preview](#full-regional-support-for-aws-eventbridge-log-stream-integrations-is-ea-in-preview) | January 11, 2023 |
-| [Improvements to self-service account activities for AD and LDAP users](#improvements-to-the-self-service-account-activities-for-ad-and-ldap-users) | January 11, 2023 |
+| [Improvements to self-service account activities for AD and LDAP users](#improvements-to-the-self-service-account-activities-for-ad-and-ldap-users) | November 30, 2022 |
 | [Improvements to the self-service registration experience](#improvements-to-the-self-service-registration-experience) | December 9, 2022 |
 | [Optional consent for OAuth 2.0 scopes is EA in Preview](#optional-consent-for-oauth-2-0-scopes-is-ea-in-preview) | January 11, 2023 |
 | [Revoke user sessions is GA in Production](#revoke-user-sessions-is-ga-in-production) | December 9, 2022 |
@@ -52,5 +52,3 @@ SMS and voice requests are now blocked if an internal machine-learning-based tol
 * A list security questions request (`/users/&{userId}/factors/questions`) resulted in an unexpected question and error in the response. (OKTA-525478)
 
 * When an org had the Custom OTP, RSA SecurID, and YubiKey authenticators enabled and the `enroll_amr_values` parameter value was `otp`, users were prompted to enroll in all three authenticators rather than just Custom OTP. (OKTA-545674)
-
-* The Log Streaming API returned the Splunk Cloud `token` property in the response body. (OKTA-437264)

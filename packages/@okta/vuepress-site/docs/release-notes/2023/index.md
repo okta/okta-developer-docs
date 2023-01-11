@@ -21,7 +21,7 @@ title: Okta API Products release notes 2023
 
 The custom app login feature is deprecated. This functionality is unchanged for orgs that actively use custom app login. Orgs that don't use custom app login should continue to use the [Okta-hosted sign-in experience](/docs/guides/redirect-authentication/) or [configure IdP routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-cfg-routing-rules) that redirect users to the appropriate app to sign in. <!-- OKTA-564039-->
 
-#### Full regional support for AWS EventBridge Log Stream integrations is EA on Preview
+#### Full regional support for AWS EventBridge Log Stream integrations is EA in Preview
 
 The Log Streaming API has expanded support for all commercial regions in the AWS EventBridge Log Stream integration. See [AWS EventBridge Setting property details](/docs/reference/api/log-streaming/#property-details-2). <!-- OKTA-540378-->
 
@@ -48,5 +48,3 @@ Okta uses an internal machine-learning-based toll fraud and abuse-detection mode
 #### Bugs fixed in 2023.01.0
 
 * During the authenticator enrollment flow using the `/authorize` endpoint, users couldn't enroll in the Custom APP authenticator. (OKTA-558352)
-
-* The Log Streaming API returned the Splunk Cloud `token` property in the response body. (OKTA-437264)
