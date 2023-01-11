@@ -109,7 +109,7 @@ The Rate Limit dashboard in the Admin Console now supports parameter matching fo
 | [New rate limits dashboard filter](#new-rate-limits-dashboard-filter) | November 3, 2022 |
 | [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | November 3, 2022 |
 | [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022-11-0) | November 3, 2022 |
-| [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022-11-0) | November 3, 2022|
+| [Bugs fixed in 2022.11.0](#bugs-fixed-in-2022-11-0) | November 3, 2022|
 
 #### Step-up authentication using ACR values is GA in Preview
 
