@@ -9,7 +9,7 @@ title: Okta API Products release notes 2023
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [Custom app login deprecated](#custom-app-login-deprecated) | January 11, 2023 |
-| [Full regional support for AWS EventBridge Log Stream integrations is EA on Preview](#full-regional-support-for-aws-eventbridge-log-stream-integrations-is-ea-on-preview) | January 11, 2023 |
+| [Full regional support for AWS EventBridge Log Stream integrations is EA in Preview](#full-regional-support-for-aws-eventbridge-log-stream-integrations-is-ea-in-preview) | January 11, 2023 |
 | [Optional consent for OAuth 2.0 scopes is EA in Preview](#optional-consent-for-oauth-2-0-scopes-is-ea-in-preview) | January 11, 2023 |
 | [Password history policy enforced in strict mode is GA in Production](#password-history-policy-enforced-in-strict-mode-is-ga-in-production) | December 9, 2022 |
 | [PBKDF2 Hashing Algorithm support is GA in Production](#pbkdf2-hashing-algorithm-support-is-ga-in-production) | December 9, 2022 |
