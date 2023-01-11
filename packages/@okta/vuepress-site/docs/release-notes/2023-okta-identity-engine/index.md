@@ -11,7 +11,7 @@ title: Okta Identity Engine API Products release notes 2023
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [Custom app login](#custom-app-login) | January 11, 2023 |
-| [Full regional support for AWS EventBridge Log Stream integrations is EA on Preview](#full-regional-support-for-aws-eventbridge-log-stream-integrations-is-ea-on-preview) | January 11, 2023 |
+| [Full regional support for AWS EventBridge Log Stream integrations is EA in Preview](#full-regional-support-for-aws-eventbridge-log-stream-integrations-is-ea-in-preview) | January 11, 2023 |
 | [Improvements to self-service account activities for AD and LDAP users](#improvements-to-the-self-service-account-activities-for-ad-and-ldap-users) | January 11, 2023 |
 | [Improvements to the self-service registration experience](#improvements-to-the-self-service-registration-experience) | December 9, 2022 |
 | [Optional consent for OAuth 2.0 scopes is EA in Preview](#optional-consent-for-oauth-2.0-scopes-is-ea-in-preview) | January 11, 2023 |
