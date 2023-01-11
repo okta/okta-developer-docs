@@ -39,7 +39,7 @@ Okta now supports Password-Based Key Derivation Function 2 (PBKDF2) for hashing 
 
 #### Revoke user sessions is GA in Production
 
-You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSession` parameter in the [Users API](/docs/reference/api/users/#change-password). <!-- OKTA-542646-->
+You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSessions` parameter in the [Users API](/docs/reference/api/users/#change-password). <!-- OKTA-542646-->
 
 #### Unusual telephony requests blocked by machine-learning measures
 
