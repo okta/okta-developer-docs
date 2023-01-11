@@ -27,7 +27,7 @@ The Log Streaming API has expanded support for all commercial regions in the AWS
 
 #### Optional consent for OAuth 2.0 scopes is EA in Preview
 
-OAuth 2.0 Optional Consent provides an optional property that enables a user to opt in or out of an app's requested OAuth scopes. When optional is set to true for a scope, the user can skip consent for that scope. See Request user consent. <!-- OKTA-563884-->
+OAuth 2.0 Optional Consent provides an optional property that enables a user to opt in or out of an app's requested OAuth scopes. When optional is set to true for a scope, the user can skip consent for that scope. See [Request user consent](/docs/guides/request-user-consent/). <!-- OKTA-563884-->
 
 #### Password history policy enforced in strict mode is GA in Production
 
@@ -35,7 +35,7 @@ When an admin [updates passwords](/docs/reference/api/users/#update-user) and se
 
 #### PBKDF2 Hashing Algorithm support is GA in Production
 
-Okta now supports Password-Based Key Derivation Function 2 (PBKDF2) for hashing imported user passwords. This hashing algorithm is used to reduce the vulnerabilities of brute-force attacks. <!-- OKTA-563886-->
+Okta now supports Password-Based Key Derivation Function 2 (PBKDF2) for hashing imported user passwords. This hashing algorithm is used to reduce vulnerabilities to brute-force attacks. <!-- OKTA-563886-->
 
 #### Revoke user sessions is GA in Production
 
@@ -43,7 +43,7 @@ You can end all Okta sessions for a user when resetting their password. All sess
 
 #### Unusual telephony requests blocked by machine-learning measures
 
-SMS and voice requests are now blocked if an internal machine-learning-based toll fraud and abuse-detection model considers the requests unusual. Telephony requests that are blocked by the machine-learning model have a `DENY` status in the System Log. <!-- OKTA-562110-->
+Okta uses an internal machine-learning-based toll fraud and abuse-detection model to block unusual SMS or voice requests. Telephony requests that are blocked by the model have a `DENY` status in the System Log. <!-- OKTA-562110-->
 
 #### Bugs fixed in 2023.01.0
 
