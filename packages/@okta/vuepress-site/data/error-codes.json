@@ -1,6 +1,6 @@
 {
-  "release" : "2022.12.1",
-  "build" : "2022.12.1-begin-115-g51ea9cea0e4f",
+  "release" : "2023.01.1",
+  "build" : "2023.01.1-begin-163-g3ee566bf2f32",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1600,6 +1600,38 @@
     "statusReasonPhrase" : "Gone",
     "errorCode" : "E0000215",
     "errorSummary" : "This endpoint has been deprecated.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email domain in use with mail provider",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000216",
+    "errorSummary" : "Email domain cannot be deleted due to mail provider specific restrictions.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email domain invalid status exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000217",
+    "errorSummary" : "Invalid status. Cannot validate email domain in current status.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email domain validation exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000218",
+    "errorSummary" : "Email domain could not be verified by mail provider.",
+    "errorDescription" : null
+  }, {
+    "title" : "Phishing resistance policy error",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000219",
+    "errorSummary" : "This action can't be completed because it would result in 0 phishing resistant authenticators and your org has at least one authentication policy rule that requires phishing resistant authenticators. To continue, either enable FIDO 2 (WebAuthn) or remove the phishing resistance constraint from the affected policies. Policy rules: {0}",
     "errorDescription" : null
   } ]
 }

@@ -1,6 +1,6 @@
 {
-  "release" : "2022.12.1",
-  "build" : "2022.12.1-begin-115-g51ea9cea0e4f",
+  "release" : "2023.01.1",
+  "build" : "2023.01.1-begin-163-g3ee566bf2f32",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -11018,6 +11018,40 @@
         "targets" : null
       }
     }, {
+      "id" : "system.brand.create",
+      "category" : "developer-platform",
+      "description" : "This event is fired when the brand resource is created. Developer and org admins can use this event to identify when the brand resource was created. The event contains information about the created brand.",
+      "info" : {
+        "created" : "2022-12-09",
+        "release" : "2023.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "BrandResourceDetails" ]
+      }
+    }, {
+      "id" : "system.brand.delete",
+      "category" : "developer-platform",
+      "description" : "This event is fired when a brand resource is deleted. Developer and org admins can use this event to identify when a brand resource was deleted. The event contains information about a deleted brand.",
+      "info" : {
+        "created" : "2022-12-09",
+        "release" : "2023.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "BrandResourceDetails" ]
+      }
+    }, {
       "id" : "system.brand.update",
       "category" : "developer-platform",
       "description" : "This event is fired when the brand resource is updated. Developer and org admins can use this event to identify when the brand resource was updated. The event contains information regarding specific updates made to brand like \"customPrivacyPolicyUrl\".",
@@ -11171,9 +11205,26 @@
         "targets" : null
       }
     }, {
+      "id" : "system.custom_error.delete",
+      "category" : "developer-platform",
+      "description" : "Custom error page is deleted. Can be used to identify when an admin has deleted the custom error page. Event fired when the custom error page is deleted.",
+      "info" : {
+        "created" : "2022-12-09",
+        "release" : "2023.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "CustomPageResourceDetails" ]
+      }
+    }, {
       "id" : "system.custom_error.update",
       "category" : "developer-platform",
-      "description" : "Custom Error page is updated. Can be used to identify when an admin has customized the Error page. Event fired when Error page is successfully updated.",
+      "description" : "Custom error page is updated. Can be used to identify when an admin has customized the error page. Event fired when the error page is successfully updated.",
       "info" : {
         "created" : "2020-11-09",
         "release" : "2020.12.0"
@@ -11183,14 +11234,31 @@
       "tags" : [ "admin" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "CustomPageResourceDetails" ]
+      }
+    }, {
+      "id" : "system.custom_signin.delete",
+      "category" : "developer-platform",
+      "description" : "Custom sign-in page is deleted. Can be used to identify when an admin has deleted the custom sign-in page. Event fired when custom sign-in page is deleted.",
+      "info" : {
+        "created" : "2022-12-09",
+        "release" : "2023.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "SignInPageResourceDetails" ]
       }
     }, {
       "id" : "system.custom_signin.update",
       "category" : "developer-platform",
-      "description" : "Custom Sign in page is updated. Can be used to identify when an admin has customized the Okta-hosted Sign-In Widget. Event fired when Okta-hosted Sign-In Widget is successfully updated.",
+      "description" : "Custom sign-in page is updated. Can be used to identify when an admin has customized the sign-in page. Event fired when custom sign-in page is updated.",
       "info" : {
         "created" : "2020-11-09",
         "release" : "2020.12.0"
@@ -11200,14 +11268,31 @@
       "tags" : [ "admin" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : null,
+        "debugData" : "SystemDebugData",
         "actor" : null,
-        "targets" : null
+        "targets" : [ "SignInPageResourceDetails" ]
+      }
+    }, {
+      "id" : "system.custom_signout.update",
+      "category" : "developer-platform",
+      "description" : "Custom sign-out page is updated. Admin has updated the custom sign-out page. Event fired when custom sign-out page is updated.",
+      "info" : {
+        "created" : "2022-12-09",
+        "release" : "2023.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "SignOutPageResourceDetails" ]
       }
     }, {
       "id" : "system.custom_url_domain.cert_renew",
       "category" : "developer-platform",
-      "description" : "Okta managed certificates for custom URL domain are renewed. Can be used to identify when okta managed certificate renewal batch job has renewed certificates for custom URL domain. When fired, the event contains information about the domain name and certificate source type.",
+      "description" : "Okta managed certificates for custom domain are renewed. Can be used to identify when okta managed certificate renewal batch job has renewed certificates for custom domain. When fired, the event contains information about the domain name and certificate source type.",
       "info" : {
         "created" : "2021-10-17",
         "release" : "2021.11.0"
@@ -11224,7 +11309,7 @@
     }, {
       "id" : "system.custom_url_domain.cert_upload",
       "category" : "developer-platform",
-      "description" : "Custom URL domain certificates are uploaded by an admin or generated by Okta. Can be used to identify when custom domain certificates are uploaded by an admin or generated by Okta. When fired, the event contains information about the domain name and certificate source type.",
+      "description" : "Custom domain certificates are uploaded by an admin or generated by Okta. Can be used to identify when custom domain certificates are uploaded by an admin or generated by Okta. When fired, the event contains information about the domain name and certificate source type.",
       "info" : {
         "created" : "2020-11-09",
         "release" : "2020.12.0"
@@ -11241,7 +11326,7 @@
     }, {
       "id" : "system.custom_url_domain.delete",
       "category" : "developer-platform",
-      "description" : "Custom URL domain is deleted. Can be used to identify when an admin has deleted their custom URL domain. When fired, the event contains information about the domain name that was deleted.",
+      "description" : "Custom domain is deleted. Can be used to identify when an admin has deleted their custom domain. When fired, the event contains information about the domain name that was deleted.",
       "info" : {
         "created" : "2021-10-17",
         "release" : "2021.11.0"
@@ -11258,7 +11343,7 @@
     }, {
       "id" : "system.custom_url_domain.initiate",
       "category" : "developer-platform",
-      "description" : "Custom URL domain setup is initiated. Admin has initiated custom URL domain setup by inputting their custom domain for DNS verification. When fired, the event contains information about the domain name, certificate source type and domain validation status.",
+      "description" : "Custom domain setup is initiated. Admin has initiated custom domain setup by inputting their custom domain for DNS verification. When fired, the event contains information about the domain name, certificate source type and domain validation status.",
       "info" : {
         "created" : "2020-11-09",
         "release" : "2020.12.0"
@@ -11273,9 +11358,26 @@
         "targets" : [ "CustomDomainResourceDetails" ]
       }
     }, {
+      "id" : "system.custom_url_domain.update",
+      "category" : "developer-platform",
+      "description" : "Custom domain brand association is updated. Admin has updated the custom domain association with the brand. When fired, the event contains the domain name, certificate source type, domain validation status and information about the brand it is associated with.",
+      "info" : {
+        "created" : "2022-12-09",
+        "release" : "2023.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "CustomDomainResourceDetails" ]
+      }
+    }, {
       "id" : "system.custom_url_domain.verify",
       "category" : "developer-platform",
-      "description" : "Custom URL domain name ownership is successfully verified by Okta. Identifies when an admin has successfully verified the ownership of the domain name. When fired, the event contains information about the domain name, certificate source type and domain validation status.",
+      "description" : "Custom domain name ownership successfully verified by Okta. Identifies when an admin has successfully verified the ownership of the domain name. When fired, the event contains information about the domain name, certificate source type and domain validation status.",
       "info" : {
         "created" : "2020-11-09",
         "release" : "2020.12.0"
@@ -11399,7 +11501,7 @@
         "created" : "2022-03-29",
         "release" : "2022.05.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "email" ],
       "mappings" : [ ],
@@ -11560,6 +11662,74 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "EmailTemplateResourceDetails" ]
+      }
+    }, {
+      "id" : "system.email_domain.create",
+      "category" : "developer-platform",
+      "description" : "Email domain is created. Admin has initiated email domain setup by inputting their domain details for DNS verification. When fired, the event contains information about the domain name, display name, user name, brand id and validation status.",
+      "info" : {
+        "created" : "2022-12-09",
+        "release" : "2023.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "EmailDomainResourceDetails" ]
+      }
+    }, {
+      "id" : "system.email_domain.delete",
+      "category" : "developer-platform",
+      "description" : "Email domain is deleted. Can be used to identify when an admin has deleted their email domain. When fired, the event contains information about the email domain that was deleted.",
+      "info" : {
+        "created" : "2022-12-09",
+        "release" : "2023.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "EmailDomainResourceDetails" ]
+      }
+    }, {
+      "id" : "system.email_domain.update",
+      "category" : "developer-platform",
+      "description" : "Email domain is updated. Admin has updated the email domain. When fired, the event contains information about the email domain that was updated.",
+      "info" : {
+        "created" : "2022-12-09",
+        "release" : "2023.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "EmailDomainResourceDetails" ]
+      }
+    }, {
+      "id" : "system.email_domain.verify",
+      "category" : "developer-platform",
+      "description" : "Email domain is successfully verified by Okta. Identifies when an admin has successfully verified the email domain. When fired, the event contains information about the email domain that was verified.",
+      "info" : {
+        "created" : "2022-12-09",
+        "release" : "2023.01.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "EmailDomainResourceDetails" ]
       }
     }, {
       "id" : "system.feature.disable",
@@ -12958,7 +13128,7 @@
     }, {
       "id" : "system.mfa.factor.activate",
       "category" : "developer-platform",
-      "description" : "Activate a new MFA factor. Can be used to identify when an admin has enabled a new factor for MFA. When fired the event will contain details of which factor is enabled.",
+      "description" : "Activate a new authentication factor. Can be used to identify when an admin has enabled a new factor for authentication. When fired the event will contain details of which factor is enabled.",
       "info" : {
         "created" : "2020-12-08",
         "release" : "2021.01.1"
@@ -32687,6 +32857,30 @@
       "BrandResourceDetails" : {
         "name" : "BrandResourceDetails",
         "properties" : {
+          "brand_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "brandName",
+            "examples" : [ "brand 1", "brand 2" ]
+          },
+          "email_domain_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:emailDomainId",
+            "examples" : [ "OeD118g5DODhVRiER0g5" ]
+          },
+          "locale" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "cs", "da" ]
+          },
           "custom_privacy_policy_url" : {
             "type" : "String",
             "sensitive" : false,
@@ -32848,6 +33042,14 @@
       "CustomDomainResourceDetails" : {
         "name" : "CustomDomainResourceDetails",
         "properties" : {
+          "custom_domain_brand_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:brandId",
+            "examples" : [ "bnd118g5DODhVRiER0g4" ]
+          },
           "custom_domain_certificate_source_type" : {
             "type" : "String",
             "sensitive" : false,
@@ -32871,6 +33073,35 @@
             "customer" : false,
             "format" : "domainName",
             "examples" : [ "example.google.com" ]
+          }
+        }
+      },
+      "CustomPageResourceDetails" : {
+        "name" : "CustomPageResourceDetails",
+        "properties" : {
+          "purpose" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "PREVIEW", "CUSTOMIZED" ]
+          },
+          "page_brand_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:brandId",
+            "examples" : [ "bnd118g5DODhVRiER0g4" ]
+          },
+          "page_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "618ad20a5ccefb000985" ]
           }
         }
       },
@@ -33030,6 +33261,51 @@
             "customer" : false,
             "format" : "boolean",
             "examples" : [ "true", "false" ]
+          }
+        }
+      },
+      "EmailDomainResourceDetails" : {
+        "name" : "EmailDomainResourceDetails",
+        "properties" : {
+          "email_domain_display_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "displayName",
+            "examples" : [ "Admin 1", "Admin 2" ]
+          },
+          "user_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : true,
+            "format" : "username",
+            "examples" : [ "admin1", "admin2" ]
+          },
+          "domain" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "domain",
+            "examples" : [ "company1.com", "company2.com" ]
+          },
+          "email_domain_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "NOT_STARTED", "POLLING", "VERIFIED", "ERROR", "DELETED" ]
+          },
+          "email_domain_brand_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:brandId",
+            "examples" : [ "bnd118g5DODhVRiER0g4" ]
           }
         }
       },
@@ -33738,6 +34014,203 @@
         "name" : "ResourceDetails",
         "properties" : { }
       },
+      "SignInPageResourceDetails" : {
+        "name" : "SignInPageResourceDetails",
+        "properties" : {
+          "purpose" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "PREVIEW", "CUSTOMIZED" ]
+          },
+          "page_brand_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:brandId",
+            "examples" : [ "bnd118g5DODhVRiER0g4" ]
+          },
+          "page_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "618ad20a5ccefb000985" ]
+          },
+          "classic_recovery_flow_email_or_username_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "classicRecoveryFlowEmailOrUsernameLabel",
+            "examples" : [ "Email or Username" ]
+          },
+          "authenticator_page_custom_link_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "url",
+            "examples" : [ "https://www.foo.com/authenticatorPage" ]
+          },
+          "authenticator_page_custom_link_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "authenticatorPageCustomLinkLabel",
+            "examples" : [ "Custom authenticator page" ]
+          },
+          "custom_link_2_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "url",
+            "examples" : [ "https://www.foo.com/custom2" ]
+          },
+          "custom_link_2_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "customLink2Label",
+            "examples" : [ "Custom link 2" ]
+          },
+          "custom_link_1_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "url",
+            "examples" : [ "https://www.foo.com/custom1" ]
+          },
+          "custom_link_1_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "customLink1Label",
+            "examples" : [ "Custom link 1" ]
+          },
+          "help_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "url",
+            "examples" : [ "https://www.foo.com/help" ]
+          },
+          "help_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "helpLabel",
+            "examples" : [ "Help" ]
+          },
+          "unlock_account_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "url",
+            "examples" : [ "https://www.foo.com/unlock" ]
+          },
+          "unlock_account_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "unlockAccountLabel",
+            "examples" : [ "Unlock Account?" ]
+          },
+          "forgot_password_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "url",
+            "examples" : [ "https://www.foo.com/forgot" ]
+          },
+          "forgot_password_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "forgotPasswordLabel",
+            "examples" : [ "Forgot password?" ]
+          },
+          "show_user_identifier" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "show_password_visibility_toggle" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "password_info_tip" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "passwordInfoTip",
+            "examples" : [ "Password Tip" ]
+          },
+          "password_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "passwordLabel",
+            "examples" : [ "Password" ]
+          },
+          "user_name_info_tip" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "usernameInfoTip",
+            "examples" : [ "User Name Tip" ]
+          },
+          "user_name_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "usernameLabel",
+            "examples" : [ "User Name" ]
+          },
+          "sign_in_label" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "signInLabel",
+            "examples" : [ "Sign In" ]
+          },
+          "widget_version" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "widgetVersion",
+            "examples" : [ "6.5", "^7" ]
+          }
+        }
+      },
       "SignOnPolicyResourceDetails" : {
         "name" : "SignOnPolicyResourceDetails",
         "properties" : {
@@ -33764,6 +34237,35 @@
             "customer" : false,
             "format" : "boolean",
             "examples" : [ "true", "false" ]
+          }
+        }
+      },
+      "SignOutPageResourceDetails" : {
+        "name" : "SignOutPageResourceDetails",
+        "properties" : {
+          "sign_out_page_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OKTA_DEFAULT", "EXTERNALLY_HOSTED" ]
+          },
+          "sign_out_page_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "url",
+            "examples" : [ "https://www.okta.com", "https://www.google.com" ]
+          },
+          "sign_out_page_brand_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:brandId",
+            "examples" : [ "bnd118g5DODhVRiER0g4" ]
           }
         }
       },
