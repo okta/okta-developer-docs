@@ -23,7 +23,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 Custom app login is now available to limited customers in Identity Engine. Only orgs that actively used this feature in Classic Engine before they upgraded may continue to do so. Orgs that don't use custom app login should continue to use the [Okta-hosted sign-in experience](/docs/guides/redirect-authentication/) or [configure IdP routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-cfg-routing-rules) that redirect users to the appropriate app to sign in. <!-- OKTA-564039-->
 
-#### Full regional support for AWS EventBridge Log Stream integrations is EA on Preview
+#### Full regional support for AWS EventBridge Log Stream integrations is EA in Preview
 
 The Log Streaming API has expanded support for all commercial regions in the AWS EventBridge Log Stream integration. See [AWS EventBridge Setting property details](/docs/reference/api/log-streaming/#property-details-2). <!-- OKTA-540378-->
 
