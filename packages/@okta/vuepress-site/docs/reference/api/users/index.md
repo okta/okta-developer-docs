@@ -2199,35 +2199,34 @@ For example, you can't unlock a user that is `ACTIVE`.
 
 ### Activate User
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/activate" />
 
 Activates a user
 
 This operation can only be performed on users with a `STAGED` or `DEPROVISIONED` status.  Activation of a user is an asynchronous operation.
 
-* The user's `transitioningToStatus` property has a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
-* The user's status is `ACTIVE` when the activation process is complete.
+- The user's `transitioningToStatus` property has a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
+- The user's status is `ACTIVE` when the activation process is complete.
 
 Users who don't have a password must complete the welcome flow by visiting the activation link to complete the transition to `ACTIVE` status.
 
 > **Note:** If you have Optional Password enabled, visiting the activation link is optional for users who aren't required to enroll a password. See [Create user with Optional Password enabled](#create-user-with-optional-password-enabled).
 >
 
-
 ##### Request parameters
-
 
 | Parameter | Description                                     | Param Type | DataType | Required | Default |
 | --------- | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | id        | `id` of user                                    | URL        | String   | TRUE     |         |
 | sendEmail | Sends an activation email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
 
+> **Legal Disclaimer** <br>
+After a User is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicated messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
+
 ##### Response parameters
 
-
-* Returns empty object by default.
-* If `sendEmail` is `false`, returns an activation link for the user to set up their account. The activation token can be used to create a custom activation link.
+- Returns empty object by default.
+- If `sendEmail` is `false`, returns an activation link for the user to set up their account. The activation token can be used to create a custom activation link.
 
 ```json
 {
