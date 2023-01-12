@@ -7871,7 +7871,7 @@ Specifies access settings for the application
   }
 }
 ```
-> **Note:** The `loginRedirectUrl` field is deprecated in Identity Engine.
+> **Note:** The `loginRedirectUrl` property is deprecated in Identity Engine. This property is used with the custom app login feature. Orgs that actively use this feature can continue to do so. Orgs that don't use custom app login should use the [Okta-hosted sign-in experience](/docs/guides/redirect-authentication/) or [configure IdP routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-cfg-routing-rules) that redirect users to the appropriate app to sign in.
 
 ### Visibility object
 

@@ -1009,6 +1009,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
     "default": false,
     "displayName": "Saml Jackson",
     "consent": "REQUIRED",
+    "optional": false,
     "metadataPublish": "NO_CLIENTS"
   }
 ]
@@ -1019,6 +1020,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
 | consent                                  | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`, `FLEXIBLE`       | Enum      | `IMPLICIT`     | True for update                        |
+| optional<ApiLifecycle access="ea" />     | Indicates whether the Scope is optional. When set to `true`, the user can skip consent for the scope.            | Boolean   |     False           | False 
 | default                                  | Whether the Scope is a default Scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the Scope                                                                                | String    |                | False                                      |
 | displayName                              | Name of the end user displayed in a consent dialog box                                                      | String    |                | False                                      |
