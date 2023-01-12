@@ -223,7 +223,7 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 #### Bugs fixed in 2022.10.0
 
-* Users were able to make more than five attempts to activate their One-Time Password (OTP) based factors. (OKTA-429940)
+* Users were able to make more than five attempts to activate their one-time passcode (OTP) based factors. (OKTA-429940)
 
 * Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
 
@@ -784,7 +784,7 @@ When you use the [AuthN APIs](/docs/reference/api/authn/#request-parameters-for-
 
 #### Improved email magic link authentication experience is EA in Preview
 
-Email magic links are enhanced to allow end users to authenticate in two different contexts. They can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
+Email magic links are enhanced to allow end users to authenticate in two different contexts. They can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time passcode to proceed with authentication. See [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
 
 #### Splunk available for Log Streaming is EA in Preview
 

@@ -26,7 +26,7 @@ Learn how to integrate the Okta Email authenticator into your app with the Embed
 
 ## Overview
 
-With the Embedded SDK, your app can verify a user's identity using the email authenticator. You can integrate the email enrollment and challenge in your app and complete those flows using <StackSnippet snippet="emloverview" inline />, a one-time password (OTP), or a combination of both.
+With the Embedded SDK, your app can verify a user's identity using the email authenticator. You can integrate the email enrollment and challenge in your app and complete those flows using <StackSnippet snippet="emloverview" inline />, a one-time passcode (OTP), or a combination of both.
 
 ## Get started
 

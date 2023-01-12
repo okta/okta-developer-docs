@@ -45,7 +45,7 @@ switch (authnResponse?.AuthenticationStatus)
 }
 ```
 
-The email authenticator supports user verification by one-time password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#integrate-email-challenge-with-magic-links).
+The email authenticator supports user verification by one-time passcode (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/aspnet/main/#integrate-email-challenge-with-magic-links).
 
 ### 4. Your app handles an authentication success response
 

@@ -87,7 +87,7 @@ Build the logic that handles this response and sends the user to a dialog where 
 
 ### 5. The user verifies their identity with the new email
 
-The user opens the email sent by Identity Engine and copies the one-time password (OTP) to your app. Create a dialog to allow the user to enter and submit the OTP.
+The user opens the email sent by Identity Engine and copies the one-time passcode (OTP) to your app. Create a dialog to allow the user to enter and submit the OTP.
 
 <div class="half wireframe-border">
 

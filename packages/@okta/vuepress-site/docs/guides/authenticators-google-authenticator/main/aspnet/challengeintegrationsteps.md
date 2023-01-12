@@ -49,19 +49,19 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 ```
 
-### 6: Get one-time password from Google Authenticator
+### 6: Get one-time passcode from Google Authenticator
 
-The user’s copy of Google Authenticator now displays the time-based one-time password for the newly added account which they will enter into a challenge page.
+The user’s copy of Google Authenticator now displays the time-based one-time passcode for the newly added account which they will enter into a challenge page.
 
 <div class="half">
 
-![A one-time password being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
+![A one-time passcode being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
 
 </div>
 
-### 7 - 8: Display challenge page and process password
+### 7 - 8: Display challenge page and process passcode
 
 The challenge flow now follows the same final steps as the [Enrollment flow](/docs/guides/authenticators-google-authenticator/aspnet/main/#integrate-sdk-for-authenticator-enrollment):
 
 * Display challenge page
-* Process the one-time password
+* Process the one-time passcode
