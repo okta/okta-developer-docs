@@ -11,12 +11,9 @@ The Okta User API provides operations to manage users in your organization.
 
 Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
 
-
-
 ## User operations
 
 ### Create User
-
 
 <ApiOperation method="post" url="/api/v1/users" />
 
@@ -32,8 +29,10 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User in Group](#create-user-in-group)
 - [Create User with Non-Default User Type](#create-user-with-non-default-user-type)
 
-##### Request parameters
+> **Legal Disclaimer** <br><br>
+After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
 
+##### Request parameters
 
 | Parameter     | Description                                                                                                                                                                | Param Type   | DataType                                     | Required   | Default |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------      | :----------- | :------------------------------------------- | :--------- | :------ |
