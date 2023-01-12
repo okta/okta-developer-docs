@@ -1979,6 +1979,11 @@ The rate limit for a user to activate one of their OTP-based factors (such as SM
 }
 ```
 
+> **Note:** If the user exceeds their OTP-based factor rate limit, then an OTP [resend](#resend-sms-as-part-of-enrollment) request isn't allowed for the same factor. This applies to the following resend endpoints:<br>
+> * `/api/v1/users/${userId}}/factors/${factorId}/resend`
+> * `/api/v1/users/me/factors/${factorId}/resend`
+> * `/api/v1/authn/factors/${factorId}/lifecycle/resend`
+
 #### Activate TOTP Factor
 
 Activates a `token:software:totp` Factor by verifying the OTP
