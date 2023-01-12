@@ -3926,7 +3926,7 @@ The following Factor types are supported:
 | `question`            | Additional knowledge-based security question                                                                        |
 | `sms`                 | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent using SMS to a registered phone number            |
 | `token:hardware`      | Hardware One-Time Password [OTP](http://en.wikipedia.org/wiki/One-time_password) device                             |
-| `token:hotp`          | A custom TOTP factor that uses an extension of the HMAC-based One-Time Password (HOTP) algorithm.                     |
+| `token:hotp`          | A custom TOTP factor that uses an extension of the HMAC-based One-Time Password (HOTP) algorithm                     |
 | `token:software:totp` | Software [Time-based One-Time Password (TOTP)](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) |
 | `token`               | Software or hardware [One-Time Password (OTP)](http://en.wikipedia.org/wiki/One-time_password) device               |
 | `u2f`                 | Hardware [U2F](https://en.wikipedia.org/wiki/Universal_2nd_Factor) device                                           |
