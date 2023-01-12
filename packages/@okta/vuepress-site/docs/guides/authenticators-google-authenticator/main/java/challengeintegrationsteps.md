@@ -25,7 +25,7 @@ case AWAITING_AUTHENTICATOR_SELECTION:
 
 ### 6: Receive TOTP from Google Authenticator 
 
-The user's copy of Google Authenticator now displays the time-base one-time passcode (TOTP) for the newly added account which they will enter into a challenge page.
+The user's copy of Google Authenticator now displays the time-based one-time passcode (TOTP) for the newly added account which they will enter into a challenge page.
 
 <div class="half">
 
