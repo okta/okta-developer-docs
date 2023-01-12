@@ -37,7 +37,7 @@ The `IDXAuthenticationWrapper.authenticate()` method returns an [`Authentication
 
 If the Java SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS`, then the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
 
-> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](#get-the-user-profile-information).
+> **Note:** You can obtain basic user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server. See [Get the user profile information](#get-the-user-profile-information).
 
 #### Other authentication statuses
 
