@@ -30,7 +30,7 @@ Learn how to integrate Okta Verify into your app using the embedded SDK.
 
 ## Overview
 
-Okta Verify is a software-based authenticator created by Okta that supports identity verification through Time-based One-Time Passwords (TOTPs) and push notifications. Okta Verify is available for download on either Google Play or the Apple App store, depending on your mobile device. For more information on Okta Verify, see the [Okta Help Center](https://help.okta.com/okta_help.htm?id=ext_okta_verify).
+Okta Verify is a software-based authenticator created by Okta that supports identity verification through time-based one-time passcodes (TOTPs) and push notifications. Okta Verify is available for download on either Google Play or the Apple App store, depending on your mobile device. For more information on Okta Verify, see the [Okta Help Center](https://help.okta.com/okta_help.htm?id=ext_okta_verify).
 
 Okta Verify is highly customizable and offers different ways to enroll and challenge users. Your app's integration with the embedded SDK depends on which features you support. This guide details step-by-step how to integrate four flows supported by the embedded SDK and Okta Verify. They are:
 
@@ -66,7 +66,7 @@ The following high-level diagram illustrates the supported challenge flows:
 First, you'll need to configure your Okta org to enable Okta Verify for the following challenge flows:
 
 * **Push notification:** Tap on a push notification prompt in Okta Verify to confirm the sign-in attempt.
-* **Time-based One-time Password (TOTP):**  Copy the TOTP from Okta Verify and submit it in your app.
+* **Time-based one-time passcode (TOTP):**  Copy the TOTP from Okta Verify and submit it in your app.
 
 This is a simple two-step process. First, you need to enable it in your Okta org and then assign it an authentication policy which requires it to be used.
 
@@ -158,7 +158,7 @@ After a user enrolls Okta Verify, they can authenticate themselves with Okta Ver
 
 ## Integrate challenge using TOTP option
 
-After a user enrolls Okta Verify, they can authenticate themselves with Okta Verify using a Time-based One-Time Password (TOTP) challenge. When they want to sign in, they must retrieve the TOTP that Okta Verify generates, and submits this to the service provider for verification. The Okta server independently generates the same password and validates that the submitted password is identical to the generated one. If it is the same, the user is authenticated and signed in.
+After a user enrolls Okta Verify, they can authenticate themselves with Okta Verify using a time-based one-time passcode (TOTP) challenge. When they want to sign in, they must retrieve the TOTP that Okta Verify generates, and submits this to the service provider for verification. The Okta server independently generates the same password and validates that the submitted password is identical to the generated one. If it is the same, the user is authenticated and signed in.
 
 The following diagram summarizes this flow.
 
