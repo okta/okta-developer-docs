@@ -137,7 +137,7 @@ curl -X POST \
   "scopes": [
     {
       "type": "IFRAME_EMBED",
-      "allowedOktaApps": [“OKTA_ENDUSER”]
+      "allowedOktaApps": ["OKTA_ENDUSER"]
     }
   ]
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins"
