@@ -1506,13 +1506,7 @@ The following response is only a subset of properties for brevity.
 
 ## Log Stream Schema operations
 
-<ApiLifecycle access="ea" />
-
-> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
-
 ### Get Log Stream Schema
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
 
@@ -1635,8 +1629,6 @@ For brevity, the following response doesn't include all available properties.
 ```
 
 ### List Log Stream Schemas
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/logStream" />
 
@@ -3324,8 +3316,6 @@ The following response is only a subset of properties for brevity.
 ```
 
 ## Log Stream Schema object
-
-<ApiLifecycle access="ea" />
 
 The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) with the following properties:
 
