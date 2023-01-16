@@ -1886,7 +1886,7 @@ curl -v -X POST \
 
 #### Enroll Custom HOTP Factor
 
-Enrolls a user with a Custom HMAC-based One-Time Password (HOTP) Factor. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
+Enrolls a user with a Custom HMAC-based one-time passcode (HOTP) Factor. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
 
 A Factor Profile represents a particular configuration of the Custom HOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC Algorithm, passcode length, and time interval. There can be multiple Custom HOTP factor profiles per org, but users can only be enrolled for one Custom HOTP factor. Admins can create Custom HOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/okta_help.htm?id=ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
 
@@ -3853,42 +3853,41 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "smsk33ujQ59REImFX0g3",
-  "factorType": "sms",
-  "provider": "OKTA",
-  "status": "ACTIVE",
-  "created": "2015-02-04T07:07:25.000Z",
-  "lastUpdated": "2015-02-04T07:07:25.000Z",
-  "profile": {
-    "phoneNumber": "+1415551337"
-  },
-  "_links": {
-    "verify": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsk33ujQ59REImFX0g3/verify",
-      "hints": {
-        "allow": [
-          "POST"
-        ]
-      }
+    "id": "emfnf3gSScB8xXoXK0g3",
+    "factorType": "email",
+    "provider": "OKTA",
+    "vendorName": "OKTA",
+    "status": "ACTIVE",
+    "profile": {
+        "email": "changed@clouditude.net"
     },
-    "self": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsk33ujQ59REImFX0g3",
-      "hints": {
-        "allow": [
-          "GET",
-          "DELETE"
-        ]
-      }
-    },
-    "user": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL",
-      "hints": {
-        "allow": [
-          "GET"
-        ]
-      }
+    "_links": {
+        "verify": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00umvfJKwXOQ1mEL50g3/factors/emfnf3gSScB8xXoXK0g3/verify",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00umvfJKwXOQ1mEL50g3/factors/emfnf3gSScB8xXoXK0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        },
+        "user": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00umvfJKwXOQ1mEL50g3",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
     }
-  }
 }
 ```
 
@@ -3907,6 +3906,7 @@ Factors have the following properties:
 | profile        | Profile of a [supported Factor](#supported-factors-for-providers) | [Factor Profile object](#factor-profile-object)                                | TRUE     | FALSE  | FALSE    |
 | provider       | Factor provider                                                   | [Provider type](#provider-type)                                                | FALSE    | TRUE   | TRUE     |
 | status         | Status of a Factor                                                | `NOT_SETUP`, `PENDING_ACTIVATION`, `ENROLLED`, `ACTIVE`, `INACTIVE`, `EXPIRED` | FALSE    | FALSE  | TRUE     |
+| vendorName         | Factor Vendor Name (Same as provider but for On-Prem MFA it depends on Administrator Settings)                    | [Provider type](#provider-type)                    | FALSE     | TRUE  | TRUE    |
 | verify         | Optional verification for Factor enrollment                      | [Factor Verification object](#factor-verification-object)                      | TRUE     | FALSE  | FALSE    |
 
 > **Note:** The `id`, `created`, `lastUpdated`, `status`, `_links`, and `_embedded` properties are only available after a Factor is enrolled.
@@ -3936,6 +3936,7 @@ The following providers are supported:
 
 | Provider   | Description                   |
 | ---------- | ----------------------------- |
+| `CUSTOM`   | Custom                        |
 | `DUO`      | Duo Security                  |
 | `FIDO`     | Fido                          |
 | `GOOGLE`   | Google                        |
@@ -3950,6 +3951,7 @@ Each provider supports a subset of a factor types. The following table lists the
 
 | Provider   | Factor Type           |
 | ---------- | --------------------- |
+| `CUSTOM`   | `token:hotp`          |
 | `DUO`      | `web`                 |
 | `FIDO`     | `webauthn`            |
 | `GOOGLE`   | `token:software:totp` |

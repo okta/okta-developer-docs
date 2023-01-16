@@ -271,10 +271,6 @@ export const guides = [
                     title: "User sign out (local app)",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
-                  {
-                    title: "Limitations and workarounds",
-                    guideName: "oie-embedded-sdk-limitations",
-                  },
                 ],
               },
               {
@@ -549,7 +545,7 @@ export const guides = [
             guideName: "custom-url-domain",
           },
           {
-            title: "Sign-In Widget",
+            title: "Sign-in page",
             guideName: "custom-widget",
           },
           {
@@ -1060,6 +1056,11 @@ export const releaseNotes = [
     title: "Release Notes",
     path: "/docs/release-notes/",
     subLinks: [
+      { title: "2023", path: "/docs/release-notes/2023/" },
+      {
+        title: "2023 - Okta Identity Engine",
+        path: "/docs/release-notes/2023-okta-identity-engine/",
+      },
       { title: "2022", path: "/docs/release-notes/2022/" },
       {
         title: "2022 - Okta Identity Engine",

@@ -69,7 +69,7 @@ Send this new object to `OktaAuth.idx.register()`.
 }
 ```
 
-The email authenticator supports user verification by one-time password (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
+The email authenticator supports user verification by one-time passcode (OTP) and by magic links. To learn more, see the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
 
 ### 5. Your app displays the remaining optional authenticators
 

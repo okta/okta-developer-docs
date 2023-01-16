@@ -330,7 +330,7 @@ Some users were not able to access the Group Rules API, despite having proper pe
 
 #### Added Support for TOTP Factor
 
-Okta now supports a custom MFA factor based on the Time-based One-time Password (TOTP) algorithm. For more information, see [Custom HOTP Factor](/docs/reference/api/factors/#enroll-custom-hotp-factor). <!-- OKTA-236375 -->
+Okta now supports a custom MFA factor based on the time-based one-time passcode (TOTP) algorithm. For more information, see [Custom HOTP Factor](/docs/reference/api/factors/#enroll-custom-hotp-factor). <!-- OKTA-236375 -->
 
 #### Cookies updated to preserve cross-site functionality
 

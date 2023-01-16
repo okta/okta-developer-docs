@@ -10,12 +10,18 @@
     >
       <HeaderNav />
 
-      
-      <div class="content" v-if="$page.frontmatter.component">
+
+      <div
+        v-if="$page.frontmatter.component"
+        class="content"
+      >
         <component :is="$page.frontmatter.component" />
       </div>
 
-      <div class="content" v-else-if="$page.frontmatter.customLandingPage">
+      <div
+        v-else-if="$page.frontmatter.customLandingPage"
+        class="content"
+      >
         <div
           :class="{
             'content--container': true,
@@ -25,7 +31,10 @@
           <Sidebar />
           <div class="content-area content-area-full col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <div class="content-custom">
-              <component v-if="currentCustomLanding" :is="currentCustomLanding"></component>
+              <component
+                :is="currentCustomLanding"
+                v-if="currentCustomLanding"
+              />
             </div>
           </div>
         </div>
@@ -64,8 +73,11 @@
             <PageTitle />
             <ContentPage />
             <GeneratedContent v-if="$page.frontmatter.generated" />
-            <div v-if="!$page.frontmatter.generated" class="edit-on-github">
-              <span class="fa fa-github"></span>
+            <div
+              v-if="!$page.frontmatter.generated"
+              class="edit-on-github"
+            >
+              <span class="fa fa-github" />
               <span>
                 <a
                   v-if="editLink"
@@ -74,8 +86,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   data-proofer-ignore
-                  >{{ editLinkText }}</a
-                >
+                >{{ editLinkText }}</a>
               </span>
             </div>
           </div>
@@ -84,7 +95,6 @@
           </div>
         </div>
       </div>
-      
     </div>
     <Footer />
   </div>
@@ -120,9 +130,15 @@ export default {
     Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
     Errors: () => import("../components/Errors.vue"),
-	 Copyright: () => import("../components/Copyright.vue"),
+    Copyright: () => import("../components/Copyright.vue"),
   },
   mixins: [SidebarItems],
+  provide() {
+    return {
+      appContext: this.appContext,
+      stackSelectorData: this.stackSelectorData,
+    };
+  },
   data() {
     return {
       appContext: {
@@ -135,40 +151,6 @@ export default {
         from: ''
       },
     };
-  },
-  provide() {
-    return {
-      appContext: this.appContext,
-      stackSelectorData: this.stackSelectorData,
-    };
-  },
-  mounted: function() {
-    import('../util/pendo');
-    let that = this;
-    that.appContext.treeNavDocs = this.getTreeNavDocs();
-    this.$on("toggle-tree-nav", event => {
-      that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
-    });
-    this.onResize();
-    window.addEventListener("resize", this.onResize);
-    this.redirIfRequired();
-  },
-  watch: {
-    $route(to, from) {
-      this.appContext.isTreeNavMobileOpen = false;
-      this.redirIfRequired();
-      
-      // On route change check if base path has changed.
-      // If true, re-render sidebar.
-      // We want to check if it's a 'real' route change (re-render sidebar) or just a page scroll
-      // where the hash fragment changes (do nothing)
-      if (from.path !== to.path) {
-        // Previously we tried to remove re-render logic but seems it
-        // caused additional bugs (https://oktainc.atlassian.net/browse/OKTA-419090, https://oktainc.atlassian.net/browse/OKTA-419134)
-        // See https://github.com/okta/okta-developer-docs/pull/2170 <-- PR that gets rid of re-render sidebar logic
-        this.appContext.treeNavDocs = this.getNavigationData();   
-      }
-    }
   },
   computed: {
     editLink() {
@@ -202,6 +184,37 @@ export default {
       }
       return ''
     }
+  },
+  watch: {
+    $route(to, from) {
+      this.appContext.isTreeNavMobileOpen = false;
+      this.redirIfRequired();
+
+      // On route change check if base path has changed.
+      // If true, re-render sidebar.
+      // We want to check if it's a 'real' route change (re-render sidebar) or just a page scroll
+      // where the hash fragment changes (do nothing)
+      if (from.path !== to.path) {
+        // Previously we tried to remove re-render logic but seems it
+        // caused additional bugs (https://oktainc.atlassian.net/browse/OKTA-419090, https://oktainc.atlassian.net/browse/OKTA-419134)
+        // See https://github.com/okta/okta-developer-docs/pull/2170 <-- PR that gets rid of re-render sidebar logic
+        this.appContext.treeNavDocs = this.getNavigationData();
+      }
+    }
+  },
+  mounted: function() {
+    import('../util/pendo');
+    let that = this;
+    that.appContext.treeNavDocs = this.getTreeNavDocs();
+    this.$on("toggle-tree-nav", event => {
+      that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
+    });
+    this.onResize();
+    window.addEventListener("resize", this.onResize);
+    this.redirIfRequired();
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
   },
   methods: {
     redirIfRequired() {
@@ -237,9 +250,6 @@ export default {
       this.appContext.treeNavDocs = this.appContext.treeNavDocs.length > 0 ? this.appContext.treeNavDocs : this.getNavigationData();
       return this.appContext.treeNavDocs;
     },
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.onResize);
   }
 };
 </script>

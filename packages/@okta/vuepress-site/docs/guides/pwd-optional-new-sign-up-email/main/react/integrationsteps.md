@@ -85,7 +85,7 @@ setTransaction(newTransaction);
 
 ### 4. Identity Engine requests new email verification
 
-Identity Engine sends the user an email that contains a one-time password (OTP) they can use to verify their identity.`OktaAuth.idx.proceed()` returns an `IdxTransaction` object with a `status` of `PENDING`, indicating that the user needs to verify their identity with their email.
+Identity Engine sends the user an email that contains a one-time passcode (OTP) they can use to verify their identity.`OktaAuth.idx.proceed()` returns an `IdxTransaction` object with a `status` of `PENDING`, indicating that the user needs to verify their identity with their email.
 
 ```json
 {

@@ -3,7 +3,9 @@
     <section class="pricing">
       <div class="pricing--container">
         <div class="pricing--leader">
-          <h1 class="pricing--title">Options That Scale With Your Business</h1>
+          <h1 class="pricing--title">
+            Options That Scale With Your Business
+          </h1>
           <p class="pricing--subtitle">
             Whether you're building a new application or scaling to millions of
             users, our plans have you covered.
@@ -103,14 +105,13 @@
       </div>
       <div class="pricing--container">
         <div class="pricing--plans">
-
           <div
             class="pricing-collapsible-item"
-            v-bind:class="{ 'is-active': collapsibleShownStates.compareTable }"
+            :class="{ 'is-active': collapsibleShownStates.compareTable }"
           >
             <button
               class="pricing-collapsible-item-title"
-              v-on:click="toggleCollapsibleShown('compareTable')"
+              @click="toggleCollapsibleShown('compareTable')"
             >
               Compare plans
             </button>
@@ -139,11 +140,9 @@
                     Enterprise
                   </button>
                 </div>
-
               </div>
               <div class="pricing-card-row hideInMobile no-border">
-                <div class="pricing-card-column pricing-card-row-header">
-                </div>
+                <div class="pricing-card-column pricing-card-row-header" />
                 <div class="pricing-card-column pricing-card-column-header">
                   Starter
                 </div>
@@ -156,31 +155,34 @@
               </div>
 
               <template v-for="(section, sectionKey) in $page.frontmatter.tableHeadings">
-                <div class="pricing-card-row pricing-card-section-header" v-if="section.name">
+                <div
+                  v-if="section.name"
+                  class="pricing-card-row pricing-card-section-header"
+                >
                   <div class="pricing-card-column pricing-card-row-header">
                     {{ section.name }}
                   </div>
                   <div
                     class="pricing-card-column"
                     :class="{ hideInMobile: selectedPlan !== PLANS.STARTER }"
-                  >
-                  </div>
+                  />
                   <div
                     class="pricing-card-column"
                     :class="{ hideInMobile: selectedPlan !== PLANS.ADVANCED }"
-                  >
-                  </div>
+                  />
                   <div
                     class="pricing-card-column"
                     :class="{ hideInMobile: selectedPlan !== PLANS.ENTERPRISE }"
-                  >
-                  </div>
+                  />
                 </div>
                 <template v-for="(heading, headingKey) in section.headings">
                   <div class="pricing-card-row">
                     <div class="pricing-card-column pricing-card-row-header">
-                      <span v-html="heading.name"></span>
-                      <small v-if="heading.subName" v-html="heading.subName"></small>
+                      <span v-html="heading.name" />
+                      <small
+                        v-if="heading.subName"
+                        v-html="heading.subName"
+                      />
                     </div>
                     <div
                       v-for="(plan, planKey) in $page.frontmatter.tableData"
@@ -189,10 +191,10 @@
                     >
                       <span v-if="typeof plan[sectionKey][headingKey] === 'boolean'">
                         <img
+                          v-if="plan[sectionKey][headingKey]"
                           src="/img/icons/icon--check.svg"
                           class="pricing-card-check"
-                          v-if="plan[sectionKey][headingKey]"
-                        />
+                        >
                       </span>
                       <span v-else>
                         {{ plan[sectionKey][headingKey] }}
@@ -203,7 +205,6 @@
               </template>
             </div>
           </div>
-
         </div>
       </div>
       <div class="pricing--container">
@@ -211,18 +212,21 @@
           <h2>FAQ</h2>
           <template v-for="(item, index) in $page.frontmatter.faqs">
             <div
+              :key="index"
               class="pricing-collapsible-item"
-              v-bind:class="{ 'is-active': collapsibleShownStates['faq' + index] }"
-              v-bind:key="index"
+              :class="{ 'is-active': collapsibleShownStates['faq' + index] }"
             >
               <button
                 class="pricing-collapsible-item-title"
-                v-on:click="toggleCollapsibleShown('faq' + index)"
+                @click="toggleCollapsibleShown('faq' + index)"
               >
                 {{ item.title }}
               </button>
               <div class="pricing-collapsible-item-content">
-                <div class="pricing-faq-content" v-html="item.content"></div>
+                <div
+                  class="pricing-faq-content"
+                  v-html="item.content"
+                />
               </div>
             </div>
           </template>
@@ -244,7 +248,7 @@
         </div>
       </div>
       <div class="pricing--footer">
-        <CompanyLogos withHeading />
+        <CompanyLogos with-heading />
       </div>
     </section>
   </div>
@@ -271,6 +275,9 @@ export default {
       faq2: false,
     },
   }),
+  created() {
+    this.PLANS = PLANS;
+  },
   methods: {
     selectPlan(name) {
       this.selectedPlan = name;
@@ -278,9 +285,6 @@ export default {
     toggleCollapsibleShown(itemName) {
       this.$set(this.collapsibleShownStates, itemName, !this.collapsibleShownStates[itemName]);
     },
-  },
-  created() {
-    this.PLANS = PLANS;
   },
 };
 </script>

@@ -71,4 +71,4 @@ switch (authnResponse?.AuthenticationStatus)
 
 ```
 
-In the previous code sample, the `AuthenticationHelper.GetIdentityFromAuthResponseAsync()` method gets the user profile information. Optionally, you can obtain basic user information after the user successfully signs in by making a request to Okta's Open ID Connect authorization server (see the next section).
+In the previous code sample, the `AuthenticationHelper.GetIdentityFromAuthResponseAsync()` method gets the user profile information. Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect authorization server (see the next section).

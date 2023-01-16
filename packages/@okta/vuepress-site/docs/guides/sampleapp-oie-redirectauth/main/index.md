@@ -124,7 +124,7 @@ To enable self-service password-optional enrollments in the Sign-In Widget, <Sta
 4. Enter the email, first and last name, and then click **Sign Up**.
 5. Verify your email address by clicking **Verify Email Address** in the email sent by Okta.
 
-    > **Note:** Alternatively, you can verify your email address by copying the one-time password from the email into the Sign-In Widget.
+    > **Note:** Alternatively, you can verify your email address by copying the one-time passcode from the email into the Sign-In Widget.
 
 5. Click **Set up later** for all the optional authenticators. The app redirects you to the home page.
 6. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.

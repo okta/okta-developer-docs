@@ -4,12 +4,21 @@
       <router-link :to="link.path">
         <slot>{{link.title}}</slot>
       </router-link>
-      <div class="generated-content" v-if="link.description">
-        <Content :pageKey="getPageKey(link.path)" slot-key="description"/>
+      <div
+        v-if="link.description"
+        class="generated-content"
+      >
+        <Content
+          :page-key="getPageKey(link.path)"
+          slot-key="description"
+        />
       </div>
-      <div class="generated-content" v-else>
-        <Content :pageKey="getPageKey(link.path)" />
-        <p>Index page for "{{link.title}}" articles.</p>
+      <div
+        v-else
+        class="generated-content"
+      >
+        <Content :page-key="getPageKey(link.path)" />
+        <p>Index page for "{{ link.title }}" articles.</p>
       </div>
     </div>
   </div>
@@ -25,15 +34,15 @@
         links: [],
       }
     },
-    mounted() {
-      this.getContent(this.appContext.treeNavDocs);
-    },
     watch: {
       $route(to, from) {
         if (from.path !== to.path) {
           this.getContent(this.appContext.treeNavDocs);
         }
       },
+    },
+    mounted() {
+      this.getContent(this.appContext.treeNavDocs);
     },
     methods: {
       getContent(navigation) {

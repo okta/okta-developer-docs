@@ -696,30 +696,48 @@ To add or remove users inside a specific pushed Group object on the SCIM server,
 
 If these three requirements are met, Okta sends a request to add the specified users to the Group object on the SCIM server.
 
-* For all new OIN app integrations, this request to update a Group object is sent through a PATCH method request.
-* For custom app integrations created using the AIW, this request to update a Group object is sent through a PUT request.
+* For all new OIN app integrations, a PATCH method request is used to update a Group object. For example:
 
-```http
-PATCH /scim/v2/Groups/abf4dd94-a4c0-4f67-89c9-76b03340cb9b HTTP/1.1
-User-Agent: Okta SCIM Client 1.0.0
-Authorization: <Authorization credentials>
+    ```http
+    PATCH /scim/v2/Groups/abf4dd94-a4c0-4f67-89c9-76b03340cb9b HTTP/1.1
+    User-Agent: Okta SCIM Client 1.0.0
+    Authorization: <Authorization credentials>
 
-{
-    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-    "Operations": [{
-          "op": "remove",
-          "path": "members[value eq \"89bb1940-b905-4575-9e7f-6f887cfb368e\"]"
-        },
-        {
-          "op": "add",
-          "path": "members",
-          "value": [{
-              "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
-              "display": "test.user@okta.local"
+    {
+        "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+        "Operations": [{
+            "op": "remove",
+            "path": "members[value eq \"89bb1940-b905-4575-9e7f-6f887cfb368e\"]"
+            },
+            {
+            "op": "add",
+            "path": "members",
+            "value": [{
+                "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+                "display": "test.user@okta.local"
+            }]
         }]
-    }]
-}
-```
+    }
+    ```
+
+* For custom app integrations created using the AIW, a PUT method request is used to update a Group object. For example:
+
+    ```http
+    PUT /scim/v2/Groups/abf4dd94-a4c0-4f67-89c9-76b03340cb9b HTTP/1.1
+    User-Agent: Okta SCIM Client 1.0.0
+    Authorization: <Authorization credentials>
+
+    {
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+        "displayName": "Test SCIMv2",
+        "members": [
+                {
+                "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+                "display": "test.user@okta.local"
+                }
+        ]
+    }
+    ```
 
 The SCIM server response is to return the updated Group object:
 
@@ -732,7 +750,12 @@ Content-Type: text/json;charset=UTF-8
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
     "id": "abf4dd94-a4c0-4f67-89c9-76b03340cb9b",
     "displayName": "Test SCIMv20",
-    "members": null,
+    "members": [
+        {
+            "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+            "display": "test.user@okta.local"
+        }
+     ],
     "meta": {
         "resourceType": "Group"
     }

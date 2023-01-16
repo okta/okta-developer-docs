@@ -1,5 +1,8 @@
 <template>
-  <div class="sidebar-area" v-if="sidebarItems.length !== 0">
+  <div
+    v-if="sidebarItems.length !== 0"
+    class="sidebar-area"
+  >
     <div class="sidebar-inner">
       <aside class="tree-nav" >
           <div
@@ -19,7 +22,7 @@
             <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0V1.93779H9.99774V0H0ZM0 7.74653H4.02604V12H5.97397V7.74653H10L5.00107 2.76801L0 7.74653Z" fill="#1662DD"/></svg>
           </div>
       </aside>
-      <div class="sidebar-fade"></div>
+      <div class="sidebar-fade" />
     </div>
   </div>
 </template>
@@ -28,24 +31,16 @@
 import SidebarItems from "../mixins/SidebarItems";
 export default {
   name: "Sidebar",
-  inject: ["appContext"],
-  mixins: [SidebarItems],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
+  mixins: [SidebarItems],
+  inject: ["appContext"],
   data() {
     return {
       sidebarIsOpened: true,
       sidebarItems: []
     };
-  },
-  mounted() {
-    this.updateSidebarItems();
-    window.addEventListener("resize", this.handleResize);
-  },
-  updated() {
-    document.querySelector('.sidebar-area').addEventListener("scroll", this.checkHeight);
-    this.handleScroll();
   },
   watch: {
     $route(to, from) {
@@ -57,6 +52,14 @@ export default {
         }
       }
     },
+  },
+  mounted() {
+    this.updateSidebarItems();
+    window.addEventListener("resize", this.handleResize);
+  },
+  updated() {
+    document.querySelector('.sidebar-area').addEventListener("scroll", this.checkHeight);
+    this.handleScroll();
   },
   methods: {
     getLastChildrenActiveEl() {
