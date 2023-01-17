@@ -6,7 +6,7 @@ title: IAM terminology
 
 - **Access control:** Grant or deny individual requests to view or update a restricted resource based on the resource, the nature of the request, whether the user is authenticated, the user's authorizations, relevant policies, and other data. (Access control is part of *authorization*.) The term access control can also refer broadly to IAM. See [What Is Access Control & How Crucial Is It to Cybersecurity?](https://www.okta.com/identity-101/access-control/).
 
-- **Authentication:** Processes and services to prove the claimed identity of an individual user, machine, software component, or any other entity. Typical authentication mechanisms include conventional password schemes, biometrics devices, cryptographic methods, and one-time passwords. See [The Ultimate Authentication Playbook](https://www.okta.com/blog/2019/02/the-ultimate-authentication-playbook/).
+- **Authentication:** Processes and services to prove the claimed identity of an individual user, machine, software component, or any other entity. Typical authentication mechanisms include conventional password schemes, biometrics devices, cryptographic methods, and one-time passcodes. See [The Ultimate Authentication Playbook](https://www.okta.com/blog/2019/02/the-ultimate-authentication-playbook/).
 
 - **Authorization:** Processes and services to define what resources a given user is allowed to access and what functions they are allowed to perform with them. Authorization also includes *Access Control* (see above). See [Authorization](/books/api-security/authz/) and [Authentication vs. Authorization](https://www.okta.com/identity-101/authentication-vs-authorization/).
 
