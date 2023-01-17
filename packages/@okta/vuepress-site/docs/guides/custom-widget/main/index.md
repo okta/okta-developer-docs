@@ -36,6 +36,30 @@ The sign-in page is a JavaScript library that gives you a fully-featured and cus
 
 * Embedded authentication: After you have [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project and configured the authentication scenarios that you want to support, you can then customize the sign-in page. You can apply customizations to match your branding using CSS and JavaScript. See [Style for embedded authentication](#style-for-embedded-authentication).
 
+## Content Security Policy (CSP) for your custom domain
+
+If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to customize the default [CSP](https://content-security-policy.com/) for your org. Okta has a default CSP that can break customizations to the sign-in page.
+
+To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
+
+> **Note:** You need to have CSP for custom domains enabled in your org.
+
+> **Note:** CSP customizations only take effect on custom domains.
+
+### Configure the default CSP
+
+1. In the Admin Console, go to **Customizations** > **Branding**.
+2. In the **Pages** panel, click **Edit** for the **Sign-in page**.
+3. Click **Settings**.
+4. In the **Content Security Policy** panel, click **Edit**. Set the following:
+   - **Trusted external resources**: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or https://mydomain.com/images. Click **Add**.
+     > **Note:** Okta adds these resources to all fetch-directives in the CSP.
+   - **Report UI**: Enter the URI to which you want to send violation report details. The URI entered here appears in the report-uri directive of the CSP.
+   - **Enforcement**:
+     - Select **Enforced** to block any resources that the CSP doesn't trust.
+     - Use **Not enforced** to leave the customized CSP in the report-only header. Use this option for testing and validation before turning on **Enforced** mode.
+5. Click **Save to draft**.
+
 ## Style for redirect authentication
 
 You can add any HTML, CSS, or JavaScript to the sign-in page and also customize it [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using redirect authentication, how to use the variables and request context, and also how to bypass the custom sign-in page.
@@ -590,31 +614,6 @@ If you aren't familiar with the Sign-In Widget, Okta recommends that you select 
 
 1. To make changes to the major and minor versions, select **Edit** in the **Okta Sign-In Widget Version** section header.
 2. Make your changes, and then click **Save** at the bottom of the page.
-
-## Content Security Policy (CSP) for your custom domain
-
-If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to customize the default [CSP](https://content-security-policy.com/) for your org. Okta has a default CSP that can break customizations to the sign-in page.
-
-To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
-
-> **Note:** You need to have CSP for custom domains enabled in your org.
-
-> **Note:** CSP customizations only take effect on custom domains.
-
-### Configure the default CSP
-
-1. In the Admin Console, go to **Customizations** > **Branding**.
-2. In the **Pages** panel, click **Edit** for the **Sign-in page**.
-3. Click **Settings**.
-4. In the **Content Security Policy** panel, click **Edit**. Set the following:
-   - **Trusted external resources**: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or https://mydomain.com/images. Click **Add**.
-     > **Note:** Okta adds these resources to all fetch-directives in the CSP.
-   - **Report UI**: Enter the URI to which you want to send violation report details. The URI entered here appears in the report-uri directive of the CSP.
-   - **Enforcement**:
-     - Select **Enforced** to block any resources that the CSP doesn't trust.
-     - Use **Not enforced** to leave the customized CSP in the report-only header. Use this option for testing and validation before turning on **Enforced** mode.
-5. Click **Save to draft**.
-
 
 ## See also
 
