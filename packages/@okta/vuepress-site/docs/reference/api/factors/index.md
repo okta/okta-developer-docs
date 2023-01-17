@@ -1893,9 +1893,11 @@ A Factor Profile represents a particular configuration of the Custom TOTP factor
 > <ApiLifecycle access="ie" />
 > **Note:** In Identity Engine, the Custom TOTP factor is referred to as the [Custom OTP authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-custom-otp).
 
-> **Note:** Currently only auto-activation is supported for Custom TOTP factor.
-
 ##### Enroll and auto-activate Custom TOTP Factor
+
+> **Notes:**<br>
+> * The `token:hotp` [factorType](#factor-type) property value is used for the enroll Custom TOTP factor endpoint.
+> * Currently only auto-activation is supported for the Custom TOTP factor.
 
 ```bash
 curl -v -X POST \
@@ -3926,7 +3928,7 @@ The following Factor types are supported:
 | `question`            | Additional knowledge-based security question                                                                        |
 | `sms`                 | Software OTP sent using SMS to a registered phone number            |
 | `token:hardware`      | Hardware OTP device                             |
-| `token:hotp`          | A custom TOTP factor that uses an extension of the HMAC-based one-time passcode (HOTP) algorithm                     |
+| `token:hotp`          | A [custom TOTP factor](#enroll-custom-totp-factor) that uses an extension of the HMAC-based one-time passcode (HOTP) algorithm                     |
 | `token:software:totp` | Software time-based one-time passcode (TOTP) |
 | `token`               | Software or hardware one-time passcode (OTP) device               |
 | `u2f`                 | Hardware Universal 2nd Factor (U2F) device                                           |
