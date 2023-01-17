@@ -233,7 +233,7 @@ For information on how to set up your application to use this flow, see [Impleme
 
 ### Client Credentials flow
 
-The Client Credentials flow is intended for server-side (AKA "confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it can't be used by an actual end user. It involves a single, authenticated request to the `/token` endpoint, which returns an access token.
+The Client Credentials flow is intended for server-side ("confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it can't be used by an actual end user. It involves a single, authenticated request to the `/token` endpoint, which returns an access token.
 
 > **Note:** The Client Credentials flow doesn't support refresh tokens.
 

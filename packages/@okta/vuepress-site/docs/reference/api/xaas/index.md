@@ -5,7 +5,7 @@ category: management
 
 # Identity Sources API
 
-<ApiLifecycle access="ea" /><!--LEA for both Classic and Identity Engine. Okta needs to turn on IDENTITY_SOURCE_APPS FF (not Self-Service)-->
+<ApiLifecycle access="ea" /><!--LEA for both Classic and Identity Engine. Okta needs to turn on IDENTITY_SOURCE_APPS feature flag (not Self-Service)-->
 
 The Okta Identity Sources API provides a mechanism to synchronize an HR source (the custom identity source) with Okta user profiles in an org. This API supports the Anything-as-a-Source (XaaS) feature. See [Build an Anything-as-a-Source custom client integration](/docs/guides/anything-as-a-source/).
 

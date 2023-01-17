@@ -389,7 +389,7 @@ If for some reason the information that is needed to implement a feature isn't p
 
 All authentication relies on validating one or more credentials that prove the authenticity of the actor's identity. Credentials are sometimes provided by the actor, as is the case with passwords, and at other times provided by a third party, and validated by the authentication provider.
 
-The `authenticationContext` contains metadata about how the actor is authenticated. For example, an `authenticationContext` for an event, where a user authenticates with IWA, looks like the following:
+The `authenticationContext` contains metadata about how the actor is authenticated. For example, an `authenticationContext` for an event, where a user authenticates with Integrated Windows Authentication (IWA), looks like the following:
 
 ```json
 {

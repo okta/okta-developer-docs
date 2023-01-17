@@ -47,4 +47,4 @@ Okta uses an internal machine-learning-based toll fraud and abuse-detection mode
 
 #### Bugs fixed in 2023.01.0
 
-* During the authenticator enrollment flow using the `/authorize` endpoint, users couldn't enroll in the Custom APP authenticator. (OKTA-558352)
+* During the authenticator enrollment flow using the `/authorize` endpoint, users couldn't enroll in the Custom App authenticator. (OKTA-558352)
