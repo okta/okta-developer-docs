@@ -33,6 +33,10 @@ However, if an error occurs during sign-in, Okta may need to display an error pa
 
 > **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears when a critical error occurs or an application is misconfigured. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
 
+### Use the Brands API
+
+The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
+
 ## Content Security Policy (CSP) for your custom domain
 
 If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to customize the default [CSP](https://content-security-policy.com/) for your org. Okta has a default CSP that can break customizations to Okta-hosted error pages.
@@ -56,10 +60,6 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
      - Select **Enforced** to block any resources that the CSP doesn't trust.
      - Use **Not enforced** to leave the customized CSP in the report-only header. Use this option for testing and validation before turning on **Enforced** mode.
 5. Click **Save to draft**.
-
-### Use the Brands API
-
-The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
 
 ## Edit the error page
 
