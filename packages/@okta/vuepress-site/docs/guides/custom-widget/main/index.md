@@ -18,6 +18,7 @@ This guide explains how to customize the sign-in page for both redirect and embe
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * (Redirect authentication): [Custom URL domain](/docs/guides/custom-url-domain/main/)
 * (Redirect authentication): The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
+* (Redirect authentication): A [customized Content Security Policy (CSP)](#content-security-policy-csp-for-your-custom-domain)
 * (Embedded authentication): [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) installed into your project with configured authentication scenarios
 
 **Sample code**
@@ -35,6 +36,12 @@ The sign-in page is a JavaScript library that gives you a fully-featured and cus
 * Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the page using easy controls or a code editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
 
 * Embedded authentication: After you have [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project and configured the authentication scenarios that you want to support, you can then customize the sign-in page. You can apply customizations to match your branding using CSS and JavaScript. See [Style for embedded authentication](#style-for-embedded-authentication).
+
+## Style for redirect authentication
+
+You can add any HTML, CSS, or JavaScript to the sign-in page and also customize it [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using redirect authentication, how to use the variables and request context, and also how to bypass the custom sign-in page.
+
+> **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/).
 
 ## Content Security Policy (CSP) for your custom domain
 
@@ -59,12 +66,6 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
      - Select **Enforced** to block any resources that the CSP doesn't trust.
      - Use **Not enforced** to leave the customized CSP in the report-only header. Use this option for testing and validation before turning on **Enforced** mode.
 5. Click **Save to draft**.
-
-## Style for redirect authentication
-
-You can add any HTML, CSS, or JavaScript to the sign-in page and also customize it [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using redirect authentication, how to use the variables and request context, and also how to bypass the custom sign-in page.
-
-> **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/).
 
 ### Edit the sign-in page
 

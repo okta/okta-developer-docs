@@ -17,6 +17,7 @@ Customize error pages as part of the sign-in flow.
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Custom domain](/docs/guides/custom-url-domain/), unless you're using the [Brands API](#use-the-brands-api)
 * The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
+* A [customized Content Security Policy (CSP)](#content-security-policy-csp-for-your-custom-domain)
 
 **Sample code**
 
