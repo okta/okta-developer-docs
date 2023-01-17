@@ -1,7 +1,5 @@
 ## Verify that the Interaction Code grant type is enabled
 
-<ApiLifecycle access="ea" />
-
 The Interaction Code grant type is a sign-in flow used by embedded applications to connect to Okta. The **Embedded widget sign-in support** setting controls this grant type for all OpenID Connect and API access management servers in your org. With this setting enabled, you can allow or deny apps the ability to use embedded sign-in flows across your entire org. See [Interaction Code grant type](/docs/concepts/interaction-code/) for detailed information on this grant type and how to use it.
 
 > **Note:** [Super Admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) are required. If you don’t have those permissions for your org, contact your administrator.
