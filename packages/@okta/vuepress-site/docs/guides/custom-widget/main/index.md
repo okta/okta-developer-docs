@@ -608,8 +608,11 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 3. Click **Settings**.
 4. In the **Content Security Policy** panel, click **Edit**. Set the following:
    - **Trusted external resources**: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or https://mydomain.com/images. Click **Add**.
-   - **Report UI**: Enter the URI to which you want to send report details.
-   - **Enforcement**: Select **Enforced** to block any resources that the CSP doesn't trust. Use **Not enforced** for testing only.
+     > **Note:** Okta adds these resources to all fetch-directives in the CSP.
+   - **Report UI**: Enter the URI to which you want to send violation report details. The URI entered here appears in the report-uri directive of the CSP.
+   - **Enforcement**:
+     - Select **Enforced** to block any resources that the CSP doesn't trust.
+     - Use **Not enforced** to leave the customized CSP in the report-only header. Use this option for testing and validation before turning on **Enforced** mode.
 5. Click **Save to draft**.
 
 
