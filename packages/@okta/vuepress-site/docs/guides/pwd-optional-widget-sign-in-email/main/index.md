@@ -76,7 +76,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 Okta Identity Engine sends a verification email to the user's primary email address. The email gives the user two ways to verify their identity:
 
-* Copy a one-time password (OTP) from the email into the Sign-In Widget and submit it for verification.
+* Copy a one-time passcode (OTP) from the email into the Sign-In Widget and submit it for verification.
 * Click a "magic link" in the email that submits the OTP to Identity Engine on your behalf.
 
 Your app requires no changes to use OTP since it's built into the Sign-In Widget. However, using magic links requires you to:

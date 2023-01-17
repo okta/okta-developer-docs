@@ -32,7 +32,7 @@ Some topics require more information. Those are covered in other parts of the se
 
 ## IAM concepts
 
-*Identity and Access Management (IAM)* (also called *Identity Security*) secures your services in two ways. First, it verifies the identity of a user both when they sign-in and at other appropriate times. Second, it lets a user access only the parts of your network and services for which they have permission. For example, a customer may require only a username and password and is able to view and buy items. A vendor may also require a one-time password and is able to add and update items, but not buy them.
+*Identity and Access Management (IAM)* (also called *Identity Security*) secures your services in two ways. First, it verifies the identity of a user both when they sign-in and at other appropriate times. Second, it lets a user access only the parts of your network and services for which they have permission. For example, a customer may require only a username and password and is able to view and buy items. A vendor may also require a one-time passcode and is able to add and update items, but not buy them.
 
 ### Workforce and Customer Identity
 

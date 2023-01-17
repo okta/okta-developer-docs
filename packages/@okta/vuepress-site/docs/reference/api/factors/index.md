@@ -1886,6 +1886,7 @@ curl -v -X POST \
 
 #### Enroll Custom TOTP Factor
 
+
 Enrolls a user with a Custom Time-based One-Time Password (TOTP) factor, which uses the TOTP algorithm, an extension of the HMAC-based One-Time Password (HOTP) algorithm. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
 
 A Factor Profile represents a particular configuration of the Custom TOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC algorithm, passcode length, and time interval. There can be multiple Custom TOTP factor profiles per org, but users can only be enrolled for one Custom TOTP factor. Admins can create Custom TOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/okta_help.htm?id=ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:

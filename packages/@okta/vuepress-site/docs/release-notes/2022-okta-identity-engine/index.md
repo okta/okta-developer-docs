@@ -342,7 +342,7 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 #### Bugs fixed in 2022.10.0
 
-* Users were able to make more than five attempts to activate their One-Time Password (OTP) based factors. (OKTA-429940)
+* Users were able to make more than five attempts to activate their one-time passcode (OTP) based factors. (OKTA-429940)
 
 * Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
 
@@ -592,7 +592,7 @@ Before now, Okta Verify was the only solution for using push notifications and b
 
 #### Developer documentation updates in 2022.08.0
 
-A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-overview/aspnet/main/ ) feature in Identity Engine has been added. This covers the differences between using EML and one-time passwords, and how to integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK. <!-- OKTA-507346 -->
+A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-overview/aspnet/main/ ) feature in Identity Engine has been added. This covers the differences between using EML and one-time passcodes, and how to integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK. <!-- OKTA-507346 -->
 
 #### Bug fixed in 2022.08.0
 
@@ -988,7 +988,7 @@ Passwords are weak authenticators and prone to security issues. Currently all us
 
 #### Improved email magic link authentication experience is EA in Preview
 
-Email magic links are enhanced to allow end users to authenticate in two different contexts. The end user can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
+Email magic links are enhanced to allow end users to authenticate in two different contexts. The end user can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time passcode to proceed with authentication. See [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
 
 #### Password as an optional authenticator is EA in Preview
 
