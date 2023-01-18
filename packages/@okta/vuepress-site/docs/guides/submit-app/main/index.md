@@ -128,11 +128,11 @@ If you have questions or need additional support to publish your app integration
 
     > **Note:** If you need to update an integration, see [Update your published integration](#update-your-published-integration).
 
-1. Begin defining your submission by specifying details in the [General settings](#configure-general-settings) and [protocol specific](#configure-protocol-specific-settings) tabs.
+1. Begin defining your submission by specifying details in the [General Settings](#configure-general-settings) and [protocol specific](#configure-protocol-specific-settings) tabs.
 
 ### Configure general settings
 
-On the General Settings page, fill in the basic information about your integration:
+On the **General Settings** tab, fill in the basic information about your integration:
 
 #### App information
 
@@ -188,7 +188,7 @@ For each protocol, click the appropriate tab name and select **On** from the pro
 
    1. From the Okta Admin Console, navigate to **Applications** > **Applications** to see all the integrations in your org.
    1. Click the name of the app integration that you're going to submit.
-   1. On the settings page, confirm that the settings match what you want as the global defaults for all customers.
+   1. Confirm that the app settings match what you want as the global defaults for all customers.
    1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
    1. Back in the OIN Manager, paste that URL in the **Provide the instance URL for your app where Okta will retrieve configuration details** field of your submission protocol tab.
 
