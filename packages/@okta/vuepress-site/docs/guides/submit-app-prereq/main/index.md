@@ -212,7 +212,7 @@ You can't publish integration with the following Okta features in the OIN catalo
 
 * **Unsupported scopes:** <br>
    * `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
-   * Custom scopes, such as the `groups` scope, isn't supported for integrations published in the OIN.
+   * Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
    * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
 * **SAML encryption:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
