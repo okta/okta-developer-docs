@@ -17,8 +17,8 @@ header.page-header .header--logo {
 }
 
 header.page-header .header--logo img {
-  width: 157px;
-  height: 22px;
+  width: 212px;
+  height: 31px;
 }
 
 header.page-header .menu--slideout {
@@ -32,16 +32,20 @@ header.page-header .menu--items:last-child {
 }
 
 header.page-header .search--slideout {
-  flex: 1 1 260px;
-  margin-left: 61px;
-  max-width: 336px;
+  flex: 1 1 auto;
+  margin-left: 50px;
+  max-width: 131px;
+
+  border: 1px solid #fffefa;
+  border-radius: 2px;
 }
 
 header.page-header .header--links {
   display: flex;
   flex: 1 0 auto;
   justify-content: space-between;
-  padding: 0 37px;
+  padding-right: 35px;
+  padding-left: 45px;
 }
 
 header.page-header .header--links ul.menu--items + ul.menu--items {
@@ -421,4 +425,8 @@ header.page-header .link:focus {
   header.page-header .sign-up--button {
     display: none;
   }
+}
+
+.header--links > .menu--items.menu--desktop:first-of-type .link {
+  font-weight: 700;
 }

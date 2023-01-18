@@ -38,7 +38,6 @@
   position: relative;
 
   width: 100%;
-  height: 38px;
 
   border-radius: 4px;
   background-color: #ffffff;
@@ -60,6 +59,7 @@
 
 .search--wrapper .SearchBox .search--form {
   display: flex;
+  height: 48px;
 }
 
 .search--wrapper .SearchBox .search--form .CoveoSearchButton {
@@ -85,15 +85,12 @@
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box {
   width: 100%;
-  height: 38px;
 
   border: none;
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input {
-  height: 38px;
-
-  border-radius: 4px;
+  border-radius: none;
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-clear:before {
@@ -109,33 +106,25 @@
 
   padding-right: 12px;
   padding-left: 40px;
-  height: 38px;
-}
-
-.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
-  content: "";
-
-  position: absolute;
-  top: 13px;
-  left: 10px;
-
-  font: 13px "FontAwesome";
-  color: cv("header");
-}
-
-@include media("<desktop") {
-  .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
-    color: cv("text", "darker");
-  }
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
   padding-right: 12px;
-  padding-left: 40px;
-  height: 38px;
+  padding-left: 20px;
 
-  font-size: 14px;
+  background-color: var(--c-gray-950);
+
+  font-size: 16px;
   font-family: inherit;
+  letter-spacing: 0.02em;
+  color: rgb(255 254 250 / 0.7);
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
+  font-size: 16px;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  color: rgb(255 254 250 / 0.7);
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
@@ -158,7 +147,6 @@
   position: relative;
 
   width: 48px;
-  height: 38px;
 
   background-image: url("/img/icons/icon--close.svg");
   background-position: 50%;
@@ -181,4 +169,14 @@
     border: 1px solid cv("body", "border");
     border-radius: 4px;
   }
+}
+
+.Searchbox__button {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  padding-right: 20px;
+
+  background-color: var(--c-gray-950);
 }
