@@ -3,12 +3,14 @@
     <div class="content--container">
       <Sidebar />
       <div class="width-adjuster">
-        <AnnouncementBanner>
-          <template #description>
-            <strong>We've got a new API reference in the works!</strong><br>
-            With a fresh look and feel, our new API content features a more logical navigation and a wider variety of code examples. <a href="https://developer.okta.com/docs/api/">Try the beta now</a>.
-          </template>
-        </AnnouncementBanner>
+        <section class="hero">
+          <h1 class="hero__title">
+            Okta developer
+          </h1>
+          <p class="hero__paragraph">
+            Our developer portal enables you to deploy auth that protects your users, apps, APIs, and infrastructure.
+          </p>
+        </section>
         <div class="justify-content-center">
           <div class="homepage--elevated">
             <div class="homepage--top-section homepage--section-margins">

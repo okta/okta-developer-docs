@@ -5,8 +5,10 @@
       classes="header--logo"
     >
       <img
-        src="/img/icons/okta-developer.svg"
-        alt="Okta Developer Logo"
+        src="/img/logotype.svg"
+        width="212"
+        height="31"
+        alt="Okta developer logotype"
       >
     </SmartLink>
     <div :class="{ 'menu--slideout': true, opened: menuOpened }">

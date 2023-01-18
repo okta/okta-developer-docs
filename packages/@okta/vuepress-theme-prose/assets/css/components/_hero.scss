@@ -1,0 +1,63 @@
+.hero {
+  --hero-space-x: 80px;
+  --hero-space-y: 30px;
+  --hero-image-url: url("/img/hero/hero-bg-light.png");
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: var(--hero-space-y) var(--hero-space-x);
+
+  background-color: cv("hero", "bg");
+  background-image: var(--hero-image-url);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include media(">tablet") {
+    --hero-space-x: 110px;
+    --hero-space-y: 40px;
+  }
+
+  @include media(">desktop") {
+    --hero-space-x: 135px;
+    --hero-space-y: 52px;
+  }
+}
+
+.dark-theme .hero {
+  --hero-image-url: url("/img/hero/hero-bg-dark.png");
+}
+
+.hero__title,
+.hero__paragraph {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  color: #ffffff;
+}
+
+.hero__title {
+  --hero-title-size: 45px;
+
+  font-size: var(--hero-title-size);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+  color: #fffefa;
+
+  @include media(">tablet") {
+    --hero-title-size: 60px;
+  }
+
+  @include media(">desktop") {
+    --hero-title-size: 72px;
+  }
+}
+
+.hero__paragraph {
+  max-width: 500px;
+
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+}
