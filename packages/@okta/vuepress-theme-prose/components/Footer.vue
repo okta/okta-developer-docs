@@ -2,9 +2,13 @@
   <footer class="app-footer">
     <div class="footer--columns">
       <div class="footer--column need-support">
-        <h4 class="column--header">
-          {{ config.footer_nav.need_support.heading }}
-        </h4> 
+        <img
+          class="column--header"
+          src="/img/logotype.svg"
+          width="212"
+          height="31"
+          alt="Okta developer logotype"
+        >
         <p>
           You can contact your Okta account team or ask us on our
           <SmartLink

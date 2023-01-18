@@ -52,7 +52,7 @@
 }
 
 .app-footer .footer--columns .footer--column {
-  flex: 0 0 170px;
+  flex: 0 0 190px;
 }
 
 .app-footer .footer--columns .footer--column .column--header {
@@ -107,7 +107,7 @@
 }
 
 .app-footer .footer--columns .contact {
-  flex: 0 0 170px;
+  flex: 0 0 190px;
 }
 
 @include media("<desktop-xl") {
@@ -163,6 +163,7 @@
 .app-footer .footer--columns .websites .website {
   display: flex;
   flex-direction: column;
+  align-items: start;
 }
 
 .app-footer .footer--columns .websites .website + .website {
@@ -367,4 +368,22 @@
   .app-footer {
     padding: 60px 0;
   }
+}
+
+.app-footer .link {
+  font-weight: 500;
+}
+
+.app-footer .websites .link {
+  padding-right: 13px;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='7' height='10' viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.5' d='M1 9.00024L5 5.00024L1 1.00024' stroke='%23FFFEFA' stroke-width='1.5'/%3E%3C/svg%3E%0A");
+  background-position: right center;
+  background-repeat: no-repeat;
+
+  line-height: 1;
+}
+
+.app-footer .website .description {
+  font-weight: 500;
 }

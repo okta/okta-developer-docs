@@ -207,17 +207,16 @@ module.exports = ctx => ({
           { text: 'Developer Service Terms', link: '/terms/' },
           { text: 'Site Terms', link: 'https://www.okta.com/terms-of-service/' },
 			 { text: 'Privacy policy', link: 'https://www.okta.com/privacy-policy/', target: '_self' },
-			 { text: 'Copyright', link: '/copyright/' },
+			 { text: 'Copyright & trademarks', link: '/copyright/' },
         ]
       },
       more: {
         heading: 'More Info',
         items: [
-          { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products' },
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
-          { text: 'Change log', link: '/docs/release-notes/' },
+          { text: 'Pricing', link: 'https://www.okta.com/pricing/#workforce-identity-pricing' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
-          { text: 'Auth0 platform', link: 'https://auth0.com/developers' },
+          { text: 'Customer Identity Cloud', link: 'https://auth0.com/developers' },
         ]
       },
       websites: {
