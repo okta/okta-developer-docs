@@ -9,7 +9,7 @@
 
     Click **Save** to add the variable to the list.
 
-    After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
+    After you create the variable, click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
 
   * **Construct your dynamic Redirect URI by copying the variables above and pasting them where applicable**: Provide one or more complete sign-in redirect URIs where Okta sends the OAuth responses for your app integration. You must add at least one valid redirect URI.
 
