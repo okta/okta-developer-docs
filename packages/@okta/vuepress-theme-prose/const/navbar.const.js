@@ -632,8 +632,13 @@ export const guides = [
               },
             ],
           },
-          { title: "Publish an OIN integration",
-              guideName: "submit-app",
+          {
+            title: "OIN submission requirements",
+            guideName: "submit-app-prereq",
+          },
+          {
+            title: "Publish an OIN integration",
+            guideName: "submit-app",
           },
         ],
       },
@@ -664,13 +669,12 @@ export const guides = [
             title: "Set up step-up authn with ACR values",
             guideName: "step-up-authentication"
           },
-          
         ],
       },
       {
         title: "Manage users",
         subLinks: [
-          { 
+          {
             title: "Anything-as-a-Source integration",
             path: "/docs/guides/anything-as-a-source/",
           }

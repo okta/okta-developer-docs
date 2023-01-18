@@ -121,7 +121,7 @@ To register your API service registration:
    * Enter the Okta API scope to grant access from your integration. See [Scope selection](#scope-selection).
    * Click **+ Add Another** and specify additional scopes you want to grant for your integration.
 
-1. Specify the URL to the configuration document for your integration under **Link to configuration guide**. For configuration document guidelines, see [Prepare a customer-facing configuration guide](/docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide).
+1. Specify the URL to the configuration document for your integration under **Link to configuration guide**. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
 
 ### Authorize a test integration
 
