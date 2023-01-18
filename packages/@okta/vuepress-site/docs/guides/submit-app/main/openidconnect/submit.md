@@ -26,7 +26,7 @@
 
   * **Enter your Initiate Login URI**: Provide the complete login URI for your app integration, including the variable names if you're using a per tenant design.
 
-* **Do you require a Post Logout Redirect URI?** (Optional): Include a sign-out Redirect URI if you have a location where you want to send your end user to after they log out of your application.
+* **Do you require a Post Logout Redirect URI?** (Optional): Include a sign-out Redirect URI if you have a location where you want to send your end user after they sign out of your application.
 
   * **Does your Post Logout URI vary per tenant?**: If **Yes**, an additional field appears to assist you in setting up a per tenant configuration. The instructions for adding and using the custom variables are identical to the per tenant instructions for the Redirect URI.
 
