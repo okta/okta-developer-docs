@@ -5,15 +5,13 @@
     </h2>
     <div class="footer--columns">
       <div class="footer--column need-support">
-        <a href="/">
-          <img
-            class="column--header"
-            src="/img/logotype.svg"
-            width="180"
-            height="28"
-            alt="Okta developer logotype"
-          >
-        </a>
+        <img
+          class="column--header"
+          src="/img/logotype.svg"
+          width="212"
+          height="31"
+          alt="Okta developer logotype"
+        >
         <p>
           You can reach us directly at developers@okta.com or ask us on the
           <SmartLink
