@@ -105,6 +105,9 @@
   --c-support-text: var(--c-gray-950);
   --c-support-button-bg: var(--c-gray-950);
   --c-support-button-text: var(--c-lightgray-450);
+  --c-workforce-bg: var(--c-lightgray-450);
+  --c-workforce-text: var(--c-gray-950);
+  --c-workforce-block-bg: var(--c-lightgray-400);
 }
 
 .dark-theme {
@@ -194,6 +197,9 @@
   --c-support-text: var(--c-lightgray-450);
   --c-support-button-bg: var(--c-lightgray-450);
   --c-support-button-text: var(--c-gray-950);
+  --c-workforce-bg: var(--c-gray-990);
+  --c-workforce-text: var(--c-lightgray-450);
+  --c-workforce-block-bg: #30302f;
 }
 
 $colors: (
@@ -342,6 +348,11 @@ $colors: (
   ),
   "theme-toggle": (
     "bg": var(--c-toggle-bg)
+  ),
+  "workforce": (
+    "bg": var(--c-workforce-bg),
+    "text": var(--c-workforce-text),
+    "block-bg": var(--c-workforce-block-bg)
   ),
   "support": (
     "bg": var(--c-support-bg),
