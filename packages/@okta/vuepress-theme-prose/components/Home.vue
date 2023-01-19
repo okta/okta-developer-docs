@@ -11,57 +11,6 @@
             Our developer portal enables you to deploy auth that protects your users, apps, APIs, and infrastructure.
           </p>
         </section>
-        <div class="justify-content-center">
-          <div class="homepage--elevated">
-            <div class="homepage--top-section homepage--section-margins">
-              <div class="row flex align-items-center homepage--intro-heading">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <h1 class="homepage--main-heading homepage--color-main">
-                    Okta Developer Portal
-                  </h1>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <h6>Auth for All</h6>
-                  <p class="homepage--section-description">
-                    Quickly deploy auth that protects your apps,<br>
-                    APIs, and infrastructure
-                  </p>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-12 homepage--sub-heading">
-                  <h2 class="homepage--color-main">
-                    Let’s get started
-                  </h2>
-                </div>
-              </div>
-
-              <div class="homepage--selector-block-margin selector-tiles">
-                <div
-                  v-for="(tile, index) in $page.frontmatter.tiles"
-                  :key="index"
-                  class="selector-tile-item"
-                >
-                  <SelectorTile :tile-data="tile" />
-                </div>
-              </div>
-            </div>
-            <div
-              class="homepage--assurance-block-margin homepage--section-margins"
-            >
-              <div class="row flex justify-content-around">
-                <div
-                  v-for="(assurance, index) in $page.frontmatter.assurances"
-                  :key="index"
-                  class="col-xl-4 col-lg-4 col-md-4 col-sm-12"
-                >
-                  <AssuranceItem :item="assurance" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <GetSupport />
       </div>
     </div>
@@ -73,10 +22,6 @@ export default {
   name: "Home",
   components: {
     Sidebar: () => import("../components/Sidebar"),
-    SelectorTile: () => import("../components/SelectorTile"),
-    AssuranceItem: () => import("../components/AssuranceItem"),
-    CompanyLogos: () => import("../components/CompanyLogos"),
-    SmartLink: () => import("../components/SmartLink"),
     GetSupport: () => import("../components/GetSupport"),
   },
 
