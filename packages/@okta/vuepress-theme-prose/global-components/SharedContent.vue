@@ -38,6 +38,6 @@
 </script>
 <style scoped lang="scss">
 .display-inline {
-    display: inline;
-  }
+  display: inline;
+}
 </style>
