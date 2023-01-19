@@ -60,13 +60,9 @@
                 </div>
               </div>
             </div>
-            <div
-              class="homepage--partners-block-margin homepage--section-margins"
-            >
-              <CompanyLogos />
-            </div>
           </div>
         </div>
+        <GetSupport />
       </div>
     </div>
   </div>
@@ -81,6 +77,7 @@ export default {
     AssuranceItem: () => import("../components/AssuranceItem"),
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
+    GetSupport: () => import("../components/GetSupport"),
   },
 
   data() {

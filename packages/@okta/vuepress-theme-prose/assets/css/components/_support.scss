@@ -1,0 +1,150 @@
+.support {
+  --support-padding-y: 30px;
+  --support-padding-x: 50px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: var(--support-padding-y) var(--support-padding-x);
+
+  background-color: cv("support", "bg");
+
+  @include media(">tablet") {
+    --support-padding-y: 60px;
+    --support-padding-x: 80px;
+  }
+
+  @include media(">desktop") {
+    --support-padding-y: 82px;
+    --support-padding-x: 132px;
+
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "title list" "text list" "link list";
+  }
+}
+
+.support__title {
+  --support-title-text-size: 24px;
+
+  font-size: var(--support-title-text-size);
+  color: cv("support", "text");
+
+  @include media(">tablet") {
+    --support-title-text-size: 40px;
+  }
+
+  @include media(">desktop") {
+    grid-area: title;
+  }
+}
+
+.support__title,
+.support__paragraph {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-weight: 400;
+}
+
+.support__paragraph {
+  --support-paragraph-size: 18px;
+
+  grid-area: text;
+
+  font-size: var(--support-paragraph-size);
+  letter-spacing: 0.005em;
+  color: cv("support", "text");
+
+  &_size_small {
+    --support-paragraph-size: 16px;
+
+    @include media(">tablet") {
+      --support-paragraph-size: 22px;
+    }
+  }
+
+  @include media(">tablet") {
+    --support-paragraph-size: 24px;
+  }
+
+  @include media(">desktop") {
+    grid-area: text;
+  }
+}
+
+.support__link {
+  grid-area: link;
+  justify-self: start;
+  padding: 16px 64px;
+
+  border-radius: 6px;
+  background-color: cv("support", "button-bg");
+
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-decoration: none;
+  color: cv("support", "button-text");
+
+  &:hover {
+    background-color: cv("support", "button-bg");
+
+    color: cv("support", "button-text");
+  }
+
+  @include media(">desktop") {
+    grid-area: link;
+  }
+}
+
+.support__list {
+  --support-list-gap: 20px;
+
+  position: relative;
+
+  display: flex;
+  grid-area: list;
+  flex-direction: column;
+  gap: var(--support-list-gap);
+  padding-top: 30px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: #afaba1;
+
+    @include media(">desktop") {
+      width: 1px;
+      height: 100%;
+    }
+  }
+
+  @include media(">tablet") {
+    --support-list-gap: 35px;
+  }
+
+  @include media(">desktop") {
+    --support-list-gap: 52px;
+
+    grid-area: list;
+    justify-content: center;
+    padding-top: 0;
+    padding-left: 52px;
+  }
+}
+
+.support__list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

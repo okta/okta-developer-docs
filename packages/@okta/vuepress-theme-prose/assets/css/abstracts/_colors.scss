@@ -24,6 +24,7 @@
   --c-blue-900: #00297a;
   --c-blue-whale: #142430;
   --c-success-lightest: #e5fff6;
+  --c-lightgray-450: #fffefa;
   --c-success-base: #00d1b3;
   --c-success-dark: #00a08e;
   --c-action-lightest: #e5edfb;
@@ -100,10 +101,15 @@
   --c-custom-bg-icon: var(--c-blue-000);
   --c-body-gray: var(--c-dark-gray);
   --c-hero-bg: var(--c-blue-100);
+  --c-support-bg: var(--c-lightgray-450);
+  --c-support-text: var(--c-gray-950);
+  --c-support-button-bg: var(--c-gray-950);
+  --c-support-button-text: var(--c-lightgray-450);
 }
 
 .dark-theme {
   // PALETTE DARK THEME
+  --c-gray-990: #222221;
   --c-gray-950: #191919;
   --c-gray-900: #17171b;
   --c-gray-800: #1d1d21;
@@ -116,6 +122,7 @@
   --c-gray-100: #ebebed;
   --c-gray-000: #f5f5f6;
   --c-lightgray-400: #f6f1e7;
+  --c-lightgray-450: #fffefa;
   --c-checkbox-border: #c1c1c8;
   --c-cyan-base: #30c0bc;
   --c-lightgray: #212125;
@@ -183,6 +190,10 @@
   --c-custom-bg-gray: var(--c-gray-900);
   --c-custom-bg-icon: var(--c-blue-000);
   --c-hero-bg: var(--c-gray-950);
+  --c-support-bg: var(--c-gray-990);
+  --c-support-text: var(--c-lightgray-450);
+  --c-support-button-bg: var(--c-lightgray-450);
+  --c-support-button-text: var(--c-gray-950);
 }
 
 $colors: (
@@ -331,5 +342,12 @@ $colors: (
   ),
   "theme-toggle": (
     "bg": var(--c-toggle-bg)
-  )
+  ),
+  "support": (
+    "bg": var(--c-support-bg),
+    "text": var(--c-support-text),
+    "link": var(--c-support-link),
+    "button-bg": var(--c-support-button-bg),
+    "button-text": var(--c-support-button-text)
+  ),
 );
