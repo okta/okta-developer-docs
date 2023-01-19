@@ -15,6 +15,7 @@
           :items="workforce"
         />
         <Resources />
+        <News />
         <GetSupport />
       </div>
     </div>
@@ -28,6 +29,7 @@ export default {
     Sidebar: () => import("../components/Sidebar"),
     WorkForce: () => import("../components/Workforce"),
     Resources: () => import("../components/Resources"),
+    News: () => import("../components/News"),
     GetSupport: () => import("../components/GetSupport"),
   },
   data() {
