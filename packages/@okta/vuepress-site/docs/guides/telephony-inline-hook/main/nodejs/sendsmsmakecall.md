@@ -17,6 +17,7 @@ function sendSms(from, userPhoneNumber, userOtpCode, response) {
 function makeCall(from, to, otp, response) {
   // Add space to OTP digits for correct pronunciation
   otp = otp.replace(/\B(?=(\d{1})+(?!\d))/g, " ");
+  otp = "?otp=" + otp;
   const url = encodeURI(process.env.TWIML_URL + otp);
 
   client.calls

@@ -59,6 +59,7 @@ guides:
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
+ - submit-app-prereq
  - deployment-checklist
  - deploy-your-app
  - protect-your-api
