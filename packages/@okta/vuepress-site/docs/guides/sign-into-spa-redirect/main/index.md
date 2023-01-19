@@ -26,6 +26,12 @@ Add authentication with Okta's [redirect model](https://developer.okta.com/docs/
 
 > **Note**: For server-side web apps, see [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/) instead. To protect the API your SPA calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).
 
+# BEGIN SHARED CONTENT
+
+<SharedContent contentName="dev-account-signup-cli" />
+
+# END SHARED CONTENT
+
 ## Set up Okta
 
 Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is the quickest way to work with your Okta org, so we recommend using it for the first few steps. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead. We provide non-CLI instructions along with the CLI steps below.

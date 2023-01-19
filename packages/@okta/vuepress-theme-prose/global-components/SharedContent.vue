@@ -1,5 +1,8 @@
 <template>
-  <Content :class="{'display-inline': inline }" :pageKey="sharedComponentKey"></Content>
+  <Content
+    :class="{'display-inline': inline }"
+    :page-key="sharedComponentKey"
+  />
 </template>
   
 <script>
@@ -34,7 +37,7 @@
   };
 </script>
 <style scoped lang="scss">
-  .display-inline {
+.display-inline, .display-inline > p {
     display: inline;
   }
 </style>

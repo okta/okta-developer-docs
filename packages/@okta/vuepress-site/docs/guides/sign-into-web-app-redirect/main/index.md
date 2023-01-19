@@ -16,11 +16,17 @@ Add authentication with Okta's [redirect model](https://developer.okta.com/docs/
 
 **Sample code**
 
-<StackSnippet snippet="samplecode" />
+<StackSnippet contentName="samplecode" />
 
 ---
 
 > **Note**: For single-page (browser) apps, see [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/). For servers returning non-HTML API responses, see [Protect your API endpoints](/docs/guides/protect-your-api/).
+
+# BEGIN SHARED CONTENT
+
+<SharedContent snippet="dev-account-signup-cli" />
+
+# END SHARED CONTENT
 
 ## Set up Okta
 

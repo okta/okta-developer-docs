@@ -25,6 +25,19 @@ Add authentication using the Okta [redirect model](https://developer.okta.com/do
 
 ---
 
+# BEGIN INLINE SHARED CONTENT DEMO
+
+The following inline text is shared: <SharedContent contentName="just-a-sample" inline />. Single source of truth is now possible.
+
+# END INLINE SHARED CONTENT DEMO
+
+
+# BEGIN SHARED CONTENT
+
+<SharedContent contentName="dev-account-signup-cli" />
+
+# END SHARED CONTENT
+
 ## Set up Okta
 
 Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is by far the quickest way to work with your Okta org, so we recommend using it for the first few steps. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead. We provide non-CLI instructions along with the CLI steps below.

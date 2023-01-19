@@ -1,1 +1,1 @@
-This is just a sample for development purpose
+This is just a sample for development purposes
