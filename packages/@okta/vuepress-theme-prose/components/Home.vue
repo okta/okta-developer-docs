@@ -1,5 +1,6 @@
 <template>
   <div class="homepage content">
+    <HomeModal />
     <div class="content--container">
       <Sidebar />
       <div class="width-adjuster">
@@ -26,6 +27,7 @@
 export default {
   name: "Home",
   components: {
+    HomeModal: () => import("../components/HomeModal"),
     Sidebar: () => import("../components/Sidebar"),
     WorkForce: () => import("../components/Workforce"),
     Resources: () => import("../components/Resources"),
