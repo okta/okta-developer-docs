@@ -51,4 +51,6 @@ SMS and voice requests are now blocked if an internal machine-learning-based tol
 
 * A list security questions request (`/users/&{userId}/factors/questions`) resulted in an unexpected question and error in the response. (OKTA-525478)
 
+* The Log Streaming API returned the Splunk Cloud `token` property in the response body. (OKTA-437264)
+
 * When an org had the Custom OTP, RSA SecurID, and YubiKey authenticators enabled and the `enroll_amr_values` parameter value was `otp`, users were prompted to enroll in all three authenticators rather than just Custom OTP. (OKTA-545674)
