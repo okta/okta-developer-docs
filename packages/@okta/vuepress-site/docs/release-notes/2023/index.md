@@ -4,6 +4,18 @@ title: Okta API Products release notes 2023
 
 ## January
 
+### Weekly release 2023.01.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2023.01.1](#bugs-fixed-in-2023-01-1)                       |January 19, 2023           |
+
+#### Bugs fixed in 2023.01.1
+
+* Requests failed when an admin used a group limit in an expression that was more than 100 (for example, `getFilteredGroups(groupallowlist, group_expression, 101)`). (OKTA-565041)
+
+* Requests failed when an admin used a group limit in an expression that was less than the number of groups that satisfied the request (for example, `Groups.startsWith("active_directory","eai_",10)`). (OKTA-556056)
+
 ### Monthly release 2023.01.0
 
 | Change | Expected in Preview Orgs |
