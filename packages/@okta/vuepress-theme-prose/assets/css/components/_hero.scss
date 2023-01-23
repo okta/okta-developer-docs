@@ -33,7 +33,7 @@
   margin-top: 0;
   margin-bottom: 0;
 
-  color: #ffffff;
+  color: #fffefa;
 }
 
 .hero__title {
@@ -43,7 +43,6 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-transform: capitalize;
-  color: #fffefa;
 
   @include media(">tablet") {
     --hero-title-size: 60px;

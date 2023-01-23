@@ -1,25 +1,12 @@
 <template>
   <div class="homepage content">
     <Dialog />
-    <div class="content--container">
-      <Sidebar />
-      <div class="width-adjuster">
-        <section class="hero">
-          <h1 class="hero__title">
-            Okta developer
-          </h1>
-          <p class="hero__paragraph">
-            Our developer portal enables you to deploy auth that protects your users, apps, APIs, and infrastructure.
-          </p>
-        </section>
-        <WorkForce
-          :items="workforce"
-        />
-        <Resources />
-        <News />
-        <GetSupport />
-      </div>
-    </div>
+    <Sidebar />
+    <Hero />
+    <WorkForce :items="workforce" />
+    <Resources />
+    <News />
+    <GetSupport />
   </div>
 </template>
 
@@ -28,6 +15,7 @@ export default {
   name: "Home",
   components: {
     Dialog: () => import("../components/Dialog"),
+    Hero: () => import("../components/Hero"),
     Sidebar: () => import("../components/Sidebar"),
     WorkForce: () => import("../components/Workforce"),
     Resources: () => import("../components/Resources"),
