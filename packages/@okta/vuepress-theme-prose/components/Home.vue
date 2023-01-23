@@ -6,7 +6,7 @@
     <WorkForce :items="workforce" />
     <Resources />
     <News />
-    <GetSupport />
+    <Support class="homepage__support" />
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
     WorkForce: () => import("../components/Workforce"),
     Resources: () => import("../components/Resources"),
     News: () => import("../components/News"),
-    GetSupport: () => import("../components/GetSupport"),
+    Support: () => import("../components/Support"),
   },
   data() {
     return {

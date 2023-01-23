@@ -1,35 +1,35 @@
 <template>
   <section class="support">
-    <h2 class="support__title">
+    <h2 class="support__title dont-break-out">
       Get support
     </h2>
-    <p class="support__paragraph">
+    <p class="support__paragraph dont-break-out">
       Search or post a question in the WIC Developer Forum.
     </p>
     <a
-      class="support__link"
+      class="support__link dont-break-out"
       href="https://devforum.okta.com"
     >
       Search the forum
     </a>
     <ul class="support__list">
       <li class="support__list-item">
-        <p class="support__paragraph support__paragraph_size_small">
+        <p class="support__paragraph support__paragraph_size_small dont-break-out">
           Looking for WIC SDKs?
         </p>
         <a
-          class="support__list-link"
+          class="support__list-link dont-break-out"
           href="https://github.com/okta"
         >
           Visit the Okta GitHub repos
         </a>
       </li>
       <li class="support__list-item">
-        <p class="support__paragraph support__paragraph_size_small">
+        <p class="support__paragraph support__paragraph_size_small dont-break-out">
           Looking for WIC product docs?
         </p>
         <a
-          class="support__list-link"
+          class="support__list-link dont-break-out"
           href="https://support.okta.com/help/s/?language=en_US"
         >
           Visit Okta Help Center
@@ -38,3 +38,9 @@
     </ul>
   </section>
 </template>
+
+<script>
+  export default {
+    name: "Support"
+  }
+</script>

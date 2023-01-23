@@ -1,10 +1,11 @@
 .support {
   --support-padding-y: 30px;
   --support-padding-x: 50px;
+  --support-gap: 30px;
 
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: var(--support-gap);
   padding: var(--support-padding-y) var(--support-padding-x);
 
   background-color: cv("support", "bg");
@@ -12,11 +13,13 @@
   @include media(">tablet") {
     --support-padding-y: 60px;
     --support-padding-x: 80px;
+    --support-gap: 40px;
   }
 
   @include media(">desktop") {
     --support-padding-y: 82px;
     --support-padding-x: 132px;
+    --support-gap: 50px;
 
     display: grid;
     grid-template-rows: repeat(3, auto);
@@ -139,7 +142,7 @@
     grid-area: list;
     justify-content: center;
     padding-top: 0;
-    padding-left: 52px;
+    padding-left: 59px;
   }
 }
 
