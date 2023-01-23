@@ -55,6 +55,8 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 4. Enter a name for your app integration and click **Save**.
 
+5. Optionally, click the **Application rate limits** tab to adjust the percentage rate limit capacity for this service application. By default, each new application has this percentage set at 50%.
+
 ## Generate the JWK using the API
 
 The `private_key_jwt` client authentication method is the only supported method for OAuth service apps that want to get access tokens with Okta scopes.
