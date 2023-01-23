@@ -20,9 +20,9 @@
         </p>
       </div>
       <div class="footer--column social">
-        <h4 class="column--header">
+        <p class="column--header">
           {{ config.footer_nav.social.heading }}
-        </h4>
+        </p>
         <ul class="link-list">
           <li
             v-for="(item, itemIndex) in config.footer_nav.social.items"
@@ -44,9 +44,9 @@
         </ul>
       </div>
       <div class="footer--column contact">
-        <h4 class="column--header">
+        <p class="column--header">
           {{ config.footer_nav.contact.heading }}
-        </h4>
+        </p>
         <ul class="link-list">
           <li
             v-for="(item, itemIndex) in config.footer_nav.contact.items"
@@ -63,9 +63,9 @@
         </ul>
       </div>
       <div class="footer--column more">
-        <h4 class="column--header">
+        <p class="column--header">
           {{ config.footer_nav.more.heading }}
-        </h4>
+        </p>
         <ul class="link-list">
           <li
             v-for="(item, itemIndex) in config.footer_nav.more.items"
