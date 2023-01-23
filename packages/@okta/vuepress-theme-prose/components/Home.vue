@@ -1,12 +1,12 @@
 <template>
   <div class="homepage content">
-    <Dialog />
     <Sidebar />
     <Hero />
     <WorkForce :items="workforce" />
     <Resources />
     <News />
     <Support class="homepage__support" />
+    <Dialog />
   </div>
 </template>
 
