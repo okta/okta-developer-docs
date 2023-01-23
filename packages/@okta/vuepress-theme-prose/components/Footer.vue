@@ -1,5 +1,8 @@
 <template>
   <footer class="app-footer">
+    <h2 class="visually-hidden">
+      Additional links
+    </h2>
     <div class="footer--columns">
       <div class="footer--column need-support">
         <img
@@ -20,9 +23,9 @@
         </p>
       </div>
       <div class="footer--column social">
-        <p class="column--header">
+        <h3 class="column--header">
           {{ config.footer_nav.social.heading }}
-        </p>
+        </h3>
         <ul class="link-list">
           <li
             v-for="(item, itemIndex) in config.footer_nav.social.items"
@@ -44,9 +47,9 @@
         </ul>
       </div>
       <div class="footer--column contact">
-        <p class="column--header">
+        <h3 class="column--header">
           {{ config.footer_nav.contact.heading }}
-        </p>
+        </h3>
         <ul class="link-list">
           <li
             v-for="(item, itemIndex) in config.footer_nav.contact.items"
@@ -63,9 +66,9 @@
         </ul>
       </div>
       <div class="footer--column more">
-        <p class="column--header">
+        <h3 class="column--header">
           {{ config.footer_nav.more.heading }}
-        </p>
+        </h3>
         <ul class="link-list">
           <li
             v-for="(item, itemIndex) in config.footer_nav.more.items"
