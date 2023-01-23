@@ -1,6 +1,9 @@
 .resources {
   --resources-padding-x: 50px;
 
+  display: flex;
+  flex-direction: column;
+  row-gap: 13px;
   padding: 30px var(--resources-padding-x);
   padding-top: 0;
 
@@ -25,7 +28,7 @@
 
 .resources__title {
   margin-top: 0;
-  margin-bottom: 13px;
+  margin-bottom: 0;
 
   font-weight: 500;
   font-size: 24px;
@@ -34,7 +37,7 @@
 
 .resources__subtitle {
   margin-top: 0;
-  margin-bottom: 13px;
+  margin-bottom: 0;
 
   font-weight: 400;
   font-size: 26px;
@@ -50,8 +53,6 @@
   position: relative;
 
   display: block;
-  align-self: center;
-  margin-bottom: 13px;
   padding-left: 20px;
 
   font-weight: 500;
@@ -75,11 +76,15 @@
 
     transform: translateY(-50%);
   }
+
+  @include media(">desktop") {
+    align-self: center;
+  }
 }
 
 .resources__paragraph {
   margin-top: 0;
-  margin-bottom: 13px;
+  margin-bottom: 0;
   max-width: 600px;
 
   font-size: 20px;
@@ -92,7 +97,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 13px;
 
   font-weight: 500;
   font-size: 20px;
