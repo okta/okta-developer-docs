@@ -14,9 +14,9 @@
     </a>
     <ul class="support__list">
       <li class="support__list-item">
-        <p class="support__paragraph support__paragraph_size_small dont-break-out">
+        <h3 class="support__paragraph support__paragraph_size_small dont-break-out">
           Looking for WIC SDKs?
-        </p>
+        </h3>
         <a
           class="support__list-link dont-break-out"
           href="https://github.com/okta"
@@ -25,9 +25,9 @@
         </a>
       </li>
       <li class="support__list-item">
-        <p class="support__paragraph support__paragraph_size_small dont-break-out">
+        <h3 class="support__paragraph support__paragraph_size_small dont-break-out">
           Looking for WIC product docs?
-        </p>
+        </h3>
         <a
           class="support__list-link dont-break-out"
           href="https://support.okta.com/help/s/?language=en_US"
