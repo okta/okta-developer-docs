@@ -194,6 +194,7 @@ paths:
     put:
       tags:
         - User
+        - OIN
         - Custom Apps
       summary: Fully update/replace a user.
       operationId: updateUser
