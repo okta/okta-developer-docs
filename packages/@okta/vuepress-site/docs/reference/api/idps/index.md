@@ -1221,6 +1221,14 @@ curl -v -X POST \
   "type": "X509",
   "status": "ACTIVE",
   "name": "Smart Card IDP Name",
+  "properties": {
+    "additionalAmr": [
+      "sc",
+      "hwk",
+      "pin",
+      "mfa",
+    ]
+  },
   "protocol": {
     "type": "MTLS",
     "credentials": {
@@ -1259,6 +1267,14 @@ curl -v -X POST \
   "status": "ACTIVE",
   "created": "2020-01-07T00:19:27.000Z",
   "lastUpdated": "2020-01-07T00:19:27.000Z",
+  "properties": {
+    "additionalAmr": [
+      "sc",
+      "hwk",
+      "pin",
+      "mfa",
+    ]
+  },
   "protocol": {
     "type": "MTLS",
     "endpoints": {
@@ -2017,6 +2033,14 @@ curl -v -X GET \
   "status": "ACTIVE",
   "created": "2020-01-07T00:19:27.000Z",
   "lastUpdated": "2020-01-07T00:19:27.000Z",
+  "properties": {
+    "additionalAmr": [
+      "sc",
+      "hwk",
+      "pin",
+      "mfa",
+    ]
+  },
   "protocol": {
     "type": "MTLS",
     "endpoints": {
@@ -4780,7 +4804,7 @@ All Identity Providers have the following properties:
 | protocol     | Protocol settings for IdP `type`                           | [Protocol object](#protocol-object)                                       | FALSE | FALSE | FALSE |   |     |
 | status       | Status of the IdP                                          | `ACTIVE` or `INACTIVE`                                                    | FALSE | FALSE | TRUE  |   |     |
 | type         | Type of IdP                                                  | [Identity Provider Type](#identity-provider-type)                         | FALSE    | FALSE  | FALSE    |           |           |
-| properties         | Properties specific to the type of IdP                                                  | [Identity Provider Properties](#identity-provider-properties)                         | TRUE    | FALSE  | FALSE    |           |           |
+| properties <ApiLifecycle access="ea" /> | Properties specific to the type of IdP                                                  | [Identity Provider Properties](#identity-provider-properties)                         | TRUE    | FALSE  | FALSE    |           |           |
 
 #### Property details
 
@@ -4797,6 +4821,8 @@ All Identity Providers have the following properties:
   All new social IdPs use the `DYNAMIC` issuerMode by default. All existing social IdPs continue to use the `issuerMode` they were configured with (`ORG_URL` or `CUSTOM_URL`). You can change this value in any social IdP through the API or Admin Console.
 
 * The [Protocol object](#protocol-object) (`protocol`) and [Policy object](#policy-object) (`policy`) are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
+
+* The properties in the [Identity Provider Properties](#identity-provider-properties) object are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
 
 ### Identity Provider type
 
