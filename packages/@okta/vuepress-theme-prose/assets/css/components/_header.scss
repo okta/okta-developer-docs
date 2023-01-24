@@ -35,9 +35,10 @@ header.page-header .search--slideout {
   flex: 1 1 auto;
   margin-left: 50px;
   max-width: 131px;
+  overflow: hidden;
 
-  border: 1px solid #fffefa;
-  border-radius: 2px;
+  border: 1.5px solid #fffefa;
+  border-radius: 6px;
 }
 
 header.page-header .header--links {
