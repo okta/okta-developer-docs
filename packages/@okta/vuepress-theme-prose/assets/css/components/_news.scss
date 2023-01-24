@@ -1,28 +1,27 @@
 .news {
-  --news-padding-x: 50px;
+  background-color: cv("workforce", "bg");
+}
 
+.news__main-wrapper {
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
-  padding: 30px var(--news-padding-x);
-  padding-top: 0;
-
-  background-color: cv("workforce", "bg");
+  padding-top: 30px;
+  padding-bottom: 30px;
 
   @include media(">tablet") {
     --news-padding-x: 80px;
 
-    padding-bottom: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   @include media(">desktop") {
-    --news-padding-x: 132px;
-
     display: grid;
     grid-template-rows: repeat(2, auto);
-    grid-template-columns: repeat(4, 1fr);
-
-    padding-bottom: 113px;
+    grid-template-columns: 1fr repeat(2, 296px);
+    padding-top: 44.5px;
+    padding-bottom: 56.5px;
   }
 }
 
@@ -63,7 +62,7 @@
 
     @include media(">desktop") {
       grid-row: span 2;
-      grid-column: span 2;
+      grid-column: span 1;
     }
   }
 }
