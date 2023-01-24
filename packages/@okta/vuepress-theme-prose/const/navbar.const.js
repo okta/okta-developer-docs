@@ -8,15 +8,15 @@ export const concepts = [
         path: "/docs/concepts/api-access-management/",
       },
       {
-        title: "Authorization Servers",
+        title: "Authorization servers",
         path: "/docs/concepts/auth-servers/",
       },
       {
-        title: "Event Hooks",
+        title: "Event hooks",
         path: "/docs/concepts/event-hooks/",
       },
       {
-        title: "Events API Migration",
+        title: "Events API migration",
         path: "/docs/concepts/events-api-migration/",
       },
       {
@@ -24,11 +24,11 @@ export const concepts = [
         path: "/docs/concepts/identity-providers/",
       },
       {
-        title: "Feature Lifecycle Management",
+        title: "Feature lifecycle management",
         path: "/docs/concepts/feature-lifecycle-management/",
       },
       {
-        title: "Role Assignment",
+        title: "Role assignment",
         path: "/docs/concepts/role-assignment/",
       },
       {
@@ -36,7 +36,7 @@ export const concepts = [
         path: "/docs/concepts/how-okta-works/",
       },
       {
-        title: "Inline Hooks",
+        title: "Inline hooks",
         path: "/docs/concepts/inline-hooks/",
       },
       {
@@ -44,7 +44,7 @@ export const concepts = [
         path: "/docs/concepts/interaction-code/",
       },
       {
-        title: "Key Rotation",
+        title: "Key rotation",
         path: "/docs/concepts/key-rotation/",
       },
       {
@@ -64,15 +64,15 @@ export const concepts = [
         path: "/docs/concepts/redirect-vs-embedded/",
       },
       {
-        title: "Okta Data Model",
+        title: "Okta data model",
         path: "/docs/concepts/okta-data-model/",
       },
       {
-        title: "Okta Identity Engine Overview",
+        title: "Okta Identity Engine overview",
         path: "/docs/concepts/oie-intro/",
       },
       {
-        title: "Okta Organizations",
+        title: "Okta organizations",
         path: "/docs/concepts/okta-organizations/",
       },
       {
@@ -84,7 +84,7 @@ export const concepts = [
         path: "/docs/concepts/session/",
       },
       {
-        title: "User Profiles",
+        title: "User profiles",
         path: "/docs/concepts/user-profiles/",
       },
       {
@@ -188,7 +188,7 @@ export const guides = [
                   },
                   {
                     title:
-                      "SDK, Widget, sample apps",
+                      "SDK, widget, sample apps",
                     guideName: "oie-embedded-common-download-setup-app",
                   },
                   {
@@ -202,7 +202,7 @@ export const guides = [
                 guideName: "auth-js",
               },
               {
-                title: "Embedded Widget fundamentals",
+                title: "Embedded widget fundamentals",
                 guideName: "embedded-siw",
               },
               {
@@ -240,7 +240,7 @@ export const guides = [
                 title: "Embedded SDK use cases",
                 subLinks: [
                   {
-                    title: "Basic sign-in with password",
+                    title: "Basic sign-in flow with password",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-in",
                   },
                   {
@@ -286,11 +286,11 @@ export const guides = [
                     ]
                   },
                   {
-                    title: "Load the Widget",
+                    title: "Load the widget",
                     guideName: "oie-embedded-widget-use-case-load",
                   },
                   {
-                    title: "Basic sign-in",
+                    title: "Basic sign-in flow",
                     guideName: "oie-embedded-widget-use-case-basic-sign-in",
                   },
                   {
@@ -328,7 +328,7 @@ export const guides = [
             ],
           },
           {
-            title: "User-Scoped account management",
+            title: "User-scoped account management",
             guideName: "configure-user-scoped-account-management",
           },
           {
@@ -375,7 +375,7 @@ export const guides = [
                 guideName: "add-an-external-idp"
               },
               {
-                title: "Social Login",
+                title: "Social login",
                 guideName: "social-login"
               },
             ],
@@ -711,27 +711,27 @@ export const guides = [
         title: "Hooks",
         subLinks: [
           {
-            title: "Common Hook Set-up Steps",
+            title: "Common hook set-up steps",
             guideName: "common-hook-set-up-steps",
           },
           {
-            title: "Event Hook",
+            title: "Event hook",
             guideName: "event-hook-implementation",
           },
           {
-            title: "Event Hooks with ngrok",
+            title: "Event hooks with ngrok",
             guideName: "event-hook-ngrok",
           },
           {
-            title: "Event Hooks with Hookdeck",
+            title: "Event hooks with Hookdeck",
             guideName: "event-hook-hookdeck",
           },
           {
-            title: "Password Import Inline Hook",
+            title: "Password import inline hook",
             guideName: "password-import-inline-hook",
           },
           {
-            title: "Registration Inline Hook",
+            title: "Registration inline hook",
             guideName: "registration-inline-hook",
           },
           {
@@ -739,11 +739,11 @@ export const guides = [
           guideName: "saml-inline-hook"
           },
           {
-            title: "Telephony Inline Hook",
+            title: "Telephony inline hook",
             guideName: "telephony-inline-hook",
           },
           {
-            title: "Token Inline Hook",
+            title: "Token inline hook",
             guideName: "token-inline-hook",
           },
         ],
@@ -757,11 +757,11 @@ export const guides = [
             guideName: "archive-auth-js",
           },
           {
-            title: "Configure Sign-On Policies",
+            title: "Configure sign-on policies",
             guideName: "archive-configure-signon-policy",
           },
           {
-            title: "Embedded Widget fundamentals",
+            title: "Embedded widget fundamentals",
             guideName: "archive-embedded-siw",
           },
           {
@@ -770,7 +770,7 @@ export const guides = [
             description: true
           },
           {
-            title: "Sign in to SPA: Embedded Widget",
+            title: "Sign in to SPA: Embedded widget",
             guideName: "archive-sign-in-to-spa-embedded-widget",
             description: true
           },
@@ -780,7 +780,7 @@ export const guides = [
             guideName: "mfa",
           },
           {
-            title: "Registration Inline Hook",
+            title: "Registration inline hook",
             guideName: "archive-registration-inline-hook"
           },
           {

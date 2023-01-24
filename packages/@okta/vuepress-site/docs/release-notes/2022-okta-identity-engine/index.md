@@ -10,7 +10,7 @@ title: Okta Identity Engine API Products release notes 2022
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Bug fixed in 2022.12.3](#bugs-fixed-in-2022-12-3)                       |January 5, 2023           |
+| [Bug fixed in 2022.12.3](#bug-fixed-in-2022-12-3)                       |January 5, 2023           |
 
 #### Bug fixed in 2022.12.3
 
@@ -128,7 +128,12 @@ Okta provides the Okta Sign-In Widget out of the box so that customers can authe
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
+| [Improvements to self-service account activities for AD and LDAP users are EA in Preview](#improvements-to-self-service-account-activities-for-ad-and-ldap-users-are-ea-in-preview)            |November 30, 2022            |
 | [Bugs fixed in 2022.11.1](#bugs-fixed-in-2022-11-1)                      | November 30, 2022            |
+
+#### Improvements to self-service account activities for AD and LDAP users are EA in Preview
+
+Previously, the self-service unlock (SSU) and self-service password reset (SSPR) flows created unnecessary friction for AD and LDAP users. This feature enhancement introduces a seamless magic link experience in emails sent to unlock accounts and reset passwords. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the application. See [Customize email notifications](/docs/guides/custom-email/main/#use-vtl-variables). <!--OKTA-546374-->
 
 #### Bugs fixed in 2022.11.1
 
