@@ -58,6 +58,12 @@
   }
 }
 
+.dark-theme .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input::before {
+  z-index: 1;
+
+  color: var(--c-border-light);
+}
+
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input {
   height: 38px;
 
