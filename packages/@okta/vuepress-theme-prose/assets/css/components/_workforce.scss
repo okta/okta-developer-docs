@@ -1,22 +1,17 @@
 .workforce {
-  --workforce-padding-x: 50px;
-
-  padding: 30px var(--workforce-padding-x);
+  padding-top: 30px;
+  padding-bottom: 30px;
 
   background-color: cv("workforce", "bg");
 
   @include media(">tablet") {
-    --workforce-padding-x: 80px;
-
     padding-top: 50px;
     padding-bottom: 50px;
   }
 
   @include media(">desktop") {
-    --workforce-padding-x: 132px;
-
     padding-top: 75px;
-    padding-bottom: 116px;
+    padding-bottom: 58px;
   }
 }
 
@@ -210,6 +205,8 @@
 .workforce__block-text {
   margin-bottom: 0;
   max-width: 528px;
+
+  font-size: 20px;
 }
 
 .workforce__list {
@@ -220,4 +217,8 @@
   @include media(">desktop") {
     gap: 10px;
   }
+}
+
+.workforce__list-link {
+  font-size: 18px;
 }
