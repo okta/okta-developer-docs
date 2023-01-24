@@ -1,6 +1,6 @@
 <template>
   <Content
-    :class="{'display-inline': inline }"
+    :class="{'display-inline-shared-content': inline }"
     :page-key="sharedComponentKey"
   />
 </template>
@@ -37,7 +37,11 @@
   };
 </script>
 <style scoped lang="scss">
-.display-inline {
-  display: inline;
-}
+.display-inline-shared-content {
+    display: inline;
+  }
+  .display-inline-shared-content > div,
+  .display-inline-shared-content::v-deep p {
+    display: inline;
+  }
 </style>
