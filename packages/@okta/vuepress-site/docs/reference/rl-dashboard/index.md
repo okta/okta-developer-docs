@@ -14,6 +14,8 @@ The rate limit dashboard is a tool that helps you understand the use of each API
 * The ability to track rate limits by API token, OAuth 2.0 application, or IP address.
 * The ability for you to investigate the issue when an API has reached the rate limit.
 
+> **Note:** Rate limits by OAuth 2.0 application is in <ApiLifecycle access="ea" />.
+
 The following describes some typical reasons for viewing the dashboard:
 
 * You want to open the rate limits report to proactively monitor rate limit usage, and to manage rate limit settings and the warning threshold. See [Rate limit monitoring](#rate-limit-monitoring).
