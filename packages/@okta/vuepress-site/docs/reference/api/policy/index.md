@@ -1252,7 +1252,7 @@ The authenticator enrollment policy controls which authenticators are available 
 <ApiLifecycle access="ie" />
 <ApiLifecycle access="ea" />
 
-> **Note:** Allow List for FIDO2 (WebAuthn) Authenticators is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. You can enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+> **Note:** Allow List for FIDO2 (WebAuthn) Authenticators is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
 You can configure which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments by defining WebAuthn authenticator groups, then specifying which groups are in the allow list for enrollments. The authenticators in the group are based on FIDO Alliance Metadata Service that is identified by name or the Authenticator Attestation Global Unique Identifier ([AAGUID](https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs)) number. These groups are defined in the [WebAuthn authenticator methods](/docs/reference/api/authenticators-admin/#example-webauthn-authenticator) endpoint.
 
