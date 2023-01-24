@@ -20,6 +20,8 @@ title: Okta Identity Engine API Products release notes 2023
 
 * The `idp` property was missing in token inline hook requests. (OKTA-553322)
 
+* A list security questions request (`/users/${userId}/factors/questions`) resulted in a null custom security question and answer included in the response. (OKTA-567970)
+
 ### Monthly release 2023.01.0
 
 | Change | Expected in Preview Orgs |
