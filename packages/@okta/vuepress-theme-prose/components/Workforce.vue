@@ -7,9 +7,9 @@
       Start with <strong>Learn</strong> if you’re new to Workforce Identity Cloud (WIC). Otherwise find the step you need and follow a link.
     </p>
     <article
-      class="workforce__article"
       v-for="(item, index) in items"
       :key="index"
+      class="workforce__article"
     >
       <h3 class="workforce__article-title dont-break-out">
         {{ item.title }}
@@ -20,9 +20,9 @@
       >
       <ul class="workforce__block">
         <li
-          class="workforce__block-item"
           v-for="(block, index) in item.block"
           :key="index"
+          class="workforce__block-item"
         >
           <div class="workforce__block-wrapper">
             <h4 class="workforce__block-title dont-break-out">
@@ -34,9 +34,9 @@
           </div>
           <ul class="workforce__list">
             <li
-              class="workforce__list-item"
               v-for="(list, index) in block.list"
               :key="index"
+              class="workforce__list-item"
             >
               <a
                 class="workforce__list-link dont-break-out"

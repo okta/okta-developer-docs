@@ -1,7 +1,7 @@
 <template>
   <div
-    class="c-dialog"
     ref="cDialog"
+    class="c-dialog"
     role="dialog"
     aria-labelledby="c-dialog-title"
     aria-describedby="c-dialog-paragraph"
@@ -12,17 +12,17 @@
     <div
       class="c-dialog__overlay"
       @click="hideDialog"
-    ></div>
+    />
     <div
       class="c-dialog__content"
       role="document"
     >
       <button
+        ref="cDialogClose"
         class="c-dialog__close"
         type="button"
         aria-label="Close"
         @click="hideDialog"
-        ref="cDialogClose"
       >
         <svg
           class="c-dialog__close-icon"
@@ -43,14 +43,14 @@
         </svg>
       </button>
       <h2
-        class="c-dialog__title dont-break-out"
         id="c-dialog-title"
+        class="c-dialog__title dont-break-out"
       >
         Choose your path
       </h2>
       <p
-        class="c-dialog__paragraph dont-break-out"
         id="c-dialog-paragraph"
+        class="c-dialog__paragraph dont-break-out"
       >
         Before you get started, take a look at how we split our developer resources and choose the path that best fits your needs.
       </p>
