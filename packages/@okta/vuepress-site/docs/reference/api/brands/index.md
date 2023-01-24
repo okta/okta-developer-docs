@@ -2251,6 +2251,18 @@ HTTP/1.1 200 OK
 }
 ```
 
+## Sign-in page operations
+
+See the [Customized Sign-in Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage) on the new beta reference site.
+
+## Sign-out page operations
+
+See the [Customized Sign-out Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings) on the new beta reference site.
+
+## Error page operations
+
+See the [Customized Error Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getErrorPage) on the new beta reference site.
+
 ## Brand API Objects
 
 ### Brand object
