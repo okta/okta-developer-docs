@@ -1,28 +1,30 @@
 .resources {
-  --resources-padding-x: 50px;
-
-  display: flex;
-  flex-direction: column;
-  row-gap: 13px;
-  padding: 30px var(--resources-padding-x);
-  padding-top: 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
 
   background-color: cv("workforce", "bg");
 
   @include media(">tablet") {
-    --resources-padding-x: 80px;
-
+    padding-top: 50px;
     padding-bottom: 50px;
   }
 
   @include media(">desktop") {
-    --resources-padding-x: 132px;
+    padding-top: 58px;
+    padding-bottom: 44.5px;
+  }
+}
 
+.resources__wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 13px;
+
+  @include media(">desktop") {
     display: grid;
     grid-template-rows: repeat(5, auto);
     grid-template-columns: 490px 1fr;
     column-gap: 70px;
-    padding-bottom: 75px;
   }
 }
 
@@ -173,6 +175,8 @@
   margin-top: 0;
   margin-bottom: 0;
   max-width: 400px;
+
+  font-size: 20px;
 }
 
 .resources__links {
@@ -183,4 +187,8 @@
   @include media(">desktop") {
     gap: 12px;
   }
+}
+
+.resources__list-link {
+  font-size: 18px;
 }
