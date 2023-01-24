@@ -157,6 +157,18 @@
   }
 }
 
+.workforce__article:first-of-type .workforce__block {
+  background-color: #fbf8f1;
+}
+
+.workforce__article:last-of-type .workforce__block {
+  background-color: #efe7d7;
+}
+
+.dark-theme .workforce__article .workforce__block {
+  background-color: #30302f;
+}
+
 .workforce__block-item {
   display: grid;
   grid-template-columns: 1fr;
