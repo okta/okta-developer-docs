@@ -37,7 +37,7 @@
   };
 </script>
 <style scoped lang="scss">
-.display-inline-shared-content {
+  .display-inline-shared-content {
     display: inline;
   }
   .display-inline-shared-content > div,
