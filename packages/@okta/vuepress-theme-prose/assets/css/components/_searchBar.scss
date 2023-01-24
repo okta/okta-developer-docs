@@ -123,25 +123,6 @@
   color: rgb(255 254 250 / 0.7);
 }
 
-.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
-  font-size: 16px;
-  font-family: inherit;
-  letter-spacing: 0.02em;
-  color: cv("text");
-}
-
-@media (max-width: 1080px) {
-  .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
-    color: transparent;
-  }
-}
-
-@include media("<tablet") {
-  .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
-    color: cv("text");
-  }
-}
-
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box.magic-box-notEmpty .magic-box-clear {
   position: relative;
 
