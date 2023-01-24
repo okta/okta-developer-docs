@@ -1,12 +1,9 @@
 .hero {
-  --hero-space-x: 80px;
   --hero-space-y: 30px;
   --hero-image-url: url("/img/hero/hero-bg-light.png");
 
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: var(--hero-space-y) var(--hero-space-x);
+  padding-top: var(--hero-space-y);
+  padding-bottom: var(--hero-space-y);
 
   background-color: cv("hero", "bg");
   background-image: var(--hero-image-url);
@@ -14,18 +11,22 @@
   background-repeat: no-repeat;
 
   @include media(">tablet") {
-    --hero-space-x: 110px;
     --hero-space-y: 40px;
   }
 
   @include media(">desktop") {
-    --hero-space-x: 135px;
     --hero-space-y: 52px;
   }
 }
 
 .dark-theme .hero {
   --hero-image-url: url("/img/hero/hero-bg-dark.png");
+}
+
+.hero__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .hero__title,
