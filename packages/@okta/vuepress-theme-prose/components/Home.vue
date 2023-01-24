@@ -9,7 +9,7 @@
         <WorkForce :items="workforce" />
         <Resources />
         <News />
-        <Support class="homepage__support" />
+        <Support />
         <Dialog />
       </div>
     </div>

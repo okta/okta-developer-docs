@@ -1,30 +1,41 @@
 .support {
+  padding-top: 30px;
+
+  background-color: cv("support", "bg");
+
+  @include media(">tablet") {
+    padding-top: 40px;
+  }
+
+  @include media(">desktop") {
+    padding-top: 56.5px;
+  }
+}
+
+.support__wrapper {
   --support-padding-y: 30px;
-  --support-padding-x: 50px;
   --support-gap: 30px;
 
   display: flex;
   flex-direction: column;
   gap: var(--support-gap);
-  padding: var(--support-padding-y) var(--support-padding-x);
-
-  background-color: cv("support", "bg");
+  padding-top: var(--support-padding-y);
+  padding-bottom: var(--support-padding-y);
 
   @include media(">tablet") {
     --support-padding-y: 60px;
-    --support-padding-x: 80px;
     --support-gap: 40px;
   }
 
   @include media(">desktop") {
-    --support-padding-y: 82px;
-    --support-padding-x: 132px;
     --support-gap: 50px;
 
     display: grid;
     grid-template-rows: repeat(3, auto);
     grid-template-columns: 1fr auto;
     grid-template-areas: "title list" "text list" "link list";
+    padding-top: 82px;
+    padding-bottom: 100px;
   }
 }
 
@@ -63,8 +74,8 @@
   &_size_small {
     --support-paragraph-size: 16px;
 
-    @include media(">tablet") {
-      --support-paragraph-size: 22px;
+    @include media(">desktop") {
+      --support-paragraph-size: 22px !important;
     }
   }
 
@@ -150,4 +161,8 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.support__list-link {
+  font-size: 20px;
 }
