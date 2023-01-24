@@ -43,6 +43,31 @@
   background-color: #ffffff;
 }
 
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input::before {
+  content: "";
+
+  position: absolute;
+  top: 13px;
+  left: 10px;
+
+  font: 13px "FontAwesome";
+  color: cv("header");
+
+  @include media(">desktop") {
+    content: none;
+  }
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input {
+  height: 38px;
+
+  border-radius: none;
+
+  @include media(">desktop") {
+    height: 48px;
+  }
+}
+
 .search--wrapper .input--icon {
   position: absolute;
   top: 11px;
@@ -89,10 +114,6 @@
   border: none;
 }
 
-.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input {
-  border-radius: none;
-}
-
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-clear:before {
   border-left: none;
 }
@@ -109,18 +130,27 @@
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
-  padding-right: 44px;
-  padding-left: 20px;
-
-  background-color: var(--c-gray-950);
-  background-image: url("/img/icons/search-icon.svg");
-  background-position: right 20px center;
-  background-repeat: no-repeat;
+  padding-right: 12px;
+  padding-left: 30px;
+  height: 38px;
 
   font-size: 16px;
   font-family: inherit;
   letter-spacing: 0.02em;
-  color: rgb(255 254 250 / 0.7);
+  color: #212121;
+
+  @include media(">desktop") {
+    padding-right: 44px;
+    padding-left: 20px;
+    height: 48px;
+
+    background-color: var(--c-gray-950);
+    background-image: url("/img/icons/search-icon.svg");
+    background-position: right 20px center;
+    background-repeat: no-repeat;
+
+    color: rgb(255 254 250 / 0.7);
+  }
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box.magic-box-notEmpty .magic-box-clear {
@@ -159,4 +189,12 @@
   padding-right: 20px;
 
   background-color: var(--c-gray-950);
+}
+
+.magic-box .magic-box-input .magic-box-underlay {
+  height: 38px;
+
+  @include media(">desktop") {
+    height: 48px;
+  }
 }

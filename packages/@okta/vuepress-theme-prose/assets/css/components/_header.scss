@@ -37,8 +37,10 @@ header.page-header .search--slideout {
   max-width: 131px;
   overflow: hidden;
 
-  border: 1.5px solid #fffefa;
-  border-radius: 6px;
+  @include media(">desktop") {
+    border: 1.5px solid #fffefa;
+    border-radius: 6px;
+  }
 }
 
 header.page-header .header--links {
