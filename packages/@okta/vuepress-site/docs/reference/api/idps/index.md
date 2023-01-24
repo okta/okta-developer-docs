@@ -4780,6 +4780,7 @@ All Identity Providers have the following properties:
 | protocol     | Protocol settings for IdP `type`                           | [Protocol object](#protocol-object)                                       | FALSE | FALSE | FALSE |   |     |
 | status       | Status of the IdP                                          | `ACTIVE` or `INACTIVE`                                                    | FALSE | FALSE | TRUE  |   |     |
 | type         | Type of IdP                                                  | [Identity Provider Type](#identity-provider-type)                         | FALSE    | FALSE  | FALSE    |           |           |
+| properties         | Properties specific to the type of IdP                                                  | [Identity Provider Properties](#identity-provider-properties)                         | TRUE    | FALSE  | FALSE    |           |           |
 
 #### Property details
 
@@ -4824,6 +4825,14 @@ Okta supports the following enterprise and social Identity Provider types:
 | `XERO`      | [Xero](https://www.xero.com/us/signup/api/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 | `YAHOO`      | [Yahoo](https://login.yahoo.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 | `YAHOOJP`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+
+### Identity Provider Properties
+
+The properties in the Identity Provider Properties object varies depending on the IdP type.
+
+| Property | Description        | DataType     | Nullable | Readonly |
+| -------- | ------------------ | ------------ | -------- | -------- |
+| additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for the IdP type. Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | TRUE    | FALSE    |
 
 ### Protocol object
 
