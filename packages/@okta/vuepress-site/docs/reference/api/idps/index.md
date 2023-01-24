@@ -4832,7 +4832,7 @@ The properties in the Identity Provider Properties object varies depending on th
 
 | Property | Description        | DataType     | Nullable | Readonly |
 | -------- | ------------------ | ------------ | -------- | -------- |
-| additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for the IdP type. Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | TRUE    | FALSE    |
+| additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for the `x509` IdP type. Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | TRUE    | FALSE    |
 
 ### Protocol object
 
