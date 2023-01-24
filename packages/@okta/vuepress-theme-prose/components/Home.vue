@@ -1,12 +1,18 @@
 <template>
   <div class="homepage content">
-    <Sidebar />
-    <Hero />
-    <WorkForce :items="workforce" />
-    <Resources />
-    <News />
-    <Support class="homepage__support" />
-    <Dialog />
+    <div class="content--container">
+      <Sidebar />
+    </div>
+    <div class="width-adjuster">
+      <div class="justify-content-center">
+        <Hero />
+        <WorkForce :items="workforce" />
+        <Resources />
+        <News />
+        <Support class="homepage__support" />
+        <Dialog />
+      </div>
+    </div>
   </div>
 </template>
 
