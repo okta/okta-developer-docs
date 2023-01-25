@@ -4854,7 +4854,7 @@ Okta supports the following enterprise and social Identity Provider types:
 
 ### Identity Provider Properties
 
-The properties in the Identity Provider Properties object varies depending on the IdP type.
+The properties in the Identity Provider Properties object vary depending on the IdP type.
 
 | Property | Description        | DataType     | Nullable | Readonly |
 | -------- | ------------------ | ------------ | -------- | -------- |
