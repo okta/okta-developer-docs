@@ -20,7 +20,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 * The `idp` property was missing in token inline hook requests. (OKTA-553322)
 
-* A list security questions request (`/users/${userId}/factors/questions`) resulted in a null custom security question and answer included in the response. (OKTA-567970)
+* A list security questions request (`/users/${userId}/factors/questions`) resulted in an unexpected security question and answer included in the response. (OKTA-567970)
 
 ### Monthly release 2023.01.0
 
@@ -64,8 +64,6 @@ You can end all Okta sessions for a user when resetting their password. All sess
 SMS and voice requests are now blocked if an internal machine-learning-based toll fraud and abuse-detection model considers the requests unusual. Telephony requests that are blocked by the machine-learning model have a `DENY` status in the System Log. <!-- OKTA-562110-->
 
 #### Bugs fixed in 2023.01.0
-
-* A list security questions request (`/users/&{userId}/factors/questions`) resulted in an unexpected question and error in the response. (OKTA-525478)
 
 * The Log Streaming API returned the Splunk Cloud `token` property in the response body. (OKTA-437264)
 
