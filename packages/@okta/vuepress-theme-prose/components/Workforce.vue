@@ -15,10 +15,23 @@
         <h3 class="workforce__article-title dont-break-out">
           {{ item.title }}
         </h3>
-        <hr
+        <div
           class="workforce__article-line"
           aria-hidden="true"
         >
+          <svg
+            width="5"
+            height="5"
+            aria-hidden="true"
+          >
+            <circle
+              cx="50%"
+              cy="50%"
+              r="2.5"
+              fill="var(--c-workforce-text)"
+            />
+          </svg>
+        </div>
         <ul class="workforce__block">
           <li
             v-for="(block, index) in item.block"

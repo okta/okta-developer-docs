@@ -96,47 +96,27 @@
 }
 
 .workforce__article-line {
-  position: relative;
-
+  display: flex;
   grid-area: line;
-  margin: 0;
-  height: 1px;
-  overflow: visible;
+  align-items: center;
 
-  border: none;
-  border-radius: 50%;
-  background-color: cv("workforce", "text");
-
-  &::after {
-    --size: 5px;
-
+  &::before {
     content: "";
 
-    position: absolute;
-    top: 50%;
-    right: -1px;
+    display: block;
+    width: 100%;
+    height: 1px;
 
-    width: var(--size);
-    height: var(--size);
-
-    border-radius: 50%;
     background-color: cv("workforce", "text");
 
-    transform: translateY(-50%);
-
     @include media(">desktop") {
-      top: auto;
-      right: auto;
-      bottom: -1px;
-      left: 50%;
-
-      transform: translateX(-50%);
+      width: 1px;
+      height: 100%;
     }
   }
 
   @include media(">desktop") {
-    justify-self: center;
-    width: 1px;
+    flex-direction: column;
     height: 100%;
   }
 }
