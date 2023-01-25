@@ -101,7 +101,7 @@
   letter-spacing: 0.01em;
   text-align: center;
   text-decoration: none;
-  color: cv("support", "button-text");
+  color: cv("support", "button-text") !important;
 
   &:hover {
     background-color: cv("support", "button-bg");
