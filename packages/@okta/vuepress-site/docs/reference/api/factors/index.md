@@ -41,6 +41,7 @@ Fetches a Factor for the specified User
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ufs2bysphxKODSZKWVCT"
 ```
@@ -111,6 +112,7 @@ Array of [Factors](#factor-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors"
 ```
@@ -268,6 +270,7 @@ Array of [Factors](#factor-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/catalog"
 ```
@@ -426,6 +429,7 @@ Array of questions
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/questions"
 ```
@@ -473,6 +477,7 @@ Enumerates all YubiKey OTP Tokens
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens"
 ```
@@ -560,6 +565,7 @@ Gets the specified YubiKey OTP Token
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens/ykkxdtCA1fKVxyu6R0g3"
 ```
@@ -627,7 +633,7 @@ Enrolls a User with a supported [Factor](#list-factors-to-enroll)
 - [Enroll Okta Email Factor](#enroll-okta-email-factor)
 - [Enroll U2F Factor](#enroll-u2f-factor)
 - [Enroll WebAuthn Factor](#enroll-webauthn-factor)
-- [Enroll Custom HOTP Factor](#enroll-custom-hotp-factor)
+- [Enroll Custom TOTP Factor](#enroll-custom-totp-factor)
 
 ##### Request parameters
 
@@ -658,6 +664,7 @@ Enrolls a User with the `question` factor and [Question Profile](#question-profi
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "question",
@@ -724,6 +731,7 @@ Enrolls a User with the Okta `sms` Factor and an [SMS profile](#sms-profile). A 
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "sms",
@@ -788,7 +796,7 @@ curl -v -X POST \
 }
 ```
 
-###### Rate Limit
+###### Rate limit
 
 A `429 Too Many Requests` status code may be returned if you attempt to resend an SMS challenge (OTP) within the same time window.
 
@@ -840,6 +848,7 @@ The phone number can't be updated for an SMS Factor that is already activated. I
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "sms",
@@ -861,6 +870,7 @@ Or, you can pass the existing phone number in a Profile object.
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "sms",
@@ -884,6 +894,7 @@ Customize (and optionally localize) the SMS message sent to the user on enrollme
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "sms",
@@ -904,6 +915,7 @@ Use the `resend` link to send another OTP if the user doesn't receive the origin
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "sms",
@@ -926,6 +938,7 @@ Customize (and optionally localize) the SMS message sent to the user in case Okt
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Accept-Language: fr" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
@@ -947,6 +960,7 @@ To enroll and immediately activate the Okta `sms` factor, add the `activate` opt
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "sms",
@@ -967,6 +981,7 @@ Enrolls a user with the Okta `call` Factor and a [Call profile](#call-profile). 
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "call",
@@ -1079,6 +1094,7 @@ Use the `resend` link to send another OTP if the user doesn't receive the origin
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "call",
@@ -1099,6 +1115,7 @@ To enroll and immediately activate the Okta `call` factor, add the `activate` op
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "call",
@@ -1114,12 +1131,16 @@ curl -v -X POST \
 
 Enrolls a user with an Okta `token:software:totp` factor. The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
+> <ApiLifecycle access="ie" /> 
+> Enrolls a user with an Okta `token:software:totp` factor and the `push` factor, if the user isn't currently enrolled with these factors.
+
 ##### Request example
 
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "token:software:totp",
@@ -1186,7 +1207,10 @@ curl -v -X POST \
 
 #### Enroll Okta Verify Push Factor
 
-Enrolls a user with the Okta Verify `push` Factor. The Factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
+Enrolls a user with the Okta Verify `push` factor. The factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
+
+> <ApiLifecycle access="ie" /> 
+> Enrolls a user with the Okta Verify `push` factor, as well as the `totp` and `signed_nonce` factors (if the user isn't already enrolled with these factors).
 
 > **Note:** Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
 
@@ -1196,6 +1220,7 @@ Enrolls a user with the Okta Verify `push` Factor. The Factor must be [activated
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "push",
@@ -1285,6 +1310,7 @@ Enrolls a user with the Google `token:software:totp` Factor. The Factor must be 
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "token:software:totp",
@@ -1359,6 +1385,7 @@ Enrolls a user with a RSA SecurID Factor and a [token profile](#token-profile). 
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "token",
@@ -1426,6 +1453,7 @@ Enrolls a user with a Symantec VIP Factor and a [token profile](#token-profile).
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "token",
@@ -1496,6 +1524,7 @@ Uploads a seed for a YubiKey OTP to be enrolled by a user
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
     "serialNumber": "7886622",
@@ -1541,6 +1570,7 @@ Enrolls a user with a YubiCo Factor (YubiKey). YubiKeys must be verified with th
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "token:hardware",
@@ -1605,6 +1635,7 @@ Enrolls a user with an Email Factor. An email with an OTP is sent to the primary
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "email",
@@ -1684,6 +1715,7 @@ To enroll and immediately activate the Okta `email` Factor, add the `activate` o
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "email",
@@ -1704,6 +1736,7 @@ Enrolls a user with a U2F Factor. The enrollment process starts with getting a `
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "u2f",
@@ -1774,6 +1807,7 @@ For more information about these credential creation options, see the [WebAuthn 
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "webauthn",
@@ -1850,20 +1884,26 @@ curl -v -X POST \
 }
 ```
 
-#### Enroll Custom HOTP Factor
+#### Enroll Custom TOTP Factor
 
-Enrolls a user with a Custom HMAC-based One-Time Password (HOTP) Factor. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
+Enrolls a user with a Custom time-based one-time passcode (TOTP) factor, which uses the [TOTP algorithm](https://www.ietf.org/rfc/rfc6238.txt), an extension of the HMAC-based one-time passcode (HOTP) algorithm. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
 
-A Factor Profile represents a particular configuration of the Custom HOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC Algorithm, passcode length, and time interval. There can be multiple Custom HOTP factor profiles per org, but users can only be enrolled for one Custom HOTP factor. Admins can create Custom HOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/okta_help.htm?id=ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
+A Factor Profile represents a particular configuration of the Custom TOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC algorithm, passcode length, and time interval. There can be multiple Custom TOTP factor profiles per org, but users can only be enrolled for one Custom TOTP factor. Admins can create Custom TOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/okta_help.htm?id=ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
 
-> **Note:** Currently only auto-activation is supported for Custom HOTP Factor.
+> <ApiLifecycle access="ie" />
+> **Note:** In Identity Engine, the Custom TOTP factor is referred to as the [Custom OTP authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-custom-otp).
 
-##### Enroll and auto-activate Custom HOTP Factor
+##### Enroll and auto-activate Custom TOTP Factor
+
+> **Notes:**<br>
+> * The `token:hotp` [factorType](#factor-type) property value is used in the enroll Custom TOTP factor endpoint.
+> * Currently only auto-activation is supported for the Custom TOTP factor.
 
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "factorType": "token:hotp",
@@ -1875,7 +1915,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors?activate=true"
 ```
 
-##### Enroll Custom HOTP Factor response example
+##### Enroll Custom TOTP Factor response example
 
 ```json
 {
@@ -1930,6 +1970,20 @@ The `sms` and `token:software:totp` [Factor types](#factor-type) require activat
 - [Activate U2F Factor](#activate-u2f-factor)
 - [Activate WebAuthn Factor](#activate-webauthn-factor)
 
+###### Rate limit
+
+The rate limit for a user to activate one of their OTP-based factors (such as SMS, CALL, EMAIL, Google OTP, or Okta Verify TOTP) is five attempts within five minutes. The following example error message is returned if the user exceeds their OTP-based factor rate limit:
+
+```json
+{
+  "errorCode": "E0000047",
+  "errorSummary": "API call exceeded rate limit due to too many requests.",
+  "errorLink": "E0000047",
+  "errorId": "oaewuKv0-nWSzucLsTdKZpe6g",
+  "errorCauses": []
+}
+```
+
 #### Activate TOTP Factor
 
 Activates a `token:software:totp` Factor by verifying the OTP
@@ -1968,6 +2022,7 @@ If the passcode is invalid the response is a `403 Forbidden` status code with th
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "123456"
@@ -2056,6 +2111,7 @@ If the passcode is invalid, the response is a `403 Forbidden` status code with t
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "123456"
@@ -2145,6 +2201,7 @@ If the passcode is invalid, the response is a `403 Forbidden` status code with t
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "12345"
@@ -2221,6 +2278,7 @@ Activations have a short lifetime (minutes) and `TIMEOUT` if they aren't complet
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opf3hkfocI4JTLAju0g4/lifecycle/activate"
 ```
@@ -2372,6 +2430,7 @@ If the passcode is invalid, the response is `403 Forbidden` with the following e
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "123456"
@@ -2491,6 +2550,7 @@ If the registration `nonce` is invalid or if registration data is invalid, the r
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "registrationData":"BQTEMUyOM8h1TiZG4DL-RdMr-tYgTYSf62Y52AmwEFTiSYWIRVO5L-MwWdRJOthmV3J3JrqpmGfmFb820-awx1YIQFlTvkMhxItHlpkzahEqicpw7SIH9yMfTn2kaDcC6JaLKPfV5ds0vzuxF1JJj3gCM01bRC-HWI4nCVgc-zaaoRgwggEcMIHDoAMCAQICCwD52fCSMoNczORdMAoGCCqGSM49BAMCMBUxEzARBgNVBAMTClUyRiBJc3N1ZXIwGhcLMDAwMTAxMDAwMFoXCzAwMDEwMTAwMDBaMBUxEzARBgNVBAMTClUyRiBEZXZpY2UwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQFKJupuUgPQcRHUphaW5JPfLvkkwlEwlHKk_ntSp7MS4aTHJyGnpziqncrjiTC_oUVtb-wN-y_t_IMIjueGkhxMAoGCCqGSM49BAMCA0gAMEUCIQDBo6aOLxanIUYnBX9iu3KMngPnobpi0EZSTkVtLC8_cwIgC1945RGqGBKfbyNtkhMifZK05n7fU-gW37Bdnci5D94wRQIhAJv3VvclbRkHAQhaUR8rr8qFTg9iF-GtHoXU95vWaQdyAiAbEr-440U4dQAZF-Sj8G2fxgh5DkgkkWpyUHZhz7N9ew",
@@ -2607,6 +2667,7 @@ If the attestation `nonce` is invalid, or if the attestation or client data are 
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "attestation": "o2NmbXRmcGFja2VkZ2F0dFN0bXSiY2FsZyZjc2lnWEgwRgIhAMvf2+dzXlHZN1um38Y8aFzrKvX0k5dt/hnDu9lahbR4AiEAuwtMg3IoaElWMp00QrP/+3Po/6LwXfmYQVfsnsQ+da1oYXV0aERhdGFYxkgb9OHGifjS2dG03qLRqvXrDIRyfGAuc+GzF1z20/eVRV2wvl6tzgACNbzGCmSLCyXx8FUDAEIBvWNHOcE3QDUkDP/HB1kRbrIOoZ1dR874ZaGbMuvaSVHVWN2kfNiO4D+HlAzUEFaqlNi5FPqKw+mF8f0XwdpEBlClAQIDJiABIVgg0a6oo3W0JdYPu6+eBrbr0WyB3uJLI3ODVgDfQnpgafgiWCB4fFo/5iiVrFhB8pNH2tbBtKewyAHuDkRolcCnVaCcmQ==",
@@ -2665,6 +2726,9 @@ curl -v -X POST \
 
 Unenrolls an existing Factor for the specified user, allowing the user to enroll a new Factor
 
+> <ApiLifecycle access="ie" /> 
+> If the Okta Verify `push` factor is reset, then existing `totp` and `signed_nonce` factors are reset as well for the user. Similarly, if the `signed_nonce` factor is reset, then existing `push` and `totp` factors are also reset for the user.
+
 ##### Request parameters
 
 | Parameter    | Description                       | Param Type | DataType | Required | Default |
@@ -2685,6 +2749,7 @@ HTTP/1.1 204 No Content
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/ufs1o01OTMGHLAJPVHDZ"
 ```
@@ -2741,6 +2806,7 @@ A `429 Too Many Requests` status code may be returned if you attempt to resend a
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsszf1YNUtGWTx4j0g3/verify"
@@ -2794,6 +2860,7 @@ Sends the verification message in German, assuming that the SMS template is conf
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Accept-Language: de" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
@@ -2845,6 +2912,7 @@ If the passcode is invalid the response is a `403 Forbidden` status code with th
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "123456"
@@ -2900,6 +2968,7 @@ A `429 Too Many Requests` status code may be returned if you attempt to resend a
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/clff17zuKEUMYQAQGCOV/verify"
@@ -2980,6 +3049,7 @@ If the passcode is invalid, the response is a `403 Forbidden` status code with t
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "123456"
@@ -3024,7 +3094,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
--H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "X-Forwarded-For: 23.235.46.133" \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/opf3hkfocI4JTLAju0g4/verify"
 ```
@@ -3227,6 +3297,7 @@ A `429 Too Many Requests` status code may be returned if you attempt to resend a
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/emfnf3gSScB8xXoXK0g3/verify?tokenLifetimeSeconds=600"
@@ -3303,6 +3374,7 @@ If the passcode is invalid, the response is `403 Forbidden` with the following e
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "123456"
@@ -3336,6 +3408,7 @@ JavaScript API to get the signed assertion from the U2F token.
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fuf2rovRxogXJ0nDy0g4/verify"
 ```
@@ -3427,6 +3500,7 @@ Verifies a challenge for a `u2f` Factor by posting a signed assertion using the 
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "clientData":"eyJ0eXAiOiJuYXZpZ2F0b3IuaWQuZ2V0QXNzZXJ0aW9uIiwiY2hhbGxlbmdlIjoiS2NCLXRqUFU0NDY0ZThuVFBudXIiLCJvcmlnaW4iOiJodHRwczovL2xvY2FsaG9zdDozMDAwIiwiY2lkX3B1YmtleSI6InVudXNlZCJ9",
@@ -3464,6 +3538,7 @@ For more information about these credential request options, see the [WebAuthn s
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/fwf2rovRxogXJ0nDy0g4/verify"
 ```
@@ -3554,6 +3629,7 @@ Verifies a challenge for a `webauthn` Factor by posting a signed assertion using
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "clientData":"eyJ0eXAiOiJuYXZpZ2F0b3IuaWQuZ2V0QXNzZXJ0aW9uIiwiY2hhbGxlbmdlIjoiS2NCLXRqUFU0NDY0ZThuVFBudXIiLCJvcmlnaW4iOiJodHRwczovL2xvY2FsaG9zdDozMDAwIiwiY2lkX3B1YmtleSI6InVudXNlZCJ9",
@@ -3620,6 +3696,7 @@ If the `answer` is invalid, the response is a `403 Forbidden` status code with t
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "answer": "mayonnaise"
@@ -3676,6 +3753,7 @@ If the passcode is invalid, the response is a `403 Forbidden` status code with t
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "123456"
@@ -3732,6 +3810,7 @@ If the passcode is invalid, the response is a `403 Forbidden` status code with t
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "123456"
@@ -3758,6 +3837,7 @@ Verifies a user with a [Yubico OTP](https://developers.yubico.com/OTP/OTPs_Expla
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "passCode": "123456"
@@ -3778,42 +3858,41 @@ curl -v -X POST \
 
 ```json
 {
-  "id": "smsk33ujQ59REImFX0g3",
-  "factorType": "sms",
-  "provider": "OKTA",
-  "status": "ACTIVE",
-  "created": "2015-02-04T07:07:25.000Z",
-  "lastUpdated": "2015-02-04T07:07:25.000Z",
-  "profile": {
-    "phoneNumber": "+1415551337"
-  },
-  "_links": {
-    "verify": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsk33ujQ59REImFX0g3/verify",
-      "hints": {
-        "allow": [
-          "POST"
-        ]
-      }
+    "id": "emfnf3gSScB8xXoXK0g3",
+    "factorType": "email",
+    "provider": "OKTA",
+    "vendorName": "OKTA",
+    "status": "ACTIVE",
+    "profile": {
+        "email": "changed@clouditude.net"
     },
-    "self": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors/smsk33ujQ59REImFX0g3",
-      "hints": {
-        "allow": [
-          "GET",
-          "DELETE"
-        ]
-      }
-    },
-    "user": {
-      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL",
-      "hints": {
-        "allow": [
-          "GET"
-        ]
-      }
+    "_links": {
+        "verify": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00umvfJKwXOQ1mEL50g3/factors/emfnf3gSScB8xXoXK0g3/verify",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00umvfJKwXOQ1mEL50g3/factors/emfnf3gSScB8xXoXK0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        },
+        "user": {
+            "href": "https://{yourOktaDomain}/api/v1/users/00umvfJKwXOQ1mEL50g3",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
     }
-  }
 }
 ```
 
@@ -3832,6 +3911,7 @@ Factors have the following properties:
 | profile        | Profile of a [supported Factor](#supported-factors-for-providers) | [Factor Profile object](#factor-profile-object)                                | TRUE     | FALSE  | FALSE    |
 | provider       | Factor provider                                                   | [Provider type](#provider-type)                                                | FALSE    | TRUE   | TRUE     |
 | status         | Status of a Factor                                                | `NOT_SETUP`, `PENDING_ACTIVATION`, `ENROLLED`, `ACTIVE`, `INACTIVE`, `EXPIRED` | FALSE    | FALSE  | TRUE     |
+| vendorName         | Factor Vendor Name (Same as provider but for On-Prem MFA it depends on Administrator Settings)                    | [Provider type](#provider-type)                    | FALSE     | TRUE  | TRUE    |
 | verify         | Optional verification for Factor enrollment                      | [Factor Verification object](#factor-verification-object)                      | TRUE     | FALSE  | FALSE    |
 
 > **Note:** The `id`, `created`, `lastUpdated`, `status`, `_links`, and `_embedded` properties are only available after a Factor is enrolled.
@@ -3842,18 +3922,18 @@ The following Factor types are supported:
 
 | Factor Type           | Description                                                                                                         |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `call`                | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent using voice call to a registered phone number     |
-| `email`               | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent using email                                       |
+| `call`                | Software one-time passcode (OTP) sent using voice call to a registered phone number     |
+| `email`               | Software OTP sent using email                                       |
 | `push`                | Out-of-band verification using push notification to a device and transaction verification with digital signature      |
 | `question`            | Additional knowledge-based security question                                                                        |
-| `sms`                 | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent using SMS to a registered phone number            |
-| `token:hardware`      | Hardware One-Time Password [OTP](http://en.wikipedia.org/wiki/One-time_password) device                             |
-| `token:hotp`          | A custom [HOTP](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm) Factor                        |
-| `token:software:totp` | Software [Time-based One-Time Password (TOTP)](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) |
-| `token`               | Software or hardware [One-Time Password (OTP)](http://en.wikipedia.org/wiki/One-time_password) device               |
-| `u2f`                 | Hardware [U2F](https://en.wikipedia.org/wiki/Universal_2nd_Factor) device                                           |
-| `web`                 | HTML inline frame (iframe) for embedding verification from a 3rd party                                              |
-| `webauthn`            | Hardware [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) device                                                  |
+| `sms`                 | Software OTP sent using SMS to a registered phone number            |
+| `token:hardware`      | Hardware OTP device                             |
+| `token:hotp`          | A custom [TOTP](https://www.ietf.org/rfc/rfc6238.txt)&nbsp;factor that uses an extension of the HMAC-based one-time passcode (HOTP) algorithm                     |
+| `token:software:totp` | Software time-based one-time passcode (TOTP) |
+| `token`               | Software or hardware one-time passcode (OTP) device               |
+| `u2f`                 | Hardware Universal 2nd Factor (U2F) device                                           |
+| `web`                 | HTML inline frame (iframe) for embedding verification from a third party                                              |
+| `webauthn`            | Hardware WebAuthn device                                                  |
 
 #### Provider type
 
@@ -3861,6 +3941,7 @@ The following providers are supported:
 
 | Provider   | Description                   |
 | ---------- | ----------------------------- |
+| `CUSTOM`   | Custom                        |
 | `DUO`      | Duo Security                  |
 | `FIDO`     | Fido                          |
 | `GOOGLE`   | Google                        |
@@ -3875,6 +3956,7 @@ Each provider supports a subset of a factor types. The following table lists the
 
 | Provider   | Factor Type           |
 | ---------- | --------------------- |
+| `CUSTOM`   | `token:hotp`          |
 | `DUO`      | `web`                 |
 | `FIDO`     | `webauthn`            |
 | `GOOGLE`   | `token:software:totp` |

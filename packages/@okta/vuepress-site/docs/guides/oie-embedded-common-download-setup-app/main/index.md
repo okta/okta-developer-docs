@@ -4,7 +4,7 @@ title: Download and set up the SDK, Sign-In Widget, and sample apps
 
 <ApiLifecycle access="ie" />
 
-This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying sample apps after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/).
+This guide shows you how to download and configure the Identity Engine SDKs, Sign-In Widget, and accompanying sample apps after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup).
 
 ---
 
@@ -38,7 +38,7 @@ Before you integrate either the SDK or the Widget into your app, you need to und
 
 #### Issuer
 
-There are two main types of authorization servers in Okta: [Org](/docs/concepts/auth-servers/#org-authorization-server) and [Custom](/docs/concepts/auth-servers/#custom-authorization-server). See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US) for more information on which Authorization Server to use.
+There are two main types of authorization servers in Okta: [Org](/docs/concepts/auth-servers/#org-authorization-server) and [Custom](/docs/concepts/auth-servers/#custom-authorization-server). To understand which type to use, see [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types).
 
 <ApiAmProdWarning />
 

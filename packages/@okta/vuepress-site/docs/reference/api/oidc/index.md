@@ -26,6 +26,7 @@ Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn
 | [/authorize](#authorize)                                                          | Interact with the resource owner and obtain an authorization grant.                     |
 | [/par](#par)                                                                      | Push an authorization request payload directly to the authorization server that responds with a request URI value for use in subsequent authorization requests to the `/authorize` endpoint. <ApiLifecycle access="ie" />                     |
 | [/device/authorize](#device-authorize)                                            | Obtain an activation code for the resource owner.<ApiLifecycle access="ea" />           |
+| [/bc/authorize](#bc-authorize)                                                    | Use with a Client-Initiated Backchannel Authentication request to initiate the authentication of a user. This endpoint responds with a unique identifier (`auth_request_id`) that identifies the authentication flow while it tries to authenticate the user in the background. This `auth_request_id` value is used in subsequent token requests to the `/token` endpoint. <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />  |
 | [/token](#token)                                                                  | Obtain an access and/or ID token by presenting an authorization grant or refresh token. |
 | [/introspect](#introspect)                                                        | Return information about a token.                                                      |
 | [/revoke](#revoke)                                                                | Revoke an access or refresh token.                                                     |
@@ -83,25 +84,26 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 
 | Parameter                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        | Param Type  | DataType  | Required   |
 | :---------------------           | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                                           | :---------- | :-------- | :--------- |
-| client_id                        | Obtained during either manual client registration or via the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). It identifies the client and must match the value preregistered in Okta.                                                                                                                                                                                                                                       | Query       | String    | TRUE       |
+| client_id                        | Obtained during either manual client registration or through the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). It identifies the client and must match the value preregistered in Okta.                                                                                                                                                                                                                                       | Query       | String    | TRUE       |
 | code_challenge                   | A challenge for [PKCE](/docs/guides/implement-grant-type/authcodepkce/main/). The challenge is verified in the access token request.                                                                                                                                                                                                                                                                                                   | Query       | String    | FALSE      |
 | code_challenge_method            | Method used to derive the code challenge for [PKCE](/docs/guides/implement-grant-type/authcodepkce/main/). Valid value: `S256`                                                                                                                                                                                                                                                                                                         | Query       | String    | FALSE      |
-| display                          | The `display` parameter to be passed to the Social Identity Provider when performing Social Login.                                                                                                                                                                                                                                                                                                                                                 | Query       | String    | FALSE      |
-| idp_scope                        | A space delimited list of scopes to be provided to the external Identity Provider when performing [Social login](/docs/concepts/identity-providers/). These scopes are used in addition to the scopes already configured on the Identity Provider.                                                                                                                                                                                                  | Query       | String    | FALSE      |
-| [idp](/docs/reference/api/idps/) | Identity provider to use if there's no Okta Session.                                                                                                                                                                                                                                                                                                                  | Query       | String    | FALSE      |
+| display                          | The `display` parameter to be passed to the social Identity Provider when performing social login.                                                                                                                                                                                                                                                                                                                                                 | Query       | String    | FALSE      |
+| idp_scope                        | A space delimited list of scopes to be provided to the external Identity Provider when performing [social login](/docs/concepts/identity-providers/). These scopes are used in addition to the scopes already configured for the Identity Provider.                                                                                                                                                                                                  | Query       | String    | FALSE      |
+| [idp](/docs/reference/api/idps/) | Identity provider to use if there's no Okta session.                                                                                                                                                                                                                                                                                                                  | Query       | String    | FALSE      |
 | login_hint                       | A username to prepopulate if prompting for authentication.                                                                                                                                                                                                                                                                                                                                           | Query       | String    | FALSE      |
 | max_age                          | Allowable elapsed time, in seconds, since the last time the end user was actively authenticated by Okta.                                                                                                                                                                                                                                                                                                                                           | Query       | String    | FALSE      |
-| nonce                            | A value that is returned in the ID token. It is used to mitigate replay attacks. The value is required for Implicit and Hybrid flows, but optional for Auth Code flows. See [OIDC Specs](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest).                                                                                                                                                                                                                                                                                                                                                             | Query       | String    | FALSE       |
-| prompt                           | Valid values: `none`, `consent`, `login`, or `consent` and `login` in either order. See [Parameter details](#parameter-details) for more information.                                                                                                                                                                                                                                                                                              | Query       | String    | FALSE      |
+| nonce                            | A value that is returned in the ID token. It is used to mitigate replay attacks. The value is required for implicit and hybrid flows, but optional for auth code flows. See [OIDC Specs](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest).                                                                                                                                                                                                                                                                                                                                                             | Query       | String    | FALSE       |
+| prompt                           | Valid values: `none`, `enroll_authenticator` <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />, `consent`, `login`, or `consent` and `login` in either order. See [Parameter details](#parameter-details) for more information.                                                                                                                                                                                                                                                                                              | Query       | String    | FALSE      |
 | redirect_uri                     | Callback location where the authorization code or tokens should be sent. It must match the value preregistered in Okta during client registration.                                                                                                                                                                                                                                                                                                 | Query       | String    | TRUE       |
-| response_type                    | Any combination of `code`, `token`, and `id_token`. The combination determines the [flow](/docs/concepts/oauth-openid/#recommended-flow-by-application-type).                                                                                                                                                                                                                                                                                                     | Query       | String    | TRUE       |
+| response_type                    | Any combination of `code`, `token` and `id_token`, or `none` <ApiLifecycle access="ea" />. The combination determines the [flow](/docs/concepts/oauth-openid/#recommended-flow-by-application-type).                                                                                                                                                                                                                                                                                                     | Query       | String    | TRUE       |
 | response_mode                    | How the authorization response should be returned. [Valid values](#parameter-details): `fragment`, `form_post`, `query` or `okta_post_message`. If `id_token` or `token` is specified as the response type, then `query` isn't allowed as a response mode. Defaults to `fragment` in implicit and hybrid flows. | Query       | String    | FALSE      |
 | request_uri                      | Location where the authorization request payload data is referenced in an authorization request to the `/authorize` endpoint.         | Query       | JWT       | FALSE      |
 | request                          | A JWT created by the client that enables requests to be passed as a single, self-contained parameter. See [Parameter details](#parameter-details).                                                                                                                                                                                                                                                                                        | Query       | JWT       | FALSE      |
 | scope                            | `openid` is required for authentication requests. Other [scopes](#access-token-scopes-and-claims) may also be included.                                                                                                                                                                                                                                                                                                                            | Query       | String    | TRUE       |
-| sessionToken                     | Okta one-time session token. This allows an API-based user sign-in flow (rather than the Okta sign-in UI). Session tokens can be obtained via the [Authentication API](/docs/reference/api/authn/).                                                                                                                                                                                                                                                        | Query       | String    | FALSE      |
+| sessionToken                     | Okta one-time session token. This allows an API-based user sign-in flow (rather than the Okta sign-in page). You can obtain session tokens through the [Authentication API](/docs/reference/api/authn/).                                                                                                                                                                                                                                                        | Query       | String    | FALSE      |
 | state                            | A value to be returned in the token. The client application can use it to remember the state of its interaction with the end user at the time of the authentication call. It can contain alphanumeric, comma, period, underscore, and hyphen characters. See [Parameter details](#parameter-details).                                                                                                                                               | Query       | String    | TRUE       |
-| acr_values <ApiLifecycle access="ea" /> | An optional parameter that can be included in the authentication request. This parameter increases the level of user assurance. Values supported: `urn:okta:loa:1fa:pwd`, `urn:okta:loa:1fa:any`, `urn:okta:loa:2fa:any`,<br> `urn:okta:loa:2fa:any:ifpossible` <ApiLifecycle access="ie" />,<br> `phr` <ApiLifecycle access="ie" />, `phrh` <ApiLifecycle access="ie" /> .<br>See [Predefined acr values](/docs/guides/step-up-authentication/main/#predefined-parameter-values) for more information on the predefined values supported by Okta. | Query | String  | FALSE |
+| acr_values                       | An optional parameter that can be included in the authentication request. This parameter increases the level of user assurance. Values supported: `urn:okta:loa:1fa:pwd`, `urn:okta:loa:1fa:any`, `urn:okta:loa:2fa:any`,<br> `urn:okta:loa:2fa:any:ifpossible` <ApiLifecycle access="ie" />,<br> `phr` <ApiLifecycle access="ie" />,<br> `phrh` <ApiLifecycle access="ie" /> .<br>See [Predefined acr values](/docs/guides/step-up-authentication/main/#predefined-parameter-values) for more information on the predefined values supported by Okta. | Query | String  | FALSE |
+| enroll_amr_values <ApiLifecycle access="ie" /><ApiLifecycle access="ea" /> | Valid values: `pwd`, `kba`, `email`, `sms`, `tel`, `duo`, `symantec`, `google_otp`, `okta_verify`, `pop`, `oath_otp`, `rsa`, `yubikey`, `otp` and `fed`. See [Parameter details](#parameter-details).                                                                                                                                                                                                  | Query       | String    | FALSE      |
 
 #### Parameter details
 
@@ -113,12 +115,22 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
   * If an Okta session already exists, the user is silently authenticated. Otherwise, the user is prompted to authenticate.
   * If scopes are requested that require consent and consent isn't yet given by the authenticated user, the user is prompted to give consent.
 
-  There are four possible values for this parameter:
+  There are five possible values for this parameter:
 
   * `none`: Don't prompt for authentication or consent. If an Okta session already exists, the user is silently authenticated. Otherwise, an error is returned.
   * `login`: Always prompt the user for authentication, regardless of whether they have an Okta session.
   * `consent`: Depending on the [values set for `consent_method` in the app and `consent` on the scope](/docs/reference/api/apps/#add-oauth-20-client-application), display the Okta consent dialog, even if the user has already given consent. User consent is available for Custom Authorization Servers (requires the API Access Management feature and the User Consent feature enabled).
   * `login consent` or `consent login` (order doesn't matter): The user is always prompted for authentication, and the user consent dialog appears depending on the [values set for `consent_method` in the app and `consent` on the scope](/docs/reference/api/apps/#add-oauth-20-client-application), even if the user has already given consent.
+  * `enroll_authenticator` <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />: This indicates that the intent is to enroll the user with an authenticator. The following other parameters must be used together with this value for a valid request:
+    * `enroll_amr_values`: Value must be specified and indicates which authenticator method you're allowing the user to enroll in.
+    * `response_type`: Value must be `none`, which means no tokens should be returned at the end of the flow.
+    * `acr_values`: Value must be `urn:okta:loa:2fa:any:ifpossible`, which means the user is prompted for at least one factor before enrollment.
+    * `max_age`: Value must be `0`, which means no existing session should be considered.
+    * `scope` and `nonce` must not be specified, because no tokens are generated.
+
+* `enroll_amr_values` <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />: A space-delimited list of values indicating which authenticators to enroll in.
+  * If the `enroll_amr_values` parameter is specified, then the value for `prompt` must be `enroll_authenticator`.
+  * The parameter value is space delimited, for example, `pwd sms okta_verify` is a valid request parameter value. You are prompted in the order of the amr values provided.
 
 * `request`:
 
@@ -313,6 +325,7 @@ The following pushed authorization request initiates the flow. The request retur
 ```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 "https://${yourOktaDomain}/oauth2/default/v1/par" \
 -d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}&response_type=${responseType}&response_mode=${responseMode}&state=${state}&nonce=${nonce}"
 ```
@@ -339,7 +352,7 @@ The requested scope is invalid:
 
 ### /device/authorize
 
-<ApiOperation method="post" url="${baseUrl}/v1/device/authorize" /><ApiLifecycle access="ea" />
+<ApiOperation method="post" url="${baseUrl}/v1/device/authorize" />
 
 This endpoint returns user code, device code, activation link, and a QR code activation link.
 
@@ -382,6 +395,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 ```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 "https://${yourOktaDomain}/oauth2/default/v1/device/authorize" \
 -d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}"
 ```
@@ -396,6 +410,118 @@ curl -v -X POST \
   "verification_uri_complete": "https://{yourOktaDomain}/activate?user_code=RGTCFDTL",
   "verification_uri": "https://{yourOktaDomain}/activate",
   "expires_in": 600
+}
+```
+
+#### Response example (error)
+
+```http
+HTTP 401 Unauthorized
+Content-Type: application/json;charset=UTF-8
+{
+    "error" : "invalid_client",
+    "error_description" : "No client credentials found."
+}
+```
+
+### /bc/authorize
+
+<ApiOperation method="post" url="${baseUrl}/v1/bc/authorize" /> <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
+
+This endpoint returns a unique identifier (`auth_request_id`) that identifies the authentication flow while it tries to authenticate the user in the background.
+
+>  **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
+
+#### Request parameters
+
+You can post the following parameters as a part of the URL-encoded form values to the API.
+
+> **Note:** The `/bc/authorize` endpoint requires client authentication. See the [Client authentication methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+
+| Parameter               | Description                                                                                                                                                                                     | DataType | Required |
+| :---------------------- | :----------------------------------------------------------------------------------------------------------------------------                                                                   | :-----   | :-----   |
+| scope                   | `openid` is required for authentication requests. You can also include other [scopes](#access-token-scopes-and-claims).                                                                         | String   | TRUE     |
+| login_hint              | A hint to the OpenID Provider regarding the user for whom authentication is being requested.                                                                                                    | String   | TRUE     |
+| id_token_hint           | An ID token previously issued to the client as a hint to identify the user for whom authentication is being requested.                                                                          | String   | TRUE     |
+| binding_message         | A message that appears for the user to identify the transaction.                                                                                                                                | String   | FALSE    |
+| request_expiry          | A positive integer allowing the client to request the `expires_in` value for the `auth_req_id` that the server returns. Max value is five minutes.                                              | Integer  | FALSE    |
+| request                 | A JWT created by the client that enables requests to be passed as a single, self-contained parameter. See [Parameter details](#client-initiated-backchannel-authentication-parameter-details).  | JWT      | FALSE    |
+
+>  **Note:** You can specify either `login_hint` or `id_token_hint` in the authentication request, not both.
+
+#### Client-Initiated Backchannel Authentication parameter details
+
+* `request`:
+
+  * You must sign the JWT using either the app's client secret or a private key whose public key is registered on the app's JWKSet.
+  * You can't encrypt the JWT.
+  >  **Note:** See [Build a JWT for client authentication](/docs/guides/build-self-signed-jwt/) for information on how to build a JWT.
+  * Okta supports the [HMAC](https://tools.ietf.org/html/rfc7518#section-3.2), [RSA](https://tools.ietf.org/html/rfc7518#section-3.3) and [ECDSA](https://tools.ietf.org/html/rfc7518#section-3.4) signature algorithms. HMAC signatures require that the client has a `token_endpoint_auth_method` that uses a `client_secret`. RSA and ECDSA signatures require that the client registers a public key.
+  * You must specify `backchannel_authentication_request_signing_alg` either during client registration or when updating the client to use the signed authentication requests.
+  * Okta validates the `request` parameter in the following ways:
+    1. `iss` is required and must be the `client_id`.
+    2. `aud` is required and must be the same value as the authorization server issuer that mints the ID or access token. This value is published in the metadata for your authorization server.
+    3. JWT lifetime is evaluated using the `iat` and `exp` claims, if present. If the JWT is expired or not yet valid, Okta returns an `invalid_request_object` error. Okta rejects JWTs that expire more than one hour in the future.
+    4. Okta rejects the JWT if the `jti` claim is present and it's already been processed.
+
+#### Response properties
+
+| Property                  | Description                                                                                                         | Type    |
+| :------------------------ | :---------------------------------------------------------------------------------------------                      | :------ |
+| auth_req_id               | A unique identifier to identify the authentication request made by the client.                                      | String  |
+| interval                  | The minimum amount of time in seconds that the client should wait between polling requests to the token endpoint.   | Integer |
+| expires_in                | The expiration time of the `auth_req_id` in seconds.                                                                | Integer |
+
+#### Possible errors
+
+| Error Id                 | Details                                                                                                                                                                                                    |
+| :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| invalid_client           | The specified `client_id` isn't found.                                                                                                                                                                     |
+| invalid_request          | The request is missing a necessary parameter, the parameter has an invalid value, or the request contains duplicate parameters.                                                                            |
+| invalid_scope            | The scopes list contains an invalid or unsupported value.                                                                                                                                                  |
+| unknown_user_id          | The OpenID Provider isn't able to identify which user the client wants authenticated by means of the hint provided in the request.                                                                         |
+| unauthorized_client      | The client isn't authorized to use this authentication flow.                                                                                                                                               |
+| access_denied            | The server denied the request.                                                                                                                                                                             |
+
+#### CIBA request examples
+
+##### Request with `login_hint`
+
+```bash
+curl -v -X POST \
+-H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
+"https://${yourOktaDomain}/oauth2/default/v1/bc/authorize" \
+-d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}&binding_message=${binding_message}&login_hint=${login_hint}"
+```
+
+##### Request with `id_token_hint`
+
+```bash
+curl -v -X POST \
+-H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
+"https://${yourOktaDomain}/oauth2/default/v1/bc/authorize" \
+-d "client_id=${clientId}&client_secret=${clientSecret}&scope=${scope}&binding_message=${binding_message}&id_token_hint=${id_token_hint}"
+```
+
+##### Request with signed `request`
+
+```bash
+curl -v -X POST \
+-H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
+"https://${yourOktaDomain}/oauth2/default/v1/bc/authorize" \
+-d "client_id=${clientId}&client_secret=${clientSecret}&request=${request}"
+```
+
+#### Response example (success)
+
+```json
+{
+  "auth_req_id": "ftJwF5ZwW2SGPPoTQEKtAr_U8_Ek3RvWyR",
+  "expires_in": 300,
+  "interval": 5
 }
 ```
 
@@ -428,7 +554,7 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
 | code                    | Required if `grant_type` is `authorization_code`. The value is what was returned from the [authorization endpoint](#authorize). The code has a lifetime of 300 seconds.                                                                                                                                                             | String |
 | code_verifier           | Required if `grant_type` is `authorization_code`  and `code_challenge` was specified in the original `/authorize` request. This value is the code verifier for [PKCE](#parameter-details). Okta uses it to recompute the `code_challenge` and verify if it matches the original `code_challenge` in the authorization request.     | String |
-| grant_type              | Can be one of the following: `authorization_code`, `password`, `client_credentials`, `refresh_token`, `urn:ietf:params:oauth:grant-type:device_code`<ApiLifecycle access="ea" />, `urn:ietf:params:oauth:grant-type:token-exchange`, or `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />. Determines the mechanism Okta uses to authorize the creation of the tokens.                                                                                                                                               | String |
+| grant_type              | Can be one of the following: `authorization_code`, `password`, `client_credentials`, `refresh_token`, `urn:ietf:params:oauth:grant-type:device_code`, `urn:ietf:params:oauth:grant-type:token-exchange`, `urn:ietf:params:oauth:grant-type:saml2-bearer`, or `urn:openid:params:grant-type:ciba` <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />. Determines the mechanism Okta uses to authorize the creation of the tokens.                                                                                                                                               | String |
 | password                | Required if the `grant_type` is `password`.                                                                                                                                                                                                                                                                                          | String |
 | redirect_uri            | Required if `grant_type` is `authorization_code`. Specifies the callback location where the authorization was sent. This value must match the `redirect_uri` used to generate the original `authorization_code`.                                                                                                                   | String |
 | refresh_token           | Required if `grant_type` is `refresh_token`. The value is a valid refresh token that was returned from this endpoint previously.                                                                                                                                                                                                   | String |
@@ -440,6 +566,7 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | subject_token           | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`. | String |
 | actor_token_type        | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`. | String |
 | actor_token             | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`. | String |
+| auth_req_id             | Required if the `grant_type` is `urn:openid:params:grant-type:ciba`<ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />. | String |
 
 #### Response properties
 
@@ -470,6 +597,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 ```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 "https://${yourOktaDomain}/oauth2/default/v1/token" \
 -d "client_id=${clientId}&client_secret=${clientSecret}&grant_type=authorization_code&redirect_uri=${redirectUri}&code=${code}"
 ```
@@ -904,29 +1032,31 @@ curl -X GET \
 
 #### Response properties
 
-| Property                                      | Description                                                                                                                               | Type    |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| issuer                                        | The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token. In the context of this document, this is your authorization server's [base URL](#composing-your-base-url).                                                                                                                                              | String  |
-| authorization endpoint                        | URL of the authorization server's [authorization endpoint](#authorize).                                                                   | String  |
-| device_authorization_endpoint                 | URL of the authorization server's [device authorize endpoint](#device-authorize)<ApiLifecycle access="ea" />.                                                                                                                      | String   |
-| token_endpoint                                | URL of the authorization server's [token endpoint](#token).                                                                               | String  |
-| registration_endpoint                         | URL of the authorization server's [Dynamic Client Registration endpoint](/docs/reference/api/oauth-clients/#register-new-client).         | String  |
-| jwks_uri                                      | URL of the authorization server's [JSON Web Key Set](/docs/reference/api/authorization-servers/#certificate-json-web-key-object) document. | String  |
-| response_types_supported                      | JSON array that contains a list of the `response_type` values that this authorization server supports. Can be a combination of `code`, `token`, and `id_token`.                                                                                                                                                                                                     | Array   |
-| response_modes_supported                      | JSON array that containis a list of the `response_mode` values that this authorization server supports. More information [here](#parameter-details). | Array   |
-| grant_types_supported                         | JSON array that contains a list of the `grant_type` values that this authorization server supports.                                       | Array   |
-| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this OP supports. Valid values are `pairwise` and `public`, but only `public` is currently supported. See the [Subject Identifier Types] (https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes) section in the OpenID Connect specification.                                                                                                                                         | Array   |
-| scopes_supported                              | JSON array that contains a list of the `scope` values that this authorization server supports.                                            | Array   |
-| token_endpoint_auth_methods_supported         | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                        | Array   |
-| claims_supported                              | A list of the claims supported by this authorization server.                                                                              | Array   |
-| code_challenge_methods_supported              | JSON array that contains a list of [PKCE code challenge](/docs/guides/implement-grant-type/authcodepkce/main/) methods supported by this authorization server.                                                                                                                                                                                     | Array   |
-| introspection_endpoint                        | URL of the authorization server's [introspection endpoint](#introspect).                                                                  | String  |
-| introspection_endpoint_auth_methods_supported | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this introspection endpoint. More info [here](https://www.iana.org/assignments/oauth-parameters/oauth-parameters.xhtml#token-introspection-response).                                                                                                                      | Array   |
-| revocation_endpoint                           | URL of the authorization server's [revocation endpoint](#revoke).                                                                         | String  |
-| revocation_endpoint_auth_methods_supported    | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this revocation endpoint. More info [here](https://www.iana.org/assignments/oauth-parameters/oauth-parameters.xhtml#token-introspection-response).                                                                                                                      | Array   |
-| end_session_endpoint                          | URL of the authorization server's [logout endpoint](#logout).                                                                             | String  |
-| request_parameter_supported                   | Indicates if [request parameters](#parameter-details) are supported by this authorization server.                                         | Boolean |
-| request_object_signing_alg_values_supported   | The signing algorithms that this authorization server supports for signed requests.                                                       | Array   |
+| Property                                                          | Description                                                                                                                               | Type    |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| issuer                                                            | The complete URL for a custom authorization server. This becomes the `iss` claim in an access token. In the context of this document, this is your authorization server's [base URL](#composing-your-base-url).                                                                                                                                              | String  |
+| authorization endpoint                                            | URL of the authorization server's [authorization endpoint](#authorize).                                                                   | String  |
+| device_authorization_endpoint                                     | URL of the authorization server's [device authorize endpoint](#device-authorize).                                                                                                                      | String   |
+| token_endpoint                                                    | URL of the authorization server's [token endpoint](#token).                                                                               | String  |
+| registration_endpoint                                             | URL of the authorization server's [Dynamic Client Registration endpoint](/docs/reference/api/oauth-clients/#register-new-client).         | String  |
+| jwks_uri                                                          | URL of the authorization server's [JSON Web Key Set](/docs/reference/api/authorization-servers/#certificate-json-web-key-object) document. | String  |
+| response_types_supported                                          | JSON array that contains a list of the `response_type` values that this authorization server supports. Can be a combination of `code`, `token`, and `id_token`.                                                                                                                                                                                                     | Array   |
+| response_modes_supported                                          | JSON array that containis a list of the `response_mode` values that this authorization server supports. More information in [parameter details](#parameter-details). | Array   |
+| grant_types_supported                                             | JSON array that contains a list of the `grant_type` values that this authorization server supports.                                       | Array   |
+| subject_types_supported                                           | JSON array that contains a list of the Subject Identifier types that this authorization server supports. Valid types are `pairwise` and `public`. Supported values: `public`. See the [Subject Identifier Types] (https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes) section in the OpenID Connect specification.                                                                                                                                         | Array   |
+| scopes_supported                                                  | JSON array that contains a list of the `scope` values that this authorization server supports.                                            | Array   |
+| token_endpoint_auth_methods_supported                             | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                        | Array   |
+| claims_supported                                                  | A list of the claims supported by this authorization server.                                                                              | Array   |
+| code_challenge_methods_supported                                  | JSON array that contains a list of [PKCE code challenge](/docs/guides/implement-grant-type/authcodepkce/main/) methods supported by this authorization server.                                                                                                                                                                                     | Array   |
+| introspection_endpoint                                            | URL of the authorization server's [introspection endpoint](#introspect).                                                                  | String  |
+| introspection_endpoint_auth_methods_supported                     | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this introspection endpoint. More info [here](https://www.iana.org/assignments/oauth-parameters/oauth-parameters.xhtml#token-introspection-response).                                                                                                                      | Array   |
+| revocation_endpoint                                               | URL of the authorization server's [revocation endpoint](#revoke).                                                                         | String  |
+| revocation_endpoint_auth_methods_supported                        | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this revocation endpoint. More info [here](https://www.iana.org/assignments/oauth-parameters/oauth-parameters.xhtml#token-introspection-response).                                                                                                                      | Array   |
+| end_session_endpoint                                              | URL of the authorization server's [logout endpoint](#logout).                                                                             | String  |
+| request_parameter_supported                                       | Indicates if [request parameters](#parameter-details) are supported by this authorization server.                                         | Boolean |
+| request_object_signing_alg_values_supported                       | The signing algorithms that this authorization server supports for signed requests.                                                       | Array   |
+| backchannel_token_delivery_modes_supported                        | The delivery modes that this authorization server supports for Client-Initiated Backchannel Authentication. Valid types include `poll`, `ping` and `push`. Supported values: `poll`. <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />                                                          | Array   |
+| backchannel_authentication_request_signing_alg_values_supported   | The signing algorithms that this authorization server supports for Client-Initiated Backchannel Authentication signed requests. <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />          | Array   |
 
 #### Response example (success)
 
@@ -957,7 +1087,8 @@ curl -X GET \
         "implicit",
         "refresh_token",
         "password",
-        "client_credentials"
+        "client_credentials",
+        "urn:openid:params:grant-type:ciba"
     ],
     "subject_types_supported": [
         "public"
@@ -1020,6 +1151,20 @@ curl -X GET \
         "ES256",
         "ES384",
         "ES512"
+    ],
+    "backchannel_token_delivery_modes_supported": [
+        "poll"
+    ],
+    "backchannel_authentication_request_signing_alg_values_supported": [
+        "HS256",
+        "HS384",
+        "HS512",
+        "RS256",
+        "RS384",
+        "RS512",
+        "ES256",
+        "ES384",
+        "ES512"
     ]
 }
 ```
@@ -1060,29 +1205,31 @@ curl -X GET \
 
 #### Response properties
 
-| Property                                      | Description                                                                                                                                                                                                                                | Type    |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
-| authorization_endpoint                        | URL of the authorization server's [authorization endpoint](#authorize).                                                                                                                                                                    | String  |
-| device_authorization_endpoint                 | URL of the authorization server's [device authorize endpoint](#device-authorize)<ApiLifecycle access="ea" />.                                                                                                                      | String   |
-| claims_supported                              | A list of the claims supported by this authorization server.                                                                                                                                                                               | Array   |
-| code_challenge_methods_supported              | JSON array that contains a list of [PKCE code challenge](/docs/guides/implement-grant-type/authcodepkce/main/) methods supported by this authorization server.                                                                    | Array   |
-| end_session_endpoint                          | URL of the authorization server's [logout endpoint](#logout).                                                                                                                                                                              | String  |
-| grant_types_supported                         | JSON array that contains a list of the grant type values that this authorization server supports.                                                                                                                                             | Array   |
-| introspection_endpoint                        | URL of the authorization server's [introspection endpoint](#introspect).                                                                                                                                                                   | String  |
-| introspection_endpoint_auth_methods_supported | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this introspection endpoint.                                                                                                                                    | Array   |
-| issuer                                        | The authorization server's issuer identifier. In the context of this document, this is your authorization server's [base URL](#composing-your-base-uRL).                                                                                   | String  |
-| jwks_uri                                      | URL of the authorization server's JSON Web Key Set document.                                                                                                                                                                               | String  |
-| registration_endpoint                         | URL of the authorization server's [Dynamic Client Registration endpoint](/docs/reference/api/oauth-clients/#register-new-client)                                                                                                           | String  |
-| request_object_signing_alg_values_supported   | The signing algorithms that this authorization server supports for signed requests.                                                                                                                                                        | Array   |
-| request_parameter_supported                   | Indicates if [Request Parameters](#parameter-details) are supported by this authorization server.                                                                                                                                          | Boolean |
-| response_modes_supported                      | JSON array that contains a list of the `response_mode` values that this authorization server supports. More information [here](#parameter-details).                                                                                           | Array   |
-| response_types_supported                      | JSON array that contains a list of the `response_type` values that this authorization server supports. Can be a combination of `code`, `token`, and `id_token`.                                                                               | Array   |
-| revocation_endpoint                           | URL of the authorization server's [revocation endpoint](#revoke).                                                                                                                                                                          | String  |
-| revocation_endpoint_auth_methods_supported    | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this revocation endpoint.                                                                                                                                       | Array   |
-| scopes_supported                              | JSON array that contains a list of the `scope` values that this authorization server supports.                                                                                                                                                | Array   |
-| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this authorization server supports. Valid types include `pairwise` and `public`, but only `public` is currently supported. See the [Subject Identifier Types] (https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes) section in the OpenID Connect specification. | Array   |
-| token_endpoint                                | URL of the authorization server's [token endpoint](#token).                                                                                                                                                                                | String  |
-| token_endpoint_auth_methods_supported         | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                                                                                                                            | Array   |
+| Property                                                          | Description                                                                                                                                                                                                                                | Type    |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
+| authorization_endpoint                                            | URL of the authorization server's [authorization endpoint](#authorize).                                                                                                                                                                    | String  |
+| device_authorization_endpoint                                     | URL of the authorization server's [device authorize endpoint](#device-authorize).                                                                                                                      | String   |
+| claims_supported                                                  | A list of the claims supported by this authorization server.                                                                                                                                                                               | Array   |
+| code_challenge_methods_supported                                  | JSON array that contains a list of [PKCE code challenge](/docs/guides/implement-grant-type/authcodepkce/main/) methods supported by this authorization server.                                                                    | Array   |
+| end_session_endpoint                                              | URL of the authorization server's [logout endpoint](#logout).                                                                                                                                                                              | String  |
+| grant_types_supported                                             | JSON array that contains a list of the grant type values that this authorization server supports.                                                                                                                                             | Array   |
+| introspection_endpoint                                            | URL of the authorization server's [introspection endpoint](#introspect).                                                                                                                                                                   | String  |
+| introspection_endpoint_auth_methods_supported                     | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this introspection endpoint.                                                                                                                                    | Array   |
+| issuer                                                            | The authorization server's issuer identifier. In the context of this document, this is your authorization server's [base URL](#composing-your-base-uRL).                                                                                   | String  |
+| jwks_uri                                                          | URL of the authorization server's JSON Web Key Set document.                                                                                                                                                                               | String  |
+| registration_endpoint                                             | URL of the authorization server's [Dynamic Client Registration endpoint](/docs/reference/api/oauth-clients/#register-new-client)                                                                                                           | String  |
+| request_object_signing_alg_values_supported                       | The signing algorithms that this authorization server supports for signed requests.                                                                                                                                                        | Array   |
+| request_parameter_supported                                       | Indicates if [Request Parameters](#parameter-details) are supported by this authorization server.                                                                                                                                          | Boolean |
+| response_modes_supported                                          | JSON array that contains a list of the `response_mode` values that this authorization server supports. More information in [Parameter details](#parameter-details).                                                                                           | Array   |
+| response_types_supported                                          | JSON array that contains a list of the `response_type` values that this authorization server supports. Can be a combination of `code`, `token`, and `id_token`.                                                                               | Array   |
+| revocation_endpoint                                               | URL of the authorization server's [revocation endpoint](#revoke).                                                                                                                                                                          | String  |
+| revocation_endpoint_auth_methods_supported                        | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this revocation endpoint.                                                                                                                                       | Array   |
+| scopes_supported                                                  | JSON array that contains a list of the `scope` values that this authorization server supports.                                                                                                                                                | Array   |
+| subject_types_supported                                           | JSON array that contains a list of the Subject Identifier types that this authorization server supports. Valid types are `pairwise` and `public`. Supported values: `public`. See the [Subject Identifier Types] (https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes) section in the OpenID Connect specification. | Array   |
+| token_endpoint                                                    | URL of the authorization server's [token endpoint](#token).                                                                                                                                                                                | String  |
+| token_endpoint_auth_methods_supported                             | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                                                                                                                            | Array   |
+| backchannel_token_delivery_modes_supported                        | The delivery modes that this authorization server supports for Client-Initiated Backchannel Authentication. Valid types include `poll`, `ping` and `push`. Supported values: `poll`. <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />                                                          | Array   |
+| backchannel_authentication_request_signing_alg_values_supported   | The signing algorithms that this authorization server supports for Client-Initiated Backchannel Authentication signed requests. <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />           | Array   |
 
 #### Response example (success)
 
@@ -1113,7 +1260,8 @@ curl -X GET \
         "authorization_code",
         "implicit",
         "refresh_token",
-        "password"
+        "password",
+        "urn:openid:params:grant-type:ciba"
     ],
     "subject_types_supported": [
         "public"
@@ -1190,6 +1338,20 @@ curl -X GET \
         "HS256",
         "HS384",
         "HS512"
+    ],
+    "backchannel_token_delivery_modes_supported": [
+        "poll"
+    ],
+    "backchannel_authentication_request_signing_alg_values_supported": [
+        "HS256",
+        "HS384",
+        "HS512",
+        "RS256",
+        "RS384",
+        "RS512",
+        "ES256",
+        "ES384",
+        "ES512"
     ]
 }
 ```
@@ -1392,7 +1554,7 @@ The payload includes the following reserved claims:
 | scp      | Array of scopes that are granted to this access token.                                                                 | Array    |
 | uid      | A unique identifier for the user. It isn't included in the access token if there is no user bound to it.               | String   |
 | ver      | The semantic version of the access token.                                                                              | Integer  |
-| acr <ApiLifecycle access="ea" />  | Information about the level of assurance that the user verified at the time of authentication| String   |
+| acr      | Information about the level of assurance that the user verified at the time of authentication| String   |
 
 ##### Custom scopes and claims
 
@@ -1529,7 +1691,6 @@ Claims in the payload are either base claims, independent of scope (always retur
 | name                | profile            | User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the user's locale and preferences.                                                                      | String          | John Doe                                                                                                                          |
 | preferred_username  | profile            | The Okta login (username) for the end user.                                                                                                                                                                                         | String          | john.doe@example.com                                                                                                              |
 | nickname            | profile            | Casual name of the user that may or may not be the same as the `given_name`.                                                                                                                                                          | String          | Jimmy                                                                                                                             |
-| preferred_username  | profile            | The chosen login (username) for the end user. By default this is the Okta username.                                                                                                                                                 | String          | john.doe@example.com                                                                                                              |
 | given_name          | profile            | Given name(s) or first name(s) of the user. Note that in some cultures, people can have multiple given names; all can be present, with the names being separated by space characters.                                               | String          | John                                                                                                                              |
 | middle_name         | profile            | Middle name(s) of the user. Note that in some cultures, people can have multiple middle names; all can be present, with the names being separated by space characters. Also note that in some cultures, middle names aren't used.  | String          | James                                                                                                                             |
 | family_name         | profile            | Surname(s) or last name(s) of the user. Note that in some cultures, people can have multiple family names or no family name; all can be present, with the names being separated by space characters.                                | String          | Doe                                                                                                                               |

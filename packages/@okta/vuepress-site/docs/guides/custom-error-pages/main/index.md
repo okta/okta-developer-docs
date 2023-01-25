@@ -15,7 +15,7 @@ Customize error pages as part of the sign-in flow.
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* [Custom URL domain](/docs/guides/custom-url-domain/), unless you're using the [Brands API](#use-the-brands-api)
+* [Custom domain](/docs/guides/custom-url-domain/), unless you're using the [Brands API](#use-the-brands-api)
 * The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
 
 **Sample code**
@@ -26,7 +26,7 @@ Customize error pages as part of the sign-in flow.
 
 ## About error page customization
 
-When using an Okta-hosted flow, you can create a unique sign-in experience by providing a customized [Okta URL domain](/docs/guides/custom-url-domain/) and creating a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
+When using an Okta-hosted flow, you can create a unique sign-in experience by providing a [custom domain](/docs/guides/custom-url-domain/) and creating a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
 
 However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using the code editor.
 
@@ -40,19 +40,17 @@ The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, a
 
 Use the code editor to modify any HTML, CSS, or JavaScript on the error page. See [Customization examples](#customization-examples) for snippets that you can update and use.
 
-> **Note:** There is no draft mode in the code editor. When you click **Publish**, your changes go live. If you want to test changes without impacting production, use a test or development org.
-
 1. In the Admin Console, go to **Customizations** > **Branding**.
-2. In the **Okta-hosted Error Pages box**, click **Edit**.
+2. In the **Error Page** box, click **Edit**.
 3. To open the code editor, turn on the toggle next to **Code editor**.
 
-   > **Note:** The code editor toggle only appears if you connect to Okta using a [custom domain](/docs/guides/custom-url-domain/) or use the [Brands API](#use-the-brands-api).
+   > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/).
 
 4. Make changes directly in the editor. If you enter `{`, `(`, or `.` you see a list of available variables that you can use. See [Use variables](#use-variables).
    * Click **Preview** to see your changes in a new browser window before you publish.
    * Select **Compare with published version** to see the difference between your edited version and the published version. You can choose between a split view and a unified view.
 
-   > **Note:** The Admin Console auto-saves your changes every few seconds. You can navigate away from the code editor and your updates remain. To discard your changes without publishing them, click **Revert changes** or turn off the toggle next to **Code editor**. The console restores the default HTML/CSS and JavaScript code.
+   > **Note:** The console restores the previous published version of the code. To revert to the 0-state/default, toggle the code editor off.
 
 5. Click **Publish** to commit your changes.
 
@@ -131,5 +129,5 @@ Example:
 
 Read more about other customization options:
 
-* [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+* [Customize domain and email address](/docs/guides/custom-url-domain/)
 * [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)

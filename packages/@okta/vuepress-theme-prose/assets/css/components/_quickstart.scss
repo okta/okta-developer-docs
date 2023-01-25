@@ -1,59 +1,66 @@
-.quickstart--content {
-  
-  .code-selector {
-    background-color: cv('header');
-    border-radius: 5px;
-    margin-bottom: 10px;
-    padding: 20px;
-    margin-top: $base-spacing;
+.quickstart--content .code-selector {
+  margin-top: $base-spacing;
+  margin-bottom: 10px;
+  padding: 20px;
 
-    a {
-      text-decoration: none;
-      color: cv('gray', '000');
-      display: inline-block;
-      height: 42px;
-      line-height: 32px;
-      margin-right: 20px;
-      padding-left: 15px;
-      padding-right: 15px;
-      position: relative;
-      &:hover{
-        cursor: pointer;
-        text-decoration: none;
-      }
-      &.active,
-      &:hover {
-        border-bottom: 2px solid cv('gray', '000');
-      }
-      .icon {
-        left: 5px;
-        position: absolute;
-      }
-    }
+  border-radius: 5px;
+  background-color: cv("header");
+}
 
-    h3 {
-      margin-top: 0rem;
-      margin-bottom: 1.5rem;
-      color: cv('gray', '000');
-      font-size: 18px;
-      font-weight: lighter;
-    }
+.quickstart--content .code-selector a {
+  position: relative;
 
-    li {
-      margin-bottom: $base-spacing;
-    }
+  display: inline-block;
+  margin-right: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  height: 42px;
 
-    li.with-icon a{
-      padding-left: 45px;
-    }
+  line-height: 32px;
+  text-decoration: none;
+  color: cv("gray", "000");
+}
 
-    ul {
-      margin: 0;
-      padding: 0;
-      li {
-        display: inline-block;
-        list-style-type: none;
-      }
-    }
-  }
+.quickstart--content .code-selector a:hover {
+  cursor: pointer;
+
+  text-decoration: none;
+}
+
+.quickstart--content .code-selector a.active,
+.quickstart--content .code-selector a:hover {
+  border-bottom: 2px solid cv("gray", "000");
+}
+
+.quickstart--content .code-selector a .icon {
+  position: absolute;
+  left: 5px;
+}
+
+.quickstart--content .code-selector h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+
+  font-weight: 100;
+  font-size: 18px;
+  color: cv("gray", "000");
+}
+
+.quickstart--content .code-selector li {
+  margin-bottom: $base-spacing;
+}
+
+.quickstart--content .code-selector li.with-icon a {
+  padding-left: 45px;
+}
+
+.quickstart--content .code-selector ul {
+  margin: 0;
+  padding: 0;
+}
+
+.quickstart--content .code-selector ul li {
+  display: inline-block;
+
+  list-style-type: none;
 }

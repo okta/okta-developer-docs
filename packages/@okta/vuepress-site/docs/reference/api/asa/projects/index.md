@@ -99,6 +99,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
 | `team`   | string | The ASA Team of the Project |
+| `user_on_demand_period`   | number | (Optional) The time period, in seconds, that an on-demand user account exists on the server following an access request. By default, this value is `null` and the on-demand user feature is disabled. |
 
 #### Usage example
 
@@ -184,6 +185,7 @@ This endpoint requires an object with the following fields.
 | `ssh_certificate_type`   | string | (Optional) The type of signature algorithm used for authentication keys. Supported values: `CERT_TYPE_ED25519_01`, `CERT_TYPE_RSA_01`, `CERT_TYPE_ECDSA_521_01`, `CERT_TYPE_ECDSA_384_01`, `CERT_TYPE_ECDSA_256_01`. Default is `CERT_TYPE_ED25519_01`. |
 | `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
 | `team`   | string | The ASA Team of the Project |
+| `user_on_demand_period`   | number | (Optional) The time period, in seconds, that an on-demand user account exists on the server following an access request. By default, this value is `null` and the on-demand user feature is disabled. |
 
 #### Response body
 This endpoint returns an object with the following fields and a `201` code on a successful call.
@@ -203,6 +205,7 @@ This endpoint returns an object with the following fields and a `201` code on a 
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
 | `team`   | string | The ASA Team of the Project |
+| `user_on_demand_period`   | number | (Optional) The time period, in seconds, that an on-demand user account exists on the server following an access request. By default, this value is `null` and the on-demand user feature is disabled. |
 
 #### Usage example
 
@@ -286,6 +289,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `shared_standard_user_name`   | string | (Optional) The name for a shared standard user on Servers in this Project. If `force_shared_ssh_users` is `true`, this must be provided. |
 | `ssh_session_recording`   | boolean | (Optional) Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
 | `team`   | string | The ASA Team of the Project |
+| `user_on_demand_period`   | number | (Optional) The time period, in seconds, that an on-demand user account exists on the server following an access request. By default, this value is `null` and the on-demand user feature is disabled. |
 
 #### Usage example
 
@@ -387,6 +391,7 @@ This endpoint requires an object with the following fields.
 | `require_preauth_for_creds`   | boolean | (Optional) Whether to require preauthorization before an ASA User can retrieve credentials to sign in. Default is `false`. |
 | `ssh_certificate_type`   | string | (Optional) The type of signature algorithm used for authentication keys. Supported values: `CERT_TYPE_ED25519_01`, `CERT_TYPE_RSA_01`, `CERT_TYPE_ECDSA_521_01`, `CERT_TYPE_ECDSA_384_01`, `CERT_TYPE_ECDSA_256_01`. Default is `CERT_TYPE_ED25519_01`. |
 | `ssh_session_recording`   | boolean | Whether to enable ssh recording on all Servers in this Project. Default is `false`. |
+| `user_on_demand_period`   | number | (Optional) The time period, in seconds, that an on-demand user account exists on the server following an access request. By default, this value is `null` and the on-demand user feature is disabled. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
@@ -1737,7 +1742,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `hostname`   | string | The hostname of the Server |
 | `id`   | string | The UUID corresponding to the Server |
 | `instance_details`   | object | Information that the cloud provider provides about the Server, if one exists |
-| `labels`   | object | (Optional) The labels for this server. This parameter is only available with the PolicySync feature, which is currently in EA. |
+| `labels`   | object | (Optional) The labels for this server. This parameter is used by the PolicySync feature, see [PolicySync: Attribute-Based Access Control](https://help.okta.com/okta_help.htm?type=asa&id=ext-asa-policysync).|
 | `last_seen`   | string | The last time that the Server made a request to the ASA platform |
 | `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA knows that it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server, such as CentOS 6 or Debian 9.13 |
@@ -1857,7 +1862,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `hostname`   | string | The hostname of the Server |
 | `id`   | string | The UUID corresponding to the Server |
 | `instance_details`   | object | Information that the cloud provider provides about the Server, if one exists |
-| `labels`   | object | (Optional) The labels for this server. This parameter is only available with the PolicySync feature, which is currently in EA |
+| `labels`   | object | (Optional) The labels for this server. This parameter is used by the PolicySync feature, see [PolicySync: Attribute-Based Access Control](https://help.okta.com/okta_help.htm?type=asa&id=ext-asa-policysync). |
 | `last_seen`   | string | The last time that the Server made a request to the ASA platform |
 | `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA knows that it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server, such as CentOS 6 or Debian 9.13 |
@@ -1951,7 +1956,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `hostname`   | string | The hostname of the Server |
 | `id`   | string | The UUID corresponding to the Server |
 | `instance_details`   | object | Information that the cloud provider provides about the Server, if one exists |
-| `labels`   | object | (Optional) The labels for this server. Only available with the PolicySync feature, which is currently in EA |
+| `labels`   | object | (Optional) The labels for this server. This parameter is used by the PolicySync feature, see [PolicySync: Attribute-Based Access Control](https://help.okta.com/okta_help.htm?type=asa&id=ext-asa-policysync).|
 | `last_seen`   | string | The last time that the Server made a request to the ASA platform |
 | `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA knows that it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server, such as CentOS 6 or Debian 9.13 |
@@ -2048,7 +2053,7 @@ HTTP 204 No Content
 ### Update a Server on a Project
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}" />
-Updates a Server on a Project. This endpoint is only available with the PolicySync feature, which is currently in EA.
+Updates a Server on a Project. This endpoint is intended for use with the PolicySync feature, see [PolicySync: Attribute-Based Access Control](https://help.okta.com/okta_help.htm?type=asa&id=ext-asa-policysync).
 
 This endpoint requires one of the following roles: `access_admin`, or `server_admin`.
 

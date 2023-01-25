@@ -1,0 +1,29 @@
+.copyright {
+
+  .copyright--container {
+    max-width: 668px;
+  }
+
+  .copyright--leader {
+    flex-grow: 1;
+    margin: 100px 0 30px;
+
+    text-align: center;
+  }
+
+  .copyright--text {
+    margin: 0 0 100px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  p {
+    max-width: initial;
+  }
+
+  ul li {
+    margin-bottom: 0.3rem;
+  }
+}

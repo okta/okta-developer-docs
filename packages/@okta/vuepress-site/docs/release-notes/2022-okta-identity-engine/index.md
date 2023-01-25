@@ -4,7 +4,398 @@ title: Okta Identity Engine API Products release notes 2022
 
 <ApiLifecycle access="ie" />
 
+## December
+
+### Weekly release 2022.12.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.12.3](#bug-fixed-in-2022-12-3)                       |January 5, 2023           |
+
+#### Bug fixed in 2022.12.3
+
+An error occurred if a request was made to the `/authorize` endpoint of a custom authorization server and the `prompt` parameter value was set to `enroll_authenticator`. (OKTA-552063)
+
+### Weekly release 2022.12.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.12.2](#bugs-fixed-in-2022-12-2)                      |December 21, 2022            |
+
+#### Bugs fixed in 2022.12.2
+
+* Attempts to save sign-in page edits sometimes failed when using the full-feature code editor. (OKTA-551632)
+
+* If an admin added a redirect URI that reached the character limit, then they couldn't edit the redirect URI list using the Apps API.  (OKTA-476668)
+
+* When an admin viewed a user's profile, an error sometimes occurred. (OKTA-558220)
+
+### Weekly release 2022.12.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.12.1](#bugs-fixed-in-2022-12-1)                      |December 14, 2022            |
+
+#### Bugs fixed in 2022.12.1
+
+* A List Users API call made with a search parameter didn’t return deactivated users with a `login` property that started with the Okta User `id`. (OKTA-537805)
+
+* When a custom app used the `/sso/idps/{idpId}` endpoint for IdP routing with a `login_hint` parameter, the `login_hint` was ignored. (OKTA-549212)
+
+### Monthly release 2022.12.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Preview the token inline hook](#preview-the-token-inline-hook)                       | December 9, 2022         |
+| [Revoke user sessions is GA in Preview](#revoke-user-sessions-is-ga-in-preview)                       | December 9, 2022         |
+| [Step-up authentication using ACR values is GA in Prod](#step-up-authentication-using-acr-values-is-ga-in-prod)                       | August 31, 2022         |
+| [Redirect added to end of sign-in flow](#redirect-added-to-end-of-sign-in-flow)                       | December 9, 2022         |
+| [Loading Page Animation feature for the Brands API is GA in Production](#loading-page-animation-feature-for-the-brands-api-is-ga-in-production)                       | July 7, 2022         |
+| [Rate limit parameter matching](#rate-limit-parameter-matching)                       | December 9, 2022         |
+| [Improvements to the sign-in experience](#improvements-to-the-sign-in-experience)                       | November 3, 2022         |
+| [Improvements to the self-service registration experience](#improvements-to-the-self-service-registration-experience)                       | July 7, 2022         |
+| [Transactional verification with CIBA is EA in Preview](#transactional-verification-with-ciba-is-ea-in-preview)                       | December 9, 2022         |
+| [Manage embedded widget sign-in support is GA in Prod](#manage-embedded-widget-sign-in-support-is-ga-in-prod)                       | October 5, 2022         |
+| [Bugs fixed in 2022.12.0](#bugs-fixed-in-2022-12-0)                       | December 9, 2022         |
+
+#### Preview the token inline hook
+
+Before implementing a token inline hook, you can now preview the hook request and the external-service response in the Admin Console. This feature aids in the development and testing of inline hooks before releasing to a production environment. In the Admin Console, click **Preview** from the **Actions** menu or the **Preview** tab for the individual hook to preview the token inline hook call. See [Preview an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-preview-inline-hooks) and [Preview and test the token inline hook](/docs/guides/token-inline-hook/nodejs/main/#preview-and-test-the-token-inline-hook). <!-- OKTA-546727-->
+
+#### Revoke user sessions is GA in Preview
+
+You can end all Okta sessions for a user when resetting their password. All sessions of the specified user are revoked except for the current session. This option protects the user account from unauthorized access. See the `revokeSession` parameter in the [Users API](/docs/reference/api/users/#change-password). <!-- OKTA-542645-->
+
+#### Step-up authentication using ACR values is GA in Prod
+
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the acr_values parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication](/docs/guides/step-up-authentication/main/) using ACR values. <!-- OKTA-552809-->
+
+#### Redirect added to end of sign-in flow
+
+When an authentication flow begins at an org's Okta or custom domain and then finishes with a callback from an external Identity Provider to a custom or Okta domain, another redirect is now performed to get the browser to the original domain where the flow began. This enables the browser to then send the same device token in the callback that was used in the first request. <!-- OKTA-553160-->
+
+#### Loading Page Animation feature for the Brands API is GA in Production
+
+When redirecting applications, you can use the loading page variant property (`loadingPageTouchPointVariant`) of the [Brands API](/docs/reference/api/brands/#theme-object) to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!-- OKTA-552673-->
+
+#### Rate limit parameter matching
+
+The Rate Limit dashboard in the Admin Console now supports parameter matching for API endpoints. This update provides more granular rate limit information for endpoints that include a query of the form `?{parameter}=*`. See [Rate limit dashboard](/docs/reference/rl-dashboard/#apis-table). <!-- OKTA-559269-->
+
+#### Improvements to the sign-in experience
+
+When users create an account using the "Sign Up" link in the Sign-In Widget, they enter their first and family names along with their email address on the first page. The next step of the Sign-In Widget displays the authenticators page, where users enter a password and configure any other mandatory authenticators. To streamline the sign-up process, the Self-Service Registration with Password feature allows you to configure the enrollment form to show the password entry on the first page instead. See [Collect profile information and register users](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-verification). <!-- OKTA-551456-->
+
+#### Improvements to the self-service registration experience
+
+Earlier versions of the self-service registration (SSR) flow used a complicated array of templates to send activation emails to users. The simplified SSR flow reduces this to only two email templates with customized welcome messages. If your application requires immediate verification of the user’s email address, use the **Registration - Activation** template. This template includes a magic link for a smoother sign-in experience. If email verification is not immediately required to sign in to the application, use the **Registration - Email Verification** template. This template includes a link for users to complete email verification at any time after they successfully sign in to the application. See [Customize email notifications](/docs/guides/custom-email/main/) and the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/). <!-- OKTA-552780-->
+
+#### Transactional verification with CIBA is EA in Preview
+
+Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-Initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
+
+CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba). <!-- OKTA-553199-->
+
+#### Manage embedded widget sign-in support is GA in Prod
+
+Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The **Embedded widget sign-in support** toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improve the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
+
+#### Bugs fixed in 2022.12.0
+
+* An admin role couldn’t be assigned to a user or group if the role was constrained to a group with group membership rules or to a group with more than 5000 members. (OKTA-546310)
+
+* When a DELETE request to the `/api/v1/authorizationServers/<authServerID>/clients/<clientID>/tokens` endpoint was called for large scale operations, an HTTP 500 Internal Server Error was returned. (OKTA-536037)
+
+* When an admin deleted groups in quick succession using the Groups API, the groups weren't always removed from the Identity Provider that they were associated with. (OKTA-540853)
+
+* When the full-featured code editor was enabled, updates to email customizations, custom error pages, and the sign-in page didn't trigger system log events. (OKTA-553284)
+
+* When mapping for sign-in fields was enabled, POST update email address requests to `/idp/myaccount/emails` returned an HTTP 500 Internal Server error when the primary email was in use by another user in the same org. (OKTA-543301)
+
+* The Service Provider-initiated Org2Org flow failed when one of the orgs had the Enroll Authenticator feature enabled. (OKTA-549385)
+
+* The Email Authenticator challenge lifetime was sometimes set to five minutes regardless of its value in the authenticator settings. (OKTA-551130)
+
+* An error occurred when a user authenticated using an external Identity Provider during the device authorization grant flow. (OKTA-549581)
+
+* Errors during federation sometimes didn't display the cause of the error. (OKTA-541442)
+
+* Users were sometimes signed out of Okta right after signing in if the tokens returned were too large. (OKTA-552637)
+
+## November
+
+### Weekly release 2022.11.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Improvements to self-service account activities for AD and LDAP users are EA in Preview](#improvements-to-self-service-account-activities-for-ad-and-ldap-users-are-ea-in-preview)            |November 30, 2022            |
+| [Bugs fixed in 2022.11.1](#bugs-fixed-in-2022-11-1)                      | November 30, 2022            |
+
+#### Improvements to self-service account activities for AD and LDAP users are EA in Preview
+
+Previously, the self-service unlock (SSU) and self-service password reset (SSPR) flows created unnecessary friction for AD and LDAP users. This feature enhancement introduces a seamless magic link experience in emails sent to unlock accounts and reset passwords. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the application. See [Customize email notifications](/docs/guides/custom-email/main/#use-vtl-variables). <!--OKTA-546374-->
+
+#### Bugs fixed in 2022.11.1
+
+* Some orgs that performed multifactor authentication with the Custom OTP, Okta On-Prem MFA agent, or YubiKey OTP authenticators experienced internal server errors during outbound SAML and OAuth 2.0 authorization flows. (OKTA-489101)
+
+* The wrong response code (500) was sent when an admin attempted to use the app target or group target operations of the Administrator Role API with a custom role binding identifier. (OKTA-529688)
+
+* Inline hook requests configured to use OAuth 2.0 authentication sent expired access tokens in the authorization header. (OKTA-551186)
+
+### Monthly release 2022.11.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Improvements to the self-service password reset experience are GA in Production](#self-service-password-reset-improvements-are-ga-in-production) | July 7, 2022 |
+| [Improvements to the self-service unlock process are GA in Production](#self-service-unlock-improvements-are-ga-in-production) | August 10, 2022 |
+| [Improvements to the sign-in experience are GA in Preview](#sign-in-experience-improvements-are-ga-in-preview) | November 3, 2022 |
+| [Manage embedded widget sign-in support is GA in Preview](#manage-embedded-widget-sign-in-support-is-ga-in-preview) | October 5, 2022 |
+| [Step-up authentication using ACR values is GA in Preview](#step-up-authentication-using-acr-values-is-ga-in-preview) | August 31, 2022 |
+| [Authenticator enrollment using the /authorize endpoint is EA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ea-in-preview) | November 3, 2022 |
+| [Loading page animation feature for the Brands API is in GA](#loading-page-animation-feature-for-the-brands-api-is-in-ga) | October 5, 2022 |
+| [API service integrations is Self-Service EA in Preview](#api-service-integrations-is-self-service-ea-in-preview) | November 3, 2022 |
+| [New rate limits dashboard filter](#new-rate-limits-dashboard-filter) | November 3, 2022 |
+| [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | November 3, 2022 |
+| [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022-11-0) | November 3, 2022 |
+| [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022-11-0) | November 3, 2022|
+
+#### Self-service password reset improvements are GA in Production
+
+Previously, the self-service password reset (SSPR) flow created unnecessary friction in the user experience. The newly enhanced SSPR feature introduces a seamless magic link experience for password reset emails. Users no longer need to provide consent when using the same browser. After a successful password reset, where the password meets the application’s assurance policy, the user is signed directly in to the app. See [Configure the Email authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-email). This feature is currently available for new orgs only. <!--OKTA-499517-->
+
+#### Self-service unlock improvements are GA in Production
+
+Previously, the self-service unlock (SSU) flow created unnecessary friction in the end-user experience. The newly enhanced SSU feature introduces a seamless magic link experience in emails sent to unlock accounts. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the app. See the `${oneTimePassword}` and `${unlockAccountLink}` [VTL variables](/docs/guides/custom-email/main/#use-vtl-variables) used in the [Email Magic link](/docs/guides/email-magic-links-overview/) [custom email template](/docs/guides/email-magic-links-overview/aspnet/main/#use-custom-email-templates). This feature is currently available for new orgs only. <!--OKTA-499520-->
+
+#### Sign-in experience improvements are GA in Preview
+
+When users create an account using the Sign Up link in the Okta Sign-In Widget, they enter their first and family names along with their email address on the first page. The Sign-In Widget then displays the authenticators page, where users enter a password and configure any other mandatory authenticators. To streamline the sign-up process, the Self-Service Registration with Password feature allows you to show the password entry on the first page of the enrollment form instead. See [Collect profile information and register users](https://help.okta.com/okta_help.htm?type=oie&id=csh-email-verification). <!--OKTA-543643-->
+
+#### Manage embedded widget sign-in support is GA in Preview
+
+Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The Embedded widget sign-in support toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improves the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled). <!--OKTA-543996-->
+
+#### Step-up authentication using ACR values is GA in Preview
+
+Users want seamless access to certain resources, but organizations want to increase the users' level of assurance before they access anything sensitive. It’s difficult to strike a balance between implementing stronger security controls and offering a frictionless experience for your users to easily interact with an application. Okta now supports the `acr_values` parameter, which refers to Authentication Context Class Reference. Each value defines a specific set of assurance level requirements that the protected resource requires from the authentication event associated with the access and ID tokens. See [Step-up authentication using ACR values](/docs/guides/step-up-authentication/main/). <!--OKTA-544153-->
+
+#### Authenticator enrollment using the /authorize endpoint is EA in Preview
+
+Authenticator enrollment provides a standardized way for a user to enroll a new authenticator using the OAuth `/authorize` endpoint. This feature uses query parameters such as `prompt` and `enroll_amr_values` to specify which authenticator the user wants to enroll. It also automatically verifies at least two factors as long the user has already enrolled two or more factors. <!--OKTA-544671-->
+
+#### Loading page animation feature for the Brands API is in GA
+
+When redirecting applications, you can use the [loading page variant property](/docs/reference/api/brands/#theme-object) (`loadingPageTouchPointVariant`) of the Brands API to display a blank page instead of the default Okta loading page animation. As a result, Okta's branding doesn't appear anywhere in the redirect user journey. <!--OKTA-544951-->
+
+#### API service integrations is Self-Service EA in Preview
+
+A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/). <!--OKTA-532102-->
+
+#### New rate limits dashboard filter
+
+You can now filter the APIs listed on the rate limits dashboard by their rate limit multiplier eligibility status. See [Rate limit monitoring](/docs/reference/rl-dashboard). <!--OKTA-524847-->
+
+#### Improved ThreatInsight coverage
+
+ThreatInsight has increased coverage for enabled orgs. More malicious requests are now flagged for orgs with ThreatInsight configured. <!--OKTA-536921-->
+
+#### Developer documentation updates in 2022.11.0
+
+* We’ve got a [new API reference in the works](https://developer.okta.com/docs/api/). With a fresh look and feel, our new API content will be easier to navigate and features a wider variety of code examples. Content is continuously being added &mdash; please try it out and help us improve the site by providing feedback.
+
+* A new set of guides to support the creation of a password-optional or passwordless sign-in experience for your apps is now online. [Find them all here](/docs/guides/pwd-optional-overview/aspnet/main/).
+
+#### Bugs fixed in 2022.11.0
+
+* Requests to the `/api/v1/brands/*/templates/email/` endpoint returned an HTTP 404 error. (OKTA-545178)
+
+* PATCH requests to the `/iam/resource-sets/${resourceSetIdOrLabel}/resources` endpoint with duplicate resources returned duplicate resources. (OKTA-476449)
+
+* Users were sometimes signed out of Okta right after signing in if the tokens returned were too large. (OKTA-476449)
+
+* Some orgs experienced internal server errors during outbound SAML federation. (OKTA-544628)
+
+* A long text string was displayed outside of the General Settings page in OIN Manager. (OKTA-532898)
+
+* The **Enter your Post Logout Redirect URI** field for OIDC settings in OIN Manager didn’t accept all valid URLs.
+
+## October
+
+### Weekly release 2022.10.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Invalid phone numbers rejected](#invalid-phone-numbers-rejected)                | October 26, 2022         |
+| [Bugs fixed in 2022.10.2](#bugs-fixed-in-2022-10-2)                      | October 26, 2022         |
+
+#### Invalid phone numbers rejected
+
+Okta now rejects attempts to enroll a toll-free, premium, fixed-line (SMS), or any other invalid or unrecognized phone number. This ensures that only valid phone numbers are used for multifactor authentication or device enrollment. See [Configure and use telephony](https://help.okta.com/okta_help.htm?type=oie&id=ext-telephony-how-to) or the [Enroll Factor API](/docs/reference/api/authn/#enroll-factor). <!--OKTA-437305-->
+
+#### Bugs fixed in 2022.10.2
+
+* A `/token` request that used the authorization code flow failed when the **Groups claim type** in the app was set to **Expression** and the group number exceeded 100. (OKTA-518536)
+
+* A `/token` request that used the `refresh_token` grant type failed when the **Groups claim type** in the app was set to either **Expression** or **Filter** and the group number exceeded 100. (OKTA-531605)
+
+* When a user entered their credentials in the widget (version 6.6.1) during self-service registration, their information was cleared if the username didn't exist in the org. (OKTA-532293)
+
+* The MyAccount API didn't send a notice of pending email address change for Add Email calls with a false `sendEmail` parameter. (OKTA-539268)
+
+* An opened session in Classic Engine couldn't be closed for a user (`DELETE /session/me`) after upgrading to Identity Engine. (OKTA-517093)
+
+* Custom app integrations didn't include the `mfa` and `pwd` factors in `session.amr` claims during federated sessions. (OKTA-541859)
+
+* Admins were able to set the `loginRedirectUrl` using the Apps API. (OKTA-540515)
+
+### Weekly release 2022.10.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.10.1](#bugs-fixed-in-2022-10-1)                      | October 12, 2022            |
+
+#### Bugs fixed in 2022.10.1
+
+* POST update email address requests to `/idp/myaccount/emails` returned an HTTP 409 Conflict error when the primary email wasn't verified during registration. (OKTA-534398)
+
+* During the user activation flow, a user was still prompted to sign in when the `prompt` property was set to `none` and the user had a valid session token. (OKTA-514346)
+
+### Monthly release 2022.10.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Access Denied error message customization is GA in Production](#access-denied-error-message-customization-is-ga-in-production) | August 31, 2022 |
+| [Additional measures for suspicious SMS and Voice requests](#additional-measures-for-suspicious-sms-and-voice-requests) | October 5, 2022 |
+| [Clone authentication policies are GA in Production](#clone-authentication-policies-are-ga-in-production) | August 31, 2022 |
+| [Default authenticator enrollment policy settings format is GA in Production](#default-authenticator-enrollment-policy-settings-format-is-ga-in-production) | August 31, 2022 |
+| [Dynamic IdP routing is GA in Production](#dynamic-idp-routing-is-ga-in-production) | June 8, 2022 |
+| [Factors API support for Okta Verify authenticator enrollment flows is GA in Preview](#factors-api-support-for-okta-verify-authenticator-enrollment-flows-is-ga-in-preview) | October 5, 2022 |
+| [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | October 5, 2022 |
+| [Improved User API sort](#improved-user-api-sort) | October 5, 2022 |
+| [Manage embedded widget sign-in support is EA in Preview](#manage-embedded-widget-sign-in-support-is-ea-in-preview) | October 5, 2022 |
+| [Non-deletable default authorization server is GA in Production](#non-deletable-default-authorization-server-is-ga-in-production) | August 31, 2022 |
+| [OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-self-service-ea-in-preview) | October 5, 2022 |
+| [Developer documentation updates in 2022.10.0](#developer-documentation-updates-in-2022-10-0) | October 5, 2022 |
+| [Bugs fixed in 2022.010.0](#bugs-fixed-in-2022-10-0) | October 5, 2022|
+
+#### Access Denied error message customization is GA in Production
+
+Admins can now customize the error message that users receive when their access is denied. This allows admins to provide remediation steps and/or point users to documentation that helps resolve their access issues. <!--OKTA-512725-->
+
+#### Additional measures for suspicious SMS and Voice requests
+
+Additional measures are now applied to block suspicious SMS and Voice traffic from countries that are typically at risk of toll fraud attacks. Blocked transactions display a deny status in the System Log.
+<!--OKTA-532681-->
+
+#### Clone authentication policies are GA in Production
+
+Creating an authentication policy from scratch is a manual, error-prone task because you need to visually copy existing rules into the new policy. Okta now offers the ability to clone a policy. You can use either the Admin Console or the new Clone a Policy operation on the Policy API. See [Clone a Policy](/docs/reference/api/policy/#clone-a-policy). <!--OKTA-525110-->
+
+#### Default authenticator enrollment policy settings format is GA in Production
+
+For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy) is created with settings in the authenticator format instead of the factor format. For existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format. <!--OKTA-535005-->
+
+#### Dynamic IdP routing is GA in Production
+
+Org admins can now consolidate multiple IdP routing rules into a single dynamic routing rule. Dynamic routing rules use expression language to match users to any IdP, based on attributes of their login object. This reduces the volume and complexity of routing rules and the manual effort of managing them. See [Policy Action with Dynamic IdP routing](/docs/reference/api/policy/#policy-action-with-dynamic-idp-routing). <!--OKTA-520972-->
+
+#### Factors API support for Okta Verify authenticator enrollment flows is GA in Preview
+
+Identity Engine now supports Okta Verify enrollments with email or SMS links created from the Factors API. Previously, when a client generated an Okta Verify enrollment email or SMS link using the Factors API, the enrollment from the Okta Verify app failed with an `Invalid Token` error. To address this issue, Factors API updates include the following behaviors when the Okta Verify authenticator is used:
+
+* When an Okta Verify enrollment request is made using the Factors API for a user not currently enrolled with an Okta Verify factor, then all three `signed_nonce`, `push`, and `totp` factors are enrolled.
+* The GET factors operation lists all Okta Verify enrollment methods for a user.
+* The DELETE `push` or `signed_nonce` factor operation deletes all three factor enrollments (`push`, `signed_nonce`, and `totp`).
+
+See [Enroll Okta Verify Push](/docs/reference/api/factors/#enroll-okta-verify-push-factor) and [Reset Factor](/docs/reference/api/factors/#reset-factor) updates in the Factors API.
+<!--OKTA-536937-->
+
+#### Improved ThreatInsight coverage
+
+ThreatInsight has increased coverage for enabled orgs. More malicious requests are now flagged for orgs with ThreatInsight configured. <!--OKTA-531586-->
+
+#### Improved User API sort
+
+The Users API now supports sorting results by the top-level User object properties `status`, `lastUpdated`, and `type.id`. <!--OKTA-513502-->
+
+#### Manage embedded widget sign-in support is EA in Preview
+
+Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The Embedded widget sign-in support toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improves the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled). <!--OKTA-517774-->
+
+#### Non-deletable default authorization server is GA in Production
+
+Okta provides a default authorization server so that customers can quickly get started. If a customer deletes the default authorization server, it can't be restored, causing confusion and disruption. This enhancement prevents you from deleting the default authorization server, although you can disable it if it isn't required. To aid in identification, Okta adds a Default label in the Admin Console. <!--OKTA-536276-->
+
+#### OAuth 2.0 authentication for inline hooks is Self-Service EA in Preview
+
+Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
+
+To improve the security of inline hooks, Okta now supports authentication with OAuth 2.0 access tokens. Tokens ensure secure calls to external web services.
+
+When creating inline hooks in the Admin Console (or by API), administrators or developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: Client Secret or Private Key. A new [Key Management API](/docs/reference/api/hook-keys/) and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
+
+Using the OAuth 2.0 framework provides better security than Basic Authentication or custom headers, and is less work than setting up an IP allowlisting solution. Clients also have the ability to use access tokens minted by their own custom authorization servers to guarantee that Okta is calling their client web services and isn't triggered by any external actors. See [Add an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook). <!--OKTA-537306-->
+
+#### Developer documentation updates in 2022.10.0
+
+* A new [Key Management API](/docs/reference/api/hook-keys/) is available under the Core Okta APIs. This reference manages JWKs used with OAuth 2.0 authentication for inline hooks.
+
+* A new [SAML assertion inline hook](/docs/guides/saml-inline-hook/main/) guide is available at **Guides > Hooks**. Use this guide to implement a working example of a SAML assertion inline hook.
+
+* The OIN Manager has a new Get Support section that provides common developer.okta.com guides relating to OIN integrations and the submission process.
+
+#### Bugs fixed in 2022.10.0
+
+* Users were able to make more than five attempts to activate their one-time passcode (OTP) based factors. (OKTA-429940)
+
+* Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
+
+* Searching for users with the Users API returned a 503 Service Unavailable error if the call included a `sortBy` parameter with an invalid `after` parameter. (OKTA-504265)
+
+* When an OIN client was set to invisible, the client was still incorrectly returned if a GET request was made using the Dynamic Client Registration API (`/oauth2/v1/clients`). (OKTA-515362)
+
+* When the Factors API verify endpoint (`/users/${userId}/factors/${factorId}/verify`) was called on behalf of a user, an HTTP 403 Forbidden error was returned. (OKTA-523738)
+
+* A user was able to verify more than 10 phone numbers with the verify my phone (`/idp/myaccount/phones/${id}/verify`) endpoint in the MyAccount API. (OKTA-531097)
+
+* An error message didn’t appear when a deleted app instance was assigned to a role. (OKTA-531308)
+
+* When a `session.amr` expression was used for SAML attribute statements, the attribute statement wasn't correctly populated. (OKTA-532316)
+
+* A `GET /api/v1/groups` request with an invalid search operator returned a 504 Timeout error instead of a 400 Bad Request error with an appropriate message. (OKTA-535035)
+
 ## September
+
+### Weekly release 2022.09.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.3](#bugs-fixed-in-2022-09-3)                      | September 28, 2022            |
+
+#### Bugs fixed in 2022.09.3
+
+* Existing provisioning settings for an app were reset to `None` when an app was updated using `PUT /apps/${applicationId}`. (OKTA-520647)
+
+* Read-only admins weren’t able to see the signing keys that were used for SAML applications. (OKTA-522887)
+
+* When an access token was used to create an email template customization, the POST request failed. (OKTA-526881)
+
+### Weekly release 2022.09.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.09.2](#bugs-fixed-in-2022-09-2)                      | September 21, 2022            |
+
+#### Bugs fixed in 2022.09.2
+
+* A descriptive error message wasn't returned when OAuth management endpoints were used with non-OAuth clients. (OKTA-458109)
+
+* Identity Provider information was missing from the `GET /sessions/me` API response. (OKTA-484077)
+
+* During the MFA Attestation flow, when a request was sent to the `/interact` endpoint, an access token was erroneously returned and an Okta session was created. (OKTA-522155)
+
+* A two-minute clock skew was allowed during access and ID token validation. (OKTA-528530)
 
 ### Weekly release 2022.09.1
 
@@ -25,7 +416,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Non-deletable default authorization server is EA in Preview](#non-deletable-default-authorization-server-is-ea-in-preview) | August 31, 2022 |
 | [PKCE validation for OIDC app integrations is GA in Production](#pkce-validation-for-oidc-app-integrations-is-ga-in-production) | July 7, 2022 |
 | [Signed request support for generic SAML IdP is GA in Production](#signed-request-support-for-generic-saml-idp-is-ga-in-production) | July 7, 2022 |
-| [Step-up authentication using ACR values is EA in Preview](#step-up-authentication-using-acr-values-is-ea-in-preview) | August 31, |
+| [Step-up authentication using ACR values is EA in Preview](#step-up-authentication-using-acr-values-is-ea-in-preview) | August 31, 2022 |
 | [API for suppressing email notifications is GA](#api-for-suppressing-email-notifications-is-in-general-availability) | May 11, 2022 |
 | [Access Denied error message customization is GA in Preview](#access-denied-error-message-customization-is-ga-in-preview) | August 31, 2022 |
 | [Dynamic IdP routing is GA in Preview](#dynamic-idp-routing-is-ga-in-preview) | June 8, 2022 |
@@ -33,7 +424,7 @@ title: Okta Identity Engine API Products release notes 2022
 | [Clone authentication policies are GA in Preview](#clone-authentication-policies-are-ga-in-preview) | August 31, 2022 |
 | [Improvements to the self-service password reset experience are GA in Preview](#improvements-to-the-self-service-password-reset-experience-are-ga-in-preview) | July 7, 2022 |
 | [Password restriction for shared SWA app accounts is GA in Production](#password-restriction-for-shared-swa-app-accounts-is-ga-in-production) | July 7, 2022 |
-| [Default authenticator enrollment policy settings format](#default-authenticator-enrollment-policy-settings-format) | August 31, 2022 |
+| [Default authenticator enrollment policy settings format is GA in Preview](#default-authenticator-enrollment-policy-settings-format-is-ga-in-preview) | August 31, 2022 |
 | [Developer documentation updates in 2022.09.0](#developer-documentation-updates-in-2022-09-0) | August 31, 2022 |
 | [Bugs fixed in 2022.09.0](#bugs-fixed-in-2022-09-0) | August 31, 2022|
 
@@ -81,7 +472,7 @@ Previously, the self-service password reset (SSPR) flow created unnecessary fric
 
 For SWA apps with an account sign-in option set to **Users share a single username and password set by administrator**, only super admins or app admins with permissions for that app can view the password.<!--OKTA-513421-->
 
-#### Default authenticator enrollment policy settings format
+#### Default authenticator enrollment policy settings format is GA in Preview
 
 For orgs that recently enabled the Authenticator Enrollment Policy feature, the new default [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy ) is created with settings in the authenticator format instead of the factor format. Any existing orgs that have the Authenticator Enrollment Policy feature enabled, the settings of the default authenticator enrollment policy continues to be in the factor format.<!--OKTA-527304-->
 
@@ -165,7 +556,7 @@ Previously, the self-service unlock (SSU) flow created unnecessary friction in t
 | [Updates to default global session policy](#updates-to-default-global-session-policy) | August 3, 2022|
 | [Improved error messages for MyAccount API](#improved-error-messages-for-myaccount-api) | August 3, 2022|
 | [New custom authenticator for push notifications](#new-custom-authenticator-for-push-notifications) | August 3, 2022|
-| [Developer Documentation updates in 2022.08.0](#developer-documentation-updates-in-2022-08-0) | August 3, 2022|
+| [Developer documentation updates in 2022.08.0](#developer-documentation-updates-in-2022-08-0) | August 3, 2022|
 | [Bug fixed in 2022.08.0](#bug-fixed-in-2022-08-0) | August 3, 2022|
 
 #### PKCE validation for OIDC app integrations is GA in Preview
@@ -206,7 +597,7 @@ Before now, Okta Verify was the only solution for using push notifications and b
 
 #### Developer documentation updates in 2022.08.0
 
-A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-overview/aspnet/main/ ) feature in Identity Engine has been added. This covers the differences between using EML and one-time passwords, and how to integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK. <!-- OKTA-507346 -->
+A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-overview/aspnet/main/ ) feature in Identity Engine has been added. This covers the differences between using EML and one-time passcodes, and how to integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK. <!-- OKTA-507346 -->
 
 #### Bug fixed in 2022.08.0
 
@@ -313,6 +704,8 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 * A `Number` type schema property could erroneously be made unique. This resulted in inconsistent behavior and is no longer supported. Use `Integer` or `String` properties instead. (OKTA-506002)
 
 * Sometimes an error occurred when an admin attempted to edit a resource set that included a deleted app. (OKTA-510483)
+
+* Making a POST reset factors request to `/api/v1/users/${userId}/lifecycle/reset_factors` didn't reset the enrolled phone authenticator. (OKTA-463900)
 
 ## June
 
@@ -600,7 +993,7 @@ Passwords are weak authenticators and prone to security issues. Currently all us
 
 #### Improved email magic link authentication experience is EA in Preview
 
-Email magic links are enhanced to allow end users to authenticate in two different contexts. The end user can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
+Email magic links are enhanced to allow end users to authenticate in two different contexts. The end user can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time passcode to proceed with authentication. See [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
 
 #### Password as an optional authenticator is EA in Preview
 
@@ -777,7 +1170,7 @@ Rotating client secrets without service or application downtime is a challenge. 
 
 #### Custom Domains with Okta-Managed Certificates is GA in Production
 
-When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-Managed Certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) auto renew through a Let's Encrypt integration, a free certificate authority. Since Okta handles certificate renewals, this reduces customer developer maintenance costs and the high risk of a site outage when certificates expire.  <!--OKTA-459338-->
+When you customize an Okta URL domain, your Okta-hosted pages are branded with your own URL. [Okta-managed Certificates](/docs/guides/custom-url-domain/main/#configure-a-custom-domain-through-okta-managed-certificates) auto renew through a Let's Encrypt integration, a free certificate authority. Since Okta handles certificate renewals, this reduces customer developer maintenance costs and the high risk of a site outage when certificates expire.  <!--OKTA-459338-->
 
 #### Bug fixed in 2022.02.0
 

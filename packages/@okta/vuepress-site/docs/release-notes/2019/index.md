@@ -330,7 +330,7 @@ Some users were not able to access the Group Rules API, despite having proper pe
 
 #### Added Support for TOTP Factor
 
-Okta now supports a custom MFA factor based on the Time-based One-time Password (TOTP) algorithm. For more information, see [Custom HOTP Factor](/docs/reference/api/factors/#enroll-custom-hotp-factor). <!-- OKTA-236375 -->
+Okta now supports a custom MFA factor based on the time-based one-time passcode (TOTP) algorithm. For more information, see [Custom HOTP Factor](/docs/reference/api/factors/#enroll-custom-hotp-factor). <!-- OKTA-236375 -->
 
 #### Cookies updated to preserve cross-site functionality
 
@@ -636,7 +636,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -686,7 +686,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -748,7 +748,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -777,7 +777,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -827,7 +827,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |

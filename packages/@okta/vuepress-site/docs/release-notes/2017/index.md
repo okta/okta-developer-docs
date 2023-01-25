@@ -771,7 +771,7 @@ You can configure the JIT settings for a SAML identity provider (IdP) to enable 
 
 #### Email Factor
 
- You can send a one-time password (OTP) and an activation link to an email address as part of enrolling a user.<!-- OKTA-132297  -->
+ You can send a one-time passcode (OTP) and an activation link to an email address as part of enrolling a user.<!-- OKTA-132297  -->
 
 ### Platform Bugs Fixed
 

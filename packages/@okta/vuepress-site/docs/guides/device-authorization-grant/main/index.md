@@ -4,8 +4,6 @@ excerpt: Learn how to use a secondary device to complete sign-in to applications
 layout: Guides
 ---
 
-<ClassicDocOieVersionNotAvailable />
-
 This guide describes the Device Authorization feature, which allows users to sign in to input-constrained devices and devices without a browser.
 
 ---
@@ -108,7 +106,7 @@ The `user_code` and `verification_uri` must appear on the smart device for the u
 
 #### Example of the display on a smart device
 
-<div class="three-quarter">
+<div class="three-quarter border">
 
 ![Verification on the smart device](/img/authorization/QRActivate.png)
 

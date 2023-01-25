@@ -105,7 +105,6 @@ export class LoginComponent implements OnInit {
         },
       },
       authClient: oktaAuth,
-      useInteractionCodeFlow: sampleConfig.widget.useInteractionCodeFlow === 'true',
     });
   }
 
@@ -162,3 +161,5 @@ if (fs.existsSync(TESTENV)) {
 process.env.CLIENT_ID = process.env.CLIENT_ID || process.env.SPA_CLIENT_ID;
 process.env.USE_INTERACTION_CODE = process.env.USE_INTERACTION_CODE || false;
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: sampleConfig.widget.useInteractionCodeFlow === 'true'` inside the `OktaSignIn()` constructor call shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: sampleConfig.widget.useClassicEngine === 'true'` in the `OktaSignIn()` constructor call.

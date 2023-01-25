@@ -1892,7 +1892,7 @@ redirects:
   - from: /docs/guides/build-provisioning-integration/review-scim-docs/index.html
     to: /docs/guides/scim-provisioning-integration-prepare/main/#preparation
   - from: /docs/guides/build-provisioning-integration/submit-for-review/index.html
-    to: /docs/guides/submit-app/-/main/#understand-the-submission-process
+    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
   - from: /docs/guides/build-provisioning-integration/test-scim-server/index.html
     to: /docs/guides/scim-provisioning-integration-prepare/main/#test-your-scim-api
   - from: /docs/guides/build-provisioning-integration/-/overview/index.html
@@ -2405,6 +2405,14 @@ redirects:
     to: /docs/guides/social-login/apple/main/
   - from: /docs/guides/add-an-external-idp/apple/main
     to: /docs/guides/social-login/apple/main/
+  - from: /docs/guides/add-an-external-idp/github/before-you-begin/index.html
+    to: /docs/guides/social-login/github/main/
+  - from: /docs/guides/add-an-external-idp/github/before-you-begin
+    to: /docs/guides/social-login/github/main/
+  - from: /docs/guides/add-an-external-idp/github/configure-idp-in-okta/index.html
+    to: /docs/guides/social-login/github/main/#create-the-identity-provider-in-okta
+  - from: /docs/guides/add-an-external-idp/github/configure-idp-in-okta
+    to: /docs/guides/social-login/github/main/#create-the-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta
@@ -4318,37 +4326,37 @@ redirects:
   - from: /docs/guides/submit-app/-/overview
     to: /docs/guides/submit-app/
   - from: /docs/guides/submit-app/-/create-guide
-    to: /docs/guides/submit-app/-/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/-/submission1-general
     to: /docs/guides/submit-app/-/main/#configure-general-settings
   - from: /docs/guides/submit-app/-/submission2-specific
     to: /docs/guides/submit-app/-/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/-/submission3-process
-    to: /docs/guides/submit-app/-/main/#understand-the-submission-process
+    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/-/update-submission
     to: /docs/guides/submit-app/-/main/#update-your-published-integration
   - from: /docs/guides/submit-app/-/overview/index.html
     to: /docs/guides/submit-app/
   - from: /docs/guides/submit-app/-/create-guide/index.html
-    to: /docs/guides/submit-app/-/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/-/submission1-general/index.html
     to: /docs/guides/submit-app/-/main/#configure-general-settings
   - from: /docs/guides/submit-app/-/submission2-specific/index.html
     to: /docs/guides/submit-app/-/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/-/submission3-process/index.html
-    to: /docs/guides/submit-app/-/main/#understand-the-submission-process
+    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/-/update-submission/index.html
     to: /docs/guides/submit-app/-/main/#update-your-published-integration
   - from: /docs/guides/submit-app/openidconnect/overview
     to: /docs/guides/submit-app/openidconnect/main
   - from: /docs/guides/submit-app/openidconnect/create-guide
-    to: /docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/openidconnect/submission1-general
     to: /docs/guides/submit-app/openidconnect/main/#configure-general-settings
   - from: /docs/guides/submit-app/openidconnect/submission2-specific
     to: /docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/openidconnect/submission3-process
-    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-process
+    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/openidconnect/update-submission
     to: /docs/guides/submit-app/openidconnect/main/#update-your-published-integration
   - from: /docs/guides/submit-app/faqs
@@ -4356,13 +4364,13 @@ redirects:
   - from: /docs/guides/submit-app/openidconnect/overview/index.html
     to: /docs/guides/submit-app/openidconnect/main
   - from: /docs/guides/submit-app/openidconnect/create-guide/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/openidconnect/submission1-general/index.html
     to: /docs/guides/submit-app/openidconnect/main/#configure-general-settings
   - from: /docs/guides/submit-app/openidconnect/submission2-specific/index.html
     to: /docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/openidconnect/submission3-process/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-process
+    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/openidconnect/update-submission/index.html
     to: /docs/guides/submit-app/openidconnect/main/#update-your-published-integration
   - from: /docs/guides/submit-app/faqs/index.html
@@ -4370,49 +4378,49 @@ redirects:
   - from: /docs/guides/submit-app/saml2/overview
     to: /docs/guides/submit-app/saml2/main
   - from: /docs/guides/submit-app/saml2/create-guide
-    to: /docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/saml2/submission1-general
     to: /docs/guides/submit-app/saml2/main/#configure-general-settings
   - from: /docs/guides/submit-app/saml2/submission2-specific
     to: /docs/guides/submit-app/saml2/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/saml2/submission3-process
-    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-process
+    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/saml2/update-submission
     to: /docs/guides/submit-app/saml2/main/#update-your-published-integration
   - from: /docs/guides/submit-app/saml2/overview/index.html
     to: /docs/guides/submit-app/saml2/main
   - from: /docs/guides/submit-app/saml2/create-guide/index.html
-    to: /docs/guides/submit-app/saml2/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/saml2/submission1-general/index.html
     to: /docs/guides/submit-app/saml2/main/#configure-general-settings
   - from: /docs/guides/submit-app/saml2/submission2-specific/index.html
     to: /docs/guides/submit-app/saml2/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/saml2/submission3-process/index.html
-    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-process
+    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/saml2/update-submission/index.html
     to: /docs/guides/submit-app/saml2/main/#update-your-published-integration
   - from: /docs/guides/submit-app/scim/overview
     to: /docs/guides/submit-app/scim/main
   - from: /docs/guides/submit-app/scim/create-guide
-    to: /docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/submission1-general
     to: /docs/guides/submit-app/scim/main/#configure-general-settings
   - from: /docs/guides/submit-app/scim/submission2-specific
     to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/scim/submission3-process
-    to: /docs/guides/submit-app/scim/main/#understand-the-submission-process
+    to: /docs/guides/submit-app/scim/main/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission
     to: /docs/guides/submit-app/scim/main/#update-your-published-integration
   - from: /docs/guides/submit-app/scim/overview/index.html
     to: /docs/guides/submit-app/scim/main
   - from: /docs/guides/submit-app/scim/create-guide/index.html
-    to: /docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide
+    to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/scim/submission1-general/index.html
     to: /docs/guides/submit-app/scim/main/#configure-general-settings
   - from: /docs/guides/submit-app/scim/submission2-specific/index.html
     to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/scim/submission3-process/index.html
-    to: /docs/guides/submit-app/scim/main/#understand-the-submission-process
+    to: /docs/guides/submit-app/scim/main/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission/index.html
     to: /docs/guides/submit-app/scim/main/#update-your-published-integration
   - from: /docs/guides/deploy-your-app/overview
@@ -5547,3 +5555,7 @@ redirects:
     to: /docs/guides/sign-in-to-spa-authjs/vue/main/
   - from: /code/vue/okta_vue
     to: /docs/guides/sign-in-to-spa-authjs/vue/main/
+  - from: /docs/guides/oie-intro
+    to: /docs/concepts/oie-intro/
+  - from: /docs/guides/oie-intro/index.html
+    to: /docs/concepts/oie-intro/

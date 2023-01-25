@@ -87,7 +87,7 @@ There are a variety of strategies and technologies for authenticating users that
 
 - **Single factor authentication:** Use a single method of identification such as a password, PIN, or PIV card. (Note: A password is the most common and the least secure of these methods.)
 
-- **2nd factor authentication (2FA):** Require a password and possession of a physical object, such as a one-time password sent to or generated on the user's mobile device.
+- **2nd factor authentication (2FA):** Require a password and possession of a physical object, such as a one-time passcode sent to or generated on the user's mobile device.
 
 - **Universal 2nd factor authentication (U2F):** Rely on a password and a special physical device for 2FA. Examples are a token plugged into the user device's USB port or a smart card.
 

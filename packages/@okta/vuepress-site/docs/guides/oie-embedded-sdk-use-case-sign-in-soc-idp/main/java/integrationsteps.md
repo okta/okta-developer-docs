@@ -27,19 +27,14 @@ The previous code snippet is rendered as a **Sign in with Facebook** button, as 
 
 <div class="half wireframe-border">
 
-![Displays an example social sign-in form](/img/oie-embedded-sdk/wireframes/oie-embedded-sdk-signin-idp-options-g1r12.png)
-
-</div>
+![A sign-in form with fields for username and password, a next button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36701&t=wzNwSZkdctajVush-1 sign-in-form-username-password-facebook-google
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 1, row 12
-
--->
+</div>
 
 ### 2: The user signs in with Facebook
 
@@ -60,4 +55,4 @@ AuthenticationResponse authenticationResponse =
 
 With the obtained access token, the user is successfully signed in, and can be sent to the default signed-in home page.
 
-> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect Authorization Server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/#get-the-user-profile-information) for details.
+> **Note:** You can obtain basic user information after the user is authenticated by making a request to the Okta OpenID Connect Authorization Server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/#get-the-user-profile-information) for details.

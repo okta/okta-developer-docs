@@ -1153,6 +1153,7 @@ The following conditions may be applied to the global session policy.
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
 | access                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
 | requireFactor           | Indicates if multifactor authentication is required                                                                                                                      | Boolean                                         | No                            | false   |
+| primaryFactor <ApiLifecycle access="ie" /> | Indicates the primary factor used to establish a session for the org. Supported values: `PASSWORD_IDP_ANY_FACTOR` (users can use any factor required by the app authentication policy to establish a session), `PASSWORD_IDP` (users must always use a password to establish a session)  | String | Yes, if `access` is set to `ALLOW`                        | N/A   |
 | factorPromptMode        | Indicates if the User should be challenged for a second factor (MFA) based on the device being used, a Factor session lifetime, or on every sign-in attempt. | `DEVICE`, `SESSION` or `ALWAYS`                 | Yes, if `requireFactor` is set to `true` | N/A     |
 | rememberDeviceByDefault | Indicates if Okta should automatically remember the device                                                                                                                | Boolean                                         | No                            | false   |
 | factorLifetime          | Interval of time that must elapse before the User is challenged for MFA, if the Factor prompt mode is set to `SESSION`                                                    | Integer                                         | Yes, if `requireFactor` is `true` | N/A     |
@@ -1428,7 +1429,13 @@ The Password Policy determines the requirements for a user's password length and
          "minUpperCase": 1,
          "minNumber": 1,
          "minSymbol": 0,
-         "excludeUsername": true
+         "excludeUsername": true,
+         "dictionary": {
+                        "common": {
+                            "exclude": false
+                        }
+                    },
+         "excludeAttributes": []
        },
        "age": {
          "maxAgeDays": 0,
@@ -1503,11 +1510,9 @@ The Password Policy determines the requirements for a user's password length and
 | minSymbol                                 | Indicates if a password must contain at least one symbol (For example: !@#$%^&*): `0` indicates no, `1` indicates yes                      | integer                                                             | No       | 1           |
 | excludeUsername                           | Indicates if the Username must be excluded from the password                                                                   | boolean                                                             | No       | true        |
 | excludeAttributes                         | The User profile attributes whose values must be excluded from the password: currently only supports `firstName` and `lastName` | Array                                                               | No       | Empty Array |
-| dictionary <ApiLifecycle access="beta" /> | Weak password dictionary lookup settings                                                                                        | [Weak Password Dictionary object](#weak-password-dictionary-object) | No       | N/A         |
+| dictionary | Weak password dictionary lookup settings                                                                                        | [Weak Password Dictionary object](#weak-password-dictionary-object) | No       | N/A         |
 
 ###### Weak Password Dictionary object
-
-> **Note:** Weak password lookup is a <ApiLifecycle access="beta" /> feature.
 
 Specifies how lookups for weak passwords are done. Designed to be extensible with multiple possible dictionary types against which to do lookups.
 
@@ -1525,7 +1530,7 @@ Specifies how lookups for weak passwords are done. Designed to be extensible wit
 
 | Property       | Description                                                                                                                          | Data Type | Required | Default |
 | ---            | ---                                                                                                                                  | ---       | ---      | ---     |
-| maxAgeDays     | Specifies how long (in days) a password remains valid before it expireds: `0` indicates no limit                                       | integer   | No       | 0       |
+| maxAgeDays     | Specifies how long (in days) a password remains valid before it expires: `0` indicates no limit                                       | integer   | No       | 0       |
 | expireWarnDays | Specifies the number of days prior to password expiration when a User is warned to reset their password: `0` indicates no warning | integer   | No       | 0       |
 | minAgeMinutes  | Specifies the minimum time interval (in minutes) between password changes: `0` indicates no limit                                      | integer   | No       | 0       |
 | historyCount   | Specifies the number of distinct passwords that a User must create before they can reuse a previous password: `0` indicates none       | integer   | No       | 0       |
@@ -2009,8 +2014,8 @@ Multifactor Authentication (MFA) is the use of more than one Factor. MFA is the 
 | `factorMode`         | String            | The number of factors required to satisfy this assurance level                                                         | `1FA`, `2FA`                                                                                      |
 | `type`         | String            | The Verification Method type                                                         | `ASSURANCE`     |
 | `constraints`        | Array of [Constraint Object](#constraints)           | A JSON array that contains nested Authenticator Constraint objects that are organized by the Authenticator class        | [Constraint Object](#constraints) that consists of a `POSSESSION` constraint, a `KNOWLEDGE` constraint, or both. See [Verification Method JSON Examples](#verification-method-json-examples).  |
-| `reauthenticateIn`   | String (ISO 8601) | The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals.                                  | N/A                                                                                              |
-| `inactivityPeriod`   | String (ISO 8601) | The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.                                               | N/A                                                                                               |
+| `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate, regardless of user activity. Keep in mind that the re-authentication intervals for `constraints` (see [Constraint object](#constraints)) take precedent over this value. | ISO 8601 period format for recurring time intervals (for example: `PT2H`, `PT0S`, `PT43800H`, and so on)  |
+| `inactivityPeriod`   | String (ISO 8601) | The inactivity duration after which the user must re-authenticate  | ISO 8601 period format (for example: `PT2H`)  |
 
 #### Constraints
 
@@ -2058,7 +2063,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `deviceBound` | String            | Indicates if device-bound Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `phishingResistant` | String            | Indicates if phishing-resistant Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
-| `reauthenticateIn`   | String (ISO 8601) | The duration after which the end user must re-authenticate regardless of user activity. Use the ISO 8601 Period format for recurring time intervals.                            | N/A                                                                                               | N/A|
+| `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the [Verification Method object](#verification-method-object)'s `reauthenticateIn` interval.     | ISO 8601 period format for recurring time intervals (for example: `PT1H`) | N/A|
 
 #### Verification Method JSON examples
 
@@ -2114,7 +2119,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 }
 ```
 
-##### Any hardware-protected key-based Authenticator
+##### Any hardware-protected Authenticator
 
 ```json
 {
@@ -2123,9 +2128,6 @@ The number of Authenticator class constraints in each Constraint object must be 
   "constraints": [
     {
       "possession": {
-        "methods": [
-          "WEBAUTHN"
-        ],
         "hardwareProtection": "REQUIRED"
       }
     }
@@ -2134,7 +2136,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 }
 ```
 
-##### Any 2 Factors with 1 being a hardware-protected key-based Authenticator
+##### Any two Factors with one being a hardware-protected Authenticator
 
 ```json
 {
@@ -2143,9 +2145,6 @@ The number of Authenticator class constraints in each Constraint object must be 
   "constraints": [
     {
       "possession": {
-        "methods": [
-          "WEBAUTHN"
-        ],
         "hardwareProtection": "REQUIRED"
       }
     }
@@ -2210,7 +2209,8 @@ Policy Rule conditions aren't supported for this policy.
                 "activationRequirements": {
                     "emailVerification": true
                 },
-                "uiSchemaId": "uis44fio9ifOCwJAO1d7"
+                "uiSchemaId": "uis44fio9ifOCwJAO1d7",
+                "enrollAuthenticators": null
             }
         }
 ```
@@ -2229,5 +2229,6 @@ Policy Rule conditions aren't supported for this policy.
 | `targetGroupIds`             | (Optional, max 1 entry) The `id` of a Group that this User should be added to                                                     | Array   | No | N/A                                                                                                                                                                                                                         |
 | `unknownUserAction`          | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)                                               | String  | YES | N/A                                                                                                                                                                                                                        |
 | `uiSchemaId`                 | Value created by the backend. If present all policy updates must include this attribute/value.                                               | String  | Required if Present | N/A                                                                                                                                                                                                                        |
+| `enrollAuthenticators` | Additional authenticator fields that can be used on the first page of user registration (Valid values: `password`) | Array | No | N/A |
 
 > **Note:** The Profile Enrollment Action object can't be modified to set the `access` property to `DENY` after the policy is created.

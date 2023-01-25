@@ -1,24 +1,20 @@
-.errors {
-  .errors--container {
-    max-width: 668px;
-  }
+.errors .errors--container {
+  max-width: 668px;
+}
 
-  .errors--leader {
-    margin: 100px 0 30px;
-    flex-grow: 1;
-  }
+.errors .errors--leader {
+  flex-grow: 1;
+  margin: 100px 0 30px;
+}
 
-  .errors--text {
-    margin: 0 0 100px;
-  }
+.errors .errors--text {
+  margin: 0 0 100px;
+}
 
-  a {
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+.errors a:hover {
+  text-decoration: underline;
+}
 
-  p {
-    max-width: initial;
-  }
+.errors p {
+  max-width: initial;
 }

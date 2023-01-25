@@ -180,9 +180,12 @@ Enumerates Groups in your organization with pagination. A subset of Groups can b
 | q         | Finds a group that matches the `name` property                                               | Query     | String   | FALSE    |         |
 | expand        | If specified, it causes additional metadata to be included in the response. Possible values are `stats` and/or `app`.                                             | Query     | String   | FALSE    |         |
 | search | Searches for groups with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
+| sortBy      | Specifies field to sort by (for search queries only).                                                                                           | Search query | String     | FALSE    |
+| sortOrder   | Specifies sort order asc or desc (for search queries only).                                                                                     | Search query | String     | FALSE    |
 
 > **Notes:** The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).<br><br>
-Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.
+Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.<br><br>
+Results from the filter or query parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
 
 ###### Filters
 
@@ -358,7 +361,6 @@ curl -v -X GET \
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -725,16 +727,24 @@ curl -v -X GET \
 
 Searches for groups based on the properties specified in the search parameter
 
-Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, and so on) and string values are case insensitive.
 
 This operation:
 
-* Supports [pagination](/docs/reference/core-okta-api/#pagination).
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
-* Searches many properties:
+- Supports [pagination](/docs/reference/core-okta-api/#pagination).
+
+- Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
+
+- Searches many properties:
   - Any group profile property, including imported app group profile properties.
   - The top-level properties `id`, `created`, `lastMembershipUpdated`, `lastUpdated`, and `type`.
   - The [source](#group-attributes) of groups with type of `APP_GROUP`, accessed as `source.id`.
+
+- Accepts `sortBy` and `sortOrder` parameters.
+  - `sortBy` can be any single property, for example `sortBy=profile.name`
+  - `sortOrder` is optional and defaults to ascending
+  - `sortOrder` is ignored if `sortBy` is not present
+  - Groups with the same value for the `sortBy` property will be ordered by `id`
 
 | Search Term Example                                       | Description                                                               |
 | :-------------------------------------------------------- | :------------------------------------------------------------------------ |
@@ -1059,8 +1069,8 @@ curl -v -X GET \
 
 Adds a [user](/docs/reference/api/users/#user-object) to a group of `OKTA_GROUP` type
 
-> **Notes:** You can modify only memberships for groups of `OKTA_GROUP` type.<br><br>
-Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
+> **Note:** You can modify only memberships for groups of `OKTA_GROUP` type. <br>
+> Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
 
 ##### Request parameters
 
@@ -1122,7 +1132,6 @@ curl -v -X DELETE \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
@@ -1140,14 +1149,14 @@ Creates a Group rule to dynamically add users to the specified Group if they mat
 ##### Request parameters
 
 
-| Parameter                           | Description                                             | ParamType | DataType                          | Required | 
-| ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- | 
+| Parameter                           | Description                                             | ParamType | DataType                          | Required |
+| ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- |
 | name                                | name of the Group rule (min character 1; max characters 50)                                  | Body      | String                            | TRUE     |         |
-| type                                | `group_rule`                                            | Body      | String                            | TRUE     | 
-| conditions.expression.value         | Okta expression that would result in a boolean value    | Body      | String                            | TRUE     | 
-| conditions.expression.type          | `urn:okta:expression:1.0`                               | Body      | String                            | TRUE     | 
-| conditions.people.users.exclude     | userIds that would be excluded when rules are processed | Body      | String                            | FALSE    | 
-| conditions.people.groups.exclude    | currently not supported                                 | Body      | String                            | FALSE    | 
+| type                                | `group_rule`                                            | Body      | String                            | TRUE     |
+| conditions.expression.value         | Okta expression that would result in a boolean value    | Body      | String                            | TRUE     |
+| conditions.expression.type          | `urn:okta:expression:1.0`                               | Body      | String                            | TRUE     |
+| conditions.people.users.exclude     | userIds that would be excluded when rules are processed | Body      | String                            | FALSE    |
+| conditions.people.groups.exclude    | currently not supported                                 | Body      | String                            | FALSE    |
 | actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added.        | Body      | String                            | TRUE     |
 
 ##### Response parameters
@@ -1155,7 +1164,6 @@ Creates a Group rule to dynamically add users to the specified Group if they mat
 Created [Rule](#rule-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1240,15 +1248,15 @@ You can't currently update the action section.
 ##### Request parameters
 
 
-| Parameter                           | Description                                    | ParamType | DataType                          | Required | 
-| ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- | 
-| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added| Body      | String                            | TRUE     | 
+| Parameter                           | Description                                    | ParamType | DataType                          | Required |
+| ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- |
+| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added| Body      | String                            | TRUE     |
 | conditions.expression.type           | `urn:okta:expression:1.0 `                     | Body      | String                            | TRUE     |
-| conditions.expression.value          | okta expression that would result in a boolean value | Body      | String                     | TRUE     | 
-| conditions.people.groups.exclude     | currently not supported                        | Body      | String                            | FALSE    | 
+| conditions.expression.value          | okta expression that would result in a boolean value | Body      | String                     | TRUE     |
+| conditions.people.groups.exclude     | currently not supported                        | Body      | String                            | FALSE    |
 | conditions.people.users.exclude      | userIds that would be excluded when rules are processed | Body      | String                   | FALSE    |         |
-| id                                  | ID of the rule to be updated                   | URL       | String                            | TRUE     | 
-| name                                | name of the Group rule (min character 1; max characters 50)                              | Body      | String                            | TRUE     | 
+| id                                  | ID of the rule to be updated                   | URL       | String                            | TRUE     |
+| name                                | name of the Group rule (min character 1; max characters 50)                              | Body      | String                            | TRUE     |
 
 ##### Response parameters
 
@@ -1334,7 +1342,7 @@ curl -v -X PUT \
 
 Lists all Group rules for your organization
 
-> **Note:** If you don't specify any value for `limit`, a maximum of 50 results are returned. The maximum value for `limit` is 300.
+> **Note:** If you don't specify any value for `limit`, a maximum of 50 results are returned. The maximum value for `limit` is 200.
 
 ##### Request parameters
 

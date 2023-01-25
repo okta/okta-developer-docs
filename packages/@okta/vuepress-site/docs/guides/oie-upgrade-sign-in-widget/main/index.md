@@ -32,7 +32,7 @@ This article teaches you how to upgrade the widget when it is used in any of the
 * Okta-hosted sign-in page (customizable): Okta provides a sign-in page that you can customize and make available under a custom domain that is a subdomain of your company's top-level domain.
 * Embedded (self-hosted): You can embed the widget directly into your application.
 
-After you've completed the widget upgrade, review [Okta Identity Engine overview](/docs/guides/oie-intro/) to take advantage of new features in Identity Engine.
+After you've completed the widget upgrade, review [Okta Identity Engine overview](/docs/concepts/oie-intro/) to take advantage of new features in Identity Engine.
 
 ## Best practice for widget maintenance
 
@@ -48,8 +48,8 @@ The specific steps to upgrade your widget depend on your [user authentication de
 
 The widget upgrade for a redirect sign-in flow depends on whether you configured a custom URL domain:
 
-* If you haven't configured a [custom URL Domain](/docs/guides/custom-url-domain/) and don't have customizations outside of simple branding styles, your widget is automatically upgraded to the latest version when it's loaded from the content delivery network (CDN).
-* If you've configured a [custom URL domain](/docs/guides/custom-url-domain/) and have other customizations, admins must update the widget version in the Admin Console.
+* If you haven't configured a [custom domain](/docs/guides/custom-url-domain/) and don't have customizations outside of simple branding styles, your widget is automatically upgraded to the latest version when it's loaded from the content delivery network (CDN).
+* If you've configured a [custom domain](/docs/guides/custom-url-domain/) and have other customizations, admins must update the widget version in the Admin Console.
 
 To update the widget:
 
@@ -57,7 +57,7 @@ To update the widget:
 
    In the **Okta Sign-In Widget Version** section, check that the **Major Version** is the highest version available and **Minor Version** is **latest**. The widget is always the latest version if you're not using a custom URL domain.
 
-2. If you're using the [custom URL domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version. Click **Edit** in the **Okta Sign-In Widget Version** section and then select the **Major Version** and **Minor Version** fields.
+2. If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version. Click **Edit** in the **Okta Sign-In Widget Version** section and then select the **Major Version** and **Minor Version** fields.
 
 3. Click **Save** at the bottom of the page.
 
@@ -86,7 +86,9 @@ For Identity Engine, the widget is configured differently. You can remove some s
 
 ### Interaction Code flow
 
-Identity Engine uses the [Interaction Code grant type](/docs/concepts/interaction-code) to manage user interactions, such as registration or multifactor authentication. For embedded Sign-In Widget (self-hosted) deployments, the Interaction Code flow is the only supported authentication flow with Identity Engine. You must set the new `useInteractionCodeFlow=true` [configuration option](https://github.com/okta/okta-signin-widget#useinteractioncodeflow) in your embedded widget:
+Identity Engine uses the [Interaction Code grant type](/docs/concepts/interaction-code) to manage user interactions, such as registration or multifactor authentication. For embedded Sign-In Widget (self-hosted) deployments, the Interaction Code flow is the only supported authentication flow with Identity Engine.
+
+In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the `config` object:
 
 ```JavaScript
 var config = {
@@ -94,6 +96,17 @@ var config = {
   clientId: '{{oidcAppClientId}}',
   redirectUri: '{{oidcAppRedirectUri}}',
   useInteractionCodeFlow: true
+}
+```
+
+If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in your `config` object:
+
+```JavaScript
+var config = {
+  issuer: '{{authServerUri}}',
+  clientId: '{{oidcAppClientId}}',
+  redirectUri: '{{oidcAppRedirectUri}}',
+  useClassicEngine: true
 }
 ```
 
@@ -140,7 +153,7 @@ features: {
 
 ### OpenID Connect/social authentication
 
-You no longer require the `idps` JavaScript object in the widget, and can remove it.
+You no longer require the `idps` JavaScript object in the widget and can remove it.
 
 ```JavaScript
 idps: [
@@ -150,22 +163,7 @@ idps: [
 ]
 ```
 
-This is now optional as the Sign-In Widget will automatically include IdPs based on Identity Engine routing rules.
-
-### Smart card IdP
-
-[Smart card IdP](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow) is no longer supported.
-
-Remove the authentication settings for the smart card IdP (`piv`):
-
-```JavaScript
-piv: {
-  certAuthUrl: '/your/cert/validation/endpoint',
-  text: 'Authenticate with a Smart Card',
-  className: 'custom-style',
-  isCustomDomain: true,
-}
-```
+This is now optional as the Sign-In Widget automatically includes IdPs based on Identity Engine routing rules.
 
 ### Bootstrapping from a recovery token
 
@@ -175,13 +173,13 @@ If you're initializing the widget with a recovery token, the `recoveryToken` set
 recoveryToken: 'x0whAcR02i0leKtWMZVc'
 ```
 
-The recovery token is dynamic and is automatically passed into the initialization of the widget. A value in the `recoveryToken` setting currently doesn't have any effect on widget function, though, the setting takes effect in the future.
+The recovery token is dynamic and is automatically passed into the initialization of the widget. A value in the `recoveryToken` setting currently doesn't have any effect on widget function, though the setting takes effect in the future.
 
 ### Okta dashboard or custom dashboard sign-in flow
 
-For an Okta dashboard sign-in, you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget.
+For an Okta dashboard sign-in flow, you no longer need to configure a redirect to the Okta Identity Cloud, create an Okta session, and then open a URL specified in the widget.
 
-Remove the redirect configuration (`setCookieAndRedirect()`) line, shown in the following snippet:
+Remove the redirect configuration (`setCookieAndRedirect()`) line shown in the following snippet:
 
 ```JavaScript
 function success(res) {

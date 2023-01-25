@@ -237,8 +237,7 @@ curl -v -X GET \
     "created": "2021-11-30T15:16:09.000Z",
     "status": "ACTIVE",
     "settings": {
-      "host": "acme.splunkcloud.com",
-      "token": "1e652bb8-3ef8-427b-9f00-222e1bbe3832"
+      "host": "acme.splunkcloud.com"
     },
     "_links": {
       "self": {
@@ -668,13 +667,25 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 | us-east-1 | US East (N. Virginia) |
 | us-west-1 | US West (N. California) |
 | us-west-2 | US West (Oregon) |
+| af-south-1 | Africa (Cape Town) |
+| ap-east-1 | Asia Pacific (Hong Kong) |
+| ap-southeast-3 | Asia Pacific (Jakarta) |
+| ap-south-1 | Asia Pacific (Mumbai) |
+| ap-northeast-3 | Asia Pacific (Osaka) |
+| ap-northeast-2 | Asia Pacific (Seoul) |
+| ap-southeast-1 | Asia Pacific (Singapore) |
+| ap-southeast-2 | Asia Pacific (Sydney) |
+| ap-northeast-1 | Asia Pacific (Tokyo) |
 | ca-central-1 | Canada (Central) |
 | eu-central-1 | Europe (Frankfurt) |
 | eu-west-1 | Europe (Ireland) |
 | eu-west-2 | Europe (London) |
-| eu-west-3 | Europe (Paris) |
 | eu-south-1 | Europe (Milan) |
+| eu-west-3 | Europe (Paris) |
 | eu-north-1 | Europe (Stockholm) |
+| me-south-1 | Middle East (Bahrain) |
+| me-central-1 | Middle East (UAE) |
+| sa-east-1 | South America (São Paulo) |
 
 
 ### Splunk Cloud Settings object
@@ -685,7 +696,7 @@ The Splunk Cloud Settings object specifies the configuration for the `splunk_clo
 
 ```json
 {
-  "host": "acme.splunkcloud.com"
+  "host": "acme.splunkcloud.com",
   "token": "11111111-1111-2222-2222-222222222222"
 }
 ```
@@ -695,6 +706,6 @@ The Splunk Cloud Settings object specifies the configuration for the `splunk_clo
 | Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
 | host            | The domain name for your Splunk Cloud instance. Don't include `http` or `https` in the string. For example: `acme.splunkcloud.com`                                       | String                                                         | FALSE    | FALSE   | FALSE     |      17     |     116      |
-| token     | The HEC token for your Splunk Cloud HTTP Event Collector             | String (GUID format)  | FALSE | FALSE | FALSE  |  36 |  36   |
+| token     | The HEC token for your Splunk Cloud HTTP Event Collector. The token value is set during object creation, but isn't returned.            | String (GUID format)  | FALSE | FALSE | FALSE  |  36 |  36   |
 
 

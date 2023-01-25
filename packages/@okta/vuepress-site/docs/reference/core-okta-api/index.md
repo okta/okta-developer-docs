@@ -29,9 +29,21 @@ REST endpoints to configure objects whenever you need. For example:
 
 ## Design principles
 
+### URL namespace
+
+All URLs listed in the documentation should be preceded with your organization's subdomain (tenant) or configured custom domain.
+
+> **Note:** All API requests must use the HTTPS scheme.
+
 ### Versioning
 
 The Okta API is a versioned API. Okta reserves the right to add new parameters, properties, or objects to the API without advance notice. These updates are considered non-breaking and the compatibility rules below should be followed to ensure your application does not break. Breaking changes such as removing or renaming a property will be released as a new version of the API. Okta will provide a migration path for new versions of APIs and will communicate timelines for end-of-life when deprecating APIs.
+
+The API version is included in the path. For example, the Users API is currently at version `v1`:
+
+```http
+https://${yourOktaDomain}/api/v1/users
+```
 
 Do not consume any Okta API unless it is documented on this site. All undocumented endpoints should be considered private, subject to change without notice, and not covered by any agreements.
 
@@ -49,13 +61,6 @@ Do not consume any Okta API unless it is documented on this site. All undocument
 - New properties may be added to future versions of the response.
 - Existing properties cannot be removed from future versions of the response.
 - Properties with null values may be omitted by responses.
-
-### URL namespace
-
-All URLs listed in the documentation should be preceded with your organization's subdomain (tenant) and API version: `https://${yourOktaDomain}/api/${apiversion}`
-The API version is currently `v1`.
-
-> **Note:** All API requests must use the HTTPS scheme.
 
 ### Media types
 
@@ -78,6 +83,12 @@ Where possible, the Okta API strives to use appropriate HTTP verbs for each acti
 #### GET
 
 Used for retrieving objects
+
+#### PATCH
+
+Used for partially updating objects. For supported endpoints, Okta implements one or both of [JSON Patch](https://www.rfc-editor.org/rfc/rfc6902) and [JSON Merge Patch](https://www.rfc-editor.org/rfc/rfc7386).
+
+> **Note:** Not all APIs implement PATCH for updates.
 
 #### POST
 
@@ -177,15 +188,33 @@ See [Error Codes](/docs/reference/error-codes/) for a list of API error codes.
 
 ### Authentication
 
-The Okta API currently requires the custom HTTP authentication scheme `SSWS` for authentication. All requests must have a valid API key specified in the HTTP `Authorization` header with the `SSWS` scheme.
+Okta APIs support two authentication options:
 
-    Authorization: SSWS 00QCjAl4MlV-WPXM...0HmjFx-vbGua
+* [OAuth 2.0 and OpenID Connect](#oauth-20-and-openid-connect-authentication)
+* [API token](#api-token-authentication)
 
-> **Note:** See [Obtaining a token](/docs/guides/create-an-api-token/) for instructions on how to get an API key for your organization.
+#### OAuth 2.0 and OpenID Connect authentication
 
-The API key (API token) isn't interchangeable with an Okta [session token](/docs/reference/api/authn/#session-token), access tokens, or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/).
+You can interact with Okta APIs that use scoped OAuth 2.0 access tokens for a number of Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by the scopes that the access token contains. See [OpenID Connect and OAuth 2.0 API > Client authentication methods](/docs/reference/api/oidc/#client-authentication-methods).
 
-You can now interact with Okta APIs that use scoped OAuth 2.0 access tokens for a number of Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by the scopes that the access token contains. See [OAuth 2.0 for Okta APIs](/docs/guides/implement-oauth-for-okta/).
+Refer to the following guides for OAuth 2.0 and OpenID Connect authentication implementations:
+* For user access token requests, see [Implement OAuth for Okta](/docs/guides/implement-oauth-for-okta/).
+* For service access token requests, see [Implement OAuth for Okta with service app](/docs/guides/implement-oauth-for-okta-serviceapp/).
+* For partner service apps in the Okta Integration Network (OIN), see [Build an API service integration](/docs/guides/build-api-integration/main/).
+
+#### API token authentication
+
+The Okta API requires the custom HTTP authentication scheme `SSWS` for API token (API key) authentication. Requests must have a valid API token specified in the HTTP `Authorization` header with the `SSWS` scheme.
+
+For example:
+
+```json
+   Authorization: SSWS 00QCjAl4MlV-WPXM...0HmjFx-vbGua
+```
+
+> **Note:** See [Create an API token](/docs/guides/create-an-api-token/) for instructions on how to get an API token for your organization.
+
+The API token isn't interchangeable with an Okta [session token](/docs/reference/api/authn/#session-token), access tokens, or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/).
 
 ### Pagination
 
@@ -201,7 +230,7 @@ Requests that return a list of objects may support pagination. Pagination is bas
 
 ### Link header
 
-Pagination links are included in the [Link header](http://tools.ietf.org/html/rfc8288) of responses. It is important to follow these Link header values instead of constructing your own URLs as query parameters or cursor formats may change without notice.
+Pagination links are included in the [Link header](https://www.rfc-editor.org/rfc/rfc8288) of responses. It is important to follow these Link header values instead of constructing your own URLs as query parameters or cursor formats may change without notice.
 
 ``` http
 HTTP/1.1 200 OK
@@ -236,7 +265,7 @@ The filter and search parameters must contain at least one valid Boolean express
 
 ### Operators
 
-Most of the operators listed in the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) are supported:
+Most of the operators listed in the [SCIM Protocol Specification](https://www.rfc-editor.org/rfc/rfc7644#section-3.4.2.2) are supported:
 
 | Operator | Description           | Behavior                                                                                                                                                                                                                                                                      |
 | -------- | -----------           | --------                                                                                                                                                                                                                                                                      |
@@ -275,13 +304,13 @@ Filters must be evaluated using the standard order of operations. Attribute oper
 
 Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your application. Links are identified by link relations that are named keys. Link relations describe what objects are available and how API clients can interact with them. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the [User API](/docs/reference/api/users/#links-object) governs which lifecycle operations are permitted. Only the permitted operations are published as lifecycle operations.
 
-The Okta API incorporates [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia discoverability. HAL provides a set of conventions for expressing hyperlinks in JSON responses that represent two simple concepts: Resources and Links.
+The Okta API incorporates [JSON Hypertext Application Language](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia discoverability. HAL provides a set of conventions for expressing hyperlinks in JSON responses that represent two simple concepts: Resources and Links.
 
 > **Note:** The HAL-specific media type `application/hal+json` isn't currently supported as a formal media type for content negotiation. Use the standard `application/json` media type. As we get more experience with the media format, we may add support for the media type.
 
 ### Links
 
-Objects with property names that are link relation types (as defined by [RFC8288](http://tools.ietf.org/html/rfc8288)) have values that are either a Link object or an array of Link objects. Link objects contain the following:
+Objects with property names that are link relation types (as defined by [RFC8288](https://www.rfc-editor.org/rfc/rfc8288)) have values that are either a Link object or an array of Link objects. Link objects contain the following:
 
 - A target URI
 - The name of the link relation (`rel`)

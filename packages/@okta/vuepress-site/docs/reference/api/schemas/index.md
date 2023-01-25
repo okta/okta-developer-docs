@@ -1558,6 +1558,7 @@ For brevity, the following response doesn't include all available properties.
           "description": "Your Amazon AWS Account ID.",
           "type": "string",
           "writeOnce": true,
+          "writeOnly": false,
           "pattern": "^\\d{12}$"
         },
         "eventSourceName": {
@@ -1565,6 +1566,7 @@ For brevity, the following response doesn't include all available properties.
           "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.",
           "type": "string",
           "writeOnce": true,
+          "writeOnly": false,
           "pattern": "^[\\.\\-_A-Za-z0-9]{1,75}$"
         },
         "region": {
@@ -1572,51 +1574,31 @@ For brevity, the following response doesn't include all available properties.
           "description": "The destination AWS region for your system log events.",
           "type": "string",
           "writeOnce": true,
+          "writeOnly": false,
           "oneOf": [
-            {
-              "title": "US East (Ohio)",
-              "const": "us-east-2"
-            },
-            {
-              "title": "US East (N. Virginia)",
-              "const": "us-east-1"
-            },
-            {
-              "title": "US West (N. California)",
-              "const": "us-west-1"
-            },
-            {
-              "title": "US West (Oregon)",
-              "const": "us-west-2"
-            },
-            {
-              "title": "Canada (Central)",
-              "const": "ca-central-1"
-            },
-            {
-              "title": "Europe (Frankfurt)",
-              "const": "eu-central-1"
-            },
-            {
-              "title": "Europe (Ireland)",
-              "const": "eu-west-1"
-            },
-            {
-              "title": "Europe (London)",
-              "const": "eu-west-2"
-            },
-            {
-              "title": "Europe (Paris)",
-              "const": "eu-west-3"
-            },
-            {
-              "title": "Europe (Milan)",
-              "const": "eu-south-1"
-            },
-            {
-              "title": "Europe (Stockholm)",
-              "const": "eu-north-1"
-            }
+            { "title": "US East (Ohio)", "const": "us-east-2" },
+            { "title": "US East (N. Virginia)", "const": "us-east-1" },
+            { "title": "US West (N. California)", "const": "us-west-1" },
+            { "title": "US West (Oregon)", "const": "us-west-2" },
+            { "title": "Africa (Cape Town)", "const": "af-south-1" },
+            { "title": "Asia Pacific (Hong Kong)", "const": "ap-east-1" },
+            { "title": "Asia Pacific (Jakarta) ", "const": "ap-southeast-3" },
+            { "title": "Asia Pacific (Mumbai)", "const": "ap-south-1" },
+            { "title": "Asia Pacific (Osaka)", "const": "ap-northeast-3" },
+            { "title": "Asia Pacific (Seoul)", "const": "ap-northeast-2" },
+            { "title": "Asia Pacific (Singapore)", "const": "ap-southeast-1" },
+            { "title": "Asia Pacific (Sydney)", "const": "ap-southeast-2" },
+            { "title": "Asia Pacific (Tokyo)", "const": "ap-northeast-1" },
+            { "title": "Canada (Central)", "const": "ca-central-1" },
+            { "title": "Europe (Frankfurt)", "const": "eu-central-1" },
+            { "title": "Europe (Ireland)", "const": "eu-west-1" },
+            { "title": "Europe (London)", "const": "eu-west-2" },
+            { "title": "Europe (Milan)", "const": "eu-south-1" },
+            { "title": "Europe (Paris)", "const": "eu-west-3" },
+            { "title": "Europe (Stockholm)", "const": "eu-north-1" },
+            { "title": "Middle East (Bahrain)", "const": "me-south-1" },
+            { "title": "Middle East (UAE)", "const": "me-central-1" },
+            { "title": "South America (São Paulo)", "const": "sa-east-1" }
           ]
         }
       },
@@ -1701,6 +1683,7 @@ For brevity, the following response doesn't include all available properties.
             "description": "Your Amazon AWS Account ID.",
             "type": "string",
             "writeOnce": true,
+            "writeOnly": false,
             "pattern": "^\\d{12}$"
           },
           "eventSourceName": {
@@ -1708,6 +1691,7 @@ For brevity, the following response doesn't include all available properties.
             "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.",
             "type": "string",
             "writeOnce": true,
+            "writeOnly": false,
             "pattern": "^[\\.\\-_A-Za-z0-9]{1,75}$"
           },
           "region": {
@@ -1715,51 +1699,31 @@ For brevity, the following response doesn't include all available properties.
             "description": "The destination AWS region for your system log events.",
             "type": "string",
             "writeOnce": true,
+            "writeOnly": false,
             "oneOf": [
-              {
-                "title": "US East (Ohio)",
-                "const": "us-east-2"
-              },
-              {
-                "title": "US East (N. Virginia)",
-                "const": "us-east-1"
-              },
-              {
-                "title": "US West (N. California)",
-                "const": "us-west-1"
-              },
-              {
-                "title": "US West (Oregon)",
-                "const": "us-west-2"
-              },
-              {
-                "title": "Canada (Central)",
-                "const": "ca-central-1"
-              },
-              {
-                "title": "Europe (Frankfurt)",
-                "const": "eu-central-1"
-              },
-              {
-                "title": "Europe (Ireland)",
-                "const": "eu-west-1"
-              },
-              {
-                "title": "Europe (London)",
-                "const": "eu-west-2"
-              },
-              {
-                "title": "Europe (Paris)",
-                "const": "eu-west-3"
-              },
-              {
-                "title": "Europe (Milan)",
-                "const": "eu-south-1"
-              },
-              {
-                "title": "Europe (Stockholm)",
-                "const": "eu-north-1"
-              }
+              { "title": "US East (Ohio)", "const": "us-east-2" },
+              { "title": "US East (N. Virginia)", "const": "us-east-1" },
+              { "title": "US West (N. California)", "const": "us-west-1" },
+              { "title": "US West (Oregon)", "const": "us-west-2" },
+              { "title": "Africa (Cape Town)", "const": "af-south-1" },
+              { "title": "Asia Pacific (Hong Kong)", "const": "ap-east-1" },
+              { "title": "Asia Pacific (Jakarta) ", "const": "ap-southeast-3" },
+              { "title": "Asia Pacific (Mumbai)", "const": "ap-south-1" },
+              { "title": "Asia Pacific (Osaka)", "const": "ap-northeast-3" },
+              { "title": "Asia Pacific (Seoul)", "const": "ap-northeast-2" },
+              { "title": "Asia Pacific (Singapore)", "const": "ap-southeast-1" },
+              { "title": "Asia Pacific (Sydney)", "const": "ap-southeast-2" },
+              { "title": "Asia Pacific (Tokyo)", "const": "ap-northeast-1" },
+              { "title": "Canada (Central)", "const": "ca-central-1" },
+              { "title": "Europe (Frankfurt)", "const": "eu-central-1" },
+              { "title": "Europe (Ireland)", "const": "eu-west-1" },
+              { "title": "Europe (London)", "const": "eu-west-2" },
+              { "title": "Europe (Milan)", "const": "eu-south-1" },
+              { "title": "Europe (Paris)", "const": "eu-west-3" },
+              { "title": "Europe (Stockholm)", "const": "eu-north-1" },
+              { "title": "Middle East (Bahrain)", "const": "me-south-1" },
+              { "title": "Middle East (UAE)", "const": "me-central-1" },
+              { "title": "South America (São Paulo)", "const": "sa-east-1" }
             ]
           }
         },
@@ -1808,13 +1772,15 @@ For brevity, the following response doesn't include all available properties.
             "description": "The domain for your Splunk Cloud instance without http or https. For example: acme.splunkcloud.com",
             "type": "string",
             "writeOnce": false,
+            "writeOnly": false,
             "pattern": "^([a-z0-9]+(-[a-z0-9]+)*){1,100}\\.splunkcloud(gc|fed)?\\.com$"
           },
           "token": {
             "title": "HEC Token",
             "description": "The token from your Splunk Cloud HTTP Event Collector (HEC).",
             "type": "string",
-            "writeOnce": false,
+            "writeOnce": true,
+            "writeOnly": true,
             "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
           }
         },
@@ -2053,7 +2019,7 @@ The base User Profile is based on the [System for Cross-Domain Identity Manageme
 | countryCode       | Country name component of the User's address (`country`)                                                                         | String   | TRUE     | FALSE  | FALSE    |           |           | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166)  |
 | postalAddress     | Mailing address component of the User's address                                                                                  | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | preferredLanguage | User's preferred written or spoken languages                                                                                 | String   | TRUE     | FALSE  | FALSE    |           |           | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                       |
-| locale            | User's default location for purposes of localizing items such as currency, date time format, numerical representations, and so on. | String   | TRUE     | FALSE  | FALSE    |           |           | See the Note after the table for more details.                                                                                        |
+| locale            | User's default location for purposes of localizing items such as currency, date time format, numerical representations, and so on. | String   | FALSE (default)    | FALSE  | FALSE    |           |           | See [Locale format](#locale-format) details.                                                                                        |
 | timezone          | User's time zone                                                                                                             | String   | TRUE     | FALSE  | FALSE    |           |           | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                             |
 | userType          | Used to describe the organization to the User relationship such as "Employee" or "Contractor"                                          | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | employeeNumber    | Organization or company assigned unique identifier for the User                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
@@ -2062,11 +2028,13 @@ The base User Profile is based on the [System for Cross-Domain Identity Manageme
 | division          | Name of the User's division                                                                                                      | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | department        | Name of the User's department                                                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | managerId         | `id` of the User's manager                                                                                                     | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| manager           | DisplayName of the User's manager                                                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-
-> **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 two letter country code. For example: 'en_US' specifies the language English and country US.
+| manager           | `displayName` of the User's manager                                                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 
 > **Note:** The `userType` field is an arbitrary string value and isn't related to the newer [User Types](/docs/reference/api/user-types) feature.
+
+##### Locale format
+
+A locale value is a concatenation of the ISO 639-1 two-letter language code, an underscore, and the ISO 3166-1 two-letter country code. For example: `en_US` specifies the language English and country US. This value is `en_US` by default.
 
 ##### Login pattern validation
 
@@ -3378,6 +3346,7 @@ with the following keywords:
 | Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
 | :---------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
 | writeOnce|Determines whether the property can be updated once it has been created|Boolean|FALSE|FALSE|TRUE|
+| writeOnly|Determines whether the property is returned by Okta to protect sensitive data|Boolean|FALSE|FALSE|TRUE|
 | errorMessage|Error messages for properties of this Log Stream object|[Error Message object](#error-message-object)|FALSE|TRUE|TRUE|
 
 #### Log Stream Schema object description details

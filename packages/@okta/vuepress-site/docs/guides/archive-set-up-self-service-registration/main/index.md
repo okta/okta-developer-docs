@@ -127,7 +127,7 @@ If you don't have any policies configured or your org doesn't allow you to disab
 
 If you left the [**Add to Sign-In Widget**](#enable-and-configure-a-self-service-registration-policy) checkbox clear when you configured the registration policy, then you need to configure a link using JavaScript in the **Customize Sign-In Page** HTML editor.
 
-> **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom URL domain](/docs/guides/custom-url-domain/) configured.
+> **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom domain](/docs/guides/custom-url-domain/) configured.
 
 1. In the Admin Console, go to **Settings** > **Customization**.
 2. Click the **Custom Sign In** tab.
@@ -166,5 +166,5 @@ Now that you understand how to set up self-service registration, you can learn h
 
 ## See also
 
-* [Embedded Okta Sign-In Widget fundamentals](docs/guides/archive-embedded-siw/)
+* [Embedded Okta Sign-In Widget fundamentals](/docs/guides/archive-embedded-siw/)
 * [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)

@@ -21,12 +21,13 @@ When you create an Okta expression, you can reference any attribute that lives o
 
 ### Okta User Profile
 
-Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, just reference `user` and specify the attribute variable name.
-
+Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, specify `user.` and the attribute variable name. For a list of core User Profile attributes, see [Default Profile properties](/docs/reference/api/users/#default-profile-properties).
 
 | Syntax            | Definitions                                                                   | examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |
 | `user.$attribute` | `user` reference to the Okta User<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
+
+> **Note:** You can also access the User ID for each user with the following expression: `user.getInternalProperty("id")`.
 
 ### Application User Profile
 
@@ -127,7 +128,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 | `Arrays.remove(array, value)`    | Array                               | `Arrays.remove({10, 20, 30}, 20)`                   | `{10, 30}`         |
 | `Arrays.clear(array)`            | Array                               | `Arrays.clear({10, 20, 30})`                        | `{ }`              |
 | `Arrays.get(array, position)`    | -                                   | `Arrays.get({0, 1, 2}, 0)`                          | 0                  |
-| `Arrays.flatten(list of values)` | Array                               | `Arrays.flatten(10, {20, 30}, 40)`                  | `{10, 20, 30, 40}` |
+| `Arrays.flatten(list of values)` | Array                               | `Arrays.flatten(10, {20, 30}, 40)` <br>  `Arrays.flatten('10, 20, 30, 40')`               | `{10, 20, 30, 40}` |
 | `Arrays.contains(array, value)`  | Boolean                             | `Arrays.contains({10, 20, 30}, 10)`                 | true               |
 |                                  |                                     | `Arrays.contains({10, 20, 30}, 50)`                 | false              |
 | `Arrays.size(array)`             | Integer                             | `Arrays.size({10, 20, 30})`                         | 3                  |
@@ -136,6 +137,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 |                                  |                                     | `Arrays.isEmpty(NULL)`                              | true              |
 | `Arrays.toCsvString(array)`      | String                              | `Arrays.toCsvString({"This", "is", " a ", "test"})` | This,is, a ,test   |
 
+> **Note:** You can use comma-separated values (CSV) as an input parameter for all `Arrays*` functions. These values are converted into arrays.
 
 ### Conversion functions
 
@@ -187,6 +189,8 @@ Group functions return either an array of groups or **True** or **False**.
 
 > **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
 
+> **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, app user profile attributes aren’t updated or reapplied when the user’s group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
+
 For an example using group functions and for more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
 > **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the Group's email (for example, when using Google Workspace). If you are targeting groups that may have duplicate group names (such as Google Groups), use the `getFilteredGroups` Group function instead.
@@ -219,7 +223,7 @@ Use this function to retrieve the user identified with the specified `primary` r
 | `Time.fromIso8601ToUnix`    | (String time)                      | String           | ISO 8601 timestamp time as a string                                                                                | The passed-in time expressed in Unix timestamp format.                                                  |
 | `Time.fromIso8601ToString`  | (String time, String format)       | String           | ISO 8601 timestamp time, to convert to format using the same [Joda time pattern](https://www.joda.org/joda-time/key_format.html) semantics as fromStringToIso8601     | The passed-in time expressed informat format.                                                           |
 
->Note: Both input parameters are optional for the Time.now function. The time zone ID supports both new and old style formats, listed below. The third example for the Time.now function shows how to specify the military time format.
+> **Note**: Both input parameters are optional for the Time.now function. The time zone ID supports both new and old style formats, listed below. The third example for the Time.now function shows how to specify the military time format.
 
 Okta supports the use of the time zone IDs and aliases listed in [the Time Zone Codes table](#appendix-time-zone-codes).
 

@@ -2,5 +2,5 @@ Use Okta's Angular SDK and Okta's JavaScript SDK in your Angular application. Ad
 
 ```shell
 cd okta-angular-quickstart
-npm install @okta/okta-angular@5.1 @okta/okta-auth-js@6.0
+npm install @okta/okta-angular@6.0 @okta/okta-auth-js@7.0
 ```

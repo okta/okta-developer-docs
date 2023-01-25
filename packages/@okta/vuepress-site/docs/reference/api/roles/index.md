@@ -511,7 +511,8 @@ curl -v -X POST \
       "resources": [
         "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
         "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users",
-        "https://${yourOktaDomain}/api/v1/users"
+        "https://${yourOktaDomain}/api/v1/users",
+        "orn:${partition}:directory:${yourOrgId}:groups:00g4bjtkrsFSFhzB00g7"
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets"
 ```
@@ -779,7 +780,8 @@ curl -v -X PATCH \
 -d '{
       "additions": [
         "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
-        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users"
+        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users",
+        "orn:${partition}:directory:${yourOrgId}:groups:00g4bjtkrsFSFhzB00g7"
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
 ```
@@ -840,6 +842,7 @@ curl -v -X GET \
   "resources": [
     {
       "id": "ire106sQKoHoXXsAe0g4",
+      "orn": "orn:{partition}:directory:{yourOrgId}:groups:00guaxWZ0AOa5NFAj0g3",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
@@ -850,6 +853,7 @@ curl -v -X GET \
     },
     {
       "id": "ire106riDrTYl4qA70g4",
+      "orn": "orn:{partition}:directory:{yourOrgId}:groups:00gu67DU2qNCjNZYO0g3:contained_resources",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
@@ -860,11 +864,26 @@ curl -v -X GET \
     },
     {
       "id": "irezvo4AwE2ngpMw40g3",
+      "orn": "orn:{partition}:directory:{yourOrgId}:users",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
+        "self": {
+          "href": "https://{yourOktaDomain}/api/v1/users"
+        },
         "users": {
           "href": "https://{yourOktaDomain}/api/v1/users"
+        }
+      }
+    },
+    {
+      "id": "ire2j4iDnxHhUFaZN0g4",
+      "orn": "orn:{partition}:directory:{yourOrgId}:groups",
+      "created": "2021-02-06T16:20:57.000Z",
+      "lastUpdated": "2021-02-06T16:20:57.000Z",
+      "_links": {
+        "self": {
+          "href": "https://{yourOktaDomain}/api/v1/groups"
         },
         "groups": {
           "href": "https://{yourOktaDomain}/api/v1/groups"
@@ -901,6 +920,7 @@ Removes a resource from a Resource Set
 ```json
     {
       "id": "ire106sQKoHoXXsAe0g4",
+      "orn": "orn:{partition}:directory:{yourOrgId}:groups:00guaxWZ0AOa5NFAj0g3",
       "created": "2021-02-06T16:20:57.000Z",
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
@@ -3188,10 +3208,10 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.apps.manage`                      | Allows the admin to fully manage Apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
 | `okta.apps.assignment.manage`           | Allows the admin to only manage assignment operations of an App in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
 | `okta.profilesources.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
-| `okta.authzServers.read`      <br><ApiLifecycle access="ea" />  | Allows the admin to read authorization servers                                                                                                      | All authorization servers, a specific authorization server |
-| `okta.authzServers.manage`    <br><ApiLifecycle access="ea" />  | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
-| `okta.customizations.read`    <br><ApiLifecycle access="ea" />  | Allows the admin to read customizations                                                                                                             | All customizations |
-| `okta.customizations.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage customizations                                                                                                           | All customizations |
+| `okta.authzServers.read`                | Allows the admin to read authorization servers                                                                                                      | All authorization servers, a specific authorization server |
+| `okta.authzServers.manage`              | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
+| `okta.customizations.read`              | Allows the admin to read customizations                                                                                                             | All customizations |
+| `okta.customizations.manage`            | Allows the admin to manage customizations                                                                                                           | All customizations |
 | `okta.workflows.invoke`       <br><ApiLifecycle access="ea" />  | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
 | `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Access Certifications |
 | `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests |
@@ -3251,9 +3271,9 @@ The following are the supported resources.
 | Identity Provider       | All Apps                                                            | `orn:${partition}:idp:${yourOrgId}:apps`                                              | [`https://${yourOktaDomain}/api/v1/apps`](/docs/reference/api/apps/#list-applications)                                                                  |
 |                         | All Apps of a specific type                                         | `orn:${partition}:idp:${yourOrgId}:apps:${appType}`                                   | [`https://${yourOktaDomain}/api/v1/apps/?filter=name+eq+%22${targetAppType}%22`](/docs/reference/api/apps/#list-apps-by-name)                             |
 |                         | A specific App                                                      | `orn:${partition}:idp:${yourOrgId}:apps:${appType}:${appId}`                          | [`https://${yourOktaDomain}/api/v1/apps/${appId}`](/docs/reference/api/apps/#get-application)                                                           |
-|                         | All Authorization Servers         <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
-|                         | A specific Authorization Server   <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
-|                         | All customizations                <br><ApiLifecycle access="ea" />  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
+|                         | All Authorization Servers                                           | `orn:${partition}:idp:${yourOrgId}:authorization_servers`                             | [`https://${yourOktaDomain}/api/v1/authorizationServers`](/docs/reference/api/authorization-servers/#list-authorization-servers)                        |
+|                         | A specific Authorization Server                                     | `orn:${partition}:idp:${yourOrgId}:authorization_servers:${authorizationServerId}`    | [`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`](/docs/reference/api/authorization-servers/#get-authorization-server) |
+|                         | All customizations                                                  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
 | Workflows               | All Delegated Flows               <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
 |                         | A specific Delegated Flow         <br><ApiLifecycle access="ea" />  | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
 | Governance              | All Access Certifications         <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:certifications`                                   |                                                                                                                                                         |

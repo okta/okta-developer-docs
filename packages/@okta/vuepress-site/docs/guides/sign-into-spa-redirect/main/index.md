@@ -195,11 +195,11 @@ Alternatively, you can renew tokens by hitting the `/authorize` endpoint. See [G
 
 Learn more about session management, securing your APIs, and ways that you can integrate with Okta.
 
-*  To protect the API that your SPA calls, see [Protect your API endpoints](/docs/guides/protect-your-api/)
-* To customize your Okta org domain name, see [Customize the Okta URL and email notification domains](https://developer.okta.com/docs/guides/custom-url-domain/main/)
-* To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget)
-* For resources to create a fully customized sign-in experience, see [Languages & SDKs Overview](https://developer.okta.com/code/)
-* To secure your mobile app, see [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/)
-* To support multi-tenancy, see [Multi-tenant solutions](https://developer.okta.com/docs/concepts/multi-tenancy/)
+* To protect the API that your SPA calls, see [Protect your API endpoints](/docs/guides/protect-your-api/).
+* To customize your Okta org domain name, see [Customize domain and email address](https://developer.okta.com/docs/guides/custom-url-domain/main/).
+* To customize the hosted sign-in page, see [Style the Okta-hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget).
+* For resources to create a fully customized sign-in experience, see [Languages & SDKs Overview](https://developer.okta.com/code/).
+* To secure your mobile app, see [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/).
+* To support multi-tenancy, see [Multi-tenant solutions](https://developer.okta.com/docs/concepts/multi-tenancy/).
 
 <StackSnippet snippet="specificlinks" />

@@ -4,19 +4,14 @@ Build a sign-in page that captures the user's name and password.
 
 <div class="half wireframe-border">
 
-![Displays the simple sign-in form for Java SDK](/img/oie-embedded-sdk/wireframes/pwd-optional-sign-up-link-sign-in-page-g1r7.png)
-
-</div>
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
 
 <!--
 
-Source image:
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
-https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%8C%9F-Updated-Diagrams-for-Dev-Docs?node-id=2393%3A2128#233281241
-
-Group 1, row 7
-
--->
+</div>
 
 ### 2: Authenticate the user credentials
 
@@ -76,4 +71,4 @@ switch (authnResponse?.AuthenticationStatus)
 
 ```
 
-In the previous code sample, the `AuthenticationHelper.GetIdentityFromAuthResponseAsync()` method gets the user profile information. Optionally, you can obtain basic user information after the user successfully signs in by making a request to Okta's Open ID Connect authorization server (see the next section).
+In the previous code sample, the `AuthenticationHelper.GetIdentityFromAuthResponseAsync()` method gets the user profile information. Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect authorization server (see the next section).

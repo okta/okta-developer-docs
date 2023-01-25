@@ -102,6 +102,8 @@ const oktaSignInConfig = {
 export { oktaAuthConfig, oktaSignInConfig };
 ```
 
+> **Note:** In Okta Sign-In Widget version 7+, [Okta Identity Engine](/docs/concepts/oie-intro) is enabled by default. If you are using version 7+ and want to use Okta Classic Engine rather than Identity Engine, you need to specify `useClassicEngine: true` in the [configuration options](https://github.com/okta/okta-signin-widget#configuration) passed into the `new OktaSignIn()` call.
+
 ## Create a Widget Wrapper
 
 To render the Sign-In Widget in React, you must create a wrapper that allows you to treat it as a React component.

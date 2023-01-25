@@ -1,6 +1,6 @@
 {
-  "release" : "2022.09.1",
-  "build" : "2022.09.1-begin-126-g0b0d930b7cfa",
+  "release" : "2023.01.1",
+  "build" : "2023.01.1-begin-163-g3ee566bf2f32",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -22,6 +22,13 @@
     "internalErrorCode" : "feature_not_enabled_access_denied",
     "errorCode" : "access_denied",
     "errorDescription" : "The requested feature is not enabled in this environment."
+  }, {
+    "title" : "Oie not enabled for interact",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "oie_not_enabled_for_interact",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The requested feature (Interaction Code flow) isn't enabled in this environment. Ensure that you have Okta Identity Engine enabled and the Interaction Code flow enabled for this application and authorization server."
   }, {
     "title" : "User not assigned",
     "statusCode" : 400,
@@ -247,12 +254,40 @@
     "errorCode" : "access_denied",
     "errorDescription" : "Transformed username '{0}' is invalid."
   }, {
+    "title" : "Password expired",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "password_expired",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The user's password is expired."
+  }, {
+    "title" : "Ciba feature not supported",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_feature_not_supported",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The Client-Initiated Backchannel Authentication flow currently only supports web applications."
+  }, {
+    "title" : "Ciba MFA challenge initiation failure",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_mfa_challenge_initiation_failure",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Failed to initiate the MFA challenge for the Client-Initiated Backchannel Authentication flow."
+  }, {
     "title" : "Authorization pending",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "authorization_pending",
     "errorCode" : "authorization_pending",
     "errorDescription" : "The device authorization is pending. Please try again later."
+  }, {
+    "title" : "Ciba authorization pending",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_authorization_pending",
+    "errorCode" : "authorization_pending",
+    "errorDescription" : "The authorization request is still pending as the user hasn't yet been authenticated."
   }, {
     "title" : "Client credentials self scope requested",
     "statusCode" : 400,
@@ -302,6 +337,13 @@
     "internalErrorCode" : "expired_token",
     "errorCode" : "expired_token",
     "errorDescription" : "The device code has expired."
+  }, {
+    "title" : "Ciba expired auth req ID",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_expired_auth_req_id",
+    "errorCode" : "expired_token",
+    "errorDescription" : "The 'auth_req_id' is invalid or has expired. Make a new authentication request."
   }, {
     "title" : "ID token does not match session",
     "statusCode" : 400,
@@ -561,6 +603,20 @@
     "internalErrorCode" : "request_object_jwks_not_configured",
     "errorCode" : "invalid_client",
     "errorDescription" : "The client does not have a JWKSet configured, but the request object requires one."
+  }, {
+    "title" : "Ciba request grant type not configured",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "ciba_request_grant_type_not_configured",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client doesn't have the 'urn:openid:params:grant-type:ciba' grant type configured."
+  }, {
+    "title" : "Ciba request signed algo not configured",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "ciba_request_signed_algo_not_configured",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client doesn't have a RequestObjectSigningAlgorithm configured for signing authentication requests for the Client-Initiated Backchannel Authentication flow."
   }, {
     "title" : "Jwks URI no key",
     "statusCode" : 401,
@@ -884,10 +940,17 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Browser requests to the token endpoint must be made from one of the registered Trusted Origins."
   }, {
+    "title" : "Invalid response type for authenticator enrollment",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_response_type_for_authenticator_enrollment",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Authenticator enrollment requires 'none' response_type."
+  }, {
     "title" : "Unsupported api resource for none response type",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "`unsupported_api_resource_for_none_response_type`",
+    "internalErrorCode" : "unsupported_api_resource_for_none_response_type",
     "errorCode" : "invalid_request",
     "errorDescription" : "'resource' parameter is not supported for request with 'none' as response_type."
   }, {
@@ -905,12 +968,12 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'nonce' parameter is not supported for request with 'none' as response_type."
   }, {
-    "title" : "Invalid max age for none response type",
+    "title" : "Invalid max age for enroll authenticator prompt",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "invalid_max_age_for_none_response_type",
+    "internalErrorCode" : "invalid_max_age_for_enroll_authenticator_prompt",
     "errorCode" : "invalid_request",
-    "errorDescription" : "'max_age' parameter is not supported for request with 'none' as response_type."
+    "errorDescription" : "'max_age' parameter must have the value '0' for request with 'enroll_authenticator' as prompt."
   }, {
     "title" : "Invalid prompt for none response type",
     "statusCode" : 400,
@@ -926,12 +989,12 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'enroll_amr_values' parameter must have valid space delimited authenticators list for request with 'none' as response_type."
   }, {
-    "title" : "Invalid acr values for none response type",
+    "title" : "Invalid acr values for enroll authenticator prompt",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "invalid_acr_values_for_none_response_type",
+    "internalErrorCode" : "invalid_acr_values_for_enroll_authenticator_prompt",
     "errorCode" : "invalid_request",
-    "errorDescription" : "'acr_values' parameter must be omitted or only have the value 'urn:okta:loe:2fa:any' for request with 'none' as response_type."
+    "errorDescription" : "'acr_values' parameter must have the value 'urn:okta:loa:2fa:any:ifpossible' for request with 'enroll_authenticator' as prompt."
   }, {
     "title" : "Unknown IdP",
     "statusCode" : 400,
@@ -1246,14 +1309,21 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "ciba_request_invalid_hint",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The ciba request must contain only one of 'id_token_hint' or 'login_hint'."
+    "errorDescription" : "The Client-Initiated Backchannel Authentication Flow must contain only one of 'id_token_hint' or 'login_hint'."
   }, {
     "title" : "Ciba request missing ID token hint",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "ciba_request_missing_id_token_hint",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The ciba request is missing 'id_token_hint'."
+    "errorDescription" : "The Client-Initiated Backchannel Authentication Flow is missing 'id_token_hint'."
+  }, {
+    "title" : "Ciba request unknown user ID",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_request_unknown_user_id",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The hint provided in the request did not match a user assigned to the client app."
   }, {
     "title" : "Pushed authorization request URI present",
     "statusCode" : 400,
@@ -1486,19 +1556,19 @@
     "errorCode" : "invalid_scope",
     "errorDescription" : "One or more scopes are not configured for the authorization server resource."
   }, {
+    "title" : "Ciba request invalid scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_request_invalid_scope",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The Client-Initiated Backchannel Authentication Flow must contain 'openid' scope."
+  }, {
     "title" : "Ciba request missing scope",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "ciba_request_missing_scope",
     "errorCode" : "invalid_scope",
     "errorDescription" : "No scopes were requested."
-  }, {
-    "title" : "Ciba request invalid scope",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "ciba_request_invalid_scope",
-    "errorCode" : "invalid_scope",
-    "errorDescription" : "The ciba request must contain 'openid' scope."
   }, {
     "title" : "Invalid social token",
     "statusCode" : 400,
@@ -1842,6 +1912,13 @@
     "internalErrorCode" : "slow_down",
     "errorCode" : "slow_down",
     "errorDescription" : "Slow down the polling frequency. Please try again later."
+  }, {
+    "title" : "Ciba slow down",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_slow_down",
+    "errorCode" : "slow_down",
+    "errorDescription" : "Slow down the polling frequency. Try again later."
   }, {
     "title" : "Temporarily unavailable",
     "statusCode" : 400,

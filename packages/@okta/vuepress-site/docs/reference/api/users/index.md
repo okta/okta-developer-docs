@@ -11,12 +11,9 @@ The Okta User API provides operations to manage users in your organization.
 
 Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
 
-
-
 ## User operations
 
 ### Create User
-
 
 <ApiOperation method="post" url="/api/v1/users" />
 
@@ -32,8 +29,10 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User in Group](#create-user-in-group)
 - [Create User with Non-Default User Type](#create-user-with-non-default-user-type)
 
-##### Request parameters
+> **Legal Disclaimer** <br><br>
+After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
 
+##### Request parameters
 
 | Parameter     | Description                                                                                                                                                                | Param Type   | DataType                                     | Required   | Default |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------      | :----------- | :------------------------------------------- | :--------- | :------ |
@@ -227,7 +226,7 @@ Creates a user without a [recovery question & answer](#recovery-question-object)
 The new user is able to sign in after activation with the assigned password.
 This flow is common when developing a custom user registration experience.
 
-> Important: Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
+> **Important:** Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
 
 ##### Request example
 
@@ -297,7 +296,7 @@ Creates a user with a specified [hashed password](#hashed-password-object).
 The new user is able to sign in after activation with the specified password.
 This flow is common when migrating users from another data store in cases where we want to allow the users to retain their current passwords.
 
-> Important: Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
+> **Important:** Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
 
 ##### Request example
 
@@ -446,7 +445,7 @@ Creates a new user with a [password](#password-object) and [recovery question & 
 The new user is able to log in with the assigned password after activation.
 This flow is common when developing a custom user-registration experience.
 
-> Important: Don't generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
+> **Important:** Don't generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
 
 ##### Request example
 
@@ -1346,6 +1345,8 @@ curl -v -X GET \
 
 Lists all users that match the filter criteria. To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
 
+> **Note:** Results from the filter parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
+
 This operation:
 
 - Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
@@ -1506,6 +1507,8 @@ Finds users who match the specified query.  To ensure optimal performance, Okta 
 
 Use the `q` parameter for a simple lookup of users by name, for example when creating a people picker.
 The value of `q` is matched against `firstName`, `lastName`, or `email`.
+
+> **Note:** Results from the query parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
 
 
 This operation:
@@ -1673,7 +1676,7 @@ Updates a user's profile and/or credentials using strict-update semantics
 All profile properties must be specified when updating a user's profile with a `PUT` method. Any property not specified
 in the request is deleted.
 
->Important: Don't use `PUT` method for partial updates.
+> **Important:** Don't use `PUT` method for partial updates.
 
 ##### Request parameters
 
@@ -2195,35 +2198,34 @@ For example, you can't unlock a user that is `ACTIVE`.
 
 ### Activate User
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/activate" />
 
 Activates a user
 
 This operation can only be performed on users with a `STAGED` or `DEPROVISIONED` status.  Activation of a user is an asynchronous operation.
 
-* The user's `transitioningToStatus` property has a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
-* The user's status is `ACTIVE` when the activation process is complete.
+- The user's `transitioningToStatus` property has a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
+- The user's status is `ACTIVE` when the activation process is complete.
 
 Users who don't have a password must complete the welcome flow by visiting the activation link to complete the transition to `ACTIVE` status.
 
 > **Note:** If you have Optional Password enabled, visiting the activation link is optional for users who aren't required to enroll a password. See [Create user with Optional Password enabled](#create-user-with-optional-password-enabled).
 >
 
-
 ##### Request parameters
-
 
 | Parameter | Description                                     | Param Type | DataType | Required | Default |
 | --------- | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | id        | `id` of user                                    | URL        | String   | TRUE     |         |
 | sendEmail | Sends an activation email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
 
+> **Legal Disclaimer** <br><br>
+After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
+
 ##### Response parameters
 
-
-* Returns empty object by default.
-* If `sendEmail` is `false`, returns an activation link for the user to set up their account. The activation token can be used to create a custom activation link.
+- Returns empty object by default.
+- If `sendEmail` is `false`, returns an activation link for the user to set up their account. The activation token can be used to create a custom activation link.
 
 ```json
 {
@@ -2614,6 +2616,7 @@ Generates a one-time token (OTT) that can be used to reset a user's password.  T
 
 This operation will transition the user to the status of `RECOVERY` and the user will not be able to login or initiate a forgot password flow until they complete the reset flow.
 
+This operation provides an option to delete all the user' sessions.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
 >**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
 
 ##### Request parameters
@@ -2623,6 +2626,7 @@ This operation will transition the user to the status of `RECOVERY` and the user
 | --------- | ------------------------------------------------ | ---------- | -------- | -------- | ------- |
 | id        | `id` of user                                     | URL        | String   | TRUE     |         |
 | sendEmail | Sends reset password email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
+| revokeSessions | When set to `true`, revokes all user sessions, except for the current session | Query      | Boolean  | FALSE    | FALSE   |
 
 To ensure a successful password recovery lookup if an email address is associated with multiple users:
 
@@ -2978,7 +2982,7 @@ Sets a new password for a user by validating the user's answer to their current 
 
 This operation can only be performed on users with an `ACTIVE` status and a valid [recovery question credential](#recovery-question-object).
 
-> Important: This operation is intended for applications that need to implement their own forgot password flow.  You are responsible for mitigation of all security risks such as phishing and replay attacks.  The best practice is to generate a short-lived, one-time token (OTT) that is sent to a verified email account.
+> **Important:** This operation is intended for applications that need to implement their own forgot password flow.  You are responsible for mitigation of all security risks such as phishing and replay attacks.  The best practice is to generate a short-lived, one-time token (OTT) that is sent to a verified email account.
 
 ##### Request parameters
 
@@ -3032,17 +3036,20 @@ curl -v -X POST \
 
 Changes a user's password by validating the user's current password
 
+This operation provides an option to delete all the sessions of the specified user.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
+
 This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_EXPIRED`, or `RECOVERY` status that have a valid [password credential](#password-object)
 
 ##### Request parameters
 
 
-| Parameter    | Description                                             | Param Type | DataType                             | Required |
-| ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |
-| id           | `id` of user                                            | URL        | String                               | TRUE     |
-| strict       | If true, validates against password minimum age policy  | Query      | String                               | FALSE    |
-| oldPassword  | Current password for user                               | Body       | [Password object](#password-object)  | TRUE     |
-| newPassword  | New password for user                                   | Body       | [Password object](#password-object)  | TRUE     |
+| Parameter    | Description                                             | Param Type | DataType                             | Required | Default |
+| ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |---------|
+| id           | `id` of user                                            | URL        | String                               | TRUE     |         |
+| strict       | If true, validates against password minimum age policy  | Query      | String                               | FALSE    | FALSE   |
+| oldPassword  | Current password for user                               | Body       | [Password object](#password-object)  | TRUE     |         |
+| newPassword  | New password for user                                   | Body       | [Password object](#password-object)  | TRUE     |         |
+| revokeSessions | When set to `true`, revokes all user sessions, except for the current session | Body       | boolean                              | FALSE    | FALSE  |
 
 ##### Response parameters
 
@@ -3061,7 +3068,8 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "oldPassword": { "value": "tlpWENT2m" },
-  "newPassword": { "value": "uTVM,TPw55" }
+  "newPassword": { "value": "uTVM,TPw55" },
+  "revokeSessions" : true
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
 ```
 
@@ -3994,39 +4002,41 @@ The default user profile is based on the [System for Cross-Domain Identity Manag
 
 | Property            | Description                                                                                                                          | DataType   | Nullable        | Unique   | Readonly   | MinLength   | MaxLength   | Validation                                                                                                       |
 | :------------------ | :----------------------------------------------------------------------------------------------------------------------------------- | :--------- | :---------      | :------- | :--------- | :---------- | :---------- | :--------------------------------------------------------------------------------------------------------------- |
-| login               | unique identifier for the user (`username`)                                                                                          | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [pattern](/docs/reference/api/schemas/#login-pattern-validation)                                                  |
-| email               | primary email address of user                                                                                                        | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
-| secondEmail         | secondary email address of user typically used for account recovery                                                                  | String     | TRUE            | TRUE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
-| firstName           | given name of the user (`givenName`)                                                                                                 | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
-| lastName            | family name of the user (`familyName`)                                                                                               | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
-| middleName          | middle name(s) of the user                                                                                                           | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| honorificPrefix     | honorific prefix(es) of the user, or title in most Western languages                                                                 | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| honorificSuffix     | honorific suffix(es) of the user                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| title               | user's title, such as "Vice President                                                                                                | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| displayName         | name of the user, suitable for display to end users                                                                                  | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| nickName            | casual way to address the user in real life                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| profileUrl          | url of user's online profile (e.g. a web page)                                                                                       | String     | TRUE            | FALSE    | FALSE      |             |             | [URL](https://tools.ietf.org/html/rfc1808)                                                                       |
-| primaryPhone        | primary phone number of user such as home number                                                                                     | String     | TRUE            | FALSE    | FALSE      | 0           | 100         |                                                                                                                  |
-| mobilePhone         | mobile phone number of user                                                                                                          | String     | TRUE            | FALSE    | FALSE      | 0           | 100         |                                                                                                                  |
-| streetAddress       | full street address component of user's address                                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| city                | city or locality component of user's address (`locality`)                                                                            | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| state               | state or region component of user's address (`region`)                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| zipCode             | zipcode or postal code component of user's address (`postalCode`)                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| countryCode         | country name component of user's address (`country`)                                                                                 | String     | TRUE            | FALSE    | FALSE      |             |             | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166) |
-| postalAddress       | mailing address component of user's address                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| preferredLanguage   | user's preferred written or spoken languages                                                                                         | String     | TRUE            | FALSE    | FALSE      |             |             | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                      |
-| locale              | user's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.         | String     | TRUE            | FALSE    | FALSE      |             |             | See Note for more details.                                                                                       |
-| timezone            | user's time zone                                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                            |
-| userType            | used to describe the organization to user relationship such as "Employee" or "Contractor"                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| employeeNumber      | organization or company assigned unique identifier for the user                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| costCenter          | name of a cost center assigned to user                                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| organization        | name of user's organization                                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| division            | name of user's division                                                                                                              | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| department          | name of user's department                                                                                                            | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| login               | Unique identifier for the user (`username`)                                                                                          | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [pattern](/docs/reference/api/schemas/#login-pattern-validation)                                                  |
+| email               | Primary email address of user                                                                                                        | String     | FALSE           | FALSE    | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
+| secondEmail         | Secondary email address of user typically used for account recovery                                                                  | String     | TRUE            | FALSE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
+| firstName           | Given name of the user (`givenName`)                                                                                                 | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
+| lastName            | Family name of the user (`familyName`)                                                                                               | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
+| middleName          | Middle name(s) of the user                                                                                                           | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| honorificPrefix     | Honorific prefix(es) of the user, or title in most Western languages                                                                 | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| honorificSuffix     | Honorific suffix(es) of the user                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| title               | User's title, such as "Vice President"                                                                                                | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| displayName         | Name of the user, suitable for display to end users                                                                                  | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| nickName            | Casual way to address the user in real life                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| profileUrl          | URL of user's online profile (for example: a web page)                                                                                       | String     | TRUE            | FALSE    | FALSE      |             |             | [URL](https://tools.ietf.org/html/rfc1808)                                                                       |
+| primaryPhone        | Primary phone number of user such as home number                                                                                     | String     | TRUE            | FALSE    | FALSE      | 0           | 100         |                                                                                                                  |
+| mobilePhone         | Mobile phone number of user                                                                                                          | String     | TRUE            | FALSE    | FALSE      | 0           | 100         |                                                                                                                  |
+| streetAddress       | Full street address component of user's address                                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| city                | City or locality component of user's address (`locality`)                                                                            | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| state               | State or region component of user's address (`region`)                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| zipCode             | ZIP code or postal code component of user's address (`postalCode`)                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| countryCode         | Country name component of user's address (`country`)                                                                                 | String     | TRUE            | FALSE    | FALSE      |             |             | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166) |
+| postalAddress       | Mailing address component of user's address                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| preferredLanguage   | User's preferred written or spoken languages                                                                                         | String     | TRUE            | FALSE    | FALSE      |             |             | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                      |
+| locale              | User's default location for purposes of localizing items such as currency, date time format, numerical representations, and so on.         | String     | FALSE (default)            | FALSE    | FALSE      |             |             | See [Locale format](#locale-format) details.                                                                                       |
+| timezone            | User's time zone                                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                            |
+| userType            | Used to describe the organization to user relationship such as "Employee" or "Contractor"                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| employeeNumber      | Organization or company assigned unique identifier for the user                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| costCenter          | Name of a cost center assigned to user                                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| organization        | Name of user's organization                                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| division            | Name of user's division                                                                                                              | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| department          | Name of user's department                                                                                                            | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 | managerId           | `id` of a user's manager                                                                                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| manager             | displayName of the user's manager                                                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| manager             | `displayName` of the user's manager                                                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 
-> **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code. For example, `en_US` specifies the language English and country US.
+##### Locale format
+
+ A locale value is a concatenation of the ISO 639-1 two-letter language code, an underscore, and the ISO 3166-1 two-letter country code. For example, `en_US` specifies the language English and country US. This value is `en_US` by default.
 
 ##### Okta login
 
@@ -4108,17 +4118,20 @@ The password specified in the value property must meet the default password poli
 
 ##### Hashed Password object
 
-Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, and MD5 hashing functions for password import. A hashed password may be specified in a Password object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
+Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, MD5 and PBKDF2 hashing functions for password import. A hashed password may be specified in a Password object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
 
 > **Note:** Because the plain text password isn't specified when a hashed password is provided, password policy isn't applied.
 
 | Property | Type | Description |
 | -------- | ----- | ---------- |
-| algorithm  | String   | The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5. |
-| value      | String   | For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded `value` of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the `salt` to the `password`, depending on the `saltOrder`. If a `salt` was not used in the `source` system, then this should just be the the Base64 encoded `value` of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password. |
+| algorithm  | String   | The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1, MD5 or PBKDF2. |
+| value      | String   | For SHA-512, SHA-256, SHA-1, MD5 and PBKDF2, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded `value` of the SHA-512/SHA-256/SHA-1/MD5/PBKDF2 digest that was computed by either pre-fixing or post-fixing the `salt` to the `password`, depending on the `saltOrder`. If a `salt` was not used in the `source` system, then this should just be the the Base64 encoded `value` of the password's SHA-512/SHA-256/SHA-1/MD5/PBKDF2 digest. For BCRYPT, This is the actual radix64-encoded hashed password. |
 | salt       | String   | Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash. |
 | workFactor | Number  | Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20. |
 | saltOrder  | String   | Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms. |
+| iterationCount  | Number   | The number of iterations used when hashing passwords using PBKDF2. Must be >= 4096. Only required for PBKDF2 algorithm. |
+| keySize  | Number   | Size of the derived key in bytes. Only required for PBKDF2 algorithm. |
+| digestAlgorithm  | String   | Algorithm used to generate the key. Currently we support "SHA256_HMAC" and "SHA512_HMAC“. Only required for PBKDF2 algorithm. |
 
 ###### BCRYPT Hashed Password object example
 
@@ -4181,6 +4194,21 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
     "salt": "TXlTYWx0",
     "saltOrder": "PREFIX",
     "value": "jqACjUUFXM1XE6NiLALAbA=="
+  }
+}
+```
+
+###### PBKDF2 Hashed Password object example
+
+```bash
+"password" : {
+  "hash": {
+    "algorithm": "PBKDF2",
+    "salt": "RBDXRWs9",
+    "value": "eKe8/dcL5gvRsMmp7WwxZq0Y7WAodielIcLaelLlgNs=",
+    "iterationCount" : 4096,
+    "keySize" : 32,
+    "digestAlgorithm" : "SHA512_HMAC"
   }
 }
 ```

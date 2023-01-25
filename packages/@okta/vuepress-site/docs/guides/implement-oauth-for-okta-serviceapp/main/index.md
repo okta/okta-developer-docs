@@ -37,13 +37,13 @@ The following are the high-level steps required to perform the Client Credential
 1. Grant the required OAuth 2.0 scopes to the app.
 1. Create a JSON Web Token (JWT) and sign it using the private key for use as the client assertion when making the `/token` endpoint API call.
 
-> **Note:** At this time, OAuth for Okta works only with the APIs listed on the [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) page. We are actively working towards supporting additional APIs. Our goal is to cover all public Okta API endpoints.
+> **Note:** OAuth for Okta works only with the APIs listed on the [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/) page.
 
 ## Create a service app integration
 
 Create an OAuth 2.0 service app integration using the Admin Console.
 
-  > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](/docs/reference/api/oauth-clients/#request-example-create-a-service-app-with-a-jwks). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section below first, as you need the `JWKS` parameter value when you create the client using the API. 
+  > **Note:** You can also use the `/oauth2/v1/clients` endpoint to [create your service app using the API](/docs/reference/api/oauth-clients/#request-example-create-a-service-app-with-a-jwks). If you use the API, follow the [Generate the JWK using the API](#generate-the-jwk-using-the-api) section below first, as you need the `JWKS` parameter value when you create the client using the API.
   >
   >You can also add additional JWKS to the app later using the [Add a new JSON Web Key](https://developer.okta.com/docs/reference/api/apps/#add-new-json-web-key) API.
 
@@ -116,9 +116,11 @@ This option allows you to bring your own keys or use the Okta key generator. The
 
     * Paste your own public key into the box. Be sure to include a `kid` as all keys in the JWKS must have a unique ID.<br><br>
     **OR**<br>
-    * Click **Generate new key** and the public and private keys appear. This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
+    * Click **Generate new key** and the public and private keys appear in JWK format.
 
-     > **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, use a [JWK to PEM Convertor tool](https://www.npmjs.com/package/pem-jwk) and then use the private key in PEM format when signing the JWT.
+        Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires this format, click **PEM**. The private key appears in PEM format.
+
+        This is your only opportunity to save the private key. Click **Copy to clipboard** to copy the private key and store it somewhere safe.
 
 1. Click **Done**. The new public key is now registered with the app and appears in a table in the **PUBLIC KEYS** section of the **General** tab.
 

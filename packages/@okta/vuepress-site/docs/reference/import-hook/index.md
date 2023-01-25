@@ -62,7 +62,9 @@ This object contains a number of sub-objects, each of which provides some type o
 
 ## Objects in response you send
 
-The `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
+The `commands` and `error` objects that you can return in the JSON payload of your response are defined in the following sections.
+
+<HookResponseSize/>
 
 ### commands
 
@@ -290,7 +292,7 @@ You then need to associate the registered inline hook with an app by completing 
 
 1. From the Settings column on the left side of the screen, select **To Okta**.
 
-1. In the **Inline Hooks** section, click the **User Creation** drop-down menu. Inline hooks that you've registered appears in the list. Select the inline hook to use.
+1. In the **Inline Hooks** section, click the **User Creation** dropdown menu. Inline hooks that you've registered appear in the list. Select the inline hook to use.
 
 1. Click **Save**.
 

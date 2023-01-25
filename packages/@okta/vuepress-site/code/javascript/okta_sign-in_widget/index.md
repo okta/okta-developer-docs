@@ -79,7 +79,7 @@ The code that initializes the widget looks like this:
 </script>
 ```
 
-> **Note:** If you are working with an [Okta Identity Engine](/docs/guides/oie-intro)-enabled org and want to use the Identity Engine features in your app, you need to set the `useInteractionCodeFlow` option to `true` in the configuration options passed in to the `new OktaSignIn()` call. See [Set up the Sign-In Widget and SDK for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app) for more details.
+> **Note:** If you are working with an [Okta Identity Engine](/docs/concepts/oie-intro)-enabled org and want to use the Identity Engine features in your app, you need to set the `useInteractionCodeFlow` option to `true` in the configuration options passed in to the `new OktaSignIn()` call. See [Set up the Sign-In Widget and SDK for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app) for more details.
 
 <DomainAdminWarning />
 
@@ -342,14 +342,14 @@ We also have mobile SDKs for Android, React Native, iOS, and Xamarin.
 
 For mobile apps, embedding the Sign-In Widget isn't currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget). Support is provided for building your own UI in mobile apps.
 
-See the following examples:
+See the following Okta Classic Engine examples:
 
 - Android:
     - [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
-    - [Custom sign-in example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
+    - [Custom sign-in example](https://github.com/okta/samples-android/tree/legacy-samples/custom-sign-in)
 - iOS:
     - [Authenticate a user](https://github.com/okta/okta-auth-swift#authenticate-a-user)
-    - [Okta iOS custom sign-in example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+    - [Okta iOS custom sign-in example](https://github.com/okta/samples-ios/tree/legacy-samples/custom-sign-in)
 
 <!--
 - React Native

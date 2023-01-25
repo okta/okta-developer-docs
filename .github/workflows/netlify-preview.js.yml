@@ -1,0 +1,67 @@
+name: 'Netlify'
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  deploy-preview:
+    # This runs only for okta/okta-developer-docs
+    # This runs only for PR comments
+    # This runs only if PR comment is "/netlify preview"
+    if: github.repository_owner == 'okta' && github.event.issue.pull_request && contains(github.event.comment.body, '/netlify preview')
+    runs-on: ubuntu-latest
+    environment: Netlify
+    env:
+      NODE_OPTIONS: '--max_old_space_size=3584'
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - name: Has secrets?
+      if: env.NETLIFY_AUTH_TOKEN == '' || env.NETLIFY_SITE_ID == ''
+      run: exit 1
+    
+    - uses: vishnudxb/cancel-workflow@v1.2
+      if: failure()
+      with:
+        repo: okta/okta-developer-docs
+        workflow_id: ${{ github.run_id }}
+        access_token: ${{ github.token }}
+
+    - name: Checkout repository!
+      uses: actions/checkout@v3
+
+    - name: Checkout Pull Request
+      run: hub pr checkout ${{ github.event.issue.number }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup node - ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+
+    - name: Build preview
+      run: yarn build
+
+    - name: Deploy preview to Netlify
+      uses: nwtgck/actions-netlify@v2.0.0
+      with:
+        publish-dir: 'packages/@okta/vuepress-site/dist'
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions"
+        enable-pull-request-comment: false
+        enable-commit-comment: false
+        overwrites-pull-request-comment: false
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

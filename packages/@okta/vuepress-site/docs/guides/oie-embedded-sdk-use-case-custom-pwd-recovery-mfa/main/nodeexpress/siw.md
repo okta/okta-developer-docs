@@ -51,7 +51,6 @@ After you validate the `state` parameter, the final step is to set up the `otp` 
 
 ```javascript
     const widgetConfig = {
-      useInteractionCodeFlow: true,
       issuer,
       clientId,
       redirectUri,
@@ -67,6 +66,8 @@ After you validate the `state` parameter, the final step is to set up the `otp` 
       selfHosted: !!process.env.SELF_HOSTED_WIDGET
     });
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the `widgetConfig` object shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in the `widgetConfig` object.
 
 After set up, render the client site page and pass the configurations to the widget during initialization.
 

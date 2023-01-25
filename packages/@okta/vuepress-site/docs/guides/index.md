@@ -15,6 +15,7 @@ guides:
  - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
+ - configure-ciba
  - configure-native-sso
  - configure-signon-policy
  - configure-user-scoped-account-management
@@ -58,6 +59,7 @@ guides:
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
+ - submit-app-prereq
  - deployment-checklist
  - deploy-your-app
  - protect-your-api
@@ -88,7 +90,6 @@ guides:
  - updating-saml-cert
  - validate-access-tokens
  - validate-id-tokens
- - oie-embedded-sdk-limitations
  - oie-embedded-common-org-setup
  - oie-embedded-common-download-setup-app
  - oie-embedded-common-run-samples
@@ -123,9 +124,16 @@ guides:
  - authenticators-okta-email
  - oie-embedded-sdk-use-case-new-user-activation
  - advanced-use-case-overview
+ - pwd-optional-new-sign-up-email
+ - pwd-optional-sign-in-email
+ - pwd-optional-widget-sign-in-email
+ - pwd-optional-change-email
  - email-magic-links-overview
  - step-up-authentication
  - device-context
+ - pwd-optional-best-practices
+ - pwd-optional-overview
+ - build-api-integration
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
@@ -169,7 +177,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
     * [Style the Sign-In Widget](/docs/guides/custom-widget/)
     * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
-    * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+    * [Customize domain and email address](/docs/guides/custom-url-domain/)
     * [Customize email notifications and email domains](/docs/guides/custom-email/)
 
 5. Deploy to production
@@ -185,11 +193,11 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
     * [Registration inline hook example](/docs/guides/registration-inline-hook/)
 
-## Publish an integration
+## Publish an integration in the OIN
 
 Partner integrations connect your app or service to our mutual customers. One of the most common integrations is Single Sign-On (SSO), which gives Okta users the ability to sign in directly to your application through Okta. Many partners also build provisioning integrations (using the SCIM protocol) to automate lifecycle management use cases for their customers. Integrations can also extend Okta's functionality or integrate with your service in more complex ways.
 
-Integrations can be published publicly in the Okta Integration network catalog, but that's entirely optional.
+You can publish your integration in the Okta Integration Network (OIN) catalog to expose your app to thousands of Okta workforce customers.
 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 

@@ -286,7 +286,9 @@ The following sub-objects are included:
 
 ## Objects in response you send
 
-For the SAML assertion inline hook, the objects that you can return in the JSON payload of your response are defined as follows:
+For the SAML assertion inline hook, the objects that you can return in the JSON payload of your response are defined in the following sections.
+
+<HookResponseSize/>
 
 ### commands
 
