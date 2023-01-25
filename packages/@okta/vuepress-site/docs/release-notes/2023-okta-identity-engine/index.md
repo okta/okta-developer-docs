@@ -24,7 +24,6 @@ title: Okta Identity Engine API Products release notes 2023
 
 * Users could request that one-time passwords for SMS, Voice, and Email activation be resent more times than allowed by the rate limit. (OKTA-550739)
 
-
 ### Monthly release 2023.01.0
 
 | Change | Expected in Preview Orgs |
