@@ -1,17 +1,22 @@
 <template>
-  <div class="nutrition-facts" v-if="$page.frontmatter.nutritionItems">
+  <div
+    v-if="$page.frontmatter.nutritionItems"
+    class="nutrition-facts"
+  >
     <div
-      class="fact-item"
       v-for="(nutrition, index) in $page.frontmatter.nutritionItems"
-      v-bind:key="index"
-      v-bind:class="{ 'none-list': nutrition.bulletList.length <= 1 }"
+      :key="index"
+      class="fact-item"
+      :class="{ 'none-list': nutrition.bulletList.length <= 1 }"
     >
-      <div class="fact-item-title">{{ nutrition.title }}</div>
+      <div class="fact-item-title">
+        {{ nutrition.title }}
+      </div>
       <div class="fact-bullet-list">
         <ul>
           <li
             v-for="(bulletItem, index) in nutrition.bulletList"
-            v-bind:key="index"
+            :key="index"
           >
             {{ bulletItem }}
           </li>

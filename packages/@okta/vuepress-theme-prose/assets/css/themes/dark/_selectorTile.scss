@@ -1,0 +1,37 @@
+.selector-tile--header {
+  border-bottom: 1px solid cv("action");
+
+  color: cv("action");
+}
+
+.selector-tile--header:visited,
+.selector-tile--header:active,
+.selector-tile--header:focus {
+  color: cv("action");
+}
+
+.selector-tile--header:hover {
+  color: cv("text");
+}
+
+.selector-tile--header:hover i {
+  color: cv("text");
+}
+
+.selector-tile--header i {
+  color: cv("action");
+}
+
+.selector-tile--data--item {
+  border-bottom-color: transparent;
+}
+
+.selector-tile--data--item:hover {
+  background: cv("text", "accent");
+
+  color: cv("text");
+}
+
+.selector-tile--data--item:hover > i {
+  color: cv("text");
+}

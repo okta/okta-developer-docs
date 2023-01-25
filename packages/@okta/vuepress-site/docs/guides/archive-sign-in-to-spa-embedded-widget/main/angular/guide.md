@@ -84,14 +84,14 @@ Some routes require authentication in order to render. Defining these protected 
 
 ### `/ - index page`
 
-First, update `src/app/app.component.html` to provide the Login logic:
+First, update `src/app/app.component.html` to provide the Login logic , replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget (-=OKTA_REPLACE_WITH_WIDGET_VERSION=-):
 
 ```html
 <!-- src/app/app.component.html -->
 
 
 <!-- Latest CDN production CSS -->
-<link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 
 <button routerLink="/"> Home </button>
 <button *ngIf="!isAuthenticated" routerLink="/login"> Login </button>
@@ -241,6 +241,8 @@ export class LoginComponent implements OnInit {
 }
 ```
 
+> **Note:** In Okta Sign-In Widget version 7+, [Okta Identity Engine](/docs/concepts/oie-intro) is enabled by default. If you are using version 7+ and want to use Okta Classic Engine rather than Identity Engine, you need to specify `useClassicEngine: true` in the [configuration options](https://github.com/okta/okta-signin-widget#configuration) passed into the `new OktaSignIn()` call.
+
 ### Connect the Routes
 
 The `OktaAuthModule` handles different authentication flows for your application, so it requires your OpenID Connect configuration. By default `okta/okta-angular` redirects to the Okta Sign-In Page when the user is not authenticated. We override this behavior by passing an `onAuthRequired` function to the `OktaAuthGuard`. For more information, see [using a custom login-page](https://github.com/okta/okta-angular#using-a-custom-login-page).
@@ -328,7 +330,3 @@ npm start
 ## Conclusion
 
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
-
-## Support
-
-Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

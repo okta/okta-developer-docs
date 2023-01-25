@@ -1,0 +1,75 @@
+.header-nav {
+  position: fixed;
+  top: 87px;
+  left: 0;
+  z-index: 4;
+
+  display: flex;
+  align-items: center;
+  padding: 0 31px;
+  width: 100%;
+  overflow-x: auto;
+
+  background-color: cv("header", "nav");
+}
+
+.header-nav a {
+  position: relative;
+
+  margin-right: 28px;
+  padding: 18px 0 16px;
+
+  font-size: 14px;
+  line-height: 21px;
+  white-space: nowrap;
+  color: cv("header", "nav-link");
+}
+
+.header-nav a:before {
+  content: attr(title);
+
+  display: block;
+  height: 0;
+  overflow: hidden;
+
+  font-weight: 700;
+  visibility: hidden;
+}
+
+.header-nav a:last-child {
+  margin-right: 0;
+}
+
+.header-nav a:after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: transparent;
+}
+
+.header-nav a.router-link-active {
+  font-weight: 700;
+  color: cv("link");
+}
+
+.header-nav a.router-link-active:after {
+  background-color: cv("link");
+}
+
+@include media("<desktop-xl") {
+  .header-nav {
+    top: 70px;
+  }
+}
+
+@include media("<tablet") {
+  .header-nav {
+    top: 60px;
+  }
+}

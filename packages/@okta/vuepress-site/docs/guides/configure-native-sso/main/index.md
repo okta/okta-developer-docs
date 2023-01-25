@@ -4,8 +4,6 @@ excerpt: Learn how to configure SSO for Native applications and understand the N
 layout: Guides
 ---
 
-<ClassicDocOieVersionNotAvailable />
-
 This guide provides a high-level overview of the Native SSO feature in Okta. It also provides a use case example of how to configure your org to use this feature.
 
 ---
@@ -31,18 +29,17 @@ This guide provides a high-level overview of the Native SSO feature in Okta. It 
 
 Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
 
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
-
 ## Before you begin
 
-This guide assumes that you:
-
-* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the **OpenID Connect Native SSO** slider, and slide to enable.
+This guide assumes that you have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 
 ## Native SSO flow
 
-![Native SSO flow diagram](/img/native_SSO_flow.png)
+<div class="three-quarter">
+
+![Native SSO flow diagram](/img/sso/native_SSO_flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -73,9 +70,13 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 1. The authorization server returns the tokens (`id_token`, `refresh_token`, and `access_token`) and the `device_secret` in the response.
 1. Native app 2 makes a request for a `refresh_token` and `access_token`. The request contains the `id_token` and the `device_secret`.
 
-	Native app 2, and any other client that participates in the Native SSO flow, can use the `id_token` and the `device_secret` obtained from the initial client that authenticated (see the following diagram). To sign in automatically, the clients can use the `id_token` and `device_secret` and exchange them for tokens by making a `/token` request.
+	 Native app 2, and any other client that participates in the Native SSO flow, can use the `id_token` and the `device_secret` obtained from the initial client that authenticated (see the following diagram). To sign in automatically, the clients can use the `id_token` and `device_secret` and exchange them for tokens by making a `/token` request.
 
-	![ID token and device secret use](/img/nativeSSO_flow2.png)
+   <div class="three-quarter">
+
+	 ![ID token and device secret use](/img/sso/nativeSSO_flow2.png)
+
+   </div>
 
 8. The authorization server returns a new set of refresh and access tokens specifically for Native app 2. This key part in the Native SSO flow enables a user to be automatically signed in without requiring any user action.
 
@@ -130,6 +131,8 @@ To generate a new set of tokens:
 * Exchange the existing tokens from client 1 for new tokens for client 2.
 
 In this example, you want to SSO to multiple apps that are created by the same company. Each client represents one app, and you can register multiple clients for SSO. When a user signs in to one app, all the other apps that are registered are also automatically signed in.
+
+> **Note:** Performing Native SSO token exchange with an application that has a low assurance policy configured and another application that has a high assurance policy results in an error.
 
 ### Use Authorization Code with PKCE to obtain the authorization code for client 1
 

@@ -1,10 +1,15 @@
 ### 1: Build a sign-in page on the client
 
-Build a sign-in page that captures the user's name and password, as shown in the following example.
+Build a sign-in page that captures the user's name and password, similar to the following wireframe.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an example sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
+![A sign-in form with fields for username and password, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
 
 </div>
 
@@ -48,11 +53,16 @@ switch (authnResponse?.AuthenticationStatus)
 
 ### 4: Show the phone factor in the authenticator list
 
-The next step is to show the phone factor in an authenticator list page. Build a page to display the list of authenticators from the previous step. In this use case, only the phone factor appears, as shown in the following sample screenshot.
+The next step is to show the phone factor in an authenticator list page. Build a page to display the list of authenticators from the previous step. In this use case, only the phone factor appears, similar to the following wireframe.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an example Verify phone form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone.png)
+![A choose your authenticator form with only a phone authenticator option and a next button](/img/wireframes/choose-authenticator-form-phone-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36858&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only
+ -->
 
 </div>
 
@@ -80,9 +90,14 @@ switch (enrollResponse?.AuthenticationStatus)
 
 Build the phone number entry page that accepts the phone number that the user will enroll and verify.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an example enter phone number form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
+![A form with a field for a phone number, formatting advice and a next button](/img/wireframes/enter-phone-number-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37078&t=2h5Mmz3COBLhqVzv-1 enter-phone-number-form
+ -->
 
 </div>
 
@@ -132,9 +147,14 @@ if (enrollResponse.AuthenticationStatus ==
 
 Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, this page can be the same page that verifies the email code or a different page. The sample app reuses the same page for both the email and phone verifications.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an example verify phone form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
+![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37154&t=vr9MuCR8C4rCt3hC-1 enter-verification-code-form-with-sms-message
+ -->
 
 </div>
 
@@ -176,4 +196,4 @@ switch (authnResponse.AuthenticationStatus)
 ### 12 (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after the user successfully signs
-in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information) for more details.
+in by making a request to the Okta OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information) for more details.

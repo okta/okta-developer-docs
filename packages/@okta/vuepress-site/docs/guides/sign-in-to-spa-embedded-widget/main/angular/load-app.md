@@ -2,12 +2,13 @@ The first step for any application is to install or embed the Widget. Best pract
 
 ### npm
 
+To install the [latest version of the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget/releases) locally through `npm`, run the following command in your project root folder:
+
 ```bash
-# Run this command in your project root folder.
-npm install @okta/okta-signin-widget@-=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+npm install @okta/okta-signin-widget@latest
 ```
 
-More information, including the latest published version, is available in the [Okta Sign-In Widget SDK](https://github.com/okta/okta-signin-widget#using-the-npm-module).
+See also [Using the npm module](https://github.com/okta/okta-signin-widget#using-the-npm-module). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 ### Add styles
 
@@ -104,9 +105,41 @@ export class LoginComponent implements OnInit {
         },
       },
       authClient: oktaAuth,
-      useInteractionCodeFlow: sampleConfig.widget.useInteractionCodeFlow === 'true',
     });
   }
+
+  ngOnInit() {
+    // When navigating to a protected route, the route path is saved as the `originalUri`
+    // If no `originalUri` has been saved, then redirect back to the app root
+    const originalUri = this.oktaAuth.getOriginalUri();
+    if (!originalUri || originalUri === DEFAULT_ORIGINAL_URI) {
+      this.oktaAuth.setOriginalUri('/');
+    }
+
+    // Search for URL Parameters to see if a user is being routed to the application to recover password
+    var searchParams = new URL(window.location.href).searchParams;
+    this.signIn.otp = searchParams.get('otp');
+    this.signIn.state = searchParams.get('state');
+
+    this.signIn.showSignInToGetTokens({
+      el: '#sign-in-widget',
+      scopes: sampleConfig.oidc.scopes
+    }).then((tokens: Tokens) => {
+      // Remove the widget
+      this.signIn.remove();
+
+      // In this flow the redirect to Okta occurs in a hidden iframe
+      this.oktaAuth.handleLoginRedirect(tokens);
+    }).catch((err: any) => {
+      // Typically due to misconfiguration
+      throw err;
+    });
+  }
+
+  ngOnDestroy() {
+    this.signIn.remove();
+  }
+}
 ```
 
 And references the Okta app configuration information in `app.config.js` or in the `env.js` and the `testenv` files:
@@ -128,3 +161,5 @@ if (fs.existsSync(TESTENV)) {
 process.env.CLIENT_ID = process.env.CLIENT_ID || process.env.SPA_CLIENT_ID;
 process.env.USE_INTERACTION_CODE = process.env.USE_INTERACTION_CODE || false;
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: sampleConfig.widget.useInteractionCodeFlow === 'true'` inside the `OktaSignIn()` constructor call shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: sampleConfig.widget.useClassicEngine === 'true'` in the `OktaSignIn()` constructor call.

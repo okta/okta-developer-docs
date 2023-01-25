@@ -11,8 +11,7 @@ Okta features travel through a regular life cycle:
 - [General Availability (GA)](#general-availability-ga)
 
 > **Note:** Okta reserves the right to add new parameters, properties, or resources to the API without advance notice.
-These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/reference/core-okta-api/) to ensure that your application doesn't break.
-when additive changes are made.
+These updates are non-breaking because they are additive. Follow [the compatibility rules](/docs/reference/core-okta-api/) to ensure that your application doesn't break when additive changes are made.
 Breaking changes such as removing or renaming an attribute are released as a new version of the API, and Okta provides a migration path for new API versions.
 
 Changes, regardless of life cycle stage, are always reported in the [Okta API Products Release Notes](/docs/release-notes/).
@@ -82,9 +81,7 @@ Documentation for features in GA release are not marked with any icons.
 
 ## Deprecation
 
-A feature identified as Deprecated is no longer recommended and may be removed in the future.
-The recommended path forward is included in the relevant documentation, libraries, or references.
-When Okta schedules an end-of-life plan, that information is also included.
+A feature identified as deprecated is no longer recommended for use and may be removed in the future&mdash;generally, this means that you shouldn't use it unless you have to. Any workarounds or recommended paths forward are included in the relevant documentation, libraries, or references. When Okta schedules an end-of-service plan, that information is also included.
 
 Documentation for features that have been deprecated are marked with the Deprecated icon: <ApiLifecycle access="deprecated" />
 

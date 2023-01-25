@@ -1,11 +1,11 @@
 ---
-title: Authorization Servers
+title: Authorization servers
 meta:
   - name: description
     content: An overview of what an authorization server is and the types of authorization servers available at Okta.
 ---
 
-# Authorization Servers
+# Authorization servers
 
 <ApiAmProdWarning />
 
@@ -25,9 +25,9 @@ OpenID Connect is used to authenticate users with a web app. The app uses the ID
 
 ## Available authorization server types
 
-Okta has two types of authorization servers: the Org Authorization Server and Custom Authorization Server.
+Okta has two types of authorization servers: the Org Authorization Server and the custom authorization server.
 
-### Org Authorization Server
+### Org authorization server
 
 Every Okta org comes with a built-in authorization server called the Org Authorization Server. The base URL for the Org Authorization Server is `https://${yourOktaOrg}`.
 
@@ -41,35 +41,35 @@ The following discovery endpoints return OpenID Connect or OAuth 2.0 metadata re
 
 **OAuth:** `https://${yourOktaOrg}/.well-known/oauth-authorization-server`
 
-### Custom Authorization Server
+### Custom authorization server
 
-You use a Custom Authorization Server to create and apply authorization policies to secure your APIs. An access token that is minted by a Custom Authorization Server is consumed by your APIs.
+You use a custom authorization server to create and apply authorization policies to secure your APIs. An access token that is minted by a custom authorization server is consumed by your APIs.
 
-Okta allows you to [create multiple Custom Authorization Servers](/docs/guides/customize-authz-server/main/#create-an-authorization-server) within a single Okta org that you can use to protect your own resource servers. Within each authorization server, you can define your own custom OAuth 2.0 [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [access policies](/docs/guides/customize-authz-server/main/#create-access-policies) to support authorization for your APIs.
+Okta allows you to [create multiple custom authorization servers](/docs/guides/customize-authz-server/main/#create-an-authorization-server) within a single Okta org that you can use to protect your own resource servers. Within each authorization server, you can define your own custom OAuth 2.0 [scopes](/docs/guides/customize-authz-server/main/#create-scopes), [claims](/docs/guides/customize-authz-server/main/#create-claims), and [access policies](/docs/guides/customize-authz-server/main/#create-access-policies) to support authorization for your APIs.
 
-#### Default Custom Authorization Server
+#### Default custom authorization server
 
-Okta provides a pre-configured Custom Authorization Server called `default`. It includes a basic access policy and a rule to quickly get you started. For simple use cases, this out-of-the-box Custom Authorization Server is usually all that you need.
+Okta provides a pre-configured custom authorization server called `default`. A `Default` label also appears just below the name. If you rename the authorization server, the `Default` label still appears, which helps identify it as the default authorization server that was created out of the box. You can't delete the default custom authorization server. However, you can disable it. This authorization server includes a basic access policy and a rule to quickly get you started. For simple use cases, this out-of-the-box custom authorization server is usually all that you need.
 
-To use the `default` Custom Authorization Server, use `default` as the authorization server ID:
+To use the `default` custom authorization server, use `default` as the authorization server ID:
 
 `https://${yourOktaDomian}/api/v1/authorizationServers/default`
 
-For Custom Authorization Servers that you create yourself, the `${authorizationServerId}` is a random ID such as `aus9o8wzkhckw9TLa0h7z`.
+For custom authorization servers that you create yourself, the `${authorizationServerId}` is a random ID such as `aus9o8wzkhckw9TLa0h7z`.
 
 `https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`
 
-#### Custom Authorization Server discovery endpoints
+#### Custom authorization server discovery endpoints
 
-The following endpoints return OpenID Connect or OAuth 2.0 metadata related to a Custom Authorization Server. Clients can use this information to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
+The following endpoints return OpenID Connect or OAuth 2.0 metadata related to a custom authorization server. Clients can use this information to programmatically configure their interactions with Okta. Custom scopes and custom claims aren't returned.
 
-The OpenID and OAuth discovery endpoints for a Custom Authorization Server are:
+The OpenID and OAuth discovery endpoints for a custom authorization server are:
 
 **OpenID:** `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
 
 **OAuth:** `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server`
 
-The OpenID and OAuth discovery endpoints for the default Custom Authorization Server are:
+The OpenID and OAuth discovery endpoints for the default custom authorization server are:
 
 **OpenID:** `https://${yourOktaDomain}/oauth2/default/.well-known/openid-configuration`
 
@@ -79,11 +79,11 @@ The OpenID and OAuth discovery endpoints for the default Custom Authorization Se
 
 If you are just looking to add SSO for your OpenID Connect-based applications, you can use your Org Authorization Server. You should also use the Org Authorization Server if you want to use [OAuth 2.0 bearer tokens with your Okta APIs](/docs/guides/implement-oauth-for-okta/). Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
 
-If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional authorization servers with different scopes and claims, then you need to [create a Custom Authorization Server](/docs/guides/customize-authz-server/).
+If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional authorization servers with different scopes and claims, then you need to [create a custom authorization server](/docs/guides/customize-authz-server/).
 
-The following table describes which capabilities are supported by the Custom Authorization Server (includes the Default Custom Authorization Server) and which are supported by the Okta Org Authorization Server.
+The following table describes which capabilities are supported by the custom authorization server (includes the default custom authorization server) and which are supported by the Okta Org Authorization Server.
 
-| Capabilities                               | Custom Authorization Server          | Org Authorization Server    |
+| Capabilities                               | Custom authorization server          | Org Authorization Server    |
 | :----------------------------------------- | :----------------------------------- | :-------------------------- |
 | SSO with OpenID Connect                    | Yes                                  | Yes                         |
 | Use Okta Developer SDKs & Widgets for SSO  | Yes                                  | Yes                         |

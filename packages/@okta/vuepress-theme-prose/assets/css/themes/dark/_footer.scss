@@ -1,0 +1,32 @@
+.app-footer {
+  z-index: 2;
+
+  background-color: cv("footer");
+}
+
+.app-footer .social a.link {
+  color: cv("white");
+}
+
+.app-footer .footer--columns .websites .website {
+  align-items: flex-start;
+}
+
+.app-footer .footer--columns .websites a.link {
+  padding-right: 19px;
+
+  background: url("/img/footer-arrow.svg") no-repeat;
+  background-position: 100% 4px;
+}
+
+.app-footer .footer--columns .websites span.description {
+  color: cv("footer", "light");
+}
+
+.app-footer .footer--columns .footer--column .column--header {
+  color: cv("footer", "gray");
+}
+
+.app-footer ul.link-list li.link-list--item i.link-list--icon svg path {
+  fill: cv("action");
+}

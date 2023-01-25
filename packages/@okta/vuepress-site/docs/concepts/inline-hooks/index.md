@@ -1,13 +1,13 @@
 ---
-title: Inline Hooks
+title: Inline hooks
 meta:
   - name: description
-    content: Inline hooks are outbound calls from Okta to your own custom code. Find out more about the types of Okta Inline Hooks, the process flow, and how to set them up.
+    content: Inline hooks are outbound calls from Okta to your own custom code. Find out more about the types of Okta inline hooks, the process flow, and how to set them up.
 ---
 
-# Inline Hooks
+# Inline hooks
 
-## What are Okta Inline Hooks?
+## What are Okta inline hooks?
 
 Inline hooks are outbound calls from Okta to your own custom code, triggered at specific points in Okta process flows. They allow you to integrate custom functionality into those flows.
 
@@ -17,31 +17,36 @@ The outbound call from Okta is called a hook. Your code, which receives the call
 
 Inline hooks use synchronous calls, which means that the Okta process that triggered the hook is paused until a response from your service is received.
 
-## Multiple types of Okta Inline Hooks
+## Multiple types of Okta inline hooks
 
-Okta defines several different types of Inline Hooks. Each type of Inline Hook makes it possible to customize a different Okta process flow. All the types share the same general syntax for requests and responses sent between Okta and the external service, but each differs in the specifics of the JSON objects that are sent and received. When implementing your external service, you need to develop your code according to the details of the particular type of hook you intend to use.
+Okta defines several different types of inline hooks. Each type of inline hook makes it possible to customize a different Okta process flow. All the types share the same general syntax for requests and responses sent between Okta and the external service, but each differs in the specifics of the JSON objects that are sent and received. When implementing your external service, you need to develop your code according to the details of the particular type of hook you intend to use.
 
 ### Currently-supported types
 
 | Name                                                           | Description                                                                    |
 |----------------------------------------------------------------|--------------------------------------------------------------------------------|
-| [Token Inline Hook](/docs/reference/token-hook/)               | Customizes tokens returned by Okta API Access Management                       |
-| [User Import Inline Hook](/docs/reference/import-hook/)        | Adds custom logic to the user import process                                   |
-| [SAML Assertion Inline Hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
-| [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of user registration requests in Self-Service Registration |
-| [Password Import Inline Hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
+| [Token inline hook](/docs/reference/token-hook/)               | Customizes tokens returned by Okta API Access Management                       |
+| [User import inline hook](/docs/reference/import-hook/)        | Adds custom logic to the user import process                                   |
+| [SAML assertion inline hook](/docs/reference/saml-hook/)       | Customizes SAML assertions returned by Okta                                    |
+| [Registration inline hook](/docs/reference/registration-hook/) | Customizes handling of Self-Service Registration (SSR) and Progressive Enrollment support |
+| [Password import inline hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
+| [Telephony inline hook](/docs/reference/telephony-hook/) | Customizes Okta's flows that send SMS or Voice messages |
 
-## Inline Hook process flow
+## Inline hook process flow
 
 ### Extension points
 
-The points in Okta process flows where Inline Hooks can be triggered are called extension points, because they are where you can extend Okta functionality. Each type of Inline Hook is triggered at a particular extension point in a particular Okta process flow. At an extension point, if you have configured an Inline Hook, Okta calls your external service, and waits for a response. When the response is received, Okta resumes the process flow.
+The points in Okta process flows where inline hooks can be triggered are called extension points, because they are where you can extend Okta functionality. Each type of inline hook is triggered at a particular extension point in a particular Okta process flow. At an extension point, if you have configured an inline hook, Okta calls your external service, and waits for a response. When the response is received, Okta resumes the process flow.
 
-### Inline Hook call within an Okta process flow
+### Inline hook call within an Okta process flow
 
 The graphic below illustrates the sequence of steps:
 
-![Hook Call Steps Diagram](/img/hook-call-steps.png "Hook Call Steps Diagram")
+<div class="three-quarter">
+
+![Hook Call Steps Diagram](/img/hooks/hook-call-steps.png)
+
+</div>
 
 1. During the execution of an Okta process flow, at the extension point between points A and B, Okta sends a request to your external service.
 
@@ -49,15 +54,19 @@ The graphic below illustrates the sequence of steps:
 
 1. Your external service sends a response back to Okta.
 
-1. Okta receives the response, acts on any commands it includes, and resumes the process flow that originally triggered the Inline Hook.
+1. Okta receives the response, acts on any commands it includes, and resumes the process flow that originally triggered the inline hook.
 
 ### Request and response overview
 
-Okta's request to your external service consists of an HTTPS POST request with a JSON payload. The objects included in the JSON payload provide data relevant to the process flow that triggered the Inline Hook. The set of objects varies depending on the type of Inline Hook you're using.
+Okta's request to your external service consists of an HTTPS POST request with a JSON payload. The objects included in the JSON payload provide data relevant to the process flow that triggered the inline hook. The set of objects varies depending on the type of inline hook you're using.
 
-![Hook Request and Response](/img/hook-request-response.png "Hook Request and Response")
+<div class="three-quarter">
 
-Your service needs to handle the Inline Hook by responding to Okta's request. The JSON payload of the response your service sends can contain a `commands` object, in which you send commands to Okta that affect the course of the Okta process flow. The commands available vary depending on the type of Inline Hook you're using.
+![Hook Request and Response](/img/hooks/hook-request-response.png)
+
+</div>
+
+Your service needs to handle the inline hook by responding to Okta's request. The JSON payload of the response your service sends can contain a `commands` object, in which you send commands to Okta that affect the course of the Okta process flow. The commands available vary depending on the type of inline hook you're using.
 
 ## The request
 
@@ -65,9 +74,27 @@ Your service needs to handle the Inline Hook by responding to Okta's request. Th
 
 Okta uses an HTTPS POST request to call your service.
 
+### Inline hook security
+
+To secure the communication channel between Okta and your external service, you have the option of using HTTP headers or OAuth 2.0 tokens.
+
+### OAuth 2.0
+
+<ApiLifecycle access="ea" />
+
+OAuth 2.0 tokens provide enhanced security between Okta and your external service, and you can configure them for the following methods: client secret (`client_secret_post`) and private key (`private_key_jwt`). <!-- Okta uses the RS256 algorithm -->
+
+#### Client secret post
+
+The client secret method (`client_secret_post`) uses a generated client ID and secret to obtain a token from the authorization server. The OAuth 2.0 inline hook request includes the token as a signed JWT. Your external service must verify the JWT to authenticate the inline hook call. See [OAuth 2.0: Client Secret](/docs/guides/common-hook-set-up-steps/#oauth-2-0-client-secret).
+
+#### Private key
+
+The private key method (`private_key_jwt`) uses a generated key, which includes a private key and a public key. A JWT is generated using the private key and sent to the authorization server. The authorization server uses the public key to verify the JWT and returns an access token as a signed JWT. The OAuth 2.0 inline hook request includes the signed JWT. Your external service must verify the JWT to authenticate the inline hook call. See [OAuth 2.0: Private Key](/docs/guides/common-hook-set-up-steps/#oauth-2-0-private-key).
+
 ### HTTP header
 
-The header of the request sent by Okta includes the following fields:
+Support is provided for header-based authentication to authenticate every request received by your external service. The header of the request sent by Okta includes the following fields:
 
 ```http
 Accept: application/json
@@ -77,27 +104,25 @@ Authorization: ${key}
 
 #### Authorization header
 
-The Authorization header is a secret string you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This is not an Okta authorization token, it is simply a text string you decide on.)
+The Authorization header (`Authorization: ${key}` is a secret string that you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.) See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/#http-header-basic-authentication).
 
 ### JSON request payload objects
 
-The JSON payload is where Okta provides specific information about the process flow that's being executed, so that your external service can evaluate the specific situation. Information is encapsulated in JSON objects. The set of objects sent depends on the type of Inline Hook you're using. Objects are defined in the specific documentation for each type of Inline Hook.
+The JSON payload is where Okta provides specific information about the process flow that's being executed, so that your external service can evaluate the specific situation. Information is encapsulated in JSON objects. The set of objects sent depends on the type of inline hook you're using. Objects are defined in the specific documentation for each type of inline hook.
 
 The objects providing this information are nested within a larger object called `data`.
 
 Always included is `data.context`, providing context information. In general, `data.context` encapsulates Okta objects that your external service cannot affect, while objects in `data` that are outside of `data.context` encapsulate objects that your external service does have the ability to affect, by means of the commands it sends in its response.
 
-### Security
-
-To secure the communication channel between Okta and your external service, HTTPS is used for requests, and support is provided for header-based authentication. Okta recommends that you implement an authentication scheme using the authentication header, to be used to authenticate every request received by your external service.
-
 ## The response
 
 Your service receives the request from Okta and needs to respond to it. The response needs to include an HTTP response code and will usually also include a JSON payload. In particular, you will typically include a `commands` object in the JSON payload to specify actions for Okta to execute or to communicate information back to Okta.
 
+<HookResponseSize/>
+
 ### HTTP status code
 
-You need to return an HTTP status code with your response. Typically, your service should return an HTTP status code of 200 (OK). In Inline Hook types that support empty responses, HTTP status code 204 (No Content) needs to be provided when sending an empty response.
+You need to return an HTTP status code with your response. Typically, your service should return an HTTP status code of 200 (OK). In inline hook types that support empty responses, HTTP status code 204 (No Content) needs to be provided when sending an empty response.
 
 #### Don't use HTTP status code to return information
 
@@ -109,7 +134,7 @@ You can include any of the following types of objects in the JSON payload:
 
 #### commands
 
-Lets you return commands to Okta to affect the process flow being executed and to modify values within Okta objects. The available commands differ by Inline Hook type and are defined in the specific documentation for each Inline Hook type.
+Lets you return commands to Okta to affect the process flow being executed and to modify values within Okta objects. The available commands differ by inline hook type and are defined in the specific documentation for each inline hook type.
 
 The `commands` object is an array, which allows you to return more than one command in your response. Each element within the array needs to consist of a pair of `type` and `value` elements. Each `type` element needs to be the name of a supported command you wish to invoke. The corresponding `value` element is the operand you wish to specify for the command.
 
@@ -117,7 +142,7 @@ The names of commands follow Java-style reverse DNS name format, beginning with 
 
 #### error
 
-Lets you return error messages. How the error data is used varies by Inline Hook type.
+Lets you return error messages. How the error data is used varies by inline hook type.
 
 The `error` object has the following structure:
 
@@ -138,7 +163,7 @@ An `ErrorCause` object must include the following fields:
 | location     | The valid JSON path to the location of the error. For example, if there was an error in the user's `login` field, the `location` might be `data.userProfile.login`.                                | String    |
 | domain       | Indicates the source of the error. If the error was in the user's profile, for example, you might use `end-user`. If the error occurred in the external service, you might use `external-service`. | String    |
 
-While there are no technical restrictions on the values for any of the fields in an `ErrorCause` object, using them as described in the table above allows you to provide rich error information that can be very useful in determining why an Inline Hook's processing failed.
+While there are no technical restrictions on the values for any of the fields in an `ErrorCause` object, using them as described in the table above allows you to provide rich error information that can be very useful in determining why an inline hook's processing failed.
 
 #### debugContext
 
@@ -148,27 +173,28 @@ Lets you specify additional information to make available in the Okta System Log
 
 When Okta calls an external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. A request isn't retried if the external service endpoint responds with a 2xx HTTP success code or a 4xx HTTP error code. If the external service endpoint responds with a redirect, it isn't followed.
 
-### Inline Hooks and concurrent rate limits
+### Inline hooks and concurrent rate limits
 
-The Okta process flow that triggered the Inline Hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).
+The Okta process flow that triggered the inline hook remains in progress until a response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits).
 
-> **Note:** Concurrent Inline Hook rate limits are based on your Okta org type.
+> **Note:** Concurrent inline hook rate limits are based on your Okta org type.
 
-### Inline Hook timeout behavior
+### Inline hook timeout behavior
 
-In the case of an Inline Hook timeout or failure, the Okta process flow either continues or stops based on the Inline Hook type:
+In the case of an inline hook timeout or failure, the Okta process flow either continues or stops based on the inline hookk type:
 
-| Inline Hook        | Inline Hook Failure Behavior                             |
+| Inline hook        | Inline hook failure behavior                             |
 |--------------------------------| ---------------------------------------------------------|
-| Token Inline Hook | Okta process flow continues with original token returned. |
-| SAML Assertion Inline Hook | Okta process flow continues with original SAML assertion returned. |
-| Password Import Inline Hook | Okta process flow stops and user can't sign in. The password is not imported. Future attempts to sign in triggers the Inline Hook again. |
-| User Import Inline Hook | Okta import process continues and user is created. |
-| Registration Inline Hook | Okta process flow stops and registration is denied. The user receives the following default UI message: "There was an error creating your account. Please try registering again". |
+| Password import inline hook | Okta process flow stops and user can't sign in. The password is not imported. Future attempts to sign in triggers the inline hook again. |
+| Registration inline hook | Okta process flow stops and the registration or the profile update is denied. The user receives one of the following default UI messages:<ul><li>"There was an error creating your account. Please try registering again". (SSR)</li><li>"There was an error updating your profile. Please try again later." (Progressive Enrollment)</li></ul> |
+| SAML assertion inline hook | Okta process flow continues with original SAML assertion returned. |
+| Telephony inline hook | Okta process to deliver the OTP continues and the OTP is sent using Okta’s providers. |
+| Token inline hook | Okta process flow continues with original token returned. |
+| User import inline hook | Okta import process continues and user is created. |
 
 >**Note:** Review the System Log for errors of type `inline_hook.executed`. This error type appears when Okta doesn't receive a response from your external service or receives a response with status codes other than `2xx`. See [Troubleshooting](#troubleshooting).
 
-## Inline Hook setup
+## Inline hook setup
 
 After creating your external service, you need to tell Okta it exists, and enable it for a particular process flow. The steps are:
 
@@ -176,16 +202,16 @@ After creating your external service, you need to tell Okta it exists, and enabl
 
 1. Register your service's endpoint with Okta. You can do this in Admin Console by going to **Workflow > Inline Hooks** and clicking **Add Inline Hook**. Alternatively, you can do this using a REST API call by making a `POST` request to `/api/v1/inlineHooks`; see [Inline Hooks Management API](/docs/reference/api/inline-hooks/) for information.
 
-1. Associate the endpoint with a particular Okta process flow. How to do this varies by Inline Hook type.
+1. Associate the endpoint with a particular Okta process flow. How to do this varies by inline hook type.
 
-The total number of Inline Hooks that you can create in an Okta org is limited to 50, which is a combined total for any combination of Inline Hook types.
+The total number of inline hooks that you can create in an Okta org is limited to 50, which is a combined total for any combination of inline hook types.
 
-For more information on implementing Inline Hooks, see the documentation for specific Inline Hook types linked to in [Currently-Supported Types](#currently-supported-types).
+For more information on implementing inline hooks, see the documentation for specific inline hook types linked to in [Currently-Supported Types](#currently-supported-types).
 
 ## Troubleshooting
 
-The [Okta System Log](/docs/reference/api/system-log/) captures events related to Inline Hook setup and execution, which you can use to troubleshoot your implementation. To see descriptions of the relevant event types, query the Event Types catalog with the query parameter `inline_hook`:
+A hook preview feature is available for the following hooks: SAML, telephony, token, and registration inline hooks. Use this feature to view a sample request body and evaluate and troubleshoot the response from your external service. See [Troubleshoot hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) and [Preview an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-preview-inline-hooks).
 
-<https://developer.okta.com/docs/reference/api/event-types/?q=inline_hook>
+The [Okta System Log](/docs/reference/api/system-log/) also captures events related to inline hook setup and execution that you can use to troubleshoot your implementation. You can see descriptions of the relevant event types by querying the Event Types catalog with the `inline_hook` query parameter. See [Event Types](/docs/reference/api/event-types/).
 
 > **Note:** You can see errors from the error object in the external service response, errors when Okta can't apply an inline hook response, and errors related to communication with the external service, such as network related failures and responses with HTTP status codes other than `200`.

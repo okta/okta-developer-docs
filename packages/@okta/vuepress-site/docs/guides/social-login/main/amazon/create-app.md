@@ -1,1 +1,0 @@
-Create and register <StackSnippet snippet="apptype" inline /> at <StackSnippet snippet="idp" inline />.

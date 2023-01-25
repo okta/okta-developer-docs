@@ -6,9 +6,8 @@ module.exports = (options, ctx) => {
         "@vuepress/last-updated",
         {
           transformer: (timestamp, lang) => {
-            const moment = require("moment");
-            moment.locale(lang);
-            return moment(timestamp).format("LL");
+            const { DateTime } = require('luxon');
+            return DateTime.fromMillis(timestamp).setLocale(lang).toLocaleString(DateTime.DATE_FULL);
           }
         }
       ]

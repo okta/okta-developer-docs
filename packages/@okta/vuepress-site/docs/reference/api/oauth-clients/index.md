@@ -206,40 +206,6 @@ HTTP/1.1 201 Created
 Content-Type: application/json;charset=UTF-8
 ```
 
-```json
-{
-    "jwks_uri": "https://www.example-application.com/oauth2/jwks-uri",
-    "client_id": "0oanq59zytBKVwQQ80h7",
-    "client_id_issued_at": 1570131438,
-    "client_name": "Example Service Client",
-    "client_uri": null,
-    "logo_uri": null,
-    "redirect_uris": [],
-    "response_types": [
-        "token"
-    ],
-    "grant_types": [
-        "client_credentials"
-    ],
-    "token_endpoint_auth_method": "private_key_jwt",
-    "application_type": "service"
-}
-```
-
-##### Response example: Duplicate client name
-
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-```
-
-```json
-{
-    "error": "invalid_client_metadata",
-    "error_description": "client_name: An object with this field already exists in the current organization"
-}
-```
-
 ### List client Applications
 
 <ApiOperation method="get" url="/oauth2/v1/clients" />
@@ -285,8 +251,8 @@ Content-Type: application/json;charset=UTF-8
 Header links for pagination:
 
 ```http
-<https://${yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
-<https://${yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=20>; rel="next"
+<https://{yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
+<https://{yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=20>; rel="next"
 ```
 
 Response body:
@@ -418,8 +384,8 @@ Content-Type: application/json;charset=UTF-8
 Header links for pagination:
 
 ```http
-<https://${yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
-<https://${yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=1>; rel="next"
+<https://{yourOktaDomain}/oauth2/v1/clients?limit=20>; rel="self"
+<https://{yourOktaDomain}/oauth2/v1/clients?after=xfnIflwIn2TkbpNBs6JQ&limit=1>; rel="next"
 ```
 
 Response body:
@@ -540,7 +506,7 @@ Updates the settings for a client Application from your organization
 | clientId  | `client_id` of a specific client   | URL       | String                                       | TRUE     |
 | settings  | OAuth client registration settings | Body      | [Client settings](#client-application-object) | TRUE     |
 
-> **Note:** You must specifiy all settings when you update a client Application. Partial updates aren't supported. If any settings are missing when you update a client Application, the update fails. The exceptions are: `client_secret_expires_at` or `client_id_issued_at` must not be included in the request, and the `client_secret` can be omitted.
+> **Note:** You must specify all settings when you update a client Application. Partial updates aren't supported. If any settings are missing when you update a client Application, the update fails. The exceptions are: `client_secret_expires_at`, `client_id_issued_at`, and `client_secret`. These settings must not be included in the request.
 
 ##### Response parameters
 
@@ -800,10 +766,10 @@ Client Applications have the following properties:
 | application_type                        | The type of client application. Default value: `web`    | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE      |
 | client_id                               | Unique key for the client application                                                                                        | String                                                                                         | FALSE      | TRUE     | TRUE      |
 | client_id_issued_at                     | Time at which the client_id was issued (measured in unix seconds)                                                            | Number                                                                                         | TRUE       | FALSE    | TRUE      |
-| client_name                             | Human-readable string name of the client application                                                                         | String                                                                                         | FALSE      | TRUE     | FALSE     |
+| client_name                             | Human-readable string name of the client application                                                                         | String                                                                                         | FALSE      | FALSE     | FALSE     |
 | client_secret                           | OAuth 2.0 client secret string (used for confidential clients)                                                               | String                                                                                         | TRUE       | TRUE     | TRUE      |
 | client_secret_expires_at                | Time at which the client_secret will expire or 0 if it will not expire(measured in unix seconds)                             | Number                                                                                         | TRUE       | FALSE    | TRUE      |
-| grant_types                             | Array of OAuth 2.0 grant type strings. Default value: `authorization_code`                    | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />   | TRUE       | FALSE    | FALSE     |
+| grant_types                             | Array of OAuth 2.0 grant type strings. Default value: `authorization_code`                    | Array of `authorization_code`, `client_credentials`, `implicit`, `interaction_code` <ApiLifecycle access="ie" />, `password`, `refresh_token`, `urn:ietf:params:oauth:grant-type:device_code`, `urn:ietf:params:oauth:grant-type:saml2-bearer` <ApiLifecycle access="ea" />, `urn:ietf:params:oauth:grant-type:token-exchange`   | TRUE       | FALSE    | FALSE     |
 | initiate_login_uri                      | URL that a third party can use to initiate a login by the client                                                             | String                                                                                         | TRUE       | FALSE    | FALSE     |
 | jwks_uri                                | URL string that references a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                   | String  <ApiLifecycle access="ea" />                                                        | TRUE       | FALSE    | FALSE     |
 | jwks                                    | A [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                   | [JSON Web Key Set](#json-web-key-set)                                                          | TRUE       | FALSE    | FALSE     |

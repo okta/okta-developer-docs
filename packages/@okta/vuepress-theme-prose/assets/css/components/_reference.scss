@@ -1,56 +1,57 @@
-.reference {
+.reference--container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+}
 
-  &--container {
-    display: flex;
-    flex-direction: column;
-    padding-top: 4rem;
+.reference--container .header-anchor {
+  display: none;
+}
 
-    .header-anchor {
-      display: none;
-    }
+.reference--list {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-height: 20rem;
+}
+
+.reference--list li {
+  margin-right: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.reference--list img {
+  margin-right: 0.4em;
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.reference--list a {
+  display: flex;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: cv("action");
+}
+
+@include media(">=tablet") {
+  .reference--list {
+    flex-direction: row;
+  }
+}
+
+.reference--sections {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6rem;
+}
+
+@include media(">=tablet") {
+  .reference--sections {
+    flex-direction: row;
   }
 
-  &--list {
-    display: flex;
-    flex-direction: column;
-    max-height: 20rem;
-    flex-wrap: wrap;
-
-    @include media('>=tablet') {
-      flex-direction: row;
-    }
-
-    li {
-      margin-right: 1.3rem;
-      margin-bottom: 1.0rem;
-    }
-
-    img {
-      width: 1.4em;
-      height: 1.4em;
-      margin-right: 0.4em;
-    }
-
-    a {
-      display: flex;
-      color: cv('action');
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
+  .reference--sections > div {
+    flex: 1;
   }
-
-  &--sections {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 6rem;
-
-    @include media('>=tablet') {
-      flex-direction: row;
-
-      > div {
-        flex: 1;
-      }
-    }
-  }
-
 }

@@ -59,9 +59,9 @@ For external integration examples, refer to:
 
 ## Send alerts to an external service
 
-Your organization may have an external web service that performs extra processing for specific Okta events, such as creating or deactivating a user lifecycle event. Okta provides a webhook feature called [Event Hooks](/docs/concepts/event-hooks/), where you can set up triggers at specific events in Okta to send event payloads to an external web service. Event Hooks are asynchronous and do not affect existing Okta workflows.
+Your organization may have an external web service that performs extra processing for specific Okta events, such as creating or deactivating a user lifecycle event. Okta provides a webhook feature called [event hooks](/docs/concepts/event-hooks/), where you can set up triggers at specific events in Okta to send event payloads to an external web service. Event hooks are asynchronous and do not affect existing Okta workflows.
 
-For a working example of an end-to-end Event Hook setup, see the [Event Hooks guide](/docs/guides/event-hook-implementation/). For a list of events that support Event Hooks, see [Event Hooks eligible event types](/docs/reference/api/event-types/?q=event-hook-eligible).
+For a working example of an end-to-end event hook setup, see the [Event hooks guide](/docs/guides/event-hook-implementation/). For a list of events that support event hooks, see the [Event Types catalog](/docs/reference/api/event-types/#catalog) and search with the parameter `event-hook-eligible`.
 
 ## Monitor Okta with your custom tool
 
@@ -85,7 +85,7 @@ You can use the Admin Console to manually download CSV files of system log query
 
 The [Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) feature aggregates data across Okta customers to detect malicious IP addresses that attempt credential-based attacks. You can enable ThreatInsight through the [Okta ThreatInsight Settings](https://help.okta.com/okta_help.htm?id=ext-configure-threatinsight) in the Admin Console, or through the [ThreatInsight configuration API](/docs/reference/api/threat-insight/).
 
-After ThreadInsight is enabled, Okta captures access attempts from malicious IPs in the system logs. You can also configure it to block access from the malicious IPs to your Okta org.
+After ThreatInsight is enabled, Okta captures access attempts from malicious IPs in the system logs. You can also configure it to block access from the malicious IPs to your Okta org.
 
 ## Monitor rate limit warnings and violations
 

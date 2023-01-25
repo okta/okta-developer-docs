@@ -13,11 +13,12 @@
     <div class="authorization-layout--footer">
       <Footer />
     </div>
-    <portal-target name="dialog-wrapper"></portal-target>
+    <portal-target name="dialog-wrapper" />
   </div>
 </template>
 
 <script>
+
 export default {
   components: {
     Footer: () => import("../components/Footer"),

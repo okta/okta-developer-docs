@@ -1,0 +1,49 @@
+.signup .signup--content .signup--form {
+  box-shadow: 0 24px 54px rgb(0 0 0 / 0.21);
+  border-radius: 4px;
+  background-color: cv("body", "obscure");
+}
+
+.signup--description p {
+  color: cv("text", "darker");
+}
+
+.signup--form .fa-github:before {
+  color: cv("link", "github");
+}
+
+.signup--form .consent--section-agree input[type="checkbox"] {
+  position: relative;
+
+  min-width: 1rem;
+  min-height: 1rem;
+
+  outline: 0;
+  border: 1px solid cv("border", "checkbox");
+  border-radius: 4px;
+  background-color: cv("code");
+  appearance: none;
+  cursor: pointer;
+}
+
+.signup--form .consent--section-agree input[type="checkbox"]::before {
+  content: "";
+
+  position: absolute;
+  top: 1px;
+  left: 5px;
+
+  display: block;
+  width: 5px;
+  height: 10px;
+
+  border-width: 0 1px 1px 0;
+  border-style: solid;
+  border-color: cv("action");
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+.signup--form .consent--section-agree input[type="checkbox"]:checked::before {
+  opacity: 1;
+}

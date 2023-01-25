@@ -7,7 +7,7 @@ integration: mobile
 
 ## Get started with React Native + Okta
 
-New to Okta? Our resources walk you through adding user authentication to your React Native app in minutes.
+These resources walk you through adding user authentication to your React Native app in minutes.
 
 <ul class='language-ctas'>
 	<!-- <li>
@@ -43,4 +43,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [React Native Developer Blog posts](/search/#q=react%20native&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our recent [React Native Developer Blog posts](https://developer.okta.com/blog/tags/react-native/) for further useful topics.

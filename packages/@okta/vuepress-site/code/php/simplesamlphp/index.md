@@ -44,7 +44,7 @@ To set up Okta to connect to your application, follow the guide to [Build a Sing
 Now that you configured the application icon for the SimpleSAMLphp Example in your Okta organization, you are ready to configure SimpleSAMLphp
 to work with your Okta organization. In this section we use the **Identity Provider metadata** link from the section above to configure SimpleSAMLphp. After you complete the following steps, you have a working example of connecting Okta to a sample PHP application using SimpleSAMLphp.
 
-Start by following the [instructions for installing SimpleSAMLphp](https://simplesamlphp.org/docs/stable/simplesamlphp-install).
+Start by following the [instructions for installing SimpleSAMLphp](https://simplesamlphp.org/docs/stable/simplesamlphp-install.html).
 
 > **Note:** SimpleSAMLphp is third-party software and isn't supported by Okta.
 
@@ -225,5 +225,3 @@ At this point, you should be familiar with setting up a SAML-enabled application
 After you have your Okta organization working with the example PHP application, your next step is to take the example code and move it to your production application. The specifics of how this works is different depending on how your application is set up. Pay special attention to the notes in the `index.php` file. For example, on a production system, you can't hard code the contents of the `metadata_url_for` array. They should come from a dynamic datastore.
 
 If you want to learn more about SAML and what to consider when writing a SAML implementation, Okta's in-depth [SAML guidance](https://www.okta.com/integrate/documentation/saml/) is a great place to learn more.
-
-Finally, if you got this far in this guide and still have questions, post your questions on the [Okta Developer Forum](https://devforum.okta.com/).

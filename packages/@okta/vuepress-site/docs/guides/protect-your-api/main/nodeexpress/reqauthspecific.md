@@ -2,8 +2,8 @@
 
 2. Add the middleware to the specific routes that require authentication.
 
-```js
-app.get('/api/whoami', authenticationRequired, (req, res) => {
-  res.json(req.jwt?.claims);
-});
-```
+   ```js
+   app.get('/api/whoami', authenticationRequired, (req, res) => {
+     res.json(req.jwt?.claims);
+   });
+   ```

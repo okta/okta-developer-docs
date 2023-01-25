@@ -1,11 +1,13 @@
+// stylelint-disable
+
 //---------------------------------------------------------
 // Removes any unit from the variable
 //---------------------------------------------------------
 
 @function remove-unit($_value) {
-	
+
 	@return $_value / ($_value * 0 + 1);
-	
+
 }
 
 
@@ -15,9 +17,9 @@
 //---------------------------------------------------------
 
 @function add-unit($_value, $_unit) {
-	
+
 	@return unquote(remove-unit($_value) + $_unit);
-	
+
 }
 
 
@@ -27,9 +29,9 @@
 //---------------------------------------------------------------
 
 @function px-to-rem($_value) {
-	
+
 	@return (remove-unit($_value) / remove-unit(map-get($font-size, 'base'))) * 1rem;
-	
+
 }
 
 
@@ -49,7 +51,7 @@
 		@return map-get($font-size, $_value);
 
 	}
-	
+
 }
 
 
@@ -59,9 +61,9 @@
 //---------------------------------------------------------------
 
 @function get-font-weight($_value) {
-	
+
 	@return map-get($font-weight, $_value);
-	
+
 }
 
 
@@ -71,9 +73,9 @@
 //---------------------------------------------------------------
 
 @function get-line-height($_value) {
-	
+
 	@return map-get($line-height, $_value);
-	
+
 }
 
 
@@ -83,9 +85,9 @@
 //---------------------------------------------------------------
 
 @function get-color($_value) {
-	
+
 	@return map-get($colors, $_value);
-	
+
 }
 
 
@@ -95,17 +97,17 @@
 //---------------------------------------------------------------
 
 @function get-transition-speed($_value) {
-	
+
 	@if str-slice($_value, 1, 1) == '-' and index(map-keys($transition-speed), str-slice($_value, 2)) {
-			
+
 		@return map-get($transition-speed, str-slice($_value, 2)) * -1;
-	
+
 	} @else {
-		
+
 		@return map-get($transition-speed, $_value);
-		
+
 	}
-	
+
 }
 
 
@@ -115,17 +117,17 @@
 //---------------------------------------------------------------
 
 @function get-spacing($_value) {
-	
+
 	@if str-slice($_value, 1, 1) == '-' and index(map-keys($spacing), str-slice($_value, 2)) {
-			
+
 		@return map-get($spacing, str-slice($_value, 2)) * -1;
-	
+
 	} @else {
-		
+
 		@return map-get($spacing, $_value);
-		
+
 	}
-	
+
 }
 
 
@@ -134,27 +136,27 @@
 // Explode a string, cause we can
 //---------------------------------------------------------------
 @function explode($string, $dem) {
-	
+
 	$list: ();
 	$sum: str-length($string);
-	
+
 	@for $i from 1 through $sum {
 		$str: str-index($string, $dem);
-	
+
 		@if str-length($string) >= 1 and $str == null {
 			$list: append($list, $string);
 			$string: '';
 		}
-		
+
 		@if type-of($str) == number {
 			$each: str-slice($string, 0, ($str - 1));
 			$list: append($list, $each);
 			$string: str-slice($string, ($str + 1), $sum);
 		}
 	}
-	
+
 	@return $list;
-    
+
 }
 
 
@@ -167,12 +169,12 @@
 	$strings: 'px' 'cm' 'mm' '%' 'ch' 'pica' 'in' 'em' 'rem' 'pt' 'pc' 'ex' 'vw' 'vh' 'vmin' 'vmax';
 	$units: 1px  1cm  1mm  1%  1ch  1pica  1in  1em  1rem  1pt  1pc  1ex  1vw  1vh  1vmin  1vmax;
 	$index: index($strings, $unit);
-	
+
 	@if not $index {
 		@warn unquote('Unknown unit #{$unit}.');
 		@return false;
 	}
-	
+
 	@return $number * nth($units, $index);
 }
 
@@ -186,17 +188,17 @@
 	// Matrices
 	$strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
 	$numbers:  0   1   2   3   4   5   6   7   8   9;
-	
+
 	// Result
 	$result: 0;
 	$divider: 0;
 	$minus: false;
-	
+
 	// Looping through all characters
 	@for $i from 1 through str-length($string) {
 		$character: str-slice($string, $i, $i);
 		$index: index($strings, $character);
-		
+
 		@if $character == '-' {
 			$minus: true;
 		} @else if $character == '.' {
@@ -206,9 +208,9 @@
 				$result: if($minus, $result * -1, $result);
 				@return unit-length($result, str-slice($string, $i));
 			}
-			
+
 			$number: nth($numbers, $index);
-			
+
 			@if $divider == 0 {
 				$result: $result * 10;
 			} @else {
@@ -216,11 +218,11 @@
 				$divider: $divider * 10;
 				$number: $number / $divider;
 			}
-		
+
 			$result: $result + $number;
 		}
 	}
-	
+
 	@return if($minus, $result * -1, $result);
 }
 
@@ -231,19 +233,19 @@
 //---------------------------------------------------------------
 
 @function list-reverse($_list) {
-	
+
 	$_result: null;
-	
+
 	@if type-of($_list) == 'list' {
 		$_list-reversed: ();
-		
+
 		@for $i from length($_list) through 1 {
 			$_list-reversed: append(
-				$_list-reversed, 
+				$_list-reversed,
 				nth($_list, $i)
 			);
 		}
-		
+
 		@if type-of($_list-reversed) == 'list' {
 			$_result: $_list-reversed;
 		} @else {
@@ -252,9 +254,9 @@
 	} @else {
 		@warn unquote('#{$_list} is not a valid list');
 	}
-	
+
 	@return $_result;
-	
+
 }
 
 
@@ -264,13 +266,13 @@
 //---------------------------------------------------------------
 
 @function map-reverse($_map) {
-	
+
 	$_result: null;
 
 	@if type-of($_map) == 'map' {
 		$keys: map-keys($_map);
 		$_map-reversed: ();
-		
+
 		@for $i from length($keys) through 1 {
 			$_map-reversed: map-merge(
 				$_map-reversed,
@@ -288,7 +290,7 @@
 	}
 
 	@return $_result;
-	
+
 }
 
 
@@ -296,9 +298,9 @@
 // Check if word (or list) contains value
 //---------------------------------------------------------------
 @function contain($list, $value) {
-	
+
 	@return not not index($list, $value);
-	
+
 }
 
 
@@ -307,9 +309,9 @@
 // Capitalize a string
 //---------------------------------------------------------------
 @function capitalize($string) {
-	
+
 	@return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
-	
+
 }
 
 
@@ -319,19 +321,19 @@
 //---------------------------------------------------------------
 
 @function camelize($_string) {
-	
+
 	$_progress: $_string;
 	$_result: '';
 	$_exclude: ' ', '-', '–', '—', '_', ',', ';', ':', '.';
-	
+
 	@if (str-length($_progress) > 2) {
-		
+
 		$_result: str-slice($_progress, 1, 1);
 		$_progress: str-slice($_progress, 2);
-		
+
 		@while str-length($_progress) > 0  {
 			$_char: str-slice($_progress, 1, 1);
-			
+
 			@if contain($_exclude, $_char) {
 				$_progress: capitalize(str-slice($_progress, 2, 2)) + str-slice($_progress, 3);
 			} @else {
@@ -339,13 +341,13 @@
 				$_progress: str-slice($_progress, 2);
 			}
 		}
-		
+
 	} @else {
-		
+
 		$_result: $_progress;
-		
+
 	}
-	
+
 	@return $_result;
-	
+
 }

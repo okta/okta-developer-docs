@@ -2,9 +2,9 @@
 
 After you complete the steps in the [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main/) use case and the Widget loads successfully, the next step is for the user to sign in. There is no additional code that you need to add to your app for this step. The user enters their credentials and clicks the **Next** or **Sign In** button.
 
-<div class="common-image-format">
+<div class="half">
 
-![Displays an example Widget sign-in page](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen.png)
+![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
 
 </div>
 

@@ -10,7 +10,7 @@ meta:
 
 ## Get started with PHP + Okta
 
-New to Okta? Our resources walk you through adding user authentication to your PHP app in minutes.
+These resources walk you through adding user authentication to your PHP app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -56,4 +56,4 @@ Other guides:
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 * [OAuth 2.0 from the Command Line](/blog/2018/07/16/oauth-2-command-line)
 
-> **Note**: Browse our [PHP Developer Blog posts](/search/#q=php&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our recent [PHP Developer Blog posts](https://developer.okta.com/blog/tags/php/) for further useful topics.

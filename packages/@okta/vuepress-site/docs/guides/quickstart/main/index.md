@@ -27,9 +27,9 @@ A traditional web app that runs on the server.
   <Card href="/docs/guides/sign-into-web-app-redirect/python/main/" headerImage="/img/homepage/stackselectors/python.png">Python Flask</Card>
 </Cards>
 
-### Single-page app
+### Front-end web app
 
-A JavaScript app that runs in the browser.
+A JavaScript app that runs in the browser, for example a single-page app (SPA).
 
 <Cards>
   <Card href="/docs/guides/sign-into-spa-redirect/react/main/" headerImage="/img/homepage/stackselectors/react.png">React</Card>
@@ -48,7 +48,7 @@ A mobile or desktop app that runs natively on a device.
   <Card href="#" headerImage="/img/homepage/stackselectors/react.png">React Native (coming soon)</Card>
 </Cards>
 
-## Protect back-end API
+## Protect your API
 
 An API endpoint or service that is protected by Okta.
 
@@ -60,6 +60,6 @@ An API endpoint or service that is protected by Okta.
 
 <Cards>
   <Card href="/docs/guides/protect-your-api/go/main/" headerImage="/img/homepage/stackselectors/go.png">Go Gin</Card>
-  <Card href="#" headerImage="/img/homepage/stackselectors/php.png">PHP (coming soon)</Card>
+  <Card href="/docs/guides/protect-your-api/php/main/" headerImage="/img/homepage/stackselectors/php.png">PHP</Card>
   <Card href="#" headerImage="/img/homepage/stackselectors/python.png">Python Flask (coming soon)</Card>
 </Cards>

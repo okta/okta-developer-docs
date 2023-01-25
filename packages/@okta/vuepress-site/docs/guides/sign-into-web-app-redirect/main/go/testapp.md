@@ -1,8 +1,8 @@
 1. Run the following command to start the go app:
 
-```shell
-go run main.go
-```
+   ```shell
+   go run main.go
+   ```
 
 2. Open a browser and navigate to `http://localhost:8080`.
 

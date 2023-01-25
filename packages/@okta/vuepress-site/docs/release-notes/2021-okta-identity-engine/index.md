@@ -117,7 +117,7 @@ When the [Update User endpoint](/docs/reference/api/users/#update-user) or the [
 | [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
 | [New Devices API response property available](#new-devices-api-response-property-available) | November 3, 2021 |
 | [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
-| [Event Hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
+| [Event hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
 | [Token-based SSO between native apps is now GA in Production](#token-based-sso-between-native-apps-is-now-ga-in-production)                          | October 6, 2021          |
 
 #### Brands API support for auto-detecting contrast colors
@@ -132,9 +132,9 @@ Calls to the [List devices](/docs/reference/api/devices/#usage-example-expand-us
 
 Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
 
-#### Event Hooks daily limit
+#### Event hooks daily limit
 
-The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+The maximum allowable daily limit of event hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of event hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
 
 #### Token-based SSO between native apps is now GA in Production
 

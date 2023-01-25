@@ -3,11 +3,11 @@
 
 1. Create an express application named `okta-express-quickstart` using the following command. This creates an express application that uses pug as the view engine.
 
-```shell
-npx express-generator --view=pug okta-express-quickstart
-cd okta-express-quickstart
-npm install
-```
+   ```shell
+   npx express-generator --view=pug okta-express-quickstart
+   cd okta-express-quickstart
+   npm install
+   ```
 
 > **Note**: This guide uses express v4.16.1, express-session v1.17.2, passport v0.5.2, and passport-openidconnect v0.1.1.
 

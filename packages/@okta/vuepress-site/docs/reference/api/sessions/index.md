@@ -66,6 +66,7 @@ If an invalid `sessionToken` is provided, a `401 Unauthorized` status code is re
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -d '{
   "sessionToken": "00HiohZYpJgMSHwmL9TQy7RRzuY-q9soKp1SPmYYow"
 }' "https://${yourOktaDomain}/api/v1/sessions"
@@ -92,7 +93,7 @@ curl -v -X POST \
   "mfaActive": false,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
       "hints": {
         "allow": [
           "GET",
@@ -101,7 +102,7 @@ curl -v -X POST \
       }
     },
     "refresh": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
       "hints": {
         "allow": [
           "POST"
@@ -110,7 +111,7 @@ curl -v -X POST \
     },
     "user": {
       "name": "Isaac Brock",
-      "href": "https://${yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
       "hints": {
         "allow": [
           "GET"
@@ -135,6 +136,7 @@ Gets Session information for a given Session ID
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ"
 ```
@@ -164,7 +166,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
   "mfaActive": true,
   "_links": {
     "refresh": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
       "hints": {
         "allow": [
           "POST"
@@ -172,7 +174,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
       "hints": {
         "allow": [
            "GET",
@@ -182,7 +184,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
     },
     "user": {
       "name": "Isaac Brock",
-      "href": "https://${yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
       "hints": {
         "allow": [
           "GET"
@@ -221,6 +223,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
 curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ"
 ```
@@ -246,7 +249,7 @@ curl -v -X PUT \
   "mfaActive": false,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
       "hints": {
         "allow": [
           "GET",
@@ -255,7 +258,7 @@ curl -v -X PUT \
       }
     },
     "refresh": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
       "hints": {
         "allow": [
           "POST"
@@ -264,7 +267,7 @@ curl -v -X PUT \
     },
     "user": {
       "name": "Isaac Brock",
-      "href": "https://${yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
       "hints": {
         "allow": [
           "GET"
@@ -301,6 +304,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh"
 ```
@@ -326,7 +330,7 @@ curl -v -X POST \
   "mfaActive": false,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
       "hints": {
         "allow": [
           "GET",
@@ -335,7 +339,7 @@ curl -v -X POST \
       }
     },
     "refresh": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
       "hints": {
         "allow": [
           "POST"
@@ -344,7 +348,7 @@ curl -v -X POST \
     },
     "user": {
       "name": "Isaac Brock",
-      "href": "https://${yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
       "hints": {
         "allow": [
           "GET"
@@ -381,6 +385,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ"
 ```
@@ -404,6 +409,7 @@ Gets Session information for the current user. Use this method in a browser-base
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Cookie: ${okta_session_cookie}" \
 "https://${yourOktaDomain}/api/v1/sessions/me"
 ```
@@ -434,7 +440,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
     "mfaActive": true,
     "_links": {
         "refresh": {
-            "href": "https://${yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh",
+            "href": "https://{yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh",
             "hints": {
                 "allow": [
                     "POST"
@@ -442,7 +448,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/sessions/me",
+            "href": "https://{yourOktaDomain}/api/v1/sessions/me",
             "hints": {
                 "allow": [
                     "GET",
@@ -452,7 +458,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
         },
         "user": {
             "name": "Isaac Brock",
-            "href": "https://${yourOktaDomain}/api/v1/users/me",
+            "href": "https://{yourOktaDomain}/api/v1/users/me",
             "hints": {
                 "allow": [
                     "GET"
@@ -477,6 +483,7 @@ Refreshes the Session for the current user
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Cookie: ${okta_session_cookie}" \
 "https://${yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh"
 ```
@@ -507,7 +514,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
     "mfaActive": true,
     "_links": {
         "refresh": {
-            "href": "https://${yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh",
+            "href": "https://{yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh",
             "hints": {
                 "allow": [
                     "POST"
@@ -515,7 +522,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/sessions/me",
+            "href": "https://{yourOktaDomain}/api/v1/sessions/me",
             "hints": {
                 "allow": [
                     "GET",
@@ -525,7 +532,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
         },
         "user": {
             "name": "Isaac Brock",
-            "href": "https://${yourOktaDomain}/api/v1/users/me",
+            "href": "https://{yourOktaDomain}/api/v1/users/me",
             "hints": {
                 "allow": [
                     "GET"
@@ -537,6 +544,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
 ```
 
 #### Option: Use the HTTP Header Prefer
+
 Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in the [Sessions API for refreshing Sessions](/docs/reference/api/sessions/#refresh-current-session). You can extend the Session lifetime, but skip any processing work that is related to building the response body.
 
 ##### Request example
@@ -545,10 +553,12 @@ Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Prefer: return=minimal" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/me/refresh"
 ```
+
 >**Note:** `me` can also be an ID.
 
 ##### Response example
@@ -571,6 +581,7 @@ Closes the Session for the user who is currently signed in. Use this method in a
 ```bash
 curl -v -X DELETE \
 -H "Accept: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Cookie: ${okta_session_cookie}" \
 "https://${yourOktaDomain}/api/v1/sessions/me"
 ```
@@ -610,7 +621,7 @@ HTTP/1.1 204 No Content
   "mfaActive": true,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ",
       "hints": {
         "allow": [
           "GET",
@@ -619,7 +630,7 @@ HTTP/1.1 204 No Content
       }
     },
     "refresh": {
-      "href": "https://${yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
+      "href": "https://{yourOktaDomain}/api/v1/sessions/101W_juydrDRByB7fUdRyE2JQ/lifecycle/refresh",
       "hints": {
         "allow": [
           "POST"
@@ -628,7 +639,7 @@ HTTP/1.1 204 No Content
     },
     "user": {
       "name": "Isaac Brock",
-      "href": "https://${yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uit00ZK6ELuzPoD0g3",
       "hints": {
         "allow": [
           "GET"
@@ -683,9 +694,9 @@ The following values are defined for the status of a Session:
 
 The [authentication methods reference](https://tools.ietf.org/html/draft-ietf-oauth-amr-values-01) ("AMR") specifies which authentication methods are used to establish the Session. The value is a JSON array with one or more of the following values:
 
-> **Note:** For inline hook requests, use the Inline Hook value for the `amr` object.
+> **Note:** For inline hook requests, use the inline hook value for the `amr` object.
 
-| Value    | Inline Hook Value | Description                                           | Example                                                                                                |
+| Value    | Inline hook value | Description                                           | Example                                                                                                |
 | -------- | ----------------- | ----------------------------------------------------- | -------------------------------------------------------------------------                              |
 | `pwd`    | `PASSWORD`         | Password authentication                                | Standard password-based login                                                                          |
 | `swk`    | `POP_SOFTWARE_KEY` | Proof-of-possession (PoP) of a software key            | Okta Verify with Push                                                                                  |

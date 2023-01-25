@@ -4,9 +4,9 @@
 
 3. Initialize your module using `go mod init`, for example:
 
-```shell
-go mod init okta/go-quickstart
-```
+   ```shell
+   go mod init okta/go-quickstart
+   ```
 
 4. Create a simple starter structure for your project. Have a look at our [sample structure](https://github.com/okta-samples/okta-go-api-sample).
 

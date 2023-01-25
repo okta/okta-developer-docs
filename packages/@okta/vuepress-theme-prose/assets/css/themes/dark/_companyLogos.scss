@@ -1,0 +1,35 @@
+.company-logos--icon:nth-child(1),
+.company-logos--icon:nth-child(2),
+.company-logos--icon:nth-child(3),
+.company-logos--icon:nth-child(4),
+.company-logos--icon:nth-child(5) {
+  background-color: cv("text") !important;
+  background-image: none !important;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.company-logos--icon:nth-child(1) {
+  -webkit-mask-image: url("/img/logos/baseball.svg");
+  mask-image: url("/img/logos/baseball.svg");
+}
+
+.company-logos--icon:nth-child(2) {
+  -webkit-mask-image: url("/img/logos/splunk.svg");
+  mask-image: url("/img/logos/splunk.svg");
+}
+
+.company-logos--icon:nth-child(3) {
+  -webkit-mask-image: url("/img/logos/adobe.svg");
+  mask-image: url("/img/logos/adobe.svg");
+}
+
+.company-logos--icon:nth-child(4) {
+  -webkit-mask-image: url("/img/logos/jetblue.svg");
+  mask-image: url("/img/logos/jetblue.svg");
+}
+
+.company-logos--icon:nth-child(5) {
+  -webkit-mask-image: url("/img/logos/experian.svg");
+  mask-image: url("/img/logos/experian.svg");
+}

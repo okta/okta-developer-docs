@@ -11,33 +11,21 @@ The Okta Identity Providers API provides operations to manage federations with e
 
 Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2635b07ecc5dc2435ade)
 
-## Setup guides
-
-Each IdP requires some setup. Use the Okta setup guide for your IdP:
-
-* [Apple](/docs/guides/add-an-external-idp/apple/main/)
-* [Facebook](/docs/guides/add-an-external-idp/facebook/main/)
-* [Google](/docs/guides/add-an-external-idp/google/main/)
-* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/main/)
-* [Microsoft](/docs/guides/add-an-external-idp/microsoft/main/)
-* [Generic OIDC Identity Providers](/docs/guides/add-an-external-idp/openidconnect/main/)
+See [Add and external Identity Provider](/docs/guides/identity-providers/) for detailed IdP set up guides using the Admin Console.
 
 ## Identity Provider operations
+
+- [Add an Identity Provider](#add-identity-provider)
+- [Get an Identity Provider](#get-identity-provider)
+- [List Identity Providers](#list-identity-providers)
+- [Update an Identity Provider](#update-identity-provider)
+- [Delete an Identity Provider](#delete-identity-provider)
 
 ### Add Identity Provider
 
 <ApiOperation method="post" url="/api/v1/idps" />
 
-Adds a new IdP to your organization
-
-- [Add Generic OIDC Identity Provider](#add-generic-openid-connect-identity-provider)
-- [Add SAML 2.0 Identity Provider](#add-saml-2-0-identity-provider)
-- [Add Apple Identity Provider](#add-apple-identity-provider)
-- [Add Facebook Identity Provider](#add-facebook-identity-provider)
-- [Add Google Identity Provider](#add-google-identity-provider)
-- [Add LinkedIn Identity Provider](#add-linkedin-identity-provider)
-- [Add Microsoft Identity Provider](#add-microsoft-identity-provider)
-- [Add Smart Card Identity Provider](#add-smart-card-identity-provider)
+Adds a new IdP to your organization. See [Identity Provider type](#identity-provider-type) for the list of supported external IdPs.
 
 ##### Request parameters
 
@@ -49,6 +37,19 @@ Adds a new IdP to your organization
 
 The created [Identity Provider](#identity-provider-object)
 
+##### Request examples
+
+- [Add Generic OIDC Identity Provider](#add-generic-openid-connect-identity-provider)
+- [Add SAML 2.0 Identity Provider](#add-saml-2-0-identity-provider)
+- [Add Apple Identity Provider](#add-apple-identity-provider)
+- [Add Facebook Identity Provider](#add-facebook-identity-provider)
+- [Add Google Identity Provider](#add-google-identity-provider)
+- [Add LinkedIn Identity Provider](#add-linkedin-identity-provider)
+- [Add Microsoft Identity Provider](#add-microsoft-identity-provider)
+- [Add Smart Card Identity Provider](#add-smart-card-identity-provider)
+
+See [Identity Provider type](#identity-provider-type) for a list of all the supported external IdPs.
+
 #### Add Generic OpenID Connect Identity Provider
 
 Adds a new `OIDC` type IdP to your organization
@@ -59,6 +60,7 @@ Adds a new `OIDC` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "OIDC",
@@ -71,12 +73,6 @@ curl -v -X POST \
           "scope": "REQUEST"
         }
       },
-      "response": {
-        "signature": {
-          "algorithm": "HS256",
-          "scope": "ANY"
-        }
-      }
     },
     "endpoints": {
       "acs": {
@@ -229,7 +225,7 @@ curl -v -X POST \
     },
     "_links": {
         "authorize": {
-            "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&scope=${scopes}&redirect_uri=${redirectUri}&state=${state}&nonce=${nonce}",
+            "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
             "templated": true,
             "hints": {
                 "allow": [
@@ -238,7 +234,7 @@ curl -v -X POST \
             }
         },
         "clientRedirectUri": {
-            "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+            "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
             "hints": {
                 "allow": [
                     "POST"
@@ -261,6 +257,7 @@ Adds a new `SAML2` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "SAML2",
@@ -413,7 +410,7 @@ curl -v -X POST \
   },
   "_links": {
     "metadata": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/metadata.xml",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/metadata.xml",
       "type": "application/xml",
       "hints": {
         "allow": [
@@ -422,7 +419,7 @@ curl -v -X POST \
       }
     },
     "acs": {
-      "href": "https://${yourOktaDomain}/sso/saml2/0oa62bc8wppPw0UGr0h7",
+      "href": "https://{yourOktaDomain}/sso/saml2/0oa62bc8wppPw0UGr0h7",
       "type": "application/xml",
       "hints": {
         "allow": [
@@ -431,7 +428,7 @@ curl -v -X POST \
       }
     },
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/users",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/users",
       "hints": {
         "allow": [
           "GET"
@@ -439,7 +436,7 @@ curl -v -X POST \
       }
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -476,6 +473,7 @@ Adds a new `Apple` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "APPLE",
@@ -596,7 +594,7 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&scope=${scopes}&redirect_uri=${redirectUri}&state=${state}&nonce=${nonce}",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri=${redirectUri}&state={state}&nonce={nonce}",
       "templated": true,
       "hints": {
         "allow": [
@@ -605,7 +603,7 @@ curl -v -X POST \
       }
     },
     "clientRedirectUri": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -626,6 +624,7 @@ Adds a new `FACEBOOK` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "FACEBOOK",
@@ -665,8 +664,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -741,9 +739,9 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
-          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
+          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={redirectUri}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -752,7 +750,7 @@ curl -v -X POST \
       }
     },
     "clientRedirectUri": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -773,6 +771,7 @@ Adds a new `Google` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "GOOGLE",
@@ -813,8 +812,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -889,9 +887,9 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
+          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={redirectUri}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -900,7 +898,7 @@ curl -v -X POST \
       }
     },
     "clientRedirectUri": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -921,6 +919,7 @@ Adds a new `LINKEDIN` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "LINKEDIN",
@@ -960,8 +959,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -1035,9 +1033,9 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
-          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
+          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={redirectUri}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1046,7 +1044,7 @@ curl -v -X POST \
       }
     },
     "clientRedirectUri": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -1067,6 +1065,7 @@ Adds a new `Microsoft` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "MICROSOFT",
@@ -1103,8 +1102,7 @@ curl -v -X POST \
     },
     "subject": {
       "userNameTemplate": {
-        "template": "idpuser.userPrincipalName",
-        "type": null
+        "template": "idpuser.userPrincipalName"
       },
       "filter": null,
       "matchType": "USERNAME"
@@ -1180,9 +1178,9 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
-          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
+          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={redirectUri}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1191,7 +1189,7 @@ curl -v -X POST \
       }
     },
     "clientRedirectUri": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -1217,11 +1215,11 @@ Adds a new Smart Card `X509` type IdP to your organization
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "type": "X509",
   "status": "ACTIVE",
-  "features": [],
   "name": "Smart Card IDP Name",
   "protocol": {
     "type": "MTLS",
@@ -1265,7 +1263,7 @@ curl -v -X POST \
     "type": "MTLS",
     "endpoints": {
       "sso": {
-        "url": "https://${yourOktaDomain}.okta.com/login/cert"
+        "url": "https://{yourOktaDomain}.okta.com/login/cert"
       }
     },
     "credentials": {
@@ -1292,11 +1290,11 @@ curl -v -X POST \
       "matchType": "EMAIL",
       "matchAttribute": null
     },
-    "maxClockSkew":0
+    "maxClockSkew":120000
   },
   "_links": {
     "deactivate": {
-      "href": "https://${yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -1304,7 +1302,7 @@ curl -v -X POST \
       }
     },
     "users": {
-      "href": "https://${yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/users",
+      "href": "https://{yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/users",
       "hints": {
         "allow": [
           "GET"
@@ -1312,7 +1310,7 @@ curl -v -X POST \
       }
     },
     "keys": {
-      "href":"https://${yourOktaDomain}.okta.com/api/v1/idps/credentials/keys/45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
+      "href":"https://{yourOktaDomain}.okta.com/api/v1/idps/credentials/keys/45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
       "hints": {
         "allow": [
           "GET"
@@ -1346,6 +1344,7 @@ idpId       | `id` of an IdP  | URL        | String   | TRUE     |
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oa62bfdjnK55Z5x80h7"
 ```
@@ -1414,9 +1413,9 @@ curl -v -X GET \
   },
   "_links": {
     "authorize": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
-          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
+          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={redirectUri}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -1425,7 +1424,7 @@ curl -v -X GET \
       }
     },
     "clientRedirectUri": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -1474,6 +1473,7 @@ Enumerates all IdPs in your organization
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps?limit=20"
 ```
@@ -1543,9 +1543,9 @@ curl -v -X GET \
     },
     "_links": {
       "authorize": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
-            client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-            scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+        "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
+            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+            scope={scopes}&redirect_uri={redirectUri}&state={state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1554,7 +1554,7 @@ curl -v -X GET \
         }
       },
       "clientRedirectUri": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+        "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
         "hints": {
           "allow": [
             "POST"
@@ -1639,7 +1639,7 @@ curl -v -X GET \
     },
     "_links": {
       "metadata": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/metadata.xml",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/metadata.xml",
         "type": "application/xml",
         "hints": {
           "allow": [
@@ -1648,7 +1648,7 @@ curl -v -X GET \
         }
       },
       "acs": {
-        "href": "https://${yourOktaDomain}/sso/saml2/0oa62bc8wppPw0UGr0h7",
+        "href": "https://{yourOktaDomain}/sso/saml2/0oa62bc8wppPw0UGr0h7",
         "type": "application/xml",
         "hints": {
           "allow": [
@@ -1657,7 +1657,7 @@ curl -v -X GET \
         }
       },
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/users",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/users",
         "hints": {
           "allow": [
             "GET"
@@ -1665,7 +1665,7 @@ curl -v -X GET \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -1736,9 +1736,9 @@ curl -v -X GET \
     },
     "_links": {
       "authorize": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-            client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-            scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+        "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
+            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+            scope={scopes}&redirect_uri={redirectUri}&state={state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1747,7 +1747,7 @@ curl -v -X GET \
         }
       },
       "clientRedirectUri": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+        "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
         "hints": {
           "allow": [
             "POST"
@@ -1817,9 +1817,9 @@ curl -v -X GET \
     },
     "_links": {
       "authorize": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
-            client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-            scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+        "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdjnK55Z5x80h7&
+            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+            scope={scopes}&redirect_uri={redirectUri}&state={state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1828,7 +1828,7 @@ curl -v -X GET \
         }
       },
       "clientRedirectUri": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+        "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
         "hints": {
           "allow": [
             "POST"
@@ -1900,9 +1900,9 @@ curl -v -X GET \
     },
     "_links": {
       "authorize": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
-            client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-            scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+        "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oajmvdFawBih4gey0g3&
+            client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+            scope={scopes}&redirect_uri={redirectUri}&state={state}",
         "templated": true,
         "hints": {
           "allow": [
@@ -1911,7 +1911,7 @@ curl -v -X GET \
         }
       },
       "clientRedirectUri": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+        "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
         "hints": {
           "allow": [
             "POST"
@@ -1992,7 +1992,7 @@ curl -v -X GET \
       },
       "_links": {
           "authorize": {
-              "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&scope=${scopes}&redirect_uri=${redirectUri}&state=${state}&nonce=${nonce}",
+              "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oaulob4BFVa4zQvt0g3&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
               "templated": true,
               "hints": {
                   "allow": [
@@ -2001,7 +2001,7 @@ curl -v -X GET \
               }
           },
           "clientRedirectUri": {
-              "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+              "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
               "hints": {
                   "allow": [
                       "POST"
@@ -2021,7 +2021,7 @@ curl -v -X GET \
     "type": "MTLS",
     "endpoints": {
       "sso": {
-        "url": "https://${yourOktaDomain}.okta.com/login/cert"
+        "url": "https://{yourOktaDomain}.okta.com/login/cert"
       }
     },
     "credentials": {
@@ -2052,7 +2052,7 @@ curl -v -X GET \
   },
   "_links": {
     "deactivate": {
-      "href": "https://${yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -2060,7 +2060,7 @@ curl -v -X GET \
       }
     },
     "users": {
-      "href": "https://${yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/users",
+      "href": "https://{yourOktaDomain}.okta.com/api/v1/idps/0oa6jxasyhwM2ZHJh0g4/users",
       "hints": {
         "allow": [
           "GET"
@@ -2068,7 +2068,7 @@ curl -v -X GET \
       }
     },
     "keys": {
-      "href":"https://${yourOktaDomain}.okta.com/api/v1/idps/credentials/keys/45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
+      "href":"https://{yourOktaDomain}.okta.com/api/v1/idps/credentials/keys/45dec5ff-8cdc-48c0-85fe-a4869f1753dc",
       "hints": {
         "allow": [
           "GET"
@@ -2092,6 +2092,7 @@ Search currently performs a `startsWith` match, but it should be considered an i
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps?q=Example SAML&limit=10"
 ```
@@ -2176,7 +2177,7 @@ curl -v -X GET \
     },
     "_links": {
       "metadata": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/metadata.xml",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/metadata.xml",
         "type": "application/xml",
         "hints": {
           "allow": [
@@ -2185,7 +2186,7 @@ curl -v -X GET \
         }
       },
       "acs": {
-        "href": "https://${yourOktaDomain}/sso/saml2/0oa62bc8wppPw0UGr0h7",
+        "href": "https://{yourOktaDomain}/sso/saml2/0oa62bc8wppPw0UGr0h7",
         "type": "application/xml",
         "hints": {
           "allow": [
@@ -2194,7 +2195,7 @@ curl -v -X GET \
         }
       },
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/users",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/users",
         "hints": {
           "allow": [
             "GET"
@@ -2202,7 +2203,7 @@ curl -v -X GET \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -2224,6 +2225,7 @@ Finds all IdPs with a [specific type](#identity-provider-type)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps?type=SAML2"
 ```
@@ -2308,7 +2310,7 @@ curl -v -X GET \
     },
     "_links": {
       "metadata": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/metadata.xml",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/metadata.xml",
         "type": "application/xml",
         "hints": {
           "allow": [
@@ -2317,7 +2319,7 @@ curl -v -X GET \
         }
       },
       "acs": {
-        "href": "https://${yourOktaDomain}/sso/saml2/0oa62bc8wppPw0UGr0h7",
+        "href": "https://{yourOktaDomain}/sso/saml2/0oa62bc8wppPw0UGr0h7",
         "type": "application/xml",
         "hints": {
           "allow": [
@@ -2326,7 +2328,7 @@ curl -v -X GET \
         }
       },
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/users",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/users",
         "hints": {
           "allow": [
             "GET"
@@ -2334,7 +2336,7 @@ curl -v -X GET \
         }
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -2371,9 +2373,10 @@ Updated [Identity Provider](#identity-provider-object)
 curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-}' "https://${yourOktaDomain}/api/v1/idps/your-idps-id"
+}' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}"
 ```
 
 ##### Response example
@@ -2455,7 +2458,7 @@ curl -v -X PUT \
   },
   "_links": {
     "metadata": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/metadata.xml",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/metadata.xml",
       "type": "application/xml",
       "hints": {
         "allow": [
@@ -2464,7 +2467,7 @@ curl -v -X PUT \
       }
     },
     "acs": {
-      "href": "https://${yourOktaDomain}/sso/saml2/0oa62bc8wppPw0UGr0h7",
+      "href": "https://{yourOktaDomain}/sso/saml2/0oa62bc8wppPw0UGr0h7",
       "type": "application/xml",
       "hints": {
         "allow": [
@@ -2473,7 +2476,7 @@ curl -v -X PUT \
       }
     },
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/users",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/users",
       "hints": {
         "allow": [
           "GET"
@@ -2481,7 +2484,7 @@ curl -v -X PUT \
       }
     },
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bc8wppPw0UGr0h7/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -2497,7 +2500,7 @@ curl -v -X PUT \
 
 Removes an IdP from your organization
 
-* All existing IdP users are unlinked with the highest order profile master taking precedence for each IdP user.
+* All existing IdP users are unlinked with the highest order profile source taking precedence for each IdP user.
 * Unlinked users keep their existing authentication provider such as `FEDERATION` or `SOCIAL`.
 
 ##### Request parameters
@@ -2516,9 +2519,10 @@ There are no response parameters.
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-}' "https://${yourOktaDomain}/api/v1/idps/your-idps-id"
+}' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}"
 ```
 
 ##### Response example
@@ -2551,9 +2555,10 @@ Activated [Identity Provider](#identity-provider-object)
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-}' "https://${yourOktaDomain}/api/v1/idps/your-idps-id/lifecycle/activate"
+}' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}/lifecycle/activate"
 ```
 
 ##### Response example
@@ -2621,9 +2626,9 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
+          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={redirectUri}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -2632,7 +2637,7 @@ curl -v -X POST \
       }
     },
     "clientRedirectUri": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -2665,9 +2670,10 @@ Deactivated [Identity Provider](#identity-provider-object)
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-}' "https://${yourOktaDomain}/api/v1/idps/your-idps-id/lifecycle/deactivate"
+}' "https://${yourOktaDomain}/api/v1/idps/${yourIdpId}/lifecycle/deactivate"
 ```
 
 ##### Response example
@@ -2735,9 +2741,9 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
-      client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-      scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62bfdiumsUndnZ0h7&
+      client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+      scope={scopes}&redirect_uri={redirectUri}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -2746,7 +2752,7 @@ curl -v -X POST \
       }
     },
     "clientRedirectUri": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -2822,6 +2828,7 @@ You must use a `CALLOUT` action for [user provisioning](#user-provisioning-actio
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3"
 ```
@@ -2846,13 +2853,13 @@ curl -v -X GET \
   },
   "_links": {
     "source": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/source"
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/source"
     },
     "target": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/target"
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/target"
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -2860,7 +2867,7 @@ curl -v -X GET \
       }
     },
     "provision": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/lifecycle/provision",
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/lifecycle/provision",
       "hints": {
         "allow": [
           "POST"
@@ -2893,6 +2900,7 @@ Fetches the source [IdP User](#identity-provider-user-object) for a Transaction
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/source"
 ```
@@ -2912,7 +2920,7 @@ curl -v -X GET \
   },
   "_links": {
     "idp": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oabmluDNh2JZi8lt0g4"
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oabmluDNh2JZi8lt0g4"
     }
   }
 }
@@ -2940,6 +2948,7 @@ Fetches the target transformed [Okta User Profile](/docs/reference/api/users/#pr
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/source"
 ```
@@ -2995,6 +3004,7 @@ Array of [Okta User](/docs/reference/api/users/#user-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/users"
 ```
@@ -3030,26 +3040,26 @@ curl -v -X GET \
     },
     "_links": {
       "suspend": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00uc8wfZSNWKlFGZa0g4/lifecycle/suspend",
+        "href": "https://{yourOktaDomain}/api/v1/users/00uc8wfZSNWKlFGZa0g4/lifecycle/suspend",
         "method": "POST"
       },
       "resetPassword": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00uc8wfZSNWKlFGZa0g4/lifecycle/reset_password",
+        "href": "https://{yourOktaDomain}/api/v1/users/00uc8wfZSNWKlFGZa0g4/lifecycle/reset_password",
         "method": "POST"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00uc8wfZSNWKlFGZa0g4"
+        "href": "https://{yourOktaDomain}/api/v1/users/00uc8wfZSNWKlFGZa0g4"
       },
       "changeRecoveryQuestion": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00uc8wfZSNWKlFGZa0g4/credentials/change_recovery_question",
+        "href": "https://{yourOktaDomain}/api/v1/users/00uc8wfZSNWKlFGZa0g4/credentials/change_recovery_question",
         "method": "POST"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00uc8wfZSNWKlFGZa0g4/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/users/00uc8wfZSNWKlFGZa0g4/lifecycle/deactivate",
         "method": "POST"
       },
       "confirm": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvkokI9JsOxqsjz0g3/lifecycle/confirm/00uc8wfZSNWKlFGZa0g4",
+        "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvkokI9JsOxqsjz0g3/lifecycle/confirm/00uc8wfZSNWKlFGZa0g4",
         "method": "POST"
       }
     }
@@ -3080,6 +3090,7 @@ Provisions an IdP User as a new Okta User
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "profile": {
@@ -3109,7 +3120,7 @@ curl -v -X POST \
   },
   "_links": {
     "next": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvkokI9JsOxqsjz0g3/finish",
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvkokI9JsOxqsjz0g3/finish",
       "hints": {
         "allow": [
           "POST"
@@ -3117,7 +3128,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvkokI9JsOxqsjz0g3/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvkokI9JsOxqsjz0g3/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -3153,6 +3164,7 @@ Links an IdP User to an [existing Okta User](#list-users-for-idp-link-transactio
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "profile": {
@@ -3182,7 +3194,7 @@ curl -v -X POST \
   },
   "_links": {
     "next": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvkokI9JsOxqsjz0g3/finish",
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvkokI9JsOxqsjz0g3/finish",
       "hints": {
         "allow": [
           "POST"
@@ -3190,7 +3202,7 @@ curl -v -X POST \
       }
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvkokI9JsOxqsjz0g3/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvkokI9JsOxqsjz0g3/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -3221,6 +3233,7 @@ No actions are completed when using `callout` until the `/finish` request comple
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/tx/sat4h4zexs17NrXWc0h6/finish"
@@ -3252,6 +3265,7 @@ No actions are completed when using `callout` if the Transaction is canceled.
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/tx/sat4jmxahzdtLDHOm0h6/cancel"
@@ -3290,6 +3304,7 @@ Adds a new X.509 certificate credential to the IdP key store
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "x5c": [
@@ -3366,6 +3381,7 @@ Gets a specific [IdP Key Credential](#identity-provider-key-credential-object) b
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/credentials/keys/your-key-id"
 ```
@@ -3427,6 +3443,7 @@ Array of [Identity Provider Key Credential](#identity-provider-key-credential-ob
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/credentials/keys"
 ```
@@ -3482,6 +3499,59 @@ curl -v -X GET \
 ]
 ```
 
+### Update key
+
+<ApiOperation method="put" url="/api/v1/idps/credentials/keys/${kid}" />
+
+##### Request parameters
+
+| Parameter     | Description                                                                 | Param Type | DataType | Required |
+| ------------- | --------------------------------------------------------------------------- | ---------- | -------- | -------- |
+| kid           | Unique key of the [IdP Key Credential](#identity-provider-key-credential-object) | URL        | String   | TRUE     |
+
+##### Response parameters
+
+[Identity Provider Key Credential](#identity-provider-key-credential-object)
+
+##### Request example
+
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
+-H "Authorization: SSWS ${api_token}" \
+-d ' {
+  "x5c": [
+"MIIDsjCCApqgAwIBAgIGAX3eWotJMA0GCSqGSIb3DQEBCwUAMIGZMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxGjAYBgNVBAMMEWNsYXNzaWMtbG9jYWwtYXBwMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMB4XDTIxMTIyMTE4NTU1NVoXDTIzMTIyMTE4NTY1NVowgZkxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARPa3RhMRQwEgYDVQQLDAtTU09Qcm92aWRlcjEaMBgGA1UEAwwRY2xhc3NpYy1sb2NhbC1hcHAxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHwvgfiH3XjrFo5HTzOVPTQtWAoZRtpuOJLf1wuFWdYuZLUvTtayx4jB73Ex0hs8zrN4ggQEItg+i+aNejew+tV6sg6HhRXJHoIrDbCat2FiOdk7WATtJc1+u9zVsJ4ML38U3k+fMKMkWvIHr5rawOkwyXkrmGXFFgEP208jfRYQZIcI9iw+pgpRSOoYbQMbavMrLoCrz+vOIN6SY+YYgqhf9HHuKxtriUvPnWJBgVRbQAHWTsS6yqXNo0ASabPIzHUwnHMboH2qllEZngLS8uThyS9uL318X1c0M470pOTLjNqAS+IE9ArKDqqXezOt7HYRqoUiFJjOAWDtUMtba9AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEV7IFFiX4le2i7waixDiFsFw6hKM9V0LVZbTMpWQ9CheZDZWBWZt3wCyk84wX3DbM0MIG4QhykFbqgFlWFgazgUq0rYddtSs6rne/MYt7Zbs5t6wV6m5d0VbP/7K0y1vDQUVQ2SdVLEnjWhPVU/T03mmk2JhpBLGuhHoOUDGijHRISvQd29KrtABBaWm18otOa+y+mxfXmXFNqPrG0S1TNJdelLpMztpP5S9vDrXgcWPG1w18H6lUzm84DrwBfM8q/ExxmT+YGGfAlMSaxj2HKzHheTRKbq6FBSIvf15zUy2X2suOR38zTNx7kehIZxZIY6a0PKOG+EVm04ymtYdL4="
+    ],
+    "x5t#S256": "bvKKSmBA8TXFXyrdhdt0GDpSNB0N8rpz74cS84shmSk",
+    "e": "AQAB",
+    "n": "h8L4H4h9146xaOR08zlT00LVgKGUbabjiS39cLhVnWLmS1L07WsseIwe9xMdIbPM6zeIIEBCLYPovmjXo3sPrVerIOh4UVyR6CKw2wmrdhYjnZO1gE7SXNfrvc1bCeDC9_FN5PnzCjJFryB6-a2sDpMMl5K5hlxRYBD9tPI30WEGSHCPYsPqYKUUjqGG0DG2rzKy6Aq8_rziDekmPmGIKoX_Rx7isba4lLz51iQYFUW0AB1k7EusqlzaNAEmmzyMx1MJxzG6B9qpZRGZ4C0vLk4ckvbi99fF9XNDOO9KTky4zagEviBPQKyg6ql3szrex2EaqFIhSYzgFg7VDLW2vQ"
+    }' "https://${yourOktaDomain}/api/v1/idps/credentials/keys/your-key-id"
+```
+
+##### Response example
+
+```json
+{
+  "kty": "RSA",
+  "created": "2022-07-12T16:11:13.000Z",
+  "lastUpdated": "2022-07-12T16:17:33.000Z",
+  "expiresAt": "2023-12-21T18:56:55.000Z",
+  "alg": "RSA",
+  "kid": "a125a828-d077-422c-8438-7c78204c1a0a",
+  "use": "sig",
+  "x5c": [
+"MIIDsjCCApqgAwIBAgIGAX3eWotJMA0GCSqGSIb3DQEBCwUAMIGZMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxGjAYBgNVBAMMEWNsYXNzaWMtbG9jYWwtYXBwMRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMB4XDTIxMTIyMTE4NTU1NVoXDTIzMTIyMTE4NTY1NVowgZkxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARPa3RhMRQwEgYDVQQLDAtTU09Qcm92aWRlcjEaMBgGA1UEAwwRY2xhc3NpYy1sb2NhbC1hcHAxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCHwvgfiH3XjrFo5HTzOVPTQtWAoZRtpuOJLf1wuFWdYuZLUvTtayx4jB73Ex0hs8zrN4ggQEItg+i+aNejew+tV6sg6HhRXJHoIrDbCat2FiOdk7WATtJc1+u9zVsJ4ML38U3k+fMKMkWvIHr5rawOkwyXkrmGXFFgEP208jfRYQZIcI9iw+pgpRSOoYbQMbavMrLoCrz+vOIN6SY+YYgqhf9HHuKxtriUvPnWJBgVRbQAHWTsS6yqXNo0ASabPIzHUwnHMboH2qllEZngLS8uThyS9uL318X1c0M470pOTLjNqAS+IE9ArKDqqXezOt7HYRqoUiFJjOAWDtUMtba9AgMBAAEwDQYJKoZIhvcNAQELBQADggEBAEV7IFFiX4le2i7waixDiFsFw6hKM9V0LVZbTMpWQ9CheZDZWBWZt3wCyk84wX3DbM0MIG4QhykFbqgFlWFgazgUq0rYddtSs6rne/MYt7Zbs5t6wV6m5d0VbP/7K0y1vDQUVQ2SdVLEnjWhPVU/T03mmk2JhpBLGuhHoOUDGijHRISvQd29KrtABBaWm18otOa+y+mxfXmXFNqPrG0S1TNJdelLpMztpP5S9vDrXgcWPG1w18H6lUzm84DrwBfM8q/ExxmT+YGGfAlMSaxj2HKzHheTRKbq6FBSIvf15zUy2X2suOR38zTNx7kehIZxZIY6a0PKOG+EVm04ymtYdL4="
+  ],
+  "x5t#S256": "bvKKSmBA8TXFXyrdhdt0GDpSNB0N8rpz74cS84shmSk",
+  "e": "AQAB",
+  "n": "h8L4H4h9146xaOR08zlT00LVgKGUbabjiS39cLhVnWLmS1L07WsseIwe9xMdIbPM6zeIIEBCLYPovmjXo3sPrVerIOh4UVyR6CKw2wmrdhYjnZO1gE7SXNfrvc1bCeDC9_FN5PnzCjJFryB6-a2sDpMMl5K5hlxRYBD9tPI30WEGSHCPYsPqYKUUjqGG0DG2rzKy6Aq8_rziDekmPmGIKoX_Rx7isba4lLz51iQYFUW0AB1k7EusqlzaNAEmmzyMx1MJxzG6B9qpZRGZ4C0vLk4ckvbi99fF9XNDOO9KTky4zagEviBPQKyg6ql3szrex2EaqFIhSYzgFg7VDLW2vQ"
+}
+```
+
 ### Delete key
 
 <ApiOperation method="delete" url="/api/v1/idps/credentials/keys/${kid}" />
@@ -3504,6 +3574,7 @@ There are no response parameters.
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/credentials/keys/74bb2164-e0c8-4457-862b-7c29ba6cd2c9"
@@ -3544,6 +3615,7 @@ Returns the generated [IdP Key Credential](#identity-provider-key-credential-obj
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys/generate?validityYears=2"
@@ -3603,6 +3675,7 @@ Array of the [IdP Key Credential](#identity-provider-key-credential-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys"
 ```
@@ -3659,6 +3732,7 @@ Gets a specific [IdP Key Credential](#identity-provider-key-credential-object) b
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys/akm5hvbbevE341ovl0h7"
 ```
@@ -3706,6 +3780,7 @@ Returns the cloned [IdP Key Credential](#identity-provider-key-credential-object
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys/SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4/clone?targetIdpId=0oal21k0DVN7DhS3R0g3"
@@ -3770,6 +3845,7 @@ Generate a new key pair and return the CSR in PKCS#10 format:
 curl -v -X POST \
 -H "Accept: application/pkcs10" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "subject": {
@@ -3792,6 +3868,7 @@ Generate a new key pair and return the CSR in JSON:
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "subject": {
@@ -3814,7 +3891,7 @@ Return the CSR in DER format:
 
 ```http
 HTTP/1.1 201 Created
-Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
+Location: https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
 Content-Type: application/pkcs10; filename=okta.p10
 Content-Transfer-Encoding: base64
 
@@ -3831,7 +3908,7 @@ Return a [CSR object](#identity-provider-csr-object):
   "kty": "RSA",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
       "hints": {
         "allow": [
           "GET",
@@ -3840,7 +3917,7 @@ Return a [CSR object](#identity-provider-csr-object):
       }
     },
     "publish": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
       "hints": {
         "allow": [
           "POST"
@@ -3881,6 +3958,7 @@ Publish with X.509 certificate in base64-encoded ``DER``:
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/pkix-cert" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -H "Content-Transfer-Encoding: base64" \
 -d "MIIFgjCCA2qgAwIBAgICEAcwDQYJKoZIhvcNAQELBQAwXjELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAkNBMRYwFAYDVQQHDA1TYW4gRnJhbmNpc2NvMQ0wCwYDVQQKDARPa3RhMQwwCgYDVQQLDANFbmcxDTALBgNVBAMMBFJvb3QwHhcNMTcwMzI3MjEyMDQ3WhcNMTgwNDA2MjEyMDQ3WjB4MQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzETMBEGA1UECgwKT2t0YSwgSW5jLjEQMA4GA1UECwwHSmFua3lDbzEVMBMGA1UEAwwMSWRQIElzc3VlciA3MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmkC6yAJVvFwUlmM9gKjb2d+YK5qHFt+mXSsbjWKKs4EfNm+BoQeeovBZtSACyaqLc8IYFTPEURFcbDQ9DkAL04uUIRD2gaHYY7uK0jsluEaXGq2RAIsmzAwNTzkiDw4q9pDL/q7n0f/SDt1TsMaMQayB6bU5jWsmqcWJ8MCRJ1aJMjZ16un5UVx51IIeCbe4QRDxEXGAvYNczsBoZxspDt28esSpq5W0dBFxcyGVudyl54Er3FzAguhgfMVjH+bUec9j2Tl40qDTktrYgYfxz9pfjm01Hl4WYP1YQxeETpSL7cQ5Ihz4jGDtHUEOcZ4GfJrPzrGpUrak8Qp5xcwCqQIDAQABo4IBLjCCASowCQYDVR0TBAIwADARBglghkgBhvhCAQEEBAMCBkAwMwYJYIZIAYb4QgENBCYWJE9wZW5TU0wgR2VuZXJhdGVkIFNlcnZlciBDZXJ0aWZpY2F0ZTAdBgNVHQ4EFgQUVqJukDmyENw/2pTApbxc/HRKbngwgZAGA1UdIwSBiDCBhYAUFx245ZZXqWTTbARfMlFWN77L9EahYqRgMF4xCzAJBgNVBAYTAlVTMQswCQYDVQQIDAJDQTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEMMAoGA1UECwwDRW5nMQ0wCwYDVQQDDARSb290ggkAlIfpwZjO5o8wDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA0GCSqGSIb3DQEBCwUAA4ICAQCcoBSRtY+9cJY00hLvq6AloYZcdn/kUQupfmyz4n3lKE3wV2FB0swKnK0QDi8iNuQJFdag/19vDHC4/LhoSuv1Q+KXM61pPZVRXXPyC1+e7Y6hj93tEI5HcqLPcDRH1AIG2l8tE7LBn+MQB5Vh6oxjG2IdoWxg6abMfISU+MauPWql4vMDUWo9iNShAo44Z5fd+nuz+hlAinU9Xn9Jf2QsfKvcbMRq7iuqgkabgdmObmWb9KK0Vm7TDkxCH0pB0onPr6epVUP8Obg/pT1Oj/1hOLbfR8CHHWdAWzUBGGvp2TIy2A8LUaEoFnwkxZfdL7Bnd0RH/ClBtAjzLOxmUo7NbZmEnYCcD5pZz7BdZI0db/eBXFqfOlA88rEe+9Sv+NndIq0/WNIIsJi2RgjJnxsxvB5MjhhzmItpFIUl5yqoO3C9jcCp6HDBJxtCGbvAr5ALPn5RCJeBIr67WpAiTd7L3Ebu9SQZlXnoHX8kP04EA6ylR3W0EFbh7KUtq8M2H2vo0wjMj7ysl/3tT7cEZ97s1ygO5iJx3GfMDyrDhtLXSBJ20uSxTJeptRw8SDiwTqunIh1WyKlcQz1WGauSbW4eXdj/r9KYMJ3qMMkdP/9THQUtTcOYx51r8RV9pdzqF2HPnZZNziBa+wXJZHEWp70NyoakNthgYwtypqiDHs2f3Q==" \
@@ -3893,6 +3971,7 @@ Publish with X.509 certificate in ``PEM`` format:
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/x-pem-file" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 --data-binary @certificate.pem \
 "https://${yourOktaDomain}/api/v1/idps/0oa1ysid1U3iyFqLu0g4/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish"
@@ -3904,6 +3983,7 @@ Publish with X.509 certificate in binary ``CER`` format:
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/x-x509-ca-cert" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 --data-binary @certificate.cer \
 -d '{
@@ -3969,6 +4049,7 @@ Empty response
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg"
@@ -4002,6 +4083,7 @@ Array of [CSR objects](#identity-provider-csr-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs"
 ```
@@ -4017,7 +4099,7 @@ curl -v -X GET \
     "kty": "RSA",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
         "hints": {
           "allow": [
             "GET",
@@ -4026,7 +4108,7 @@ curl -v -X GET \
         }
       },
       "publish": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
         "hints": {
           "allow": [
             "POST"
@@ -4042,7 +4124,7 @@ curl -v -X GET \
     "kty": "RSA",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg",
         "hints": {
           "allow": [
             "GET",
@@ -4051,7 +4133,7 @@ curl -v -X GET \
         }
       },
       "publish": {
-        "href": "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg/lifecycle/publish",
+        "href": "https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg/lifecycle/publish",
         "hints": {
           "allow": [
             "POST"
@@ -4086,6 +4168,7 @@ Returns base64-encoded CSR in DER format if the ``Accept`` media type is ``appli
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50"
 ```
@@ -4100,7 +4183,7 @@ curl -v -X GET \
   "kty": "RSA",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
       "hints": {
         "allow": [
           "GET",
@@ -4109,7 +4192,7 @@ curl -v -X GET \
       }
     },
     "publish": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
       "hints": {
         "allow": [
           "POST"
@@ -4133,7 +4216,10 @@ Finds all the Users linked to an Identity Provider
 | Parameter | Description             | Param Type | DataType | Required |
 | --------- | ----------------------- | ---------- | -------- | -------- |
 | idpId     | `id` of IdP to search   | URL        | String   | TRUE     |
-
+| q     | `query` or search term for user   | URL or body        | String   | FALSE     |
+| after     | Cursor of the query   | URL or body        | String   | FALSE     |
+| limit     | Max number of users to show   | URL or body        | String   | FALSE     |
+| expand     | Expand user data   | URL or body        | String   | FALSE     |
 ##### Response parameters
 
 List of Users that are linked to the specified Identity Provider
@@ -4144,6 +4230,7 @@ List of Users that are linked to the specified Identity Provider
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oa4lb6lbtmH355Hx0h7/users"
 ```
@@ -4167,7 +4254,7 @@ curl -v -X GET \
       },
       "_links": {
         "self": {
-          "href": "https://${yourOktaDomain}/api/v1/idps/0oa4lb6lbtmH355Hx0h7/users/00u5cl9lo7nMjHjPr0h7",
+          "href": "https://{yourOktaDomain}/api/v1/idps/0oa4lb6lbtmH355Hx0h7/users/00u5cl9lo7nMjHjPr0h7",
           "hints": {
               "allow": [
                   "GET",
@@ -4176,10 +4263,10 @@ curl -v -X GET \
           }
         },
         "idp": {
-            "href": "https://${yourOktaDomain}/api/v1/idps/0oa4lb6lbtmH355Hx0h7"
+            "href": "https://{yourOktaDomain}/api/v1/idps/0oa4lb6lbtmH355Hx0h7"
         },
         "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00u5cl9lo7nMjHjPr0h7"
+            "href": "https://{yourOktaDomain}/api/v1/users/00u5cl9lo7nMjHjPr0h7"
         }
      }
   }
@@ -4208,6 +4295,7 @@ Return the associated [Identity Providers](#identity-provider-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/idps"
 ```
@@ -4276,9 +4364,9 @@ curl -v -X GET \
   },
   "_links": {
     "authorize": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
-          client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&
-          scope=${scopes}&redirect_uri=${redirectUri}&state=${state}",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa62b57p7c8PaGpU0h7&
+          client_id={clientId}&response_type={responseType}&response_mode={responseMode}&
+          scope={scopes}&redirect_uri={redirectUri}&state={state}",
       "templated": true,
       "hints": {
         "allow": [
@@ -4287,7 +4375,7 @@ curl -v -X GET \
       }
     },
     "clientRedirectUri": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "https://{yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -4295,7 +4383,7 @@ curl -v -X GET \
       }
     },
     "idpUser": {
-        "href": "https://${yourOktaDomain}/idps/0oa62b57p7c8PaGpU0h7/users/00ub0oNGTSWTBKOLGLNR",
+        "href": "https://{yourOktaDomain}/idps/0oa62b57p7c8PaGpU0h7/users/00ub0oNGTSWTBKOLGLNR",
         "hints": {
           "allow": [
             "GET",
@@ -4342,6 +4430,7 @@ Return the associated [Identity Providers](#identity-provider-object)
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oa62bfdiumsUndnZ0h7/users/00u5t60iloOHN9pBi0h7"
 ```
@@ -4366,10 +4455,10 @@ curl -v -X GET \
     },
     "_links": {
         "idp": {
-            "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bfdiumsUndnZ0h7"
+            "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bfdiumsUndnZ0h7"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/idps/0oa62bfdiumsUndnZ0h7/users/00u5t60iloOHN9pBi0h7",
+            "href": "https://{yourOktaDomain}/api/v1/idps/0oa62bfdiumsUndnZ0h7/users/00u5t60iloOHN9pBi0h7",
             "hints": {
                 "allow": [
                     "GET",
@@ -4378,7 +4467,7 @@ curl -v -X GET \
             }
         },
         "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7"
+            "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7"
         }
     }
 }
@@ -4422,6 +4511,7 @@ Return the associated [Identity Providers](#identity-provider-object)
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "externalId": "121749775026145"
@@ -4438,7 +4528,7 @@ curl -v -X POST \
   "lastUpdated": "2017-03-30T02:19:51.000Z",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa62b57p7c8PaGpU0h7/users/00ub0oNGTSWTBKOLGLNR",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa62b57p7c8PaGpU0h7/users/00ub0oNGTSWTBKOLGLNR",
       "hints": {
         "allow": [
           "GET",
@@ -4447,10 +4537,10 @@ curl -v -X POST \
       }
     },
     "idp": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa62b57p7c8PaGpU0h7"
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa62b57p7c8PaGpU0h7"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -4490,6 +4580,7 @@ Removes the link between the Okta User and the IdP User. The next time the User 
 curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
 }' "https://${yourOktaDomain}/api/v1/idps/0oa4lb6lbtmH355Hx0h7/users/00u5cl9lo7nMjHjPr0h7"
@@ -4524,6 +4615,7 @@ Return a list of the associated [social authentication tokens](#identity-provide
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "User-Agent: Mozilla/5.0 (${systemInformation}) ${platform} (${platformDetails}) ${extensions}" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/idps/0oa62b57p7c8PaGpU0h7/users/00ub0oNGTSWTBKOLGLNR/credentials/tokens"
 ```
@@ -4626,7 +4718,7 @@ curl -v -X GET \
   },
   "_links": {
     "metadata": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/metadata.xml",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/metadata.xml",
       "type": "application/xml",
       "hints": {
         "allow": [
@@ -4635,7 +4727,7 @@ curl -v -X GET \
       }
     },
     "acs": {
-      "href": "https://${yourOktaDomain}/sso/saml2/0oa1k5d68qR2954hb0g4",
+      "href": "https://{yourOktaDomain}/sso/saml2/0oa1k5d68qR2954hb0g4",
       "type": "application/xml",
       "hints": {
         "allow": [
@@ -4644,7 +4736,7 @@ curl -v -X GET \
       }
     },
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/users",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/users",
       "hints": {
         "allow": [
           "GET"
@@ -4652,7 +4744,7 @@ curl -v -X GET \
       }
     },
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -4660,7 +4752,7 @@ curl -v -X GET \
       }
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -4675,61 +4767,72 @@ curl -v -X GET \
 
 All Identity Providers have the following properties:
 
-| Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
-| ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
-| _embedded   | Embedded resources related to the IdP                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
-| _links      | [Discoverable resources](#links-object) related to the IdP | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
-| created     | Timestamp when the IdP was created                             | Date                                                           | FALSE | FALSE | TRUE  |   |     |
-| id            | Unique key for the IdP                                       | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
-| issuerMode <ApiLifecycle access="ea" />  | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL` or `CUSTOM_URL` | FALSE | FALSE | FALSE |   |
-| lastUpdated | Timestamp when the IdP was last updated                        | Date                                                           | FALSE | FALSE | TRUE  |   |     |
-| name        | Unique name for the IdP                                    | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
-| policy      | Policy settings for IdP `type`                             | [Policy object](#policy-object)                       | FALSE | FALSE | FALSE |   |     |
-| protocol    | Protocol settings for IdP `type`                           | [Protocol object](#protocol-object)                     | FALSE | FALSE | FALSE |   |     |
-| status      | Status of the IdP                                          | `ACTIVE` or `INACTIVE`                                         | FALSE | FALSE | TRUE  |   |     |
-| type          | Type of IdP                                                  | [Identity Provider Type](#identity-provider-type)              | FALSE    | FALSE  | FALSE    |           |           |
+| Property     | Description                                                  | DataType                                                                  | Nullable | Unique | Readonly | MinLength | MaxLength |
+|--------------| ------------------------------------------------------------ |---------------------------------------------------------------------------| -------- | ------ | -------- | --------- | --------- |
+| _embedded    | Embedded resources related to the IdP                      | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
+| _links       | [Discoverable resources](#links-object) related to the IdP | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
+| created      | Timestamp when the IdP was created                             | Date                                                                      | FALSE | FALSE | TRUE  |   |     |
+| id           | Unique key for the IdP                                       | String                                                                    | FALSE    | TRUE   | TRUE     |           |           |
+| issuerMode   | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL`, `CUSTOM_URL`, or `DYNAMIC`                                     | FALSE | FALSE | FALSE |   |
+| lastUpdated  | Timestamp when the IdP was last updated                        | Date                                                                      | FALSE | FALSE | TRUE  |   |     |
+| name         | Unique name for the IdP                                    | String                                                                    | FALSE | TRUE  | FALSE | 1 | 100 |
+| policy       | Policy settings for IdP `type`                             | [Policy object](#policy-object)                                           | FALSE | FALSE | FALSE |   |     |
+| protocol     | Protocol settings for IdP `type`                           | [Protocol object](#protocol-object)                                       | FALSE | FALSE | FALSE |   |     |
+| status       | Status of the IdP                                          | `ACTIVE` or `INACTIVE`                                                    | FALSE | FALSE | TRUE  |   |     |
+| type         | Type of IdP                                                  | [Identity Provider Type](#identity-provider-type)                         | FALSE    | FALSE  | FALSE    |           |           |
 
 #### Property details
 
 * The `id`, `created`, `lastUpdated`, and `_links` properties are available after an IdP is created.
 
-* `issuerMode` is visible if you have the Custom URL Domain feature enabled. If the feature is enabled, you can set a custom domain URL and this property is returned in the appropriate responses. To enable the Custom URL Domain feature, contact [Support](https://support.okta.com/help/open_case).
+* `issuerMode` indicates which URL Okta uses in the request to the social IdP. You can set `issuerMode` to `CUSTOM_URL` only if you have a custom URL domain configured.
 
-    * If set to `ORG_URL`, then in the authorize request to the social IdP, Okta uses the Okta org's original domain URL (`https://${yourOktaDomain}`) as the domain in the `redirect_uri`. This is the default value for social IdPs created before the Custom URL Domain feature is enabled.
+    * If set to `ORG_URL`, then in the authorize request to the social IdP, Okta uses the Okta org's original domain URL (`https://${yourOktaDomain}`) as the domain in the `redirect_uri`.
 
-    * If set to `CUSTOM_URL`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri`. This is the default value for social IdPs created after the Custom URL Domain feature is enabled.
+    * If set to `CUSTOM_URL`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri`.
 
-  After you enable the Custom URL Domain feature, all new social IdPs use the `CUSTOM_URL` by default. All existing social IdPs continue to use the `ORG_URL` so that existing integrations with the social IdP continue to work after the feature is enabled. You can change this value in any social IdP through the API or Admin Console.
+    * If set to `DYNAMIC`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri` if the request was made from the custom domain URL. Otherwise, Okta uses the Okta org's original domain URL if the request was made from the Okta org domain.
+
+  All new social IdPs use the `DYNAMIC` issuerMode by default. All existing social IdPs continue to use the `issuerMode` they were configured with (`ORG_URL` or `CUSTOM_URL`). You can change this value in any social IdP through the API or Admin Console.
+
+* The [Protocol object](#protocol-object) (`protocol`) and [Policy object](#policy-object) (`policy`) are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
 
 ### Identity Provider type
 
-Okta supports the following enterprise and social providers:
+The Identity Provider object's `type` property identifies the social or enterprise Identity Provider used for authentication. Each Identity Provider uses a specific protocol, therefore the `protocol` property must correspond with the IdP `type`. If the protocol is OAuth 2.0-based, the Protocol object's `scopes` property must also correspond with the scopes supported by the IdP `type`. For policy actions supported by each IdP type, see [IdP type policy actions](#idp-type-policy-actions).
 
-| Type         | Description                                                                                                                                           |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `APPLE`      | [Apple Sign In](https://developer.apple.com/documentation/sign_in_with_apple)                                                                       |
-| `FACEBOOK`   | [Facebook Sign In](https://developers.facebook.com/docs/facebook-login/overview/)                                                                       |
-| `GOOGLE`     | [Google Sign In with OpenID Connect](https://developers.google.com/identity/protocols/OpenIDConnect)                                                  |
-| `LINKEDIN`   | [Sign In with LinkedIn](https://developer.linkedin.com/docs/signin-with-linkedin)                                                                     |
-| `MICROSOFT`  | [Microsoft Enterprise SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on)                                |
-| `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)                                                    |
-| `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) |
-| `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280)                                |
+Okta supports the following enterprise and social Identity Provider types:
+
+| Type         | Description  | Corresponding protocol | Corresponding protocol scopes |
+| ------------ | ------------ | ---------------------- | ----------------------------- |
+| `AMAZON`      | [Amazon](https://developer.amazon.com/settings/console/registration?return_to=/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `profile`, `profile:user_id`|
+| `APPLE`      | [Apple](https://developer.apple.com/sign-in-with-apple/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `names`, `email`, `openid` |
+| `DISCORD`     | [Discord](https://discord.com/login)&nbsp;as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `identify`, `email` |
+| `FACEBOOK`   | [Facebook](https://developers.facebook.com)&nbsp;as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `public_profile`, `email` |
+| `GITHUB`     | [GitHub](https://github.com/join)&nbsp;as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `user` |
+| `GITLAB`     | [GitLab](https://gitlab.com/users/sign_in)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `read_user`, `profile`, `email` |
+| `GOOGLE`     | [Google](https://accounts.google.com/signup)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
+| `LINKEDIN`   | [LinkedIn](https://developer.linkedin.com/)&nbsp;as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `r_emailaddress`, `r_liteprofile` |
+| `MICROSOFT`  | [Microsoft Enterprise SSO](https://azure.microsoft.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile`, `https://graph.microsoft.com/User.Read` |
+| `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
+| `PAYPAL`     | [Paypal](https://www.paypal.com/signin)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
+| `PAYPAL_SANDBOX`     | [Paypal Sandbox](https://developer.paypal.com/tools/sandbox/)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
+| `SALESFORCE`     | [SalesForce](https://login.salesforce.com/)&nbsp;as the Identity Provider| [OAuth 2.0](#oauth-2-0-protocol) | `id`, `email`, `profile` |
+| `SAML2`      | Enterprise IdP provider that supports the [SAML 2.0 Web Browser SSO Profile](https://docs.oasis-open.org/security/saml/v2.0/saml-profiles-2.0-os.pdf) | [SAML 2.0](#saml-2-0-protocol)  | |
+| `SPOTIFY`      | [Spotify](https://developer.spotify.com/dashboard/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `user-read-email`, `user-read-private` |
+| `X509`       | [Smart Card IdP](https://tools.ietf.org/html/rfc5280) | [Mutual TLS](#mtls-protocol) | |
+| `XERO`      | [Xero](https://www.xero.com/us/signup/api/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `YAHOO`      | [Yahoo](https://login.yahoo.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+| `YAHOOJP`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 
 ### Protocol object
 
-The Protocol object contains IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages.
+The Protocol object contains IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages. The following are the supported Protocol objects:
 
-| Provider     | Protocol                                   |
-| ------------ | -----------------------------------------  |
-| `APPLE`      | [OpenID Connect](#openid-connect-protocol) |
-| `FACEBOOK`   | [OAuth 2.0](#oauth-2-0-protocol)            |
-| `GOOGLE`     | [OpenID Connect](#openid-connect-protocol) |
-| `LINKEDIN`   | [OAuth 2.0](#oauth-2-0-protocol)            |
-| `MICROSOFT`  | [OpenID Connect](#openid-connect-protocol) |
-| `OIDC`       | [OpenID Connect](#openid-connect-protocol) |
-| `SAML2`      | [SAML 2.0](#saml-2-0-protocol)              |
-| `MTLS`  | [Mutual TLS](#mtls-protocol) |
+* [SAML 2.0](#saml-2-0-protocol)
+* [OAuth 2.0](#oauth-2-0-protocol)
+* [OpenID Connect](#openid-connect-protocol)
+* [Mutual TLS](#mtls-protocol)
 
 #### SAML 2.0 Protocol
 
@@ -4867,7 +4970,7 @@ The ACS endpoint is Okta's `SPSSODescriptor` endpoint where the IdP sends a SAML
 ```xml
 <md:EntityDescriptor entityID="https://sp.example.com/saml2/sso" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
   <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://${yourOktaDomain}/sso/saml2/0oamxfD9Jvaxvr0M00g3" index="0" isDefault="true"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://{yourOktaDomain}/sso/saml2/0oamxfD9Jvaxvr0M00g3" index="0" isDefault="true"/>
   </md:SPSSODescriptor>
 </md:EntityDescriptor>
 ```
@@ -4879,7 +4982,7 @@ The ACS endpoint is Okta's `SPSSODescriptor` endpoint where the IdP sends a SAML
 ```xml
 <md:EntityDescriptor entityID="https://sp.example.com/saml2/sso" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
   <md:SPSSODescriptor AuthnRequestsSigned="true" WantAssertionsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://${yourOktaDomain}/sso/saml2" index="0" isDefault="true"/>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://{yourOktaDomain}/sso/saml2" index="0" isDefault="true"/>
   </md:SPSSODescriptor>
 </md:EntityDescriptor>
 ```
@@ -5096,7 +5199,7 @@ Protocol settings for authentication using the [OAuth 2.0 Authorization Code flo
 | scopes      | IdP-defined permission bundles to request delegated access from the User                                                            | Array of String                                                              | FALSE    | FALSE    | 1         |
 | type        | [OAuth 2.0 Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-4.1)                                            | `OAUTH2`                                                                     | FALSE    | TRUE     |           |
 
-> **Note:** The [OAuth 2.0 Setup Guide](#setup-guides) lists the scopes that are supported [per-IdP provider](#identity-provider-type).
+> **Note:** The [Identity Provider type](#identity-provider-type) table lists the scopes that are supported for each Identity Provider.
 
 ```json
 {
@@ -5132,13 +5235,13 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 
 | Property    | Description                                                      | DataType                                          | Nullable | Readonly | MinLength |
 | ----------- | ---------------------------------------------------------------- | ------------------------------------------------- | -------- | -------- | --------- |
-|algorithms   | Settings for signing authorization requests                      | [OIDC Algorithms object](#oidc-algorithms-object) <ApiLifecycle access="ea" /> | TRUE    | FALSE    |
+|algorithms   | Settings for signing authorization requests                      | [OIDC Algorithms object](#oidc-algorithms-object)| TRUE    | FALSE    |
 |credentials  | Client authentication credentials for an [OAuth 2.0 Authorization Server](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-credentials-object) | FALSE | FALSE |   |
 | endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
 | scopes      | OpenID Connect and IdP-defined permission bundles to request delegated access from the User                                         | Array of String                                                              | FALSE | FALSE | 1 |
 | type        | [OpenID Connect Authorization Code flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)                     | `OIDC`                                                                       | FALSE | TRUE  |   |
 
-> **Note:** The [IdP setup guides](#setup-guides) list the scopes that are supported [per-IdP provider](#identity-provider-type). The base `openid` scope is always required.
+> **Note:** The [Identity Provider type](#identity-provider-type) table lists the scopes that are supported for each Identity Provider. The base `openid` scope is always required.
 
 ```json
 {
@@ -5186,8 +5289,6 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 ```
 ##### OIDC Algorithms object
 
-<ApiLifecycle access="ea" />
-
 The `OIDC` protocol supports the `request` algorithm and verification settings.
 
 | Property | Description                                                   | DataType                                                                 | Nullable | Readonly |
@@ -5211,8 +5312,6 @@ The `OIDC` protocol supports the `request` algorithm and verification settings.
 ```
 
 ###### OIDC Request Algorithm object
-
-<ApiLifecycle access="ea" />
 
 Algorithm settings for signing authorization requests sent to the IdP:
 
@@ -5238,13 +5337,11 @@ Algorithm settings for signing authorization requests sent to the IdP:
 
 ###### OIDC request Signature Algorithm object
 
-<ApiLifecycle access="ea" />
-
-HMAC Signature Algorithm settings for signing authorization requests sent to the IdP:
+Signature Algorithm settings for signing authorization requests sent to the IdP:
 
 | Property    | Description                                                                        | DataType             | Nullable | Readonly |
 | ----------- | ---------------------------------------------------------------------------------- | -------------------- | -------- | -------- |
-| algorithm   | The HMAC Signature Algorithm used when signing an authorization request  | `HS256`, `HS384` or `HS512` | FALSE    | FALSE    |
+| algorithm   | The Signature Algorithm used when signing an authorization request  | `HS256`, `HS384`, or `HS512`. The following algorithms are <ApiLifecycle access="ea" /> (Self-Service): `RS256`, `RS384`, or `RS512`. To use these algorithms, enable **Private Key JWT Client Authentication for OIDC IdP** for your org from the **Settings** > **Features** page in the Admin Console. | FALSE    | FALSE    |
 | scope       | Specifies whether to digitally sign an authorization request to the IdP | `REQUEST` or `NONE`  | FALSE    | FALSE    |
 
 > **Note:** The `algorithm` property is ignored when you disable request signatures (`scope` set as `NONE`).
@@ -5321,6 +5418,7 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
 | ------------- | ----------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | --------- | --------- |
 | client_id     | [Unique identifier](https://tools.ietf.org/html/rfc6749#section-2.2) issued by the AS for the Okta IdP instance | String   | FALSE    | FALSE    | 1         | 1024      |
 | client_secret | [Client secret issued](https://tools.ietf.org/html/rfc6749#section-2.3.1) by the AS for the Okta IdP instance   | String   | TRUE (Only Nullable for Apple IdP)     | FALSE    | 1         | 1024      |
+| token_endpoint_auth_method | Client authentication methods supported by the token endpoint. Methods supported: `private_key_jwt`  | String   | TRUE     | FALSE    | 1         | 1024      |
 
 > **Note:** You must complete client registration with the IdP Authorization Server for your Okta IdP instance to obtain client credentials.
 
@@ -5330,8 +5428,8 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
     "type": "OAUTH2",
     "credentials": {
       "client": {
-        "client_id": "your-client-id",
-        "client_secret": "your-client-secret"
+        "client_id": "{{clientId}}",
+        "client_secret": "{{clientSecret}}"
       }
     }
   }
@@ -5344,13 +5442,58 @@ Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](h
     "type": "OIDC",
     "credentials": {
       "client": {
-        "client_id": "your-client-id",
-        "client_secret": "your-client-secret"
+        "client_id": "{{clientId}}",
+        "client_secret": "{{clientSecret}}"
       }
     }
   }
 }
 ```
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "credentials": {
+      "client": {
+        "client_id": "{{clientId}}",
+        "token_endpoint_auth_method": "private_key_jwt"
+      }
+    }
+  }
+}
+```
+
+###### OpenID Connect Signing Credentials object
+
+Determines the [IdP Key Credential](#identity-provider-key-credential-object) used to sign requests sent to the IdP. This object is used when `token_endpoint_auth_method` is `private_key_jwt`.
+
+| Property | Description                                                                                                    | DataType | Nullable | Readonly  | Validation                                 |
+| -------- | -------------------------------------------------------------------------------------------------------------  | -------- | -------- | --------  | ------------------------------------------ |
+| kid      | [IdP Key Credential](#identity-provider-key-credential-object) reference to Okta's X.509 signature certificate. | String   | TRUE    | FALSE     | Valid Signing Key ID reference             |
+| alg      |The algorithm used when generating the JWT from the private key for token endpoint authentication.  | `RS256`, `RS384`, `RS512`   | FALSE    | FALSE     | Valid date type             |
+
+> **Note:** The `kid` parameter is required for an UPDATE request. For a CREATE request, it can be `null`.
+
+
+```json
+{
+  "protocol": {
+    "type": "OIDC",
+    "credentials": {
+      "client": {
+        "client_id": "{{clientId}}",
+        "token_endpoint_auth_method": "private_key_jwt"
+      },
+      "signing":{
+        "kid": "{{keyId}}",
+        "alg": "RS256"
+      }
+    }
+  }
+}
+```
+
 
 ##### Apple Client Signing object
 
@@ -5362,7 +5505,7 @@ The information is used to generate the secret JSON Web Token for the token requ
 | kid           | The Key ID that you obtained from Apple when you created the private key for the client                     | String   | FALSE    | FALSE    | 1         | 1024      |
 | teamId        | The Team ID associated with your Apple developer account                                                    | String   | FALSE    | FALSE    | 1         | 1024      |
 
-> **Note:** privateKey is required for a CREATE request. For an UPDATE request, it can be null and keeps the existing value if it is null. privateKey isn't returned for LIST and GET requests or UDPATE requests if it is null.
+> **Note:** The `privateKey` property is required for a CREATE request. For an UPDATE request, it can be null and keeps the existing value if it's null. The `privateKey` property isn't returned for LIST and GET requests or UPDATE requests if it's null.
 
 ```json
 {
@@ -5378,6 +5521,7 @@ The information is used to generate the secret JSON Web Token for the token requ
   }
 }
 ```
+
 > **Note:** The key is truncated for brevity.
 
 
@@ -5396,7 +5540,7 @@ Protocol settings for the [MTLS Protocol](https://tools.ietf.org/html/rfc5246#se
   "type": "MTLS",
   "endpoints": {
     "sso": {
-      "url": "https://${yourOktaDomain}.okta.com/login/cert"
+      "url": "https://{yourOktaDomain}.okta.com/login/cert"
     }
   },
   "credentials": {
@@ -5433,7 +5577,7 @@ Property Details
     "type": "MTLS",
     "endpoints": {
       "sso": {
-        "url": "https://${yourOktaDomain}.okta.com/login/cert"
+        "url": "https://{yourOktaDomain}.okta.com/login/cert"
       }
     }
   }
@@ -5521,15 +5665,15 @@ Certificate chain description for verifying assertions from the Smart Card.
 
 #### IdP type policy actions
 
-| Type         | User Provisioning Actions     | Group Provisioning Actions            | Account Link Actions          | Account Link Filters  |
+| IdP Type         | User Provisioning Actions     | Group Provisioning Actions            | Account Link Actions          | Account Link Filters  |
 | ------------ | ----------------------------- | ------------------------------------- | ----------------------------- | --------------------  |
-| `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
-| `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
-| `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`, `DISABLED`            | `groups`              |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |                               |                       |
+| [[all social IdP types *]](#social-idp-type-policy-actions)   | `AUTO`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `DISABLED` | `groups`              |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action.
+##### Social IdP type policy actions *
+
+All social IdP types (any IdP type that is not `SAML2` or `X509`) support the same User Provisioning Actions, Group Provisioning Actions, Account Link Actions, and Account Link Filters.
 
 #### Provisioning Policy object
 
@@ -5574,13 +5718,14 @@ The follow provisioning actions are supported by each IdP provider:
 
 | Type         | User Provisioning Actions     | Group Provisioning Actions            |
 | ------------ | ----------------------------- | ------------------------------------- |
-| `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
-| `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
-| `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    |
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |
+| [[all social IdP types *]](#social-idp-type-provisioning-policy-actions)     | `AUTO`, `DISABLED` | `NONE` or `ASSIGN`                    |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action.
+##### Social IdP type provisioning policy actions
+
+All social IdP types (any IdP type that is not `SAML2` or `X509`) support the same User and Group Provisioning Actions.
+
 
 ##### User provisioning action type
 
@@ -5604,7 +5749,7 @@ Specifies the User provisioning action during authentication when an IdP User is
 | ------------------  | ---------------------------------------------------                                                         | ------------------------------------                              | -------- | -------- | --------- | --------- |
 | action              | Provisioning action for the IdP User's Group memberships                                                        | [Group Provisioning Action Type](#group-provisioning-action-type) | FALSE    | FALSE    |           |           |
 | assignments         | List of `OKTA_GROUP` Group identifiers to add an IdP User as a member with the `ASSIGN` action              | Array of String (`OKTA_GROUP` IDs)                                | TRUE     | FALSE    |           |           |
-| filter              | Whitelist of `OKTA_GROUP` Group identifiers that are allowed for the `APPEND` or `SYNC` provisioning action | Array of String (`OKTA_GROUP` IDs)                                | TRUE     | FALSE    |           |           |
+| filter              | Allowlist of `OKTA_GROUP` Group identifiers for the `APPEND` or `SYNC` provisioning action | Array of String (`OKTA_GROUP` IDs)                                | TRUE     | FALSE    |           |           |
 | sourceAttributeName | IdP User profile attribute name (case-insensitive) for an array value that contains Group memberships       | String                                                            | TRUE     | FALSE    | 0         | 1024      |
 
 ```json
@@ -5640,9 +5785,9 @@ The Group provisioning action for an IdP User:
 | `APPEND`    | Adds a User to any Group defined by the IdP as a value of the `sourceAttributeName` array that matches the name of the allow listed Group defined in the `filter` | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `ASSIGN`    | Assigns a User to Groups defined in the `assignments` array                                                                                                          | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `NONE`      | Skips processing of Group memberships                                                                                                                              | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
-| `SYNC`      | Group memberships are mastered by the IdP as a value of the `sourceAttributeName` array that matches the name of the allow listed Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
+| `SYNC`      | Group memberships are sourced by the IdP as a value of the `sourceAttributeName` array that matches the name of the Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
 
-> **Note:** Group provisioning action is processed independently from profile mastering. You can sync Group memberships through SAML with profile mastering disabled.
+> **Note:** Group provisioning action is processed independently from profile sourcing. You can sync Group memberships through SAML with profile sourcing disabled.
 
 ###### Group provisioning action examples
 
@@ -5755,7 +5900,7 @@ Specifies the behavior for linking an IdP User to an existing Okta User.
 | --------                                     | ----------------------------------------------------- | --------------------------------------------------------- | -------- | -------- |
 | action                                       | Specifies the account linking action for an IdP User  | [Account Link Action Type](#account-link-action-type)     | FALSE    | FALSE    |
 | callout <ApiLifecycle access="deprecated" /> | Webhook settings for the `CALLOUT` action             | [Callout object](#callout-object)                         | TRUE     | FALSE    |
-| filter                                       | Whitelist for link candidates                         | [Account Link Filter object](#account-link-filter-object) | TRUE     | FALSE    |
+| filter                                       | Allowlist for link candidates                         | [Account Link Filter object](#account-link-filter-object) | TRUE     | FALSE    |
 
 ```json
 {
@@ -5778,13 +5923,13 @@ The following Account Link actions are supported by each IdP provider:
 
 | Type         | Account Link Actions          | Account Link Filters |
 | ------------ | ----------------------------- | -------------------- |
-| `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
-| `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
-| `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `groups`             |
 | `OIDC`       | `AUTO`                        |                      |
 | `SAML2`      | `AUTO`                        |                      |
+| [[all social IdP types *]](#social-idp-type-account-link-policy-actions) | `AUTO`, `DISABLED` | `groups`             |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> account link action.
+##### Social IdP type Account Link policy actions *
+
+All social IdP types (any IdP type that is not `SAML2` or `X509`) support the same Account Link Actions and Filters.
 
 ##### Account Link action type
 
@@ -5877,7 +6022,7 @@ The `matchAttribute` must be a valid Okta User profile attribute of one of the f
 
 For example, the filter pattern `(\S+@example\.com)` allows only Users that have an `@example.com` username suffix and rejects assertions that have any other suffix such as `@corp.example.com` or `@partner.com`.
 
-* Only `SAML2` IdP providers support the `filter` property.
+* Only `SAML2` and `OIDC` IdP providers support the `filter` property.
 
 ```json
 {
@@ -6106,13 +6251,13 @@ The Identity Provider Transaction object represents an account link or just-in-t
   },
   "_links": {
     "source": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/source"
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/source"
     },
     "target": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/target"
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/target"
     },
     "cancel": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/cancel",
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/cancel",
       "hints": {
         "allow": [
           "POST"
@@ -6120,7 +6265,7 @@ The Identity Provider Transaction object represents an account link or just-in-t
       }
     },
     "provision": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/lifecycle/provision",
+      "href": "https://{yourOktaDomain}/api/v1/idps/tx/satvklBYyJmwa6qOg0g3/lifecycle/provision",
       "hints": {
         "allow": [
           "POST"
@@ -6137,8 +6282,8 @@ All IdP Transactions have the following properties:
 
 | Property      | Description                                                                            | DataType                                                        | Nullable  | Unique   | Readonly |
 | ------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------- | --------  | ------   | -------- |
-| _embedded     | Embedded resources related to the Transaction                                          | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | TRUE      | FALSE    | TRUE     |
-| _links        | [Discoverable resources](#links-object) related to the Transaction                     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | TRUE      | FALSE    | TRUE     |
+| _embedded     | Embedded resources related to the Transaction                                          | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06)  | TRUE      | FALSE    | TRUE     |
+| _links        | [Discoverable resources](#links-object) related to the Transaction                     | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06)  | TRUE      | FALSE    | TRUE     |
 | context       | Optional authentication context for the Transaction                                        | [Context object](#identity-provider-transaction-context-object) | FALSE     | FALSE    | TRUE     |
 | created       | Timestamp when the Transaction was created                                                 | Date                                                            | FALSE     | FALSE    | TRUE     |
 | expiresAt     | Timestamp when the Transaction expires                                                     | Date                                                            | FALSE     | FALSE    | TRUE     |
@@ -6285,7 +6430,7 @@ The Identity Provider User object represents a linked User and their IdP User pr
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/users/00ulwodIu7wCfdiVR0g3",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4/users/00ulwodIu7wCfdiVR0g3",
       "hints": {
         "allow": [
           "GET",
@@ -6294,10 +6439,10 @@ The Identity Provider User object represents a linked User and their IdP User pr
       }
     },
     "idp": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4"
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oa1k5d68qR2954hb0g4"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ulwodIu7wCfdiVR0g3"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ulwodIu7wCfdiVR0g3"
     }
   }
 }
@@ -6309,8 +6454,8 @@ All linked IdP Users have the following properties:
 
 | Property         | Description                                               | DataType                                                                        | Nullable | Unique | Readonly | MaxLength |
 | ---------------- | --------------------------------------------------------- | ----------------------------------------------------------------                | -------- | ------ | -------- | --------- |
-| _embedded        | Embedded resources related to the IdP User                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                  | TRUE     | FALSE  | TRUE     |           |
-| _links           | Discoverable resources related to the IdP User            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                  | TRUE     | FALSE  | TRUE     |           |
+| _embedded        | Embedded resources related to the IdP User                | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06)                  | TRUE     | FALSE  | TRUE     |           |
+| _links           | Discoverable resources related to the IdP User            | [JSON HAL](https://datatracker.ietf.org/doc/html/draft-kelly-json-hal-06)                  | TRUE     | FALSE  | TRUE     |           |
 | created          | Timestamp when IdP User was created                       | Date                                                                            | FALSE    | FALSE  | TRUE     |           |
 | externalId       | Unique IdP-specific identifier for the User                   | String                                                                          | FALSE    | TRUE   | TRUE     | 512       |
 | id               | Unique key of the [User](/docs/reference/api/users/)           | String                                                                          | FALSE    | TRUE   | TRUE     |           |
@@ -6321,11 +6466,19 @@ All linked IdP Users have the following properties:
 
 Identity Provider User profiles are IdP-specific but may be customized by the Profile Editor in the Admin Console.
 
-![IdP Profile Editor UI](/img/okta-admin-ui-profile-editor-idp.png "IdP Profile Editor UI")
+<div class="three-quarter border">
+
+![IdP Profile Editor UI](/img/admin/okta-admin-ui-profile-editor-idp.png)
+
+</div>
 
 > **Note:** Okta variable names have reserved characters that may conflict with the name of an IdP assertion attribute. You can use the **External name** to define the attribute name as defined in an IdP assertion such as a SAML attribute name.
 
-![IdP Profile Editor Attribute Modal UI](/img/okta-admin-ui-profile-editor-attribute-idp.png "IdP Profile Editor Attribute Modal UI")
+<div class="three-quarter border">
+
+![IdP Profile Editor Attribute Modal UI](/img/admin/okta-admin-ui-profile-editor-attribute-idp.png)
+
+</div>
 
 #### Example Profile object
 
@@ -6373,7 +6526,7 @@ The CSR object for the IdP defines a CSR for a signature or decryption credentia
   "kty": "RSA",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
       "hints": {
         "allow": [
           "GET",
@@ -6382,7 +6535,7 @@ The CSR object for the IdP defines a CSR for a signature or decryption credentia
       }
     },
     "publish": {
-      "href": "https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+      "href": "https://{yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
       "hints": {
         "allow": [
           "POST"

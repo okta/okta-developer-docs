@@ -1,20 +1,32 @@
+> **Note:** These steps describe integrating the Okta email OTP flow into your app. To learn more about Okta email including how to integrate Okta email using magic links, see the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/).
+
 ### 1: Create a sign-up link for new users
 
-The self-registration flow begins when the user clicks the **Sign Up** link (or **Register** from the SDK sample application home page). On the sign-in page, create a **Sign Up** link that links to the create account page that you create in the next step, as shown in the following example.
+The self-registration flow begins when the user clicks the **Sign Up** link (or **Register** from the SDK sample application home page). On the sign-in page, create a **Sign Up** link that links to the create account page that you create in the next step, similar to the following wireframe.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a sign-up link that directs to a sign-up page. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![A sign-in form with fields for username and password, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
 
 </div>
 
 ### 2: Enter information in the create account page
 
-The next step is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information. The following example shows a create account page.
+The next step is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a Self-Service Registration page that includes fields for the first name, last name, and email address. Also displays a Register button that starts the self-registration flow. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-user-nodejs.png)
+![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1  sign-up-form-first-last-name-email
+ -->
 
 </div>
 
@@ -32,6 +44,7 @@ router.post('/register', async (req, res, next) => {
   handleTransaction({ req, res, next, authClient, transaction });
 });
 ```
+
 If the org's application is properly configured with multiple factors, `idx.register` returns a response with `Idx.Status:PENDING` and a `nextStep` field requiring an authenticator key that needs to be verified. If you completed the steps properly in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the authenticator is **password** (`Authenticator: AuthenticatorKey.OKTA_PASSWORD`). The next steps, as shown in the SDK sample application, are handled by `handleTransaction.js` for the subsequent flows.
 
 ```JavaScript
@@ -53,31 +66,46 @@ If the org's application is properly configured with multiple factors, `idx.regi
 
 ### 3: The user enters the password authenticator and the password
 
-Create a page that displays an authenticator enrollment selection. In this example, the password is configured.
+Create a page that displays an authenticator enrollment selection, in this case for password only.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a Select authenticator page that includes a selection for the password. Also displays a Select button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-pwd-auth-nodejs.png)
+![A choose your authenticator form with only a password authenticator option and a next button](/img/wireframes/choose-authenticator-form-password-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36946&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-password-only
+ -->
 
 </div>
 
-After the user enters the password authenticator value, and `idx.register` is called with this value, the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires the user to enter a password value. The user is directed to a page to set up a password value, as shown in the SDK sample application route to `/enroll-authenticator`.
+After the user enters the password authenticator value, and `idx.register` is called with this value, the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires the user to enter a password value. The user is directed to a page to set up a password value, similar to the following wireframe (see the SDK sample application route to `/enroll-authenticator`).
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a Set up password page that includes fields for password and re-enter password. Also displays a Next button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-set-up-pwd-nodejs.png)
+![A set password form with two fields to enter and to confirm a password and a submit button](/img/wireframes/set-password-form-new-password-fields.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36973&t=2h5Mmz3COBLhqVzv-1 set-password-form-new-password-fields
+ -->
 
 </div>
 
 ### 4: The user submits their password
 
-After the user submits a password, call `idx.register` and pass in this value for the user. The response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires inputs for additional authenticators. The user is directed to a page to select authenticators, as shown in the SDK sample application route to `/select-authenticator`.
+After the user submits a password, call `idx.register` and pass in this value for the user. The response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires inputs for additional authenticators. The user is directed to a page to select authenticators, as shown in the following wireframe (also see the SDK sample application route to `/select-authenticator`).
 
 See [`idx.register`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister) for more details on the self-registration flow.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a Select authenticator page that includes a selection for email. Also displays a Select button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-email-auth-nodejs.png)
+![A choose your authenticator form with email and phone authenticator options and a next button](/img/wireframes/choose-authenticator-form-email-phone.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37020&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-email-phone
+ -->
 
 </div>
 
@@ -85,11 +113,16 @@ See [`idx.register`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.m
 
 In this use case, the user selects the **Email** as the authenticator to verify. Pass this user-selected authenticator key (`Authenticator: AuthenticatorKey.OKTA_EMAIL)`) to `idx.register`.
 
- If the call is successful, the method returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires verification, which indicates that the SDK is ready for the email verification code. The next step is to redirect the user to the email verification code page, as shown in the SDK sample application route to `/enroll-authenticator`.
+ If the call is successful, the method returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires verification, which indicates that the SDK is ready for the email verification code. The next step is to redirect the user to the email verification code page, similar to the following wireframe (see also the SDK sample application route to `/enroll-authenticator`).
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an Enroll email authenticator page that includes the field for the email verification code. Also displays a Verify button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-email-verify-nodejs.png)
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
 </div>
 
@@ -99,13 +132,18 @@ The next step is to call `idx.register`, again passing in the verification code.
 
 Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the app in this use case is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional. In this step, the `nextStep` field can include `canSkip` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone authenticator.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a Select authenticator page that includes a selection for Phone authentication. Also displays a Select button that continues the flow and a Skip button that skips the phone authentication flow. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-phone-auth-and-skip-nodejs.png)
+![A choose your authenticator form with only a phone authenticator option, and next and skip buttons](/img/wireframes/choose-authenticator-form-phone-only-with-skip.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37043&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only-with-skip
+ -->
 
 </div>
 
-If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Option 1: Skip phone factor](#option-1-skip-phone-factor) for the skip authenticator flow. If the user decides to select the optional factor, see [Option 2: User selects phone authenticator](#option-2-user-selects-phone-authenticator) for the optional phone authenticator flow.
+If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Option 1: Skip phone factor](#option-1-the-user-skips-the-phone-authenticator) for the skip authenticator flow. If the user decides to select the optional factor, see [Option 2: User selects phone authenticator](#option-2-the-user-selects-the-phone-authenticator) for the optional phone authenticator flow.
 
 ### 7: Handle the phone options
 
@@ -128,11 +166,16 @@ If the request to skip the optional authenticator is successful, the SDK returns
 
 #### Option 2: The user selects the phone authenticator
 
-After the user selects the phone authenticator value, and `idx.register` is called with this authenticator key (`Authenticator: AuthenticatorKey.PHONE_NUMBER`), the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires phone registration data, which includes the phone number and verification method (SMS or voice). The user is directed to a page to enroll the phone data:
+After the user selects the phone authenticator value, and `idx.register` is called with this authenticator key (`Authenticator: AuthenticatorKey.PHONE_NUMBER`), the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires phone registration data, which includes the phone number and verification method (SMS or voice). The user is directed to a page to enroll the phone data.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an Enroll phone authenticator page screenshot that includes a selection for Phone verification method (SMS) and a field for the phone number. Also displays a Next button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-auth-nodejs.png)
+![A form with a field for a phone number, formatting advice and a next button](/img/wireframes/enter-phone-number-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37078&t=2h5Mmz3COBLhqVzv-1 enter-phone-number-form
+ -->
 
 </div>
 
@@ -144,9 +187,14 @@ The user can select SMS or voice verification to receive the phone verification 
 
 The SDK sends the phone authenticator data to Okta, processes the request, and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `Idx.Status:PENDING` and the `nextStep` field requiring verification. This status indicates that the user needs to provide the verification code for the phone authenticator:
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an Enroll phone authenticator page screenshot that includes a field to enter the phone (SMS) verification code. Also displays a Verify button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-verify-nodejs.png)
+![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37154&t=vr9MuCR8C4rCt3hC-1 enter-verification-code-form-with-sms-message
+ -->
 
 </div>
 

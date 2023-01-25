@@ -1,0 +1,41 @@
+.token.function,
+.token.class-name {
+  color: cv("code", "define");
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.url,
+.token.inserted,
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: cv("code", "success");
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: cv("text");
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: cv("code", "property");
+}
+
+.api-uri-template {
+  border-color: cv("body");
+  background-color: cv("body", "obscure");
+}
+
+.api-uri-put strong {
+  color: cv("link");
+}

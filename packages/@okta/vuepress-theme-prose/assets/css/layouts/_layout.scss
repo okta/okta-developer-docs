@@ -1,23 +1,35 @@
-html, body, #app {
+html,
+body,
+#app {
   height: 100%;
 }
+
 body {
-  font-family: $font-family;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1.5;
-  font-feature-settings: "lnum", "pnum";
+  display: none;
+
   background-color: cv("body");
-  color: cv('text', 'darker');
+
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  font-family: $font-family;
+  line-height: 1.5;
+  color: cv("text", "darker");
+  font-feature-settings: "lnum", "pnum";
+}
+
+body.loaded {
+  display: block;
 }
 
 .flex {
   display: flex;
 }
+
 .flex-row {
   flex-direction: row;
 }
+
 .wrap {
   background-color: cv("header");
 }
@@ -27,10 +39,12 @@ body {
 }
 
 .container {
-  max-width: $container-width;
   margin: 0 auto;
+  max-width: $container-width;
+}
 
-  @include media(">=desktop-xx-large") {
+@include media(">=desktop-xx-large") {
+  .container {
     max-width: $container-width-desktop-large;
   }
 }
@@ -40,10 +54,10 @@ body {
 }
 
 [class$="--container"] {
-  margin: 0 auto;
-  padding: 0em 1.5em;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 1.5em;
 }
 
 .layout {
@@ -54,38 +68,52 @@ body {
 
 .fixed-header {
   position: fixed;
-  width: 100%;
   z-index: 100;
+
+  width: 100%;
+
   background-color: cv("header");
 }
 
 .page-body {
-  padding-top: 87px;
-  background-color: white;
   flex: 1 0 auto;
+  padding-top: 142px;
 
-  @include media("<desktop-xl") {
-    padding-top: 70px;
+  background-color: #ffffff;
+}
+
+@include media("<desktop-xl") {
+  .page-body {
+    padding-top: 125px;
   }
-  @include media("<tablet") {
-    padding-top: 60px;
+}
+
+@include media("<tablet") {
+  .page-body {
+    padding-top: 115px;
   }
 }
 
 a[target="_blank"]:not([href^="mailto:"])::after {
   display: none;
+
   background-image: none;
 }
+
 a > img + span > svg.icon.outbound {
   display: none;
 }
-ol:not([class]), ul:not([class]) {
-  max-width: 100%;
+
+ol:not([class]),
+ul:not([class]) {
   margin-left: 5px;
+  max-width: 100%;
 }
+
 p {
   max-width: 100%;
 }
+
 strong {
-	font-weight: 500;
+  font-weight: 500;
 }

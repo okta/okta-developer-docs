@@ -48,17 +48,22 @@ You need to build a generic sign-in view page with the social sign-in options av
 </div>
 ```
 
-The previous code snippet is rendered as the **Login with Facebook** button, similar to the following image:
+The previous code snippet is rendered as a **Sign in with Facebook** button, as shown in the following wireframe.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the Login with Facebook button in a sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link-java.png)
+![A sign-in form with fields for username and password, a next button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36701&t=wzNwSZkdctajVush-1 sign-in-form-username-password-facebook-google
+ -->
 
 </div>
 
 ### 2: The user signs in with Facebook
 
-When the user selects the **Login with Facebook** option, they are directed to the Facebook sign-in page.
+When the user selects the **Sign in with Facebook** option, they are directed to the Facebook sign-in page.
 
 After the user signs in to Facebook successfully, Facebook routes the user to the location specified in **Valid OAuth Redirect URIs** from the Facebook developer site.
 

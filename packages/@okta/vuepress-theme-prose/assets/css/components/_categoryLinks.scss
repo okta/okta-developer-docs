@@ -1,28 +1,26 @@
-.category--links {
+.category--links li {
+  margin-bottom: 1rem;
+}
 
-  @include media("<desktop") {
+.category--links li a {
+  font-size: 1.1em;
+}
+
+.category--links li span.description {
+  color: cv("gray", "700");
+}
+
+.category--links.list--multicolumn {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category--links.list--multicolumn li {
+  flex: 0 1 50%;
+}
+
+@include media("<desktop") {
+  .category--links {
     margin: 20px 0;
-  }
-
-  li {
-    margin-bottom: 1rem;
-    
-    a {
-      font-size: 1.1em;
-    }
-
-    span.description {
-      color: cv('gray', '700');
-    }
-
-  }
-
-  &.list--multicolumn {
-    display: flex;
-    flex-wrap: wrap;
-
-    li {
-      flex: 0 1 50%;
-    }
   }
 }

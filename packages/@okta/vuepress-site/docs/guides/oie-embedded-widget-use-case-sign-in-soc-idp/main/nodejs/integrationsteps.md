@@ -11,7 +11,7 @@ This page is hosted by Facebook. The user information you enter originates
 from  a test user you configured in [Set up the Facebook test user](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_2-set-up-the-facebook-test-user). There are no code changes
 you need to make in your app to support to this step.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays the Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 

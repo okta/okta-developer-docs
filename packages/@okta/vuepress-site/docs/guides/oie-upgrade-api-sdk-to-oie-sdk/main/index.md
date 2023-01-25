@@ -1,12 +1,12 @@
 ---
-title: Upgrade your application to the Okta Identity Engine SDK
+title: Upgrade your application to the Identity Engine SDK
 ---
 
 <ApiLifecycle access="ie" />
 
 After your project is updated to the latest Okta Identity Engine SDK, and you have an enabled Identity Engine org, you can begin the incremental process of upgrading your application to use the Identity Engine SDK methods.
 
-Review the following sections to understand the concepts behind the Identity Engine SDK, and the differences between the Okta Classic Engine Authentication SDK and APIs and the Identity Engine approach to authentication. The mappings of Classic Engine Authentication SDK method calls, as well as back-end APIs, to the Identity Engine SDK methods are provided for some sample use cases.
+Review the following sections to understand the concepts behind the Identity Engine SDK, and the differences between the Okta Classic Engine Authentication SDK and APIs and the Identity Engine approach to authentication. The mappings of Classic Engine Authentication SDK method calls, as well as backend APIs, to the Identity Engine SDK methods are provided for some sample use cases.
 
 ---
 
@@ -15,14 +15,14 @@ Review the following sections to understand the concepts behind the Identity Eng
 * Understand why you should upgrade your application to use the Identity Engine SDK
 * Learn the differences between the Classic Engine Authentication SDK and the Identity Engine SDK
 * Identify the mappings between Classic Engine Authentication SDK methods and the Identity Engine SDK for your language
-* Identify the mappings between Classic Authentication APIs and the Identity Engine SDK for your language
+* Identify the mappings between Classic Engine Authentication APIs and the Identity Engine SDK for your language
 
 **What you need**
 
 * An Identity Engine enabled Okta org
-* The Interaction code grant enabled
+* The Interaction Code grant enabled
 * The latest Classic Engine Authentication SDK installed
-* An application that uses the Classic Engine Authentication SDK or back-end APIs
+* An application that uses the Classic Engine Authentication SDK or backend APIs
 
 **Sample code**
 
@@ -30,26 +30,26 @@ Review the following sections to understand the concepts behind the Identity Eng
 
 ---
 
-## Why upgrade your application to the Okta Identity Engine SDK
+## Why upgrade your application to the Identity Engine SDK
 
 <StackSelector snippet="upgrade" noSelector />
 
-## Okta Classic Engine Authn APIs and SDK vs Okta Identity Engine SDK
+## Okta Classic Engine Authn APIs and SDK vs Identity Engine SDK
 
 <StackSelector snippet="auth-vs-oie" noSelector />
 
-## Map basic sign-in code to the Okta Identity Engine SDK
+## Map basic sign-in code to the Identity Engine SDK
 
-The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK, which can perform authentication using the Identity Engine’s new features and workflows.
+The following sections highlight the Classic Engine Authentication SDK method calls and backend Authentication APIs that require migration to the Identity Engine SDK, which can perform authentication using Identity Engine’s new features and workflows.
 
 <StackSelector snippet="auth" noSelector />
 
-### Map Authn APIs to Okta Identity Engine SDK
+### Map Authn APIs to the Identity Engine SDK
 
 If your application uses direct APIs for an authentication flow, your application code may call the following Okta APIs:
 
 * `/api/v1/authn` to begin the primary authentication, which validates the password credentials and evaluates org policies
-* If successful, call the `/api/v1/sessions` API with a sessionToken returned from the first call to create a new session
+* If successful, call the `/api/v1/sessions` API with a `sessionToken` returned from the first call to create a new session
 
 See the following sample calls and responses for this basic authentication flow:
 
@@ -167,13 +167,13 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/sessions' \
 }
 ```
 
-If your application code implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to the Identity Engine, and a successful response returns with access and ID tokens.
+If your application code implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow](#okta-identity-engine-sdk-authentication-flow).
+<StackSelector snippet="oie-auth-flow-link1" noSelector />
 
-## Map MFA code to the Okta Identity Engine SDK
+## Map MFA code to the Identity Engine SDK
 
-The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK, which can perform multifactor authentication using the Identity Engine’s new features and workflows.
+The following sections highlight the Classic Engine Authentication SDK method calls and backend Authentication APIs that require migration to the Identity Engine SDK, which can perform multifactor authentication using Identity Engine’s new features and workflows.
 
 <StackSelector snippet="mfaauth" noSelector />
 
@@ -181,11 +181,11 @@ The following sections highlight the Classic Engine Authentication SDK method ca
 
 If your application uses direct APIs for a multifactor authentication flow, your application code may call the following Okta APIs:
 
-- `/api/v1/authn` to begin the MFA authentication, with the password credentials, which sets the transaction state to MFA_REQUIRED
+- `/api/v1/authn` to begin the MFA authentication, with the password credentials, which sets the transaction state to `MFA_REQUIRED`
 - `/api/authn/factors/${emailFactorId}/verify` to send the user an email with a sign-in code
 - `/api/authn/factors/${$emailFactorId}/verify` again with the sign-in code from the email challenge
 
->**Note:** If you call the direct `/api/v1/policies` API to manage or update MFA enrollment policies, you need to update these calls to use the Identity Engine policies. See [Authentication policy](/docs/reference/api/policy/#authentication-policy) and [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy).
+>**Note:** If you call the direct `/api/v1/policies` API to manage or update MFA enrollment policies, you need to update these calls to use Identity Engine policies. See [Authentication policy](/docs/reference/api/policy/#authentication-policy) and [Profile enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy).
 
 See the following sample calls and responses for the MFA authentication flow using the email factor:
 
@@ -421,21 +421,21 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/factors/e
 }
 ```
 
-If your application code implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to the Identity Engine, and a successful response returns with access and ID tokens.
+If your application code implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow for MFA](#okta-identity-engine-sdk-authentication-flow-for-mfa).
+<StackSelector snippet="oie-auth-flow-link2" noSelector />
 
-## Map password recovery code to the Okta Identity Engine SDK
+## Map password recovery code to the Identity Engine SDK
 
-The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK, which can perform a password reset using the Identity Engine’s new features and workflows.
+The following sections highlight the Classic Engine Authentication SDK method calls and backend Authentication APIs that require migration to the Identity Engine SDK, which can perform a password reset using Identity Engine’s new features and workflows.
 
 <StackSelector snippet="pswrvy" noSelector />
 
-### Map password recovery APIs to Okta Identity Engine
+### Map password recovery APIs to Identity Engine
 
 If your application uses direct APIs for a password recovery flow, your application code may call the following APIs:
 
-- `/api/v1/authn/recovery/password` to initiate the password recovery process and set the transaction state to RECOVERY_CHALLENGE
+- `/api/v1/authn/recovery/password` to initiate the password recovery process and set the transaction state to `RECOVERY_CHALLENGE`
 - `/api/v1/authn/recovery/token` to challenge the factor code
 - `/api/v1/authn/credentials/reset_password` to reset the password if the challenge is successful
 
@@ -660,10 +660,10 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/credentia
 }
 ```
 
-If your application code implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the password recovery flow using recursive calls to the Identity Engine, and a successful response returns with access and ID tokens.
+If your application code implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the password recovery flow using recursive calls to Identity Engine, and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow for password recovery](#okta-identity-engine-sdk-authentication-flow-for-password-recovery).
+<StackSelector snippet="oie-auth-flow-link3" noSelector />
 
-## Map basic sign-out code to the Okta Identity Engine SDK
+## Map basic sign-out code to the Identity Engine SDK
 
 <StackSelector snippet="signout" noSelector />

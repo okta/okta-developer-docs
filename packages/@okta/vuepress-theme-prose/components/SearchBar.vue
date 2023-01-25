@@ -1,11 +1,17 @@
 <template>
   <div class="search--wrapper">
-    <div class="SearchBox" data-search-bar data-pipeline="developer-okta-com">
+    <div
+      class="SearchBox"
+      data-search-bar
+      data-pipeline="developer-okta-com"
+    >
       <div class="search--form">
-        <div class="CoveoOmnibox"></div>
-        <div class="CoveoSearchButton">Search</div>
+        <div class="CoveoOmnibox" />
+        <div class="CoveoSearchButton">
+          Search
+        </div>
       </div>
-      <div class="CoveoAnalytics"></div>
+      <div class="CoveoAnalytics" />
     </div>
   </div>
 </template>

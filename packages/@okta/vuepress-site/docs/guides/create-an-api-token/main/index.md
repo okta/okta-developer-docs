@@ -47,13 +47,17 @@ To create an API token, follow these steps:
 
     See the section above on **Privilege level**, regarding the use of a service account when creating an API token, to specifically control the privilege level associated with the token.
 
-2. Access the API page: In the Admin Console, select **API** from the **Security** menu and then select the **Tokens** tab.
+2. In the Admin Console, select **Security** > **API** from the menu and then select the **Tokens** tab.
 
 3. Click **Create Token**.
 
 4. Name your token and click **Create Token**.
 
 5. Record the token value. This is the only opportunity to see it and record it.
+
+## Token rate limits
+
+When API tokens are created, the rate limit for each token interaction is set automatically to 50 percent of each API maximum limit. See [API rate limits](/docs/reference/rate-limits/). You can adjust this percentage by editing the **Token rate limits** section. See [Set token rate limits](https://help.okta.com/okta_help.htm?id=ext_API#set-token-rate-limits).
 
 ## Token expiration and deactivation
 
@@ -74,4 +78,5 @@ With the token created, you can begin using it, supplying it in the `Authorizati
 ## See also
 
 * See [Use Postman with the Okta REST APIs](/code/rest/) for a guide to trying out Okta APIs using Postman, as an easy way to explore.
+* See [System Log Transaction Object](/docs/reference/api/system-log/#transaction-object) for information on viewing the API token ID in the Okta System Log.
 * For information on the general principles the Okta API follows, see [Design Principles](/docs/reference/core-okta-api/#design-principles).

@@ -47,7 +47,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
 | `include_service_users`   |  string | (Optional) Include Service Users in the results |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `starts_with`   |  string | (Optional) Includes ASA Users with name that begins with the value |
 | `status`   |  string | (Optional) Includes ASA Users with specified statuses. Valid statuses: `ACTIVE`, `DISABLED`, and `DELETED`. |
@@ -287,7 +287,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | `contains`   |  string | (Optional) If a value is provided, the results are filtered to only contain ASA Groups whose name contains that value. |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 

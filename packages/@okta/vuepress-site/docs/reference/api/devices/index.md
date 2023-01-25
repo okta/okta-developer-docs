@@ -28,7 +28,7 @@ See [Device Registration](https://help.okta.com/okta_help.htm?type=oie&id=csh-de
 
 ## Get started
 
-Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-2b8b4196-4613-4950-9ea8-5026ab76baf5)
+Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/8eeb8dd1bb6e2aa56535?action=collection%2Fimport)
 
 ## Device operations
 
@@ -86,7 +86,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/devices/${deviceId}"
 ```
 
-##### Bearer token Request
+##### Bearer token request
 
 ```bash
 curl -v -X GET \
@@ -96,7 +96,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/devices/${deviceId}"
 ```
 
-##### Bearer token Request
+##### Bearer token request
 
 ```bash
 curl -v -X GET \
@@ -131,7 +131,7 @@ curl -v -X GET \
     "resourceId": "guo1j774nHEZFHsL10w5",
     "_links": {
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -139,7 +139,7 @@ curl -v -X GET \
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -148,8 +148,8 @@ curl -v -X GET \
                 ]
             }
         },
-        "devices": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/devices",
+        "users": {
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
             "hints": {
                 "allow": [
                     "GET"
@@ -191,7 +191,7 @@ Searches for devices based on the properties specified in the `search` parameter
 This operation:
 
 * Supports pagination (to a maximum of 200 results).
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=profile.displayName eq "Bob"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`. Examples use cURL-style escaping instead of URL encoding to make them easier to read.
+* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=profile.displayName eq "Bob"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`.
 
 Searches include all Device profile properties, as well as the Device `id`, `status` and `lastUpdated` properties.
 
@@ -244,7 +244,8 @@ curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/devices"
 ```
-##### Bearer token Request
+
+##### Bearer token request
 
 ```bash
 curl -v -X GET \
@@ -259,8 +260,8 @@ curl -v -X GET \
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/devices?limit=200>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=200>; rel="next"
+Link: <https://{yourOktaDomain}/api/v1/devices?limit=200>; rel="self"
+Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=200>; rel="next"
 
 [
  {
@@ -285,7 +286,7 @@ Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit
     "resourceId": "guo4a5u7YAHhjXrMK0g4",
     "_links": {
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -293,7 +294,7 @@ Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -303,7 +304,7 @@ Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit
             }
         },
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/users",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/users",
             "hints": {
                 "allow": [
                     "GET"
@@ -334,7 +335,7 @@ Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit
     "resourceId": "guo4a5u7YAHhjXrMN0g4",
     "_links": {
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -342,7 +343,7 @@ Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -352,7 +353,7 @@ Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit
             }
         },
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4/users",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4/users",
             "hints": {
                 "allow": [
                     "GET"
@@ -375,17 +376,17 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
+"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+%22Eng-dev%22+and+status+eq+%22ACTIVE%22"
 ```
 
-##### Bearer token Request
+##### Bearer token request
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer ${oauth_token}" \
-"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
+"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+%22Eng-dev%22+and+status+eq+%22ACTIVE%22"
 ```
 
 ##### Response
@@ -414,7 +415,7 @@ curl -v -X GET \
       "resourceId": "guo4a5u7JHHhjXrMK0g4",
       "_links": {
           "activate": {
-              "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
+              "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
               "hints": {
                   "allow": [
                       "POST"
@@ -422,7 +423,7 @@ curl -v -X GET \
               }
           },
           "self": {
-              "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
+              "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
               "hints": {
                   "allow": [
                       "GET",
@@ -432,7 +433,7 @@ curl -v -X GET \
               }
           },
           "users": {
-              "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
+              "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
               "hints": {
                   "allow": [
                       "GET"
@@ -458,7 +459,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/devices?expand=user"
 ```
 
-##### Bearer token Request
+##### Bearer token request
 
 ```bash
 curl -v -X GET \
@@ -494,7 +495,7 @@ curl -v -X GET \
       "resourceId": "guo4a5u7JHHhjXrMK0g4",
       "_links":{
          "activate":{
-            "href":"https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
+            "href":"https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
             "hints":{
                "allow":[
                   "POST"
@@ -502,7 +503,7 @@ curl -v -X GET \
             }
          },
          "self":{
-            "href":"https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
+            "href":"https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
             "hints":{
                "allow":[
                   "GET",
@@ -512,7 +513,7 @@ curl -v -X GET \
             }
          },
          "users":{
-            "href":"https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
+            "href":"https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
             "hints":{
                "allow":[
                   "GET"
@@ -547,7 +548,7 @@ curl -v -X GET \
                   },
                   "credentials":{
                      "password":{
-                        
+
                      },
                      "recovery_question":{
                         "question":"What is the food you least liked as a child?"
@@ -559,40 +560,40 @@ curl -v -X GET \
                   },
                   "_links":{
                      "suspend":{
-                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/lifecycle/suspend",
+                        "href":"https://{yourOktaDomain}/api/v1/users/${userId}/lifecycle/suspend",
                         "method":"POST"
                      },
                      "schema":{
-                        "href":"https://${yourOktaDomain}/api/v1/meta/schemas/user/osc7ut9Uu76oHVUZc0w4"
+                        "href":"https://{yourOktaDomain}/api/v1/meta/schemas/user/osc7ut9Uu76oHVUZc0w4"
                      },
                      "resetPassword":{
-                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/lifecycle/reset_password",
+                        "href":"https://{yourOktaDomain}/api/v1/users/${userId}/lifecycle/reset_password",
                         "method":"POST"
                      },
                      "forgotPassword":{
-                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/credentials/forgot_password",
+                        "href":"https://{yourOktaDomain}/api/v1/users/${userId}/credentials/forgot_password",
                         "method":"POST"
                      },
                      "expirePassword":{
-                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/lifecycle/expire_password",
+                        "href":"https://{yourOktaDomain}/api/v1/users/${userId}/lifecycle/expire_password",
                         "method":"POST"
                      },
                      "changeRecoveryQuestion":{
-                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/credentials/change_recovery_question",
+                        "href":"https://{yourOktaDomain}/api/v1/users/${userId}/credentials/change_recovery_question",
                         "method":"POST"
                      },
                      "self":{
-                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}"
+                        "href":"https://{yourOktaDomain}/api/v1/users/${userId}"
                      },
                      "type":{
-                        "href":"https://${yourOktaDomain}/api/v1/meta/types/user/oty7ut9Uu76oHVUZc0w4"
+                        "href":"https://{yourOktaDomain}/api/v1/meta/types/user/oty7ut9Uu76oHVUZc0w4"
                      },
                      "changePassword":{
-                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/credentials/change_password",
+                        "href":"https://{yourOktaDomain}/api/v1/users/${userId}/credentials/change_password",
                         "method":"POST"
                      },
                      "deactivate":{
-                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/lifecycle/deactivate",
+                        "href":"https://{yourOktaDomain}/api/v1/users/${userId}/lifecycle/deactivate",
                         "method":"POST"
                      }
                   }
@@ -612,7 +613,7 @@ Permanently deletes a Device that is in `DEACTIVATED` status. The Device can be 
 
 This deletion is destructive and deletes all the profile data related to the device. Once deleted, device data can't be recovered. A Device that is not in a `DEACTIVATED` state raises an error if Delete operation is attempted.
 
-#### Permitted OAuth 2.0 scopes 
+#### Permitted OAuth 2.0 scopes
 `okta.devices.manage`
 
 #### Request path parameters
@@ -644,7 +645,8 @@ curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" "https://${yourOktaDomain}/api/v1/devices/${deviceId}"
 ```
 
-##### Bearer token Request
+##### Bearer token request
+
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${oauth_token}" "https://${yourOktaDomain}/api/v1/devices/${deviceId}"
@@ -710,7 +712,8 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/activate"
 ```
-##### Bearer token Request
+
+##### Bearer token request
 
 ```bash
 curl -v -X POST \
@@ -777,7 +780,8 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/deactivate"
 ```
-##### Bearer token Request
+
+##### Bearer token request
 
 ```bash
 curl -v -X POST \
@@ -797,7 +801,7 @@ Content-Type: application/json
 #### Error responses
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
-* Passing an `id` that is not in the `ACTIVE` or `SUSPENEDED` status returns a `400 Bad Request` status code with error code `E0000001`.
+* Passing an `id` that is not in the `ACTIVE` or `SUSPENDED` status returns a `400 Bad Request` status code with the error code `E0000001`.
 
 ### Suspend Device
 
@@ -846,7 +850,8 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/suspend"
 ```
 
-##### Bearer token Request
+##### Bearer token request
+
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -899,7 +904,7 @@ None
 
 #### Usage example
 
-##### API token Request
+##### API token request
 
 ```bash
 curl -v -X POST \
@@ -909,7 +914,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/unsuspend"
 ```
 
-##### Bearer token Request
+##### Bearer token request
 
 ```bash
 curl -v -X POST \
@@ -977,7 +982,7 @@ The device model defines several read-only properties:
    "resourceAlternateId":null,
    "_links":{
       "suspend":{
-         "href":"https://${yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/lifecycle/suspend",
+         "href":"https://{yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/lifecycle/suspend",
          "hints":{
             "allow":[
                "POST"
@@ -985,7 +990,7 @@ The device model defines several read-only properties:
          }
       },
       "self":{
-         "href":"https://${yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4",
+         "href":"https://{yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4",
          "hints":{
             "allow":[
                "GET",
@@ -995,7 +1000,7 @@ The device model defines several read-only properties:
          }
       },
       "users":{
-         "href":"https://${yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/users",
+         "href":"https://{yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/users",
          "hints":{
             "allow":[
                "GET"
@@ -1003,7 +1008,7 @@ The device model defines several read-only properties:
          }
       },
       "deactivate":{
-         "href":"https://${yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/lifecycle/deactivate",
+         "href":"https://{yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/lifecycle/deactivate",
          "hints":{
             "allow":[
                "POST"
@@ -1019,7 +1024,12 @@ The device model defines several read-only properties:
 > More details on [Device Lifecycle](https://help.okta.com/okta_help.htm?type=oie&id=ext-devices-lifecycle)
 
 The following diagram shows the state object for a Device:
-![Device lifecycle flow](/img/okta-device-status.png "Device lifecycle flow")
+
+<div class="three-quarter">
+
+![Device lifecycle flow](/img/devices-api/okta-device-status.png)
+
+</div>
 
 > **Note:**
 > 1. Okta Verify enrollment results in a device being created in device inventory. The newly-created device has an `ACTIVE` status.
@@ -1087,7 +1097,7 @@ For example, a device with a `CREATED` status has the following `_links`:
 ```json
 "_links": {
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -1095,7 +1105,7 @@ For example, a device with a `CREATED` status has the following `_links`:
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -1105,7 +1115,7 @@ For example, a device with a `CREATED` status has the following `_links`:
             }
         },
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
+            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
             "hints": {
                 "allow": [
                     "GET"

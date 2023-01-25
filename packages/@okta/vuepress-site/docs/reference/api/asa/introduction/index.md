@@ -6,7 +6,7 @@ Most calls to the Advanced Server Access (ASA) API require an HTTP `Authorizatio
 header with a value of `Bearer ${AUTH_TOKEN}`.
 
 To retrieve an auth token, you need to [create a Service User and API
-key](https://help.okta.com/okta_help.htm?id=ext_asa_service_users),
+key](https://help.okta.com/okta_help.htm?type=asa&id=ext_asa_service_users),
 then pass the API key information to the [Issue a Service User
 token](../service-users/#issue-a-service-user-token) endpoint.
 
@@ -61,6 +61,14 @@ when retrieving lists:
 3. Check for a Link header value with `rel="next"`. If such a value exists,
    fetch it and repeat steps two and three.
 
+An example of a paginated request that contains the URL from the `rel="next"` Link header:
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${jwt}" \
+https://app.scaleft.com/v1/teams/${team_name}/projects?offset=${next_page_offset}
+```
+
 Clients that want to fetch pages of less than 100 items (for testing
 pagination, for example) may pass a `count` parameter to the initial list call.
 This parameter is automatically propagated to each of the pagination Link URLs
@@ -109,15 +117,21 @@ Rate limits control access to Advanced Server Access APIs by measuring the rate 
 
 Every API response includes headers related to rate limiting:
 
-* `X-RateLimit-Limit` - Describes the total number of operations permitted per rate limit period.
-* `X-RateLimit-Remaining` - Describes the total number of remaining operations permitted during the current rate limit period.
-* `X-RateLimit-Reset` - Contains a unix timestamp indicating when the number of rate limit requests fully replenishes.
-* `X-RateLimit-Retry-At` - Sent after exceeding the rate limit and contains a unix timestamp indicating when the number of rate limit requests partially replenishes. If multiple requests share the same timestamp, sending them at the same time may cause additional rate limiting.
+* `X-RateLimit-Limit`: Describes the total number of operations permitted per rate limit period.
+* `X-RateLimit-Remaining`: Describes the total number of remaining operations permitted during the current rate limit period.
+* `X-RateLimit-Reset`: Contains a UNIX timestamp that indicates when the number of rate limit requests fully replenishes.
+* `X-RateLimit-Retry-At`: Sent after exceeding the rate limit and contains a UNIX timestamp that indicates when the number of rate limit requests partially replenishes. If multiple requests share the same timestamp, sending them at the same time may cause additional rate limiting.
 
 Requests that exceed a rate limit receive an `HTTP 429 - Too Many Requests`
 error response.
 
 To request a rate limit increase [contact support](https://support.okta.com/help/s/opencase).
+
+### Concurrency limits
+
+Concurrency limits control the number of simultaneous requests available to a user through the Advanced Server Access API. After reaching the concurrency limit, new requests are held and processed after an existing request completes. If an excessive number of requests are already being held for processing, any additional requests receive an `HTTP 429 - Too Many Requests` error response.
+
+To request a concurrency limit increase, [contact support](https://support.okta.com/help/s/opencase).
 
 ## Errors
 

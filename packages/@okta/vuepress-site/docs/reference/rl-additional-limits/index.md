@@ -44,7 +44,7 @@ The first request to exceed the concurrent limit returns an HTTP 429 error, and 
 
 > **Note:** Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem that requires investigation.
 
-> **Note:** For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
+> **Note:** For information on possible interaction between inline hooks and concurrent rate limits, see [Inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
 
 ### End-user rate limits
 
@@ -135,10 +135,12 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * Identity Engine App Intent <ApiLifecycle access="ie" />
 * `/oauth2/v1`
 * `/oauth2/v1/authorize`
+* `/oauth2/v1/token`
 * `/oauth2/${authorizationServerId}/v1`
 * `/oauth2/${authorizationServerId}/v1/authorize`
+* `/oauth2/${authorizationServerId}/v1/token`
 
-[Single User/Group/App operations (GET, UPDATE, and DELETE)](/docs/reference/rl-dynamic-scale/)
+[Single User/Group/App reads (GET only)](/docs/reference/rl-dynamic-scale/)
 
 * `/api/v1/apps/${id}`
 * `/api/v1/groups/${id}`

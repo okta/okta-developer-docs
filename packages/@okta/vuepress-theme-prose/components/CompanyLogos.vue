@@ -6,15 +6,18 @@
       'company-logos--small': small
     }"
   >
-    <h1 v-if="withHeading && !small">Trusted by developers</h1>
-    <h4 v-else-if="withHeading && small">Trusted by developers</h4>
+    <h1 v-if="withHeading && !small">
+      Trusted by developers
+    </h1>
+    <h4 v-else-if="withHeading && small">
+      Trusted by developers
+    </h4>
     <div class="company-logos--icons">
-      <img
-        class="company-logos--icon"
+      <span
         v-for="(logo, index) in $themeConfig.company_logos"
         :key="index"
-        :src="logo.icon"
-        :alt="logo.name"
+        class="company-logos--icon"
+        :style="{ 'background': 'url(' + logo.icon + ') 50% 50% no-repeat' }"
       />
     </div>
   </div>

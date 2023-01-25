@@ -7,7 +7,7 @@ interface into explicit authentication steps and automatically executes steps
 such as the code-to-token exchange. The following diagram illustrates this call flow
 from your applications's UI to the sample code, SDK, and API. The Integrating code component in the diagram represents the code that you need to write to call the sample code's interface.
 
-<div class="common-image-format">
+<div class="full">
 
  ![Displays the integration flow of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png)
 
@@ -82,7 +82,7 @@ self.authHandler.resetPassword(username: "user@example.com")
 
 The final integration step is to send the user to the default home page
 after successful sign-in. Optionally, you can obtain basic user information after a
-successful sign-in by making a request to Okta's Open ID Connect authorization server.
+successful sign-in by making a request to the Okta OpenID Connect authorization server.
 See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
 
 ## Sample code

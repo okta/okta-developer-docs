@@ -2,9 +2,14 @@
 
 The first step is to create a forgot password link on the sign-in page that redirects the user to a reset password page.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a sample forgot password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-forgot.png)
+![A sign-in form with fields for username and password, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
 
 </div>
 
@@ -12,9 +17,14 @@ The first step is to create a forgot password link on the sign-in page that redi
 
 Create a page that accepts the user's email address and contains a button to start the reset password flow.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a sample reset password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset.png)
+![A reset password form with an email address field and a next button](/img/wireframes/reset-password-form-email-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36756&t=wzNwSZkdctajVush-1  reset-password-form-email-only
+ -->
 
 </div>
 
@@ -46,9 +56,14 @@ After the `AwaitingAuthenticatorSelection` response status is returned, redirect
 
 Create a page to show the authenticators that are returned from the `RecoverPasswordAsync()` method. Provide the user with an option to select the authenticator for the verification process. For this use case, only the email authenticator is returned.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an example Select password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-choose-auth.png)
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
+ -->
 
 </div>
 
@@ -75,9 +90,14 @@ if (applyAuthenticatorResponse.AuthenticationStatus == AuthenticationStatus.Awai
 
 Redirect the user to a code verification page when your app receives the `AwaitingAuthenticatorVerification` status after it calls the `SelectRecoveryAuthenticatorAsync()` method.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an email code verification page.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-all-verify-email-code.png)
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
 </div>
 
@@ -106,9 +126,14 @@ If the `VerifyAuthenticatorAsync()` call is successful, then the `AwaitingPasswo
 
 Create a change password page that allows the user to enter their new password and initiate the password change.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an example change password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-change-pwd.png)
+![A reset password form with two fields to enter and to confirm a new password and a next button](/img/wireframes/reset-password-form-new-password-fields.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36886&t=2h5Mmz3COBLhqVzv-1  reset-password-form-new-password-fields
+ -->
 
 </div>
 

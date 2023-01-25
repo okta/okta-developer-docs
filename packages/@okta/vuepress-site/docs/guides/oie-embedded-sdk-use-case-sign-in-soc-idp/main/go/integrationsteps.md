@@ -17,11 +17,16 @@ if err != nil {
 
 ### 2: Capture the credentials with the sign-in page
 
-Build a sign-in page that captures both the user's name and password.
+Build a sign-in page that captures both the user's name and password, similar to the following wireframe.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
 </div>
 
@@ -73,11 +78,16 @@ Identity Provider.
 
 #### Example of the sign-in page with Identity Provider links
 
-The following sample application form shows the Facebook and Google IdP sign-in options.
+The following wireframe includes Facebook and Google IdP sign-in options.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays a sign-in page with the available Identity Providers](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-sign-in.png)
+![A sign-in form with fields for username and password, a next button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36701&t=wzNwSZkdctajVush-1 sign-in-form-username-password-facebook-google
+ -->
 
 </div>
 
@@ -90,9 +100,9 @@ When the user clicks the Facebook IdP link, initially they are sent to the Okta 
 
 After the user clicks the sign-in link, the browser redirects the user to a sign-in page hosted by Facebook. To test this step, you can use the Facebook test user credentials that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to perform this step.
 
-<div class="common-image-format">
+<div class="half border">
 
-![Displays an example Facebook sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-fb-sign-in.png)
+![Displays an example Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 
 </div>
 
@@ -150,5 +160,5 @@ func (s *Server) handleLoginCallback(w http.ResponseWriter, r *http.Request) {
 
 ### 8 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after the user successfully signs in by making a request to Okta's Open ID Connect Authorization Server.
+Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect Authorization Server.
 See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information) for more information.

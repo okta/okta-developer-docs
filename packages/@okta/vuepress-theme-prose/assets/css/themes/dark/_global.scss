@@ -1,0 +1,30 @@
+.sidebar-area,
+table {
+  scrollbar-width: thin;
+  scrollbar-color: dark;
+}
+
+.sidebar-area::-webkit-scrollbar,
+table::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-area::-webkit-scrollbar-track,
+table::-webkit-scrollbar-track {
+  background: cv("body", "obscure");
+}
+
+.sidebar-area::-webkit-scrollbar-thumb,
+table::-webkit-scrollbar-thumb {
+  border: 2px solid cv("body", "obscure");
+  border-radius: 6px;
+  background-color: cv("breadcrumb", "svg");
+}
+
+.page-body {
+  background-color: cv("body");
+}
+
+hr {
+  color: cv("text");
+}

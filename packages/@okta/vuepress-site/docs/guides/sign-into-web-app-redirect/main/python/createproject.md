@@ -3,11 +3,11 @@
 2. Create a project folder named `okta-flask-quickstart` with a subfolder called `venv`.
 3. Activate the corresponding environment using the following commands:
 
-```shell
-cd okta-flask-quickstart
-python3 -m venv venv
-. venv/bin/activate
-```
+   ```shell
+   cd okta-flask-quickstart
+   python3 -m venv venv
+   . venv/bin/activate
+   ```
 
 > **Note**: This guide uses requests v2.27.1, Flask v2.0.2, pyOpenSSL v.22.0.0, flask-cors v3.0.10, and Flask-Login v0.5.0.
 

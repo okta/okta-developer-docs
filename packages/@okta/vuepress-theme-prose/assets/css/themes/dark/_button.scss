@@ -1,0 +1,17 @@
+.Button--redOutline,
+.Button--redOutline:active,
+.Button--redOutline:hover,
+.Button--redOutline:visited,
+.Button--red,
+.Button--red:active,
+.Button--red:hover,
+.Button--red:visited,
+.Button--blueDarkOutline,
+.Button--blueDarkOutline:active,
+.Button--blueDarkOutline:hover,
+.Button--blueDarkOutline:visited {
+  border-color: cv("text");
+  background-color: cv("body", "obscure");
+
+  color: cv("text");
+}

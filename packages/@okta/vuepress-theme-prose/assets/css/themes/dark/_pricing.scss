@@ -1,0 +1,34 @@
+.pricing {
+  background-color: transparent;
+}
+
+.pricing .Button--redOutline {
+  color: cv("text");
+}
+
+.pricing .pricing--costs .pricing-card {
+  border-color: cv("body", "obscure");
+}
+
+.pricing .pricing-collapsible-item-title {
+  background-color: cv("body", "obscure") !important;
+}
+
+.pricing .pricing-collapsible-item-content {
+  border-color: cv("body", "obscure") !important;
+  background-color: cv("body") !important;
+}
+
+.pricing .selector-lozenge.multiple .lozenge {
+  border-color: cv("link", "faq");
+
+  color: cv("link", "faq");
+}
+
+.pricing .selector-lozenge.multiple .lozenge.active {
+  background-color: cv("body", "obscure");
+}
+
+.pricing .pricing--plans .pricing-card-row {
+  border-color: cv("link", "faq");
+}

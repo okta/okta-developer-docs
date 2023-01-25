@@ -1,7 +1,7 @@
 Spring Security documentation for how to protect routes:
 
 * [Spring MVC](https://docs.spring.io/spring-security/reference/servlet/authorization/authorize-http-requests.html)
-* [Spring WebFlux](https://docs.spring.io/spring-security/reference/5.6.2/reactive/authorization/authorize-http-requests.html)
+* [Spring WebFlux](https://docs.spring.io/spring-security/reference/reactive/authorization/authorize-http-requests.html)
 
 Okta Developer Blog:
 

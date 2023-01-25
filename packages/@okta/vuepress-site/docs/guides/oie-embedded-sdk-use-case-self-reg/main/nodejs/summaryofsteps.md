@@ -4,7 +4,7 @@ The following sequence diagrams show the sequence of steps for self-service regi
 
 The following diagram illustrates the beginning of the registration process where the user initiates the sign-in process and enters their password.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Displays the Self-service registration start of flow diagram.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-start.png)
 
@@ -14,7 +14,7 @@ The following diagram illustrates the beginning of the registration process wher
 
 The self-registration flow continues in this sequence.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Displays the Self-service registration enroll flow diagram.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-enroll-verify.png)
 
@@ -26,7 +26,7 @@ The user can also opt to skip the authenticators when all of the remaining
 authenticators are optional. In this case, the user opts to skip the phone
 (SMS) authenticator.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Displays the Self-service registration skip phone flow diagram.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-skip-phone.png)
 
@@ -41,7 +41,7 @@ enroll in the phone authenticator.
 
 The following flow describes the steps when the user enrolls in the optional phone SMS authenticator.
 
-<div class="common-image-format">
+<div class="three-quarter">
 
 ![Displays the self-service registration enroll flow diagram.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-phone.png)
 

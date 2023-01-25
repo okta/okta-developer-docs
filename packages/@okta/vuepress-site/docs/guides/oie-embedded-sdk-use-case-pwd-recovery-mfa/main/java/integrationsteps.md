@@ -2,17 +2,27 @@
 
 The password recovery flow begins when the user clicks the **Forgot your password?** link on your app's sign-in page.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the Sign-in form for Java SDK with a 'Forgot your password?' link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-forgot-java.png)
+![A sign-in form with fields for username and password and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
 
 </div>
 
-You need to create a form to capture the user's email for password recovery, such as the following reset my password form:
+You need to create a form to capture the user's email for password recovery, similar to the following wireframe.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the reset password form for Java SDK with an email field](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset-java.png)
+![A reset password form with an email address field and a next button](/img/wireframes/reset-password-form-email-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36756&t=wzNwSZkdctajVush-1  reset-password-form-email-only
+ -->
 
 </div>
 
@@ -39,11 +49,16 @@ If the email is for a valid and active user in the Okta directory, the `IDXAuthe
 * `Authenticators` &mdash; List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) to be verified (in this case, there is only the email authenticator). <br>
     Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
 
-After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In other words, provide the user with a list of recovery factors to use. In this use case, email is the only recovery factor available:
+After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In other words, provide the user with a list of recovery factors to use. In this use case, email is the only recovery factor available.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the recovery factor list to use (only email for this use case)](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-choose-auth-java.png)
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
+ -->
 
 </div>
 
@@ -57,13 +72,16 @@ authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedCon
 
 This Java SDK method sends the email authenticator selection to Okta. Okta sends a code to the user's email and the Java SDK returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the authentication flow is waiting for an authenticator verification, in this case, an email verification code. You need to build a form to capture the code from the user.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the email verification code input form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-verify-code-java.png)
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
 </div>
-
-> **Note:** The email sent to the user has a **Reset Password** link that isn't yet supported. Use the provided code instead. See [SDK limitations and workarounds: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
 
 ### 4: The user submits the email verification code
 
@@ -75,11 +93,16 @@ AuthenticationResponse authenticationResponse =
    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-If the request to verify the code is successful, the Java SDK returns an `AuthenticationResponse` object with the `AuthenticationStatus=AWAITING_PASSWORD_RESET` property. This status indicates that the recovery flow is waiting for an updated password for the user. You need to build a form for the user to enter their new password:
+If the request to verify the code is successful, the Java SDK returns an `AuthenticationResponse` object with the `AuthenticationStatus=AWAITING_PASSWORD_RESET` property. This status indicates that the recovery flow is waiting for an updated password for the user. You need to build a form for the user to enter their new password.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the Java SDK form to reset password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-reset-password-java.png)
+![A reset password form with two fields to enter and to confirm a new password and a next button](/img/wireframes/reset-password-form-new-password-fields.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36886&t=2h5Mmz3COBLhqVzv-1  reset-password-form-new-password-fields
+ -->
 
 </div>
 

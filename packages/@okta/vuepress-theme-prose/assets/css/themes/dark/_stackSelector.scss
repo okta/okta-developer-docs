@@ -1,0 +1,15 @@
+.page-body .content--container .stack-selector .selector-control .vs__dropdown-toggle {
+  border-color: cv("text", "accent");
+}
+
+.page-body .content--container .stack-selector .selector-control .vs__dropdown-toggle .vs__open-indicator {
+  transform: scale(0.6);
+}
+
+.page-body .content--container .stack-selector .selector-control .instructions-label {
+  color: cv("text", "darker");
+}
+
+.page-body .content--container .stack-selector .selector-control nav {
+  background-color: transparent;
+}

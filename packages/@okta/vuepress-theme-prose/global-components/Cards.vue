@@ -1,7 +1,7 @@
 <template>
-    <div class="cards-own">
-        <slot></slot>
-    </div>
+  <div class="cards-own">
+    <slot />
+  </div>
 </template>
 
 <script>

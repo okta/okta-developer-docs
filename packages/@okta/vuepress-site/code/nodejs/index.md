@@ -10,7 +10,7 @@ meta:
 
 ## Get started with Node.js Express + Okta
 
-New to Okta? Our resources walk you through adding user authentication to your Node.js Express app in minutes.
+These resources walk you through adding user authentication to your Node.js Express app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -70,4 +70,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [Node.js Developer Blog posts](/search/#q=node&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our recent [Node.js Developer Blog posts](https://developer.okta.com/blog/tags/node/) for further useful topics.

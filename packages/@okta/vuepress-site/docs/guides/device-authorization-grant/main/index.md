@@ -4,8 +4,6 @@ excerpt: Learn how to use a secondary device to complete sign-in to applications
 layout: Guides
 ---
 
-<ClassicDocOieVersionNotAvailable />
-
 This guide describes the Device Authorization feature, which allows users to sign in to input-constrained devices and devices without a browser.
 
 ---
@@ -30,8 +28,6 @@ This guide describes the Device Authorization feature, which allows users to sig
 The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input-constrained devices, such as smart TVs, digital picture frames, and printers, as well as devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
 
 The Device Authorization feature is available for both Okta Classic Engine and Okta Identity Engine orgs.
-
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 ## Before you begin
 
@@ -90,8 +86,8 @@ The device authorization request passes the following parameters:
 {
     "device_code": "4ebdb4de-1f8b-4497-be01-ddfaf83c4e9c",
     "user_code": "MHXTFRPK",
-    "verification_uri": "https://${yourOktaDomain}/activate",
-    "verification_uri_complete": "https://${yourOktaDomain}/activate?user_code=MHXTFRPK",
+    "verification_uri": "https://{yourOktaDomain}/activate",
+    "verification_uri_complete": "https://{yourOktaDomain}/activate?user_code=MHXTFRPK",
     "expires_in": 600,
     "interval": 5
 }
@@ -110,7 +106,11 @@ The `user_code` and `verification_uri` must appear on the smart device for the u
 
 #### Example of the display on a smart device
 
-![Verification on the smart device](/img/QRActivate.png)
+<div class="three-quarter border">
+
+![Verification on the smart device](/img/authorization/QRActivate.png)
+
+</div>
 
 ### Request access, ID, and refresh tokens
 

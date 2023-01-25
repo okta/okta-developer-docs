@@ -9,6 +9,8 @@ The Okta Brands API allows you to customize the look and feel of pages and templ
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
 
+> **Important:** Despite being called the Brands API (due to conventions around REST API naming), each org can currently contain only one brand and one theme. We will likely allow multiple brands and themes per org at some point in the future, so stay tuned!
+
 ## Get started
 
 Explore the Brands API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
@@ -30,11 +32,11 @@ List all the brands in your org
 
 Array of the [Brand Response](#brand-response-object)
 
+> **Important**: Currently only one Brand per org is supported, therefore this contains a single object only.
+
 #### Use examples
 
 The following example returns all Brands in the org.
-
-> **Note:** Currently, only one Brand per org is supported.
 
 ##### Request
 
@@ -61,7 +63,7 @@ Content-Type: application/json
     "removePoweredByOkta": false,
     "_links": {
       "themes": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
         "hints": {
           "allow": [
             "GET"
@@ -69,7 +71,7 @@ Content-Type: application/json
         }
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
         "hints": {
           "allow": [
             "GET",
@@ -128,7 +130,7 @@ Content-Type: application/json
   "removePoweredByOkta": false,
   "_links": {
     "themes": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
       "hints": {
         "allow": [
           "GET"
@@ -136,7 +138,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -205,7 +207,7 @@ Content-Type: application/json
   "removePoweredByOkta": false,
   "_links": {
     "themes": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
       "hints": {
         "allow": [
           "GET"
@@ -213,7 +215,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -254,7 +256,7 @@ Content-Type: application/json
   "removePoweredByOkta": true,
   "_links": {
     "themes": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
       "hints": {
         "allow": [
           "GET"
@@ -262,7 +264,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -374,13 +376,13 @@ List all the themes in your brand
 
 Array of the [Theme Response](#theme-response-object)
 
+> **Important**: Currently only one Theme per org is supported, therefore this contains a single object only.
+
 Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
 
 #### Use examples
 
 The following example returns all Themes in the Brand.
-
-> **Note:** Currently, only one Theme per Brand is supported.
 
 ##### Request
 
@@ -403,8 +405,8 @@ Content-Type: application/json
 [
   {
     "id": "thdul904tTZ6kWVhP0g3",
-    "logo": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
-    "favicon": "https://${yourOktaDomain}/favicon.ico",
+    "logo": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
+    "favicon": "https://{yourOktaDomain}/favicon.ico",
     "backgroundImage": null,
     "primaryColorHex": "#1662dd",
     "primaryColorContrastHex": "#000000",
@@ -414,9 +416,10 @@ Content-Type: application/json
     "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
     "errorPageTouchPointVariant": "OKTA_DEFAULT",
     "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+    "loadingPageTouchPointVariant": "OKTA_DEFAULT",
     "_links": {
       "favicon": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
         "hints": {
           "allow": [
             "POST",
@@ -425,7 +428,7 @@ Content-Type: application/json
         }
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
         "hints": {
           "allow": [
             "GET",
@@ -434,7 +437,7 @@ Content-Type: application/json
         }
       },
       "logo": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
         "hints": {
           "allow": [
             "POST",
@@ -443,7 +446,7 @@ Content-Type: application/json
         }
       },
       "background-image": {
-        "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
+        "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
         "hints": {
           "allow": [
             "POST",
@@ -475,7 +478,6 @@ The requested [Theme Response](#theme-response-object)
 
 Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-
 #### Use examples
 
 The following example returns a Theme object:
@@ -500,8 +502,8 @@ Content-Type: application/json
 ```json
 {
   "id": "thdul904tTZ6kWVhP0g3",
-  "logo": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
-  "favicon": "https://${yourOktaDomain}/favicon.ico",
+  "logo": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
+  "favicon": "https://{yourOktaDomain}/favicon.ico",
   "backgroundImage": null,
   "primaryColorHex": "#1662dd",
   "primaryColorContrastHex": "#000000",
@@ -511,9 +513,10 @@ Content-Type: application/json
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
       "hints": {
         "allow": [
           "POST",
@@ -522,7 +525,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -531,7 +534,7 @@ Content-Type: application/json
       }
     },
     "logo": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
       "hints": {
         "allow": [
           "POST",
@@ -540,7 +543,7 @@ Content-Type: application/json
       }
     },
     "background-image": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
       "hints": {
         "allow": [
           "POST",
@@ -573,10 +576,10 @@ The [Theme](#theme-object)
 
 Returns an updated [Theme Response](#theme-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+* Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 
-Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
+* Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
 
 #### Use examples
 
@@ -595,7 +598,8 @@ curl -v -X PUT \
     "signInPageTouchPointVariant": "OKTA_DEFAULT",
     "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
     "errorPageTouchPointVariant": "OKTA_DEFAULT",
-    "emailTemplateTouchPointVariant": "OKTA_DEFAULT"
+    "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+    "loadingPageTouchPointVariant": "OKTA_DEFAULT"
 }' "https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
 ```
 
@@ -609,8 +613,8 @@ Content-Type: application/json
 ```json
 {
   "id": "thdul904tTZ6kWVhP0g3",
-  "logo": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
-  "favicon": "https://${yourOktaDomain}/favicon.ico",
+  "logo": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
+  "favicon": "https://{yourOktaDomain}/favicon.ico",
   "backgroundImage": null,
   "primaryColorHex": "#1662dd",
   "primaryColorContrastHex": "#000000",
@@ -620,9 +624,10 @@ Content-Type: application/json
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
       "hints": {
         "allow": [
           "POST",
@@ -631,7 +636,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -640,7 +645,7 @@ Content-Type: application/json
       }
     },
     "logo": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
       "hints": {
         "allow": [
           "POST",
@@ -649,7 +654,7 @@ Content-Type: application/json
       }
     },
     "background-image": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
       "hints": {
         "allow": [
           "POST",
@@ -676,7 +681,8 @@ curl -v -X PUT \
     "signInPageTouchPointVariant": "OKTA_DEFAULT_RANDOM",
     "endUserDashboardTouchPointVariant": "OKTA_DEFAULT_RANDOM",
     "errorPageTouchPointVariant": "OKTA_DEFAULT_RANDOM",
-    "emailTemplateTouchPointVariant": "OKTA_DEFAULT_RANDOM"
+    "emailTemplateTouchPointVariant": "OKTA_DEFAULT_RANDOM",
+    "loadingPageTouchPointVariant": "OKTA_DEFAULT_RANDOM"
 }' "https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
 ```
 
@@ -711,6 +717,9 @@ Content-Type: application/json
         },
         {
             "errorSummary": "endUserDashboardTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, WHITE_LOGO_BACKGROUND, FULL_THEME, LOGO_ON_FULL_WHITE_BACKGROUND]."
+        },
+        {
+            "errorSummary": "loadingPageTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, NONE]."
         }
     ]
 }
@@ -766,7 +775,7 @@ Content-Type: application/json
 
 ```json
 {
-  "url": "https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
+  "url": "https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
 }
 ```
 
@@ -832,7 +841,6 @@ None.
 
 Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-
 #### Use examples
 
 The following request removes the uploaded Theme logo.
@@ -897,7 +905,7 @@ Content-Type: application/json
 
 ```json
 {
-  "url": "https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
+  "url": "https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
 }
 ```
 
@@ -1018,7 +1026,7 @@ Content-Type: application/json
 
 ```json
 {
-  "url": "https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
+  "url": "https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs09yfpj6PnWzgzIQ0g4"
 }
 ```
 
@@ -1166,9 +1174,10 @@ Lists all supported email templates
 
 #### Request path parameters
 
-| Parameter      | Type        | Description            |
-| -------------- | ----------- | ---------------------- |
-| `brandId`      | String      | ID of a Brand          |
+| Parameter      | Description            | ParamType | DataType | Required |
+| -------------- | ---------------------- | --------- | -------- | -------- |
+| `brandId`      | ID of a Brand string   | Query     | String   | TRUE     |
+| `expand`       | If specified, it causes additional metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
 
 #### Response body
 
@@ -1190,8 +1199,8 @@ curl -v -X GET \
 
 ```http
 HTTP/1.1 200 OK
-Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=10>; rel="self",
-  <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?after=ADUserActivation&limit=10>; rel="next"
+Link: <http://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=10>; rel="self",
+  <http://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email?after=ADUserActivation&limit=10>; rel="next"
 ```
 
 ```json
@@ -1207,7 +1216,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "DELETE"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
             },
             "defaultContent": {
                 "hints": {
@@ -1215,7 +1224,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
             },
             "self": {
                 "hints": {
@@ -1223,7 +1232,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
             },
             "test": {
                 "hints": {
@@ -1231,7 +1240,7 @@ Link: <http://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email?limit=1
                         "POST"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
             }
         }
     },
@@ -1253,10 +1262,11 @@ Fetches the email template named `templateName`
 
 #### Request path parameters
 
-| Parameter      | Type        | Description               |
-| -------------- | ----------- | ------------------------- |
-| `brandId`      | String      | ID of a Brand             |
-| `templateName` | String      | Name of an Email Template |
+| Parameter      | Description            | ParamType | DataType | Required |
+| -------------- | ---------------------- | --------- | -------- | -------- |
+| `brandId`      | ID of a Brand string   | Query     | String   | TRUE     |
+| `templateName` | Name of an email template | Query     | String   | TRUE     |
+| `expand`       | If specified, it causes additional metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
 
 #### Response body
 
@@ -1275,7 +1285,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation'
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation?expand=settings,customizationCount'
 ```
 
 ##### Response
@@ -1287,6 +1297,13 @@ HTTP/1.1 200 OK
 ```json
 {
     "name": "UserActivation",
+    "_embedded": {
+      "settings": {
+        "recipients": "ALL_USERS",
+        "_links": { ... }
+      },
+      "customizationCount": 3
+    },
     "_links": {
         "customizations": {
             "hints": {
@@ -1296,7 +1313,7 @@ HTTP/1.1 200 OK
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
         },
         "defaultContent": {
             "hints": {
@@ -1304,7 +1321,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
         },
         "self": {
             "hints": {
@@ -1312,7 +1329,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1320,7 +1337,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -1384,7 +1401,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
         },
         "self": {
             "hints": {
@@ -1392,7 +1409,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
         },
         "template": {
             "hints": {
@@ -1400,7 +1417,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         }
     }
 }
@@ -1464,7 +1481,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
         },
         "self": {
             "hints": {
@@ -1472,7 +1489,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
         },
         "template": {
             "hints": {
@@ -1480,7 +1497,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         }
     }
 }
@@ -1575,8 +1592,8 @@ curl -v -X GET \
 
 ```http
 HTTP/1.1 200 OK
-Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations?limit=10>; rel="self",
-  <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations?after=oel2hr0orNF3xGHpS0g4&limit=10>; rel="next"
+Link: <https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations?limit=10>; rel="self",
+  <https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations?after=oel2hr0orNF3xGHpS0g4&limit=10>; rel="next"
 ```
 
 ```json
@@ -1596,7 +1613,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserAc
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2hr0orNF3xGHpS0g4/preview"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2hr0orNF3xGHpS0g4/preview"
             },
             "self": {
                 "hints": {
@@ -1606,7 +1623,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserAc
                         "DELETE"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2hr0orNF3xGHpS0g4"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2hr0orNF3xGHpS0g4"
             },
             "template": {
                 "hints": {
@@ -1614,7 +1631,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserAc
                         "GET"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
             },
             "test": {
                 "hints": {
@@ -1622,7 +1639,7 @@ Link: <https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserAc
                         "POST"
                     ]
                 },
-                "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+                "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
             }
         },
     },
@@ -1705,7 +1722,7 @@ HTTP/1.1 201 Created
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4/preview"
         },
         "self": {
             "hints": {
@@ -1715,7 +1732,7 @@ HTTP/1.1 201 Created
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4"
         },
         "template": {
             "hints": {
@@ -1723,7 +1740,7 @@ HTTP/1.1 201 Created
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1731,7 +1748,7 @@ HTTP/1.1 201 Created
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -1832,7 +1849,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4/preview"
         },
         "self": {
             "hints": {
@@ -1842,7 +1859,7 @@ HTTP/1.1 200 OK
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk2VDW0K4AOZp0g4"
         },
         "template": {
             "hints": {
@@ -1850,7 +1867,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1858,7 +1875,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -1942,7 +1959,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4/preview"
         },
         "self": {
             "hints": {
@@ -1952,7 +1969,7 @@ HTTP/1.1 200 OK
                     "DELETE"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4"
         },
         "template": {
             "hints": {
@@ -1960,7 +1977,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -1968,7 +1985,7 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
@@ -2069,7 +2086,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4/preview"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/oel2kk1zYJBJbeaGo0g4/preview"
         },
         "template": {
             "hints": {
@@ -2077,7 +2094,7 @@ HTTP/1.1 200 OK
                     "GET"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation"
         },
         "test": {
             "hints": {
@@ -2085,11 +2102,166 @@ HTTP/1.1 200 OK
                     "POST"
                 ]
             },
-            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
+            "href": "https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test"
         }
     }
 }
 ```
+
+### Email Template Settings
+
+This API lets you manage the settings of each customizable email template.
+
+### Get Email Template Settings
+
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/templates/email/${templateName}/settings" />
+
+Fetches the settings associated with the template
+
+#### Request path parameters
+
+| Parameter         | Type        | Description                  |
+| ----------------- | ----------- | ---------------------------- |
+| `brandId`         | String      | ID of a Brand                |
+| `templateName`    | String      | Name of an Email Template    |
+
+#### Response body
+
+The requested [Email Template Settings](#email-template-settings-object) resource, with variables populated using the current user's context
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example returns the settings for the email template `UserActivation`.
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+```
+
+```json
+{
+    "recipients": "ALL_USERS",
+    "_links": {
+      "template": {
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Update Email Template Settings
+
+<ApiOperation method="put" url="/api/v1/brands/${brandId}/templates/email/${templateName}/settings" />
+
+Updates the settings associated with the template
+
+#### Request path parameters
+
+| Parameter         | Type        | Description                  |
+| ----------------- | ----------- | ---------------------------- |
+| `brandId`         | String      | ID of a Brand                |
+| `templateName`    | String      | Name of an Email Template    |
+
+#### Request body
+
+The [Email Template Settings Object](#email-template-settings-object) resource to update
+
+#### Response body
+
+The [Email Template Settings Object](#email-template-settings-object) resource that was updated
+
+Returns a `422 Unprocessable Entity` if the template doesn't support the recipient's value.
+
+> **Note**: The templates that don't support all recipient values are New Sign-On Notification, Authenticator Enrolled, Authenticator Reset, Password Changed, and Change Email Confirmation.
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+
+#### Use examples
+
+The following example disables the `UserActivation` email from being sent.
+
+##### Request
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "recipients": "NO_USERS"
+}' \
+'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
+```
+
+##### Response
+
+```http
+HTTP/1.1 200 OK
+```
+
+```json
+{
+    "recipients": "NO_USERS",
+    "_links": {
+        "template": {
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+## Sign-in page operations
+
+See the [Customized Sign-in Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage) on the new beta reference site.
+
+## Sign-out page operations
+
+See the [Customized Sign-out Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings) on the new beta reference site.
+
+## Error page operations
+
+See the [Customized Error Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getErrorPage) on the new beta reference site.
 
 ## Brand API Objects
 
@@ -2150,7 +2322,7 @@ The Brand Response object defines the following properties:
   "removePoweredByOkta": false,
   "_links": {
     "themes": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
       "hints": {
         "allow": [
           "GET"
@@ -2158,7 +2330,7 @@ The Brand Response object defines the following properties:
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -2186,6 +2358,7 @@ The Theme object defines the following properties:
 | `endUserDashboardTouchPointVariant`   | Enum     | Variant for the Okta End-User Dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`.                    | `OKTA_DEFAULT`    |
 | `errorPageTouchPointVariant`          | Enum     | Variant for the error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
+| `loadingPageTouchPointVariant`        | Enum     | (Optional) Variant for the Okta loading page. Applicable only if the **Loading Page Animation** feature is enabled. Accepted values: `OKTA_DEFAULT`, `NONE`.                                 | `OKTA_DEFAULT`    |
 
 > **Note:** `primaryColorContrastHex` and `secondaryColorContrastHex` are automatically optimized for the highest possible contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
 
@@ -2234,6 +2407,19 @@ You can publish a theme for a page or email template with different combinations
 | `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` as the background color for buttons.      |
 
 
+
+#### Variants for the Okta loading page:
+
+<ApiLifecycle access="ea" />
+
+> **Note:** Okta loading page variants are only available if the **Loading Page Animation** Early Access feature is enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
+| Enum Value                      | Description                                                                     |
+| ------------------------------- | ------------------------------------------------------------------------------- |
+| `OKTA_DEFAULT`                  | Use the default Okta loading page animation during the redirect.    |
+| `NONE`                          | Use no loading page animation during the redirect.      |
+
+
 ##### Theme example
 
 ```json
@@ -2245,7 +2431,8 @@ You can publish a theme for a page or email template with different combinations
   "signInPageTouchPointVariant": "OKTA_DEFAULT",
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
-  "emailTemplateTouchPointVariant": "OKTA_DEFAULT"
+  "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT"
 }
 ```
 
@@ -2265,10 +2452,11 @@ The Theme Response object defines the following properties:
 | `primaryColorContrastHex`             | String                  | Primary color contrast hex code             |
 | `secondaryColorHex`                   | String                  | Secondary color hex code                    |
 | `secondaryColorContrastHex`           | String                  | Secondary color contrast hex code           |
-| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta Sign-In Page                    |
-| `endUserDashboardTouchPointVariant`   | Enum                    | Variant for the Okta End-User Dashboard              |
-| `errorPageTouchPointVariant`          | Enum                    | Variant for the error page                      |
+| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta Sign-In Page           |
+| `endUserDashboardTouchPointVariant`   | Enum                    | Variant for the Okta End-User Dashboard     |
+| `errorPageTouchPointVariant`          | Enum                    | Variant for the error page                  |
 | `emailTemplateTouchPointVariant`      | Enum                    | Variant for email templates                 |
+| `loadingPageTouchPointVariant`        | Enum                    | Variant for the Okta loading page           |
 | `_links`                              | [Links](#links-object)  | Link relations for this object              |
 
 ##### Theme Response example
@@ -2276,8 +2464,8 @@ The Theme Response object defines the following properties:
 ```json
 {
   "id": "thdul904tTZ6kWVhP0g3",
-  "logo": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
-  "favicon": "https://${yourOktaDomain}/favicon.ico",
+  "logo": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png",
+  "favicon": "https://{yourOktaDomain}/favicon.ico",
   "backgroundImage": null,
   "primaryColorHex": "#1662dd",
   "primaryColorContrastHex": "#000000",
@@ -2287,9 +2475,10 @@ The Theme Response object defines the following properties:
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
   "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
+  "loadingPageTouchPointVariant": "OKTA_DEFAULT",
   "_links": {
     "favicon": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/favicon",
       "hints": {
         "allow": [
           "POST",
@@ -2298,7 +2487,7 @@ The Theme Response object defines the following properties:
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3",
       "hints": {
         "allow": [
           "GET",
@@ -2307,7 +2496,7 @@ The Theme Response object defines the following properties:
       }
     },
     "logo": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/logo",
       "hints": {
         "allow": [
           "POST",
@@ -2316,7 +2505,7 @@ The Theme Response object defines the following properties:
       }
     },
     "background-image": {
-      "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
+      "href": "https://{yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes/thdul904tTZ6kWVhP0g3/background-image",
       "hints": {
         "allow": [
           "POST",
@@ -2340,7 +2529,7 @@ The Image Upload Response object defines the following properties:
 
 ```json
 {
-  "url": "https://${yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png"
+  "url": "https://{yourOktaDomain}/assets/img/logos/okta-logo.47066819ac7db5c13f4c431b2687cef6.png"
 }
 ```
 
@@ -2360,6 +2549,8 @@ Initial Theme variant values are different for existing orgs with customizations
 | `errorPageTouchPointVariant`          | yes                   | yes                        | `BACKGROUND_IMAGE`              |
 | `endUserDashboardTouchPointVariant`   | no                    | n/a                        | `OKTA_DEFAULT`                  |
 | `endUserDashboardTouchPointVariant`   | yes                   | n/a                        | `LOGO_ON_FULL_WHITE_BACKGROUND` |
+| `loadingPageTouchPointVariant`        | n/a                   | n/a                        | `OKTA_DEFAULT` or `NONE` |
+
 
 ### Logo scenarios
 
@@ -2408,6 +2599,28 @@ The Email Customization resource defines the following properties:
 | `subject`      | String                  | The subject of the customization            |
 | `body`         | String                  | The body of the customization               |
 | `_links`       | [Links](#links-object)  | Link relations for this object              |
+
+### Email Template Settings Object
+
+The Email Template Settings Object resource defines the following properties:
+
+| Property       | Type                    | Description                                                                                   |
+| ---------------| ----------------------- | --------------------------------------------------------------------------------------------- |
+| `recipients`   | enum                    | The [eligible user type](#recipients-enum) that can receive emails generated from the template |
+| `_links`       | [Links](#links-object)  | Link relations for this object                                                                |
+
+### Recipients Enum
+
+| Enum Value                      | Description                                                                                          |
+| ------------------------------- | ----------------------------------------------- |
+| `ALL_USERS`                     | Send emails to all users (default)              |
+| `ADMINS_ONLY`                   | Send emails to administrators only              |
+| `NO_USERS`                      | Do not send emails to any user                  |
+
+
+> **Note:** The following is a list of the email templates with certain Enum values:
+> * `NO_USERS, ALL_USERS`: `NewSignOnNotification`, `PasswordChanged`, `AuthenticatorEnrolled`, and `AuthenticatorReset`
+> * `ALL_USERS, ADMINS_ONLY`: `ChangeEmailConfirmation`
 
 ## Links object
 

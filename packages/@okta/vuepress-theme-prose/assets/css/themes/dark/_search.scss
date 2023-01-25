@@ -1,0 +1,84 @@
+#SearchPage .coveo-facet-value .coveo-facet-value-checkbox {
+  background-color: cv("code");
+}
+
+#SearchPage .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox {
+  background-color: cv("code");
+}
+
+#SearchPage .coveo-facet-value.coveo-selected .coveo-facet-value-checkbox svg .coveo-hook-svg {
+  fill: cv("link");
+}
+
+.search--wrapper {
+  border-color: transparent;
+  background-color: cv("body");
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input {
+  background-color: cv("code");
+
+  color: cv("text");
+}
+
+.search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input .magic-box-underlay::before {
+  z-index: 1;
+
+  color: cv("border");
+}
+
+.search--wrapper .SearchBox .search--form .CoveoSearchButton {
+  border-radius: 0 4px 4px 0;
+  background-color: cv("code");
+
+  color: cv("text");
+}
+
+.magic-box-suggestions {
+  overflow: hidden;
+
+  box-shadow: rgb(0 0 0 / 0.3) 0 2px 10px;
+  border-color: cv("header", "search") !important;
+  border-radius: 4px;
+  background-color: transparent !important;
+}
+
+.coveo-magicbox-suggestions {
+  overflow: hidden;
+
+  border-color: cv("header", "search") !important;
+  border-radius: 4px;
+}
+
+.magic-box .magic-box-input {
+  background: cv("header", "search");
+}
+
+.magic-box-suggestion {
+  border-color: cv("text", "accent") !important;
+  background: cv("header", "search") !important;
+}
+
+.magic-box-suggestion span {
+  color: cv("text") !important;
+}
+
+.magic-box-suggestion span div {
+  color: cv("text") !important;
+}
+
+.magic-box-suggestion:hover {
+  background: cv("header", "gray") !important;
+}
+
+@include media("<desktop") {
+  header.page-header .search--slideout {
+    background-color: cv("body", "obscure");
+  }
+
+  .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input input::placeholder {
+    background-color: cv("code");
+
+    color: cv("text");
+  }
+}

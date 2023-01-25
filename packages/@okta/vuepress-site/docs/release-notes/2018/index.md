@@ -29,7 +29,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -54,7 +54,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -79,7 +79,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [User Consent for OAuth 2.0 and OpenID Connect Flows](#user-consent-for-oauth-20-and-openid-connect-flows-in-early-availability-ea) |
@@ -111,7 +111,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Token Management API](#token-management-api-is-in-early-access-ea) |
@@ -142,7 +142,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Token Management API](#token-management-api-is-in-early-access-ea) |
@@ -169,7 +169,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -195,7 +195,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -236,7 +236,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -262,7 +262,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -291,7 +291,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -322,7 +322,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -379,7 +379,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -406,7 +406,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -431,7 +431,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -456,7 +456,7 @@ You can now disable the Okta loading animation that appears during a login redir
 
 #### New System Log Event Type for Denied Events
 
-The [System Log](/docs/reference/api/system-log/) now reports when requests are denied due to a blacklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
+The [System Log](/docs/reference/api/system-log/#security-events) now reports when requests are denied due to a blocklist rule (such as a IP network zone or location rule). These events are logged with the event type `security.request.blocked`. (OKTA-178982)
 
 #### Bugs Fixed in 2018.32
 
@@ -469,7 +469,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -505,7 +505,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -525,7 +525,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.29
 
-* Using the [Zones API](/docs/reference/api/zones/) to modify an existing zone that is blacklisted removed the blacklisting and coverted it to a normal IP Zone. (OKTA-176610)
+* Using the [Zones API](/docs/reference/api/zones/) to modify an existing zone that is blocked, removed the zone from the blocklist and converted it to a normal IP Zone. (OKTA-176610)
 * Using the [Applications API](/docs/reference/api/apps/) to create an OAuth client caused an error if the `credentials.oauthClient` property was not provided, even though it is not required. (OKTA-179275)
 * The System Log CSV report did not contain a value for `AuthenticationContext.issuer` for the event type `user.authentication.authenticate`. (OKTA-147165)
 
@@ -536,7 +536,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -568,7 +568,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -599,7 +599,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -639,7 +639,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -672,7 +672,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -708,7 +708,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -748,7 +748,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -778,7 +778,7 @@ The following features have already been released as Early Access. To enable the
 
 | Early Access Features Available Now
 | :------------------------------------------------- |
-| [Custom URL Domains](#custom-url-domains-are-in-early-access)|
+| [Custom domains](#custom-url-domains-are-in-early-access)|
 | [Custom Okta-hosted Sign-In Page](#custom-okta-hosted-sign-in-page-is-in-early-access)|
 | [Custom Error Page](#custom-error-page-is-in-early-access)|
 | [Linked Objects API](#linked-objects-api-in-early-access-ea) |
@@ -792,7 +792,7 @@ The following features have already been released as Early Access. To enable the
 | Change | Expected in Preview Orgs | Rollout to Production Orgs Expected to Start |
 | :---------- | :--------------------------------- | :----------------------------------------------------------- |
 | [ID Tokens Can Be Refreshed](#id-tokens-can-be-refreshed)| May 9, 2018 | May 14, 2018 |
-| [Custom URL Domains are in Early Access](#custom-url-domains-are-in-early-access)| May 9, 2018 | May 14, 2018 |
+| [Custom domains are in Early Access](#custom-url-domains-are-in-early-access)| May 9, 2018 | May 14, 2018 |
 | [Custom Okta-hosted Sign-In Page is in Early Access](#custom-okta-hosted-sign-in-page-is-in-early-access)| May 9, 2018 | May 14, 2018 |
 | [Custom Error Page is in Early Access](#custom-error-page-is-in-early-access)| May 9, 2018 | May 14, 2018 |
 | [Bugs Fixed in 2018.19](#bugs-fixed-in-2018-19) | May 9, 2018 | May 14, 2018 |
@@ -1018,7 +1018,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Change to App Variable Name Incrementing
 
-When creating multiple instances of the same app, each instance of the app has a unique Variable Name. This Variable Name is used as part of the Okta Expression Language. Previously each instance was incrementally numbered (`salesforce_1`, `salesforce_2`, etc), but going forward each instance will instead have a 7-character alphanumeric string appended to its Variable Name. To find your app's Variable Name, go into the Profile Editor for that app. This change only affects newly created apps. <!-- OKTA-158282 -->
+When creating multiple instances of the same app, each instance of the app has a unique Variable Name. This Variable Name is used as part of Okta Expression Language. Previously each instance was incrementally numbered (`salesforce_1`, `salesforce_2`, etc), but going forward each instance will instead have a 7-character alphanumeric string appended to its Variable Name. To find your app's Variable Name, go into the Profile Editor for that app. This change only affects newly created apps. <!-- OKTA-158282 -->
 
 #### Token Management API Is in Early Access (EA)
 
@@ -1476,4 +1476,4 @@ When you create a SAML 2.0 app in Okta, the app is created with SHA-256 signed p
 The following bugs have been fixed, and are expected in preview orgs starting January 10, 2018, and in production orgs starting January 16, 2018.
 
 * Network zones couldn't be deleted if they were associated with a sign-on policy, even after the policy has been deleted. (OKTA-150747)
-* Results returned from the Users API incorrectly reported the status of some users who were mastered by Active Directory. The statuses `PASSWORD_RESET` or `LOCKED_OUT` were reported as `ACTIVE`. (OKTA-153214, OKTA-151861)
+* Results returned from the Users API incorrectly reported the status of some users who were sourced by Active Directory. The statuses `PASSWORD_RESET` or `LOCKED_OUT` were reported as `ACTIVE`. (OKTA-153214, OKTA-151861)

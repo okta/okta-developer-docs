@@ -4,6 +4,7 @@ guides:
  - add-an-external-idp
  - archive-auth-js
  - archive-embedded-siw
+ - archive-registration-inline-hook
  - archive-sign-in-to-spa-authjs
  - archive-sign-in-to-spa-embedded-widget
  - archive-configure-signon-policy
@@ -14,8 +15,10 @@ guides:
  - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
+ - configure-ciba
  - configure-native-sso
  - configure-signon-policy
+ - configure-user-scoped-account-management
  - create-an-api-token
  - custom-email
  - custom-error-pages
@@ -42,6 +45,7 @@ guides:
  - migrate-to-okta-prerequisites
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
+ - mobile-idx-sdk-overview
  - oin-oidc-overview
  - oin-oidc-best-practices
  - oin-oidc-multi-tenancy
@@ -55,6 +59,7 @@ guides:
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
+ - submit-app-prereq
  - deployment-checklist
  - deploy-your-app
  - protect-your-api
@@ -64,6 +69,7 @@ guides:
  - registration-inline-hook
  - request-user-consent
  - revoke-tokens
+ - saml-inline-hook
  - saml-tracer
  - session-cookie
  - set-up-self-service-registration
@@ -77,13 +83,13 @@ guides:
  - sign-users-out
  - sign-your-own-saml-csr
  - social-login
+ - telephony-inline-hook
  - token-inline-hook
  - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
  - updating-saml-cert
  - validate-access-tokens
  - validate-id-tokens
- - oie-embedded-sdk-limitations
  - oie-embedded-common-org-setup
  - oie-embedded-common-download-setup-app
  - oie-embedded-common-run-samples
@@ -98,13 +104,36 @@ guides:
  - oie-embedded-widget-use-case-load
  - oie-embedded-widget-use-case-basic-sign-in
  - oie-embedded-widget-use-case-sign-in-soc-idp
+ - oie-upgrade-overview
+ - oie-upgrade-plan-embedded-upgrades
  - oie-upgrade-add-sdk-to-your-app
  - oie-upgrade-api-sdk-to-oie-sdk
+ - oie-upgrade-sessions-api
  - oie-upgrade-sign-in-widget-deprecated-methods
  - oie-upgrade-sign-in-widget-i18n
  - oie-upgrade-sign-in-widget
  - oie-upgrade-sign-in-widget-styling
-
+ - oie-upgrade-mfa-enroll-policy
+ - ie-limitations
+ - authenticators-overview
+ - authenticators-google-authenticator
+ - authenticators-web-authn
+ - oie-embedded-sdk-use-case-custom-pwd-recovery-mfa
+ - authenticators-okta-verify
+ - authenticators-custom-authenticator
+ - authenticators-okta-email
+ - oie-embedded-sdk-use-case-new-user-activation
+ - advanced-use-case-overview
+ - pwd-optional-new-sign-up-email
+ - pwd-optional-sign-in-email
+ - pwd-optional-widget-sign-in-email
+ - pwd-optional-change-email
+ - email-magic-links-overview
+ - step-up-authentication
+ - device-context
+ - pwd-optional-best-practices
+ - pwd-optional-overview
+ - build-api-integration
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
@@ -128,7 +157,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/)
     * [Auth JS fundamentals](/docs/guides/auth-js)
     * [Embedded Okta Sign-In Widget fundamentals](/docs/guides/embedded-siw)
-    * [Configure a Global Session Policy and authentication policies](/docs/guides/configure-signon-policy/)
+    * [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy/)
+    * [Single Sign-On with external Identity Providers](/docs/guides/identity-providers)
 
 3. Authorize
 
@@ -140,14 +170,14 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Configure an access policy](/docs/guides/configure-access-policy/)
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/)
-    * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
-    * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
+    * [Customize tokens returned from Okta with a dynamic allowlist](/docs/guides/customize-tokens-dynamic/)
+    * [Customize tokens returned from Okta with a static allowlist](/docs/guides/customize-tokens-static/)
 
 4. Brand and customize
 
     * [Style the Sign-In Widget](/docs/guides/custom-widget/)
     * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
-    * [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+    * [Customize domain and email address](/docs/guides/custom-url-domain/)
     * [Customize email notifications and email domains](/docs/guides/custom-email/)
 
 5. Deploy to production
@@ -156,22 +186,22 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Deploy your app](/docs/guides/deploy-your-app/)
     * [Migrate to Okta](/docs/guides/migrate-to-okta-prerequisites/)
 
-6. Customize Okta process flows with Event or Inline Hooks
+6. Customize Okta process flows with event or inline hooks
 
-    * [Event Hook example](/docs/guides/event-hook-implementation/)
-    * [Token Inline Hook example](/docs/guides/token-inline-hook/)
-    * [Password Import Inline Hook example](/docs/guides/password-import-inline-hook/)
-    * [Registration Inline Hook example](/docs/guides/registration-inline-hook/)
+    * [Event hook example](/docs/guides/event-hook-implementation/)
+    * [Token inline hook example](/docs/guides/token-inline-hook/)
+    * [Password import inline hook example](/docs/guides/password-import-inline-hook/)
+    * [Registration inline hook example](/docs/guides/registration-inline-hook/)
 
-## Publish an integration
+## Publish an integration in the OIN
 
 Partner integrations connect your app or service to our mutual customers. One of the most common integrations is Single Sign-On (SSO), which gives Okta users the ability to sign in directly to your application through Okta. Many partners also build provisioning integrations (using the SCIM protocol) to automate lifecycle management use cases for their customers. Integrations can also extend Okta's functionality or integrate with your service in more complex ways.
 
-Integrations can be published publicly in the Okta Integration network catalog, but that's entirely optional.
+You can publish your integration in the Okta Integration Network (OIN) catalog to expose your app to thousands of Okta workforce customers.
 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 
 1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
-1. [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/)
-1. [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
+1. [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/)
+1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
 1. [Submit an app integration](/docs/guides/submit-app/)

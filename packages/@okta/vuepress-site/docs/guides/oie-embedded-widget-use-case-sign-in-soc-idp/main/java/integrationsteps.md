@@ -2,7 +2,7 @@
 
 After you've completed the steps in [Configuration Updates](#configuration-updates), and have configured your app to [load the Sign-In Widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/), then the **Sign in with Facebook** option is available in the embedded Widget. No coding is required to have the **Sign in with Facebook** option.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Sign-In Widget with the 'Sign in with Facebook' button](/img/oie-embedded-sdk/oie-embedded-widget-use-case-social-sign-in-screen-java.png)
 

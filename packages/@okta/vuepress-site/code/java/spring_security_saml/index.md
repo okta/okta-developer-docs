@@ -7,217 +7,374 @@ excerpt: >-
   Security library.
 ---
 
-This guide describes how to use Spring Security SAML to add support for Okta (through SAML) to Java applications that use the Spring framework. In this guide, you learn how to install and configure an Okta SAML application.
+This guide describes how to use Spring Security SAML to add support for Okta to Java applications that use Spring Boot.
 
-This guide assumes that you are familiar with the basics of Java software development: editing text files, using the command line, and running Tomcat, Maven, or Gradle.
+---
 
-If you're already familiar with Okta and Spring, you can skip to the **Configure Spring Security SAML to work with Okta** section.
+**Learning outcomes**
 
-> **Note:** The Spring Security SAML toolkit that you download isn't an Okta toolkit and isn't supported by Okta.
+* Install and configure an Okta SAML application
 
-## Requirements
+**What you need**
 
-Make sure that the following are installed before starting installation:
+* [SDKMAN](https://sdkman.io/) installed (for Java 17)
 
-[Java 1.6+ SDK](http://www.oracle.com/technetwork/java/javase/overview/index.html)
+---
 
-Check using the following command:
+## Create an Okta app integration for your SAML app
 
-`java -version`
+An Application Integration represents your app in your Okta org. To create an app integration for a SAML app:
+
+1. Open the **Admin Console** for your org.
+1. Choose **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. Select **SAML 2.0** as the Sign-in method, and then click **Next**.
+1. Give your application name, for example "Spring Boot SAML", and then click **Next**.
+1. On the Configure SAML page
+   * Set **Single sign-on URL** to a URL that is appropriate for your app. For example `http://localhost:8080/login/saml2/sso/okta`
+   * Verify that **Use this for Recipient URLs and Destination URLs** is checked.
+   * Set **Audience URI** to a URL that is appropriate for your app. For example `http://localhost:8080/saml2/service-provider-metadata/okta`
+1. Click **Next**.
+1. Set **Are you a customer or a partner?** to **I'm an Okta customer adding an internal app**.
+1. Set **App type** to **This is an internal app that we have created**.
+1. Click **Finish**.
+
+Okta will create your app and redirect you to its **Sign On** tab. Continue the required setup:
+
+1. Locate the **SAML Signing Certificates** section.
+1. Locate the entry for **SHA-2**, and then select **Actions** > **View IdP metadata**.
+1. Copy the URL for the resulting link to your clipboard. It will look like `https://${yourOktaDomain}/app/<random-characters>/sso/saml/metadata`.
+1. Choose the **Assignments** tab, and then select **Assign** > **Assign to Groups**.
+1. Locate the entry for **Everyone** and click **Assign**.
+1. Click **Done**.
+
+## Create a Spring Boot app with SAML support
+
+1. Spring Boot 3 requires Java 17. Install it with SDKMAN:
 
-[Apache Maven](https://maven.apache.org)
+   ```shell
+   sdk install java 17-open
+   ```
 
-Check using the following command:
+1. Create a brand-new Spring Boot app using [start.spring.io](https://start.spring.io). Select the following options:
 
-`mvn --version`
+   * Project: **Gradle**
+   * Spring Boot: **3.0.0 (SNAPSHOT)**
+   * Dependencies: **Spring Web**, **Spring Security**, **Thymeleaf**
 
-## Installation
+   You can also use [this URL](https://start.spring.io/#!type=gradle-project&language=java&platformVersion=3.0.0-SNAPSHOT&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=web,security,thymeleaf)
 
-This section covers what you need to do to install and configure Tomcat from scratch on Mac OS X. If you already have Tomcat on your system, you can skip to the **Download the Spring SAML Extension** step.
+   Or use [HTTPie](https://httpie.io/):
 
-How to install the Spring Security SAML sample Okta application on Mac OS X:
+   ```shell
+   https start.spring.io/starter.zip bootVersion==3.0.0-SNAPSHOT \
+     dependencies==web,security,thymeleaf type==gradle-project \
+     baseDir==spring-boot-saml | tar -xzvf -
+   ```
 
-**1. Install Tomcat**
+Open the project in your favorite IDE and complete the following steps.
 
-If it's not already installed, install Tomcat with Homebrew using [these directions](https://github.com/mhulse/mhulse.github.io/wiki/Installing-Apache-Tomcat-using-Homebrew-on-OS-X-Yosemite).
+1. Add `src/main/java/com/example/demo/HomeController.java` to populate the authenticated user's information.
 
-**2. Download the Spring SAML Extension**
+   ```java
+   package com.example.demo;
 
-Use `git clone` to clone the extention locally:
+   import org.springframework.security.core.annotation.AuthenticationPrincipal;
+   import org.springframework.security.saml2.provider.service.authentication.Saml2AuthenticatedPrincipal;
+   import org.springframework.stereotype.Controller;
+   import org.springframework.ui.Model;
+   import org.springframework.web.bind.annotation.RequestMapping;
 
-```bash
-git clone https://github.com/spring-projects/spring-security-saml.git
-```
+   @Controller
+   public class HomeController {
 
-**3. Download the sample application**
+       @RequestMapping("/")
+       public String home(@AuthenticationPrincipal Saml2AuthenticatedPrincipal principal, Model model) {
+           model.addAttribute("name", principal.getName());
+           model.addAttribute("emailAddress", principal.getFirstAttribute("email"));
+           model.addAttribute("userAttributes", principal.getAttributes());
+           return "home";
+       }
 
-Use `git clone` to clone this repository locally:
+   }
+   ```
 
-```bash
-git clone https://github.com/nshobayo/okta-SpringSAML.git
-```
+1. Create a `src/main/resources/templates/home.html` file to render the user's information.
+
+   ```html
+   <!DOCTYPE html>
+   <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+         xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+       <head>
+           <title>Spring Boot and SAML</title>
+           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+       </head>
+       <body>
+           <h1>Welcome</h1>
+           <p>You are successfully signed in as <span sec:authentication="name"></span></p>
+           <p>Your email address is <span th:text="${emailAddress}"></span>.</p>
+           <p>Your authorities are <span sec:authentication="authorities"></span>.</p>
+           <h2>All Your Attributes</h2>
+           <dl th:each="userAttribute : ${userAttributes}">
+               <dt th:text="${userAttribute.key}"></dt>
+               <dd th:text="${userAttribute.value}"></dd>
+           </dl>
+
+           <form th:action="@{/logout}" method="post">
+               <button id="signout" type="submit">Sign out</button>
+           </form>
+       </body>
+   </html>
+   ```
 
-Use this command to copy the sample Okta application into the Extension's `src` folder:
+1. Create a `src/main/resources/application.yml` file to contain the metadata URI you copied to your clipboard earlier.
+
+   ```yaml
+   spring:
+     security:
+       saml2:
+         relyingparty:
+           registration:
+             okta:
+               assertingparty:
+                 metadata-uri: <your-metadata-uri>
+   ```
 
-```bash
-rm -rf spring-security-saml/sample/src/main
-cp -r okta-SpringSAML/src/main spring-security-saml/sample/src
-```
+### Run the app and authenticate
 
-**4. Compile**
+1. Run your Spring Boot app. You can do this from your IDE, or as follows using the command line:
 
-Make sure that your working directory is the `sample` subdirectory of the `spring-security-saml` directory:
+   ```shell
+   ./gradlew bootRun
+   ```
 
-```bash
-cd spring-security-saml/sample
-```
+1. Open `http://localhost:8080` in your favorite browser and sign in with a user account set up in your org. You should see a successful result in your browser.
 
-To compile:
+   <div class="three-quarter border">
 
-```bash
-../gradlew build install
-```
+   ![Login success](/img/saml/spring-security-saml-login.png)
 
-This task compiles, tests, and assembles the code into a `.war` file. A successful build should look something like this: ![successful build](/img/spring-security-saml-build.png "successful build")
+   </div>
 
-You can find your compiled WAR archive file (`spring-security-SAML2-sample.war`) in the `build/libs/` directory.
+If you try to sign out, it won't work. You'll fix that in the next section.
+
+### Add a sign-out feature
 
-**5. Deploy**
+Spring Security's SAML support has a [sign-out feature](https://docs.spring.io/spring-security/reference/servlet/saml2/logout.html) that requires a private key and certificate. To use it, you'll need to:
 
-Assuming that your current directory is `spring-security-saml/sample`, use the following command to copy the compiled `spring-security-SAML2-sample.war` file to the Tomcat directory that you set up in step one:
+1. Create a private key and certificate to sign the outgoing sign-out request using OpenSSL.
 
-```bash
-cp build/libs/spring-security-SAML2-sample.war /Library/Tomcat/webapps/
-```
+   ```shell
+   openssl req -newkey rsa:2048 -nodes -keyout local.key -x509 -days 365 -out local.crt
+   ```
 
-**6. Start Tomcat**
+1. Copy the generated `local.crt` and `local.key` files to your app's `src/main/resources` directory.
 
-Use the following command to start Tomcat:
+1. Update the `signing` and `singlelogout` fields in `application.yml` to refer to the new certificate files:
 
-```bash
-/Library/Tomcat/bin/startup.sh
-```
+   ```yaml
+   spring:
+     security:
+       saml2:
+         relyingparty:
+           registration:
+             okta:
+               signing:
+                 credentials:
+                   - private-key-location: classpath:local.key
+                     certificate-location: classpath:local.crt
+               singlelogout:
+                 binding: POST
+                 response-url: "{baseUrl}/logout/saml2/slo"
+               assertingparty:
+                 metadata-uri: <your-metadata-uri>
+   ```
+
+1. Add this certificate to your app integration.
 
-**7. Start the Application**
+   1. Open the **Admin Console** for your org.
+   1. Choose **Applications** > **Applications**.
+   1. Click on the name of your SAML app integration.
+   1. Choose the **General** tab, locate the **SAML Settings** section, and click **Edit**.
+   1. Click **Next**.
+   1. In the **SAML Settings** section:
+      * Click **Show Advanced Settings**.
+      * Select **Allow application to initiate Single Logout** for **Enable Single Logout**.
+      * Set **Single Logout URL** to to a URL that is appropriate for your app. For example `http://localhost:8080/logout/saml2/slo`
+      * Set **SP Issuer** to a URL that is appropriate for your app. For example `http://localhost:8080/saml2/service-provider-metadata/okta`
+      * Click the **Browse** button for **Signature Certificate**, locate the `local.crt` file you created in step 1, and click **Upload Certificate**.
+      * Click **Next**.
+   1. Click **Finish**.
+
+1. Restart your Spring Boot app, and the button should work.
+
+   <div class="three-quarter border">
+
+   ![Sign out success](/img/saml/spring-security-saml-logout-success.png)
+
+   </div>
+
+### Customize authorities with Spring Security SAML
+
+When you sign in, the resulting page shows that you have a `ROLE_USER` authority. However, when you assigned users to the app, you gave access to `Everyone`. You can configure your SAML app on Okta to send a user's groups as an attribute, and add other attributes like name and email.
+
+1. Edit your Okta app's SAML settings and fill in the **Group Attribute Statements** section.
+
+   * Name: `groups`
+   * Name format: `Unspecified`
+   * Filter: `Matches regex` and use `.*` for the value
+
+   Just above, you can add other attribute statements. For instance:
+
+   |     Name     |     Name format     |     Value        |
+   | ------------ | ------------------- | ---------------- |
+   | `email`      | `Unspecified`       | `user.email`     |
+   | `firstName`  | `Unspecified`       | `user.firstName` |
+   | `lastName`   | `Unspecified`       | `user.lastName`  |
+
+1. Save these changes.
+
+1. If you cloned the repo earlier, restart your app and sign in to see your user's groups as authorities.
+
+1. If you created a Spring Boot app from scratch, create a `SecurityConfiguration` class that overrides the default configuration and uses a converter to translate the values in the `groups` attribute into Spring Security authorities.
+
+
+   ```java
+   package com.example.demo;
+
+   import java.util.HashSet;
+   import java.util.List;
+   import java.util.Set;
+
+   import org.springframework.context.annotation.Bean;
+   import org.springframework.context.annotation.Configuration;
+   import org.springframework.core.convert.converter.Converter;
+   import org.springframework.security.authentication.ProviderManager;
+   import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+   import org.springframework.security.core.GrantedAuthority;
+   import org.springframework.security.core.authority.SimpleGrantedAuthority;
+   import org.springframework.security.saml2.provider.service.authentication.OpenSaml4AuthenticationProvider;
+   import org.springframework.security.saml2.provider.service.authentication.OpenSaml4AuthenticationProvider.ResponseToken;
+   import org.springframework.security.saml2.provider.service.authentication.Saml2AuthenticatedPrincipal;
+   import org.springframework.security.saml2.provider.service.authentication.Saml2Authentication;
+   import org.springframework.security.web.SecurityFilterChain;
 
-Load the Spring SAML application by opening this link: `http://localhost:8080/spring-security-saml2-sample/saml/discovery?entityID=http%3A%2F%2Flocalhost%3A8080%2Fspring-security-saml2-sample%2Fsaml%2Fmetadata&returnIDParam=idp`
+   import static org.springframework.security.config.Customizer.withDefaults;
 
-> **Note:** Links in the app aren't functional yet because we haven't configured any IDPs. Full app functionality is completed after the **Configure Spring Security SAML to work with Okta** section.
+   @Configuration
+   public class SecurityConfiguration {
 
-Here's what it should look like: ![App Running](/img/spring-security-saml-intro.png "App Running")
+      @Bean
+      SecurityFilterChain configure(HttpSecurity http) throws Exception {
 
-## Configure Okta to work with Spring Security SAML
+         OpenSaml4AuthenticationProvider authenticationProvider = new OpenSaml4AuthenticationProvider();
+         authenticationProvider.setResponseAuthenticationConverter(groupsConverter());
 
-Before we can configure Spring Security SAML, we need to set up an application in Okta that connects to Spring Security SAML.
+         // @formatter:off
+         http
+               .authorizeHttpRequests(authorize -> authorize
+                  .mvcMatchers("/favicon.ico").permitAll()
+                  .anyRequest().authenticated()
+               )
+               .saml2Login(saml2 -> saml2
+                  .authenticationManager(new ProviderManager(authenticationProvider))
+               )
+               .saml2Logout(withDefaults());
+         // @formatter:on
 
-In SAML terminology, what we are doing here is configuring Okta, which is our SAML Identity Provider (SAML IdP), with the details of Spring Security SAML that is the new SAML Service Provider (SAML SP) that you create next.
+         return http.build();
+      }
 
-Here is how to configure Okta:
+      private Converter<OpenSaml4AuthenticationProvider.ResponseToken, Saml2Authentication> groupsConverter() {
 
-**1.** Sign in to your Okta organization as a user with administrative privileges. If you don't have an Okta organization, you can [create a free Okta Developer Edition organization](https://developer.okta.com/signup/).
+         Converter<ResponseToken, Saml2Authentication> delegate =
+               OpenSaml4AuthenticationProvider.createDefaultResponseAuthenticationConverter();
 
-**2.** Click **Admin** to open the Admin Console. Go to **Applications** > **Applications**.
+         return (responseToken) -> {
+               Saml2Authentication authentication = delegate.convert(responseToken);
+               Saml2AuthenticatedPrincipal principal = (Saml2AuthenticatedPrincipal) authentication.getPrincipal();
+               List<String> groups = principal.getAttribute("groups");
+               Set<GrantedAuthority> authorities = new HashSet<>();
+               if (groups != null) {
+                  groups.stream().map(SimpleGrantedAuthority::new).forEach(authorities::add);
+               } else {
+                  authorities.addAll(authentication.getAuthorities());
+               }
+               return new Saml2Authentication(principal, authentication.getSaml2Response(), authorities);
+         };
+      }
+   }
+   ```
 
-**3.** Click **Create App Integration**.
+1. Modify your `build.gradle` file to force the latest version of Open SAML that works with Spring Security 6.
 
-**4.** In the dialog that appears, select **SAML 2.0**, and then click **Next**. ![Create a New Application Integration](/img/okta-admin-ui-create-new-application-integration.png "Create a New Application Integration")
+   ```groovy
+   repositories {
+       ...
+       maven { url "https://build.shibboleth.net/nexus/content/repositories/releases/" }
+   }
 
-**5.** In the **General Settings** section, enter **Spring Security SAML** in the **App name** box, and then click **Next**. ![General Settings](/img/spring-security-saml-okta-general-settings.png "General Settings")
+   dependencies {
+       constraints {
+           implementation "org.opensaml:opensaml-core:4.1.1"
+           implementation "org.opensaml:opensaml-saml-api:4.1.1"
+           implementation "org.opensaml:opensaml-saml-impl:4.1.1"
+       }
+       ...
+   }
+   ```
 
-**6.** In the **Configure SAML** section, paste the following URL into the **Single sign on URL** box:
+1. Restart your app and sign in. You should see your user's groups listed as authorities.
 
-```bash
-http://localhost:8080/spring-security-saml2-sample/saml/SSO
-```
+   <div class="three-quarter border">
 
-**7.** Then paste the following URL into the **Audience URI (SP Entity ID)** box:
+   ![Groups as authorities](/img/saml/spring-security-saml-groups-as-authorities.png)
 
-```bash
-http://localhost:8080/spring-security-saml2-sample/saml/metadata
-```
+   </div>
 
-You can add user attributes sent in each SAML assertion under **Attribute Statements** during this step, if desired. You can derive these attribute values and use them from the service provider side.
+## Deploy with Heroku
 
-**8.** Click **Next**. ![SAML Settings](/img/spring-security-saml-settings.png "SAML Settings")
+After you have Okta working with the generated Spring Security SAML application, the next step is to take the example code and move it to your production enviroment. The specifics of how this works are different depending on how your application is set up.
 
-**9.** In the **Feedback** section, select the **This is an internal application that we created** checkbox and click **Finish**. ![App type](/img/okta-admin-ui-new-application-step-3-feedback.png "App type")
+One quick way to see this app working in a production environment is to deploy it to Heroku. [Install the Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) and create an account to begin. Then, follow the steps below to prepare and deploy your app.
 
-The **Sign On** section of your newly created Spring Security SAML application appears.
+1. Create a new app on Heroku using `heroku create`.
 
-**10.** Copy the **Identity Provider metadata** link by right-clicking the **Identity Provider metadata** link and selecting **Copy**. You need this link later. ![Sign on methods](/img/okta-admin-ui-identity-provider-metadata-link.png "Sign on methods")
+1. Create a `system.properties` file in the root directory of your app to force Java 17:
 
-**11.** Right-click the **People** section of the Spring Security SAML application and select **Open Link In New Tab** (so that you can come back to the **Sign On** section later).
+   ```properties
+   java.runtime.version=17
+   ```
 
-**12.** In the new tab that opens, click **Assign Application**. ![Assign Application](/img/spring-security-saml-okta-assign-people-to-application.png "Assign Application")
+1. Create a `Procfile` that specifies how to run your app:
 
-**13.** The **Assign Spring Security SAML to up to 500 people** dialog appears. Enter your username into the search box, select the checkbox next to your username, and then click **Next**. ![People search box](/img/okta-admin-ui-confirm-assignments.png "People search box")
+   ```
+   web: java -Xmx256m -jar build/libs/*.jar --server.port=$PORT
+   ```
 
-**14.** You are prompted to enter user-specific attributes. Click **Confirm Assignments** to keep the defaults. ![Enter user attributes](/img/spring-security-saml-okta-confirm-assignments.png "Enter user attributes")
+1. Commit your changes:
 
-## Configure Spring Security SAML to work with Okta
+   ```shell
+   git add .
+   git commit -m "Add Heroku configuration"
+   ```
 
-Now that you have configured a Spring Security SAML application, you are ready to configure Spring Security SAML to work with Okta. In this section we use the Identity Provider metadata link that you copied in the last section to configure Spring Security SAML. After you've completed these steps, you have a working example of connecting Okta to Spring.
+1. Set the Gradle task to build your app:
 
-1. Open the `securityContext.xml` file in your favorite text editor. If you followed the instructions in the last section for "Installing the Spring Security SAML sample application" on Mac OS X, this file is located at `/Library/Tomcat/webapps/spring-security-saml2-sample/WEB-INF/securityContext.xml`. (Normally, you would do this step before running Maven or Gradle to create the WAR file that you deploy to Tomcat. In this case, I'm having you edit the file in the Tomcat path directly, since it's easier to make small changes and test them this way).
+   ```shell
+   heroku config:set GRADLE_TASK="bootJar"
+   ```
 
-2. AFter you open the `securityContext.xml` file, add the following XML to the end of the tag identified by this CSS selector syntax:
+1. Deploy to production using Git:
 
-`#metadata > constructor-arg > list`
+   ```shell
+   git push heroku main
+   ```
 
-``` xml
-	<bean class="org.opensaml.saml2.metadata.provider.HTTPMetadataProvider">
-	  <!-- URL containing the metadata -->
-	  <constructor-arg>
-		<!-- This URL should look something like this: https://${yourOktaDomain}/app/abc0defghijK1lmN23o4/sso/saml/metadata -->
-		<value type="java.lang.String">${metadataUrl}</value>
-	  </constructor-arg>
-	  <!-- Timeout for metadata loading in ms -->
-	  <constructor-arg>
-		<value type="int">5000</value>
-	  </constructor-arg>
-	  <property name="parserPool" ref="parserPool"/>
-	</bean>
-```
+For authentication to work with SAML, you'll need to update your Okta app to use your Heroku app's URL in place of `http://localhost:8080`, wherever applicable.
 
-3. Be sure to replace the contents of `${metadataUrl}` with the link that you copied in step 11 of the [Configure Okta to work with Spring Security SAML](http://localhost:8080/code/java/spring_security_saml/#configure-okta-to-work-with-spring-security-saml) section.
+## Learn More
 
-4. Save the `securityContext.xml` file, and then restart Tomcat. If you are using Mac OS X, you can restart Tomcat using the following commands:
-
-```bash
-	/Library/Tomcat/bin/shutdown.sh
-	/Library/Tomcat/bin/startup.sh
-```
-
-## Test the SAML integration
-
-Now that you've set up an application in Okta and configured the Spring Security SAML example application to use that application, you're ready
-to test it out.
-
-There are two ways to test a SAML application: starting from the Spring application ("SP initiated") and starting from Okta ("IdP initiated").
-You test both methods. In both cases, you know if the test worked when you see a screen that looks like the following: ![Authenticated user](/img/spring-security-saml-assert.png "Authenticated user")
-
-1. Sign in from the Spring Security SAML sample application (This is known as an "SP-initiated" sign-in flow).
-
--Open the sample application in your browser:
-
-`http://localhost:8080/spring-security-saml2-sample`
-
--Select the Okta IdP from the list. It is a URL that starts with: `http://www.okta.com/`.
-
--Click **Start single sign-on**. ![Start single sign-on](/img/spring-security-saml-selection.png "Start single sign-on")
-
-2. Sign in from Okta (This is known as an "IdP-initiated" sign-in flow).
-
--Sign in to your Okta organization.
-
--Click the button for the application that you created in the **Configure Okta to work with Spring Security SAML** section. ![Spring Security SAML](/img/spring-security-saml-okta-chiclet.png "Spring Security SAML")
-
-If you're able to access the Authenticated User page using both of these methods, then you're done. Congratulations on getting Okta working with Spring!
-
-## Next Steps
-
-At this point, you should be familiar with setting up SAML-enabled applications to work with an Okta organization and how to configure Spring Security SAML to work with Okta.
-
-After you have Okta working with the example Spring Security SAML application, the next step is to take the example code and move it to your production application. The specifics of how this works is different depending on how your application is set up. Pay special attention to the `securityContext.xml` that allows you to add more IDPs to the app as well as control page redirects. Before any changes are made to the `securityContext.xml` file, you should consider reading the [Spring Security SAML reference documents](http://docs.spring.io/spring-security-saml/docs/1.0.x/reference/html/) that provide a detailed overview of all the components and features of Spring Security SAML.
+At this point, you should be familiar with setting up SAML-enabled applications to work with an Okta organization, how to configure Spring Security SAML to work with Okta, and how to deploy the sample app you built on Heroku.
 
 If you want to learn more about configuring SAML and what to consider when writing a SAML application, see the in-depth Okta [SAML guidance](https://www.okta.com/integrate/documentation/saml/) documentation, which is great place to learn more.

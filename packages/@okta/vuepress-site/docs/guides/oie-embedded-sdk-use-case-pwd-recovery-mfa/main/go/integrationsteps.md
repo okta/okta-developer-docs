@@ -21,9 +21,14 @@ When the user clicks on the **Recover password** link on your site, send the
 user to a page where they can enter their email and start the password
 recovery flow.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays the first page in the password recovery flow that shows the email field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-first.png)
+![A reset password form with an email address field and a next button](/img/wireframes/reset-password-form-email-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36756&t=wzNwSZkdctajVush-1  reset-password-form-email-only
+ -->
 
 </div>
 
@@ -74,9 +79,14 @@ s.cache.Set("resetPasswordFlow", rpr, time.Minute*5)
 The next step is for the user to enter the verification code from their email.
 Build a page that captures this code.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays the second page in the password recovery flow that shows the verification code field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-second.png)
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
 </div>
 
@@ -109,9 +119,14 @@ return
 After the code has been confirmed, the next step is to send the user
 to a page that allows them to enter their new password.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays the third page in the password recovery flow that shows the password fields](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-third.png)
+![A reset password form with two fields to enter and to confirm a new password and a next button](/img/wireframes/reset-password-form-new-password-fields.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36886&t=2h5Mmz3COBLhqVzv-1  reset-password-form-new-password-fields
+ -->
 
 </div>
 
@@ -161,5 +176,5 @@ return
 ### 9 (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful user
-sign-in by making a request to Okta's Open ID Connect authorization server.
+sign-in by making a request to the Okta OpenID Connect authorization server.
 See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information) for more information.

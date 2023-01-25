@@ -1,7 +1,7 @@
 The following diagram shows the sequence of steps for the password recovery use case.
 
-<div class="common-image-format">
+<div class="full">
 
-![Displays the password recovery sequence diagram](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-nodejs.png)
+![Sequence diagram displaying the password recovery use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-nodejs.png)
 
 </div>

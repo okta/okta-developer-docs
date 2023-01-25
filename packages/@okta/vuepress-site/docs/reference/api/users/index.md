@@ -11,12 +11,9 @@ The Okta User API provides operations to manage users in your organization.
 
 Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
 
-
-
 ## User operations
 
 ### Create User
-
 
 <ApiOperation method="post" url="/api/v1/users" />
 
@@ -32,8 +29,10 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User in Group](#create-user-in-group)
 - [Create User with Non-Default User Type](#create-user-with-non-default-user-type)
 
-##### Request parameters
+> **Legal Disclaimer** <br><br>
+After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
 
+##### Request parameters
 
 | Parameter     | Description                                                                                                                                                                | Param Type   | DataType                                     | Required   | Default |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------      | :----------- | :------------------------------------------- | :--------- | :------ |
@@ -59,9 +58,9 @@ The user is emailed a one-time activation token if activated without a password.
 | Security Q & A   | Password   | Activate Query Parameter   | User Status     | Login Credential         | Welcome Screen   |
 | :--------------: | :--------: | :------------------------: | :-------------: | :----------------------: | :--------------: |
 |                  |            | FALSE                      | `STAGED`        |                          |                  |
-|                  |            | TRUE                       | `PROVISIONED`   | One-Time Token (Email)   | X                |
+|                  |            | TRUE                       | `PROVISIONED` or `ACTIVE`   | One-Time Token (Email) or Email  | X                |
 | X                |            | FALSE                      | `STAGED`        |                          |                  |
-| X                |            | TRUE                       | `PROVISIONED`   | One-Time Token (Email)   | X                |
+| X                |            | TRUE                       | `PROVISIONED` or `ACTIVE`   | One-Time Token (Email) or Email  | X                |
 |                  | X          | FALSE                      | `STAGED`        |                          |                  |
 |                  | X          | TRUE                       | `ACTIVE`        | Password                 | X                |
 | X                | X          | FALSE                      | `STAGED`        |                          |                  |
@@ -69,12 +68,25 @@ The user is emailed a one-time activation token if activated without a password.
 
 Creating users with a `FEDERATION` or `SOCIAL` provider sets the user status to either `ACTIVE` or `STAGED` based on the `activate` query parameter since these two providers don't support a `password` or `recovery_question` credential.
 
+#### Create User with Optional Password enabled
+
+<ApiLifeCycle access="ea" />
+
+When Optional Password is enabled, the user status following user creation can be affected by the enrollment policy. See [Create an authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy).
+Based on the group memberships that are specified when the user is created, a password may or may not be required to make the user's status `ACTIVE`. See [Create user in a group](#create-user-in-group).
+
+If the enrollment policy that applies to the user (as determined by the groups assigned to the user) specifies that the Password authenticator is `required`, then in the case where the user is created without a password, the user is in the `PROVISIONED` state and
+a One-Time Token is sent to the user through email.
+If the user is created with a password, then their state is set to ACTIVE, and they can immediately sign in using their Password authenticator.
+
+If the enrollment policy that applies to the groups specified for the newly created user indicates that password is `optional` or `disabled`, then the Administrator can't specify a password for the user. Instead, the user status is set to `ACTIVE` and the user may immediately sign in using their Email authenticator. If policy permits, and the user so chooses, they can enroll a password after they sign in.
+
 #### Create User without credentials
 
 
 Creates a user without a [password](#password-object) or [recovery question & answer](#recovery-question-object)
 
-When the user is activated, an email is sent to the user with an activation token that can be used to complete the activation process.
+If appropriate, when the user is activated, an email is sent to the user with an activation token that the user can use to complete the activation process.
 This is the default flow for new user registration using the administrator UI.
 
 ##### Request example
@@ -124,10 +136,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -197,10 +209,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -214,7 +226,7 @@ Creates a user without a [recovery question & answer](#recovery-question-object)
 The new user is able to sign in after activation with the assigned password.
 This flow is common when developing a custom user registration experience.
 
-> Important: Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
+> **Important:** Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
 
 ##### Request example
 
@@ -267,10 +279,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -284,7 +296,7 @@ Creates a user with a specified [hashed password](#hashed-password-object).
 The new user is able to sign in after activation with the specified password.
 This flow is common when migrating users from another data store in cases where we want to allow the users to retain their current passwords.
 
-> Important: Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
+> **Important:** Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
 
 ##### Request example
 
@@ -344,25 +356,25 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
 ```
 
-#### Create User with Password Import Inline Hook
+#### Create User with password import inline hook
 
 
-Creates a user with a [Password Hook](#password-hook-object) object specifying that a Password Inline Hook should be used to handle password verification.
+Creates a user with a [Password Hook](#password-hook-object) object specifying that a password inline hook should be used to handle password verification.
 
-The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
+The password inline hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the password inline hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password import inline hook](/docs/reference/password-hook/) for more details.
 
 The new user is able to sign in after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
-> Important: Do not generate or send a one-time activation token when activating users with an Password Inline Hook.  Users should sign in with their existing password to be imported using the Password Import Inline Hook.
+> **Important:** Don't generate or send a one-time activation token when activating users with an password inline hook. Users should sign in with their existing password to be imported using the password import inline hook.
 
 ##### Request example
 
@@ -419,7 +431,7 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -433,7 +445,7 @@ Creates a new user with a [password](#password-object) and [recovery question & 
 The new user is able to log in with the assigned password after activation.
 This flow is common when developing a custom user-registration experience.
 
-> Important: Don't generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
+> **Important:** Don't generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
 
 ##### Request example
 
@@ -493,10 +505,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -561,26 +573,25 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/lifecycle/reset_password",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/lifecycle/reset_password",
       "method": "POST"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/credentials/change_recovery_question",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/credentials/change_recovery_question",
       "method": "POST"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/users/00uijntSwJjSHtDY70g3/lifecycle/deactivate",
       "method": "POST"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
 ```
 
 #### Create User in Group
-
 
 Creates a user that is added to the specified groups upon creation
 
@@ -637,10 +648,10 @@ curl -v -X POST \
   },
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     }
   }
 }
@@ -703,16 +714,16 @@ curl -v -X POST \
   },
   "_links": {
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
     },
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/activate"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
     },
     "type": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
     }
   }
 }
@@ -764,7 +775,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 
 > When fetching a user by `login` or `login shortname`, you should [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
 
->Hint: you can substitute `me` for the `id` to fetch the current user linked to an API token or session cookie.
+>**Hint:** you can substitute `me` for the `id` to fetch the current user linked to an API token or session cookie.
 
 >**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 
@@ -790,11 +801,25 @@ Content-Type: application/json
 
 #### Get current User
 
-
-Fetches the current user linked to API token or session cookie
+Fetches the current user linked to an API token or a session cookie
 
 ##### Request example
 
+The following example fetches the current user linked to a session cookie:
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Cookie: ${okta_session_cookie}" \
+"https://${yourOktaDomain}/api/v1/users/me"
+```
+
+> **Note:** This is typically a CORS request from the browser when the end user has an active Okta session. Therefore, it's possible to retrieve the current user without the `Authorization` header.
+
+##### Request example
+
+The following example fetches the current user linked to an API token:
 
 ```bash
 curl -v -X GET \
@@ -804,8 +829,9 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/users/me"
 ```
 
-##### Response example
+> **Note:** This request returns the user linked to the API token that is specified in the `Authorization` header, not the user linked to the active session. Details of the Admin user who granted the API token is returned.
 
+##### Response example
 
 ```json
 {
@@ -836,25 +862,25 @@ curl -v -X GET \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -862,10 +888,9 @@ curl -v -X GET \
 
 #### Get User with ID
 
-
 Fetches a specific user when you know the user's `id`
 
-> Hint: If you don't know the user `id`, [list the users](#list-users) to find the correct ID.
+> **Hint:** If you don't know the user `id`, [list the users](#list-users) to find the correct ID.
 
 ##### Request example
 
@@ -910,25 +935,25 @@ curl -v -X GET \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -985,25 +1010,25 @@ curl -v -X GET \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -1060,32 +1085,31 @@ curl -v -X GET \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
 ```
 
 ### List Users
-
 
 <ApiOperation method="get" url="/api/v1/users" />
 
@@ -1117,31 +1141,435 @@ The performance optimization will only be applied when all three parameters are 
 
 ##### Request parameters
 
-The first three parameters in the table below correspond to different types of lists:
+The first three parameters in the table below correspond to different ways to list users. For further details and examples on these parameters, see [User query options](/docs/reference/user-query) or the following sections.
 
-- [List All Users](#list-all-users) (no parameters)
-- [Find Users](#find-users) (`q`)
-- [List Users with a Filter](#list-users-with-a-filter) (`filter`)
 - [List Users with Search](#list-users-with-search) (`search`)
+- [List Users with a Filter](#list-users-with-a-filter) (`filter`)
+- [Find Users](#find-users) (`q`)
+- [List All Users](#list-all-users) (no parameters)
 
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| q           | Finds a user that matches `firstName`, `lastName`, and `email` properties                                                                      | Query        | String     | FALSE    |
-| filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
-| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties          | Query        | String     | FALSE    |
-| limit       | Specifies the number of results returned (maximum 200)                                                                                         | Query        | Number     | FALSE    |
-| after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
-| sortBy      | Specifies field to sort by (for search queries only)                                                                                           | Search query | String     | FALSE    |
-| sortOrder   | Specifies sort order asc or desc (for search queries only)                                                                                     | Search query | String     | FALSE    |
+| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties. Okta recommends this option for optimal performance.          | Query        | String     | FALSE    |
+| filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties. However, Okta recommends using the search parameter.                  | Query        | String     | FALSE    |
+| q           | Finds a user that matches `firstName`, `lastName`, and `email` properties. However, Okta recommends the search parameter.                       | Query        | String     | FALSE    |
+| limit       | Specifies the number of results returned (maximum 200).                           | Query        | Number     | FALSE    |
+| after       | Specifies the pagination cursor for the next page of users.                                                                                     | Query        | String     | FALSE    |
+| sortBy      | Specifies field to sort by (for search queries only).                                                                                           | Search query | String     | FALSE    |
+| sortOrder   | Specifies sort order asc or desc (for search queries only).                                                                                     | Search query | String     | FALSE    |
 
-  * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
-  * An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
-  * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+- If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
+- An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
+- Okta strongly advises that you use the `search` parameter, which delivers optimal performance. The `q` or `filter` parameters may struggle to perform, in which case Okta recommends reformatting the request to use `search`.
+- Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
 
-
 Array of [User](#user-object)
+
+##### Known Limitation
+
+Due to an infrastructure limitation, [group administrators](https://help.okta.com/okta_help.htm?id=ext_The_User_Admin_Role), [help desk administrators](https://help.okta.com/okta_help.htm?id=ext_The_Help_Desk_Admin_Role),
+and [custom administrators](https://help.okta.com/okta_help.htm?id=csh-cstm-admin-roles) who are only scoped to view and manage users of their assigned groups may experience timeout for the list users endpoints.
+
+#### List Users with search
+
+Searches for users based on the properties specified in the search parameter. This method typically offers the best performance of any [List Users](#list-users) operation other than List All Users.
+
+> **Note:** Results from the Search API are computed from asynchronously indexed and eventually consistent data. The indexing delay is typically less than one second.
+
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.  Unlike in [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` will find `Isaac.Brock` but will not find a property whose value is `isáàc.bröck`.
+
+This operation:
+
+- Supports [pagination](/docs/reference/core-okta-api/#pagination).
+- Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
+  For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
+  Use an ID lookup for records that you update to ensure your results contain the latest data.
+  > **Note:** If you use the special character `"` within a quoted string, it must also be escaped `\` and encoded. For example, `search=profile.lastName eq "bob"smith"` is encoded as `search=profile.lastName%20eq%20%22bob%5C%22smith%22`.
+- Searches many properties:
+  - Any user profile property, including custom-defined properties
+  - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged`, and `lastUpdated`
+  - The [User Type](/docs/reference/api/user-types) accessed as `type.id`
+- Accepts `sortBy` and `sortOrder` parameters.
+  - `sortBy` can be any single property, for example `sortBy=profile.lastName`
+  - `sortOrder` is optional and defaults to ascending
+  - `sortOrder` is ignored if `sortBy` is not present
+  - Users with the same value for the `sortBy` property will be ordered by `id`
+
+| Search Term Example                             | Description                                     |
+| :---------------------------------------------- | :---------------------------------------------- |
+| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`          |
+| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp   |
+| `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                     |
+| `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified User Type ID             |
+| `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
+| `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
+| `profile.lastName sw "Smi" `                    | Users whose `lastName` starts with `Smi`        |
+
+##### Search examples
+
+List users with an occupation of `Leader`
+
+    search=profile.occupation eq "Leader"
+
+List users in the department of `Engineering` who were created before `01/01/2014` or have a status of `ACTIVE`.
+
+    search=profile.department eq "Engineering" and (created lt "2014-01-01T00:00:00.000Z" or status eq "ACTIVE")
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users?search=profile.mobilePhone+sw+%22555%22+and+status+eq+%22ACTIVE%22"
+```
+
+##### Response example
+
+```json
+[
+  {
+    "id": "00ub0oNGTSWTBKOLGLNR",
+    "status": "ACTIVE",
+    "created": "2013-06-24T16:39:18.000Z",
+    "activated": "2013-06-24T16:39:19.000Z",
+    "statusChanged": "2013-06-24T16:39:19.000Z",
+    "lastLogin": "2013-06-24T17:39:19.000Z",
+    "lastUpdated": "2013-07-02T21:36:25.344Z",
+    "passwordChanged": "2013-07-02T21:36:25.344Z",
+    "profile": {
+      "firstName": "Isaac",
+      "lastName": "Brock",
+      "email": "isaac.brock@example.com",
+      "login": "isaac.brock@example.com",
+      "mobilePhone": "555-415-1337"
+    },
+    "credentials": {
+      "password": {},
+      "recovery_question": {
+        "question": "Who's a major player in the cowboy scene?"
+      },
+      "provider": {
+        "type": "OKTA",
+        "name": "OKTA"
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      }
+    }
+  }
+]
+```
+
+##### Searching arrays
+
+You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned. For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
+
+- Okta follows the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
+- You can search multiple arrays, multiple values in an array, as well as using the standard logical and filtering operators. See [Filter](/docs/reference/core-okta-api/#filter).
+
+##### Request example for array
+
+The following example is for a custom attribute on User, an array of strings named `arrayAttr` that contains values `["arrayAttrVal1", "arrayAttrVal2"...]`.
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users?search=profile.arrayAttr+eq+%22arrayAttrVal1%22"
+```
+
+##### Response example for array
+
+```json
+[
+    {
+        "id": "00u19uiKQa0xXkbdGLNR",
+        "status": "PROVISIONED",
+        "created": "2016-03-15T04:21:51.000Z",
+        "activated": "2016-03-15T04:21:52.000Z",
+        "statusChanged": "2016-03-15T04:21:52.000Z",
+        "lastLogin": null,
+        "lastUpdated": "2016-03-17T07:08:15.000Z",
+        "passwordChanged": null,
+        "profile": {
+            "login": "u7@test.com",
+            "mobilePhone": null,
+            "email": "u7@test.com",
+            "secondEmail": "",
+            "firstName": "u7",
+            "lastName": "u7",
+            "boolAttr": true,
+            "intAttr": 99,
+            "strArray": [
+                "strArrayVal1",
+                "strArrayVal2"
+            ],
+            "intArray": [
+                5,
+                8
+            ],
+            "numAttr": 8.88,
+            "attr1": "attr1ValUpdated3",
+            "arrayAttr": [
+                "arrayAttrVal1",
+                "arrayAttrVal2Updated"
+            ],
+            "numArray": [
+                1.23,
+                4.56
+            ]
+        },
+        "credentials": {
+            "provider": {
+                "type": "OKTA",
+                "name": "OKTA"
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u19uiKQa0xXkbdGLNR"
+            }
+        }
+    }
+]
+```
+
+#### List Users with a filter
+
+Lists all users that match the filter criteria. To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead of a filter.
+
+> **Note:** Results from the filter parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
+
+This operation:
+
+- Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
+- Supports the following limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
+- Supports only the equal `eq` operator from the standard Okta API filtering semantics, except in the case of the `lastUpdated` property. This property can also use the inequality operators (`gt`, `ge`, `lt`, and `le`).
+- Supports only the logical operators `and` and `or`.
+- Is case-sensitive for attribute names and query values, while attribute operators are case-insensitive.
+
+| Filter                                          | Description                                      |
+| :---------------------------------------------- | :----------------------------------------------- |
+| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`           |
+| `status eq "PROVISIONED"`                       | Users that have a `status` of `PROVISIONED`      |
+| `status eq "ACTIVE"`                            | Users that have a `status` of `ACTIVE`           |
+| `status eq "RECOVERY"`                          | Users that have a `status` of `RECOVERY`         |
+| `status eq "PASSWORD_EXPIRED"`                  | Users that have a `status` of `PASSWORD_EXPIRED` |
+| `status eq "LOCKED_OUT"`                        | Users that have a `status` of `LOCKED_OUT`       |
+| `status eq "DEPROVISIONED"`                     | Users that have a `status` of `DEPROVISIONED`    |
+| `lastUpdated lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated before a specific timestamp   |
+| `lastUpdated eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated at a specific timestamp       |
+| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp    |
+| `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                      |
+| `profile.login eq "login@example.com"`          | Users with a specified `login`                   |
+| `profile.email eq "email@example.com"`          | Users with a specified `email`*                  |
+| `profile.firstName eq "John"`                   | Users with a specified `firstName`*              |
+| `profile.lastName eq "Smith" `                  | Users with a specified `lastName`*               |
+
+> **Hint:** If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
+
+See [Filtering](/docs/reference/core-okta-api/#filter) for more information on the expressions that are used in filtering.
+
+##### Filter examples
+
+List users with status of `LOCKED_OUT`
+
+    filter=status eq "LOCKED_OUT"
+
+List users updated after 06/01/2013 but before 01/01/2014
+
+    filter=lastUpdated gt "2013-06-01T00:00:00.000Z" and lastUpdated lt "2014-01-01T00:00:00.000Z"
+
+List users updated after 06/01/2013 but before 01/01/2014 with a status of `ACTIVE`
+
+    filter=lastUpdated gt "2013-06-01T00:00:00.000Z" and lastUpdated lt "2014-01-01T00:00:00.000Z" and status eq "ACTIVE"
+
+List users updated after 06/01/2013 but with a status of `LOCKED_OUT` or `RECOVERY`
+
+    filter=lastUpdated gt "2013-06-01T00:00:00.000Z" and (status eq "LOCKED_OUT" or status eq "RECOVERY")
+
+##### Request example: status
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users?filter=status+eq+%22ACTIVE%22+or+status+eq+%22RECOVERY%22"
+```
+
+##### Response example
+
+```json
+[
+  {
+    "id": "00ub0oNGTSWTBKOLGLNR",
+    "status": "ACTIVE",
+    "created": "2013-06-24T16:39:18.000Z",
+    "activated": "2013-06-24T16:39:19.000Z",
+    "statusChanged": "2013-06-24T16:39:19.000Z",
+    "lastLogin": "2013-06-24T17:39:19.000Z",
+    "lastUpdated": "2013-07-02T21:36:25.344Z",
+    "passwordChanged": "2013-07-02T21:36:25.344Z",
+    "profile": {
+      "firstName": "Eric",
+      "lastName": "Judy",
+      "email": "eric.judy@example.com",
+      "secondEmail": "eric@example.org",
+      "login": "eric.judy@example.com",
+      "mobilePhone": "555-415-2011"
+    },
+    "credentials": {
+      "password": {},
+      "recovery_question": {
+        "question": "The stars are projectors?"
+      },
+      "provider": {
+        "type": "OKTA",
+        "name": "OKTA"
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      }
+    }
+  }
+]
+```
+
+##### Request example: timestamp
+
+Lists all users that have been updated since a specific timestamp
+
+Use this operation when implementing a background synchronization job and you want to poll for changes.
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users?filter=lastUpdated+gt+%222021-07-01T00:00:00.000Z%22"
+```
+
+##### Response example
+
+```json
+[
+  {
+    "id": "00ub0oNGTSWTBKOLGLNR",
+    "status": "ACTIVE",
+    "created": "2013-06-24T16:39:18.000Z",
+    "activated": "2013-06-24T16:39:19.000Z",
+    "statusChanged": "2013-06-24T16:39:19.000Z",
+    "lastLogin": "2013-06-24T17:39:19.000Z",
+    "lastUpdated": "2013-07-02T21:36:25.344Z",
+    "passwordChanged": "2013-07-02T21:36:25.344Z",
+    "profile": {
+      "firstName": "Eric",
+      "lastName": "Judy",
+      "email": "eric.judy@example.com",
+      "secondEmail": "eric@example.org",
+      "login": "eric.judy@example.com",
+      "mobilePhone": "555-415-2011"
+    },
+    "credentials": {
+      "password": {},
+      "recovery_question": {
+        "question": "The stars are projectors?"
+      },
+      "provider": {
+        "type": "OKTA",
+        "name": "OKTA"
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      }
+    }
+  }
+]
+```
+
+
+#### Find Users
+
+
+Finds users who match the specified query.  To ensure optimal performance, Okta recommends using a [search parameter](#list-users-with-search) instead.
+
+Use the `q` parameter for a simple lookup of users by name, for example when creating a people picker.
+The value of `q` is matched against `firstName`, `lastName`, or `email`.
+
+> **Note:** Results from the query parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
+
+
+This operation:
+
+ * Doesn't support pagination.
+ * May not deliver optimal performance for large organizations, and is deprecated for such use cases.  Okta recommends using a [search parameter](#list-users-with-search) instead.
+ * Performs a `startsWith` match but this is an implementation detail and may change without notice. You don't need to specify `firstName`, `lastName`, or `email`.
+
+##### Request example
+
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/users?q=eric&limit=1"
+```
+
+##### Response example
+
+
+```json
+[
+  {
+    "id": "00ub0oNGTSWTBKOLGLNR",
+    "status": "ACTIVE",
+    "created": "2013-06-24T16:39:18.000Z",
+    "activated": "2013-06-24T16:39:19.000Z",
+    "statusChanged": "2013-06-24T16:39:19.000Z",
+    "lastLogin": "2013-06-24T17:39:19.000Z",
+    "lastUpdated": "2013-07-02T21:36:25.344Z",
+    "passwordChanged": "2013-07-02T21:36:25.344Z",
+    "profile": {
+      "firstName": "Eric",
+      "lastName": "Judy",
+      "email": "eric.judy@example.com",
+      "secondEmail": "eric@example.org",
+      "login": "eric.judy@example.com",
+      "mobilePhone": "555-415-2011"
+    },
+    "credentials": {
+      "password": {},
+      "recovery_question": {
+        "question": "The stars are projectors?"
+      },
+      "provider": {
+        "type": "OKTA",
+        "name": "OKTA"
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+      }
+    }
+  }
+]
+```
+
+> **Note:** This omits users that have a status of `DEPROVISIONED`. To return all users, use a [filter query](#list-users-with-a-filter) instead.
 
 #### List all Users
 
@@ -1196,7 +1624,7 @@ Link: <https://${yourOktaDomain}/api/v1/users?after=00ud4tVDDXYVKPXKVLCO&limit=2
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
       }
     }
   },
@@ -1229,421 +1657,15 @@ Link: <https://${yourOktaDomain}/api/v1/users?after=00ud4tVDDXYVKPXKVLCO&limit=2
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
       }
     }
   }
 ]
 ```
 
-#### Find Users
-
-
-Finds users who match the specified query
-
-Use the `q` parameter for a simple lookup of users by name, for example when creating a people picker.
-The value of `q` is matched against `firstName`, `lastName`, or `email`.
-
-
-This operation:
-
- * Doesn't support pagination.
- * Queries the most up-to-date data. For example, if you create a user or change an attribute and then issue a filter request, the change is reflected in the results.
- * Performs a startsWith match but this is an implementation detail and may change without notice. You don't need to specify `firstName`, `lastName`, or `email`.
-
-##### Request example
-
-
-```bash
-curl -v -X GET \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?q=eric&limit=1"
-```
-
-##### Response example
-
-
-```json
-[
-  {
-    "id": "00ub0oNGTSWTBKOLGLNR",
-    "status": "ACTIVE",
-    "created": "2013-06-24T16:39:18.000Z",
-    "activated": "2013-06-24T16:39:19.000Z",
-    "statusChanged": "2013-06-24T16:39:19.000Z",
-    "lastLogin": "2013-06-24T17:39:19.000Z",
-    "lastUpdated": "2013-07-02T21:36:25.344Z",
-    "passwordChanged": "2013-07-02T21:36:25.344Z",
-    "profile": {
-      "firstName": "Eric",
-      "lastName": "Judy",
-      "email": "eric.judy@example.com",
-      "secondEmail": "eric@example.org",
-      "login": "eric.judy@example.com",
-      "mobilePhone": "555-415-2011"
-    },
-    "credentials": {
-      "password": {},
-      "recovery_question": {
-        "question": "The stars are projectors?"
-      },
-      "provider": {
-        "type": "OKTA",
-        "name": "OKTA"
-      }
-    },
-    "_links": {
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
-      }
-    }
-  }
-]
-```
-
-> **Note:** This omits users that have a status of `DEPROVISIONED`. To return all users, use a [filter query](#list-users-with-a-filter) instead.
-
-#### List Users with a filter
-
-
-Lists all users that match the filter criteria
-
-This operation:
-
-* Filters against the most up-to-date data. For example, if you create a user or change an attribute and then issue a filter request,
-the changes are reflected in your results.
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
-Examples use cURL-style escaping instead of URL encoding to make them easier to read.
-* Supports only a limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
-
-| Filter                                          | Description                                      |
-| :---------------------------------------------- | :----------------------------------------------- |
-| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`           |
-| `status eq "PROVISIONED"`                       | Users that have a `status` of `PROVISIONED`      |
-| `status eq "ACTIVE"`                            | Users that have a `status` of `ACTIVE`           |
-| `status eq "RECOVERY"`                          | Users that have a `status` of `RECOVERY`         |
-| `status eq "PASSWORD_EXPIRED"`                  | Users that have a `status` of `PASSWORD_EXPIRED` |
-| `status eq "LOCKED_OUT"`                        | Users that have a `status` of `LOCKED_OUT`       |
-| `status eq "DEPROVISIONED"`                     | Users that have a `status` of `DEPROVISIONED`    |
-| `lastUpdated lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated before a specific timestamp   |
-| `lastUpdated eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated at a specific timestamp       |
-| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp    |
-| `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                      |
-| `profile.login eq "login@example.com"`          | Users with a specified `login`                   |
-| `profile.email eq "email@example.com"`          | Users with a specified `email`*                  |
-| `profile.firstName eq "John"`                   | Users with a specified `firstName`*              |
-| `profile.lastName eq "Smith" `                  | Users with a specified `lastName`*               |
-
-> Hint: If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
-
-See [Filtering](/docs/reference/core-okta-api/#filter) for more information on the expressions that are used in filtering.
-
-##### Filter examples
-
-List users with status of `LOCKED_OUT`
-
-    filter=status eq "LOCKED_OUT"
-
-List users updated after 06/01/2013 but before 01/01/2014
-
-    filter=lastUpdated gt "2013-06-01T00:00:00.000Z" and lastUpdated lt "2014-01-01T00:00:00.000Z"
-
-List users updated after 06/01/2013 but before 01/01/2014 with a status of `ACTIVE`
-
-    filter=lastUpdated gt "2013-06-01T00:00:00.000Z" and lastUpdated lt "2014-01-01T00:00:00.000Z" and status eq "ACTIVE"
-
-List users updated after 06/01/2013 but with a status of `LOCKED_OUT` or `RECOVERY`
-
-    filter=lastUpdated gt "2013-06-01T00:00:00.000Z" and (status eq "LOCKED_OUT" or status eq "RECOVERY")
-
-
-##### Request example: status
-
-
-```bash
-curl -v -X GET \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?filter=status+eq+\"ACTIVE\"+or+status+eq+\"RECOVERY\""
-```
-
-
-##### Response example
-
-
-```json
-[
-  {
-    "id": "00ub0oNGTSWTBKOLGLNR",
-    "status": "ACTIVE",
-    "created": "2013-06-24T16:39:18.000Z",
-    "activated": "2013-06-24T16:39:19.000Z",
-    "statusChanged": "2013-06-24T16:39:19.000Z",
-    "lastLogin": "2013-06-24T17:39:19.000Z",
-    "lastUpdated": "2013-07-02T21:36:25.344Z",
-    "passwordChanged": "2013-07-02T21:36:25.344Z",
-    "profile": {
-      "firstName": "Eric",
-      "lastName": "Judy",
-      "email": "eric.judy@example.com",
-      "secondEmail": "eric@example.org",
-      "login": "eric.judy@example.com",
-      "mobilePhone": "555-415-2011"
-    },
-    "credentials": {
-      "password": {},
-      "recovery_question": {
-        "question": "The stars are projectors?"
-      },
-      "provider": {
-        "type": "OKTA",
-        "name": "OKTA"
-      }
-    },
-    "_links": {
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
-      }
-    }
-  }
-]
-```
-
-##### Request example: timestamp
-
-
-Lists all users that have been updated since a specific timestamp
-
-Use this operation when implementing a background synchronization job and you want to poll for changes.
-
-```bash
-curl -v -X GET \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?filter=lastUpdated+gt+\"2013-07-01T00:00:00.000Z\""
-```
-
-##### Response example
-
-
-```json
-[
-  {
-    "id": "00ub0oNGTSWTBKOLGLNR",
-    "status": "ACTIVE",
-    "created": "2013-06-24T16:39:18.000Z",
-    "activated": "2013-06-24T16:39:19.000Z",
-    "statusChanged": "2013-06-24T16:39:19.000Z",
-    "lastLogin": "2013-06-24T17:39:19.000Z",
-    "lastUpdated": "2013-07-02T21:36:25.344Z",
-    "passwordChanged": "2013-07-02T21:36:25.344Z",
-    "profile": {
-      "firstName": "Eric",
-      "lastName": "Judy",
-      "email": "eric.judy@example.com",
-      "secondEmail": "eric@example.org",
-      "login": "eric.judy@example.com",
-      "mobilePhone": "555-415-2011"
-    },
-    "credentials": {
-      "password": {},
-      "recovery_question": {
-        "question": "The stars are projectors?"
-      },
-      "provider": {
-        "type": "OKTA",
-        "name": "OKTA"
-      }
-    },
-    "_links": {
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
-      }
-    }
-  }
-]
-```
-
-#### List Users with search
-
-Searches for users based on the properties specified in the search parameter
-
-> **Note:** Listing users with search should not be used as a part of any critical flows, such as authentication, to prevent potential data loss. Search results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object.
-
-Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.  Unlike in [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` will find `Isaac.Brock` but will not find a property whose value is `isáàc.bröck`.
-
-This operation:
-
-* Supports [pagination](/docs/reference/core-okta-api/#pagination).
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
-For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
-Examples use cURL-style escaping instead of URL encoding to make them easier to read.
-Use an ID lookup for records that you update to ensure your results contain the latest data.
-* Searches many properties:
-   - Any user profile property, including custom-defined properties
-   - The top-level properties `id`, `status`, `created`, `activated`, `statusChanged` and `lastUpdated`
-   - The [User Type](/docs/reference/api/user-types), accessed as `type.id`
-* Accepts `sortBy` and `sortOrder` parameters.
-   - `sortBy` can be any single property, for example `sortBy=profile.lastName`
-   - `sortOrder` is optional and defaults to ascending
-   - `sortOrder` is ignored if `sortBy` is not present
-   - Users with the same value for the `sortBy` property will be ordered by `id`
-
-| Search Term Example                             | Description                                     |
-| :---------------------------------------------- | :---------------------------------------------- |
-| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`          |
-| `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp   |
-| `id eq "00u1ero7vZFVEIYLWPBN"`                  | Users with a specified `id`                     |
-| `type.id eq "otyfnjfba4ye7pgjB0g4"`             | Users with a specified User Type ID             |
-| `profile.department eq "Engineering"`           | Users that have a `department` of `Engineering` |
-| `profile.occupation eq "Leader"`                | Users that have an `occupation` of `Leader`     |
-| `profile.lastName sw "Sm" `                     | Users whose `lastName` starts with `Sm`         |
-
-##### Search examples
-
-List users with an occupation of `Leader`
-
-    search=profile.occupation eq "Leader"
-
-List users in the department of `Engineering` who were created before `01/01/2014` or have a status of `ACTIVE`.
-
-    search=profile.department eq "Engineering" and (created lt "2014-01-01T00:00:00.000Z" or status eq "ACTIVE")
-
-##### Request example
-
-
-```bash
-curl -v -X GET \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?search=profile.mobilePhone+sw+\"555\"+and+status+eq+\"ACTIVE\""
-```
-
-##### Response example
-
-
-```json
-[
-  {
-    "id": "00ub0oNGTSWTBKOLGLNR",
-    "status": "ACTIVE",
-    "created": "2013-06-24T16:39:18.000Z",
-    "activated": "2013-06-24T16:39:19.000Z",
-    "statusChanged": "2013-06-24T16:39:19.000Z",
-    "lastLogin": "2013-06-24T17:39:19.000Z",
-    "lastUpdated": "2013-07-02T21:36:25.344Z",
-    "passwordChanged": "2013-07-02T21:36:25.344Z",
-    "profile": {
-      "firstName": "Isaac",
-      "lastName": "Brock",
-      "email": "isaac.brock@example.com",
-      "login": "isaac.brock@example.com",
-      "mobilePhone": "555-415-1337"
-    },
-    "credentials": {
-      "password": {},
-      "recovery_question": {
-        "question": "Who's a major player in the cowboy scene?"
-      },
-      "provider": {
-        "type": "OKTA",
-        "name": "OKTA"
-      }
-    },
-    "_links": {
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR"
-      }
-    }
-  }
-]
-```
-
-##### Searching arrays
-
-You can search properties that are arrays. If any element matches the search term, the entire array (object) is returned.
-For examples, see [Request example for array](#request-example-for-array) and [Response example for array](#response-example-for-array).
-
-* We follow the [SCIM Protocol Specification](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) for searching arrays.
-* Search for one value at a time when searching arrays. For example, you can't search for users where a string is equal to an attribute in two different arrays.
-
-##### Request example for array
-
-
-The following example is for a custom attribute on User, an array of strings named `arrayAttr` that contains values `["arrayAttrVal1", "arrayAttrVal2"...]`.
-
-```bash
-curl -v -X GET \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users?search=profile.arrayAttr+eq+\"arrayAttrVal1\" "
-```
-
-##### Response example for array
-
-
-```json
-[
-    {
-        "id": "00u19uiKQa0xXkbdGLNR",
-        "status": "PROVISIONED",
-        "created": "2016-03-15T04:21:51.000Z",
-        "activated": "2016-03-15T04:21:52.000Z",
-        "statusChanged": "2016-03-15T04:21:52.000Z",
-        "lastLogin": null,
-        "lastUpdated": "2016-03-17T07:08:15.000Z",
-        "passwordChanged": null,
-        "profile": {
-            "login": "u7@test.com",
-            "mobilePhone": null,
-            "email": "u7@test.com",
-            "secondEmail": "",
-            "firstName": "u7",
-            "lastName": "u7",
-            "boolAttr": true,
-            "intAttr": 99,
-            "strArray": [
-                "strArrayVal1",
-                "strArrayVal2"
-            ],
-            "intArray": [
-                5,
-                8
-            ],
-            "numAttr": 8.88,
-            "attr1": "attr1ValUpdated3",
-            "arrayAttr": [
-                "arrayAttrVal1",
-                "arrayAttrVal2Updated"
-            ],
-            "numArray": [
-                1.23,
-                4.56
-            ]
-        },
-        "credentials": {
-            "provider": {
-                "type": "OKTA",
-                "name": "OKTA"
-            }
-        },
-        "_links": {
-            "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u19uiKQa0xXkbdGLNR"
-            }
-        }
-    }
-]
-```
 
 ### Update User
-
 
 > **Note:** Use the `POST` method to make a partial update and the `PUT` method to delete unspecified properties.
 
@@ -1654,7 +1676,7 @@ Updates a user's profile and/or credentials using strict-update semantics
 All profile properties must be specified when updating a user's profile with a `PUT` method. Any property not specified
 in the request is deleted.
 
->Important: Don't use `PUT` method for partial updates.
+> **Important:** Don't use `PUT` method for partial updates.
 
 ##### Request parameters
 
@@ -1672,11 +1694,9 @@ in the request is deleted.
 
 ##### Response parameters
 
-
 Updated [User](#user-object)
 
 #### Update current User's Profile
-
 
 <ApiOperation method="post" url="/api/v1/users/me" /> <SupportsCors />
 
@@ -1689,13 +1709,12 @@ Updates current user's profile with partial update semantics
 | :------------ | :------------------------------------------------------------------- | :----------- | :------------------------------------------ | :------- |
 | profile       | Updated profile for user                                             | Body         | [Profile object](#profile-object)           | FALSE    |
 
-End user can only update `profile` with this request. To update credentials, use [Update Profile with ID](#update-profile-with-id).
+End user can only update `profile` with this request. Within the profile, if the end user tries to update the primary or the secondary email IDs, verification emails are sent to those email IDs, and the fields are updated only upon verification. To update credentials, use [Update Profile with ID](#update-profile-with-id).
 
 >**Note:** An end user can only update profile properties for which the user has write access. To update user permissions for a schema property,
 use [Update User Profile Schema Property](/docs/reference/api/schemas/#update-user-profile-schema-property)
 
 ##### Response parameters
-
 
 Updated [User](#user-object)
 
@@ -1748,25 +1767,25 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -1779,7 +1798,7 @@ curl -v -X POST \
 
 Updates a user's profile or credentials with partial update semantics
 
-> Important: Use the `POST` method for partial updates. Unspecified properties are set to null with `PUT`.
+> **Important:** Use the `POST` method for partial updates. Unspecified properties are set to null with `PUT`.
 
 ##### Request parameters
 
@@ -1847,25 +1866,25 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -1925,32 +1944,31 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
 ```
 
 #### Set recovery question and answer
-
 
 Sets recovery question and answer without validating existing user credentials
 
@@ -2006,25 +2024,25 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -2072,8 +2090,8 @@ curl -v -X GET \
   {
     "id": "00ub0oNGTSWTBKOLGLNR",
     "label": "Google Apps Mail",
-    "linkUrl": "https://${yourOktaDomain}/home/google/0oa3omz2i9XRNSRIHBZO/50",
-    "logoUrl": "https://${yourOktaDomain}/img/logos/google-mail.png",
+    "linkUrl": "https://{yourOktaDomain}/home/google/0oa3omz2i9XRNSRIHBZO/50",
+    "logoUrl": "https://{yourOktaDomain}/img/logos/google-mail.png",
     "appName": "google",
     "appInstanceId": "0oa3omz2i9XRNSRIHBZO",
     "appAssignmentId": "0ua3omz7weMMMQJERBKY",
@@ -2084,8 +2102,8 @@ curl -v -X GET \
   {
     "id": "00ub0oNGTSWTBKOLGLNR",
     "label": "Google Apps Calendar",
-    "linkUrl": "https://${yourOktaDomain}/home/google/0oa3omz2i9XRNSRIHBZO/54",
-    "logoUrl": "https://${yourOktaDomain}/img/logos/google-calendar.png",
+    "linkUrl": "https://{yourOktaDomain}/home/google/0oa3omz2i9XRNSRIHBZO/54",
+    "logoUrl": "https://{yourOktaDomain}/img/logos/google-calendar.png",
     "appName": "google",
     "appInstanceId": "0oa3omz2i9XRNSRIHBZO",
     "appAssignmentId": "0ua3omz7weMMMQJERBKY",
@@ -2096,8 +2114,8 @@ curl -v -X GET \
   {
     "id": "00ub0oNGTSWTBKOLGLNR",
     "label": "Box",
-    "linkUrl": "https://${yourOktaDomain}/home/boxnet/0oa3ompioiQCSTOYXVBK/72",
-    "logoUrl": "https://${yourOktaDomain}/img/logos/box.png",
+    "linkUrl": "https://{yourOktaDomain}/home/boxnet/0oa3ompioiQCSTOYXVBK/72",
+    "logoUrl": "https://{yourOktaDomain}/img/logos/box.png",
     "appName": "boxnet",
     "appInstanceId": "0oa3ompioiQCSTOYXVBK",
     "appAssignmentId": "0ua3omx46lYEZLPPRWBO",
@@ -2108,8 +2126,8 @@ curl -v -X GET \
   {
     "id": "00ub0oNGTSWTBKOLGLNR",
     "label": "Salesforce.com",
-    "linkUrl": "https://${yourOktaDomain}/home/salesforce/0oa12ecnxtBQMKOXJSMF/46",
-    "logoUrl": "https://${yourOktaDomain}/img/logos/salesforce_logo.png",
+    "linkUrl": "https://{yourOktaDomain}/home/salesforce/0oa12ecnxtBQMKOXJSMF/46",
+    "logoUrl": "https://{yourOktaDomain}/img/logos/salesforce_logo.png",
     "appName": "salesforce",
     "appInstanceId": "0oa12ecnxtBQMKOXJSMF",
     "appAssignmentId": "0ua173qgj5VAVOBQMCVB",
@@ -2180,35 +2198,38 @@ For example, you can't unlock a user that is `ACTIVE`.
 
 ### Activate User
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/activate" />
 
 Activates a user
 
 This operation can only be performed on users with a `STAGED` or `DEPROVISIONED` status.  Activation of a user is an asynchronous operation.
 
-* The user's `transitioningToStatus` property has a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
-* The user's status is `ACTIVE` when the activation process is complete.
+- The user's `transitioningToStatus` property has a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
+- The user's status is `ACTIVE` when the activation process is complete.
 
 Users who don't have a password must complete the welcome flow by visiting the activation link to complete the transition to `ACTIVE` status.
 
-##### Request parameters
+> **Note:** If you have Optional Password enabled, visiting the activation link is optional for users who aren't required to enroll a password. See [Create user with Optional Password enabled](#create-user-with-optional-password-enabled).
+>
 
+##### Request parameters
 
 | Parameter | Description                                     | Param Type | DataType | Required | Default |
 | --------- | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | id        | `id` of user                                    | URL        | String   | TRUE     |         |
 | sendEmail | Sends an activation email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
 
+> **Legal Disclaimer** <br><br>
+After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
+
 ##### Response parameters
 
-
-* Returns empty object by default.
-* If `sendEmail` is `false`, returns an activation link for the user to set up their account. The activation token can be used to create a custom activation link.
+- Returns empty object by default.
+- If `sendEmail` is `false`, returns an activation link for the user to set up their account. The activation token can be used to create a custom activation link.
 
 ```json
 {
-  "activationUrl": "https://${yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
@@ -2231,7 +2252,7 @@ curl -v -X POST \
 
 ```json
 {
-  "activationUrl": "https://${yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
@@ -2263,7 +2284,7 @@ Users that don't have a password must complete the flow by completing [Reset Pas
 
 ```json
 {
-  "activationUrl": "https://${yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
@@ -2284,7 +2305,7 @@ curl -v -X POST \
 
 ```json
 {
-  "activationUrl": "https://${yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
+  "activationUrl": "https://{yourOktaDomain}/welcome/XE6wE17zmphl3KqAPFxO",
   "activationToken": "XE6wE17zmphl3KqAPFxO"
 }
 ```
@@ -2307,7 +2328,6 @@ Content-Type: application/json
 
 ### Deactivate User
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/deactivate" />
 
 Deactivates a user
@@ -2317,7 +2337,7 @@ This operation can only be performed on users that do not have a `DEPROVISIONED`
 * The user's `transitioningToStatus` property is `DEPROVISIONED` during deactivation to indicate that the user hasn't completed the asynchronous operation.
 * The user's status is `DEPROVISIONED` when the deactivation process is complete.
 
-> Important: Deactivating a user is a **destructive** operation.  The user is deprovisioned from all assigned applications which may destroy their data such as email or files.  **This action cannot be recovered!**
+> **Important:** Deactivating a user is a **destructive** operation. The user is deprovisioned from all assigned applications which may destroy their data such as email or files.  **This action cannot be recovered!**
 
 ##### Request parameters
 
@@ -2554,7 +2574,7 @@ HTTP/1.1 204 No Content
 
 Unlocks a user with a `LOCKED_OUT` status and returns them to `ACTIVE` status.  Users will be able to login with their current password.
 
-> **Note:** This operation works with Okta-mastered users. It doesn't support directory-mastered accounts such as Active Directory.
+> **Note:** This operation works with Okta-sourced users. It doesn't support directory-sourced accounts such as Active Directory.
 
 ##### Request parameters
 
@@ -2596,6 +2616,7 @@ Generates a one-time token (OTT) that can be used to reset a user's password.  T
 
 This operation will transition the user to the status of `RECOVERY` and the user will not be able to login or initiate a forgot password flow until they complete the reset flow.
 
+This operation provides an option to delete all the user' sessions.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
 >**Note:** You can also use this API to convert a user with the Okta Credential Provider to a use a Federated Provider. After this conversion, the user cannot directly sign in with password. The second example demonstrates this usage.
 
 ##### Request parameters
@@ -2605,6 +2626,7 @@ This operation will transition the user to the status of `RECOVERY` and the user
 | --------- | ------------------------------------------------ | ---------- | -------- | -------- | ------- |
 | id        | `id` of user                                     | URL        | String   | TRUE     |         |
 | sendEmail | Sends reset password email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
+| revokeSessions | When set to `true`, revokes all user sessions, except for the current session | Query      | Boolean  | FALSE    | FALSE   |
 
 To ensure a successful password recovery lookup if an email address is associated with multiple users:
 
@@ -2619,7 +2641,7 @@ To ensure a successful password recovery lookup if an email address is associate
 
 ```json
 {
-  "resetPasswordUrl": "https://${yourOktaDomain}/reset_password/XE6wE17zmphl3KqAPFxO"
+  "resetPasswordUrl": "https://{yourOktaDomain}/reset_password/XE6wE17zmphl3KqAPFxO"
 }
 ```
 
@@ -2639,12 +2661,11 @@ curl -v -X POST \
 
 ```json
 {
-  "resetPasswordUrl": "https://${yourOktaDomain}/reset_password/XE6wE17zmphl3KqAPFxO"
+  "resetPasswordUrl": "https://{yourOktaDomain}/reset_password/XE6wE17zmphl3KqAPFxO"
 }
 ```
 
 ##### Request example (Convert a User to a Federated User)
-
 
 To convert a user to a federated user, pass `FEDERATION` as the `provider` in the [Provider object](#provider-object). The `sendEmail`
 parameter must be false or omitted for this type of conversion.
@@ -2739,25 +2760,25 @@ curl -v -X POST \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     }
   }
 }
@@ -2772,18 +2793,19 @@ This operation resets all factors for the specified user. All MFA factor enrollm
 
 ##### Request parameters
 
-
 | Parameter    | Description                                                  | Param Type | DataType | Required | Default |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
 | id           | `id` of user                                                 | URL        | String   | TRUE     |         |
 
-##### Response parameters
+<!-- REMOVED THIS PARAMETER in 2022.07.0; release mgmt disabled with kill switch - June 30, 2022 Katherine Chan
 
+| removeRecoveryEnrollment       | An optional parameter that allows removal of the the phone factor (SMS/Voice) as both a recovery method and a factor. | QUERY      | Boolean  | FALSE    | FALSE   | -->
+
+##### Response parameters
 
 Returns an empty object by default.
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -2805,7 +2827,7 @@ Content-Type: application/json
 
 Clears Okta sessions for the currently logged in user. By default, the current session remains active. Use this method in a browser-based application.
 
-> This operation requires a session cookie for the user. API token is not allowed for this operation.
+> **Note:** This operation requires a session cookie for the user. The API token isn't allowed for this operation.
 
 <ApiOperation method="post" url="/api/v1/users/me/lifecycle/delete_sessions" /> <SupportsCors />
 
@@ -2855,7 +2877,6 @@ Content-Type: application/json
 
 ### Clear User sessions
 
-
 <ApiOperation method="delete" url="/api/v1/users/${userId}/sessions" />
 
 Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.
@@ -2899,7 +2920,6 @@ HTTP/1.1 204 No Content
 
 ### Forgot password
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/credentials/forgot_password" />
 
 Generates a one-time token (OTT) that can be used to reset a user's password
@@ -2930,7 +2950,7 @@ To ensure a successful password recovery lookup if an email address is associate
 
 ```json
 {
-  "resetPasswordUrl": "https://${yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
+  "resetPasswordUrl": "https://{yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
 }
 ```
 
@@ -2952,7 +2972,7 @@ curl -v -X POST \
 
 ```json
 {
-  "resetPasswordUrl": "https://${yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
+  "resetPasswordUrl": "https://{yourOktaDomain}/signin/reset-password/XE6wE17zmphl3KqAPFxO"
 }
 ```
 
@@ -2962,7 +2982,7 @@ Sets a new password for a user by validating the user's answer to their current 
 
 This operation can only be performed on users with an `ACTIVE` status and a valid [recovery question credential](#recovery-question-object).
 
-> Important: This operation is intended for applications that need to implement their own forgot password flow.  You are responsible for mitigation of all security risks such as phishing and replay attacks.  The best practice is to generate a short-lived, one-time token (OTT) that is sent to a verified email account.
+> **Important:** This operation is intended for applications that need to implement their own forgot password flow.  You are responsible for mitigation of all security risks such as phishing and replay attacks.  The best practice is to generate a short-lived, one-time token (OTT) that is sent to a verified email account.
 
 ##### Request parameters
 
@@ -3012,22 +3032,24 @@ curl -v -X POST \
 
 ### Change password
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/credentials/change_password" />
 
 Changes a user's password by validating the user's current password
+
+This operation provides an option to delete all the sessions of the specified user.  However, if the request is made in the context of a session owned by the specified user, that session isn't cleared.
 
 This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_EXPIRED`, or `RECOVERY` status that have a valid [password credential](#password-object)
 
 ##### Request parameters
 
 
-| Parameter    | Description                                             | Param Type | DataType                             | Required |
-| ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |
-| id           | `id` of user                                            | URL        | String                               | TRUE     |
-| strict       | If true, validates against password minimum age policy  | Query      | String                               | FALSE    |
-| oldPassword  | Current password for user                               | Body       | [Password object](#password-object)  | TRUE     |
-| newPassword  | New password for user                                   | Body       | [Password object](#password-object)  | TRUE     |
+| Parameter    | Description                                             | Param Type | DataType                             | Required | Default |
+| ------------ | ------------------------------------------------------- | ---------- | ------------------------------------ | -------- |---------|
+| id           | `id` of user                                            | URL        | String                               | TRUE     |         |
+| strict       | If true, validates against password minimum age policy  | Query      | String                               | FALSE    | FALSE   |
+| oldPassword  | Current password for user                               | Body       | [Password object](#password-object)  | TRUE     |         |
+| newPassword  | New password for user                                   | Body       | [Password object](#password-object)  | TRUE     |         |
+| revokeSessions | When set to `true`, revokes all user sessions, except for the current session | Body       | boolean                              | FALSE    | FALSE  |
 
 ##### Response parameters
 
@@ -3046,7 +3068,8 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "oldPassword": { "value": "tlpWENT2m" },
-  "newPassword": { "value": "uTVM,TPw55" }
+  "newPassword": { "value": "uTVM,TPw55" },
+  "revokeSessions" : true
 }' "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
 ```
 
@@ -3089,7 +3112,7 @@ This operation can only be performed on users in **STAGED**, **ACTIVE** or **REC
 
 [Credentials](#credentials-object) of the user
 
-> This operation does not affect the status of the user.
+> **Note:** This operation doesn't affect the status of the user.
 
 ##### Request example
 
@@ -3131,7 +3154,7 @@ curl -v -X POST \
 A consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens because a consent can outlast a token, and there can be multiple tokens with varying sets of scopes derived from a single consent. When an application comes back and needs to get a new access token, it may not need to prompt the user for consent if they have already consented to the specified scopes.
 Consent grants remain valid until the user manually revokes them, or until the user, application, authorization server or scope is deactivated or deleted.
 
-> Hint: For all grant operations, you can use `me` instead of the `userId` in an endpoint that contains `/users`, in an active session with no SSWS token (API token). For example: `https://${yourOktaDomain}/api/v1/users/me/grants` returns all the grants for the active session user.
+> **Hint:** For all grant operations, you can use `me` instead of the `userId` in an endpoint that contains `/users`, in an active session with no SSWS token (API token). For example: `https://${yourOktaDomain}/api/v1/users/me/grants` returns all the grants for the active session user.
 
 >**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 
@@ -3179,25 +3202,25 @@ curl -v -X GET \
         "status": "ACTIVE",
         "created": "2017-10-30T22:06:53.000Z",
         "lastUpdated": "2017-10-30T22:06:53.000Z",
-        "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+        "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
         "clientId": "0oabskvc6442nkvQO0h7",
         "userId": "00u5t60iloOHN9pBi0h7",
         "scopeId": "scpCmCCV1DpxVkCaye2X",
         "_links": {
             "app": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
                 "title": "My App"
             },
             "scope": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
                 "title": "My phone"
             },
             "client": {
-                "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+                "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
                 "title": "My App"
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3ih1zrm1cBFOiq0h6",
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3ih1zrm1cBFOiq0h6",
                 "hints": {
                     "allow": [
                         "GET",
@@ -3206,11 +3229,11 @@ curl -v -X GET \
                 }
             },
             "user": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
                 "title": "SAML Jackson"
             },
             "authorizationServer": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
                 "title": "Example Authorization Server"
             }
         }
@@ -3219,7 +3242,6 @@ curl -v -X GET \
 ```
 
 ### Get a Grant
-
 
 <ApiLifecycle access="ea" />
 
@@ -3256,25 +3278,25 @@ curl -v -X GET \
     "status": "ACTIVE",
     "created": "2017-10-30T22:06:53.000Z",
     "lastUpdated": "2017-10-30T22:06:53.000Z",
-    "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+    "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
     "clientId": "0oabskvc6442nkvQO0h7",
     "userId": "00u5t60iloOHN9pBi0h7",
     "scopeId": "scpCmCCV1DpxVkCaye2X",
     "_links": {
         "app": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
             "title": "My App"
         },
         "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
             "title": "My phone"
         },
         "client": {
-            "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+            "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
             "title": "My App"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3ih1zrm1cBFOiq0h6",
+            "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3ih1zrm1cBFOiq0h6",
             "hints": {
                 "allow": [
                     "GET",
@@ -3283,11 +3305,11 @@ curl -v -X GET \
             }
         },
         "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
+            "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
             "title": "SAML Jackson"
         },
         "authorizationServer": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
             "title": "Example Authorization Server"
         }
     }
@@ -3335,21 +3357,21 @@ curl -v -X GET \
         "status": "ACTIVE",
         "created": "2017-11-03T03:34:17.000Z",
         "lastUpdated": "2017-11-03T03:34:17.000Z",
-        "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+        "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
         "clientId": "0oabskvc6442nkvQO0h7",
         "userId": "00u5t60iloOHN9pBi0h7",
         "scopeId": "scpCmCCV1DpxVkCaye2X",
         "_links": {
             "app": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
                 "title": "Test App for Groups Claim"
             },
             "scope": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scpCmCCV1DpxVkCaye2X",
                 "title": "Your phone"
             },
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3j3j33ILN7OFqP0h6",
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/grants/oag3j3j33ILN7OFqP0h6",
                 "hints": {
                     "allow": [
                         "GET",
@@ -3358,15 +3380,15 @@ curl -v -X GET \
                 }
             },
             "client": {
-                "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+                "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
                 "title": "Test App for Groups Claim"
             },
             "user": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7",
                 "title": "Saml Jackson"
             },
             "authorizationServer": {
-                "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+                "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
                 "title": "Example Authorization Server"
             }
         }
@@ -3536,7 +3558,7 @@ curl -v -X GET \
     "created": "2018-03-09T03:18:06.000Z",
     "lastUpdated": "2018-03-09T03:18:06.000Z",
     "expiresAt": "2018-03-16T03:18:06.000Z",
-    "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+    "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
     "clientId": "0oabskvc6442nkvQO0h7",
     "userId": "00u5t60iloOHN9pBi0h7",
     "scopes": [
@@ -3545,14 +3567,14 @@ curl -v -X GET \
     ],
     "_links": {
       "app": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
         "title": "Native"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+        "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
       },
       "revoke": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+        "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
         "hints": {
           "allow": [
             "DELETE"
@@ -3560,15 +3582,15 @@ curl -v -X GET \
         }
       },
       "client": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+        "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
         "title": "Example Client App"
       },
       "user": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+        "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
         "title": "Saml Jackson"
       },
       "authorizationServer": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
         "title": "Example Authorization Server"
       }
     }
@@ -3621,7 +3643,7 @@ curl -v -X GET \
   "created": "2018-03-09T03:18:06.000Z",
   "lastUpdated": "2018-03-09T03:18:06.000Z",
   "expiresAt": "2018-03-16T03:18:06.000Z",
-  "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+  "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
   "clientId": "0oabskvc6442nkvQO0h7",
   "userId": "00u5t60iloOHN9pBi0h7",
   "scopes": [
@@ -3636,7 +3658,7 @@ curl -v -X GET \
         "description": "Requests a refresh token by default, used to obtain more access tokens without re-prompting the user for authentication.",
         "_links": {
           "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scppb56cIl4GvGxy70g3",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scppb56cIl4GvGxy70g3",
             "title": "offline_access"
           }
         }
@@ -3648,7 +3670,7 @@ curl -v -X GET \
         "description": "Allows the user to drive a car.",
         "_links": {
           "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scp142iq2J8IGRUCS0g4",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scp142iq2J8IGRUCS0g4",
             "title": "Drive car"
           }
         }
@@ -3657,14 +3679,14 @@ curl -v -X GET \
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
       "title": "Native"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+      "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
     },
     "revoke": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
       "hints": {
         "allow": [
           "DELETE"
@@ -3672,15 +3694,15 @@ curl -v -X GET \
       }
     },
     "client": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+      "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
       "title": "Example Client App"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
       "title": "Saml Jackson"
     },
     "authorizationServer": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
       "title": "Example Authorization Server"
     }
   }
@@ -3791,7 +3813,6 @@ curl -v -X GET \
 
 #### Response example
 
-
 ```json
 [
     {
@@ -3801,10 +3822,10 @@ curl -v -X GET \
         "logo_uri": null,
         "_links": {
             "grants": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/grants"
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/grants"
             },
             "tokens": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens"
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens"
             }
         }
     }
@@ -3866,31 +3887,31 @@ curl -v -X GET \
   },
   "_links": {
     "resetPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_password"
     },
     "resetFactors": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/reset_factors"
     },
     "expirePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/expire_password"
     },
     "forgotPassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/forgot_password"
     },
     "changeRecoveryQuestion": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_recovery_question"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/lifecycle/deactivate"
     },
     "changePassword": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ub0oNGTSWTBKOLGLNR/credentials/change_password"
     },
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4"
     },
     "type": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4"
     }
   }
 }
@@ -3928,7 +3949,11 @@ The `type` property is a map that identifies the User Type of the user (see [Use
 
 The following diagram shows the state object for a user:
 
-![STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED](/img/okta-user-status.png "STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED")
+<div class="full">
+
+![STAGED, PROVISIONED, ACTIVE, RECOVERY, LOCKED_OUT, PASSWORD_EXPIRED, or DEPROVISIONED](/img/users-api/okta-user-status.png)
+
+</div>
 
 ### Understanding User status values
 
@@ -3977,39 +4002,41 @@ The default user profile is based on the [System for Cross-Domain Identity Manag
 
 | Property            | Description                                                                                                                          | DataType   | Nullable        | Unique   | Readonly   | MinLength   | MaxLength   | Validation                                                                                                       |
 | :------------------ | :----------------------------------------------------------------------------------------------------------------------------------- | :--------- | :---------      | :------- | :--------- | :---------- | :---------- | :--------------------------------------------------------------------------------------------------------------- |
-| login               | unique identifier for the user (`username`)                                                                                          | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [pattern](/docs/reference/api/schemas/#login-pattern-validation)                                                  |
-| email               | primary email address of user                                                                                                        | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](http://tools.ietf.org/html/rfc5322#section-3.2.3)                                       |
-| secondEmail         | secondary email address of user typically used for account recovery                                                                  | String     | TRUE            | TRUE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](http://tools.ietf.org/html/rfc5322#section-3.2.3)                                       |
-| firstName           | given name of the user (`givenName`)                                                                                                 | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
-| lastName            | family name of the user (`familyName`)                                                                                               | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
-| middleName          | middle name(s) of the user                                                                                                           | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| honorificPrefix     | honorific prefix(es) of the user, or title in most Western languages                                                                 | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| honorificSuffix     | honorific suffix(es) of the user                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| title               | user's title, such as "Vice President                                                                                                | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| displayName         | name of the user, suitable for display to end users                                                                                  | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| nickName            | casual way to address the user in real life                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| profileUrl          | url of user's online profile (e.g. a web page)                                                                                       | String     | TRUE            | FALSE    | FALSE      |             |             | [URL](https://tools.ietf.org/html/rfc1808)                                                                       |
-| primaryPhone        | primary phone number of user such as home number                                                                                     | String     | TRUE            | FALSE    | FALSE      | 0           | 100         |                                                                                                                  |
-| mobilePhone         | mobile phone number of user                                                                                                          | String     | TRUE            | FALSE    | FALSE      | 0           | 100         |                                                                                                                  |
-| streetAddress       | full street address component of user's address                                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| city                | city or locality component of user's address (`locality`)                                                                            | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| state               | state or region component of user's address (`region`)                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| zipCode             | zipcode or postal code component of user's address (`postalCode`)                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| countryCode         | country name component of user's address (`country`)                                                                                 | String     | TRUE            | FALSE    | FALSE      |             |             | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166) |
-| postalAddress       | mailing address component of user's address                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| preferredLanguage   | user's preferred written or spoken languages                                                                                         | String     | TRUE            | FALSE    | FALSE      |             |             | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                      |
-| locale              | user's default location for purposes of localizing items such as currency, date time format, numerical representations, etc.         | String     | TRUE            | FALSE    | FALSE      |             |             | See Note for more details.                                                                                       |
-| timezone            | user's time zone                                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                            |
-| userType            | used to describe the organization to user relationship such as "Employee" or "Contractor"                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| employeeNumber      | organization or company assigned unique identifier for the user                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| costCenter          | name of a cost center assigned to user                                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| organization        | name of user's organization                                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| division            | name of user's division                                                                                                              | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| department          | name of user's department                                                                                                            | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| login               | Unique identifier for the user (`username`)                                                                                          | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [pattern](/docs/reference/api/schemas/#login-pattern-validation)                                                  |
+| email               | Primary email address of user                                                                                                        | String     | FALSE           | FALSE    | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
+| secondEmail         | Secondary email address of user typically used for account recovery                                                                  | String     | TRUE            | FALSE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
+| firstName           | Given name of the user (`givenName`)                                                                                                 | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
+| lastName            | Family name of the user (`familyName`)                                                                                               | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
+| middleName          | Middle name(s) of the user                                                                                                           | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| honorificPrefix     | Honorific prefix(es) of the user, or title in most Western languages                                                                 | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| honorificSuffix     | Honorific suffix(es) of the user                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| title               | User's title, such as "Vice President"                                                                                                | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| displayName         | Name of the user, suitable for display to end users                                                                                  | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| nickName            | Casual way to address the user in real life                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| profileUrl          | URL of user's online profile (for example: a web page)                                                                                       | String     | TRUE            | FALSE    | FALSE      |             |             | [URL](https://tools.ietf.org/html/rfc1808)                                                                       |
+| primaryPhone        | Primary phone number of user such as home number                                                                                     | String     | TRUE            | FALSE    | FALSE      | 0           | 100         |                                                                                                                  |
+| mobilePhone         | Mobile phone number of user                                                                                                          | String     | TRUE            | FALSE    | FALSE      | 0           | 100         |                                                                                                                  |
+| streetAddress       | Full street address component of user's address                                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| city                | City or locality component of user's address (`locality`)                                                                            | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| state               | State or region component of user's address (`region`)                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| zipCode             | ZIP code or postal code component of user's address (`postalCode`)                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| countryCode         | Country name component of user's address (`country`)                                                                                 | String     | TRUE            | FALSE    | FALSE      |             |             | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166) |
+| postalAddress       | Mailing address component of user's address                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| preferredLanguage   | User's preferred written or spoken languages                                                                                         | String     | TRUE            | FALSE    | FALSE      |             |             | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                      |
+| locale              | User's default location for purposes of localizing items such as currency, date time format, numerical representations, and so on.         | String     | FALSE (default)            | FALSE    | FALSE      |             |             | See [Locale format](#locale-format) details.                                                                                       |
+| timezone            | User's time zone                                                                                                                     | String     | TRUE            | FALSE    | FALSE      |             |             | [IANA Time Zone database format](https://tools.ietf.org/html/rfc6557)                                            |
+| userType            | Used to describe the organization to user relationship such as "Employee" or "Contractor"                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| employeeNumber      | Organization or company assigned unique identifier for the user                                                                      | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| costCenter          | Name of a cost center assigned to user                                                                                               | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| organization        | Name of user's organization                                                                                                          | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| division            | Name of user's division                                                                                                              | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| department          | Name of user's department                                                                                                            | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 | managerId           | `id` of a user's manager                                                                                                             | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
-| manager             | displayName of the user's manager                                                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
+| manager             | `displayName` of the user's manager                                                                                                    | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |
 
-> **Note:** A locale value is a concatenation of the ISO 639-1 two letter language code, an underscore, and the ISO 3166-1 2 letter country code. For example, `en_US` specifies the language English and country US.
+##### Locale format
+
+ A locale value is a concatenation of the ISO 639-1 two-letter language code, an underscore, and the ISO 3166-1 two-letter country code. For example, `en_US` specifies the language English and country US. This value is `en_US` by default.
 
 ##### Okta login
 
@@ -4019,7 +4046,7 @@ Logins are not considered unique if they differ only in case and/or diacritical 
 
 Okta has a default ambiguous name resolution policy for logins that include @-signs.  (By default, logins must be formatted as email addresses and thus always include @-signs.  That restriction can be removed using either the administrator UI or the [Schemas API](/docs/reference/api/schemas).)  Users can login with their non-qualified short name (e.g. `isaac.brock` with login `isaac.brock@example.com`) as long as the short name is still unique within the organization.
 
-> Hint: Don't use a `login` with a `/` character.  Although `/` is a valid character according to [RFC 6531 section 3.3](http://tools.ietf.org/html/rfc6531#section-3.3), a user with this character in their `login` can't be fetched by `login` due to security risks with escaping this character in URI paths.
+> **Hint:** Don't use a `login` with a `/` character.  Although `/` is a valid character according to [RFC 6531 section 3.3](http://tools.ietf.org/html/rfc6531#section-3.3), a user with this character in their `login` can't be fetched by `login` due to security risks with escaping this character in URI paths.
 For more information about `login`, see [Get User by ID](#get-user-with-id).
 
 ##### Modifying default Profile properties
@@ -4078,29 +4105,33 @@ When a user has a valid password, or imported hashed password, or password hook,
 
 The password specified in the value property must meet the default password policy requirements:
 
-- Must be a minimum of 8 characters
+- Must be a minimum of eight characters
 - Must have a character from the following groups:
   - Upper case
   - Lower case
   - Digit
-- Must not contain the user's login or parts of the the login when split on the following characters: `,` `.` `_` `#` `@`
-  - *For example, a user with login `isaac.brock@example.com` will not be able set password brockR0cks! as the password contains the login part `brock`.*
+- Must not contain the user's sign-in ID or parts of the sign-in ID when split on the following characters: `,`, `.`, `_`, `#`, `@`, `-`. Okta only considers the parts of the sign-in ID that contain at least four characters. Additionally, the parent domain (such as `com` in the following example) isn't considered.<br>
+<br>
+  **For example:** A user with a sign-in ID such as `isaac.brock@example.com` can't set their password as `brockR0cks!` since the password contains part of the sign-in ID: `brock`.
 
-> Password policy requirements can be modified in the administrator UI *(Security -> Policies)*
+> **Note:** You can modify password policy requirements in the Admin Console at **Security** > **Policies**.
 
 ##### Hashed Password object
 
-Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, and MD5 hashing functions for password import. A hashed password may be specified in a Password object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
+Specifies a hashed password to import into Okta. This allows an existing password to be imported into Okta directly from some other store. Okta supports the BCRYPT, SHA-512, SHA-256, SHA-1, MD5 and PBKDF2 hashing functions for password import. A hashed password may be specified in a Password object when creating or updating a user, but not for other operations.  See [Create User with Imported Hashed Password](#create-user-with-imported-hashed-password) for information on using this object when creating a user. When updating a user with a hashed password the user must be in the `STAGED` status.
 
 > **Note:** Because the plain text password isn't specified when a hashed password is provided, password policy isn't applied.
 
 | Property | Type | Description |
 | -------- | ----- | ---------- |
-| algorithm  | String   | The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1 or MD5. |
-| value      | String   | For SHA-512, SHA-256, SHA-1, MD5, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded `value` of the SHA-512/SHA-256/SHA-1/MD5 digest that was computed by either pre-fixing or post-fixing the `salt` to the `password`, depending on the `saltOrder`. If a `salt` was not used in the `source` system, then this should just be the the Base64 encoded `value` of the password's SHA-512/SHA-256/SHA-1/MD5 digest. For BCRYPT, This is the actual radix64-encoded hashed password. |
+| algorithm  | String   | The algorithm used to generate the hash using the password (and salt, when applicable). Must be set to BCRYPT, SHA-512, SHA-256, SHA-1, MD5 or PBKDF2. |
+| value      | String   | For SHA-512, SHA-256, SHA-1, MD5 and PBKDF2, This is the actual base64-encoded hash of the password (and salt, if used). This is the Base64 encoded `value` of the SHA-512/SHA-256/SHA-1/MD5/PBKDF2 digest that was computed by either pre-fixing or post-fixing the `salt` to the `password`, depending on the `saltOrder`. If a `salt` was not used in the `source` system, then this should just be the the Base64 encoded `value` of the password's SHA-512/SHA-256/SHA-1/MD5/PBKDF2 digest. For BCRYPT, This is the actual radix64-encoded hashed password. |
 | salt       | String   | Only required for salted hashes. For BCRYPT, this specifies the radix64-encoded salt used to generate the hash, which must be 22 characters long. For other salted hashes, this specifies the base64-encoded salt used to generate the hash. |
 | workFactor | Number  | Governs the strength of the hash and the time required to compute it. Only required for BCRYPT algorithm. Minimum value is 1, and maximum is 20. |
 | saltOrder  | String   | Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms. |
+| iterationCount  | Number   | The number of iterations used when hashing passwords using PBKDF2. Must be >= 4096. Only required for PBKDF2 algorithm. |
+| keySize  | Number   | Size of the derived key in bytes. Only required for PBKDF2 algorithm. |
+| digestAlgorithm  | String   | Algorithm used to generate the key. Currently we support "SHA256_HMAC" and "SHA512_HMAC“. Only required for PBKDF2 algorithm. |
 
 ###### BCRYPT Hashed Password object example
 
@@ -4167,9 +4198,24 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 }
 ```
 
+###### PBKDF2 Hashed Password object example
+
+```bash
+"password" : {
+  "hash": {
+    "algorithm": "PBKDF2",
+    "salt": "RBDXRWs9",
+    "value": "eKe8/dcL5gvRsMmp7WwxZq0Y7WAodielIcLaelLlgNs=",
+    "iterationCount" : 4096,
+    "keySize" : 32,
+    "digestAlgorithm" : "SHA512_HMAC"
+  }
+}
+```
+
 ##### Password Hook object
 
-Specifies that a [Password Import Inline Hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
+Specifies that a [password import inline hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
 
 When updating a user with a password hook the user must be in the `STAGED` status.
 
@@ -4177,7 +4223,7 @@ When updating a user with a password hook the user must be in the `STAGED` statu
 
 | Property   | DataType | Description                                                                                                                                                                                | Required                                                                      | Min Value                      | Max Value                      |
 |:-----------|:---------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------|:-------------------------------|:-------------------------------|
-| type  | String   | The type of Password Inline Hook. Currently, must be set to default.                                                                                            | TRUE                                                                          | N/A                            | N/A                            |
+| type  | String   | The type of password inline hook. Currently, must be set to default.                                                                                            | TRUE                                                                          | N/A                            | N/A                            |
 
 ###### Password Hook object example
 
@@ -4207,11 +4253,11 @@ Specifies the authentication provider that validates the user's password credent
 | type       | `OKTA`, `ACTIVE_DIRECTORY`,`LDAP`, `FEDERATION`, `SOCIAL` or `IMPORT` | FALSE      | FALSE    | TRUE     |
 | name       | String                                                                | TRUE       | FALSE    | TRUE     |
 
-> `ACTIVE_DIRECTORY` or `LDAP` providers specify the directory instance name as the `name` property.
+> **Note:** `ACTIVE_DIRECTORY` or `LDAP` providers specify the directory instance name as the `name` property.
 
-> Users with a `FEDERATION` or `SOCIAL` authentication provider do not support a `password` or `recovery_question` credential and must authenticate via a trusted Identity Provider.
+> **Note:** Users with a `FEDERATION` or `SOCIAL` authentication provider don't support a `password` or `recovery_question` credential and must authenticate through a trusted Identity Provider.
 
->`IMPORT` specifies a hashed password that was imported from an external source.
+> **Note:** `IMPORT` specifies a hashed password that was imported from an external source.
 
 ### Links object
 
@@ -4248,7 +4294,7 @@ Here are some links that may be available on a User, as determined by your polic
     "status": "ACTIVE",
     "created": "2017-11-07T21:46:36.000Z",
     "lastUpdated": "2017-11-07T21:46:36.000Z",
-    "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+    "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
     "clientId": "customClientIdNative",
     "userId": "00uol9oQZaWN47WQZ0g3",
     "scopeId": "scpp4bmzfCV7dHf8y0g3",
@@ -4261,15 +4307,15 @@ Here are some links that may be available on a User, as determined by your polic
     },
     "_links": {
         "app": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaozwn7Qlfx0wl280g3",
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaozwn7Qlfx0wl280g3",
             "title": "Native client"
         },
         "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausoxdmNlCV4Rw9Ec0g3/scopes/scpp4bmzfCV7dHf8y0g3",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausoxdmNlCV4Rw9Ec0g3/scopes/scpp4bmzfCV7dHf8y0g3",
             "title": "test"
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00uol9oQZaWN47WQZ0g3/grants/oag2n8HU1vTmvCdQ50g3",
+            "href": "https://{yourOktaDomain}/api/v1/users/00uol9oQZaWN47WQZ0g3/grants/oag2n8HU1vTmvCdQ50g3",
             "hints": {
                 "allow": [
                     "GET",
@@ -4278,15 +4324,15 @@ Here are some links that may be available on a User, as determined by your polic
             }
         },
         "client": {
-            "href": "https://${yourOktaDomain}/oauth2/v1/clients/customClientIdNative",
+            "href": "https://{yourOktaDomain}/oauth2/v1/clients/customClientIdNative",
             "title": "Native client"
         },
         "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00uol9oQZaWN47WQZ0g3",
+            "href": "https://{yourOktaDomain}/api/v1/users/00uol9oQZaWN47WQZ0g3",
             "title": "Saml Jackson"
         },
         "authorizationServer": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
             "title": "Example Authorization Server"
         }
     }
@@ -4322,7 +4368,7 @@ Here are some links that may be available on a User, as determined by your polic
   "logo_uri": "https://example.com/image/logo.jpg",
   "_links": {
      "grants": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/clients/0oab57tu2q6C0rYwM0h7/grants"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ucmukel4KHsPARU0h7/clients/0oab57tu2q6C0rYwM0h7/grants"
         "hints": {
             "allow": [
                 "GET",

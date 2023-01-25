@@ -1,5 +1,5 @@
 
 1. [Configure an emulator](https://developer.android.com/studio/run/emulator) or [connect a physical device](https://developer.android.com/studio/run/device) in Android Studio
-2. Run the application using **Shift+F10** on Windows/Linux, **Control+R** on macOS, or click **Run** (the "Play" button) in the toolbar.
+2. [Run the application](https://developer.android.com/studio/run/device) in Android Studio.
 
-If you followed along with this guide or cloned the [completed sample application](https://github.com/oktadev/okta-android-quickstart), the app with the sign-in button appears.
+After the app opens, tap the **Login** button. The Okta sign-in browser opens over the app. After the user successfully signs in, the browser closes and the app displays a welcome message to the user, and has a **Logout of Browser** button.

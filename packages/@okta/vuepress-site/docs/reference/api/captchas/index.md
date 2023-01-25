@@ -92,7 +92,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -202,7 +202,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -270,7 +270,7 @@ Content-Type: application/json
     "type": "RECAPTCHA_V2",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+        "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
         "hints": {
           "allow": [
             "GET",
@@ -344,7 +344,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -386,7 +386,7 @@ Content-Type: application/json
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -531,7 +531,7 @@ The CAPTCHA object defines the following properties:
   "type": "RECAPTCHA_V2",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -614,7 +614,7 @@ Content-Type: application/json
   "captchaId": "cap18c2Ey3iR9BLDb0g4",
   "_links": {
     "captcha": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -625,7 +625,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://{yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -662,7 +662,7 @@ Content-Type: application/json
   "captchaId": null,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://{yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -731,7 +731,7 @@ Content-Type: application/json
   "captchaId": "cap18c2Ey3iR9BLDb0g4",
   "_links": {
     "captcha": {
-      "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+      "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
       "hints": {
         "allow": [
           "GET",
@@ -742,7 +742,7 @@ Content-Type: application/json
       }
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://{yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -782,7 +782,7 @@ Content-Type: application/json
   "captchaId": null,
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/org/captcha",
+      "href": "https://{yourOktaDomain}/api/v1/org/captcha",
       "hints": {
         "allow": [
           "GET",
@@ -921,7 +921,7 @@ Property           | Type                             | Description             
     "captchaId": "cap18c2Ey3iR9BLDb0g4",
     "_links": {
         "captcha": {
-            "href": "https://${yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
+            "href": "https://{yourOktaDomain}/api/v1/captchas/cap18c2Ey3iR9BLDb0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -932,7 +932,7 @@ Property           | Type                             | Description             
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/org/captcha",
+            "href": "https://{yourOktaDomain}/api/v1/org/captcha",
             "hints": {
                 "allow": [
                     "GET",

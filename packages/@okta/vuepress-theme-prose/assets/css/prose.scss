@@ -12,6 +12,9 @@
 @import "okta/global/fontello";
 @import "okta/icons/all";
 
+// Specific image styles
+@import "okta/global/image-sizing";
+
 // Base
 @import "base/typography";
 @import "base/mixins.scss";
@@ -19,6 +22,7 @@
 // Layouts
 @import "layouts/layout.scss";
 @import "layouts/authorizationLayout.scss";
+@import "layouts/darktheme.scss";
 
 // Components
 @import "components/announcementBanner";
@@ -27,7 +31,6 @@
 @import "components/breadcrumb";
 @import "components/button";
 @import "components/code";
-@import "components/codemirror";
 @import "components/companyLogos";
 @import "components/content";
 @import "components/editLink";
@@ -46,6 +49,7 @@
 @import "components/search";
 @import "components/frameworkIconBlock";
 @import "components/header";
+@import "components/headerNav";
 @import "components/menuItem";
 @import "components/featuredGuides";
 @import "components/stackSelector";
@@ -53,19 +57,28 @@
 @import "components/homePage";
 @import "components/selectorTile";
 @import "components/assuranceItem";
-@import "components/frontPageWidget";
 @import "components/signUp";
 @import "components/login";
 @import "components/pricing";
 @import "components/oktaIntegrationNetwork";
 @import "components/terms";
+@import "components/copyright";
 @import "components/thankYou";
-@import "components/liveWidget";
+@import "components/themeModeToggle";
 @import "components/errors";
 @import "components/dialogWindow";
 @import "components/termsAndConditionsDialog";
 @import "components/nutritionFacts";
 
+//Custom Landing
+@import "components/customLanding/main";
+@import "components/customLanding/hero";
+@import "components/customLanding/about";
+@import "components/customLanding/tools";
+@import "components/customLanding/features";
+@import "components/customLanding/explore";
+@import "components/customLanding/start";
+
 //Pages
 @import "okta/pages/multi-tenancy";
-@import 'okta/pages/oie-embedded-sdk';
+@import "okta/pages/oie-embedded-sdk";

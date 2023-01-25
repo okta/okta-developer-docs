@@ -58,14 +58,14 @@ describe('Sign up page check spec', () => {
       signUpPage.getGithubButtonInput().click();
 
       dialogWindow.getDialogWindow().should('exist');
-      dialogWindow.getDialogWindow().contains(/^Tell us more about yourself$/);
+      dialogWindow.getDialogWindow().contains('Tell us more about yourself');
     });
 
     it('sign up with google button click display dialog window for "Terms and Conditions"', () => {
       signUpPage.getGoogleButtonInput().click();
 
       dialogWindow.getDialogWindow().should('exist');
-      dialogWindow.getDialogWindow().contains(/^Tell us more about yourself$/);
+      dialogWindow.getDialogWindow().contains('Tell us more about yourself');
     });
 
     it('should contain proper router for signin link', () => {
@@ -80,11 +80,11 @@ describe('Sign up page check spec', () => {
     });
 
     it('github signup button text verification', () => {
-      signUpPage.getGithubButtonInput().should('have.text', ' Continue with GitHub\n          ');
+      signUpPage.getGithubButtonInput().should('have.text', ' Continue with GitHub\n            ');
     });
 
     it('google signup button text verification', () => {
-      signUpPage.getGoogleButtonInput().should('have.text', ' Continue with Google\n          ');
+      signUpPage.getGoogleButtonInput().should('have.text', ' Continue with Google\n            ');
     });
   })
 

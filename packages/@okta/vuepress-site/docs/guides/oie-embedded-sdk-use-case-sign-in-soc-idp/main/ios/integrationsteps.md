@@ -7,7 +7,7 @@ interface into explicit authentication steps and automatically executes steps
 such, as the code-to-token exchange. The following diagram illustrates this call flow
 from your applications's UI to the sample code, SDK, and API.
 
-<div class="common-image-format">
+<div class="full">
 
  ![Displays a diagram of the integration flow of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png)
 
@@ -52,7 +52,7 @@ self.authHandler?.login(service: .facebook)
 #### 3: Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page
-after the user successfully signs in. Optionally, you can obtain basic user information after the user successfully signs in by making a request to Okta's Open ID Connect Authorization Server.
+after the user successfully signs in. Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect Authorization Server.
 See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
 
 ## Sample code

@@ -34,19 +34,19 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is by far th
 3. Make a note of the Okta Domain as you need that later.
 4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
 
-```
-Your Okta Domain: https://dev-xxxxxxx.okta.com
-To set your password open this link:
-https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-```
+   ```
+   Your Okta Domain: https://dev-xxxxxxx.okta.com
+   To set your password open this link:
+   https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
+   ```
 
-> **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
+   > **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
 
 5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command. You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/).
 
-```
-okta login
-```
+   ```
+   okta login
+   ```
 
 ## Create an Okta integration for your app
 
@@ -56,9 +56,9 @@ To create your app integration in Okta using the CLI:
 
 1. Create the app integration by running:
 
-```
-okta apps create native
-```
+   ```
+   okta apps create native
+   ```
 
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:
@@ -73,10 +73,10 @@ At this point, you can move to the next step: [Creating your app](#create-app). 
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**.
 1. Select an **Application type** of **Native Application**, then click **Next**.
-    > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
+   > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
 1. Enter an **App integration name**.
 1. Enter the callback route for the **Sign-in redirect URIs**. This is the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/callback`).
-1. Enter your callback route for the **Sign-out redirect URIs**. This is the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/`).
+1. Enter your callback route for the **Sign-out redirect URIs**. This is the [full redirect URI](#define-a-callback-route) for your mobile app (for example, `com.okta.example:/logout`).
 1. Click **Save** to update the Okta app settings.
 
 ## Create app
@@ -95,7 +95,7 @@ Add the required dependencies for using the Okta SDK with your app.
 
 ### Configure your app
 
-Our app uses information from the Okta integration that we created earlier to configure communication with the API: Redirect URI, Post Logout Redirect URI, Client ID and Issuer.
+The app uses information from the Okta integration that you created earlier to configure communication with the API: Redirect URI, Post Logout Redirect URI, Client ID, and Issuer.
 
 <StackSnippet snippet="configmid" />
 
@@ -103,8 +103,8 @@ Our app uses information from the Okta integration that we created earlier to co
 
 If you don't have your configuration values handy, you can find them in the Admin Console (choose **Applications** > **Applications** and find your app integration that you created earlier):
 
-* **Redirect URI**: Found on the **General** tab in the **Login** section.
-* **Post Logout Redirect URI**: Found on the **General** tab in the **Login** section.
+* **Sign-in redirect URI**: Found on the **General** tab in the **Login** section.
+* **Sign-out redirect URI**: Found on the **General** tab in the **Login** section.
 * **Client ID**: Found on the **General** tab in the **Client Credentials** section.
 * **Issuer**: Found in the **Issuer URI** field for the authorization server that appears by selecting **Security** > **API** from the left navigation pane.
 
@@ -114,7 +114,7 @@ To sign users in, your application will generally open a browser and display an 
 
 To achieve this you need to define how Okta can redirect back to your app. This is called a callback route or redirect URI. In mobile apps, use a custom scheme similar to `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in through the browser. This should be the same value that you used for the Sign-in and Sign-out redirect URIs when you created an app integration in the previous steps.
 
-Your mobile app is responsible for parsing the information Okta sends to the callback route. Our SDKs can help you with this task (covered later in the [Open the sign-in page](#open-the-sign-in-page) section). For now, just define the route itself.
+Your mobile app is responsible for parsing the information Okta sends to the callback route. The Okta SDKs can help you with this task (covered later in the [Open the sign-in page](#open-the-sign-in-page) section). For now, just define the route itself.
 
 <StackSnippet snippet="definecallback" />
 
@@ -126,9 +126,11 @@ The SDK signs in the user by opening an Okta-hosted web page. The app may send t
 
 ## Get info about the user
 
-After the user signs in, Okta returns some of their profile information to your app (see [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6)). You can use this information to update your UI, for example, to show the customer's name.
+The ID token returned by Okta contains user information, or *claims*, that are based on the scopes requested by the app (see [Configure your app](#configure-your-app)).
 
-The default profile items (called `claims`) returned by Okta include the user's email address, name, and preferred username. The claims that you see may differ depending on what scopes your app has requested (see [Configure your app](#configure-your-app)).
+This app includes the `profile` scope that includes the user's email address, name, and preferred username. You can use this information to update your UI, such as showing the customer's name.
+
+Use the Okta user information endpoints for items that aren't available in the ID token. For general information on requesting user info, see the [userinfo response example](/docs/reference/api/oidc/#response-example-success-6)).
 
 <StackSnippet snippet="getuserinfo" />
 

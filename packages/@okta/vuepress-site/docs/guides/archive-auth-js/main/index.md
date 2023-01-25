@@ -243,6 +243,10 @@ if (authClient.isLoginRedirect()) {
 }
 ```
 
+## See also 
+
+[Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)
+
 [authjs-reference]: https://github.com/okta/okta-auth-js
 [authjs-reference-client-configuration]: https://github.com/okta/okta-auth-js#configuration-reference
 [authjs-reference-token-getwithredirect]: https://github.com/okta/okta-auth-js#tokengetwithredirectoptions

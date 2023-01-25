@@ -4,6 +4,10 @@ excerpt: Learn how to add embedded authentication to your SPA app with Okta Auth
 layout: Guides
 ---
 
+::: slot description
+Add embedded authentication to your SPA app with Okta Auth JS.
+:::
+
 <ApiLifecycle access="ie" /><br>
 
 <StackSelector />

@@ -1,9 +1,10 @@
 const guidesInfo = require('./scripts/build-guides-info');
+const overviewPages = require('./scripts/build-overview-pages');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Path = require('path')
-const signInWidgetMajorVersion = 6;
+const signInWidgetMajorVersion = 7;
 
 const projectRootDir = Path.resolve(__dirname, '../../../../');
 const outputDir = Path.resolve(__dirname, '../dist/');
@@ -43,6 +44,7 @@ module.exports = ctx => ({
   head: [
     ['link', { rel: 'stylesheet', href: 'https://static.cloud.coveo.com/searchui/v2.8959/14/css/CoveoFullSearch.min.css', integrity: 'sha512-DzuDVtX/Dud12HycdAsm2k9D1UQ8DU7WOj7cBRnSsOKQbKfkI94g0VM9hplM0BkQ0VXdDiQYU9GvUzMmw2Khaw==', crossorigin: 'anonymous' }],
     ['script', { class: 'coveo-script', src: 'https://static.cloud.coveo.com/searchui/v2.8959/14/js/CoveoJsSearch.Lazy.min.js', integrity: 'sha512-RV1EooPduQhwl0jz+hmjBw/nAtfeXNm6Dm/hlCe5OR1jAlG4RErUeYfX1jaaM88H8DiyCJDzEWZkOR0Q13DtrA==', crossorigin: 'anonymous', defer: true}],
+    ['script', { src: 'https://geoip-js.com/js/apis/geoip2/v2.1/geoip2.js'}],
     ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/apple-touch-icon.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"32x32",  href: '/favicon/favicon-32x32.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],
@@ -72,16 +74,6 @@ module.exports = ctx => ({
         // END Google Tag Manager
 
       }
-    `],
-    ['script', {}, `
-      var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,api:2020.09, text: { 'msg': 'Your web browser ({brow_name}) is not supported. For the best site experience, we recommend updating your browser. <br> <a{up_but}>Update browser</a> <a{ignore_but}>Ignore</a>' } };
-      function $buo_f(){
-      var e = document.createElement("script");
-      e.src = "//browser-update.org/update.min.js";
-      document.body.appendChild(e);
-      };
-      try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
-      catch(e){window.attachEvent("onload", $buo_f)}
     `]
   ],
   title: "Okta Developer",
@@ -169,7 +161,6 @@ module.exports = ctx => ({
         children: [
           { text: 'Forum', link: 'https://devforum.okta.com' },
           { text: 'Toolkit', link: 'https://toolkit.okta.com/' },
-          { text: 'Developer Day', link: 'https://www.okta.com/developerday/' },
           { type: 'divider' },
           { type: 'icons',
             icons: [
@@ -213,8 +204,10 @@ module.exports = ctx => ({
         items: [
           { text: 'Contact our team', link: 'https://www.okta.com/contact/', target: '_self' },
           { text: 'Contact sales', link: 'https://www.okta.com/contact-sales/', target: '_self' },
-          { text: 'Terms & conditions', link: '/terms/' },
-          { text: 'Privacy policy', link: 'https://www.okta.com/privacy-policy/', target: '_self' },
+          { text: 'Developer Service Terms', link: '/terms/' },
+          { text: 'Site Terms', link: 'https://www.okta.com/terms-of-service/' },
+			 { text: 'Privacy policy', link: 'https://www.okta.com/privacy-policy/', target: '_self' },
+			 { text: 'Copyright', link: '/copyright/' },
         ]
       },
       more: {
@@ -264,19 +257,6 @@ module.exports = ctx => ({
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       });
-
-    /*
-     * Copy *.scss from Sign-In Widget for use in /live-widget.
-     * See /components/LiveWidget.vue for usage
-     */
-    config.plugin('copy-sass')
-      .use(CopyWebpackPlugin, [
-        [{
-           from: Path.join(projectRootDir, 'node_modules/@okta/okta-signin-widget/dist/sass/'),
-           to: Path.join(outputDir, 'assets/widget-sass/'),
-         },
-        ]
-      ]);
   },
 
   evergreen: false,
@@ -315,19 +295,23 @@ module.exports = ctx => ({
               //'/docs/reference/api/risk-providers/',
               //'/docs/reference/api/risk-events/',
               '/docs/guides/migrate-to-oie/',
-              '/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
-              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
-              '/docs/guides/oie-upgrade-add-sdk-to-your-app/',
-              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/',
-              '/docs/guides/oie-upgrade-overview/',
-              '/docs/guides/oie-upgrade-planning-embedded-upgrades/',
-              '/docs/guides/oie-upgrade-sessions-api/',
-              '/docs/guides/oie-upgrade-sign-in-widget/',
-              '/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/',
-              '/docs/guides/oie-upgrade-sign-in-widget-i18n/',
-              '/docs/guides/oie-upgrade-sign-in-widget-styling/',
-              '/docs/guides/oie-upgrade-mfa-enroll-policy/',
-              '/docs/reference/telephony-hook/'
+              //'/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
+              //'/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
+              //'/docs/guides/oie-upgrade-add-sdk-to-your-app/',
+              //'/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/',
+              //'/docs/guides/oie-upgrade-overview/',
+              //'/docs/guides/oie-upgrade-planning-embedded-upgrades/',
+              //'/docs/guides/oie-upgrade-sessions-api/',
+              //'/docs/guides/oie-upgrade-sign-in-widget/',
+              //'/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/',
+              //'/docs/guides/oie-upgrade-sign-in-widget-i18n/',
+              //'/docs/guides/oie-upgrade-sign-in-widget-styling/',
+              //'/docs/guides/oie-upgrade-mfa-enroll-policy/',
+              '/docs/reference/api/archive-myaccount/',
+              '/docs/reference/api/myaccount-migration/',
+              '/docs/reference/csi-delauth-hook/',
+              //'/docs/reference/api/inline-hooks-lea/',
+              //'/docs/reference/api/hook-keys/'
           ]
         }
       ]
@@ -341,6 +325,7 @@ module.exports = ctx => ({
 
   additionalPages: [
     ...guidesInfo.additionalPagesForGuides(),
+    ...overviewPages()
   ],
 
   extendPageData ($page) {

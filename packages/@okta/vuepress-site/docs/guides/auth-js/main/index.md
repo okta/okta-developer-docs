@@ -53,10 +53,11 @@ To use the CDN, include this script in your target HTML page:
 
 More information is available in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/#okta-auth-javascript-sdk).
 
-### npm
+### Package manager
+
+Run the appropriate installation command for your package manager in your project root folder:
 
 ```shell
-# Run this command in your project root folder.
 # yarn
 yarn add @okta/okta-auth-js
 
@@ -218,8 +219,6 @@ Run the static-spa sample application to see a working example of the authentica
 * Download and install the sample application.
 * Run the sample application.
 
-<img src="/img/okta-sign-in-javascript-custom.png" alt="Screenshot of a custom sign-in form used with the Auth JS SDK" width="400">
-
 ### Create an app integration
 
 Create an app integration in the Okta org that represents the application you want to add authentication to:
@@ -232,14 +231,24 @@ Create an app integration in the Okta org that represents the application you wa
 
    * Enter an application name.
    * Select the **Interaction Code** checkbox.
+
+      <VerifyICGrantType />
+
    * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to `http://localhost:8080/login/callback`.
 
 1. In the **Assignments** section, select **Allow everyone in your organization to access**.
 1. Click **Save**.
-1. Select the **Sign On** tab.
-1. In the **Sign On Policy** section, verify that the **Available Authenticators** settings are appropriate for your app. For this use case, ensure that the **1 factor type** authenticator is **Password / IdP**.
+1. Select the **Sign On** tab and scroll down to the **User authentication** section. New apps are automatically assigned the shared default [authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop). This policy has a catch-all rule that allows a user access to the app using either one or two factors, depending on your org setup.
+1. For this use case, we want to use only the password factor. Click **Edit** and select the **Password only** [preset policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to assign it to your app.
+
+    > **Note:** Be sure to also [update the password authenticator policy rule](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#update-the-password-authenticator-to-password-only) to not require any additional verification.
+
+1. Click **Save**.
 1. In the **Security** > **API** > **Authorization Servers** section, verify that the custom authorization server uses the Interaction Code grant type by selecting the **default** server, clicking **Access Policies**, and editing the **Default Policy Rule**. Review the **If Grant type is** section to ensure the **Interaction Code** checkbox is selected.
+
+    <VerifyICGrantType />
+
 1. In the **Security** > **API** > **Trusted Origins** page, ensure that there is an entry for your sign in redirect URI (`http://localhost:8080`). See [Enable CORS](/docs/guides/enable-cors/).
 
 > **Note:** From the **General** tab of your app integration, save the generated **Client ID** value, which is used in the next section.
@@ -255,9 +264,13 @@ git clone https://github.com/okta/okta-auth-js.git
 cd okta-auth-js/samples/generated/static-spa
 ```
 
-2. Install the dependencies with a package manager, `npm` for example:
+2. Install the dependencies with a package manager:
 
 ```shell
+# yarn
+yarn
+
+# npm
 npm install
 ```
 
@@ -286,6 +299,10 @@ var config = {
 1. In the `static-spa` directory, run the sample application:
 
     ```shell
+    # yarn
+    yarn dev
+
+    # npm
     npm start
     ```
 

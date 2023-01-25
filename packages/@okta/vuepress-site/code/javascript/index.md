@@ -10,7 +10,7 @@ meta:
 
 ## Get started with JavaScript + Okta
 
-New to Okta? Our resources walk you through adding user authentication to your JavaScript app in minutes.
+These resources walk you through adding user authentication to your JavaScript app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -56,4 +56,4 @@ Other guides:
 * [Validate access tokens](/docs/guides/validate-access-tokens)
 * [Validate ID tokens](/docs/guides/validate-id-tokens)
 
-> **Note**: Browse our [JavaScript Developer Blog posts](/search/#q=javascript&f:@commonoktasource=[Developer%20blog]) for further useful topics.
+> **Note**: Browse our recent [JavaScript Developer Blog posts](https://developer.okta.com/blog/tags/javascript/) for further useful topics.

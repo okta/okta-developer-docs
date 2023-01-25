@@ -4,6 +4,8 @@ excerpt: Learn how to build a custom sign-in UI in your mobile app.
 layout: Guides
 ---
 
+<ClassicDocOieVersionNotAvailable />
+
 You can connect your mobile app to Okta and sign users in by [opening a browser](/docs/guides/sign-into-mobile-app-redirect/), however, if you prefer that your users not leave your app, you need to build a custom sign-in UI with native controls and screens instead. Use this guide to build a customized sign-in experience inside your mobile application.
 
 <EmbeddedBrowserWarning />
@@ -63,6 +65,8 @@ For example, multiple screens could handle:
 Every authentication transaction starts with primary authentication, which validates a user's password. Password Policy, MFA Policy, and Sign-On Policy are evaluated during primary authentication to determine if the user's password is expired, a factor should be enrolled, or additional verification is required. The [transaction state](/docs/api/resources/authn/#transaction-state) of the response depends on the user's status, group memberships, and assigned policies.
 
 > **Note:** Custom sign-in only works with [Org MFA](/docs/guides/mfa/sms/main/#set-up-your-org-for-mfa). This means that before you exchange the session token for an access token, you must ensure that [App-Level MFA](https://help.okta.com/okta_help.htm?id=ext_MFA_App_Level) is disabled for the application.
+
+> **Note:** In Identity Engine, the MFA Enrollment Policy name has changed to [authenticator enrollment policy](/docs/reference/api/policy/#authenticator-enrollment-policy).
 
 <StackSelector snippet="handle-responses" noSelector/>
 

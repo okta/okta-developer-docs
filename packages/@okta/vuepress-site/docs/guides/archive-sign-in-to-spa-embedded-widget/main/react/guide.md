@@ -102,6 +102,8 @@ const oktaSignInConfig = {
 export { oktaAuthConfig, oktaSignInConfig };
 ```
 
+> **Note:** In Okta Sign-In Widget version 7+, [Okta Identity Engine](/docs/concepts/oie-intro) is enabled by default. If you are using version 7+ and want to use Okta Classic Engine rather than Identity Engine, you need to specify `useClassicEngine: true` in the [configuration options](https://github.com/okta/okta-signin-widget#configuration) passed into the `new OktaSignIn()` call.
+
 ## Create a Widget Wrapper
 
 To render the Sign-In Widget in React, you must create a wrapper that allows you to treat it as a React component.
@@ -121,7 +123,7 @@ const OktaSignInWidget = ({ config, onSuccess, onError }) => {
 
     const widget = new OktaSignIn(config);
 
-    widget.showSignInToGetTokens({
+   widget.showSignInToGetTokens({
       el: widgetRef.current,
     }).then(onSuccess).catch(onError);
 
@@ -304,7 +306,3 @@ npm start
 ## Conclusion
 
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
-
-## Support
-
-Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

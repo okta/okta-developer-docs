@@ -91,6 +91,8 @@ After you enable refresh token rotation, the `refresh_token` property appears wi
 }
 ```
 
+> **Note:** A leeway of 0 doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
+
 See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
 
 ### Refresh token lifetime
@@ -126,17 +128,19 @@ See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#author
 The following is an example request to the `/authorize` endpoint for an [authorization code](/docs/guides/implement-grant-type/authcode/main/) flow and includes the `offline_access` scope.
 
 ```bash
-GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}
- &response_type=code
- &scope=openid%20offline_access
- &redirect_uri=ourApp%3A%2Fcallback
- &state=237c671a-29d7-11eb-adc1-0242ac120002
+curl -x GET https://${yourOktaDomain}/oauth2/default/v1/authorize
+?client_id=${clientId}
+&response_type=code
+&scope=openid%20offline_access
+&redirect_uri=ourApp%3A%2Fcallback
+&state=237c671a-29d7-11eb-adc1-0242ac120002
 ```
 
-The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow and includes the `offline_access` scope.
+The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/#request-an-authorization-code) flow and includes the `offline_access` scope.
 
 ```bash
-https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}
+curl -x GET https://${yourOktaDomain}/oauth2/default/v1/authorize
+?client_id=${clientId}
 &response_type=code
 &scope=openid%20offline_access
 &redirect_uri=yourApp%3A%2Fcallback
@@ -161,18 +165,16 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/toke
 -d 'scope=openid offline_access'
 ```
 
-The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
+The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/#exchange-the-code-for-tokens). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
 -H 'Accept: application/json' \
--H 'Authorization: Basic ${Base64(${clientId}:${clientSecret})}' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
 -d 'grant_type=authorization_code' \
 -d 'redirect_uri=${redirectUri}' \
 -d 'code=iyz1Lpim4NgN6gDQdT1a9PJDVTaCdxG1wJMYiUkfGts' \
--d 'state=419946f0-29d7-11eb-adc1-0242ac120002' \
--d 'scope=openid offline_access' \
+-d 'client_id=${clientId}' \
 -d 'code_verifier=M25iVXpKU3puUjFjYWg3T1NDTDQtcW1rOUY5YXlwalNoc0hhaoxifmZHag'
 ```
 
@@ -276,11 +278,11 @@ If the refresh token is valid, then you get back a new access and the refresh to
 
 Read more about the SDKs that support refresh token rotation and reuse detection:
 
-* [Okta Auth SDK Guide - JavaScript](https://developer.okta.com/code/javascript/okta_auth_sdk/)
-* [Okta Sign-in Widget Guide - JavaScript](https://developer.okta.com/code/javascript/okta_sign-in_widget/)
-* [Okta Sign-in Widget and Angular](https://developer.okta.com/code/angular/okta_angular_sign-in_widget/)
-* [Okta Auth JS and Angular](https://developer.okta.com/code/angular/okta_angular_auth_js/)
-* [Okta Sign-in Widget and React](https://developer.okta.com/code/react/okta_react_sign-in_widget/)
-* [Okta Auth JS and React](https://developer.okta.com/code/react/okta_react/)
-* [Okta Sign-in Widget and Vue](https://developer.okta.com/code/vue/okta_vue_sign-in_widget/)
-* [Okta Auth JS and Vue](https://developer.okta.com/code/vue/okta_vue/)
+* [Okta Auth SDK Guide - JavaScript](/docs/guides/auth-js/main/)
+* [Okta Sign-in Widget Guide - JavaScript](/docs/guides/embedded-siw/main/)
+* [Okta Sign-in Widget and Angular](/docs/guides/sign-in-to-spa-embedded-widget/angular/main/)
+* [Okta Auth JS and Angular](/docs/guides/sign-in-to-spa-authjs/angular/main/)
+* [Okta Sign-in Widget and React](/docs/guides/sign-in-to-spa-embedded-widget/react/main/)
+* [Okta Auth JS and React](/docs/guides/sign-in-to-spa-authjs/react/main/)
+* [Okta Sign-in Widget and Vue](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/)
+* [Okta Auth JS and Vue](/docs/guides/sign-in-to-spa-authjs/vue/main/)
