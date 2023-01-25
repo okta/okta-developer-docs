@@ -1,9 +1,9 @@
 ---
 title: Okta Classic Engine overview
-excerpt: The Okta Classic Engine section contains Okta classic-compatible versions of documents that have bene updated to support Okta Identity Engine.
+excerpt: The Okta Classic Engine section contains Okta classic-compatible versions of documents that have been updated to support Okta Identity Engine.
 ---
 
-## Sign users in guides for Classic Engine
+## Sign users in guides for Okta Classic Engine
 
 * [Okta Auth SDK Guide](/docs/guides/archive-auth-js/main/): In this guide you will learn how to use the Auth SDK on a simple static page to retrieve and store an OpenID Connect (OIDC) token (id_token), and get an Okta session.
 * [Okta Sign-In Widget Guide](/docs/guides/archive-embedded-siw/main/): This guide will walk you through the installation process for the Okta Sign-In Widget, as well as a few common use cases for the Widget and how to implement them.
