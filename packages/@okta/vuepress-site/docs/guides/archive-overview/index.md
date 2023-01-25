@@ -1,6 +1,6 @@
 ---
-title: Classic archive overview
-excerpt: The classic archive contains Okta classic-compatible versions of documents that have bene updated to support Okta Identity Engine.
+title: Okta Classic Engine overview
+excerpt: The Okta Classic Engine section contains Okta classic-compatible versions of documents that have bene updated to support Okta Identity Engine.
 sections:
  - main
 ---
