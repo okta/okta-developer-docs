@@ -1418,7 +1418,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
 
 #### Create an app with a Profile object
 
-To include app-specific information that you want to reference later, such as in a token claim, add those parameters within the app Profile object when you create an application. You can only add parameters to an app Profile object for OpenID Connect applications.
+To include app-specific information that you want to reference later, such as in a token claim, add those parameters within the app [Profile object](#profile-object) when you create an app. An Profile object is a container for any valid JSON schema that you can reference from a request. You can only add the Profile object to OAuth 2.0 client applications.
 
 The following example shows how to add an app `label` parameter to the Profile object when creating an app.
 
@@ -3509,7 +3509,7 @@ Updates the Application profile attributes
 
 ##### Response parameters
 
-[Application](#application-object) with updated `profile attributes`
+[Application](#application-object) with updated profile attributes
 
 ##### Request example
 
@@ -3530,7 +3530,7 @@ curl -v -X PUT \
     }
   },
   "profile": {
-    "label": "oauth2 client app 1"
+    "label": "oauth2 client app 2"
   },
   "settings": {
     "oauthClient": {
@@ -3680,6 +3680,7 @@ curl -v -X PUT \
   }
 }
 ```
+
 ### Delete application
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}" />
@@ -8277,6 +8278,7 @@ Profile Requirements
 * The `profile` property doesn't limit the level of nesting in the JSON schema you created, but there is a practical size limit. We recommend a JSON schema size of 1 MB or less for best performance.
 
 > **Note:** Profile object is only available to OAuth 2.0 client applications.
+
 
 ### Application User object
 
