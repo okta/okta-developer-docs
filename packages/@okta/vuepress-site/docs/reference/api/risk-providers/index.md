@@ -4,7 +4,7 @@ title: Risk Providers
 
 # Risk Providers API
 
-The Risk Providers API reference is now available at the new [Risk Providers&mdash;Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/#tag/RiskProvider).
+The Risk Providers API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/#tag/RiskProvider).
 
 Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Risk Providers API Postman collection.
 
