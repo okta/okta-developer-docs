@@ -127,6 +127,12 @@
   max-width: 100%;
 }
 
+.content--container .content-area-arch {
+  flex: 1;
+  padding: 23px 59px 60px;
+  max-width: calc(82% - 203px);
+}
+
 @include media("<desktop-xl") {
   .content--container .content-area .content__default {
     margin-top: 20px;
