@@ -15,7 +15,7 @@
       </p>
       <a
         class="resources__link dont-break-out"
-        href="/search?q=terraform"
+        href="https://devforum.okta.com/search?q=terraform"
       >
         View Terraform discussions on the forum
         <svg
@@ -71,7 +71,7 @@
           <div class="resources__links">
             <a
               class="resources__list-link dont-break-out"
-              href="/help/s/article/Prepare-the-Okta-Terraform-Provider-for-the-OIE-upgrade?language=en_US"
+              href="https://support.okta.com/help/s/article/Prepare-the-Okta-Terraform-Provider-for-the-OIE-upgrade?language=en_US"
             >
               Prepare the Okta Terraform Provider for OIE Upgrade
               <svg
@@ -96,7 +96,7 @@
             </a>
             <a
               class="resources__list-link dont-break-out"
-              href="/okta/terraform-provider-okta"
+              href="https://github.com/okta/terraform-provider-okta"
             >
               View Terraform provider on Github
               <svg

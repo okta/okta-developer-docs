@@ -129,7 +129,7 @@ export default {
                   text: "Learn about the OIN",
                 },
                 {
-                  url: "/integrations",
+                  url: "https://www.okta.com/integrations",
                   text: "Explore the OIN catalog"
                 },
               ]
