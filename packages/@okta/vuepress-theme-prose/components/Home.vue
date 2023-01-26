@@ -10,7 +10,7 @@
         <Resources />
         <News />
         <Support />
-        <!--<Dialog /> -->
+        <Dialog />
       </div>
     </div>
   </div>
