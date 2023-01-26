@@ -1416,7 +1416,53 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
   * After an app is created, you can't change the `application_type`.
 
+#### Create an app with a Profile object
 
+To include app-specific information that you want to reference later, such as in a token claim, add those parameters within the app Profile object when you create an application. You can only add parameters to an app Profile object for OpenID Connect applications.
+
+The following example shows how to add an app `label` parameter to the Profile object when creating an app.
+
+> **Note:** See [Update application level profile attributes](#update-application-level-profile-attributes) for an update example.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d {
+    "name": "oidc_client",
+    "label": "Sample Client profile",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+      "oauthClient": {
+        "token_endpoint_auth_method": "client_secret_post"
+        }
+    },
+    "profile": {
+        "label": "oauth2 client app 1"
+        },
+    "settings": {
+      "oauthClient": {
+        "client_uri": "http://localhost:8080",
+        "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+        "redirect_uris": [
+          "https://example.com/oauth2/callback",
+          "myapp://callback"
+        ],
+        "response_types": [
+          "token",
+          "id_token",
+          "code"
+        ],
+        "grant_types": [
+          "implicit",
+          "authorization_code"
+        ],
+        "application_type": "native"
+      }
+    }
+}
+```
 
 ### Get application
 
@@ -3449,6 +3495,7 @@ curl -v -X PUT \
     }
 }
 ```
+
 #### Update application level profile attributes
 
 Updates the Application profile attributes
