@@ -749,7 +749,7 @@ export const guides = [
         ],
       },
       {
-        title: "Classic archive",
+        title: "Okta Classic Engine",
         path: "/docs/guides/archive-overview/main/",
         subLinks: [
           {
