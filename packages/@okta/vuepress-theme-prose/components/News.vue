@@ -5,7 +5,9 @@
         What’s new in Okta Developer
       </h2>
       <article class="news__article news__article_size_large">
-        <div class="news__article-image-wrapper"></div>
+        <div class="news__article-image-wrapper">
+          <!-- image -->
+        </div>
         <div class="news__wrapper">
           <p class="news__text dont-break-out dont-break-out">
             Blog
