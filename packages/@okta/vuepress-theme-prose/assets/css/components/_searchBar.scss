@@ -40,7 +40,7 @@
   width: 100%;
 
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: transparent !important;
 }
 
 .search--wrapper .SearchBox .CoveoOmnibox.magic-box .magic-box-input::before {
@@ -203,4 +203,8 @@
   @include media(">desktop") {
     height: 48px;
   }
+}
+
+.magic-box .magic-box-input {
+  background: transparent !important;
 }
