@@ -17,7 +17,7 @@
           </h3>
           <a
             class="news__article-link dont-break-out"
-            href="/blog/2022/12/06/react-fastify-postgres"
+            href="https://developer.okta.com/blog/2022/12/06/react-fastify-postgres"
           >
             Read more
           </a>
@@ -32,7 +32,7 @@
         </h3>
         <a
           class="news__article-link dont-break-out"
-          href="/blog/2022/10/20/spring-vault"
+          href="https://developer.okta.com/blog/2022/10/20/spring-vault"
         >
           Read more
         </a>
@@ -46,7 +46,7 @@
         </h3>
         <a
           class="news__article-link dont-break-out"
-          href="/blog/2022/10/14/quick-javascript-authentication"
+          href="https://developer.okta.com/blog/2022/10/14/quick-javascript-authentication"
         >
           Read more
         </a>
@@ -60,7 +60,7 @@
         </h3>
         <a
           class="news__article-link dont-break-out"
-          href="/blog/2022/10/12/integrate-react-native-and-spring-boot-securely"
+          href="https://developer.okta.com/blog/2022/10/12/integrate-react-native-and-spring-boot-securely"
         >
           Read more
         </a>
@@ -74,7 +74,7 @@
         </h3>
         <a
           class="news__article-link dont-break-out"
-          href="/blog/2022/10/11/angular-dependency-injection"
+          href="https://developer.okta.com/blog/2022/10/11/angular-dependency-injection"
         >
           Read more
         </a>

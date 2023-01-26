@@ -51,13 +51,13 @@
           <div class="resources__links">
             <a
               class="resources__list-link dont-break-out"
-              href="/blog/2022/04/14/where-okta-meets-devops"
+              href="https://developer.okta.com/blog/2022/04/14/where-okta-meets-devops"
             >
               How can DevOps engineers use Okta?
             </a>
             <a
               class="resources__list-link dont-break-out"
-              href="/blog/2021/11/08/k8s-api-server-oidc"
+              href="https://developer.okta.com/blog/2021/11/08/k8s-api-server-oidc"
             >
               Secure your Kubernetes cluster for Okta OIDC and Terraform
             </a>
