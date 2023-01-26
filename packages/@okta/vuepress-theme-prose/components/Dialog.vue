@@ -77,7 +77,7 @@
         </p>
         <a
           class="c-dialog__link dont-break-out"
-          href="/"
+          href="https://developer.okta.com"
         >
           Go to Workforce Identity Cloud docs <span aria-hidden="true">→</span>
         </a>
