@@ -169,7 +169,7 @@
   }
 
   @include media(">desktop") {
-    grid-template-columns: 563px 240px;
+    grid-template-columns: 630px 240px;
     justify-content: space-between;
     column-gap: 30px;
   }
@@ -185,6 +185,7 @@
   margin-top: 0;
   margin-bottom: 0;
 
+  font-weight: 500;
   font-size: 25px;
   letter-spacing: -0.01em;
   color: cv("workforce", "text");
