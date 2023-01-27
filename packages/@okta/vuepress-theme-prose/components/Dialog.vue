@@ -1,28 +1,23 @@
 <template>
   <div
-    ref="cDialog"
     class="c-dialog"
     role="dialog"
     aria-labelledby="c-dialog-title"
     aria-describedby="c-dialog-paragraph"
     aria-modal="true"
     tabindex="-1"
-    @keydown.esc="hideDialog"
   >
     <div
       class="c-dialog__overlay"
-      @click="hideDialog"
     />
     <div
       class="c-dialog__content"
       role="document"
     >
       <button
-        ref="cDialogClose"
         class="c-dialog__close"
         type="button"
         aria-label="Close"
-        @click="hideDialog"
       >
         <svg
           class="c-dialog__close-icon"
@@ -75,12 +70,12 @@
         <p class="c-dialog__block-text c-dialog__paragraph dont-break-out">
           <strong>Workforce Identity Cloud</strong> powers identity for all employees, business partners, and contractors and ensures they have access to what they need, when they need it with the appropriate levels of privilege.
         </p>
-        <a
-          class="c-dialog__link dont-break-out"
-          href="https://developer.okta.com"
+        <button
+          class="c-dialog__link c-dialog__link_type_primary dont-break-out"
+          type="button"
         >
           Go to Workforce Identity Cloud docs <span aria-hidden="true">→</span>
-        </a>
+        </button>
       </article>
       <article class="c-dialog__block c-dialog__block_type_secondary">
         <img
@@ -112,22 +107,34 @@
 
 <script>
   export default {
-    name: "Dialog",
-    data() {
-      return {
-        page: document.body,
-      }
-    },
+    name: "HomeDialog",
     mounted() {
-      this.page.classList.add("_state_fixed");
+      const dialog = document.querySelector(".c-dialog");
+      const dialogClose = dialog.querySelector(".c-dialog__close");
+      const dialogOverlay = dialog.querySelector(".c-dialog__overlay");
+      const dialogButton = dialog.querySelector(".c-dialog__link_type_primary");
 
-      const dialogClose = this.$refs.cDialogClose;
-      dialogClose.focus();
+      dialogClose.addEventListener("click", this.hideDialog);
+      dialogOverlay.addEventListener("click", this.hideDialog);
+      dialogButton.addEventListener("click", this.hideDialog);
+
+      window.addEventListener("keydown", (event) => {
+        if (event.keyCode === 27) {
+          if (!dialog.classList.contains("c-dialog_state_hidden")) {
+            this.hideDialog();
+          }
+        }
+      })
+
+      const body = document.querySelector("body");
+      body.classList.add("_state_fixed");
     },
     methods: {
       hideDialog() {
-        const dialog = this.$refs.cDialog;
-        this.page.classList.remove("_state_fixed");
+        const dialog = document.querySelector(".c-dialog");
+
+        const body = document.querySelector("body");
+        body.classList.remove("_state_fixed");
 
         dialog.classList.add("c-dialog_state_hidden");
       }
