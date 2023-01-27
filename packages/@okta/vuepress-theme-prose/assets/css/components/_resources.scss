@@ -102,6 +102,10 @@
   color: cv("support", "text") !important;
 }
 
+.resources__link svg {
+  transform: translateY(-3px);
+}
+
 .resources__block {
   display: flex;
   flex-direction: column;
