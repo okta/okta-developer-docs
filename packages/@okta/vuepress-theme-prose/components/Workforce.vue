@@ -19,18 +19,7 @@
           class="workforce__article-line"
           aria-hidden="true"
         >
-          <svg
-            width="5"
-            height="5"
-            aria-hidden="true"
-          >
-            <circle
-              cx="50%"
-              cy="50%"
-              r="2.5"
-              fill="var(--c-workforce-text)"
-            />
-          </svg>
+          <div style="--size: 10px; width: var(--size); height: var(--size); border-radius: 50%; background-color: var(--c-workforce-text);" />
         </div>
         <ul class="workforce__block">
           <li

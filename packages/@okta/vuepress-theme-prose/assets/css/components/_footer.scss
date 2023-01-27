@@ -30,7 +30,7 @@
   flex-shrink: 0;
   padding: 94px 64px;
 
-  background-color: cv("header");
+  background-color: #191919 !important;
 }
 
 .app-footer p {
@@ -63,7 +63,7 @@
   line-height: 1.3em;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: cv("body", "white");
+  color: cv("body", "white") !important;
 }
 
 @include media("<desktop-xl") {
@@ -182,7 +182,7 @@
   font-size: 16px;
   line-height: 1.7em;
   letter-spacing: 0.01em;
-  color: cv("text", "lighter");
+  color: rgb(255 254 250 / 0.8) !important;
 }
 
 @include media("<desktop-xl") {
@@ -239,7 +239,7 @@
 
 .app-footer .footer--columns .copyright {
   position: absolute;
-  bottom: 94px;
+  bottom: 145px;
   left: auto;
 
   clear: both;
@@ -285,7 +285,7 @@
 .app-footer a.link {
   font-size: inherit;
   line-height: 1.3em;
-  color: cv("text", "lighter");
+  color: rgb(255 254 250 / 0.8) !important;
 }
 
 .app-footer a.link:hover {
@@ -351,7 +351,7 @@
 }
 
 .app-footer ul.link-list li.link-list--item i.link-list--icon svg path {
-  fill: cv("body", "white");
+  fill: cv("body", "white") !important;
 }
 
 .app-footer ul.link-list li.link-list--item i.link-list--icon + span.link-list--text {
