@@ -40,6 +40,10 @@ The Authenticators Administration API has the following CRUD operations:
 * [Update Authenticator settings](#update-authenticator-settings)
 * [Activate an Authenticator](#activate-an-authenticator)
 * [Deactivate an Authenticator](#deactivate-an-authenticator)
+* [List all Methods of an Authenticator]
+* [Retrieve a Method]
+* [Activate an Authenticator Method]
+* [Deactivate an Authenticator Method]
 
 ### Create Authenticator
 
@@ -170,7 +174,7 @@ N/A
 
 #### Response body
 
-An Array of [Authenticator Objects](#authenticator-object)
+An array of [Authenticator Objects](#authenticator-object)
 
 #### Use example
 
@@ -720,9 +724,24 @@ If the Authenticator that you are trying to deactivate is currently in use as pa
 }
 ```
 
-## Authenticators Administration API object
+### List all Methods of an Authenticators
 
-The Authenticators Administration API only involves one object: the Authenticator
+<ApiOperation method="get" url="/api/v1/authenticators/${authenticatorId}/methods" />
+
+Lists all Methods of an Authenticator identified by `authenticatorId`
+
+#### Request path parameters
+
+| Parameter          | Type   | Description                           |
+| ------------------ | ------ | --------------------------------------|
+| `authenticatorId`  | String | The Authenticator's unique identifier |
+
+#### Response body
+
+An array of [Authenticator Method objects](#authenticator-method-object)
+
+
+## Authenticators Administration API objects
 
 ### Authenticator object
 
@@ -735,7 +754,7 @@ The Authenticator object defines the following properties:
 | `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                             | All Authenticators |
 | `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created               | All Authenticators |
 | `id`          | String                                                          | A unique identifier for the Authenticator                  | All Authenticators |
-| `key`         | String                                                          | A human-readable string that identifies the Authenticator  | All Authenticators |
+| `key`         | String                                                          | A human-readable string that identifies the Authenticator. Possible values: `app`, `email`, `federated`, `password`, `phone`, `security_key`, or `security_question` | All Authenticators |
 | `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                | All Authenticators |
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified         | All Authenticators |
 | `name`        | String                                                          | Display name of the Authenticator                         | All Authenticators |
@@ -1039,7 +1058,7 @@ The Authenticator object defines the following properties:
                 "id": "ppc1buciB5V7ZdcB70g4",
                 "appBundleId":"com.my.app.release",
                 "debugAppBundleId":"com.my.app.debug"
-            }, 
+            },
             "fcm": {
                 "id": "ppc38rxEr5dEKqDD10g4"
             }
@@ -1072,5 +1091,146 @@ The Authenticator object defines the following properties:
             }
         }
     }
+}
+```
+
+### Authenticator Method object
+
+#### Authenticator Method properties
+
+The Authenticator Method object has several properties:
+
+| Property | Type | Description  |
+| -------- | ---- | ------------ |
+| `status` | String | The status of the method. Possible values: `ACTIVE` or `INACTIVE` |
+| `type` | String | The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`  |
+| `_links` | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this Authenticator Method object  |
+| `settings` | [Authenticator Method Settings object](#authenticator-method-settings-object) | Specific settings for the authenticator method  |
+
+### Authenticator Method Settings object
+
+#### Authenticator Method Settings properties
+
+| Property | Type | Description  | Applies to Authenticator Method type |
+| -------- | ---- | ------------ | ------------------------------------|
+| `aaguidGroups` [EA] | [AAGUID Group object] | Blurb  | `webauthn` |
+| `algorithms` | String (enum) | Algorithms supported. Supported values: `RS256`, `ES256` | `cert`, `totp`, `push`, `signed_nonce` |
+| `attachment` | String | Attachment. `ANY`  | `webauthn` |
+| `kepProtection` | String (enum) | Key Protection. Supported values: `ANY`, `HARDWARE`  | `totp`, `push`, `signed_nonce` |
+| `userVerification` | String | User verification. `DISCOURAGED` | `webauthn` |
+| `timeIntervalInSeconds` | xx | xx  | `totp` |
+| `encoding` | xx | xx  | `totp` |
+| `passCodeLength` | xx | xx  | `totp` |
+| `showSignInWithOV` | xx | xx `ALWAYS`  | `signed_nonce` |
+
+
+#### Authenticator Method examples
+
+##### App Authenticator Method example
+
+```json
+[
+  {
+    "type": "totp",
+    "status": "ACTIVE",
+    "settings": {
+      "timeIntervalInSeconds": 30,
+      "encoding": "Base32",
+      "algorithm": "HMACSHA1",
+      "passCodeLength": 6
+    },
+    "_links": {
+      "self": {
+        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vfuRyKqBdV1d7/methods/totp",
+        "hints": {
+          "allow": [
+            "GET",
+            "PUT"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "push",
+    "status": "ACTIVE",
+    "settings": {
+      "algorithms": [
+        "RS256",
+        "ES256"
+      ],
+      "keyProtection": "ANY"
+    },
+    "_links": {
+      "self": {
+        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vfuRyKqBdV1d7/methods/push",
+        "hints": {
+          "allow": [
+            "GET",
+            "PUT"
+          ]
+        }
+      },
+      "deactivate": {
+        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vfuRyKqBdV1d7/methods/push/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "signed_nonce",
+    "status": "ACTIVE",
+    "settings": {
+      "algorithms": [
+        "ES256",
+        "RS256"
+      ],
+      "keyProtection": "ANY",
+      "showSignInWithOV": "ALWAYS"
+    },
+    "_links": {
+      "self": {
+        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vfuRyKqBdV1d7/methods/signed_nonce",
+        "hints": {
+          "allow": [
+            "GET",
+            "PUT"
+          ]
+        }
+      },
+      "deactivate": {
+        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vfuRyKqBdV1d7/methods/signed_nonce/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  }
+]
+```
+
+##### Email Authenticator Method example
+
+```json
+{
+  "type": "email",
+  "status": "ACTIVE",
+  "_links": {
+    "self": {
+      "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vczPJPzQJz1d8/methods/email",
+      "hints": {
+        "allow": [
+          "GET",
+          "PUT"
+        ]
+      }
+    }
+  }
 }
 ```
