@@ -19,7 +19,9 @@
           <SmartLink
             :item="{ link: config.forum_url, target: '_self' }"
             classes="link"
-          >forum</SmartLink>.
+          >
+            forum.
+          </SmartLink>
         </p>
       </div>
       <div class="footer--column social">
