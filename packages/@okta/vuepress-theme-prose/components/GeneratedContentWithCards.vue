@@ -9,8 +9,9 @@
         v-for="(tooltip, tooltip_key) in tooltips" 
         v-if="tooltip_key == link_key && tooltip.text != ''"
         :key="tooltip_key"
-        class="archetecture-center__tooltip">
-          {{tooltip.text}}
+        class="archetecture-center__tooltip"
+      >
+        {{ tooltip.text }}
       </div>
       <div>
         <h2>{{ link.title }}</h2>

@@ -17,11 +17,12 @@
 }
 
 .archetecture-center__item {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 37px 35px 25px;
-  position: relative;
 
   border-radius: 12px;
   background-color: cv("arch", "item");
@@ -38,7 +39,8 @@
     bottom: calc(100% + 12px);
     opacity: 1;
     visibility: visible;
-    transition: opacity .3s, bottom .5s, visibility .3s; 
+
+    transition: opacity 0.3s, bottom 0.5s, visibility 0.3s; 
     transition-delay: 200ms;
   }
 }
@@ -46,34 +48,41 @@
 .archetecture-center__tooltip {
   position: absolute;
   bottom: calc(100% + 20px);
-  max-width: 173px;
-  border-radius: 6px;
-  width: max-content;
-  visibility: hidden;
-  will-change: opacity, bottom, visibility;
-  background-color: cv("arch", "title");
+  left: 50%;
+
   padding: 11px 14px;
+  width: max-content;
+  max-width: 173px;
+
+  border-radius: 6px;
+  background-color: cv("arch", "title");
+
   font-size: 14px;
   line-height: 18px;
-  color: #fff;
-  left: 50%;
+  color: #ffffff;
+  visibility: hidden;
+  will-change: opacity, bottom, visibility;
   transform: translateX(-50%);
   opacity: 0;
   &:before {
-    content: '';
+    content: "";
+
     position: absolute;
     bottom: -19px;
     left: 50%;
     transform: translateX(-50%);
+
     border: 10px solid transparent;
     border-top: 10px solid cv("arch", "title");
   }
   &:after {
-    content: '';
+    content: "";
+
     position: absolute;
     bottom: -12px;
-    width: 100%;
     left: 0;
+
+    width: 100%;
     height: 12px;
   }
 }
