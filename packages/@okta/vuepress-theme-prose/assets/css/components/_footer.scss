@@ -248,7 +248,7 @@
 
   font-weight: 500;
   font-size: 1em;
-  color: cv("body", "white");
+  color: #fffefa;
 }
 
 .app-footer .footer--columns .copyright::before {
@@ -351,7 +351,7 @@
 }
 
 .app-footer ul.link-list li.link-list--item i.link-list--icon svg path {
-  fill: cv("body", "white") !important;
+  fill: #fffefa !important;
 }
 
 .app-footer ul.link-list li.link-list--item i.link-list--icon + span.link-list--text {
