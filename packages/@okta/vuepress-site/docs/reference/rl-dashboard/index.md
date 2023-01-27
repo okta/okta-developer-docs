@@ -37,7 +37,7 @@ The following describes typical uses of the functions in the Rate limits report:
 
 * If the API had rate limit violations in the past, you can proactively monitor that API by checking its rate limits, any increase in traffic, and any abnormal activity. If you notice an increase in rate limit usage, you can start investigating the issue.
 * If you're going to have an event and the API is going to be affected, you can check the current traffic on the API before the event. Then you can plan for traffic on the API during the event and determine the rate limit capacity for it.
-* If you want to control the warning threshold on traffic consumption for an API, you can configure the rate limits settings and customize when your org should trigger a warning event. For instance, if you have CIAM and you've configured a [custom threshold](#warning-notification), a warning alert appears if you reach 90% of the rate limit. If you have Workforce, a warning alert appears if you reach 60% of the rate limit.
+* If you want to control the warning threshold on traffic consumption for an API, you can configure the rate limits settings and customize when your org should trigger a warning event. For instance, if you have CIAM and you've configured a [custom threshold](#warning-notification), a warning alert appears if you reach 60% of the rate limit. If you have Workforce, a warning alert appears if you reach 90% of the rate limit.
 
 ### Open the rate limits report
 
