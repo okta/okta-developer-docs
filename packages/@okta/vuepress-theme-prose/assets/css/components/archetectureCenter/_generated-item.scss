@@ -21,6 +21,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 37px 35px 25px;
+  position: relative;
 
   border-radius: 12px;
   background-color: cv("arch", "item");
@@ -33,6 +34,48 @@
 .archetecture-center__item:hover {
   box-shadow: 0 8px 10px rgb(0 0 0 / 0.14), 0 3px 14px rgb(0 0 0 / 0.12);
   cursor: pointer;
+  .archetecture-center__tooltip {
+    bottom: calc(100% + 12px);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .3s, bottom .5s, visibility .3s; 
+    transition-delay: 200ms;
+  }
+}
+
+.archetecture-center__tooltip {
+  position: absolute;
+  bottom: calc(100% + 20px);
+  max-width: 173px;
+  border-radius: 6px;
+  width: max-content;
+  visibility: hidden;
+  will-change: opacity, bottom, visibility;
+  background-color: cv("arch", "title");
+  padding: 11px 14px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -19px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 10px solid transparent;
+    border-top: 10px solid cv("arch", "title");
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    width: 100%;
+    left: 0;
+    height: 12px;
+  }
 }
 
 .archetecture-center__item .generated-content .content__default p {

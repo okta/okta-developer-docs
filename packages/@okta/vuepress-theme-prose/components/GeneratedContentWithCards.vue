@@ -1,10 +1,17 @@
 <template>
   <div class="archetecture-center__items">
     <div
-      v-for="link in links"
+      v-for="(link, link_key) in links"
       :key="link.title"
       class="archetecture-center__item"
     >
+      <div 
+        v-for="(tooltip, tooltip_key) in tooltips" 
+        v-if="tooltip_key == link_key && tooltip.text != ''"
+        :key="tooltip_key"
+        class="archetecture-center__tooltip">
+          {{tooltip.text}}
+      </div>
       <div>
         <h2>{{ link.title }}</h2>
         <div
@@ -47,6 +54,23 @@
       return {
         title: '',
         links: [],
+        tooltips: [
+          {
+            text: ''
+          },
+          {
+            text: 'test tooltip 2'
+          },
+          {
+            text: 'test tooltip 3'
+          },
+          {
+            text: 'test tooltip 4'
+          },
+          {
+            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, ea. Lorem ipsum dolor'
+          }
+        ]
       }
     },
     watch: {
