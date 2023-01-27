@@ -1558,6 +1558,7 @@ For brevity, the following response doesn't include all available properties.
           "description": "Your Amazon AWS Account ID.",
           "type": "string",
           "writeOnce": true,
+          "writeOnly": false,
           "pattern": "^\\d{12}$"
         },
         "eventSourceName": {
@@ -1565,6 +1566,7 @@ For brevity, the following response doesn't include all available properties.
           "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.",
           "type": "string",
           "writeOnce": true,
+          "writeOnly": false,
           "pattern": "^[\\.\\-_A-Za-z0-9]{1,75}$"
         },
         "region": {
@@ -1572,51 +1574,31 @@ For brevity, the following response doesn't include all available properties.
           "description": "The destination AWS region for your system log events.",
           "type": "string",
           "writeOnce": true,
+          "writeOnly": false,
           "oneOf": [
-            {
-              "title": "US East (Ohio)",
-              "const": "us-east-2"
-            },
-            {
-              "title": "US East (N. Virginia)",
-              "const": "us-east-1"
-            },
-            {
-              "title": "US West (N. California)",
-              "const": "us-west-1"
-            },
-            {
-              "title": "US West (Oregon)",
-              "const": "us-west-2"
-            },
-            {
-              "title": "Canada (Central)",
-              "const": "ca-central-1"
-            },
-            {
-              "title": "Europe (Frankfurt)",
-              "const": "eu-central-1"
-            },
-            {
-              "title": "Europe (Ireland)",
-              "const": "eu-west-1"
-            },
-            {
-              "title": "Europe (London)",
-              "const": "eu-west-2"
-            },
-            {
-              "title": "Europe (Paris)",
-              "const": "eu-west-3"
-            },
-            {
-              "title": "Europe (Milan)",
-              "const": "eu-south-1"
-            },
-            {
-              "title": "Europe (Stockholm)",
-              "const": "eu-north-1"
-            }
+            { "title": "US East (Ohio)", "const": "us-east-2" },
+            { "title": "US East (N. Virginia)", "const": "us-east-1" },
+            { "title": "US West (N. California)", "const": "us-west-1" },
+            { "title": "US West (Oregon)", "const": "us-west-2" },
+            { "title": "Africa (Cape Town)", "const": "af-south-1" },
+            { "title": "Asia Pacific (Hong Kong)", "const": "ap-east-1" },
+            { "title": "Asia Pacific (Jakarta) ", "const": "ap-southeast-3" },
+            { "title": "Asia Pacific (Mumbai)", "const": "ap-south-1" },
+            { "title": "Asia Pacific (Osaka)", "const": "ap-northeast-3" },
+            { "title": "Asia Pacific (Seoul)", "const": "ap-northeast-2" },
+            { "title": "Asia Pacific (Singapore)", "const": "ap-southeast-1" },
+            { "title": "Asia Pacific (Sydney)", "const": "ap-southeast-2" },
+            { "title": "Asia Pacific (Tokyo)", "const": "ap-northeast-1" },
+            { "title": "Canada (Central)", "const": "ca-central-1" },
+            { "title": "Europe (Frankfurt)", "const": "eu-central-1" },
+            { "title": "Europe (Ireland)", "const": "eu-west-1" },
+            { "title": "Europe (London)", "const": "eu-west-2" },
+            { "title": "Europe (Milan)", "const": "eu-south-1" },
+            { "title": "Europe (Paris)", "const": "eu-west-3" },
+            { "title": "Europe (Stockholm)", "const": "eu-north-1" },
+            { "title": "Middle East (Bahrain)", "const": "me-south-1" },
+            { "title": "Middle East (UAE)", "const": "me-central-1" },
+            { "title": "South America (São Paulo)", "const": "sa-east-1" }
           ]
         }
       },
@@ -1701,6 +1683,7 @@ For brevity, the following response doesn't include all available properties.
             "description": "Your Amazon AWS Account ID.",
             "type": "string",
             "writeOnce": true,
+            "writeOnly": false,
             "pattern": "^\\d{12}$"
           },
           "eventSourceName": {
@@ -1708,6 +1691,7 @@ For brevity, the following response doesn't include all available properties.
             "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.",
             "type": "string",
             "writeOnce": true,
+            "writeOnly": false,
             "pattern": "^[\\.\\-_A-Za-z0-9]{1,75}$"
           },
           "region": {
@@ -1715,51 +1699,31 @@ For brevity, the following response doesn't include all available properties.
             "description": "The destination AWS region for your system log events.",
             "type": "string",
             "writeOnce": true,
+            "writeOnly": false,
             "oneOf": [
-              {
-                "title": "US East (Ohio)",
-                "const": "us-east-2"
-              },
-              {
-                "title": "US East (N. Virginia)",
-                "const": "us-east-1"
-              },
-              {
-                "title": "US West (N. California)",
-                "const": "us-west-1"
-              },
-              {
-                "title": "US West (Oregon)",
-                "const": "us-west-2"
-              },
-              {
-                "title": "Canada (Central)",
-                "const": "ca-central-1"
-              },
-              {
-                "title": "Europe (Frankfurt)",
-                "const": "eu-central-1"
-              },
-              {
-                "title": "Europe (Ireland)",
-                "const": "eu-west-1"
-              },
-              {
-                "title": "Europe (London)",
-                "const": "eu-west-2"
-              },
-              {
-                "title": "Europe (Paris)",
-                "const": "eu-west-3"
-              },
-              {
-                "title": "Europe (Milan)",
-                "const": "eu-south-1"
-              },
-              {
-                "title": "Europe (Stockholm)",
-                "const": "eu-north-1"
-              }
+              { "title": "US East (Ohio)", "const": "us-east-2" },
+              { "title": "US East (N. Virginia)", "const": "us-east-1" },
+              { "title": "US West (N. California)", "const": "us-west-1" },
+              { "title": "US West (Oregon)", "const": "us-west-2" },
+              { "title": "Africa (Cape Town)", "const": "af-south-1" },
+              { "title": "Asia Pacific (Hong Kong)", "const": "ap-east-1" },
+              { "title": "Asia Pacific (Jakarta) ", "const": "ap-southeast-3" },
+              { "title": "Asia Pacific (Mumbai)", "const": "ap-south-1" },
+              { "title": "Asia Pacific (Osaka)", "const": "ap-northeast-3" },
+              { "title": "Asia Pacific (Seoul)", "const": "ap-northeast-2" },
+              { "title": "Asia Pacific (Singapore)", "const": "ap-southeast-1" },
+              { "title": "Asia Pacific (Sydney)", "const": "ap-southeast-2" },
+              { "title": "Asia Pacific (Tokyo)", "const": "ap-northeast-1" },
+              { "title": "Canada (Central)", "const": "ca-central-1" },
+              { "title": "Europe (Frankfurt)", "const": "eu-central-1" },
+              { "title": "Europe (Ireland)", "const": "eu-west-1" },
+              { "title": "Europe (London)", "const": "eu-west-2" },
+              { "title": "Europe (Milan)", "const": "eu-south-1" },
+              { "title": "Europe (Paris)", "const": "eu-west-3" },
+              { "title": "Europe (Stockholm)", "const": "eu-north-1" },
+              { "title": "Middle East (Bahrain)", "const": "me-south-1" },
+              { "title": "Middle East (UAE)", "const": "me-central-1" },
+              { "title": "South America (São Paulo)", "const": "sa-east-1" }
             ]
           }
         },
@@ -1828,13 +1792,15 @@ For brevity, the following response doesn't include all available properties.
             "description": "The domain for your Splunk Cloud instance without http or https. For example: acme.splunkcloud.com",
             "type": "string",
             "writeOnce": false,
+            "writeOnly": false,
             "pattern": "^([a-z0-9]+(-[a-z0-9]+)*){1,100}\\.splunkcloud(gc|fed)?\\.com$"
           },
           "token": {
             "title": "HEC Token",
             "description": "The token from your Splunk Cloud HTTP Event Collector (HEC).",
             "type": "string",
-            "writeOnce": false,
+            "writeOnce": true,
+            "writeOnly": true,
             "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
           }
         },
@@ -3401,6 +3367,7 @@ with the following keywords:
 | Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
 | :---------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
 | writeOnce|Determines whether the property can be updated once it has been created|Boolean|FALSE|FALSE|TRUE|
+| writeOnly|Determines whether the property is returned by Okta to protect sensitive data|Boolean|FALSE|FALSE|TRUE|
 | errorMessage|Error messages for properties of this Log Stream object|[Error Message object](#error-message-object)|FALSE|TRUE|TRUE|
 
 #### Log Stream Schema object description details

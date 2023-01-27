@@ -11,12 +11,9 @@ The Okta User API provides operations to manage users in your organization.
 
 Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
 
-
-
 ## User operations
 
 ### Create User
-
 
 <ApiOperation method="post" url="/api/v1/users" />
 
@@ -32,8 +29,10 @@ Creates a new user in your Okta organization with or without credentials
 - [Create User in Group](#create-user-in-group)
 - [Create User with Non-Default User Type](#create-user-with-non-default-user-type)
 
-##### Request parameters
+> **Legal Disclaimer** <br><br>
+After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
 
+##### Request parameters
 
 | Parameter     | Description                                                                                                                                                                | Param Type   | DataType                                     | Required   | Default |
 | :------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------      | :----------- | :------------------------------------------- | :--------- | :------ |
@@ -227,7 +226,7 @@ Creates a user without a [recovery question & answer](#recovery-question-object)
 The new user is able to sign in after activation with the assigned password.
 This flow is common when developing a custom user registration experience.
 
-> Important: Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
+> **Important:** Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
 
 ##### Request example
 
@@ -297,7 +296,7 @@ Creates a user with a specified [hashed password](#hashed-password-object).
 The new user is able to sign in after activation with the specified password.
 This flow is common when migrating users from another data store in cases where we want to allow the users to retain their current passwords.
 
-> Important: Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
+> **Important:** Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
 
 ##### Request example
 
@@ -446,7 +445,7 @@ Creates a new user with a [password](#password-object) and [recovery question & 
 The new user is able to log in with the assigned password after activation.
 This flow is common when developing a custom user-registration experience.
 
-> Important: Don't generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
+> **Important:** Don't generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
 
 ##### Request example
 
@@ -1677,7 +1676,7 @@ Updates a user's profile and/or credentials using strict-update semantics
 All profile properties must be specified when updating a user's profile with a `PUT` method. Any property not specified
 in the request is deleted.
 
->Important: Don't use `PUT` method for partial updates.
+> **Important:** Don't use `PUT` method for partial updates.
 
 ##### Request parameters
 
@@ -2199,35 +2198,34 @@ For example, you can't unlock a user that is `ACTIVE`.
 
 ### Activate User
 
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/lifecycle/activate" />
 
 Activates a user
 
 This operation can only be performed on users with a `STAGED` or `DEPROVISIONED` status.  Activation of a user is an asynchronous operation.
 
-* The user's `transitioningToStatus` property has a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
-* The user's status is `ACTIVE` when the activation process is complete.
+- The user's `transitioningToStatus` property has a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
+- The user's status is `ACTIVE` when the activation process is complete.
 
 Users who don't have a password must complete the welcome flow by visiting the activation link to complete the transition to `ACTIVE` status.
 
 > **Note:** If you have Optional Password enabled, visiting the activation link is optional for users who aren't required to enroll a password. See [Create user with Optional Password enabled](#create-user-with-optional-password-enabled).
 >
 
-
 ##### Request parameters
-
 
 | Parameter | Description                                     | Param Type | DataType | Required | Default |
 | --------- | ----------------------------------------------- | ---------- | -------- | -------- | ------- |
 | id        | `id` of user                                    | URL        | String   | TRUE     |         |
 | sendEmail | Sends an activation email to the user if `true` | Query      | Boolean  | FALSE    | TRUE    |
 
+> **Legal Disclaimer** <br><br>
+After a user is added to the Okta directory, they receive an activation email. As part of signing up for this service, you agreed not to use Okta's service/product to spam and/or send unsolicited messages. Please refrain from adding unrelated accounts to the directory as Okta is not responsible for, and disclaims any and all liability associated with, the activation email's content. You, and you alone, bear responsibility for the emails sent to any recipients.
+
 ##### Response parameters
 
-
-* Returns empty object by default.
-* If `sendEmail` is `false`, returns an activation link for the user to set up their account. The activation token can be used to create a custom activation link.
+- Returns empty object by default.
+- If `sendEmail` is `false`, returns an activation link for the user to set up their account. The activation token can be used to create a custom activation link.
 
 ```json
 {
@@ -2984,7 +2982,7 @@ Sets a new password for a user by validating the user's answer to their current 
 
 This operation can only be performed on users with an `ACTIVE` status and a valid [recovery question credential](#recovery-question-object).
 
-> Important: This operation is intended for applications that need to implement their own forgot password flow.  You are responsible for mitigation of all security risks such as phishing and replay attacks.  The best practice is to generate a short-lived, one-time token (OTT) that is sent to a verified email account.
+> **Important:** This operation is intended for applications that need to implement their own forgot password flow.  You are responsible for mitigation of all security risks such as phishing and replay attacks.  The best practice is to generate a short-lived, one-time token (OTT) that is sent to a verified email account.
 
 ##### Request parameters
 
@@ -4005,8 +4003,8 @@ The default user profile is based on the [System for Cross-Domain Identity Manag
 | Property            | Description                                                                                                                          | DataType   | Nullable        | Unique   | Readonly   | MinLength   | MaxLength   | Validation                                                                                                       |
 | :------------------ | :----------------------------------------------------------------------------------------------------------------------------------- | :--------- | :---------      | :------- | :--------- | :---------- | :---------- | :--------------------------------------------------------------------------------------------------------------- |
 | login               | Unique identifier for the user (`username`)                                                                                          | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [pattern](/docs/reference/api/schemas/#login-pattern-validation)                                                  |
-| email               | Primary email address of user                                                                                                        | String     | FALSE           | TRUE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
-| secondEmail         | Secondary email address of user typically used for account recovery                                                                  | String     | TRUE            | TRUE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
+| email               | Primary email address of user                                                                                                        | String     | FALSE           | FALSE    | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
+| secondEmail         | Secondary email address of user typically used for account recovery                                                                  | String     | TRUE            | FALSE     | FALSE      | 5           | 100         | [RFC 5322 Section 3.2.3](https://datatracker.ietf.org/doc/html/rfc5322#section-3.2.3)                                       |
 | firstName           | Given name of the user (`givenName`)                                                                                                 | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
 | lastName            | Family name of the user (`familyName`)                                                                                               | String     | FALSE (default) | FALSE    | FALSE      | 1           | 50          |                                                                                                                  |
 | middleName          | Middle name(s) of the user                                                                                                           | String     | TRUE            | FALSE    | FALSE      |             |             |                                                                                                                  |

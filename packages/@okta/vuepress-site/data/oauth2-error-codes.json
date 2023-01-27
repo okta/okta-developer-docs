@@ -1,6 +1,6 @@
 {
-  "release" : "2022.12.1",
-  "build" : "2022.12.1-begin-115-g51ea9cea0e4f",
+  "release" : "2023.01.1",
+  "build" : "2023.01.1-begin-163-g3ee566bf2f32",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -267,6 +267,13 @@
     "internalErrorCode" : "ciba_feature_not_supported",
     "errorCode" : "access_denied",
     "errorDescription" : "The Client-Initiated Backchannel Authentication flow currently only supports web applications."
+  }, {
+    "title" : "Ciba MFA challenge initiation failure",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_mfa_challenge_initiation_failure",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Failed to initiate the MFA challenge for the Client-Initiated Backchannel Authentication flow."
   }, {
     "title" : "Authorization pending",
     "statusCode" : 400,

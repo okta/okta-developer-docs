@@ -120,7 +120,7 @@ Example UI showing the Google Authenticator in the dropdown list:
 
 ### 5: Copy shared secret to Google Authenticator
 
-After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering in the secret string. After it's added, Google Authenticator displays the time-based one-time password for the newly added account.
+After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering in the secret string. After it's added, Google Authenticator displays the time-based one-time passcode for the newly added account.
 
 <div class="half">
 
@@ -128,9 +128,9 @@ After the shared secret appears, the user installs the Google Authenticator app 
 
 </div>
 
-### 6: Submit one-time password in your app
+### 6: Submit one-time passcode in your app
 
-The user then copies the one-time password from Google Authenticator to your app. After the user submits the password, call `OktaAuth.idx.proceed()` and pass in the password.
+The user then copies the one-time passcode from Google Authenticator to your app. After the user submits the password, call `OktaAuth.idx.proceed()` and pass in the password.
 
 ```javascript
   const { verificationCode } = req.body;

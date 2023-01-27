@@ -59,6 +59,7 @@ guides:
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
+ - submit-app-prereq
  - deployment-checklist
  - deploy-your-app
  - protect-your-api
@@ -89,7 +90,6 @@ guides:
  - updating-saml-cert
  - validate-access-tokens
  - validate-id-tokens
- - oie-embedded-sdk-limitations
  - oie-embedded-common-org-setup
  - oie-embedded-common-download-setup-app
  - oie-embedded-common-run-samples

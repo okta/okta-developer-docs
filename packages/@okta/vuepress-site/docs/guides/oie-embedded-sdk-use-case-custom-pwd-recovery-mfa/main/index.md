@@ -27,7 +27,7 @@ This guide shows you how to integrate  [Email Magic Links (EML)](/docs/guides/em
 
 Okta's embedded solutions allow you to customize your authentication use cases with full support for theming, branding, and extensive ways to control the user experience. This guide covers customizations for one particular use case, self-service password recovery, where an email authenticator is used to verify the user before they can reset their password.
 
-> **Note**: The [Email Magic Links overview](/docs/guides/email-magic-links-overview/main/) explains the difference in user experience between using one-time passwords and magic links.
+> **Note**: The [Email Magic Links overview](/docs/guides/email-magic-links-overview/main/) explains the difference in user experience between using one-time passcodes and magic links.
 
 ## Before you begin
 
@@ -62,7 +62,7 @@ Okta sends users an email based on the **Forgot Password** template when they st
 
 | Variable | Contains  |
 | ---------------| ------------------------|
-| `${oneTimePassword}`   | The one-time password Okta generated for the user |
+| `${oneTimePassword}`   | The one-time passcode Okta generated for the user |
 | `${request.relayState}` | The current SAML [relaystate](https://developer.okta.com/docs/concepts/saml/#understanding-sp-initiated-sign-in-flow) value |
 | `${resetPasswordLink}` | The Okta-hosted URL that continues the password recovery flow |
 

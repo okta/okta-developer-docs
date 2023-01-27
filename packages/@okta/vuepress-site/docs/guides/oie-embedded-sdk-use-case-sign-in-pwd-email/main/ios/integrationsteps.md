@@ -64,7 +64,7 @@ When the user enters their credentials and initiates the sign-in flow, call the 
 
 #### 3: Send the user to the home page after a successful sign-in flow
 
-The final integration step is to send the user to the default home page after successful sign-in. Optionally, you can obtain basic user information after a successful sign-in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
+The final integration step is to send the user to the default home page after successful sign-in. Optionally, you can obtain basic user information after a successful sign-in by making a request to the Okta OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
 
 ## Sample code
 

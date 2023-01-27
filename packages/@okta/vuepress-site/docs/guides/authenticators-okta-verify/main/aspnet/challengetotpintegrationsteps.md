@@ -45,7 +45,7 @@ The user sees the following:
 
 <div class="common-image-format bordered-image">
 
-![A page asking the user to enter a Time-based One-Time Password from their Okta Verify mobile app](/img/authenticators/dotnet-authenticators-okta-verify-challenge-enter-totp.png "A prompt for the user to enter their TOTP")
+![A page asking the user to enter a time-based one-time passcode from their Okta Verify mobile app](/img/authenticators/dotnet-authenticators-okta-verify-challenge-enter-totp.png "A prompt for the user to enter their TOTP")
 
 </div>
 

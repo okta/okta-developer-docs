@@ -6,6 +6,16 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## December
 
+### Weekly release 2022.12.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.12.3](#bug-fixed-in-2022-12-3)                       |January 5, 2023           |
+
+#### Bug fixed in 2022.12.3
+
+An error occurred if a request was made to the `/authorize` endpoint of a custom authorization server and the `prompt` parameter value was set to `enroll_authenticator`. (OKTA-552063)
+
 ### Weekly release 2022.12.2
 
 | Change | Expected in Preview Orgs |
@@ -118,7 +128,12 @@ Okta provides the Okta Sign-In Widget out of the box so that customers can authe
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
+| [Improvements to self-service account activities for AD and LDAP users are EA in Preview](#improvements-to-self-service-account-activities-for-ad-and-ldap-users-are-ea-in-preview)            |November 30, 2022            |
 | [Bugs fixed in 2022.11.1](#bugs-fixed-in-2022-11-1)                      | November 30, 2022            |
+
+#### Improvements to self-service account activities for AD and LDAP users are EA in Preview
+
+Previously, the self-service unlock (SSU) and self-service password reset (SSPR) flows created unnecessary friction for AD and LDAP users. This feature enhancement introduces a seamless magic link experience in emails sent to unlock accounts and reset passwords. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the application. See [Customize email notifications](/docs/guides/custom-email/main/#use-vtl-variables). <!--OKTA-546374-->
 
 #### Bugs fixed in 2022.11.1
 
@@ -332,7 +347,7 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 #### Bugs fixed in 2022.10.0
 
-* Users were able to make more than five attempts to activate their One-Time Password (OTP) based factors. (OKTA-429940)
+* Users were able to make more than five attempts to activate their one-time passcode (OTP) based factors. (OKTA-429940)
 
 * Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
 
@@ -582,7 +597,7 @@ Before now, Okta Verify was the only solution for using push notifications and b
 
 #### Developer documentation updates in 2022.08.0
 
-A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-overview/aspnet/main/ ) feature in Identity Engine has been added. This covers the differences between using EML and one-time passwords, and how to integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK. <!-- OKTA-507346 -->
+A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-overview/aspnet/main/ ) feature in Identity Engine has been added. This covers the differences between using EML and one-time passcodes, and how to integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK. <!-- OKTA-507346 -->
 
 #### Bug fixed in 2022.08.0
 
@@ -689,6 +704,8 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 * A `Number` type schema property could erroneously be made unique. This resulted in inconsistent behavior and is no longer supported. Use `Integer` or `String` properties instead. (OKTA-506002)
 
 * Sometimes an error occurred when an admin attempted to edit a resource set that included a deleted app. (OKTA-510483)
+
+* Making a POST reset factors request to `/api/v1/users/${userId}/lifecycle/reset_factors` didn't reset the enrolled phone authenticator. (OKTA-463900)
 
 ## June
 
@@ -976,7 +993,7 @@ Passwords are weak authenticators and prone to security issues. Currently all us
 
 #### Improved email magic link authentication experience is EA in Preview
 
-Email magic links are enhanced to allow end users to authenticate in two different contexts. The end user can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
+Email magic links are enhanced to allow end users to authenticate in two different contexts. The end user can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time passcode to proceed with authentication. See [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
 
 #### Password as an optional authenticator is EA in Preview
 

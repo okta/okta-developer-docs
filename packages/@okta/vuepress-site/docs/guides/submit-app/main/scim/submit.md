@@ -1,7 +1,7 @@
 
 * **What SCIM version should this integration use?**: Choose either **SCIM 2.0** (Okta preferred version) or **SCIM 1.1**.
 
-* **Link to configuration guide**: Your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide).
+* **Link to configuration guide**: Your configuration guide (in HTML or PDF format) should have step-by-step instructions on how to set up provisioning between Okta and your systems. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
 
 * **Select provisioning features to be supported in the integration**: These provisioning features should match what you have selected on the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app) and [Profile Sourcing activation](/docs/guides/scim-provisioning-integration-test/main/#profile-sourcing-activation).
 
@@ -11,9 +11,10 @@
     * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
     * **Help Text**: Any descriptive text to be shown to administrators when installing your app integration.
     * **Type**: The property type for your parameter. Options are "String", "URL", or "HTTPS URL".
-  * Click **Save** to add the variable to the list.
 
-  After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
+    Click **Save** to add the variable to the list.
+
+    After you create the variable, click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
 
   * **Construct your dynamic Base URL by copying the variables above and pasting them where applicable**: Provide the Base URL that your integration uses when sending an outbound call to your SCIM server.
 

@@ -105,4 +105,4 @@ Then, handle the response from `idx.authenticate`. If the phone code was valid, 
 
 ### 5 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after a successful sign in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#get-the-user-profile-information) for more details.
+Optionally, you can obtain basic user information after a successful sign in by making a request to the Okta OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#get-the-user-profile-information) for more details.
