@@ -32,4 +32,6 @@ The following are the high capacity rate limits per minute that apply across the
 | `/bc/image/fileStoreRecord`                                                | 3000      | 3000         |
 | `/bc/globalFileStoreRecord`                                                | 3000      | 3000         |
 
+>**Note:** The increased rate limit applies only to the exact endpoints in the previous table. For example, the high-capacity rate limit only applies to `api/v1/apps/${id}` and not to paths such as `api/v1/apps/${id}/users`.
+
 If your usage needs exceed the rate limits applicable to the High Capacity Rate Limit add-on service, please contact your Okta Sales Representative regarding other options.
