@@ -56,7 +56,6 @@ Create the initial environment for the tutorial where an application authenticat
    ![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
 
    <!--
-
    Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
    -->
 
