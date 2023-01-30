@@ -1178,7 +1178,7 @@ An [Authenticator Method object](#authenticator-method-object)
 
 #### Authenticator Method examples
 
-##### App Authenticator Methods example
+##### okta_verify Authenticator Methods example
 
 ```json
 [
