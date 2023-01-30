@@ -1267,7 +1267,7 @@ An [Authenticator Method object](#authenticator-method-object)
 ]
 ```
 
-##### Email Authenticator Methods example
+##### okta_email Authenticator Methods example
 
 ```json
 [
