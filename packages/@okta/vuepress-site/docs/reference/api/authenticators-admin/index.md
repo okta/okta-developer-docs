@@ -40,7 +40,7 @@ The Authenticators Administration API has the following CRUD operations:
 * [Update Authenticator settings](#update-authenticator-settings)
 * [Activate an Authenticator](#activate-an-authenticator)
 * [Deactivate an Authenticator](#deactivate-an-authenticator)
-* [List all Methods for an Authenticator](#list-all-methods-for-an-authenticator)
+* [List all Methods of an Authenticator](#list-all-methods-of-an-authenticator)
 * [Retrieve an Authenticator Method](#retrieve-an-authenticator-method)
 * [Replace an Authenticator Method](#replace-an-authenticator-method)
 * [Activate an Authenticator Method](#activate-an-authenticator-method)
@@ -709,7 +709,7 @@ If the Authenticator that you are trying to deactivate is currently in use as pa
 }
 ```
 
-### List all Methods for an Authenticator
+### List all Methods of an Authenticator
 
 <ApiOperation method="get" url="/api/v1/authenticators/${authenticatorId}/methods" />
 
@@ -736,7 +736,7 @@ Retrieves an Authenticator Method identified by `authenticatorId` and `methodTyp
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
 | `authenticatorId`  | String | The Authenticator's unique identifier                 |
-| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, `webauthn`            |
+| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`            |
 
 #### Response body
 
@@ -753,14 +753,14 @@ Replaces the properties of an Authenticator Method identified by `authenticatorI
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
 | `authenticatorId`  | String | The Authenticator's unique identifier                 |
-| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, `webauthn`            |
+| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`            |
 
 #### Request body
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
 | `status`  | String (Enum) | The status of the authenticator method. Possible values: `ACTIVE` or `INACTIVE`          |
-| `type`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, `webauthn`            |
+| `type`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`            |
 
 #### Response body
 
@@ -777,7 +777,7 @@ Activates an Authenticator Method identified by `authenticatorId` and `methodTyp
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
 | `authenticatorId`  | String | The Authenticator's unique identifier                 |
-| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, `webauthn`            |
+| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`            |
 
 #### Response body
 
@@ -794,7 +794,7 @@ Deactivates an Authenticator Method identified by `authenticatorId` and `methodT
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
 | `authenticatorId`  | String | The Authenticator's unique identifier                 |
-| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, `webauthn`            |
+| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`            |
 
 #### Response body
 
@@ -1154,10 +1154,10 @@ An [Authenticator Method object](#authenticator-method-object)
 | Property | Type | Description  | Applies to Authenticator Method type |
 | -------- | ---- | ------------ | ------------------------------------ |
 | `status` | String (Enum) | The status of the authenticator method. Possible values: `ACTIVE` or `INACTIVE` | All |
-| `type` | String (Enum) | The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, `webauthn`  |  All |
+| `type` | String (Enum) | The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`  |  All |
 | `_links` | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this Authenticator Method object  |  All |
 | `settings` | [Authenticator Method Settings object](#authenticator-method-settings-object) | Specific settings for the authenticator method  | `otp`, `push`, `signed_nonce`, `totp`, `webauthn` |
-| `verifiableProperties` | Array of strings (Enums) | Verifiable properties. Possible values: `DEVICE_BOUND`, `HARDWARE_PROTECTED`, `PHISHING_RESISTANT`, `USER_PRESENCE`, `USER_VERIFYING`  | `cert`, `duo`, `idp` |
+| `verifiableProperties` | Array of strings (Enums) | Verifiable properties. Possible values: `DEVICE_BOUND`, `HARDWARE_PROTECTED`, `PHISHING_RESISTANT`, `USER_PRESENCE`, or `USER_VERIFYING`  | `cert`, `duo`, `idp` |
 
 ### Authenticator Method Settings object
 
@@ -1165,16 +1165,16 @@ An [Authenticator Method object](#authenticator-method-object)
 
 | Property | Type | Description  | Applies to Authenticator Method type |
 | -------- | ---- | ------------ | ------------------------------------ |
-| `algorithms` | String (Enum) | Algorithms supported. Possible values: `RS256`, `ES256`, `HMACSHA1`, `HMACSHA256`, `HMACSHA512` | `otp`, `totp`, `push`, `signed_nonce` |
-| `attachment` | String | Method attachment. Possible values: `ANY`, `BUILT_IN`, `ROAMING`  | `webauthn` |
-| `kepProtection` | String (Enum) | Key protection. Supported values: `ANY`, `HARDWARE`  | `totp`, `push`, `signed_nonce`
-| `protocol` | String (Enum) | The protocol used. Possible values: `SYMANTEC`,`TOTP`, `YUBICO` | `otp` |
+| `algorithms` | String (Enum) | Algorithms supported. Possible values: `RS256`, `ES256`, `HMACSHA1`, `HMACSHA256`, or `HMACSHA512` | `otp`, `totp`, `push`, `signed_nonce` |
+| `attachment` | String (Enum) | Method attachment. Possible values: `ANY`, `BUILT_IN`, or `ROAMING`  | `webauthn` |
+| `kepProtection` | String (Enum) | Key protection. Supported values: `ANY` or `HARDWARE`  | `totp`, `push`, `signed_nonce`
+| `protocol` | String (Enum) | The protocol used. Possible values: `SYMANTEC`,`TOTP`, or `YUBICO` | `otp` |
 | `timeIntervalInSeconds` | Integer | Time interval for TOTP in seconds | `totp` |
-| `encoding` | String (Enum) | Encoding of OTP value. Possible values: `Base32`, `Base64`, `Hexadecimal`  | `totp` |
-| `passCodeLength` | Integer | Number of digits for an OTP value  | `otp`, `totp` |
+| `encoding` | String (Enum) | Encoding of OTP value. Possible values: `Base32`, `Base64`, or `Hexadecimal`  | `totp` |
+| `passCodeLength` | Integer | Number of digits in an OTP value  | `otp`, `totp` |
 | `acceptableAdjacentIntervals` | Integer | Number of acceptable adjacent intervals. Possible values: 0&ndash;10 | `otp` |
-| `showSignInWithOV` | String (Enum) | Shows sign-in with Okta Verify. Possible Values: `ALWAYS`, `NEVER`  | `signed_nonce` |
-| `userVerification` | String (Enum) | User verification setting. Possible values: `DISCOURAGED`, `PREFERRED`, `REQUIRED` | `webauthn` |
+| `showSignInWithOV` | String (Enum) | Shows sign-in with Okta Verify. Possible Values: `ALWAYS` or `NEVER`  | `signed_nonce` |
+| `userVerification` | String (Enum) | User verification setting. Possible values: `DISCOURAGED`, `PREFERRED`, or `REQUIRED` | `webauthn` |
 
 #### Authenticator Method examples
 
@@ -1193,7 +1193,7 @@ An [Authenticator Method object](#authenticator-method-object)
     },
     "_links": {
       "self": {
-        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vfuRyKqBdV1d7/methods/totp",
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/totp",
         "hints": {
           "allow": [
             "GET",
@@ -1215,7 +1215,7 @@ An [Authenticator Method object](#authenticator-method-object)
     },
     "_links": {
       "self": {
-        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vfuRyKqBdV1d7/methods/push",
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/push",
         "hints": {
           "allow": [
             "GET",
@@ -1224,7 +1224,7 @@ An [Authenticator Method object](#authenticator-method-object)
         }
       },
       "deactivate": {
-        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vfuRyKqBdV1d7/methods/push/lifecycle/deactivate",
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/push/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -1246,7 +1246,7 @@ An [Authenticator Method object](#authenticator-method-object)
     },
     "_links": {
       "self": {
-        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vfuRyKqBdV1d7/methods/signed_nonce",
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/signed_nonce",
         "hints": {
           "allow": [
             "GET",
@@ -1255,7 +1255,7 @@ An [Authenticator Method object](#authenticator-method-object)
         }
       },
       "deactivate": {
-        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vfuRyKqBdV1d7/methods/signed_nonce/lifecycle/deactivate",
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/signed_nonce/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -1276,7 +1276,7 @@ An [Authenticator Method object](#authenticator-method-object)
     "status": "ACTIVE",
     "_links": {
       "self": {
-        "href": "https://${yourDomain}/api/v1/authenticators/autu3u0vczPJPzQJz1d7/methods/email",
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/email",
         "hints": {
           "allow": [
             "GET",
