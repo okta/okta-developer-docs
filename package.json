@@ -58,7 +58,7 @@
   "dependencies": {
     "broken-link-checker": "^0.7.8",
     "serve-handler": "^6.1.5",
-    "vuepress": "1.9.7",
+    "vuepress": "1.9.8",
     "vuepress-plugin-chunkload-redirect": "^1.0.3",
     "wait-for-localhost-cli": "^3.0.0"
   },
