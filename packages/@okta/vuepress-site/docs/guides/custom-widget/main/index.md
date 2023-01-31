@@ -49,9 +49,9 @@ If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to
 
 To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
 
-> **Note:** You need to have CSP for custom domains enabled in your org.
-
 > **Note:** CSP customizations only take effect on custom domains.
+
+> **Note:** If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. You may need to update the default server limits or reduce the number of trusted origins in Okta.
 
 ### Configure the default CSP
 
