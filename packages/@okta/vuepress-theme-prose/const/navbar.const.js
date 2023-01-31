@@ -1082,6 +1082,50 @@ export const reference = [
                      },
                   ],
                },
+               {
+                  title: "Managing Multiple Okta Environments",
+                  path: "/docs/reference/architecture-center/mmod/overview",
+                  subLinks: [
+                     {
+                        title: "Lab",
+                        path: "/docs/reference/architecture-center/mmod/lab-overview",
+                        subLinks: [
+                           {
+                              title: "Prerequisites",
+                              path: "/docs/reference/architecture-center/mmod/lab-prerequisites",
+                           },
+                           {
+                              title: "1: Configure Terraform Cloud",
+                              path: "/docs/reference/architecture-center/mmod/lab-1-configure-terraform-cloud",
+                           },
+                           {
+                              title: "2: Create Resources",
+                              path: "/docs/reference/architecture-center/mmod/lab-2-create-resources",
+                           },
+                           {
+                              title: "3: Rename a Group",
+                              path: "/docs/reference/architecture-center/mmod/lab-3-rename-a-group",
+                           },
+                           {
+                              title: "4: Deploy changes to production",
+                              path: "/docs/reference/architecture-center/mmod/lab-4-deploy-changes-to-production",
+                           },
+                           {
+                              title: "5: Detect drift",
+                              path: "/docs/reference/architecture-center/mmod/lab-5-detect-drift",
+                           },
+                           {
+                              title: "6: Synchronize environments daily",
+                              path: "/docs/reference/architecture-center/mmod/lab-6-synchronize-environments-daily",
+                           },
+                           {
+                              title: "Further reading",
+                              path: "/docs/reference/architecture-center/mmod/resources",
+                           },
+                        ],
+                     },
+                  ],
+               },
             ],
          },
       ],
