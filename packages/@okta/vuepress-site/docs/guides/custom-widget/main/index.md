@@ -45,13 +45,13 @@ You can add any HTML, CSS, or JavaScript to the sign-in page and also customize 
 
 ## Content Security Policy (CSP) for your custom domain
 
-If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to customize the default [CSP](https://content-security-policy.com/) for your org. Okta has a default CSP that can break customizations to the sign-in page.
+If you have a [custom domain](/docs/guides/custom-url-domain/main/), you need to customize the default [CSP](https://content-security-policy.com/) for your org. Okta has a default CSP that can break customizations to the sign-in page. CSP customizations only take effect on custom domains.
 
 To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
 
-> **Note:** CSP customizations only take effect on custom domains.
-
 > **Note:** If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. You may need to update the default server limits or reduce the number of trusted origins in Okta.
+
+> **Note:** If you add a trusted origin URL that redirects to a different URL, you need to include the redirect URL on the trusted origin list.
 
 ### Configure the default CSP
 
