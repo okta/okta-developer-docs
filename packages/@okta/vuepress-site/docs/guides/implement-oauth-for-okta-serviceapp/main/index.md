@@ -55,7 +55,7 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 4. Enter a name for your app integration and click **Save**.
 
-5. Optionally, click the **Application rate limits** tab to adjust the percentage rate limit capacity for this service application. By default, each new application has this percentage set at 50%. <ApiLifecycle access="ea" />
+5. Optionally, click the **Application rate limits** tab to adjust the percentage rate limit capacity for this service application. By default, each new application has this percentage set at 50%.
 
 ## Generate the JWK using the API
 

@@ -14,8 +14,6 @@ The rate limit dashboard is a tool that helps you understand the use of each API
 * The ability to track rate limits by API token, OAuth 2.0 application, or IP address.
 * The ability for you to investigate the issue when an API has reached the rate limit.
 
-> **Note:** Rate limits by OAuth 2.0 application is in <ApiLifecycle access="ea" />.
-
 The following describes some typical reasons for viewing the dashboard:
 
 * You want to open the rate limits report to proactively monitor rate limit usage, and to manage rate limit settings and the warning threshold. See [Rate limit monitoring](#rate-limit-monitoring).
@@ -192,7 +190,7 @@ The timeline graph shows use over the last week. When a rate violation occurs, y
 
 The bar graph shows either the top 10 IP addresses, top 10 API tokens, or top 10 OAuth 2.0 applications that are consuming the most traffic for the API. This view enables you to check if there are IP addresses, API tokens, or applications that are creating the spike in traffic.
 
-Display the desired bar graph by selecting **Top Requests by IP**, **Top Requests by API Token**, or **Top Requests by Applications** in the dropdown menu.
+Display the desired bar graph by selecting **Top Requests by IP**, **Top Requests by API Token**, or **Top Requests by Application** in the dropdown menu.
 
 Click an IP address, API token, or Application bar once to view the traffic for that IP address, API token, or Application on the line graph.
 
