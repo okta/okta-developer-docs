@@ -13,7 +13,7 @@ This page covers the rate limits for orgs that were created before 2018-05-17.
 
 If your needs exceed Okta's rate limits, you can purchase the High Capacity Rate Limit add-on. Customers who purchase the High Capacity Rate Limit add-on service may not use the service in excess of the static rate limit, as set forth in the table below. If Okta makes any change to the rate limit, the change is communicated to customers through an updated version of this product documentation.
 
-The following tables lists the high capacity rate limits per minute that apply across the Okta API for these endpoints. You can confirm end point limits using the rate limit dashboard in the Admin Console. See [APIs table](/docs/reference/rl-dashboard/#apis-table).
+The following tables lists the high capacity rate limits per minute that apply across the Okta API for these endpoints. You can confirm endpoint limits using the rate limit dashboard in the Admin Console. See [APIs table](/docs/reference/rl-dashboard/#apis-table).
 
 | Endpoint                                                                   | One App   | Enterprise   |
 | -------------------------------------------------------------------------- | ---------: | ------------: |
