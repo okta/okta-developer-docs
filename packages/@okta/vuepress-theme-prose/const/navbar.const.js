@@ -1118,11 +1118,11 @@ export const reference = [
                               title: "6: Synchronize environments daily",
                               path: "/docs/reference/architecture-center/mmod/lab-6-synchronize-environments-daily",
                            },
-                           {
-                              title: "Further reading",
-                              path: "/docs/reference/architecture-center/mmod/resources",
-                           },
                         ],
+                     },
+                     {
+                        title: "Further reading",
+                        path: "/docs/reference/architecture-center/mmod/resources",
                      },
                   ],
                },

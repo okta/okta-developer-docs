@@ -14,7 +14,7 @@ This lab uses [Okta CLI](https://cli.okta.com/) to create Okta developer account
 
 This lab requires two Okta developer accounts, one to represent a development environment, and one to act as the live environment. Both need to be running **Okta Identity Engine**.
 
-> Tip: If you are using existing accounts and want to check it is running Identity Engine rather than Okta Classic, check the footer on any page of the Admin Console for that org. The version number is appended with E for Identity Engine orgs and C for Classic Engine orgs.
+> **Tip:** If you are using existing accounts and want to check it is running Identity Engine rather than Okta Classic, check the footer on any page of the Admin Console for that org. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
 Okta CLI is the quickest way to create an Okta org, so we recommend using it to create both new orgs. Alternatively, you can manually sign up instead.
 
@@ -84,13 +84,5 @@ Connect Terraform to Okta using the following values:
    For example, `https://dev-133337.okta.com`.
 * `${OKTA_DOMAIN_NAME}` is the subdomain of your Okta developer org.
    For example, `dev-133337`.
-* `${CLIENT_ID}` is the unique ID Okta assigns your application when registered in the Okta CLI or the Admin Console.
-* `${CLIENT_SECRET}` is the secret the application uses to authenticate with the authorization server.
-* `${ISSUER}` is the URL of your authorization server.
-   For example, the default is `https://${OKTA_DOMAIN}/oauth2/default`.
-* `${SIGN_IN_REDIRECT_URI}` is the URL a user will be redirected to after completing the authentication process successfully and receiving an authorization code or token.
-   For example, `http://localhost:8080/login/oauth2/code/okta`.
-
-Okta CLI will report `${CLIENT_ID}`, `${CLIENT_SECRET}`, and `${ISSUER}` when you register an application with the `okta start` command.
 
 To find these settings in the Admin Console, see [Configuration Settings](/docs/guides/oie-embedded-common-download-setup-app/java/main/#configuration-settings).

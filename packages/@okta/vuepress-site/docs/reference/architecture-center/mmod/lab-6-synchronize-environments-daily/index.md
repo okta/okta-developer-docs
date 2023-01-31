@@ -8,7 +8,7 @@ In the previous tutorial, you learned how to detect changes in the production en
 
 If any changes are detected, it will send a notification message to a Slack channel.
 
-> Note: You have various options for where to send the notification. This example uses Slack. If you don't have Slack, it's easy to create a trial account if you want to follow along, or you can choose a different destination and use this example as a guide.
+> **Note:** You have various options for where to send the notification. This example uses Slack. If you don't have Slack, it's easy to create a trial account if you want to follow along, or you can choose a different destination and use this example as a guide.
 
 This simulates an enterprise transforming to fully automated processes for detecting drift in your environments.
 
@@ -115,10 +115,11 @@ Update the workflow before you run it.
 
 This exercise demonstrates the process for Slack, but you can choose from many connection types. To select a different destination:
 
+1. Open the Okta Admin Console for your production org.
 1. Choose **Workflows > Workflow console** to view the Workflows home page.
 1. Select the **Connections** tab.
 1. Click **+ New Connection** to open a **New Connection** page.
-1. Select the desired connection type; for example, **Slack**. 
+1. Select the desired connection type; for example, **Slack**.
 1. Give the connection a nickname; for example, _Terraform Drift_.
 1. Click **Create**.
 1. Click **Allow** to give Slack access to the workflow.
