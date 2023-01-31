@@ -52,8 +52,8 @@
     "stylelint": "^14.16.1",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.3.0",
-    "eslint": "^8.28.0",
-    "eslint-plugin-vue": "^9.8.0"
+    "eslint": "^8.33.0",
+    "eslint-plugin-vue": "^9.9.0"
   },
   "dependencies": {
     "broken-link-checker": "^0.7.8",
