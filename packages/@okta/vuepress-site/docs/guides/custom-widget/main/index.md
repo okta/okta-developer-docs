@@ -66,6 +66,7 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
      - Select **Enforced** to block any resources that the CSP doesn't trust.
      - Use **Not enforced** to leave the customized CSP in the report-only header. Use this option for testing and validation before turning on **Enforced** mode.
 5. Click **Save to draft**.
+6. Make changes directly in the editor. See steps 4 and 5 in [Edit the sign-in page](#edit-the-sign-in-page).
 
 ### Edit the sign-in page
 
