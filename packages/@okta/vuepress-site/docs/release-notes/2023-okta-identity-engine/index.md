@@ -12,7 +12,7 @@ title: Okta Identity Engine API Products release notes 2023
 |------------------------------------------------------------------------------------------------------------------|-----------------|
 | [Clock skew for access and ID tokens](#clock-skew-for-access-and-id-tokens)                                      |February 1, 2023 |
 | [Content Security Policy update](#content-security-policy-update)                                                |February 1, 2023 |
-| [Interaction Code flow supports native SSO](#interaction-code-flow-supports-native-sso)                          |February 1, 2023 |
+| [Interaction Code flow supports Native SSO](#interaction-code-flow-supports-native-sso)                          |February 1, 2023 |
 | [Bugs fixed in 2023.01.2](#bugs-fixed-in-2023-01-2)                                                              |February 1, 2023 |
 
 #### Clock skew for access and ID tokens
@@ -23,7 +23,7 @@ A 30 second clock skew is now allowed for access and ID tokens to validate that 
 
 To improve our security and protect against Cross-Site Scripting (XSS) attacks, we are expanding the use of [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) to  include when requests come from custom domains on non-customizable pages. <!--OKTA-567669 -->
 
-#### Interaction Code flow supports native SSO
+#### Interaction Code flow supports Native SSO
 
 The Interaction Code flow now supports the device_sso scope that you can use to perform Native SSO. This scope allows you to obtain an interaction code and exchange it for tokens and a device secret. See [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/interactioncode/main/). <!--OKTA-551724 -->
 
