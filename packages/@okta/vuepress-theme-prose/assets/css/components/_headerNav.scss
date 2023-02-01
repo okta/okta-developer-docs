@@ -10,7 +10,7 @@
   width: 100%;
   overflow-x: auto;
 
-  background-color: cv("header", "nav");
+  background-color: #2b2b2b;
 }
 
 .header-nav a {
@@ -23,7 +23,7 @@
   font-size: 16px;
   line-height: 21px;
   white-space: nowrap;
-  color: #191919;
+  color: #fffefa !important;
 }
 
 .header-nav a:before {

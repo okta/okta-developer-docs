@@ -14,7 +14,16 @@
     </span>
     <span :class="{'dark-mode': true, 'active': isDarkMode}">
       <img
+        v-if="isDarkMode"
         src="/img/icons/mode-dark.svg"
+        width="12"
+        height="13"
+        aria-hidden="true"
+        alt=""
+      >
+      <img
+        v-else
+        src="/img/icons/mode-dark-not-active.svg"
         width="12"
         height="13"
         aria-hidden="true"

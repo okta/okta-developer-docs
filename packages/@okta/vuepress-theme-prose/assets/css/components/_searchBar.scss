@@ -146,13 +146,13 @@
   color: #212121;
 
   @include media(">desktop") {
-    padding-right: 44px;
-    padding-left: 20px;
+    padding-right: 20px;
+    padding-left: 44px;
     height: 48px;
 
-    background-color: var(--c-gray-950);
+    background-color: #222221 !important;
     background-image: url("/img/icons/search-icon.svg");
-    background-position: right 20px center;
+    background-position: left 19px center;
     background-repeat: no-repeat;
 
     color: rgb(255 254 250 / 0.7);

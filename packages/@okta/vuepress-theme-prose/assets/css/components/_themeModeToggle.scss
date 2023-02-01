@@ -22,5 +22,11 @@
 }
 
 .toggle-switch span.active {
+  --icon-color: #2b2b2b;
+
   background: #3f59e4;
+}
+
+.dark-theme .toggle-switch span.active {
+  background: linear-gradient(0deg, rgb(25 25 25 / 0.08), rgb(25 25 25 / 0.08)), #4cb7a3;
 }

@@ -7,7 +7,7 @@ header.page-header {
   padding: 0 50px;
   height: 87px;
 
-  background-color: cv("header");
+  background-color: #191919;
 }
 
 header.page-header .header--logo {
@@ -17,8 +17,8 @@ header.page-header .header--logo {
 }
 
 header.page-header .header--logo img {
-  width: 212px;
-  height: 31px;
+  width: 180px;
+  height: 28px;
 }
 
 header.page-header .menu--slideout {
@@ -38,7 +38,10 @@ header.page-header .search--slideout {
   overflow: hidden;
 
   @include media(">desktop") {
-    border: 1.5px solid #fffefa;
+    flex: 1 1 280px;
+    max-width: 280px;
+
+    border: 1.5px solid rgb(255 254 250 / 0.2);
     border-radius: 6px;
   }
 }
@@ -73,7 +76,7 @@ header.page-header .sign-up--button {
 
   font-weight: 400;
   font-size: 14px;
-  color: cv("body", "white");
+  color: cv("body", "white") !important;
 }
 
 header.page-header .mobile--toggles {
@@ -135,6 +138,10 @@ header.page-header .link {
   line-height: 1.3em;
   color: cv("body", "white");
   cursor: pointer;
+
+  @include media(">desktop") {
+    color: cv("body", "white") !important;
+  }
 }
 
 header.page-header .link:hover {
@@ -142,13 +149,13 @@ header.page-header .link:hover {
 }
 
 header.page-header .link--black {
-  color: cv("gray", "900");
+  color: cv("gray", "900") !important;
 }
 
 header.page-header .link--black:visited,
 header.page-header .link--black:active,
 header.page-header .link--black:focus {
-  color: cv("gray", "900");
+  color: cv("gray", "900") !important;
 }
 
 header.page-header .link--semi-bold {
@@ -173,7 +180,7 @@ header.page-header .link[target="_blank"]:not([href^="mailto:"])::after {
 header.page-header .link:visited,
 header.page-header .link:active,
 header.page-header .link:focus {
-  color: cv("body", "white");
+  color: cv("body", "white") !important;
 }
 
 @include media("<desktop-xl") {
@@ -428,8 +435,4 @@ header.page-header .link:focus {
   header.page-header .sign-up--button {
     display: none;
   }
-}
-
-.header--links > .menu--items.menu--desktop:first-of-type .link {
-  font-weight: 700;
 }

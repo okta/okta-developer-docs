@@ -9,8 +9,8 @@
           <img
             class="column--header"
             src="/img/logotype.svg"
-            width="212"
-            height="31"
+            width="180"
+            height="28"
             alt="Okta developer logotype"
           >
         </a>
