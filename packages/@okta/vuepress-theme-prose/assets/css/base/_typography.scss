@@ -33,6 +33,14 @@ a {
   &:focus {
     color: cv("link");
   }
+
+  &:hover {
+    color: #3f59e4 !important;
+  }
+}
+
+.dark-theme a:hover {
+  color: #b1e4de !important;
 }
 
 h1,
