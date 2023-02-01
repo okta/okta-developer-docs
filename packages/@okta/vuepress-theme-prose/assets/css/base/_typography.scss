@@ -1,63 +1,26 @@
 @font-face {
   font-weight: 400;
   font-style: normal;
-  font-family: "okticon";
-  src: url("/fonts/okticon.eot");
-  src: url("/fonts/okticon.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/okticon.woff") format("woff"),
-    url("/fonts/okticon.ttf") format("truetype"),
-    url("/fonts/okticon.svg#okticon") format("svg");
-}
-
-@font-face {
-  font-weight: 300;
-  font-style: normal;
-  font-family: "ABC Whyte";
-  src: url("/fonts/ABC/Light/ABCWhyte-Light.eot");
-  src: url("/fonts/ABC/Light/ABCWhyte-Light.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/ABC/Light/ABCWhyte-Light.woff2") format("woff2"),
-    url("/fonts/ABC/Light/ABCWhyte-Light.woff") format("woff"),
-    url("/fonts/ABC/Light/ABCWhyte-Light.ttf") format("truetype"),
-    url("/fonts/ABC/Light/ABCWhyte-Light.svg#ABCWhyte-Light") format("svg");
-  font-display: swap;
-}
-
-@font-face {
-  font-weight: 400;
-  font-style: normal;
-  font-family: "ABC Whyte";
-  src: url("/fonts/ABC/Regular/ABCWhyte-Regular.eot");
-  src: url("/fonts/ABC/Regular/ABCWhyte-Regular.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/ABC/Regular/ABCWhyte-Regular.woff2") format("woff2"),
-    url("/fonts/ABC/Regular/ABCWhyte-Regular.woff") format("woff"),
-    url("/fonts/ABC/Regular/ABCWhyte-Regular.ttf") format("truetype"),
-    url("/fonts/ABC/Regular/ABCWhyte-Regular.svg#ABCWhyte-Regular") format("svg");
+  font-family: "Aeonik";
+  src: url("/fonts/aeonik/Aeonik-Regular.eot");
+  src: url("/fonts/aeonik/Aeonik-Regular.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/aeonik/Aeonik-Regular.woff2") format("woff2"),
+    url("/fonts/aeonik/Aeonik-Regular.woff") format("woff"),
+    url("/fonts/aeonik/Aeonik-Regular.ttf") format("truetype"),
+    url("/fonts/aeonik/Aeonik-Regular.svg#Aeonik-Regular") format("svg");
   font-display: swap;
 }
 
 @font-face {
   font-weight: 500;
   font-style: normal;
-  font-family: "ABC Whyte";
-  src: url("/fonts/ABC/Medium/ABCWhyte-Medium.eot");
-  src: url("/fonts/ABC/Medium/ABCWhyte-Medium.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/ABC/Medium/ABCWhyte-Medium.woff2") format("woff2"),
-    url("/fonts/ABC/Medium/ABCWhyte-Medium.woff") format("woff"),
-    url("/fonts/ABC/Medium/ABCWhyte-Medium.ttf") format("truetype"),
-    url("/fonts/ABC/Medium/ABCWhyte-Medium.svg#ABCWhyte-Medium") format("svg");
-  font-display: swap;
-}
-
-@font-face {
-  font-weight: 700;
-  font-style: normal;
-  font-family: "ABC Whyte";
-  src: url("/fonts/ABC/Bold/ABCWhyte-Bold.eot");
-  src: url("/fonts/ABC/Bold/ABCWhyte-Bold.eot?#iefix") format("embedded-opentype"),
-    url("/fonts/ABC/Bold/ABCWhyte-Bold.woff2") format("woff2"),
-    url("/fonts/ABC/Bold/ABCWhyte-Bold.woff") format("woff"),
-    url("/fonts/ABC/Bold/ABCWhyte-Bold.ttf") format("truetype"),
-    url("/fonts/ABC/Bold/ABCWhyte-Bold.svg#ABCWhyte-Bold") format("svg");
+  font-family: "Aeonik";
+  src: url("/fonts/aeonik/Aeonik-Medium.eot");
+  src: url("/fonts/aeonik/Aeonik-Medium.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/aeonik/Aeonik-Medium.woff2") format("woff2"),
+    url("/fonts/aeonik/Aeonik-Medium.woff") format("woff"),
+    url("/fonts/aeonik/Aeonik-Medium.ttf") format("truetype"),
+    url("/fonts/aeonik/Aeonik-Medium.svg#Aeonik-Medium") format("svg");
   font-display: swap;
 }
 
