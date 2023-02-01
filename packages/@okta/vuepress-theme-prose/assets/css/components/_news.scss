@@ -36,17 +36,26 @@
 
 .news__title {
   grid-column: 1 / -1;
+  padding-bottom: 13.5px;
 
-  font-weight: 400;
+  border-bottom: 1px solid #bfbfbf;
+
+  font-weight: 500;
   font-size: 30px;
-  color: cv("support", "text");
+  color: #555555;
 
   @include media(">desktop") {
     font-size: 40px;
   }
 }
 
+.dark-theme .news__title {
+  color: #dbdbdb;
+}
+
 .news__article {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -67,6 +76,18 @@
       grid-column: span 1;
     }
   }
+
+  @include media(">desktop") {
+    &:hover {
+      background-color: #3f59e4;
+    }
+  }
+}
+
+@include media(">desktop") {
+  .dark-theme .news__article:hover {
+    background-color: #4cb7a3;
+  }
 }
 
 .news__article-image {
@@ -85,24 +106,18 @@
 }
 
 .news__article-image-wrapper {
+  display: flex;
   width: 100%;
   height: 295px;
+  overflow: hidden;
 
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  background-color: #afaba1;
-}
-
-.dark-theme .news__article-image-wrapper {
-  background-color: #6b665f;
+  background-color: #362c5e;
 }
 
 .news__article-image-wrapper img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  object-position: center;
+  margin: auto;
 }
 
 .news__article-title {
@@ -116,11 +131,48 @@
 }
 
 .news__article-link {
-  border-bottom: 2px solid cv("support", "text");
+  border-bottom: 2px solid currentcolor;
 
   font-weight: 500;
   font-size: 20px;
   color: cv("support", "text") !important;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &:hover {
+    color: cv("support", "text") !important;
+  }
+}
+
+@include media(">desktop") {
+  .news__article:hover .news__text {
+    color: #b6caff !important;
+  }
+
+  .dark-theme .news__article:hover .news__text {
+    color: #2b2b2b !important;
+  }
+}
+
+@include media(">desktop") {
+  .news__article:hover .news__article-title,
+  .news__article:hover .news__article-link {
+    color: #fffefa !important;
+  }
+
+  .dark-theme .news__article:hover .news__article-title,
+  .dark-theme .news__article:hover .news__article-link {
+    color: #191919 !important;
+  }
 }
 
 .news__wrapper {

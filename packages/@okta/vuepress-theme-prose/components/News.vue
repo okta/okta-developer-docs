@@ -6,7 +6,14 @@
       </h2>
       <article class="news__article news__article_size_large">
         <div class="news__article-image-wrapper">
-          <!-- image -->
+          <img
+            src="/img/build@1x.png"
+            width="296"
+            height="360"
+            srcset="/img/build@2x.png 2x, /img/build@3x.png 3x"
+            alt=""
+            aria-hidden="true"
+          >
         </div>
         <div class="news__wrapper">
           <p class="news__text dont-break-out dont-break-out">
