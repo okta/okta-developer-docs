@@ -18,11 +18,11 @@ A 30 second clock skew is now allowed for access and ID tokens to validate that 
 
 #### Content Security Policy update
 
-To improve our security and protect against Cross-Site Scripting (XSS) attacks, we are expanding the use of [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) to  include when requests come from custom domains on non-customizable pages. <!--OKTA-567669 -->
+To improve our security and protect against Cross-Site Scripting (XSS) attacks, we are expanding the use of [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) to include when requests come from custom domains on non-customizable pages. <!--OKTA-567669 -->
 
 #### Bugs fixed in 2023.01.2
 
-* Requests made with an empty Origin header returned a 500 error response. (OKTA-449621)
+* Requests made with an empty Origin header returned an HTTP 500 error response. (OKTA-449621)
 
 * An error occurred if a request was made to the `/authorize` endpoint of a custom authorization server and the `prompt` parameter value was set to `enroll_authenticator`.  (OKTA-552063)
 
