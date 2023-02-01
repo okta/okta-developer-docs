@@ -6,11 +6,44 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## January
 
+### Weekly release 2023.01.2
+
+| Change | Expected in Preview Orgs |
+|------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Clock skew for access and ID tokens](#clock-skew-for-access-and-id-tokens)                                      |February 1, 2023 |
+| [Content Security Policy update](#content-security-policy-update)                                                |February 1, 2023 |
+| [Interaction Code flow supports native SSO](#interaction-code-flow-supports-native-sso)                          |February 1, 2023 |
+| [Bugs fixed in 2023.01.2](#bugs-fixed-in-2023-01-2)                                                              |February 1, 2023 |
+
+#### Clock skew for access and ID tokens
+
+A 30 second clock skew is now allowed for access and ID tokens to validate that a token was created before the current time. <!--OKTA-538956 -->
+
+#### Content Security Policy update
+
+To improve our security and protect against Cross-Site Scripting (XSS) attacks, we are expanding the use of Content Security Policy (CSP) to  include when requests come from custom domains on non-customizable pages. See [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP). <!--OKTA-567669 -->
+
+#### Interaction Code flow supports native SSO
+
+The Interaction Code flow now supports the device_sso scope that you can use to perform Native SSO. This scope allows you to obtain an interaction code and exchange it for tokens and a device secret. See [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/interactioncode/main/). <!--OKTA-551724 -->
+
+#### Bugs fixed in 2023.01.2
+
+* Requests made with an empty Origin header returned a 500 error response. (OKTA-449621)
+
+* Requests to assign a custom role to a user or group returned a generic Bad Request error when the required role or resource-set property was missing. (OKTA-538237)
+
+* Some custom admins didn't see groups and users that they had access to when they made a `GET` request to the Users (`/users/{id}/groups`) and Groups (`/groups/{id}/users`) APIs. (OKTA-568838)
+
+* Users created using Just-In-Time provisioning weren't assigned to a group when a group rule existed. (OKTA-532840)
+
+* An unclear error message was returned when a group rules API call (`create`, `update`, or `activate`) was made to assign users to read-only groups (for example, `Everyone`). (OKTA-567972)
+
 ### Weekly release 2023.01.1
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Bugs fixed in 2023.01.1](#bugs-fixed-in-2023-01-1)                       |January 19, 2023           |
+| [Bugs fixed in 2023.01.1](#bugs-fixed-in-2023-01-1)                      |January 19, 2023          |
 
 #### Bugs fixed in 2023.01.1
 
