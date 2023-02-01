@@ -1171,7 +1171,7 @@ An [Authenticator Method object](#authenticator-method-object)
 | `timeIntervalInSeconds` | Integer | Time interval for TOTP in seconds | `totp` |
 | `encoding` | String (Enum) | The shared secret encoding. Possible values: `Base32`, `Base64`, or `Hexadecimal`  | `totp` |
 | `passCodeLength` | Integer | Number of digits in an OTP value  | `otp`, `totp` |
-| `acceptableAdjacentIntervals` | Integer | Also known as the clock drift interval, this setting allows you to build in tolerance for any time difference between the token and the server. Number of acceptable adjacent intervals. For example, with a `timeIntervalInSeconds` of 60 seconds and an `acceptableAdjacentIntervals` value of 5, the result of 60 X 5 is 300, which means that Okta will accept passcodes within 300 seconds before or after the end user enters their code. Possible values: 0&ndash;10 | `otp` |
+| `acceptableAdjacentIntervals` | Integer | Also known as the clock drift interval, this setting allows you to build in tolerance for any time difference between the token and the server. Number of acceptable adjacent intervals. For example, with a `timeIntervalInSeconds` of 60 seconds and an `acceptableAdjacentIntervals` value of 5, the result of 60 X 5 is 300, which means that Okta accepts passcodes within 300 seconds before or after the end user enters their code. Possible values: 0&ndash;10 | `otp` |
 | `showSignInWithOV` | String (Enum) | Controls whether to show the **Sign in with Okta Verify** button on the Sign-in Widget for the `signed_nonce` method. Possible Values: `ALWAYS` or `NEVER`  | `signed_nonce` |
 | `userVerification` | String (Enum) | User verification setting. Possible values: `DISCOURAGED`, `PREFERRED`, or `REQUIRED` | `webauthn` |
 
