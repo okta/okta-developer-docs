@@ -33,6 +33,8 @@ The Teams API has the following operations:
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/servers" />
 Lists all the Servers enrolled in a Team that the requesting ASA User has access to
 
+> **Note**: Server changes may take time to propagate to this endpoint. Some results might not be immediately available.
+
 This endpoint requires one of the following roles: `access_user`, `access_admin`, `authenticated_client`, `reporting_user`, or `server_admin`.
 
 #### Request path parameters
