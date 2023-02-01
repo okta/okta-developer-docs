@@ -1166,7 +1166,7 @@ An [Authenticator Method object](#authenticator-method-object)
 | -------- | ---- | ------------ | ------------------------------------ |
 | `algorithms` | String (Enum) | Algorithms supported. Possible values: `RS256`, `ES256`, `HMACSHA1`, `HMACSHA256`, or `HMACSHA512` | `otp`, `totp`, `push`, `signed_nonce` |
 | `attachment` | String (Enum) | Method attachment. Possible values: `ANY`, `BUILT_IN`, or `ROAMING`  | `webauthn` |
-| `keyProtection` | String (Enum) | Indicates whether a hardware key store must be used for `push` and `signed_nonce` methods or if any type of key store is allowed. Supported values: `ANY` or `HARDWARE`  | `push`, `signed_nonce`|
+| `keyProtection` | String (Enum) | Indicates whether you must use a hardware key store for `push` and `signed_nonce` methods or if any type of key store is allowed. Supported values: `ANY` or `HARDWARE`  | `push`, `signed_nonce`|
 | `protocol` | String (Enum) | The protocol used. Possible values: `SYMANTEC`,`TOTP`, or `YUBICO` | `otp` |
 | `timeIntervalInSeconds` | Integer | Time interval for TOTP in seconds | `totp` |
 | `encoding` | String (Enum) | The shared secret encoding. Possible values: `Base32`, `Base64`, or `Hexadecimal`  | `totp` |
