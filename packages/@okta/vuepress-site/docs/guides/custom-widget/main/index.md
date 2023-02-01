@@ -53,6 +53,10 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 
 > **Note:** If you add a trusted origin URL that redirects to a different URL, you need to include the redirect URL on the trusted origin list.
 
+### Include a nonce reference
+
+
+
 ### Configure the default CSP
 
 1. In the Admin Console, go to **Customizations** > **Branding**.
