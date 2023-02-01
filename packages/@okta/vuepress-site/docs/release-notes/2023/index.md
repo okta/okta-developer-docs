@@ -4,6 +4,36 @@ title: Okta API Products release notes 2023
 
 ## January
 
+### Weekly release 2023.01.2
+
+| Change | Expected in Preview Orgs |
+|------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Clock skew for access and ID tokens](#clock-skew-for-access-and-id-tokens)                                      |February 1, 2023 |
+| [Content Security Policy update](#content-security-policy-update)                                                |February 1, 2023 |
+| [Bugs fixed in 2023.01.2](#bugs-fixed-in-2023-01-2)                                                              |February 1, 2023 |
+
+#### Clock skew for access and ID tokens
+
+A 30 second clock skew is now allowed for access and ID tokens to validate that a token was created before the current time. <!--OKTA-538956 -->
+
+#### Content Security Policy update
+
+To improve our security and protect against Cross-Site Scripting (XSS) attacks, we are expanding the use of [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) to include when requests come from custom domains on non-customizable pages. <!--OKTA-567669 -->
+
+#### Bugs fixed in 2023.01.2
+
+* Requests made with an empty Origin header returned an HTTP 500 error response. (OKTA-449621)
+
+* An error occurred if a request was made to the `/authorize` endpoint of a custom authorization server and the `prompt` parameter value was set to `enroll_authenticator`.  (OKTA-552063)
+
+* Requests to assign a custom role to a user or group returned a generic Bad Request error when the required `role` or `resource-set` property was missing. (OKTA-538237)
+
+* Some custom admins didn't see groups and users that they had access to when they made a `GET` request to the Users (`/users/{id}/groups`) and Groups (`/groups/{id}/users`) APIs. (OKTA-568838)
+
+* When a client used the private_key_jwt client authentication method, the `max_age` and `login_hint` parameters in the authorize request were sometimes ignored. (OKTA-534942)
+
+* An unclear error message was returned when a group rules API call (`create`, `update`, or `activate`) was made to assign users to read-only groups (for example, `Everyone`). (OKTA-567972)
+
 ### Weekly release 2023.01.1
 
 | Change | Expected in Preview Orgs |
