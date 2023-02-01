@@ -1153,11 +1153,10 @@ An [Authenticator Method object](#authenticator-method-object)
 
 | Property | Type | Description  | Applies to Authenticator Method type |
 | -------- | ---- | ------------ | ------------------------------------ |
-| `status` | String (Enum) | The status of the authenticator method. Possible values: `ACTIVE` or `INACTIVE` | All |
-| `type` | String (Enum) | The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`  |  All |
-| `_links` | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this Authenticator Method object  |  All |
+| `status` | String (Enum) | The status of the authenticator method. Possible values: `ACTIVE` or `INACTIVE` | All Authenticator Methods |
+| `type` | String (Enum) | The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`  |  All Authenticator Methods |
+| `_links` | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this Authenticator Method object  |  All Authenticator Methods |
 | `settings` | [Authenticator Method Settings object](#authenticator-method-settings-object) | Specific settings for the authenticator method  | `otp`, `push`, `signed_nonce`, `totp`, `webauthn` |
-| `verifiableProperties` | Array of strings (Enums) | Verifiable properties. Possible values: `DEVICE_BOUND`, `HARDWARE_PROTECTED`, `PHISHING_RESISTANT`, `USER_PRESENCE`, or `USER_VERIFYING`  | `cert`, `duo`, `idp` |
 
 ### Authenticator Method Settings object
 
@@ -1167,13 +1166,13 @@ An [Authenticator Method object](#authenticator-method-object)
 | -------- | ---- | ------------ | ------------------------------------ |
 | `algorithms` | String (Enum) | Algorithms supported. Possible values: `RS256`, `ES256`, `HMACSHA1`, `HMACSHA256`, or `HMACSHA512` | `otp`, `totp`, `push`, `signed_nonce` |
 | `attachment` | String (Enum) | Method attachment. Possible values: `ANY`, `BUILT_IN`, or `ROAMING`  | `webauthn` |
-| `keyProtection` | String (Enum) | Key protection. Supported values: `ANY` or `HARDWARE`  | `totp`, `push`, `signed_nonce`|
+| `keyProtection` | String (Enum) | Indicates whether a hardware key store must be used for `push` and `signed_nonce` methods or if any type of key store is allowed. Supported values: `ANY` or `HARDWARE`  | `push`, `signed_nonce`|
 | `protocol` | String (Enum) | The protocol used. Possible values: `SYMANTEC`,`TOTP`, or `YUBICO` | `otp` |
 | `timeIntervalInSeconds` | Integer | Time interval for TOTP in seconds | `totp` |
-| `encoding` | String (Enum) | Encoding of OTP value. Possible values: `Base32`, `Base64`, or `Hexadecimal`  | `totp` |
+| `encoding` | String (Enum) | The shared secret encoding. Possible values: `Base32`, `Base64`, or `Hexadecimal`  | `totp` |
 | `passCodeLength` | Integer | Number of digits in an OTP value  | `otp`, `totp` |
-| `acceptableAdjacentIntervals` | Integer | Number of acceptable adjacent intervals. Possible values: 0&ndash;10 | `otp` |
-| `showSignInWithOV` | String (Enum) | Shows sign-in with Okta Verify. Possible Values: `ALWAYS` or `NEVER`  | `signed_nonce` |
+| `acceptableAdjacentIntervals` | Integer | Also known as the clock drift interval, this setting allows you to build in tolerance for any time difference between the token and the server. Number of acceptable adjacent intervals. For example, with a `timeIntervalInSeconds` of 60 seconds and an `acceptableAdjacentIntervals` value of 5, the result of 60 X 5 is 300, which means that Okta will accept passcodes within 300 seconds before or after the end user enters their code. Possible values: 0&ndash;10 | `otp` |
+| `showSignInWithOV` | String (Enum) | Controls whether to show the **Sign in with Okta Verify** button on the Sign-in Widget for the `signed_nonce` method. Possible Values: `ALWAYS` or `NEVER`  | `signed_nonce` |
 | `userVerification` | String (Enum) | User verification setting. Possible values: `DISCOURAGED`, `PREFERRED`, or `REQUIRED` | `webauthn` |
 
 #### Authenticator Method examples
