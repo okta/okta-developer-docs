@@ -21,19 +21,17 @@
       >
         <svg
           class="c-dialog__close-icon"
-          width="30"
-          height="31"
-          viewBox="0 0 30 31"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          focusable="false"
         >
           <path
             fill-rule="evenodd"
             clip-rule="evenodd"
-            d="M15.5333 15.2425L29.6721 0.697009L28.955 0L14.836 14.5252L0.717062 0L0 0.697009L14.1387 15.2425L0 29.788L0.717062 30.485L14.836 15.9599L28.955 30.485L29.6721 29.788L15.5333 15.2425Z"
-            fill="#ffffff"
+            d="M17.6972 16L28.8487 4.84855L27.1516 3.15149L16.0001 14.303L4.84867 3.15149L3.15161 4.84855L14.3031 16L3.15161 27.1515L4.84867 28.8485L16.0001 17.6971L27.1516 28.8485L28.8487 27.1515L17.6972 16Z"
+            fill="#8c8c8c"
           />
         </svg>
       </button>
@@ -41,66 +39,62 @@
         id="c-dialog-title"
         class="c-dialog__title dont-break-out"
       >
-        Choose your path
+        Who are you building for today?
       </h2>
       <p
         id="c-dialog-paragraph"
         class="c-dialog__paragraph dont-break-out"
       >
-        Before you get started, take a look at how we split our developer resources and choose the path that best fits your needs.
+        Explore the developer resources that best fit your needs.
       </p>
-      <hr class="c-dialog__separator">
-      <h3 class="c-dialog__subtitle dont-break-out">
-        Who are you building for today?
-      </h3>
-      <article class="c-dialog__block">
-        <img
-          class="c-dialog__block-image"
-          src="/img/dialog/okta.svg"
-          width="109"
-          height="36"
-          alt="Logotype okta"
-        >
-        <p class="c-dialog__block-paragraph dont-break-out">
-          Workforce Identity Cloud
-        </p>
-        <h4 class="c-dialog__block-title dont-break-out">
-          Employees, contractors, & partners
-        </h4>
-        <p class="c-dialog__block-text c-dialog__paragraph dont-break-out">
-          <strong>Workforce Identity Cloud</strong> powers identity for all employees, business partners, and contractors and ensures they have access to what they need, when they need it with the appropriate levels of privilege.
-        </p>
-        <button
-          class="c-dialog__link c-dialog__link_type_primary dont-break-out"
-          type="button"
-        >
-          Go to Workforce Identity Cloud docs <span aria-hidden="true">→</span>
-        </button>
-      </article>
-      <article class="c-dialog__block c-dialog__block_type_secondary">
-        <img
-          class="c-dialog__block-image"
-          src="/img/dialog/auth.svg"
-          width="100"
-          height="40"
-          alt="Auth0"
-        >
-        <p class="c-dialog__block-paragraph dont-break-out">
-          Customer Identity Cloud
-        </p>
-        <h4 class="c-dialog__block-title dont-break-out">
-          Customers
-        </h4>
-        <p class="c-dialog__block-text c-dialog__paragraph dont-break-out">
-          <strong>Okta Customer Identity Cloud</strong>, powered by Auth0, enables app builders, digital marketers, and security teams to give end-users access to everything they need online, in a convenient, secure way.
-        </p>
-        <a
-          class="c-dialog__link dont-break-out"
-          href="https://auth0.com/docs"
-        >
-          Go to Customer Identity Cloud docs <span aria-hidden="true">→</span>
-        </a>
-      </article>
+      <div class="c-dialog__wrapper">
+        <article class="c-dialog__block">
+          <p class="c-dialog__block-paragraph dont-break-out">
+            Workforce Identity Cloud
+          </p>
+          <h4 class="c-dialog__block-title dont-break-out">
+            My employees, <br> contractors, and partners
+          </h4>
+          <p class="c-dialog__block-text c-dialog__paragraph dont-break-out">
+            Workforce Identity Cloud powers identity for all employees, business partners, and contractors and ensures they have access to what they need, when they need it with the appropriate levels of privilege.
+          </p>
+          <button
+            class="c-dialog__link c-dialog__link_type_primary dont-break-out"
+            type="button"
+          >
+            Go to Workforce Identity Cloud docs
+          </button>
+        </article>
+        <article class="c-dialog__block c-dialog__block_type_secondary">
+          <div class="c-dialog__block-wrapper">
+            <p class="c-dialog__block-paragraph dont-break-out">
+              Customer Identity Cloud
+            </p>
+            <p class="c-dialog__block-wrapper-text dont-break-out">
+              Powered by
+            </p>
+            <img
+              class="c-dialog__block-image"
+              src="/img/dialog/auth.svg"
+              width="70"
+              height="29"
+              alt="Auth0"
+            >
+          </div>
+          <h4 class="c-dialog__block-title dont-break-out">
+            My customers <br> or SaaS applications
+          </h4>
+          <p class="c-dialog__block-text c-dialog__paragraph dont-break-out">
+            Customer Identity Cloud enables app builders, digital marketers, and security teams to give end-users access to everything they need online, in a convenient, secure way.
+          </p>
+          <a
+            class="c-dialog__link dont-break-out"
+            href="https://developer.auth0.com"
+          >
+            Go to Customer Identity Cloud docs <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+      </div>
     </div>
   </div>
 </template>
@@ -125,16 +119,10 @@
           }
         }
       })
-
-      const body = document.querySelector("body");
-      body.classList.add("_state_fixed");
     },
     methods: {
       hideDialog() {
         const dialog = document.querySelector(".c-dialog");
-
-        const body = document.querySelector("body");
-        body.classList.remove("_state_fixed");
 
         dialog.classList.add("c-dialog_state_hidden");
       }
