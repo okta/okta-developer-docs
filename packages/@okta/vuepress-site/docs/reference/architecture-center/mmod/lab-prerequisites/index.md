@@ -30,7 +30,7 @@ Okta CLI is the quickest way to create an Okta org, so we recommend using it to 
    ```
 
 5. Set the password for your Okta developer org by opening the link and following the instructions.
-6. Once your password is entered, your Okta domain is returned, similar to the following. Make note of it.
+6. After your password is entered, your Okta domain is returned, similar to the following. Make note of it.
 
    ```txt
    New Okta Account created!
@@ -70,11 +70,11 @@ You'll need to create a copy of an example Terraform script in your GitHub repos
    1. **Clear** the **Copy the prod branch only** checkbox.
    1. Click **Create fork**.
 
-The repository you are forking has two branches: prod and preview. The preview branch should be populated and is the one you will work with in tutorials 2 and 3. The prod branch should be empty. In tutorial 4 onwards, you'll promote your code to prod and then use the prod branch for the remaining exercises.
+The repository you are forking has two branches: prod and preview. The preview branch should be populated and is the one you'll work with in tutorials 2 and 3. The prod branch should be empty. In tutorial 4 onwards, you'll promote your code to prod and then use the prod branch for the remaining exercises.
 
 ## Terraform Cloud account
 
-Terraform has two offerings for building your automation. The first is available for free via a Command Line Interface (CLI). Another option is through their paid SaaS offering, [Terraform Cloud](https://cloud.hashicorp.com/products/terraform), which is free to try. In this lab, you'll use an instance of Terraform Cloud. Tutorial 1 covers how to create and configure your account.
+Terraform has two offerings for building your automation. The first is available for free through a Command Line Interface (CLI). Another option is through their paid SaaS offering, [Terraform Cloud](https://cloud.hashicorp.com/products/terraform), which is free to try. In this lab, you'll use an instance of Terraform Cloud. Tutorial 1 covers how to create and configure your account.
 
 ## Values and Variables
 

@@ -6,7 +6,7 @@ title: Deploy changes to production
 
 In tutorials 2 and 3, you've made changes in a preview environment that is not available to most end-users. This makes it easy for developers, testers, and early adopters to test their changes without impacting production.
 
-Now you will use Terraform to deploy your changes to another Okta org. This example of moving objects between two Okta orgs will simulate moving objects between non-production and production environments. This example can be used to integrate into critical software development practices like change management and continuous integration and continuous deployment.
+Now you'll use Terraform to deploy your changes to another Okta org. This example of moving objects between two Okta orgs will simulate moving objects between non-production and production environments. This example can be used to integrate into critical software development practices like change management and continuous integration and continuous deployment.
 
 ## Create an Okta API token
 
@@ -17,7 +17,7 @@ Follow the same process to create an Okta API token as you did in Tutorial 1, bu
 1. Select **Tokens** to view the API token management tab.
 1. Click **Create token** to open a Create token dialog.
 1. Set a name for your token. For example, _Terraform Cloud access for production org_.
-1. Click **Create token** to save a copy of the token; you will not be able to view it again.
+1. Click **Create token** to save a copy of the token; you'll not be able to view it again.
 
 ## Merge changes to production
 

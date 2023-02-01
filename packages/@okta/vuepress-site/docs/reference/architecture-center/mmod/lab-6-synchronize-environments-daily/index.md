@@ -4,7 +4,7 @@ title: Schedule drift detection daily
 
 # Managing multiple Okta environments tutorial 6: Schedule drift detection daily
 
-In the previous tutorial, you learned how to detect changes in the production environment and synchronize those changes back to your development environment. Now you will add a workflow to trigger a daily plan run via Terraform. Specifically, you'll create a workflow to run a speculative plan to detect changes in the production environment daily at 0900 EST.
+In the previous tutorial, you learned how to detect changes in the production environment and synchronize those changes back to your development environment. Now you'll add a workflow to trigger a daily plan run through Terraform. Specifically, you'll create a workflow to run a speculative plan to detect changes in the production environment daily at 0900 EST.
 
 If any changes are detected, it will send a notification message to a Slack channel.
 
@@ -20,7 +20,7 @@ To create a Team API token in Terraform Cloud:
 
 1. Go to your top-level Terraform Workspaces page.
 1. Navigate to **Settings > Teams**.
-1. In the Team API Token section, click **Create a team token** to generate and display the token; you will not be able to see it again.
+1. In the Team API Token section, click **Create a team token** to generate and display the token; you'll not be able to see it again.
 
 To find your Terraform workspace ID:
 

@@ -1068,15 +1068,15 @@ export const reference = [
                            },
                            {
                               title: "1: From Azure AD to Okta",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-tutorial-1-azure-ad",
+                              path: "/docs/reference/architecture-center/directory-coexistence/lab-1-azure-ad",
                            },
                            {
                               title: "2: From LDAP to Okta",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-tutorial-2-ldap-server",
+                              path: "/docs/reference/architecture-center/directory-coexistence/lab-2-ldap-server",
                            },
                            {
                               title: "3: From Database to Okta",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-tutorial-3-generic-database",
+                              path: "/docs/reference/architecture-center/directory-coexistence/lab-3-generic-database",
                            },
                         ],
                      },

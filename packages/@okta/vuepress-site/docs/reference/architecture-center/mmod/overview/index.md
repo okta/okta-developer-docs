@@ -19,7 +19,7 @@ Use this architecture for:
 * Configuring multiple Okta orgs to the same standards
 * Detecting changes between Okta orgs and resynchronising them
 
-Upon completing the lab, you will have a firm understanding of how to automate Okta and keep environments in sync.
+Upon completing the lab, you'll have a firm understanding of how to automate Okta and keep environments in sync.
 
 ## What Okta technologies are used?
 

@@ -17,16 +17,16 @@ First, you'll need to connect your Terraform Cloud account to your Github repo a
 
 ## Create an Okta API token
 
-It is good practice to create separate API access tokens for each client that wants to access an org. You will create a token here for Terraform to access the development org.
+It is good practice to create separate API access tokens for each client that wants to access an org. You'll create a token here for Terraform to access the development org.
 
 1. Open the Admin Console for your org.
 1. Choose **Security > API** to view the API access management page.
 1. Select **Tokens** to view the API token management tab.
 1. Click **Create token** to open a Create token dialog.
 1. Set a name for your token. For example, _Terraform Cloud access for development org_.
-1. Click **Create token** to save a copy of the token; you will not be able to view it again.
+1. Click **Create token** to save a copy of the token; you'll not be able to view it again.
 
-> **Note:** You will repeat this process for the production environment in tutorial 4.
+> **Note:** You'll repeat this process for the production environment in tutorial 4.
 
 ## Create a Terraform account
 
