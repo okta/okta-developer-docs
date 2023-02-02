@@ -1,10 +1,10 @@
 ---
-title: Customize the Okta-hosted error pages
+title: Customize the error pages
 excerpt: Learn how to customize the Okta-hosted error pages to fit your brand.
 layout: Guides
 ---
 
-This guide explains how to customize error pages that can appear as part of a custom domain Okta-hosted sign-in flow.
+This guide explains how to customize error pages that can appear as part of a sign-in flow.
 
 ---
 
@@ -27,19 +27,26 @@ Customize error pages as part of the sign-in flow.
 
 ## About error page customization
 
-When using an Okta-hosted flow, you can create a unique sign-in experience by providing a [custom domain](/docs/guides/custom-url-domain/) and creating a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
+When using redirect authentication, you can create a unique sign-in experience. First, set up a [custom domain](/docs/guides/custom-url-domain/) and then create a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
 
-However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using the code editor.
+However, if an error happens during sign-in, Okta needs to display an error page to the user. You can also customize the error page by using the code editor.
 
-> **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears when a critical error occurs or an application is misconfigured. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on Okta-hosted (redirect) functionality.
+> **Note:** A custom error page only pops up when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page pops up when a critical error happens or you haven't properly configured an app. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on redirect functionality.
 
 ### Use the Brands API
 
-The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
+The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, and colors across the following:
+
+- sign-in page (redirect authentication)
+- error pages
+- email templates
+- Okta End-User Dashboard
+
+You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
 
 ## Content Security Policy (CSP) for your custom domain
 
-You must first set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the Okta-hosted sign-in page or error pages. CSP customizations only take effect on custom domains.
+Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the Okta-hosted sign-in page or error pages. CSP customizations only take effect on custom domains.
 
 To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
 
