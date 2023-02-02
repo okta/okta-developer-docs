@@ -53,6 +53,7 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 2. In the **Pages** panel, click **Edit** for **Error pages**.
 3. Click **Settings**.
 4. In the **Content Security Policy** panel, click **Edit**. Set the following:
+
    - **Trusted external resources**: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or https://mydomain.com/images. Click **Add**.
      > **Note:** Okta adds these resources to all fetch-directives in the CSP.
    - **Report UI**: Enter the URI to which you want to send violation report details. The URI entered here appears in the report-uri directive of the CSP.
