@@ -21,7 +21,7 @@ A 30-second clock skew is now allowed for access and ID tokens to validate that 
 
 #### Content Security Policy update
 
-To improve our security and protect against Cross-Site Scripting (XSS) attacks, we are expanding the use of [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) to include when requests come from custom domains on non-customizable pages. <!--OKTA-567669 -->
+Over the next few months we are gradually releasing enhancements to our [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) headers. During this time you may notice an increase in header sizes. <!--OKTA-567669 -->
 
 #### Interaction Code flow supports Native SSO
 
