@@ -14,7 +14,7 @@ title: Okta API Products release notes 2023
 
 #### Clock skew for access and ID tokens
 
-A 30 second clock skew is now allowed for access and ID tokens to validate that a token was created before the current time. <!--OKTA-538956 -->
+A 30-second clock skew is now allowed for access and ID tokens to validate that a token was created before the current time. <!--OKTA-538956 -->
 
 #### Content Security Policy update
 
@@ -22,7 +22,7 @@ To improve our security and protect against Cross-Site Scripting (XSS) attacks, 
 
 #### Bugs fixed in 2023.01.2
 
-* Requests made with an empty Origin header returned an HTTP 500 error response. (OKTA-449621)
+* Requests made with an empty Origin header returned an error response. (OKTA-449621)
 
 * An error occurred if a request was made to the `/authorize` endpoint of a custom authorization server and the `prompt` parameter value was set to `enroll_authenticator`.  (OKTA-552063)
 
@@ -30,7 +30,7 @@ To improve our security and protect against Cross-Site Scripting (XSS) attacks, 
 
 * Some custom admins didn't see groups and users that they had access to when they made a `GET` request to the Users (`/users/{id}/groups`) and Groups (`/groups/{id}/users`) APIs. (OKTA-568838)
 
-* When a client used the private_key_jwt client authentication method, the `max_age` and `login_hint` parameters in the authorize request were sometimes ignored. (OKTA-534942)
+* When a client used the `private_key_jwt` client authentication method, the `max_age` and `login_hint` parameters in the authorize request were sometimes ignored. (OKTA-534942)
 
 * An unclear error message was returned when a group rules API call (`create`, `update`, or `activate`) was made to assign users to read-only groups (for example, `Everyone`). (OKTA-567972)
 
@@ -92,3 +92,4 @@ Okta uses an internal machine-learning-based toll fraud and abuse-detection mode
 * During the authenticator enrollment flow using the `/authorize` endpoint, users couldn't enroll in the Custom APP authenticator. (OKTA-558352)
 
 * The Log Streaming API returned the Splunk Cloud `token` property in the response body. (OKTA-437264)
+

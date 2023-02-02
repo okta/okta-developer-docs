@@ -17,7 +17,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 #### Clock skew for access and ID tokens
 
-A 30 second clock skew is now allowed for access and ID tokens to validate that a token was created before the current time. <!--OKTA-538956 -->
+A 30-second clock skew is now allowed for access and ID tokens to validate that a token was created before the current time. <!--OKTA-538956 -->
 
 #### Content Security Policy update
 
@@ -25,11 +25,11 @@ To improve our security and protect against Cross-Site Scripting (XSS) attacks, 
 
 #### Interaction Code flow supports Native SSO
 
-The Interaction Code flow now supports the `device_sso` scope that you can use to perform Native SSO. This scope allows you to obtain an interaction code and exchange it for tokens and a device secret. See [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/interactioncode/main/). <!--OKTA-551724 -->
+The Interaction Code flow now supports the `device_sso` scope, which you can use to perform Native SSO. This scope allows you to obtain an interaction code and exchange it for tokens and a device secret. See [Implement authorization by grant type](https://developer.okta.com/docs/guides/implement-grant-type/interactioncode/main/). <!--OKTA-551724 -->
 
 #### Bugs fixed in 2023.01.2
 
-* Requests made with an empty Origin header returned an HTTP 500 error response. (OKTA-449621)
+* Requests made with an empty Origin header returned an error response. (OKTA-449621)
 
 * Requests to assign a custom role to a user or group returned a generic Bad Request error when the required role or resource-set property was missing. (OKTA-538237)
 
@@ -101,3 +101,4 @@ SMS and voice requests are now blocked if an internal machine-learning-based tol
 * The Log Streaming API returned the Splunk Cloud `token` property in the response body. (OKTA-437264)
 
 * When an org had the Custom OTP, RSA SecurID, and YubiKey authenticators enabled and the `enroll_amr_values` parameter value was `otp`, users were prompted to enroll in all three authenticators rather than just Custom OTP. (OKTA-545674)
+
