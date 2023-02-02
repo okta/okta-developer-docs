@@ -1164,7 +1164,7 @@ An [Authenticator Method object](#authenticator-method-object)
 
 | Property | Type | Description  | Applies to Authenticator Method type |
 | -------- | ---- | ------------ | ------------------------------------ |
-| `aaguidGroups` | Array of [AAGUID Group](#aaguid-group-object) | The FIDO2 AAGUID groups available to the WebAuthn authenticator. | `webauthn` |
+| `aaguidGroups` <ApiLifecycle access="ea" /> | Array of [AAGUID Group](#aaguid-group-object) | The FIDO2 AAGUID groups available to the WebAuthn authenticator. | `webauthn` |
 | `acceptableAdjacentIntervals` | Integer | Number of acceptable adjacent intervals, also known as the clock drift interval. This setting allows you to build in tolerance for any time difference between the token and the server. For example, with a `timeIntervalInSeconds` of 60 seconds and an `acceptableAdjacentIntervals` value of 5, the result of 60 X 5 is 300, which means that Okta accepts passcodes within 300 seconds before or after the end user enters their code. Possible values: 0&ndash;10 | `otp` |
 | `algorithms` | String (Enum) | Algorithms supported. Possible values: `RS256`, `ES256`, `HMACSHA1`, `HMACSHA256`, or `HMACSHA512` | `otp`, `totp`, `push`, `signed_nonce` |
 | `attachment` | String (Enum) | Method attachment. Possible values: `ANY`, `BUILT_IN`, or `ROAMING`  | `webauthn` |
@@ -1176,7 +1176,13 @@ An [Authenticator Method object](#authenticator-method-object)
 | `timeIntervalInSeconds` | Integer | Time interval for TOTP in seconds | `otp`, `totp` |
 | `userVerification` | String (Enum) | User verification setting. Possible values: `DISCOURAGED`, `PREFERRED`, or `REQUIRED` | `webauthn` |
 
+> **Note:** The `aaguidGroups` property supports the Allow List for FIDO2 (WebAuthn) Authenticators feature, which is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
 ### AAGUID Group object
+
+<ApiLifecycle access="ea" />
+
+> **Note:** The AAGUID Group object supports the Allow List for FIDO2 (WebAuthn) Authenticators feature, which is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
 #### AAGUID Group properties
 
