@@ -1,10 +1,10 @@
 ---
-title: Directory Coexistence
+title: Directory coexistence
 excerpt:
    Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping both source and target directories active during the process.
 ---
 
-# Directory Coexistence
+# Directory coexistence
 
 Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping both source and target directories active during the process.
 
@@ -12,9 +12,9 @@ Minimize downtime while migrating user, group, and device profiles to Okta Unive
 
 Using [Universal Directory](/docs/concepts/user-profiles/#what-is-the-okta-universal-directory) as your company's sole Identity Provider enables benefits such as Single Sign-On, and centralized user management and authorization policies. However, migrating your users to Universal Directory takes time.
 
-The Directory Coexistence reference architecture demonstrates one way to maximize the uptime for your Identity and Access Management (IAM) solution during the migration by keeping both user directories active.
+The directory coexistence reference architecture demonstrates one way to maximize the uptime for your Identity and Access Management (IAM) solution during the migration by keeping both user directories active.
 
-Use Directory Coexistence for:
+Use directory coexistence for:
 
 * Switching to Okta and migrating user, group, and device profiles over time.
 * Consolidating multiple Identity Providers for different applications and services into one provider.
@@ -78,7 +78,7 @@ By considering these questions, you can also start understanding how long it may
 
 ### Just-in-time Migration
 
-Until you are ready to use only Okta for authentication, your users can sign into Okta, and Okta will delegate authentication to your current Identity Provider. Your current identity directories and Universal Directory may coexist as long as required.
+Until you are ready to use only Okta for authentication, your users can sign in to Okta, and Okta will delegate authentication to your current Identity Provider. Your current identity directories and Universal Directory may coexist as long as required.
 
 There are three strategies for user migration:
 

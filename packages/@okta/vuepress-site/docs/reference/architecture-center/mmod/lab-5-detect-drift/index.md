@@ -24,12 +24,12 @@ In this tutorial, you'll update a resource in production using the Okta Admin Co
    1. In the **Profile** panel, click **Edit**, set **Name** to **Newly Renamed Test Group**
    1. Click **Save**.
 
-1. In the **Latest Run panel** of the workspace **Overview** page for your production workspace, observe that a plan is not run automatically.
+1. In the **Latest Run panel** of the workspace **Overview** page for your production workspace, observe that a plan isn't run automatically.
 1. In the workspace **Overview** page, click **Actions**, select **Start new run**, choose **Plan Only**, and click **Start run**.
 1. Click **See details**; observe the plan running and finishing, and Terraform stopping with the Apply pending.
 1. When the plan finishes, observe that the **Plan finished** panel shows that the `okta_group.test_group` has been changed.
 1. In the workspace **Overview** page, observe that **Resources to be changed** shows that no resources would be added, one resource would be changed, and no resources would be deleted if the changes are applied.
-1. Normally you would investigate the change and, if it is permitted, you would make sure it is reflected in GitHub if appropriate. In this case, if there are no errors, confirm and apply your changes:
+1. Normally you would investigate the change and, if it's permitted, you would make sure it's reflected in GitHub if appropriate. In this case, if there are no errors, confirm and apply your changes:
    1. In the workspace **Runs** page, select the **Current Run** if necessary.
    2. At the bottom of the run page, click **Confirm & Apply**.
    3. In the confirmation dialog, add a comment and click **Confirm Plan**.

@@ -2,13 +2,13 @@
 title: Migrate users from Azure Active Directory to Universal Directory
 ---
 
-# Directory Coexistence Tutorial 1: Migrate users from Azure Active Directory to Universal Directory
+# Directory coexistence tutorial 1: Migrate users from Azure Active Directory to Universal Directory
 
 If you already handle authentication through a cloud-based Identity Provider (IdP) such as Azure Active Directory (AD), you can mirror those users in Universal Directory. In this scenario, Universal Directory serves as a single source of truth for user data and lets administrators centrally manage policies and profiles. However, the user passwords are still managed in your original IdP. This directory coexistence can stay in place until you migrate all your user information to Universal Directory and no longer require the other IdP.
 
-In this tutorial, you will:
+In this tutorial:
 
-* [Configure Okta to mirror an Azure AD instance and enable JIT provisioning](#configure-azure-ad-as-an-identity-provider-in-okta).
+* [Configure Okta to mirror an Azure AD instance and enable JIT provisioning](#configure-azure-ad-as-an-idp-in-okta).
 * [Create an OIDC-based application that redirects to Okta for authentication](#create-an-oidc-based-application-that-redirects-to-okta-for-authentication).
 
 At the end of the tutorial, when a user attempts to sign in to the application, their authorization request is redirected to Okta and then delegated to Azure AD to match the user and authenticate them.
@@ -22,19 +22,19 @@ At the end of the tutorial, when a user attempts to sign in to the application, 
   -->
 </div>
 
-> **Note:** This tutorial assumes you have an instance of Azure AD you can use for testing.
+> **Note:** This tutorial assumes that you have an instance of Azure AD you can use for testing.
 
-## Configure Azure AD as an Identity Provider in Okta
+## Configure Azure AD as an IdP in Okta
 
-To migrate user profiles from Active Directory to Okta, you'll first delegate authentication to Active Directory by configuring it as an IdP in Okta. This process involves creating the Okta enterprise application in Active Directory and adding it as an Identity Provider (IdP) in Okta. For full instructions, [Make Azure Active Directory an Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=ext-azure-idp-setup).
+To migrate user profiles from Active Directory to Okta, first delegate authentication to Active Directory by configuring it as an IdP in Okta. This process involves creating the Okta enterprise application in Active Directory and adding it as an Identity Provider in Okta. For full instructions, [Make Azure Active Directory an Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=ext-azure-idp-setup).
 
-> **Note:** You set up Just-In-Time (JIT) provisioning at this point if you want to use a [JIT migration strategy](/docs/reference/architecture-center/directory-coexistence/overview/#just-in-time-migration). Remember that this allows Active Directory and Universal Directory profiles to co-exist. It also provides a seamless experience because users don't  have to create a new username or password in Universal Directory.
+> **Note:** Set up Just-In-Time (JIT) provisioning at this point if you want to use a [JIT migration strategy](/docs/reference/architecture-center/directory-coexistence/overview/#just-in-time-migration). Remember that this allows Active Directory and Universal Directory profiles to co-exist. It also provides a seamless experience because users don't have to create a new username or password in Universal Directory.
 
-After users are in Okta, you can provide access to applications you have registered with Okta. You can also set [policies](https://developer.okta.com/docs/concepts/policies/#what-are-policies) for the users in Okta, such as requiring a user to sign in again after a given time. You can also implement [multifactor authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators) for your Okta users.
+After users are in Okta, you can provide access to applications that you have registered with Okta. You can also set [policies](https://developer.okta.com/docs/concepts/policies/#what-are-policies) for the users in Okta, such as requiring a user to sign in again after a given time. Additionally, you can implement [multifactor authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators) for your Okta users.
 
 ## Create an OIDC-based application that redirects to Okta for authentication
 
-This tutorial uses a [Docker](https://www.docker.com) container that can be run on any platform, containing a [Spring Boot](https://spring.io/projects/spring-boot) web application that uses [OpenID Connect (OIDC)](/docs/concepts/oauth-openid/#openid-connect) for authentication directly with Okta. The sample application shows the types of changes you would make in your application to authenticate directly with Okta.
+This tutorial uses a [Docker](https://www.docker.com) container that you can run on any platform. It contains a [Spring Boot](https://spring.io/projects/spring-boot) web application that uses [OpenID Connect (OIDC)](/docs/concepts/oauth-openid/#openid-connect) for authentication directly with Okta. The sample application shows the types of changes you can make in your application to authenticate directly with Okta.
 
 To run the sample application and connect directly to the Okta sign-in dialog:
 
@@ -57,7 +57,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
    okta login
    ```
 
-   If you are already logged into Okta, a prompt similar to the following is returned. The current sign-in configuration is based on the Okta Org URL and API token you provided at your previous okta login command. If you want to use the existing configuration, answer N and skip steps a and b. Otherwise, answer Y and continue to steps a and b.
+   If you are already signed into Okta, a prompt similar to the following is returned. The current sign-in configuration is based on the Okta org URL and API token that you provided at the previous `okta login` command. If you want to use the existing configuration, answer **N** and skip steps a and b. Otherwise, answer **Y** and continue to steps a and b.
 
    ```txt
    An existing Okta Organization (https://dev-133337.okta.com)
@@ -65,7 +65,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
    Overwrite configuration file? [Y/n]
    ```
 
-   a. Enter your `${OKTA_DOMAIN}`. If you don't  know your `${OKTA_DOMAIN}`, see [Values and Variables](/docs/reference/architecture-center/directory-coexistence/lab-prerequisites/#values-and-variables).
+   a. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/docs/reference/architecture-center/directory-coexistence/lab-prerequisites/#values-and-variables).
 
    b. Follow the instructions in [Create an API token](/docs/guides/create-an-api-token) to create a token. After you have the token, enter it at the Okta API token prompt.
 
@@ -111,7 +111,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
    docker compose up
    ```
 
-   When you run `docker compose up`, Docker looks at the `okta-reference-coexistence-oidc-example/docker-compose.yml` configuration file. This file defines the services in the containers. In the example below, a web service is defined using port 8080, and the `${ISSUER}`, `${CLIENT_ID}` and `${CLIENT_SECRET}` variables set in the previous step.
+   When you run `docker compose up`, Docker looks at the `okta-reference-coexistence-oidc-example/docker-compose.yml` configuration file. This file defines the services in the containers. In the example below, a web service is defined using port 8080, and the `${ISSUER}`, `${CLIENT_ID}`, and `${CLIENT_SECRET}` variables set in the previous step.
 
    ```yaml
    version: "3.7"
@@ -126,16 +126,16 @@ To run the sample application and connect directly to the Okta sign-in dialog:
          SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OKTA_CLIENT_SECRET: ${CLIENT_SECRET}
    ```
 
-   After the application has started, you'll see something similar to the following in your terminal:
+   After the application starts, something similar to the following appears in your terminal:
 
    ```txt
    okta-server-side-example-webapp-1  | 2022-07-19 02:44:41.909  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
    okta-server-side-example-webapp-1  | 2022-07-19 02:44:41.926  INFO 1 --- [           main] com.okta.example.ra.Application          : Started Application in 3.807 seconds (JVM running for 4.674)
    ```
 
-1. Open a private/incognito browser window and navigate to `http://localhost:8080`. You'll be redirected to Okta to sign in to your application.
+1. Open a private/incognito browser window and navigate to `http://localhost:8080`. You are redirected to Okta to sign in to your application.
 
-   > **Note**: The username of your Okta account is the email address you provided when you created the account.
+   > **Note**: The username of your Okta account is the email address that you provided when you created the account.
 
    <div class="half border">
 
@@ -143,7 +143,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
 
    </div>
 
-1. Sign in with your Okta org account credentials. You should see the following displayed in the browser:
+1. Sign in with your Okta org account credentials. You should see the following:
 
    <div class="half border">
 
@@ -153,7 +153,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
 
 ## Tear down the example
 
-After you have completed the example, you can stop the application and remove the running Docker containers.
+After you complete the example, stop the application and remove the running Docker containers.
 
 1. In the `okta-server-side-example` directory, stop the current running containers with <kbd>Ctrl</kbd> + <kbd>C</kbd>.
 

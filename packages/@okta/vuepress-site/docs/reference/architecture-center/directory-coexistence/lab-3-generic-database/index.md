@@ -2,7 +2,7 @@
 title: Migrate users from an on-premises generic database to Universal Directory
 ---
 
-# Directory Coexistence Tutorial 3: Migrate users from an on-premises generic database to Universal Directory
+# Directory coexistence tutorial 3: Migrate users from an on-premises generic database to Universal Directory
 
 Suppose you store your user profiles and groups in a generic on-premises database but want to replace it with Universal Directory. In this case, you have two options:
 
@@ -11,12 +11,12 @@ Suppose you store your user profiles and groups in a generic on-premises databas
 
 In both cases, Okta can import hashed passwords for users if the hash is one that  [Okta supports](/docs/reference/api/users/#hashed-password-object). If Okta does not support the hash, it does not import the user's password. However, you can use the [Okta Password Inline Import Hook](/docs/reference/password-hook/) to import user records that use an unsupported hash type, without requiring that the user resets their password.
 
-> **Note:** Just-in-time migration is not supported in this scenario.
+> **Note:** Just-in-time migration isn't supported in this scenario.
 
 In this tutorial, you'll walk through the second of these migration options. Specifically, you'll:
 
 1. [Set up the start scenario](#set-up-the-start-scenario).
-   Start a simple OIDC-based web application in a docker container that authenticates its user against a generic database server you have started in a second docker container. At this point, Okta is not involved in the authentication flow.
+   Start a simple OIDC-based web application in a Docker container that authenticates its user against a generic database server you have started in a second Docker container. At this point, Okta isn't involved in the authentication flow.
 1. [Import users into Universal Directory with the Users API](#import-users-into-universal-directory-with-the-users-api).
    Run a script that queries the database for user information and then imports the users into Universal Directory with the Users API.
 1. [Update the application to use Universal Directory](#update-the-application-to-use-universal-directory).
@@ -24,11 +24,11 @@ In this tutorial, you'll walk through the second of these migration options. Spe
 1. [Account for hash types Okta does not support](#account-for-hash-types-okta-does-not-support).
    If a user record utilizes a hash type that Okta does not support, the script in step 2 imports everything in the record into Universal Directory except the user's password. In this step, you use the Okta Password Inline Import Hook to import user records that use an unsupported hash type, without requiring the user to reset their password.
 
-At the end of step 3, when a user attempts to sign in to the application, Okta handles their authorization request. The generic database is not used.
+At the end of step 3, when a user attempts to sign in to the application, Okta handles their authorization request. The generic database isn't used.
 
 ## Set up the start scenario
 
-Create the initial environment for the tutorial where an application authenticates directly with a generic user database running on-premise in a Docker container.
+Create the initial environment for the tutorial where an application authenticates directly with a generic user database running on-premises in a Docker container.
 
 1. Change to your project directory and clone the `db-users` branch of the `okta-reference-coexistence-db-example` repository:
 
@@ -88,14 +88,14 @@ Stop the currently running containers and sign in to your Okta account.
    okta login
    ```
 
-   If you are already logged into Okta, a prompt similar to the following is returned. The current sign-in configuration is based on the Okta Org URL and API token you provided at your previous okta login command. If you want to use the existing configuration, answer N and skip steps a and b. Otherwise, answer Y and continue to steps a and b.
+   If you are already signed into Okta, a prompt similar to the following is returned. The current sign-in configuration is based on the Okta org URL and API token you provided at your previous okta login command. If you want to use the existing configuration, answer N and skip steps a and b. Otherwise, answer Y and continue to steps a and b.
 
    ```txt
    An existing Okta Organization (https://dev-133337.okta.com) was found in C:\mydirectory\.okta\okta.yaml
    Overwrite configuration file? [Y/n]
    ```
 
-   a. Enter your `${OKTA_DOMAIN}`. If you don't  know your `${OKTA_DOMAIN}`, see [Values and Variables](/docs/reference/architecture-center/directory-coexistence/lab-prerequisites/#values-and-variables).
+   a. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/docs/reference/architecture-center/directory-coexistence/lab-prerequisites/#values-and-variables).
 
    b. Follow the instructions in [Create an API token](/docs/guides/create-an-api-token) to create a token. After you have the token, enter it at the Okta API token prompt.
 
@@ -127,7 +127,7 @@ This script uses a database query to get the user profiles from the database ser
 
 The script imports the two users whose passwords are hashed with a hash that Okta supports: `Admin Istrator` and `User One`. The first time the users sign in, their passwords are rehashed and the hashed passwords are git-bstored in Okta Universal Directory using the `POST https://${OKTA_DOMAIN}/api/v1/user` Okta API request. See [Create User with imported hashed password](/docs/reference/api/users/#create-user-with-imported-hashed-password).
 
-There is one more user in the generic database whose password is hashed with a hash that Okta does not support: **User2 Two**. This user is also imported into Universal Directory, but their password is not saved. In order to save a rehashed password the first time they sign in, an additional step is required. This is covered in [Account for hash types Okta does not support](#account-for-hash-types-okta-does-not-support).
+There is one more user in the generic database whose password is hashed with a hash that Okta does not support: **User2 Two**. This user is also imported into Universal Directory, but their password isn't saved. In order to save a rehashed password the first time they sign in, an additional step is required. This is covered in [Account for hash types Okta does not support](#account-for-hash-types-okta-does-not-support).
 
 > **Note**: If you are using Windows, use `git-bash` to open a git-bash command window and then run `./migrate-users.sh` in the this window. Type `exit` to close it. The remainder of the example is performed in the original command window, not the git-bash command window.
 
@@ -135,10 +135,10 @@ There is one more user in the generic database whose password is hashed with a h
 
 Check the three imported users appear in your Okta Universal Directory.
 
-1. In a browser window, sign in to `https://${DOMAIN_NAME}-admin.okta.com`. If you don't  know your `${OKTA_DOMAIN}`, see [Values and Variables](/docs/reference/architecture-center/directory-coexistence/lab-prerequisites/#values-and-variables).
+1. In a browser window, sign in to `https://${DOMAIN_NAME}-admin.okta.com`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/docs/reference/architecture-center/directory-coexistence/lab-prerequisites/#values-and-variables).
 1. Choose **Directory > People**. You'll see three users in addition to the users created in [Migrate users from an on-premises LDAP directory to Universal Directory](/docs/reference/architecture-center/directory-coexistence/lab-2-ldap-server): **Admin Istrator**, **User One**, and **User2 Two**.
 
-   > **Note:** If you don't  see the three users, refresh the screen.
+   > **Note:** If you don't see the three users, refresh the page.
 
    In the script, the user is imported and activated. [Activating a user account](https://help.okta.com/okta_help.htm?type=oie&id=ext_activate_user) sends an email to the user, informing them that their account is active and instructing them how to set up their account in your Okta org.
 
@@ -174,7 +174,7 @@ Now the users have been mirrored in Universal Directory, you can reconfigure the
    CLIENT_SECRET=fF4BMQ0OhGp3D63s71BBTZoztIWqICdrCXBdkCtn
    ```
 
-   The sample web application in the Docker container uses the client ID and client secret to communicate with the Okta OIDC application to use Okta as the Identity Provider. See [Values and Variables](/docs/reference/architecture-center/directory-coexistence/lab-prerequisites/#values-and-variables).
+   The sample web application in the Docker container uses the client ID and client secret to communicate with the Okta OIDC application to use Okta as the Identity Provider. See [Values and variables](/docs/reference/architecture-center/directory-coexistence/lab-prerequisites/#values-and-variables).
 
 1. Rebuild the application:
 
@@ -210,7 +210,7 @@ You can use the [Okta Password Inline Import Hook](/docs/reference/password-hook
 
 <div class="full">
 
-  ![A flow diagram showing the Okta Password Inline Import Hook redirects authentication to a generic database from Okta if the password is not saved in Universal Directory.](/img/architecture/directory-coexistence/db-to-okta-password-inline-import-hook-flow-diagram.png)
+  ![A flow diagram showing the Okta Password Inline Import Hook redirects authentication to a generic database from Okta if the password isn't saved in Universal Directory.](/img/architecture/directory-coexistence/db-to-okta-password-inline-import-hook-flow-diagram.png)
 
   <!--
     Source image: fill-this-in db-to-okta-password-inline-import-hook-flow-diagram
@@ -227,7 +227,7 @@ To demonstrate the successful import of passwords through the Password Inline Im
 
 ## Expose the password validation application to Okta
 
-A password validation application is already running on port 8000 from a Docker container, but it is not exposed to the Internet. It needs to be exposed externally so Okta can access it. You'll use `ngrok` to get a public URL for the locally running service.
+A password validation application is already running on port 8000 from a Docker container, but it isn't exposed to the Internet. It needs to be exposed externally so Okta can access it. You'll use `ngrok` to get a public URL for the locally running service.
 
 1. Open a new command/terminal window and run:
 

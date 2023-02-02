@@ -2,7 +2,7 @@
 title: Configure your Terraform Cloud account
 ---
 
-# Managing multiple Okta environments tutorial 1: Configure Your Terraform Cloud account
+# Managing multiple Okta environments tutorial 1: Configure your Terraform Cloud account
 
 First, you'll need to connect your Terraform Cloud account to your Github repo and your development Okta org. Then you can configure it to react to changes in your Github repo (which imply you require a change to your Okta org). To achieve this, you'll:
 
@@ -64,7 +64,7 @@ Now you have an account, you need to connect Terraform to your Github repo.
    6. Verify **Automatic Run Triggering** is set to **Always trigger runs** to have your repository trigger a Terraform planning run whenever you check in a change.
    7. Set **VCS branch** to **preview** to use your `preview` branch instead of the default (`prod`) branch.
    8. Verify **Automatic speculative plans** is set in **Pull Requests** to trigger speculative plans (**Plan only**).
-   9. Verify **Submodules on clone** is unchecked in **Other Settings**.
+   9. Verify **Submodules on clone** is cleared in **Other Settings**.
    10. Click **Create workspace** to create the new workspace.
 
 This opens a Workspace created page for you to configure Terraform variables.
@@ -79,7 +79,7 @@ Finally, before you can test Terraform is working, you connect it to your Okta d
    3. Set **base_url** to your org's base URL. For example, _okta.com_.
 
 2. Click **Save variables**.
-3. Mark your `api_token` variable as sensitive so it is not exposed to anyone with access to your Terraform console.
+3. Mark your `api_token` variable as sensitive so it isn't exposed to anyone with access to your Terraform console.
    1. Navigate to your **Workspaces** page and select your workspace.
    2. Navigate to the **Variables** page.
    3. In the **Workspace variables** section, click the ellipses (`...`) for `api_token` and select **Edit** from the dropdown menu.

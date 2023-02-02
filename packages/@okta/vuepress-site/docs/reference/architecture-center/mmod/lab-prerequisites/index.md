@@ -1,8 +1,8 @@
 ---
-title: Managing Multiple Okta Environments Lab Prerequisites
+title: Managing multiple Okta environments Lab prerequisites
 ---
 
-# Managing Multiple Okta Environments: Lab Prerequisites
+# Managing multiple Okta environments: Lab prerequisites
 
 ## Applications
 
@@ -14,7 +14,7 @@ This lab uses [Okta CLI](https://cli.okta.com/) to create Okta developer account
 
 This lab requires two Okta developer accounts, one to represent a development environment, and one to act as the live environment. Both need to be running **Okta Identity Engine**.
 
-> **Tip:** If you are using existing accounts and want to check it is running Identity Engine rather than Okta Classic, check the footer on any page of the Admin Console for that org. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
+> **Tip:** If you are using existing accounts and want to check it's running Identity Engine rather than Okta Classic, check the footer on any page of the Admin Console for that org. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
 Okta CLI is the quickest way to create an Okta org, so we recommend using it to create both new orgs. Alternatively, you can manually sign up instead.
 
@@ -44,7 +44,7 @@ Repeat steps 1 - 6 to create a second Okta domain. This will be your production 
 
 ## Okta Workflows
 
-Tutorial 6 requires your production org to have [Okta Workflows](https://www.okta.com/platform/workflows/) enabled. To determine if it is enabled already:
+Tutorial 6 requires your production org to have [Okta Workflows](https://www.okta.com/platform/workflows/) enabled. To determine if it's enabled already:
 
 1. Open the Admin Console for your production org.
 2. Choose **Workflow** from the menu.
@@ -76,7 +76,7 @@ The repository you are forking has two branches: prod and preview. The preview b
 
 Terraform has two offerings for building your automation. The first is available for free through a Command Line Interface (CLI). Another option is through their paid SaaS offering, [Terraform Cloud](https://cloud.hashicorp.com/products/terraform), which is free to try. In this lab, you'll use an instance of Terraform Cloud. Tutorial 1 covers how to create and configure your account.
 
-## Values and Variables
+## Values and variables
 
 Connect Terraform to Okta using the following values:
 

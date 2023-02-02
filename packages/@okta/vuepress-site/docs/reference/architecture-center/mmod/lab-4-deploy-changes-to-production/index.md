@@ -4,7 +4,7 @@ title: Deploy changes to production
 
 # Managing multiple Okta environments tutorial 4: Deploy changes to production
 
-In tutorials 2 and 3, you've made changes in a preview environment that is not available to most end-users. This makes it easy for developers, testers, and early adopters to test their changes without impacting production.
+In tutorials 2 and 3, you've made changes in a preview environment that isn't available to most end-users. This makes it easy for developers, testers, and early adopters to test their changes without impacting production.
 
 Now you'll use Terraform to deploy your changes to another Okta org. This example of moving objects between two Okta orgs will simulate moving objects between non-production and production environments. This example can be used to integrate into critical software development practices like change management and continuous integration and continuous deployment.
 
@@ -59,7 +59,7 @@ In this exercise, you'll create a new workspace in Terraform Cloud to represent 
    6. Verify **Automatic Run Triggering** is set to **Always trigger runs**.
    7. Set **VCS branch** to **prod**.
    8. Verify **Automatic speculative plans** is set in **Pull Requests**.
-   9. Verify **Submodules on clone** is unchecked in **Other Settings**.
+   9. Verify **Submodules on clone** is cleared in **Other Settings**.
    10. Click **Create workspace** to create the new workspace.
 
 1. In the **Workspace created** page:
