@@ -31,7 +31,7 @@ When using redirect authentication, you can create a unique sign-in experience. 
 
 However, if an error happens during sign-in, Okta needs to display an error page to the user. You can also customize the error page by using the code editor.
 
-> **Note:** A custom error page only pops up when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page pops up when a critical error happens or you haven't properly configured an app. See [Okta deployment models &mdash; redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on redirect functionality.
+> **Note:** A custom error page only pops up when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page pops up when a critical error happens or you haven't properly configured an app. See [Okta deployment models&mdash;redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on redirect functionality.
 
 ### Use the Brands API
 
@@ -46,11 +46,11 @@ You don't need to set a customized Okta URL domain. See [Customize your Okta exp
 
 ## Content Security Policy (CSP) for your custom domain
 
-Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the Okta-hosted sign-in page or error pages. CSP customizations only take effect on custom domains.
+Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the sign-in page or error pages. CSP customizations only take effect on custom domains.
 
 To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
 
-> **Note:** If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. You may need to update the default server limits or reduce the number of trusted origins in Okta.
+> **Note:** If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted origins.
 
 > **Note:** You can have a maximum of 20 URIs.
 
@@ -58,7 +58,7 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 
 ### Add a nonce reference
 
-You must add a [`nonce`](https://content-security-policy.com/nonce/) reference to your HTML if you want to customize the Okta-hosted sign-in page or error pages. Without the `nonce` reference, when you turn on your CSP customizations, your `script` and `style` tags don't run.
+Add a [`nonce`](https://content-security-policy.com/nonce/) reference to your HTML if you want to customize the Okta-hosted sign-in page or error pages. Without the `nonce` reference, your `script` and `style` tags don't run.
 
 To add the `nonce` reference, include it as a variable in the code editor. See [Edit the error page](#edit-the-error-page).
 
@@ -75,7 +75,7 @@ Example:
 3. Click **Settings**.
 4. In the **Content Security Policy** panel, click **Edit**. Set the following:
 
-   - **Trusted external resources**: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or https://mydomain.com/images. Click **Add**.
+   - **Trusted external resources**: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or mydomain.com/images. Click **Add**.
      > **Note:** Okta adds these resources to all fetch-directives in the CSP.
    - **Report UI**: Enter the URI to which you want to send violation report details. The URI entered here appears in the report-uri directive of the CSP.
    - **Enforcement**:
@@ -119,7 +119,7 @@ Triple curly braces (`{{{`) are only used for the `errorDescription` variable to
 | <span v-pre>`{{{errorDescription}}}`</span> | A detailed description of the error |
 | <span v-pre>`{{back}}`</span> | The text "Go to Homepage". When the user clicks the button, they are returned to the sign-in page. |
 | <span v-pre>`{{technicalDetails}}`</span> | Any additional messaging, if the error code has any. Here are sample technical details for an error code:</br>"If you are using custom expressions like `\{0}`, make sure that the field `customField` is present in the user profile. Please review your attribute list and make the appropriate change."</br>See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code). |
-| <span v-pre>`{{buttonText}}`</span> | Inserts the button text based on the page context. When the user selects the button, they are directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> variable is also supported for the same purpose. |
+| <span v-pre>`{{buttonText}}`</span> | Inserts the button text based on the page context. When the user selects the button, they're directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> variable is also supported for the same purpose. |
 | <span v-pre>`{{buttonHref}}`</span> | The hyperlink for the button |
 | <span v-pre>`{{themedStylesUrl}}`</span> | The URL for the themed style sheet |
 | <span v-pre>`{{faviconUrl}}`</span> | The URL for the favicon |

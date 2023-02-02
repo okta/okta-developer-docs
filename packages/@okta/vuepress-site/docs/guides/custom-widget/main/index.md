@@ -31,25 +31,25 @@ This guide explains how to customize the sign-in page for both redirect and embe
 
 ## About the sign-in page
 
-The sign-in page is a JavaScript library that gives you a fully-featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the sign-in page depends on whether Okta is hosting it (redirect authentication) or you are embedding it in your app (embedded authentication).
+The sign-in page is a JavaScript library that gives you a fully featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the sign-in page depends on whether Okta is hosting it (redirect authentication) or you're embedding it in your app (embedded authentication).
 
 * Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the page using easy controls or a code editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
 
-* Embedded authentication: After you have [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project and configured the authentication scenarios that you want to support, you can then customize the sign-in page. You can apply customizations to match your branding using CSS and JavaScript. See [Style for embedded authentication](#style-for-embedded-authentication).
+* Embedded authentication: After you've [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project, configure the authentication scenarios that you want to support. Then you can customize the sign-in page. Apply customizations to match your branding using CSS and JavaScript. See [Style for embedded authentication](#style-for-embedded-authentication).
 
 ## Style for redirect authentication
 
-You can add any HTML, CSS, or JavaScript to the sign-in page and also customize it [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using redirect authentication, how to use the variables and request context, and also how to bypass the custom sign-in page.
+You can add any HTML, CSS, or JavaScript to the sign-in page and also customize it [per application](#per-application-customization) and with multiple brands. You can use variables and request context, and bypass the custom sign-in page.
 
 > **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/).
 
 ### Content Security Policy (CSP) for your custom domain
 
-Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the Okta-hosted sign-in page or error pages. CSP customizations only take effect on custom domains.
+Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the sign-in page or error pages. CSP customizations only take effect on custom domains.
 
 To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
 
-> **Note:** If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. You may need to update the default server limits or reduce the number of trusted origins in Okta.
+> **Note:** If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted origins in Okta.
 
 > **Note:** You can have a maximum of 20 URIs.
 
@@ -57,7 +57,7 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 
 #### Add a nonce reference
 
-You must add a [`nonce`](https://content-security-policy.com/nonce/) reference to your HTML if you want to customize the Okta-hosted sign-in page or error pages. Without the `nonce` reference, when you turn on your CSP customizations, your `script` and `style` tags don't run.
+Add a [`nonce`](https://content-security-policy.com/nonce/) reference to your HTML if you want to customize the Okta-hosted sign-in page or error pages. Without the `nonce` reference, when you turn on your CSP customizations, your `script` and `style` tags don't run.
 
 To add the `nonce` reference, include it as a variable in the code editor. See [Use the code editor](#use-the-code-editor).
 
@@ -74,7 +74,7 @@ Example:
 3. Click **Settings**.
 4. In the **Content Security Policy** panel, click **Edit**. Set the following:
 
-   - **Trusted external resources**: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or https://mydomain.com/images. Click **Add**.
+   - **Trusted external resources**: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or mydomain.com/images. Click **Add**.
      > **Note:** Okta adds these resources to all fetch-directives in the CSP.
    - **Report UI**: Enter the URI to which you want to send violation report details. The URI entered here appears in the report-uri directive of the CSP.
    - **Enforcement**:
@@ -85,7 +85,7 @@ Example:
 
 ### Edit the sign-in page
 
-The **Custom Sign-In Page** offers basic and advanced customization options to create a completely transformed sign-in experience.
+The **Custom Sign-In Page** offers basic and advanced customization options to transform the sign-in experience.
 
 > **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/).
 
@@ -171,7 +171,7 @@ Defines a global `OktaUtil` JavaScript object that contains methods used to comp
 
 By calling the `OktaUtil.getRequestContext()` method, JavaScript code on your sign-in page can inspect the current request and make decisions based on the target application or other details.
 
-If you're using Okta Identity Engine, the following object is returned by invoking `OktaUtil.getRequestContext()`:
+If you're using the Identity Engine, the following object is returned by invoking `OktaUtil.getRequestContext()`:
 
 ```json
 {
@@ -208,7 +208,7 @@ If you're using Okta Identity Engine, the following object is returned by invoki
 }
 ```
 
-Okta Classic Engine users get the following object returned from `OktaUtil.getRequestContext()`:
+Classic Engine users get the following object returned from `OktaUtil.getRequestContext()`:
 
 ```json
 {
@@ -247,9 +247,9 @@ OktaUtil.getRequestContext().app.value.id
 OktaUtil.getRequestContext().target.clientId
 ```
 
-There is also additional information available about the client app, such as `label`.
+There's also additional information available about the client app, such as `label`.
 
-> **Note:** The `getRequestContext()` method only returns a value when the Okta-hosted sign-in page is loaded in the context of an application (such as SP-initiated flows in SAML or the `/authorize` route for OpenID Connect). Otherwise, it returns `undefined`.
+> **Note:** The `getRequestContext()` method only returns a value when the Okta-hosted sign-in page is loaded in the context of an application. For example, SP-initiated flows in SAML or the `/authorize` route for OpenID Connect. Otherwise, it returns `undefined`.
 
 See [Per-application customization](#per-application-customization) for an example of what you can do with request context.
 
@@ -277,7 +277,7 @@ Example:
 
 ## Style for embedded authentication
 
-This section discusses the customization options that you have when you are self-hosting the sign-in page.
+This section discusses the customization options that you have when you're self-hosting the sign-in page.
 
 ### Initial sign-in page
 
@@ -285,7 +285,7 @@ You can modify the look of the initial sign-in page using parameters in the `con
 
 <div class="three-quarter">
 
-![Screenshot of basic Okta Sign-In Widget](/img/siw/widget_theming.png)
+![Image of basic Okta Sign-In Widget](/img/siw/widget_theming.png)
 
 <!--
 Image source: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3238%3A30940  widget-theming
@@ -434,7 +434,7 @@ Position:
 }
 ```
 
-#### Identity provider buttons
+#### Identity Provider buttons
 
 ```css
 #okta-sign-in.auth-container .custom-style {
@@ -454,9 +454,9 @@ For a more in-depth look at styling the sign-in page, you can watch this video:
 
 ### Modify strings
 
-To modify strings on the sign-in page, you can override any of the properties set in [login.properties](https://github.com/okta/okta-signin-widget/blob/master/packages/@okta/i18n/src/properties/login.properties). You override these properties by specifying new values for them inside an `i18n` object in the `config` section of the sign-in page.
+To modify strings on the sign-in page, you can override any of the properties set in [login.properties](https://github.com/okta/okta-signin-widget/blob/master/packages/@okta/i18n/src/properties/login.properties). Override these properties by adding new values for them. Configure the `i18n` object in the `config` section of the sign-in page.
 
-You can modify any of the labels found on the sign-in page by providing new values for them.
+You can add new values for any of the labels found on the sign-in page.
 
 ```javascript
 var config = {
@@ -602,9 +602,11 @@ To access the application's client ID (which uniquely identifies the application
 </script>
 ```
 
-Elsewhere in your file, using the method above, you can inspect the client ID and take action. For example, if you had a CSS file on your server that was for a particular client's CSS:
+Using this method, you can inspect the client ID and update it. For example, if you have a CSS file on your server that is for a particular client's CSS:
 
-> **Note:** To locate the client ID for an app, in the Admin Console, go to **Applications** > **Applications**. Select the app integration that you need the client ID for. On the **General** tab, copy the ID from the **Client ID** box in the **Client Credentials** section.
+1. In the Admin Console, go to **Applications** > **Applications**.
+2. Select the app integration that you need the client ID for. 
+3. On the **General** tab, copy the ID from the **Client ID** box in the **Client Credentials** section.
 
 ```html
 <script>
@@ -627,9 +629,9 @@ Elsewhere in your file, using the method above, you can inspect the client ID an
 
 The Okta-hosted sign-in page uses the [Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-hosted-sign-in-page-default) component to interact with the user.
 
-If you aren't familiar with the Sign-In Widget, Okta recommends that you select the highest **Major Version** and the latest **Minor Version** (default). For details about the Sign-In Widget capabilities that are supported by major and minor versions, see the [GitHub releases page](https://github.com/okta/okta-signin-widget/releases).
+If you aren't familiar with the Sign-In Widget, Okta recommends that you select the highest **Major Version** and the latest **Minor Version** (default). For details major and minor versions and the Sign-In Widget capabilities they support, see the [GitHub releases page](https://github.com/okta/okta-signin-widget/releases).
 
-1. To make changes to the major and minor versions, select **Edit** in the **Okta Sign-In Widget Version** section header.
+1. To update the major and minor versions, select **Edit** in the **Okta Sign-In Widget Version** section header.
 2. Make your changes, and then click **Save** at the bottom of the page.
 
 ## See also
