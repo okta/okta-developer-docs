@@ -1,0 +1,21 @@
+.support__list-link {
+  span {
+    border-bottom: 1px solid #ffffff;
+  }
+
+  @include media(">desktop") {
+    &:hover {
+      span {
+        border-color: #b1e4de;
+      }
+    }
+  }
+}
+
+.support__sidebar {
+  background-color: #2b2b2b;
+}
+
+.support__paragraph {
+  color: #dbdbdb;
+}

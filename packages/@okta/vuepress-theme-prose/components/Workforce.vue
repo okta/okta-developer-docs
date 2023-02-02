@@ -18,9 +18,7 @@
         <div
           class="workforce__article-line"
           aria-hidden="true"
-        >
-          <div style="--size: 10px; width: var(--size); height: var(--size); border-radius: 50%; background-color: var(--c-workforce-text);" />
-        </div>
+        />
         <ul class="workforce__block">
           <li
             v-for="(block, index) in item.block"

@@ -36,7 +36,7 @@ export default {
           block: [
             {
               title: "Understand the basics of identity",
-              text: "Learn the key concepts you need for creating identity and access management (IAM) solutions for WIC",
+              text: "Learn the key concepts you need for creating identity and access management (IAM) solutions for WIC.",
               list: [
                 {
                   url: "https://developer.okta.com/docs/concepts/iam-overview",
@@ -63,7 +63,7 @@ export default {
           block: [
             {
               title: "Connect with APIs and SDKs",
-              text: "Build apps and services that interact directly with WIC for a completely integrated experience",
+              text: "Build apps and services that interact directly with WIC for a completely integrated experience.",
               list: [
                 {
                   url: "https://developer.okta.com/docs/reference",
@@ -81,7 +81,7 @@ export default {
             },
             {
               title: "Authenticate",
-              text: "Define how your applications and APIs verify the identity of a user or device",
+              text: "Define how your applications and APIs verify the identity of a user or device.",
               list: [
                 {
                   url: "https://developer.okta.com/docs/guides/redirect-authentication",
@@ -121,7 +121,7 @@ export default {
           title: "Publish",
           block: [
             {
-              title: "Join the Okta Integration Network (OIN)",
+              title: "Join the Okta Integration Network",
               text: "Promote your OIDC, SAML, SCIM, or API service integration to thousands of customers and grow your business with the Okta Integration Network (OIN)",
               list: [
                 {
@@ -130,7 +130,7 @@ export default {
                 },
                 {
                   url: "https://www.okta.com/integrations",
-                  text: "Explore the OIN catalog"
+                  text: "Go to the Okta Integration Network"
                 },
               ]
             }

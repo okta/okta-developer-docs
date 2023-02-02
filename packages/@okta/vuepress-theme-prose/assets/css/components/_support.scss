@@ -8,8 +8,12 @@
   }
 
   @include media(">desktop") {
-    padding-top: 56.5px;
+    padding-top: 46px;
   }
+}
+
+.support__box {
+  grid-column: 1 / 7;
 }
 
 .support__wrapper {
@@ -31,9 +35,10 @@
     --support-gap: 50px;
 
     display: grid;
-    grid-template-columns: 560px 640px;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
     justify-content: space-between;
-    padding-top: 82px;
+    align-items: center;
+    padding-top: 36px;
     padding-bottom: 100px;
   }
 }
@@ -47,7 +52,8 @@
   color: cv("support", "text");
 
   @include media(">tablet") {
-    --support-title-text-size: 40px;
+    --support-title-text-size: 48px;
+    max-width: 560px;
   }
 
   @include media(">desktop") {
@@ -85,10 +91,6 @@
   }
 }
 
-.dark-theme .support__paragraph {
-  color: #dbdbdb;
-}
-
 .support__link {
   display: inline-flex;
   grid-area: link;
@@ -105,10 +107,12 @@
   text-decoration: none;
   color: cv("support", "button-text") !important;
 
-  &:hover {
-    background-color: cv("support", "button-bg");
+  @include media(">desktop") {
+    &:hover {
+      background-color: cv("support", "button-bg");
 
-    color: cv("support", "button-text");
+      color: cv("support", "button-text");
+    }
   }
 
   @include media(">desktop") {
@@ -148,38 +152,32 @@
 
   align-self: start;
 
-  font-size: 20px;
+  font-weight: 500;
 
-  &::after {
-    --gap: 10px;
+  font-size: 16px;
 
-    content: "";
+  span {
+    border-bottom: 1px solid #191919;
+  }
 
-    position: absolute;
-    top: 50%;
-    right: 0;
-
-    width: 13px;
-    height: 14px;
-
-    background-image: url("data:image/svg+xml,%3Csvg width='13' height='14' viewBox='0 0 13 14' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.552 4.56405L9.536 8.46805H11.056V1.97205H4.56V3.49205L8.448 3.47605L4 7.90805L5.12 9.02805L9.552 4.56405Z' fill='currentcolor'/%3E%3Cpath d='M0 0.972046H12.056H0ZM12.056 14.528H2C0.0670034 14.528 -1.5 12.961 -1.5 11.028H1.5C1.5 11.3042 1.72386 11.528 2 11.528H12.056V14.528ZM2 14.528C0.0670034 14.528 -1.5 12.961 -1.5 11.028V0.972046H1.5V11.028C1.5 11.3042 1.72386 11.528 2 11.528V14.528ZM12.056 0.972046V13.028V0.972046Z' fill='currentcolor' mask='url(%23path-1-inside-1_2024_11379)'/%3E%3C/svg%3E%0A");
-
-    transform: translateY(-50%) translateX(calc(100% + var(--gap)));
+  @include media(">desktop") {
+    &:hover {
+      span {
+        border-color: #3f59e4;
+      }
+    }
   }
 }
 
 .support__sidebar {
   display: flex;
+  grid-column: 7 / 13;
   flex-direction: column;
   gap: 32px;
   padding: 40px;
 
   border-radius: 16px;
   background-color: #f4f4f4;
-}
-
-.dark-theme .support__sidebar {
-  background-color: #2b2b2b;
 }
 
 .support__sidebar-title {

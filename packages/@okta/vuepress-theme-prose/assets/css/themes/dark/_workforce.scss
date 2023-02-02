@@ -1,0 +1,29 @@
+.workforce__article .workforce__block {
+  background-color: #30302f;
+}
+
+.workforce__block-text {
+  color: #fffefa;
+}
+
+.workforce__list-link {
+  border-bottom: 1px solid #ffffff;
+
+  font-size: 16px;
+  @include media(">desktop") {
+    &:hover {
+      border-color: #b1e4de;
+    }
+  }
+}
+
+.workforce__text {
+  color: #dbdbdb;
+  strong {
+    color: #ffffff;
+  }
+}
+
+.workforce__article-title {
+  color: #ffffff;
+}

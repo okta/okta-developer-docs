@@ -34,7 +34,7 @@
               class="resources__list-link dont-break-out"
               href="https://developer.okta.com/blog/2022/04/14/where-okta-meets-devops"
             >
-              How can DevOps engineers use Okta?
+              <span>How can DevOps engineers use Okta?</span>
               <svg
                 width="13"
                 height="13"
@@ -59,7 +59,7 @@
               class="resources__list-link dont-break-out"
               href="https://developer.okta.com/blog/2021/11/08/k8s-api-server-oidc"
             >
-              Secure your Kubernetes cluster for Okta OIDC and Terraform
+              <span>Secure your Kubernetes cluster for Okta OIDC and Terraform</span>
               <svg
                 width="13"
                 height="13"
@@ -94,7 +94,7 @@
               class="resources__list-link dont-break-out"
               href="https://support.okta.com/help/s/article/Prepare-the-Okta-Terraform-Provider-for-the-OIE-upgrade?language=en_US"
             >
-              Prepare the Okta Terraform Provider for OIE Upgrade
+              <span>Prepare the Okta Terraform Provider for OIE Upgrade</span>
               <svg
                 width="13"
                 height="13"
@@ -119,7 +119,7 @@
               class="resources__list-link dont-break-out"
               href="https://github.com/okta/terraform-provider-okta"
             >
-              View Terraform provider on Github
+              <span>View Terraform provider on Github</span>
               <svg
                 width="13"
                 height="13"
