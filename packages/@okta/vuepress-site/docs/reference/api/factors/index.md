@@ -1972,7 +1972,7 @@ The `sms` and `token:software:totp` [Factor types](#factor-type) require activat
 
 ###### Rate limit
 
-The rate limit for a user to activate one of their OTP-based factors (such as SMS, CALL, EMAIL, Google OTP, or Okta Verify TOTP) is five attempts within five minutes. The following example error message is returned if the user exceeds their OTP-based factor rate limit:
+The rate limit for a user to activate one of their OTP-based factors (such as SMS, call, email, Google OTP, or Okta Verify TOTP) is five attempts within five minutes. The following example error message is returned if the user exceeds their OTP-based factor rate limit:
 
 ```json
 {
@@ -1983,6 +1983,8 @@ The rate limit for a user to activate one of their OTP-based factors (such as SM
   "errorCauses": []
 }
 ```
+
+> **Note:** If the user exceeds their SMS, call, or email factor activate rate limit, then an OTP [resend](#resend-sms-as-part-of-enrollment) request (`/api/v1/users/${userId}}/factors/${factorId}/resend`) isn't allowed for the same factor.
 
 #### Activate TOTP Factor
 
