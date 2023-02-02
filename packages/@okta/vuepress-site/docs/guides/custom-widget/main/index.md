@@ -43,7 +43,7 @@ You can add any HTML, CSS, or JavaScript to the sign-in page and also customize 
 
 > **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/).
 
-## Content Security Policy (CSP) for your custom domain
+### Content Security Policy (CSP) for your custom domain
 
 You must first set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize your [CSP](https://content-security-policy.com/) if you also want to customize the Okta-hosted sign-in page or error pages. CSP customizations only take effect on custom domains.
 
@@ -53,7 +53,7 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 
 > **Note:** If you add a trusted origin URL that redirects to a different URL, you need to include the redirect URL on the trusted origin list.
 
-### Add a nonce reference
+#### Add a nonce reference
 
 You must add a [`nonce`](https://content-security-policy.com/nonce/) reference to your HTML if you want to customize the Okta-hosted sign-in page or error pages. Without the `nonce` reference, when you turn on your CSP customizations, your `script` and `style` tags don't run.
 
@@ -65,7 +65,7 @@ Example:
 <style nonce="{{nonceValue}}">
 ```
 
-### Configure the default CSP
+#### Configure the default CSP
 
 1. In the Admin Console, go to **Customizations** > **Branding**.
 2. In the **Pages** panel, click **Edit** for the **Sign-in page**.
