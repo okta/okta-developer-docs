@@ -47,6 +47,18 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 
 > **Note:** If you add a trusted origin URL that redirects to a different URL, you need to include the redirect URL on the trusted origin list.
 
+### Add a nonce reference
+
+You must add a [`nonce`](https://content-security-policy.com/nonce/) reference to your HTML if you want to customize the Okta-hosted sign-in page or error pages. Without the `nonce` reference, when you turn on your CSP customizations, your `script` and `style` tags don't run.
+
+To add the `nonce` reference, add it as a variable in the code editor. See [Edit the error page](#edit-the-error-page).
+
+Example:
+
+```html
+<style nonce="{{nonceValue}}">
+```
+
 ### Customize the default CSP
 
 1. In the Admin Console, go to **Customizations** > **Branding**.
