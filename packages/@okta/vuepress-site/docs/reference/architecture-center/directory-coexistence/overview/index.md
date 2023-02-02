@@ -20,7 +20,15 @@ Use directory coexistence for:
 * Consolidating multiple Identity Providers for different applications and services into one provider.
 * Merging different identity stores into a single Identity Provider after merging with or acquiring another company.
 
-### What Okta technologies are used?
+## Lab
+
+* [Overview](/docs/reference/architecture-center/directory-coexistence/lab-overview)
+* [Prerequisites](/docs/reference/architecture-center/directory-coexistence/lab-prerequisites)
+* Tutorial 1: [Migrate users from Azure Active Directory to Universal Directory](/docs/reference/architecture-center/directory-coexistence/lab-1-azure-ad)
+* Tutorial 2: [Migrate users from an on-premises LDAP directory server to Universal Directory](/docs/reference/architecture-center/directory-coexistence/lab-2-ldap-server)
+* Tutorial 3: [Migrate users from an on-premises generic database to Universal Directory](/docs/reference/architecture-center/directory-coexistence/lab-3-generic-database)
+
+## What Okta technologies are used?
 
 * Okta Universal Directory
 * Okta AD Agent

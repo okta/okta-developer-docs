@@ -21,6 +21,17 @@ Use this architecture for:
 
 Upon completing the lab, you'll have a firm understanding of how to automate Okta and keep environments in sync.
 
+## Lab
+
+* [Prerequisites](/docs/reference/architecture-center/mmod/lab-prerequisites)
+* Tutorial 1. [How to configure Terraform Cloud](/docs/reference/architecture-center/mmod/lab-1-configure-terraform-cloud)
+* Tutorial 2. [How to create resources for your environment](/docs/reference/architecture-center/mmod/lab-2-create-resources)
+* Tutorial 3. [How to change an object in that environment](/docs/reference/architecture-center/mmod/lab-3-rename-a-group)
+* Tutorial 4. [How to move objects between environments](/docs/reference/architecture-center/mmod/lab-4-deploy-changes-to-production)
+* Tutorial 5. [How to detect drift between environments and correct it](/docs/reference/architecture-center/mmod/lab-5-detect-drift)
+* Tutorial 6. [How to schedule drift detection daily](/docs/reference/architecture-center/mmod/lab-6-synchronize-environments-daily)
+* [More Resources](/docs/reference/architecture-center/mmod/resources)
+
 ## What Okta technologies are used?
 
 [Okta Terraform Provider](https://registry.terraform.io/providers/okta/okta/latest/docs)
