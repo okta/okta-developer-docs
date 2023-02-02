@@ -1162,6 +1162,8 @@ An [Authenticator Method object](#authenticator-method-object)
 
 #### Authenticator Method Settings properties
 
+> **Note:** The `aaguidGroups` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
 | Property | Type | Description  | Applies to Authenticator Method type |
 | -------- | ---- | ------------ | ------------------------------------ |
 | `aaguidGroups` <ApiLifecycle access="ea" /> | Array of [AAGUID Group](#aaguid-group-object) | The FIDO2 AAGUID groups available to the WebAuthn authenticator. | `webauthn` |
@@ -1176,13 +1178,11 @@ An [Authenticator Method object](#authenticator-method-object)
 | `timeIntervalInSeconds` | Integer | Time interval for TOTP in seconds | `otp`, `totp` |
 | `userVerification` | String (Enum) | User verification setting. Possible values: `DISCOURAGED`, `PREFERRED`, or `REQUIRED` | `webauthn` |
 
-> **Note:** The `aaguidGroups` property supports the Allow List for FIDO2 (WebAuthn) Authenticators feature, which is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
-
 ### AAGUID Group object
 
 <ApiLifecycle access="ea" />
 
-> **Note:** The AAGUID Group object supports the Allow List for FIDO2 (WebAuthn) Authenticators feature, which is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+> **Note:** The AAGUID Group object supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
 #### AAGUID Group properties
 
