@@ -1,5 +1,5 @@
 ---
-title: Directory coexistence Lab prerequisites
+title: Directory coexistence lab prerequisites
 ---
 
 # Directory coexistence: Lab prerequisites

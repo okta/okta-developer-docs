@@ -1,5 +1,5 @@
 ---
-title: Directory coexistence: Lab overview
+title: Directory coexistence lab overview
 ---
 
 # Directory coexistence: Lab overview
