@@ -1188,8 +1188,8 @@ An [Authenticator Method object](#authenticator-method-object)
 
 | Property | Type | Description  |
 | -------- | ---- | ------------ |
-| `name` | String | A name to identify the group of YubiKey hardware FIDO2 AAGUIDs |
 | `aaguids` | Array of string | A list of YubiKey hardware FIDO2 Authenticator Attestation Global Unique Identifiers (AAGUIDs). The available [AAGUIDs](https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs)&nbsp;are provided by the FIDO Alliance Metadata Service. |
+| `name` | String | A name to identify the group of YubiKey hardware FIDO2 AAGUIDs |
 
 #### Authenticator Method examples
 
