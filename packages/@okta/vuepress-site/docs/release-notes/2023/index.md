@@ -30,8 +30,6 @@ To improve our security and protect against Cross-Site Scripting (XSS) attacks, 
 
 * Some custom admins didn't see groups and users that they had access to when they made a `GET` request to the Users (`/users/{id}/groups`) and Groups (`/groups/{id}/users`) APIs. (OKTA-568838)
 
-* When a client used the `private_key_jwt` client authentication method, the `max_age` and `login_hint` parameters in the authorize request were sometimes ignored. (OKTA-534942)
-
 * An unclear error message was returned when a group rules API call (`create`, `update`, or `activate`) was made to assign users to read-only groups (for example, `Everyone`). (OKTA-567972)
 
 ### Weekly release 2023.01.1
