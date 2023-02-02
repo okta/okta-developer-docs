@@ -16,6 +16,8 @@ title: Okta API Products release notes 2023
 
 * Requests failed when an admin used a group limit in an expression that was less than the number of groups that satisfied the request (for example, `Groups.startsWith("active_directory","eai_",10)`). (OKTA-556056)
 
+* Users could request that one-time passwords for SMS, Voice, and Email activation be resent more times than allowed by the rate limit. (OKTA-550739)
+
 ### Monthly release 2023.01.0
 
 | Change | Expected in Preview Orgs |

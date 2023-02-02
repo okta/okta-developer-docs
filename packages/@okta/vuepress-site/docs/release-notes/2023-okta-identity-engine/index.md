@@ -22,6 +22,8 @@ title: Okta Identity Engine API Products release notes 2023
 
 * A list security questions request (`/users/${userId}/factors/questions`) resulted in an unexpected security question and answer included in the response. (OKTA-567970)
 
+* Users could request that one-time passwords for SMS, Voice, and Email activation be resent more times than allowed by the rate limit. (OKTA-550739)
+
 ### Monthly release 2023.01.0
 
 | Change | Expected in Preview Orgs |
