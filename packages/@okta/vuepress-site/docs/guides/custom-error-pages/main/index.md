@@ -29,9 +29,9 @@ Customize error pages as part of the sign-in flow.
 
 When using redirect authentication, you can create a unique sign-in experience. First, set up a [custom domain](/docs/guides/custom-url-domain/) and then create a [Widget style](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget) that matches your application's look and feel.
 
-However, if an error happens during sign-in, Okta needs to display an error page to the user. You can also customize the error page by using the code editor.
+If an error occurs during sign-in, Okta needs to display an error page to the user. You can use the code editor to customize the error page.
 
-> **Note:** A custom error page only pops up when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page pops up when a critical error happens or you haven't properly configured an app. See [Okta deployment models&mdash;redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on redirect functionality.
+> **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears when a critical error happens or you haven't properly configured an app. See [Okta deployment models&mdash;redirect vs. embedded](/docs/concepts/redirect-vs-embedded/#redirect-authentication) for more information on redirect functionality.
 
 ### Use the Brands API
 
@@ -42,7 +42,7 @@ The [Brands API](/docs/reference/api/brands/) allows you to set icons, images, a
 - email templates
 - Okta End-User Dashboard
 
-You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
+You don't need to set a customized Okta URL domain to use the API.
 
 ## Content Security Policy (CSP) for your custom domain
 
@@ -54,7 +54,7 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 
 > **Note:** You can have a maximum of 20 URIs.
 
-> **Note:** If you add a trusted origin URL that redirects to a different URL, you need to include the redirect URL on the trusted origin list.
+> **Note:** If you add a trusted origin URL that redirects to a different URL, you must include the redirect URL on the trusted origin list.
 
 ### Add a nonce reference
 
@@ -80,9 +80,9 @@ Example:
    - **Report UI**: Enter the URI to which you want to send violation report details. The URI entered here appears in the report-uri directive of the CSP.
    - **Enforcement**:
      - Select **Enforced** to block any resources that the CSP doesn't trust. The header is `content-security-policy`.
-     - Use **Not enforced** to leave the customized CSP in the report-only header (`content-security-policy-report-only`). Use this option for testing and validation before turning on **Enforced** mode.
+     - Use **Not enforced** to leave the customized CSP in the report-only header (`content-security-policy-report-only`). Use this option for testing and validation before enabling **Enforced** mode.
 5. Click **Save to draft**.
-6. Make changes directly in the editor. See steps 4 and 5 in [Edit the error page](#edit-the-error-page).
+6. Make changes in the editor. See steps 4 and 5 in [Edit the error page](#edit-the-error-page).
 
 ## Edit the error page
 
