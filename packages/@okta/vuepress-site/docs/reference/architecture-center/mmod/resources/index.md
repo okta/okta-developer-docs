@@ -2,14 +2,14 @@
 Title: Resources
 ---
 
-# Resources
+## Resources
 
-## Further Reading
+### Further reading
 
 From Okta
 
 * [Get Started with Terraform Cloud](/blog/2020/02/03/managing-multiple-okta-instances-with-terraform-cloud#get-started-with-terraform-cloud)
-* [Manage multiple Okta Instances with Terraform Cloud](/blog/2020/02/03/managing-multiple-okta-instances-with-terraform-cloud)
+* [Manage multiple Okta instances with Terraform Cloud](/blog/2020/02/03/managing-multiple-okta-instances-with-terraform-cloud)
 * [Okta organizations](/docs/concepts/okta-organizations/)
 
 From Hashicorp, makers of Terraform

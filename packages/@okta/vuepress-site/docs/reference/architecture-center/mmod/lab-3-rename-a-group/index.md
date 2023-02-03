@@ -4,7 +4,7 @@ title: Rename a group
 
 # Manage multiple Okta environments tutorial 3: Rename a group
 
-In this tutorial, you'll use Terraform to update the name of an existing group in GitHub and see the effect in the Okta GUI. This simulates changing a resource with the Okta Terraform Provider and applying the change in a destination org.
+In this tutorial, you use Terraform to update the name of an existing group in GitHub and see the effect in the Admin Console. This simulates changing a resource with the Okta Terraform Provider and applying the change in a destination org.
 
 1. Display your workspace **Overview** page in a browser window. The **Latest Run** panel should reflect the results of your most recent update in [the previous exercise](/architecture-center/create-resources-terraform/).
 
@@ -34,7 +34,7 @@ In this tutorial, you'll use Terraform to update the name of an existing group i
 
    </div>
 
-6. Monitor the status in the **Latest Run** panel of your workspace **Overview** page. You should see the title change to the title in your GitHub commit panel and the state change from **Applied**, to **Planning**, to **Applying**, to **Applied** when the run completes.
+6. Monitor the status in the **Latest Run** panel of your workspace **Overview** page. You should see the title change to the title in your GitHub commit panel. You should also see the state change from **Applied**, to **Planning**, to **Applying**, to **Applied** when the run completes.
 
    <div class="full border">
 
@@ -42,7 +42,7 @@ In this tutorial, you'll use Terraform to update the name of an existing group i
 
    </div>
 
-   As before, the results have been applied. The three values for **Resources changed** (`+0 ~1 -0`) show that no resources were added, one resource was updated, and no resources were deleted.
+   As before, the results are applied. The three values for **Resources changed** (`+0 ~1 -0`) show that no resources were added, one resource was updated, and no resources were deleted.
 
 7. Click **See details**, expand the **Apply finished** panel, and observe that the `okta_group.test_group` resource was updated.
 

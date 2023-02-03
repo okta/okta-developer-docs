@@ -114,7 +114,7 @@ If the plan works speculatively, you can now run it and apply those changes.
    1. On the confirmation dialog, add a comment and click **Confirm Plan**.
    1. Verify that Apply completes successfully.
 
-> **Note:** You can add comments to completed runs. This is useful for discussing configuration changes with your team. Configuration changes are recorded in the System Log. Click **Reports** > **System Log** in your Okta Admin Console and scroll down to the latest log entry to see them.
+> **Note:** You can add comments to completed runs. This is useful for discussing configuration changes with your team. Configuration changes are recorded in the System Log. Click **Reports** > **System Log** in your Admin Console and scroll down to the latest log entry to see them.
 
 ### Handle locked workspaces
 

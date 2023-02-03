@@ -5,21 +5,21 @@ excerpt: Create solutions for deploying and Manage multiple application Okta env
 
 # Manage multiple Okta environments
 
-Create solutions for deploying and Manage multiple application Okta environments with Terraform.
+Create solutions for deploying and managing multiple application Okta environments with Terraform.
 
 ## Introduction
 
-Creating and maintaining complex Okta org configurations across separate production, staging and development environments is error-prone and inefficient when done manually. By incorporating [Terraform](https://www.terraform.io/) it into your continuous integration, continuous delivery, and development pipelines, you can define a configuration once and apply it to all environments.
+Use Terrafrom to make managing complex Okta org configurations easier. By incorporating [Terraform](https://www.terraform.io/) into your continuous integration, continuous delivery, and development pipelines, you can define a configuration once and apply it to all environments.
 
-Terraform can create, manage, and update various infrastructure resources, including Okta. This allows you to make your Okta and application infrastructure more predictable, easier to maintain, and deterministic. You spend less time managing Okta when onboarding new applications, reduce risk by defining configuration information in source files, and can rapidly detect and recover from changes to your infrastructure.
+Terraform can create, manage, and update various infrastructure resources, including Okta. This allows you to make your Okta org and application infrastructure more predictable, easier to maintain, and deterministic. You spend less time managing Okta when onboarding new applications, reduce risk by defining configuration information in source files, and can rapidly detect and recover from changes to your infrastructure.
 
-Use this architecture for:
+Use this architecture to:
 
-* Including Okta org configuration in your Continuous Integration / Deployment processes
-* Configuring multiple Okta orgs to the same standards
-* Detecting changes between Okta orgs and resynchronising them
+* Include Okta org configurations in your Continuous Integration / Deployment processes
+* Configure multiple Okta orgs to the same standards
+* Detect changes between Okta orgs and resynchronising them
 
-Upon completing the lab, you'll have a firm understanding of how to automate Okta and keep environments in sync.
+Upon completing the lab, you should have a firm understanding of how to automate Okta and keep environments in sync.
 
 ## Lab
 

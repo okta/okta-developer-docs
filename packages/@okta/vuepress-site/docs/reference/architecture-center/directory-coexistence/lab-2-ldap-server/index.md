@@ -171,7 +171,7 @@ Connect the LDAP directory server to Okta with an Okta LDAP Agent. The Okta LDAP
    1. Type <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal to stop the container.
    2. Type `docker compose down` to stop and delete the container.
    3. Open Docker Desktop and delete the `okta-reference-coexistence-ldap-example` container, if present.
-   4. Open the Okta Admin Console for your org and delete any LDAP agents, interfaces, and users that you've imported or added in this exercise.
+   4. Open the Admin Console for your org and delete any LDAP agents, interfaces, and users that you've imported or added in this exercise.
    5. Type `docker compose up` to start the container.
 
 1. If requested, sign in to your Okta account.

@@ -4,17 +4,17 @@ title: Schedule drift detection daily
 
 # Manage multiple Okta environments tutorial 6: Schedule drift detection daily
 
-In the previous tutorial, you learned how to detect changes in the production environment and synchronize those changes back to your development environment. Now you'll add a workflow to trigger a daily plan run through Terraform. Specifically, you'll create a workflow to run a speculative plan to detect changes in the production environment daily at 0900 EST.
+In the previous tutorial, you learned how to detect changes in the production environment and synchronize those changes back to your development environment. Now add a workflow to trigger a daily plan run through Terraform. Specifically, create a workflow to run a speculative plan to detect changes in the production environment daily at 0900 EST.
 
 If any changes are detected, it sends a notification message to a Slack channel.
 
 > **Note:** You have various options for where to send the notification. This example uses Slack. If you don't have Slack, it's easy to create a trial account if you want to follow along, or you can choose a different destination and use this example as a guide.
 
-This simulates an enterprise transforming to fully automated processes for detecting drift in your environments.
+This simulates an enterprise that transforms to fully automated processes for detecting drift in your environments.
 
 ## Configure Terraform
 
-To enable the Terraform workflow, you must create a [Team API token](https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/api-tokens#team-api-tokens) to allow it access to both workspaces. You also need your workspace ID for the workflow.
+To enable the Terraform workflow, you must create a [Team API token](https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/api-tokens#team-api-tokens) to allow access to both workspaces. You also need your workspace ID for the workflow.
 
 To create a Team API token in Terraform Cloud:
 
@@ -37,13 +37,13 @@ To find your Terraform workspace ID:
 
 1. Download the example workflow:
    1. Go to `https://drive.google.com/file/d/1IKhg65fHCSbp9qXYBxB2r2zxmsTcdWOu`.
-   1. On the No preview available panel in the page that opens, click **Download** to download the example workflow.
+   1. On the **No preview available** panel in the page that opens, click **Download** to download the example workflow.
 
-1. Open the Okta Admin Console for your production org.
-1. Choose **Workflow > Workflows** to show the Welcome to Workflows page.
+1. Open the Admin Console for your production org.
+1. Choose **Workflow** > **Workflows** to show the **Welcome to Workflows** page.
 1. Select the **Flows** tab.
 1. In the sidebar, click the **+** icon to add a new folder.
-1. Set a folder name; for example, _Okta Configuration Drift_.
+1. Set a folder name, for example, _Okta Configuration Drift_.
 1. Click **Save** to finish creating the folder.
 
    <div class="full border">
@@ -64,7 +64,7 @@ To find your Terraform workspace ID:
 
    1. Select **Import** in the menu to open an **Import** page.
    1. Select the file pack that you downloaded to import the example workflow.
-1. In your new folder, observe that you've imported one flow, it's a scheduled flow, and it's turned off.
+1. In your new folder, observe that you imported one flow, it's a scheduled flow, and it's turned off.
 
 <div class="full border">
 
@@ -89,10 +89,10 @@ Update the workflow before you run it.
    1. Click **Choose Connection**.
    2. Click **+ New Connection**.
    3. In the **New Connection** dialog:
-      1. Optionally enter a new name for **Connection Nickname**; for example, _Terraform Cloud_.
+      1. Optional. Enter a new name for **Connection Nickname**, for example, _Terraform Cloud_.
       2. Select **Custom for Auth Type**.
       3. Set **Header Name** to **Authorization**.
-      4. Set **Header Value** to **Bearer** followed by a space and the Terraform Team API token you created in [Configure Terraform](#configure-terraform).
+      4. Set **Header Value** to **Bearer** followed by a space and the Terraform Team API token that you created in [Configure Terraform](#configure-terraform).
       5. Click **Create**.
 
          <div class="three-quarter border">
@@ -101,11 +101,11 @@ Update the workflow before you run it.
 
          </div>
 
-4. In the **Send Message to Channel** card, configure the output channel to be used for notifications when drift is detected.
-   1. Click **Choose Connection**, select the channel you set up in [A Slack channel](/docs/reference/architecture-center/mmod/lab-prerequisites/#a-slack-channel), and select your desired input and output fields.
+4. In the **Send Message to Channel** card, configure the output channel used for notifications when drift is detected.
+   1. Click **Choose Connection**, select the channel you set up in [a Slack channel](/docs/reference/architecture-center/mmod/lab-prerequisites/#a-slack-channel), and select your desired input and output fields.
    2. Click **Options** to choose your channel options (for example, select your channel ID for **Channel** and **Yes** for **send as bot**), and click **Save**.
-   3. Pick a name for your Slack bot; for example, _Terraform-drift-bot_. This is used as the originator of the drift notification.
-   4. Click **Save** to save your workflow.
+   3. Pick a name for your Slack bot, for example, _Terraform-drift-bot_. This is used as the originator of the drift notification.
+   4. Click **Save**.
 
       <div class="full border">
 
@@ -115,12 +115,12 @@ Update the workflow before you run it.
 
 This exercise demonstrates the process for Slack, but you can choose from many connection types. To select a different destination:
 
-1. Open the Okta Admin Console for your production org.
-1. Choose **Workflows > Workflow console** to view the Workflows home page.
+1. Open the Admin Console for your production org.
+1. Choose **Workflows** > **Workflow console** to view the Workflows home page.
 1. Select the **Connections** tab.
 1. Click **+ New Connection** to open a **New Connection** page.
-1. Select the desired connection type; for example, **Slack**.
-1. Give the connection a nickname; for example, _Terraform Drift_.
+1. Select the desired connection type, for example, **Slack**.
+1. Give the connection a nickname, for example, _Terraform Drift_.
 1. Click **Create**.
 1. Click **Allow** to give Slack access to the workflow.
 
@@ -131,7 +131,7 @@ The connection is added to the **Connections** tab for the workflow.
 ## Test your changes
 
 1. On the **Flows** tab, click the **ON/OFF** toggle to enable the workflow.
-2. Select your workflow, and click **Test** to run through the flow. The **Flow History** panel on the right shows the results.
+2. Select your workflow, and then click **Test** to run through the flow. The **Flow History** panel shows the results.
 
    <div class="full border">
 

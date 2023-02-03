@@ -247,7 +247,7 @@ A password validation application is already running on port 8000 from a Docker 
 
 The `pwimporthook-1` Docker container contains a Java application in the `/pw-import-hook/` directory. This application contains the password hook REST API call (`Post /pwhook`) and logic to validate the passwords.
 
-Set the password import inline hook up and activate it within your Okta Admin Console:
+Set the password import inline hook up and activate it within your Admin Console:
 
 1. Open the Admin Console for your org.
 1. Choose **Workflow** > **Inline Hooks**.
