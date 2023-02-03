@@ -1,5 +1,5 @@
 ---
-title: Customize the error pages
+title: Customize error pages
 excerpt: Learn how to customize the Okta-hosted error pages to fit your brand.
 layout: Guides
 ---
