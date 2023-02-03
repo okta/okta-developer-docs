@@ -57,7 +57,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
    okta login
    ```
 
-   If you are already signed into Okta, a prompt similar to the following is returned. The current sign-in configuration is based on the Okta org URL and API token that you provided at the previous `okta login` command. If you want to use the existing configuration, answer **N** and skip steps a and b. Otherwise, answer **Y** and continue to steps a and b.
+   If you are already signed in to Okta, a prompt similar to the following is returned. The current sign-in configuration is based on the Okta org URL and API token that you provided at the previous `okta login` command. If you want to use the existing configuration, answer **N** and skip steps a and b. Otherwise, answer **Y** and continue to steps a and b.
 
    ```txt
    An existing Okta Organization (https://dev-133337.okta.com)
@@ -78,7 +78,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
    The CLI shows the following message:
 
    ```txt
-   Configuring a new OIDC Application, almost done:
+   Configuring a new OIDC application, almost done:
    Created OIDC application, client-id: 0oa1jnble6
    Okta configuration written to .env
    ```

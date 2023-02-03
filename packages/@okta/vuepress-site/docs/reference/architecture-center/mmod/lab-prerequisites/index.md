@@ -1,8 +1,8 @@
 ---
-title: Managing multiple Okta environments Lab prerequisites
+title: Manage multiple Okta environments Lab prerequisites
 ---
 
-# Managing multiple Okta environments: Lab prerequisites
+# Manage multiple Okta environments: Lab prerequisites
 
 ## Applications
 
@@ -18,7 +18,7 @@ This lab requires two Okta developer accounts, one to represent a development en
 
 Okta CLI is the quickest way to create an Okta org, so we recommend using it to create both new orgs. Alternatively, you can manually sign up instead.
 
-1. Open your Terminal/command prompt.
+1. Open your terminal.
 2. Run `okta register`, and enter your First name, Last name, Email address, and Country.
 3. Click or tap **Activate** in the account activation email that is sent to the email address you gave.
 4. After your domain is registered, look for output similar to this:
@@ -37,8 +37,8 @@ Okta CLI is the quickest way to create an Okta org, so we recommend using it to 
    Your Okta Domain: https://dev-xxxxxxx.okta.com
    ```
 
-Make a note of your Okta domain. This will be your development domain.
-Repeat steps 1 - 6 to create a second Okta domain. This will be your production domain.
+Make a note of your Okta domain. This is your development domain.
+Repeat steps 1 - 6 to create a second Okta domain. This is your production domain.
 
 > **Tip:** If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from noreply@okta.com.
 
@@ -56,7 +56,7 @@ Tutorial 6 uses Slack as the target for its workflow notification messages. To c
 
 1. Visit [slack.com](https://slack.com), and click **TRY FOR FREE**.
 2. Supply your email address and click **Continue**.
-3. Enter the 6-digit code that’s sent to your email address.
+3. Enter the 6-digit code that's sent to your email address.
 4. Click **Create a Workspace** to create a Slack workspace.
 5. Specify your company name, identify other team members to invite to the workspace (if any), and enter a short name to be used as the name of the channel. For example, _Terraform Drift_.
 

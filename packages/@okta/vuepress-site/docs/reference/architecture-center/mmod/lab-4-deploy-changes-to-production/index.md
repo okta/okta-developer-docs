@@ -2,11 +2,11 @@
 title: Deploy changes to production
 ---
 
-# Managing multiple Okta environments tutorial 4: Deploy changes to production
+# Manage multiple Okta environments tutorial 4: Deploy changes to production
 
 In tutorials 2 and 3, you've made changes in a preview environment that isn't available to most end-users. This makes it easy for developers, testers, and early adopters to test their changes without impacting production.
 
-Now you'll use Terraform to deploy your changes to another Okta org. This example of moving objects between two Okta orgs will simulate moving objects between non-production and production environments. This example can be used to integrate into critical software development practices like change management and continuous integration and continuous deployment.
+Now you'll use Terraform to deploy your changes to another Okta org. This example of moving objects between two Okta orgs simulates moving objects between non-production and production environments. This example can be used to integrate into critical software development practices like change management and continuous integration and continuous deployment.
 
 ## Create an Okta API token
 
@@ -17,7 +17,7 @@ Follow the same process to create an Okta API token as you did in Tutorial 1, bu
 1. Select **Tokens** to view the API token management tab.
 1. Click **Create token** to open a Create token dialog.
 1. Set a name for your token. For example, _Terraform Cloud access for production org_.
-1. Click **Create token** to save a copy of the token; you'll not be able to view it again.
+1. Click **Create token** to save a copy of the token. You won't be able to view it again.
 
 ## Merge changes to production
 
@@ -32,7 +32,7 @@ Merge the changes in the `preview` branch into the `prod` branch in GitHub.
    3. Set **compare** to **preview**.
 5. GitHub displays a summary of commits that were made to the original repo, if any, and your commits to the `preview` branch in the **Commits** tab. In the **Files changed** tab, GitHub shows the changes that were made to each affected file. Review the commits to see if you approve the changes or need to make more.
 6. Click **Create pull request** to open the **Open a pull request** page.
-7. Click **Create pull request** to determine if there are any merge conflicts. For this exercise, there shouldn’t be.
+7. Click **Create pull request** to determine if there are any merge conflicts. For this exercise, there shouldn't be.
 8. If there are no merge conflicts, click **Merge pull request**, optionally enter a comment, and click **Confirm merge**.
 
 ### Create a production workspace in Terraform
@@ -44,25 +44,25 @@ In this exercise, you'll create a new workspace in Terraform Cloud to represent 
    1. Click **Sign out** in the menu.
    2. In the Terraform Cloud sign-in page, sign in with the sign-in credentials for your **production** org.
 1. Navigate to the **Workspaces** page and click **+ New workspace**.
-1. In the Create a new Workspace page, select **Version control workflow** to declare that your configuration will be saved in a version control system.
-1. In the Connect to VCS tab, select **GitHub** > **GitHub.com**. These exercises use GitHub, but you can select a different VCS. This selection grants permission for Terraform Cloud to access your project.
-1. In the Choose a repository tab, select the repo you created in [A working Terraform repository](/docs/reference/architecture-center/mmob/lab-prerequisites/#a-working-terraform-repository).
+1. On the **Create a new Workspace** page, select **Version control workflow** to declare that your configuration will be saved in a version control system.
+1. On the **Connect to VCS** tab, select **GitHub** > **GitHub.com**. These exercises use GitHub, but you can select a different VCS. This selection grants permission for Terraform Cloud to access your project.
+1. On the **Choose a repository** tab, select the repo you created in [A working Terraform repository](/docs/reference/architecture-center/mmob/lab-prerequisites/#a-working-terraform-repository).
 
    > **Tip:** Be sure the path is to your copy of the repo, and not to the original one.
 
-1. In the Configure settings tab:
+1. On the **Configure settings** tab:
    1. Give your new workspace a descriptive name. For example, _okta-terraform-ref-production-environment_.
    2. Optionally enter a description.
    3. Click **Advanced options**.
-   4. Verify **Terraform Working Directory** is blank.
-   5. Verify **Apply Method** is set to **Manual apply**.
-   6. Verify **Automatic Run Triggering** is set to **Always trigger runs**.
+   4. Verify that **Terraform Working Directory** is blank.
+   5. Verify that **Apply Method** is set to **Manual apply**.
+   6. Verify that **Automatic Run Triggering** is set to **Always trigger runs**.
    7. Set **VCS branch** to **prod**.
-   8. Verify **Automatic speculative plans** is set in **Pull Requests**.
-   9. Verify **Submodules on clone** is cleared in **Other Settings**.
+   8. Verify that **Automatic speculative plans** is set in **Pull Requests**.
+   9. Verify that **Submodules on clone** is cleared in **Other Settings**.
    10. Click **Create workspace** to create the new workspace.
 
-1. In the **Workspace created** page:
+1. On the **Workspace created** page:
    1. Set **org_name** to your [${OKTA_DOMAIN_NAME}](/docs/reference/architecture-center/mmob/lab-prerequisites/#values-and-variables) for the production org.
    2. Set **api_token** to the token your created earlier in [Create an API token](#create-an-okta-api-token).
    3. Set **base_url** to your org's base URL. For example, _okta.com_.

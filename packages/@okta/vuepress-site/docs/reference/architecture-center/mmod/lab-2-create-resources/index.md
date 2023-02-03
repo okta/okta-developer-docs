@@ -2,33 +2,33 @@
 title: Create resources for your environment
 ---
 
-# Managing multiple Okta environments tutorial 2: Create resources for your environment
+# Manage multiple Okta environments tutorial 2: Create resources for your environment
 
-In this tutorial, you use Terraform to create the resources required to make your org functional in the **preview** branch in Github. The tutorial will take you through creating the resources, applying the plan, and demonstrating the functions of the newly created org. This could be applied when adding new environments like a staging environment or provisioning a new tenant.
+In this tutorial, you use Terraform to create the resources required to make your org functional in the **preview** branch in Github. The tutorial takes you through creating the resources, applying the plan, and demonstrating the functions of the newly created org. You can apply this when adding new environments like a staging environment or provisioning a new tenant.
 
 For each of the following cases, you:
 
-1. Select the `preview` branch in GitHub if necessary.
+1. Select the `preview` branch in GitHub, if necessary.
 2. Edit one or more existing `.tf` files in your GitHub repo.
 3. Add new resources to the file(s).
 4. Commit your changes in GitHub.
-5. Verify that the plan runs automatically in your workspace **Overview** page.
+5. Verify that the plan runs automatically on your workspace **Overview** page.
 
 In this tutorial, you:
 
 * [Add a new User Schema property resource](#add-a-new-user-schema-property-resource)
 * [Add new group and group rules resources](#add-new-group-and-group-rules-resources)
 * [Add a new customer application portal resource](#add-a-new-customer-application-portal-resource)
-* [Add a new application sign-on policy resource](#add-a-new-application-sign-on-policy-resource)
+* [Add a new authentication policy resource](#add-a-new-authentication-policy-resource)
 * [Add a new Authorization Server and custom scopes and claims resources](#add-a-new-authorization-server-and-custom-scopes-and-claims-resources)
 
 > **Note**: For more information about Okta's Terraform providers, resources, and data, see [Okta Provider](https://registry.terraform.io/providers/okta/okta/latest/docs).
 
-The workspace configuration that you set up in the previous tutorial causes your plan to be automatically run and changes applied when you check in your changes.
+The workspace configuration that you set up in the previous tutorial causes your plan to automatically run and apply changes when you check in your changes.
 
 ## Add a new User Schema property resource
 
-Okta's [Universal Directory](https://www.okta.com/products/universal-directory/) allows administrators to define custom User profiles for Okta Users and Applications using a subset of JSON as the schema language used to describe and validate them. The [Okta Schemas API](/docs/reference/api/schemas/) provides operations to manage custom User profiles.
+Administrators can define custom User profiles in [Universal Directory](https://www.okta.com/products/universal-directory/) using a custom JSON schema. The [Okta Schemas API](/docs/reference/api/schemas/) provides operations to manage custom User profiles.
 
 Use a [User Schema property resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/user_schema_property) to create and configure a custom user schema property. User Schema property resources are defined in `userschema.tf`.
 
@@ -46,7 +46,7 @@ In this exercise, you add a new User Schema property to the workspace, commit yo
    }
    ```
 
-2. In your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is Applied.
+2. On your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is **Applied**.
 
    <div class="full border">
 
@@ -56,11 +56,11 @@ In this exercise, you add a new User Schema property to the workspace, commit yo
 
 ## Add new Group and Group Rules resources
 
-Groups are commonly used for [Okta Single Sign-On (SSO)](/docs/guides/build-sso-integration/openidconnect/main/) access and to provision users to apps with specific entitlements. Group rules simplify group administration and help you manage application access, application roles, and security policies. You can use rules to populate groups based on attributes to achieve attributed-based access control. You can create rules using single or multiple attributes, single or multiple groups, or combinations of attributes and groups. See [About group rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Group_Rules).
+Groups are commonly used for [Okta Single Sign-On (SSO)](/docs/guides/build-sso-integration/openidconnect/main/) access and to provision users to apps with specific entitlements. Group rules simplify group administration and help you manage application access, application roles, and security policies. Use rules to populate groups based on attributes to achieve attributed-based access control. Create rules using single or multiple attributes, single or multiple groups, or combinations of attributes and groups. See [About group rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Group_Rules).
 
 Use an [Okta Group resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/group) to create and configure an Okta Group. Group resources are defined in `groups.tf`.
 
-In this exercise, you add an Okta Group first, confirm your changes, and verify the results in your workspace **Overview page** and then repeat the process for the associated Group Rule resources. This ensures the new Group is available when you add the Group Rule.
+In this exercise, you add an Okta Group first, confirm your changes, and verify the results on your workspace **Overview** page and then repeat the process for the associated Group Rule resources. This ensures that the new Group is available when you add the Group Rule.
 
 1. Append the following to `groups.tf` in GitHub, then commit your changes.
 
@@ -71,7 +71,7 @@ In this exercise, you add an Okta Group first, confirm your changes, and verify 
    }
    ```
 
-2. In your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is Applied.
+2. On your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is **Applied**.
 
 3. Append the following to `grouprules.tf` in GitHub, then commit your changes.
 
@@ -85,15 +85,15 @@ In this exercise, you add an Okta Group first, confirm your changes, and verify 
    }
    ```
 
-4. In your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is Applied.
+4. On your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is **Applied**.
 
 ## Add a new customer application portal resource
 
 Okta is a customizable, secure, drop-in solution to add authentication and authorization services to your applications. You can connect any application on any device and define how you want your users to sign in. A customer portal is an interface through which your customers access your application.
 
-Use Customer portal resources to create and configure different portals. They are defined in `modules/applications/customer-portal.tf`.
+Use customer portal resources to create and configure different portals. They are defined in `modules/applications/customer-portal.tf`.
 
-In this exercise, you add a new [OIDC application portal](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth) and verify the results in your workspace Overview page.
+In this exercise, you add a new [OpenID Connect (OIDC) application portal](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_oauth) and verify the results on your workspace **Overview** page.
 
 1. Append the following to `modules/applications/customer-portal.tf` in GitHub, then commit your changes.
 
@@ -114,15 +114,15 @@ In this exercise, you add a new [OIDC application portal](https://registry.terra
    }
    ```
 
-2. In your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is Applied.
+2. On your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is **Applied**.
 
-## Add a new application sign-on policy resource
+## Add a new authentication policy resource
 
-[Application sign-on policies](/docs/guides/configure-signon-policy/main/) control access to applications. Use them to configure more granular access to the app than are permitted by default, and selectively apply conditions such limiting access to certain users and/or groups, and the network or network zone they are connecting from, to name a few.
+[Authentication policies](/docs/guides/configure-signon-policy/main/) control access to applications. Use them to configure more granular access to the app than are permitted by default. Additionally, use authentication policies to selectively apply conditions like limiting access to certain users and/or groups, and the network or network zone that they  connect from.
 
-An [application sign-on policy resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy) allows you to create and configure a sign-on policy for the application. Sign-on policies are defined in `modules/applications/app_signon_policies.tf`.
+An [authentication policy resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/app_signon_policy) allows you to create and configure a sign-on policy for the application. Sign-on policies are defined in `modules/applications/app_signon_policies.tf`.
 
-In this exercise, you add a new application sign-on policy resource, and verify the results in your workspace **Overview** page.
+In this exercise, you add a new authentication policy resource, and verify the results on your workspace **Overview** page.
 
 1. Append the following to `modules/applications/app_signon_policies.tf` in GitHub, then commit your changes.
 
@@ -144,17 +144,17 @@ In this exercise, you add a new application sign-on policy resource, and verify 
    }
    ```
 
-2. In your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+2 ~0 -0` to show that two resources were added. The **Latest Run** status is Applied.
+2. On your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+2 ~0 -0` to show that two resources were added. The **Latest Run** status is **Applied**.
 
-## Add a new Authorization Server and custom scopes and claims resources
+## Add a new authorization server and custom scopes and claims resources
 
-An [authorization server](/docs/concepts/auth-servers/) is an engine for minting OpenID Connect or OAuth 2.0 tokens, and is also used to apply access policies. Scopes specify which access privileges are being requested as part of an authorization. For example, the email scope requests access to a user's email address. Claims are pieces of information that describe some aspect of a given identity. They are held in authentication tokens; that is, you can think of tokens as envelopes containing claims about users. Custom Okta authorization servers allow you to add custom scopes and claims to tokens.
+An [authorization server](/docs/concepts/auth-servers/) is an engine for minting OpenID Connect or OAuth 2.0 tokens, and is also used to apply access policies. Scopes specify which access privileges are requested as part of an authorization. For example, the email scope requests access to a user's email address. Claims are pieces of information that describe some aspect of a given identity. They are held in authentication tokens. That is, you can think of tokens as envelopes that contain claims about users. Custom Okta authorization servers allow you to add custom scopes and claims to tokens.
 
-Use an [Authorization Server resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server) to create and configure an Authorization Server. Use an [Authorization Server Scope resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_scope) to create and configure an Authorization Server Scope, and use an [Authorization Server Claim resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_claim) to create and configure an Authorization Server Claim.
+Use an [Authorization Server resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server) to create and configure an authorization server. Use an [Authorization Server Scope resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_scope) to create and configure an authorization server scope. Use an [Authorization Server Claim resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/auth_server_claim) to create and configure an authorization server claim.
 
-Authorization Server, Authorization Server Scope, and Authorization Server Claim resources are all defined in `modules/auth-servers/customer-portal.tf`.
+Authorization Server, Authorization Server Scope, and Authorization Server Claim resources are defined in `modules/auth-servers/customer-portal.tf`.
 
-In this example, you add an Authorization Server resource and associated Authorization Server Scope and Authorization Server Claim resources, and verify the results in your workspace **Overview** page. You add the resources separately, in that order, so the new resources are available when you need them.
+In this example, you add an Authorization Server resource and associated Authorization Server Scope and Authorization Server Claim resources, and verify the results on your workspace **Overview** page. Add the resources separately, in that order, so the new resources are available when you need them.
 
 1. Append the following to `modules/auth-servers/customer-portal.tf` in GitHub, then commit your changes.
 
@@ -168,7 +168,7 @@ In this example, you add an Authorization Server resource and associated Authori
    }
    ```
 
-2. In your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is Applied.
+2. On your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is **Applied**.
 
 3. Append the following to `modules/auth-servers/customer-portal.tf` in GitHub, then commit your changes.
 
@@ -180,7 +180,7 @@ In this example, you add an Authorization Server resource and associated Authori
    }
    ```
 
-4. In your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is Applied.
+4. On your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is **Applied**.
 
 5. Append the following to `modules/auth-servers/customer-portal.tf` in GitHub, then commit your changes.
 
@@ -194,4 +194,4 @@ In this example, you add an Authorization Server resource and associated Authori
    }
    ```
 
-6. In your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is Applied.
+6. On your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is **Applied**.

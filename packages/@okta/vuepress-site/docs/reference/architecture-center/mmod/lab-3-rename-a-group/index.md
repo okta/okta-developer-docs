@@ -2,7 +2,7 @@
 title: Rename a group
 ---
 
-# Managing multiple Okta environments tutorial 3: Rename a group
+# Manage multiple Okta environments tutorial 3: Rename a group
 
 In this tutorial, you'll use Terraform to update the name of an existing group in GitHub and see the effect in the Okta GUI. This simulates changing a resource with the Okta Terraform Provider and applying the change in a destination org.
 

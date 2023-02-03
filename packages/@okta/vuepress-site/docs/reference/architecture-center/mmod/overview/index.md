@@ -1,11 +1,11 @@
 ---
-title: Managing multiple Okta environments
-excerpt: Create solutions for deploying and managing multiple application Okta environments with Terraform.
+title: Manage multiple Okta environments
+excerpt: Create solutions for deploying and Manage multiple application Okta environments with Terraform.
 ---
 
-# Managing multiple Okta environments
+# Manage multiple Okta environments
 
-Create solutions for deploying and managing multiple application Okta environments with Terraform.
+Create solutions for deploying and Manage multiple application Okta environments with Terraform.
 
 ## Introduction
 

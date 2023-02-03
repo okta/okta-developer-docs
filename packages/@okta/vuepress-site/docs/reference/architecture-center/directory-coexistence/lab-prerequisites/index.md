@@ -17,9 +17,9 @@ This lab uses Docker containers to provide a starting point for each tutorial. T
 
 ## Okta developer account
 
-An Okta developer account is rquired to migrate your user accounts into. Okta CLI is the quickest way to work with your Okta org, so we recommend using it for the first few steps. Alternatively, you can manually sign up for an org instead.
+An Okta developer account is required to migrate your user accounts into. Okta CLI is the quickest way to work with your Okta org, so we recommend using it for the first few steps. Alternatively, you can manually sign up for an org instead.
 
-1. Open your Terminal/command prompt.
+1. Open your terminal.
 2. Run `okta register`, and enter your first name, last name, email address, and country.
 3. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
 4. After your domain is registered, look for output similar to this:
@@ -31,7 +31,7 @@ An Okta developer account is rquired to migrate your user accounts into. Okta CL
    ```
 
 5. Set the password for your Okta developer org by opening the link and following the instructions.
-6. After your password is entered, your Okta domain is returned, similar to the following. Make note of it.
+6. After you enter your password, your Okta domain is returned, similar to the following. Make note of it.
 
    ```txt
    New Okta Account created!
@@ -62,13 +62,13 @@ Configure the application that you create in each tutorial to use Okta as its Id
 
 * `${OKTA_DOMAIN}`: the full URL of your Okta developer org
    For example, `https://dev-133337.okta.com`
-* `${OKTA_DOMAIN_NAME}`: is the subdomain of your Okta developer org
+* `${OKTA_DOMAIN_NAME}`: the subdomain of your Okta developer org
    For example, `dev-133337`
 * `${CLIENT_ID}`: the unique ID that Okta assigns your application when registered in the Okta CLI or the Admin Console
 * `${CLIENT_SECRET}`: the secret the application uses to authenticate with the authorization server
 * `${ISSUER}`: the URL of your authorization server
    For example, the default custom authorization server is `https://${OKTA_DOMAIN}/oauth2/default`.
-* `${SIGN_IN_REDIRECT_URI}`: the URL where a user is redirected to after completing the authentication process successfully and receiving an authorization code or token.
+* `${SIGN_IN_REDIRECT_URI}`: the URL where a user is redirected after completing the authentication process successfully and receiving an authorization code or token.
    For example, `http://localhost:8080/login/oauth2/code/okta`
 
 Okta CLI reports the `${CLIENT_ID}`, `${CLIENT_SECRET}`, and `${ISSUER}` when you register an application with the `okta start` command.

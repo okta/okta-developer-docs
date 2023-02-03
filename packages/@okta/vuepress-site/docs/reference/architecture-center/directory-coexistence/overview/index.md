@@ -41,8 +41,8 @@ Use directory coexistence for:
 Before applying the directory coexistence architecture, a network's IAM solution is split across many Identity Providers (IdPs):
 
 * Cloud-based IdPs such as Microsoft Azure Active Directory
-* On-prem IdPs based on LDAP
-* On-prem IdPs based on a proprietary database
+* On-premises IdPs based on LDAP
+* On-premises IdPs based on a proprietary database
 
 Users may need several usernames and passwords to access their applications.
 
@@ -59,9 +59,9 @@ By applying the architecture for the user migration process:
 
 * All applications start the authentication flow by querying Universal Directory.
 * If the user has been migrated and their credentials are valid, they are signed in.
-* If the user has not been migrated, their authentication is delegated to the original Identity Provider for that application.
+* If the user hasn't been migrated, their authentication is delegated to the original IdP for that application.
 
-From the user's perspective, nothing changes except for the number of different passwords to remember, which will reduce to one.
+From the user's perspective, nothing changes except for the number of different passwords to remember, which reduces to one.
 
 <div class="full">
 
@@ -72,11 +72,11 @@ From the user's perspective, nothing changes except for the number of different 
   -->
 </div>
 
-Over time, as all user information is migrated, the delegation to each original Identity Provider can be stopped until, eventually, the migration is complete.
+Over time, as all user information is migrated, you can stop the delegation to each original IdP until, eventually, the migration is complete.
 
 ## Key considerations
 
-Several questions should be considered before applying this architecture:
+Consider several questions before applying this architecture:
 
 1. Can you migrate users from a provider over time, or is it an all-in-one process?
 2. How do you find and merge duplicate user profiles?
@@ -84,27 +84,27 @@ Several questions should be considered before applying this architecture:
 
 By considering these questions, you can also start understanding how long it may take to apply this architecture to your network.
 
-### Just-in-time Migration
+### Just-In-Time migration
 
-Until you are ready to use only Okta for authentication, your users can sign in to Okta, and Okta will delegate authentication to your current Identity Provider. Your current identity directories and Universal Directory may coexist as long as required.
+Until you are ready to use only Okta for authentication, your users can sign in to Okta, and Okta delegates authentication to your current Identity Provider. Your current identity directories and Universal Directory may coexist as long as required.
 
 There are three strategies for user migration:
 
-1. In a **bulk migration strategy**, you divide users, groups, and data into sections. Create an order in which each section will be migrated as a whole, and a schedule for migrating each section. For example, you may migrate everything in one go or create twelve portions and migrate one a month.
-2. In a **just-in-time strategy**, when a user logs into their application, their credentials are checked against their original Identity Provider. If the user exists there but not in Okta, the user is mirrored in Okta. If the user already exists in the original provider and Okta, and the information in the original has been updated, then the user's information in Okta is updated from the original.
+1. In a **bulk migration strategy**, you divide users, groups, and data into sections. Create an order in which each section is migrated as a whole, and a schedule for migrating each section. For example, you may migrate everything in one go or create twelve portions and migrate one a month.
+2. In a **just-in-time strategy**, when a user signs into their application, their credentials are checked against their original Identity Provider. If the user exists there but not in Okta, the user is mirrored in Okta. If the user already exists in the original provider and Okta, and the information in the original has been updated, then the user's information in Okta is updated from the original.
 3. A hybrid of bulk and just-in-time strategies. For example, you could consider migrating active users using a just-in-time strategy and inactive users in bulk in one go.
 
-> **Note:** A Just-in-time strategy is supported when migrating from Azure Active Directory or an on-prem LDAP directory server.
+> **Note:** A just-in-time strategy is supported when migrating from Azure Active Directory or an on-premises LDAP directory server.
 
-### De-duplicating user profiles
+### De-duplicate user profiles
 
-A common issue when migrating user profiles into a common directory from multiple sources is how to identify and merge several profiles representing the same user into one.
+A common issue when migrating user profiles into a common directory from multiple sources is how to identify and merge several profiles that represent the same user into one.
 
-When you import users, you can create Okta rules to match any attribute currently mapped from a source user profile to an Okta user profile. Attribute matching helps you sync identities from multiple applications and determine whether an imported user is new or if the user profile already exists in Okta. For more information on how to create matches, see [Match imported user attributes](https://help.okta.com/okta_help.htm?type=oie&id=ext_match-user).
+When you import users, you can create Okta rules to match any attribute currently mapped from a source user profile to an Okta user profile. Attribute matching helps you sync identities from multiple applications and determine whether an imported user is new or if the user profile already exists in Okta. See [Match imported user attributes](https://help.okta.com/okta_help.htm?type=oie&id=ext_match-user).
 
-### Updating applications to OIDC
+### Update applications to OIDC
 
-OAuth 2.0 and OIDC are the standard protocols on which Okta's authentication and authorization solutions are based.
+OAuth 2.0 and OIDC are the standard protocols on which Okta authentication and authorization solutions are based.
 
 Using Universal Directory as a single Identity Provider for your applications, you can already take advantage of [Okta Workflows](https://help.okta.com/wf/en-us/Content/Topics/Workflows/workflows-main.htm) to simplify onboarding and offboarding, user management, and reporting. To take full advantage of Okta's features and enable [Single Sign-On](https://www.okta.com/topic/single-sign-on/), multifactor authentication, passwordless access, and more, all your applications should use OIDC to authenticate users rather than SAML or another solution.
 

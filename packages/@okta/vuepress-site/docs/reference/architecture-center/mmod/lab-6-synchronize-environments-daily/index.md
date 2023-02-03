@@ -2,11 +2,11 @@
 title: Schedule drift detection daily
 ---
 
-# Managing multiple Okta environments tutorial 6: Schedule drift detection daily
+# Manage multiple Okta environments tutorial 6: Schedule drift detection daily
 
 In the previous tutorial, you learned how to detect changes in the production environment and synchronize those changes back to your development environment. Now you'll add a workflow to trigger a daily plan run through Terraform. Specifically, you'll create a workflow to run a speculative plan to detect changes in the production environment daily at 0900 EST.
 
-If any changes are detected, it will send a notification message to a Slack channel.
+If any changes are detected, it sends a notification message to a Slack channel.
 
 > **Note:** You have various options for where to send the notification. This example uses Slack. If you don't have Slack, it's easy to create a trial account if you want to follow along, or you can choose a different destination and use this example as a guide.
 
@@ -20,7 +20,7 @@ To create a Team API token in Terraform Cloud:
 
 1. Go to your top-level Terraform Workspaces page.
 1. Navigate to **Settings > Teams**.
-1. In the Team API Token section, click **Create a team token** to generate and display the token; you'll not be able to see it again.
+1. In the Team API Token section, click **Create a team token** to generate and display the token. You won't be able to see it again.
 
 To find your Terraform workspace ID:
 
@@ -37,7 +37,7 @@ To find your Terraform workspace ID:
 
 1. Download the example workflow:
    1. Go to `https://drive.google.com/file/d/1IKhg65fHCSbp9qXYBxB2r2zxmsTcdWOu`.
-   1. In the No preview available panel in the page that opens, click **Download** to download the example workflow.
+   1. On the No preview available panel in the page that opens, click **Download** to download the example workflow.
 
 1. Open the Okta Admin Console for your production org.
 1. Choose **Workflow > Workflows** to show the Welcome to Workflows page.
@@ -130,7 +130,7 @@ The connection is added to the **Connections** tab for the workflow.
 
 ## Test your changes
 
-1. In the **Flows** tab, click the **ON/OFF** toggle to enable the workflow.
+1. On the **Flows** tab, click the **ON/OFF** toggle to enable the workflow.
 2. Select your workflow, and click **Test** to run through the flow. The **Flow History** panel on the right shows the results.
 
    <div class="full border">

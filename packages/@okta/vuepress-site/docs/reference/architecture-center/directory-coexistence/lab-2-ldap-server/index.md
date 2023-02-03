@@ -84,7 +84,7 @@ Create the initial environment for the tutorial where an application authenticat
 
 ## Connect Okta LDAP Agent and import users
 
-With the basic environment set up, you need to connect the OpenLDAP directory server to your Okta org with an instance of Okta LDAP Agent. Then, import the LDAP users into Universal Directory.
+With the basic environment set up, connect the OpenLDAP directory server to your Okta org with an instance of Okta LDAP Agent. Then, import the LDAP users into Universal Directory.
 
 > **Note:** Okta LDAP Agent is usually installed on-premises in the same network as the LDAP server it's connecting to Okta. For this lab, you'll use an Okta LDAP Agent instance in a Docker container.
 
@@ -99,7 +99,7 @@ Stop the currently running containers and sign in to your Okta account.
    okta login
    ```
 
-   If you are already signed into Okta, a prompt similar to the following is returned. The current sign-in configuration is based on the Okta org URL and API token that you provided at your previous `okta login` command. If you want to use the existing configuration, answer **N** and skip steps a and b. Otherwise, answer **Y** and continue to steps a and b.
+   If you are already signed in to Okta, a prompt similar to the following is returned. The current sign-in configuration is based on the Okta org URL and API token that you provided at your previous `okta login` command. If you want to use the existing configuration, answer **N** and skip steps a and b. Otherwise, answer **Y** and continue to steps a and b.
 
    ```txt
    An existing Okta Organization (https://dev-133337.okta.com) was found in C:\mydirectory\.okta\okta.yaml
@@ -140,25 +140,25 @@ Connect the LDAP directory server to Okta with an Okta LDAP Agent. The Okta LDAP
 
    For example, `OKTA_URL="https://dev-133337.okta.com"`
 
-1. In the console, start the application:
+1. In the terminal, start the application:
 
    ```bash
    docker compose up
    ```
 
-1. The first time the **ldap-agent** container starts, an authentication link is provided in the console output.
+1. The first time the **ldap-agent** container starts, an authentication link is provided in the terminal output.
 
    ```txt
    ldap-agent      Please visit the URL: https://dev-133337.okta.com/oauth2/auth?code=mzsggy7t before Fri Feb 03 20:00:00 UTC 2023 to authenticate and continue agent reistration.
    ```
 
-   > **Tip:** If you don't see a link for the `ldap-agent` in the console output, or you see `ldap-agent` exited with code 3, first type <kbd>Ctrl</kbd> + <kbd>C</kbd> in the console to stop the application. Next, in the `okta-reference-coexistence-ldap-example/.env` file, verify that you have straight quotes and that your Okta account name is spelled correctly. Correct any errors and save the file. Finally, in the console, run `docker compose up`.
+   > **Tip:** If you don't see a link for the `ldap-agent` in the terminal output, or you see `ldap-agent` exited with code 3, first type <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal to stop the application. Next, in the `okta-reference-coexistence-ldap-example/.env` file, verify that you have straight quotes and that your Okta account name is spelled correctly. Correct any errors and save the file. Finally, in the terminal, run `docker compose up`.
 
-1. Open a browser and navigate to the URL provided in the console to link the Okta LDAP Agent with your free Okta account. For example, for the sample console output shown in the previous step navigate to `https://dev-133337.okta.com/oauth2/auth?code=mzsggy7t`.
+1. Open a browser and navigate to the URL provided in the terminal to link the Okta LDAP Agent with your free Okta account. For example, for the sample terminal output shown in the previous step navigate to `https://dev-133337.okta.com/oauth2/auth?code=mzsggy7t`.
 
    > **Caution:** You must complete this step within 10 minutes of executing `docker compose up`.
 
-   A **token is expired** message may be output to the console or displayed when attempting to go to the URL in the browser.
+   A **token is expired** message may be output to the terminal or displayed when attempting to go to the URL in the browser.
 
    <div class="half">
 
@@ -168,7 +168,7 @@ Connect the LDAP directory server to Okta with an Okta LDAP Agent. The Okta LDAP
 
    If it appears, perform the following steps:
 
-   1. Type <kbd>Ctrl</kbd> + <kbd>C</kbd> in the console to stop the container.
+   1. Type <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal to stop the container.
    2. Type `docker compose down` to stop and delete the container.
    3. Open Docker Desktop and delete the `okta-reference-coexistence-ldap-example` container, if present.
    4. Open the Okta Admin Console for your org and delete any LDAP agents, interfaces, and users that you've imported or added in this exercise.
@@ -386,7 +386,7 @@ In this section, you create a new user with a new admin role in Universal Direct
    1. Choose **Security** > **Administrators** > **Resources** > **Create new resource set**.
    1. Set **Resource set name** to **Users & Groups**. This sets **Resource set description** to the same value.
    1. Set**Resource type** to **Users**.
-   1. Verify **Constrain to all Users** is selected.
+   1. Verify that **Constrain to all Users** is selected.
    1. Click **Add another resource type**.
    1. Set the second **Resource type** to **Groups**.
    1. Verify the second **Constrain to all Users** is selected.
@@ -460,7 +460,7 @@ If you see an error message similar to the following when you sign in:
 
 Perform the following steps:
 
-1. Enter <kbd>Ctrl</kbd> + <kbd>C</kbd> in the console to stop the containers.
+1. Enter <kbd>Ctrl</kbd> + <kbd>C</kbd> in the terminal to stop the containers.
 
 2. Enter `docker compose down` to stop and delete the containers.
 
@@ -468,7 +468,7 @@ Perform the following steps:
 
 4. Save the `okta-reference-coexistence-ldap-example/.env` file.
 
-5. In the console, start the application with `docker compose up`.
+5. In the terminal, start the application with `docker compose up`.
 
 6. Repeat steps 3 and 4 from the previous section to sign in to the application.
 
@@ -490,7 +490,7 @@ You can replace the Okta LDAP Interface by updating the application to use OIDC.
    git checkout main
    ```
 
-1. Create an Okta OIDC Application and register the application with Okta:
+1. Create an Okta OIDC application and register the application with Okta:
 
    ```bash
    okta start
@@ -518,7 +518,7 @@ You can replace the Okta LDAP Interface by updating the application to use OIDC.
    docker compose up
    ```
 
-1. Open a private/incognito window and navigate to the same URL as before, `http://localhost:8080`. This time you are redirected to Okta to sign in. Sign in with the user's email address and password: `user01@example.com` and `password1`. Okta connects back to the LDAP server for authentication to sign in to the `okta-reference-coexistence-ldap-example` application.
+1. Open a private/incognito window and navigate to the same URL as before: `http://localhost:8080`. This time you are redirected to Okta to sign in. Sign in with the user's email address and password: `user01@example.com` and `password1`. Okta connects back to the LDAP server for authentication to sign in to the `okta-reference-coexistence-ldap-example` application.
 
    A successful sign in flow displays the following dialog:
 
@@ -546,4 +546,4 @@ After you complete the example, stop the application and remove the running Dock
 
 The LDAP users are already stored in Okta, but the passwords are managed by the LDAP server. To learn how to migrate users completely from LDAP to Okta, see [Migrating users from LDAP to Okta Universal Directory](https://support.okta.com/help/s/question/0D50Z00008Vr0MLSAZ/migrating-users-from-ldap-to-okta-universal-directory?language=en_US).
 
-> **Note**: The instructions in the article linked above require resetting the users' passwords. If you don't want to reset all user passwords, you can use an Okta password import hook. See [Account for hash types Okta does not support](/docs/reference/architecture-center/directory-coexistence/lab-3-generic-database/#account-for-hash-types-okta-does-not-support).
+> **Note**: The instructions in the article linked above require resetting the users' passwords. If you don't want to reset all user passwords, you can use an Okta password import hook. See [Account for hash types Okta doesn't support](/docs/reference/architecture-center/directory-coexistence/lab-3-generic-database/#account-for-hash-types-okta-does-not-support).
