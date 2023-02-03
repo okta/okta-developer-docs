@@ -26,7 +26,7 @@
             class="news__article-link dont-break-out"
             href="https://developer.okta.com/blog/2022/12/06/react-fastify-postgres"
           >
-            Read more
+            Read the blog post
           </a>
         </div>
       </article>
@@ -41,7 +41,7 @@
           class="news__article-link dont-break-out"
           href="https://developer.okta.com/blog/2022/10/20/spring-vault"
         >
-          Read more
+          Read the blog post
         </a>
       </article>
       <article class="news__article">
@@ -55,7 +55,7 @@
           class="news__article-link dont-break-out"
           href="https://developer.okta.com/blog/2022/10/14/quick-javascript-authentication"
         >
-          Read more
+          Read the blog post
         </a>
       </article>
       <article class="news__article">
@@ -69,7 +69,7 @@
           class="news__article-link dont-break-out"
           href="https://developer.okta.com/blog/2022/10/12/integrate-react-native-and-spring-boot-securely"
         >
-          Read more
+          Read the blog post
         </a>
       </article>
       <article class="news__article">
@@ -83,7 +83,7 @@
           class="news__article-link dont-break-out"
           href="https://developer.okta.com/blog/2022/10/11/angular-dependency-injection"
         >
-          Read more
+          Read the blog post
         </a>
       </article>
     </div>

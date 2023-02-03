@@ -5,7 +5,7 @@
         Start your Workforce Identity journey
       </h2>
       <p class="workforce__text dont-break-out">
-        Start with <strong>Learn</strong> if you’re new to Workforce Identity Cloud (WIC). Otherwise find the step you need and follow a link.
+        Welcome! Start with <strong>Learn</strong> if you’re new to Workforce Identity Cloud, or find the step in your journey and follow the links to browse docs.
       </p>
       <article
         v-for="(item, index) in items"
@@ -27,6 +27,14 @@
           >
             <div class="workforce__block-wrapper">
               <h4 class="workforce__block-title dont-break-out">
+                <img 
+                  class="workforce__block-img workforce__block-img-light" 
+                  :src="block.src"
+                >
+                <img 
+                  class="workforce__block-img workforce__block-img-dark" 
+                  :src="block.src_dark"
+                >
                 {{ block.title }}
               </h4>
               <p class="workforce__block-text dont-break-out">

@@ -35,6 +35,8 @@ export default {
           title: "Learn",
           block: [
             {
+              src: "/img/workforce1-light.svg",
+              src_dark: "/img/workforce1-dark.svg",
               title: "Understand the basics of identity",
               text: "Learn the key concepts you need for creating identity and access management (IAM) solutions for WIC.",
               list: [
@@ -62,6 +64,8 @@ export default {
           title: "Build",
           block: [
             {
+              src: "/img/workforce2-light.svg",
+              src_dark: "/img/workforce2-dark.svg",
               title: "Connect with APIs and SDKs",
               text: "Build apps and services that interact directly with WIC for a completely integrated experience.",
               list: [
@@ -80,6 +84,8 @@ export default {
               ]
             },
             {
+              src: "/img/workforce3-light.svg",
+              src_dark: "/img/workforce3-dark.svg",
               title: "Authenticate",
               text: "Define how your applications and APIs verify the identity of a user or device.",
               list: [
@@ -98,6 +104,8 @@ export default {
               ]
             },
             {
+              src: "/img/workforce4-light.svg",
+              src_dark: "/img/workforce4-dark.svg",
               title: "Brand and customize",
               text: "Tailor your IAM tools with your organization’s brand and give users a consistent, familiar experience",
               list: [
@@ -121,6 +129,8 @@ export default {
           title: "Publish",
           block: [
             {
+              src: "/img/workforce5-light.svg",
+              src_dark: "/img/workforce5-dark.svg",
               title: "Join the Okta Integration Network",
               text: "Promote your OIDC, SAML, SCIM, or API service integration to thousands of customers and grow your business with the Okta Integration Network (OIN)",
               list: [

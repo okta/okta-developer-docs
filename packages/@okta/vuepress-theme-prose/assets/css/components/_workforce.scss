@@ -197,14 +197,32 @@
 
 .workforce__block-wrapper {
   display: flex;
-  grid-column: 1 / 7;
+  grid-column: 1 / 8;
+  max-width: 544px;
   flex-direction: column;
   gap: 12px;
+}
+
+.workforce__block-img {
+  width: 44px;
+  height: 44px;
+  margin-right: 16px;
+}
+
+.workforce__block-img-light {
+  display: block;
+}
+
+.workforce__block-img-dark {
+  display: none;
 }
 
 .workforce__block-title {
   margin-top: 0;
   margin-bottom: 0;
+
+  display: flex;
+  align-items: center;
 
   font-weight: 500;
   font-size: 25px;
