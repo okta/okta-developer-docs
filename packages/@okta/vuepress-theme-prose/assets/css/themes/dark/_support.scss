@@ -23,3 +23,13 @@
 .support__paragraph {
   color: #dbdbdb;
 }
+
+.support__link {
+  @include media(">desktop") {
+    &:hover {
+      background-color: #3F59E4;
+
+      color: #ffffff !important;
+    }
+  }
+}

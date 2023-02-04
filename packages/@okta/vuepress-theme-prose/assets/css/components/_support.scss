@@ -109,10 +109,14 @@
 
   @include media(">desktop") {
     &:hover {
-      background-color: cv("support", "button-bg");
+      background-color: #3F59E4;
 
-      color: cv("support", "button-text");
+      color: #ffffff !important;
     }
+  }
+
+  span {
+    margin-left: 4px;
   }
 
   @include media(">desktop") {
