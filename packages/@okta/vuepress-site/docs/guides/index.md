@@ -73,6 +73,7 @@ guides:
  - saml-tracer
  - session-cookie
  - set-up-self-service-registration
+ - set-up-token-exchange
  - shared-sso-android-ios
  - sharing-cert
  - sign-in-to-spa-authjs

@@ -490,7 +490,12 @@ export const guides = [
             title: "Configure SSO for native apps",
             guideName: "configure-native-sso",
           },
-          { title: "Request user consent", guideName: "request-user-consent" },
+          {
+            title: "Set up On-Behalf-Of Token Exchange",
+            guideName: "set-up-token-exchange",
+          },
+          { title: "Request user consent",
+            guideName: "request-user-consent" },
           {
             title: "Configure Device Authz grant flow",
             guideName: "device-authorization-grant",
