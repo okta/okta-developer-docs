@@ -60,11 +60,10 @@
   margin: 0 0 35px;
 
   font-weight: 400;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1.3em;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: cv("body", "white") !important;
+  color: #bfbfbf !important;
 }
 
 @include media("<desktop-xl") {
@@ -244,14 +243,14 @@
   padding-top: 25px;
   width: 100%;
 
-  border-top: 1px solid #fffefa;
+  border-top: 0.5px solid rgba(255 254 250 / 0.5);
 
   font-weight: 400;
   font-size: 14px;
   color: #fffefa;
 
   @include media(">desktop") {
-    margin-top: 85px;
+    margin-top: 182px;
   }
 }
 
@@ -432,4 +431,17 @@
 
 .app-footer ul.link-list li.link-list--item:last-child i.link-list--icon svg path {
   fill: #000000 !important;
+}
+
+.footer-logotype {
+  display: inline-block;
+  margin-bottom: 30px;
+
+  @include media(">desktop") {
+    margin-bottom: 72px;
+  }
+}
+
+.footer-text {
+  margin-bottom: 32px;
 }

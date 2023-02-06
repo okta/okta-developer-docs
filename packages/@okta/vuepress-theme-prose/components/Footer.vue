@@ -5,7 +5,10 @@
     </h2>
     <div class="footer--columns">
       <div class="footer--column need-support">
-        <a href="/">
+        <a
+          class="footer-logotype"
+          href="/"
+        >
           <img
             class="column--header"
             src="/img/logotype.svg"
@@ -14,7 +17,7 @@
             alt="Okta developer logotype"
           >
         </a>
-        <p>
+        <p class="footer-text">
           You can reach us directly at developers@okta.com or ask us on the
           <SmartLink
             :item="{ link: config.forum_url, target: '_self' }"
