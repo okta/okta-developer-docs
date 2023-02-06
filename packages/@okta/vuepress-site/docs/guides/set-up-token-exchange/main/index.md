@@ -74,7 +74,7 @@ Create a service app that represents API1.
 1. In the **General Settings** section of the **General** tab, click **Edit** and select **Token Exchange** as the grant type for your application.
 1. Click **Save**.
 1. Copy the client ID in the **Client Credentials** section, and then copy the client secret in the **CLIENT SECRETS** section.
-1. [Base64 encode](/docs/guides/implement-grant-type/clientcreds/main/#flow-specifics) the client ID and client secret for use in the token exchange request from API1 to API2.
+1. [Base64 encode](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret) the client ID and client secret for use in the token exchange request from API1 to API2.
 
 ### Update the custom authorization servers
 
@@ -110,24 +110,24 @@ An [access policy](/docs/guides/configure-access-policy/main/) helps you secure 
 1. Select the **Access Policies** tab, and then click **Add New Access Policy** to add a policy that allows the native app to access API1.
 1. In the **Add Policy** dialog that appears, enter the following:
 
-   * **Name:** Enter a name for the new access policy (**Access API1**).
+   * **Name:** Enter a name for the new access policy: **Access API1**.
    * **Description:** Enter a description.
    * **Assign to:** Select **The following clients**, start typing the name of the native app that you created earlier, and select it from the list that appears.
 
 1. Click **Create Policy**.
 1. Click **Add Rule** and in the dialog that appears, enter the following:
 
-   * **Name:** Enter a name for the rule (**Mobile app to API1**).
+   * **Name:** Enter a name for the rule: **Mobile app to API1**.
    * **AND Scopes requested:** Select **The following scopes** and enter **openid**.
 
 1. Click **Create rule**.
 1. Repeat steps 1-5 to create a policy and a rule that allows the service app that represents API1 to talk to API2. Use the following values for the policy:
 
-   * **Name:** Access API2.
-   * **Assign to:** Select The following clients, start typing **API1** (the service app that you created earlier) and select it from the list that appears.
+   * **Name:** **Access API2**.
+   * **Assign to:** Select **The following clients**, start typing **API1** (the service app that you created earlier) and select it from the list that appears.
 
    Use the following values for the rule:
-   * **Name:** For this example, enter: API1 to API2.
+   * **Name:** For this example, enter: **API1 to API2**.
    * **AND Scopes requested:** Select The **following scopes**, start typing **api:access:read** and select it from the list that appears. Repeat for **api:access:write** and select it from the list.
 
 ## Flow specifics
@@ -141,7 +141,7 @@ curl --location --request POST \
   --url 'https://${yourOktaDomain}/oauth2/{authServerId}/v1/authorize' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${nativeAppclientId}' \
+  --data-urlencode 'client_id=${nativeAppClientId}' \
   --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
   --data-urlencode 'response_type=code' \
   --data-urlencode 'scope=openid' \
@@ -167,7 +167,7 @@ curl --location --request POST \
   --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
   --data-urlencode 'code=FQGFlDO-J1j.....QvabuZ7-cfYJ0KtKB8' \
   --data-urlencode 'code_verifier=xO5wgOEH5UA2XUdVQ88pM.....Rtc5ERKq1MeonMo8QLCSRYlDk' \
-  --data-urlencode 'client_id=${nativeAppclientId}'
+  --data-urlencode 'client_id=${nativeAppClientId}'
 ```
 
 **Response**
@@ -288,7 +288,7 @@ Perform the requests in the previous [Flow specifics](#flow-specifics) section. 
 
 ```curl
 curl --location --request POST \
-  --url 'https://${yourOktaDomain}/oauth2/{trustedauthServerId}/v1/token' \
+  --url 'https://${yourOktaDomain}/oauth2/{trustedAuthServerId}/v1/token' \
   --header 'Accept: application/json' \
   --header 'Authorization: Basic {Base64 encoded service app client ID and client secret}' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -303,7 +303,7 @@ This request is sent to the authorization server with the trusted server that yo
 
 Properties sent in the request body:
 
-* `grant-type`: urn:ietf:params:oauth:grant-type:token-exchange
+* `grant_type`: urn:ietf:params:oauth:grant-type:token-exchange
 * `subject_token_type`: urn:ietf:params:oauth:token-type:access_token
 * `subject_token`: access token from the Authorization Code with PKCE flow
 * `scope`: the scopes required for API1 to talk to API2
