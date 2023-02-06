@@ -107,16 +107,16 @@
   text-decoration: none;
   color: cv("support", "button-text") !important;
 
+  span {
+    margin-left: 4px;
+  }
+
   @include media(">desktop") {
     &:hover {
-      background-color: #3F59E4;
+      background-color: #3f59e4;
 
       color: #ffffff !important;
     }
-  }
-
-  span {
-    margin-left: 4px;
   }
 
   @include media(">desktop") {

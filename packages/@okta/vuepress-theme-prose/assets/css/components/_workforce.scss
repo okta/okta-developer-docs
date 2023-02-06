@@ -198,15 +198,15 @@
 .workforce__block-wrapper {
   display: flex;
   grid-column: 1 / 8;
-  max-width: 544px;
   flex-direction: column;
   gap: 12px;
+  max-width: 544px;
 }
 
 .workforce__block-img {
+  margin-right: 16px;
   width: 44px;
   height: 44px;
-  margin-right: 16px;
 }
 
 .workforce__block-img-light {
@@ -218,11 +218,10 @@
 }
 
 .workforce__block-title {
-  margin-top: 0;
-  margin-bottom: 0;
-
   display: flex;
   align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
 
   font-weight: 500;
   font-size: 25px;

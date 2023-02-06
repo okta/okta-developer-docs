@@ -17,7 +17,7 @@
 }
 
 .support__sidebar-title {
-  color: #BFBFBF;
+  color: #bfbfbf;
 }
 
 .support__paragraph {
@@ -27,7 +27,7 @@
 .support__link {
   @include media(">desktop") {
     &:hover {
-      background-color: #3F59E4;
+      background-color: #3f59e4;
 
       color: #ffffff !important;
     }
