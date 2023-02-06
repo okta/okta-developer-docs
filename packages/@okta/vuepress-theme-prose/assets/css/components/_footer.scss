@@ -29,6 +29,7 @@
 
   flex-shrink: 0;
   padding: 94px 64px;
+  padding-bottom: 24px;
 
   background-color: #191919 !important;
 }
@@ -238,17 +239,20 @@
 }
 
 .app-footer .footer--columns .copyright {
-  position: absolute;
-  bottom: 145px;
-  left: auto;
+  margin: 0;
+  margin-top: 30px;
+  padding-top: 25px;
+  width: 100%;
 
-  clear: both;
-  margin: 38px 0 0;
-  padding: 38px 0 0;
+  border-top: 1px solid #fffefa;
 
-  font-weight: 500;
-  font-size: 1em;
+  font-weight: 400;
+  font-size: 14px;
   color: #fffefa;
+
+  @include media(">desktop") {
+    margin-top: 85px;
+  }
 }
 
 .app-footer .footer--columns .copyright::before {
@@ -399,4 +403,33 @@
 
 .app-footer .website .description {
   font-weight: 500;
+}
+
+.footer-social-networks {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  padding-top: 32px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 38px;
+    height: 1px;
+
+    background-color: #fffefa;
+
+    opacity: 0.5;
+  }
+}
+
+.app-footer ul.link-list li.link-list--item:last-child i.link-list--icon svg path {
+  fill: black !important;
 }

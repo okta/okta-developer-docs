@@ -23,12 +23,7 @@
             forum.
           </SmartLink>
         </p>
-      </div>
-      <div class="footer--column social">
-        <h3 class="column--header">
-          {{ config.footer_nav.social.heading }}
-        </h3>
-        <ul class="link-list">
+        <ul class="footer-social-networks link-list">
           <li
             v-for="(item, itemIndex) in config.footer_nav.social.items"
             :key="itemIndex"
