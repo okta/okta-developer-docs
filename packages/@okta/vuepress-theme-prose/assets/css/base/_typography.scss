@@ -2,7 +2,8 @@
   font-weight: 400;
   font-style: normal;
   font-family: "Aeonik";
-  src: url("/fonts/Aeonik-Regular.otf");
+  src: url("/fonts/aeonik/regular/aeonik-regular.woff2") format("woff2"),
+    url("/fonts/aeonik/regular/aeonik-regular.woff") format("woff");
   font-display: swap;
 }
 
@@ -10,7 +11,8 @@
   font-weight: 500;
   font-style: normal;
   font-family: "Aeonik";
-  src: url("/fonts/Aeonik-Medium.otf");
+  src: url("/fonts/aeonik/medium/aeonik-medium.woff2") format("woff2"),
+    url("/fonts/aeonik/medium/aeonik-medium.woff") format("woff");
   font-display: swap;
 }
 
