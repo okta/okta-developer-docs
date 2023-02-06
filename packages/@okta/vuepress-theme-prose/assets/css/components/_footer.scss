@@ -28,10 +28,15 @@
   position: relative;
 
   flex-shrink: 0;
+
+  background-color: #191919 !important;
+}
+
+.app-footer__wrapper {
   padding: 94px 64px;
   padding-bottom: 24px;
 
-  background-color: #191919 !important;
+  border-top: 1px solid #555555;
 }
 
 .app-footer p {
@@ -252,12 +257,6 @@
   @include media(">desktop") {
     margin-top: 182px;
   }
-}
-
-.app-footer .footer--columns .copyright::before {
-  top: 0;
-
-  @include separator;
 }
 
 @include media("<desktop-xl") {
