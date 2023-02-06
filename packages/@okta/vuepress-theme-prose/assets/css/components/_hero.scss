@@ -1,0 +1,95 @@
+.hero {
+  --hero-space-y: 30px;
+
+  padding-top: var(--hero-space-y);
+  padding-bottom: var(--hero-space-y);
+  overflow: hidden;
+
+  background: linear-gradient(
+    86.51deg,
+    #1a31a9 -5.67%,
+    #3f59e4 25.9%
+  );
+
+  @include media(">tablet") {
+    --hero-space-y: 40px;
+  }
+
+  @include media(">desktop") {
+    --hero-space-y: 52px;
+
+    background: url("data:image/svg+xml,%3Csvg width='1076' height='260' viewBox='0 0 1076 260' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='566' cy='106' r='566' fill='url(%23paint0_radial_1982_10677)'/%3E%3Cdefs%3E%3CradialGradient id='paint0_radial_1982_10677' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(19.5 -1041.95) rotate(72.5184) scale(2090.56)'%3E%3Cstop stop-color='%23FFFEFA'/%3E%3Cstop offset='0.191854' stop-color='%23FFFEFA'/%3E%3Cstop offset='0.573443' stop-color='%233F59E4'/%3E%3Cstop offset='1' stop-color='%231A31A9'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E%0A"), linear-gradient(
+      86.51deg,
+      #1a31a9 -5.67%,
+      #3f59e4 25.9%,
+      #f6f1e7 74.73%
+    );
+    background-position: right center;
+    background-repeat: no-repeat;
+  }
+}
+
+.dark-theme .hero {
+  background: linear-gradient(
+    86.71deg,
+    #191919 -3.57%,
+    #4cb7a3 45.07%
+  );
+
+  @include media(">desktop") {
+    background: url("data:image/svg+xml,%3Csvg width='1076' height='260' viewBox='0 0 1076 260' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='566' cy='106' r='566' fill='url(%23paint0_radial_2009_10880)'/%3E%3Cdefs%3E%3CradialGradient id='paint0_radial_2009_10880' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(566 -1391) rotate(90) scale(2126.22)'%3E%3Cstop stop-color='%23FFFEFA'/%3E%3Cstop offset='0.191854' stop-color='%23FFFEFA'/%3E%3Cstop offset='0.652154' stop-color='%234CB7A3'/%3E%3Cstop offset='0.848946' stop-color='%23096256'/%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E%0A"), linear-gradient(
+      86.71deg,
+      #191919 -3.57%,
+      #4cb7a3 45.07%,
+      #f6f1e7 88.9%
+    );
+    background-position: right center;
+    background-repeat: no-repeat;
+  }
+}
+
+.hero__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero__title,
+.hero__paragraph {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  color: #fffefa;
+}
+
+.hero__title {
+  --hero-title-size: 45px;
+
+  font-weight: 400;
+  font-size: var(--hero-title-size);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-transform: capitalize;
+
+  @include media(">tablet") {
+    --hero-title-size: 60px;
+  }
+
+  @include media(">desktop") {
+    --hero-title-size: 72px;
+  }
+}
+
+.hero__paragraph {
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: 0.005em;
+
+  @include media(">tablet") {
+    max-width: 500px;
+  }
+}
+
+.dark-theme .hero__paragraph {
+  color: #b1e4de;
+}

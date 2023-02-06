@@ -1,25 +1,29 @@
 <template>
   <footer class="app-footer">
+    <h2 class="visually-hidden">
+      Additional links
+    </h2>
     <div class="footer--columns">
       <div class="footer--column need-support">
-        <h4 class="column--header">
-          {{ config.footer_nav.need_support.heading }}
-        </h4> 
+        <a href="/">
+          <img
+            class="column--header"
+            src="/img/logotype.svg"
+            width="180"
+            height="28"
+            alt="Okta developer logotype"
+          >
+        </a>
         <p>
-          You can contact your Okta account team or ask us on our
+          You can reach us directly at developers@okta.com or ask us on the
           <SmartLink
             :item="{ link: config.forum_url, target: '_self' }"
             classes="link"
           >
-            forum
-          </SmartLink>.
+            forum.
+          </SmartLink>
         </p>
-      </div>
-      <div class="footer--column social">
-        <h4 class="column--header">
-          {{ config.footer_nav.social.heading }}
-        </h4>
-        <ul class="link-list">
+        <ul class="footer-social-networks link-list">
           <li
             v-for="(item, itemIndex) in config.footer_nav.social.items"
             :key="itemIndex"
@@ -40,9 +44,9 @@
         </ul>
       </div>
       <div class="footer--column contact">
-        <h4 class="column--header">
+        <h3 class="column--header">
           {{ config.footer_nav.contact.heading }}
-        </h4>
+        </h3>
         <ul class="link-list">
           <li
             v-for="(item, itemIndex) in config.footer_nav.contact.items"
@@ -59,9 +63,9 @@
         </ul>
       </div>
       <div class="footer--column more">
-        <h4 class="column--header">
+        <h3 class="column--header">
           {{ config.footer_nav.more.heading }}
-        </h4>
+        </h3>
         <ul class="link-list">
           <li
             v-for="(item, itemIndex) in config.footer_nav.more.items"

@@ -1,0 +1,270 @@
+.workforce {
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  background-color: cv("workforce", "bg");
+
+  @include media(">tablet") {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  @include media(">desktop") {
+    padding-top: 75px;
+    padding-bottom: 58px;
+  }
+}
+
+.workforce__title,
+.workforce__text {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  color: cv("workforce", "text");
+}
+
+.workforce__title {
+  --workforce-title-size: 30px;
+
+  margin-bottom: 16px;
+
+  font-weight: 400;
+  font-size: var(--workforce-title-size);
+  letter-spacing: -0.02em;
+
+  @include media(">tablet") {
+    --workforce-title-size: 37px;
+  }
+
+  @include media(">desktop") {
+    --workforce-title-size: 48px;
+  }
+}
+
+.workforce__text {
+  margin-bottom: 30px;
+  max-width: 742px;
+
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.3;
+  color: #555555;
+
+  strong {
+    color: #424242;
+  }
+
+  @include media(">tablet") {
+    margin-bottom: 40px;
+  }
+
+  @include media(">desktop") {
+    margin-bottom: 48px;
+  }
+}
+
+.workforce__article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "title line" "card card";
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+
+  @include media(">tablet") {
+    margin-bottom: 45px;
+  }
+
+  @include media(">desktop") {
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 120px 1fr;
+    grid-template-areas: "title card" "line card";
+    align-items: start;
+    row-gap: 34px;
+    column-gap: 70px;
+  }
+}
+
+.workforce__article-title {
+  grid-area: title;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-weight: 500;
+  font-size: 32px;
+  letter-spacing: -0.01em;
+  color: #555555;
+
+  @include media(">tablet") {
+    justify-self: center;
+  }
+}
+
+.workforce__article-line {
+  position: relative;
+
+  display: flex;
+  grid-area: line;
+  align-items: center;
+
+  &::before {
+    content: "";
+
+    display: block;
+    width: 100%;
+    height: 1px;
+
+    background-color: #8c8c8c;
+
+    @include media(">desktop") {
+      width: 1px;
+      height: 100%;
+    }
+  }
+
+  &::after {
+    content: "";
+
+    position: absolute; 
+    right: 0;
+    left: auto;
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%; 
+    background-color: #8c8c8c;
+  }
+
+  @include media(">desktop") {
+    flex-direction: column;
+    height: 100%;
+    &::after {
+      transform: translateX(-50%);
+
+      bottom: -10px;
+      left: 50%;
+    }
+  }
+}
+
+.workforce__block {
+  grid-area: card;
+  padding: 30px;
+
+  border-radius: 16px;
+  background-color: #f4f4f4;
+
+  @include media(">tablet") {
+    padding: 40px;
+  }
+
+  @include media(">desktop") {
+    padding: 48px;
+  }
+}
+
+.workforce__block-item {
+  padding-top: 30px;
+  
+  padding-bottom: 30px;
+
+  border-bottom: 1px solid #a1a1a7;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+
+    border-bottom: none;
+  }
+
+  @include media(">tablet") {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    justify-content: space-between;
+  
+    gap: 15px;
+  }
+
+  @include media(">desktop") {
+    justify-content: space-between;
+    column-gap: 30px;
+  }
+}
+
+.workforce__block-wrapper {
+  display: flex;
+  grid-column: 1 / 8;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 544px;
+}
+
+.workforce__block-img {
+  margin-right: 16px;
+  width: 44px;
+  height: 44px;
+}
+
+.workforce__block-img-light {
+  display: block;
+}
+
+.workforce__block-img-dark {
+  display: none;
+}
+
+.workforce__block-title {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  font-weight: 500;
+  font-size: 25px;
+  letter-spacing: -0.01em;
+  color: cv("workforce", "text");
+
+  @include media(">desktop") {
+    font-size: 32px;
+  }
+}
+
+.workforce__block-text {
+  margin-bottom: 0;
+  max-width: 528px;
+
+  font-size: 20px;
+  color: #555555;
+}
+
+.workforce__list {
+  display: flex;
+  grid-column: 9 / 13;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
+
+  @include media(">tablet") {
+    margin-top: 0;
+  }
+
+  @include media(">desktop") {
+    gap: 24px;
+  }
+}
+
+.workforce__list-link {
+  border-bottom: 1px solid #191919;
+
+  font-weight: 500;
+  font-size: 16px;
+  @include media(">desktop") {
+    &:hover {
+      border-color: #3f59e4;
+    }
+  }
+}

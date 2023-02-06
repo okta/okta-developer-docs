@@ -1,0 +1,39 @@
+.resources__list-link {
+  span {
+    border-bottom: 1px solid #ffffff;
+  }
+
+  @include media(">desktop") {
+    &:hover {
+      span {
+        border-color: #b1e4de;
+      }
+    }
+  }
+}
+
+.resources__status {
+  color: #bfbfbf;
+}
+
+.resources__title {
+  border-bottom-color: #555555;
+
+  color: #dbdbdb;
+}
+
+.resources__paragraph {
+  color: #dbdbdb;
+}
+
+.resources__list {
+  background-color: #2b2b2b;
+}
+
+.resources__list-title {
+  color: #bfbfbf;
+}
+
+.resources__list-text {
+  color: #dbdbdb;
+}

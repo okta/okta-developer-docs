@@ -2,69 +2,15 @@
   <div class="homepage content">
     <div class="content--container">
       <Sidebar />
-      <div class="width-adjuster">
-        <AnnouncementBanner>
-          <template #description>
-            <strong>We've got a new API reference in the works!</strong><br>
-            With a fresh look and feel, our new API content features a more logical navigation and a wider variety of code examples. <a href="https://developer.okta.com/docs/api/">Try the beta now</a>.
-          </template>
-        </AnnouncementBanner>
-        <div class="justify-content-center">
-          <div class="homepage--elevated">
-            <div class="homepage--top-section homepage--section-margins">
-              <div class="row flex align-items-center homepage--intro-heading">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <h1 class="homepage--main-heading homepage--color-main">
-                    Okta Developer Portal
-                  </h1>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                  <h6>Auth for All</h6>
-                  <p class="homepage--section-description">
-                    Quickly deploy auth that protects your apps,<br>
-                    APIs, and infrastructure
-                  </p>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-12 homepage--sub-heading">
-                  <h2 class="homepage--color-main">
-                    Let’s get started
-                  </h2>
-                </div>
-              </div>
-
-              <div class="homepage--selector-block-margin selector-tiles">
-                <div
-                  v-for="(tile, index) in $page.frontmatter.tiles"
-                  :key="index"
-                  class="selector-tile-item"
-                >
-                  <SelectorTile :tile-data="tile" />
-                </div>
-              </div>
-            </div>
-            <div
-              class="homepage--assurance-block-margin homepage--section-margins"
-            >
-              <div class="row flex justify-content-around">
-                <div
-                  v-for="(assurance, index) in $page.frontmatter.assurances"
-                  :key="index"
-                  class="col-xl-4 col-lg-4 col-md-4 col-sm-12"
-                >
-                  <AssuranceItem :item="assurance" />
-                </div>
-              </div>
-            </div>
-            <div
-              class="homepage--partners-block-margin homepage--section-margins"
-            >
-              <CompanyLogos />
-            </div>
-          </div>
-        </div>
+    </div>
+    <div class="width-adjuster">
+      <div class="justify-content-center">
+        <Hero />
+        <WorkForce :items="workforce" />
+        <Resources />
+        <News />
+        <Support />
+        <Dialog />
       </div>
     </div>
   </div>
@@ -74,16 +20,133 @@
 export default {
   name: "Home",
   components: {
+    Dialog: () => import("../components/Dialog"),
+    Hero: () => import("../components/Hero"),
     Sidebar: () => import("../components/Sidebar"),
-    SelectorTile: () => import("../components/SelectorTile"),
-    AssuranceItem: () => import("../components/AssuranceItem"),
-    CompanyLogos: () => import("../components/CompanyLogos"),
-    SmartLink: () => import("../components/SmartLink"),
+    WorkForce: () => import("../components/Workforce"),
+    Resources: () => import("../components/Resources"),
+    News: () => import("../components/News"),
+    Support: () => import("../components/Support"),
   },
-
   data() {
     return {
-      pseudoAuthorizedCodeBlock: false
+      workforce: [
+        {
+          title: "Learn",
+          block: [
+            {
+              src: "/img/workforce1-light.svg",
+              src_dark: "/img/workforce1-dark.svg",
+              title: "Understand the basics of identity",
+              text: "Learn the key concepts you need for creating identity and access management (IAM) solutions for WIC.",
+              list: [
+                {
+                  url: "https://developer.okta.com/docs/concepts/iam-overview",
+                  text: "Understand IAM",
+                },
+                {
+                  url: "https://developer.okta.com/docs/concepts/how-okta-works",
+                  text: "How WIC works",
+                },
+                {
+                  url: "https://developer.okta.com/docs/concepts/oauth-openid",
+                  text: "Choose an authentication protocol",
+                },
+                {
+                  url: "https://developer.okta.com/signup",
+                  text: "Get a developer org",
+                },
+              ]
+            }
+          ]
+        },
+        {
+          title: "Build",
+          block: [
+            {
+              src: "/img/workforce2-light.svg",
+              src_dark: "/img/workforce2-dark.svg",
+              title: "Connect with APIs and SDKs",
+              text: "Build apps and services that interact directly with WIC for a completely integrated experience.",
+              list: [
+                {
+                  url: "https://developer.okta.com/docs/reference",
+                  text: "Explore reference APIs",
+                },
+                {
+                  url: "https://developer.okta.com/code",
+                  text: "Explore our SDKs ",
+                },
+                {
+                  url: "https://developer.okta.com/docs/guides/embedded-authentication",
+                  text: "Explore embedded authentication use cases",
+                },
+              ]
+            },
+            {
+              src: "/img/workforce3-light.svg",
+              src_dark: "/img/workforce3-dark.svg",
+              title: "Authenticate",
+              text: "Define how your applications and APIs verify the identity of a user or device.",
+              list: [
+                {
+                  url: "https://developer.okta.com/docs/guides/redirect-authentication",
+                  text: "Start with redirect authentication",
+                },
+                {
+                  url: "https://developer.okta.com/docs/guides/authenticators-overview/main",
+                  text: "Set up multifactor authentication",
+                },
+                {
+                  url: "https://developer.okta.com/docs/guides/identity-providers",
+                  text: "Use an external IdP"
+                }
+              ]
+            },
+            {
+              src: "/img/workforce4-light.svg",
+              src_dark: "/img/workforce4-dark.svg",
+              title: "Brand and customize",
+              text: "Tailor your IAM tools with your organization’s brand and give users a consistent, familiar experience",
+              list: [
+                {
+                  url: "https://developer.okta.com/docs/guides/custom-url-domain/main",
+                  text: "Add a custom domain",
+                },
+                {
+                  url: "https://developer.okta.com/docs/guides/custom-email/main",
+                  text: "Style email notifications",
+                },
+                {
+                  url: "https://developer.okta.com/docs/guides/custom-widget/main",
+                  text: "Customize the sign-in page"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          title: "Publish",
+          block: [
+            {
+              src: "/img/workforce5-light.svg",
+              src_dark: "/img/workforce5-dark.svg",
+              title: "Join the Okta Integration Network",
+              text: "Promote your OIDC, SAML, SCIM, or API service integration to thousands of customers and grow your business with the Okta Integration Network (OIN)",
+              list: [
+                {
+                  url: "https://developer.okta.com/docs/guides/okta-integration-network/",
+                  text: "Learn about the OIN",
+                },
+                {
+                  url: "https://www.okta.com/integrations",
+                  text: "Go to the Okta Integration Network"
+                },
+              ]
+            }
+          ]
+        },
+      ]
     };
   },
 };

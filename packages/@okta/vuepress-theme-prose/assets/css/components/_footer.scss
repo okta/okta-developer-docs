@@ -29,8 +29,9 @@
 
   flex-shrink: 0;
   padding: 94px 64px;
+  padding-bottom: 24px;
 
-  background-color: cv("header");
+  background-color: #191919 !important;
 }
 
 .app-footer p {
@@ -52,7 +53,7 @@
 }
 
 .app-footer .footer--columns .footer--column {
-  flex: 0 0 170px;
+  flex: 0 0 190px;
 }
 
 .app-footer .footer--columns .footer--column .column--header {
@@ -63,7 +64,7 @@
   line-height: 1.3em;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: cv("body", "white");
+  color: cv("body", "white") !important;
 }
 
 @include media("<desktop-xl") {
@@ -107,7 +108,7 @@
 }
 
 .app-footer .footer--columns .contact {
-  flex: 0 0 170px;
+  flex: 0 0 190px;
 }
 
 @include media("<desktop-xl") {
@@ -163,6 +164,7 @@
 .app-footer .footer--columns .websites .website {
   display: flex;
   flex-direction: column;
+  align-items: start;
 }
 
 .app-footer .footer--columns .websites .website + .website {
@@ -181,7 +183,7 @@
   font-size: 16px;
   line-height: 1.7em;
   letter-spacing: 0.01em;
-  color: cv("text", "lighter");
+  color: rgb(255 254 250 / 0.8) !important;
 }
 
 @include media("<desktop-xl") {
@@ -237,17 +239,20 @@
 }
 
 .app-footer .footer--columns .copyright {
-  position: absolute;
-  bottom: 94px;
-  left: auto;
+  margin: 0;
+  margin-top: 30px;
+  padding-top: 25px;
+  width: 100%;
 
-  clear: both;
-  margin: 38px 0 0;
-  padding: 38px 0 0;
+  border-top: 1px solid #fffefa;
 
-  font-weight: 500;
-  font-size: 1em;
-  color: cv("body", "white");
+  font-weight: 400;
+  font-size: 14px;
+  color: #fffefa;
+
+  @include media(">desktop") {
+    margin-top: 85px;
+  }
 }
 
 .app-footer .footer--columns .copyright::before {
@@ -284,7 +289,7 @@
 .app-footer a.link {
   font-size: inherit;
   line-height: 1.3em;
-  color: cv("text", "lighter");
+  color: rgb(255 254 250 / 0.8) !important;
 }
 
 .app-footer a.link:hover {
@@ -312,7 +317,7 @@
 }
 
 .app-footer a.link--heading {
-  color: cv("body", "white");
+  color: cv("body", "white") !important;
 }
 
 .app-footer a.link[target="_blank"]:not([href^="mailto:"]).link--with-chevron-right::after {
@@ -350,7 +355,7 @@
 }
 
 .app-footer ul.link-list li.link-list--item i.link-list--icon svg path {
-  fill: cv("body", "white");
+  fill: #fffefa !important;
 }
 
 .app-footer ul.link-list li.link-list--item i.link-list--icon + span.link-list--text {
@@ -367,4 +372,64 @@
   .app-footer {
     padding: 60px 0;
   }
+}
+
+.app-footer .link {
+  font-weight: 500;
+}
+
+.app-footer .websites .link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: 12px;
+
+  line-height: 1;
+
+  &::after {
+    content: "";
+
+    display: block;
+    margin-left: 0;
+    width: 7px;
+    height: 10px;
+
+    background-image: url("/img/icons/arrow-right.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+.app-footer .website .description {
+  font-weight: 500;
+}
+
+.footer-social-networks {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  padding-top: 32px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 38px;
+    height: 1px;
+
+    background-color: #fffefa;
+
+    opacity: 0.5;
+  }
+}
+
+.app-footer ul.link-list li.link-list--item:last-child i.link-list--icon svg path {
+  fill: #000000 !important;
 }

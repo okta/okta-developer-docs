@@ -1,9 +1,3 @@
-header.page-header .sign-up--button {
-  border-color: cv("action");
-
-  color: cv("action");
-}
-
 @include media("<desktop") {
   header.page-header .menu--slideout {
     background-color: cv("body", "obscure");

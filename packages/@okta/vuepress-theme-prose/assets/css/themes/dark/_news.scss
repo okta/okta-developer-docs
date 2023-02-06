@@ -1,0 +1,37 @@
+.news__title {
+  border-color: #555555;
+
+  color: #dbdbdb;
+}
+
+@include media(">desktop") {
+  .news__article:hover .news__text {
+    color: #2b2b2b;
+  }
+
+  .news__article:hover .news__article-title,
+  .news__article:hover .news__article-link {
+    color: #191919;
+  }
+
+  .news__article:hover {
+    background-color: #4cb7a3;
+  }
+}
+
+.news__text {
+  color: #bfbfbf;
+}
+
+.news__article-link {
+  border-color: #ffffff;
+
+  color: #ffffff;
+  @include media(">desktop") {
+    &:hover {
+      border-color: #000000;
+
+      color: #000000 !important;
+    }
+  }
+}
