@@ -73,7 +73,7 @@ See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management
 
 ### Authorization servers and multibrand customizations
 
-Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the domain from the authorized request as the domain for the redirect URI when returning the authentication response. The Admin Console UI displays the org’s Okta subdomain when the org has multiple custom domains configured.
+Multibrand orgs use dynamic issuer mode with Identity Providers. As a result, Okta uses the domain from the authorized request as the domain for the redirect URI when returning the authentication response. The Admin Console displays the org’s Okta subdomain when the org has multiple custom domains configured.
 
 ## FAQs
 
