@@ -236,7 +236,7 @@ You can perform token exchange within a single custom authorization server or be
 
 A trusted server handles authenticated requests after the application obtains an access token. The incoming subject token (access token) is used to evaluate a subject.
 
-The following sections explain how to set up a trusted server, scopes, access policy, and rule. Then, you can make the token exchange request with the trusted server.
+The following sections explain how to set up a trusted server, access policy, and rule. Then, you can make the token exchange request with the trusted server.
 
 ### Add a trusted server
 
