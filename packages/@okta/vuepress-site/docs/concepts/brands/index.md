@@ -116,7 +116,7 @@ For example, a specific OAuth/OpenID Connect (OIDC) app with `client_id=foo`:
 
 In all three cases the user signs in to the same OIDC app, but sees three different brands. If you want each brand to send users to their own app, the `client_id` needs to correspond to the desired app.
 
-Access management to apps is controlled through app assignments, so any user can still access any app. Any brand can be applied to any app.
+Access management to apps is controlled through app assignments, so any user can still access any app. You can apply any brand to any app.
 
 If a custom domain doesn’t contain a `client _id`, Okta routes the user to the default app.
 
