@@ -12,19 +12,19 @@ This guide discusses how to retain user context in requests to downstream servic
 
 **Learning outcomes**
 
-Know the purpose of OAuth 2.0 On-Behalf-Of Token Exchange.
+Understand the purpose of OAuth 2.0 On-Behalf-Of Token Exchange.
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * Two custom authorization servers. See [Create an authorization server](/docs/guides/customize-authz-server/main/#create-an-authorization-server) if you need to add them for use with this guide.
-* The OAuth 2.0 On-Behalf-Of Token Exchange feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the OAuth 2.0 On-Behalf-Of Token Exchange feature and slide to enable.
+* The OAuth 2.0 On-Behalf-Of Token Exchange feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the OAuth 2.0 On-Behalf-Of Token Exchange feature and enable.
 
 ---
 
 ## Overview
 
-OAuth 2.0 solves the problem of delegated access to resources across services mediated by an authorization server. For example, a user delegates permission to a social networking mobile app to manage the user’s profile and run background processes on behalf of the user, like reminding the user about upcoming events. However, with the adoption of microservices, a resource server must sometimes access resources hosted by other downstream services on behalf of the user to satisfy a client request. Traditionally these API calls are made as machine-to-machine requests using an access token obtained using the client credentials grant type. However, the user context is lost while making these machine-to-machine requests.
+OAuth 2.0 solves the problem of delegated access to resources across services mediated by an authorization server. For example, a user delegates permission to a social networking mobile app to manage the user’s profile and run background processes on behalf of the user, like reminding the user about upcoming events. However, with the adoption of microservices, a resource server must sometimes access resources hosted by other downstream services on behalf of the user to satisfy a client request. Traditionally these API calls are made as machine-to-machine requests using an access token obtained using the Client Credentials grant type. However, the user context is lost while making these machine-to-machine requests.
 
 [OAuth On-Behalf-Of Token Exchange](https://tools.ietf.org/html/rfc8693) helps retain the user context in requests to downstream services. It provides a protocol approach to support scenarios where a client can exchange an access token received from an upstream client with a new token by interacting with the authorization server.
 
@@ -39,18 +39,16 @@ OAuth 2.0 solves the problem of delegated access to resources across services me
 > **Note:** This flow assumes that authentication and authorization of the user are complete and an access token and ID token have been issued by the Okta authorization server.
 
 1. The user is successfully signed in to a mobile app and makes a request.
-1. The mobile app includes the user’s valid access token in a request to the API1 service.
-1. API1 needs to talk to API2 to further process the user request. The API1 makes a request to the Okta authorization server to exchange the user’s access token for a new token with appropriate scopes to make requests to the API2 service on behalf of the user. This helps retain the user context.
-1. The Okta authorization server validates the user’s access token and grants a new access token to the API1 service with scopes that allow that service to make requests to the API2 service. The new access token retains the user context so API2 service knows on whose behalf the request is being made.
-1. The API1 service makes a request to the API2 service with the new access token.
+1. The mobile app makes a request to the API1 service and includes the user’s valid access token.
+1. API1 needs to communicate with API2 to further process the user request. The API1 service makes a request to the Okta authorization server to exchange the user’s access token for a new token.
+1. The Okta authorization server validates the user’s access token and grants a new access token to the API1 service with scopes that allow API1 to make requests to API2. The new access token retains the user context so the API2 service knows on whose behalf the request is being made.
+1. The API1 service makes a request to the API2 service and includes the new access token.
 
-> **Note:** You can determine which API service made API calls on behalf of which user by analyzing the Okta System Log or the looking for token grant events.
+> **Note:** You can determine which API service made API calls on behalf of which user by analyzing the Okta System Logo and looking for token grant events.
 
 ## Set up token exchange
 
-The following sections walk you through the set up for an example token exchange flow using a single custom authorization server. For an example token exchange flow using more than one custom authorization server within an Okta tenant, see the [Trusted servers](#trusted-servers) section.
-
-> **Note:** You can use a service, web, native, and SPA app to exchange a token with a service app.
+The following sections explain the set up for an example token exchange flow using a single custom authorization server. For an example token exchange flow using more than one custom authorization server within an Okta tenant, see the [Trusted servers](#trusted-servers) section.
 
 ### Create a native app integration
 
@@ -64,9 +62,7 @@ The following sections walk you through the set up for an example token exchange
 
 ### Create a service app
 
-In token exchange use cases, an API microservice can act both as a resource server and a client. For this example, the native app gets an access token to make API requests to API1. API1 acts as the resource server. When API1 needs to talk to API2 on behalf of the user, the API1 becomes the OAuth client.
-
-Create a service app that represents API1.
+In token exchange use cases, an API microservice can act both as a resource server and a client. For this example, the native app gets an access token to make API requests to API1. API1 acts as the resource server. When API1 needs to talk to API2 on behalf of the user, API1 becomes the OAuth client. Create a service app that represents API1.
 
 1. On the **Applications** page, click **Create App Integration**.
 1. Select **API Services**, and then click **Next**.
@@ -78,7 +74,7 @@ Create a service app that represents API1.
 
 ### Update the custom authorization servers
 
-You need to complete a few tasks to update the custom authorization servers that you plan to use for this example.
+The following sections explain how to update the custom authorization servers for this example.
 
 #### Create custom scopes
 
@@ -88,19 +84,10 @@ Add some custom scopes to both custom authorization servers to request during th
 
 1. From the Admin Console, select **Security** > **API**, and then select one of the authorization servers that you want to use.
 1. Select the **Scopes** tab, and then click **Add Scope**.
-1. In the dialog that appears, enter a scope name (**api:access:read**).
-1. Click Create.
+1. In the dialog that appears, enter a scope name: **api:access:read**.
+1. Click **Create**.
 1. Repeat steps 1-4 and create a second custom scope called **api:access:write**.
-1. Repeat steps 1-5 for the second authorization server that you want to use.
-
-#### Update audience
-
-Just for this example, update the audience of the authorization servers to help with understanding the token exchange flow when you view the responses.
-
-1. On the **API** page, select the edit (pencil) icon to the right of one of the authorization servers.
-1. In the **Settings** section, click **Edit**.
-1. Change the **Audience** to **com.api.atko** and click **Save**.
-1. Repeat steps 1-3 for the second authorization server.
+1. Repeat steps 1-5 for the second authorization server.
 
 #### Create access policies and rules
 
@@ -110,24 +97,24 @@ An [access policy](/docs/guides/configure-access-policy/main/) helps you secure 
 1. Select the **Access Policies** tab, and then click **Add New Access Policy** to add a policy that allows the native app to access API1.
 1. In the **Add Policy** dialog that appears, enter the following:
 
-   * **Name:** Enter a name for the new access policy: **Access API1**.
+   * **Name:** Enter **Access API1**.
    * **Description:** Enter a description.
    * **Assign to:** Select **The following clients**, start typing the name of the native app that you created earlier, and select it from the list that appears.
 
 1. Click **Create Policy**.
 1. Click **Add Rule** and in the dialog that appears, enter the following:
 
-   * **Name:** Enter a name for the rule: **Mobile app to API1**.
+   * **Name:** Enter **Mobile app to API1**.
    * **AND Scopes requested:** Select **The following scopes** and enter **openid**.
 
 1. Click **Create rule**.
 1. Repeat steps 1-5 to create a policy and a rule that allows the service app that represents API1 to talk to API2. Use the following values for the policy:
 
-   * **Name:** **Access API2**.
+   * **Name:** Enter **Access API2**.
    * **Assign to:** Select **The following clients**, start typing **API1** (the service app that you created earlier) and select it from the list that appears.
 
    Use the following values for the rule:
-   * **Name:** For this example, enter: **API1 to API2**.
+   * **Name:** Enter **API1 to API2**.
    * **AND Scopes requested:** Select The **following scopes**, start typing **api:access:read** and select it from the list that appears. Repeat for **api:access:write** and select it from the list.
 
 ## Flow specifics
@@ -181,9 +168,9 @@ curl --location --request POST \
 }
 ```
 
-### Token exchange request from service app to api
+### Token exchange request from service app to API
 
-> **Note:** Use the Base64 encoded client ID and secret for the service app that you generated during the service app creation earlier. Place that in the Authorization header. See the following example for the format.
+> **Note:** You must include the Base64 encoded client ID and secret within the Authorization header. See the following example for the format.
 
 ```curl
 curl --location --request POST \
@@ -249,7 +236,7 @@ You can perform token exchange within a single custom authorization server or be
 
 A trusted server handles authenticated requests after the application obtains an access token. The incoming subject token (access token) is used to evaluate a subject.
 
-The following example walks you through how to set up a trusted server, scopes, access policy, and rule. Then, you can make the token exchange request with the trusted server.
+The following sections explain how to set up a trusted server, scopes, access policy, and rule. Then, you can make the token exchange request with the trusted server.
 
 ### Add a trusted server
 
@@ -258,25 +245,25 @@ Add the custom authorization server that you used in the previous flow as a trus
 1. In the Admin Console, go to **Security** > **API**.
 1. Select the edit (pencil) icon on the right of the custom authorization server that you want to associate a trusted server with for this example.
 1. In the **Trusted servers** section, click **Add Server**.
-1. In the **Search** field, enter the name of the authorization server that you used in the token exchange flow previously. Matching results appear in a list. If more than 20 results appear, you can click **Show more**.
-1. Click **Add** beside the authorization server, and then click *Done**. The authorization server appears in the **Trusted servers** section.
+1. In the **Search** field, enter the name of the authorization server that you used in the previous token exchange flow. Matching results appear in a list. If more than 20 results appear, you can click **Show more**.
+1. Click **Add** beside the authorization server, and then click **Done**. The authorization server appears in the **Trusted servers** section.
 
 ### Create an access policy and rule
 
 Create an access policy and rule so that the service app can access API2 using a different authorization server than the one that granted the original access token for the user.
 
-1. Select the Access Policies tab, and then click Add New Access Policy to add a policy that allows the service app to access API2.
+1. Select the **Access Policies** tab, and then click **Add New Access Policy** to add a policy that allows the service app to access API2.
 1. In the Add Policy dialog that appears, enter the following:
 
-   * **Name:** Enter a name for the new access policy (**Access API2**).
+   * **Name:** Enter **Access API2**.
    * **Description:** Enter a description.
    * **Assign to:** Select **The following clients**, start typing **API1**, and then select it from the list that appears.
 
 1. Click **Create Policy**.
 1. Click **Add Rule** and in the dialog that appears, enter the following:
 
-   * Name: Enter a name for the rule (**API1 to API2**).
-   * AND Scopes requested: Select The following scopes, start typing **api:access:read** and select it from the list that appears. Repeat for **api:access:write** and select it from the list.
+   * **Name:** Enter **API1 to API2**.
+   * **AND Scopes requested:** Select **The following scopes**, start typing **api:access:read** and select it from the list that appears. Repeat for **api:access:write** and select it from the list.
 
 1. Click **Create rule**.
 
@@ -284,7 +271,7 @@ Create an access policy and rule so that the service app can access API2 using a
 
 Perform the requests in the previous [Flow specifics](#flow-specifics) section. When you reach the [token exchange request from the service app](#token-exchange-request-from-service-app-to-api) request, it should look like the following:
 
-> **Note:** Use the Base64 encoded client ID and secret for the service app that you generated during the service app creation earlier. Place that in the Authorization header. See the following example for the format.
+> **Note:** You must include the Base64 encoded client ID and secret within the Authorization header. See the following example for the format.
 
 ```curl
 curl --location --request POST \
@@ -323,7 +310,7 @@ Properties sent in the request body:
 
 **Access token decoded**
 
-The decoded access token shows the audience of the custom authorization server, the scopes requested, and the original user as the `sub`.
+The decoded access token shows the audience of the custom authorization server, the requested scopes, and the original user as the value of the `sub` parameter.
 
 ```json
 {
