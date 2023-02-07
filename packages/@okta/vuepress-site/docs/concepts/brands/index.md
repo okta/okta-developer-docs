@@ -69,7 +69,7 @@ There are public APIs and updates to existing APIs for multibrand customization:
 - Sign-out page
 - Display language
 
-For more details, see [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
 
 ### Authorization servers and multibrand customizations
 
