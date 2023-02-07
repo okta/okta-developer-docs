@@ -436,3 +436,11 @@ header.page-header .link:focus {
     display: none;
   }
 }
+
+.page-header .menu--slideout .submenu--items a.link {
+  color: var(--c-gray-900) !important;
+}
+
+.dark-theme .page-header .menu--slideout .submenu--items a.link {
+  color: var(--c-body-white) !important;
+}
