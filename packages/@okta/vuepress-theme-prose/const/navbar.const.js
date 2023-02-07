@@ -12,6 +12,10 @@ export const concepts = [
         path: "/docs/concepts/auth-servers/",
       },
       {
+        title: "Brands",
+        path: "/docs/concepts/brands/",
+      },
+      {
         title: "Event hooks",
         path: "/docs/concepts/event-hooks/",
       },
