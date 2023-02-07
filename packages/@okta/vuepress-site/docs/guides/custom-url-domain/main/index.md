@@ -52,7 +52,7 @@ You can also [configure a custom email address](#about-custom-email-addresses) t
 
 You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
 
-You can only visit a branded touchpoint (such as a logo, color, favicon, or an image applied to a page or email) once you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
+You can only preview or visit a branded page (such as viewing brand assets applied to the Okta-hosted sign-in page) once you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
 ### Caveats
 
@@ -305,7 +305,7 @@ Okta sends your super admins a confirmation email after your custom email addres
 
 ## Configure a custom email address
 
-1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email domain** section, click **Add domain**).
+1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email** section, click **Edit** then click **Add custom email domain**).
 
 2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
 
