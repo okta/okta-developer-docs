@@ -17,6 +17,7 @@ Customize email notifications.
 - [Okta Developer Edition organization](https://developer.okta.com/signup)
 - Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
 * The full-featured code editor enabled in your org
+* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding) <ApiLifecycle access="ea" />
 
 **Sample code**
 
@@ -60,7 +61,9 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 
 > **Note:** To access email customization with a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help).
 
-1. In the Admin Console, go to **Customizations** > **Branding**.
+> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
+
+1. In the Admin Console, go to **Customizations** > **Branding**. (EA users: got to **Customizations** > **Brands**, and then select the brand you want.)
 1. In the **Communications** section, in the **Emails** box, click **Edit**.
 1. In the **Email Templates** table, click a template name.
    - The code editor is in preview mode.
@@ -163,8 +166,10 @@ The following table provides a list of all allowed HTML tags and elements in cus
 
 The default language is used when the end user’s locale doesn't match any email customizations. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
-1. In the Admin Console, go to **Customizations** > **Branding**.
-1. In the **Communications** section, in the **Emails** box, click **Edit**.
+> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
+
+1. In the Admin Console, go to **Customizations** > **Branding**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
+1. In the **Communications** section, in the **Emails** box, click **Edit**. (EA users: click **Emails**.)
 1. In the **Email Templates** box, select an email template that you customized.
    - The code editor is in preview mode and shows the default language version.
    - **Translations**: Customize email template translations:
