@@ -52,7 +52,7 @@ You can also [configure a custom email address](#about-custom-email-addresses) t
 
 You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
 
-You can only preview or visit a branded page (such as viewing brand assets applied to the Okta-hosted sign-in page) once you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
+You can only preview or visit a branded page (such as viewing brand assets applied to the Okta-hosted sign-in page) after you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
 ### Caveats
 
