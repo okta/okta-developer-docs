@@ -6,10 +6,7 @@ excerpt:
 
 # Directory coexistence
 
-> **Note:** This area is a work in progress. Please give us feedback on the content and format of this new type of architecture article. You can leave feedback by:
->
->* Posting a comment in the [Architecture developer forum](https://devforum.okta.com/c/questions/architecture/24).
->* Using the Feedback tab on this page with a subject of "Directory Coexistence Overview".
+> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
 
 Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping both source and target directories active during the process.
 

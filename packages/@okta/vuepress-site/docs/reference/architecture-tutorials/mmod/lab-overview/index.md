@@ -4,10 +4,7 @@ title: Manage multiple Okta environments Lab overview
 
 # Manage multiple Okta environments: Lab overview
 
-> **Note:** This area is a work in progress. Please give us feedback on the content and format of this new type of architecture article. You can leave feedback by:
->
->* Posting a comment in the [Architecture developer forum](https://devforum.okta.com/c/questions/architecture/24).
->* Using the Feedback tab on this page with a subject of "Terraform Lab Overview".
+> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
 
 Before incorporating Terraform into a company's continuous deployment architecture, there isn't a way to create, rebuild, or update an Okta environment consistently. Nor is it easy to determine if one environment has changed - for example, a group updated, a new autentication policy - and to synchronize the others with it. This is known as analysing drift between environments.
 

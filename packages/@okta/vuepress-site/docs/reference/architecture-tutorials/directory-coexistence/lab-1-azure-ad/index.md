@@ -4,10 +4,7 @@ title: Migrate users from Azure Active Directory to Universal Directory
 
 # Directory coexistence tutorial 1: Migrate users from Azure Active Directory to Universal Directory
 
-> **Note:** This area is a work in progress. Please give us feedback on the content and format of this new type of architecture article. You can leave feedback by:
->
->* Posting a comment in the [Architecture developer forum](https://devforum.okta.com/c/questions/architecture/24).
->* Using the Feedback tab on this page with a subject of "Directory Coexistence Azure AD Tutorial".
+> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
 
 If you already handle authentication through a cloud-based Identity Provider (IdP) such as Azure Active Directory (AD), you can mirror those users in Universal Directory. In this scenario, Universal Directory serves as a single source of truth for user data and lets administrators centrally manage policies and profiles. However, the user passwords are still managed in your original IdP. This directory coexistence can stay in place until you migrate all your user information to Universal Directory and no longer require the other IdP.
 

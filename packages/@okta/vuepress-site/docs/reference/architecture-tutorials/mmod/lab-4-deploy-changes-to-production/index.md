@@ -4,10 +4,7 @@ title: Deploy changes to production
 
 # Manage multiple Okta environments tutorial 4: Deploy changes to production
 
-> **Note:** This area is a work in progress. Please give us feedback on the content and format of this new type of architecture article. You can leave feedback by:
->
->* Posting a comment in the [Architecture developer forum](https://devforum.okta.com/c/questions/architecture/24).
->* Using the Feedback tab on this page with a subject of "Terraform Deploy Changes Tutorial".
+> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
 
 In tutorials 2 and 3, you made changes in a preview environment that isn't available to most users. This makes it easy for developers, testers, and early adopters to test their changes without impacting production.
 

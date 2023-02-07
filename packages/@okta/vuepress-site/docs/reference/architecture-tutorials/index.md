@@ -4,10 +4,7 @@ title: Architecture Tutorials (work in progress)
 
 # Architecture tutorials (work in progress)
 
-> **Note:** This area is a work in progress. Please give us feedback on the content and format of this new type of architecture article. You can leave feedback by:
->
->* Posting a comment in the [Architecture developer forum](https://devforum.okta.com/c/questions/architecture/24).
->* Using the Feedback tab on this page with a subject of "Architecture Lab Overview".
+> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
 
 * [Directory Coexistence](/docs/reference/architecture-tutorials/directory-coexistence/overview)
 

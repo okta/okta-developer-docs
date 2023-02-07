@@ -1052,11 +1052,11 @@ export const reference = [
             path: "/docs/reference/releases-at-okta/",
          },
          {
-            title: "Architecture Tutorials (wip)",
+            title: "Architecture tutorials (wip)",
             path: "/docs/reference/architecture-tutorials",
             subLinks: [
                {
-                  title: "Directory Coexistence",
+                  title: "Directory coexistence",
                   path: "/docs/reference/architecture-tutorials/directory-coexistence/overview",
                   subLinks: [
                      {
@@ -1076,7 +1076,7 @@ export const reference = [
                               path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-2-ldap-server",
                            },
                            {
-                              title: "3: From Database to Okta",
+                              title: "3: From database to Okta",
                               path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-3-generic-database",
                            },
                         ],
@@ -1084,7 +1084,7 @@ export const reference = [
                   ],
                },
                {
-                  title: "Managing Multiple Okta Environments",
+                  title: "Managing multiple Okta environments",
                   path: "/docs/reference/architecture-tutorials/mmod/overview",
                   subLinks: [
                      {
@@ -1100,11 +1100,11 @@ export const reference = [
                               path: "/docs/reference/architecture-tutorials/mmod/lab-1-configure-terraform-cloud",
                            },
                            {
-                              title: "2: Create Resources",
+                              title: "2: Create resources",
                               path: "/docs/reference/architecture-tutorials/mmod/lab-2-create-resources",
                            },
                            {
-                              title: "3: Rename a Group",
+                              title: "3: Rename a group",
                               path: "/docs/reference/architecture-tutorials/mmod/lab-3-rename-a-group",
                            },
                            {

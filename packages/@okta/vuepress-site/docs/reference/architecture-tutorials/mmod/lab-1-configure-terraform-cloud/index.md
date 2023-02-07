@@ -4,10 +4,7 @@ title: Configure your Terraform Cloud account
 
 # Manage multiple Okta environments tutorial 1: Configure your Terraform Cloud account
 
-> **Note:** This area is a work in progress. Please give us feedback on the content and format of this new type of architecture article. You can leave feedback by:
->
->* Posting a comment in the [Architecture developer forum](https://devforum.okta.com/c/questions/architecture/24).
->* Using the Feedback tab on this page with a subject of "Terraform Configure Cloud Tutorial".
+> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
 
 First, connect your Terraform Cloud account to your Github repo and your development Okta org. Then you can configure it to react to changes in your Github repo (which implies that you require a change to your Okta org). To achieve this:
 

@@ -4,10 +4,7 @@ title: Migrate users from an on-premises LDAP directory to Universal Directory
 
 # Directory coexistence tutorial 2: Migrate users from an on-premises LDAP directory to Universal Directory
 
-> **Note:** This area is a work in progress. Please give us feedback on the content and format of this new type of architecture article. You can leave feedback by:
->
->* Posting a comment in the [Architecture developer forum](https://devforum.okta.com/c/questions/architecture/24).
->* Using the Feedback tab on this page with a subject of "Directory Coexistence LDAP Server Tutorial".
+> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
 
 Suppose you already handle authentication through an on-premises LDAP directory but want to replace it with Okta. You can install an on-premises Okta LDAP Agent to mirror those users to Universal Directory and then redirect your applications to Okta for authentication. In this scenario, Universal Directory serves as a single source of truth for user data and lets administrators centrally manage policies and profiles. You can assign them to any application registered with your Okta Organization. Access to those assigned applications can be through any protocol, such as LDAP Interface, OpenID Connect (OIDC), SAML, and so on.
 

@@ -4,10 +4,7 @@ title: Migrate users from an on-premises generic database to Universal Directory
 
 # Directory coexistence tutorial 3: Migrate users from an on-premises generic database to Universal Directory
 
-> **Note:** This area is a work in progress. Please give us feedback on the content and format of this new type of architecture article. You can leave feedback by:
->
->* Posting a comment in the [Architecture developer forum](https://devforum.okta.com/c/questions/architecture/24).
->* Using the Feedback tab on this page with a subject of "Directory Coexistence Generic Database Tutorial".
+> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
 
 Suppose you store your user profiles and groups in a generic on-premises database, but want to replace it with Universal Directory. In this case, you have two options:
 
