@@ -11,7 +11,7 @@ meta:
 
 Okta brands allow you to customize the look and feel of pages and templates. You can customize the Okta-hosted sign-in page, error pages, email templates, and the Okta End-User Dashboard.
 
-Each org starts off with Okta default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta default brand assets. You can then publish these assets directly to your pages and templates.
+Each org starts with Okta default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta default brand assets. You can then publish these assets directly to your pages and templates.
 
 ## What is multibrand customization?
 
