@@ -1052,31 +1052,32 @@ export const reference = [
             path: "/docs/reference/releases-at-okta/",
          },
          {
-            title: "Architectures",
+            title: "Architecture Tutorials (wip)",
+            path: "/docs/reference/architecture-tutorials",
             subLinks: [
                {
                   title: "Directory Coexistence",
-                  path: "/docs/reference/architecture-center/directory-coexistence/overview",
+                  path: "/docs/reference/architecture-tutorials/directory-coexistence/overview",
                   subLinks: [
                      {
                         title: "Lab",
-                        path: "/docs/reference/architecture-center/directory-coexistence/lab-overview",
+                        path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-overview",
                         subLinks: [
                            {
                               title: "Prerequisites",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-prerequisites",
+                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-prerequisites",
                            },
                            {
                               title: "1: From Azure AD to Okta",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-1-azure-ad",
+                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-1-azure-ad",
                            },
                            {
                               title: "2: From LDAP to Okta",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-2-ldap-server",
+                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-2-ldap-server",
                            },
                            {
                               title: "3: From Database to Okta",
-                              path: "/docs/reference/architecture-center/directory-coexistence/lab-3-generic-database",
+                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-3-generic-database",
                            },
                         ],
                      },
@@ -1084,45 +1085,45 @@ export const reference = [
                },
                {
                   title: "Managing Multiple Okta Environments",
-                  path: "/docs/reference/architecture-center/mmod/overview",
+                  path: "/docs/reference/architecture-tutorials/mmod/overview",
                   subLinks: [
                      {
                         title: "Lab",
-                        path: "/docs/reference/architecture-center/mmod/lab-overview",
+                        path: "/docs/reference/architecture-tutorials/mmod/lab-overview",
                         subLinks: [
                            {
                               title: "Prerequisites",
-                              path: "/docs/reference/architecture-center/mmod/lab-prerequisites",
+                              path: "/docs/reference/architecture-tutorials/mmod/lab-prerequisites",
                            },
                            {
                               title: "1: Configure Terraform Cloud",
-                              path: "/docs/reference/architecture-center/mmod/lab-1-configure-terraform-cloud",
+                              path: "/docs/reference/architecture-tutorials/mmod/lab-1-configure-terraform-cloud",
                            },
                            {
                               title: "2: Create Resources",
-                              path: "/docs/reference/architecture-center/mmod/lab-2-create-resources",
+                              path: "/docs/reference/architecture-tutorials/mmod/lab-2-create-resources",
                            },
                            {
                               title: "3: Rename a Group",
-                              path: "/docs/reference/architecture-center/mmod/lab-3-rename-a-group",
+                              path: "/docs/reference/architecture-tutorials/mmod/lab-3-rename-a-group",
                            },
                            {
                               title: "4: Deploy changes to production",
-                              path: "/docs/reference/architecture-center/mmod/lab-4-deploy-changes-to-production",
+                              path: "/docs/reference/architecture-tutorials/mmod/lab-4-deploy-changes-to-production",
                            },
                            {
                               title: "5: Detect drift",
-                              path: "/docs/reference/architecture-center/mmod/lab-5-detect-drift",
+                              path: "/docs/reference/architecture-tutorials/mmod/lab-5-detect-drift",
                            },
                            {
                               title: "6: Synchronize environments daily",
-                              path: "/docs/reference/architecture-center/mmod/lab-6-synchronize-environments-daily",
+                              path: "/docs/reference/architecture-tutorials/mmod/lab-6-synchronize-environments-daily",
                            },
                         ],
                      },
                      {
                         title: "Further reading",
-                        path: "/docs/reference/architecture-center/mmod/resources",
+                        path: "/docs/reference/architecture-tutorials/mmod/resources",
                      },
                   ],
                },
