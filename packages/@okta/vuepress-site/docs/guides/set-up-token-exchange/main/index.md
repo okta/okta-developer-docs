@@ -44,7 +44,7 @@ OAuth 2.0 solves the problem of delegated access to resources across services me
 1. The Okta authorization server validates the user’s access token and grants a new access token to the API1 service with scopes that allow API1 to make requests to API2. The new access token retains the user context so the API2 service knows on whose behalf the request is being made.
 1. The API1 service makes a request to the API2 service and includes the new access token.
 
-> **Note:** You can determine which API service made API calls on behalf of which user by analyzing the Okta System Logo and looking for token grant events.
+> **Note:** You can determine which API service made API calls on behalf of which user by analyzing the token grant events in the Okta System Log.
 
 ## Set up token exchange
 
