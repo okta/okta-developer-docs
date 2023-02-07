@@ -2,6 +2,17 @@
 title: Okta API Products release notes 2023
 ---
 
+## February
+
+### Monthly release 2023.02.0
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| | February 8, 2023 |
+| | February 8, 2023 |
+
+#### Smart Card authenticator is EA in Preview
+
 ## January
 
 ### Weekly release 2023.01.2
