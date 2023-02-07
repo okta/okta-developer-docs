@@ -40,7 +40,7 @@ Okta Verify and the Okta plugin support multibrand. Use the following minimum ve
 
 You can create up to three custom domains with multibrand customizations. Increase your limit to 200 custom domains by contacting support.
 
-You can only visit a branded touchpoint (such as a logo, color, favicon, or an image applied to a page or email) once you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them. See [Custom domains](/docs/guides/custom-url-domain/main/#about-okta-domain-customization).
+You can only visit a branded touchpoint (such as a logo, color, favicon, or an image applied to a page or email) after you map to a custom domain. Create a brand and map it to a custom domain. Then, you can make further customizations, preview them, and publish them. See [Custom domains](/docs/guides/custom-url-domain/main/#about-okta-domain-customization).
 
 ### About subdomain brands and custom brands
 
