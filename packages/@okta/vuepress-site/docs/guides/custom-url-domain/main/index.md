@@ -305,23 +305,17 @@ Okta sends your super admins a confirmation email after your custom email addres
 
 ## Configure a custom email address
 
-1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. (n the **Domains** tab in the **Emails** section, click **Add domain**).
+1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email domain** section, click **Add domain**).
 
-2. Click the **Sender:** link (**Okta <noreply@okta.com>**) near the top of the page.
+2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
 
-3. On the Configure Email Sender dialog box, select **Custom email domain** as the type of sender that you want to send system notification emails from.
+3. In the **Name of email sender** field, enter the name of sender. This name appears as the sender in the emails sent to your users.
 
-4. In the **Email address to send from**, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
+4. Click **Continue**.
 
-5. Enter the **Name of sender**. This name appears as the sender in the emails sent to your users.
+5. Update your DNS records using the provided values.
 
-6. In the **Mail domain to send from** box, enter a unique mail domain that your organization has dedicated for Okta to send mail from. Later in this procedure, you add the unique mail domain to the SPF record in your DNS zone (the root domain) as an include-statement to show that you allow Okta to send mail from this unique mail domain.
-
-7. Click **Save & View Required DNS Records** to save your changes and view your org's DNS records that you need to update before your settings can take effect.
-
-8. Update your DNS records using the provided values.
-
-9. After you've updated your DNS records through your domain provider, click **I've updated the DNS records**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
+6. After you've updated your DNS records through your domain provider, click **I've updated the DNS records**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
 
     Alternatively, you can click **I will update the DNS records later**. Your records aren't polled and your configuration is incomplete until you update the relevant DNS records and click **I've updated the DNS records**. You can view the list of records that require an update at any time.
 
