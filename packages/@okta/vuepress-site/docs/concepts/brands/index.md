@@ -108,7 +108,7 @@ The main Okta email provider allows each unique email sender (root domain, no-re
 
 Users are routed to the desired app using the `client_id` in the custom domain as a URL parameter.
 
-For example, a specific OAuth/OIDC app with `client_id=foo`:
+For example, a specific OAuth/OpenID Connect (OIDC) app with `client_id=foo`:
 
 - `subdomain.okta.com/oauth2/v1/authorize?client_id=foo`: Shows the default brand
 - `custom.domain.one/oauth2/v1/authorize?client_id=foo`: Shows the brand associated with `custom.domain.one`
