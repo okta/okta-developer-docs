@@ -553,7 +553,7 @@ export const guides = [
             guideName: "custom-widget",
           },
           {
-            title: "Okta-hosted error pages",
+            title: "Error pages",
             guideName: "custom-error-pages",
           },
           {

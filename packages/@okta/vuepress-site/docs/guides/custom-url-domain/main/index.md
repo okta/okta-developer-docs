@@ -32,6 +32,8 @@ For configuring a custom email address:
 * Access to the DNS records of your public custom domain
 * An implementation of the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implemented SPF in your custom domain, ensure that you update the SPF record.
 
+* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding) <ApiLifecycle access="ea" />
+
 ---
 
 ## About Okta domain customization
@@ -45,6 +47,12 @@ For example, you use Okta as a user store for your apps, but you don't want your
 Okta serves pages on your custom domain over HTTPS. To set up this feature, you need to provide a TLS certificate that is valid for your domain. See [Validate your TLS certificate](#validate-your-tls-certificate).
 
 You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
+
+### Multibrand and custom domains <ApiLifecycle access="ea" />
+
+You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
+
+You can only preview or visit a branded page (such as viewing brand assets applied to the Okta-hosted sign-in page) after you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
 ### Caveats
 
@@ -93,8 +101,10 @@ This method of configuring a custom domain is recommended because Okta manages y
 >
 >  * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add letsencrypt.org to the issuers list or remove the CAA record.
 
-1. In the Admin Console, go to **Customizations** > **Domain**.
-2. In the **Custom URL Domain** box, click **Edit**.
+> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
+
+1. In the Admin Console, go to **Customizations** > **Domain**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
+2. In the **Custom URL Domain** box, click **Edit**. (EA user: on the **Domains** tab in the **Custom domain** section, click **Add domain**).
 3. Click **Get started**.
 4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Okta-managed (faster and easier)**.
 
@@ -291,25 +301,21 @@ A custom email address allows you to present a branded experience to your end us
 
 Okta sends your super admins a confirmation email after your custom email address is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default address `noreply@okta.com` until the problem is resolved.
 
+> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
+
 ## Configure a custom email address
 
-1. In the Admin Console, go to **Customizations** > **Emails**.
+1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email** section, click **Edit** then click **Add custom emaildomain**).
 
-2. Click the **Sender:** link (**Okta <noreply@okta.com>**) near the top of the page.
+2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
 
-3. On the Configure Email Sender dialog box, select **Custom email domain** as the type of sender that you want to send system notification emails from.
+3. In the **Name of email sender** field, enter the name of sender. This name appears as the sender in the emails sent to your users.
 
-4. In the **Email address to send from**, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
+4. Click **Continue**.
 
-5. Enter the **Name of sender**. This name appears as the sender in the emails sent to your users.
+5. Update your DNS records using the provided values.
 
-6. In the **Mail domain to send from** box, enter a unique mail domain that your organization has dedicated for Okta to send mail from. Later in this procedure, you add the unique mail domain to the SPF record in your DNS zone (the root domain) as an include-statement to show that you allow Okta to send mail from this unique mail domain.
-
-7. Click **Save & View Required DNS Records** to save your changes and view your org's DNS records that you need to update before your settings can take effect.
-
-8. Update your DNS records using the provided values.
-
-9. After you've updated your DNS records through your domain provider, click **I've updated the DNS records**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
+6. After you've updated your DNS records through your domain provider, click **I've updated the DNS records**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
 
     Alternatively, you can click **I will update the DNS records later**. Your records aren't polled and your configuration is incomplete until you update the relevant DNS records and click **I've updated the DNS records**. You can view the list of records that require an update at any time.
 
