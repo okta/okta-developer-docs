@@ -187,7 +187,7 @@ curl --location --request POST \
 
 Properties sent in the request body:
 
-* `grant-type`: urn:ietf:params:oauth:grant-type:token-exchange
+* `grant_type`: urn:ietf:params:oauth:grant-type:token-exchange
 * `subject_token_type`: urn:ietf:params:oauth:token-type:access_token
 * `subject_token`: the access token from the Authorization Code with PKCE flow
 * `scope`: the scopes required for API1 to talk to API2.
