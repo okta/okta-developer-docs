@@ -560,10 +560,6 @@ export const guides = [
             title: "Email notifications",
             guideName: "custom-email",
           },
-          {
-            title: "Themes",
-            path: "/docs/guides/customize-themes/",
-          },
         ],
       },
       {

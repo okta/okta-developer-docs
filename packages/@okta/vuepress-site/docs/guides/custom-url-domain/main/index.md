@@ -352,4 +352,3 @@ The following customization options don't require a custom URL domain:
 
 * [Customize SMS messages](/docs/guides/custom-sms-messaging/)
 * [Customize email notifications](/docs/guides/custom-email/)
-* [Customize themes](/docs/guides/customize-themes)
