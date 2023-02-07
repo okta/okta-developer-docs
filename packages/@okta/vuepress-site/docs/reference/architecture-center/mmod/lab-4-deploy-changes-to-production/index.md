@@ -63,7 +63,7 @@ In this exercise, you create a new workspace in Terraform Cloud to represent the
    10. Click **Create workspace** to create the new workspace.
 
 1. On the **Workspace created** page:
-   1. Set **org_name** to your [${OKTA_DOMAIN_NAME}](/docs/reference/architecture-center/mmob/lab-prerequisites/#values-and-variables) for the production org.
+   1. Set **org_name** to your [${OKTA_DOMAIN_NAME}](/docs/reference/architecture-center/mmod/lab-prerequisites/#values-and-variables) for the production org.
    2. Set **api_token** to the token you created earlier in [Create an API token](#create-an-okta-api-token).
    3. Set **base_url** to your org's base URL. For example, _okta.com_.
 1. Click **Save variables**.

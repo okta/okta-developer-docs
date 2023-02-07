@@ -56,11 +56,11 @@ To find your Terraform workspace ID:
 1. Import the workflow.
    1. Click the gear icon next to your folder name in the sidebar.
 
-   <div class="full border">
+      <div class="full border">
 
-   ![Okta workflows folders list with gear menu icon highlighted](/img/architecture/mmod/figure-8-6.png)
+      ![Okta workflows folders list with gear menu icon highlighted](/img/architecture/mmod/figure-8-6.png)
 
-   </div>
+      </div>
 
    1. Select **Import** in the menu to open an **Import** page.
    1. Select the file pack that you downloaded to import the example workflow.
@@ -95,9 +95,9 @@ Update the workflow before you run it.
       4. Set **Header Value** to **Bearer** followed by a space and the Terraform Team API token that you created in [Configure Terraform](#configure-terraform).
       5. Click **Create**.
 
-         <div class="three-quarter border">
+         <div class="half">
 
-         ![Okta workflows new connection dialog showing terraform cloud connection details](/img/ra/mmod/figure-8-9.png)
+         ![Okta workflows new connection dialog showing terraform cloud connection details](/img/architecture/mmod/figure-8-9.png)
 
          </div>
 

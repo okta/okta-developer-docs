@@ -9,7 +9,8 @@ Drift occurs when an Okta object changes in the destination (production) environ
 In this tutorial, you update a resource in production using the Admin Console, and then run a Terraform plan to detect if an asset has changed. If so, this tells the admin that someone has made a change without going through Terraform, and it needs to be investigated.
 
 1. Preparation
-   1. Display your workspace **Overview** page in a browser window. The **Latest Run** panel should reflect the results of your most recent run in the previous exercise.
+
+   Display your workspace **Overview** page in a browser window. The **Latest Run** panel should reflect the results of your most recent run in the previous exercise.
 
    <div class="full border">
 
