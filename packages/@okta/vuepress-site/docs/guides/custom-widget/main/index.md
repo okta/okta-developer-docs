@@ -52,7 +52,7 @@ To access this page:
 
 > **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
 
-In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the Sign-in page section. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
+In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the **Sign-in page** section. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
 
 ### Use the code editor
 
