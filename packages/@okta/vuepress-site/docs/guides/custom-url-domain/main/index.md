@@ -104,7 +104,7 @@ This method of configuring a custom domain is recommended because Okta manages y
 > **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
 
 1. In the Admin Console, go to **Customizations** > **Domain**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
-2. In the **Custom URL Domain** box, click **Edit**. (EA users: on the **Domains** tab in the **Custom domain** section, click **Add domain**).
+2. In the **Custom URL Domain** box, click **Edit**. (EA user: on the **Domains** tab in the **Custom domain** section, click **Add domain**).
 3. Click **Get started**.
 4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Okta-managed (faster and easier)**.
 
@@ -305,9 +305,9 @@ Okta sends your super admins a confirmation email after your custom email addres
 
 ## Configure a custom email address
 
-1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email** section, click **Edit** then click **Add custom email domain**).
+1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email** section, click **Edit** then click **Add custom emaildomain**).
 
-2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This is what appears in the emails sent to your users.
+2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
 
 3. In the **Name of email sender** field, enter the name of sender. This name appears as the sender in the emails sent to your users.
 
