@@ -24,6 +24,28 @@
   line-height: 21px;
   white-space: nowrap;
   color: #fffefa;
+
+  @include media(">desktop") {
+    &:hover {
+      color: #b6caff !important;
+
+      &::after {
+        background-color: currentcolor;
+      }
+    }
+  }
+}
+
+.dark-theme .header-nav a {
+  @include media(">desktop") {
+    &:hover {
+      color: #b1e4de !important;
+    }
+  }
+}
+
+.header-nav a.router-link-active:hover::after {
+  background-color: currentcolor;
 }
 
 .header-nav a:before {
@@ -55,12 +77,15 @@
 }
 
 .header-nav a.router-link-active {
-  font-weight: 700;
-  color: cv("link");
+  color: #b6caff;
+}
+
+.dark-theme .header-nav a.router-link-active {
+  color: #b1e4de;
 }
 
 .header-nav a.router-link-active:after {
-  background-color: cv("link");
+  background-color: currentcolor;
 }
 
 @include media("<desktop-xl") {
