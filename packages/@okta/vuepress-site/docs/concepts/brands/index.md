@@ -17,7 +17,7 @@ Each org starts with Okta default branding. You can upload your own assets (colo
 
 > **Note:** Multibrand customization is available on both Okta Identity Engine and Okta Classic Engine.
 
-Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures, where customers used to have to create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which can be mapped to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the Okta End User Dashboard.
+Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures, where customers had to create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which you can map to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the Okta End-User Dashboard.
 
 In addition, multibrand allows you to customize many other settings per brand:
 
