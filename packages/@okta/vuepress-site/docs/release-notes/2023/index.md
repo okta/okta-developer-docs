@@ -8,10 +8,21 @@ title: Okta API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
+| [Applications API support for SAML metadata attributes](#applications-api-support-for-saml-metadata-attributes) | February 8, 2023 |
 | | February 8, 2023 |
+| [Multibrand customizations are EA in Preview](#multibrand-customizations-are-ea-in-preview) | February 8, 2023 |
 | | February 8, 2023 |
+| [Bugs fixed in 2023.02.0](#bugs-fixed-in-2023-02-0) | February 8, 2023 |
 
-#### Smart Card authenticator is EA in Preview
+#### Applications API support for SAML metadata attributes
+
+The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app that can be used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes** and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#application-properties). <!--OKTA-573057,OKTA-549695-->
+
+#### Multibrand customizations are EA in Preview
+
+Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures, where customers used to create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which can be mapped to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the Okta End User Dashboard. See [Brands](/docs/concepts/brands/). <!--OKTA-568831, OKTA-568807-->
+
+#### Bugs fixed in 2023.02.0
 
 ## January
 

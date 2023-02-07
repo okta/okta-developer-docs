@@ -10,18 +10,31 @@ title: Okta Identity Engine API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview](#allow-list-for-fido2-webauthn-authenticators-is-self-service-ea-in-preview) |
-| [Smart Card authenticator is EA in Preview](#smart-card-authenticator-is-ea-in-preview) | January 19, 2023 |January 19, 2023 |
+| [Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview](#allow-list-for-fido2-webauthn-authenticators-is-self-service-ea-in-preview) | January 19, 2023 |
+| [Applications API support for SAML metadata attributes](#applications-api-support-for-saml-metadata-attributes) | February 8, 2023 |
+| [Multibrand customizations are EA in Preview](#multibrand-customizations-are-ea-in-preview) | February 8, 2023 |
+| [Smart Card authenticator is EA in Preview](#smart-card-authenticator-is-self-service-ea-in-preview) | January 19, 2023 |
 | | February 8, 2023 |
 | | February 8, 2023 |
+| [Bugs fixed in 2023.02.0](#bugs-fixed-in-2023-02-0) | February 8, 2023 |
 
 #### Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview
 
 Okta now enables you to mange which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments. This feature allows you to create an allow list of specific FIDO2 WebAuthn authenticators (based on FIDO Metadata Service) that can be used in enrollment policies. This allows admins to have greater control over which authenticators may be used in their orgs and determine which users may access them in a granular way.  See `settings.authenticators.constraints` in the `MFA_ENROLL` [Policies API](/docs/reference/api/policy/#policy-authenticator-object). <!--OKTA-559662-->
 
+#### Applications API support for SAML metadata attributes
+
+The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app that can be used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes** and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#application-properties). <!--OKTA-573057,OKTA-549695-->
+
+#### Multibrand customizations are EA in Preview
+
+Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures, where customers used to create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which can be mapped to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the Okta End User Dashboard. See [Brands](/docs/concepts/brands/). <!--OKTA-568831, OKTA-568807-->
+
 #### Smart Card authenticator is Self-Service EA in Preview
 
 You can add a new Smart Card authenticator that enables PIV to be used in authentication policies. You can also restrict the authentication policies to use only Smart Card authenticator as MFA. <!--OKTA-565169, OKTA-565875-->
+
+#### Bugs fixed in 2023.02.0
 
 ## January
 
