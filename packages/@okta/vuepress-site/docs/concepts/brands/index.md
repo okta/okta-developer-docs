@@ -19,10 +19,10 @@ Each org starts off with Okta default branding. You can upload your own assets (
 
 Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures, where customers used to have to create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which can be mapped to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the Okta End User Dashboard.
 
-In addition, multibrand allow customers to customize a number of other settings per brand:
+In addition, multibrand allows you to customize many other settings per brand:
 
 - Okta loading page
-- Sign-in widget version
+- Sign-In Widget version
 - Sign-in page labels
 - Default app for the Sign-In Widget
 - Display language
@@ -40,7 +40,7 @@ Okta Verify and the Okta plugin support multibrand. Use the following minimum ve
 
 You can create up to three custom domains with multibrand customizations. Increase your limit to 200 custom domains by contacting support.
 
-You can only visit a branded touchpoint (such as a logo, color, favicon, or an image applied to a page or email) once you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them. See Custom domains.
+You can only visit a branded touchpoint (such as a logo, color, favicon, or an image applied to a page or email) once you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them. See [Custom domains](/docs/guides/custom-url-domain/main/#about-okta-domain-customization).
 
 ### About subdomain brands and custom brands
 
