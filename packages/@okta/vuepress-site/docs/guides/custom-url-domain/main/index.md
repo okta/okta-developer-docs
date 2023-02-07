@@ -104,7 +104,7 @@ This method of configuring a custom domain is recommended because Okta manages y
 > **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
 
 1. In the Admin Console, go to **Customizations** > **Domain**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
-2. In the **Custom URL Domain** box, click **Edit**. (EA user: on the **Domains** tab in the **Custom domain** section, click **Add domain**).
+2. In the **Custom URL Domain** box, click **Edit**. (EA users: on the **Domains** tab in the **Custom domain** section, click **Add domain**).
 3. Click **Get started**.
 4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Okta-managed (faster and easier)**.
 
