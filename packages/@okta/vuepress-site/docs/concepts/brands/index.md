@@ -114,7 +114,7 @@ For example, a specific OAuth/OpenID Connect (OIDC) app with `client_id=foo`:
 - `custom.domain.one/oauth2/v1/authorize?client_id=foo`: Shows the brand associated with `custom.domain.one`
 - `another.domain.two/oauth2/v1/authorize?client_id=foo`: Shows the brand associated with `another.domain.two`
 
-In all three cases the user signs into the same OIDC app, but sees three different brands. If you want each brand to send users to their own app, the `client_id` just needs to correspond to the desired app.
+In all three cases the user signs in to the same OIDC app, but sees three different brands. If you want each brand to send users to their own app, the `client_id` needs to correspond to the desired app.
 
 Access management to apps is controlled through app assignments, so any user can still access any app. Any brand can be applied to any app.
 
