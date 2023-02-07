@@ -22,7 +22,7 @@ Multibrand customizations allow customers to use one org to manage multiple bran
 In addition, multibrand allows you to customize many other settings per brand:
 
 - Okta loading page
-- Sign-In Widget version
+- Okta Sign-In Widget version
 - Sign-in page labels
 - Default app for the Sign-In Widget
 - Display language
