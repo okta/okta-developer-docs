@@ -210,7 +210,7 @@ module.exports = ctx => ({
         ]
       },
       more: {
-        heading: 'More Info',
+        heading: 'More information',
         items: [
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Pricing', link: 'https://www.okta.com/pricing/#workforce-identity-pricing' },
