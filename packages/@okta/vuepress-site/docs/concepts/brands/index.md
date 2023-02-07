@@ -96,7 +96,7 @@ Keep in mind the following when setting up domains for an org with branded email
 
 #### Email senders
 
-Okta’s main email provider allows each unique email sender (root domain, no-reply@company.com) to be used only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
+The main Okta email provider allows each unique email sender (root domain, no-reply@company.com) to be used only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
 
 #### Data migrations
 
