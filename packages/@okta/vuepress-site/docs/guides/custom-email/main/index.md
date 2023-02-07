@@ -16,7 +16,7 @@ Customize email notifications.
 
 - [Okta Developer Edition organization](https://developer.okta.com/signup)
 - Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
-* The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
+* The full-featured code editor enabled in your org
 
 **Sample code**
 
@@ -55,8 +55,6 @@ See [Email template operations](/docs/reference/api/brands/#email-template-opera
 - If you customize an email template, you need to manually create a translation for each additional language that you support in your org.
 
 ## Edit a default email template
-
-<ApiLifecycle access="ea" />
 
 Use these steps to add or edit a template in one of the Okta-supported languages.
 
@@ -160,8 +158,6 @@ The following table provides a list of all allowed HTML tags and elements in cus
 | Other allowed attributes | `noscript`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `i`, `b`, `u`, `strong`, `em`, `small`, `big`, `pre`, `code`, `cite`, `samp`, `sub`, `sup`, `strike`, `center`, `blockquote`, `hr`, `br`, `col`, `font`, `map`, `span`, `div`, `img`, `ul`, `ol`, `li`, `dd`, `dt`, `dl`, `fieldset`, `legend` |
 
 ## Add translations
-
-<ApiLifecycle access="ea" />
 
 **Note:** After a template is customized, other languages are only included when they are customized. If all customized translations are reset, then the 27 default translations are used.
 

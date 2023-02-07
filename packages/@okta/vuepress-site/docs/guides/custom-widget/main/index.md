@@ -17,7 +17,7 @@ This guide explains how to customize the sign-in page for both redirect and embe
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * (Redirect authentication): [Custom URL domain](/docs/guides/custom-url-domain/main/)
-* (Redirect authentication): The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
+* (Redirect authentication): The full-featured code editor enabled in your org
 * (Embedded authentication): [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) installed into your project with configured authentication scenarios
 
 **Sample code**
