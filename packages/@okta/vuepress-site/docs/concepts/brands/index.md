@@ -56,7 +56,7 @@ To use multibrand customization in the Admin Console, see [Branding](https://hel
 
 ### Use the Brands API
 
-There are public APIs and updates to existing APIs for multi-brand customization:
+There are public APIs and updates to existing APIs for multibrand customization:
 
 - Domains
 - Email domains
