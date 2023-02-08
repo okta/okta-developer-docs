@@ -365,7 +365,8 @@ Adds a SAML 2.0 application instance
 
 | Parameter | Description                                     | DataType | Nullable | Unique | Validation                                |
 | --------- | ----------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
-| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |  |
+| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | Array of [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |  |
+| configuredAttributeStatements   | SAML attributes that are inherited from app metadata during app creation and are used to configure group attributes | Array of [Group Attribute Statements](#group-attribute-statements-object) | TRUE     | FALSE  |  |
 | destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |                                           |
 | url       | The URL of the sign-in page for this app          | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
@@ -8171,7 +8172,7 @@ Specifies (optional) attribute statements for a SAML application
 | ---------- | -------------------------------------------------------------------------------------------- | ------------ | -------- |
 | name       | The reference name of the attribute statement                                                | String       | FALSE    |
 | namespace  | The name format of the attribute                                                             | String       | FALSE    |
-| type       | The type of attribute statements object                                                      | `EXPRESSION` | FALSE    |
+| type       | The type of attribute statements object. Supported value: `EXPRESSION`                       | String       | FALSE    |
 | values     | The values of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)   | Array        | FALSE    |
 
 ### Single Logout object
