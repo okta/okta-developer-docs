@@ -10,28 +10,28 @@ title: Okta API Products release notes 2023
 |--------------------------------------------------------------------------|--------------------------|
 | [Applications API support for SAML metadata attributes](#applications-api-support-for-saml-metadata-attributes) | February 8, 2023 |
 | [Custom app login deprecated is GA in Production](#custom-app-login-deprecated-is-ga-in-production)| January 11, 2023 |
-| [Full Featured Code Editor is GA in Production](#full-featured-code-editor-is-ga-in-production) | February 8, 2023 |
+| [Full-featured code editor is GA in Production](#full-featured-code-editor-is-ga-in-production) | February 8, 2023 |
 | [Log Streaming is GA in Preview](#log-streaming-is-ga-in-preview) | March 30, 2022 |
 | [Multibrand customizations are EA in Preview](#multibrand-customizations-are-ea-in-preview) | February 8, 2023 |
 | [OAuth 2.0 On-Behalf-Of Token Exchange is EA in Preview](#oauth-2-0-on-behalf-of-token-exchange-is-ea-in-preview) | February 8, 2023 |
 | [OIDC Identity Providers private/public key pair support is GA in Preview](#oidc-identity-providers-privatepublic-key-pair-support-is-ga-in-preview) | June 8, 2022 |
 | [Optional consent for OAuth 2.0 scopes is GA in Preview](#optional-consent-for-oauth-20-scopes-is-ga-in-preview) | January 11, 2023 |
-| | February 8, 2023 |
 | [Splunk edition support for Log Streaming integrations is GA in Preview](#splunk-edition-support-for-log-streaming-integrations-is-ga-in-preview) | February 8, 2023 |
 | [Updated AWS EventBridge supported regions for Log Stream integrations is GA in Preview](#updated-aws-eventbridge-supported-regions-for-log-stream-integrations-is-ga-in-preview) | February 8, 2023 |
+| [Developer documentation updates in 2023.02.0](#developer-documentation-updates-in-2023-02-0) | February 8, 2023
 | [Bugs fixed in 2023.02.0](#bugs-fixed-in-2023-02-0) | February 8, 2023 |
 
 #### Applications API support for SAML metadata attributes
 
-The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app that can be used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes** and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#application-properties). <!--OKTA-573057,OKTA-549695-->
+The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes.The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#application-properties). <!--OKTA-573057,OKTA-549695-->
 
 #### Custom app login deprecated is GA in Production
 
 The custom app login feature is deprecated. This functionality is unchanged for orgs that actively use custom app login. Orgs that don't use custom app login should continue to use the [Okta-hosted sign-in experience](/docs/guides/redirect-authentication/) or [configure IdP routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-cfg-routing-rules) that redirect users to the appropriate app to sign in. <!--OKTA-561569-->
 
-#### Full Featured Code Editor is GA in Production
+#### Full-featured code editor is GA in Production
 
-Full Featured Code Editor makes editing code for the sign-in page, email templates, and error pages more efficient and less reliant on documentation. Developers can write, test, and publish code faster with syntax highlighting, autocomplete for variables, split versus unified diff views, and a **Revert**, **Preview**, and **Publish** button. See [Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor). <!--OKTA-568606-->
+The full-featured code editor makes editing code for the sign-in page, email templates, and error pages more efficient and less reliant on documentation. Developers can write, test, and publish code faster with syntax highlighting, autocomplete for variables, split versus unified diff views, and a **Revert**, **Preview**, and **Publish** button. See [Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor). <!--OKTA-568606-->
 
 #### Log Streaming is GA in Preview
 
@@ -63,7 +63,25 @@ The Spunk Cloud Log Streaming integration now supports GCP and GovCloud customer
 
 The list of supported AWS EventBridge regions has been updated based on configurable event sources. See the [list of available AWS regions for Log Stream integrations](/docs/reference/api/log-streaming/#property-details-2). <!--OKTA-573094-->
 
+#### Developer documentation updates in 2023.02.0
+
+* A new authorization guide is available to help admins and devs retain the user context in requests to downstream services. This document  provides guidance on how a client can exchange an access token received from an upstream client with a new token by interacting with the authorization server. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
+
+* A new requirements guide is available for integration submissions to the Okta Integration Network (OIN). This  document provides guidance for the artifacts required  during the submission process, such as the logo, the customer configuration document, and the test account. See [OIN submission requirements](/docs/guides/submit-app-prereq/).
+
 #### Bugs fixed in 2023.02.0
+
+* The `max_age` and `login_hint` parameters in an authorize request were sometimes ignored when a client used the `private_key_jwt` client authentication method. (OKTA-573320)
+
+* GET requests to the `/brands/{brandId}` endpoint didn't return the previously saved `agreeToCustomPrivacyPolicy`. (OKTA-568074)
+
+* GET requests to the `/brands/{brandId}/pages/sign-in/customized` endpoint returned `null` for `widgetCustomizations`. As a result, the updates weren't applied to the Okta Admin Console sign-in page. (OKTA-563838)
+
+* The Add Group API (`/api/v1/groups`) created multiple groups of the same name if called within a short period of time (milliseconds). (OKTA-561481)
+
+* The response took longer than necessary when an admin sent a request to delete an OpenID Connect app. (OKTA-531089)
+
+* The Roles API (`/iam/roles`) didn't support the self and next link relation types. (OKTA-512280)
 
 ## January
 

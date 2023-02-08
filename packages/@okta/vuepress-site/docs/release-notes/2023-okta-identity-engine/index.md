@@ -10,12 +10,13 @@ title: Okta Identity Engine API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
+| [All enrolled SMS and phone factors returned for a user](#all-enrolled-sms-and-phone-factors-returned-for-a-user) | February 8, 2023 |
 | [Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview](#allow-list-for-fido2-webauthn-authenticators-is-self-service-ea-in-preview) | January 19, 2023 |
 | [Applications API support for SAML metadata attributes](#applications-api-support-for-saml-metadata-attributes) | February 8, 2023 |
 | [Authenticator enrollment using the /authorize endpoint is GA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ga-in-preview) | November 3, 2022 |
 | [Custom app login is GA in Production](#custom-app-login-is-ga-in-production) | January 11, 2023 |
 | [Factors API support for Okta Verify authenticator enrollment flows is GA in Production](#factors-api-support-for-okta-verify-authenticator-enrollment-flows-is-ga-in-production) | October 5, 2022 |
-| [Full Featured Code Editor is GA in Production](#full-featured-code-editor-is-ga-in-production) | February 8, 2023 |
+| [Full-featured code editor is GA in Production](#full-featured-code-editor-is-ga-in-production) | February 8, 2023 |
 | [Log Streaming is GA in Preview](#log-streaming-is-ga-in-preview) | March 30, 2022 |
 | [Multibrand customizations are EA in Preview](#multibrand-customizations-are-ea-in-preview) | February 8, 2023 |
 | [OAuth 2.0 On-Behalf-Of Token Exchange is EA in Preview](#oauth-2-0-on-behalf-of-token-exchange-is-ea-in-preview) | February 8, 2023 |
@@ -24,7 +25,12 @@ title: Okta Identity Engine API Products release notes 2023
 | [Smart Card authenticator is Self-Service EA in Preview](#smart-card-authenticator-is-self-service-ea-in-preview) | January 19, 2023 |
 | [Splunk edition support for Log Streaming integrations is GA in Preview](#splunk-edition-support-for-log-streaming-integrations-is-ga-in-preview) | February 8, 2023 |
 | [Updated AWS EventBridge supported regions for Log Stream integrations is GA in Preview](#updated-aws-eventbridge-supported-regions-for-log-stream-integrations-is-ga-in-preview) | February 8, 2023 |
+| [Developer documentation updates in 2022.02.0](#developer-documentation-updates-in-2023-02-0) | February 8, 2023 |
 | [Bugs fixed in 2023.02.0](#bugs-fixed-in-2023-02-0) | February 8, 2023 |
+
+#### All enrolled SMS and phone factors returned for a user
+
+Admins can now obtain a list of all enrolled SMS and Phone factors for a user by performing a GET request to the Factors API (/users/${userId}/factors). This is in addition to all of the other enrolled factors returned for the user. <!--OKTA-565854-->
 
 #### Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview
 
@@ -32,7 +38,7 @@ Okta now enables you to mange which FIDO2 WebAuthn authenticators are allowed in
 
 #### Applications API support for SAML metadata attributes
 
-The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app that can be used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes** and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#application-properties). <!--OKTA-573057,OKTA-549695-->
+The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes.The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#application-properties). <!--OKTA-573057,OKTA-549695-->
 
 #### Authenticator enrollment using the /authorize endpoint is GA in Preview
 
@@ -52,9 +58,9 @@ Identity Engine now supports Okta Verify enrollments with email or SMS links cre
 
 See [Enroll Okta Verify Push](/docs/reference/api/factors/#enroll-okta-verify-push-factor) and [Reset Factor](/docs/reference/api/factors/#reset-factor) updates in the Factors API. <!--OKTA-568807-->
 
-#### Full Featured Code Editor is GA in Production
+#### Full-featured code editor is GA in Production
 
-Full Featured Code Editor makes editing code for the sign-in page, email templates, and error pages more efficient and less reliant on documentation. Developers can write, test, and publish code faster with syntax highlighting, autocomplete for variables, split versus unified diff views, and a **Revert**, **Preview**, and **Publish** button. See [Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor). <!--OKTA-568606-->
+The full-featured code editor makes editing code for the sign-in page, email templates, and error pages more efficient and less reliant on documentation. Developers can write, test, and publish code faster with syntax highlighting, autocomplete for variables, split versus unified diff views, and a **Revert**, **Preview**, and **Publish** button. See [Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor). <!--OKTA-568606-->
 
 #### Log Streaming is GA in Preview
 
@@ -90,7 +96,23 @@ The Spunk Cloud Log Streaming integration now supports GCP and GovCloud customer
 
 The list of supported AWS EventBridge regions has been updated based on configurable event sources. See the [list of available AWS regions for Log Stream integrations](/docs/reference/api/log-streaming/#property-details-2). <!--OKTA-573094-->
 
+#### Developer documentation updates in 2023.02.0
+
+* A new authorization guide is available to help admins and devs retain the user context in requests to downstream services. This document  provides guidance on how a client can exchange an access token received from an upstream client with a new token by interacting with the authorization server. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
+
+* A new requirements guide is available for integration submissions to the Okta Integration Network (OIN). This  document provides guidance for the artifacts required  during the submission process, such as the logo, the customer configuration document, and the test account. See [OIN submission requirements](/docs/guides/submit-app-prereq/).
+
 #### Bugs fixed in 2023.02.0
+
+* GET requests to the `/brands/{brandId}` endpoint didn't return the previously saved `agreeToCustomPrivacyPolicy`. (OKTA-568074)
+
+* GET requests to the `/brands/{brandId}/pages/sign-in/customized` endpoint returned `null` for `widgetCustomizations`. As a result, the updates weren't applied to the Okta Admin Console sign-in page. (OKTA-563838)
+
+* The Add Group API (`/api/v1/groups`) created multiple groups of the same name if called within a short period of time (milliseconds). (OKTA-561481)
+
+* The response took longer than necessary when an admin sent a request to delete an OpenID Connect app. (OKTA-531089)
+
+* The Roles API (`/iam/roles`) didn't support the self and next link relation types. (OKTA-512280)
 
 ## January
 
