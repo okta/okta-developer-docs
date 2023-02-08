@@ -1767,6 +1767,26 @@ For brevity, the following response doesn't include all available properties.
         "description": "Configuration properties specific to Splunk Cloud",
         "type": "object",
         "properties": {
+          "edition": {
+            "title": "Splunk Edition",
+            "description": "Select a Splunk Edition.",
+            "type": "string",
+            "writeOnce": false,
+            "oneOf": [
+              {
+                "title": "AWS",
+                "const": "aws"
+              },
+              {
+                "title": "GCP",
+                "const": "gcp"
+              },
+              {
+                "title": "AWS GovCloud",
+                "const": "aws_govcloud"
+              }
+            ]
+          },
           "host": {
             "title": "Host",
             "description": "The domain for your Splunk Cloud instance without http or https. For example: acme.splunkcloud.com",
@@ -1785,6 +1805,7 @@ For brevity, the following response doesn't include all available properties.
           }
         },
         "required": [
+          "edition",
           "host",
           "token"
         ],
