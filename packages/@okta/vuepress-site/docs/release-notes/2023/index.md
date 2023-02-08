@@ -15,7 +15,7 @@ title: Okta API Products release notes 2023
 | [Multibrand customizations are EA in Preview](#multibrand-customizations-are-ea-in-preview) | February 8, 2023 |
 | [OAuth 2.0 On-Behalf-Of Token Exchange is EA in Preview](#oauth-2-0-on-behalf-of-token-exchange-is-ea-in-preview) | February 8, 2023 |
 | [OIDC Identity Providers private/public key pair support is GA in Preview](#oidc-identity-providers-private-public-key-pair-support-is-ga-in-preview) | June 8, 2022 |
-| [Optional consent for OAuth 2.0 scopes is GA in Preview](#optional-consent-for-oauth-20-scopes-is-ga-in-preview) | January 11, 2023 |
+| [Optional consent for OAuth 2.0 scopes is GA in Preview](#optional-consent-for-oauth-2-0-scopes-is-ga-in-preview) | January 11, 2023 |
 | [Splunk edition support for Log Streaming integrations is GA in Preview](#splunk-edition-support-for-log-streaming-integrations-is-ga-in-preview) | February 8, 2023 |
 | [Updated AWS EventBridge supported regions for Log Stream integrations is GA in Preview](#updated-aws-eventbridge-supported-regions-for-log-stream-integrations-is-ga-in-preview) | February 8, 2023 |
 | [Developer documentation updates in 2023.02.0](#developer-documentation-updates-in-2023-02-0) | February 8, 2023
