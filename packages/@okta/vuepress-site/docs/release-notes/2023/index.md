@@ -67,7 +67,7 @@ The list of supported AWS EventBridge regions has been updated based on configur
 
 * A new authorization guide is available to help admins and devs retain the user context in requests to downstream services. This document  provides guidance on how a client can exchange an access token received from an upstream client with a new token by interacting with the authorization server. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
 
-* A new requirements guide is available for integration submissions to the Okta Integration Network (OIN). This  document provides guidance for the artifacts required  during the submission process, such as the logo, the customer configuration document, and the test account. See [OIN submission requirements](/docs/guides/submit-app-prereq/).
+* A new requirements guide is available for integration submissions to the Okta Integration Network (OIN). This document provides guidance for the artifacts required during the submission process, such as the logo, the customer configuration document, and the test account. See [OIN submission requirements](/docs/guides/submit-app-prereq/).
 
 #### Bugs fixed in 2023.02.0
 
