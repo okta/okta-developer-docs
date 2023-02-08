@@ -444,3 +444,12 @@
 .footer-text {
   margin-bottom: 32px;
 }
+
+.app-footer a:hover {
+  text-decoration: underline !important;
+  color: #b1e4de !important;
+}
+
+.dark-theme .app-footer a:hover {
+  color: #b6caff !important;
+}
