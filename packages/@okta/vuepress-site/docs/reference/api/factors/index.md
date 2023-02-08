@@ -259,7 +259,7 @@ All enrolled phone factors are listed. <ApiLifecycle access="ie" />
         "vendorName": "OKTA",
         "status": "ACTIVE",
         "profile": {
-            "email": “john.doe@okta.com"
+            "email": “john.doe@example.com"
         },
         "_links": {
             "self": {
