@@ -1221,6 +1221,14 @@ curl -v -X POST \
   "type": "X509",
   "status": "ACTIVE",
   "name": "Smart Card IDP Name",
+  "properties": {
+    "additionalAmr": [
+      "sc",
+      "hwk",
+      "pin",
+      "mfa",
+    ]
+  },
   "protocol": {
     "type": "MTLS",
     "credentials": {
@@ -1259,6 +1267,14 @@ curl -v -X POST \
   "status": "ACTIVE",
   "created": "2020-01-07T00:19:27.000Z",
   "lastUpdated": "2020-01-07T00:19:27.000Z",
+  "properties": {
+    "additionalAmr": [
+      "sc",
+      "hwk",
+      "pin",
+      "mfa",
+    ]
+  },
   "protocol": {
     "type": "MTLS",
     "endpoints": {
@@ -2017,6 +2033,14 @@ curl -v -X GET \
   "status": "ACTIVE",
   "created": "2020-01-07T00:19:27.000Z",
   "lastUpdated": "2020-01-07T00:19:27.000Z",
+  "properties": {
+    "additionalAmr": [
+      "sc",
+      "hwk",
+      "pin",
+      "mfa",
+    ]
+  },
   "protocol": {
     "type": "MTLS",
     "endpoints": {
@@ -4780,6 +4804,7 @@ All Identity Providers have the following properties:
 | protocol     | Protocol settings for IdP `type`                           | [Protocol object](#protocol-object)                                       | FALSE | FALSE | FALSE |   |     |
 | status       | Status of the IdP                                          | `ACTIVE` or `INACTIVE`                                                    | FALSE | FALSE | TRUE  |   |     |
 | type         | Type of IdP                                                  | [Identity Provider Type](#identity-provider-type)                         | FALSE    | FALSE  | FALSE    |           |           |
+| properties <ApiLifecycle access="ea" /> | Properties specific to the type of IdP                                                  | [Identity Provider Properties](#identity-provider-properties)                         | TRUE    | FALSE  | FALSE    |           |           |
 
 #### Property details
 
@@ -4796,6 +4821,8 @@ All Identity Providers have the following properties:
   All new social IdPs use the `DYNAMIC` issuerMode by default. All existing social IdPs continue to use the `issuerMode` they were configured with (`ORG_URL` or `CUSTOM_URL`). You can change this value in any social IdP through the API or Admin Console.
 
 * The [Protocol object](#protocol-object) (`protocol`) and [Policy object](#policy-object) (`policy`) are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
+
+* The properties in the [Identity Provider Properties](#identity-provider-properties) object are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
 
 ### Identity Provider type
 
@@ -4826,6 +4853,16 @@ Okta supports the following enterprise and social Identity Provider types:
 | `XERO`      | [Xero](https://www.xero.com/us/signup/api/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 | `YAHOO`      | [Yahoo](https://login.yahoo.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 | `YAHOOJP`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+
+### Identity Provider Properties
+
+The properties in the Identity Provider Properties object vary depending on the IdP type.
+
+| Property | Description        | DataType     | Nullable | Readonly |
+| -------- | ------------------ | ------------ | -------- | -------- |
+| additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for the `x509` IdP type. Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | TRUE    | FALSE    |
+
+> **Note:** The `additionalAmr` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Smart Card authenticator feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
 ### Protocol object
 
