@@ -17,13 +17,13 @@ title: Okta API Products release notes 2023
 | [OIDC Identity Providers private/public key pair support is GA in Preview](#oidc-identity-providers-private-public-key-pair-support-is-ga-in-preview) | June 8, 2022 |
 | [Optional consent for OAuth 2.0 scopes is GA in Preview](#optional-consent-for-oauth-2-0-scopes-is-ga-in-preview) | January 11, 2023 |
 | [Splunk edition support for Log Streaming integrations is GA in Preview](#splunk-edition-support-for-log-streaming-integrations-is-ga-in-preview) | February 8, 2023 |
-| [Updated AWS EventBridge supported regions for Log Stream integrations is GA in Preview](#updated-aws-eventbridge-supported-regions-for-log-stream-integrations-is-ga-in-preview) | February 8, 2023 |
+| [Updated AWS EventBridge supported regions for Log Stream integrations](#updated-aws-eventbridge-supported-regions-for-log-stream-integrations) | February 8, 2023 |
 | [Developer documentation updates in 2023.02.0](#developer-documentation-updates-in-2023-02-0) | February 8, 2023
 | [Bugs fixed in 2023.02.0](#bugs-fixed-in-2023-02-0) | February 8, 2023 |
 
 #### Applications API support for SAML metadata attributes
 
-The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes.The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#application-properties). <!--OKTA-573057,OKTA-549695-->
+The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes.The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-573057,OKTA-549695-->
 
 #### Custom app login deprecated is GA in Production
 
@@ -59,7 +59,7 @@ OAuth 2.0 Optional Consent provides an optional property that enables a user to 
 
 The Spunk Cloud Log Streaming integration now supports GCP and GovCloud customers. You can set the Splunk edition parameter (`settings.edition`) to AWS (`aws`), GCP (`gcp`), or AWS GovCloud (`aws_govcloud`) in your Log Streaming integration. See [Splunk Cloud Settings properties](/docs/reference/api/log-streaming/#splunk-cloud-settings-properties). <!--OKTA-544449-->
 
-#### Updated AWS EventBridge supported regions for Log Stream integrations is GA in Preview
+#### Updated AWS EventBridge supported regions for Log Stream integrations
 
 The list of supported AWS EventBridge regions has been updated based on configurable event sources. See the [list of available AWS regions for Log Stream integrations](/docs/reference/api/log-streaming/#property-details-2). <!--OKTA-573094-->
 
