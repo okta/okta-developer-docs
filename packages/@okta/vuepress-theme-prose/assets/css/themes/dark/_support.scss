@@ -27,9 +27,9 @@
 .support__link {
   @include media(">desktop") {
     &:hover {
-      background-color: #3f59e4;
+      background-color: #4cb7a3;
 
-      color: #ffffff !important;
+      color: #191919 !important;
     }
   }
 }
