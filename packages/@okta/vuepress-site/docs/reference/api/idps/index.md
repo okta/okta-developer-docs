@@ -4860,6 +4860,8 @@ The properties in the Identity Provider Properties object vary depending on the 
 | -------- | ------------------ | ------------ | -------- | -------- |
 | additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for the `x509` IdP type. Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | TRUE    | FALSE    |
 
+> **Note:** The `additionalAmr` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Smart Card authenticator feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
 ### Protocol object
 
 The Protocol object contains IdP-specific protocol settings for endpoints, bindings, and algorithms used to connect with the IdP and validate messages. The following are the supported Protocol objects:
