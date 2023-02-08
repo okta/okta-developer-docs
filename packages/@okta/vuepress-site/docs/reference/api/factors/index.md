@@ -248,7 +248,7 @@ curl -v -X GET \
 ]
 ```
 
-If the organization is OIE, all enrolled phone factors will be listed.
+All enrolled phone factors are listed. <ApiLifecycle access="ie" />
 
 ```json
 [
