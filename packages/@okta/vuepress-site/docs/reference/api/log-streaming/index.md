@@ -5,12 +5,8 @@ category: management
 
 # Log Streaming API
 
-<ApiLifecycle access="ea" />
-
 The Okta Log Streaming API provides operations to manage Log Stream configurations for an org.
 You can configure up to two Log Stream integrations per org.
-
-> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Feature Lifecycle Management](https://developer.okta.com/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
 
 ## Get started
 
@@ -25,8 +21,6 @@ The Log Streaming API has the following CRUD operations:
 * [Update a Log Stream](#update-a-log-stream)
 * [Delete a Log Stream](#delete-a-log-stream)
 ### Add a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams" />
 
@@ -92,8 +86,6 @@ curl -v -X POST \
 
 ### Get a Log Stream
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/logStreams/${logStreamId}" />
 
 Fetches a Log Stream by `id`
@@ -148,8 +140,6 @@ curl -v -X GET \
 ```
 
 ### List Log Streams
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/logStreams" />
 
@@ -347,8 +337,6 @@ curl -v -X GET \
 
 ### Update a Log Stream
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="put" url="/api/v1/logStreams/${logStreamId}" />
 
 Updates the configuration for a Log Stream
@@ -412,8 +400,6 @@ curl -v -X PUT \
 ```
 ### Delete a Log Stream
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/logStreams/${logStreamId}" />
 
 Removes a Log Stream from your org
@@ -452,8 +438,6 @@ The Log Streaming API has the following lifecycle operations:
 * [Deactivate a Log Stream](#deactivate-a-log-stream)
 
 ### Activate a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/activate" />
 
@@ -509,8 +493,6 @@ curl -v -X POST \
 ```
 
 ### Deactivate a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/deactivate" />
 
