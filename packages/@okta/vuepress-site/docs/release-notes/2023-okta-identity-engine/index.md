@@ -60,7 +60,7 @@ See [Enroll Okta Verify Push](/docs/reference/api/factors/#enroll-okta-verify-pu
 
 #### Full-featured code editor is GA in Production
 
-The full-featured code editor makes editing code for the sign-in page, email templates, and error pages more efficient and less reliant on documentation. Developers can write, test, and publish code faster with syntax highlighting, autocomplete for variables, split versus unified diff views, and a **Revert**, **Preview**, and **Publish** button. See [Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor). <!--OKTA-568606-->
+The full-featured code editor makes editing code for the sign-in page, email templates, and error pages more efficient and less reliant on documentation. Developers can write, test, and publish code faster with syntax highlighting, autocomplete for variables, split versus unified diff views, and **Revert**, **Preview**, and **Publish** buttons. See [Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor). <!--OKTA-568606-->
 
 #### Log Streaming is GA in Preview
 
