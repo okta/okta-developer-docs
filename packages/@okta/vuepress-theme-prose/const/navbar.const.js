@@ -378,6 +378,10 @@ export const guides = [
                 title: "Social login",
                 guideName: "social-login"
               },
+              {
+                title: "Login.gov",
+                guideName: "add-logingov-idp"
+              },
             ],
           },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
