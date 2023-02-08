@@ -12,10 +12,18 @@ title: Okta Identity Engine API Products release notes 2023
 |--------------------------------------------------------------------------|--------------------------|
 | [Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview](#allow-list-for-fido2-webauthn-authenticators-is-self-service-ea-in-preview) | January 19, 2023 |
 | [Applications API support for SAML metadata attributes](#applications-api-support-for-saml-metadata-attributes) | February 8, 2023 |
+| [Authenticator enrollment using the /authorize endpoint is GA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ga-in-preview) | November 3, 2022 |
+| [Custom app login is GA in Production](#custom-app-login-is-ga-in-production) | January 11, 2023 |
+| [Factors API support for Okta Verify authenticator enrollment flows is GA in Production](#factors-api-support-for-okta-verify-authenticator-enrollment-flows-is-ga-in-production) | October 5, 2022 |
+| [Full Featured Code Editor is GA in Production](#full-featured-code-editor-is-ga-in-production) | February 8, 2023 |
+| [Log Streaming is GA in Preview](#log-streaming-is-ga-in-preview) | March 30, 2022 |
 | [Multibrand customizations are EA in Preview](#multibrand-customizations-are-ea-in-preview) | February 8, 2023 |
-| [Smart Card authenticator is EA in Preview](#smart-card-authenticator-is-self-service-ea-in-preview) | January 19, 2023 |
-| | February 8, 2023 |
-| | February 8, 2023 |
+| [OAuth 2.0 On-Behalf-Of Token Exchange is EA in Preview](#oauth-2-0-on-behalf-of-token-exchange-is-ea-in-preview) | February 8, 2023 |
+| [OIDC Identity Providers private/public key pair support is GA in Preview](#oidc-identity-providers-private-public-key-pair-support-is-ga-in-preview) | June 8, 2022 |
+| [Optional consent for OAuth 2.0 scopes is GA in Preview](#optional-consent-for-oauth-2-0-scopes-is-ga-in-preview) | January 11, 2023 |
+| [Smart Card authenticator is Self-Service EA in Preview](#smart-card-authenticator-is-self-service-ea-in-preview) | January 19, 2023 |
+| [Splunk edition support for Log Streaming integrations is GA in Preview](#splunk-edition-support-for-log-streaming-integrations-is-ga-in-preview) | February 8, 2023 |
+| [Updated AWS EventBridge supported regions for Log Stream integrations is GA in Preview](#updated-aws-eventbridge-supported-regions-for-log-stream-integrations-is-ga-in-preview) | February 8, 2023 |
 | [Bugs fixed in 2023.02.0](#bugs-fixed-in-2023-02-0) | February 8, 2023 |
 
 #### Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview
@@ -26,13 +34,61 @@ Okta now enables you to mange which FIDO2 WebAuthn authenticators are allowed in
 
 The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app that can be used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes** and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#application-properties). <!--OKTA-573057,OKTA-549695-->
 
+#### Authenticator enrollment using the /authorize endpoint is GA in Preview
+
+Authenticator enrollment provides a standardized way for a user to enroll a new authenticator using the OAuth `/authorize` endpoint. This feature uses query parameters such as prompt and `enroll_amr_values` to specify which authenticator the user wants to enroll. It also automatically verifies at least two factors as long the user has already enrolled two or more factors. <!--OKTA-572026-->
+
+#### Custom app login is GA in Production
+
+Custom app login is now available to limited customers in Identity Engine. Only orgs that actively used this feature in Classic Engine before they upgraded may continue to do so. Orgs that don't use custom app login should continue to use the [Okta-hosted sign-in experience](/docs/guides/redirect-authentication/) or [configure IdP routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-cfg-routing-rules) that redirect users to the appropriate app to sign in. <!--OKTA-561569-->
+
+#### Factors API support for Okta Verify authenticator enrollment flows is GA in Production
+
+Identity Engine now supports Okta Verify enrollments with email or SMS links created from the Factors API. Previously, when a client generated an Okta Verify enrollment email or SMS link using the Factors API, the enrollment from the Okta Verify app failed with an `Invalid Token` error. To address this issue, Factors API updates include the following behaviors when the Okta Verify authenticator is used:
+
+* When an Okta Verify enrollment request is made using the Factors API for a user not currently enrolled with an Okta Verify factor, then all three `signed_nonce`, `push`, and `totp` factors are enrolled.
+* The GET factors operation lists all Okta Verify enrollment methods for a user.
+* The DELETE `push` or `signed_nonce` factor operation deletes all three factor enrollments (`push`, `signed_nonce`, and `totp`).
+
+See [Enroll Okta Verify Push](/docs/reference/api/factors/#enroll-okta-verify-push-factor) and [Reset Factor](/docs/reference/api/factors/#reset-factor) updates in the Factors API. <!--OKTA-568807-->
+
+#### Full Featured Code Editor is GA in Production
+
+Full Featured Code Editor makes editing code for the sign-in page, email templates, and error pages more efficient and less reliant on documentation. Developers can write, test, and publish code faster with syntax highlighting, autocomplete for variables, split versus unified diff views, and a **Revert**, **Preview**, and **Publish** button. See [Use the code editor](/docs/guides/custom-widget/main/#use-the-code-editor). <!--OKTA-568606-->
+
+#### Log Streaming is GA in Preview
+
+Many organizations use third-party systems to monitor, aggregate, and act on the event data in Okta System Log events.
+
+Log Streaming enables Okta admins to more easily and securely send System Log events to a specified systems, such as the Splunk Cloud or Amazon Eventbridge, in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it doesn't require a third-party system to store an Okta Admin API token. See [Log Streaming API](/docs/reference/api/log-streaming/). <!--OKTA-565478-->
+
 #### Multibrand customizations are EA in Preview
 
-Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures, where customers used to create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which can be mapped to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the Okta End User Dashboard. See [Brands](/docs/concepts/brands/). <!--OKTA-568831, OKTA-568807-->
+Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures where customers create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which can be mapped to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the End-User Dashboard. See [Brands](/docs/concepts/brands/). <!--OKTA-568831, OKTA-568807-->
+
+#### OAuth 2.0 On-Behalf-Of Token Exchange is EA in Preview
+
+OAuth 2.0 On-Behalf-Of Token Exchange helps retain the user context in requests to downstream services. It provides a protocol approach to support scenarios where a client can exchange an access token received from an upstream client with a new token by interacting with the authorization server. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/). <!--OKTA-572343-->
+
+#### OIDC Identity Providers private/public key pair support is GA in Preview
+
+Previously, Okta only supported the use of client secret as the client authentication method with an OpenID Connect-based Identity Provider. Okta now supports the use of private/public key pairs (`private_key_jwt`) with OpenID Connect-based Identity Providers. Additionally, the Signed Request Object now also supports the use of private/public key pairs. See [Create an Identity Provider in Okta](/docs/guides/add-an-external-idp/openidconnect/main/#create-an-identity-provider-in-okta). <!--OKTA-573913-->
+
+#### Optional consent for OAuth 2.0 scopes is GA in Preview
+
+OAuth 2.0 Optional Consent provides an optional property that enables a user to opt in or out of an app's requested OAuth scopes. When optional is set to true for a scope, the user can skip consent for that scope. See [Request user consent](/docs/guides/request-user-consent/). <!--OKTA-571987-->
 
 #### Smart Card authenticator is Self-Service EA in Preview
 
-You can add a new Smart Card authenticator that enables PIV to be used in authentication policies. You can also restrict the authentication policies to use only Smart Card authenticator as MFA. <!--OKTA-565169, OKTA-565875-->
+You can add a new Smart Card authenticator that enables PIV to be used in authentication policies. You can also restrict the authentication policies to use only Smart Card authenticator as MFA. See `properties.additionalAmr` in the updated [Identity Provider attributes](/docs/reference/api/idps/#identity-provider-attributes) for `X509` Smart Card support. <!--OKTA-565169, OKTA-565875-->
+
+#### Splunk edition support for Log Streaming integrations is GA in Preview
+
+The Spunk Cloud Log Streaming integration now supports GCP and GovCloud customers. You can set the Splunk edition parameter (`settings.edition`) to AWS (`aws`), GCP (`gcp`), or AWS GovCloud (`aws_govcloud`) in your Log Streaming integration. See [Splunk Cloud Settings properties](/docs/reference/api/log-streaming/#splunk-cloud-settings-properties). <!--OKTA-544449-->
+
+#### Updated AWS EventBridge supported regions for Log Stream integrations is GA in Preview
+
+The list of supported AWS EventBridge regions has been updated based on configurable event sources. See the [list of available AWS regions for Log Stream integrations](/docs/reference/api/log-streaming/#property-details-2). <!--OKTA-573094-->
 
 #### Bugs fixed in 2023.02.0
 
