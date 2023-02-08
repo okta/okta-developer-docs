@@ -24,7 +24,7 @@ Understand the purpose of OAuth 2.0 On-Behalf-Of Token Exchange.
 
 ## Overview
 
-OAuth 2.0 solves the problem of delegated access to resources across services mediated by an authorization server. For example, a user delegates permission to a social networking mobile app to manage the their profile and run background processes on behalf of the user, like reminding the user about upcoming events.
+OAuth 2.0 solves the problem of delegated access to resources across services mediated by an authorization server. For example, a user delegates permission to a social networking mobile app to manage their profile and run background processes on behalf of the user, like reminding the user about upcoming events.
 
 However, with the adoption of microservices, a resource server must sometimes access resources hosted by other downstream services on behalf of the user to satisfy a client request. Traditionally these API calls are made as machine-to-machine requests that use an access token obtained using the Client Credentials grant type. But, the user context is lost while making these machine-to-machine requests.
 
@@ -43,10 +43,10 @@ However, with the adoption of microservices, a resource server must sometimes ac
 1. The user is successfully signed in to a mobile app and makes a request.
 1. The mobile app makes a request to the API1 service and includes the user’s valid access token.
 1. API1 needs to communicate with API2 to further process the user request. The API1 service makes a request to the Okta authorization server to exchange the user’s access token for a new token.
-1. The Okta authorization server validates the user’s access token. The authorization server then grants a new access token to the API1 service with scopes that allow API1 to make requests to API2. The new access token retains the user context so the API2 service knows on whose behalf the request is made.
+1. The authorization server validates the user’s access token, and then grants a new access token to API1 with scopes that allow API1 to make requests to API2. The new access token retains the user context so the API2 service knows on whose behalf the request is made.
 1. The API1 service makes a request to the API2 service and includes the new access token.
 
-> **Note:** You can determine which API service made API calls on behalf of which user by analyzing the token grant events in the Okta System Log.
+> **Note:** You can determine which API service made API calls on behalf of which user by analyzing the token grant events in the [Okta System Log](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/SystemLog/).
 
 ## Set up token exchange
 
@@ -110,7 +110,7 @@ An [access policy](/docs/guides/configure-access-policy/main/) helps you secure 
    * **AND Scopes requested:** Select **The following scopes** and enter **openid**.
 
 1. Click **Create rule**.
-1. Repeat steps 1 through 5 to create a policy and a rule that allows the service app that represents API1 to talk to API2. Use the following values for the policy:
+1. Repeat steps 1 through 6 to create a policy and a rule that allows the service app that represents API1 to talk to API2. Use the following values for the policy:
 
    * **Name:** Enter **Access API2**.
    * **Assign to:** Select **The following clients**, start typing **API1** (the service app that you created earlier) and select it from the list that appears.
@@ -211,7 +211,7 @@ Properties sent in the request body:
 
 **Access token decoded**
 
-To check the returned access token payload, you can copy the value and paste it into any JWT decoder (for example: https://jwt.io/). Then, verify that the scope claim (`scp`) and the audience claim (`aud`) are correct. The audience should match the default authorization server audience.
+To check the returned access token payload, you can copy the value and paste it into any JWT decoder (for example: https://jwt.io/). Then, verify that the scope claim (`scp`) and the audience claim (`aud`) are correct. The audience should match the custom authorization server audience.
 
 ```json
 {
@@ -242,10 +242,10 @@ The following sections explain how to set up a trusted server, access policy, an
 
 ### Add a trusted server
 
-Add the authorization server that you used in the previous flow as a trusted server of the authorization server that handles the token exchange in the trusted server flow.
+Add the authorization server that you used in the previous flow as a trusted server of the authorization server that handles the token exchange in the this flow.
 
 1. In the Admin Console, go to **Security** > **API**.
-1. Select edit on the right of the authorization server that you want to associate a trusted server with for this example.
+1. Select edit on the right of the authorization server that you plan to use in the token exchange flow.
 1. In the **Trusted servers** section, click **Add Server**.
 1. In the **Search** box, enter the name of the authorization server that you used in the previous token exchange flow. Matching results appear in a list. If more than 20 results appear, you can click **Show more**.
 1. Click **Add** beside the authorization server, and then click **Done**. The authorization server appears in the **Trusted servers** section.
@@ -255,14 +255,14 @@ Add the authorization server that you used in the previous flow as a trusted ser
 Create an access policy and rule so that the service app can access API2 using a different authorization server than the one that granted the original access token for the user.
 
 1. Select the **Access Policies** tab, and then click **Add New Access Policy** to add a policy that allows the service app to access API2.
-1. In the Add Policy dialog that appears, enter the following:
+1. In the **Add Policy** dialog, do the following:
 
    * **Name:** Enter **Access API2**.
    * **Description:** Enter a description.
    * **Assign to:** Select **The following clients**, start typing **API1**, and then select it from the list that appears.
 
 1. Click **Create Policy**.
-1. Click **Add Rule** and in the dialog that appears, enter the following:
+1. Click **Add Rule** and in the dialog, do the following:
 
    * **Name:** Enter **API1 to API2**.
    * **AND Scopes requested:** Select **The following scopes**, start typing **api:access:read**, and select it from the list that appears. Repeat for **api:access:write** and select it from the list.
