@@ -12,6 +12,10 @@ export const concepts = [
         path: "/docs/concepts/auth-servers/",
       },
       {
+        title: "Brands",
+        path: "/docs/concepts/brands/",
+      },
+      {
         title: "Event hooks",
         path: "/docs/concepts/event-hooks/",
       },
@@ -553,7 +557,7 @@ export const guides = [
             guideName: "custom-widget",
           },
           {
-            title: "Okta-hosted error pages",
+            title: "Error pages",
             guideName: "custom-error-pages",
           },
           {
@@ -563,10 +567,6 @@ export const guides = [
           {
             title: "Email notifications",
             guideName: "custom-email",
-          },
-          {
-            title: "Themes",
-            path: "/docs/guides/customize-themes/",
           },
         ],
       },

@@ -358,7 +358,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Brands API is Self-Service EA
 
-The Okta [Brands API](/docs/reference/api/brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted Sign-In Page, error pages, email templates, and the Okta End-User Dashboard. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes/). <!-- 414350-->
+The Okta [Brands API](/docs/reference/api/brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted sign-in page, error pages, email templates, and the Okta End-User Dashboard. <!-- 414350-->
 
 #### Risk Providers and Risk Events APIs are EA
 
