@@ -1237,6 +1237,7 @@ The authenticator enrollment policy controls which authenticators are available 
 | ---       | ---                                           | ---                                                                         | ---      |
 | key       | A label that identifies the authenticator     | String                                                                      | Yes      |
 | enroll    | Enrollment requirements for the authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
+| constraints  <ApiLifecycle access="ea" />  | Constraints for the authenticator | [Policy Authenticator Constraints object](#policy-authenticator-constraints-object)   | No      |
 
 #### Policy Authenticator Enroll object
 
@@ -1245,6 +1246,39 @@ The authenticator enrollment policy controls which authenticators are available 
 | Parameter | Description                                    | Data Type                                | Required | Default       |
 | ---       | ---                                            | ---                                      | ---      | ---           |
 | self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
+
+#### Policy Authenticator Constraints object
+
+<ApiLifecycle access="ie" />
+<ApiLifecycle access="ea" />
+
+> **Note:** Allow List for FIDO2 (WebAuthn) Authenticators is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
+Configure which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments by defining WebAuthn authenticator groups, then specifying which groups are in the allow list for enrollments. The authenticators in the group are based on FIDO Alliance Metadata Service that is identified by name or the Authenticator Attestation Global Unique Identifier ([AAGUID](https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs)) number. These groups are defined in the [WebAuthn authenticator method settings](/docs/reference/api/authenticators-admin/#authenticator-method-settings-propeties).
+
+| Parameter | Description                                    | Data Type                                | Required |
+| ---       | ---                                            | ---                                      | ---      |
+| aaguidGroups      | The list of FIDO2 WebAuthn authenticator groups allowed for enrollment | Array of strings | No      |
+
+##### Authenticator enrollment policy WebAuthn constraints example
+
+<ApiLifecycle access="ie" />
+<ApiLifecycle access="ea" />
+
+```json
+{
+  "key": "webauthn",
+  "enroll": {
+    "self": "OPTIONAL"
+  },
+  "constraints": {
+    "aaguidGroups": [
+      "mixedSecurityKey",
+      "YubiKey5"
+    ]
+  }
+}
+```
 
 ### Policy conditions
 

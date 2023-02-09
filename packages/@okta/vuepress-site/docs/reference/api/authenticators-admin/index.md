@@ -1153,27 +1153,43 @@ An [Authenticator Method object](#authenticator-method-object)
 
 | Property | Type | Description  | Applies to Authenticator Method type |
 | -------- | ---- | ------------ | ------------------------------------ |
-| `status` | String (Enum) | The status of the authenticator method. Possible values: `ACTIVE` or `INACTIVE` | All Authenticator Methods |
-| `type` | String (Enum) | The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`  |  All Authenticator Methods |
 | `_links` | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this Authenticator Method object  |  All Authenticator Methods |
 | `settings` | [Authenticator Method Settings object](#authenticator-method-settings-object) | Specific settings for the authenticator method  | `otp`, `push`, `signed_nonce`, `totp`, `webauthn` |
+| `status` | String (Enum) | The status of the authenticator method. Possible values: `ACTIVE` or `INACTIVE` | All Authenticator Methods |
+| `type` | String (Enum) | The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`  |  All Authenticator Methods |
 
 ### Authenticator Method Settings object
 
 #### Authenticator Method Settings properties
 
+> **Note:** The `aaguidGroups` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
 | Property | Type | Description  | Applies to Authenticator Method type |
 | -------- | ---- | ------------ | ------------------------------------ |
+| `aaguidGroups` <ApiLifecycle access="ea" /> | Array of [AAGUID Group](#aaguid-group-object) | The FIDO2 AAGUID groups available to the WebAuthn authenticator. | `webauthn` |
+| `acceptableAdjacentIntervals` | Integer | The number of acceptable adjacent intervals, also known as the clock drift interval. This setting allows you to build in tolerance for any time difference between the token and the server. For example, with a `timeIntervalInSeconds` of 60 seconds and an `acceptableAdjacentIntervals` value of 5, Okta accepts passcodes within 300 seconds (60 * 5) before or after the end user enters their code. Possible values: 0&ndash;10 | `otp` |
 | `algorithms` | String (Enum) | Algorithms supported. Possible values: `RS256`, `ES256`, `HMACSHA1`, `HMACSHA256`, or `HMACSHA512` | `otp`, `totp`, `push`, `signed_nonce` |
 | `attachment` | String (Enum) | Method attachment. Possible values: `ANY`, `BUILT_IN`, or `ROAMING`  | `webauthn` |
-| `keyProtection` | String (Enum) | Indicates whether you must use a hardware key store for `push` and `signed_nonce` methods or if any type of key store is allowed. Supported values: `ANY` or `HARDWARE`  | `push`, `signed_nonce`|
-| `protocol` | String (Enum) | The protocol used. Possible values: `SYMANTEC`,`TOTP`, or `YUBICO` | `otp` |
-| `timeIntervalInSeconds` | Integer | Time interval for TOTP in seconds | `otp`, `totp` |
 | `encoding` | String (Enum) | The shared secret encoding. Possible values: `Base32`, `Base64`, or `Hexadecimal`  | `otp`, `totp` |
+| `keyProtection` | String (Enum) | Indicates whether you must use a hardware key store for `push` and `signed_nonce` methods or if any type of key store is allowed. Supported values: `ANY` or `HARDWARE`  | `push`, `signed_nonce`|
 | `passCodeLength` | Integer | Number of digits in an OTP value  | `otp`, `totp` |
-| `acceptableAdjacentIntervals` | Integer | Number of acceptable adjacent intervals, also known as the clock drift interval. This setting allows you to build in tolerance for any time difference between the token and the server. For example, with a `timeIntervalInSeconds` of 60 seconds and an `acceptableAdjacentIntervals` value of 5, the result of 60 X 5 is 300, which means that Okta accepts passcodes within 300 seconds before or after the end user enters their code. Possible values: 0&ndash;10 | `otp` |
+| `protocol` | String (Enum) | The protocol used. Possible values: `SYMANTEC`,`TOTP`, or `YUBICO` | `otp` |
 | `showSignInWithOV` | String (Enum) | Controls whether to show the **Sign in with Okta Verify** button on the Sign-In Widget for the `signed_nonce` method. Possible Values: `ALWAYS` or `NEVER`  | `signed_nonce` |
+| `timeIntervalInSeconds` | Integer | Time interval for TOTP in seconds | `otp`, `totp` |
 | `userVerification` | String (Enum) | User verification setting. Possible values: `DISCOURAGED`, `PREFERRED`, or `REQUIRED` | `webauthn` |
+
+### AAGUID Group object
+
+<ApiLifecycle access="ea" />
+
+> **Note:** The AAGUID Group object supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
+#### AAGUID Group properties
+
+| Property | Type | Description  |
+| -------- | ---- | ------------ |
+| `aaguids` | Array of string | A list of YubiKey hardware FIDO2 Authenticator Attestation Global Unique Identifiers (AAGUIDs). The available [AAGUIDs](https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs)&nbsp;are provided by the FIDO Alliance Metadata Service. |
+| `name` | String | A name to identify the group of YubiKey hardware FIDO2 AAGUIDs |
 
 #### Authenticator Method examples
 

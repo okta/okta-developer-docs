@@ -4,11 +4,9 @@
 * **Client ID**: Paste the app ID or client ID that you obtained when you configured the Identity Provider in the previous section.
 * **Authentication type**: Leave the default of **Client secret** or select **Public key/private key** to automatically generate a public and private key pair. The public key is available for download when you click **Finish**.
 
-    > **Note:** The **Public key/private key** option is an <ApiLifecycle access="ea" /> (Self-Service) feature. You can enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
-
 * **Client Secret**: If you are using **Client secret** as the **Authentication type**, paste the secret that you obtained in the previous section.
-* **Authorize requests**: Select **Enable signed requests** to send request parameters to the OpenID provider as an encoded JWT instead of passing the parameters in the URL. <ApiLifecycle access="ea" />
-* **Algorithm**: Select the algorithm to use for the signed requests from the dropdown list. If you are using the **Public key/private key** option, you must specify a signing algorithm, for example: **RSA256**. <ApiLifecycle access="ea" />
+* **Authorize requests**: Select **Enable signed requests** to send request parameters to the OpenID provider as an encoded JWT instead of passing the parameters in the URL.
+* **Algorithm**: Select the algorithm to use for the signed requests from the dropdown list. If you are using the **Public key/private key** option, you must specify a signing algorithm, for example: **RSA256**.
 
     > **Note:** The **Algorithm** is used to sign authorize requests and to generate bearer assertions when you use a private/public key pair for `/token` endpoint authentication.
 
