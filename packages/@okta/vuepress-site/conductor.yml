@@ -5559,3 +5559,7 @@ redirects:
     to: /docs/concepts/oie-intro/
   - from: /docs/guides/oie-intro/index.html
     to: /docs/concepts/oie-intro/
+  - from: /docs/guides/customize-themes/index.html
+    to: /docs/reference/api/brands/
+  - from: /docs/guides/customize-themes
+    to: /docs/reference/api/brands/
