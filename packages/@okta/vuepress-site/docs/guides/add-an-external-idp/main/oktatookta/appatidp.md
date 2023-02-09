@@ -1,4 +1,4 @@
-When you are configuring federation between two Okta orgs using OpenID Connect:
+When you're configuring federation between two Okta orgs, use OpenID Connect as the sign-in method:
 
 1. In the Admin Console for the Okta org that represents the Identity Provider, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.

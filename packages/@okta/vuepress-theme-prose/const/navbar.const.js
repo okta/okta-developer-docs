@@ -12,6 +12,10 @@ export const concepts = [
         path: "/docs/concepts/auth-servers/",
       },
       {
+        title: "Brands",
+        path: "/docs/concepts/brands/",
+      },
+      {
         title: "Event hooks",
         path: "/docs/concepts/event-hooks/",
       },
@@ -378,6 +382,10 @@ export const guides = [
                 title: "Social login",
                 guideName: "social-login"
               },
+              {
+                title: "Login.gov",
+                guideName: "add-logingov-idp"
+              },
             ],
           },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
@@ -490,7 +498,12 @@ export const guides = [
             title: "Configure SSO for native apps",
             guideName: "configure-native-sso",
           },
-          { title: "Request user consent", guideName: "request-user-consent" },
+          {
+            title: "Set up On-Behalf-Of Token Exchange",
+            guideName: "set-up-token-exchange",
+          },
+          { title: "Request user consent",
+            guideName: "request-user-consent" },
           {
             title: "Configure Device Authz grant flow",
             guideName: "device-authorization-grant",
@@ -549,7 +562,7 @@ export const guides = [
             guideName: "custom-widget",
           },
           {
-            title: "Okta-hosted error pages",
+            title: "Error pages",
             guideName: "custom-error-pages",
           },
           {
@@ -559,10 +572,6 @@ export const guides = [
           {
             title: "Email notifications",
             guideName: "custom-email",
-          },
-          {
-            title: "Themes",
-            path: "/docs/guides/customize-themes/",
           },
         ],
       },
