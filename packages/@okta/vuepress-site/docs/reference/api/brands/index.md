@@ -3,7 +3,7 @@ title: Brands
 category: management
 ---
 
-> **Important!** Multibrand customization updates available on our new API reference. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+> **Important!** Multibrand customization updates are available in our new API reference docs. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
 
 # Brands API
 
