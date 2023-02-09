@@ -811,7 +811,7 @@ An [Authenticator Method object](#authenticator-method-object)
 | `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                             | All Authenticators |
 | `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created               | All Authenticators |
 | `id`          | String                                                          | A unique identifier for the Authenticator                  | All Authenticators |
-| `key`         | String                                                          | A human-readable string that identifies the Authenticator. Values include: `custom_app`, `duo`, `okta_email`, `google_otp`, `okta_password`, `okta_verify`, `phone_number`, `security_key`, `security_question`, or `webauthn` | All Authenticators |
+| `key`         | String                                                          | A human-readable string that identifies the Authenticator. Values include: `custom_app`, `duo`, `okta_email`, `google_otp`, `okta_password`, `okta_verify`, `phone_number`, `security_key`, `security_question`, `smart_card_idp`, or `webauthn` | All Authenticators |
 | `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                | All Authenticators |
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified         | All Authenticators |
 | `name`        | String                                                          | Display name of the Authenticator                         | All Authenticators |
@@ -1225,7 +1225,7 @@ An [Authenticator Method object](#authenticator-method-object)
 | `protocol` | String (Enum) | The protocol used. Possible values: `SYMANTEC`,`TOTP`, or `YUBICO` | `otp` |
 | `showSignInWithOV` | String (Enum) | Controls whether to show the **Sign in with Okta Verify** button on the Sign-In Widget for the `signed_nonce` method. Possible Values: `ALWAYS` or `NEVER`  | `signed_nonce` |
 | `timeIntervalInSeconds` | Integer | Time interval for TOTP in seconds | `otp`, `totp` |
-| `userVerification` | String (Enum) | User verification setting. Possible values: `DISCOURAGED`, `PREFERRED`, or `REQUIRED` | `webauthn` |
+| `userVerification` | String (Enum) | User verification setting. See [User Verification](https://developers.yubico.com/WebAuthn/WebAuthn_Developer_Guide/User_Presence_vs_User_Verification.html). Possible values: `DISCOURAGED` (the authenticator isn't asked to perform user verification, but may do so at its discretion), `PREFERRED` (the client uses an authenticator capable of user verification if possible), or `REQUIRED`(the client uses only an authenticator capable of user verification) | `webauthn` |
 
 ### AAGUID Group object
 
