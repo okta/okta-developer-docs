@@ -1147,6 +1147,55 @@ An [Authenticator Method object](#authenticator-method-object)
 }
 ```
 
+#### Example Smart Card Authenticator
+
+```json
+{
+  "type": "federated",
+  "id": "aut4dkon7d3YCnOMg0g7",
+  "key": "smart_card_idp",
+  "status": "ACTIVE",
+  "name": "Smart Card IdP",
+  "created": "2023-02-02T21:47:49.000Z",
+  "lastUpdated": "2023-02-02T21:47:49.000Z",
+  "provider": {
+    "type": "SMART_CARD",
+    "configuration": {
+      "idpIds": [
+        "0oa4ct36utYyaAK8k0g7"
+      ]
+    }
+  },
+  "_links": {
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut4dkon7d3YCnOMg0g7",
+      "hints": {
+        "allow": [
+          "GET",
+          "PUT"
+        ]
+      }
+    },
+    "deactivate": {
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut4dkon7d3YCnOMg0g7/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "methods": {
+      "href": "https://{yourOktaDomain}/api/v1/authenticators/aut4dkon7d3YCnOMg0g7/methods",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    }
+  }
+}
+```
+
 ### Authenticator Method object
 
 #### Authenticator Method properties
