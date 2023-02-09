@@ -3,13 +3,13 @@ title: Brands
 category: management
 ---
 
+> **Important!** Multibrand customization updates are available in our new API reference docs. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+
 # Brands API
 
 The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard.
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
-
-> **Important:** Despite being called the Brands API (due to conventions around REST API naming), each org can currently contain only one brand and one theme. We will likely allow multiple brands and themes per org at some point in the future, so stay tuned!
 
 ## Get started
 
