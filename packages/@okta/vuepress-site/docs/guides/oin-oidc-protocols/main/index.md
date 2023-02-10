@@ -112,11 +112,12 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 
 * `address`: Requests access to the `address` claim
 * `phone`: Requests access to the `phone_number` and `phone_number_verified` claims
-* `groups`: Requests access to the `groups` claim. This is a custom scope for Okta
 
-> **Note**: `offline_access` scope isn't available since refresh tokens aren't supported for apps published in OIN.
+> **Note**: The following scopes aren't supported for integrations published in the OIN:
+> * `offline_access` scope (since refresh tokens aren't supported)
+> * Custom scopes (such as the `groups` scope)
 
-You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). Custom scopes, like the `groups` scope, can't be configured.
+You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). However, custom scopes can't be configured.
 
 Okta utilizes access policies to decide whether the scopes can be granted. If any of the requested scopes are rejected by the access policies, the request is rejected.
 

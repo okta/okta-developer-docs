@@ -40,6 +40,11 @@ The Authenticators Administration API has the following CRUD operations:
 * [Update Authenticator settings](#update-authenticator-settings)
 * [Activate an Authenticator](#activate-an-authenticator)
 * [Deactivate an Authenticator](#deactivate-an-authenticator)
+* [List all Methods of an Authenticator](#list-all-methods-of-an-authenticator)
+* [Retrieve an Authenticator Method](#retrieve-an-authenticator-method)
+* [Replace an Authenticator Method](#replace-an-authenticator-method)
+* [Activate an Authenticator Method](#activate-an-authenticator-method)
+* [Deactivate an Authenticator Method](#deactivate-an-authenticator-method)
 
 ### Create Authenticator
 
@@ -156,21 +161,13 @@ curl -v -X POST \
 
 Lists all available Authenticators
 
-#### Request path parameters
-
-N/A
-
 #### Request query parameters
-
-N/A
-
-#### Request body
 
 N/A
 
 #### Response body
 
-An Array of [Authenticator Objects](#authenticator-object)
+An array of [Authenticator Objects](#authenticator-object)
 
 #### Use example
 
@@ -464,10 +461,6 @@ Updates settings on an Authenticator
 | ------------------ | ------ | --------------------------------------|
 | `authenticatorId`  | String | The Authenticator's unique identifier |
 
-#### Request query parameters
-
-N/A
-
 #### Request body
 
 An [Authenticator Object](#authenticator-object)
@@ -548,16 +541,12 @@ curl -v -X PUT \
 
 Activates an Authenticator
 
-
 #### Request path parameters
 
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
 | `authenticatorId`  | String | The Authenticator's unique identifier               |
 
-#### Request body
-
-N/A
 
 #### Response body
 
@@ -720,22 +709,109 @@ If the Authenticator that you are trying to deactivate is currently in use as pa
 }
 ```
 
-## Authenticators Administration API object
+### List all Methods of an Authenticator
 
-The Authenticators Administration API only involves one object: the Authenticator
+<ApiOperation method="get" url="/api/v1/authenticators/${authenticatorId}/methods" />
+
+Lists all Methods of an Authenticator identified by `authenticatorId`
+
+#### Request path parameters
+
+| Parameter          | Type   | Description                           |
+| ------------------ | ------ | --------------------------------------|
+| `authenticatorId`  | String | The Authenticator's unique identifier |
+
+#### Response body
+
+An array of [Authenticator Method objects](#authenticator-method-object)
+
+### Retrieve an Authenticator Method
+
+<ApiOperation method="GET" url="/api/v1/authenticators/${authenticatorId}/methods/${methodType}" />
+
+Retrieves an Authenticator Method identified by `authenticatorId` and `methodType`
+
+#### Request path parameters
+
+| Parameter          | Type   | Description                                            |
+| ------------------ | ------ | ------------------------------------------------------ |
+| `authenticatorId`  | String | The Authenticator's unique identifier                 |
+| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`            |
+
+#### Response body
+
+An [Authenticator Method object](#authenticator-method-object)
+
+### Replace an Authenticator Method
+
+<ApiOperation method="PUT" url="/api/v1/authenticators/${authenticatorId}/methods/${methodType}" />
+
+Replaces the properties of an Authenticator Method identified by `authenticatorId` and `methodType`
+
+#### Request path parameters
+
+| Parameter          | Type   | Description                                            |
+| ------------------ | ------ | ------------------------------------------------------ |
+| `authenticatorId`  | String | The Authenticator's unique identifier                 |
+| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`            |
+
+#### Request body
+
+| Property    | Type           | Description   |
+| ----------- | -------------- | ------------- |
+| `status`  | String (Enum) | The status of the authenticator method. Possible values: `ACTIVE` or `INACTIVE`          |
+| `type`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`            |
+
+#### Response body
+
+Returns an updated [Authenticator Method object](#authenticator-method-object)
+
+### Activate an Authenticator Method
+
+<ApiOperation method="POST" url="/api/v1/authenticators/${authenticatorId}/methods/${methodType}/lifecycle/activate" />
+
+Activates an Authenticator Method identified by `authenticatorId` and `methodType`
+
+#### Request path parameters
+
+| Parameter          | Type   | Description                                            |
+| ------------------ | ------ | ------------------------------------------------------ |
+| `authenticatorId`  | String | The Authenticator's unique identifier                 |
+| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`            |
+
+#### Response body
+
+An [Authenticator Method object](#authenticator-method-object)
+
+### Deactivate an Authenticator Method
+
+<ApiOperation method="POST" url="/api/v1/authenticators/${authenticatorId}/methods/{methodType}/lifecycle/deactivate" />
+
+Deactivates an Authenticator Method identified by `authenticatorId` and `methodType`
+
+#### Request path parameters
+
+| Parameter          | Type   | Description                                            |
+| ------------------ | ------ | ------------------------------------------------------ |
+| `authenticatorId`  | String | The Authenticator's unique identifier                 |
+| `methodType`  | String (Enum)| The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`            |
+
+#### Response body
+
+An [Authenticator Method object](#authenticator-method-object)
+
+## Authenticators Administration API objects
 
 ### Authenticator object
 
 #### Authenticator properties
-
-The Authenticator object defines the following properties:
 
 | Property      | Type                                                            | Description                                                                     | Applies to Authenticator Key |
 | ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |------------------------------|
 | `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                             | All Authenticators |
 | `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created               | All Authenticators |
 | `id`          | String                                                          | A unique identifier for the Authenticator                  | All Authenticators |
-| `key`         | String                                                          | A human-readable string that identifies the Authenticator  | All Authenticators |
+| `key`         | String                                                          | A human-readable string that identifies the Authenticator. Values include: `custom_app`, `duo`, `okta_email`, `google_otp`, `okta_password`, `okta_verify`, `phone_number`, `security_key`, `security_question`, or `webauthn` | All Authenticators |
 | `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                | All Authenticators |
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified         | All Authenticators |
 | `name`        | String                                                          | Display name of the Authenticator                         | All Authenticators |
@@ -756,10 +832,6 @@ The Authenticator object defines the following properties:
 | `provider.configuration.apns.id`| String | AppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.apns.id`| String | DebugAppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.fcm.id` | String  | ID of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
-| `methods.type` | String  | Method type. Supported value for `custom_app`: `push`.  Supported values for `okta_verify`: `push`, `otp`, `signed_nonce`| `custom_app`, `okta_verify` |
-| `methods.status` | `ACTIVE`,`INACTIVE` | Status of the authenticator method | `custom_app`, `okta_verify`|
-| `methods.settings.algorithms` | String (Enum) | Algorithms supported. Supported values: `RS256`, `ES256` | `custom_app`, `okta_verify` |
-| `methods.settings.keyProtection` | String (Enum) | Key Protection. Supported values: `ANY`, `HARDWARE` | `custom_app`, `okta_verify` |
 | `agreeToTerms` | Boolean | A value of `true` indicates that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator. Okta requires that you accept the terms when creating a new `custom_app` authenticator. Other authenticators don't require this field. | `custom_app`|
 
 #### Example Email Authenticator
@@ -1039,7 +1111,7 @@ The Authenticator object defines the following properties:
                 "id": "ppc1buciB5V7ZdcB70g4",
                 "appBundleId":"com.my.app.release",
                 "debugAppBundleId":"com.my.app.debug"
-            }, 
+            },
             "fcm": {
                 "id": "ppc38rxEr5dEKqDD10g4"
             }
@@ -1073,4 +1145,161 @@ The Authenticator object defines the following properties:
         }
     }
 }
+```
+
+### Authenticator Method object
+
+#### Authenticator Method properties
+
+| Property | Type | Description  | Applies to Authenticator Method type |
+| -------- | ---- | ------------ | ------------------------------------ |
+| `_links` | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this Authenticator Method object  |  All Authenticator Methods |
+| `settings` | [Authenticator Method Settings object](#authenticator-method-settings-object) | Specific settings for the authenticator method  | `otp`, `push`, `signed_nonce`, `totp`, `webauthn` |
+| `status` | String (Enum) | The status of the authenticator method. Possible values: `ACTIVE` or `INACTIVE` | All Authenticator Methods |
+| `type` | String (Enum) | The type of authenticator method. Possible values: `cert`, `duo`, `email`, `idp`, `otp`, `password`, `push`, `security_question`, `signed_nonce`, `sms`, `totp`, `voice`, or `webauthn`  |  All Authenticator Methods |
+
+### Authenticator Method Settings object
+
+#### Authenticator Method Settings properties
+
+> **Note:** The `aaguidGroups` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
+| Property | Type | Description  | Applies to Authenticator Method type |
+| -------- | ---- | ------------ | ------------------------------------ |
+| `aaguidGroups` <ApiLifecycle access="ea" /> | Array of [AAGUID Group](#aaguid-group-object) | The FIDO2 AAGUID groups available to the WebAuthn authenticator. | `webauthn` |
+| `acceptableAdjacentIntervals` | Integer | The number of acceptable adjacent intervals, also known as the clock drift interval. This setting allows you to build in tolerance for any time difference between the token and the server. For example, with a `timeIntervalInSeconds` of 60 seconds and an `acceptableAdjacentIntervals` value of 5, Okta accepts passcodes within 300 seconds (60 * 5) before or after the end user enters their code. Possible values: 0&ndash;10 | `otp` |
+| `algorithms` | String (Enum) | Algorithms supported. Possible values: `RS256`, `ES256`, `HMACSHA1`, `HMACSHA256`, or `HMACSHA512` | `otp`, `totp`, `push`, `signed_nonce` |
+| `attachment` | String (Enum) | Method attachment. Possible values: `ANY`, `BUILT_IN`, or `ROAMING`  | `webauthn` |
+| `encoding` | String (Enum) | The shared secret encoding. Possible values: `Base32`, `Base64`, or `Hexadecimal`  | `otp`, `totp` |
+| `keyProtection` | String (Enum) | Indicates whether you must use a hardware key store for `push` and `signed_nonce` methods or if any type of key store is allowed. Supported values: `ANY` or `HARDWARE`  | `push`, `signed_nonce`|
+| `passCodeLength` | Integer | Number of digits in an OTP value  | `otp`, `totp` |
+| `protocol` | String (Enum) | The protocol used. Possible values: `SYMANTEC`,`TOTP`, or `YUBICO` | `otp` |
+| `showSignInWithOV` | String (Enum) | Controls whether to show the **Sign in with Okta Verify** button on the Sign-In Widget for the `signed_nonce` method. Possible Values: `ALWAYS` or `NEVER`  | `signed_nonce` |
+| `timeIntervalInSeconds` | Integer | Time interval for TOTP in seconds | `otp`, `totp` |
+| `userVerification` | String (Enum) | User verification setting. Possible values: `DISCOURAGED`, `PREFERRED`, or `REQUIRED` | `webauthn` |
+
+### AAGUID Group object
+
+<ApiLifecycle access="ea" />
+
+> **Note:** The AAGUID Group object supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
+#### AAGUID Group properties
+
+| Property | Type | Description  |
+| -------- | ---- | ------------ |
+| `aaguids` | Array of string | A list of YubiKey hardware FIDO2 Authenticator Attestation Global Unique Identifiers (AAGUIDs). The available [AAGUIDs](https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs)&nbsp;are provided by the FIDO Alliance Metadata Service. |
+| `name` | String | A name to identify the group of YubiKey hardware FIDO2 AAGUIDs |
+
+#### Authenticator Method examples
+
+##### okta_verify Authenticator Methods example
+
+```json
+[
+  {
+    "type": "totp",
+    "status": "ACTIVE",
+    "settings": {
+      "timeIntervalInSeconds": 30,
+      "encoding": "Base32",
+      "algorithm": "HMACSHA1",
+      "passCodeLength": 6
+    },
+    "_links": {
+      "self": {
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/totp",
+        "hints": {
+          "allow": [
+            "GET",
+            "PUT"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "push",
+    "status": "ACTIVE",
+    "settings": {
+      "algorithms": [
+        "RS256",
+        "ES256"
+      ],
+      "keyProtection": "ANY"
+    },
+    "_links": {
+      "self": {
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/push",
+        "hints": {
+          "allow": [
+            "GET",
+            "PUT"
+          ]
+        }
+      },
+      "deactivate": {
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/push/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "signed_nonce",
+    "status": "ACTIVE",
+    "settings": {
+      "algorithms": [
+        "ES256",
+        "RS256"
+      ],
+      "keyProtection": "ANY",
+      "showSignInWithOV": "ALWAYS"
+    },
+    "_links": {
+      "self": {
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/signed_nonce",
+        "hints": {
+          "allow": [
+            "GET",
+            "PUT"
+          ]
+        }
+      },
+      "deactivate": {
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/signed_nonce/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  }
+]
+```
+
+##### okta_email Authenticator Methods example
+
+```json
+[
+  {
+    "type": "email",
+    "status": "ACTIVE",
+    "_links": {
+      "self": {
+        "href": "https://{yourDomain}/api/v1/authenticators/{authenticatorId}/methods/email",
+        "hints": {
+          "allow": [
+            "GET",
+            "PUT"
+          ]
+        }
+      }
+    }
+  }
+]
 ```

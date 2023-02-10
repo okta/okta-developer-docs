@@ -255,9 +255,9 @@ The expression language that is used in the filter and search parameters support
 
 The attribute names are case-sensitive while attribute operators are case-insensitive. For example, the following two expressions evaluate to the same logical value:
 
-    filter=firstName Eq "john"
+    filter=profile.firstName Eq "john"
 
-    filter=firstName eq "john"
+    filter=profile.firstName eq "john"
 
 The filter and search parameters must contain at least one valid Boolean expression. Each expression must contain an attribute name followed by an attribute operator and optional value. Multiple expressions can be combined using two logical operators. Furthermore, you can group expressions together using `()`.
 
