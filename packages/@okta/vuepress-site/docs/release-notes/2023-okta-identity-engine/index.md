@@ -10,7 +10,6 @@ title: Okta Identity Engine API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [All enrolled SMS and phone factors returned for a user](#all-enrolled-sms-and-phone-factors-returned-for-a-user) | February 8, 2023 |
 | [Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview](#allow-list-for-fido2-webauthn-authenticators-is-self-service-ea-in-preview) | January 19, 2023 |
 | [Applications API support for SAML metadata attributes](#applications-api-support-for-saml-metadata-attributes) | February 8, 2023 |
 | [Authenticator enrollment using the /authorize endpoint is GA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ga-in-preview) | November 3, 2022 |
@@ -27,10 +26,6 @@ title: Okta Identity Engine API Products release notes 2023
 | [Updated AWS EventBridge supported regions for Log Stream integrations](#updated-aws-eventbridge-supported-regions-for-log-stream-integrations) | February 8, 2023 |
 | [Developer documentation updates in 2023.02.0](#developer-documentation-updates-in-2023-02-0) | February 8, 2023 |
 | [Bugs fixed in 2023.02.0](#bugs-fixed-in-2023-02-0) | February 8, 2023 |
-
-#### All enrolled SMS and phone factors returned for a user
-
-Admins can now obtain a list of all enrolled SMS and Phone factors for a user by performing a GET request to the Factors API (`/users/${userId}/factors`). This is in addition to all of the other enrolled factors returned for the user. <!--OKTA-565854-->
 
 #### Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview
 
