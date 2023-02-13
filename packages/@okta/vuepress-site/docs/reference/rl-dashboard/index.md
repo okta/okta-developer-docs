@@ -196,7 +196,7 @@ Click an IP address or API token bar once to view the traffic for that IP addres
 
 <div class="three-quarter">
 
-![Displays the RL usage over time and bar graph dropdown](/img/rate-limits/rl_usage_over_time-bar-dropdown.png)
+![Displays the rate limit usage over time and bar graph dropdown](/img/rate-limits/rl_usage_over_time-bar-dropdown.png)
 
 </div>
 
