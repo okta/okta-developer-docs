@@ -6,6 +6,24 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## February
 
+### Weekly release 2023.02.1
+
+| Change | Expected in Preview Orgs |
+|------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Bugs fixed in 2023.02.1](#bugs-fixed-in-2023-02-1)                                                              |February 15, 2023 |
+
+#### Bugs fixed in 2023.02.1
+
+* A request to list all security questions (/users/&{userId}/factors/questions) resulted in an unexpected question with an error returned in the response. (OKTA-525478)
+
+* Case sensitivity caused usernames sent in IdP assertions to not match usernames in the destination org. This happened when a custom IdP factor was used with a SAML 2.0 IdP and the name ID format was unspecified. (OKTA-565984)
+
+* Some users weren't able to re-enroll an account in Okta Verify that they had previously unenrolled with another mechanism that used the Factors API. (OKTA-573421)
+
+* The YubiKey Report wasn’t generated when certain report filters were applied. (OKTA-561269)
+
+* Some requests to the `/devices?expand=users&search=profile.platform` endpoint didn't include `expand=user` in the response. (OKTA-558994)
+
 ### Monthly release 2023.02.0
 
 | Change | Expected in Preview Orgs |
