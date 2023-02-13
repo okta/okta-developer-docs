@@ -1,4 +1,4 @@
-You can run the [sample embedded SIW React app](https://github.com/okta/samples-js-react/tree/master/custom-login) to quickly view a sample working React app with the Sign-In Widget.
+You can run the [sample embedded Sign-In Widget React app](https://github.com/okta/samples-js-react/tree/master/custom-login) to quickly view a sample working React app with the Sign-In Widget.
 
 1. Ensure that you [set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case) and [create an app integration in Okta](#create-an-okta-app-integration) for your sample app.
 2. Download the sample app: `git clone https://github.com/okta/samples-js-react.git`

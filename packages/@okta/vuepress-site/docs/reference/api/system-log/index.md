@@ -360,7 +360,7 @@ indicates that this event was the result of an action performed through an API u
 
 ### DebugContext object
 
-For some kinds of events (for example, OMM provisioning, sign-in request, second factor SMS, and so on), the fields that are provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the `debugContext` object provides a way to store additional information.
+For some kinds of events (for example, OLM provisioning, sign-in request, second factor SMS, and so on), the fields that are provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the `debugContext` object provides a way to store additional information.
 
 For example, an event where a second factor SMS token is sent to a user may have a `debugContext` that looks like the following:
 

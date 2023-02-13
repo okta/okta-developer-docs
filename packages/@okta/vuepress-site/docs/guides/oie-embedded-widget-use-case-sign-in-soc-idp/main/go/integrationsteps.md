@@ -42,7 +42,7 @@ See that guide for more details.
 ### 5: Get and store the tokens and redirect the user to the default sign-in page
 
 The next step is to get the tokens from the `/token` endpoint using the
-returned `interaction_code` and the PCKE parameters. After the tokens are fetched,
+returned `interaction_code` and the PKCE parameters. After the tokens are fetched,
 store them in session for later use. The code that fetches and stores these tokens
 is identical to the code described in
 [step 3](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/#_3-get-and-store-the-tokens-and-redirect-the-request-to-the-default-sign-in-page) in [Basic sign-in flow using the Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/).
