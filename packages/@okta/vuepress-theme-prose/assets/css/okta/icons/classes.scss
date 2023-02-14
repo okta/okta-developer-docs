@@ -2079,6 +2079,12 @@ h1 {
   background-image: url("/img/icons/scim_dark.svg");
 }
 
+.icon.wfconnector::before {
+  content: "";
+
+  background-image: url("/img/icons/WEB_Icon_Platform_Workflows_40x40.svg");
+}
+
 .icon-laptop::before,
 .icon-laptop-32::before {
   content: $laptop;
