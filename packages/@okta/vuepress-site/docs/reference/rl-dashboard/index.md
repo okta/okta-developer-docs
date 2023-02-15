@@ -17,7 +17,7 @@ The rate limit dashboard is a tool that helps you understand the use of each API
 The following describes some typical reasons for viewing the dashboard:
 
 * You want to open the rate limits report to proactively monitor rate limit usage, and to manage rate limit settings and the warning threshold. See [Rate limit monitoring](#rate-limit-monitoring).
-* You've hit a rate limit violation for an API, and you receive a notification that contains a link to the rate limits dashboard for that API so that you can investigate the violation. See [API rate limits and violations](#API-rate-limits-and-violations).
+* You've hit a rate limit violation for an API, and you receive a notification that contains a link to the rate limits dashboard for that API so that you can investigate the violation. See [API rate limits and violations](#api-rate-limits-and-violations).
 
 You can access the rate limit dashboard only if you're assigned one of these admin roles:
 
@@ -85,7 +85,7 @@ The APIs table shows each API and its corresponding rate limit for your org. The
 
 You can sort on all the columns. The Trendline is sorted by the current usage. Use the **Filters** dropdown list to filter between all APIs that have rate-limit multipliers applied or that are multiplier eligible.
 
-Each API is a link that navigates you to the [dashboard view of API rate limits and violations](#API-rate-limits-and-violations) where you can obtain more details on the API.
+Each API is a link that navigates you to the [dashboard view of API rate limits and violations](#api-rate-limits-and-violations) where you can obtain more details on the API.
 
 You can perform a search in your table list by making an entry in the Search box. You can also perform a "lookup" with the Search. For example, you're calling Okta with an example `requestURI` and you want to know the rate limit that will be applied to calls that are made against that `requestURI`.
 
@@ -107,9 +107,11 @@ Warnings, which appear if the threshold for the rate limit is reached, generate 
 
 For example, you may want to customize the rate limit threshold when an API normally has high traffic. In such a case, the threshold if set too low at 60% would generate too many warning notifications. If you customize the threshold to a higher percentage, such as 90%, the warning notifications wouldn't start until the API's rate limit is at 90%.
 
-#### Burst rate notification
+#### Violations and Burst rate notifications
 
-Bursts, or unexpected API calls that hit and exceed the rate limit, generate a system log event, an entry in the Rate Limit Monitoring widget, and issue email notifications. Your org receives a notification when the default rate limit is hit. See [Burst rate limits](/docs/reference/rate-limits/#burst-rate-limits).
+Violations and bursts, or unexpected API calls that hit and exceed the rate limit, generate a system log event, an entry in the Rate Limit Monitoring widget, and issue email notifications. Your org receives a notification when the default rate limit is hit. See [API rate limits and violations](#api-rate-limits-and-violations) or [Burst rate limits](/docs/reference/rate-limits/#burst-rate-limits).
+
+> **Note:** Email notifications are sent only on initially reaching the defined warning, burst, or violation limit and not for every endpoint call that exceeds these limits.
 
 ## API rate limits and violations
 
