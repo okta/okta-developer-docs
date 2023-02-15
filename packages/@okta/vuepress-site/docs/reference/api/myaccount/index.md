@@ -1298,6 +1298,8 @@ curl -v -X GET \
 {
     "id": "00T196qTp3LIMZQ0L0g3",
     "status": "ACTIVE",
+    "created": "2020-01-14T20:05:32.000Z",
+    "lastUpdated": "2020-01-14T20:05:32.000Z"
     "_links": {
         "self": {
             "href": "https://${yourOktaDomain}/idp/myaccount/password",
@@ -1364,6 +1366,8 @@ curl -v -X POST \
 {
     "id": "00T196qTp3LIMZQ0L0g3",
     "status": "ACTIVE",
+    "created": "2020-01-14T20:05:32.000Z",
+    "lastUpdated": "2020-01-14T20:05:32.000Z",
     "_links": {
         "self": {
             "href": "https://${yourOktaDomain}/idp/myaccount/password/00T196qTp3LIMZQ0L0g3",
@@ -1430,6 +1434,8 @@ curl -v -X POST \
 {
     "id": "00T196qTp3LIMZQ0L0g3",
     "status": "ACTIVE",
+    "created": "2020-01-14T20:05:32.000Z",
+    "lastUpdated": "2020-01-14T20:05:32.000Z",
     "_links": {
         "self": {
             "href": "https://${yourOktaDomain}/idp/myaccount/password/00T196qTp3LIMZQ0L0g3",
@@ -1819,6 +1825,8 @@ The My Password object has several properties:
 {
     "id": "00T196qTp3LIMZQ0L0g3",
     "status": "ACTIVE",
+    "created": "2020-01-14T20:05:32.000Z"
+    "lastUpdated": "2020-01-14T20:05:32.000Z"
     "_links": {
         "self": {
             "href": "https://${yourOktaDomain}/idp/myaccount/password",
