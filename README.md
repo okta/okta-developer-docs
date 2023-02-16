@@ -1,5 +1,6 @@
 <img src="https://aws1.discourse-cdn.com/standard14/uploads/oktadev/original/1X/0c6402653dfb70edc661d4976a43a46f33e5e919.png" align="right" width="256px"/>
 
+
 [![Support](https://img.shields.io/badge/support-developer%20forum-blue.svg)](https://devforum.okta.com/)
 [![Build Status](https://travis-ci.org/okta/okta-developer-docs.svg?branch=master)](https://travis-ci.org/okta/okta-developer-docs)
 
