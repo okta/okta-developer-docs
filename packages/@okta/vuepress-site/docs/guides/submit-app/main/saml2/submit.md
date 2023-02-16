@@ -1,3 +1,5 @@
+To submit a SAML integration, click the **SAML** tab and select **On** from the **SAML support** dropdown menu.
+
 * **Provide the instance URL for your app where Okta will retrieve configuration details:** Specify the Okta instance URL for your integration.
 
    To retrieve your Okta instance URL from your development org:

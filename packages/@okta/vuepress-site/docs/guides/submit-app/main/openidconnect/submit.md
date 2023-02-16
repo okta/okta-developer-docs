@@ -1,3 +1,5 @@
+To submit an OIDC integration, click the **OIDC** tab and select **On** from the **OIDC support** dropdown menu.
+
 * **Provide the instance URL for your app where Okta will retrieve configuration details:** Specify the Okta instance URL for your integration.
 
    To retrieve your Okta instance URL from your development org:

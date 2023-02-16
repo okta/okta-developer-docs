@@ -184,11 +184,7 @@ The Okta OIN team requires a dedicated account on your application to run their 
 
 ### Configure protocol or tool-specific settings
 
-Click the appropriate protocol or tool tab name for your integration and select **On** from the support dropdown menu.
-
-If your integration isn't a Workflows connector then your application needs to support at least one protocol for interacting with Okta: OIDC or SAML for authentication, or SCIM for provisioning.
-
->**Note:** For API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/) for **API Service** tab descriptions.
+If your integration isn't a Workflows connector then your application needs to support at least one protocol for interacting with Okta: OIDC or SAML for authentication, or SCIM for provisioning. For API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/) for **API Service** tab descriptions.
 
 You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SAML and SCIM, you can create the submission with the SAML and SCIM protocol details. At a later date, when you add OIDC support to your application, you can return to your integration submission, activate the OIDC support panel, and add in the details needed for Okta to enable OIDC support.
 
