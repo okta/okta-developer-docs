@@ -37,7 +37,7 @@
 }
 
 .tree-nav .sections .link-wrap.subnav-active > .sections > li.subnav-active > .sections:before {
-  background-color: #26262d;
+  background-color: var(--c-lightgray-800);
 }
 
 .tree-nav .sections .tree-nav-link {

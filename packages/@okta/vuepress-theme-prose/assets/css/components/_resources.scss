@@ -35,11 +35,11 @@
   margin-bottom: 0;
   padding-bottom: 13.5px;
 
-  border-bottom: 1px solid #bfbfbf;
+  border-bottom: 1px solid var(--c-gray-405);
 
   font-weight: 500;
   font-size: 32px;
-  color: #555555;
+  color: var(--c-gray-760);
 }
 
 .resources__subtitle {
@@ -71,7 +71,7 @@
   font-size: 20px;
   line-height: 1.4;
   letter-spacing: 0.005em;
-  color: #555555;
+  color: var(--c-gray-760);
 }
 
 .resources__link {
@@ -98,7 +98,7 @@
   padding: 48px;
 
   border-radius: 12px;
-  background-color: #f4f4f4;
+  background-color: var(--c-gray-050);
 
   @include media(">tablet") {
     padding: 50px;
@@ -117,7 +117,7 @@
   padding-top: 20px;
   padding-bottom: 20px;
 
-  border-bottom: 1px solid #afaba1;
+  border-bottom: 1px solid var(--c-gray-420);
 
   &:first-child {
     @include media(">desktop") {
@@ -143,7 +143,7 @@
     padding-left: 55px;
 
     border: none;
-    border-right: 1px solid #555555;
+    border-right: 1px solid var(--c-gray-760);
   }
 }
 
@@ -154,7 +154,7 @@
   font-weight: 700;
   font-size: 14px;
   text-transform: uppercase;
-  color: #707070;
+  color: var(--c-gray-460);
 }
 
 .resources__list-text {
@@ -163,7 +163,7 @@
   max-width: 400px;
 
   font-size: 20px;
-  color: #707070;
+  color: var(--c-gray-460);
 }
 
 .resources__links {
@@ -186,7 +186,7 @@
   font-size: 16px;
 
   span {
-    border-bottom: 1px solid #191919;
+    border-bottom: 1px solid var(--c-gray-950);
   }
 
   &::before {
@@ -208,7 +208,7 @@
   @include media(">desktop") {
     &:hover {
       span {
-        border-color: #3f59e4;
+        border-color: var(--c-blue-550);
       }
     }
   }
