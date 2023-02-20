@@ -22,9 +22,8 @@
   padding: 34px 30px 3rem 49px;
   width: 100%;
   min-height: 100%;
-  padding: 34px 30px 3rem 49px;
-  background: cv('body', 'sidebar');
-  margin-bottom: -176px;
+
+  background: cv("body", "sidebar");
   .sections {
     position: relative;
   }
@@ -36,14 +35,17 @@
   }
   .sections.bordered {
     &:before {
-      content: '';
+      content: "";
+
       position: absolute;
-      left: -43px;
       top: 4px;
-      height: calc(100% - 8px);
+      left: -43px;
+
       width: 10px;
+      height: calc(100% - 8px);
+
       border-radius: 10px;
-      background-color: #E7EDF9;
+      background-color: #e7edf9;
     }
     @media (max-width: 1439px) {
       &:before {
@@ -64,33 +66,43 @@
   }
   & > .sections > .link-wrap > .tree-nav-link,
   & > .sections > .link-wrap > .tree-nav-link a {
-    color: cv('link', 'darker');
     font-weight: 400;
     font-size: 16px;
+    color: cv("link", "darker");
   }
   &-toggle {
     position: sticky;
-    right: 14px;
     top: 27px;
-    border-radius: 50%;
+    right: 14px;
+
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -36px;
     width: 52px;
     height: 52px;
-    background-color: cv('body', 'sidebar-toggle');
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: cv("body", "sidebar-toggle");
+
     cursor: pointer;
-    z-index: 2;
-    margin-left: -36px;
+
     &:before {
-      content: '';
+      content: "";
+
       position: absolute;
       right: 15px;
-      width: 60px;
-      background: linear-gradient(-90deg, cv('body', 'sidebar'), transparent);
-      height: 20px;
+
       z-index: 2;
+
       display: none;
+      width: 60px;
+      height: 20px;
+
+      background: linear-gradient(-90deg, cv("body", "sidebar"), transparent);
     }
     svg {
       position: relative;
@@ -98,8 +110,10 @@
       transform: rotate(180deg);
     }
     &.active {
-      margin-left: calc(100% - 36px);
       right: -10px;
+
+      margin-left: calc(100% - 36px);
+
       background-color: transparent;
       svg {
         transform: rotate(0);
@@ -109,15 +123,10 @@
       }
     }
   }
-  @include media("<tablet") {
-    flex-basis: 0;
-    width: 100%;
-    padding: 1rem 0 0 0;
-  }
   .sections {
     li > .sections {
-      padding-left: 0;
       margin-left: 22px;
+      padding-left: 0;
     }
     &:first-child {
       & > .link-wrap > .tree-nav-link {
@@ -126,7 +135,7 @@
         }
         &.router-link-active {
           &> .text-holder {
-            color: cv('link');
+            color: cv("link");
           }
         }
       }
@@ -134,32 +143,34 @@
     .link-wrap {
       margin-top: 12px;
       a {
-        color: cv('link', 'bluelight');
         font-size: 14px;
+        color: cv("link", "bluelight");
         &.router-link-active {
           span {
-            color: cv('link', 'darker');
             font-weight: 400;
+            color: cv("link", "darker");
           }
           &:before {
+            background-color: cv("link", "active-router") !important;
             background-image: none !important;
             mask-repeat: no-repeat;
             mask-position: center;
-            background-color: cv("link", "active-router") !important;
             -webkit-mask-image: url("/img/icons/angle-right.svg");
             mask-image: url("/img/icons/angle-right.svg");
           }
         }
       }
       span {
-        color: cv('link', 'darker');
         font-size: 14px;
         white-space: nowrap;
+        color: cv("link", "darker");
       }
       .blank-divider {
         cursor: default;
+
         margin-top: 12px;
         margin-left: -17px;
+
         font-weight: 400;
         font-size: 14px;
         white-space: nowrap;
@@ -167,39 +178,45 @@
     }
     .tree-nav-link {
       position: relative;
+
       display: inline-flex;
-      align-items: baseline;
       justify-content: flex-start;
-      font-size: 1em;
-      font-weight: 300;
-      text-decoration: none;
-      color: cv('text');
-      cursor: pointer;
+      align-items: baseline;
+
       width: 100%;
+
+      font-weight: 300;
+      font-size: 1em;
+
+      text-decoration: none;
+
+      color: cv("text");
+      cursor: pointer;
       &-parent a {
-        color: cv('link', 'darker');
-        font-size: 14px;
         overflow: hidden;
+
+        font-size: 14px;
         text-overflow: ellipsis;
+        color: cv("link", "darker");
       }
       i.opened {
         margin-bottom: 2px;
         svg {
           min-width: 5px;
           path {
-            color: cv('link', 'darker');
+            color: cv("link", "darker");
           }
         }
         & + span {
-          color: cv('link', 'darker');
           font-weight: 400;
+          color: cv("link", "darker");
         }
         & + a {
-          color: cv('link', 'darker');
           font-weight: 400;
+          color: cv("link", "darker");
           span {
-            color: cv('link', 'darker');
             font-weight: 400;
+            color: cv("link", "darker");
           }
         }
       }
@@ -208,39 +225,43 @@
       }
       &.router-link-active {
         @include active-link;
-        color: cv('link');
+        color: cv("link");
       }
       > span.text-holder {
-        margin-left: 0px;
-        white-space: nowrap;
+        margin-left: 0;
+
         overflow: hidden;
+
         text-overflow: ellipsis;
+        white-space: nowrap;
       }
       > i.parent {
-        transition: transform .3s;
         position: absolute;
-        left: -19px;
+
         top: 6px;
-        font-size: 9px;
+        left: -19px;
+
         padding-right: 5px;
+
+        font-size: 9px;
+
+        transition: transform 0.3s;
+
         svg {
           path {
-            fill: rgba(0, 41, 122, .3);
+            fill: rgb(0 41 122 / 0.3);
           }
         }
         @include media("<desktop-xl") {
           left: -14px;
         }
-        &.opened {
-          transform: rotate(90deg);
-          top: 7px;
-          left: -22px;
-          @include media("<desktop-xl") {
-            left: -17px;
-          }
-        }
       }
     }
+  }
+  @include media("<tablet") {
+    flex-basis: 0;
+    padding: 1rem 0 0 0;
+    width: 100%;
   }
 }
 

@@ -1,5 +1,5 @@
 :root {
-  // PALETTE LIGHT THEME
+  // PaLeTTe LIGHT THeMe
   --c-white: #ffffff;
   --c-gray-000: #ffffff;
   --c-gray-100: #ebebed;
@@ -13,7 +13,7 @@
   --c-gray-900: #1d1d21;
   --c-lightgray-200: #f5f5f5;
   --c-lightgray-300: #f7f7f8;
-  --c-lightgray-800: #E7EDF9;
+  --c-lightgray-800: #e7edf9;
   --c-lightgray-900: #f9f9f9;
   --c-blue-000: #f2f5ff;
   --c-blue-300: #a7b5ec;
@@ -59,13 +59,13 @@
   --c-black: #000000;
   --c-bg-lightblue: #e8effc;
   --c-blue-aside: #f7faff;
-  --c-blue-aside-lightblue: #EFF4FD;
-  --c-gray-blue: #B1BDD8;
-  --c-gray-sm: #F8F8F9;
-  --c-dark-gray: #D9D9D9;
-  --c-gray-md: #F9F9F9;
+  --c-blue-aside-lightblue: #eff4fd;
+  --c-gray-blue: #b1bdd8;
+  --c-gray-sm: #f8f8f9;
+  --c-dark-gray: #d9d9d9;
+  --c-gray-md: #f9f9f9;
 
-  // VARIABLES COLORS FOR LIGHT THEME
+  // VaRIabLeS cOLORS fOR LIGHT THeMe
   --c-cerise: var(--c-cerise-red);
   --c-body-base: var(--c-lightgray-200);
   --c-body-lighter: var(--c-lightgray-300);
@@ -107,7 +107,7 @@
 }
 
 .dark-theme {
-  // PALETTE DARK THEME
+  // PaLeTTe daRK THeMe
   --c-gray-900: #17171b;
   --c-gray-800: #1d1d21;
   --c-gray-750: #2a2a2f;
@@ -146,13 +146,13 @@
   --c-bg-lightblue: #121212;
   --c-blue-aside: #121212;
   --c-blue-aside-lightblue: #222228;
-  --c-link-bluelight: #D7D7D7;
-  --c-lightgray-800: #26262D;
+  --c-link-bluelight: #d7d7d7;
+  --c-lightgray-800: #26262d;
   --c-lightgray-900: #dddddd;
   --c-gray-blue: #92bcff;
   --c-blue-000: #121212;
 
-  // VARIABLES COLORS FOR DARK THEME
+  // VaRIabLeS cOLORS fOR daRK THeMe
   --c-body-base: var(--c-gray-800);
   --c-body-lighter: var(--c-gray-800);
   --c-header-base: var(--c-gray-700);
