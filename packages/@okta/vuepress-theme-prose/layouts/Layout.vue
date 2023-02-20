@@ -40,7 +40,10 @@
         </div>
       </div>
 
-      <div class="content" v-else-if="$page.frontmatter.cards">
+      <div
+        v-else-if="$page.frontmatter.cards"
+        class="content"
+      >
         <div
           :class="{
             'content--container': true,
@@ -58,7 +61,10 @@
         </div>
       </div>
 
-      <div class="content" v-else>
+      <div
+        v-else
+        class="content"
+      >
         <div
           :class="{
             'content--container': true,

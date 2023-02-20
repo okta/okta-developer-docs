@@ -1,7 +1,9 @@
 <template>
   <div>
-    <div v-for="link in links"
-        :key="link.title">
+    <div
+      v-for="link in links"
+      :key="link.title"
+    >
       <router-link :to="link.path">
         <slot>{{ link.title }}</slot>
       </router-link>

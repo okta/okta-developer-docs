@@ -11,7 +11,7 @@
         <i
           class="icon-75"
           :class="headerIcon"
-        ></i>
+        />
       </figure>
       <figure
         v-else-if="headerImage"
@@ -21,7 +21,7 @@
           <img
             class="card--header-img"
             :src="headerImage"
-          />
+          >
         </div>
       </figure>
       <section class="card--header-main-own">
