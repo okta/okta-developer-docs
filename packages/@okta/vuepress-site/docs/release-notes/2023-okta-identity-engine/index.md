@@ -6,11 +6,28 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## February
 
+### Weekly release 2023.02.1
+
+| Change | Expected in Preview Orgs |
+|------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Bugs fixed in 2023.02.1](#bugs-fixed-in-2023-02-1)                                                              |February 15, 2023 |
+
+#### Bugs fixed in 2023.02.1
+
+* A request to list all security questions (`/users/${userId}/factors/questions`) returned an unexpected question with an error in the response. (OKTA-525478)
+
+* Case sensitivity caused usernames sent in SAML 2.0 IdP assertions not to match usernames in the destination org if a custom IdP factor was used and the name ID format was unspecified. (OKTA-565984)
+
+* Some requests to the `/devices?expand=users&search=profile.platform` endpoint didn't include `expand=user` in the response. (OKTA-558994)
+
+* Some users weren’t able to re-enroll an account in Okta Verify that was previously unenrolled with another mechanism that used the Factors API. (OKTA-573421)
+
+* The YubiKey Report wasn’t generated when certain report filters were applied. (OKTA-561269)
+
 ### Monthly release 2023.02.0
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [All enrolled SMS and phone factors returned for a user](#all-enrolled-sms-and-phone-factors-returned-for-a-user) | February 8, 2023 |
 | [Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview](#allow-list-for-fido2-webauthn-authenticators-is-self-service-ea-in-preview) | January 19, 2023 |
 | [Applications API support for SAML metadata attributes](#applications-api-support-for-saml-metadata-attributes) | February 8, 2023 |
 | [Authenticator enrollment using the /authorize endpoint is GA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ga-in-preview) | November 3, 2022 |
@@ -27,10 +44,6 @@ title: Okta Identity Engine API Products release notes 2023
 | [Updated AWS EventBridge supported regions for Log Stream integrations](#updated-aws-eventbridge-supported-regions-for-log-stream-integrations) | February 8, 2023 |
 | [Developer documentation updates in 2023.02.0](#developer-documentation-updates-in-2023-02-0) | February 8, 2023 |
 | [Bugs fixed in 2023.02.0](#bugs-fixed-in-2023-02-0) | February 8, 2023 |
-
-#### All enrolled SMS and phone factors returned for a user
-
-Admins can now obtain a list of all enrolled SMS and Phone factors for a user by performing a GET request to the Factors API (`/users/${userId}/factors`). This is in addition to all of the other enrolled factors returned for the user. <!--OKTA-565854-->
 
 #### Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview
 
