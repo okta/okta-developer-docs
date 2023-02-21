@@ -141,7 +141,7 @@ Putting it all together, the final example looks like this:
 const authClient = new OktaAuth({
   // Org URL
   url: 'https://${yourOktaDomain}',
-  // OpenID Connect APP Client ID
+  // OpenID Connect App Client ID
   clientId: '${clientId}',
   // Trusted Origin Redirect URI
   redirectUri: 'http://localhost:8080'
@@ -204,7 +204,7 @@ else {
 const authClient = new OktaAuth({
   // Org URL
   url: 'https://${yourOktaDomain}',
-  // OpenID Connect APP Client ID
+  // OpenID Connect App Client ID
   clientId: '${clientId}',
   // Trusted Origin Redirect URI
   redirectUri: 'http://localhost:8080'

@@ -21,7 +21,7 @@ r.HandleFunc("/login/callback", s.LoginCallbackHandler).Methods("GET")
 ### 3: Get and store the tokens and redirect the request to the default sign-in page
 
 Next, call the `/token` endpoint and pass in the returned `interaction_code` and the
-PCKE parameters you created in
+PKCE parameters you created in
 [2: Get data to initialize the Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main/#_2-get-data-to-initialize-the-widget). After the tokens are fetched, store them in a
 session for later use. The following code snippet details how to fetch and store these tokens.
 
