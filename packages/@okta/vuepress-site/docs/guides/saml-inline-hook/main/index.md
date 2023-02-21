@@ -320,7 +320,7 @@ The SAML assertion inline hook is ready for preview and testing. You now have th
 
       The user should sign in as normal, entering their username and password. After authentication, the first name, last name, email, and group attributes display on the Welcome page. In the Glitch log window, a message appears stating that the user isn't part of the data store.
 
-1. Sign out of the sample application and now sign in with an Okta user who **is** in the data store of patients.
+1. Sign out of the sample application and now sign in with an Okta user who is in the data store of patients.
 
       The user should sign in as normal, entering their username and password. After authentication, the user's attributes display on the Welcome page, as before, and now include the patient ID attribute. In the Glitch log window, a message appears stating that the patient ID number was added to the SAML assertion.
 
