@@ -12,9 +12,9 @@ The list of available connectors and the associated versions are based on the Wo
 
 A flow test suite is required to validate the functionality of your connector. This test suite is obtained by exporting your test flows from the Workflows environment. See [Connector Builder submission testing](https://help.okta.com/okta_help.htm?type=wf&id=ext-third-party-test) and [Export Folder](https://help.okta.com/okta_help.htm?type=wf&id=ext-utility-method-exportgroup).
 
-* Click **Upload new file** to upload a flows test suite file (accepts `.folder` or `.flopack` file).
+* Click **Upload file** to upload a flows test suite file (accepts `.folder` or `.flopack` file).
 
-* Click **Download file** to download the flows test suite in this submission.
+* Click **Download file** to download the flows test suite or **Upload new file** to replace the existing flows test suite in this submission.
 
 #### Documentation
 
