@@ -2101,7 +2101,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 
 #### Verification Method JSON examples
 
-##### Any single Factor
+##### Any single factor
 
 ```json
 {
@@ -2112,7 +2112,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 }
 ```
 
-##### Password + any Factor
+##### Password + any factor
 
 ```json
 {
@@ -2170,7 +2170,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 }
 ```
 
-##### Any two Factors with one being a hardware-protected Authenticator
+##### Any two factors with one being a hardware-protected Authenticator
 
 ```json
 {
@@ -2184,6 +2184,69 @@ The number of Authenticator class constraints in each Constraint object must be 
     }
   ],
   "reauthenticateIn": "PT4H"
+}
+```
+
+###### Single factor Duo only
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "1FA",
+  "constraints": [
+    {
+      "possession": {
+        "types": [
+          "app"
+        ],
+        "methods": [
+          "duo"
+        ]
+      }
+    }
+  ]
+}
+```
+
+###### Single factor WebAuthN
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "1FA",
+  "constraints": [
+    {
+      "possession": {
+        "types": [
+          "security_key"
+        ],
+        "methods": [
+          "webauthn"
+        ]
+      }
+    }
+  ]
+}
+```
+
+###### Okta Verify: OTP only
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "1FA",
+  "constraints": [
+    {
+      "possession": {
+        "types": [
+          "app"
+        ],
+        "methods": [
+          "totp"
+        ]
+      }
+    }
+  ]
 }
 ```
 
