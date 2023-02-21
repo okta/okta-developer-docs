@@ -1,4 +1,4 @@
-You can configure a Relying Party (RP)-Initiated (SSO) Logout by setting the `okta.oauth2.postLogoutRedirectUri` property with an absolute URI such as:
+You can configure a Relying Party (RP)-initiated (SSO) Logout by setting the `okta.oauth2.postLogoutRedirectUri` property with an absolute URI such as:
 
 ```properties
 okta.oauth2.postLogoutRedirectUri=http://localhost:8080/

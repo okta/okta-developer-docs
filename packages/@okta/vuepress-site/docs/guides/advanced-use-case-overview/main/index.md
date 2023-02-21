@@ -17,4 +17,4 @@ The Okta email authenticator supports two methods for users to validate their cr
 1. The user copies a one-time passcode (OTP) from the email to your application and submits it to Identity Engine for authentication.
 1. The user clicks an embedded email link that submits the OTP directly to Identity Engine for authentication.
 
-The <StackSnippet snippet="emloverview" inline /> demonstrates the difference between the two methods, and how to integrate Email Magic LInks (EML) into an application that uses the Embedded Sign-In Widget or a supported Embedded SDK.
+The <StackSnippet snippet="emloverview" inline /> demonstrates the difference between the two methods, and how to integrate Email Magic Links (EML) into an application that uses the Embedded Sign-In Widget or a supported Embedded SDK.
