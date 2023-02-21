@@ -113,26 +113,24 @@ To register your API service registration:
 1. Sign in with the credentials of the Okta org you used to build your integration (this is typically your developer-edition Okta org).
 1. Click **Add New Submission**.
 1. On the **General Settings** tab, specify values in the **App Information**, **Customer Support**, and **Test Account** sections. See [Configure general settings](/docs/guides/submit-app/openidconnect/main/#configure-general-settings) for field descriptions.
-1. On the **OAUTH** tab, select **On** from the **OAUTH Support** dropdown menu.
+1. On the **API Service** tab, select **On** from the **API Service support** dropdown menu.
 
-   The **OAuth Settings** appear, and the **Client Credentials** grant type is selected. This is the only supported grant type for OAuth 2.0 API service integrations.
+   The **API Service Settings** appear, and the **Client Credentials** grant type is selected. This is the only supported grant type for OAuth 2.0 API service integrations.
 1. Under **Enable scopes**, click **+ Add Another** to specify a scope for your app integration.
 
    * Enter the Okta API scope to grant access from your integration. See [Scope selection](#scope-selection).
    * Click **+ Add Another** and specify additional scopes you want to grant for your integration.
 
-1. Specify the URL to the configuration document for your integration under **Link to configuration guide**. For configuration document guidelines, see [Prepare a customer-facing configuration guide](/docs/guides/submit-app/openidconnect/main/#prepare-a-customer-facing-configuration-guide).
+1. Specify the URL to the configuration document for your integration under **Link to configuration guide**. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
 
 ### Authorize a test integration
 
 Use the test functionality in the OIN Manager to obtain test integration credentials:
 
 1. From the [OIN Manager](https://oinmanager.okta.com/), click **Edit** next to your API service integration submission.
-1. From the **OAUTH** tab, click **Test in Okta** on the right side of your page.
+1. From the **API Service** tab, click **Test in Okta** at the bottom of your page.
 
    Your browser redirects to the Authorize integration page in your Okta org.
-
-   > **Note:** The **Test in Okta** option isn't available if you're missing required fields in the submission or have enabled another protocol tab (for example, OIDC or SAML) by mistake.
 
 1. From the Authorize integration page, click **Install and Authorize**.
 1. Copy the client secret from the dialog and securely store it for your integration test.
@@ -242,7 +240,7 @@ You can click **Test in Okta** again from the OIN Manager to install another tes
 After you test your API service integration and specify all fields and artifacts in the OIN Manager, you can submit your integration to Okta.
 
 1. Sign in to [OIN Manager](https://oinmanager.okta.com/) and click **Edit** next to your API service integration submission.
-1. From the **OAUTH** tab, click **Submit for Review** on the right side of your page.
+1. From the **API Service** tab, click **Submit for Review** on the right side of your page.
 
    A dialog appears and displays the completed submission tabs.
 

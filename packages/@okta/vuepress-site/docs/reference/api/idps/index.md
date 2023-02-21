@@ -1221,6 +1221,14 @@ curl -v -X POST \
   "type": "X509",
   "status": "ACTIVE",
   "name": "Smart Card IDP Name",
+  "properties": {
+    "additionalAmr": [
+      "sc",
+      "hwk",
+      "pin",
+      "mfa",
+    ]
+  },
   "protocol": {
     "type": "MTLS",
     "credentials": {
@@ -1259,6 +1267,14 @@ curl -v -X POST \
   "status": "ACTIVE",
   "created": "2020-01-07T00:19:27.000Z",
   "lastUpdated": "2020-01-07T00:19:27.000Z",
+  "properties": {
+    "additionalAmr": [
+      "sc",
+      "hwk",
+      "pin",
+      "mfa",
+    ]
+  },
   "protocol": {
     "type": "MTLS",
     "endpoints": {
@@ -2017,6 +2033,14 @@ curl -v -X GET \
   "status": "ACTIVE",
   "created": "2020-01-07T00:19:27.000Z",
   "lastUpdated": "2020-01-07T00:19:27.000Z",
+  "properties": {
+    "additionalAmr": [
+      "sc",
+      "hwk",
+      "pin",
+      "mfa",
+    ]
+  },
   "protocol": {
     "type": "MTLS",
     "endpoints": {
@@ -4780,6 +4804,7 @@ All Identity Providers have the following properties:
 | protocol     | Protocol settings for IdP `type`                           | [Protocol object](#protocol-object)                                       | FALSE | FALSE | FALSE |   |     |
 | status       | Status of the IdP                                          | `ACTIVE` or `INACTIVE`                                                    | FALSE | FALSE | TRUE  |   |     |
 | type         | Type of IdP                                                  | [Identity Provider Type](#identity-provider-type)                         | FALSE    | FALSE  | FALSE    |           |           |
+| properties | Properties specific to the type of IdP                                                  | [Identity Provider Properties](#identity-provider-properties)                         | TRUE    | FALSE  | FALSE    |           |           |
 
 #### Property details
 
@@ -4797,6 +4822,8 @@ All Identity Providers have the following properties:
 
 * The [Protocol object](#protocol-object) (`protocol`) and [Policy object](#policy-object) (`policy`) are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
 
+* The properties in the [Identity Provider Properties](#identity-provider-properties) object are dependent on the specific [type](#identity-provider-type) (`type`) of IdP used.
+
 ### Identity Provider type
 
 The Identity Provider object's `type` property identifies the social or enterprise Identity Provider used for authentication. Each Identity Provider uses a specific protocol, therefore the `protocol` property must correspond with the IdP `type`. If the protocol is OAuth 2.0-based, the Protocol object's `scopes` property must also correspond with the scopes supported by the IdP `type`. For policy actions supported by each IdP type, see [IdP type policy actions](#idp-type-policy-actions).
@@ -4813,6 +4840,8 @@ Okta supports the following enterprise and social Identity Provider types:
 | `GITLAB`     | [GitLab](https://gitlab.com/users/sign_in)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `read_user`, `profile`, `email` |
 | `GOOGLE`     | [Google](https://accounts.google.com/signup)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
 | `LINKEDIN`   | [LinkedIn](https://developer.linkedin.com/)&nbsp;as the Identity Provider | [OAuth 2.0](#oauth-2-0-protocol) | `r_emailaddress`, `r_liteprofile` |
+| `LOGINGOV`   | [Login.gov](https://developers.login.gov/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `email`, `profile`, `profile:name` |
+| `LOGINGOV_SANDBOX`   | [Login.gov's identity sandbox](https://developers.login.gov/testing/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `email`, `profile`, `profile:name` |
 | `MICROSOFT`  | [Microsoft Enterprise SSO](https://azure.microsoft.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile`, `https://graph.microsoft.com/User.Read` |
 | `OIDC`       | IdP provider that supports [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) | [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
 | `PAYPAL`     | [Paypal](https://www.paypal.com/signin)&nbsp;as the Identity Provider| [OpenID Connect](#openid-connect-protocol) | `openid`, `email`, `profile` |
@@ -4824,6 +4853,18 @@ Okta supports the following enterprise and social Identity Provider types:
 | `XERO`      | [Xero](https://www.xero.com/us/signup/api/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 | `YAHOO`      | [Yahoo](https://login.yahoo.com/)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
 | `YAHOOJP`      | [Yahoo Japan](https://login.yahoo.co.jp/config/login)&nbsp;as the Identity Provider | [OpenID Connect](#openid-connect-protocol) | `openid`, `profile`, `email` |
+
+### Identity Provider Properties
+
+The properties in the Identity Provider Properties object vary depending on the IdP type.
+
+| Property | Description        | DataType     | Applies to IdP type |
+| -------- | ------------------ | ------------ | -------------------- |
+| additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for Smart Card IdPs. <br> Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | `X509`    |
+| ialValue | The [type of identity verification](https://developers.login.gov/oidc/#ial-values) (IAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/).  | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
+| aalValue | The [authenication assurance level](https://developers.login.gov/oidc/#aal-values) (AAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/). | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
+
+> **Note:** The `additionalAmr` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Smart Card authenticator feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
 ### Protocol object
 

@@ -215,7 +215,7 @@ module.exports = ctx => ({
         items: [
           { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products' },
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
-          { text: 'Change log', link: '/docs/release-notes/' },
+          { text: 'Release Notes', link: '/docs/release-notes/' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
           { text: 'Auth0 platform', link: 'https://auth0.com/developers' },
         ]

@@ -248,6 +248,129 @@ curl -v -X GET \
 ]
 ```
 
+All enrolled phone factors are listed. <ApiLifecycle access="ie" />
+
+```json
+[
+    {
+        "id": "emf5utjKGAURNrhtu0g4",
+        "factorType": "email",
+        "provider": "OKTA",
+        "vendorName": "OKTA",
+        "status": "ACTIVE",
+        "profile": {
+            "email": “john.doe@example.com"
+        },
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/emf5utjKGAURNrhtu0g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE"
+                    ]
+                }
+            },
+            "verify": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/emf5utjKGAURNrhtu0g4/verify",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            },
+            "user": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "id": "sms9heipGfhT6AEm70g4",
+        "factorType": "sms",
+        "provider": "OKTA",
+        "vendorName": "OKTA",
+        "status": "ACTIVE",
+        "created": "2023-02-04T01:03:16.000Z",
+        "lastUpdated": "2023-02-04T01:03:16.000Z",
+        "profile": {
+            "phoneNumber": "+14125514455"
+        },
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/sms9heipGfhT6AEm70g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE"
+                    ]
+                }
+            },
+            "verify": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/sms9heipGfhT6AEm70g4/verify",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            },
+            "user": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "id": "sms9ikbIX0LaJook70g4",
+        "factorType": "sms",
+        "provider": "OKTA",
+        "vendorName": "OKTA",
+        "status": "ACTIVE",
+        "created": "2023-02-04T13:01:00.000Z",
+        "lastUpdated": "2023-02-04T13:01:00.000Z",
+        "profile": {
+            "phoneNumber": "+14125518899"
+        },
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/sms9ikbIX0LaJook70g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE"
+                    ]
+                }
+            },
+            "verify": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/sms9ikbIX0LaJook70g4/verify",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            },
+            "user": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
+        }
+    }
+]
+```
+
+
 ### List Factors to enroll
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/catalog" />
@@ -633,7 +756,7 @@ Enrolls a User with a supported [Factor](#list-factors-to-enroll)
 - [Enroll Okta Email Factor](#enroll-okta-email-factor)
 - [Enroll U2F Factor](#enroll-u2f-factor)
 - [Enroll WebAuthn Factor](#enroll-webauthn-factor)
-- [Enroll Custom HOTP Factor](#enroll-custom-hotp-factor)
+- [Enroll Custom TOTP Factor](#enroll-custom-totp-factor)
 
 ##### Request parameters
 
@@ -1884,15 +2007,20 @@ curl -v -X POST \
 }
 ```
 
-#### Enroll Custom HOTP Factor
+#### Enroll Custom TOTP Factor
 
-Enrolls a user with a Custom HMAC-based one-time passcode (HOTP) Factor. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
+Enrolls a user with a Custom time-based one-time passcode (TOTP) factor, which uses the [TOTP algorithm](https://www.ietf.org/rfc/rfc6238.txt), an extension of the HMAC-based one-time passcode (HOTP) algorithm. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
 
-A Factor Profile represents a particular configuration of the Custom HOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC Algorithm, passcode length, and time interval. There can be multiple Custom HOTP factor profiles per org, but users can only be enrolled for one Custom HOTP factor. Admins can create Custom HOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/okta_help.htm?id=ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
+A Factor Profile represents a particular configuration of the Custom TOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC algorithm, passcode length, and time interval. There can be multiple Custom TOTP factor profiles per org, but users can only be enrolled for one Custom TOTP factor. Admins can create Custom TOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/okta_help.htm?id=ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
 
-> **Note:** Currently only auto-activation is supported for Custom HOTP Factor.
+> <ApiLifecycle access="ie" />
+> **Note:** In Identity Engine, the Custom TOTP factor is referred to as the [Custom OTP authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-custom-otp).
 
-##### Enroll and auto-activate Custom HOTP Factor
+##### Enroll and auto-activate Custom TOTP Factor
+
+> **Notes:**<br>
+> * The `token:hotp` [factorType](#factor-type) property value is used in the enroll Custom TOTP factor endpoint.
+> * Currently only auto-activation is supported for the Custom TOTP factor.
 
 ```bash
 curl -v -X POST \
@@ -1910,7 +2038,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL/factors?activate=true"
 ```
 
-##### Enroll Custom HOTP Factor response example
+##### Enroll Custom TOTP Factor response example
 
 ```json
 {
@@ -1967,7 +2095,7 @@ The `sms` and `token:software:totp` [Factor types](#factor-type) require activat
 
 ###### Rate limit
 
-The rate limit for a user to activate one of their OTP-based factors (such as SMS, CALL, EMAIL, Google OTP, or Okta Verify TOTP) is five attempts within five minutes. The following example error message is returned if the user exceeds their OTP-based factor rate limit:
+The rate limit for a user to activate one of their OTP-based factors (such as SMS, call, email, Google OTP, or Okta Verify TOTP) is five attempts within five minutes. The following example error message is returned if the user exceeds their OTP-based factor rate limit:
 
 ```json
 {
@@ -1978,6 +2106,8 @@ The rate limit for a user to activate one of their OTP-based factors (such as SM
   "errorCauses": []
 }
 ```
+
+> **Note:** If the user exceeds their SMS, call, or email factor activate rate limit, then an OTP [resend](#resend-sms-as-part-of-enrollment) request (`/api/v1/users/${userId}}/factors/${factorId}/resend`) isn't allowed for the same factor.
 
 #### Activate TOTP Factor
 
@@ -3917,18 +4047,18 @@ The following Factor types are supported:
 
 | Factor Type           | Description                                                                                                         |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `call`                | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent using voice call to a registered phone number     |
-| `email`               | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent using email                                       |
+| `call`                | Software one-time passcode (OTP) sent using voice call to a registered phone number     |
+| `email`               | Software OTP sent using email                                       |
 | `push`                | Out-of-band verification using push notification to a device and transaction verification with digital signature      |
 | `question`            | Additional knowledge-based security question                                                                        |
-| `sms`                 | Software [OTP](http://en.wikipedia.org/wiki/One-time_password) sent using SMS to a registered phone number            |
-| `token:hardware`      | Hardware One-Time Password [OTP](http://en.wikipedia.org/wiki/One-time_password) device                             |
-| `token:hotp`          | A custom [HOTP](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm) Factor                        |
-| `token:software:totp` | Software [Time-based One-Time Password (TOTP)](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) |
-| `token`               | Software or hardware [One-Time Password (OTP)](http://en.wikipedia.org/wiki/One-time_password) device               |
-| `u2f`                 | Hardware [U2F](https://en.wikipedia.org/wiki/Universal_2nd_Factor) device                                           |
-| `web`                 | HTML inline frame (iframe) for embedding verification from a 3rd party                                              |
-| `webauthn`            | Hardware [WebAuthn](https://en.wikipedia.org/wiki/WebAuthn) device                                                  |
+| `sms`                 | Software OTP sent using SMS to a registered phone number            |
+| `token:hardware`      | Hardware OTP device                             |
+| `token:hotp`          | A custom [TOTP](https://www.ietf.org/rfc/rfc6238.txt)&nbsp;factor that uses an extension of the HMAC-based one-time passcode (HOTP) algorithm                     |
+| `token:software:totp` | Software time-based one-time passcode (TOTP) |
+| `token`               | Software or hardware one-time passcode (OTP) device               |
+| `u2f`                 | Hardware Universal 2nd Factor (U2F) device                                           |
+| `web`                 | HTML inline frame (iframe) for embedding verification from a third party                                              |
+| `webauthn`            | Hardware WebAuthn device                                                  |
 
 #### Provider type
 
