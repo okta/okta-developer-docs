@@ -75,7 +75,7 @@ export default {
                 },
                 {
                   url: "https://developer.okta.com/code",
-                  text: "Explore our SDKs ",
+                  text: "Explore our SDKs",
                 },
                 {
                   url: "https://developer.okta.com/docs/guides/embedded-authentication",

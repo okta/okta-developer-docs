@@ -1,10 +1,6 @@
 .c-dialog {
   display: flex;
 
-  &_state_hidden {
-    display: none;
-  }
-
   @include media("<desktop") {
     display: none;
   }

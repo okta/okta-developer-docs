@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="!dialogHidden"
     class="c-dialog"
     role="dialog"
     aria-labelledby="c-dialog-title"
@@ -9,6 +10,7 @@
   >
     <div
       class="c-dialog__overlay"
+      @click="hideDialog()"
     />
     <div
       class="c-dialog__content"
@@ -18,6 +20,7 @@
         class="c-dialog__close"
         type="button"
         aria-label="Close"
+        @click="hideDialog()"
       >
         <svg
           class="c-dialog__close-icon"
@@ -61,6 +64,7 @@
           <button
             class="c-dialog__link c-dialog__link_type_primary dont-break-out"
             type="button"
+            @click="hideDialog()"
           >
             Go to Workforce Identity Cloud docs
           </button>
@@ -102,29 +106,22 @@
 <script>
   export default {
     name: "HomeDialog",
+    data() {
+      return {
+        dialogHidden: false,
+      };
+    },
     mounted() {
-      const dialog = document.querySelector(".c-dialog");
-      const dialogClose = dialog.querySelector(".c-dialog__close");
-      const dialogOverlay = dialog.querySelector(".c-dialog__overlay");
-      const dialogButton = dialog.querySelector(".c-dialog__link_type_primary");
-
-      dialogClose.addEventListener("click", this.hideDialog);
-      dialogOverlay.addEventListener("click", this.hideDialog);
-      dialogButton.addEventListener("click", this.hideDialog);
-
+      const ESC_KEY = 27;
       window.addEventListener("keydown", (event) => {
-        if (event.keyCode === 27) {
-          if (!dialog.classList.contains("c-dialog_state_hidden")) {
-            this.hideDialog();
-          }
+        if (event.keyCode === ESC_KEY) {
+          this.dialogHidden = !this.dialogHidden
         }
       })
     },
     methods: {
       hideDialog() {
-        const dialog = document.querySelector(".c-dialog");
-
-        dialog.classList.add("c-dialog_state_hidden");
+        this.dialogHidden = !this.dialogHidden
       }
     }
   }

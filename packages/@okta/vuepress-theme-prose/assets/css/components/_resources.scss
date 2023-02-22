@@ -176,6 +176,20 @@
   }
 }
 
+.resources__list-icon {
+  width: 13px;
+  height: 13px;
+  background: url("/img/external-icon-dark.svg") 50% 50% no-repeat;
+  background-size: cover;
+  margin-left: 4px;
+  display: inline-block;
+}
+
+.dark-theme .resources__list-icon {
+  background: url("/img/external-icon-white.svg") 50% 50% no-repeat;
+  background-size: cover;
+}
+
 .resources__list-link {
   position: relative;
 
@@ -187,6 +201,7 @@
 
   span {
     border-bottom: 1px solid var(--c-gray-950);
+    display: inline;
   }
 
   &::before {
