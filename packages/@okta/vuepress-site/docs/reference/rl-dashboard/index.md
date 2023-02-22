@@ -113,7 +113,7 @@ Bursts, or unexpected API calls that hit and exceed the rate limit, generate a s
 
 #### Violation notification
 
-Rate limit violations generate a system log event, an entry in the Rate Limit Monitoring widget, and issue email notifications. Your org receives a notification when the default rate limit is hit. See [API rate limits and violations](#api-rate-limits-and-violations).
+Rate limit violations generate system log events, entries in the Rate Limit Monitoring widget, and email notifications. Your org receives a notification when the default rate limit is hit. See [API rate limits and violations](#api-rate-limits-and-violations).
 
 > **Note:** Email notifications are sent only on initially reaching the defined warning, burst, or violation limit and not for every endpoint call that exceeds these limits.
 
