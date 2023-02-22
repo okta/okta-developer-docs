@@ -7,9 +7,6 @@
     >
       <div class="search--form">
         <div class="CoveoOmnibox" />
-        <div class="CoveoSearchButton">
-          Search
-        </div>
       </div>
       <div class="CoveoAnalytics" />
     </div>

@@ -28,9 +28,15 @@
   position: relative;
 
   flex-shrink: 0;
-  padding: 94px 64px;
 
-  background-color: cv("header");
+  background-color: #191919 !important;
+}
+
+.app-footer__wrapper {
+  padding: 94px 64px;
+  padding-bottom: 24px;
+
+  border-top: 1px solid #555555;
 }
 
 .app-footer p {
@@ -52,18 +58,17 @@
 }
 
 .app-footer .footer--columns .footer--column {
-  flex: 0 0 170px;
+  flex: 0 0 190px;
 }
 
 .app-footer .footer--columns .footer--column .column--header {
   margin: 0 0 35px;
 
   font-weight: 400;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1.3em;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: cv("body", "white");
+  color: #bfbfbf !important;
 }
 
 @include media("<desktop-xl") {
@@ -107,7 +112,7 @@
 }
 
 .app-footer .footer--columns .contact {
-  flex: 0 0 170px;
+  flex: 0 0 190px;
 }
 
 @include media("<desktop-xl") {
@@ -163,6 +168,7 @@
 .app-footer .footer--columns .websites .website {
   display: flex;
   flex-direction: column;
+  align-items: start;
 }
 
 .app-footer .footer--columns .websites .website + .website {
@@ -181,7 +187,7 @@
   font-size: 16px;
   line-height: 1.7em;
   letter-spacing: 0.01em;
-  color: cv("text", "lighter");
+  color: rgb(255 254 250 / 0.8) !important;
 }
 
 @include media("<desktop-xl") {
@@ -237,23 +243,20 @@
 }
 
 .app-footer .footer--columns .copyright {
-  position: absolute;
-  bottom: 94px;
-  left: auto;
+  margin: 0;
+  margin-top: 30px;
+  padding-top: 25px;
+  width: 100%;
 
-  clear: both;
-  margin: 38px 0 0;
-  padding: 38px 0 0;
+  border-top: 0.5px solid rgba(255 254 250 / 0.5);
 
-  font-weight: 500;
-  font-size: 1em;
-  color: cv("body", "white");
-}
+  font-weight: 400;
+  font-size: 14px;
+  color: #fffefa;
 
-.app-footer .footer--columns .copyright::before {
-  top: 0;
-
-  @include separator;
+  @include media(">desktop") {
+    margin-top: 182px;
+  }
 }
 
 @include media("<desktop-xl") {
@@ -284,7 +287,7 @@
 .app-footer a.link {
   font-size: inherit;
   line-height: 1.3em;
-  color: cv("text", "lighter");
+  color: #fffefa !important;
 }
 
 .app-footer a.link:hover {
@@ -312,7 +315,7 @@
 }
 
 .app-footer a.link--heading {
-  color: cv("body", "white");
+  color: cv("body", "white") !important;
 }
 
 .app-footer a.link[target="_blank"]:not([href^="mailto:"]).link--with-chevron-right::after {
@@ -329,7 +332,7 @@
 }
 
 .app-footer ul.link-list li.link-list--item a.link-list--link {
-  display: flex;
+  display: inline;
   align-items: center;
 
   font-size: 16px;
@@ -350,7 +353,7 @@
 }
 
 .app-footer ul.link-list li.link-list--item i.link-list--icon svg path {
-  fill: cv("body", "white");
+  fill: #fffefa !important;
 }
 
 .app-footer ul.link-list li.link-list--item i.link-list--icon + span.link-list--text {
@@ -367,4 +370,69 @@
   .app-footer {
     padding: 60px 0;
   }
+}
+
+.app-footer .link {
+  font-weight: 500;
+}
+
+.app-footer .websites .link {
+  padding-right: 13px;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='7' height='10' viewBox='0 0 7 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.5' d='M1 9.00024L5 5.00024L1 1.00024' stroke='%23FFFEFA' stroke-width='1.5'/%3E%3C/svg%3E%0A");
+  background-position: right center;
+  background-repeat: no-repeat;
+
+  line-height: 1;
+}
+
+.app-footer .website .description {
+  font-weight: 500;
+}
+
+.footer-social-networks {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  padding-top: 32px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 38px;
+    height: 1px;
+
+    background-color: #fffefa;
+
+    opacity: 0.5;
+  }
+}
+
+.app-footer ul.link-list li.link-list--item:last-child i.link-list--icon svg path {
+  fill: #000000 !important;
+}
+
+.footer-logotype {
+  display: inline-block;
+  margin-bottom: 30px;
+
+  @include media(">desktop") {
+    margin-bottom: 72px;
+  }
+}
+
+.footer-text {
+  margin-bottom: 32px;
+}
+
+.app-footer a:hover {
+  text-decoration: underline !important;
+  color: #b6caff !important;
 }

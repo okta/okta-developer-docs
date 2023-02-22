@@ -280,3 +280,7 @@
 .aside-hidden .width-adjuster {
   max-width: calc(100% - 77px);
 }
+
+._state_fixed {
+  overflow-y: hidden;
+}
