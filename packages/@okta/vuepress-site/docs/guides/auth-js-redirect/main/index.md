@@ -81,7 +81,7 @@ Include this script in your target HTML page (`index.html`) by including the fol
 <script src="https://global.oktacdn.com/okta-auth-js/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/okta-auth-js.polyfill.js" type="text/javascript"></script>
 ```
 
-Note: If you are using a package manager, you can also install it via the appropriate command, for example `yarn add @okta/okta-auth-js` or `npm install @okta/okta-auth-js`. 
+Note: If you are using a package manager, you can also install it via the appropriate command, for example `yarn add @okta/okta-auth-js` or `npm install @okta/okta-auth-js`.
 
 #### Create a JavaScript file
 

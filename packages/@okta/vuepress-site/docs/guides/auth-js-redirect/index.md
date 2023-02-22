@@ -1,5 +1,5 @@
 ---
-title: Auth JS fundamentals
+title: Auth JS redirect guide
 layout: Guides
 sections:
  - main
