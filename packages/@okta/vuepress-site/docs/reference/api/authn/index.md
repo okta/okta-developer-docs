@@ -5739,7 +5739,7 @@ Starts a new password recovery transaction for a given user and issues a [recove
 
 > **Note:** A valid `factorType` is required for requests without an API token with administrator privileges. For more information, see [Forgot Password with Trusted Application](#forgot-password-with-trusted-application).
 
-> **Note:** You can include the optional parameter `relayState` as part of the body in the Forgot Password request. `relayState` is a link to a site where the user is redirected when the password recovery operation completes. The 'relayState' link must point to a trusted origin. The `relayState` parameter works only in Classic orgs.
+> **Note:** You can include the optional parameter `relayState` as part of the body in the Forgot Password request. `relayState` is a link to a site where the user is redirected when the password recovery operation completes. The 'relayState' link must point to a trusted origin. The `relayState` parameter works only in Okta Classic Engine orgs.
 
 The response is different, depending on whether the request is for a public application or a trusted application.
 
