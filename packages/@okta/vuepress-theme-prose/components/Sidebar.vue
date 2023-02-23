@@ -56,9 +56,7 @@
 </template>
 
 <script>
-
 import SidebarItems from "../mixins/SidebarItems";
-
 export default {
   name: "Sidebar",
   components: {
@@ -105,7 +103,7 @@ export default {
           this.sidebarItems = routes[i].subLinks;
           break;
         }
-      } 
+      }
       if (this.sidebarItems.length == 0) {
         document.querySelector("body").classList.add('isHome')
       }
@@ -113,18 +111,18 @@ export default {
     handleScroll: function(event) {
       let maxHeight =
         window.innerHeight -
-        document.querySelector(".fixed-header").clientHeight - 
+        document.querySelector(".fixed-header").clientHeight -
         document.querySelector(".header-nav").clientHeight;
-        
+
       document.querySelector(".sidebar-area").style.height =
         maxHeight + "px";
     },
     handleResize: function(event) {
       let maxHeight =
         window.innerHeight -
-        document.querySelector(".fixed-header").clientHeight - 
+        document.querySelector(".fixed-header").clientHeight -
         document.querySelector(".header-nav").clientHeight;
-        
+
       if (document.querySelector(".sidebar-area")) {
       document.querySelector(".sidebar-area").style.height =
         maxHeight + "px";

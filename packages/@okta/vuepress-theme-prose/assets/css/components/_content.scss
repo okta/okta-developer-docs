@@ -127,6 +127,12 @@
   max-width: 100%;
 }
 
+.content--container .content-area-arch {
+  flex: 1;
+  padding: 23px 59px 60px;
+  max-width: calc(82% - 203px);
+}
+
 @include media("<desktop-xl") {
   .content--container .content-area .content__default {
     margin-top: 20px;
@@ -349,9 +355,14 @@
 
 .aside-hidden .sidebar-area {
   width: 77px;
-  min-width: auto;
+  min-width: 0;
 }
 
 .aside-hidden .content-area {
   max-width: calc(100% - 77px);
+}
+.arch--container {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
 }

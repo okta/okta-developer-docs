@@ -40,6 +40,27 @@
         </div>
       </div>
 
+      <div 
+        v-else-if="$page.frontmatter.cards"
+        class="content" 
+      >
+        <div
+          :class="{
+            'content--container': true,
+            'arch--container': true,
+            'navigation-only': appContext.isTreeNavMobileOpen
+          }"
+        >
+          <Sidebar />
+          <div class="content-area content-area-arch col-xl-10 col-lg-10 col-md-12 col-sm-12">
+            <Breadcrumb />
+            <StackSelector v-if="$page.hasStackContent" />
+            <PageTitle />
+            <GeneratedContentWithCards />
+          </div>
+        </div>
+      </div>
+
       <div
         v-else
         class="content"
@@ -105,6 +126,7 @@ export default {
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
     GeneratedContent: () => import("../components/GeneratedContent.vue"),
+    GeneratedContentWithCards: () => import("../components/GeneratedContentWithCards.vue"),
     Footer: () => import("../components/Footer.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),

@@ -294,3 +294,19 @@
 	transition: $_result;
 
 }
+
+//---------------------------------------------------------------
+// Limit lines
+//---------------------------------------------------------------
+
+@mixin limit_lines($lines_count) {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+
+  text-overflow: ellipsis;
+  -webkit-line-clamp: $lines_count;
+  line-clamp: $lines_count;
+  word-wrap: break-word;
+
+  overflow: hidden;
+}

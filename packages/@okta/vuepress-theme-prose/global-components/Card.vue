@@ -42,8 +42,7 @@
     <section class="card--main">
       <p>
         <slot>
-          Commodo deserunt nulla Lorem veniam do minim consectetur ea
-          in.
+          Commodo deserunt nulla Lorem veniam do minim consectetur ea in.
         </slot>
       </p>
     </section>
