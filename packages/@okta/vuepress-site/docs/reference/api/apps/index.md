@@ -1430,7 +1430,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
--d {
+-d '{
     "name": "oidc_client",
     "label": "Sample Client profile",
     "signOnMode": "OPENID_CONNECT",
@@ -1462,7 +1462,7 @@ curl -v -X POST \
         "application_type": "native"
       }
     }
-}
+}' "https://${yourOktaDomain}/api/v1/apps"
 ```
 
 ### Get application
@@ -3314,7 +3314,7 @@ curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
--d {
+-d '{
     "id": "0oap6nz61rKdsoyOY0h7",
     "name": "oidc_client",
     "label": "SampleClient",
@@ -3385,7 +3385,7 @@ curl -v -X PUT \
             "issuer_mode": "CUSTOM_URL"
         }
     }
-}`
+}' "https://${yourOktaDomain}/api/v1/apps/${appId}"
 ```
 
 ##### Response example
