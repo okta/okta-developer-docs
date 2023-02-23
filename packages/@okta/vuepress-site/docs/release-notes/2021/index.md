@@ -362,7 +362,7 @@ The Okta [Brands API](/docs/reference/api/brands/) allows customization of the l
 
 #### Risk Providers and Risk Events APIs are EA
 
-The Okta [Risk Providers API](/docs/reference/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/reference/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/). <!-- OKTA-415574 -->
+The Okta [Risk Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskEvent/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/). <!-- OKTA-415574 -->
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
