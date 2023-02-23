@@ -2,7 +2,7 @@
 
 #### Multi-tenancy
 
-Okta uses a [multi-tenant](/docs/concepts/multi-tenancy) local credential system for OIDC. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
+Okta uses a [multi-tenant](/docs/concepts/multi-tenancy/) local credential system for OIDC. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
 
 For example, consider a scenario where your app integration is added to 10 separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This scenario creates a total of 13 sets of client credentials for your application that you need to track.
 
