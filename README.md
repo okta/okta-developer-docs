@@ -11,7 +11,7 @@ The [Okta developer site](https://developer.okta.com) serves Okta's API document
 - [API references](https://developer.okta.com/docs/reference/)
 - [SDK references and sample code](https://developer.okta.com/documentation/)
 - [Authentication quickstarts](https://developer.okta.com/quickstart/)
-- [Guides](https://developer.okta.com/guides/)
+- [Guides](https://developer.okta.com/guides/) 
 - [Developer Blog](https://developer.okta.com/blog/) (not published from this repo, see [oktadev/okta-blog](https://github.com/oktadev/okta-blog))
 
 ## Building the site on your machine or contributing to the site 
@@ -36,3 +36,4 @@ See our updated wiki for full details on contributing to the developer documenta
 - [Deploying a doc release](https://github.com/okta/okta-developer-docs/wiki/Deploying-a-Doc-Release)
 - [Creating a Guide](https://github.com/okta/okta-developer-docs/wiki/Creating-a-Guide)
 - [Troubleshooting](https://github.com/okta/okta-developer-docs/wiki/Troubleshooting)
+- Blackhat
