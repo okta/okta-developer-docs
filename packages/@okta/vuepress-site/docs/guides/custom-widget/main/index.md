@@ -49,11 +49,12 @@ Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize you
 
 To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
 
-> **Note:** If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted origins in Okta.
+### Known limitations
 
-> **Note:** You can have a maximum of 20 URIs.
-
-> **Note:** If you add a trusted origin URL that redirects to a different URL, you need to include the redirect URL on the trusted origin list.
+* Don't use `meta` tags to customize the CSP.
+* If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted origins in Okta.
+* You can have a maximum of 20 URIs.
+* If you add a trusted origin URL that redirects to a different URL, you need to include the redirect URL on the trusted origin list.
 
 #### Add a nonce reference
 
