@@ -58,18 +58,16 @@ To use multibrand customization in the Admin Console, see [Branding](https://hel
 
 There are public APIs and updates to existing APIs for multibrand customization:
 
-- Domains
-- Email domains
-- Brands
+- [Domains](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/)
+- [Email domains](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/)
+- [Brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/)
 - Loading page
 - Sign-in page code editor and custom labels
-- Error pages
-- Sign-In Widget version
+- [Error pages](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getErrorPage)
+- [Sign-In Widget version](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/listAllSignInWidgetVersions)
 - Default app for the Sign-In Widget
-- Sign-out page
+- [Sign-out page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings)
 - Display language
-
-See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
 
 ### Authorization servers and multibrand customizations
 
