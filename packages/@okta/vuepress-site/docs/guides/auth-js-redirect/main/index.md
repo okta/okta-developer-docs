@@ -1,5 +1,5 @@
 ---
-title: Auth JS redirect guide
+title: Sign users in to your SPA using the redirect model and Auth JS
 ---
 
 The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js), (Auth JS), provides functionality to help implement a wide variety of web authentication solutions for both the [redirect and embedded model](/docs/concepts/redirect-vs-embedded/). This guide shows you how to create a simple redirect authentication solution using Auth JS, which can be dropped into just about any front-end or server-side web application.
@@ -27,7 +27,7 @@ In this guide, you don’t need to use a specific server-side or front-end frame
 
 If you'd like to explore the entire Auth JS SDK, see [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
 
-### Create an Okta app integration
+## Create an Okta app integration
 
 An Okta app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
@@ -45,11 +45,11 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. In the **Assignments** section, define the type of **Controlled access** for your app. Select the **Everyone** group for now. For more information, see the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Click **Save** to create the app integration. The configuration pane for the integration opens after it's saved. Keep this pane open as you'll need to copy the **Client ID** and your org domain name when configuring your app.
 
-### Create a basic app
+## Create a basic app
 
 To make this sample as versatile as possible, the following starter app redirects to Okta to sign in as you load it into the browser. In your own apps, you might want to initiate the redirect through the press of a sign-in button, or when visiting a certain route that requires authentication (such as an admin page). The key is that you initiate the sign in through the redirect.
 
-#### Create a simple HTML UI
+### Create a simple HTML UI
 
 In your app directory, create an HTML file called `index.html`. Add the following markup to this file:
 
@@ -73,7 +73,7 @@ In your app directory, create an HTML file called `index.html`. Add the followin
 
 The content in the body tags represents a simple app. The `content-jwt` reference displays user information after you add some upcoming JavaScript.
 
-#### Install the Auth JS SDK
+### Install the Auth JS SDK
 
 Include this script in your target HTML page (`index.html`) by including the following after the `<title>` element:
 
@@ -84,7 +84,7 @@ Include this script in your target HTML page (`index.html`) by including the fol
 
 Note: If you're using a package manager, you can also install it through the appropriate command, for example `yarn add @okta/okta-auth-js` or `npm install @okta/okta-auth-js`.
 
-#### Add JavaScript to initialize the SDK
+### Add JavaScript to initialize the SDK
 
 In the same `index.html` file, add the following JavaScript code after the Auth JS SDK reference:
 
@@ -151,7 +151,7 @@ Include the following function within the `body` tags after the `content-jwt` re
 
 This function signs the user out of the Okta session. See [signOut()](https://github.com/okta/okta-auth-js/#signout) in the Auth JS SDK.
 
-### Test your app
+## Test your app
 
 You can now run your app by using a local web server. For example, with a macOS, go to your sample app directly and use the Python web server command:
 
@@ -161,7 +161,7 @@ python3 -m http.server 9000
 
 The sample app starts the redirect flow when the page opens.
 
-#### Troubleshoot your app
+### Troubleshoot your app
 
 If your app isn't working, ensure that:
 
@@ -170,13 +170,13 @@ If your app isn't working, ensure that:
 * Your `redirectUri` is accurate or the web-server port number is correct.
 * Your default authorization server access policy is enabled for `Interaction Code`. See step 2 in [Create the rule](/docs/guides/configure-access-policy/-/main/#create-the-rule). Ensure that Interaction Code is selected for **Grant type is**.
 
-### Use Cases
+## Use Cases
 
 * Retrofitting
 * Centralized login
 * Utility application
 
-### Next steps
+## Next steps
 
 Explain what Okta doesn't cover, for example, handling routes, authentication per route, and so on. Okta didn’t want to build our own SPA framework to show you how to do all this. Just basic sign-in. But point them to the other guides for plenty of examples of handling this.
 
@@ -187,7 +187,7 @@ Sign-up
 
 Talk about session management, and what happens when the page is refreshed. (To decide: app manages the session or uses the “built-in token manager”.
 
-### See also
+## See also
 
 * [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/)
 * [Redirect auth in the sample app](https://developer.okta.com/docs/guides/sampleapp-oie-redirectauth/angular/main/)
