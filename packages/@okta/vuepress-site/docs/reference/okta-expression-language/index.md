@@ -7,7 +7,7 @@ meta:
 
 # Okta Expression Language overview
 
-This document details the features and syntax of Okta Expression Language, which you can use throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
+This document details the features and syntax of Okta Expression Language (EL), which you can use throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
 
 > **Note:** If you are using the Okta Expression Language for [Global session policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
 

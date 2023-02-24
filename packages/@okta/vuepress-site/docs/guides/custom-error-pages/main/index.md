@@ -16,8 +16,8 @@ Customize error pages as part of the sign-in flow.
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * [Custom domain](/docs/guides/custom-url-domain/), unless you're using the [Brands API](#use-the-brands-api)
-* The full-featured code editor enabled in your org <ApiLifecycle access="ea" />
 * A [customized Content Security Policy (CSP)](#content-security-policy-csp-for-your-custom-domain)
+* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding) <ApiLifecycle access="ea" />
 
 **Sample code**
 
@@ -88,8 +88,10 @@ Example:
 
 Use the code editor to modify any HTML, CSS, or JavaScript on the error page. See [Customization examples](#customization-examples) for snippets that you can update and use.
 
-1. In the Admin Console, go to **Customizations** > **Branding**.
-2. In the **Error Page** box, click **Edit**.
+> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
+
+1. In the Admin Console, go to **Customizations** > **Branding**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
+2. In the **Error Page** box, click **Edit**. (EA users: on the **Pages** tab in the **Error Pages** section, click **Configure**.)
 3. To open the code editor, turn on the toggle next to **Code editor**.
 
    > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/).

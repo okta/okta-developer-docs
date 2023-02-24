@@ -1,6 +1,6 @@
 {
-  "release" : "2022.12.1",
-  "build" : "2022.12.1-begin-115-g51ea9cea0e4f",
+  "release" : "2023.02.1",
+  "build" : "2023.02.1-begin-173-g93d635be5b1b",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -42,7 +42,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "no_scope_allowed",
     "errorCode" : "access_denied",
-    "errorDescription" : "Policy evaluation succeeded but all the requested scopes were rejected."
+    "errorDescription" : "Policy evaluation succeeded, but all the requested scopes were rejected."
   }, {
     "title" : "No matching policy",
     "statusCode" : 401,
@@ -113,6 +113,27 @@
     "internalErrorCode" : "mfa_attestation_login_hint_invalid",
     "errorCode" : "access_denied",
     "errorDescription" : "'login_hint' did not match a user assigned to the client app."
+  }, {
+    "title" : "Associated server not exists",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "associated_server_not_exists",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The associated server doesn't exist."
+  }, {
+    "title" : "Associated server not trusted",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "associated_server_not_trusted",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The 'subject_token' issuer isn't a trusted authorization server."
+  }, {
+    "title" : "Unsupported token exchange flow",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "unsupported_token_exchange_flow",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The Token Exchange flow from {0} app to {1} app isn't supported."
   }, {
     "title" : "Admin consent insufficient permission",
     "statusCode" : 403,
@@ -268,6 +289,13 @@
     "errorCode" : "access_denied",
     "errorDescription" : "The Client-Initiated Backchannel Authentication flow currently only supports web applications."
   }, {
+    "title" : "Ciba MFA challenge initiation failure",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "ciba_mfa_challenge_initiation_failure",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Failed to initiate the MFA challenge for the Client-Initiated Backchannel Authentication flow."
+  }, {
     "title" : "Authorization pending",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -323,6 +351,20 @@
     "internalErrorCode" : "no_org_scopes_granted",
     "errorCode" : "consent_required",
     "errorDescription" : "You are not allowed any of the requested scopes."
+  }, {
+    "title" : "Direct auth authorization pending",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_authorization_pending",
+    "errorCode" : "direct_auth_authorization_pending",
+    "errorDescription" : "Out-of-band authorization has not been completed. Continue polling."
+  }, {
+    "title" : "Direct auth oob code not for MFA token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_oob_code_not_for_mfa_token",
+    "errorCode" : "direct_auth_oob_code_not_for_mfa_token",
+    "errorDescription" : "The 'oob_code' provided is not associated with the provided 'mfa_token'."
   }, {
     "title" : "Expired token",
     "statusCode" : 400,
@@ -660,6 +702,118 @@
     "errorCode" : "invalid_client_metadata",
     "errorDescription" : "Invalid request"
   }, {
+    "title" : "Invalid dpop proof",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT is invalid."
+  }, {
+    "title" : "Invalid dpop proof service client not allowed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_service_client_not_allowed",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT is not supported for service clients."
+  }, {
+    "title" : "Invalid dpop proof missing header",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_missing_header",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT header is missing."
+  }, {
+    "title" : "Invalid dpop proof multiple headers not allowed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_multiple_headers_not_allowed",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "Multiple DPoP proof JWT headers are not allowed."
+  }, {
+    "title" : "Invalid dpop proof invalid type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_invalid_type",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "'typ' must be 'dpop+jwt' in the DPoP proof JWT."
+  }, {
+    "title" : "Invalid dpop proof invalid signature algorithm",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_invalid_signature_algorithm",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT signature algorithm is invalid."
+  }, {
+    "title" : "Invalid dpop proof invalid JWT",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_invalid_jwt",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT cannot be parsed."
+  }, {
+    "title" : "Invalid dpop proof invalid signature",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_invalid_signature",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT signature is invalid."
+  }, {
+    "title" : "Invalid dpop proof invalid htm",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_invalid_htm",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "'htm' claim in the DPoP proof JWT is invalid."
+  }, {
+    "title" : "Invalid dpop proof invalid htu",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_invalid_htu",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "'htu' claim in the DPoP proof JWT is invalid."
+  }, {
+    "title" : "Invalid dpop proof invalid iat",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_invalid_iat",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "'iat' claim in the DPoP proof JWT is invalid."
+  }, {
+    "title" : "Invalid dpop proof JWT issued in future",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_jwt_issued_in_future",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT is issued in the future."
+  }, {
+    "title" : "Invalid dpop proof JWT expired",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_jwt_expired",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT is expired."
+  }, {
+    "title" : "Invalid dpop proof invalid public key binding",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_invalid_public_key_binding",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "Invalid DPoP Public Key binding in refresh token"
+  }, {
+    "title" : "Invalid dpop proof invalid jti",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_dpop_proof_invalid_jti",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "'jti' claim in the DPoP proof JWT is invalid."
+  }, {
+    "title" : "Dpop proof already used",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "dpop_proof_already_used",
+    "errorCode" : "invalid_dpop_proof",
+    "errorDescription" : "The DPoP proof JWT has already been used."
+  }, {
     "title" : "Invalid grant",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -855,6 +1009,83 @@
     "internalErrorCode" : "invalid_interaction_code",
     "errorCode" : "invalid_grant",
     "errorDescription" : "The interaction code is invalid or has expired."
+  }, {
+    "title" : "Direct auth policy denied",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_policy_denied",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Direct Authentication denied by sign on policy."
+  }, {
+    "title" : "Direct auth invalid otp",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_otp",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'otp' provided is invalid."
+  }, {
+    "title" : "Direct auth not challenged for required factor type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_not_challenged_for_required_factor_type",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Sign on policy did not prompt for any factor types specified by the client."
+  }, {
+    "title" : "Direct auth factor enrollment required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_factor_enrollment_required",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "User is not enrolled in required factor."
+  }, {
+    "title" : "Direct auth expired token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_expired_token",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Either the 'oob_code' or 'mfa_token' is expired or invalid."
+  }, {
+    "title" : "Direct auth invalid channel hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_channel_hint",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The 'channel_hint' provided is invalid."
+  }, {
+    "title" : "Direct auth oob rejected",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_oob_reject",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Authentication was rejected out-of-band."
+  }, {
+    "title" : "Direct auth invalid challenge type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_challenge_type",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "'{0}' is not a valid challenge type."
+  }, {
+    "title" : "Direct auth invalid grant type supported",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_grant_type_supported",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "'{0}' is not a valid grant type."
+  }, {
+    "title" : "Direct auth grant types supported not prompted",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_grant_types_supported_not_prompted",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "None of the supported grant types are sufficient to satisfy the app sign on policy."
+  }, {
+    "title" : "Direct auth prompted grant type disabled for client",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_prompted_grant_type_disabled_for_client",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The grant types required to satisfy sign on policy are disabled for the client."
   }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
@@ -1234,6 +1465,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Only service clients may use on-behalf token exchange."
   }, {
+    "title" : "Associated server mapping exists",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "associated_server_mapping_exists",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The associated server mapping already exists."
+  }, {
     "title" : "PKCE challenge required",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1535,6 +1773,13 @@
     "errorCode" : "invalid_scope",
     "errorDescription" : "'scope' must be 'openid' for MFA attestation."
   }, {
+    "title" : "OpenID not allowed token exchange",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "openid_not_allowed_token_exchange",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "Can't request 'openid' scopes using the Token Exchange flow for a service app."
+  }, {
     "title" : "No default scopes",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1758,6 +2003,13 @@
     "internalErrorCode" : "mfa_not_required",
     "errorCode" : "mfa_not_required",
     "errorDescription" : "The MFA attestation request cannot proceed because the client app policy does not require MFA."
+  }, {
+    "title" : "Direct auth MFA required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "mfa_required",
+    "errorCode" : "mfa_required",
+    "errorDescription" : "An additional authentication factor is required."
   }, {
     "title" : "Missing initiate login URI",
     "statusCode" : 400,
@@ -2031,6 +2283,13 @@
     "internalErrorCode" : "mfa_attestation_response_type_invalid",
     "errorCode" : "unsupported_response_type",
     "errorDescription" : "'response_type' must be 'id_token' for MFA attestation."
+  }, {
+    "title" : "Use dpop nonce",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "use_dpop_nonce",
+    "errorCode" : "use_dpop_nonce",
+    "errorDescription" : "Authorization server requires nonce in DPoP proof."
   }, {
     "title" : "Web sso token replayed",
     "statusCode" : 400,

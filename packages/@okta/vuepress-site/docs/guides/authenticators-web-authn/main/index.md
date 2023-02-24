@@ -25,7 +25,7 @@ This guide shows you how to integrate Web Authentication (WebAuthn) into your ap
 
 ## The case for WebAuthn
 
-Passwords and other authenticators that rely on one-time passwords (OTPs) are vulnerable to security attacks because they rely on relayable information that bad actors can easily obtain. Phishing, where phony websites, phone calls, and other fraudulent tactics are used to gain access to passwords, OTPs, and other data is the major cause of security attacks today.
+Passwords and other authenticators that rely on one-time passcodes (OTPs) are vulnerable to security attacks because they rely on relayable information that bad actors can easily obtain. Phishing, where phony websites, phone calls, and other fraudulent tactics are used to gain access to passwords, OTPs, and other data is the major cause of security attacks today.
 
 To be resistant to phishing attacks, a local communication channel should exist between the device and the authentication factor. WebAuthn supplies this local communication channel by providing a framework to authenticate through USB security keys, fingerprints, Touch ID, and other types of localized authenticators. For example, an app running in a browser can authenticate a user by initiating a biometric request using a fingerprint scanner on their laptop.
 

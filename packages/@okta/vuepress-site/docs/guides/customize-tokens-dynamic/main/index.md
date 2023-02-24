@@ -107,7 +107,7 @@ To test the full authentication flow that returns an ID token or an access token
 
 ## Add a Groups claim with a dynamic allow list
 
-You can use Okta Expression Language Group Functions with dynamic allowlists. Three Group functions help you use dynamic group allowlists: `contains`, `startsWith`, and `endsWith`. These functions return all of the Groups that match the specified criteria without needing to have Groups specified in the app.
+You can use Okta Expression Language (EL) Group Functions with dynamic allowlists. Three Group functions help you use dynamic group allowlists: `contains`, `startsWith`, and `endsWith`. These functions return all of the Groups that match the specified criteria without needing to have Groups specified in the app.
 
 You can use this function anywhere to get a list of Groups of which the current user is a member, including both User Groups and App Groups that originate from sources outside of Okta, such as from Active Directory and Workday. Additionally, you can use this combined, custom-formatted list for customizable claims into access and ID tokens that drive authorization flows. All three functions have the same parameters:
 

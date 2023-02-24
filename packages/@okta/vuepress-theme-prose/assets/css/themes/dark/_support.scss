@@ -1,0 +1,35 @@
+.support__list-link {
+  span {
+    border-bottom: 1px solid var(--c-white);
+  }
+
+  @include media(">desktop") {
+    &:hover {
+      span {
+        border-color: var(--c-green-300);
+      }
+    }
+  }
+}
+
+.support__sidebar {
+  background-color: var(--c-gray-980);
+}
+
+.support__sidebar-title {
+  color: var(--c-gray-405);
+}
+
+.support__paragraph {
+  color: var(---c-gray-350);
+}
+
+.support__link {
+  @include media(">desktop") {
+    &:hover {
+      background-color: var(--c-green-300);
+
+      color: var(--c-gray-950) !important;
+    }
+  }
+}

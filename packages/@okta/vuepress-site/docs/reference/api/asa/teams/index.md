@@ -33,6 +33,8 @@ The Teams API has the following operations:
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/servers" />
 Lists all the Servers enrolled in a Team that the requesting ASA User has access to
 
+> **Note**: Server changes may take time to propagate to this endpoint. Some results might not be immediately available.
+
 This endpoint requires one of the following roles: `access_user`, `access_admin`, `authenticated_client`, `reporting_user`, or `server_admin`.
 
 #### Request path parameters
@@ -77,7 +79,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `hostname`   | string | The hostname of the Server |
 | `id`   | string | The UUID corresponding to the Server |
 | `instance_details`   | object | Information that the cloud provider provides about the Server, if one exists |
-| `labels`   | object | (Optional) The labels for this server. This parameter is only available with the PolicySync feature, which is currently in EA. |
+| `labels`   | object | (Optional) The labels for this server. This parameter is used by the PolicySync feature. |
 | `last_seen`   | string | The last time that the Server made a request to the ASA platform |
 | `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA knows that it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server, such as CentOS 6 or Debian 9.13 |
@@ -159,7 +161,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 ### Update a Server
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/servers/${server_id}" />
-Updates a Server. This endpoint is only available with the PolicySync feature, which is currently in EA.
+Updates a Server. This endpoint is intended for use with the PolicySync feature.
 
 This endpoint requires one of the following roles: `access_admin`, or `server_admin`.
 

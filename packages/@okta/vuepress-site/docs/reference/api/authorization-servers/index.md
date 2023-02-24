@@ -1009,6 +1009,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
     "default": false,
     "displayName": "Saml Jackson",
     "consent": "REQUIRED",
+    "optional": false,
     "metadataPublish": "NO_CLIENTS"
   }
 ]
@@ -1019,6 +1020,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
 | consent                                  | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`, `FLEXIBLE`       | Enum      | `IMPLICIT`     | True for update                        |
+| optional<ApiLifecycle access="ea" />     | Indicates whether the Scope is optional. When set to `true`, the user can skip consent for the scope.            | Boolean   |     False           | False 
 | default                                  | Whether the Scope is a default Scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the Scope                                                                                | String    |                | False                                      |
 | displayName                              | Name of the end user displayed in a consent dialog box                                                      | String    |                | False                                      |
@@ -1252,7 +1254,7 @@ When you use these API endpoints to create or modify a Claim resource, the respo
 | name                   | Name of the Claim                                                                                                                                                                                                                                  | String                                                 | True                                     |
 | status                 | Specifies whether requests have access to this Claim. Valid values: `ACTIVE` or `INACTIVE`                                                                                                                                                         | Enum                                                   | True                                     |
 | system                 | Specifies whether Okta created this Claim                                                                                                                                                                                                          | Boolean                                                | System                                   |
-| valueType              | Specifies whether the Claim is an Okta EL expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)                                                                                                                      | Enum                                                   | True                                     |
+| valueType              | Specifies whether the Claim is an Okta Expression Language (EL) expression (`EXPRESSION`), a set of groups (`GROUPS`), or a system claim (`SYSTEM`)                                                                                                                      | Enum                                                   | True                                     |
 | value                  | Specifies the value of the Claim. This value must be a string literal if `valueType` is `GROUPS`, and the string literal is matched with the selected `group_filter_type`. The value must be an Okta EL expression if `valueType` is `EXPRESSION`.   | String                                                 | True                                     |
 
 ##### Details for `group_filter_type`

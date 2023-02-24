@@ -59,6 +59,7 @@ guides:
  - build-sso-integration
  - custom-sms-messaging
  - submit-app
+ - submit-app-prereq
  - deployment-checklist
  - deploy-your-app
  - protect-your-api
@@ -72,6 +73,7 @@ guides:
  - saml-tracer
  - session-cookie
  - set-up-self-service-registration
+ - set-up-token-exchange
  - shared-sso-android-ios
  - sharing-cert
  - sign-in-to-spa-authjs
@@ -89,7 +91,6 @@ guides:
  - updating-saml-cert
  - validate-access-tokens
  - validate-id-tokens
- - oie-embedded-sdk-limitations
  - oie-embedded-common-org-setup
  - oie-embedded-common-download-setup-app
  - oie-embedded-common-run-samples
@@ -134,6 +135,7 @@ guides:
  - pwd-optional-best-practices
  - pwd-optional-overview
  - build-api-integration
+ - add-logingov-idp
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

@@ -112,4 +112,4 @@ You need to handle other returned `IdxStatus` cases if the user didn't sign in s
 
 ### 4 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server (see the next section).
+Optionally, you can obtain basic user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server (see the next section).

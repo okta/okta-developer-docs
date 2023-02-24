@@ -3,20 +3,17 @@ title: Brands
 category: management
 ---
 
+> **Important!** Multibrand customization updates are available in our new API reference docs. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+
 # Brands API
 
 The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard.
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
 
-> **Important:** Despite being called the Brands API (due to conventions around REST API naming), each org can currently contain only one brand and one theme. We will likely allow multiple brands and themes per org at some point in the future, so stay tuned!
-
 ## Get started
 
 Explore the Brands API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)
-
-> <ApiLifecycle access="ea"/>
-> **Note:** This Postman collection requires the Loading Page Animation feature to be enabled if using Themes API with `loadingPageTouchPointVariant`.
 
 ## Brand operations
 
@@ -116,7 +113,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}"
 ```
 
 ##### Response
@@ -193,7 +190,7 @@ curl -v -X PUT \
 -d '{
   "agreeToCustomPrivacyPolicy": true,
   "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy"
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}"
 ```
 
 ##### Response
@@ -242,7 +239,7 @@ curl -v -X PUT \
 -d '{
   "customPrivacyPolicyUrl": null,
   "removePoweredByOkta": true
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}"
 ```
 
 ##### Response
@@ -290,7 +287,7 @@ curl -v -X PUT \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "customPrivacyPolicyUrl": "randomValue"
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}"
 ```
 
 ##### Response
@@ -325,7 +322,7 @@ curl -v -X PUT \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy"
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}"
 ```
 
 ##### Response
@@ -383,8 +380,6 @@ Array of the [Theme Response](#theme-response-object)
 
 Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
 
-> **Note:** The `loadingPageTouchPointVariant` property is returned in the response body only if the **Loading Page Animation** feature is enabled. <ApiLifecycle access="ea" />
-
 #### Use examples
 
 The following example returns all Themes in the Brand.
@@ -396,7 +391,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes"
 ```
 
 ##### Response
@@ -483,8 +478,6 @@ The requested [Theme Response](#theme-response-object)
 
 Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-> **Note:** The response body includes the `loadingPageTouchPointVariant` property only if the the **Loading Page Animation** feature is enabled. <ApiLifecycle access="ea" />
-
 #### Use examples
 
 The following example returns a Theme object:
@@ -496,7 +489,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}"
 ```
 
 ##### Response
@@ -588,9 +581,6 @@ Returns an updated [Theme Response](#theme-response-object)
 
 * Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
 
-
-* Passing the optional `loadingPageTouchPointVariant` body parameter without having the the **Loading Page Animation** feature enabled returns a `401 Unauthorized` with error code `E0000015`. <ApiLifecycle access="ea" />
-
 #### Use examples
 
 The following example updates Theme properties.
@@ -610,7 +600,7 @@ curl -v -X PUT \
     "errorPageTouchPointVariant": "OKTA_DEFAULT",
     "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
     "loadingPageTouchPointVariant": "OKTA_DEFAULT"
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}"
 ```
 
 ##### Response
@@ -693,7 +683,7 @@ curl -v -X PUT \
     "errorPageTouchPointVariant": "OKTA_DEFAULT_RANDOM",
     "emailTemplateTouchPointVariant": "OKTA_DEFAULT_RANDOM",
     "loadingPageTouchPointVariant": "OKTA_DEFAULT_RANDOM"
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}"
 ```
 
 ##### Response
@@ -773,7 +763,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/logo"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/logo"
 ```
 
 #### Response
@@ -798,7 +788,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/invalid-file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/logo"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/logo"
 ```
 
 #### Response
@@ -862,7 +852,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/logo"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/logo"
 ```
 
 ##### Response
@@ -903,7 +893,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/favicon"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/favicon"
 ```
 
 #### Response
@@ -928,7 +918,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/invalid-file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/favicon"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/favicon"
 ```
 
 #### Response
@@ -983,7 +973,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/favicon"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/favicon"
 ```
 
 ##### Response
@@ -1024,7 +1014,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/background-image"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/background-image"
 ```
 
 #### Response
@@ -1049,7 +1039,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/invalid-file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/background-image"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/background-image"
 ```
 
 #### Response
@@ -1104,7 +1094,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/background-image"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/background-image"
 ```
 
 ##### Response
@@ -1202,7 +1192,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email"
 ```
 
 ##### Response
@@ -1295,7 +1285,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation?expand=settings,customizationCount'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation?expand=settings,customizationCount"
 ```
 
 ##### Response
@@ -1391,7 +1381,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
 ```
 
 ##### Response
@@ -1471,7 +1461,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
 ```
 
 ##### Response
@@ -1556,7 +1546,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test?language=fr'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test?language=fr"
 ```
 
 ##### Response
@@ -1595,7 +1585,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
 ```
 
 ##### Response
@@ -1707,7 +1697,7 @@ curl -v -X POST \
   "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
   "isDefault": true
 }' \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
 ```
 
 ##### Response
@@ -1794,7 +1784,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
 ```
 
 ##### Response
@@ -1834,7 +1824,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}"
 ```
 
 ##### Response
@@ -1944,7 +1934,7 @@ curl -v -X PUT \
   "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
   "isDefault": true
 }' \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}"
 ```
 
 ##### Response
@@ -2036,7 +2026,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}"
 ```
 
 ##### Response
@@ -2076,7 +2066,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}/preview'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}/preview"
 ```
 
 ##### Response
@@ -2152,7 +2142,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings"
 ```
 
 ##### Response
@@ -2227,7 +2217,7 @@ curl -v -X PUT \
 -d '{
   "recipients": "NO_USERS"
 }' \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings"
 ```
 
 ##### Response
@@ -2260,6 +2250,18 @@ HTTP/1.1 200 OK
     }
 }
 ```
+
+## Sign-in page operations
+
+See the [Customized Sign-in Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage) on the new beta reference site.
+
+## Sign-out page operations
+
+See the [Customized Sign-out Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings) on the new beta reference site.
+
+## Error page operations
+
+See the [Customized Error Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getErrorPage) on the new beta reference site.
 
 ## Brand API Objects
 
@@ -2356,7 +2358,7 @@ The Theme object defines the following properties:
 | `endUserDashboardTouchPointVariant`   | Enum     | Variant for the Okta End-User Dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`.                    | `OKTA_DEFAULT`    |
 | `errorPageTouchPointVariant`          | Enum     | Variant for the error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
-| `loadingPageTouchPointVariant` <ApiLifecycle access="ea" />       | Enum     | (Optional) Variant for the Okta loading page. Applicable only if the **Loading Page Animation** feature is enabled. Accepted values: `OKTA_DEFAULT`, `NONE`.                                 | `OKTA_DEFAULT`    |
+| `loadingPageTouchPointVariant`        | Enum     | (Optional) Variant for the Okta loading page. Applicable only if the **Loading Page Animation** feature is enabled. Accepted values: `OKTA_DEFAULT`, `NONE`.                                 | `OKTA_DEFAULT`    |
 
 > **Note:** `primaryColorContrastHex` and `secondaryColorContrastHex` are automatically optimized for the highest possible contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
 
@@ -2454,7 +2456,7 @@ The Theme Response object defines the following properties:
 | `endUserDashboardTouchPointVariant`   | Enum                    | Variant for the Okta End-User Dashboard     |
 | `errorPageTouchPointVariant`          | Enum                    | Variant for the error page                  |
 | `emailTemplateTouchPointVariant`      | Enum                    | Variant for email templates                 |
-| `loadingPageTouchPointVariant` <ApiLifecycle access="ea" />       | Enum                    | Variant for the Okta loading page           |
+| `loadingPageTouchPointVariant`        | Enum                    | Variant for the Okta loading page           |
 | `_links`                              | [Links](#links-object)  | Link relations for this object              |
 
 ##### Theme Response example
@@ -2547,12 +2549,9 @@ Initial Theme variant values are different for existing orgs with customizations
 | `errorPageTouchPointVariant`          | yes                   | yes                        | `BACKGROUND_IMAGE`              |
 | `endUserDashboardTouchPointVariant`   | no                    | n/a                        | `OKTA_DEFAULT`                  |
 | `endUserDashboardTouchPointVariant`   | yes                   | n/a                        | `LOGO_ON_FULL_WHITE_BACKGROUND` |
-| `loadingPageTouchPointVariant` <ApiLifecycle access="ea" />       | n/a                   | n/a                        | `OKTA_DEFAULT` or `NONE` |
+| `loadingPageTouchPointVariant`        | n/a                   | n/a                        | `OKTA_DEFAULT` or `NONE` |
 
-> **Note:**
-> For existing orgs, the `loadingPageTouchPointVariant` property is initialized to `OKTA_DEFAULT` if the **Okta Interstitial
-> Page** setting under **Customizations** > **Other** is enabled in the Admin Console. Otherwise, this property is initialized to `NONE`. <ApiLifecycle access="ea" />
->
+
 ### Logo scenarios
 
 The following scenarios explain which logo is used when based on the `THEME_BUILDER` flag.

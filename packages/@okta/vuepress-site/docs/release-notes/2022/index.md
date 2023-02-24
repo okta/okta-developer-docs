@@ -109,7 +109,7 @@ The Rate Limit dashboard in the Admin Console now supports parameter matching fo
 | [New rate limits dashboard filter](#new-rate-limits-dashboard-filter) | November 3, 2022 |
 | [Improved ThreatInsight coverage](#improved-threatinsight-coverage) | November 3, 2022 |
 | [Developer documentation updates in 2022.11.0](#developer-documentation-updates-in-2022-11-0) | November 3, 2022 |
-| [Bugs fixed in 2022.011.0](#bugs-fixed-in-2022-11-0) | November 3, 2022|
+| [Bugs fixed in 2022.11.0](#bugs-fixed-in-2022-11-0) | November 3, 2022|
 
 #### Step-up authentication using ACR values is GA in Preview
 
@@ -223,7 +223,7 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 #### Bugs fixed in 2022.10.0
 
-* Users were able to make more than five attempts to activate their One-Time Password (OTP) based factors. (OKTA-429940)
+* Users were able to make more than five attempts to activate their one-time passcode (OTP) based factors. (OKTA-429940)
 
 * Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
 
@@ -754,7 +754,7 @@ When you use the [AuthN APIs](/docs/reference/api/authn/#request-parameters-for-
 
 #### Bug fixed in 2022.04.3
 
-* The `ssh_certificate_type` parameter was incorrectly set as required in the [Projects](/docs/reference/api/asa/projects/#create-a-project) endpoint from the ASA Projects API. (OKTA-489376)
+* The `ssh_certificate_type` parameter was incorrectly set as required in the [Projects](/docs/reference/api/asa/projects/#create-a-project) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-489376)
 
 ### Weekly release 2022.04.1
 
@@ -784,7 +784,7 @@ When you use the [AuthN APIs](/docs/reference/api/authn/#request-parameters-for-
 
 #### Improved email magic link authentication experience is EA in Preview
 
-Email magic links are enhanced to allow end users to authenticate in two different contexts. They can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
+Email magic links are enhanced to allow end users to authenticate in two different contexts. They can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time passcode to proceed with authentication. See [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
 
 #### Splunk available for Log Streaming is EA in Preview
 
@@ -834,7 +834,7 @@ The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-
 
 * An error was incorrectly returned when a valid [update request](/docs/reference/api/authorization-servers/#update-a-scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
 
-* The `servers` parameter was incorrectly set as required in the [Preauthorization](/docs/reference/api/asa/projects/#create-a-preauthorization) endpoint from the ASA Projects API. (OKTA-478566)
+* The `servers` parameter was incorrectly set as required in the [Preauthorization](/docs/reference/api/asa/projects/#create-a-preauthorization) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-478566)
 
 ### Weekly release 2022.03.1
 
