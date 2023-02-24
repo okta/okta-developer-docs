@@ -42,11 +42,11 @@ function generatedLinks(arr, parent = null) {
           let path = '';
           if (parentTitle !== 'guides' && parent.path) {
             const splittedPath = parent.path.split('/');
-            if (parent.path == '/code/' || parent.path === '/architecture-center/') { 
-              path = `/${splittedPath[1]}/${sanitizeTitle(el)}/`;
-            } else if (parent.path.indexOf(parentTitle) >= 0) {
+            if (parent.path.indexOf(parentTitle) >= 0) {
               path = parent.path.replace(parentTitle, sanitizeTitle(el));
-            } else {
+            } else if (parent.path == '/code/' || parent.path === '/architecture-center/') { 
+              path = `/${splittedPath[1]}/${sanitizeTitle(el)}/`;
+            }  else {
               path = `/${splittedPath[1]}/${splittedPath[2]}/${sanitizeTitle(el)}/`;
             }
           } else {

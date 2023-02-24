@@ -55,11 +55,11 @@ export default {
           let path = '';
           if (parentTitle !== 'guides' && parent.path) {
             const splittedPath = parent.path.split('/')
-            if (parent.path == '/code/' || parent.path === '/architecture-center/') {
-              path = `/${splittedPath[1]}/${this.sanitizeTitle(link)}/`;
-            } else if (parent.path.indexOf(parentTitle) >= 0) {
+            if (parent.path.indexOf(parentTitle) >= 0) {
               path = parent.path.replace(parentTitle, this.sanitizeTitle(link));
-            } else {
+            } else if (parent.path == '/code/' || parent.path === '/architecture-center/') {
+              path = `/${splittedPath[1]}/${this.sanitizeTitle(link)}/`;
+            }  else {
               path = `/${splittedPath[1]}/${splittedPath[2]}/${this.sanitizeTitle(link)}/`;
             }
           } else {
