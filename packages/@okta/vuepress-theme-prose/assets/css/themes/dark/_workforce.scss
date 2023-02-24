@@ -1,31 +1,31 @@
 .workforce__article .workforce__block {
-  background-color: #30302f;
+  background-color: var(--c-workforce-block-bg);
 }
 
 .workforce__block-text {
-  color: #fffefa;
+  color: var(--c-lightgray-450);
 }
 
 .workforce__list-link {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid var(--c-white);
 
   font-size: 16px;
   @include media(">desktop") {
     &:hover {
-      border-color: #b1e4de;
+      border-color: var(--c-green-300);
     }
   }
 }
 
 .workforce__text {
-  color: #dbdbdb;
+  color: var(---c-gray-350);
   strong {
-    color: #ffffff;
+    color: var(--c-white);
   }
 }
 
 .workforce__article-title {
-  color: #ffffff;
+  color: var(--c-white);
 }
 
 .workforce__block-img-light {

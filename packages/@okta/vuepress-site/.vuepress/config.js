@@ -203,14 +203,14 @@ module.exports = ctx => ({
         items: [
           { text: 'Contact our team', link: 'https://www.okta.com/contact/', target: '_self' },
           { text: 'Contact sales', link: 'https://www.okta.com/contact-sales/', target: '_self' },
-          { text: 'Developer Service Terms', link: '/terms/' },
-          { text: 'Site Terms', link: 'https://www.okta.com/terms-of-service/' },
+          { text: 'Developer Service terms', link: '/terms/' },
+          { text: 'Site terms', link: 'https://www.okta.com/terms-of-service/' },
 			 { text: 'Privacy policy', link: 'https://www.okta.com/privacy-policy/', target: '_self' },
 			 { text: 'Copyright & trademarks', link: '/copyright/' },
         ]
       },
       more: {
-        heading: 'More Info',
+        heading: 'More information',
         items: [
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Pricing', link: 'https://www.okta.com/pricing/#workforce-identity-pricing' },
@@ -236,7 +236,7 @@ module.exports = ctx => ({
     ],
 
     forum_url: 'https://devforum.okta.com/',
-    copyright_text: `Copyright © ${new Date().getUTCFullYear() || '2022'} Okta.`
+    copyright_text: `Copyright © ${new Date().getUTCFullYear() || '2022'} Okta. All rights reserved.`
   },
 
   chainWebpack(config) {

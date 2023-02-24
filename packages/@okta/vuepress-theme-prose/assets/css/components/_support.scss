@@ -53,7 +53,7 @@
 
   @include media(">tablet") {
     --support-title-text-size: 48px;
-    max-width: 560px;
+    max-width: 570px;
   }
 
   @include media(">desktop") {
@@ -76,7 +76,7 @@
 
   font-size: var(--support-paragraph-size);
   letter-spacing: 0.005em;
-  color: #555555;
+  color: var(--c-gray-760);
 
   &_size_small {
     --support-paragraph-size: 16px;
@@ -113,9 +113,9 @@
 
   @include media(">desktop") {
     &:hover {
-      background-color: #3f59e4;
+      background-color: var(--c-blue-550);
 
-      color: #ffffff !important;
+      color: var(--c-white) !important;
     }
   }
 
@@ -151,6 +151,21 @@
   gap: 12px;
 }
 
+.support__list-icon {
+  display: inline-block;
+  margin-left: 4px;
+  width: 13px;
+  height: 13px;
+
+  background: url("/img/external-icon-dark.svg") 50% 50% no-repeat;
+  background-size: cover;
+}
+
+.dark-theme .support__list-icon {
+  background: url("/img/external-icon-white.svg") 50% 50% no-repeat;
+  background-size: cover;
+}
+
 .support__list-link {
   position: relative;
 
@@ -161,13 +176,15 @@
   font-size: 16px;
 
   span {
-    border-bottom: 1px solid #191919;
+    display: inline;
+
+    border-bottom: 1px solid var(--c-gray-950);
   }
 
   @include media(">desktop") {
     &:hover {
       span {
-        border-color: #3f59e4;
+        border-color: var(--c-blue-550);
       }
     }
   }
@@ -181,7 +198,7 @@
   padding: 40px;
 
   border-radius: 16px;
-  background-color: #f4f4f4;
+  background-color: var(--c-gray-050);
 }
 
 .support__sidebar-title {
@@ -193,7 +210,7 @@
   line-height: 1.4;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #707070;
+  color: var(--c-gray-460);
 }
 
 .support__list-item .support__paragraph {

@@ -4804,7 +4804,7 @@ All Identity Providers have the following properties:
 | protocol     | Protocol settings for IdP `type`                           | [Protocol object](#protocol-object)                                       | FALSE | FALSE | FALSE |   |     |
 | status       | Status of the IdP                                          | `ACTIVE` or `INACTIVE`                                                    | FALSE | FALSE | TRUE  |   |     |
 | type         | Type of IdP                                                  | [Identity Provider Type](#identity-provider-type)                         | FALSE    | FALSE  | FALSE    |           |           |
-| properties <ApiLifecycle access="ea" /> | Properties specific to the type of IdP                                                  | [Identity Provider Properties](#identity-provider-properties)                         | TRUE    | FALSE  | FALSE    |           |           |
+| properties | Properties specific to the type of IdP                                                  | [Identity Provider Properties](#identity-provider-properties)                         | TRUE    | FALSE  | FALSE    |           |           |
 
 #### Property details
 
@@ -4858,9 +4858,11 @@ Okta supports the following enterprise and social Identity Provider types:
 
 The properties in the Identity Provider Properties object vary depending on the IdP type.
 
-| Property | Description        | DataType     | Nullable | Readonly |
-| -------- | ------------------ | ------------ | -------- | -------- |
-| additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for the `x509` IdP type. Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | TRUE    | FALSE    |
+| Property | Description        | DataType     | Applies to IdP type |
+| -------- | ------------------ | ------------ | -------------------- |
+| additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for Smart Card IdPs. <br> Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | `X509`    |
+| ialValue | The [type of identity verification](https://developers.login.gov/oidc/#ial-values) (IAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/).  | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
+| aalValue | The [authenication assurance level](https://developers.login.gov/oidc/#aal-values) (AAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/). | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
 
 > **Note:** The `additionalAmr` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Smart Card authenticator feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
@@ -6045,7 +6047,7 @@ Specifies the behavior for establishing, validating, and matching a username for
 | filter           | Optional [regular expression pattern](https://en.wikipedia.org/wiki/Regular_expression) used to filter untrusted IdP usernames      | String                                                 | TRUE     | FALSE    | 0         | 1024      |                                                                     |
 | matchAttribute   | Okta User profile attribute for matching a transformed IdP username. Only for matchType `CUSTOM_ATTRIBUTE` | String      | TRUE    | FALSE    |           |           |  See `matchAttribute` Validation  |
 | matchType        | Determines the Okta User profile attribute match conditions for account linking and authentication of the transformed IdP username  | `USERNAME`, `EMAIL`, `USERNAME_OR_EMAIL` or `CUSTOM_ATTRIBUTE`      | FALSE    | FALSE    |           |           |
-| userNameTemplate | [Okta EL Expression](/docs/reference/okta-expression-language/) to generate or transform a unique username for the IdP User           | [UserName Template object](#username-template-object)  | FALSE    | FALSE    |           |           | [Okta EL Expression](/docs/reference/okta-expression-language/)       |
+| userNameTemplate | [Okta Expression Language (EL) expression](/docs/reference/okta-expression-language/) to generate or transform a unique username for the IdP User           | [UserName Template object](#username-template-object)  | FALSE    | FALSE    |           |           | [Okta EL Expression](/docs/reference/okta-expression-language/)       |
 
 `matchAttribute` Validation
 

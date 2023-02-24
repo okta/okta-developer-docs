@@ -4,6 +4,20 @@ title: Okta API Products release notes 2023
 
 ## February
 
+### Weekly release 2023.02.1
+
+| Change | Expected in Preview Orgs |
+|------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Bugs fixed in 2023.02.1](#bugs-fixed-in-2023-02-1)                                                              |February 15, 2023 |
+
+#### Bugs fixed in 2023.02.1
+
+* Case sensitivity caused usernames sent in SAML 2.0 IdP assertions not to match usernames in the destination org if a custom IdP factor was used and the name ID format was unspecified. (OKTA-565984)
+
+* Some users weren’t able to re-enroll an account in Okta Verify that was previously unenrolled with another mechanism that used the Factors API. (OKTA-573421)
+
+* The YubiKey Report wasn’t generated when certain report filters were applied. (OKTA-561269)
+
 ### Monthly release 2023.02.0
 
 | Change | Expected in Preview Orgs |
@@ -64,6 +78,8 @@ The Spunk Cloud Log Streaming integration now supports GCP and GovCloud customer
 The list of supported AWS EventBridge regions has been updated based on configurable event sources. See the [list of available AWS regions for Log Stream integrations](/docs/reference/api/log-streaming/#property-details-2). <!--OKTA-573094-->
 
 #### Developer documentation updates in 2023.02.0
+
+* The Okta Developer portal has a new look and feel. The [home page](https://developer.okta.com/) features a curated set of resources on developer use cases for Workforce Identity Cloud solutions. You can also access the featured blog posts to stay up to date with implementing Okta features.
 
 * A new authorization guide is available to help admins and devs retain the user context in requests to downstream services. This document  provides guidance on how a client can exchange an access token received from an upstream client with a new token by interacting with the authorization server. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
 
@@ -170,7 +186,7 @@ Okta uses an internal machine-learning-based toll fraud and abuse-detection mode
 
 #### Bugs fixed in 2023.01.0
 
-* During the authenticator enrollment flow using the `/authorize` endpoint, users couldn't enroll in the Custom APP authenticator. (OKTA-558352)
+* During the authenticator enrollment flow using the `/authorize` endpoint, users couldn't enroll in the Custom App authenticator. (OKTA-558352)
 
 * The Log Streaming API returned the Splunk Cloud `token` property in the response body. (OKTA-437264)
 

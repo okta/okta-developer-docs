@@ -1,37 +1,42 @@
 .news__title {
-  border-color: #555555;
+  border-color: var(--c-gray-760);
 
-  color: #dbdbdb;
+  color: var(---c-gray-350);
+}
+
+.news__article {
+  background-color: var(--c-workforce-block-bg);
 }
 
 @include media(">desktop") {
   .news__article:hover .news__text {
-    color: #2b2b2b;
+    color: var(--c-gray-980);
   }
 
   .news__article:hover .news__article-title,
   .news__article:hover .news__article-link {
-    color: #191919;
+    color: var(--c-gray-950);
   }
 
   .news__article:hover {
-    background-color: #4cb7a3;
+    background-color: var(--c-green-300);
   }
 }
 
 .news__text {
-  color: #bfbfbf;
+  color: var(--c-gray-405);
 }
 
 .news__article-link {
-  border-color: #ffffff;
+  border-color: var(--c-white);
 
-  color: #ffffff;
+  color: var(--c-white);
+
   @include media(">desktop") {
     &:hover {
-      border-color: #000000;
+      border-color: var(--c-black);
 
-      color: #000000 !important;
+      color: var(--c-black) !important;
     }
   }
 }

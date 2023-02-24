@@ -232,7 +232,7 @@ This section discusses the `getFilteredGroups` group function and how it helps y
 
 `getFilteredGroups` returns all Groups that are contained in a specified list, the allowlist, of which the user is a member. The Groups are returned in a format specified by the `group_expression` parameter. You must specify the maximum number of Groups to return in the expression.
 
-The EL function format: `getFilteredGroups(allow list, group_expression, limit)`
+The Expression Language (EL) function format: `getFilteredGroups(allow list, group_expression, limit)`
 
 You can use this function anywhere to get a list of Groups of which the current user is a member, including both User Groups and App Groups that originate from sources outside Okta, such as from Active Directory and Workday. Additionally, you can use this combined, custom-formatted list for customizable claims into access and ID tokens that drive authorization flows.
 

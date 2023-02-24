@@ -28,10 +28,15 @@
   position: relative;
 
   flex-shrink: 0;
+
+  background-color: #191919 !important;
+}
+
+.app-footer__wrapper {
   padding: 94px 64px;
   padding-bottom: 24px;
 
-  background-color: #191919 !important;
+  border-top: 1px solid #555555;
 }
 
 .app-footer p {
@@ -60,11 +65,10 @@
   margin: 0 0 35px;
 
   font-weight: 400;
-  font-size: 14px;
+  font-size: 20px;
   line-height: 1.3em;
   letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: cv("body", "white") !important;
+  color: #bfbfbf !important;
 }
 
 @include media("<desktop-xl") {
@@ -244,21 +248,15 @@
   padding-top: 25px;
   width: 100%;
 
-  border-top: 1px solid #fffefa;
+  border-top: 0.5px solid rgba(255 254 250 / 0.5);
 
   font-weight: 400;
   font-size: 14px;
   color: #fffefa;
 
   @include media(">desktop") {
-    margin-top: 85px;
+    margin-top: 182px;
   }
-}
-
-.app-footer .footer--columns .copyright::before {
-  top: 0;
-
-  @include separator;
 }
 
 @include media("<desktop-xl") {
@@ -289,7 +287,7 @@
 .app-footer a.link {
   font-size: inherit;
   line-height: 1.3em;
-  color: rgb(255 254 250 / 0.8) !important;
+  color: #fffefa !important;
 }
 
 .app-footer a.link:hover {
@@ -334,7 +332,7 @@
 }
 
 .app-footer ul.link-list li.link-list--item a.link-list--link {
-  display: flex;
+  display: inline;
   align-items: center;
 
   font-size: 16px;
@@ -390,4 +388,51 @@
 
 .app-footer .website .description {
   font-weight: 500;
+}
+
+.footer-social-networks {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  padding-top: 32px;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 38px;
+    height: 1px;
+
+    background-color: #fffefa;
+
+    opacity: 0.5;
+  }
+}
+
+.app-footer ul.link-list li.link-list--item:last-child i.link-list--icon svg path {
+  fill: #000000 !important;
+}
+
+.footer-logotype {
+  display: inline-block;
+  margin-bottom: 30px;
+
+  @include media(">desktop") {
+    margin-bottom: 72px;
+  }
+}
+
+.footer-text {
+  margin-bottom: 32px;
+}
+
+.app-footer a:hover {
+  text-decoration: underline !important;
+  color: #b6caff !important;
 }

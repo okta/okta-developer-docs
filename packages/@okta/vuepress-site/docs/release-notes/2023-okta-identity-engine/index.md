@@ -6,6 +6,24 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## February
 
+### Weekly release 2023.02.1
+
+| Change | Expected in Preview Orgs |
+|------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Bugs fixed in 2023.02.1](#bugs-fixed-in-2023-02-1)                                                              |February 15, 2023 |
+
+#### Bugs fixed in 2023.02.1
+
+* A request to list all security questions (`/users/${userId}/factors/questions`) returned an unexpected question with an error in the response. (OKTA-525478)
+
+* Case sensitivity caused usernames sent in SAML 2.0 IdP assertions not to match usernames in the destination org if a custom IdP factor was used and the name ID format was unspecified. (OKTA-565984)
+
+* Some requests to the `/devices?expand=users&search=profile.platform` endpoint didn't include `expand=user` in the response. (OKTA-558994)
+
+* Some users weren’t able to re-enroll an account in Okta Verify that was previously unenrolled with another mechanism that used the Factors API. (OKTA-573421)
+
+* The YubiKey Report wasn’t generated when certain report filters were applied. (OKTA-561269)
+
 ### Monthly release 2023.02.0
 
 | Change | Expected in Preview Orgs |
@@ -92,6 +110,8 @@ The Spunk Cloud Log Streaming integration now supports GCP and GovCloud customer
 The list of supported AWS EventBridge regions has been updated based on configurable event sources. See the [list of available AWS regions for Log Stream integrations](/docs/reference/api/log-streaming/#property-details-2). <!--OKTA-573094-->
 
 #### Developer documentation updates in 2023.02.0
+
+* The Okta Developer portal has a new look and feel. The [home page](https://developer.okta.com/) features a curated set of resources on developer use cases for Workforce Identity Cloud solutions. You can also access the featured blog posts to stay up to date with implementing Okta features.
 
 * A new authorization guide is available to help admins and devs retain the user context in requests to downstream services. This document  provides guidance on how a client can exchange an access token received from an upstream client with a new token by interacting with the authorization server. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/).
 
