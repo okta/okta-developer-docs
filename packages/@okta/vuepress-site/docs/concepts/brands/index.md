@@ -61,13 +61,13 @@ There are public APIs and updates to existing APIs for multibrand customization:
 - [Domains](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/)
 - [Email domains](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/)
 - [Brands](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/)
-- Loading page
-- Sign-in page code editor and custom labels
+- [Loading page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/listBrandThemes)
+- [Sign-in page code editor and custom labels](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage)
 - [Error pages](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getErrorPage)
 - [Sign-In Widget version](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/listAllSignInWidgetVersions)
-- Default app for the Sign-In Widget
+- [Default app for the Sign-In Widget](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/listBrands)
 - [Sign-out page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings)
-- Display language
+- [Brand locale](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/listBrands)
 
 ### Authorization servers and multibrand customizations
 
