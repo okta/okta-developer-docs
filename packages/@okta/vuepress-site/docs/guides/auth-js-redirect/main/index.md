@@ -2,7 +2,7 @@
 title: Auth JS redirect guide
 ---
 
-The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js),(Auth JS), provides functionality to help implement a wide variety of web authentication solutions for both the [redirect and embedded model](/docs/concepts/redirect-vs-embedded/). This guide shows you how to create a very simple redirect authentication solution using Auth JS, which can be dropped into just about any front-end or server-side web application.
+The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js), (Auth JS), provides functionality to help implement a wide variety of web authentication solutions for both the [redirect and embedded model](/docs/concepts/redirect-vs-embedded/). This guide shows you how to create a simple redirect authentication solution using Auth JS, which can be dropped into just about any front-end or server-side web application.
 
 ---
 
@@ -19,11 +19,11 @@ The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js),(Auth JS), 
 
 ## About the Okta Auth JavaScript SDK
 
-The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/) and [OpenID Connect API](/docs/reference/api/oidc/), as well as the Identity Engine [interaction code](/docs/concepts/interaction-code/) flow, to enable you to create a variety of sign-in experiences.
+The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/), the [OpenID Connect API](/docs/reference/api/oidc/), and the Identity Engine [interaction code](/docs/concepts/interaction-code/) flow. This SDK enables you to create various sign-in experiences.
 
-This experience includes fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/), and also includes redirect authentication. Auth JS is used by Okta's [Sign-in Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page, and it also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [quickstart guides](/docs/guides/quickstart/).
+These experiences include fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/), and redirect authentication. Auth JS is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. It also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [Quickstart guides](/docs/guides/quickstart/).
 
-In this guide, you don’t need to use a specific server-side or front-end framework that Okta officially supports to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that can work with just about any web app, whether you're adding centralized sign-in to a new app, or retrofitting it to an existing app.
+In this guide, you don’t need to use a specific server-side or front-end framework that Okta officially supports to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps, whether you're adding centralized sign-in to a new app or retrofitting it to an existing app.
 
 If you'd like to explore the entire Auth JS SDK, see [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
 
@@ -37,7 +37,7 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**, then click **Next**.
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
-   > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
+   > **Note:** If you choose an inappropriate application type, it breaks the sign-in or sign-out flows by requiring the verification of a client secret, which public clients don't have.
 1. Enter an **App integration name**.
 1. Select the **Authorization Code** and **Interaction Code** grant types.
 1. Enter the **Sign-in redirect URIs** for local development. For this sample, use `http://localhost:9000`.
@@ -47,11 +47,11 @@ An Okta app integration represents your app in your Okta org. The integration co
 
 ### Create a basic app
 
-To make this sample as versatile as possible, the following starter app redirects to Okta to sign in as soon as you load it into the browser. In your own apps, you might want to initiate the redirect through the press of a Sign In button, or when visiting a certain route that requires authentication (such as an admin page). The key is that you initiate the sign in through the redirect.
+To make this sample as versatile as possible, the following starter app redirects to Okta to sign in as you load it into the browser. In your own apps, you might want to initiate the redirect through the press of a sign-in button, or when visiting a certain route that requires authentication (such as an admin page). The key is that you initiate the sign in through the redirect.
 
 #### Create a simple HTML UI
 
-In your app directory, create a new HTML file called `index.html`. Add the following markup to this file:
+In your app directory, create an HTML file called `index.html`. Add the following markup to this file:
 
 ```HTML
 <html>
@@ -71,7 +71,7 @@ In your app directory, create a new HTML file called `index.html`. Add the follo
 </html>
 ```
 
-The content in the body tags represents a very simple app. The `content-jwt` reference displays user information after you add some upcoming JavaScript.
+The content in the body tags represents a simple app. The `content-jwt` reference displays user information after you add some upcoming JavaScript.
 
 #### Install the Auth JS SDK
 
@@ -82,7 +82,7 @@ Include this script in your target HTML page (`index.html`) by including the fol
 <script src="https://global.oktacdn.com/okta-auth-js/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/okta-auth-js.polyfill.js" type="text/javascript"></script>
 ```
 
-Note: If you are using a package manager, you can also install it through the appropriate command, for example `yarn add @okta/okta-auth-js` or `npm install @okta/okta-auth-js`.
+Note: If you're using a package manager, you can also install it through the appropriate command, for example `yarn add @okta/okta-auth-js` or `npm install @okta/okta-auth-js`.
 
 #### Add JavaScript to initialize the SDK
 
@@ -108,7 +108,7 @@ const authClient = new OktaAuth({
 </script>
 ```
 
-This code initializes the SDK by creating a new instance of the `OktaAuth()` object. The object stores all the necessary config information for your auth session, and is used to control subsequent steps of the process.
+This code initializes the SDK by creating an instance of the `OktaAuth()` object. The object stores all the necessary config information for your auth session, and is used to control subsequent steps of the process.
 
 ### Get info about the user
 
@@ -135,7 +135,7 @@ if (authClient.isLoginRedirect()) {
 }
 ```
 
-By default, the SDK returns the JWT with the user's information. The JWT contains the encoded ID and Access tokens. The JavaScript above parses the tokens and prints the data to your web page. See [token.parseFromUrl()](https://github.com/okta/okta-auth-js/#tokenparsefromurloptions) in the Auth JS SDK.
+By default, the SDK returns the JWT with the user's information. The JWT contains the encoded ID and access tokens. The previous JavaScript parses the tokens and prints the data to your web page. See [token.parseFromUrl()](https://github.com/okta/okta-auth-js/#tokenparsefromurloptions) in the Auth JS SDK.
 
 ### Add a sign-out function
 
@@ -153,46 +153,44 @@ This function signs the user out of the Okta session. See [signOut()](https://gi
 
 ### Test your app
 
-You can now run your app!
-
-Use a local web server to launch the sample app. For example with a Mac OS, navigate to your sample app directly and use the native Python web server command:
+You can now run your app by using a local web server. For example, with a macOS, go to your sample app directly and use the Python web server command:
 
 ```bash
 python3 -m http.server 9000
 ```
 
-The sample app starts the redirect flow as soon as the page opens.
+The sample app starts the redirect flow when the page opens.
 
-#### Troubleshooting
+#### Troubleshoot your app
 
-If your app is not working, ensure that:
+If your app isn't working, ensure that:
 
-* your org URL is accurate and formatted correctly, including the secure protocol, `https://`.
-* your client ID is accurate from your Okta app integration.
-* your `redirectUri` is accurate or web server port number is correct.
-* your default Authorization Server access policy is enabled for `Interaction Code`. See step 2 in [Create the rule](/docs/guides/configure-access-policy/-/main/#create-the-rule). Ensure **Interaction Code** is selected for **Grant type is**.
+* Your org URL is accurate and formatted correctly, including the secure protocol, `https://`.
+* Your client ID is accurate from your Okta app integration.
+* Your `redirectUri` is accurate or the web-server port number is correct.
+* Your default authorization server access policy is enabled for `Interaction Code`. See step 2 in [Create the rule](/docs/guides/configure-access-policy/-/main/#create-the-rule). Ensure that Interaction Code is selected for **Grant type is**.
 
 ### Use Cases
 
-Retrofitting
-Centralized Login
-Utility Application
+* Retrofitting
+* Centralized login
+* Utility application
 
 ### Next steps
 
-Explain what we don’t cover, e.g. handling routes, authentication per route, etc. We didn’t want to build our own SPA framework to show you how to do all this. Just basic sign-in. But point them to the other QSes for plenty of examples of handling this.
+Explain what Okta doesn't cover, for example, handling routes, authentication per route, and so on. Okta didn’t want to build our own SPA framework to show you how to do all this. Just basic sign-in. But point them to the other guides for plenty of examples of handling this.
 
-Sign-out - App VS Okta Global session
-Sign-in Policy
+Sign-out - App vs Okta global session
+Sign-in policy
 Recovery
 Sign-up
 
-Talk about session management, and what happens when page is refreshed…(decision: app manages session or use the “built-in token manager”)
+Talk about session management, and what happens when the page is refreshed. (To decide: app manages the session or uses the “built-in token manager”.
 
 ### See also
 
 * [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/)
 * [Redirect auth in the sample app](https://developer.okta.com/docs/guides/sampleapp-oie-redirectauth/angular/main/)
 * [Auth JS fundamentals](/docs/guides/auth-js/main/)
-* [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/)
+* [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
 * [Interaction Code grant type](/docs/concepts/interaction-code/)
