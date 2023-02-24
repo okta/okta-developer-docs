@@ -341,6 +341,6 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 ## See also
 
 - [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/)
-- [Risk Providers API](/docs/reference/api/risk-providers/)
+- [Risk Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/)
 - [Risk Events API](/docs/reference/api/risk-events/)
 - [Risk Scoring and Risk Based Authentication](https://help.okta.com/okta_help.htm?id=csh-risk-scoring)
