@@ -1263,7 +1263,7 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 
 Retrieves the current user's password status
 
-> **Note:**  This only returns information about the password, not the password itself
+> **Note:**  This operation only returns information about the password, not the password itself.
 
 #### Required scope and role
 
