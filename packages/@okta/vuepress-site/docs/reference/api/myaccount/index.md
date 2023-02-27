@@ -1261,7 +1261,7 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 
 <ApiOperation method="get" url="/idp/myaccount/password" />
 
-Retrieves the current user's password status.
+Retrieves the current user's password status
 
 > **Note:**  This only returns information about the password, not the password itself
 
