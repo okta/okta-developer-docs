@@ -4,6 +4,21 @@ title: Okta API Products release notes 2023
 
 ## February
 
+### Weekly release 2023.02.2
+
+| Change | Expected in Preview Orgs |
+|------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Bugs fixed in 2023.02.2](#bugs-fixed-in-2023-02-2)                                                              |February 29, 2023 |
+
+#### Bugs fixed in 2023.02.2
+
+* 
+
+* 
+
+* 
+
+
 ### Weekly release 2023.02.1
 
 | Change | Expected in Preview Orgs |
