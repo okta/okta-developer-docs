@@ -6,7 +6,7 @@ To submit a specific Workflows connector version from your Workflows Connector B
 
 * **Version**: Select the version of Workflows connector you want to submit.
 
-The list of available connectors and the associated versions are based on the Workflows Connector Builder environment from the org associated with your user credential.
+The list of available connectors and the associated versions are based on the Workflows Connector Builder environment from the org associated with your user credentials.
 
 #### Validation
 
