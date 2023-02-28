@@ -64,7 +64,7 @@ Your external service processing hook requests must take into consideration that
 
 | Hook Type | Limit Type | Limit | Description |
 | --------- | -----------| ----- | ----------- |
-| Event hook | Number of daily event hooks | 200,000 | A maximum of 200,000 event hooks can be triggered, per org, per day. Event hooks are not recorded or replayed after this point. If a request times out after three seconds, event hooks are retried once. Retries do not count toward the org limit.
+| Event hook | Number of daily events | 400,000 | A maximum of 400,000 applicable events, per org, per day, that trigger event hooks. Event hooks are not recorded or replayed after this point. If a request times out after three seconds, event hooks are retried once. Retries do not count toward the org limit.
 |            | Maximum number of event hooks per org | 10 | A maximum of 10 active event hooks can be configured per org. You can configure each event hook to deliver multiple event types. |
 | Inline hook | Timeout | 3 seconds | inline hooks have a completion timeout of three seconds with a single retry. However, a request is not retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request is not retried. If the external service endpoint responds with a redirect, it is not followed. |
 |             | Maximum number of inline hooks per org | 50 | The maximum number of inline hooks that can be configured per org is 50, which is a combined total for any combination of inline hook types. |

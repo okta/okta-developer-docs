@@ -93,7 +93,7 @@ As a best practice, you should return the HTTP response immediately, rather than
 
 ### Rate Limits
 
-Event hooks are limited to sending 200,000 events per 24-hour period.
+Event hooks stop triggering after reaching a limit of 400,000 applicable events, per org, per day.
 
 ### Debugging
 
