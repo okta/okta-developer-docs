@@ -48,7 +48,7 @@ In this exercise, you create a new workspace in Terraform Cloud to represent the
 1. Navigate to the **Workspaces** page and click **+ New workspace**.
 1. On the **Create a new Workspace** page, select **Version control workflow** to declare that your configuration is saved in a version control system.
 1. On the **Connect to VCS** tab, select **GitHub** > **GitHub.com**. These exercises use GitHub, but you can select a different VCS. This selection grants permission for Terraform Cloud to access your project.
-1. On the **Choose a repository** tab, select the repo that you created in [A working Terraform repository](/architecture-center/tutorials/mmob/lab-prerequisites/#a-working-terraform-repository).
+1. On the **Choose a repository** tab, select the repo that you created in [A working Terraform repository](/architecture-center/tutorials/mmoe/lab-prerequisites/#a-working-terraform-repository).
 
    > **Tip:** Be sure that the path is to your copy of the repo and not to the original one.
 

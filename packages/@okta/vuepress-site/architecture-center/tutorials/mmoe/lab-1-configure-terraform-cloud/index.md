@@ -44,7 +44,7 @@ To begin, you must create a free Terraform Cloud account.
 Now that you have an account, connect Terraform to your Github repo.
 
 1. On the **Welcome to Terraform Cloud** page, select **Start from scratch**.
-1. On the **Create a new organization** page, set **Organization name** to your [${OKTA_DOMAIN_NAME}](/architecture-center/tutorials/mmob/lab-prerequisites/#values-and-variables).
+1. On the **Create a new organization** page, set **Organization name** to your [${OKTA_DOMAIN_NAME}](/architecture-center/tutorials/mmoe/lab-prerequisites/#values-and-variables).
 1. Click **Create organization**.
 1. On the **Create a new Workspace** page, select **Version control workflow** to declare that your configuration is saved in a version control system.
 1. On the **Connect to VCS** tab, select **GitHub** > **GitHub.com**. These exercises use GitHub, but you can select a different VCS. This selection grants permission for Terraform Cloud to access your project.
@@ -53,7 +53,7 @@ Now that you have an account, connect Terraform to your Github repo.
 
    > **Tip:** If necessary, configure your browser to allow pop-ups for `app.terraform.io`.
 
-1. On the **Choose a repository** tab, select the repo you created in [A working Terraform repository](/architecture-center/tutorials/mmob/lab-prerequisites/#a-working-terraform-repository). This is where you intend to store your Terraform configurations.
+1. On the **Choose a repository** tab, select the repo you created in [A working Terraform repository](/architecture-center/tutorials/mmoe/lab-prerequisites/#a-working-terraform-repository). This is where you intend to store your Terraform configurations.
 
    > **Tip:** Be sure the path is to your copy of the repo and not to the original one.
 
@@ -76,7 +76,7 @@ This opens a **Workspace created** page for you to configure Terraform variables
 Finally, before you can test that Terraform is working, connect it to your Okta development org.
 
 1. On the **Workspace created** page:
-   1. Set **org_name** to your [${OKTA_DOMAIN_NAME}](/architecture-center/tutorials/mmob/lab-prerequisites/#values-and-variables).
+   1. Set **org_name** to your [${OKTA_DOMAIN_NAME}](/architecture-center/tutorials/mmoe/lab-prerequisites/#values-and-variables).
    2. Set **api_token** to the token that you created earlier in [Create an API token](#create-an-okta-api-token).
    3. Set **base_url** to your org's base URL. For example, _okta.com_.
 
