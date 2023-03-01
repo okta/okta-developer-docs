@@ -53,7 +53,7 @@ Now that you have an account, connect Terraform to your Github repo.
 
    > **Tip:** If necessary, configure your browser to allow pop-ups for `app.terraform.io`.
 
-1. On the **Choose a repository** tab, select the repo you created in [A working Terraform repository](/docs/reference/architecture-tutorials/mmob/lab-prerequisites/#a-working-terraform-repository). This is where you intend to store your Terraform configurations.
+1. On the **Choose a repository** tab, select the repo you created in [A working Terraform repository](/docs/reference/architecture-tutorials/mmod/lab-prerequisites/#a-working-terraform-repository). This is where you intend to store your Terraform configurations.
 
    > **Tip:** Be sure the path is to your copy of the repo and not to the original one.
 
