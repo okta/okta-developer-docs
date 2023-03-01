@@ -1061,7 +1061,7 @@ export const reference = [
             path: "/docs/reference/releases-at-okta/",
          },
          {
-            title: "Architecture tutorials (wip)",
+            title: "Architecture tutorials",
             path: "/docs/reference/architecture-tutorials",
             subLinks: [
                {
