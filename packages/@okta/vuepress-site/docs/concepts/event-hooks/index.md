@@ -43,7 +43,7 @@ After registering an event hook, you need to have Okta make a one-time GET verif
 
 This one-time verification request is the only GET request Okta will send to your external service. Ongoing requests to notify your service of event occurrences are HTTPS POST requests. Your web service can use the GET versus POST distinction to implement logic to handle this special one-time request.
 
-The way your service needs to handle this one-time verification is as follows: The request from Okta contains an HTTP header named `x-okta-verification-challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`, that is: `{ "verification" : "value_from_header" }`. The value comes to you in an HTTP header, but you need to send it back in a JSON object.
+The way your service needs to handle this one-time verification is as follows: The request from Okta contains an HTTP header named `x-okta-verification-challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`: that is: `{ "verification" : "value_from_header" }`. The value comes to you in an HTTP header, but you need to send it back in a JSON object.
 
 See [Event hooks](/docs/guides/event-hook-implementation) for a working example of an event hook setup, including code that completes the one-time verification step.
 
@@ -77,7 +77,7 @@ Content-Type: application/json
 Authorization: ${key}
 ```
 
-The value sent in the Authorization header is a secret string that you provide to Okta when you register your event hook. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This isn an Okta authorization token, it is simply a text string you decide on.)
+The value sent in the Authorization header is a secret string that you provide to Okta when you register your event hook. This string serves as an API access key for your service, and Okta provides it in every request, allowing your code to check for its presence as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.)
 
 ### Security
 
