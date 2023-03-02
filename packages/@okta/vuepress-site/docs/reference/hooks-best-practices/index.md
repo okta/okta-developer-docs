@@ -52,7 +52,7 @@ Okta event hooks also require a response. To prevent unnecessary delays or timeo
 * Respond immediately to the HTTP request with either a 200 (Success) or 204 (Success no content) return code.
 * Process the event hook request data after sending the response code.
 
-A timeout of three seconds is enforced on all outbound requests for event and inline hooks. One request retry is sent in the event of a timeout or an error response from the external service. If a successful response is not received after that, a 400 error is returned with more information about what failed.
+A timeout of three seconds is enforced on all outbound requests for event and inline hooks. One request retry is sent in the event of a timeout or an error response from the external service. If a successful response isn't received after that, an HTTP 400 error is returned with more information about the failure.
 
 See inline hook [Timeout and retry](/docs/concepts/inline-hooks/#timeout-and-retry) and event hook [Time out and retry](/docs/concepts/event-hooks/#timeout-and-retry).
 
