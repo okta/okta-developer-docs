@@ -57,7 +57,7 @@ The content of each array element is an object of the [LogEvent](/docs/reference
 
 Delivery of events is a best effort. Events are delivered at least once. Delivery can be delayed by network conditions. Sometimes, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `eventId` value of incoming events against the values for events previously received.
 
-No guarantee of maximum delay between event occurrence and delivery is specified.
+There is no guarantee of maximum delay between event occurrence and delivery.
 
 ### Timeout and retry
 
