@@ -5563,7 +5563,3 @@ redirects:
     to: /docs/reference/api/brands/
   - from: /docs/guides/customize-themes
     to: /docs/reference/api/brands/
-  - from: /docs/reference/beta-only/index.html
-    to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
-  - from: /docs/reference/beta-only
-    to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
