@@ -53,7 +53,7 @@ After verification, for ongoing notification of events, Okta sends HTTPS POST re
 
 Information is encapsulated in the JSON payload in the `data.events` object. The `data.events` object is an array that contains multiple events in a single POST request. Events that occur within a short time of each other are amalgamated in the array, and each array element contains information on one event.
 
-The content of each array element is an object of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/reference/api/system-log/) defines for system log events. See the documentation there for information on the object and its sub-objects.
+The content of each array element is an object of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) type. This is the same object that the System Log API defines for system log events. See [System Log API](/docs/reference/api/system-log/) for information on the object and its sub-objects.
 
 Delivery of events is a best effort. Events are delivered at least once. Delivery can be delayed by network conditions. Sometimes, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `eventId` value of incoming events against the values for events previously received.
 
