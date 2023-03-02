@@ -1001,8 +1001,8 @@ export const reference = [
             ],
          },
          {
-          title: "Beta-only Reference Docs",
-          path: "/docs/reference/beta-only/",
+            title: "Beta-only Reference Docs",
+            path: "/docs/reference/beta-only/",
          },
          {
             title: "Postman Collections",
