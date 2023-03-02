@@ -6,6 +6,22 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## February
 
+### Weekly release 2023.02.2
+
+| Change | Expected in Preview Orgs |
+|------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Bugs fixed in 2023.02.2](#bugs-fixed-in-2023-02-2)                                                              |February 29, 2023 |
+
+#### Bugs fixed in 2023.02.2
+
+* Some event hook requests failed to send in Preview orgs. (OKTA-578439)
+
+* Events weren't logged in the System Log when the Users API (`DELETE /users/${userId}/clients/${clientId}/tokens/${tokenId}`) was used to revoke refresh tokens. (OKTA-574992)
+
+* During an app's request to the `/authorize` endpoint, users who weren't assigned to the app could enroll an authenticator. (OKTA-575258)
+
+* Pagination and search query matching didn't work as expected when a list request was made using the `/idps` API. (OKTA-577464)
+
 ### Weekly release 2023.02.1
 
 | Change | Expected in Preview Orgs |

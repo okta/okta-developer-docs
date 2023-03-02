@@ -4,6 +4,20 @@ title: Okta API Products release notes 2023
 
 ## February
 
+### Weekly release 2023.02.2
+
+| Change | Expected in Preview Orgs |
+|------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Bugs fixed in 2023.02.2](#bugs-fixed-in-2023-02-2)                                                              |February 29, 2023 |
+
+#### Bugs fixed in 2023.02.2
+
+* Some event hook requests failed to send in Preview orgs. (OKTA-578439)
+
+* Events weren't logged in the System Log when the Users API (`DELETE /users/${userId}/clients/${clientId}/tokens/${tokenId}`) was used to revoke refresh tokens. (OKTA-574992)
+
+* Pagination and search query matching didn't work as expected when a list request was made using the `/idps` API. (OKTA-577464)
+
 ### Weekly release 2023.02.1
 
 | Change | Expected in Preview Orgs |
@@ -37,7 +51,7 @@ title: Okta API Products release notes 2023
 
 #### Applications API support for SAML metadata attributes
 
-The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes.The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-573057,OKTA-549695-->
+The Applications API now supports metadata dynamic SAML attributes inherited from the SAML app. The SAML attributes are used to manage configured group attributes. The Admin Console displays the dynamic SAML attributes as **Configure SAML Attributes**, and the API returns these attributes as the `settings.signOn.configuredAttributeStatements` property in the [SAML application object](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-573057,OKTA-549695-->
 
 #### Custom app login deprecated is GA in Production
 
