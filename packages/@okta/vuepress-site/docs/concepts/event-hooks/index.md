@@ -97,7 +97,7 @@ Event hooks aren't triggered after reaching a limit of 400,000 applicable events
 
 ### Debugging
 
-The Okta [System Log](/docs/reference/api/system-log/) is the best resource for helping you debug your event hooks. Events delivered by event hooks are, by definition, also system log events. You can compare events delivered to your external service with events logged in the system Log. You can also check for event hook delivery failures that Okta has detected, which are themselves recorded in the system log.
+The Okta [System Log](/docs/reference/api/system-log/) is the best resource for helping you debug your event hooks. Events delivered by event hooks are, by definition, also system log events. You can compare events delivered to your external service with events logged in the system log. You can also check for event hook delivery failures that Okta detected, which are themselves recorded in the system log.
 
 When looking at an event in the system log, the `debugData` property includes the specific ID of any event hooks configured to deliver it. The existence of an event hook ID in this property does not indicate that delivery was successful, only that it was configured to happen for the event.
 
