@@ -124,7 +124,7 @@ After implementing your external service, you need to register it with Okta. To 
 
 ### Verify your endpoint
 
-After registering the event hook, you need to trigger a one-time verification process by clicking the verify button that is displayed in Admin Console. When you trigger verification, Okta calls out to your external service, making the one-time verification request to it. You need to have implemented functionality in your service to handle the expected request and response. The purpose of this step is to prove that you control the endpoint. See [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request) for more information.
+After registering the event hook, you need to trigger a one-time verification process by clicking the **Verify** button in the Admin Console. When you trigger a verification, Okta calls out to your external service, making the one-time verification request to it. You need to have implemented functionality in your service to handle the expected request and response. The purpose of this step is to prove that you control the endpoint. See [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
 
 ### Preview your hook
 
