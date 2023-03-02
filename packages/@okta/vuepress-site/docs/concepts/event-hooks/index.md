@@ -1,5 +1,5 @@
 ---
-title: Event hooks Concepts
+title: Event hooks concepts
 meta:
   - name: description
     content: Event hooks are outbound calls from Okta, sent when specified events occur in your org. Get information on eligible events and setting up Event hooks in this guide.
@@ -33,7 +33,7 @@ Event types include user lifecycle changes, the completion by a user of a specif
 
 ## Requests sent by Okta
 
-When events occur in your org that match an event type configured for your event hook, the event hook is automatically triggered and sends a request to your external service. The JSON payload of the request provides information on the event. A sample JSON payload is provided in [Sample event delivery payload](#sample-event-delivery-payload).
+When events occur in your org that match an event type monitored by your event hook, the event hook is automatically triggered and sends a request to your external service. The JSON payload of the request provides information on the event. A sample JSON payload is provided in [Sample event delivery payload](#sample-event-delivery-payload).
 
 The requests sent from Okta to your external service are HTTPS requests. POST requests are used for the ongoing delivery of events, and a one-time GET request is used for verifying your endpoint.
 
@@ -43,7 +43,7 @@ After registering an event hook, you need to have Okta make a one-time GET verif
 
 This one-time verification request is the only GET request Okta sends to your external service. Ongoing requests to notify your service of event occurrences are HTTPS POST requests. Your web service can use the GET versus POST distinction to implement logic to handle this special one-time request.
 
-The way your service needs to handle this one-time verification is as follows: The request from Okta contains an HTTP header named `x-okta-verification-challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`: that is: `{ "verification" : "value_from_header" }`. The value comes to you in an HTTP header, but you need to send it back in a JSON object.
+The way your service needs to handle this one-time verification is as follows: The request from Okta contains an HTTP header named `x-okta-verification-challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`: that is: `{ "verification" : "value_from_header" }`. The `value_from_header` is found in the request HTTP header, but you need to send it back in a JSON object.
 
 See [Event hooks](/docs/guides/event-hook-implementation) for a working example of an event hook setup, including code that completes the one-time verification step.
 
@@ -55,7 +55,7 @@ Information is encapsulated in the JSON payload in the `data.events` object. The
 
 The content of each array element is an object of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) type. This is the same object that the System Log API defines for system log events. See [System Log API](/docs/reference/api/system-log/) for information on the object and its sub-objects.
 
-Delivery of events is a best effort. Events are delivered at least once. Delivery can be delayed by network conditions. Sometimes, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `eventId` value of incoming events against the values for events previously received.
+Okta delivers events on a best-effort basis. Events are delivered at least once. Delivery can be delayed by network conditions. Sometimes, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `eventId` value of incoming events against the values for events previously received.
 
 There is no guarantee of maximum delay between event occurrence and delivery.
 
@@ -99,13 +99,13 @@ Event hooks aren't triggered after reaching a limit of 400,000 applicable events
 
 The Okta [System Log](/docs/reference/api/system-log/) is the best resource for helping you debug your event hooks. Events delivered by event hooks are, by definition, also system log events. You can compare events delivered to your external service with events logged in the system log. You can also check for event hook delivery failures that Okta detected, which are themselves recorded in the system log.
 
-When looking at an event in the system log, the `debugData` property includes the specific ID of any event hooks configured to deliver it. The existence of an event hook ID in this property does not indicate that delivery was successful, only that it was configured to happen for the event.
+When looking at an event in the system log, the `debugData` property includes the specific ID of any event hooks configured to deliver it. The existence of an event hook ID in this property doesn't indicate that delivery was successful, but that it was only configured to happen for the event.
 
 Event hook delivery attempts that have timed-out, or been detected as having failed for any other reason, are recorded in the System Log in the form of `event_hook.delivery` [events](/docs/reference/api/event-types/?q=event_hook.delivery).
 
 ## Event hook setup
 
-The basic steps to register and verify that a new event hook are as follows:
+The basic steps to register and verify a new event hook are as follows:
 
 - Implement your external web service to receive event hook calls from Okta.
 - Register the endpoint of your external service with Okta and configure event hook parameters.
@@ -128,7 +128,7 @@ After registering the event hook, you need to trigger a one-time verification pr
 
 ### Preview your hook
 
-You can preview the JSON payload for the event hook request from the Admin Console's **Preview** tab. This preview provides a review of request syntax for the specific event type. The request can be delivered to your external service to make sure it's successfully received. See [Event hook preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
+You can preview the JSON payload for the event hook request from the Admin Console's **Preview** tab. This preview provides a review of the request syntax for the specific event type. The request can be delivered to your external service to make sure it's successfully received. See [Event hook preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
 
 ## Sample event delivery payload
 
