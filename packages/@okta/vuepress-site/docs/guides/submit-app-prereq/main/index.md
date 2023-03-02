@@ -134,15 +134,18 @@ The following are section suggestions for your configuration guide:
 * [Prerequisites](#prerequisites)
 * [Supported features](#supported-features)
 * [Procedure](#procedure)
+* [SP-initiated SSO](#sp-initiated-sso)
 * [Troubleshooting tips](#troubleshooting-and-tips)
 
 #### Prerequisites
 
 In this section, specify any prerequisites required before your customer configures your integration in Okta. Examples may include enabling specific Okta features, enabling API access to your SCIM server, or adding a particular version of an integration in Okta.
 
-##### Prerequisite example:
+##### Prerequisite example
 
+```markdown
 When using SAML as the SSO mode with provisioning, you need to enable a specific account plan on the application side for silent activation.
+```
 
 #### Supported features
 
@@ -150,8 +153,9 @@ In this section of your guide, list the features that your application supports 
 
 > **Note:** You can briefly describe what each feature does. See the SCIM guides from [Configuration guide examples](#scim-examples).
 
-##### Supported feature example:
+##### Supported feature example
 
+```markdown
 * IdP-initiated SSO
 * SP-initiated SSO
 * SLO (Single Log Out)
@@ -165,6 +169,7 @@ In this section of your guide, list the features that your application supports 
 * Profile sourcing
 
 Okta can't update user attributes for Admin users. This is an API limitation.
+```
 
 #### Procedure
 
@@ -172,9 +177,29 @@ This section explains all the configuration steps needed to get your customers s
 
 Also include any best practices for your procedure, such as SCIM guidance on setting mappings for attributes, especially required attributes that don't have a default mapping.
 
-##### Procedure note example:
+##### Procedure note example
 
-The External ID is a required attribute, but it doesn't have a default mapping. This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`. Assign the mapping to the correct value for your organization.
+```markdown
+The External ID is a required attribute, but it doesn't have a default mapping.
+This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`.
+Assign the mapping to the correct value for your organization.
+```
+
+#### SP-initiated SSO
+
+> **Note**: This section is only required for SAML or OIDC integrations that support Single Sign-On (SSO) initiated from a service provider (SP).
+
+Provide instructions for your users to sign in with Okta from your company portal to access their resources. In this scenario, the sign-in flow is initiated from your organization (the service provider).
+
+##### SP-initiated SSO example
+
+```markdown
+The sign-in process must be initiated from {yourCompanyPortal}.
+
+1. From your browser, navigate to your {yourCompanyPortal} sign-in page.
+2. Enter your Okta credentials (your email and password) and click **Sign in with Okta**.
+If your credentials are valid, you are redirected to the {yourCompanyApp} dashboard.
+```
 
 #### Troubleshooting and tips
 
@@ -182,19 +207,20 @@ Include this section if there are known issues that apply to the entire configur
 
 ### Configuration guide examples
 
-##### OIDC examples:
+##### OIDC examples
 
-* [Cerby](https://docs.google.com/document/d/e/2PACX-1vRiswyNyRPVYfEMEwPsbMO8Qn11BjAO-FfUsWBBit_IYe88tzQCHTmMPtmF8uPV044HmXQR13adj3LO/pub)
+* [HacWare](https://docs.google.com/document/d/1k-TNUDCXZslL4D3wZyH3KgZyU45qUgiaIG9U0i6Jupc/edit)
+* [Parmonic](https://help.parmonic.com/hc/en-us/articles/6767650476183-Instructions-to-setup-Okta-SSO)
 * [Upwave](https://help.upwave.io/en/articles/4129778-okta-configuration-guide)
 
-##### SAML examples:
+##### SAML examples
 
 * [GitHub Enterprise](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github_Enterprise.html)
 * [Runscope](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Runscope.html)
 * [Salesforce](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-in-Salesforce.html)
 * [Zoom.us](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Zoom.us.html)
 
-##### SCIM examples:
+##### SCIM examples
 
 * [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
 * [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
