@@ -60,7 +60,7 @@ See inline hook [Timeout and retry](/docs/concepts/inline-hooks/#timeout-and-ret
 
 The number of hook calls and the limits per org are available in the following table. Keep in mind these numbers and limits when designing your hook solution.
 
-Your external service that processes hook requests must consider the order of event or inline hook calls isn't guaranteed. Also, to avoid processing duplicate requests, use the `eventId` property to identify unique requests.
+Your external service that processes hook requests must consider that the order of events or inline hook calls aren't guaranteed. Also, to avoid processing duplicate requests, use the `eventId` property to identify unique requests.
 
 | Hook Type | Limit Type | Limit | Description |
 | --------- | -----------| ----- | ----------- |
