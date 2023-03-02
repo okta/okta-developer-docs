@@ -69,7 +69,7 @@ See [Your Service's responses to event delivery requests](#your-service-s-respon
 
 ### HTTP headers
 
-The header of requests sent by Okta appears as follows, provided you configure an authorization header, as recommended, and don't define additional custom headers:
+The header of requests sent by Okta appears as follows, provided that you configure the recommended authorization header and don't define additional custom headers:
 
 ```http
 Accept: application/json
