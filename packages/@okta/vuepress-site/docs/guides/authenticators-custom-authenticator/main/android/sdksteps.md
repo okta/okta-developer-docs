@@ -172,3 +172,39 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
         .onFailure { println("failure") }
 }
 ```
+
+### Access token management
+
+The SDK communicates with an Okta server via HTTPS protocol and requires access token for an user authentication and authorization. For dealing with authentication flows and requesting access tokens we recommend to use latest Okta OIDC sdk. In order to enroll push authenticator an access token should contain okta.myAccount.appAuthenticator.manage scope. An access token with okta.myAccount.appAuthenticator.manage scope can also be used for the following operations:
+
+* Enroll and un-enroll user verification key
+* Update device token for the push authenticator enrollment
+* Request pending push challenges
+* Enable and disable CIBA capability for the push authenticator enrollment
+* Delete push authenticator enrollment For applications that work with a sensitive data such as banking applications we do recommend to not store or cache access token or refresh access token that contain okta.myAccount.appAuthenticator.manage scope. For high risk flows and operations we do recommend to always re-authenticate user and get new access token. High risk operations are the following operations:
+* Enroll push authenticator
+* Enable or disable user verification for push authenticator enrollment
+* Delete push authenticator enrollment Other operations can be considered low risk and may not require interactive authentication. For that purpose SDK implements silent user re-authentication API retrieveMaintenanceToken. By retrieving a maintenance access token an application can silently perform the following operations:
+  * Request pending push challenges
+  * Enable and disable CIBA capability for the push authenticator enrollment
+  * Update device token for push authenticator enrollment
+
+Usage example:
+
+```kotlin
+suspend fun retrievePushChallenges() {
+    val readScope = listOf("okta.myAccount.appAuthenticator.maintenance.read")
+    val enrollments = pushAuthenticator.allEnrollments().getOrThrow()
+    enrollments.forEach { enrollment ->
+        enrollment.retrieveMaintenanceToken(readScope).onSuccess {authToken ->
+            enrollment.retrievePushChallenges(authToken).onSuccess { challenges ->
+                println("Challenges retrieve: $challenges")
+            }.onFailure {error ->
+                println(error.localizedMessage)
+            }
+        }.onFailure { error ->
+            println(error.localizedMessage)
+        }
+    }
+}
+```

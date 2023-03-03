@@ -17,6 +17,11 @@ Enable a mobile app to verify a user identity for an Okta custom authenticator.
 * An Okta developer app
 * <StackSnippet snippet="notifservicelink" inline />
 * <StackSnippet snippet="appreq" inline />
+* (Optional) Access to the following APIs:
+  * [Apps](https://developer.okta.com/docs/reference/api/apps/#grant-consent-to-scope-for-application)
+  * [Push Providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PushProvider/#tag/PushProvider/operation/createPushProvider)
+  * [Authenticator](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/createAuthenticator)
+  * [MyAccount App Authenticators](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/)
 
 **Sample code**
 
