@@ -1,12 +1,12 @@
 Use the Devices SDK to add custom push verification functionality to your Android app.
 
-> **Note:** The following sample code assumes that suspend functions are called in a coroutine scope. See [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for more information.
+> **Note:** The following sample code assumes that suspend functions are called in a coroutine scope. See [Kotlin coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for more information.
 
 The following image shows how data flows through the Devices SDK:
 
 <div class="full border">
 
-![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
+![Custom Authenticator flow chart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
 
 </div>
 
@@ -18,13 +18,13 @@ Add the Okta Devices SDK dependency to your `build.gradle` file:
 implementation("com.okta.devices:devices-push:$okta.sdk.version")
 ```
 
-where `$okta.sdk.version` is the latest release version. See [Release Status](https://github.com/okta/okta-devices-kotlin/releases) for the latest Okta Devices SDK version.
+`$okta.sdk.version` is the latest release version. See [Release status](https://github.com/okta/okta-devices-kotlin/releases) for the latest Okta Devices SDK version.
 
 ### Initialize the client
 
 Create the SDK object to work with your Okta authenticator configuration. Use the `PushAuthenticatorBuilder` to create an authenticator with your application configuration:
 
-> **Note:** If a passphrase isn't provided, the Devices SDK data isn't encrypted. You must secure the passphrase.
+> **Note:** If a passphrase isn't provided, the Devices SDK data isn't encrypted. Secure the passphrase:
 
 ```kotlin
 val authenticator: PushAuthenticator = PushAuthenticatorBuilder.create(
@@ -38,9 +38,9 @@ val authenticator: PushAuthenticator = PushAuthenticatorBuilder.create(
 
 Before enrolling the device, ensure that you have the following:
 
-* An OIDC application. See [Create an OAuth 2.0 app integration]().
-* A custom authenticator. See [Add a custom authenticator]().
-* A registration token from Firebase. See [Set up notification services]().
+* An OIDC web authentication client. See [Create an OAuth 2.0 app integration](#create-an-oidc-web-authentication-client).
+* A custom authenticator. See [Add a custom authenticator](#add-a-custom-authenticator).
+* A registration token from Firebase. See [Set up notification services](#set-up-notification-services).
 
 To start enrolling the user:
 
@@ -160,7 +160,7 @@ private fun remediate(remediation: PushRemediation) = runCatching {
 
 #### Retrieve undelivered challenges
 
-Sometimes FCM fails to deliver a notification to the user. <!-- See Maurice for extra explanatory text --> To check the server for pending challenges:
+Sometimes FCM fails to deliver a notification to the user.<!-- See Maurice for extra explanatory text --> To check the server for pending challenges:
 
 ```kotlin
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
@@ -175,14 +175,14 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
 
 ### Access token management
 
-The SDK communicates with an Okta server using HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and requesting access tokens, use the latest verion of the [Okta OIDC SDK](https://github.com/okta/okta-oidc-android). In order to enroll a push authenticator, the access token needs the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
+The SDK communicates with an Okta server using HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and requesting access tokens, use the latest version of the [Okta OIDC SDK](https://github.com/okta/okta-oidc-android). To enroll a push authenticator, the access token needs the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
 
-* Enroll and un-enroll user verification keys
+* Enroll and unenroll user verification keys
 * Update device token for push authenticator enrollment
 * Request pending push challenges
 * Enable and disable CIBA capability for push authenticator enrollment
 * Delete push authenticator enrollment.
-  < **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that the `contain okta.myAccount.appAuthenticator.manage` scope. Instead, reauthenticate the user and get a new access token.
+  < **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that the `contain okta.myAccount.appAuthenticator.manage` scope. Instead, re-authenticate the user and get a new access token.
   
   High risk operations include the following:
   * Enroll push authenticator
