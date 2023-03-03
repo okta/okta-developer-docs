@@ -228,7 +228,7 @@ Include this section if there are known issues that apply to the entire configur
 
 ## OIN limitations
 
-You can't publish integration with the following Okta features in the OIN catalog:
+You can't publish integrations with the following Okta features in the OIN catalog:
 
 * **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations. To update an existing SWA integration, contact the [OIN team](mailto:oin@okta.com).
 
