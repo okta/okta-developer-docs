@@ -175,19 +175,25 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
 
 ### Access token management
 
-The SDK communicates with an Okta server via HTTPS protocol and requires access token for an user authentication and authorization. For dealing with authentication flows and requesting access tokens we recommend to use latest Okta OIDC sdk. In order to enroll push authenticator an access token should contain okta.myAccount.appAuthenticator.manage scope. An access token with okta.myAccount.appAuthenticator.manage scope can also be used for the following operations:
+The SDK communicates with an Okta server using HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and requesting access tokens, use the latest verion of the [Okta OIDC SDK](https://github.com/okta/okta-oidc-android). In order to enroll a push authenticator, the access token needs the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
 
-* Enroll and un-enroll user verification key
-* Update device token for the push authenticator enrollment
+* Enroll and un-enroll user verification keys
+* Update device token for push authenticator enrollment
+* Request pending push challenges
+* Enable and disable CIBA capability for push authenticator enrollment
+* Delete push authenticator enrollment.
+  < **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that the `contain okta.myAccount.appAuthenticator.manage` scope. Instead, reauthenticate the user and get a new access token.
+  
+  High risk operations include the following:
+  * Enroll push authenticator
+  * Enable or disable user verification for push authenticator enrollment
+  * Delete push authenticator enrollment
+
+Other operations are low risk and may not require interactive authentication. For that reason, the Okta OIDC SDK implements the silent user re-authentication API `retrieveMaintenanceToken`. By retrieving a maintenance access token, an application can silently perform the following operations:
+
 * Request pending push challenges
 * Enable and disable CIBA capability for the push authenticator enrollment
-* Delete push authenticator enrollment For applications that work with a sensitive data such as banking applications we do recommend to not store or cache access token or refresh access token that contain okta.myAccount.appAuthenticator.manage scope. For high risk flows and operations we do recommend to always re-authenticate user and get new access token. High risk operations are the following operations:
-* Enroll push authenticator
-* Enable or disable user verification for push authenticator enrollment
-* Delete push authenticator enrollment Other operations can be considered low risk and may not require interactive authentication. For that purpose SDK implements silent user re-authentication API retrieveMaintenanceToken. By retrieving a maintenance access token an application can silently perform the following operations:
-  * Request pending push challenges
-  * Enable and disable CIBA capability for the push authenticator enrollment
-  * Update device token for push authenticator enrollment
+* Update device tokens for push authenticator enrollment
 
 Usage example:
 
