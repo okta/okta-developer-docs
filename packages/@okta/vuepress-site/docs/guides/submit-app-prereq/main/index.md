@@ -230,7 +230,7 @@ Include this section if there are known issues that apply to the entire configur
 
 You can't publish integrations with the following Okta features in the OIN catalog:
 
-* **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations. To update an existing SWA integration, contact the [OIN team](mailto:oin@okta.com).
+* **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations.
 
 * **Custom authorization server:** To support the potentially large numbers of Okta orgs accessing an authorization server through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
