@@ -1,0 +1,1 @@
+> **Note:** For certain background interactions between the server and FCM, the [JWT Bearer grant type](https://www.rfc-editor.org/rfc/rfc7523#section-2.1) is used. For more information, see [Access Token Management](https://github.com/okta/okta-devices-kotlin#access-token-management).

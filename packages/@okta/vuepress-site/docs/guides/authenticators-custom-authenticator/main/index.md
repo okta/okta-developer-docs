@@ -66,6 +66,8 @@ The following image shows the Devices SDK setup in the Admin Console:
 
 The simplest way to integrate authentication in your app is with OIDC through a web browser, using the [Authorization Code flow grant type](/docs/guides/implement-grant-type/authcode/main/). You need an access token to start the enrollment flow for the Devices SDK. For future sign-in attempts, consider using refresh tokens. <StackSnippet snippet="samplecode" inline />
 
+<StackSnippet snippet="jwtbearernote" />
+
 ### Grant the required scopes
 
 When you are ready to grant the required scopes, follow these steps:
