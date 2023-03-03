@@ -2099,15 +2099,20 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
 | `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the [Verification Method object](#verification-method-object)'s `reauthenticateIn` interval.     | ISO 8601 period format for recurring time intervals (for example: `PT1H`) | N/A|
 
-#### Authenticator key, type, constraints, and methods relationship
+#### Authenticator key, type, method, and constraint relationship
 
 The following table shows the relationship between all the authenticators, their methods and constraints.
 
-| Authenticator key | Authenticator type | Constraint | Method | Hardware protection | Device bound | Phishing resistant | User presence |
+| Authenticator key | Authenticator type | Method | Constraint | Hardware protection | Device bound | Phishing resistant | User presence |
 | ----------------- | ------------------ | ---------- | ------ | -------- | -------| ---------- | ---------- |
-| `okta_verify` | `app` | possession | `signed_nonce` | <span style="width: 22px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 22px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 22px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 22px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
-| `okta_verify` | `app` | possession | `push` |  | <span style="width: 22px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 22px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
-| `okta_verify` | `app` | possession | `totp` | | <span style="width: 22px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 22px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
+| `okta_verify` | `app` | `signed_nonce` | possession |<span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
+| `okta_verify` | `app` | `push` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
+| `okta_verify` | `app` | `totp` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
+| `phone` | `phone` | `sms` | possession |  |  |  |  |
+| `phone` | `phone` | `voice` | possession |  |  |  |  |
+| `yubikey_token` | `security_key` | `otp` | possession | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> ? | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `custom_otp` | `security_key` | `otp` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+
 
 <div class="small">
 </div>
