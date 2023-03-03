@@ -2208,7 +2208,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 }
 ```
 
-###### Single factor WebAuthN
+###### Single factor WebAuthn
 
 ```json
 {
