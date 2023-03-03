@@ -52,6 +52,8 @@ if (result.isSuccess) {
 }
 ```
 
+Alternatively, you can enroll the device using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/createAppAuthenticatorEnrollment).
+
 #### Retrieve enrollments
 
 To retrieve information about existing enrollments, use `allEnrollments()`. You can use this to display attributes for a list of accounts or find a specific account to update or delete it. Retrieve all previously enrolled `PushEnrollment`:
@@ -75,6 +77,8 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
 }
 ```
 
+Alternatively, you can update the registration token using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/updateAppAuthenticatorEnrollment).
+
 #### Update user verification
 
 User verification checks that a user is the one claimed. You can do this by asking the user for biometrics. You can enable or disable user verification by doing the following:
@@ -90,6 +94,8 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
 }
 ```
 
+Alternatively, you can update user verification using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/updateAppAuthenticatorEnrollment).
+
 #### Delete enrollment
 
 Use the delete function to delete an enrollment from both the server and the device:
@@ -104,6 +110,8 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
         .onFailure { println("failure") }
 }
 ```
+
+Alternatively, you can delete an enrollment using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/deleteAppAuthenticatorEnrollment).
 
 #### Delete enrollment from the device
 
@@ -158,6 +166,8 @@ private fun remediate(remediation: PushRemediation) = runCatching {
 }
 ```
 
+Alternatively, you can respond to a challenge by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/verifyAppAuthenticatorPushNotificationChallenge).
+
 #### Retrieve undelivered challenges
 
 Sometimes FCM fails to deliver a notification to the user.<!-- See Maurice for extra explanatory text --> To check the server for pending challenges:
@@ -173,9 +183,13 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
 }
 ```
 
+Alternatively, you can retrieve undelivered challenges using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/listAppAuthenticatorPendingPushNotificationChallenges).
+
 ### Access token management
 
-The SDK communicates with an Okta server using HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and requesting access tokens, use the latest version of the [Okta OIDC SDK](https://github.com/okta/okta-oidc-android). To enroll a push authenticator, the access token needs the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
+> **Note:** To enable the JWT bearer token
+
+The SDK communicates with an Okta server using HTTPS protocol.  and requires an access token for user authentication and authorization. For authentication flows and requesting access tokens, use the latest version of the [Okta OIDC SDK](https://github.com/okta/okta-oidc-android). To enroll a push authenticator, the access token needs the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
 
 * Enroll and unenroll user verification keys
 * Update device token for push authenticator enrollment
@@ -183,7 +197,7 @@ The SDK communicates with an Okta server using HTTPS protocol and requires an ac
 * Enable and disable CIBA capability for push authenticator enrollment
 * Delete push authenticator enrollment.
   < **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that the `contain okta.myAccount.appAuthenticator.manage` scope. Instead, re-authenticate the user and get a new access token.
-  
+
   High risk operations include the following:
   * Enroll push authenticator
   * Enable or disable user verification for push authenticator enrollment
