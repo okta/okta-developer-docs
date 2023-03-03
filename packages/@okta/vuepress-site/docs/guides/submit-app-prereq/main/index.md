@@ -187,16 +187,16 @@ Assign the mapping to the correct value for your organization.
 
 #### SP-initiated SSO
 
-> **Note**: This section is only required for SAML or OIDC integrations that support Single Sign-On (SSO) initiated from a service provider (SP).
+> **Note**: This section is only required for SAML or OIDC integrations that support app-initiated Single Sign-On (SSO), also known as Service Provider-initiated SSO).
 
-Provide instructions for your users to sign in with Okta from your company portal to access their resources. In this scenario, the sign-in flow is initiated from your organization (the service provider).
+Provide instructions for your users to sign in with Okta from your app. The user sign-in flow starts from your app's sign-in page. The user enters their credentials and your app sends the authorization request to Okta (the Identity Provider) to authenticate the user.
 
 ##### SP-initiated SSO example
 
 ```markdown
-The sign-in process must be initiated from {yourCompanyPortal}.
+The sign-in process is initiated from {yourCompanyAppPortal}.
 
-1. From your browser, navigate to your {yourCompanyPortal} sign-in page.
+1. From your browser, navigate to the {yourCompanyApp} sign-in page.
 2. Enter your Okta credentials (your email and password) and click **Sign in with Okta**.
 If your credentials are valid, you are redirected to the {yourCompanyApp} dashboard.
 ```
