@@ -318,5 +318,5 @@ The next step in the CIBA authentication flow is to send a request for tokens to
 ## See also
 
 * [Okta Devices Swift SDK](https://github.com/okta/okta-devices-swift) for iOS
-* [Okta Mobile Kotlin SDK](https://github.com/okta/okta-mobile-kotlin) for Android
+* [Okta Devices Kotlin SDK](https://github.com/okta/okta-devices-kotlin) for Android
 * [Custom Authenticator integration guide](/docs/guides/authenticators-custom-authenticator/ios/main/)
