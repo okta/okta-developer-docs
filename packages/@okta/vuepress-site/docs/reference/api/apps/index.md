@@ -1408,7 +1408,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
 
 > **Note:** The parameters `backchannel_token_delivery_mode`, `backchannel_authentication_request_signing_alg`, and `backchannel_custom_authenticator_id` appear only if the client has `urn:openid:params:grant-type:ciba` defined as one of its allowed `grant_types`. <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
 
-> **Note:** The `dpop_bound_access_tokens` parameter is set to `true`, then `client_credentials` and `implicit` are not allowed `grant_types` parameter. <ApiLifecycle access="ea" />
+> **Note:** If the `dpop_bound_access_tokens` parameter is set to `true`, then the `client_credentials` and `implicit` `grant_types` parameters aren't allowed. <ApiLifecycle access="ea" />
 
 **Notes:**
 
