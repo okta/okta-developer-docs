@@ -183,13 +183,15 @@ Group functions return either an array of groups or **True** or **False**.
 | `isMemberOfGroupNameContains`   | Boolean     | `isMemberOfGroupNameContains("admin")`                          |
 | `isMemberOfGroupNameRegex`      | Boolean     | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
 
-> **Note:** The `Groups.contains`, `Groups.startsWith`, and `Groups.endsWith` group functions are designed to work only with group claims. You can't use these functions with property mappings.
+Review the following information and restrictions prior to using the group functions:
 
-> **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
+* The `Groups.contains`, `Groups.startsWith`, and `Groups.endsWith` group functions are designed to work only with group claims. You can't use these functions with property mappings.
 
-> **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, app user profile attributes aren’t updated or reapplied when the user’s group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
+* The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships. In the case that an App Group name is the same as an Okta group name, these functions will also not work.
 
-For an example of using group functions, and for more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
+* When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, app user profile attributes aren’t updated or reapplied when the user’s group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
+
+* For an example of using group functions, and for more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
 
 > **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using Google workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function instead.
 >
