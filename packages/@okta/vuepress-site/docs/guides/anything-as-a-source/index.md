@@ -179,7 +179,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
                     "lastName": "${lastName}",
                     "email": "${userEmail}",
                     "secondEmail": "${userEmail2}",
-                    "mobilePhone": “${userMobileNumber}",
+                    "mobilePhone": "${userMobileNumber}",
                     "homeAddress": "${userAddress}"
                 }
             }

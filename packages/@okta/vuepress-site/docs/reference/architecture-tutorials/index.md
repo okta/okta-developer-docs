@@ -1,8 +1,8 @@
 ---
-title: Architecture Tutorials (work in progress)
+title: Architecture Tutorials
 ---
 
-# Architecture tutorials (work in progress)
+# Architecture tutorials
 
 > **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
 
