@@ -1354,6 +1354,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | backchannel_token_delivery_mode <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />                 | The delivery mode for Client-Initiated Backchannel Authentication. Valid types include `poll`, `ping`, and `push`. Supported values: `poll`.                                                                  | String                                                                                        | TRUE       | FALSE    | TRUE      |
 | backchannel_authentication_request_signing_alg <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />  | The signing algorithm for Client-Initiated Backchannel Authentication signed requests. If this value isn't set and a signed request is sent, the request fails.                                                                     | String                                                                                        | TRUE       | FALSE    | TRUE      |
 | backchannel_custom_authenticator_id <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />             | The ID of the custom authenticator that authenticates the user.                                                                                                                                                        | String                                                                                        | TRUE       | FALSE    | TRUE      |
+| dpop_bound_access_tokens  <ApiLifecycle access="ea" />                                                    | Indicates if the client application always uses Demonstrating Proof-of-Possession (DPoP) for token requests. If omitted, the default value is `false`. If `true`, the authorization server will reject token requests from this client that do not contain the DPoP header  | Boolean  | TRUE       | FALSE    | TRUE      |
 
 ###### Details
 
@@ -1407,6 +1408,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
 
 > **Note:** The parameters `backchannel_token_delivery_mode`, `backchannel_authentication_request_signing_alg`, and `backchannel_custom_authenticator_id` appear only if the client has `urn:openid:params:grant-type:ciba` defined as one of its allowed `grant_types`. <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
 
+> **Note:** The `dpop_bound_access_tokens` parameter is set to `true`, then `client_credentials` and `implicit` are not allowed `grant_types` parameter. <ApiLifecycle access="ea" />
 
 **Notes:**
 
