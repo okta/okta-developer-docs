@@ -1,6 +1,6 @@
 Use the Devices SDK to add custom push verification functionality to your Android app.
 
-> **Note:** The following sample code assumes that suspend functions are called in a coroutine scope. See [Kotlin coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for more information.
+> **Note:** The following sample code assumes that a coroutine scope calls suspend functions. See [Kotlin coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for more information.
 
 The following image shows how data flows through the Devices SDK:
 
@@ -24,7 +24,7 @@ implementation("com.okta.devices:devices-push:$okta.sdk.version")
 
 Create the SDK object to work with your Okta authenticator configuration. Use the `PushAuthenticatorBuilder` to create an authenticator with your application configuration:
 
-> **Note:** If a passphrase isn't provided, the Devices SDK data isn't encrypted. Secure the passphrase:
+> **Note:** If the end user doesn't provide a passphrase, the Devices SDK data isn't encrypted. Secure the passphrase:
 
 ```kotlin
 val authenticator: PushAuthenticator = PushAuthenticatorBuilder.create(
@@ -132,7 +132,7 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
 
 ### Respond to a challenge
 
-When a user attempts to sign in to the enrolled account through an app or a web browser, Okta creates a push challenge. The push challenge is sent to enrolled devices through your push provider.
+When a user attempts to sign in to the enrolled account through an app or a web browser, Okta creates a push challenge. Your push provider sends the push challenge to enrolled devices.
 
 <!-- It may not always be delivered. Add content about it here. -->
 
@@ -141,7 +141,7 @@ When a user attempts to sign in to the enrolled account through an app or a web 
 After you receive a challenge, your app should resolve them to proceed with the sign-in flow. The SDK may request remediation steps to resolve the challenge:
 
 * `UserConsent`: Asks the user to approve or deny the challenge.
-* `UserVerification`: Notifies the app that a biometric verification is required to proceed.
+* `UserVerification`: Notifies the app that it requires a biometric verification to proceed.
 
 See the [Devices SDK sample app](https://github.com/okta/okta-devices-kotlin/tree/master/push-sample-app) for complete details about resolving a push challenge.
 
@@ -199,14 +199,14 @@ The SDK communicates with an Okta server using HTTPS protocol and requires an ac
 * Request pending push challenges
 * Enable and disable CIBA capability for push authenticator enrollment
 * Delete push authenticator enrollment.
-  < **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that the `contain okta.myAccount.appAuthenticator.manage` scope. Instead, re-authenticate the user and get a new access token.
+  < **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that the `contain okta.myAccount.appAuthenticator.manage` scope. Instead, reauthenticate the user and get a new access token.
 
   High risk operations include the following:
   * Enroll push authenticator
   * Enable or disable user verification for push authenticator enrollment
   * Delete push authenticator enrollment
 
-Other operations are low risk and may not require interactive authentication. For that reason, the Okta OIDC SDK implements the silent user re-authentication API `retrieveMaintenanceToken`. By retrieving a maintenance access token, an application can silently perform the following operations:
+Other operations are low risk and may not require interactive authentication. For that reason, the Okta OIDC SDK implements the silent user reauthentication API `retrieveMaintenanceToken`. By retrieving a maintenance access token, an application can silently perform the following operations:
 
 * Request pending push challenges
 * Enable and disable CIBA capability for the push authenticator enrollment
