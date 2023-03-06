@@ -1239,7 +1239,7 @@ curl -X GET \
 | token_endpoint_auth_methods_supported                             | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                                                                                                                            | Array   |
 | backchannel_token_delivery_modes_supported                        | The delivery modes that this authorization server supports for Client-Initiated Backchannel Authentication. Valid types include `poll`, `ping` and `push`. Supported values: `poll`. <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />                                                          | Array   |
 | backchannel_authentication_request_signing_alg_values_supported   | The signing algorithms that this authorization server supports for Client-Initiated Backchannel Authentication signed requests. <ApiLifecycle access="ie" /><ApiLifecycle access="ea" />           | Array   |
-| dpop_signing_alg_values_supported                                 | JSON array containing a list of the JWS alg values supported by the authorization server for Demonstrating Proof-of-Possession (DPoP) JWTs. <ApiLifecycle access="ea" />          | Array   |
+| dpop_signing_alg_values_supported                                 | JSON array that contains a list of the JWS `alg` values supported by the authorization server for Demonstrating Proof-of-Possession (DPoP) JWTs. <ApiLifecycle access="ea" />          | Array   |
 
 #### Response example (success)
 
