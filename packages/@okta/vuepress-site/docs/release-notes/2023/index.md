@@ -18,6 +18,8 @@ title: Okta API Products release notes 2023
 
 * Pagination and search query matching didn't work as expected when a list request was made using the `/idps` API. (OKTA-577464)
 
+* Some non-super admins could manage group memberships of admin groups with custom roles. (OKTA-577807)
+
 ### Weekly release 2023.02.1
 
 | Change | Expected in Preview Orgs |
