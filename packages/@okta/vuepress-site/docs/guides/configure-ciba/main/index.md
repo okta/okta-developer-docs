@@ -5,7 +5,6 @@ layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="ea" />
 
 This guide explains how to build transactional verification using a Client-Initiated Backchannel Authentication (CIBA) grant and a custom-branded authenticator.
 
