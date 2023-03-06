@@ -5,7 +5,7 @@ category: management
 
 # Policy API
 
-The Okta Policy API enables an Administrator to perform Policy and Policy Rule operations. The Policy framework is used by Okta to control Rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, what types of self-service operations are permitted under various circumstances, and what identity provider to route users to.
+The Okta Policy API enables an administrator to perform Policy and Policy Rule operations. The Policy framework is used by Okta to control Rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, what types of self-service operations are permitted under various circumstances, and what identity provider to route users to.
 
 Policy settings for a particular Policy type, such as Sign On Policy, consist of one or more Policy objects, each of which contains one or more Policy Rules.  Policies and Rules contain conditions that determine whether they are applicable to a particular user at a particular time.
 
@@ -2099,23 +2099,28 @@ The number of Authenticator class constraints in each Constraint object must be 
 | `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
 | `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate regardless of user activity. This re-authentication interval overrides the [Verification Method object](#verification-method-object)'s `reauthenticateIn` interval.     | ISO 8601 period format for recurring time intervals (for example: `PT1H`) | N/A|
 
-#### Authenticator key, type, method, and constraint relationship
+#### Authenticator key, type, method, and constraint relationships
 
-The following table shows the relationship between all the authenticators, their methods and constraints.
+The following table shows the possible relationships between all the authenticators, their methods and constraints.
 
-| Authenticator key | Authenticator type | Method | Constraint | Hardware protection | Device bound | Phishing resistant | User presence |
+> **Note**: Constraints with an asterisk (*) indicate that the condition is only valid with certain configurations or flows.
+
+| Authenticator key | Authenticator type | Authenticator Method | Constraint | Hardware protection | Device bound | Phishing resistant | User presence |
 | ----------------- | ------------------ | ---------- | ------ | -------- | -------| ---------- | ---------- |
-| `okta_verify` | `app` | `signed_nonce` | possession |<span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
-| `okta_verify` | `app` | `push` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
-| `okta_verify` | `app` | `totp` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
-| `phone` | `phone` | `sms` | possession |  |  |  |  |
-| `phone` | `phone` | `voice` | possession |  |  |  |  |
-| `yubikey_token` | `security_key` | `otp` | possession | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> ? | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
-| `custom_otp` | `security_key` | `otp` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `okta_password` | `PASSWORD` | `PASSWORD` | knowledge |  |  |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `security_question` | `SECURITY_QUESTION` | `SECURITY_QUESTION` | knowledge |  |  |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `okta_email` | `EMAIL` | `EMAIL` | possession |  |  |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `phone_number` | `PHONE` | `SMS` | possession |  |  |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `phone_number` | `PHONE` | `VOICE` | possession |  |  |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `duo` | `APP` | `DUO` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `symantec_vip` | `APP` | `OTP` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `google_otp` | `APP` | `OTP` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `okta_verify` | `APP` | `TOTP` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `okta_verify` | `APP` | `PUSH` | possession, inherence | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span>  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
+| `okta_verify` | `APP` | `SIGNED_NONCE` | possession | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
+| `yubikey_token` | `SECURITY_KEY` | `otp` | possession | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> ? | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
+| `custom_otp` | `SECURITY_KEY` | `otp` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
 
-
-<div class="small">
-</div>
 #### Verification Method JSON examples
 
 ##### Any single factor
