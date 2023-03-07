@@ -77,7 +77,7 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
 }
 ```
 
-Alternatively, you can update the registration token using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/updateAppAuthenticatorEnrollment).
+Alternatively, you can update the registration token by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/updateAppAuthenticatorEnrollment).
 
 #### Update user verification
 
