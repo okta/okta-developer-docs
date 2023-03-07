@@ -1,6 +1,7 @@
 Use the Devices SDK to enable your app to verify the identity of a user by responding to notifications from a custom authenticator.
 
 To set up and configure your app:
+
 - [Add the SDK to your app](#add-devices-sdk-to-your-app)
 - Configure the required capabilities
 - [Register for notifications](#register-the-device)
@@ -10,26 +11,27 @@ Next, register the device to receive identity verification notifications for the
 
 If needed, you can also unenroll the device, either locally, or both locally and on the server.
 
-> **Note:** The iOS code snippets assume that there is a singleton class called `DeviceSDKManager` that manages interactions with the Devices SDK. The singleton contains any required state information, such as the current SDK client, the APNs token for the current launch of the app, utility functions, and more. Your app may use a different way of interacting with the parts of the Devices SDK.
+> **Note:** The iOS code snippets assume that there's a singleton class called `DeviceSDKManager` that manages interactions with the Devices SDK. The singleton contains any required state information, such as the current SDK client, the APNs token for the current launch of the app, utility functions, and more. Your app may use a different way of interacting with the parts of the Devices SDK.
 
 The following image shows how data flows through the Devices SDK:
 
 <div class="full border">
 
-![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
+![Custom authenticator flow chart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
 
 </div>
 
 ### Enable the user to sign in
 
-A valid user account authentication token is necessary to add a device as an authenticator. To get the token, first enable the user to sign-in to their account using the [Okta mobile Swift SDK](https://github.com/okta/okta-mobile-swift) or if you're already using it, the [Okta IDX Swift SDK](https://github.com/okta/okta-idx-swift). For more information on signing users in to your app, see [Sign users in to your mobile app using the redirect model](https://developer.okta.com/docs/guides/sign-into-mobile-app-redirect/ios/main/).
+A valid user account authentication token is necessary to add a device as an authenticator. To get the token, first enable the user to sign in to their account using the [Okta mobile Swift SDK](https://github.com/okta/okta-mobile-swift) or if you're already using it, the [Okta IDX Swift SDK](https://github.com/okta/okta-idx-swift). For more information on signing users in to your app, see [Sign users in to your mobile app using the redirect model](https://developer.okta.com/docs/guides/sign-into-mobile-app-redirect/ios/main/).
 
 Then add the extra permissions that the Devices SDK requires to the access token. Add the following strings to the space-delimited list of scopes in the `Okta.plist` file:
+
 - `okta.authenticators.manage.self`
 - `okta.authenticators.read`
 - `okta.users.read.self`
 
-If you are initializing the scopes in your app's code instead of using the `Okta.plist` file, update that code using the strings.
+If you’re initializing the scopes in your app's code instead of using the `Okta.plist` file, update that code using the strings.
 
 ### Add Devices SDK to your app
 
@@ -40,14 +42,18 @@ target 'MyApplicationTarget' do
     pod 'DeviceAuthenticator'
 end
 ```
+
 The source for the Okta Swift Devices SDK is in the Okta GitHub repository:
 https://github.com/okta/okta-devices-swift.
 
 There are two ways for your app to receive notifications from a custom authenticator:
-- As a push notification that's delivered whether your app is closed, in the background, or in the foreground.
-- By requesting any queued notifications when your app is in the foreground.
 
-Although you don't need to receive push notifications to use Devices SDK, we suggest that you do this for the best user experience. To receive notifications add the Push Notification Capability to your app. At runtime, register your app with the notification manager, and retrieve the current APNs token. Use this token in the next step. For more information, see [Registering Your App with APNs](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) in Apple developer documentation. The examples in this guide assume that the app is registered to receive notifications.
+- As a push notification that's delivered whether your app is closed, in the background, or in the foreground
+- By requesting any queued notifications when your app is in the foreground
+
+Although you don't need to receive push notifications to use the Devices SDK, we suggest that you do this for the best user experience. To receive notifications add the Push Notification Capability to your app. At runtime, register your app with the notification manager, and retrieve the current APNs token. Use this token in the next step.
+
+For more information, see [Registering Your App with APNs](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) in Apple developer documentation. The examples in this guide assume that the end user registered the app to receive notifications.
 
 The token is returned by the system in [`application(_:didRegisterForRemoteNotificationsWithDeviceToken:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622958-application). Use a property to store the token, though don't save the token between app launches as it can change. If there's an error registering for notifications, the system calls [`application(_:didFailToRegisterForRemoteNotificationsWithError:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622962-application). In this case, your app can still [load undelivered challenges](#load-undelivered-challenges).
 
@@ -86,16 +92,16 @@ To use the device to verify the identity of a user it must be registered, or *en
 
 To enroll a device you need:
 
-- An app that enables a user to sign-in to their account
-- That requests the appropriate scopes. See [Enable the user to sign-in](#enable-the-user-to-sign-in).
-- A configured and enabled custom authenticator in your Okta org.
-- The current APNs token if your app is registered for push notifications.
+- An app that enables a user to sign in to their account
+- That requests the appropriate scopes. See [Enable the user to sign in](#enable-the-user-to-sign-in).
+- A configured and enabled custom authenticator in your Okta org
+- The current APNs token if your app is registered for push notifications
 
 Alternatively, you can enroll the device using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/createAppAuthenticatorEnrollment).
 
 There are many different ways that your app may start the flow for enrolling a device, such as the user setting a preference or adding an authentication method. No matter how the enrollment flow is started it follows the same steps:
 
-- Sign the user in if they are currently signed out.
+- Sign the user in if they’re currently signed out.
 - Create the configuration for the authenticator.
 - Create the enrollment details.
 - Call `enroll(authenticationToken:authenticatorConfig:enrollmentParameters:)`.
@@ -227,7 +233,7 @@ func initOktaDeviceAuthenticator() {
         ...
 ```
 
-The first two titles are the actions for the notification that requests a user approve or deny that they're trying to sign in. The third is the action for a biometric verification. Replace `YourAppName` with the name of your app which you can read from the `CFBundleName` key of the `Info.plist` file in your main bundle.
+The first two titles are the actions for the notification that requests a user approve or deny that they're trying to sign in. The third is the action for a biometric verification. Replace `YourAppName` with the name of your app, which you can read from the `CFBundleName` key of the `Info.plist` file in your main bundle.
 
 #### Check for a challenge
 
@@ -254,7 +260,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter,
 
 The push challenge includes the steps, or *remediations*, required to validate the user identity. Your app handles these steps sequentially and updates the SDK with the results. Your app must handle two different types of steps:
 - **Consent:** Confirm that the user is attempting to sign in.
-- **Message:** An informational message, such as the user cancelling verification or a key being corrupt or missing.
+- **Message:** An informational message, such as the user canceling verification or a key being corrupt or missing.
 
 There's also a step for confirming a user's identity with biometrics that is handled by the SDK.
 
@@ -302,7 +308,7 @@ Alternatively, you can respond to a challenge by using the [MyAccount App Authen
 
 #### Load undelivered challenges
 
-Undelivered notifications are queued by the server for delivery at a later time. When your app launches or comes into the foreground, check for undelivered notifications and process them as appropriate. The following is an example function to retrieve Devices SDK notifications that you can call from [`applicationDidBecomeActive(_:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622956-applicationdidbecomeactive):
+The server queues undelivered notifications for delivery later. When your app launches or comes into the foreground, check for undelivered notifications and process them as appropriate. The following is an example function to retrieve Devices SDK notifications that you can call from [`applicationDidBecomeActive(_:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622956-applicationdidbecomeactive):
 
 ```swift
 func retrievePushChallenges(accessToken: String) {
