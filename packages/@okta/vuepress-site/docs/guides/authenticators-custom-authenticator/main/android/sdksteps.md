@@ -94,7 +94,7 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
 }
 ```
 
-Alternatively, you can update user verification using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/updateAppAuthenticatorEnrollment).
+Alternatively, you can update user verification by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/updateAppAuthenticatorEnrollment).
 
 #### Delete enrollment
 
