@@ -111,7 +111,7 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
 }
 ```
 
-Alternatively, you can delete an enrollment using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/deleteAppAuthenticatorEnrollment).
+Alternatively, you can delete an enrollment by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/deleteAppAuthenticatorEnrollment).
 
 #### Delete enrollment from the device
 
