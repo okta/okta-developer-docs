@@ -1,4 +1,6 @@
-Use the Devices SDK to enable your app to verify the identity of a user by responding to notifications from a custom authenticator. To set up and configure your app:
+Use the Devices SDK to enable your app to verify the identity of a user by responding to notifications from a custom authenticator.
+
+To set up and configure your app:
 - [Add the SDK to your app](#add-devices-sdk-to-your-app)
 - Configure the required capabilities
 - [Register for notifications](#register-the-device)
@@ -83,12 +85,16 @@ Use the name of the group you added when you added the App Group Capability earl
 To use the device to verify the identity of a user it must be registered, or *enrolled*, with the custom authenticator.
 
 To enroll a device you need:
+
 - An app that enables a user to sign-in to their account
 - That requests the appropriate scopes. See [Enable the user to sign-in](#enable-the-user-to-sign-in).
 - A configured and enabled custom authenticator in your Okta org.
 - The current APNs token if your app is registered for push notifications.
 
+Alternatively, you can enroll the device using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/createAppAuthenticatorEnrollment).
+
 There are many different ways that your app may start the flow for enrolling a device, such as the user setting a preference or adding an authentication method. No matter how the enrollment flow is started it follows the same steps:
+
 - Sign the user in if they are currently signed out.
 - Create the configuration for the authenticator.
 - Create the enrollment details.
@@ -163,6 +169,8 @@ func updateEnrollments(with notificationToken: Data) {
 
 The function assumes a valid access token. In a production app, consider adding a function that either updates the token if it's invalid, or gets a new token using a user sign-in flow.
 
+Alternatively, you can update the registration token using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/updateAppAuthenticatorEnrollment).
+
 ### Unenroll the device
 
 You may need to unenroll a device from a user account. For example, your app may enable a user to turn off notifications using a setting. It's also possible to unenroll the device on the server, such as an administrator removing an account. One way to detect if the device is unenrolled on the server is that a call to either unenroll the device or to retrieve undelivered notifications results in an error of type `serverAPIError`.
@@ -197,6 +205,8 @@ func unenrollDevice(_ enrollment: AuthenticatorEnrollmentProtocol, localOnly: Bo
     }
 }
 ```
+
+Alternatively, you can delete an enrollment using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/deleteAppAuthenticatorEnrollment).
 
 ### Process a custom authenticator notification
 
@@ -288,6 +298,8 @@ func handleUserConsent(_ consentStep: RemediationStepUserConsent,
 }
 ```
 
+Alternatively, you can respond to a challenge by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/verifyAppAuthenticatorPushNotificationChallenge).
+
 #### Load undelivered challenges
 
 Undelivered notifications are queued by the server for delivery at a later time. When your app launches or comes into the foreground, check for undelivered notifications and process them as appropriate. The following is an example function to retrieve Devices SDK notifications that you can call from [`applicationDidBecomeActive(_:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622956-applicationdidbecomeactive):
@@ -316,3 +328,57 @@ func retrievePushChallenges(accessToken: String) {
 ```
 
 The code assumes that each enrollment uses the same access token. Use the appropriate access token if your app handles multiple user accounts.
+
+Alternatively, you can retrieve undelivered challenges using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/listAppAuthenticatorPendingPushNotificationChallenges).
+
+## Access token management
+
+> **Note:** To enable the JWT bearer grant type:
+>  * Send a PUT request to `/apps/{appId}`. Ensure that the `grant_types` array contains the following string:
+>    `urn:ietf:params:oauth:grant-type:jwt-bearer`
+>  * If you use custom authorization servers, update the policy rules to update the grant type.
+
+The SDK communicates with an Okta server using HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and requesting access tokens, use the latest version of the [Okta OIDC SDK](https://github.com/okta/okta-oidc-android). To enroll a push authenticator, the access token needs the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
+
+* Enroll and unenroll user verification keys
+* Update device token for push authenticator enrollment
+* Request pending push challenges
+* Enable and disable CIBA capability for push authenticator enrollment
+* Delete push authenticator enrollment
+  < **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that contain the `okta.myAccount.appAuthenticator.manage` scope. Instead, reauthenticate the user and get a new access token.
+
+  High risk operations include the following:
+  * Enroll push authenticator
+  * Enable or disable user verification for push authenticator enrollment
+  * Delete push authenticator enrollment
+
+Other operations are low risk and may not require interactive authentication. For that reason, the Okta OIDC SDK implements the silent user reauthentication API `retrieveMaintenanceToken`. By retrieving a maintenance access token, an application can silently perform the following operations:
+
+* Request pending push challenges
+* Enable and disable CIBA capability for the push authenticator enrollment
+* Update device tokens for push authenticator enrollment
+
+Usage example:
+
+```swift
+func retrievePushChallenges() {
+    let enrollments = authenticator.allEnrollments()
+    enrollments.forEach { enrollment in
+        enrollment.retrieveMaintenanceToken() { result in
+            switch result {
+            case .success(let credential):
+                let authToken = AuthToken.bearer(credential.access_token)
+                enrollment.retrievePushChallenges(authenticationToken: authToken) { result in
+                    switch result {
+                    case .success(let challenges):
+                        print("Challenges retrieve: \(challenges)")      
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+```
