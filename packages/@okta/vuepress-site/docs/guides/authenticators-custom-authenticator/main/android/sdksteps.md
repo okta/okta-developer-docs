@@ -1,6 +1,6 @@
 Use the Devices SDK to add custom push verification functionality to your Android app.
 
-> **Note:** The following sample code assumes that a coroutine scope calls suspend functions. See [Kotlin coroutines](https://kotlinlang.org/docs/coroutines-overview.html) for more information.
+> **Note:** The following sample code assumes that suspend functions are called from a coroutine. See [Kotlin coroutines](https://kotlinlang.org/docs/coroutines-overview.html).
 
 The following image shows how data flows through the Devices SDK:
 
