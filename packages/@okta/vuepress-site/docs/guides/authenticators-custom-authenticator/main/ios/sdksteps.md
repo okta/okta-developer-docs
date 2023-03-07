@@ -344,7 +344,7 @@ Alternatively, you can retrieve undelivered challenges using the [MyAccount App 
 >    `urn:ietf:params:oauth:grant-type:jwt-bearer`
 >  * If you use custom authorization servers, update the policy rules to update the grant type.
 
-The SDK communicates with an Okta server using HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and requesting access tokens, use the latest version of the [Okta Swift mobile SDK](https://github.com/okta/okta-mobile-swift). To enroll a push authenticator, the access token needs the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
+The SDK communicates with an Okta server using the HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and access token requests, use the latest version of the [Okta Swift mobile SDK](https://github.com/okta/okta-mobile-swift). To enroll a push authenticator, the user needs to have an access token that contains the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
 
 * Enroll and unenroll user verification keys
 * Update device token for push authenticator enrollment
