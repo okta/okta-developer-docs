@@ -42,7 +42,7 @@ The high-level overview of validating an ID token looks like this:
 
 ### Retrieve The JSON Web Key Set
 
-The JSON Web Key Set (JWKS) needs to be retrieved from your [Okta Authorization Server](/docs/guides/customize-authz-server/), though your application should have it cached. Specifically, your Authorization Server's Metadata endpoint contains the `jwks_uri`, which you can use to get the JWKS.
+The JSON Web Key Set (JWKS) needs to be retrieved from your [Okta authorization server](/docs/guides/customize-authz-server/), though your application should have it cached. Specifically, your authorization server's Metadata endpoint contains the `jwks_uri`, which you can use to get the JWKS.
 
 > **Note:** For more information about retrieving this metadata, see [Retrieve Authorization Server Metadata](/docs/reference/api/oidc/#well-knownoauth-authorization-server).
 
@@ -52,15 +52,15 @@ You will have to decode the ID token, which is in JWT format. A list of librarie
 
 ## Verify the Token Signature
 
-You verify the Access or ID token's signature by matching the key that was used to sign in with one of the keys that you retrieved from your Okta Authorization Server's JWK endpoint. Specifically, each public key is identified by a `kid` attribute, which corresponds with the `kid` claim in the Access or ID token header.
+You verify the Access or ID token's signature by matching the key that was used to sign in with one of the keys that you retrieved from your Okta authorization server's JWK endpoint. Specifically, each public key is identified by a `kid` attribute, which corresponds with the `kid` claim in the Access or ID token header.
 
-If the `kid` claim doesn't match, it's possible that the signing keys have changed. Check the `jwks_uri` value in the Authorization Server metadata and try retrieving the keys again from Okta.
+If the `kid` claim doesn't match, it's possible that the signing keys have changed. Check the `jwks_uri` value in the authorization server metadata and try retrieving the keys again from Okta.
 
 ### Verify the Claims
 
 You should verify the following:
 
-- The `iss` (issuer) claim matches the identifier of your Okta Authorization Server.
+- The `iss` (issuer) claim matches the identifier of your Okta authorization server.
 - The `aud` (audience) claim should match the Client ID that you used to request the ID Token. This will be the Client ID for the Application you created in Okta.
 - The `iat` (issued at time) claim indicates when this ID token was issued, expressed in Unix time.
 - The `exp` (expiry time) claim is the time at which this token will expire., expressed in Unix time. You should make sure that this time has not already passed.

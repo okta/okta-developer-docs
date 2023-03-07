@@ -1,6 +1,6 @@
 ---
-title: Configure Okta Sign-On and App Sign-On Policies
-excerpt: How to configure an Okta Sign-On policy and an App Sign-On Policy.
+title: Configure Okta sign-on and app sign-on policies
+excerpt: How to configure an Okta sign-on policy and an app sign-on policy.
 layout: Guides
 sections:
  - main

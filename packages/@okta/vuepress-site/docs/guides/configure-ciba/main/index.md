@@ -173,7 +173,7 @@ You can also use the [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-a
 
 ### Configure an authorization server access policy to use CIBA
 
-You can use either the Okta Org Authorization Server or a custom authorization server with CIBA. In this example, use the `default` custom authorization server.
+You can use either the org authorization server or a custom authorization server with CIBA. In this example, use the `default` custom authorization server.
 
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, select the edit icon to the right of the authorization server that you want to use. In this example, use the `default` custom authorization server.

@@ -85,6 +85,6 @@ try {
 }
 ```
 
-With the obtained access token, you can retrieve basic user information by making a request to Okta's OpenID Connect Authorization Server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#get-the-user-profile-information) for details.
+With the obtained access token, you can retrieve basic user information by making a request to Okta's OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#get-the-user-profile-information) for details.
 
 The user is now successfully signed in and can be sent to the default signed-in home page.

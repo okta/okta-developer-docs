@@ -2,7 +2,7 @@
 
 <div class="full">
 
-![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
+![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
 
 </div>
 
@@ -37,7 +37,7 @@ app -> client: Response
 
     You need to register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can redirect the browser to Okta. See [Request an authorization code](#request-an-authorization-code).
 
-3. The Authorization Server (Okta) redirects the authentication prompt to the user.
+3. The authorization server (Okta) redirects the authentication prompt to the user.
 4. The user authenticates.
 
     For Okta to authenticate the user credentials, Okta needs user profile data.

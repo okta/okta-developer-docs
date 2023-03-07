@@ -41,14 +41,14 @@ Refresh token rotation helps a public client to securely rotate refresh tokens a
 
 When a client wants to renew an access token, it sends the refresh token with the access token request to the `/token` endpoint. Okta validates the incoming refresh token and issues a new set of tokens. As soon as the new tokens are issued, Okta invalidates the refresh token that was passed with the initial request to the `/token` endpoint.
 
-If a previously used refresh token is used again with the token request, the Authorization Server automatically detects the attempted reuse of the refresh token. As a result, Okta immediately invalidates the most recently issued refresh token and all access tokens issued since the user authenticated. This protects your application from token compromise and replay attacks.
+If a previously used refresh token is used again with the token request, the authorization server automatically detects the attempted reuse of the refresh token. As a result, Okta immediately invalidates the most recently issued refresh token and all access tokens issued since the user authenticated. This protects your application from token compromise and replay attacks.
 
 #### System Log events
 
 Okta fires the following System Log [events](/docs/reference/api/event-types/) when token reuse is detected:
 
-* `app.oauth2.as.token.detect_reuse` for [Custom Authorization Servers](/docs/concepts/auth-servers/#custom-authorization-server)
-* `app.oauth2.token.detect_reuse` for the [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server)
+* `app.oauth2.as.token.detect_reuse` for [custom authorization servers](/docs/concepts/auth-servers/#custom-authorization-server)
+* `app.oauth2.token.detect_reuse` for the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server)
 
 ### Grace period for token rotation
 
@@ -97,11 +97,11 @@ See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
 
 ### Refresh token lifetime
 
-Refresh token lifetimes are managed through the [Authorization Server access policy](/docs/guides/configure-access-policy/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [Authorization Server actions object](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if it hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
+Refresh token lifetimes are managed through the [authorization server access policy](/docs/guides/configure-access-policy/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [authorization server actions object](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if it hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
 
 ## Get a refresh token
 
-To get a refresh token, you send a request to your Okta Authorization Server.
+To get a refresh token, you send a request to your Okta authorization server.
 
 The only flows that support refresh tokens are the authorization code flow and the resource owner password flow. This means that the following combinations of grant type and scope, when sent to the `/token` endpoint, return a refresh token:
 
@@ -119,7 +119,7 @@ The only flows that support refresh tokens are the authorization code flow and t
 
 ### Get a refresh token with the code flow
 
-In the case of the authorization code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then use the `authorization_code` grant with this code in a request to the `/token` endpoint to get an access token and a refresh token.
+In the case of the authorization code flow, you use the authorization server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then use the `authorization_code` grant with this code in a request to the `/token` endpoint to get an access token and a refresh token.
 
 See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#authorize) and [Implementing the authorization code flow](/docs/guides/implement-grant-type/authcode/main/) for more information on the `/authorize` endpoint and the authorization code flow.
 

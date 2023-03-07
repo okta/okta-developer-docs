@@ -1,4 +1,4 @@
-Before implementing the flow, you must first [create custom scopes](#create-custom-scopes) for the [Custom Authorization Server](/docs/guides/customize-authz-server/) used to authenticate your app from the Okta Admin Console.
+Before implementing the flow, you must first [create custom scopes](#create-custom-scopes) for the [custom authorization server](/docs/guides/customize-authz-server/) used to authenticate your app from the Okta Admin Console.
 
 If you are not using existing libraries, you can make a direct request to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) through the `/token` endpoint. See [Request for token](#request-for-token) in the next section.
 
@@ -6,7 +6,7 @@ If you are not using existing libraries, you can make a direct request to Okta's
 
 The Client Credentials flow is intended for server-side (confidential) client applications with no end user, which normally describes machine-to-machine communication. Your client application needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on the **General** tab for your app integration.
 
-Base64 encode the client ID and secret (as shown later) and then pass through [Basic Authentication](https://tools.ietf.org/html/rfc7617) in the request to your [Custom Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint:
+Base64 encode the client ID and secret (as shown later) and then pass through [Basic Authentication](https://tools.ietf.org/html/rfc7617) in the request to your [custom authorization server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint:
 
 ```bash
 curl --request POST \
@@ -23,7 +23,7 @@ curl --request POST \
 Note the parameters that are being passed:
 
 - `grant_type` is `client_credentials`, indicating that we are using the Client Credentials grant type.
-- `scope` must be at least one custom scope that you create. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+- `scope` must be at least one custom scope that you create. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 
 If the credentials are valid, the application receives an access token:
 
