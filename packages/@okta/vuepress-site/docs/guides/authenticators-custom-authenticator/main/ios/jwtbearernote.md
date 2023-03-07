@@ -1,1 +1,1 @@
-> **Note:** For certain background interactions between the server and APNs, the [JWT Bearer grant type](https://www.rfc-editor.org/rfc/rfc7523#section-2.1) is used. For more information, see [Access Token Management](#access-token-management).
+> **Note:** For certain background interactions between the server and APNs, the [JWT Bearer grant type](https://www.rfc-editor.org/rfc/rfc7523#section-2.1) is used. See [Access Token Management](#access-token-management).
