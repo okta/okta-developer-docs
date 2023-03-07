@@ -195,7 +195,7 @@ Alternatively, you can retrieve undelivered challenges by using the [MyAccount A
 The SDK communicates with an Okta server using the HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and access token requests, use the latest version of the [Okta Kotlin Mobile SDK](https://github.com/okta/okta-mobile-kotlin). To enroll a push authenticator, the user needs to have an access token that contains the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
 
 * Enroll and unenroll user verification keys
-* Update device token for push authenticator enrollment
+* Update device tokens for push authenticator enrollment
 * Request pending push challenges
 * Enable and disable CIBA capability for push authenticator enrollment
 * Delete push authenticator enrollment
