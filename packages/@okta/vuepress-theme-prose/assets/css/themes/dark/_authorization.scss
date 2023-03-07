@@ -1,57 +1,57 @@
-.authorization-layout .row .field-wrapper {
-  color: cv("text", "darker");
-}
+// .authorization-layout .row .field-wrapper {
+//   color: cv("text", "darker");
+// }
 
-.authorization-layout .authorization-layout--content input[type="text"],
-.authorization-layout .authorization-layout--content input[type="button"],
-.authorization-layout .authorization-layout--content select {
-  border-color: cv("text", "accent");
-  background-color: cv("code");
+// .authorization-layout .authorization-layout--content input[type="text"],
+// .authorization-layout .authorization-layout--content input[type="button"],
+// .authorization-layout .authorization-layout--content select {
+//   border-color: cv("text", "accent");
+//   background-color: cv("code");
 
-  color: cv("text");
-}
+//   color: cv("text");
+// }
 
-.authorization-layout .authorization-layout--content a.btn {
-  font-weight: 500;
-}
+// .authorization-layout .authorization-layout--content a.btn {
+//   font-weight: 500;
+// }
 
-.authorization-layout .authorization-layout--content input[type="submit"] {
-  border-color: cv("link");
-  background-color: cv("link");
+// .authorization-layout .authorization-layout--content input[type="submit"] {
+//   border-color: cv("link");
+//   background-color: cv("link");
 
-  font-weight: 500;
-  color: cv("body");
-}
+//   font-weight: 500;
+//   color: cv("body");
+// }
 
-.authorization-layout .authorization-layout--content a.social-btn,
-.authorization-layout .authorization-layout--content button.social-btn {
-  background-color: cv("link", "gray");
+// .authorization-layout .authorization-layout--content a.social-btn,
+// .authorization-layout .authorization-layout--content button.social-btn {
+//   background-color: cv("link", "gray");
 
-  font-weight: 500;
-  color: cv("text");
-}
+//   font-weight: 500;
+//   color: cv("text");
+// }
 
-.authorization-layout .authorization-layout--content .auth0-banner {
-  background-color: cv("code");
+// .authorization-layout .authorization-layout--content .auth0-banner {
+//   background-color: cv("code");
 
-  color: cv("text", "accent");
-}
+//   color: cv("text", "accent");
+// }
 
-.authorization-layout .authorization-layout--content .auth0-banner a:link,
-.authorization-layout .authorization-layout--content .auth0-banner a:visited {
-  color: cv("link");
-}
+// .authorization-layout .authorization-layout--content .auth0-banner a:link,
+// .authorization-layout .authorization-layout--content .auth0-banner a:visited {
+//   color: cv("link");
+// }
 
-.authorization-layout .authorization-layout--content .auth0-banner--logo:after {
-  background-color: cv("white") !important;
-  background-image: none !important;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-image: url("/img/logos/auth0-inc-logo.svg");
-  mask-image: url("/img/logos/auth0-inc-logo.svg");
-}
+// .authorization-layout .authorization-layout--content .auth0-banner--logo:after {
+//   background-color: cv("white") !important;
+//   background-image: none !important;
+//   mask-repeat: no-repeat;
+//   mask-position: center;
+//   -webkit-mask-image: url("/img/logos/auth0-inc-logo.svg");
+//   mask-image: url("/img/logos/auth0-inc-logo.svg");
+// }
 
-.authorization-layout--content input[type="text"],
-.authorization-layout--content select {
-  color: cv("text", "accent");
-}
+// .authorization-layout--content input[type="text"],
+// .authorization-layout--content select {
+//   color: cv("text", "accent");
+// }

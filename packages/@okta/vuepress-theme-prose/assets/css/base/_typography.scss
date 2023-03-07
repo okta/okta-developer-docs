@@ -98,3 +98,23 @@ blockquote {
   border-right: 1px solid cv("gray", "300");
   border-radius: 4px;
 }
+
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+  font-family: 'Aeonik';
+}
+
+textarea::-moz-placeholder,
+input::-moz-placeholder {
+  font-family: 'Aeonik';
+}
+
+textarea:-moz-placeholder,
+input:-moz-placeholder {
+  font-family: 'Aeonik';
+}
+
+textarea:-ms-input-placeholder,
+input:-ms-input-placeholder {
+  font-family: 'Aeonik';
+}

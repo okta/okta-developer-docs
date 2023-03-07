@@ -3,13 +3,7 @@
     <div class="fixed-header">
       <Header />
     </div>
-
-    <div class="page-body">
-      <section class="authorization-layout--content">
-        <Content />
-      </section>
-    </div>
-
+    <Content />
     <div class="authorization-layout--footer">
       <Footer />
     </div>
