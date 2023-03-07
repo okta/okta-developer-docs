@@ -14,7 +14,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 #### Bugs fixed in 2023.03.0
 
-* When an admin used a group limit in an expression that was greater than 100, (for example, `Groups.startsWith("active_directory","",500)`, `/userinfo` endpoint requests failed.
+* When an admin used a group limit in an expression that was greater than 100 (for example, `Groups.startsWith("active_directory","",500)` ), /userinfo endpoint requests failed.
 
 ## February
 
