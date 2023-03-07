@@ -183,7 +183,7 @@ enrollments.find { it.user().name == "myUser" }?.let { pushEnrollment ->
 }
 ```
 
-Alternatively, you can retrieve undelivered challenges using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/listAppAuthenticatorPendingPushNotificationChallenges).
+Alternatively, you can retrieve undelivered challenges by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/listAppAuthenticatorPendingPushNotificationChallenges).
 
 ### Access token management
 
