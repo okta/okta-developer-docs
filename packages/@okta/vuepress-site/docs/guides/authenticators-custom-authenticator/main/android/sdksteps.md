@@ -201,7 +201,7 @@ The SDK communicates with an Okta server using the HTTPS protocol and requires a
 * Delete push authenticator enrollment
   > **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that contain the `okta.myAccount.appAuthenticator.manage` scope. Instead, reauthenticate the user and get a new access token.
 
-  High risk operations include the following:
+  The following is a list of operations that are considered high risk and require reauthentication:
   * Enroll push authenticator
   * Enable or disable user verification for push authenticator enrollment
   * Delete push authenticator enrollment
