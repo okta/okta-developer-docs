@@ -31,11 +31,11 @@ Enable a mobile app to verify a user identity for an Okta custom authenticator.
 
 ## About custom authentication and the Devices SDK
 
-The Devices SDK allows you to embed push notifications and biometrics directly into your native mobile app. As a result, you can control the entire experience because users are prompted to continue the sign-in process on your mobile app. You aren’t limited to using only Okta Verify for push notifications. Also, using custom authentication helps drive downloads of your app.
+The Devices SDK allows you to embed push notifications and biometrics directly into your native mobile app. As a result, you can control the entire experience. Prompt users to continue the sign-in process on your mobile app. So, Okta Verify isn't the only authenticator you can use for push notifications. Also, using custom authentication helps drive downloads of your app.
 
 ## Get started
 
-This guide walks you through the two main tasks needed to integrate with Okta Devices SDK:
+This guide walks you through the two main tasks needed to integrate with the Okta Devices SDK:
 
 **Create a custom authenticator**
 
