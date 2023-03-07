@@ -24,7 +24,7 @@ implementation("com.okta.devices:devices-push:$okta.sdk.version")
 
 Create the SDK object to work with your Okta authenticator configuration. Use the `PushAuthenticatorBuilder` to create an authenticator with your application configuration:
 
-> **Note:** If the end user doesn't provide a passphrase, the Devices SDK data isn't encrypted. Secure the passphrase:
+If the end user doesn't provide a passphrase, the Devices SDK data isn't encrypted. Secure the passphrase:
 
 ```kotlin
 val authenticator: PushAuthenticator = PushAuthenticatorBuilder.create(
