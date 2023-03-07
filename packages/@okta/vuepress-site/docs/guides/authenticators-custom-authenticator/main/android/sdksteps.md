@@ -206,7 +206,7 @@ The SDK communicates with an Okta server using the HTTPS protocol and requires a
   * Enable or disable user verification for push authenticator enrollment
   * Delete push authenticator enrollment
 
-Other operations are low risk and may not require interactive authentication. For that reason, the Okta OIDC SDK implements the silent user reauthentication API `retrieveMaintenanceToken`. By retrieving a maintenance access token, an application can silently perform the following operations:
+Other operations are considered low risk and may not require interactive authentication. For that reason, the Okta OIDC SDK provides the silent user reauthentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for reauthentication that allows an application to silently perform the following operations:
 
 * Request pending push challenges
 * Enable and disable CIBA capability for the push authenticator enrollment
