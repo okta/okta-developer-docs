@@ -35,8 +35,9 @@
 }
 
 .signup__popup__title a {
-  color: var(--c-lightgray-450);
   border-bottom: 1px solid var(--c-lightgray-450);
+
+  color: var(--c-lightgray-450);
 }
 
 .signup__popup__title a:hover {
@@ -56,15 +57,16 @@
 }
 
 .signup__form__input {
-  color: var(--c-lightgray-450);
   border: 1px solid var(--c-gray-450);
   background-color: var(--c-gray-950);
+  
+  color: var(--c-lightgray-450);
 }
 
 .signup__form__input:active,
 .signup__form__input:focus {
-  border-color: var(--c-green-300);
   box-shadow: 0 0 0 4px var(--c-green-200);
+  border-color: var(--c-green-300);
 }
 
 .signup__form__recaptcha {
@@ -73,8 +75,9 @@
 
 .signup__form__button {
   border: 1px solid var(--c-lightgray-450);
-  color: var(--c-lightgray-450);
   background-color: var(--c-gray-950);
+
+  color: var(--c-lightgray-450);
 }
 
 .signup__form__button i {
@@ -99,17 +102,20 @@
 
 .signup__item__title {
   border-bottom: 1px solid var(--c-gray-405);
+
   color: var(--c-lightgray-450);
 }
 
 .signup__item__title-logo:after {
-  content: url('/img/signup-item-logo-white.svg');
+  content: url("/img/signup-item-logo-white.svg");
+
   background-color: var(--c-gray-980);
 }
 
 .signup__rate__title {
-  color: var(--c-lightgray-450);
   border-bottom: 1px solid var(--c-lightgray-450);
+
+  color: var(--c-lightgray-450);
 }
 
 .signup__rate__text {
@@ -133,8 +139,8 @@
 }
 
 .signup__link {
-  background-color: transparent;
   border: 1px solid var(--c-lightgray-450);
+  background-color: transparent;
 }
 
 .signup__link a,
@@ -155,11 +161,13 @@
 }
 
 .signup__link-dark a span {
-  color: var(--c-gray-950);
   border-bottom: 1px solid var(--c-lightgray-450);
+
+  color: var(--c-gray-950);
 }
 
 .signup__footer a {
-  color: var(--c-lightgray-450);
   border-bottom: 1px solid var(--c-lightgray-450);
+
+  color: var(--c-lightgray-450);
 }
