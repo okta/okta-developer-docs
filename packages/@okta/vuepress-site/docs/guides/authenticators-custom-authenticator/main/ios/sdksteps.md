@@ -351,7 +351,7 @@ The SDK communicates with an Okta server using the HTTPS protocol and requires a
 * Request pending push challenges
 * Enable and disable CIBA capability for push authenticator enrollment
 * Delete push authenticator enrollment
-  < **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that contain the `okta.myAccount.appAuthenticator.manage` scope. Instead, reauthenticate the user and get a new access token.
+  > **Note:** Applications that use sensitive data shouldn't store or cache access tokens or refresh access tokens that contain the `okta.myAccount.appAuthenticator.manage` scope. Instead, reauthenticate the user and get a new access token.
 
   High risk operations include the following:
   * Enroll push authenticator
