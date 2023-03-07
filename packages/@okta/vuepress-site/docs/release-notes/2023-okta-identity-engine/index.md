@@ -4,6 +4,18 @@ title: Okta Identity Engine API Products release notes 2023
 
 <ApiLifecycle access="ie" />
 
+## March
+
+### Monthly release 2023.03.0
+
+| Change | Expected in Preview Orgs |
+|------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Bugs fixed in 2023.03.0](#bugs-fixed-in-2023-03-0)                                                              |March 06, 2023   |
+
+#### Bugs fixed in 2023.03.0
+
+* When an admin used a group limit in an expression that was greater than 100, (for example, `Groups.startsWith("active_directory","",500)`, `/userinfo` endpoint requests failed.
+
 ## February
 
 ### Weekly release 2023.02.2
