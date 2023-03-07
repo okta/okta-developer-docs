@@ -170,7 +170,7 @@ Alternatively, you can respond to a challenge by using the [MyAccount App Authen
 
 #### Retrieve undelivered challenges
 
-Sometimes FCM fails to deliver a notification to the user.<!-- See Maurice for extra explanatory text --> To check the server for pending challenges:
+Sometimes FCM fails to deliver a notification to the user.<!-- See Maurice for extra explanatory text --> Add code to check for pending challenges:
 
 ```kotlin
 val enrollments: List<PushEnrollment> = authenticator.allEnrollments().getOrThrow()
