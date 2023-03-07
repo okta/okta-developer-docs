@@ -7,7 +7,7 @@ To set up and configure your app:
 - [Register for notifications](#register-the-device)
 - [Initialize the SDK client](#initialize-the-client)
 
-Next, register the device to receive identity verification notifications for the custom authenticator. Your app needs to support a user sign-in flow and request the correct permissions, or scopes. Once the end user enrolls the device, the app can respond to user verification notifications (challenges).
+Next, register the device to receive identity verification notifications for the custom authenticator. Your app needs to support a user sign-in flow and request the correct permissions or scopes. Once the end user enrolls the device, the app can respond to user verification notifications (challenges).
 
 If needed, you can also unenroll the device, either locally, or both locally and on the server.
 
