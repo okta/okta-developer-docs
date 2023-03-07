@@ -6,7 +6,7 @@ To set up and configure your app:
 - [Register for notifications](#register-the-device)
 - [Initialize the SDK client](#initialize-the-client)
 
-Next, register the device to receive identity verification notifications for the custom authenticator. Your app needs to support a user sign-in flow and request the correct permissions, or scopes. Once the device is enrolled the app can respond to user verification notifications (challenges).
+Next, register the device to receive identity verification notifications for the custom authenticator. Your app needs to support a user sign-in flow and request the correct permissions, or scopes. Once the end user enrolls the device, the app can respond to user verification notifications (challenges).
 
 If needed, you can also unenroll the device, either locally, or both locally and on the server.
 
@@ -22,9 +22,9 @@ The following image shows how data flows through the Devices SDK:
 
 ### Enable the user to sign in
 
-A valid user account authentication token is required to add a device as an authenticator. To get the token, first enable the user to sign-in to there account using the [Okta mobile Swift SDK](https://github.com/okta/okta-mobile-swift) or if you're already using it, the [Okta IDX Swift SDK](https://github.com/okta/okta-idx-swift). For more information on signing users in to your app, see [Sign users in to your mobile app using the redirect model](https://developer.okta.com/docs/guides/sign-into-mobile-app-redirect/ios/main/).
+A valid user account authentication token is necessary to add a device as an authenticator. To get the token, first enable the user to sign-in to their account using the [Okta mobile Swift SDK](https://github.com/okta/okta-mobile-swift) or if you're already using it, the [Okta IDX Swift SDK](https://github.com/okta/okta-idx-swift). For more information on signing users in to your app, see [Sign users in to your mobile app using the redirect model](https://developer.okta.com/docs/guides/sign-into-mobile-app-redirect/ios/main/).
 
-Then add the extra permissions that are required by the Devices SDK to the access token. Add the following strings to the space-delimited list of scopes in the `Okta.plist` file:
+Then add the extra permissions that the Devices SDK requires to the access token. Add the following strings to the space-delimited list of scopes in the `Okta.plist` file:
 - `okta.authenticators.manage.self`
 - `okta.authenticators.read`
 - `okta.users.read.self`
@@ -47,7 +47,7 @@ There are two ways for your app to receive notifications from a custom authentic
 - As a push notification that's delivered whether your app is closed, in the background, or in the foreground.
 - By requesting any queued notifications when your app is in the foreground.
 
-Although you don't need to receive push notifications to use Devices SDK, we suggest that you do this for the best user experience. To receive notifications add the Push Notification Capability to your app. At runtime, register your app with the notification manager, and retrieve the current APNs token. This token is used in the next step. For more information, see [Registering Your App with APNs](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) in Apple developer documentation. The examples in this guide assume that the app is registered to receive notifications.
+Although you don't need to receive push notifications to use Devices SDK, we suggest that you do this for the best user experience. To receive notifications add the Push Notification Capability to your app. At runtime, register your app with the notification manager, and retrieve the current APNs token. Use this token in the next step. For more information, see [Registering Your App with APNs](https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns) in Apple developer documentation. The examples in this guide assume that the app is registered to receive notifications.
 
 The token is returned by the system in [`application(_:didRegisterForRemoteNotificationsWithDeviceToken:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622958-application). Use a property to store the token, though don't save the token between app launches as it can change. If there's an error registering for notifications, the system calls [`application(_:didFailToRegisterForRemoteNotificationsWithError:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622962-application). In this case, your app can still [load undelivered challenges](#load-undelivered-challenges).
 
