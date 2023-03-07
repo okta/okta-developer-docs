@@ -68,4 +68,4 @@ Okta provides authorization facilities that allow you to meet or exceed your app
 
 - You can use the org authorization server, use the "default" authorization server in your org, or build additional custom authorization servers to implement different OAuth scopes, claims, and access policies. See [Authorization Servers](/docs/concepts/auth-servers/) and [Create an Authorization Server](/docs/guides/customize-authz-server/main/).
 
-**Next step: [Architectural Factors](/docs/concepts/iam-overview-architectural-factors/).**
+**Next step: [Architectural factors](/docs/concepts/iam-overview-architectural-factors/).**

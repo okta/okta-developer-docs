@@ -126,7 +126,7 @@ Other refresh tokens (and other tokens) that are minted by using the device secr
 
 To generate a new set of tokens:
 
-* Use Auth Code with PKCE to obtain the authorization code for the first client.
+* Use Auth Code flow with PKCE to obtain the authorization code for the first client.
 * Exchange the code for tokens.
 * Exchange the existing tokens from client 1 for new tokens for client 2.
 

@@ -73,7 +73,7 @@ When you are embedding your authentication with our SDKs, consider the steps tha
 
     * **Authentication**
 
-        * **Sign In:** In your new Identity Engine org, the Organization Sign-On Policy and App Sign-On Rules are mapped to a global session policy and [corresponding authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop) respectively. Test and make sure that your user experience still works the same as what was configured in Classic Engine. If you have applications that employ Multifactor Authentication, make sure that they still authenticate in the same way. Applications should still work after the policies are upgraded.
+        * **Sign In:** In your new Identity Engine org, the Organization Sign-On Policy and app sign-on rules are mapped to a global session policy and [corresponding authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop) respectively. Test and make sure that your user experience still works the same as what was configured in Classic Engine. If you have applications that employ Multifactor Authentication, make sure that they still authenticate in the same way. Applications should still work after the policies are upgraded.
 
         > **Note:** Changing the global session policy affects all apps in an org.
 

@@ -138,4 +138,4 @@ Learn more:
 - [What are policies](/docs/concepts/policies/)
 - [About Okta sign-on policies](https://help.okta.com/okta_help.htm?id=ext_secpol_poleval) briefly describes sign-on policies, and elaborates on how Okta policies are evaluated.
 
-**Next step: [Authorization Factors](/docs/concepts/iam-overview-authorization-factors/).**
+**Next step: [Authorization factors](/docs/concepts/iam-overview-authorization-factors/).**
