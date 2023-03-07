@@ -190,7 +190,7 @@ Alternatively, you can retrieve undelivered challenges by using the [MyAccount A
 > **Note:** To enable the JWT bearer grant type:
 >  * Send a PUT request to `/apps/{appId}`. Ensure that the `grant_types` array contains the following string:
 >    `urn:ietf:params:oauth:grant-type:jwt-bearer`
->  * If you use custom authorization servers, update the policy rules to update the grant type.
+>  * If you use a custom authorization server, update the policy rules to update the grant type.
 
 The SDK communicates with an Okta server using HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and requesting access tokens, use the latest version of the [Okta Kotlin Mobile SDK](https://github.com/okta/okta-mobile-kotlin). To enroll a push authenticator, the access token needs the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
 
