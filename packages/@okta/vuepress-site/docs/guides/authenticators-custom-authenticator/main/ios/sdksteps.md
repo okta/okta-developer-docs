@@ -264,7 +264,7 @@ The push challenge includes the steps, or *remediations*, required to validate t
 
 There's also a step for confirming a user's identity with biometrics that is handled by the SDK.
 
-The consent step is represented by an object of type `RemediationStepUserConsent` and the message step by `RemediationStepMessage`. The following code is an example of handling the different cases:
+An object of type `RemediationStepUserConsent` represents the consent step. An object of type `RemediationStepMessage` represents the message step. The following is an example of handling the different cases:
 
 ```swift
 func resolvePushChallenge(_ challenge: PushChallengeProtocol) {
