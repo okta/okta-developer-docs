@@ -2103,7 +2103,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 
 The following table shows the possible relationships between all the authenticators, their methods and constraints.
 
-> **Note**: Conditions with an asterisk (*) indicate that the constraint is only valid with certain configurations, devices, or flows.
+> **Note**: Conditions with an asterisk (*) indicate that the constraint is only satisfied with certain configurations, devices, or flows.
 
 | Authenticator key | Authenticator type | Authenticator method | Constraints | Hardware protection | Device bound | Phishing resistant | User presence |
 | ----------------- | ------------------ | ---------- | ------ | -------- | -------| ---------- | ---------- |
