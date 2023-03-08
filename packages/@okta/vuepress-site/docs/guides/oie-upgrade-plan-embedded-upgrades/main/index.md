@@ -39,15 +39,15 @@ When you are embedding the widget, consider and plan for the following steps, de
 
 ## Upgrade SDKs to the latest version in your apps
 
-When you are embedding your authentication with our SDKs, consider the steps that you need to take and then make a plan for upgrading your code to the latest version of the SDK. Additionally, plan to replace all Classic Engine Authn calls with Identity Engine calls. The following steps outline what your upgrade journey might look like.
+When you are embedding your authentication with our SDKs, consider the steps that you need to take and then make a plan for upgrading your code to the latest version of the SDK. Additionally, plan to replace all Classic Engine Authentication calls with Identity Engine calls. The following steps outline what your upgrade journey might look like.
 
 1. [Update your custom authorization servers](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server) to include the Interaction Code grant type.
 
 2. [Update the application settings](/docs/guides/implement-grant-type/interactioncode/main/#enable-the-interaction-code-grant-on-an-application) of your embedded authentication applications to include the Interaction Code grant type.
 
-> **Note:** Performing steps one and two doesn’t change the way your authorization server or application behaves, but supports the new Identity Engine model. Turning the Interaction Code grant type on in your custom authorization server simply enables the server to accept a request of that type. The application behavior doesn’t change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) and move away from using Authn APIs to using the appropriate SDK.
+   > **Note:** Performing steps one and two doesn’t change the way your authorization server or application behaves, but supports the new Identity Engine model. Turning the Interaction Code grant type on in your custom authorization server simply enables the server to accept a request of that type. The application behavior doesn’t change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) and move away from using Classic Authentication APIs to using the appropriate SDK.
 
-<!-- [move away from using Authn APIs to using the appropriate SDK](/docs/guides/). -->
+   <!-- [move away from using Classic Authentication APIs to using the appropriate SDK](/docs/guides/). -->
 
 3. Test your applications to verify that your user flows across sign in, sign up, and password recovery still work the same as what was configured in Classic Engine.
 
@@ -83,9 +83,9 @@ When you are embedding your authentication with our SDKs, consider the steps tha
 
 ## Upgrade from using the Okta Authentication APIs
 
-With some solutions, there are more architectural evaluations from Architects/Engineering Leadership/Product teams that need to be made, planned, and executed to address technical debt or, in the case of API-based implementations, move away from a less supported implementation. More detailed information is coming soon on moving away from using Authn APIs to using the appropriate SDK.
+With some solutions, there are more architectural evaluations from Architects/Engineering Leadership/Product teams that need to be made, planned, and executed to address technical debt or, in the case of API-based implementations, move away from a less supported implementation. More detailed information is coming soon on moving away from using Classic Authentication APIs to using the appropriate SDK.
 
-<!-- [move away from using Authn APIs to using the appropriate SDK](/docs/guides/). -->
+<!-- [move away from using Classic Authentication APIs to using the appropriate SDK](/docs/guides/). -->
 
 ## Roll the upgrade out to your users
 

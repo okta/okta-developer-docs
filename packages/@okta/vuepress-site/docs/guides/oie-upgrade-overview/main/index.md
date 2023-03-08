@@ -48,7 +48,7 @@ For a more detailed look at the upgrade steps, see the [Plan embedded auth appli
     **Are you embedding our Sign-In Widget?**
 
     * [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) to the latest version.
-    
+
     * Test your app to make sure the widget works OK.
 
     * Make any necessary [updates to the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
@@ -57,7 +57,7 @@ For a more detailed look at the upgrade steps, see the [Plan embedded auth appli
 
     * Add the appropriate Identity Engine SDK to your application code or update to the latest version of the Identity Engine SDK. See [Add the latest Auth SDKs to your applications](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
 
-    **Are you moving to an architecture that leverages an Okta SDK?** More detailed information coming soon. <!-- See [Move away from using Authn APIs to using the appropriate SDK](/docs/guides/) for details on this task. -->
+    **Are you moving to an architecture that leverages an Okta SDK?** More detailed information coming soon. <!-- See [Move away from using Classic Authentication APIs to using the appropriate SDK](/docs/guides/) for details on this task. -->
 
 3. Test your user experience.
 
