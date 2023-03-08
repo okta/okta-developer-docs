@@ -188,11 +188,11 @@ The timeline graph shows use over the last week. When a rate violation occurs, y
 
 ##### Bar graph
 
-The bar graph shows either the top 10 IP addresses, top 10 API tokens, or top 10 OAuth 2.0 applications that are consuming the most traffic for the API. This view enables you to check if there are IP addresses, API tokens, or applications that are creating the spike in traffic.
+The bar graph shows either the top 10 IP addresses, top 10 API tokens, or top 10 OAuth 2.0 applications that consume the most traffic for the API. This view helps you identify the cause of any spikes in traffic.
 
 Display the desired bar graph by selecting **Top Requests by IP**, **Top Requests by API Token**, or **Top Requests by Application** in the dropdown menu.
 
-Click an IP address, API token, or Application bar once to view the traffic for that IP address, API token, or Application on the line graph.
+Click an IP address, API token, or Application bar to view the traffic for associated traffic on the line graph.
 
 <div class="three-quarter">
 
