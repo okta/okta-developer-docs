@@ -1,6 +1,6 @@
 {
-  "release" : "2023.02.1",
-  "build" : "2023.02.1-begin-173-g93d635be5b1b",
+  "release" : "2023.03.1",
+  "build" : "2023.03.1-begin-155-g0a3aa94c1bba",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1680,6 +1680,30 @@
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000225",
     "errorSummary" : "You reached the maximum number of enrolled SMTP servers. An org can't have more than {0} enrolled servers.",
+    "errorDescription" : null
+  }, {
+    "title" : "Required telephony inline hook enabled for phone authenticator exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000226",
+    "errorSummary" : "You must have an active telephony inline hook to activate and use the Phone authenticator.",
+    "errorDescription" : null
+  }, {
+    "title" : "Non applicable app as principal type exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000227",
+    "errorSummary" : "Roles can only be granted to service application type",
+    "errorDescription" : null
+  }, {
+    "title" : "SMS template customization not allowed exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000228",
+    "errorSummary" : "SMS template customization isn't permitted.",
     "errorDescription" : null
   } ]
 }

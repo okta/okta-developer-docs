@@ -1,6 +1,6 @@
 {
-  "release" : "2023.02.1",
-  "build" : "2023.02.1-begin-173-g93d635be5b1b",
+  "release" : "2023.03.1",
+  "build" : "2023.03.1-begin-155-g0a3aa94c1bba",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -29,6 +29,20 @@
     "internalErrorCode" : "oie_not_enabled_for_interact",
     "errorCode" : "access_denied",
     "errorDescription" : "The requested feature (Interaction Code flow) isn't enabled in this environment. Ensure that you have Okta Identity Engine enabled and the Interaction Code flow enabled for this application and authorization server."
+  }, {
+    "title" : "Enroll authenticator limit reached",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "enroll_authenticator_limit_reached",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Authenticator enrollment has reached it's limit. Please contact support for assistance."
+  }, {
+    "title" : "Enroll authenticator not allowed",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "enroll_authenticator_not_allowed",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Authenticator enrollment is not allowed at this time. Please contact support for assistance."
   }, {
     "title" : "User not assigned",
     "statusCode" : 400,
@@ -1010,6 +1024,20 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "The interaction code is invalid or has expired."
   }, {
+    "title" : "JWT bearer grant invalid audience",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "jwt_bearer_grant_invalid_audience",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The audience of the JWT Bearer Grant must match the the issuer of the authorization server."
+  }, {
+    "title" : "JWT bearer grant replayed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "jwt_bearer_grant_replayed",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The jti of the JWT Bearer Grant was already used."
+  }, {
     "title" : "Direct auth policy denied",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1808,6 +1836,20 @@
     "errorCode" : "invalid_scope",
     "errorDescription" : "No scopes were requested."
   }, {
+    "title" : "Direct auth scopes changed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_scope",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The 'scope' must not be changed from the originally requested scopes. Requested scopes '{0}' do not match the originally requested scopes '{1}'"
+  }, {
+    "title" : "Direct auth scope not allowed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_scope_not_allowed",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The 'scope' must not be sent on this endpoint."
+  }, {
     "title" : "Invalid social token",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1884,6 +1926,13 @@
     "internalErrorCode" : "id_token_invalid",
     "errorCode" : "invalid_token",
     "errorDescription" : "The id token is invalid."
+  }, {
+    "title" : "JWT bearer grant invalid issuer",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "jwt_bearer_grant_invalid_issuer",
+    "errorCode" : "invalid_token",
+    "errorDescription" : "The issuer of the token is not permitted to use the JWT Bearer Grant."
   }, {
     "title" : "Web sso token invalid",
     "statusCode" : 401,
