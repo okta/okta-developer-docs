@@ -348,7 +348,7 @@ The final step is to add the [created Facebook IdP](#_4-create-the-facebook-iden
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 1. On the Identity Providers page, click the **Routing Rules** tab.
 1. Click **Add Routing Rule**.
-1. Specify the **Rule Name** (for example, FB and Okta Rule).
+1. Specify the **Rule Name** (for example, Facebook and Okta Rule).
 1. From the **THEN Use this identity provider** drop-down list, select the [Facebook Identity Provider that you've just created](#_4-create-the-facebook-identity-provider-in-okta). Since Okta is the default IdP, the two values should be:
 
    * Okta

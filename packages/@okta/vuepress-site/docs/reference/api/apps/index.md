@@ -365,7 +365,8 @@ Adds a SAML 2.0 application instance
 
 | Parameter | Description                                     | DataType | Nullable | Unique | Validation                                |
 | --------- | ----------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
-| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |  |
+| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | Array of [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |  |
+| configuredAttributeStatements   | SAML attributes that are inherited from app metadata during app creation and are used to configure group attributes | Array of [Group Attribute Statements](#group-attribute-statements-object) | TRUE     | FALSE  |  |
 | destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |                                           |
 | url       | The URL of the sign-in page for this app          | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
@@ -1416,7 +1417,53 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
   * After an app is created, you can't change the `application_type`.
 
+#### Create an app with a Profile object
 
+To include app-specific information that you want to reference later, such as in a token claim, add those parameters within the app [Profile object](#profile-object) when you create an app. An Profile object is a container for any valid JSON schema that you can reference from a request. You can only add the Profile object to OAuth 2.0 client applications.
+
+The following example shows how to add an app `label` parameter to the Profile object when creating an app.
+
+> **Note:** See [Update application level profile attributes](#update-application-level-profile-attributes) for an update example.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "name": "oidc_client",
+    "label": "Sample Client profile",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+      "oauthClient": {
+        "token_endpoint_auth_method": "client_secret_post"
+        }
+    },
+    "profile": {
+        "label": "oauth2 client app 1"
+        },
+    "settings": {
+      "oauthClient": {
+        "client_uri": "http://localhost:8080",
+        "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+        "redirect_uris": [
+          "https://example.com/oauth2/callback",
+          "myapp://callback"
+        ],
+        "response_types": [
+          "token",
+          "id_token",
+          "code"
+        ],
+        "grant_types": [
+          "implicit",
+          "authorization_code"
+        ],
+        "application_type": "native"
+      }
+    }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
 
 ### Get application
 
@@ -3267,7 +3314,7 @@ curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
--d {
+-d '{
     "id": "0oap6nz61rKdsoyOY0h7",
     "name": "oidc_client",
     "label": "SampleClient",
@@ -3338,7 +3385,7 @@ curl -v -X PUT \
             "issuer_mode": "CUSTOM_URL"
         }
     }
-}`
+}' "https://${yourOktaDomain}/api/v1/apps/${appId}"
 ```
 
 ##### Response example
@@ -3449,6 +3496,7 @@ curl -v -X PUT \
     }
 }
 ```
+
 #### Update application level profile attributes
 
 Updates the Application profile attributes
@@ -3462,7 +3510,7 @@ Updates the Application profile attributes
 
 ##### Response parameters
 
-[Application](#application-object) with updated `profile attributes`
+[Application](#application-object) with updated profile attributes
 
 ##### Request example
 
@@ -3483,7 +3531,7 @@ curl -v -X PUT \
     }
   },
   "profile": {
-    "label": "oauth2 client app 1"
+    "label": "oauth2 client app 2"
   },
   "settings": {
     "oauthClient": {
@@ -3633,6 +3681,7 @@ curl -v -X PUT \
   }
 }
 ```
+
 ### Delete application
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}" />
@@ -8123,7 +8172,7 @@ Specifies (optional) attribute statements for a SAML application
 | ---------- | -------------------------------------------------------------------------------------------- | ------------ | -------- |
 | name       | The reference name of the attribute statement                                                | String       | FALSE    |
 | namespace  | The name format of the attribute                                                             | String       | FALSE    |
-| type       | The type of attribute statements object                                                      | `EXPRESSION` | FALSE    |
+| type       | The type of attribute statements object. Supported value: `EXPRESSION`                       | String       | FALSE    |
 | values     | The values of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)   | Array        | FALSE    |
 
 ### Single Logout object
@@ -8230,6 +8279,7 @@ Profile Requirements
 * The `profile` property doesn't limit the level of nesting in the JSON schema you created, but there is a practical size limit. We recommend a JSON schema size of 1 MB or less for best performance.
 
 > **Note:** Profile object is only available to OAuth 2.0 client applications.
+
 
 ### Application User object
 

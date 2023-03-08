@@ -20,7 +20,7 @@ class MainPage extends BasePage {
   }
   getFooterPricingLink() {
     return cy.get(
-      'footer ul.link-list a[href="https://www.okta.com/pricing/#customer-identity-products"]'
+      'footer ul.link-list a[href="https://www.okta.com/pricing/#workforce-identity-pricing"]'
     );
   }
   getSearchBarInput() {
