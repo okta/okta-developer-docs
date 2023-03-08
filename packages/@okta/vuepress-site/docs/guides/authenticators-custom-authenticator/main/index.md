@@ -83,10 +83,9 @@ When you're ready to grant the required scopes, follow these steps:
 3. Open your OpenID Connect client app.
 4. On the **Okta API Scopes** tab, click **Grant** for the following scopes:
    * For access to both GET and POST/DELETE endpoints:
-      * `okta.authenticators.manage.self`
+      * `okta.myAccount.appAuthenticator.manage`
    * For access to GET endpoints only:
-      * `okta.authenticators.read`
-      * `okta.users.read.self`
+      * `okta.myAccount.appAuthenticator.read`
 
 Alternatively, you can grant scopes using the [Grant consent to scope for application](/docs/reference/api/apps/#application-oauth-2-0-scope-consent-grant-operations) operation of the Apps API.
 
