@@ -16,7 +16,7 @@ Before we dig into implementation, there are a few questions to consider:
 * What permissions can the new user have?
 * How do I model those permissions?
 
-There are multiple ways this problem can be solved. We can pick a single user or group of users and only give them the permissions to create users and do other administrative tasks. But this is not a scalable approach. We need to have a more generic model for user-types and permissions. There are various approaches to tackle this but we will focus specifically on role-based access control or RBAC and attribute-based access control or ABAC.
+There are multiple ways this problem can be solved. We can pick a single user or group of users and only give them the permissions to create users and do other administrative tasks. But this is not a scalable approach. We need to have a more generic model for user-types and permissions. There are various approaches to tackle this but we will focus specifically on Role-Based Access Control (RBAC) and Attribute-Based Access Control (ABAC).
 
 To solve this problem, our hypothetical company, Wookie Inc., hires their first IT person, Han. He'll take care of all IT-related tasks. Because Han is an IT admin, he has the rights and privileges to create other users, delete them, and assign them to the right org/department.  As usual, IT admin is the role type and the privileges are the permissions.
 

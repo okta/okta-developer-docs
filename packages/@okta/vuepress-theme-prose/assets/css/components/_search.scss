@@ -1,5 +1,5 @@
 .brand_font {
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-family: $font-family;
 }
@@ -73,7 +73,7 @@
 
 #SearchPage .CoveoQuerySummary,
 #SearchPage .coveo-summary-section {
-  font-weight: 300;
+  font-weight: 400;
   color: cv("text");
 
   @extend .brand_font;
@@ -81,7 +81,7 @@
 
 #SearchPage .CoveoQuerySummary .coveo-highlight,
 #SearchPage .coveo-summary-section .coveo-highlight {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 #SearchPage .coveo-facet-value {

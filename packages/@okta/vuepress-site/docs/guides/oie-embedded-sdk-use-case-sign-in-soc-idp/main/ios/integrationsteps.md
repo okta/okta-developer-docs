@@ -100,7 +100,7 @@ public class SocialLogin {
                     return
                 }
 
-                // Find the Social IDP remediation that matches the requested social auth service.
+                // Find the Social IdP remediation that matches the requested social auth service.
                 guard let remediation = response.remediations.first(where: { remediation in
                     let socialRemediation = remediation as? IDXClient.Remediation.SocialAuth
                     return socialRemediation?.service == service
@@ -128,7 +128,7 @@ public class SocialLogin {
             return
         }
 
-        // Create an ASWebAuthenticationSession to trigger the IDP OAuth2 flow.
+        // Create an ASWebAuthenticationSession to trigger the IdP OAuth2 flow.
         let session = ASWebAuthenticationSession(url: remediation.redirectUrl,
                                                  callbackURLScheme: scheme)
         { [weak self] (callbackURL, error) in

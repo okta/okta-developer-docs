@@ -38,7 +38,7 @@
 
   * **Construct your dynamic Audience URI by copying the variables above and pasting them where applicable**: Provide your complete Audience URI. This field, which dictates the audience the SAML Assertion is intended for, can be any data string up to 1024 characters long.
 
-    It is typically in the form of a URL, often the same as the ACS URL for your app integration. If you're using a per tenant design, include the variable names that you created, the same as for the ASC URL.
+    It is typically in the form of a URL, often the same as the ACS URL for your app integration. If you're using a per tenant design, include the variable names that you created, the same as for the ACS URL.
 
 #### Supported features
 

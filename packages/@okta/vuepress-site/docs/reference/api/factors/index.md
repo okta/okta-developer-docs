@@ -248,6 +248,129 @@ curl -v -X GET \
 ]
 ```
 
+All enrolled phone factors are listed. <ApiLifecycle access="ie" />
+
+```json
+[
+    {
+        "id": "emf5utjKGAURNrhtu0g4",
+        "factorType": "email",
+        "provider": "OKTA",
+        "vendorName": "OKTA",
+        "status": "ACTIVE",
+        "profile": {
+            "email": “john.doe@example.com"
+        },
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/emf5utjKGAURNrhtu0g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE"
+                    ]
+                }
+            },
+            "verify": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/emf5utjKGAURNrhtu0g4/verify",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            },
+            "user": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "id": "sms9heipGfhT6AEm70g4",
+        "factorType": "sms",
+        "provider": "OKTA",
+        "vendorName": "OKTA",
+        "status": "ACTIVE",
+        "created": "2023-02-04T01:03:16.000Z",
+        "lastUpdated": "2023-02-04T01:03:16.000Z",
+        "profile": {
+            "phoneNumber": "+14125514455"
+        },
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/sms9heipGfhT6AEm70g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE"
+                    ]
+                }
+            },
+            "verify": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/sms9heipGfhT6AEm70g4/verify",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            },
+            "user": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "id": "sms9ikbIX0LaJook70g4",
+        "factorType": "sms",
+        "provider": "OKTA",
+        "vendorName": "OKTA",
+        "status": "ACTIVE",
+        "created": "2023-02-04T13:01:00.000Z",
+        "lastUpdated": "2023-02-04T13:01:00.000Z",
+        "profile": {
+            "phoneNumber": "+14125518899"
+        },
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/sms9ikbIX0LaJook70g4",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "DELETE"
+                    ]
+                }
+            },
+            "verify": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4/factors/sms9ikbIX0LaJook70g4/verify",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            },
+            "user": {
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5ut8dNFKdxsF8Y0g4",
+                "hints": {
+                    "allow": [
+                        "GET"
+                    ]
+                }
+            }
+        }
+    }
+]
+```
+
+
 ### List Factors to enroll
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/catalog" />
@@ -1972,7 +2095,7 @@ The `sms` and `token:software:totp` [Factor types](#factor-type) require activat
 
 ###### Rate limit
 
-The rate limit for a user to activate one of their OTP-based factors (such as SMS, CALL, EMAIL, Google OTP, or Okta Verify TOTP) is five attempts within five minutes. The following example error message is returned if the user exceeds their OTP-based factor rate limit:
+The rate limit for a user to activate one of their OTP-based factors (such as SMS, call, email, Google OTP, or Okta Verify TOTP) is five attempts within five minutes. The following example error message is returned if the user exceeds their OTP-based factor rate limit:
 
 ```json
 {
@@ -1983,6 +2106,8 @@ The rate limit for a user to activate one of their OTP-based factors (such as SM
   "errorCauses": []
 }
 ```
+
+> **Note:** If the user exceeds their SMS, call, or email factor activate rate limit, then an OTP [resend](#resend-sms-as-part-of-enrollment) request (`/api/v1/users/${userId}}/factors/${factorId}/resend`) isn't allowed for the same factor.
 
 #### Activate TOTP Factor
 

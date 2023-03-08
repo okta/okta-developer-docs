@@ -49,7 +49,7 @@ Design your IAM solution to smoothly adapt to and handle rapid changes in worklo
 
 - Choose an architecture model that can accommodate your scaling requirements.
 
-- Consider basing your solution on a cloud platform such as AWS, Azure, or GCP.
+- Consider basing your solution on a cloud platform such as AWS, Azure, or Google Cloud Platform.
 
 - Design your identity storage and infrastructure to scale to meet or exceed your performance goals as requirements change.
 
@@ -127,7 +127,7 @@ Okta provides a customizable, secure drop-in solution for managing users, authen
 
 - You can have an unlimited number of users and concurrent sessions with a large fraction of them. See [Scaling Okta to 50 Billion Users](https://www.okta.com/resources/whitepaper/scaling-okta-to-billions-of-users/).
 
-- It complies with various industry-standard compliance certifications, such as ISO 27001, FIPS 140-2, and APEC PRP. It can help you meet GDPR, HIPAA, SOX, and other compliance requirements. See [Okta Service Certifications](https://trust.okta.com/compliance) for the current list.
+- It complies with various industry-standard compliance certifications, such as ISO 27001, FIPS 140-2, and APEC PRP. It can help you meet the European Union's [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/), the Health Insurance Portability and Accountability Act (HIPAA), SOX, and other compliance requirements. See [Okta Service Certifications](https://trust.okta.com/compliance) for the current list.
 
 - It's updated with the latest software versions and patches, evolving security challenges, mitigation strategies, standards, and technologies, so you don't have to.
 

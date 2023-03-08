@@ -1,0 +1,37 @@
+.workforce__article .workforce__block {
+  background-color: var(--c-workforce-block-bg);
+}
+
+.workforce__block-text {
+  color: var(--c-lightgray-450);
+}
+
+.workforce__list-link {
+  border-bottom: 1px solid var(--c-white);
+
+  font-size: 16px;
+  @include media(">desktop") {
+    &:hover {
+      border-color: var(--c-green-300);
+    }
+  }
+}
+
+.workforce__text {
+  color: var(---c-gray-350);
+  strong {
+    color: var(--c-white);
+  }
+}
+
+.workforce__article-title {
+  color: var(--c-white);
+}
+
+.workforce__block-img-light {
+  display: none;
+}
+
+.workforce__block-img-dark {
+  display: block;
+}

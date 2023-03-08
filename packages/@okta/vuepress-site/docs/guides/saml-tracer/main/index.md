@@ -41,7 +41,7 @@ We use SAML tracer in the following examples.
 To create a SAML request for an SP-initiated flow and inspect the request and response in SAML tracer:
 
 1. Open SAML tracer and then access your application, which takes you to the Okta sign-in page if you aren't already logged in.
-2. Look at the SAML tracer window and see the SAML request sent from your application to Okta. 
+2. Look at the SAML tracer window and see the SAML request sent from your application to Okta.
 Okta returns a SAML Response.
 
 ![SAML Request SP flow](/img/saml-request-sp-flow.png "SAML Request SP flow")
@@ -50,7 +50,7 @@ Figure 1: SP-Initiated Request in SAML tracer
 ![SAML Response SP flow](/img/saml-response-sp-flow.png "SAML Response SP flow")
 Figure 2: SP-Initiated Response in SAML tracer
 
-## IDP-initiated flow
+## IdP-initiated flow
 
 To create a SAML request for an IdP-initiated flow and inspect it in SAML tracer:
 

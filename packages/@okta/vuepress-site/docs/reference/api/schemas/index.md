@@ -1506,13 +1506,7 @@ The following response is only a subset of properties for brevity.
 
 ## Log Stream Schema operations
 
-<ApiLifecycle access="ea" />
-
-> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
-
 ### Get Log Stream Schema
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
 
@@ -1580,9 +1574,6 @@ For brevity, the following response doesn't include all available properties.
             { "title": "US East (N. Virginia)", "const": "us-east-1" },
             { "title": "US West (N. California)", "const": "us-west-1" },
             { "title": "US West (Oregon)", "const": "us-west-2" },
-            { "title": "Africa (Cape Town)", "const": "af-south-1" },
-            { "title": "Asia Pacific (Hong Kong)", "const": "ap-east-1" },
-            { "title": "Asia Pacific (Jakarta) ", "const": "ap-southeast-3" },
             { "title": "Asia Pacific (Mumbai)", "const": "ap-south-1" },
             { "title": "Asia Pacific (Osaka)", "const": "ap-northeast-3" },
             { "title": "Asia Pacific (Seoul)", "const": "ap-northeast-2" },
@@ -1593,11 +1584,8 @@ For brevity, the following response doesn't include all available properties.
             { "title": "Europe (Frankfurt)", "const": "eu-central-1" },
             { "title": "Europe (Ireland)", "const": "eu-west-1" },
             { "title": "Europe (London)", "const": "eu-west-2" },
-            { "title": "Europe (Milan)", "const": "eu-south-1" },
             { "title": "Europe (Paris)", "const": "eu-west-3" },
             { "title": "Europe (Stockholm)", "const": "eu-north-1" },
-            { "title": "Middle East (Bahrain)", "const": "me-south-1" },
-            { "title": "Middle East (UAE)", "const": "me-central-1" },
             { "title": "South America (São Paulo)", "const": "sa-east-1" }
           ]
         }
@@ -1635,8 +1623,6 @@ For brevity, the following response doesn't include all available properties.
 ```
 
 ### List Log Stream Schemas
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/logStream" />
 
@@ -1705,9 +1691,6 @@ For brevity, the following response doesn't include all available properties.
               { "title": "US East (N. Virginia)", "const": "us-east-1" },
               { "title": "US West (N. California)", "const": "us-west-1" },
               { "title": "US West (Oregon)", "const": "us-west-2" },
-              { "title": "Africa (Cape Town)", "const": "af-south-1" },
-              { "title": "Asia Pacific (Hong Kong)", "const": "ap-east-1" },
-              { "title": "Asia Pacific (Jakarta) ", "const": "ap-southeast-3" },
               { "title": "Asia Pacific (Mumbai)", "const": "ap-south-1" },
               { "title": "Asia Pacific (Osaka)", "const": "ap-northeast-3" },
               { "title": "Asia Pacific (Seoul)", "const": "ap-northeast-2" },
@@ -1718,11 +1701,8 @@ For brevity, the following response doesn't include all available properties.
               { "title": "Europe (Frankfurt)", "const": "eu-central-1" },
               { "title": "Europe (Ireland)", "const": "eu-west-1" },
               { "title": "Europe (London)", "const": "eu-west-2" },
-              { "title": "Europe (Milan)", "const": "eu-south-1" },
               { "title": "Europe (Paris)", "const": "eu-west-3" },
               { "title": "Europe (Stockholm)", "const": "eu-north-1" },
-              { "title": "Middle East (Bahrain)", "const": "me-south-1" },
-              { "title": "Middle East (UAE)", "const": "me-central-1" },
               { "title": "South America (São Paulo)", "const": "sa-east-1" }
             ]
           }
@@ -1767,6 +1747,26 @@ For brevity, the following response doesn't include all available properties.
         "description": "Configuration properties specific to Splunk Cloud",
         "type": "object",
         "properties": {
+          "edition": {
+            "title": "Splunk Edition",
+            "description": "Select a Splunk Edition.",
+            "type": "string",
+            "writeOnce": false,
+            "oneOf": [
+              {
+                "title": "AWS",
+                "const": "aws"
+              },
+              {
+                "title": "GCP",
+                "const": "gcp"
+              },
+              {
+                "title": "AWS GovCloud",
+                "const": "aws_govcloud"
+              }
+            ]
+          },
           "host": {
             "title": "Host",
             "description": "The domain for your Splunk Cloud instance without http or https. For example: acme.splunkcloud.com",
@@ -1785,6 +1785,7 @@ For brevity, the following response doesn't include all available properties.
           }
         },
         "required": [
+          "edition",
           "host",
           "token"
         ],
@@ -3324,8 +3325,6 @@ The following response is only a subset of properties for brevity.
 ```
 
 ## Log Stream Schema object
-
-<ApiLifecycle access="ea" />
 
 The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) with the following properties:
 

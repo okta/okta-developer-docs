@@ -78,7 +78,7 @@ You can divide the features of an IAM system into three areas: user experience, 
 
 - **DDoS protection:** Prevent Distributed Denial of Service (DDoS) attacks from blocking legitimate use of your applications.
 
-- **Compliance:** Ensure that your solution complies with specific regulatory requirements for privacy, as well as with industry and local cybersecurity standards. For example, applications that handle healthcare patient data must conform to HIPPA, financial solutions may require SOX or PCI, and any that server Europe must follow GDPR.
+- **Compliance:** Ensure that your solution complies with specific regulatory requirements for privacy, as well as with industry and local cybersecurity standards. For example, applications that handle healthcare patient data must conform to the Health Insurance Portability and Accountability Act (HIPAA), financial solutions may require SOX or PCI, and any server in Europe must follow the European Union's General Data Privacy Regulations (GDPR).
 
 - **Data access control:** Develop facilities to grant or deny specific user requests to access apps and resources based on policies, user authentication and authorizations, and other data. Application developers embed access control checks throughout their code to enforce your access requirements.
 
@@ -100,7 +100,7 @@ You can divide the features of an IAM system into three areas: user experience, 
 
 The figure below shows a typical CIAM solution for an application that supports an organization's employees and customer users (B2B). End users sign in to the web portal or mobile app in a variety of ways. All end users sign in to the same system, but sign-in behavior and available services are user- and organization-specific. The example illustrates some of IAM's complexity and areas where it can affect an application's high-level design.
 
-This is an AWS-hosted healthcare application, though you can readily adapt the abstract design to applications in any domain. The IAM design considerations are generic and could apply to any app. HIPPA is the compliance requirement for healthcare, in the way that PCI is the requirement for credit card processing.
+This is an AWS-hosted healthcare application, though you can readily adapt the abstract design to applications in any domain. The IAM design considerations are generic and could apply to any app. The Health Insurance Portability and Accountability Act (HIPAA) is the compliance requirement for healthcare, in the way that PCI is the requirement for credit card processing.
 
 The application is used by the organization's employees and by other large corporations, which results in tens of millions of end users. Most end users are patients, and most primary users are physicians, nurses, and other medical personnel.
 
@@ -133,7 +133,7 @@ The figure shows a few aspects of the IAM solution:
 
 - User-specific authentication flows
 
-- HIPAA compliance
+- Health Insurance Portability and Accountability Act (HIPAA) compliance
 
 - Mobile and desktop device support
 
