@@ -14,7 +14,7 @@ title: Okta API Products release notes 2023
 | [Log Streaming is GA in Production](#log-streaming-is-ga-in-production)                                                                                       |March 30, 2022    |
 | [Optional consent for OAuth 2.0 scopes is GA in Prod](#optional-consent-for-oauth-2-0-scopes-is-ga-in-prod)                                                   |January 11, 2023  |
 | [OAuth 2.0 authentication for inline hooks is GA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-preview)                                     |October 05, 2022  |
-| [Honor force authentication support for SAML apps API](#honor-force-authentication-support-for-saml-apps-api)                                                 |March 08, 2023    |
+| [Honor force authentication support for SAML Apps API](#honor-force-authentication-support-for-saml-apps-api)                                                 |March 08, 2023    |
 | [OIN Manager support for Workflow Connector submission is GA in Preview](#oin-manager-support-for-workflow-connector-submission-is-ga-in-preview)             |March 08, 2023    |
 | [Rate limit increased for Event Hooks](#rate-limit-increased-for-event-hooks)                                                                                 |March 08, 2023    |
 | [Bugs fixed in 2023.03.0](#bugs-fixed-in-2023-03-0)                                                                                                           |March 08, 2023    |
