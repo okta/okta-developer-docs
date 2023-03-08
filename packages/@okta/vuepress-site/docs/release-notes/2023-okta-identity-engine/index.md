@@ -9,19 +9,19 @@ title: Okta Identity Engine API Products release notes 2023
 ### Monthly release 2023.03.0
 
 | Change | Expected in Preview Orgs |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [Authenticator enrollment using the /authorize endpoint is GA in Production](#authenticator-enrollment-using-the-authorize-endpoint-is-ga-in-production)       |March 06, 2023   |
-| [OIDC Identity Providers private/public key pair support is GA](#oidc-identity-providers-private-public-key-pair-support-is-ga)                                |March 06, 2023   |
-| [API service integrations are GA in Preview](#api-service-integrations-are-ga-in-preview)                                                                      |March 06, 2023   |
-| [Log Streaming is GA in Production](#log-streaming-is-ga-in-production)                                                                                        |March 06, 2023   |
-| [Optional consent for OAuth 2.0 scopes is GA in Prod](#optional-consent-for-oauth-2-0-scopes-is-ga-in-prod)                                                    |March 06, 2023   |
-| [OAuth 2.0 authentication for inline hooks is GA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-preview)                                      |March 06, 2023   |
-| [Transactional verification with CIBA is GA in Preview](#transactional-verification-with-ciba-is-ga-in-preview)                                                |March 06, 2023   |
-| [Improvements to self-service account activities for AD and LDAP users](#improvements-to-self-service-account-activities-for-ad-and-ldap-users)                |March 06, 2023   |
-| [Honor force authentication support for SAML apps API](#honor-force-authentication-support-for-saml-apps-api)                                                  |March 06, 2023   |
-| [OIN Manager support for Workflow Connector submission is GA in Preview](#oin-manager-support-for-workflow-connector-submission-is-ga-in-preview)              |March 06, 2023   |
-| [Rate limit increased for Event Hooks](#rate-limit-increased-for-event-hooks)                                                                                  |March 06, 2023   |
-| [Bugs fixed in 2023.03.0](#bugs-fixed-in-2023-03-0)                                                                                                           |March 06, 2023   |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
+| [Authenticator enrollment using the /authorize endpoint is GA in Production](#authenticator-enrollment-using-the-authorize-endpoint-is-ga-in-production)      |November 03, 2022 |
+| [OIDC Identity Providers private/public key pair support is GA](#oidc-identity-providers-private-public-key-pair-support-is-ga)                               |June 08, 2022     |
+| [API service integrations are GA in Preview](#api-service-integrations-are-ga-in-preview)                                                                     |November 03, 2022 |
+| [Log Streaming is GA in Production](#log-streaming-is-ga-in-production)                                                                                       |March 30, 2022    |
+| [Optional consent for OAuth 2.0 scopes is GA in Prod](#optional-consent-for-oauth-2-0-scopes-is-ga-in-prod)                                                   |January 11, 2023  |
+| [OAuth 2.0 authentication for inline hooks is GA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-preview)                                     |October 05, 2023  |
+| [Transactional verification with CIBA is GA in Preview](#transactional-verification-with-ciba-is-ga-in-preview)                                               |December 09, 2023 |
+| [Improvements to self-service account activities for AD and LDAP users](#improvements-to-self-service-account-activities-for-ad-and-ldap-users)               |November 30, 2022 |
+| [Honor force authentication support for SAML Apps API](#honor-force-authentication-support-for-saml-apps-api)                                                 |March 08, 2023    |
+| [OIN Manager support for Workflow Connector submission is GA in Preview](#oin-manager-support-for-workflow-connector-submission-is-ga-in-preview)             |March 08, 2023    |
+| [Rate limit increased for Event Hooks](#rate-limit-increased-for-event-hooks)                                                                                 |March 08, 2023    |
+| [Bugs fixed in 2023.03.0](#bugs-fixed-in-2023-03-0)                                                                                                           |March 08, 2023    |
 
 #### Authenticator enrollment using the /authorize endpoint is GA in Production
 
@@ -66,7 +66,7 @@ CIBA extends OpenID Connect to define a decoupled flow where the authentication 
 Previously, the self-service unlock (SSU) and self-service password reset (SSPR) flows created unnecessary friction for AD and LDAP users. This feature enhancement introduces a seamless magic link experience in emails sent to unlock accounts and reset passwords. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the application. These improvements are now GA in Preview. See [Customize email notifications](/docs/guides/custom-email/main/#use-vtl-variables). <!--OKTA-584526-->
 
 
-#### Honor force authentication support for SAML apps API
+#### Honor force authentication support for SAML Apps API
 
 Previously, the **Honor Force Authentication** parameter 
 (`honorForceAuthn`) could only be set from the 
@@ -90,8 +90,8 @@ The number of events that can be delivered to Event Hooks is now 400,000 events 
 ### Weekly release 2023.02.2
 
 | Change | Expected in Preview Orgs |
-|------------------------------------------------------------------------------------------------------------------|-----------------|
-| [Bugs fixed in 2023.02.2](#bugs-fixed-in-2023-02-2)                                                              |February 27, 2023 |
+|------------------------------------------------------------------------------------------------------------------|---------------|
+| [Bugs fixed in 2023.02.2](#bugs-fixed-in-2023-02-2)                                                              |March 02, 2023 |
 
 #### Bugs fixed in 2023.02.2
 

@@ -7,17 +7,17 @@ title: Okta API Products release notes 2023
 ### Monthly release 2023.03.0
 
 | Change | Expected in Preview Orgs |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| [Configurable rate limits for OAuth 2.0 apps is GA in Preview](#configurable-rate-limits-for-oauth-2-0-apps-is-ga-in-preview)                                  |March 06, 2023   |
-| [OIDC Identity Providers private/public key pair support is GA](#oidc-identity-providers-private-public-key-pair-support-is-ga)                                |March 06, 2023   |
-| [API service integrations are GA in Preview](#api-service-integrations-are-ga-in-preview)                                                                      |March 06, 2023   |
-| [Log Streaming is GA in Production](#log-streaming-is-ga-in-production)                                                                                        |March 06, 2023   |
-| [Optional consent for OAuth 2.0 scopes is GA in Prod](#optional-consent-for-oauth-2-0-scopes-is-ga-in-prod)                                                    |March 06, 2023   |
-| [OAuth 2.0 authentication for inline hooks is GA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-preview)                                      |March 06, 2023   |
-| [Honor force authentication support for SAML apps API](#honor-force-authentication-support-for-saml-apps-api)                                                  |March 06, 2023   |
-| [OIN Manager support for Workflow Connector submission is GA in Preview](#oin-manager-support-for-workflow-connector-submission-is-ga-in-preview)              |March 06, 2023   |
-| [Rate limit increased for Event Hooks](#rate-limit-increased-for-event-hooks)                                                                                  |March 06, 2023   |
-| [Bugs fixed in 2023.03.0](#bugs-fixed-in-2023-03-0)                                                                                                           |March 06, 2023   |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
+| [Configurable rate limits for OAuth 2.0 apps is GA in Preview](#configurable-rate-limits-for-oauth-2-0-apps-is-ga-in-preview)                                 |March 08, 2023    |
+| [OIDC Identity Providers private/public key pair support is GA](#oidc-identity-providers-private-public-key-pair-support-is-ga)                               |June 08, 2022     |
+| [API service integrations are GA in Preview](#api-service-integrations-are-ga-in-preview)                                                                     |November 03, 2022 |
+| [Log Streaming is GA in Production](#log-streaming-is-ga-in-production)                                                                                       |March 30, 2022    |
+| [Optional consent for OAuth 2.0 scopes is GA in Prod](#optional-consent-for-oauth-2-0-scopes-is-ga-in-prod)                                                   |January 11, 2023  |
+| [OAuth 2.0 authentication for inline hooks is GA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-preview)                                     |October 05, 2022  |
+| [Honor force authentication support for SAML apps API](#honor-force-authentication-support-for-saml-apps-api)                                                 |March 08, 2023    |
+| [OIN Manager support for Workflow Connector submission is GA in Preview](#oin-manager-support-for-workflow-connector-submission-is-ga-in-preview)             |March 08, 2023    |
+| [Rate limit increased for Event Hooks](#rate-limit-increased-for-event-hooks)                                                                                 |March 08, 2023    |
+| [Bugs fixed in 2023.03.0](#bugs-fixed-in-2023-03-0)                                                                                                           |March 08, 2023    |
 
 #### Configurable rate limits for OAuth 2.0 apps is GA in Preview
 
@@ -60,7 +60,7 @@ When this property is set to `true`, users are prompted for their credentials wh
 
 #### OIN Manager support for Workflow Connector submission is GA in Preview
 
-Okta [Workflows](https://www.okta.com/platform/workflows/) is a no-code, if-this-then-that logic builder that Okta orgs can use to automate custom or complex employee onboarding and offboarding flows in your application. You can now publish Workflow connectors that you create with the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)  in the Okta Integration Network (OIN) catalog. Publishing a Workflows Connector with Okta allows your customers to deeply integrate your product with all other connectors in the catalog. Submit your Workflow Connector by using the OIN Manager. See [Submit an integration](/docs/guides/submit-app/wfconnector/main/#submit-an-integration) for Workflows connectors.. <!--OKTA-571943 & OKTA-573202-->
+Okta [Workflows](https://www.okta.com/platform/workflows/) is a no-code, if-this-then-that logic builder that Okta orgs can use to automate custom or complex employee onboarding and offboarding flows in your application. You can now publish Workflow connectors that you create with the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) in the Okta Integration Network (OIN) catalog. Publishing a Workflows connector with Okta allows your customers to deeply integrate your product with all other connectors in the catalog. Submit your Workflow connector by using the OIN Manager. See [Submit an integration](/docs/guides/submit-app/wfconnector/main/#submit-an-integration) for Workflows connectors. <!--OKTA-571943 & OKTA-573202-->
 
 #### Rate limit increased for Event Hooks
 
@@ -75,8 +75,8 @@ The number of events that can be delivered to Event Hooks is now 400,000 events 
 ### Weekly release 2023.02.2
 
 | Change | Expected in Preview Orgs |
-|------------------------------------------------------------------------------------------------------------------|-----------------|
-| [Bugs fixed in 2023.02.2](#bugs-fixed-in-2023-02-2)                                                              |February 27, 2023 |
+|------------------------------------------------------------------------------------------------------------------|---------------|
+| [Bugs fixed in 2023.02.2](#bugs-fixed-in-2023-02-2)                                                              |March 02, 2023 |
 
 #### Bugs fixed in 2023.02.2
 
