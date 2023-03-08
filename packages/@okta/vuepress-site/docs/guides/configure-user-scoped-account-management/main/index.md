@@ -66,7 +66,7 @@ www-authenticate: Bearer realm="IdpMyAccountAPI", error="insufficient_authentica
 
 ## Grant the required scopes
 
-> **Note:** If you have a custom Authorization Server, the MyAccount API-related scopes are granted by default. See [Create an Authorization Server](/docs/guides/customize-authz-server/-/main/).
+> **Note:** If you have a custom authorization server, the MyAccount API-related scopes are granted by default. See [Create an authorization server](/docs/guides/customize-authz-server/-/main/).
 
 When you are ready to grant the required scopes, follow these steps:
 

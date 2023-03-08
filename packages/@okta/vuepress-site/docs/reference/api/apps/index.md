@@ -7178,7 +7178,7 @@ curl -v -X PUT \
 * [Refresh Token object](#refresh-token-object)
 * [Application object](#application-object)
 * [Application User object](#application-user-object)
-* [Appliction Group object](#application-group-object)
+* [Application Group object](#application-group-object)
 
 ### Idp-Initiated Login object
 

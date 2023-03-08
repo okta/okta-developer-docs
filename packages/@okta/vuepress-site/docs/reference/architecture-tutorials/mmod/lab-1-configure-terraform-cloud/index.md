@@ -166,7 +166,7 @@ You've now verified that Terraform runs a plan and applies changes on demand. To
 
 ## Verify that plans are automatically applied if Auto apply is configured
 
-Finally, you can tell Terraform to apply changes automatically when a Terraform plan is successful by setting Auto Apply. Since the workspace is linked to version control for the preview branch, pushing to that branch triggers a plan that is automatically applied if the plan succeeds and there are changes.
+Finally, you can tell Terraform to apply changes automatically when a Terraform plan is successful by setting Auto apply. Since the workspace is linked to version control for the preview branch, pushing to that branch triggers a plan that is automatically applied if the plan succeeds and there are changes.
 
 1. On your workspace page, navigate to **Settings** > **Version Control**.
 2. On the **Workspace Settings** page, select **Auto apply for Apply Method**.

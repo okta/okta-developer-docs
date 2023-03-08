@@ -56,7 +56,7 @@ client -> app: Request with access token
 app -> client: Response
 -->
 
-1. Your customer's service app instance makes an access token request to their Okta Authorization Server using their client credentials.
+1. Your customer's service app instance makes an access token request to their Okta authorization server using their client credentials.
 
    Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the access token request. See [Add an API Service Integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-api-service-integration) for customer tenant Admin Console instructions. After installing your integration, the customer obtains their client credentials and passes them to your app. The customer's app instance can now make an access token request to Okta. See [Request for access token](#request-an-access-token).
 
@@ -99,7 +99,7 @@ There are two types of scope: read and manage. Read scopes can only view resourc
 | Update | No | Yes |
 | Delete | No | Yes |
 
-The [Okta Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server) returns all the scopes that you request if you registered those scopes along with your integration. Currently, API service integrations don't support optional scopes. You can request a subset of your integration-supported scopes when requesting an access token from the `/token` endpoint. For example, if you registered the `okta.users.manage`, `okta.groups.manage`, and `okta.apps.manage` scopes for your integration, but your service only needs to retrieve and update Okta groups for a specific task, then you can specify only the `okta.groups.manage` scope in your access token request.
+The [org authorization server](/docs/concepts/auth-servers/#org-authorization-server) returns all the scopes that you request if you registered those scopes along with your integration. Currently, API service integrations don't support optional scopes. You can request a subset of your integration-supported scopes when requesting an access token from the `/token` endpoint. For example, if you registered the `okta.users.manage`, `okta.groups.manage`, and `okta.apps.manage` scopes for your integration, but your service only needs to retrieve and update Okta groups for a specific task, then you can specify only the `okta.groups.manage` scope in your access token request.
 
 ### Register your API service integration
 

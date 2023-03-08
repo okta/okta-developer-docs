@@ -43,7 +43,7 @@ When a consent dialog appears depends on the values of three elements:
 
 Use the following steps to display the user consent dialog as part of an OpenID Connect or OAuth 2.0 request.
 
-> **Note:** Currently OAuth Consent works only with custom authorization servers. See [Authorization Servers](/docs/concepts/auth-servers/) for more information on the types of authorization servers available to you and what you can use them for.
+> **Note:** Currently OAuth Consent works only with custom authorization servers. See [Authorization servers](/docs/concepts/auth-servers/) for more information on the types of authorization servers available to you and what you can use them for.
 
 <ApiAmProdWarning />
 

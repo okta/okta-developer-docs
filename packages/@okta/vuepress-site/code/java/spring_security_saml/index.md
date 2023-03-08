@@ -23,7 +23,7 @@ This guide describes how to use Spring Security SAML to add support for Okta to 
 
 ## Create an Okta app integration for your SAML app
 
-An Application Integration represents your app in your Okta org. To create an app integration for a SAML app:
+An application integration represents your app in your Okta org. To create an app integration for a SAML app:
 
 1. Open the **Admin Console** for your org.
 1. Choose **Applications** > **Applications**.

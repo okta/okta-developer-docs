@@ -208,7 +208,7 @@ Lists all Custom Authorization Servers in this Okta organization
 Parameter | Description                                                                                 | Param Type | DataType | Required | Default
 --------- | ------------------------------------------------------------------------------------------  | ---------- | -------- | -------- | -------
 q         | Searches the `name` and `audiences` of Authorization Servers for matching values            | Query      | String   | FALSE    |
-limit     | Specifies the number of Authorizaton Server results on a page                               | Query      | Number   | FALSE    | 200
+limit     | Specifies the number of Authorization Server results on a page                               | Query      | Number   | FALSE    | 200
 after     | Specifies the pagination cursor for the next page of Authorization Servers                  | Query      | String   | FALSE    |
 
 **Parameter details**
