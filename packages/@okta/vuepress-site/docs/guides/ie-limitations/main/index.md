@@ -169,7 +169,7 @@ See the [SDK uses cases](/docs/guides/oie-embedded-common-org-setup/main/) in ou
 
 ***
 
-### Password recovery limitations with the /authn API
+### Password recovery limitations with the Classic Authentication API
 
 Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine Authentication APIs are denied recovery.
 

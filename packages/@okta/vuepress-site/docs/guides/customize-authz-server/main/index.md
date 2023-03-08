@@ -24,13 +24,13 @@ Set up and test your authorization server.
 
 Okta allows you to create multiple custom authorization servers that you can use to protect your own resource servers. Within each authorization server you can define your own OAuth 2.0 scopes, claims, and access policies.
 
-If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you already have a custom authorization server created for you called `default`. If this custom authorization server has been renamed, there is an additional `Default` label that helps to identify the default authorization server that was created out of the box. For simple use cases this default custom authorization server should suffice. If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional Authorization Servers with different scopes and claims, then this guide is for you.
+If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account, you already have a custom authorization server created for you called `default`. If this custom authorization server has been renamed, there is an additional `Default` label that helps to identify the default authorization server that was created out of the box. For simple use cases this default custom authorization server should suffice. If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional authorization servers with different scopes and claims, then this guide is for you.
 
-See [Which authorization server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for more information on the types of Authorization Servers available to you and what you can use them for.
+See [Which authorization server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for more information on the types of authorization servers available to you and what you can use them for.
 
 ## Create an authorization server
 
-> **Note:** If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account and you don't want to create any additional Custom Authorization Servers, you can skip this step because you already have a custom authorization server created for you called "default". The `${authorizationServerId}` for the default server is `default`.
+> **Note:** If you have an [Okta Developer Edition](https://developer.okta.com/signup/) account and you don't want to create any additional custom authorization servers, you can skip this step because you already have a custom authorization server created for you called "default". The `${authorizationServerId}` for the default server is `default`.
 
 1. In the Admin Console, go to **Security** > **API**.
 

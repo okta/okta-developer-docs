@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiAmProdWarning />
 
-This guide explains how to define custom Groups claims for tokens that are returned from Okta, by using a static allowlist to define user limits with a default or custom Authorization Server.
+This guide explains how to define custom Groups claims for tokens that are returned from Okta, by using a static allowlist to define user limits with a default or custom authorization server.
 
 ---
 
@@ -25,9 +25,9 @@ This guide explains how to define custom Groups claims for tokens that are retur
 
 ## About the static allow list
 
-You can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or static allowlist when you need to set Group allowlists on a per-app basis using both the Org Authorization Server and a Custom Authorization Server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of Groups that can then easily be referenced.
+You can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or static allowlist when you need to set Group allowlists on a per-app basis using both the org authorization server and a custom authorization server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of Groups that can then easily be referenced.
 
-Additionally, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim) to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the Okta Org Authorization Server. You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server.
+Additionally, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim) to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the org authorization server. You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server.
 
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
@@ -44,19 +44,19 @@ To test the full authentication flow that returns an ID token or an access token
 
 2. Use the authorization server's authorization endpoint:
 
-    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
-    * An Okta Org Authorization Server authorization endpoint looks like this:
+    * An org authorization server authorization endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/v1/authorize`
 
-    * A Custom Authorization Server authorization endpoint looks like this:
+    * A custom authorization server authorization endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
-    > **Note:** If you add the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
+    > **Note:** If you add the claim to the default custom authorization server, the `${authorizationServerId}` is `default`.
 
-    You can retrieve a Custom Authorization Server's authorization endpoint using the server's metadata URI:
+    You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
 
     **ID token**
     `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
@@ -262,9 +262,9 @@ The allowlist parameter must evaluate to a list of group IDs that are returned f
   * Integer between 1 and 100, inclusive. For example: `50`
   * Okta EL expression that contains a condition that evaluates to an integer: `app.profile.maxLimit < 100 ? app.profile.maxLimit : 100`. If the maximum group limit in the profile is less than 100, return that number of Groups. Otherwise, return a maximum of 100 Groups. If there are more Groups returned than the specified limit, an error is returned.
 
-## Use a static group allow list with the Org Authorization Server
+## Use a static group allow list with the org authorization server
 
-For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. For the steps to configure a Groups claim for use with an access token, see the [Use a static group allowlist with a Custom Authorization Server](#use-a-static-group-allow-list-with-a-custom-authorization-server) section.
+For an org authorization server, you can only create an ID token with a Groups claim, not an access token. For the steps to configure a Groups claim for use with an access token, see the [Use a static group allowlist with a custom authorization server](#use-a-static-group-allow-list-with-a-custom-authorization-server) section.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect client application that you want to configure.
@@ -330,9 +330,9 @@ The ID token contains the group "IT", so the audience (`aud`) has access to the 
 
 If the results aren't as expected, start your troubleshooting by inspecting the [System Log](/docs/reference/api/system-log/) to see what went wrong.
 
-## Use a static group allow list with a Custom Authorization Server
+## Use a static group allow list with a custom authorization server
 
-Add a Groups custom claim for an ID token or access token in a Custom Authorization Server. The maximum number of Groups specified must be less than 100. For the following example, we are adding a custom claim for an access token.
+Add a Groups custom claim for an ID token or access token in a custom authorization server. The maximum number of Groups specified must be less than 100. For the following example, we are adding a custom claim for an access token.
 
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the authorization server that you want to configure.
 2. Go to the **Claims** tab and click **Add Claim**.
@@ -345,7 +345,7 @@ Add a Groups custom claim for an ID token or access token in a Custom Authorizat
 9. Add **groups** as the scope **Name** and **DisplayName**, and then select the **Metadata** check box.
 10. Click **Create**.
 
-> **Note:** Be sure that you have a policy and rule set up in your Custom Authorization Server or the request won't work.
+> **Note:** Be sure that you have a policy and rule set up in your custom authorization server or the request won't work.
 
 Now, when you mint a token, Groups in the `groupallowlist` that also have the user as a member are included in the Groups claim.
 

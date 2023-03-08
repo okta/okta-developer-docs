@@ -68,7 +68,7 @@ The simplest way to integrate authentication in your app is with OIDC through a 
 
 ### Grant the required scopes
 
-> **Note:** You must use an [Org Authorization Server](/docs/concepts/auth-servers/#available-authorization-server-types) to grant the scopes needed to create a custom authenticator. Custom Authorization Servers (including the default Custom Authorization Server) don't work.
+> **Note:** You must use an [org authorization server](/docs/concepts/auth-servers/#available-authorization-server-types) to grant the scopes needed to create a custom authenticator. Custom authorization servers (including the default custom authorization server) don't work.
 
 When you are ready to grant the required scopes, follow these steps:
 

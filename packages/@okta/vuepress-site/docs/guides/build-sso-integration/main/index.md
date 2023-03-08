@@ -35,7 +35,7 @@ In a typical scenario, your application relies on Okta to act as a multi-tenant 
 
 An [Okta org](/docs/concepts/okta-organizations/) acts as a container that sets hard boundaries for all users, applications, and other entities associated with a single customer, providing tenant-based isolation.
 
-In developing your SSO app integration, the customer’s Okta org serves as the Authorization Server (OIDC) or as the IdP (SAML).
+In developing your SSO app integration, the customer’s Okta org serves as the authorization server (OIDC) or as the IdP (SAML).
 
 ## Publishing
 

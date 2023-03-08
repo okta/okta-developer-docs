@@ -6,9 +6,9 @@
 
     Include all base domains (Okta domain and custom domain) that your users will interact with in the allowed redirect URI list.
 
-3. Copy the Application ID value so that you can add it to the Okta configuration in the next section.
+3. Copy the application ID value so that you can add it to the Okta configuration in the next section.
 
-4. Under **Certificates & secrets**, click **New client secret** to generate a client secret for your app. Copy the value so that you can add it to the Okta configuration in the next section. This is the secret that corresponds to your Application ID.
+4. Under **Certificates & secrets**, click **New client secret** to generate a client secret for your app. Copy the value so that you can add it to the Okta configuration in the next section. This is the secret that corresponds to your application ID.
 
     > **Note:** There may be additional settings for the app that you can configure. The steps in this guide address the quickest route to setting up Azure AD as an Identity Provider with Okta. See the Azure AD documentation for more information on additional configuration settings.
 

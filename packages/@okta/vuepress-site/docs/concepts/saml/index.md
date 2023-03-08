@@ -91,7 +91,7 @@ To do this, the SP requires at least the following:
 - ACS Endpoint - Assertion Consumer Service URL - often referred to simply as the SP sign-in URL. This is the endpoint provided by the SP where SAML responses are posted. The SP needs to provide this information to the IdP.
 - IdP Sign-in URL - This is the endpoint on the IdP side where SAML requests are posted. The SP needs to obtain this information from the IdP.
 
-The easiest way to implement SAML is to leverage an OpenSource SAML toolkit. We have included a list at the end of this article of recommended toolkits for several languages. These toolkits provide the logic needed to digest the information in an incoming SAML Response. In addition, if the SP needs to support the SP-initiated sign-in flow, the toolkits also provide the logic needed to generate an appropriate SAML Authentication Request.
+The easiest way to implement SAML is to leverage an OpenSource SAML toolkit. We have included a list at the end of this article of recommended toolkits for several languages. These toolkits provide the logic needed to digest the information in an incoming SAML Response. In addition, if the SP needs to support the SP-initiated sign-in flow, the toolkits also provide the logic needed to generate an appropriate SAML authentication request.
 
 ### Single IdP vs multiple IdPs
 
@@ -127,7 +127,7 @@ In an SP-initiated flow, the user tries to access a protected resource directly 
 
 Another issue with SP-initiated sign-in flow is the support for deep links. Most applications support deep links. For example, you might receive a link to a document that resides on a content management system. Ideally, if you need to authenticate prior to accessing the document, you would like to be taken to the document immediately after authentication.
 
-SAML is an asynchronous protocol by design. The SP-initiated sign-in flow begins by generating a SAML Authentication Request that gets redirected to the IdP. At this point, the SP doesn't store any information about the request. When the SAML response comes back from the IdP, the SP wouldn't know anything about the initial deep-link that triggered the authentication request. Luckily, SAML supports this with a parameter called RelayState.
+SAML is an asynchronous protocol by design. The SP-initiated sign-in flow begins by generating a SAML authentication request that gets redirected to the IdP. At this point, the SP doesn't store any information about the request. When the SAML response comes back from the IdP, the SP wouldn't know anything about the initial deep-link that triggered the authentication request. Luckily, SAML supports this with a parameter called RelayState.
 
 A RelayState is an HTTP parameter that can be included as part of the SAML request and SAML response. In an SP-initiated sign-in flow, the SP can set the RelayState parameter in the SAML request with additional information about the request. A SAML IdP, after receiving the SAML request, takes the RelayState value and simply attaches it back as an HTTP parameter in the SAML response after the user has been authenticated. This way, when the round trip completes, the SP can use the RelayState information to get additional context about the initial SAML authentication request.
 
