@@ -218,7 +218,7 @@ function success(res) {
 
 #### Sign In to Your Application
 
-If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom Authorization Server](/docs/guides/customize-authz-server/) in Okta.
+If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom authorization server](/docs/guides/customize-authz-server/) in Okta.
 
 #### Server-side Web Application using "authorization_code" flow
 

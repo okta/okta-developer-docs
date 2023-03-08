@@ -55,7 +55,7 @@ Signing out of Okta requires the app to open a browser and navigate to the [end 
 
 ## Sign users out of Okta
 
-Sign users out of Okta by ending their session on the Okta Authorization Server.
+Sign users out of Okta by ending their session on the Okta authorization server.
 
 <StackSelector snippet="remotesignout" noSelector/>
 

@@ -21,7 +21,7 @@ When do you use API Access Management and when do you use OpenID Connect?
 
 In general, use OpenID Connect to sign users in to apps, and use API Access Management to secure your APIs:
 
-* Create one or more Custom Authorization Servers
+* Create one or more custom authorization servers
 * Define scopes and claims
 * Create policies and rules to determine who can access your API resources
 
@@ -41,7 +41,7 @@ See [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) for details.
 Centralizing the management of your APIs makes it easier for others to consume your API resources.
 Using Okta's OAuth-as-a-Service feature, API Access Management, provides many benefits:
 
-* Create one or more [Custom Authorization Servers](/docs/guides/customize-authz-server/), hosted on Okta. Custom Authorization Servers make it easier to manage sets of API access for multiple client apps across many customer types.
+* Create one or more [custom authorization servers](/docs/guides/customize-authz-server/), hosted on Okta. Custom authorization servers make it easier to manage sets of API access for multiple client apps across many customer types.
 * Create custom scopes and claims. Map your claims to the profiles in your user directory.
 * Tokens are passed instead of credentials. In addition, the JWT tokens carry payloads for user context.
 * Stay protected with security standards compliance.
@@ -150,7 +150,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * Access tokens should be used exclusively via an HTTP Authorization header instead of encoded into a payload or URL which may be logged or cached.
 * When a gateway successfully validates an access token, cache the result until the expiration time (`exp` claim). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
 * When a gateway retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
-* If the gateway is performing endpoint or HTTP verb-level authorization using scopes, the scopes must be defined and granted in the Okta Authorization Server or Custom Authorization Server before being used in the gateway.
+* If the gateway is performing endpoint or HTTP verb-level authorization using scopes, the scopes must be defined and granted in the Okta authorization server or custom authorization server before being used in the gateway.
 
 > **Note:** If a user requests scopes from the authorization server that haven't been configured, an error is returned.
 
@@ -166,7 +166,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * When an application successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
 * When an application retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 
-* Never use an access token granted from the Okta Organization Authorization Server for authorization within your applications. These tokens are intended for use with Okta and can't be validated within your application. Instead, use tokens granted from a Custom Authorization Server. Read more about the various types of authorization servers in the [Authorization Servers](/docs/concepts/auth-servers) concept section.
+* Never use an access token granted from the org authorization server for authorization within your applications. These tokens are intended for use with Okta and can't be validated within your application. Instead, use tokens granted from a custom authorization server. Read more about the various types of authorization servers in the [Authorization servers](/docs/concepts/auth-servers) concept section.
 
 ##### Resource (API) servers
 

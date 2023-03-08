@@ -19,9 +19,9 @@ This guide explains how to revoke access or refresh tokens with Okta.
 
 ## About the revoke request
 
-If you would like to disable an access or refresh token, simply send a request to the `/revoke` endpoint for the appropriate Authorization Server.
+If you would like to disable an access or refresh token, simply send a request to the `/revoke` endpoint for the appropriate authorization server.
 
-This example makes a request to revoke an access token issued by the Org Authorization Server. The URL of the Authorization Server for your request might be different than this example. See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) for more information.
+This example makes a request to revoke an access token issued by the org authorization server. The URL of the authorization server for your request might be different than this example. See [Authorization servers](/docs/concepts/auth-servers/#available-authorization-server-types) for more information.
 
 ```bash
 http --form POST https://${yourOktaDomain}/oauth2/v1/revoke \
