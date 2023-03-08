@@ -36,7 +36,7 @@ You can also optionally specify extra headers that you want Okta to pass to your
 
 To configure HTTP header authentication, see parameters for the [Config object for HTTP headers](#config-object-for-http-headers).
 
-<ApiLifecycle access="ea" /> OAuth 2.0 tokens provide enhanced security between Okta and your external service and can be configured for the following types: client secret and private key.
+OAuth 2.0 tokens provide enhanced security between Okta and your external service and can be configured for the following types: client secret and private key.
 
 To configure OAuth 2.0 authentication, see parameters for the [Config object for OAuth 2.0](#config-object-for-oauth-2-0).
 
@@ -818,8 +818,6 @@ The inline hook management API provides the following objects:
 To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value` to the Base64-encoded string of "username:password". Ensure that you include the scheme (including the space) as part of the `value` parameter. For example, `Basic YWRtaW46c3VwZXJzZWNyZXQ=`. See [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication).
 
 ### Config object for OAuth 2.0
-
-<ApiLifecycle access="ea" />
 
 | Property   | Description                                                                                                | DataType                                | Required | Unique | Read-only | Validation                                                                                                             |
 |------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------|----------|--------|----------|------------------------------------------------------------------------------------------------------------------------|
