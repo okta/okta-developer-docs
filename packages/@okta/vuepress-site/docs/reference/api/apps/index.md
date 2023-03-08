@@ -367,7 +367,8 @@ Adds a SAML 2.0 application instance
 | --------- | ----------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
 | attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | Array of [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |  |
 | configuredAttributeStatements   | SAML attributes that are inherited from app metadata during app creation and are used to configure group attributes | Array of [Group Attribute Statements](#group-attribute-statements-object) | TRUE     | FALSE  |  |
-| destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |                                           |
+| destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |  |
+| honorForceAuthn       | Set to `true` to prompt users for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. Users are prompted to enter their credentials, even if they normally sign in through Desktop SSO. Set this parameter to `false` to ignore the `ForceAuthn` attribute in the SAML request.       | Boolean   | FALSE    | FALSE  |  |
 | url       | The URL of the sign-in page for this app          | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
 ##### Request example
@@ -985,7 +986,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 | destination           | Identifies the location where the SAML response is intended to be sent inside of the SAML assertion               | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | destinationOverride   | Overrides the `destination` setting                                                                               | String                                               | TRUE     | FALSE  |                                           |
 | digestAlgorithm       | Determines the digest algorithm used to digitally sign the SAML assertion and response                            | String                                               | FALSE    | FALSE  |                                           |
-| honorForceAuthn       | Prompt user to re-authenticate if SP asks for it                                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
+| honorForceAuthn       | Prompts the user to re-authenticate if the SAML request has the `ForceAuthn` attribute set to `true`. If this property is `false`, the `ForceAuthn` attribute in the SAML request is ignored. | Boolean                                              | FALSE    | FALSE  |                                           |
 | idpIssuer             | SAML Issuer ID                                                                                                    | String                                               | FALSE    | FALSE  |                                           |
 | inlineHooks           | Associates the application with SAML inline hooks. See the [SAML assertion inline hook reference](/docs/reference/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
 | recipient             | The location where the app may present the SAML assertion                                                         | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
