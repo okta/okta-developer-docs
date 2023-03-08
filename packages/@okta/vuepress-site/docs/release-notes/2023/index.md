@@ -51,7 +51,7 @@ When creating inline hooks in the Admin Console (or by API), administrators or d
 
 Using the OAuth 2.0 framework provides better security than Basic Authentication or custom headers, and is less work than setting up an IP allowlisting solution. Clients also have the ability to use access tokens minted by their own custom authorization servers to guarantee that Okta is calling their client web services and isn't triggered by any external actors. See [Add an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook). <!--OKTA-581803-->
 
-#### Honor force authentication support for SAML apps API
+#### Honor force authentication support for SAML Apps API
 
 Previously, the **Honor Force Authentication** parameter 
 (`honorForceAuthn`) could only be set from the 
