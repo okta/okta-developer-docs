@@ -4,13 +4,94 @@ title: Okta Identity Engine API Products release notes 2023
 
 <ApiLifecycle access="ie" />
 
+## March
+
+### Monthly release 2023.03.0
+
+| Change | Expected in Preview Orgs |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| [Authenticator enrollment using the /authorize endpoint is GA in Production](#authenticator-enrollment-using-the-authorize-endpoint-is-ga-in-production)       |March 06, 2023   |
+| [OIDC Identity Providers private/public key pair support is GA](#oidc-identity-providers-private-public-key-pair-support-is-ga)                                |March 06, 2023   |
+| [API service integrations are GA in Preview](#api-service-integrations-are-ga-in-preview)                                                                      |March 06, 2023   |
+| [Log Streaming is GA in Production](#log-streaming-is-ga-in-production)                                                                                        |March 06, 2023   |
+| [Optional consent for OAuth 2.0 scopes is GA in Prod](#optional-consent-for-oauth-2-0-scopes-is-ga-in-prod)                                                    |March 06, 2023   |
+| [OAuth 2.0 authentication for inline hooks is GA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-preview)                                      |March 06, 2023   |
+| [Transactional verification with CIBA is GA in Preview](#transactional-verification-with-ciba-is-ga-in-preview)                                                |March 06, 2023   |
+| [Improvements to self-service account activities for AD and LDAP users](#improvements-to-self-service-account-activities-for-ad-and-ldap-users)                |March 06, 2023   |
+| [Honor force authentication support for SAML apps API](#honor-force-authentication-support-for-saml-apps-api)                                                  |March 06, 2023   |
+| [OIN Manager support for Workflow Connector submission is GA in Preview](#oin-manager-support-for-workflow-connector-submission-is-ga-in-preview)              |March 06, 2023   |
+| [Rate limit increased for Event Hooks](#rate-limit-increased-for-event-hooks)                                                                                  |March 06, 2023   |
+| [Bugs fixed in 2023.03.0](#bugs-fixed-in-2023-03-0)                                                                                                           |March 06, 2023   |
+
+#### Authenticator enrollment using the /authorize endpoint is GA in Production
+
+Authenticator enrollment provides a standardized way for a user to enroll a new authenticator using the OAuth `/authorize` endpoint. This feature uses query parameters such as prompt and `enroll_amr_values` to specify which authenticator the user wants to enroll. It also automatically verifies at least two factors as long the user has already enrolled two or more factors. <!--OKTA-544671-->
+
+#### OIDC Identity Providers private/public key pair support is GA 
+
+Previously, Okta only supported the use of client secret as the client authentication method with an OpenID Connect-based Identity Provider. Okta now supports the use of private/public key pairs (`private_key_jwt`) with OpenID Connect-based Identity Providers. Additionally, the Signed Request Object now also supports the use of private/public key pairs. See [Create an Identity Provider in Okta](/docs/guides/add-an-external-idp/openidconnect/main/#custom-okta-hosted-sign-in-page). <!--OKTA-573913-->
+
+#### API service integrations are GA in Preview
+
+A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/main/). <!--OKTA-577514-->
+
+#### Log Streaming is GA in Production
+
+Many organizations use third-party systems to monitor, aggregate, and act on the event data in Okta System Log events.
+
+Log Streaming enables Okta admins to more easily and securely send System Log events to a specified systems, such as the Splunk Cloud or Amazon Eventbridge, in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it doesn't require a third-party system to store an Okta Admin API token. See [Log Streaming API](/docs/reference/api/log-streaming/). <!--OKTA-578532-->
+
+#### Optional consent for OAuth 2.0 scopes is GA in Prod
+
+OAuth 2.0 Optional consent provides an optional property that enables a user to opt in or out of an app's requested OAuth scopes. When optional is set to true for a scope, the user can skip consent for that scope. See [Request user consent](/docs/guides/request-user-consent/main/). <!--OKTA-581292-->
+
+#### OAuth 2.0 authentication for inline hooks is GA in Preview
+
+Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
+
+To improve the security of inline hooks, Okta now supports authentication with OAuth 2.0 access tokens. Tokens ensure secure calls to external web services.
+
+When creating inline hooks in the Admin Console (or by API), administrators or developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: Client Secret or Private Key. A new Key Management API and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
+
+Using the OAuth 2.0 framework provides better security than Basic Authentication or custom headers, and is less work than setting up an IP allowlisting solution. Clients also have the ability to use access tokens minted by their own custom authorization servers to guarantee that Okta is calling their client web services and isn't triggered by any external actors. See [Add an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook). <!--OKTA-581803-->
+
+#### Transactional verification with CIBA is GA in Preview
+
+Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-Initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
+
+CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba/main/). <!--OKTA-584442-->
+
+#### Improvements to self-service account activities for AD and LDAP users
+
+Previously, the self-service unlock (SSU) and self-service password reset (SSPR) flows created unnecessary friction for AD and LDAP users. This feature enhancement introduces a seamless magic link experience in emails sent to unlock accounts and reset passwords. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the application. These improvements are now GA in Preview. See [Customize email notifications](/docs/guides/custom-email/main/#use-vtl-variables). <!--OKTA-584526-->
+
+
+#### Honor force authentication support for SAML apps API
+
+Previously, the **Honor Force Authentication** parameter 
+(`honorForceAuthn`) could only be set from the 
+[SAML 2.0 App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). 
+When this property is set to `true`, users are prompted for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. You can now set this property for your SAML app without using the app integration wizard. See the [SAML 2.0 settings parameters in the Apps API](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-550077-->
+
+#### OIN Manager support for Workflow Connector submission is GA in Preview
+
+Okta [Workflows](https://www.okta.com/platform/workflows/) is a no-code, if-this-then-that logic builder that Okta orgs can use to automate custom or complex employee onboarding and offboarding flows in your application. You can now publish Workflow connectors that you create with the [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)  in the Okta Integration Network (OIN) catalog. Publishing a Workflows Connector with Okta allows your customers to deeply integrate your product with all other connectors in the catalog. Submit your Workflow Connector by using the OIN Manager. See [Submit an integration](/docs/guides/submit-app/wfconnector/main/#submit-an-integration) for Workflows connectors.. <!--OKTA-571943 & OKTA-573202-->
+
+#### Rate limit increased for Event Hooks
+
+The number of events that can be delivered to Event Hooks is now 400,000 events per org, per day. See [Rate limits](https://developer.okta.com/docs/concepts/event-hooks/#rate-limits). <!--OKTA-573847-->
+
+#### Bugs fixed in 2023.03.0
+
+* When an admin used a group limit in an expression that was greater than 100 (for example, `Groups.startsWith("active_directory","",500)` ), /userinfo endpoint requests failed. (OKTA-576414)
+
 ## February
 
 ### Weekly release 2023.02.2
 
 | Change | Expected in Preview Orgs |
 |------------------------------------------------------------------------------------------------------------------|-----------------|
-| [Bugs fixed in 2023.02.2](#bugs-fixed-in-2023-02-2)                                                              |February 29, 2023 |
+| [Bugs fixed in 2023.02.2](#bugs-fixed-in-2023-02-2)                                                              |February 27, 2023 |
 
 #### Bugs fixed in 2023.02.2
 
