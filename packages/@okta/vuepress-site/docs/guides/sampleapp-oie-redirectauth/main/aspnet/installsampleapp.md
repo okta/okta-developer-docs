@@ -11,6 +11,6 @@
     <add key="okta:PostLogoutRedirectUri" value="https://localhost:44314/" />
 ```
 
-> **Note:** In this example we are using the "default" Custom Authorization Server. The value for `"okta:AuthorizationServerId"` is `"default"`.
+> **Note:** In this example we are using the "default" custom authorization server. The value for `"okta:AuthorizationServerId"` is `"default"`.
 
 You have now created your App in Okta and installed the Okta <StackSelector snippet="applang" noSelector inline /> sample app.

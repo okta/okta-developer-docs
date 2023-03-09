@@ -125,8 +125,10 @@ An [access policy](/docs/guides/configure-access-policy/main/) helps you secure 
 
 Use the Authorization Code with PKCE flow to obtain an authorization code for the client. In this case, the mobile app requests tokens so that it can talk to API1.
 
+**Request an authorization code**
+
 ```cURL
-curl --location --request POST \
+curl --location --request GET \
   --url 'https://${yourOktaDomain}/oauth2/{authServerId}/v1/authorize' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -145,7 +147,7 @@ curl --location --request POST \
 https://${configuredRedirectUri}/?code=FQGFlDO-J1jXl....7-cfYJ0KtKB8&state=testState`
 ```
 
-### Exchange code for tokens request
+**Exchange code for tokens request**
 
 ```curl
 curl --location --request POST \

@@ -208,7 +208,7 @@ Lists all Custom Authorization Servers in this Okta organization
 Parameter | Description                                                                                 | Param Type | DataType | Required | Default
 --------- | ------------------------------------------------------------------------------------------  | ---------- | -------- | -------- | -------
 q         | Searches the `name` and `audiences` of Authorization Servers for matching values            | Query      | String   | FALSE    |
-limit     | Specifies the number of Authorizaton Server results on a page                               | Query      | Number   | FALSE    | 200
+limit     | Specifies the number of Authorization Server results on a page                               | Query      | Number   | FALSE    | 200
 after     | Specifies the pagination cursor for the next page of Authorization Servers                  | Query      | String   | FALSE    |
 
 **Parameter details**
@@ -1020,7 +1020,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
 | consent                                  | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`, `FLEXIBLE`       | Enum      | `IMPLICIT`     | True for update                        |
-| optional<ApiLifecycle access="ea" />     | Indicates whether the Scope is optional. When set to `true`, the user can skip consent for the scope.            | Boolean   |     False           | False 
+| optional                                 | Indicates whether the Scope is optional. When set to `true`, the user can skip consent for the scope.            | Boolean   |     False           | False 
 | default                                  | Whether the Scope is a default Scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the Scope                                                                                | String    |                | False                                      |
 | displayName                              | Name of the end user displayed in a consent dialog box                                                      | String    |                | False                                      |

@@ -1,3 +1,22 @@
+To submit an OIDC integration, click the **OIDC** tab and select **On** from the **OIDC support** dropdown menu.
+
+* **Provide the instance URL for your app where Okta will retrieve configuration details:** Specify the Okta instance URL for your integration.
+
+   To retrieve your Okta instance URL from your development org:
+
+   1. From the Okta Admin Console, navigate to **Applications** > **Applications** to see all the integrations in your org.
+   1. Click the name of the app integration that you're going to submit.
+   1. Confirm that the app settings match what you want as the global defaults for all customers.
+   1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
+   1. Back in the OIN Manager, paste that URL in the **Provide the instance URL for your app where Okta will retrieve configuration details** field of your submission protocol tab.
+
+<!--
+1. Click the **General** tab.
+1. Go to the **App Embed Link** section and copy the text in the Embed Link field:
+   ![App Embed Link](/img/oin/isv-portal_app-embed-link.png "App Embed Link GUI in the Application settings")
+1. Paste that value into your submission.
+-->
+
 #### OIDC settings
 
 * **Does your Redirect URI vary per tenant?**: If **Yes**, a new field appears to assist you in setting up a per tenant configuration.

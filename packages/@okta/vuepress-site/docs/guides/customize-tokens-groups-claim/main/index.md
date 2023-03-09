@@ -4,7 +4,7 @@ excerpt: Define Groups claims for tokens returned from Okta.
 layout: Guides
 ---
 
-This guide explains how to add a Groups claim to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the Okta Org Authorization Server. You can also add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server.
+This guide explains how to add a Groups claim to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the org authorization server. You can also add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a custom authorization server.
 
 ---
 
@@ -23,9 +23,9 @@ This guide explains how to add a Groups claim to ID tokens for any combination o
 
 ## About customized tokens with a Groups claim
 
-You can create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-sourced Groups. For groups not sourced in Okta, you need to use an expression. See [Retrieve both Active Directory and Okta Groups in OpenID Connect claims](https://support.okta.com/help/s/article/Can-we-retrieve-both-Active-Directory-and-Okta-groups-in-OpenID-Connect-claims?language=en_US). For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token.
+You can create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-sourced Groups. For groups not sourced in Okta, you need to use an expression. See [Retrieve both Active Directory and Okta Groups in OpenID Connect claims](https://support.okta.com/help/s/article/Can-we-retrieve-both-Active-Directory-and-Okta-groups-in-OpenID-Connect-claims?language=en_US). For an org authorization server, you can only create an ID token with a Groups claim, not an access token.
 
-Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist when you need to set group allowlists on a per-application basis using both the Org Authorization Server and a Custom Authorization Server.
+Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist when you need to set group allowlists on a per-application basis using both the org authorization server and a custom authorization server.
 
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/) when you want to define your own custom claims. For example, you may want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
@@ -42,19 +42,19 @@ To test the full authentication flow that returns an ID token or an access token
 
 2. Use the authorization server's authorization endpoint:
 
-    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
-    * An Okta Org Authorization Server authorization endpoint looks like this:
+    * An org authorization server authorization endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/v1/authorize`
 
-    * A Custom Authorization Server authorization endpoint looks like this:
+    * A custom authorization server authorization endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
-    > **Note:** If you add the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
+    > **Note:** If you add the claim to the default custom authorization server, the `${authorizationServerId}` is `default`.
 
-    You can retrieve a Custom Authorization Server's authorization endpoint using the server's metadata URI:
+    You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
 
     **ID token**
     `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
@@ -103,9 +103,9 @@ To test the full authentication flow that returns an ID token or an access token
 
 5. To check the returned ID token or access token payload, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder, confirm that the token contains all of the claims that you are expecting, including the custom one. If you specified a nonce, that is also included.
 
-## Add a Groups claim for the Org Authorization Server
+## Add a Groups claim for the org authorization server
 
-Use these steps to create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-sourced Groups. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+Use these steps to create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-sourced Groups. For an org authorization server, you can only create an ID token with a Groups claim, not an access token. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect client application that you want to configure.
@@ -122,7 +122,7 @@ To test the full authentication flow that returns an ID token, build your reques
 
 > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow) for quick testing. In the following example we request only `id_token` as the `response_type` value. This means that the requests are for a [fat ID token](/docs/concepts/api-access-management/#tokens-and-scopes), and the ID token is the only token included in the response. The ID token contains any groups assigned to the user that signs in when you include the `groups` scope in the request.
 >
->If you make a request to the Org Authorization Server for both the ID token and the access token, that is considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and Groups aren't returned, even if those scopes are included in the request. You can use the access token to get the Groups claim from the `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo).
+>If you make a request to the org authorization server for both the ID token and the access token, that is considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and Groups aren't returned, even if those scopes are included in the request. You can use the access token to get the Groups claim from the `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo).
 >
 
 The resulting URL looks something like this:
@@ -165,11 +165,11 @@ The decoded JWT looks something like this:
 }
 ```
 
-## Add a Groups claim for a Custom Authorization Server
+## Add a Groups claim for a custom authorization server
 
-Use these steps to add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+Use these steps to add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a custom authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
-1. In the Admin Console, from the **Security** menu, select **API**, and then select the Custom Authorization Server that you want to configure.
+1. In the Admin Console, from the **Security** menu, select **API**, and then select the custom authorization server that you want to configure.
 2. Go to the **Claims** tab and click **Add Claim**.
 3. Enter a name for the claim. For this example, name it **Groups**.
 4. In the **Include in token type** section, leave **Access Token** selected. We are adding the Groups claim to an access token in this example.
@@ -189,7 +189,7 @@ To test the full authentication flow that returns an access token, build your re
 
 The resulting URL looks something like this:
 
-> **Note:** If you add the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
+> **Note:** If you add the claim to the default custom authorization server, the `${authorizationServerId}` is `default`.
 
 ```bash
 curl -X GET

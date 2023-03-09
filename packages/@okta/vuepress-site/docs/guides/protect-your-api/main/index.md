@@ -18,7 +18,7 @@ Add authorization using Okta to protect your APIs. When you finish, you have a s
 
 **What you need**
 
-A [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server) to create and apply authorization policies to protect your APIs
+A [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) to create and apply authorization policies to protect your APIs
 
 <ApiAmProdWarning />
 
@@ -67,7 +67,7 @@ Create a new application with a simple API endpoint to add authorization to.
 
 You need to configure the API with some information about the [authorization server](/docs/guides/customize-authz-server/) used by your Okta organization.
 
-> **Note:** This tutorial uses the **default** Custom Authorization Server to secure your protected API. You can create your own Custom Authorization Server for this purpose. In either case, you need an appropriate license to use the Custom Authorization Server in production.
+> **Note:** This tutorial uses the **default** custom authorization server to secure your protected API. You can create your own custom authorization server for this purpose. In either case, you need an appropriate license to use the custom authorization server in production.
 
 #### Things you need
 

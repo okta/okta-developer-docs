@@ -52,9 +52,9 @@ Administrators can write authentication policy rules for sign-in requests from a
 
 <StackSnippet snippet="integrationsteps" />
 
-## Adaptive Multi-Factor Authentication example
+## Adaptive Multifactor Authentication example
 
-Apps with an Adaptive Multi-Factor Authentication (AMFA) policy prompt users for a different number of authentication factors based on a number of criteria, including:
+Apps with an Adaptive Multifactor Authentication (AMFA) policy prompt users for a different number of authentication factors based on a number of criteria, including:
 
 * Location: Where are they signing in from?
 * New device: Are they signing in from a managed or known device?
