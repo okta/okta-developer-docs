@@ -1319,7 +1319,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/idp/myaccount/password" />
 
-Creates and enrolls a password for the current user.
+Creates and enrolls a password for the current user
 
 #### Required scope and role
 
