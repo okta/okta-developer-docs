@@ -1,22 +1,40 @@
 .signup {
-  padding: 128px 0 133px;
+  padding: 88px 0 86px;
 
   background: var(--c-lightgray-450);
+  @include media(">tablet") {
+    padding: 128px 0 133px;
+  }
 }
 
 .signup__wrapper {
   margin: 0 auto;
-  max-width: 1314px;
+  max-width: 1315px;
 }
 
 .signup__title {
+  margin: 0;
   margin-bottom: 48px;
 
   font-weight: 400;
-  font-size: 56px;
-  line-height: 64px;
-  letter-spacing: -2px;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -1px;
   color: var(--c-gray-950);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 19px;
+  @include media(">tablet") {
+    font-size: 56px;
+    line-height: 64px;
+    text-align: left;
+    padding: 0;
+    letter-spacing: -2px;
+    margin-bottom: 43px;
+    display: block;
+  }
 }
 
 .signup__wrapper h1 span {
@@ -26,13 +44,19 @@
 .signup__items {
   position: relative;
 
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: 45px;
+  display: block;
+  
   overflow: hidden;
 
   border: 1px solid transparent;
   border-radius: 12px;
+  padding: 0 32px;
+  @include media(">tablet") {
+    column-gap: 45px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .signup__items.active {
@@ -143,7 +167,9 @@
 }
 
 .signup__popup__title a:hover {
-  border-color: var(--c-blue-550);
+  @include media(">tablet") {
+    border-color: var(--c-blue-550);
+  }
 }
 
 .signup__popup__close {
@@ -162,18 +188,24 @@
 }
 
 .signup__popup__close:hover {
-  transform: rotate(180deg);
+  @include media(">tablet") {
+    transform: rotate(180deg);
+  }
 }
 
 .signup__container {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-column: 2 / 4;
   align-content: flex-start;
   padding: 31px 0 41px;
 
   border-radius: 12px;
   background-color: var(--c-gray-075);
+  @include media(">tablet") {
+    max-width: 852px;
+    width: calc(100% - 8px);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-column: 2 / 4;
+  }
 }
 
 .signup__form {
@@ -190,7 +222,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   row-gap: 32px;
-  column-gap: 24px;
+  column-gap: 18px;
   margin-bottom: 34px;
   width: 100%;
 }
@@ -231,6 +263,18 @@
   line-height: 24px;
   color: var(--c-gray-950);
   appearance: none;
+}
+
+select.signup__form__input:required:invalid {
+  color: gray;
+}
+
+.signup__form__input option[value=""][disabled] {
+  display: none;
+}
+
+.signup__form__input option {
+  color: black;
 }
 
 .error-msg {
@@ -343,47 +387,63 @@
 }
 
 .signup__item {
-  grid-column: 1 / 2;
-  padding: 31px 24px 41px;
-
+  padding: 24px 33px 31px;
   border-radius: 12px;
   background-color: var(--c-gray-075);
+  @include media(">tablet") {
+    max-width: 416px;
+    width: calc(100% + 9px);
+    grid-column: 1 / 2;
+    padding: 31px 40px 41px;
+  }
 }
 
 .signup__item__title {
   position: relative;
 
+  padding-bottom: 26px;
   grid-column: 1 / 3;
-  padding-bottom: 35px;
-  height: 69px;
+  min-height: 72px;
 
   border-bottom: 1px solid var(--c-gray-405);
 
   font-weight: 500;
   font-size: 32px;
-  line-height: 43px;
-  letter-spacing: -0.3px;
+  line-height: 35px;
   text-align: center;
   color: var(--c-gray-950);
+  @include media(">tablet") {
+    white-space: nowrap;
+    height: 69px;
+    padding-bottom: 37px;
+    line-height: 43px;
+    letter-spacing: -0.3px;
+  }
 }
 
-.signup__item__title-logo:after {
-  content: url("/img/signup-item-logo.svg");
-
+.signup__item__title-logo {
   position: absolute;
   bottom: -12px;
   left: 50%;
 
   padding: 0 12px;
-  width: 189px;
-  height: 28px;
+  width: 130px;
+  height: 24px;
+  margin-bottom: 0;
 
   background-color: var(--c-gray-075);
   transform: translateX(-50%);
+  @include media(">tablet") {
+    width: 189px;
+    height: 28px;
+  }
 }
 
 .signup__description {
-  margin-top: 47px;
+  margin-top: 27px;
+  @include media(">tablet") {
+    margin-top: 47px;
+  }
 }
 
 .signup__container .signup__item__title {
@@ -401,6 +461,13 @@
 
 .signup__description-bordered {
   border-left: 1px solid var(--c-gray-760);
+  
+}
+
+.signup__container .signup__description-bordered {
+  @include media(">tablet") {
+    padding-right: 39px;
+  }
 }
 
 .signup__rate {
@@ -415,13 +482,17 @@
 
   border-bottom: 1px solid var(--c-gray-950);
 
+  font-size: 21px;
+  line-height: 29px;
   font-weight: 700;
-  font-size: 17px;
-  line-height: 24px;
   letter-spacing: 1px;
   text-align: center;
   text-transform: uppercase;
   color: var(--c-gray-950);
+  @include media(">tablet") {
+    font-size: 17px;
+    line-height: 24px;
+  }
 }
 
 .signup__rate__text {
@@ -437,30 +508,43 @@
 .signup__content {
   position: relative;
 
-  margin-top: 57px;
-  padding: 27px 24px 25px;
+  margin-top: 35px;
+  padding: 25px 16px 21px;
 
   border-radius: 12px;
   background-color: var(--c-gray-150);
 
   text-align: center;
+  @include media(">tablet") {
+    margin-top: 57px;
+    padding: 27px 24px 25px;
+  }
 }
 
 .signup__content__title {
-  margin-bottom: 13px;
+  margin-bottom: 12px;
 
   font-weight: 500;
-  font-size: 25px;
-  line-height: 31px;
+  font-size: 20px;
+  line-height: 25px;
   letter-spacing: -0.3px;
   color: var(--c-gray-950);
+  @include media(">tablet") {
+    font-size: 25px;
+    line-height: 31px;
+    margin-bottom: 13px;
+  }
 }
 
 .signup__content__text {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 21px;
   color: var(--c-gray-950);
+  @include media(">tablet") {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .signup__content__tip {
@@ -472,14 +556,18 @@
 
   border-radius: 4px;
 
+  font-size: 12px;
+  line-height: 16px;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 19px;
   letter-spacing: 1px;
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--c-gray-950);
   transform: translateX(-50%);
+  @include media(">tablet") {
+    font-size: 14px;
+    line-height: 19px;
+  }
 }
 
 .signup__content__tip-green {
@@ -495,6 +583,13 @@
 
   border: 1px solid var(--c-gray-950);
   border-radius: 6px;
+}
+
+.signup__link i {
+  display: none;
+  @include media(">tablet") {
+    display: inline-block;
+  }
 }
 
 .signup__link a,
@@ -517,17 +612,23 @@
 }
 
 .signup__link button:hover {
-  color: var(--c-blue-550);
+  @include media(">tablet") {
+    color: var(--c-blue-550);
+  }
 }
 
 .signup__link a span {
-  border-bottom: 1px solid var(--c-gray-950);
+  @include media(">tablet") {
+    border-bottom: 1px solid var(--c-gray-950);
+  }
 }
 
 .signup__link a:hover span {
-  border-color: var(--c-blue-550);
+  @include media(">tablet") {
+    border-color: var(--c-blue-550);
 
-  color: var(--c-blue-550);
+    color: var(--c-blue-550);
+  }
 }
 
 .signup__link-dark {
@@ -535,29 +636,37 @@
 }
 
 .signup__link-dark a span {
-  border-bottom: 1px solid var(--c-lightgray-450);
-
   color: var(--c-lightgray-450);
+  
+  @include media(">tablet") {
+    border-bottom: 1px solid var(--c-lightgray-450);
+  }
 }
 
 .signup__link-dark a:hover span {
-  border-color: var(--c-blue-550);
+  @include media(">tablet") {
+    border-color: var(--c-blue-550);
 
-  color: var(--c-blue-550);
+    color: var(--c-blue-550);
+  }
 }
 
 .signup__footer {
-  margin-top: 69px;
+  margin-top: 31px;
 
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0.3px;
   text-align: center;
   color: var(--c-gray-760);
+  @include media(">tablet") {
+    margin-top: 69px;
+  }
 }
 
 .signup__footer a {
   border-bottom: 1px solid var(--c-gray-950);
+  margin-top: 5px;
 
   font-weight: 500;
   letter-spacing: 0.3px;
@@ -565,5 +674,35 @@
 }
 
 .signup__footer a:hover {
-  border-bottom: 1px solid var(--c-blue-550);
+  @include media(">tablet") {
+    border-bottom: 1px solid var(--c-blue-550);
+  }
+}
+
+.signup__footer p span:nth-child(2) {
+  margin-bottom: 14px;
+  display: inline-block;
+}
+
+.signup__footer p span.hidden {
+  display: none;
+  @include media(">tablet") {
+    display: inline-block;
+  }
+}
+
+.signup__footer p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include media(">tablet") {
+    display: block;
+  }
+}
+
+.signup__footer p br {
+  display: block;
+  @include media(">tablet") {
+    display: none;
+  }
 }

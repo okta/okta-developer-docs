@@ -17,8 +17,12 @@
           :class="[formHidden ? 'active' : '']"
         >
           <div class="signup__item">
-            <div class="signup__item__title signup__item__title-logo">
+            <div class="signup__item__title">
               Customer Identity Cloud
+              <img 
+                class="signup__item__title-logo" 
+                src="/img/signup-item-logo.svg" 
+              >
             </div>
             <div class="signup__description">
               <div class="signup__rate">
@@ -45,7 +49,7 @@
                   href="https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup&ocid=7014z000001cbvjAAA-aPA4z0000008OZeGAM" 
                   target="_blank"
                 >
-                  <span>Try Customer Identity Cloud  →</span>
+                  <span>Try Customer Identity Cloud <i>→</i></span>
                 </a>
               </div>
             </div>
@@ -79,7 +83,7 @@
                   href="http://www.okta.com/free-trial" 
                   target="_blank"
                 >
-                  <span>Try Workforce Identity Cloud  →</span>
+                  <span>Try Workforce Identity Cloud <i>→</i></span>
                 </a>
               </div>
             </div>
@@ -228,6 +232,7 @@
                       id="country"
                       v-model="form.country.value"
                       class="signup__form__input"
+                      required
                       :class="{ error: !form.country.isValid }"
                       @change="
                         validationService.checkFormInput('country');
@@ -241,7 +246,8 @@
                       "
                     >
                       <option
-                        disabled
+                        value="" 
+                        disabled 
                         selected
                       >Select...</option>
                       <option
@@ -361,7 +367,7 @@
           </div>
         </div>
         <div class="signup__footer">
-          <p>Not sure what to choose? Learn more about <a href="#">Workforce Identity</a> and <a href="#">Customer Identity</a></p>
+          <p><span>Not sure what to choose?</span> <br> <span>Learn more about</span> <a href="#">Workforce Identity</a> <span class="hidden">and</span> <a href="#">Customer Identity</a></p>
         </div>
       </div>
     </div>
