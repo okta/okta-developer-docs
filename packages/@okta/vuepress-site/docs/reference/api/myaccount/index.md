@@ -1484,7 +1484,7 @@ curl -v -X DELETE \
 
 ##### Response
 
-Returns an empty HTTP 204 status code response.
+Returns an empty HTTP 204 status code response
 
 #### Error Responses
 
