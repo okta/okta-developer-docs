@@ -1457,7 +1457,6 @@ Deletes the current user's enrolled password
 
 <ApiOperation method="delete" url="/idp/myaccount/password" />
 
-Deletes the password for the current user.
 
 #### Required scope and role
 
