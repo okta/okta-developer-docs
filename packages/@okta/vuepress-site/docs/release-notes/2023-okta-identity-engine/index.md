@@ -81,7 +81,7 @@ Okta [Workflows](https://www.okta.com/platform/workflows/) is a no-code, if-this
 
 The number of events that can be delivered to Event Hooks is now 400,000 events per org, per day. See [Rate limits](https://developer.okta.com/docs/concepts/event-hooks/#rate-limits). <!--OKTA-573847-->
 
-#### Bugs fixed in 2023.03.0
+#### Bug fixed in 2023.03.0
 
 When an admin used a group limit in an expression that was greater than 100 (for example, `Groups.startsWith("active_directory","",500)` ), /userinfo endpoint requests failed. (OKTA-576414)
 
