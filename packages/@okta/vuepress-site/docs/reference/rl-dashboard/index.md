@@ -198,7 +198,7 @@ The bar graph shows either the top 10 IP addresses, top 10 API tokens, or top 10
 
 Display the desired bar graph by selecting **Top Requests by IP**, **Top Requests by API Token**, or **Top Requests by Application** in the dropdown menu.
 
-Click an IP address, API token, or Application bar to view the traffic for associated traffic on the line graph.
+Click an IP address, API token, or Application bar to view the associated traffic on the line graph.
 
 <div class="three-quarter">
 
