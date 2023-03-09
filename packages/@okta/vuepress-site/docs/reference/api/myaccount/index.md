@@ -1345,7 +1345,7 @@ The requested [My Password object](#my-password-object)
 
 #### Error Responses
 
-If the password supplied is invalid, the response returns a 400 BAD REQUEST with error code E0000001
+If the password supplied is invalid, the response returns a 400 BAD REQUEST with error code E0000001.
 
 If the password operation isn't enabled in the org, the response returns a 403 FORBIDDEN with error code E0000038.
 
