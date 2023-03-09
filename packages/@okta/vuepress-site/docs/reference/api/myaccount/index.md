@@ -59,6 +59,10 @@ The MyAccount API has the following operations:
 * [Get My User Profile Schema](#get-my-user-profile-schema)
 * [Get My User Profile](#get-my-user-profile)
 * [Update My User Profile](#update-my-user-profile)
+* [Get My password](#get-my-password)
+* [Add My password](#add-my-password)
+* [Update My password](#update-my-password)
+* [Delete My password](#delete-my-password)
 
 ### Get My Emails
 
@@ -1253,6 +1257,241 @@ curl -XPUT 'https://${yourOktaDomain}/idp/myaccount/profile' -H 'Authorization: 
 }
 ```
 
+### Get My Password
+
+<ApiOperation method="get" url="/idp/myaccount/password" />
+
+Retrieves the current user's password status
+
+> **Note:**  This operation only returns information about the password, not the password itself.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.password.read` or `okta.myAccount.password.manage` is required to use this endpoint.
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Response body
+
+The requested [My Password object](#my-password-object)
+
+#### Usage example
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
+"https://${yourOktaDomain}/idp/myaccount/password"
+```
+
+##### Response
+
+```json
+{
+    "id": "00T196qTp3LIMZQ0L0g3",
+    "status": "ACTIVE",
+    "created": "2020-01-14T20:05:32.000Z",
+    "lastUpdated": "2020-01-14T20:05:32.000Z"
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/password",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Add My Password
+
+<ApiOperation method="post" url="/idp/myaccount/password" />
+
+Creates and enrolls a password for the current user
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.password.manage` is required to use this endpoint.
+
+> **Note:** Admin users can't make POST requests to the `/idp/myaccount/password` endpoint.
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+This API requires a [My Password Request object](#my-password-request-object) as its request body.
+
+#### Response body
+
+The requested [My Password object](#my-password-object)
+
+#### Error Responses
+
+If the password supplied is invalid, the response returns a 400 BAD REQUEST with error code E0000001.
+
+If the password operation isn't enabled in the org, the response returns a 403 FORBIDDEN with error code E0000038.
+
+#### Usage example
+
+##### Request
+
+```bash
+curl -v -X POST \
+-H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
+"https://${yourOktaDomain}/idp/myaccount/password"
+```
+
+##### Response
+
+```json
+{
+    "id": "00T196qTp3LIMZQ0L0g3",
+    "status": "ACTIVE",
+    "created": "2020-01-14T20:05:32.000Z",
+    "lastUpdated": "2020-01-14T20:05:32.000Z",
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/password/00T196qTp3LIMZQ0L0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Update My Password
+
+<ApiOperation method="put" url="/idp/myaccount/password" />
+
+Replaces the password for the current user.
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.password.manage` is required to use this endpoint.
+
+> **Note:** Admin users can't make PUT requests to the `/idp/myaccount/password` endpoint."
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+This API requires a [My Password Request object](#my-password-request-object) as its request body.
+
+#### Response body
+
+The requested [My Password object](#my-password-object)
+
+#### Error Responses
+
+If the password supplied is invalid, the response returns a 400 BAD REQUEST with error code E0000001.
+
+If the password operation isn't enabled in the org, the response returns a 403 FORBIDDEN with error code E0000038.
+
+#### Usage example
+
+##### Request
+
+```bash
+curl -v -X POST \
+-H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
+"https://${yourOktaDomain}/idp/myaccount/password"
+```
+
+##### Response
+
+```json
+{
+    "id": "00T196qTp3LIMZQ0L0g3",
+    "status": "ACTIVE",
+    "created": "2020-01-14T20:05:32.000Z",
+    "lastUpdated": "2020-01-14T20:05:32.000Z",
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/password/00T196qTp3LIMZQ0L0g3",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Delete My Password
+
+Deletes the current user's enrolled password
+
+<ApiOperation method="delete" url="/idp/myaccount/password" />
+
+#### Required scope and role
+
+An Okta scope of `okta.myAccount.password.manage` is required to use this endpoint.
+
+> **Note:** Admin users can't make PUT requests to the `/idp/myaccount/password` endpoint."
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
+
+#### Usage example
+
+##### Request
+
+```bash
+curl -v -X DELETE \
+-H "Authorization: Bearer ${token}" \
+-H "Accept: application/json; okta-version=1.0.0" \
+"https://${yourOktaDomain}/idp/myaccount/password"
+```
+
+##### Response
+
+Returns an empty HTTP 204 status code response
+
+#### Error Responses
+
+If the password operation isn't enabled in the org, the response returns a 403 FORBIDDEN with error code E0000038.
+
+If the user doesn't currently have a password, the response returns a 404 NOT FOUND with error code E0000007.
+
 ## MyAccount API objects
 
 ### My Email object
@@ -1562,5 +1801,59 @@ The User Profile object has several properties:
         "mobilePhone": null,
         "customInteger": null
     }
+}
+```
+
+### My Password Object
+
+#### My Password
+
+The My Password object has several properties:
+
+| Property   | Type                                                           | Description                                                                                                |
+| ---------- | ---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------- |
+| `_links`     | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)) | Discoverable resources related to the caller's user's password                                         |
+| `createdAt`  | String (ISO-8601)                                                        | The timestamp the caller's password was created                                                             |
+| `modifiedAt` | String (ISO-8601)                                                        | The timestamp the caller's password was last updated                                                        |
+| `status`    | String                                       | The caller's password status, ACTIVE, EXPIRED, NOT_ENROLLED, OR SUSPENDED                                                                       |
+
+#### My Password example
+
+```json
+{
+    "id": "00T196qTp3LIMZQ0L0g3",
+    "status": "ACTIVE",
+    "created": "2020-01-14T20:05:32.000Z"
+    "lastUpdated": "2020-01-14T20:05:32.000Z"
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/idp/myaccount/password",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+### My Password Request object
+
+#### My Password Request properties
+
+| Property           | Type                                                            | Description                                                                                                       |
+| ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
+| `profile`          | Object                                                            | The Profile object defines the password on the profile.|
+
+#### My Phone Request example
+
+```json
+{
+  "profile": {
+      "phoneNumber" : "+15555555555"
+  }
 }
 ```
