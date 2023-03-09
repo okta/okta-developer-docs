@@ -499,7 +499,7 @@ export default {
     setHeight(isNotUSAAndCanada) {
       if (!isNotUSAAndCanada) {
         setTimeout(function() {
-          let height = document.querySelector('.signup__form').getBoundingClientRect().height + 143 + 'px';
+          let height = document.querySelector('.signup__form').getBoundingClientRect().height + 141 + 'px';
           document.querySelector('.signup__items.active').style.height = height;
         }, 10);
       } else {
