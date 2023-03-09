@@ -1457,7 +1457,6 @@ Deletes the current user's enrolled password
 
 <ApiOperation method="delete" url="/idp/myaccount/password" />
 
-
 #### Required scope and role
 
 An Okta scope of `okta.myAccount.password.manage` is required to use this endpoint.
