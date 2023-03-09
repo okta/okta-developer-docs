@@ -27,7 +27,7 @@ When configured, the Okta-hosted user consent dialog for OAuth 2.0 or OpenID Con
 
 User consent represents a user's explicit permission to allow an application to access resources protected by scopes. Consent grants are different from tokens because a consent can outlast a token, and there can be multiple tokens with varying sets of scopes derived from a single consent.
 
-You can configure which scopes aren't required, which are optional <ApiLifecycle access="ea" />, and which are required.
+You can configure which scopes aren't required, which are optional, and which are required.
 
 When an application needs to get a new access token from an authorization server, the user isn't prompted for consent if they already consented to the specified scopes. Consent grants remain valid until the user or admin manually revokes them, or until the user, application, authorization server, or scope is deactivated or deleted.
 
@@ -64,11 +64,11 @@ Use the following steps to display the user consent dialog as part of an OpenID 
     > **Note:** If these options don't appear, you don't have the optional consent feature enabled. To enable it in your org, select **Settings** > **Features**, locate **OAuth 2.0 optional consent**, and slide to enable.
 
     * **Implicit**: The default setting. Indicates that the user doesn't have to grant the app access to the information. User consent is implied.
-    * **Optional** <ApiLifecycle access="ea" />: Indicates that the user can skip granting the app access to the information (scope). Scopes that the user skips aren't included in the authorization response. After a user skips a scope, the next time that they sign in, Okta doesn't prompt them for it. If you later make the scope required for the app, the user is then prompted to grant the app access to that scope.
+    * **Optional**: Indicates that the user can skip granting the app access to the information (scope). Scopes that the user skips aren't included in the authorization response. After a user skips a scope, the next time that they sign in, Okta doesn't prompt them for it. If you later make the scope required for the app, the user is then prompted to grant the app access to that scope.
 
     > **Note:** When you include `prompt=consent` in the authorization request, the user is prompted for all consent-enabled scopes. This includes scopes that are required or optional, even when the user has already given consent for a scope or skipped a scope. The user also has the option to skip scopes that were changed from required to optional.
 
-1. When you select **User consent** as **Required** or **Optional** <ApiLifecycle access="ea" />, the **Block services from requesting this scope** checkbox is automatically selected.
+1. When you select **User consent** as **Required** or **Optional**, the **Block services from requesting this scope** checkbox is automatically selected.
 
     The **Block services from requesting this scope** checkbox strictly enforces user consent for the scope. When you select this checkbox, if a service using the [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the checkbox. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
 
@@ -149,7 +149,7 @@ The following section provides example requests for enabling the consent dialog 
 
 To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by updating the `consent` property for the scope from `IMPLICIT` (the default) to either `REQUIRED` or `FLEXIBLE`. In this example, set `consent` to `REQUIRED`.
 
-To make consent of a scope optional, set the `consent` property to either `REQUIRED` or `FLEXIBLE` and include `"optional": true` <ApiLifecycle access="ea" /> in the request.
+To make consent of a scope optional, set the `consent` property to either `REQUIRED` or `FLEXIBLE` and include `"optional": true` in the request.
 
 > **Note:** See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on scope properties and how to use them.
 
@@ -171,7 +171,6 @@ This example shows the JSON body for a PUT request to the default custom authori
 }
 ```
 
-<ApiLifecycle access="ea" />
 To update scope consent to `OPTIONAL`, set `consent` to `REQUIRED` and include the `optional` parameter set to `true`:
 
 ```json
@@ -199,7 +198,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
 2. Use the default custom authorization server's authorization endpoint, for example, `https://{yourOktaDomain}/oauth2/default/v1/authorize`.
 
-    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 3. Add the following query parameters to the URL:
 

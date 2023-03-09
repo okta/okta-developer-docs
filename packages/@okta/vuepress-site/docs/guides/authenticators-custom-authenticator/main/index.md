@@ -17,6 +17,12 @@ Enable a mobile app to verify a user identity for an Okta custom authenticator.
 * An Okta developer app
 * <StackSnippet snippet="notifservicelink" inline />
 * <StackSnippet snippet="appreq" inline />
+* (Optional) Access to the following APIs:
+  * [Apps](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/grantConsentToScope)
+  * [Push providers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/PushProvider/#tag/PushProvider/operation/createPushProvider)
+  * [Authenticator](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Authenticator/#tag/Authenticator/operation/createAuthenticator)
+  * [MyAccount App authenticators](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/)
+  * [Authorization Servers](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/replaceAuthorizationServerPolicyRule)
 
 **Sample code**
 
@@ -26,16 +32,16 @@ Enable a mobile app to verify a user identity for an Okta custom authenticator.
 
 ## About custom authentication and the Devices SDK
 
-The Devices SDK allows you to embed push notifications and biometrics directly into your native mobile app. As a result, you can control the entire experience because users are prompted to continue the sign-in process on your mobile app. You aren’t limited to using only Okta Verify for push notifications. Also, using custom authentication helps drive downloads of your app.
+The Devices SDK allows you to embed push notifications and biometrics directly into your native mobile app. As a result, you can control the entire authentication experience by keeping users on your mobile app for the complete sign-in process. The Devices SDK implements the custom authenticator, which is another authenticator besides Okta Verify that you can use for push notifications. In addition, by implementing a custom authentication flow in your app, you also help drive downloads of your app.
 
 ## Get started
 
-This guide walks you through the two main tasks needed to integrate with Okta Devices SDK:
+This guide walks you through the two main tasks needed to integrate with the Okta Devices SDK:
 
 **Create a custom authenticator**
 
 1. [Create an OIDC web authentication client](#create-an-oidc-web-authentication-client): Set up OAuth for your app.
-2. [Grant the required scopes](#grant-the-required-scopes): Grant the scopes you need to create a custom authenticator.
+2. [Grant the required scopes](#grant-the-required-scopes): Grant the scopes that you need to create a custom authenticator.
 3. [Set up notification services](#set-up-notification-services): Set up <StackSnippet snippet="notifservicelong" inline /> with your Okta org.
 4. [Add a custom authenticator](#add-a-custom-authenticator): Create and brand a custom authenticator.
 5. [Set up a global session policy and authentication policy](#set-up-a-global-session-policy-and-authentication-policy): Control who can access Okta and how.
@@ -48,7 +54,7 @@ The following image shows what the Devices SDK enables for end users:
 
 <div class="three-quarter border">
 
-![Custom authenticator flowchart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
+![Custom Authenticator flow chart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
 
 </div>
 
@@ -64,23 +70,22 @@ The following image shows the Devices SDK setup in the Admin Console:
 
 ### Create an OIDC web authentication client
 
-The simplest way to integrate authentication in your app is with OIDC through a web browser, using the [Authorization Code flow grant type](/docs/guides/implement-grant-type/authcode/main/). You need an access token to start the enrollment flow for the Devices SDK. For future sign-in attempts, consider using refresh tokens. <StackSnippet snippet="samplecode" inline />
+The simplest way to integrate authentication in your app is to use the [Authorization code flow grant type](/docs/guides/implement-grant-type/authcode/main/) and implement the OIDC protocol through a web browser.  You need an access token to start the enrollment flow for the Devices SDK. For future sign-in attempts, consider using refresh tokens. <StackSnippet snippet="samplecode" inline />
+
+<StackSnippet snippet="jwtbearernote" />
 
 ### Grant the required scopes
 
-> **Note:** You must use an [org authorization server](/docs/concepts/auth-servers/#available-authorization-server-types) to grant the scopes needed to create a custom authenticator. Custom authorization servers (including the default custom authorization server) don't work.
-
-When you are ready to grant the required scopes, follow these steps:
+When you're ready to grant the required scopes, follow these steps:
 
 1. Sign in to your Okta organization with your administrator account.
 2. Select **Applications** > **Applications** to see a list of your app integrations.
 3. Open your OpenID Connect client app.
 4. On the **Okta API Scopes** tab, click **Grant** for the following scopes:
    * For access to both GET and POST/DELETE endpoints:
-      * `okta.authenticators.manage.self`
+      * `okta.myAccount.appAuthenticator.manage`
    * For access to GET endpoints only:
-      * `okta.authenticators.read`
-      * `okta.users.read.self`
+      * `okta.myAccount.appAuthenticator.read`
 
 Alternatively, you can grant scopes using the [Grant consent to scope for application](/docs/reference/api/apps/#application-oauth-2-0-scope-consent-grant-operations) operation of the Apps API.
 
@@ -94,7 +99,7 @@ Alternatively, you can grant scopes using the [Grant consent to scope for applic
 
 ### Set up a global session policy and authentication policy
 
-You need to set up a global session policy and an authentication policy to integrate with the Devices SDK. See [Configure a global session policy and authentication policy](/docs/guides/configure-signon-policy/main/).
+Set up a global session policy and an authentication policy to integrate with the Devices SDK. See [configure a global session policy and authentication policy](/docs/guides/configure-signon-policy/main/).
 
 ## Install and configure the Okta Devices SDK
 
@@ -126,7 +131,7 @@ If your push notifications aren't delivering:
 3. In the **Reason** section, locate the error message from your push provider. Consult the push provider documentation, if necessary.
 4. Verify that your notification services configuration is valid. See [Edit a notification service](https://help.okta.com/okta_help.htm?type=oie&id=ext-all-notification-services).
 5. Click **Save** to allow push providers to attempt to send notifications again.
-6. If your push notifications still aren't delivering, repeat steps 1-5.
+6. If your push notifications aren't delivered, repeat steps 1 through 5.
 
 ## See also
 
