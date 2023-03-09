@@ -21,7 +21,7 @@ title: Okta Identity Engine API Products release notes 2023
 | [Honor force authentication support for SAML Apps API](#honor-force-authentication-support-for-saml-apps-api)                                                 |March 08, 2023    |
 | [OIN Manager support for Workflow Connector submission is GA in Preview](#oin-manager-support-for-workflow-connector-submission-is-ga-in-preview)             |March 08, 2023    |
 | [Rate limit increased for Event Hooks](#rate-limit-increased-for-event-hooks)                                                                                 |March 08, 2023    |
-| [Bugs fixed in 2023.03.0](#bugs-fixed-in-2023-03-0)                                                                                                           |March 08, 2023    |
+| [Bug fixed in 2023.03.0](#bug-fixed-in-2023-03-0)                                                                                                           |March 08, 2023    |
 
 #### Authenticator enrollment using the /authorize endpoint is GA in Production
 
@@ -81,9 +81,9 @@ Okta [Workflows](https://www.okta.com/platform/workflows/) is a no-code, if-this
 
 The number of events that can be delivered to Event Hooks is now 400,000 events per org, per day. See [Rate limits](https://developer.okta.com/docs/concepts/event-hooks/#rate-limits). <!--OKTA-573847-->
 
-#### Bugs fixed in 2023.03.0
+#### Bug fixed in 2023.03.0
 
-* When an admin used a group limit in an expression that was greater than 100 (for example, `Groups.startsWith("active_directory","",500)` ), /userinfo endpoint requests failed. (OKTA-576414)
+When an admin used a group limit in an expression that was greater than 100 (for example, `Groups.startsWith("active_directory","",500)` ), /userinfo endpoint requests failed. (OKTA-576414)
 
 ## February
 
