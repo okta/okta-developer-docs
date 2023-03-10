@@ -38,7 +38,9 @@ Email notifications are based on templates that are generated automatically and 
 
 ### Multibrand customizations and emails
 
-<MultibrandEmail />
+The custom domain, from which the end user browses your app, triggers the email branding.
+
+For example, you have a custom domain, with branding, for the "Widgets, Inc." app. An end user attempts to log into your app and triggers a Send Push Verify Activation Link email. The email has the branding associated with the custom domain for "Widgets, Inc.".
 
 See [Brands](/docs/concepts/brands/).
 
