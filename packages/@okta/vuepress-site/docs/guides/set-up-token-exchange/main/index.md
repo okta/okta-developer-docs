@@ -165,7 +165,7 @@ Use the following example to build the request to exchange the authorization cod
     --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
     --data-urlencode 'code=FQGFlDO-J1j.....QvabuZ7-cfYJ0KtKB8' \
     --data-urlencode 'code_verifier=xO5wgOEH5UA2XUdVQ88pM.....Rtc5ERKq1MeonMo8QLCSRYlDk' \
-    --data-urlencode 'client_id=${nativeAppClientId}' \
+    --data-urlencode 'client_id=${nativeAppClientId}'
 ```
 
 **Response**
