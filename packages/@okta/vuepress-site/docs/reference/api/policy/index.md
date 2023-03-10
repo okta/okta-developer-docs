@@ -7,7 +7,7 @@ category: management
 
 The Okta Policy API enables an administrator to perform Policy and Policy Rule operations. The Policy framework is used by Okta to control Rules and settings that govern, among other things, user session lifetime, whether multi-factor authentication is required when logging in, what MFA factors may be employed, password complexity requirements, what types of self-service operations are permitted under various circumstances, and what identity provider to route users to.
 
-Policy settings for a particular Policy type, such as Sign On Policy, consist of one or more Policy objects, each of which contains one or more Policy Rules.  Policies and Rules contain conditions that determine whether they are applicable to a particular user at a particular time.
+Policy settings for a particular Policy type, such as Sign On Policy, consist of one or more Policy objects, each of which contains one or more Policy Rules. Policies and Rules contain conditions that determine whether they're applicable to a particular user at a particular time.
 
 The Policy API supports the following **Policy operations**:
 
@@ -22,7 +22,7 @@ The Policy API supports the following **Rule operations**:
 * Create, read, update, and delete a Rule for a Policy
 * Activate and deactivate a Rule
 
-## Getting started
+## Get started
 
 Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f443644517abb15117af)
 
@@ -98,8 +98,6 @@ curl -v -X GET \
 ##### Response types
 
 HTTP 200:
-[Policy object](#policy-object)
-HTTP 204:
 [Policy object](#policy-object)
 
 ### Delete Policy
@@ -2107,7 +2105,7 @@ The following table shows the possible relationships between all the authenticat
 > * Method characteristics with an asterisk (*) indicate that the condition is only satisfied with certain configurations, devices, or flows.
 > * Inherence (user verifying characteristic) constraint can't be configured, but can be satisfied as the second part of a 2FA assurance if the device or platform supports biometrics.
 
-| Authenticator key | Authenticator type | Authenticator method | Constraints<br>(factor class) | Hardware protection | Device bound | Phishing resistant | User presence | User verifying<br>(for biometrics) |
+| Authenticator key | Authenticator type | Authenticator method | Constraints<br>(factor class) | Hardware<br>protection | Device<br>bound | Phishing<br>resistant | User<br>presence | User<br>verifying<br>(biometrics) |
 | ----------------- | ------------------ | ---------- | ------ | -------- | -------| ---------- | ---------- | ---------- |
 | `okta_password` | `PASSWORD` | `PASSWORD` | knowledge |  |  |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
 | `security_question` | `SECURITY_QUESTION` | `SECURITY_QUESTION` | knowledge |  |  |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
@@ -2122,10 +2120,10 @@ The following table shows the possible relationships between all the authenticat
 | `okta_verify` | `APP` | `SIGNED_NONCE` | possession, inherence | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
 | `custom_app` | `APP` | `PUSH` | possession, inherence | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
 | `webauthn` | `SECURITY_KEY` | `WEBAUTHN` | possession, inherence |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span>  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |
-| `custom_otp` | `SECURITY_KEY` | `otp` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
-| `onprem_mfa` | `SECURITY_KEY` | `otp` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
-| `rsa_token` | `SECURITY_KEY` | `otp` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
-| `yubikey_token` | `SECURITY_KEY` | `otp` | possession | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> ? | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
+| `custom_otp` | `SECURITY_KEY` | `OTP` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
+| `onprem_mfa` | `SECURITY_KEY` | `OTP` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
+| `rsa_token` | `SECURITY_KEY` | `OTP` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
+| `yubikey_token` | `SECURITY_KEY` | `OTP` | possession | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> ? | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
 | `external_idp` | `FEDERATED` | `IDP` | possession |  |  |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
 | `smart_card_idp` | `FEDERATED` | `CERT` | possession, knowledge | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
 
