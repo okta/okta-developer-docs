@@ -79,7 +79,7 @@ Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the doma
 
 ## FAQs
 
-### How many custom domains are supported?
+### How many custom domains per org?
 
 All paid orgs get a maximum of three custom domains. You can request up to 200 custom domains at no cost.
 
@@ -98,7 +98,7 @@ Keep in mind the following when setting up domains for an org with branded email
 
 #### Email senders
 
-The main Okta email provider allows each unique email sender (root domain, no-reply@company.com) to be used only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
+The main Okta email provider allows you to use each unique email sender (root domain, no-reply@company.com) only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
 
 #### Data migrations
 
