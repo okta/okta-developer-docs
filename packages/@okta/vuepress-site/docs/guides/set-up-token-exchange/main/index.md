@@ -130,7 +130,7 @@ Use the Authorization Code with PKCE flow to obtain an authorization code for th
 Navigate to the `/authorize` endpoint using a request URL with the appropriate parameters: 
 
   ```bash
-    https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${nativeAppClientId}&response_type=code&scope=openid&redirect_uri=${configuredRedirectUri}k&state=teststate&code_challenge_method=S256&code_challenge=${code_challenge}
+    https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${nativeAppClientId}&response_type=code&scope=openid&redirect_uri=${configuredRedirectUri}&state=teststate&code_challenge_method=S256&code_challenge=${code_challenge}
   ```
 
 Note the parameters that are being passed:
