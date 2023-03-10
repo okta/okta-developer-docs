@@ -305,9 +305,9 @@ You can reference any Okta User Profile attribute in your email templates.
 
 ## Use functions for email templates
 
-In addition to customizing your emails with variables, you can use the following functions in each of the email templates. Functions are useful to normalize the dynamic output of variables, such as lowercasing a string, or producing a localized date for the email recipient.
+In addition to variables, you can use the following functions in each of the email templates. Functions normalize the dynamic output of variables. You can lowercase a string or produce a localized date for the end user.
 
-Variables used for function parameters must match the function data type. For example, you can't use a string variable with the `formatTimeDiffHourNow()` function because the parameter data must be an integer.
+Variables used for function parameters must match the function data type. For example, you can't use a string variable with the `formatTimeDiffHourNow()` function. The parameter data must be an integer.
 
 | Expression                                                    | Definition                                                                                                          |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
