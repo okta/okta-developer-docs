@@ -178,7 +178,7 @@ The following table provides a list of all allowed HTML tags and elements in cus
 
 You can edit the templates through the pencil icon. See [Edit a default email template](#edit-a-default-email-template).
 
-If you restore an email to default settings, you delete any customizations made to the email whether or not the custom email is your default.
+If you restore an email to default settings, you delete any customizations made to the email whether or not the customization is for the default language.
 
 After you customize a template in one language, you need to customize other languages if you want to include them. If you reset all customized translations, then Okta uses the 27 default translations.
 
