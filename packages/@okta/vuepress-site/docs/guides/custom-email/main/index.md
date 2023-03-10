@@ -40,7 +40,7 @@ Email notifications are based on templates that are generated automatically and 
 
 Before authentication, end users see the correct brand’s sign-in page by visiting the custom domain associated with the brand. When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
 
-For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to resets a password from the sign-in page. The sign-in triggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
+For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to reset a password from the sign-in page. The sign-in triggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
 
 See [Brands](/docs/concepts/brands/).
 
@@ -90,12 +90,12 @@ Remember that Okta doesn't automatically translate the changes you make in one t
 
 ### Use customizable email templates
 
-The following table provides a list of all available email templates in an Okta org, along with:
+The following table provides a list of all available email templates in an Okta org, including:
 
-- the default subject line for the email template
-- the corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/reference/api/brands/#email-template-operations))
-- the required validation fields for templates created using the API
-- a description of the template
+- The default subject line for the email template
+- The corresponding API object reference (`${templateName}`) for the email template (see [Email template operations](/docs/reference/api/brands/#email-template-operations))
+- The required validation fields for templates created using the API
+- A description of the template
 
 > **Note:** If you use the embedded Okta Sign-In Widget for authentication, don't use `${emailAuthenticationLink}` as the required validation field. It takes you to the Okta-hosted Sign-In Widget. Instead, use [Custom password recovery](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/nodeexpress/main/).
 
@@ -209,7 +209,7 @@ In your email templates, you can use any conditional logic that VTL supports, su
 
 ### Customization example
 
-The following example uses the `${app.name} variable, which is only available in Okta Identity Engine.
+The following example uses the `${app.name}` variable, which is only available in Okta Identity Engine.
 
 ```html
 #if(${app.name} == "Toys R' Fun")
