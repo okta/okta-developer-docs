@@ -34,7 +34,7 @@ You can customize and style the default email notifications that Okta sends to e
 
 Email notifications are based on templates that are generated automatically and sent to end users according to your settings. Okta email templates are available in each Okta-supported language. You can use the default email templates as they are, or you can edit the text of the various email templates to send end users custom Okta-generated email messages.
 
-> **Note:** When you edit a template, Okta stops sending the default in other languages. You are responsible for adding translations of your customized message. See [Edit a default template](#edit-a-default-template).
+> **Note:** When you edit a template, Okta stops sending the default in other languages. You're responsible for adding translations of your customized message. See [Edit a default template](#edit-a-default-template).
 
 ### Multibrand customizations and emails
 
@@ -46,7 +46,14 @@ See [Brands](/docs/concepts/brands/).
 
 ### Use the Brands API
 
-The Brands API allows you to customize the look and feel of pages and templates, such as the custom sign-in page, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain.
+The Brands API allows you to customize the look and feel of pages and templates, inclugin:
+
+- The custom sign-in page
+- Error pages
+- Email templates
+- The Okta End-User Dashboard
+
+You can brand these pages and templates without setting up a customized Okta URL domain.
 
 > **Note:** If you change any email code using the [Admin Console](#edit-a-default-email-template), your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings.
 
@@ -116,7 +123,7 @@ The following table provides a list of all available email templates in an Okta 
 | Forgot Password | Account password reset | `ForgotPassword` | Either `${resetPasswordLink}` or `${oneTimePassword}`</br>(Identity Engine and Classic Engine) |  Sent to users who must follow the provided link to reset their forgotten password |
 | Active Directory Password Reset | Forgotten password (Identity Engine)</br></br>Account password reset (Classic Engine) | `ADForgotPassword` | Either `${recoveryLink}` or `${recoveryToken}`</br>(Identity Engine and Classic Engine) | Sent to users who want to reset their Active Directory account password and must follow the provided link to reset their password (Identity Engine)</br></br>Sent to users who have had their Active Directory account password reset and must follow the provided link to reset their password (Classic Engine) |
 | Password Changed | Password Changed | `PasswordChanged` | |  Sent to users whenever their account password changes |
-| Self-Service Unlock when Account is not Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` | |  Sent to users who tried to use self-service to unlock an account that isn't locked |
+| Self-Service Unlock when Account isn’t Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` | |  Sent to users who tried to use self-service to unlock an account that isn't locked |
 | Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to Active Directory users who must follow the provided link to unlock their password |
 | Self-Service Unlock Account | Unlock Account | `SelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to users who must follow the provided link to complete the self-service unlock account process |
 | LDAP Self-Service Unlock Account | Unlock Account | `LDAPSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to LDAP users who must follow the provided link to complete the self-service unlock account process |
@@ -128,10 +135,10 @@ The following table provides a list of all available email templates in an Okta 
 | New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | `${request.browser}`, `${request.date}`, `${request.time}`, `${request.location}` and `${request.ipAddress}` |  Sent to users who authenticated into Okta from an unknown device or browser and should contact the Okta system administrator if the user doesn't recognize the sign-in details of the unknown device |
 | Authenticator Enrolled (Identity Engine)</br></br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Either `${request.factor}` or `${request.authenticator}` (Identity Engine)</br></br>`${request.factor}`, `${request.date}`, `${request.time}`, and `${request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine)</br></br>Sent to users when new MFA factors are enrolled (Classic Engine) |
 | Authenticator Reset (Identity Engine)</br></br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` | Either `${request.factors}` or `${request.authenticators}` (Identity Engine)</br></br>`${request.factors}`, `${request.date}`, `${request.time}`, and `${request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine)</br></br>Sent to users when MFA factors are reset (Classic Engine) |
-| Campaign Launched | Access certification campaign: (`campaignName`) | `IGAReviewerNotification` | | Sent to reviewers when they are assigned reviews to complete in a newly launched campaign. |
+| Campaign Launched | Access certification campaign: (`campaignName`) | `IGAReviewerNotification` | | Sent to reviewers when they’re assigned reviews to complete in a newly launched campaign. |
 | Campaign Ended | Access certification campaign: (`campaignName`) | `IGAReviewerEndNotification` | | Sent to reviewers if they have pending reviews after a campaign ends. |
 | Campaign Reminder | Access certification campaign: (`campaignName`) | `IGAReviewerPendingNotification` | | Sent to reviewers to remind them of pending reviews. |
-| Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` | | Sent to reviewers when they are assigned new reviews by an admin or a different reviewer. |
+| Reassigned Review | Access certification campaign: (`campaignName`) | `IGAReviewerReassigned` | | Sent to reviewers when they’re assigned new reviews by an admin or a different reviewer. |
 | Idp MyAccount Email Change Confirmation | Confirm email address change | `MyAccountChangeConfirmation` |  | Sent to users who try to verify an email address using MyAccount APIs. The users must enter the provided code to confirm the change. |
 
 ### Use Branding variables
@@ -169,7 +176,7 @@ The following table provides a list of all allowed HTML tags and elements in cus
 
 ## Add translations
 
-**Note:** After a template is customized, other languages are only included when they are customized. If all customized translations are reset, then the 27 default translations are used.
+**Note:** After a template is customized, other languages are only included when they’re customized. If all customized translations are reset, then the 27 default translations are used.
 
 The default language is used when the end user’s locale doesn't match any email customizations. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
@@ -199,7 +206,7 @@ To delete all custom translations and revert to the Okta template, click **Reset
 - All of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object).
 - Some of the org attributes in these variables.
 
-Email templates use common and unique VTL variables. When you interpolate variables in the template content, precede them with a dollar sign. Use dot notation to reference sub-objects. For example, reference the first name of a user with `${user.profile.firstName}`.
+Email templates use both common and unique VTL variables. When you interpolate variables in the template, precede them with a dollar sign. Use dot notation to reference sub-objects. For example, reference the first name of a user with `${user.profile.firstName}`.
 
 See [Use VTL variables](#use-vtl-variables) for available email template variables.
 
@@ -321,12 +328,12 @@ Variables used for function parameters must match the function data type. For ex
 
 You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template, as well as see how the template renders in different email environments. You avoid the need to create an end-to-end workflow to test customizations. The primary email address of the admin that initiates the test receives the email.
 
-1. Click the email icon to the right of the email template that you have customized. A list shows the sender and receiver of the email.
+1. Click the email icon to the right of the email template that you’ve customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
 
 ## Known Issues
 
-- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-industry standard email processing. The Okta Org API allows you to [retry blocked](/docs/reference/api/org/#email-address-bounces-operations) emails, but the free.fr inbox provider continues to block retries. There is no known workaround beyond asking the user to retrigger the email with a different email address.
+- Users with free.fr email addresses may not receive emails delivered by Okta. This is due to free.fr enforcing non-industry standard email processing. The Okta Org API allows you to [retry blocked](/docs/reference/api/org/#email-address-bounces-operations) emails, but the free.fr inbox provider continues to block retries. There’s no known workaround beyond asking the user to retrigger the email with a different email address.
 
 ## See also
 
