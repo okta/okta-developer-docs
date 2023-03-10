@@ -50,7 +50,7 @@ Multibrand orgs have a non-deletable default brand called the subdomain brand. H
 
 The custom domain, from which the end user browses your app, triggers the email branding.
 
-For example, you have a custom domain, with branding, for the "Widgets, Inc." app. An end user attempts to log into your app and triggers a Send Push Verify Activation Link email. The email has the branding associated with the custom domain for "Widgets, Inc.".
+For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to log into your app and triggers a Send Push Verify Activation Link email. The email has the branding associated with the custom domain for "Widgets, Inc.".
 
  See [Customize email notifications](/docs/guides/custom-email/main/).
 
