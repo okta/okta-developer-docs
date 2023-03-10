@@ -655,7 +655,7 @@ export const guides = [
         title: "API Security",
         subLinks: [
           {
-            title: "Configure OAuth for DPoP",
+            title: "Configure Demonstrating Proof-of-Possession",
             guideName: "dpop",
           },
           {

@@ -27,7 +27,7 @@ OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) helps prevent unauthorized or
 
 > **Note:** The Okta DPoP feature is based on the current [DPoP draft specification](https://www.ietf.org/archive/id/draft-ietf-oauth-dpop-04.html). Okta intends to address any enhancements or modifications made to the specification before ratification.
 
-DPoP enables a client to prove the possession of a public/private key pair by including a DPoP header in a request to the `/token` endpoint. The value of the DPoP header is a JWT that enables the authorization server to bind issued tokens to the public part of a client's key pair. Recipients of these tokens (such as an API) can then verify that binding, which provides assurance that the client that presents the token also possesses the private key.
+DPoP enables a client to prove possession of a public/private key pair by including a DPoP header in a `/token` endpoint request. The value of the DPoP header is a JSON Web Token (JWT) that enables the authorization server to bind issued tokens to the public part of a client's key pair. Recipients of these tokens (such as an API) can then verify that binding, which provides assurance that the client presenting the token also possesses the private key.
 
 ## OAuth 2.0 DPoP JWT flow
 
@@ -39,7 +39,7 @@ DPoP enables a client to prove the possession of a public/private key pair by in
 2. Client adds the public key in the header of the JWT and signs the JWT with the private key.
 3. Client adds the JWT to the `DPoP` request header and sends the request to the `/token` endpoint for an access token.
 4. The authorization server verifies the `DPoP` header and sends back an "Authorization server requires nonce in DPoP proof"  error and includes the `dpop-nonce` header in the response.
-5. Client adds the `nonce` and `jti` values to the JWT payload, updates the header in the request with the new JWT value, and sends the request for an access token again.
+5. Client adds the `nonce` and `jti` values to the JWT payload, updates the request header with the new JWT value, and sends the access token request again.
 6. The authorization server binds the public key to the access token and sends the response.
 7. Client sends the request for access to the resource and includes the DPoP-bound access token and the DPoP proof JWT in the header.
 8. The resource validates the DPoP-bound access token by verifying that the public key of the DPoP proof JWT in the `DPoP` header matches the public key that the access token is bound to. When validation is successful, the resource grants access.
@@ -51,6 +51,8 @@ This section explains how to configure DPoP in your org and prepare the DPoP JWT
 ### Configure the app integration
 
 Create or update an app to include the DPoP parameter.
+
+#### Create an app
 
 1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
 2. Click **Create App Integration**.
@@ -110,7 +112,7 @@ Create a [JSON Web Key](https://www.rfc-editor.org/rfc/rfc7517) (JWK) for use wi
 
 Use your internal instance of a key pair generator to generate the public/private key pair for use with DPoP in a production org. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
-> **Note:** You must use asymmetric keys with DPoP. See [Asymmetric Encryption: Definition, Architecture, Usage](https://www.okta.com/identity-101/asymmetric-encryption/).
+> **Note:** Use only asymmetric keys with DPoP. See [Asymmetric Encryption: Definition, Architecture, Usage](https://www.okta.com/identity-101/asymmetric-encryption/).
 
 For testing purposes only, you can use the [simple JWK generator](https://mkjwk.org/) to generate a key pair. Follow these steps if you use the simple JWK generator:
 
@@ -125,11 +127,11 @@ For testing purposes only, you can use the [simple JWK generator](https://mkjwk.
 
 ### Create the JSON Web Token
 
-Create the DPoP [JSON Web Token](https://www.rfc-editor.org/rfc/rfc7519) (JWT). A JWT is a compact, URL-safe way to represent claims transferred between two parties. The most common use case for JWTs is to declare the scope of the access token. A DPoP JWT includes a header and payload with claims, and then you sign the JWT with the private key from the [previous section](#create-a-json-web-key).
+Create the DPoP [JWT](https://www.rfc-editor.org/rfc/rfc7519). A JWT is a compact, URL-safe way to represent claims transferred between two parties. The most common use case for JWTs is to declare the scope of the access token. A DPoP JWT includes a header and payload with claims, and then you sign the JWT with the private key from the [previous section](#create-a-json-web-key).
 
 Use your internal instance to sign the JWT for a production org. See this [JWT generator](https://github.com/jwtk/njwt) for an example of how to make and use JWTs in Node.js apps.
 
-For testing purposes only, you can use the [JWT](https://jwt.io/) tool to build your JWT, sign it, and also decode JWTs. Follow these steps if you use the JWT tool:
+For testing purposes only, you can use the [JWT tool](https://jwt.io/) to build, sign, and decode JWTs. Follow these steps if you use the JWT tool:
 
 1. Select **RS256** as the **Algorithm**.
 2. In the **HEADER** section, build the JWT header by including the public key from the public/private key pair that you created in the [previous section](#create-json-web-key).
@@ -151,8 +153,8 @@ For testing purposes only, you can use the [JWT](https://jwt.io/) tool to build 
 
 **Required Parameters**
 
-* `typ`: Type header. Declares that the encoded object is a JWT and meant for use with DPoP. Supported value: `dpop+jwt`
-* `alg`: Algorithm. Indicates that the asymmetric algorithm is RS256 (RSA using SHA256). This algorithm uses a private key to sign the JWT and a public key to verify the signature. Must not be `none` or an identifier for a symmetric algorithm. Supported values: `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`
+* `typ`: Type header. Declares that the encoded object is a JWT and meant for use with DPoP. This example uses `dpop+jwt`.
+* `alg`: Algorithm. Indicates that the asymmetric algorithm is RS256 (RSA using SHA256). This algorithm uses a private key to sign the JWT and a public key to verify the signature. Must not be `none` or an identifier for a symmetric algorithm. This example uses `RS256`.
 * `jwk`: JSON Web Key. Include the public key (in JWK string format) that you create in the [Create a JSON Web Key](#create-a-json-web-key) section. Okta uses this public key to verify the JWT signature. See the [Application JSON Web Key Response properties](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient!c=201&path=jwks&t=response) for a description of the public key properties.
 
 3. In the **PAYLOAD** section, build the JWT payload and include the following claims:
@@ -167,12 +169,12 @@ For testing purposes only, you can use the [JWT](https://jwt.io/) tool to build 
 
 **Claims**
 
-* `htm`: HTTP method. The HTTP method of the request that the JWT is attached to. Supported value: `POST`
-* `htu`: HTTP URI. The `/token` endpoint URL for the Okta authorization server that you want to use. Supported value: `http://${yourOktaDomain}/oauth2/{$authServerId}/v1/token`
+* `htm`: HTTP method. The HTTP method of the request that the JWT is attached to. This value is always `POST`.
+* `htu`: HTTP URI. The `/token` endpoint URL for the Okta authorization server that you want to use. Example: `http://${yourOktaDomain}/oauth2/{$authServerId}/v1/token`
 * `iat`: Issued at. Identifies the time at which the JWT is issued. The time appears in seconds since the Unix epoch. The Unix epoch is the number of seconds that have elapsed since January 1, 1970 at midnight UTC.
 
-4. In the **VERIFY SIGNATURE** section, paste the Public Key (X.509 PEM Format) from the previous section in the first box.
-5. Paste the Private Key (X.509 PEM Format) in the second box.
+4. In the **VERIFY SIGNATURE** section, paste the public key (X.509 PEM format) from the previous section in the first box.
+5. Paste the private key (X.509 PEM format) in the second box.
 6. Copy the JWT that appears in the **Encoded** section.
 
 ### Build the request
@@ -200,7 +202,7 @@ The authorization server provides the `dpop-nonce` value to limit the lifetime o
 
 Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
 
-1. If you are using the JWT tool to test out this example, copy the `dpop-nonce` header value and add it as a `nonce` claim to the DPoP proof JWT payload along with a `jti` claim. The payload should look something like this:
+1. If you're using the JWT tool to test this example, copy the `dpop-nonce` header value. Then, add it as a `nonce` claim to the DPoP proof JWT payload along with a `jti` claim. The payload should look something like this:
 
 ```json
 {
@@ -275,7 +277,7 @@ curl -v -X GET \
 
 ## Validate the token and DPoP header
 
-The resource server must perform validation on the access token to complete the flow and grant access. When the client sends a request for access with the access token, validation should verify that the `cnf` claim is present, and then compare the `jkt` in the access token with the public key in the JWT value of the `DPoP` header.
+The resource server must perform validation on the access token to complete the flow and grant access. When the client sends an access request with the access token, validation should verify that the `cnf` claim is present. Then validation should compare the `jkt` in the access token with the public key in the JWT value of the `DPoP` header.
 
 The following is a high-level overview of the validation steps that the resource server must perform.
 
@@ -289,7 +291,7 @@ The following is a high-level overview of the validation steps that the resource
 
 > **Note:** The resource server must not grant access to the resource unless all checks are successful.
 
-For instructional purposes, this guide provides example validation in a Node.js Express app using the third-party site Glitch. Glitch is a browser-based development environment that can build a full-stack web application online. Use the Glitch example to review and quickly implement the validation code. It includes all of the dependencies required to complete validation.
+For instructional purposes, this guide provides example validation in a Node.js Express app using the third-party site Glitch. Glitch is a browser-based development environment that can build a full-stack web application online. Use the Glitch example to review and quickly implement the validation code. It includes all dependencies required to complete validation.
 
 Copy (remix on Glitch) the [Validation DPoP Tokens](https://glitch.com/~validate-dpop-tokens) Glitch project to have a working code sample. The validation steps at the beginning of this section are included in the code for quick implementation.
 
@@ -297,7 +299,7 @@ Copy (remix on Glitch) the [Validation DPoP Tokens](https://glitch.com/~validate
 
 ## Refresh an access token
 
-To refresh your DPoP-bound access token, send a token request with a `grant_type` of `refresh_token`. Then, include the same `DPoP` header value that you used to obtain the refresh token in the `DPoP` header for this request. Be sure to include the `openid` scope when you want to refresh the ID token. In the following examples, tokens are truncated for brevity.
+To refresh your DPoP-bound access token, send a token request with a `grant_type` of `refresh_token`. Then, include the same `DPoP` header value that you used to obtain the refresh token in the `DPoP` header for this request. Include the `openid` scope when you also want to refresh an ID token. In the following examples, tokens are truncated for brevity.
 
 **Example request**
 
