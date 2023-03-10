@@ -9,7 +9,9 @@ This guide discusses how to create sender-constrained access tokens that are an 
 ---
 
 **Learning outcomes**
-Know the purpose of Demonstrating Proof-of-Possession and be able to configure it for your org and app.
+
+* Understand the purpose of Demonstrating Proof-of-Possession
+* Understand how to configure OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) for your org and app
 
 **What you need**
 
@@ -29,7 +31,7 @@ DPoP enables a client to prove the possession of a public/private key pair by in
 
 ## OAuth 2.0 DPoP JWT flow
 
-IMAGE HERE
+![Sequence diagram that displays the back and forth between the client, authorization server, and resource server for Demonstrating Proof-of-Possession](/img/authorization/Dpopflow.png)
 
 > **Note:** These steps assume that you've already made a request to the `/authorize` endpoint to obtain the authorization code for the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow.
 
@@ -44,7 +46,7 @@ IMAGE HERE
 
 ## Configure DPoP
 
-This section covers the steps to configure DPoP in your org and prepare the DPoP JWT.
+This section explains how to configure DPoP in your org and prepare the DPoP JWT.
 
 ### Configure the app integration
 
@@ -53,7 +55,7 @@ Create or update an app to include the DPoP parameter.
 1. Sign in to your Okta organization with your administrator account and go to **Applications** > **Applications**.
 2. Click **Create App Integration**.
 3. Select **OIDC - OpenID Connect**, and then **Native Application**.
-4. Name your application and at the bottom of the page select **Allow everyone in your organization to access**.
+4. Name your application and scroll down to the bottom of the page and select **Allow everyone in your organization to access**.
 5. Click **Save** and then click **Edit** in the **General Settings** section of the page that appears.
 6. Select the **Require Demonstrating Proof of Possession (DPoP) header in token requests** checkbox for **Proof of possession**.
 7. Click **Save**.
@@ -70,8 +72,8 @@ Create or update an app to include the DPoP parameter.
 You can also use the Apps API to create an OAuth 2.0 client app and enable the DPoP parameter. Use the following parameters in the request:
 
 * `response_types`: This example uses the Authorization Code grant type, so `code` is the correct response type.
-* `grant_types`: This example uses `authorization_code` and `refresh_token`. Other supported grant types: `interaction_code`, `urn:ietf:params:oauth:grant-type:token-exchange`,`direct_auth`,`urn:ietf:params:oauth:grant-type:device_code`,`urn:openid:params:grant-type:ciba`,`password`,`urn:ietf:params:oauth:grant-type:saml2-bearer`
-* `dpop_bound_access_tokens`: `true` or `false`. True indicates that the app accepts DPoP-bound access tokens.
+* `grant_types`: This example uses `authorization_code` and `refresh_token`.
+* `dpop_bound_access_tokens`: This example uses `true` to indicate that the app accepts DPoP-bound access tokens.
 
 > **Note:** See the [Request Body Schema](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Application/#tag/Application/operation/createApplication) section of the Applications API reference for more information on the new DPoP parameter.
 
@@ -104,7 +106,7 @@ In the POST (create the client app) or PUT (update the client app) request, add 
 
 Create a [JSON Web Key](https://www.rfc-editor.org/rfc/rfc7517) (JWK) for use with DPoP. A JWK is a cryptographic key or keypair expressed in JSON format. You use the public and private key that you generate to sign the JSON Web Token (JWT) for use with DPoP in the next section.
 
-> **Note:** The JKW for use with DPoP is a separate JWK than what you generate for client authentication.
+> **Note:** The JWK for use with DPoP is a separate JWK than what you generate for client authentication.
 
 Use your internal instance of a key pair generator to generate the public/private key pair for use with DPoP in a production org. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
@@ -133,7 +135,7 @@ For testing purposes only, you can use the [JWT](https://jwt.io/) tool to build 
 2. In the **HEADER** section, build the JWT header by including the public key from the public/private key pair that you created in the [previous section](#create-json-web-key).
 
 ```json
-  { 
+  {
       "typ": "dpop+jwt",
       "alg": "RS256",
       "jwk": {
@@ -169,9 +171,9 @@ For testing purposes only, you can use the [JWT](https://jwt.io/) tool to build 
   * `htu`: HTTP URI. The `/token` endpoint URL for the Okta authorization server that you want to use. Supported value: `http://${yourOktaDomain}/oauth2/{$authServerId}/v1/token`
   * `iat`: Issued at. Identifies the time at which the JWT is issued. The time appears in seconds since the Unix epoch. The Unix epoch is the number of seconds that have elapsed since January 1, 1970 at midnight UTC.
 
-In the **VERIFY SIGNATURE** section, paste the Public Key (X.509 PEM Format) from the previous section in the first box.
-Paste the Private Key (X.509 PEM Format) in the second box.
-Copy the JWT that appears in the **Encoded** section.
+4. In the **VERIFY SIGNATURE** section, paste the Public Key (X.509 PEM Format) from the previous section in the first box.
+5. Paste the Private Key (X.509 PEM Format) in the second box.
+6. Copy the JWT that appears in the **Encoded** section.
 
 ### Build the request
 
@@ -179,17 +181,17 @@ Your next step is to build the request to the `/token` endpoint for an access to
 
 The additional header in the initial request is `DPoP`. The value for `DPoP` is the DPoP proof JWT from the previous section. The request should look something like the following. Some values are truncated for brevity.
 
-```curl
-curl --request POST
---url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
---header 'Accept: application/json' \
---header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data 'grant_type=authorization_code' \
---data 'redirect_uri=https://${yourOktaDomain}/app/oauth2' \
---data 'code=XGa_U6toXP0Rvc.....SnHO6bxX0ikK1ss-nA' \
---data 'code_verifier=k9raCwW87d_wYC.....zwTkqPqksT6E_s' \
---data 'client_id=${clientId}'
+```bash
+  curl --request POST
+  --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+  --header 'Accept: application/json' \
+  --header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data 'grant_type=authorization_code' \
+  --data 'redirect_uri=https://${yourOktaDomain}/app/oauth2' \
+  --data 'code=XGa_U6toXP0Rvc.....SnHO6bxX0ikK1ss-nA' \
+  --data 'code_verifier=k9raCwW87d_wYC.....zwTkqPqksT6E_s' \
+  --data 'client_id=${clientId}'
 ```
 
 The authorization server verifies the JWT in the request and sends back an "Authorization server requires nonce in DPoP proof" error and a `dpop-nonce` header and value.
@@ -198,7 +200,7 @@ The authorization server provides the `dpop-nonce` value to limit the lifetime o
 
 Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
 
-If you are using the JWT tool to test out this example, copy the `dpop-nonce` header value and add it as a `nonce` claim to the DPoP proof JWT payload along with a `jti` claim. The payload should look something like this:
+1. If you are using the JWT tool to test out this example, copy the `dpop-nonce` header value and add it as a `nonce` claim to the DPoP proof JWT payload along with a `jti` claim. The payload should look something like this:
 
 ```json
 {
@@ -215,8 +217,9 @@ If you are using the JWT tool to test out this example, copy the `dpop-nonce` he
   * `nonce`: Used only once. A recent `nonce` value provided by the authorization server using the `dpop-nonce` HTTP header. The authorization server provides the DPoP nonce value to limit the lifetime of DPoP proof JWTs.
   * `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request
 
-  Copy the new DPoP proof JWT and add it to the DPoP header in the request.
-  Send the request for an access token again. The authorization server should return the access token. In the following example, tokens are truncated for brevity.
+2. Copy the new DPoP proof JWT and add it to the DPoP header in the request.
+
+3. Send the request for an access token again. The authorization server should return the access token. In the following example, tokens are truncated for brevity.
 
   ```json
   {
@@ -229,28 +232,28 @@ If you are using the JWT tool to test out this example, copy the `dpop-nonce` he
   }
   ```
 
-  Use the JWT tool to decode the access token to view the claims. The decoded access token should look something like this:
+  4. Use the JWT tool to decode the access token to view the claims. The decoded access token should look something like this:
 
-  ```json
-  {
-    "ver": 1,
-    "jti": "AT.pKoLFoM7X4P4DrJBRvXaJzj9g0-naK1ChGH_oTbStYE",
-    "iss": "https://{yourOktaDomain}/oauth2/default",
-    "aud": "api://default",
-    "iat": 1677530933,
-    "exp": 1677534533,
-    "cnf": {
-      "jkt": "2HR2BW5-tan1aI6yIPHVOHwirAy4kQGWULoQHKUO0s4"
-      },
-    "cid": "0oa4dr9kzkykPrLhq0g7",
-    "uid": "00u47ijy7sRLaeSdC0g7",
-    "scp": [
-      "openid"
-    ],
-    "auth_time": 1677521913,
-    "sub": "user@example.com"
-  }
-  ```
+    ```json
+      {
+        "ver": 1,
+        "jti": "AT.pKoLFoM7X4P4DrJBRvXaJzj9g0-naK1ChGH_oTbStYE",
+        "iss": "https://{yourOktaDomain}/oauth2/default",
+        "aud": "api://default",
+        "iat": 1677530933,
+        "exp": 1677534533,
+        "cnf": {
+          "jkt": "2HR2BW5-tan1aI6yIPHVOHwirAy4kQGWULoQHKUO0s4"
+          },
+        "cid": "0oa4dr9kzkykPrLhq0g7",
+        "uid": "00u47ijy7sRLaeSdC0g7",
+        "scp": [
+          "openid"
+        ],
+        "auth_time": 1677521913,
+        "sub": "user@example.com"
+      }
+    ```
 
   **Claims**
 
@@ -261,13 +264,13 @@ If you are using the JWT tool to test out this example, copy the `dpop-nonce` he
 
 The following example request to a protected resource displays the DPoP-bound access token in the `Authorization` header and the DPoP proof JWT in the `DPoP` header. Values are truncated for brevity.
 
-```curl
+```bash
 curl -v -X GET \
---header 'Accept: application/json' \
---header 'Content-Type: application/json' \
---header 'Authorization: DPoP Kz~8mXK1E.....p~zsPE_NeO.gxU' \
---header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg' \
-"https://resource.example.org"
+  --header 'Accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --header 'Authorization: DPoP eyJraWQiOiJRVX.....wt7oSakPDUg' \
+  --header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg' \
+  "https://resource.example.org"
 ```
 
 ## Validate the token and DPoP header
@@ -276,37 +279,39 @@ The resource server must perform validation on the access token to complete the 
 
 The following is a high-level overview of the validation steps that the resource server must perform.
 
-Read the value in the `DPoP` header and decode the DPoP JWT.
-Get the `jwk` (public key) from the header portion of the DPoP JWT.
-Verify the signature of the DPoP JWT using the public key and algorithm in the JWT header.
-Verify that the `htu` and `htm` claims are in the DPoP JWT payload and match with the current API request HTTP method and URL.
-Calculate the `jkt` (SHA-256 thumbprint of the public key).
-Extract the DPoP-bound access token from the `Authorization` header, verify it with Okta, and extract the claims. You can also use the `/introspect` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) to extract the access token claims.
-Validate the token binding by comparing `jkt` from the access token with the calculated `jkt` from the `DPoP` header.
+* Read the value in the `DPoP` header and decode the DPoP JWT.
+* Get the `jwk` (public key) from the header portion of the DPoP JWT.
+* Verify the signature of the DPoP JWT using the public key and algorithm in the JWT header.
+* Verify that the `htu` and `htm` claims are in the DPoP JWT payload and match with the current API request HTTP method and URL.
+* Calculate the `jkt` (SHA-256 thumbprint of the public key).
+* Extract the DPoP-bound access token from the `Authorization` header, verify it with Okta, and extract the claims. You can also use the `/introspect` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/introspectCustomAS) to extract the access token claims.
+* Validate the token binding by comparing `jkt` from the access token with the calculated `jkt` from the `DPoP` header.
 
 > **Note:** The resource server must not grant access to the resource unless all checks are successful.
 
-For instructional purposes, this guide provides example validation in a Node.js Express app using the third-party site Glitch. Glitch is a browser-based development environment that can build a full-stack web application online. Use the Glitch example to review and quickly implement the validation code. It includes all of the dependencies required to complete validation. 
+For instructional purposes, this guide provides example validation in a Node.js Express app using the third-party site Glitch. Glitch is a browser-based development environment that can build a full-stack web application online. Use the Glitch example to review and quickly implement the validation code. It includes all of the dependencies required to complete validation.
 
 Copy (remix on Glitch) the [Validation DPoP Tokens](https://glitch.com/~validate-dpop-tokens) Glitch project to have a working code sample. The validation steps at the beginning of this section are included in the code for quick implementation.
 
 > **Note:** See [Libraries for Token Signing/Verification](https://jwt.io/libraries) to view other libraries/SDKs in different languages that you can use for JWT verification.
+
 ## Refresh an access token
+
 To refresh your DPoP-bound access token, send a token request with a `grant_type` of `refresh_token` and include the `DPoP` JWT in the header. Be sure to include the `openid` scope when you want to refresh the ID token. In the following examples, tokens are truncated for brevity.
 
 **Example request**
 
-```cURL
-curl --request POST
---url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
---header 'Accept: application/json' \
---header 'DPoP: eyJ0eXAiOiJkcG9wK2p3dCIsImFsZyI6IlJTMjU2IiwiandrIjp7Imt0eSI6.....mJ2q5403_Nr09AA' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data 'grant_type=refresh_token' \
---data 'redirect_uri=${redirectUri}' \
---data 'client_id=${clientId}' \
---data 'scope=offline_access openid' \
---data 'refresh_token=3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw'
+```bash
+  curl --request POST
+  --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+  --header 'Accept: application/json' \
+  --header 'DPoP: eyJ0eXAiOiJkcG9wK2p3dCIsImFsZyI6IlJTMjU2IiwiandrIjp7Imt0eSI6.....mJ2q5403_Nr09AA' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data 'grant_type=refresh_token' \
+  --data 'redirect_uri=${redirectUri}' \
+  --data 'client_id=${clientId}' \
+  --data 'scope=offline_access openid' \
+  --data 'refresh_token=3CEz0Zvjs0eG9mu4w36n-c2g6YIqRfyRSsJzFAqEyzw'
 ```
 
 **Example response**
