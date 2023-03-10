@@ -121,7 +121,7 @@ The following table provides a list of all available email templates in an Okta 
 | LDAP Forgot Password Denied | Account password reset | `LDAPForgotPasswordDenied` | |  Sent to LDAP users who tried to reset their LDAP password but don't have permission |
 | LDAP Forgot Password | Account password reset | `LDAPForgotPassword` | Either `${resetPasswordLink}` or `${recoveryToken}` (Identity Engine)</br></br>Either `${resetPasswordLink}` or `${oneTimePassword}` (Classic Engine) |  Sent to LDAP users who forgot their password and must follow the provided link to reset their password |
 | Forgot Password | Account password reset | `ForgotPassword` | Either `${resetPasswordLink}` or `${oneTimePassword}`</br>(Identity Engine and Classic Engine) |  Sent to users who must follow the provided link to reset their forgotten password |
-| Active Directory Password Reset | Forgotten password (Identity Engine)</br></br>Account password reset (Classic Engine) | `ADForgotPassword` | Either `${recoveryLink}` or `${recoveryToken}`</br>(Identity Engine and Classic Engine) | Sent to users who want to reset their Active Directory account password and must follow the provided link to reset their password (Identity Engine)</br></br>Sent to users who have had their Active Directory account password reset and must follow the provided link to reset their password (Classic Engine) |
+| Active Directory Password Reset | Forgotten password (Identity Engine)</br></br>Account password reset (Classic Engine) | `ADForgotPassword` | Either `${recoveryLink}` or `${recoveryToken}`</br>(Identity Engine and Classic Engine) | Sent to users who want to reset their Active Directory account password. Users must follow the provided link to reset their password (Identity Engine).</br></br>Sent to users who have had their Active Directory account password reset. Users must follow the provided link to reset their password (Classic Engine). |
 | Password Changed | Password Changed | `PasswordChanged` | |  Sent to users whenever their account password changes |
 | Self-Service Unlock when Account isn’t Locked | Unlock Account | `SelfServiceUnlockOnUnlockedAccount` | |  Sent to users who tried to use self-service to unlock an account that isn't locked |
 | Active Directory Password Unlock | Unlock Account | `ADSelfServiceUnlock` | Either `${unlockAccountLink}` or `${recoveryToken}` (Identity Engine)</br></br>`${unlockAccountLink}` (Classic Engine) |  Sent to Active Directory users who must follow the provided link to unlock their password |
@@ -176,9 +176,9 @@ The following table provides a list of all allowed HTML tags and elements in cus
 
 ## Add translations
 
-**Note:** After a template is customized, other languages are only included when they’re customized. If all customized translations are reset, then the 27 default translations are used.
+**Note:** After you customize a template in one language, you need to customize other languages if you want to include them. If you reset all customized translations, then Okta uses the 27 default translations.
 
-The default language is used when the end user’s locale doesn't match any email customizations. You can edit the templates through the pencil icon, but you can't delete the default language template.
+Okta uses the default language when the end user’s locale doesn't match any email customizations. You can edit the templates through the pencil icon, but you can't delete the default language template.
 
 > **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
 
@@ -200,11 +200,11 @@ To delete all custom translations and revert to the Okta template, click **Reset
 
 ## Use Velocity Templating Language
 
-[Velocity Templating Language (VTL)](https://velocity.apache.org/engine/2.3/user-guide.html) allows you to customize your org's email templates so that you can use:
+[Velocity Templating Language (VTL)](https://velocity.apache.org/engine/2.3/user-guide.html) allows you to customize your org's email templates so that you can use the following:
 
-- Enhanced conditional logic.
-- All of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object).
-- Some of the org attributes in these variables.
+- Enhanced conditional logic
+- All attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object)
+- Some of the org attributes in the VTL variables
 
 Email templates use both common and unique VTL variables. When you interpolate variables in the template, precede them with a dollar sign. Use dot notation to reference sub-objects. For example, reference the first name of a user with `${user.profile.firstName}`.
 
