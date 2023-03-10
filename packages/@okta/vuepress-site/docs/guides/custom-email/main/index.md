@@ -36,6 +36,12 @@ Email notifications are based on templates that are generated automatically and 
 
 > **Note:** When you edit a template, Okta stops sending the default in other languages. You are responsible for adding translations of your customized message. See [Edit a default template](#edit-a-default-template).
 
+### Multibrand customizations and emails
+
+<MultibrandEmail />
+
+See [Brands](/docs/concepts/brands/).
+
 ### Use the Brands API
 
 The Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted Sign-In Widget, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain.

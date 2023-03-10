@@ -46,6 +46,12 @@ You can only visit a branded touchpoint (such as a logo, color, favicon, or an i
 
 Multibrand orgs have a non-deletable default brand called the subdomain brand. However, you can create several custom brands. The subdomain brand always appears at the Okta subdomain URL and can’t have a custom domain. You can swap out the logo, background image, favicon, colors, and edit emails, but you can’t edit custom code for the sign-in page or error pages. You can only use custom domain and custom code for sign-in page and error-pages on custom brands.
 
+### Multibrand customizations and emails
+
+<MultibrandEmail />
+
+ See [Customize email notifications](/docs/guides/custom-email/main/).
+
 ### Authentication flow
 
 Before authentication, users see the correct brand’s sign-in page by visiting the custom domain associated with the brand. When a user resets a password from the sign-in page, or requests a magic link to activate themselves, their emails are branded based on the custom domain they initiated the flow from.
