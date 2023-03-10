@@ -176,9 +176,13 @@ The following table provides a list of all allowed HTML tags and elements in cus
 
 ## Add translations
 
-Okta uses the default language when the end user’s locale doesn't match any email customizations. You can edit the templates through the pencil icon. If you restore an email to default settings, you delete any customizations made to the email whether or not the custom email is your default.
+You can edit the templates through the pencil icon. See [Edit a default email template](#edit-a-default-email-template).
 
-**Note:** After you customize a template in one language, you need to customize other languages if you want to include them. If you reset all customized translations, then Okta uses the 27 default translations.
+If you restore an email to default settings, you delete any customizations made to the email whether or not the custom email is your default.
+
+After you customize a template in one language, you need to customize other languages if you want to include them. If you reset all customized translations, then Okta uses the 27 default translations.
+
+Okta uses the default language when the end user’s locale doesn't match any email customizations.
 
 > **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
 
