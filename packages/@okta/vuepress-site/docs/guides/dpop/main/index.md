@@ -104,15 +104,15 @@ In the POST (create the client app) or PUT (update the client app) request, add 
 
 ### Create a JSON Web Key
 
-Create a [JSON Web Key](https://www.rfc-editor.org/rfc/rfc7517) (JWK) for use with DPoP. A JWK is a cryptographic key or keypair expressed in JSON format. You use the public and private key that you generate to sign the JSON Web Token (JWT) for use with DPoP in the next section.
+Create a [JSON Web Key](https://www.rfc-editor.org/rfc/rfc7517) (JWK) for use with DPoP. A JWK is a cryptographic key or key pair expressed in JSON format. You use the generated public and private key to sign the JSON Web Token (JWT) for use with DPoP in the next section.
 
-> **Note:** The JWK for use with DPoP is a separate JWK than what you generate for client authentication.
+> **Note:** The JWK that is used for DPoP authentication is separate from the JWK used for client authentication.
 
 Use your internal instance of a key pair generator to generate the public/private key pair for use with DPoP in a production org. See this [key pair generator](https://github.com/mitreid-connect/mkjwk.org) for an example.
 
-> **Note:** You can use only asymmetric keys with DPoP. See [Asymmetric Encryption: Definition, Architecture, Usage](https://www.okta.com/identity-101/asymmetric-encryption/).
+> **Note:** You must use asymmetric keys with DPoP. See [Asymmetric Encryption: Definition, Architecture, Usage](https://www.okta.com/identity-101/asymmetric-encryption/).
 
-For testing purposes only, you can use a simple [JWK generator](https://mkjwk.org/). Do the following if you use the simple JWK generator.
+For testing purposes only, you can use the [simple JWK generator](https://mkjwk.org/) to generate a key pair. Follow these steps if you use the simple JWK generator:
 
 1. Select the following and then click **Generate**.
 
