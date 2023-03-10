@@ -149,11 +149,11 @@ For testing purposes only, you can use the [JWT](https://jwt.io/) tool to build 
   }
 ```
 
-  **Required Parameters**
+**Required Parameters**
 
-  * `typ`: Type header. Declares that the encoded object is a JWT and meant for use with DPoP. Supported value: `dpop+jwt`
-  * `alg`: Algorithm. Indicates that the asymmetric algorithm is RS256 (RSA using SHA256). This algorithm uses a private key to sign the JWT and a public key to verify the signature. Must not be `none` or an identifier for a symmetric algorithm. Supported values: `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`
-  * `jwk`: JSON Web Key. Include the public key (in JWK string format) that you create in the [Create a JSON Web Key](#create-a-json-web-key) section. Okta uses this public key to verify the JWT signature. See the [Application JSON Web Key Response properties](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient!c=201&path=jwks&t=response) for a description of the public key properties.
+* `typ`: Type header. Declares that the encoded object is a JWT and meant for use with DPoP. Supported value: `dpop+jwt`
+* `alg`: Algorithm. Indicates that the asymmetric algorithm is RS256 (RSA using SHA256). This algorithm uses a private key to sign the JWT and a public key to verify the signature. Must not be `none` or an identifier for a symmetric algorithm. Supported values: `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`
+* `jwk`: JSON Web Key. Include the public key (in JWK string format) that you create in the [Create a JSON Web Key](#create-a-json-web-key) section. Okta uses this public key to verify the JWT signature. See the [Application JSON Web Key Response properties](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/Client/#tag/Client/operation/createClient!c=201&path=jwks&t=response) for a description of the public key properties.
 
 3. In the **PAYLOAD** section, build the JWT payload and include the following claims:
 
@@ -165,11 +165,11 @@ For testing purposes only, you can use the [JWT](https://jwt.io/) tool to build 
   }
   ```
 
-  **Claims**
+**Claims**
 
-  * `htm`: HTTP method. The HTTP method of the request that the JWT is attached to. Supported value: `POST`
-  * `htu`: HTTP URI. The `/token` endpoint URL for the Okta authorization server that you want to use. Supported value: `http://${yourOktaDomain}/oauth2/{$authServerId}/v1/token`
-  * `iat`: Issued at. Identifies the time at which the JWT is issued. The time appears in seconds since the Unix epoch. The Unix epoch is the number of seconds that have elapsed since January 1, 1970 at midnight UTC.
+* `htm`: HTTP method. The HTTP method of the request that the JWT is attached to. Supported value: `POST`
+* `htu`: HTTP URI. The `/token` endpoint URL for the Okta authorization server that you want to use. Supported value: `http://${yourOktaDomain}/oauth2/{$authServerId}/v1/token`
+* `iat`: Issued at. Identifies the time at which the JWT is issued. The time appears in seconds since the Unix epoch. The Unix epoch is the number of seconds that have elapsed since January 1, 1970 at midnight UTC.
 
 4. In the **VERIFY SIGNATURE** section, paste the Public Key (X.509 PEM Format) from the previous section in the first box.
 5. Paste the Private Key (X.509 PEM Format) in the second box.
@@ -212,10 +212,10 @@ Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
 }
 ```
 
-  **Claims**
+**Claims**
 
-  * `nonce`: Used only once. A recent `nonce` value provided by the authorization server using the `dpop-nonce` HTTP header. The authorization server provides the DPoP nonce value to limit the lifetime of DPoP proof JWTs.
-  * `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request
+* `nonce`: Used only once. A recent `nonce` value provided by the authorization server using the `dpop-nonce` HTTP header. The authorization server provides the DPoP nonce value to limit the lifetime of DPoP proof JWTs.
+* `jti`: JWT ID. A unique [JWT identifier](https://www.rfc-editor.org/rfc/rfc7519#section-4.1.7) for the request
 
 2. Copy the new DPoP proof JWT and add it to the DPoP header in the request.
 
@@ -232,9 +232,9 @@ Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
   }
   ```
 
-  4. Use the JWT tool to decode the access token to view the claims. The decoded access token should look something like this:
+4. Use the JWT tool to decode the access token to view the claims. The decoded access token should look something like this:
 
-    ```json
+  ```json
       {
         "ver": 1,
         "jti": "AT.pKoLFoM7X4P4DrJBRvXaJzj9g0-naK1ChGH_oTbStYE",
@@ -253,12 +253,12 @@ Use the value of the `dpop-nonce` header in the JWT payload and update the JWT:
         "auth_time": 1677521913,
         "sub": "user@example.com"
       }
-    ```
+  ```
 
-  **Claims**
+**Claims**
 
-  * `cnf`: Confirmation. Claim that contains the confirmation method.
-  * `jkt`: JWK confirmation method. A base64url encoding of the JWK SHA-256 hash of the DPoP public key (in JWK format) to which the access token is bound.
+* `cnf`: Confirmation. Claim that contains the confirmation method.
+* `jkt`: JWK confirmation method. A base64url encoding of the JWK SHA-256 hash of the DPoP public key (in JWK format) to which the access token is bound.
 
 > **Note:** If your client has DPoP enabled, then you can't add or modify the `cnf` claim using token inline hooks.
 
@@ -297,7 +297,7 @@ Copy (remix on Glitch) the [Validation DPoP Tokens](https://glitch.com/~validate
 
 ## Refresh an access token
 
-To refresh your DPoP-bound access token, send a token request with a `grant_type` of `refresh_token` and include the `DPoP` JWT in the header. Be sure to include the `openid` scope when you want to refresh the ID token. In the following examples, tokens are truncated for brevity.
+To refresh your DPoP-bound access token, send a token request with a `grant_type` of `refresh_token`. Then, include the same `DPoP` header value that you used to obtain the refresh token in the `DPoP` header for this request. Be sure to include the `openid` scope when you want to refresh the ID token. In the following examples, tokens are truncated for brevity.
 
 **Example request**
 
@@ -305,7 +305,7 @@ To refresh your DPoP-bound access token, send a token request with a `grant_type
   curl --request POST
   --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
   --header 'Accept: application/json' \
-  --header 'DPoP: eyJ0eXAiOiJkcG9wK2p3dCIsImFsZyI6IlJTMjU2IiwiandrIjp7Imt0eSI6.....mJ2q5403_Nr09AA' \
+  --header 'DPoP: eyJ0eXAiOiJkcG9w.....H8-u9gaK2-oIj8ipg' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data 'grant_type=refresh_token' \
   --data 'redirect_uri=${redirectUri}' \
