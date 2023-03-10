@@ -17,22 +17,24 @@
   flex-direction: column;
   align-items: center;
   margin: 0;
-  margin-bottom: 48px;
+  margin-bottom: 43px;
   padding: 0 19px;
 
   font-weight: 400;
   font-size: 30px;
   line-height: 36px;
-  letter-spacing: -1px;
+  letter-spacing: -0.7px;
   text-align: center;
   color: var(--c-gray-950);
   @include media(">tablet") {
     display: block;
-    margin-bottom: 43px;
+    margin-bottom: 48px;
     padding: 0;
 
     font-size: 56px;
     line-height: 64px;
+
+    letter-spacing: -1px;
     text-align: left;
   }
 }
@@ -69,6 +71,20 @@
 
 .signup__items.active .signup__trigger {
   opacity: 0.25;
+}
+
+.signup__trigger__text {
+  display: none;
+  @include media(">tablet") {
+    display: block;
+  }
+}
+
+.signup__trigger__text-hidden {
+  display: block;
+  @include media(">tablet") {
+    display: none;
+  }
 }
 
 .signup__items.active .signup__popup {
@@ -195,17 +211,38 @@
 
 .signup__container {
   align-content: flex-start;
-  padding: 31px 0 40px;
+  @include media(">tablet") {
+    padding: 24px 0 0;
+  }
 
-  border-radius: 12px;
-  background-color: var(--c-gray-075);
   @include media(">tablet") {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-column: 2 / 4;
     margin-left: 8px;
+    padding: 31px 0 40px;
     width: calc(100% - 8px);
     max-width: 852px;
+
+    border-radius: 12px;
+    background-color: var(--c-gray-075);
+  }
+}
+
+.signup__container .signup__item__title:before {
+  content: "";
+
+  position: absolute;
+  right: 33px;
+  bottom: 0;
+  left: 33px;
+
+  width: calc(100% - 66px);
+  height: 1px;
+
+  background-color: var(--c-gray-405);
+  @include media(">tablet") {
+    display: none;
   }
 }
 
@@ -388,15 +425,29 @@ select.signup__form__input:required:invalid {
 }
 
 .signup__item {
+  margin-bottom: 30px;
   padding: 24px 33px 31px;
 
   border-radius: 12px;
   background-color: var(--c-gray-075);
   @include media(">tablet") {
     grid-column: 1 / 2;
-    padding: 27px 40px 40px;
+    margin-bottom: 0;
+    padding: 31px 0 40px;
     width: calc(100% + 9px);
     max-width: 416px;
+  }
+}
+
+.signup__item .signup__item__title {
+  @include media(">tablet") {
+    margin: 0 34px;
+  }
+}
+
+.signup__item .signup__description {
+  @include media(">tablet") {
+    padding: 0 40px;
   }
 }
 
@@ -406,8 +457,6 @@ select.signup__form__input:required:invalid {
   grid-column: 1 / 3;
   padding-bottom: 26px;
 
-  border-bottom: 1px solid var(--c-gray-405);
-
   font-weight: 500;
   font-size: 32px;
   line-height: 35px;
@@ -415,12 +464,22 @@ select.signup__form__input:required:invalid {
   color: var(--c-gray-950);
   @include media(">tablet") {
     padding-bottom: 0;
-    height: 72px;
-    min-height: 72px;
+    height: 66px;
+    min-height: 66px;
+
+    border-bottom: 1px solid var(--c-gray-405);
 
     line-height: 43px;
     letter-spacing: -0.3px;
     white-space: nowrap;
+  }
+}
+
+.signup__item__title-hidden {
+  display: block;
+  margin-top: 30px;
+  @include media(">tablet") {
+    display: none;
   }
 }
 
@@ -432,12 +491,14 @@ select.signup__form__input:required:invalid {
   margin-bottom: 0;
 
   padding: 0 12px;
-  width: 130px;
-  height: 24px;
+  width: 154px;
+  height: 27px;
 
   background-color: var(--c-gray-075);
   transform: translateX(-50%);
   @include media(">tablet") {
+    bottom: -14px;
+
     width: 189px;
     height: 28px;
   }
@@ -451,25 +512,62 @@ select.signup__form__input:required:invalid {
 }
 
 .signup__container .signup__item__title {
-  margin: 0 40px;
+  padding-top: 24px;
+  padding-right: 33px;
+  padding-left: 33px;
+
+  border-radius: 12px 12px 0 0;
+  background-color: var(--c-gray-075);
+  @include media(">tablet") {
+    margin: 0 40px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+
+    border-radius: 0;
+    background-color: transparent;
+  }
 }
 
 .signup__container .signup__description {
-  margin-top: 35px;
-  padding: 0 40px;
+  margin-top: 0;
+  padding: 24px 33px 31px;
+
+  border-radius: 0 0 12px 12px;
+  background-color: var(--c-gray-075);
+  @include media(">tablet") {
+    margin-top: 35px;
+    padding: 0 40px 0;
+
+    border-radius: 0;
+    background-color: transparent;
+  }
+}
+
+.signup__container .signup__rate {
+  margin-left: 0;
 }
 
 .signup__container .signup__content {
-  margin-top: 47px;
-  padding: 31px 29px 18px;
+  margin-top: 39px;
+  padding: 23px 6px 21px;
+  @include media(">tablet") {
+    margin-top: 47px;
+    padding: 31px 28px 18px;
+  }
 }
 
 .signup__description-bordered {
-  border-left: 1px solid var(--c-gray-760);
+  @include media(">tablet") {
+    border-left: 1px solid var(--c-gray-760);
+  }
 }
 
 .signup__container .signup__description-bordered {
+  padding-top: 2px;
   @include media(">tablet") {
+    margin-top: 35px;
+    padding-top: 0;
     padding-right: 39px;
   }
 }
@@ -478,7 +576,12 @@ select.signup__form__input:required:invalid {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 20px;
+  margin-left: 10px;
+  padding: 0 29px;
+  @include media(">tablet") {
+    margin-left: 0;
+    padding: 0 30px;
+  }
 }
 
 .signup__rate__title {
@@ -502,13 +605,24 @@ select.signup__form__input:required:invalid {
 }
 
 .signup__rate__text {
-  padding-top: 8px;
+  padding-top: 10px;
 
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0.3px;
+  text-align: center;
   color: var(--c-gray-950);
+  @include media(">tablet") {
+    padding-top: 8px;
+  }
+}
+
+.signup__rate__text br {
+  display: block;
+  @include media(">tablet") {
+    display: none;
+  }
 }
 
 .signup__content {
@@ -533,22 +647,41 @@ select.signup__form__input:required:invalid {
   font-weight: 500;
   font-size: 20px;
   line-height: 25px;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.1px;
   color: var(--c-gray-950);
   @include media(">tablet") {
     margin-bottom: 13px;
 
     font-size: 25px;
     line-height: 31px;
+    letter-spacing: -0.3px;
+  }
+}
+
+.signup__content__title br {
+  @include media(">tablet") {
+    display: none;
+  }
+}
+
+.signup__container .signup__content__title {
+  letter-spacing: -1px;
+  @include media(">tablet") {
+    letter-spacing: 0;
   }
 }
 
 .signup__content__text {
+  margin: 0 auto;
+  max-width: 204px;
+
   font-weight: 400;
   font-size: 14px;
   line-height: 21px;
   color: var(--c-gray-950);
   @include media(">tablet") {
+    max-width: 100%;
+
     font-size: 16px;
     line-height: 22px;
   }
@@ -563,7 +696,7 @@ select.signup__form__input:required:invalid {
 
 .signup__content__tip {
   position: absolute;
-  top: -16px;
+  top: -15px;
   left: 50%;
 
   padding: 4px 12px;
@@ -574,14 +707,17 @@ select.signup__form__input:required:invalid {
 
   font-size: 12px;
   line-height: 16px;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   white-space: nowrap;
   color: var(--c-gray-950);
   transform: translateX(-50%);
   @include media(">tablet") {
+    top: -16px;
+
     font-size: 14px;
     line-height: 19px;
+    letter-spacing: 0.4px;
   }
 }
 
@@ -700,7 +836,11 @@ select.signup__form__input:required:invalid {
 
 .signup__footer p span:nth-child(2) {
   display: inline-block;
-  margin-bottom: 14px;
+  margin-top: 14px;
+  margin-bottom: -2px;
+  @include media(">tablet") {
+    margin: 0;
+  }
 }
 
 .signup__footer p span.hidden {

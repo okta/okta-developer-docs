@@ -87,13 +87,16 @@
                 </a>
               </div>
             </div>
+            <div class="signup__item__title signup__item__title-hidden">
+              Okta Developer Edition Service
+            </div>
             <div class="signup__description signup__description-bordered">
               <div class="signup__rate">
                 <div class="signup__rate__title">
                   Free
                 </div>
                 <div class="signup__rate__text">
-                  Test, explore, and manage integrations
+                  Test, explore, <br> and manage integrations
                 </div>
               </div>
               <div class="signup__content">
@@ -112,7 +115,8 @@
                   type="button"
                   @click="hideForm()"
                 >
-                  Sign up free for Developer Edition
+                  <span class="signup__trigger__text">Sign up free for Developer Edition</span>
+                  <span class="signup__trigger__text-hidden">Sign up free</span>
                 </button>
               </div>
             </div>
@@ -367,7 +371,7 @@
           </div>
         </div>
         <div class="signup__footer">
-          <p><span>Not sure what to choose?</span> <br> <span>Learn more about</span> <a href="#">Workforce Identity</a> <span class="hidden">and</span> <a href="#">Customer Identity</a></p>
+          <p><span>Not sure what to choose?</span> <span>Learn more about</span> <a href="#">Workforce Identity</a> <span class="hidden">and</span> <a href="#">Customer Identity</a></p>
         </div>
       </div>
     </div>
