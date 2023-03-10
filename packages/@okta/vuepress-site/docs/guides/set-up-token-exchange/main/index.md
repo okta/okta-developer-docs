@@ -158,7 +158,7 @@ Use the following example to build the request to exchange the authorization cod
 
 ```bash
   curl --location --request POST \
-    --url 'https://${yourOktaDomain}/oauth2/{authServerId}/v1/token' \
+    --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'grant_type=authorization_code' \
@@ -175,7 +175,8 @@ Use the following example to build the request to exchange the authorization cod
     "token_type": "Bearer",
     "expires_in": 3600,
     "access_token": "eyJraWQiOiJ6………X1Z4QA",
-    "scope": "openid"
+    "scope": "openid",
+    "id_token": "eyJraWQiOiJRVXlG.....-NAtVFdwD1bg2JprEJQ"
   }
 ```
 
