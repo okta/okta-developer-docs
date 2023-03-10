@@ -26,19 +26,19 @@ Customize email notifications.
 
 ## About email customization
 
-You can customize and style the default email notifications that Okta sends to end users. Okta sends email notifications for a variety of reasons, such as:
+You can customize and style the default email notifications that Okta sends to end users. Okta sends email notifications for various reasons, such as:
 
 - User activation
 - Forgotten password
 - Unknown device notification
 
-Email notifications are based on templates that are generated automatically and sent to end users according to your settings. Okta email templates are available in each Okta-supported language. You can use the default email templates as they are, or you can edit the text of the various email templates to send end users custom Okta-generated email messages.
+Okta bases email notifications on templates that we generate automatically. The templates are available in each Okta-supported language. You can use the default email templates as they are, or you can edit the email text of the various email templates to send end users custom Okta-generated email messages. End users receive the emails based on your settings.
 
 > **Note:** When you edit a template, Okta stops sending the default in other languages. You're responsible for adding translations of your customized message. See [Edit a default template](#edit-a-default-template).
 
 ### Multibrand customizations and emails
 
-Before authentication, end users see the correct brand’s sign-in page by visiting the custom domain associated with the brand. When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
+When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
 
 For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to reset a password from the sign-in page. The sign-in triggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
 
@@ -46,7 +46,7 @@ See [Brands](/docs/concepts/brands/).
 
 ### Use the Brands API
 
-The Brands API allows you to customize the look and feel of pages and templates, inclugin:
+The Brands API allows you to customize the look and feel of pages and templates, including:
 
 - The custom sign-in page
 - Error pages
@@ -326,7 +326,7 @@ Variables used for function parameters must match the function data type. For ex
 
 ## Test custom email templates
 
-You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template, as well as see how the template renders in different email environments. You avoid the need to create an end-to-end workflow to test customizations. The primary email address of the admin that initiates the test receives the email.
+You can send yourself a test email to see how a custom email template looks and functions. A test email can help you validate attribute-based variables and translations in the customized template. You can see how the template renders in different email environments and avoid creating end-to-end workflows to test customizations. The primary email address of the admin that initiates the test receives the email.
 
 1. Click the email icon to the right of the email template that you’ve customized. A list shows the sender and receiver of the email.
 2. Click **Send test email**.
