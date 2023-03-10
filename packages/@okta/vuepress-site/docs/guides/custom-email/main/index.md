@@ -28,9 +28,9 @@ Customize email notifications.
 
 You can customize and style the default email notifications that Okta sends to end users. Okta sends email notifications for a variety of reasons, such as:
 
-- user activation
-- forgotten password
-- unknown device notification
+- User activation
+- Forgotten password
+- Unknown device notification
 
 Email notifications are based on templates that are generated automatically and sent to end users according to your settings. Okta email templates are available in each Okta-supported language. You can use the default email templates as they are, or you can edit the text of the various email templates to send end users custom Okta-generated email messages.
 
@@ -38,15 +38,15 @@ Email notifications are based on templates that are generated automatically and 
 
 ### Multibrand customizations and emails
 
-Before authentication, end users see the correct brand’s sign-in page by visiting the custom domain associated with the brand. When an end user triggers an email, it's branded based on the custom domain from which the end user initiated the flow.
+Before authentication, end users see the correct brand’s sign-in page by visiting the custom domain associated with the brand. When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
 
-For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to resets a password from the sign-in page. The sign-in riggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
+For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to resets a password from the sign-in page. The sign-in triggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
 
 See [Brands](/docs/concepts/brands/).
 
 ### Use the Brands API
 
-The Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted Sign-In Widget, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain.
+The Brands API allows you to customize the look and feel of pages and templates, such as the custom sign-in page, error pages, email templates, and the Okta End-User Dashboard. You can brand these pages and templates without setting up a customized Okta URL domain.
 
 > **Note:** If you change any email code using the [Admin Console](#edit-a-default-email-template), your customizations may override the values of the Theme objects. To get your Theme object values back, reset the code editors in the Admin Console to the default settings.
 

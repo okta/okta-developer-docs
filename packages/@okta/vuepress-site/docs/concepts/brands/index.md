@@ -48,9 +48,9 @@ Multibrand orgs have a non-deletable default brand called the subdomain brand. H
 
 ### Multibrand customizations and emails
 
-Before authentication, end users see the correct brand’s sign-in page by visiting the custom domain associated with the brand. When an end user triggers an email, it's branded based on the custom domain from which the end user initiated the flow.
+Before authentication, end users see the correct brand’s sign-in page by visiting the custom domain associated with the brand. When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
 
-For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to resets a password from the sign-in page. The sign-in riggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
+For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to resets a password from the sign-in page. The sign-in triggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
 
 See [Customize email notifications](/docs/guides/custom-email/main/).
 
