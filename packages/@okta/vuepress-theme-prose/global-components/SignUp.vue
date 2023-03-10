@@ -23,6 +23,10 @@
                 class="signup__item__title-logo" 
                 src="/img/signup-item-logo.svg" 
               >
+              <img 
+                class="signup__item__title-logo signup__item__title-logo-white" 
+                src="/img/signup-item-logo-white.svg" 
+              >
             </div>
             <div class="signup__description">
               <div class="signup__rate">

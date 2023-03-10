@@ -49,7 +49,7 @@
 }
 
 .signup__container {
-  background-color: var(--c-gray-980);
+  background-color: transparent;
 }
 
 .signup__form__label {
@@ -106,9 +106,12 @@
   color: var(--c-lightgray-450);
 }
 
-.signup__item__title-logo:after {
-  content: url("/img/signup-item-logo-white.svg");
+.signup__item__title-logo {
+  display: none;
+}
 
+.signup__item__title-logo-white {
+  display: block;
   background-color: var(--c-gray-980);
 }
 
@@ -174,4 +177,17 @@
   border-bottom: 1px solid var(--c-lightgray-450);
 
   color: var(--c-lightgray-450);
+}
+
+.signup__container .signup__description {
+  background-color: var(--c-gray-980);
+}
+
+.signup__container .signup__item__title {
+  border: none;
+  background-color: var(--c-gray-980);
+}
+
+.signup__container .signup__item__title:before {
+  display: none;
 }
