@@ -32,7 +32,7 @@ You can customize and style the default email notifications that Okta sends to e
 - Forgotten password
 - Unknown device notification
 
-Okta bases email notifications on templates that we generate automatically. The templates are available in each Okta-supported language. You can use the default email templates as they are, or you can edit the email text of the various email templates to send end users custom Okta-generated email messages. End users receive the emails based on your settings.
+Okta bases email notifications on templates that we generate automatically. The templates are available in each Okta-supported language. You can use the default email templates as they are, or edit them to send end users custom messages. End users receive the emails based on your settings.
 
 > **Note:** When you edit a template, Okta stops sending the default in other languages. You're responsible for adding translations of your customized message. See [Edit a default template](#edit-a-default-template).
 
@@ -61,7 +61,7 @@ See [Email template operations](/docs/reference/api/brands/#email-template-opera
 
 ### Caveats
 
-- Email templates must be under 64 KB. This is approximately 65,000 single-byte characters for all text, HTML, and CSS characters in the template. UTF-8 characters can be as large as 4 bytes each, so fewer characters are accepted.
+- Email templates must be under 64 KB. This is approximately 65,000 single-byte characters for all text, HTML, and CSS characters in the template. UTF-8 characters can be as large as 4 bytes each, so we accept fewer characters.
 
 - Okta supports only inline CSS.
 
@@ -131,7 +131,7 @@ The following table provides a list of all available email templates in an Okta 
 | Email Change Notification | Notice of pending email address change | `PendingEmailChange` | |  Sent to a user's old email address when they request to change their email address |
 | Email Change Confirmed Notification | Notice of email address change | `EmailChangeConfirmation` | |  Sent when the request to change a user's email address is confirmed |
 | Email Challenge | One-time Email Authentication Link | `EmailChallenge` | Either `${emailAuthenticationLink}` or `${verificationToken}` |  Sent to users with email as an authentication factor and must follow the provided link to complete their authentication into Okta |
-| Account Lockout | Account Lockout | `AccountLockout` | |  Sent to users who are locked out of their account and must follow the provided link to complete the self-service unlock account process or contact their admin |
+| Account Lockout | Account Lockout | `AccountLockout` | |  Sent to users who are locked out of their account. Users must follow the provided link to complete the self-service unlock account process or contact their admin. |
 | New Sign-On Notification | New Sign-On Notification | `NewSignOnNotification` | `${request.browser}`, `${request.date}`, `${request.time}`, `${request.location}` and `${request.ipAddress}` |  Sent to users who authenticated into Okta from an unknown device or browser and should contact the Okta system administrator if the user doesn't recognize the sign-in details of the unknown device |
 | Authenticator Enrolled (Identity Engine)</br></br>MFA Factor Enrolled (Classic Engine) | Security method enrolled (Identity Engine)</br>MFA Factor Enrolled (Classic Engine) | `AuthenticatorEnrolled` | Either `${request.factor}` or `${request.authenticator}` (Identity Engine)</br></br>`${request.factor}`, `${request.date}`, `${request.time}`, and `${request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine)</br></br>Sent to users when new MFA factors are enrolled (Classic Engine) |
 | Authenticator Reset (Identity Engine)</br></br>MFA Factor Reset (Classic Engine) | Security method reset (Identity Engine)</br>MFA Factor Reset (Classic Engine) | `AuthenticatorReset` | Either `${request.factors}` or `${request.authenticators}` (Identity Engine)</br></br>`${request.factors}`, `${request.date}`, `${request.time}`, and `${request.location}` (Classic Engine) | Sent to users when authenticators are reset (Identity Engine)</br></br>Sent to users when MFA factors are reset (Classic Engine) |
