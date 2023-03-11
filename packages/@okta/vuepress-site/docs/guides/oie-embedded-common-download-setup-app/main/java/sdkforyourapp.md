@@ -6,7 +6,7 @@ Begin to integrate the SDK into your own app by following these steps:
 
 #### Set up your app with the prerequisites
 
-1. In your Okta Org, [create a new application integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) for your app and [update your Custom Authorization Server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server) to use the Interaction Code flow.
+1. In your Okta Org, [create a new application integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) for your app and [update your custom authorization server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server) to use the Interaction Code flow.
 1. Ensure that you have all the Identity Engine Java SDK [software requirements](#software-requirements).
 1. Clone the [Identity Engine Java SDK (`okta-idx-java`)](https://github.com/okta/okta-idx-java) repository.
 1. Ensure that you've set the [dependencies](#software-requirements) in your project with the latest [Identity Engine Java SDK released version](https://github.com/okta/okta-idx-java/releases).

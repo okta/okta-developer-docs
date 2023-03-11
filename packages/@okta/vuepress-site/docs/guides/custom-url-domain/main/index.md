@@ -77,7 +77,7 @@ You can only preview or visit a branded page (such as viewing brand assets appli
 
 * When an admin signs in to the custom domain and then accesses the Admin Console from their user dashboard, the org domain changes from the custom domain to the Okta domain.
 
-* If you disable a custom domain, the `issuerMode` for Identity Providers, Authorization Servers, and OpenID Connect apps is set back to `ORG_URL`.
+* If you disable a custom domain, the `issuerMode` for Identity Providers, authorization servers, and OpenID Connect apps is set back to `ORG_URL`.
 
 ### Common questions
 
@@ -254,15 +254,15 @@ There are websites available for flushing the caches for [Google DNS](https://go
 
 After you add your custom domain, some features or APIs require additional configuration to reflect that change.
 
-### Update Custom Authorization Server
+### Update custom authorization server
 
-After you customize your Okta domain, existing [Custom Authorization Servers](/docs/concepts/auth-servers/) continue to use the Okta org URL until you change it. All new Custom Authorization Servers use the custom domain by default.
+After you customize your Okta domain, existing [custom authorization servers](/docs/concepts/auth-servers/) continue to use the Okta org URL until you change it. All new custom authorization servers use the custom domain by default.
 
-You need to update existing Custom Authorization Servers to return the custom domain as the `issuer` value:
+You need to update existing custom authorization servers to return the custom domain as the `issuer` value:
 
 1. In the Admin Console, go to **Security** > **API**.
-1. On the **Authorization Servers** tab, select the Custom Authorization Server that you want to update.
-1. Click **Edit** on the Custom Authorization Server that you selected.
+1. On the **Authorization Servers** tab, select the custom authorization server that you want to update.
+1. Click **Edit** on the custom authorization server that you selected.
 1. From the **Issuer** drop-down box, select the custom URL and click **Save**.
 
 ### Update issuer for OpenID Connect apps
@@ -278,7 +278,7 @@ Additionally, you may want to change the issuer for your OpenID Connect apps tha
 
 If you have apps that use Okta endpoints with the uncustomized URL domain, update them to use the custom URL domain.
 
-### Configure a custom domain for your Authorization Server
+### Configure a custom domain for your authorization server
 
 The OpenID Connect specification requires a `./well-known/openid-configuration` endpoint with metadata about your app's endpoints. You should be able to see yours at:
 
@@ -288,10 +288,10 @@ https://<id.domain.name>/oauth2/default/.well-known/openid-configuration
 
 You might notice that it has your Okta `dev-*` domain, rather than your custom domain name.
 
-You need to update your Authorization Server to use your custom domain to fix this:
+You need to update your authorization server to use your custom domain to fix this:
 
 1. Sign in to your Okta account and go to **API** > **Authorization Servers**.
-2. Select the  **default** Custom Authorization Server, and then click **Edit**.
+2. Select the  **default** custom authorization server, and then click **Edit**.
 3. Change the **Issuer** to use **Custom URL**.
 4. Try `./well-known/openid-configuration` again. It should now display your custom domain.
 

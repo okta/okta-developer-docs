@@ -1,7 +1,7 @@
 
 Create a configuration by calling `IdxClientConfiguration`. This code shows loading the values from a property file in your project.
 
-First, create a property file, for example, `okta.properties` in the project root. Add the values for your Okta Application Integration to the file.
+First, create a property file, for example, `okta.properties` in the project root. Add the values for your Okta application integration to the file.
 
 ```
 issuer={yourIssuerUrl}

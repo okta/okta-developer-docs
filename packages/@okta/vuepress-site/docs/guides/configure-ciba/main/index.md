@@ -5,7 +5,6 @@ layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="ea" />
 
 This guide explains how to build transactional verification using a Client-Initiated Backchannel Authentication (CIBA) grant and a custom-branded authenticator.
 
@@ -173,7 +172,7 @@ You can also use the [Apps API](/docs/reference/api/apps/#add-oauth-2-0-client-a
 
 ### Configure an authorization server access policy to use CIBA
 
-You can use either the Okta Org Authorization Server or a custom authorization server with CIBA. In this example, use the `default` custom authorization server.
+You can use either the org authorization server or a custom authorization server with CIBA. In this example, use the `default` custom authorization server.
 
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, select the edit icon to the right of the authorization server that you want to use. In this example, use the `default` custom authorization server.
@@ -231,7 +230,7 @@ The CIBA challenge request is sent by an OIDC client to an Okta authorization se
 **Example request**
 
 ```bash
-curl --request POST \
+curl --request GET \
   --url https://${yourOktaDomain}/oauth2/default/v1/bc/authorize \
   --header 'Accept: application/json' \
   --header 'authorization: Basic MG9hY...' \
@@ -318,5 +317,5 @@ The next step in the CIBA authentication flow is to send a request for tokens to
 ## See also
 
 * [Okta Devices Swift SDK](https://github.com/okta/okta-devices-swift) for iOS
-* [Okta Mobile Kotlin SDK](https://github.com/okta/okta-mobile-kotlin) for Android
+* [Okta Devices Kotlin SDK](https://github.com/okta/okta-devices-kotlin) for Android
 * [Custom Authenticator integration guide](/docs/guides/authenticators-custom-authenticator/ios/main/)

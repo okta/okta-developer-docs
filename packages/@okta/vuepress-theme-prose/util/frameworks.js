@@ -77,6 +77,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   ropassword: 'Resource Owner Password',
   saml2assert: 'SAML 2.0 Assertion',
   interactioncode: 'Interaction Code',
+  wfconnector: 'Workflows connector',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
