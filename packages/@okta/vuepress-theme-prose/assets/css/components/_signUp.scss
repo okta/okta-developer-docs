@@ -457,17 +457,17 @@ select.signup__form__input:required:invalid {
   grid-column: 1 / 3;
   padding-bottom: 26px;
 
+  border-bottom: 1px solid var(--c-gray-405);
+
   font-weight: 500;
   font-size: 32px;
   line-height: 35px;
   text-align: center;
-  border-bottom: 1px solid var(--c-gray-405);
   color: var(--c-gray-950);
   @include media(">tablet") {
     padding-bottom: 0;
     height: 66px;
     min-height: 66px;
-
 
     line-height: 43px;
     letter-spacing: -0.3px;
