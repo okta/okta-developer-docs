@@ -2099,7 +2099,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 
 #### Authenticator key, type, method, and characteristic relationships for constraints
 
-The following table shows the possible relationships between all the authenticators, their methods, and method characteristics to construct constraints for the policy.
+The following table shows the possible relationships between all the authenticators, their methods, and method characteristics to construct constraints for a policy.
 
 > **Note**:
 > * Method characteristics with an asterisk (*) indicate that the condition is only satisfied with certain configurations, devices, or flows.
