@@ -47,7 +47,7 @@
   position: relative;
 
   display: block;
-  padding: 0 32px;
+  margin: 0 32px;
   
   overflow: hidden;
 
@@ -57,12 +57,14 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 45px;
-    padding: 0;
+    margin: 0;
   }
 }
 
 .signup__items.active {
-  border: 1px solid var(--c-gray-950);
+  @include media(">tablet") {
+    border: 1px solid var(--c-gray-950);
+  }
 }
 
 .signup__items.active .signup__description-bordered {
@@ -88,18 +90,37 @@
 }
 
 .signup__items.active .signup__popup {
-  display: grid;
+  display: block;
+
+  border: 1px solid var(--c-gray-950);
+  @include media(">tablet") {
+    display: grid;
+
+    border: none;
+  }
 }
 
 .signup__popup {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: relative;
+  z-index: 3;
 
-  display: none;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: -523px;
   width: 100%;
   height: 100%;
+
+  border-radius: 12px;
+  background-color: var(--c-gray-075);
+  @include media(">tablet") {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 0;
+
+    background-color: transparent;
+  }
 }
 
 .signup__popup:before {
@@ -109,10 +130,15 @@
   top: 0;
   z-index: 2;
 
+  display: none;
+
   width: 100%;
   height: 103px;
 
   background-color: var(--c-gray-075);
+  @include media(">tablet") {
+    display: block;
+  }
 }
 
 .signup__popup:after {
@@ -123,34 +149,48 @@
   left: 0;
   z-index: 1;
 
+  display: none;
+
   grid-column: 1 / 3;
   width: calc(100% + 7px);
   height: 100%;
   height: 100%;
 
   background: var(--c-gray-075);
+  @include media(">tablet") {
+    display: block;
+  }
 }
 
 .signup__popup__container {
-  position: absolute;
-  top: 0;
-  left: 0;
   z-index: 3;
 
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  padding: 31px 40px 40px;
+  padding: 24px 31px 31px;
   width: 100%;
   height: 100%;
+  @include media(">tablet") {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 31px 40px 40px;
+  }
 }
 
 .signup__popup__title {
   display: flex;
-  grid-column: 1 / 4;
-  align-items: flex-end;
-  padding-bottom: 24px;
+  flex-direction: column;
 
-  border-bottom: 1px solid var(--c-gray-405);
+  @include media(">tablet") {
+    grid-column: 1 / 4;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-bottom: 24px;
+
+    border-bottom: 1px solid var(--c-gray-405);
+  }
 }
 
 .signup__popup__title h2 {
@@ -158,20 +198,27 @@
 
   font-weight: 500;
   font-size: 32px;
-  line-height: 44px;
+  line-height: 35px;
   letter-spacing: -0.3px;
   color: var(--c-gray-950);
+  @include media(">tablet") {
+    line-height: 44px;
+  }
 }
 
 .signup__popup__title span {
-  margin-bottom: 4px;
-  margin-left: 30px;
+  margin-top: 20px;
 
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
   letter-spacing: 0.3px;
   color: var(--c-gray-950);
+  @include media(">tablet") {
+    margin-top: 0;
+    margin-bottom: 4px;
+    margin-left: 30px;
+  }
 }
 
 .signup__popup__title a {
@@ -190,8 +237,8 @@
 
 .signup__popup__close {
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 30px;
+  right: 30px;
 
   width: 24px;
   height: 24px;
@@ -201,6 +248,10 @@
 
   transition: 0.3s;
   cursor: pointer;
+  @include media(">tablet") {
+    top: 40px;
+    right: 40px;
+  }
 }
 
 .signup__popup__close:hover {
@@ -248,27 +299,36 @@
 
 .signup__form {
   display: flex;
-  grid-column: 1 / 3;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 35px;
-  padding-right: 40px;
-  width: calc(100% + 20px);
+  padding-top: 2px;
+  @include media(">tablet") {
+    grid-column: 1 / 3;
+    padding-top: 35px;
+    padding-right: 40px;
+    width: calc(100% + 20px);
+  }
 }
 
 .signup__form__header {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  row-gap: 32px;
-  column-gap: 18px;
   margin-bottom: 34px;
   width: 100%;
+  @include media(">tablet") {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 32px;
+    column-gap: 18px;
+  }
 }
 
 .signup__form__field {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 24px;
+  @include media(">tablet") {
+    margin-top: 0;
+  }
 }
 
 .signup__form__label {
@@ -283,7 +343,7 @@
 }
 
 .signup__form__label-required {
-  margin-left: 1px;
+  margin-left: 2px;
 
   color: var(--c-warning-required);
 }
@@ -331,8 +391,13 @@ select.signup__form__input:required:invalid {
 
 .signup__form__body {
   display: flex;
-  margin-bottom: 32px;
+  flex-direction: column;
+  margin-bottom: 26px;
   width: 100%;
+  @include media(">tablet") {
+    flex-direction: row;
+    margin-bottom: 32px;
+  }
 }
 
 .signup__form__body > .error-color {
@@ -340,25 +405,42 @@ select.signup__form__input:required:invalid {
 }
 
 .signup__form__recaptcha {
-  margin-right: 16px;
-  min-height: 76px;
-
   font-size: 14px;
   line-height: 19px;
   color: var(--c-gray-950);
+  -webkit-transform: scale(0.81);
+  transform: scale(0.81);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  @include media(">tablet") {
+    margin-right: 16px;
+    min-height: 76px;
+    max-height: 76px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .signup__form__footer {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
-  grid-gap: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  @include media(">tablet") {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 16px;
+  }
 }
 
 .signup__form__button {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px 39px;
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  
   height: 48px;
 
   border: 1px solid var(--c-gray-950);
@@ -372,6 +454,18 @@ select.signup__form__input:required:invalid {
   white-space: nowrap;
   color: var(--c-gray-950);
   cursor: pointer;
+  @include media(">tablet") {
+    margin-top: 0;
+    padding: 12px 39px;
+    width: auto;
+  }
+}
+
+.signup__form__button:nth-last-child(2) {
+  order: 4;
+  @include media(">tablet") {
+    order: inherit;
+  }
 }
 
 .signup__form__button.disabled {
@@ -388,14 +482,15 @@ select.signup__form__input:required:invalid {
 
 .signup__form__button span {
   margin-right: 11px;
-  width: 18px;
-  height: 18px;
+  min-width: 18px;
+  min-height: 18px;
 
   background: url("/img/icons/google-logo-new.png") no-repeat center center;
   background-size: contain;
 }
 
 .signup__form__button-dark {
+  margin-top: 0;
   padding: 12px 63px;
 
   background: var(--c-gray-950);
@@ -417,11 +512,15 @@ select.signup__form__input:required:invalid {
 .signup__form__splitter {
   display: flex;
   align-items: center;
+  margin: 24px 0 4px;
 
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
   color: var(--c-gray-760);
+  @include media(">tablet") {
+    margin-top: 0;
+  }
 }
 
 .signup__item {
@@ -518,7 +617,7 @@ select.signup__form__input:required:invalid {
 .signup__description {
   margin-top: 27px;
   @include media(">tablet") {
-    margin-top: 47px;
+    margin-top: 48px;
   }
 }
 

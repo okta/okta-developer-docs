@@ -10,10 +10,6 @@
   color: var(--c-green-300);
 }
 
-.signup__items.active {
-  border: 1px solid var(--c-lightgray-450);
-}
-
 .signup__items.active .signup__container {
   background-color: var(--c-gray-950);
 }
@@ -41,7 +37,9 @@
 }
 
 .signup__popup__title a:hover {
-  border-color: var(--c-green-100);
+  @include media(">tablet") {
+    border-color: var(--c-green-100);
+  }
 }
 
 .signup__popup__close {
@@ -50,6 +48,9 @@
 
 .signup__container {
   background-color: transparent;
+  @include media(">tablet") {
+    background-color: var(--c-gray-980);
+  }
 }
 
 .signup__form__label {
@@ -101,7 +102,7 @@
 }
 
 .signup__item__title {
-  border-bottom: 1px solid var(--c-gray-405);
+  border-bottom: 1px solid var(--c-gray-760);
 
   color: var(--c-lightgray-450);
 }
@@ -131,7 +132,25 @@
 }
 
 .signup__items.active .signup__content {
-  background-color: var(--c-gray-980);
+  @include media(">tablet") {
+    background-color: var(--c-gray-980);
+  }
+}
+
+.signup__items.active .signup__description {
+  @include media(">tablet") {
+    background-color: var(--c-gray-950);
+  }
+}
+
+.signup__items.active .signup__popup {
+  border: 1px solid var(--c-gray-075);
+  background-color: var(--c-gray-950);
+  @include media(">tablet") {
+    overflow: hidden;
+
+    background-color: transparent;
+  }
 }
 
 .signup__content__title {
@@ -187,6 +206,10 @@
 .signup__container .signup__item__title {
   border: none;
   background-color: var(--c-gray-980);
+  @include media(">tablet") {
+    border-bottom: 1px solid var(--c-gray-760);
+    background-color: transparent;
+  }
 }
 
 .signup__container .signup__item__title:before {
