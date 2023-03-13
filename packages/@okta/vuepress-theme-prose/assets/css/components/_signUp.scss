@@ -603,7 +603,7 @@ select.signup__form__input:required:invalid {
   background-color: var(--c-gray-075);
   transform: translateX(-50%);
   @include media(">tablet") {
-    bottom: -14px;
+    bottom: -19px;
 
     width: 189px;
     height: 28px;
@@ -748,7 +748,7 @@ select.signup__form__input:required:invalid {
   text-align: center;
   @include media(">tablet") {
     margin-top: 57px;
-    padding: 27px 24px 25px;
+    padding: 23px 24px 25px;
   }
 }
 
@@ -802,6 +802,12 @@ select.signup__form__input:required:invalid {
   display: none;
   @include media(">tablet") {
     display: block;
+  }
+}
+
+.signup__item .signup__content__tip {
+  @include media(">tablet") {
+    top: -21px;
   }
 }
 
