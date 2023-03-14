@@ -176,4 +176,4 @@ Okta provides the API Access Management administrator role to manage authorizati
 
 * Accept access tokens only through an HTTP Authorization header. Don't encode tokens into a payload or URL that may be logged or cached.
 * A resource server must confirm that the audience claim (`aud`) and client ID claim (`cid`) match the expected audience and client ID.
-* When a resource server successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or through the [introspection endpoint](/docs/reference/api/oidc/#introspect).
+* When a resource server successfully validates an access token, cache the result until the expiration time (`exp`). Do this for a validation that is either [local](/docs/guides/validate-access-tokens/) or through the [introspection endpoint](/docs/reference/api/oidc/#introspect).
