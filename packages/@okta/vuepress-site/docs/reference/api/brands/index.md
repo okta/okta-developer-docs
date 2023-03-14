@@ -2197,10 +2197,6 @@ The [Email Template Settings Object](#email-template-settings-object) resource t
 
 The [Email Template Settings Object](#email-template-settings-object) resource that was updated
 
-Returns a `422 Unprocessable Entity` if the template doesn't support the recipient's value.
-
-> **Note**: The templates that don't support all recipient values are New Sign-On Notification, Authenticator Enrolled, Authenticator Reset, Password Changed, and Change Email Confirmation.
-
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
 
 #### Use examples
