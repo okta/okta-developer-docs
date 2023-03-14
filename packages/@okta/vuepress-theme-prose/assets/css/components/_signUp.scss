@@ -165,7 +165,7 @@
 .signup__popup__container {
   z-index: 3;
 
-  padding: 24px 31px 31px;
+  padding: 24px 31px 76px;
   width: 100%;
   height: 100%;
   @include media(">tablet") {
@@ -182,6 +182,7 @@
 .signup__popup__title {
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   @include media(">tablet") {
     grid-column: 1 / 4;
@@ -207,6 +208,9 @@
 }
 
 .signup__popup__title span {
+  position: absolute;
+  bottom: 32px;
+
   margin-top: 20px;
 
   font-weight: 400;
@@ -215,6 +219,9 @@
   letter-spacing: 0.3px;
   color: var(--c-gray-950);
   @include media(">tablet") {
+    position: static;
+    bottom: auto;
+
     margin-top: 0;
     margin-bottom: 4px;
     margin-left: 30px;
@@ -262,10 +269,6 @@
 
 .signup__container {
   align-content: flex-start;
-  @include media(">tablet") {
-    padding: 24px 0 0;
-  }
-
   @include media(">tablet") {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -74,6 +74,10 @@
   color: var(--c-lightgray-450);
 }
 
+.signup__form__splitter {
+  color: var(--c-gray-420);
+}
+
 .signup__form__button {
   border: 1px solid var(--c-lightgray-450);
   background-color: var(--c-gray-950);
@@ -145,7 +149,7 @@
 
 .signup__items.active .signup__popup {
   border: 1px solid var(--c-gray-075);
-  background-color: var(--c-gray-950);
+  background-color: var(--c-gray-765);
   @include media(">tablet") {
     overflow: hidden;
 
@@ -176,7 +180,7 @@
 }
 
 .signup__link a span {
-  border-bottom: 1px solid var(--c-lightgray-450);
+  border-bottom: none;
 }
 
 .signup__link-dark {

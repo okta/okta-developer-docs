@@ -508,7 +508,7 @@ export default {
       if (window.innerWidth > 767) {
         if (!isNotUSAAndCanada) {
           setTimeout(function() {
-            let height = document.querySelector('.signup__form').getBoundingClientRect().height + 143 + 'px';
+            let height = document.querySelector('.signup__form').getBoundingClientRect().height + 139 + 'px';
             document.querySelector('.signup__items.active').style.height = height;
           }, 10);
         } else {
