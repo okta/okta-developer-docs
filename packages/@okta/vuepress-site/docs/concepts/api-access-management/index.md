@@ -139,7 +139,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 
 * Authorization policies and rules are treated as a case or switch statement. Therefore, when there's a matching rule, Okta applies the rule and immediately returns the result. Okta executes no further rules.
 
-  * If a request generates unexpected scopes, it is because of an overly broad rule within the authorization server.
+  * If a request generates unexpected scopes, it's because of an overly broad rule within the authorization server.
 
   * You can assign an OAuth 2.0 client to any number of authorization servers. Doing so allows you to generate various tokens, each with separate authorization policies, token expiration times, and scopes. The audience claim (`aud`) and client ID claim (`cid`) identify which token maps to which API product.
 
