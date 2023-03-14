@@ -143,7 +143,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 
   * You can assign an OAuth 2.0 client to any number of authorization servers. Doing so allows you to generate various tokens, each with separate authorization policies, token expiration times, and scopes. The audience claim (`aud`) and client ID claim (`cid`) identify which token maps to which API product.
 
-* You can assign OAuth clients and authorization servers on a many-to-many basis. This allows a developer to use a single OAuth client to retrieve access tokens from different authorization servers depending on the use case. The only difference is the endpoints accessed and the scopes requested.
+* You can assign OAuth 2.0 clients and authorization servers on a many-to-many basis. This allows a developer to use a single OAuth 2.0 client to retrieve access tokens from different authorization servers depending on the use case. The only difference is the endpoints accessed and the scopes requested.
 
 * Configure the access token lifetime to reflect the security requirements of the use case. For example, an access token for a banking API may include a `transactions:read` scope with a multi-hour lifetime. By contrast, the lifetime of an access token for transferring funds should be only a matter of minutes.
 
