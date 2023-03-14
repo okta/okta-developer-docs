@@ -7,7 +7,12 @@ category: management
 
 # Brands API
 
-The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard.
+The Okta Brands API allows you to customize the look and feel of pages and templates, including:
+
+- The Okta-hosted sign-in Page
+- Error pages
+- Email templates
+- The Okta End-User Dashboard
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
 
@@ -742,7 +747,7 @@ Updates the logo for your Theme
 
 | Property | Type | Description                                                                                                                                                                                               |
 |----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`   | File | The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. |
+| `file`   | File | The file must be in PNG, JPG, or GIF format and less than 1 MB. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. |
 
 #### Response body
 
@@ -1177,7 +1182,7 @@ Lists all supported email templates
 | Parameter      | Description            | ParamType | DataType | Required |
 | -------------- | ---------------------- | --------- | -------- | -------- |
 | `brandId`      | ID of a Brand string   | Query     | String   | TRUE     |
-| `expand`       | If specified, it causes additional metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
+| `expand`       | If specified, it causes more metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
 
 #### Response body
 
@@ -1266,7 +1271,7 @@ Fetches the email template named `templateName`
 | -------------- | ---------------------- | --------- | -------- | -------- |
 | `brandId`      | ID of a Brand string   | Query     | String   | TRUE     |
 | `templateName` | Name of an email template | Query     | String   | TRUE     |
-| `expand`       | If specified, it causes additional metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
+| `expand`       | If specified, it causes more metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
 
 #### Response body
 
@@ -1651,7 +1656,7 @@ Link: <https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserAct
 
 <ApiOperation method="post" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
 
-Creates a new email customization
+Creates an email customization
 
 #### Request path parameters
 
@@ -1674,7 +1679,7 @@ Returns a `400 Bad Request` if:
 - `language` is not one of the [supported languages](#supported-languages).
 - `body` does not contain a required variable references.
 
-Returns a `409 Conflict` with error code `E0000182` If `isDefault` is `true` and a default customization already exists.
+Returns a `409 Conflict` with error code `E0000182` If `isDefault` is `true` and a default customization exists.
 
 Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
 
@@ -1903,7 +1908,7 @@ The [Email Customization](#email-customization) resource to update.
 
 The [Email Customization](#email-customization) resource that was updated.
 
-If `isDefault` is `true`, the previous default email customization will have its `isDefault` set to `false`.
+If `isDefault` is `true`, the previous default email customization has its `isDefault` set to `false`.
 
 Returns a `409 Conflict` if:
 - there is already another email customization for the specified `language`.
@@ -2606,4 +2611,4 @@ The Email Template Settings Object resource defines the following properties:
 
 ## Links object
 
-Specifies link relations available for the current status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
+Specifies link relations available for the status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
