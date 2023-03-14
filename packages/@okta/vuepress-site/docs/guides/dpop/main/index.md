@@ -93,9 +93,9 @@ In the POST (create the client app) or PUT (update the client app) request, add 
     "oauthClient": {
       "response_types":["code"],
       "grant_types":[
-"authorization_code",
-"refresh_token"
-],
+            "authorization_code",
+            "refresh_token"
+      ],
       "application_type":"browser",
       "wildcard_redirect":"DISABLED"
       "dpop_bound_access_tokens": true
