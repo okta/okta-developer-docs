@@ -31,7 +31,32 @@ DPoP enables a client to prove possession of a public/private key pair by includ
 
 ## OAuth 2.0 DPoP JWT flow
 
+<div class="three-quarter">
+
 ![Sequence diagram that displays the back and forth between the client, authorization server, and resource server for Demonstrating Proof-of-Possession](/img/authorization/Dpopflow.png)
+
+</div>
+
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+@startuml
+skinparam monochrome true
+participant "OIDC client" as client
+participant "Authorization server" as as
+participant "Resource server" as rs
+
+autonumber "<b>#."
+client -> client: Generates public/private key pair for use with DPoP
+client -> client: Adds public key to JWT header and signs JWT with private key
+client -> as: Adds JWT to `DPoP` request header and sends request to token endpoint
+as -> client: Verifies `DPoP` header and sends error with `dpop-nonce` header in response
+client -> as: Adds `nonce` and `jti` values to JWT payload and sends request again
+as -> client: Binds public key to access token and sends response
+client -> rs: Sends DPoP-bound access token to resource server
+rs -> client: Validates the DPoP-bound access token and grants access to client
+@enduml
+
+-->
 
 > **Note:** These steps assume that you've already made a request to the `/authorize` endpoint to obtain the authorization code for the [Authorization Code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow.
 
