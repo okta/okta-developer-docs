@@ -2602,21 +2602,7 @@ The Email Template Settings Object resource defines the following properties:
 
 | Property       | Type                    | Description                                                                                   |
 | ---------------| ----------------------- | --------------------------------------------------------------------------------------------- |
-| `recipients`   | enum                    | The [eligible user type](#recipients-enum) that can receive emails generated from the template |
 | `_links`       | [Links](#links-object)  | Link relations for this object                                                                |
-
-### Recipients Enum
-
-| Enum Value                      | Description                                                                                          |
-| ------------------------------- | ----------------------------------------------- |
-| `ALL_USERS`                     | Send emails to all users (default)              |
-| `ADMINS_ONLY`                   | Send emails to administrators only              |
-| `NO_USERS`                      | Do not send emails to any user                  |
-
-
-> **Note:** The following is a list of the email templates with certain Enum values:
-> * `NO_USERS, ALL_USERS`: `NewSignOnNotification`, `PasswordChanged`, `AuthenticatorEnrolled`, and `AuthenticatorReset`
-> * `ALL_USERS, ADMINS_ONLY`: `ChangeEmailConfirmation`
 
 ## Links object
 
