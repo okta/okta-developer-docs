@@ -165,7 +165,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * Avoid using the Resource Owner Password grant type (`password`) except in legacy applications or transitional scenarios. Okta recommends the authorization code or hybrid grant types for most scenarios.
 * For mobile and single-page web applications, using the Authorization Code with PKCE grant type is the best practice. The implicit or hybrid grant type is the next best option.
 * For Android or iOS applications, use [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin) or [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift).
-* When an application successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or through the [introspection endpoint](/docs/reference/api/oidc/#introspect).
+* When an application successfully validates an access token, cache the result until the expiration time (`exp`). Do this for a validation that is either [local](/docs/guides/validate-access-tokens/) or through the [introspection endpoint](/docs/reference/api/oidc/#introspect).
 * When an application retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 
 * Never use an access token granted from the org authorization server for authorization within your applications. These tokens are intended for use with Okta, and your app can't validate it. Instead, use tokens granted from a custom authorization server.
