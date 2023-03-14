@@ -3182,9 +3182,9 @@ redirects:
   - from: /docs/guides/common-hook-set-up-steps/-/setting-up-an-external-service
     to: /docs/guides/common-hook-set-up-steps/-/main/#set-up-an-external-service
   - from: /docs/guides/common-hook-set-up-steps/-/adding-basic-auth/index.html
-    to: /docs/guides/common-hook-set-up-steps/-/main/#add-basic-authorization-and-body-parsing
+    to: /docs/guides/common-hook-set-up-steps/-/main/#http-header-basic-authentication
   - from: /docs/guides/common-hook-set-up-steps/-/adding-basic-auth
-    to: /docs/guides/common-hook-set-up-steps/-/main/#add-basic-authorization-and-body-parsing
+    to: /docs/guides/common-hook-set-up-steps/-/main/#http-header-basic-authentication
   - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting/index.html
     to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
   - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting
