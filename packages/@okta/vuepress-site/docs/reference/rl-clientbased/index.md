@@ -10,9 +10,9 @@ excerpt: >-
 
 * A client accessing an OAuth 2.0 application, which uses a combination of client ID, IP address, and device identifier for rate-limiting
 
-* A client accessing a non-OAuth 2.0 application (as is the case for a Classic Engine org `/login/login.htm` endpoint), which uses the IP address and device identifier for rate-limiting
+* A client accessing a non-OAuth 2.0 application, which uses the IP address and device identifier for rate-limiting. This is the case for an Okta Classic Engine org `/login/login.htm` endpoint.
 
-The client access process can include requests to multiple API endpoints that differ based on your type of org: Okta Identity Engine or Okta Classic Engine. The Identity Engine endpoints can include `/idp/idx`, `/idp/idx/identify`, `/idp/idx/introspect`, and [Identity Engine App intent links](/docs/concepts/oie-intro/#app-intent-links).
+The client access process can include requests to multiple API endpoints that differ based on your type of org: Okta Identity Engine or Classic Engine. The Identity Engine endpoints can include `/idp/idx`, `/idp/idx/identify`, `/idp/idx/introspect`, and [Identity Engine App intent links](/docs/concepts/oie-intro/#app-intent-links).
 
 The Classic Engine and the Identity Engine both include client-based rate-limiting for the OAuth 2.0 API endpoint `/authorize`. This endpoint provides granular isolation for requests made to the OAuth 2.0 `/authorize` endpoint, and this framework isolates rogue OAuth 2.0 clients and bad actors, ensuring that valid users and applications don't run into rate limit violations.
 
@@ -28,7 +28,7 @@ For example, example.com has 10 OAuth 2.0 applications running in a production e
 
 A client-based rate limit can be helpful in the following scenarios:
 
-* (Applies only to the OAuth 2.0 `/authorize` endpoint) You have several OAuth 2.0 applications that are split across multiple teams. Ensure that one OAuth 2.0 application doesn't consume all the assigned per-minute request limits.
+* (Applies only to the OAuth 2.0 `/authorize` endpoint) You have several OAuth 2.0 applications split across multiple teams. Ensure that one OAuth 2.0 application doesn't consume all the assigned per-minute request limits.
 * (Applies only to the OAuth 2.0 `/authorize` endpoint) You want to isolate any rogue OAuth 2.0 applications from other valid OAuth 2.0 applications.
 * You want to ensure that every application team adheres to best-coding practices, such as proper error handling to prevent redirect loops.
 * You want protection against random synthetic tests or batch jobs in production that make numerous requests every minute.
@@ -66,7 +66,7 @@ If the request quota isn't set, Bob or Alice would have to make the request enou
 
 #### Client-based isolation for users accessing OAuth 2.0 /authorize from a NAT IP
 
-Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares an IP address. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate limit framework creates a unique per minute request quota from the combination of every user's IP address, OAuth 2.0 client ID of the application, and the device identifier set by Okta in each user's browser.
+Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares an IP address. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate limit framework creates a unique per minute request quota from the combination of every user's IP address, the OAuth 2.0 client ID of the application, and the device identifier set by Okta in each user's browser.
 
 <div class="three-quarter border">
 
