@@ -655,6 +655,10 @@ export const guides = [
         title: "API Security",
         subLinks: [
           {
+            title: "Configure Demonstrating Proof-of-Possession",
+            guideName: "dpop",
+          },
+          {
             title: "Configure OAuth for Okta",
             guideName: "implement-oauth-for-okta",
           },
