@@ -105,7 +105,7 @@ Fetches a brand by `brandId`
 
 The requested [Brand Response](#brand-response-object)
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 #### Use examples
 
@@ -177,7 +177,7 @@ Returns an updated [Brand Response](#brand-response-object)
 
 Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
 
-Not providing `agreeToCustomPrivacyPolicy` with `customPrivacyPolicyUrl` returns a `400 Bad Request` status code with error code `E0000001`.
+Not providing `agreeToCustomPrivacyPolicy` with `customPrivacyPolicyUrl` returns a `400 Bad Request` status code with the error code `E0000001`.
 
 `removePoweredByOkta` is optional. Default value is `false`.
 
@@ -316,7 +316,7 @@ Content-Type: application/json
 }
 ```
 
-The following example shows consent required validation.
+The following example shows consent-required validation.
 
 ##### Request
 
@@ -383,7 +383,7 @@ Array of the [Theme Response](#theme-response-object)
 
 > **Important**: Currently only one Theme per org is supported, therefore this contains a single object only.
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 #### Use examples
 
@@ -481,7 +481,7 @@ Fetches a Theme for a Brand
 
 The requested [Theme Response](#theme-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 #### Use examples
 
@@ -581,7 +581,7 @@ The [Theme](#theme-object)
 
 Returns an updated [Theme Response](#theme-response-object)
 
-* Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+* Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
 * Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
@@ -747,15 +747,15 @@ Updates the logo for your Theme
 
 | Property | Type | Description                                                                                                                                                                                               |
 |----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`   | File | The file must be in PNG, JPG, or GIF format and less than 1 MB. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. |
+| `file`   | File | The file must be in PNG, JPG, or GIF format and less than 1 MB. For best results use landscape orientation, a transparent background, and a minimum size of 420 px by 120 px to prevent upscaling. |
 
 #### Response body
 
 Returns `201 Created` with [logo URL](#image-upload-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
-Passing an invalid `file` returns a `400 Bad Request` status code with error code `E0000001`.
+Passing an invalid `file` returns a `400 Bad Request` status code with the error code `E0000001`.
 
 #### Use examples
 
@@ -844,7 +844,7 @@ Deletes a Theme logo. The org then uses the Okta default logo.
 
 None.
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 #### Use examples
 
@@ -882,10 +882,10 @@ Updates the favicon for your theme
 
 Returns `201 Created` with the [favicon URL](#image-upload-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
-Passing an invalid `file` returns a `400 Bad Request` status code with error code `E0000001`.
+Passing an invalid `file` returns a `400 Bad Request` status code with the error code `E0000001`.
 
 #### Use examples
 
@@ -964,7 +964,7 @@ Deletes a Theme favicon. The org then uses the Okta default favicon.
 
 None.
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
 #### Use examples
@@ -997,16 +997,16 @@ Updates the background image for your Theme
 
 | Property | Type | Description                                                                                                                                                                                               |
 |----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`   | File | The image must be a PNG, JPG, or GIF file and be less than 2MB in size. |
+| `file`   | File | The image must be a PNG, JPG, or GIF file and be less than 2 MB in size. |
 
 #### Response body
 
 Returns `201 Created` with the [background image URL](#image-upload-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
-Passing an invalid `file` returns a `400 Bad Request` status code with error code `E0000001`.
+Passing an invalid `file` returns a `400 Bad Request` status code with the error code `E0000001`.
 
 #### Use examples
 
@@ -1085,7 +1085,7 @@ Deletes a Theme background image
 
 None.
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
 #### Use examples
@@ -1110,7 +1110,7 @@ HTTP/1.1 204 No Content
 
 ## Email template operations
 
-The Email Templates API allows you to programatically manage email customizations.
+The Email Templates API allows you to programmatically manage email customizations.
 
 ### Email Templates
 
@@ -1128,7 +1128,7 @@ The following constraints apply to email customizations:
 
 Email customizations can be created for the following languages. Language values must be in [BCP 47 language tag](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) format.
 
-| Language               | BCP 47 Language Tag |
+| Language               | BCP 47 language tag |
 | ---------------------- | ------------------- |
 | Czech                  | `cs`                |
 | Danish                 | `da`                |
@@ -1155,8 +1155,8 @@ Email customizations can be created for the following languages. Language values
 | Turkish                | `tr`                |
 | Ukrainian              | `uk`                |
 | Vietnamese             | `vi`                |
-| Chinese (Simplified)   | `zh-CN`             |
-| Chinese (Traditional)  | `zh-TW`             |
+| Chinese (simplified)   | `zh-CN`             |
+| Chinese (traditional)  | `zh-TW`             |
 
 * [List email templates](#list-email-templates)
 * [Get email template](#get-email-template)
@@ -1188,7 +1188,7 @@ Lists all supported email templates
 
 A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Template](#email-template) resources
 
-Passing an invalid `brandId` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` returns a `404 Not Found` with the error code `E0000007`.
 
 ##### Request
 
@@ -1277,7 +1277,7 @@ Fetches the email template named `templateName`
 
 The requested [Email Template](#email-template) resource.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -1371,7 +1371,7 @@ Fetches an email template's default content
 
 The requested email template's default [Email Content](#email-content) resource.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 If `language` isn't specified or is invalid, it defaults to the current user's language.
 
@@ -1451,7 +1451,7 @@ Fetches a preview of an email template's default content
 
 The requested email template's default [Email Content](#email-content) resource, with variables populated using the current user's context.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 If `language` isn't specified or is invalid, it defaults to the current user's language.
 
@@ -1536,7 +1536,7 @@ The following set of priorities determines the content of the email:
 
 Returns a `204 No Content` on success.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 If `language` isn't specified or is invalid, it defaults to the current user's language.
 
@@ -1577,7 +1577,7 @@ Lists all customizations for an email template
 
 A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Customization](#email-customization) resources
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -1677,11 +1677,11 @@ If this is the first customization being created for the email template, `isDefa
 
 Returns a `400 Bad Request` if:
 - `language` is not one of the [supported languages](#supported-languages).
-- `body` does not contain a required variable references.
+- `body` does not contain a required variable reference.
 
-Returns a `409 Conflict` with error code `E0000182` If `isDefault` is `true` and a default customization exists.
+Returns a `409 Conflict` with the error code `E0000182` if `isDefault` is `true` and a default customization exists.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 > **Note:** See [Email Customizations](#email-customizations) for details about email customization constraints.
 
@@ -1776,7 +1776,7 @@ Deletes an email customization
 
 Returns a `204 No Content` on success.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -1816,7 +1816,7 @@ Fetches an email customization
 
 The requested [Email Customization](#email-customization) resource.
 
-Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -1911,14 +1911,14 @@ The [Email Customization](#email-customization) resource that was updated.
 If `isDefault` is `true`, the previous default email customization has its `isDefault` set to `false`.
 
 Returns a `409 Conflict` if:
-- there is already another email customization for the specified `language`.
+- There is already another email customization for the specified `language`.
 - `isDefault` is `false` and the email customization being updated is the default.
 
 Returns a `400 Bad Request` if:
 - `language` is not one of the [supported locales](#supported-locales).
-- `body` does not contain a required variable references.
+- `body` does not contain a required variable reference.
 
-Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with the error code `E0000007`.
 
 > **Note:** See [Email Customizations](#email-customizations) for details about email customization constraints.
 
@@ -2016,7 +2016,7 @@ Returns a `204 No Content` on success.
 
 Returns a `409 Conflict` if the email customization to be deleted is the default.
 
-Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with the error code `E0000007`.
 
 > **Note:** See [Email Customizations](#email-customizations) for details about email customization constraints.
 
@@ -2058,7 +2058,7 @@ Fetches a preview of an email customization
 
 The requested email customization's [Email Content](#email-content) resource, with variables populated using the current user's context.
 
-Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -2134,7 +2134,7 @@ Fetches the settings associated with the template
 
 The requested [Email Template Settings](#email-template-settings-object) resource, with variables populated using the current user's context
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -2202,7 +2202,7 @@ The [Email Template Settings Object](#email-template-settings-object) resource t
 
 The [Email Template Settings Object](#email-template-settings-object) resource that was updated
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -2373,7 +2373,7 @@ You can publish a theme for a page or email template with different combinations
 
 #### Variants for the Okta Sign-In Page:
 
-> **Note:** For a non `OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
+> **Note:** For a non-`OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
