@@ -16,7 +16,7 @@ Customize email notifications.
 
 - [Okta Developer Edition organization](https://developer.okta.com/signup)
 - Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
-* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding) <ApiLifecycle access="ea" />
+- Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding) <ApiLifecycle access="ea" />
 
 **Sample code**
 
@@ -32,7 +32,7 @@ You can customize and style the default email notifications that Okta sends to e
 - Forgotten password
 - Unknown device notification
 
-Okta bases email notifications on templates that we generate automatically. The templates are available in each Okta-supported language. You can use the default email templates as they are or edit them to send end users custom messages. End users receive the emails based on your settings.
+Okta bases email notifications on templates that Okta generates automatically. The templates are available in each Okta-supported language. You can use the default email templates as is or edit them to send custom messages to end users. End users receive the emails based on your settings.
 
 > **Note:** When you edit a template, Okta stops sending the default in other languages. You're responsible for adding translations of your customized message. See [Edit a default template](#edit-a-default-template).
 
@@ -61,7 +61,7 @@ See [Email template operations](/docs/reference/api/brands/#email-template-opera
 
 ### Caveats
 
-- Email templates must be under 64 KB. This is approximately 65,000 single-byte characters for all text, HTML, and CSS characters in the template. UTF-8 characters can be as large as 4 bytes each, so we accept fewer characters.
+- Email templates must be under 64 KB. This is approximately 65,000 single-byte characters for all text, HTML, and CSS characters in the template. UTF-8 characters can be as large as 4 bytes each, so Okta accepts fewer characters.
 
 - Okta supports only inline CSS.
 
@@ -87,8 +87,8 @@ Use these steps to add or edit a template in one of the Okta-supported languages
    - **Subject**: The subject line for the template in the default language. You can edit the subject line when the template is in read/write mode.
    - In the preview window, to see a translation of a customized template, select a language from the dropdown menu. See [Add translations](#add-translations).
 1. Click **Edit** to put the editor in read/write mode.
-1. Make changes directly in the editor. If you type `$`, `#` or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
-   - Click the full-screen button to see the code editor in full-screen mode.
+1. Make changes directly in the editor. If you type `$`, `#`, or `{`, the editor provides a list of available variables that you can use. See [Use Velocity Templating Language (VTL)](#use-velocity-templating-language).
+   - Click the full-screen icon to see the code editor in full-screen mode.
    - Click **Save changes**, then click **Preview** to see your changes before you publish.
    - Click **Reset template** to remove your customizations and restore the default HTML/CSS and JavaScript code.
 1. Click **Save changes**. The default language version of your edited message appears in the **Email Templates** table.
@@ -113,7 +113,7 @@ The following table provides a list of all available email templates in an Okta 
 | LDAP User Activation | Welcome to Okta! | `LDAPUserActivation` | |  Sent to your new LDAP users who must follow the provided link to complete the Okta sign-up process |
 | Send Push Verify Activation Link | Push Verify Activation Email | `OktaVerifyActivation` | `${pushVerifyActivationLink}` |  Sent to users who must follow the provided link to download Okta Verify Push for multifactor authentication on their mobile device |
 | Registration - Activation | Activate Account | `RegistrationActivation` | Either `${registrationActivationLink}` or `${registrationActivationToken}` |  Sent to users who must follow the provided link to complete their self-registration |
-| Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | One of `${verificationLink}`, `${verificationToken}`, `$[registrationEmailVerificationLink}`, or `${registrationEmailVerificationToken}` (Identity Engine)</br></br>Either `${registrationEmailVerificationLink}` or `${registrationEmailVerificationToken}` (Classic Engine) |  Sent to users who can follow the provided link to verify their email address |
+| Registration - Email Verification | Welcome to (`instanceDisplayName`)! | `RegistrationEmailVerification` | One of `${verificationLink}`, `${verificationToken}`, `$[registrationEmailVerificationLink}`, or `${registrationEmailVerificationToken}` (Okta Identity Engine)</br></br>Either `${registrationEmailVerificationLink}` or `${registrationEmailVerificationToken}` (Okta Classic Engine) |  Sent to users who can follow the provided link to verify their email address |
 | Email Factor verification (Identity Engine)</br></br>Email Verification (Classic Engine) | Confirm your email address | `EmailFactorVerification` | One of `${verificationLink}`, `${verificationToken}`, `$[registrationEmailVerificationLink}`, or `${registrationEmailVerificationToken}` (Identity Engine) |  Sent to users who must follow the provided link to verify their email address |
 | Forgot Password Denied | Account Password Reset | `ForgotPasswordDenied` | |  Sent to users who forgot their password but only their admin can reset it |
 | Password Reset by Admin | Account Password Reset | `PasswordResetByAdmin` | |  Sent to users who had their password reset by an Okta system administrator and must follow the provided link to complete the password reset process |
@@ -178,7 +178,7 @@ The following table provides a list of all allowed HTML tags and elements in cus
 
 You can edit the templates through the pencil icon. See [Edit a default email template](#edit-a-default-email-template).
 
-If you restore an email to default settings, you delete any customizations made to the email whether or not the customization is for the default language.
+If you restore an email to default settings, you delete any customizations made to the email even if the customization is for the default language.
 
 After you customize a template in one language, you need to customize other languages if you want to include them. If you reset all customized translations, then Okta uses the 27 default translations.
 
@@ -198,7 +198,7 @@ Okta uses the default language when the end user’s locale doesn't match any em
       1. Click **Edit**.
       1. From the dropdown menu, select one of your existing translated customizations.
       1. Click **Update**.
-      >**Note:** This setting only applies to the current email. You must set the default language separately for each translated template.
+      >**Note:** This setting only applies to the current email. Set the default language separately for each translated template.
 
 To delete all custom translations and revert to the Okta template, click **Reset to Default**.
 
@@ -220,7 +220,7 @@ In your email templates, you can use any conditional logic that VTL supports, su
 
 ### Customization example
 
-The following example uses the `${app.name}` variable, which is only available in Okta Identity Engine.
+The following example uses the `${app.name}` variable, which is only available in Identity Engine.
 
 ```html
 #if(${app.name} == "Toys R' Fun")
@@ -238,7 +238,7 @@ The following example uses the `${app.name}` variable, which is only available i
 
 You can reference any Okta User Profile attribute in your email templates.
 
-> **Note:** Some attributes are only available in Okta Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and Okta Classic Engine.
+> **Note:** Some attributes are only available in Identity Engine (see Identity Engine notes in the following table). You can use any other variable in both the Identity Engine and Classic Engine.
 
 | Variable       | Template availability         |
 |---------------------------------------------------------------|------------------------------------------------------------------------|
