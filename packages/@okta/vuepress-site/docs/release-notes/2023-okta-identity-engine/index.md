@@ -10,12 +10,12 @@ title: Okta Identity Engine API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 |------------------------------------------------------------------------------------------------------------------|---------------|
-| [Demonstrating Proof-of-Possession is self-service EA in Preview](#demonstrating-proof-of-posession-is-self-service-ea-in-preview)                                                              |March 15, 2023 |
+| [Demonstrating Proof-of-Possession is self-service EA in Preview](#demonstrating-proof-of-possession-is-self-service-ea-in-preview)                                                              |March 15, 2023 |
 | [Bug fixed in 2023.03.1](#bug-fixed-in-2023-03-1)                                                              |March 15, 2023 |
 
 #### Demonstrating Proof-of-Possession is self-service EA in Preview
 
-OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that adds an extra layer of protection to OAuth 2.0 access tokens. It enables the client to demonstrate that it possesses a particular key or secret associated with the access token. OAuth 2.0 DPoP can help prevent certain attacks, such as token theft or token replay attacks, where an attacker intercepts a legitimate access token and uses it to gain unauthorized access to a protected resource. See Configure OAuth 2.0 Demonstrating Proof-of-Possession. <!--OKTA-585491-->
+OAuth 2.0 Demonstrating Proof-of-Possession (DPoP) is a security feature that adds an extra layer of protection to OAuth 2.0 access tokens. It enables the client to demonstrate that it possesses a particular key or secret associated with the access token. OAuth 2.0 DPoP can help prevent certain attacks, such as token theft or token replay attacks, where an attacker intercepts a legitimate access token and uses it to gain unauthorized access to a protected resource. See [Configure OAuth 2.0 Demonstrating Proof-of-Possession](/docs/guides/dpop/main/). <!--OKTA-585491-->
 
 #### Bug fixed in 2023.03.1
 
