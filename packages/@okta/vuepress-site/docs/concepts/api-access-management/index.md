@@ -168,7 +168,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * When an application successfully validates an access token, cache the result until the expiration time (`exp`). Do this for a validation that is either [local](/docs/guides/validate-access-tokens/) or through the [introspection endpoint](/docs/reference/api/oidc/#introspect).
 * When an application retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 
-* Never use an access token granted from the org authorization server for authorization within your applications. These tokens are intended for use with Okta, and your app can't validate it. Instead, use tokens granted from a custom authorization server.
+* Never use an access token granted from the org authorization server for authorization within your applications. These tokens are intended for use with Okta, and your app can't validate them. Instead, use tokens granted from a custom authorization server.
 
 > **Note:** See [Authorization servers](/docs/concepts/auth-servers).
 
