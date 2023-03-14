@@ -8,7 +8,7 @@ excerpt: >-
 
  Client-based rate limiting applies to unauthenticated endpoints within Okta that are used during the access process for client applications. This applies to two types of client access:
 
-* A client accessing an OAuth 2.0 application, which uses a combination of client ID, IP address, and device identifier for rate-limiting.
+* A client accessing an OAuth 2.0 application, which uses a combination of client ID, IP address, and device identifier for rate-limiting
 
 * A client accessing a non-OAuth 2.0 application (as is the case for a Classic Engine org `/login/login.htm` endpoint), which uses the IP address and device identifier for rate-limiting.
 
