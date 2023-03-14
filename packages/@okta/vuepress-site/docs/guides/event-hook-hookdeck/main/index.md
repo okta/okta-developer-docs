@@ -112,7 +112,7 @@ Create the Okta event hook to work with your local application, which can now be
 
 6. Leave the **Authentication field** and **Authentication secret** values blank in this example.
 
-    However, to add Basic Authentication, add the application code that is required at [Add Basic Authorization and Body Parsing](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication) and then enter the following values for those fields:
+    However, to add Basic Authentication, add the application code that is required at [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication) and then enter the following values for those fields:
 
     * **Authentication field** = `authorization`
 
