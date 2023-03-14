@@ -44,7 +44,7 @@ You can only visit a branded touchpoint (such as a logo or color) after you map 
 
 ### About subdomain brands and custom brands
 
-Multibrand orgs have a non-deletable default brand called the subdomain brand. However, you can create several custom brands. The subdomain brand always appears at the Okta subdomain URL and can’t have a custom domain. You can swap out the logo and other assets, but you can’t edit custom code for the sign-in page or error pages. You can only use custom domain and custom code for sign-in page and error-pages on custom brands.
+Multibrand orgs have a non-deletable default brand called the subdomain brand. However, you can create several custom brands. The subdomain brand always appears at the Okta subdomain URL and can’t have a custom domain. You can swap out the logo and other assets, but you can’t edit custom code for the sign-in page or error pages. You can only use custom domain and custom code for sign-in pages and error pages on custom brands.
 
 ### Multibrand customizations and emails
 
