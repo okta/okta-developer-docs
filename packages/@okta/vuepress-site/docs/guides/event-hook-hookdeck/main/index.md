@@ -78,7 +78,7 @@ See [Hookdeck](https://hookdeck.com/) or their [Product docs](https://hookdeck.c
 
 ### Review Hookdeck dashboard
 
-The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [Browsing Events](https://hookdeck.com/docs/browsing-event) for details on using this interface. With the Hookdeck utility running, use the guest account **Login URL** to access details on your hook calls. For example, your initial guest account URL appears similar to: `https://api.hookdeck.com/signin/guest?token=5sszlk2ndmkp5puy07uixrqtatkzvhwc13gctx9o3gmgczcrfu`.
+The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [Browsing events](https://hookdeck.com/docs/browsing-event) for details on using this interface. With the Hookdeck utility running, use the guest account **Login URL** to access details on your hook calls. For example, your initial guest account URL appears similar to: `https://api.hookdeck.com/signin/guest?token=5sszlk2ndmkp5puy07uixrqtatkzvhwc13gctx9o3gmgczcrfu`.
 
 Each call to your local application appears in the dashboard and includes the response body, header, and other details:
 
