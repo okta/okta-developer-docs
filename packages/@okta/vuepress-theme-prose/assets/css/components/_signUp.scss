@@ -207,6 +207,22 @@
   }
 }
 
+.signup__popup__title-pc {
+  display: none;
+  @include media(">tablet") {
+    display: block;
+  }
+}
+
+.signup__popup__title-mobile {
+  display: block;
+
+  text-align: center;
+  @include media(">tablet") {
+    display: none;
+  }
+}
+
 .signup__popup__title span {
   position: absolute;
   bottom: 32px;
@@ -244,8 +260,8 @@
 
 .signup__popup__close {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 16px;
+  right: 16px;
 
   width: 24px;
   height: 24px;

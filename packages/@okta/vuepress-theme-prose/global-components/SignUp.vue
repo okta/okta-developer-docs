@@ -4,10 +4,10 @@
     vue-if="!isRegionLoading"
   >
     <div class="signup__wrapper">
-      <!-- <div v-if="isRegionLocked">
+      <div v-if="isRegionLocked">
         <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
-      </div> -->
-      <div>
+      </div>
+      <div v-else>
         <h1 class="signup__title">
           Choose what works best. 
           <span>Sign up is free.</span>
@@ -131,7 +131,12 @@
           >
             <div class="signup__popup__container">
               <div class="signup__popup__title">
-                <h2>Let’s get you started with Okta Developer Edition Service.</h2>
+                <h2 class="signup__popup__title-pc">
+                  Let’s get you started with Okta Developer Edition Service.
+                </h2>
+                <h2 class="signup__popup__title-mobile">
+                  Okta Developer Edition Service
+                </h2>
                 <span>Already signed up? <a href="/login">Log in here.</a></span>
               </div>
               <div 
