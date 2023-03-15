@@ -3,7 +3,7 @@ title: Brands
 category: management
 ---
 
-> **Important!** Multibrand customization updates are available in our new API reference docs. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+> **Important** Multibrand customization updates are available in our new API reference docs. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
 
 # Brands API
 
@@ -1676,8 +1676,8 @@ The [Email Customization](#email-customization) resource that was created.
 If this is the first customization being created for the email template, `isDefault` is set to `true`.
 
 Returns a `400 Bad Request` if:
-- `language` is not one of the [supported languages](#supported-languages).
-- `body` does not contain a required variable reference.
+- `language` isn’t one of the [supported languages](#supported-languages).
+- `body` doesn’t contain a required variable reference.
 
 Returns a `409 Conflict` with the error code `E0000182` if `isDefault` is `true` and a default customization exists.
 
@@ -1911,12 +1911,12 @@ The [Email Customization](#email-customization) resource that was updated.
 If `isDefault` is `true`, the previous default email customization has its `isDefault` set to `false`.
 
 Returns a `409 Conflict` if:
-- There is already another email customization for the specified `language`.
+- There’s already another email customization for the specified `language`.
 - `isDefault` is `false` and the email customization being updated is the default.
 
 Returns a `400 Bad Request` if:
-- `language` is not one of the [supported locales](#supported-locales).
-- `body` does not contain a required variable reference.
+- `language` isn’t one of the [supported locales](#supported-locales).
+- `body` doesn’t contain a required variable reference.
 
 Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with the error code `E0000007`.
 
@@ -2392,7 +2392,7 @@ You can publish a theme for a page or email template with different combinations
 
 #### Variants for Error Page:
 
-> **Note:** For the non `OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
+> **Note:** For the non-`OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -2565,7 +2565,7 @@ The following scenarios explain which logo is used when based on the `THEME_BUIL
 > **Notes:**
 > Enabling the `THEME_BUILDER` feature automatically updates the Theme logo from Org. The Org logo is still stored.
 > Disabling the `THEME_BUILDER` feature uses the logo configured for the Org.
-> Pages use the logo from the source defined above based on feature status.
+> Pages use the logo from the preceding source based on feature status.
 
 ## Email Template Resources
 
