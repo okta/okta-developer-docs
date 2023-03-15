@@ -37,7 +37,7 @@ List all the brands in your org
 
 Array of the [Brand Response](#brand-response-object)
 
-> **Important**: Currently only one Brand per org is supported, therefore this contains a single object only.
+> **Important**: Currently Okta only supports one Brand per org, therefore this contains a single object only.
 
 #### Use examples
 
@@ -232,7 +232,11 @@ Content-Type: application/json
 }
 ```
 
-The following example resets a privacy policy URL to use the Okta default privacy policy URL and removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard.
+The following example does the following:
+
+- Resets a privacy policy URL to use the Okta default privacy policy URL
+- Removes "Powered by Okta" from the Okta-hosted sign-in page
+- Removes "© 2021 Okta, Inc." from the Okta End-User Dashboard
 
 ##### Request
 
@@ -381,7 +385,7 @@ List all the themes in your brand
 
 Array of the [Theme Response](#theme-response-object)
 
-> **Important**: Currently only one Theme per org is supported, therefore this contains a single object only.
+> **Important**: Currently each org supports only one Theme, therefore this contains a single object only.
 
 Passing an invalid `brandId` returns a `404 Not Found` status code with the error code `E0000007`.
 
@@ -997,7 +1001,7 @@ Updates the background image for your Theme
 
 | Property | Type | Description                                                                                                                                                                                               |
 |----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`   | File | The image must be a PNG, JPG, or GIF file and be less than 2 MB in size. |
+| `file`   | File | The image must be a PNG, JPG, or GIF file and be less than 2 MB. |
 
 #### Response body
 
