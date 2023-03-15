@@ -17,7 +17,7 @@ Each org starts with Okta default branding. You can upload your own assets (colo
 
 > **Note:** Multibrand customization is available on both Okta Identity Engine and Okta Classic Engine.
 
-Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures, where customers had to create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which you can map to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the Okta End-User Dashboard.
+Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures, where customers had to create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request). You can map your custom domains to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the Okta End-User Dashboard.
 
 In addition, multibrand allows you to customize many other settings per brand:
 
@@ -40,15 +40,19 @@ Okta Verify and the Okta plugin support multibrand. Use the following minimum ve
 
 You can create up to three custom domains with multibrand customizations. Increase your limit to 200 custom domains by contacting support.
 
-You can only visit a branded touchpoint (such as a logo, color, favicon, or an image applied to a page or email) after you map to a custom domain. Create a brand and map it to a custom domain. Then, you can make further customizations, preview them, and publish them. See [Custom domains](/docs/guides/custom-url-domain/main/#about-okta-domain-customization).
+You can only visit a branded touchpoint (such as a logo or color) after you map to a custom domain. Create a brand and map it to a custom domain. Then, you can make further customizations, preview them, and publish them. See [Custom domains](/docs/guides/custom-url-domain/main/#about-okta-domain-customization).
 
 ### About subdomain brands and custom brands
 
-Multibrand orgs have a non-deletable default brand called the subdomain brand. However, you can create several custom brands. The subdomain brand always appears at the Okta subdomain URL and can’t have a custom domain. You can swap out the logo, background image, favicon, colors, and edit emails, but you can’t edit custom code for the sign-in page or error pages. You can only use custom domain and custom code for sign-in page and error-pages on custom brands.
+Multibrand orgs have a non-deletable default brand called the subdomain brand. However, you can create several custom brands. The subdomain brand always appears at the Okta subdomain URL and can’t have a custom domain. You can swap out the logo and other assets, but you can’t edit custom code for the sign-in page or error pages. You can only use custom domain and custom code for sign-in pages and error pages on custom brands.
 
-### Authentication flow
+### Multibrand customizations and emails
 
-Before authentication, users see the correct brand’s sign-in page by visiting the custom domain associated with the brand. When a user resets a password from the sign-in page, or requests a magic link to activate themselves, their emails are branded based on the custom domain they initiated the flow from.
+When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
+
+For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to reset a password from the sign-in page. The sign-in triggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
+
+See [Customize email notifications](/docs/guides/custom-email/main/).
 
 ### Use the Admin Console
 
@@ -75,7 +79,7 @@ Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the doma
 
 ## FAQs
 
-### How many custom domains are supported?
+### How many custom domains per org?
 
 All paid orgs get a maximum of three custom domains. You can request up to 200 custom domains at no cost.
 
@@ -94,7 +98,11 @@ Keep in mind the following when setting up domains for an org with branded email
 
 #### Email senders
 
-The main Okta email provider allows each unique email sender (root domain, no-reply@company.com) to be used only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
+The main Okta email provider allows you to use each unique email sender (root domain, no-reply@company.com) only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
+
+#### Default brand sign-in page and error page
+
+With multibrand customizations enabled, you can't update the default brand's sign-in page or error page HTML content. The API returns a 403 HTTP status message. See [About subdomain brands and custom brands](#about-subdomain-brands-and-custom-brands).
 
 #### Data migrations
 
