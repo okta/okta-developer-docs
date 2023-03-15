@@ -61,7 +61,7 @@ Just like with the regular Authorization Code flow, your app starts by redirecti
 Your first step is to generate a code verifier and challenge:
 
 * Code verifier: Random URL-safe string with a minimum length of 43 characters
-* Code challenge: Base64 URL-encoded SHA-256 hash of the code verifier
+* Code challenge: Base64URL-encoded SHA-256 hash of the code verifier
 
 You need to add code in your SPA app to create the code verifier and code challenge.
 

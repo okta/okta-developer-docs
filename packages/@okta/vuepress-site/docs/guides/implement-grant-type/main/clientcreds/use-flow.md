@@ -6,7 +6,7 @@ If you are not using existing libraries, you can make a direct request to Okta's
 
 The Client Credentials flow is intended for server-side (confidential) client applications with no end user, which normally describes machine-to-machine communication. Your client application needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on the **General** tab for your app integration.
 
-Base64 encode the client ID and secret (as shown later) and then pass through [Basic Authentication](https://tools.ietf.org/html/rfc7617) in the request to your [custom authorization server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint:
+Base64-encode the client ID and secret (as shown later) and then pass through [Basic Authentication](https://tools.ietf.org/html/rfc7617) in the request to your [custom authorization server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint:
 
 ```bash
 curl --request POST \
@@ -38,7 +38,7 @@ If the credentials are valid, the application receives an access token:
 
 ### Base64-encode the client ID and client secret
 
-Use this section to Base64 encode the client ID and secret. When you finish encoding, you can then use the encoded client ID and secret in the HTTP Authorization header in the following format: `'authorization: Basic <Base64 encoded client ID and secret>'`
+Use this section to Base64-encode the client ID and secret. When you finish encoding, you can then use the encoded client ID and secret in the HTTP Authorization header in the following format: `'authorization: Basic <Base64-encoded client ID and secret>'`
 
 **If you are using macOS or Linux**:
 
