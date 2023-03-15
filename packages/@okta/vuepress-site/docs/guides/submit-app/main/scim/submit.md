@@ -34,7 +34,7 @@ To submit a SCIM integration, click the **SCIM** tab and select **On** from the 
 
     After you create the variable, click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
 
-  * **Construct your dynamic Base URL by copying the variables above and pasting them where applicable**: Provide the Base URL that your integration uses when sending an outbound call to your SCIM server.
+  * **Construct your dynamic Base URL by copying the variables above and pasting them where applicable**: Provide the base URL that your integration uses when sending an outbound call to your SCIM server.
 
     If you're using a per tenant design, include the variable names that you created. For example:
 
