@@ -18,7 +18,7 @@
         >
           <div class="signup__item">
             <div class="signup__item__title">
-              Customer Identity Cloud
+              Customer <br> Identity Cloud
               <img 
                 class="signup__item__title-logo" 
                 src="/img/signup-item-logo.svg" 
@@ -60,7 +60,7 @@
           </div>
           <div class="signup__container">
             <div class="signup__item__title">
-              Workforce Identity Cloud
+              Workforce <br> Identity Cloud
             </div>
             <div class="signup__description">
               <div class="signup__rate">
@@ -93,6 +93,9 @@
             </div>
             <div class="signup__item__title signup__item__title-hidden">
               Okta Developer Edition Service
+            </div>
+            <div class="signup__item__title signup__item__title-tablet">
+              Access the Okta <br> Developer Edition Service
             </div>
             <div class="signup__description signup__description-bordered">
               <div class="signup__rate">
@@ -133,6 +136,9 @@
               <div class="signup__popup__title">
                 <h2 class="signup__popup__title-pc">
                   Let’s get you started with Okta Developer Edition Service.
+                </h2>
+                <h2 class="signup__popup__title-tablet">
+                  Access the Okta <br> Developer Edition Service
                 </h2>
                 <h2 class="signup__popup__title-mobile">
                   Okta Developer Edition Service
@@ -355,6 +361,7 @@
                   <div class="signup__form__splitter">
                     or
                   </div>
+                  <span>Already signed up? <a href="/login">Log in here.</a></span>
                   <button
                     id="continue-github"
                     class="signup__form__button"
@@ -510,7 +517,7 @@ export default {
   },
   methods: {
     setHeight(isNotUSAAndCanada) {
-      if (window.innerWidth > 767) {
+      if (window.innerWidth > 1314) {
         if (!isNotUSAAndCanada) {
           setTimeout(function() {
             let height = document.querySelector('.signup__form').getBoundingClientRect().height + 139 + 'px';
