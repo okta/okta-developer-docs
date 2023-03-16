@@ -37,9 +37,7 @@ The `OktaAuth` service has methods for sign-in and sign-outactions.
      }
 
      public async signIn() : Promise<void> {
-       await this._oktaAuth.signInWithRedirect().then(
-         _ => this._router.navigate(['/profile'])
-       );
+       await this._oktaAuth.signInWithRedirect();
      }
 
      public async signOut(): Promise<void> {
