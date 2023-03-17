@@ -1,6 +1,6 @@
 {
-  "release" : "2023.02.1",
-  "build" : "2023.02.1-begin-173-g93d635be5b1b",
+  "release" : "2023.03.1",
+  "build" : "2023.03.1-begin-155-g0a3aa94c1bba",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -50,6 +50,9 @@
     "id" : "developer-platform",
     "name" : "Developer Platform"
   }, {
+    "id" : "devices-okta-join",
+    "name" : "Okta Join"
+  }, {
     "id" : "globalization-core",
     "name" : "Globalization Core"
   }, {
@@ -83,6 +86,9 @@
     "id" : "id-fabric",
     "name" : "ID Fabric"
   }, {
+    "id" : "inbound-federation",
+    "name" : "Inbound Federation"
+  }, {
     "id" : "honey-badger",
     "name" : "Honey Badger"
   }, {
@@ -112,6 +118,9 @@
   }, {
     "id" : "oin-dax",
     "name" : "OIN Platform DAX"
+  }, {
+    "id" : "outbound-federation",
+    "name" : "Outbound Federation"
   }, {
     "id" : "performance",
     "name" : "Performance"
@@ -392,6 +401,10 @@
     "tags" : [ ]
   }, {
     "id" : "rum",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "integration",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -811,6 +824,10 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "account-service",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "uncategorized",
     "description" : "",
     "tags" : [ ]
@@ -850,6 +867,57 @@
         "debugData" : "AccessRequestDebugData",
         "actor" : null,
         "targets" : [ "AccessRequestResourceDetails" ]
+      }
+    }, {
+      "id" : "account.product.add",
+      "category" : "account-services",
+      "description" : "Product is linked. Triggered when a product(for example, an Okta Org) is linked to the Account. It will fire the event in both the primary org for the Account and the target product that was linked.",
+      "info" : {
+        "created" : "2023-02-01",
+        "release" : "2023.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ProductResourceDetails" ]
+      }
+    }, {
+      "id" : "account.product.sku.update",
+      "category" : "account-services",
+      "description" : "SKUs are updated. Triggered when SKUs are updated to a product(for example, an Okta org). It will fire the event in the primary org for the Account.",
+      "info" : {
+        "created" : "2023-02-01",
+        "release" : "2023.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ProductResourceDetails" ]
+      }
+    }, {
+      "id" : "account.product.status.update",
+      "category" : "account-services",
+      "description" : "Status is updated. Triggered when the status of a product(for example, an Okta org) is updated. It will fire the event in the primary org for the Account.",
+      "info" : {
+        "created" : "2023-02-01",
+        "release" : "2023.09.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "account-service" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ProductResourceDetails" ]
       }
     }, {
       "id" : "analytics.reports.export.download",
@@ -6913,7 +6981,7 @@
       },
       "beta" : true,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -6930,7 +6998,7 @@
       },
       "beta" : true,
       "internal" : false,
-      "tags" : [ "admin-role" ],
+      "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -7106,6 +7174,40 @@
         "debugData" : "InlineHookDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "integration.api_service.lifecycle.authorize",
+      "category" : "app-platform",
+      "description" : "Authorize API service integration. This event is triggered when an admin authorized an OAuth 2.0 service app from the Okta Integration Network (OIN) to access the Okta org (tenant) using Okta management APIs. An API service integration is an integration to an OAuth 2.0 service app available from the Okta Integration Network (OIN).",
+      "info" : {
+        "created" : "2023-02-08",
+        "release" : "2023.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "app", "integration" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "integration.api_service.lifecycle.revoke",
+      "category" : "app-platform",
+      "description" : "Revoke API service integration. This event is triggered when an admin revoked API access from an OAuth 2.0 service app to the Okta org. An API service integration is an integration to an OAuth 2.0 service app available from the Okta Integration Network (OIN).",
+      "info" : {
+        "created" : "2023-02-08",
+        "release" : "2023.02.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "app", "integration" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "master_application.user_membership.add",
@@ -9452,6 +9554,23 @@
         "debugData" : "PluginDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "policy.continuous_access_evaluate.deny",
+      "category" : "idx",
+      "description" : "Continuous Access Evaluation has occurred and has resulted in a DENY action. Can be used to identify which user, apps, and session were involved in a CAE DENY event. Event fired when CAE evaluation results in DENY.",
+      "info" : {
+        "created" : "2023-02-10",
+        "release" : "2023.03.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "policy", "security", "session" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "CAEDenyResourceDetails" ]
       }
     }, {
       "id" : "policy.evaluate_sign_on",
@@ -13041,6 +13160,23 @@
         "targets" : [ "IwaResourceDetails" ]
       }
     }, {
+      "id" : "system.ldapi.admin_limit_exceeded",
+      "category" : "ud-core",
+      "description" : "This event indicates that an administrative limit was exceeded when processing an LDAP interface operation. It can be used to audit and debug failures caused by exceeding an administrative limit. This event may occur periodically when an LDAP operation results in a large number of corresponding actions in the Okta directory. These errors are often temporary and will subside when Okta has processed the actions. Contact Okta support if you see such errors consistently over the course of a day or more.",
+      "info" : {
+        "created" : "2023-02-23",
+        "release" : "2023.03.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ldapi" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "LdapInterfaceDebugData",
+        "actor" : "LdapInterfaceResourceDetails",
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.ldapi.bind",
       "category" : "ud-core",
       "description" : "Fired when a user performs a BIND to LDAP Interface. Can be used to identify when a user attempted to perform an LDAP authentication for audit or debugging purposes. Note that the firing of this event is subject to LDAPi event filtering rules.",
@@ -13053,8 +13189,8 @@
       "tags" : [ "ldapi" ],
       "mappings" : [ "system.ldapi.bind" ],
       "schema" : {
-        "debugData" : "LdapiDebugData",
-        "actor" : "LdapiResourceDetails",
+        "debugData" : "LdapInterfaceDebugData",
+        "actor" : "LdapInterfaceResourceDetails",
         "targets" : [ "ResourceDetails" ]
       }
     }, {
@@ -13070,8 +13206,8 @@
       "tags" : [ "ldapi" ],
       "mappings" : [ "system.ldapi.search" ],
       "schema" : {
-        "debugData" : "LdapiDebugData",
-        "actor" : "LdapiResourceDetails",
+        "debugData" : "LdapInterfaceDebugData",
+        "actor" : "LdapInterfaceResourceDetails",
         "targets" : [ "ResourceDetails" ]
       }
     }, {
@@ -13087,8 +13223,8 @@
       "tags" : [ "ldapi" ],
       "mappings" : [ "system.ldapi.unbind" ],
       "schema" : {
-        "debugData" : "LdapiDebugData",
-        "actor" : "LdapiResourceDetails",
+        "debugData" : "LdapInterfaceDebugData",
+        "actor" : "LdapInterfaceResourceDetails",
         "targets" : [ "ResourceDetails" ]
       }
     }, {
@@ -14331,6 +14467,40 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "PasswordImportResourceDetails" ]
+      }
+    }, {
+      "id" : "user.internal.risk.change",
+      "category" : "adaptive",
+      "description" : "Indicates a user's risk level has changed. This internal event can be used to monitor risk level changes for users. This event is fired when Okta determines that a user is associated with activity or context that indicate risk.",
+      "info" : {
+        "created" : "2023-02-06",
+        "release" : "2023.03.0"
+      },
+      "beta" : true,
+      "internal" : true,
+      "tags" : [ "risk", "security" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "user.internal.session_context_changed",
+      "category" : "adaptive",
+      "description" : "User session context changed. This internal event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.",
+      "info" : {
+        "created" : "2023-02-06",
+        "release" : "2023.03.0"
+      },
+      "beta" : false,
+      "internal" : true,
+      "tags" : [ "session", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SessionContextDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "user.lifecycle.activate",
@@ -24658,8 +24828,8 @@
           }
         }
       },
-      "LdapiDebugData" : {
-        "name" : "LdapiDebugData",
+      "LdapInterfaceDebugData" : {
+        "name" : "LdapInterfaceDebugData",
         "properties" : {
           "oag_app" : {
             "type" : "Boolean",
@@ -33487,8 +33657,8 @@
           }
         }
       },
-      "LdapiResourceDetails" : {
-        "name" : "LdapiResourceDetails",
+      "LdapInterfaceResourceDetails" : {
+        "name" : "LdapInterfaceResourceDetails",
         "properties" : {
           "bindDN" : {
             "type" : "String",
@@ -33777,6 +33947,35 @@
             "customer" : false,
             "format" : "okta:brandId",
             "examples" : [ "bnd118g5DODhVRiER0g4" ]
+          }
+        }
+      },
+      "CAEDenyResourceDetails" : {
+        "name" : "CAEDenyResourceDetails",
+        "properties" : {
+          "app_instance_ids" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"appInstanceId1\",\"appInstanceId2\"]" ]
+          },
+          "global_session_policy_action" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ALLOW", "DENY" ]
+          },
+          "session_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "aSessionId" ]
           }
         }
       },
@@ -34835,6 +35034,27 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "updateUserLifecycle", "notify" ]
+          }
+        }
+      },
+      "ProductResourceDetails" : {
+        "name" : "ProductResourceDetails",
+        "properties" : {
+          "cell" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "ok1", "ct1" ]
+          },
+          "sub_domain" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "akto", "child" ]
           }
         }
       },

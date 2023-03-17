@@ -125,14 +125,14 @@
   &::after {
     content: "";
 
-    position: absolute; 
+    position: absolute;
     right: 0;
     left: auto;
 
     width: 10px;
     height: 10px;
 
-    border-radius: 50%; 
+    border-radius: 50%;
     background-color: var(--c-gray-450);
   }
 
@@ -166,7 +166,7 @@
 
 .workforce__block-item {
   padding-top: 30px;
-  
+
   padding-bottom: 30px;
 
   border-bottom: 1px solid var(--c-gray-410);
@@ -185,7 +185,7 @@
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
     justify-content: space-between;
-  
+
     gap: 15px;
   }
 
@@ -237,6 +237,7 @@
   margin-bottom: 0;
   max-width: 528px;
 
+  font-weight: 400;
   font-size: 20px;
   color: var(--c-gray-760);
 }

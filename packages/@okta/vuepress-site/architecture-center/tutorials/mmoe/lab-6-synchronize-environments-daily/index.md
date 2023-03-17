@@ -37,10 +37,6 @@ To find your Terraform workspace ID:
 
 ## Create a workflow
 
-1. Download the example workflow:
-   1. Go to `https://drive.google.com/file/d/1IKhg65fHCSbp9qXYBxB2r2zxmsTcdWOu`.
-   1. On the **No preview available** panel in the page that opens, click **Download** to download the example workflow.
-
 1. Open the Admin Console for your production org.
 1. Choose **Workflow** > **Workflows** to show the **Welcome to Workflows** page.
 1. Select the **Flows** tab.
@@ -65,7 +61,7 @@ To find your Terraform workspace ID:
       </div>
 
    1. Select **Import** in the menu to open an **Import** page.
-   1. Select the file pack that you downloaded to import the example workflow.
+   1. Navigate to your local copy of the github repo for this tutorial. Select `workflow/executeTerraformPlanToDetectDrift.flow` to import the example workflow.
 1. In your new folder, observe that you imported one flow, it's a scheduled flow, and it's turned off.
 
 <div class="full border">

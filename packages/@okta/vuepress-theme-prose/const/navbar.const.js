@@ -655,6 +655,10 @@ export const guides = [
         title: "API Security",
         subLinks: [
           {
+            title: "Configure Demonstrating Proof-of-Possession",
+            guideName: "dpop",
+          },
+          {
             title: "Configure OAuth for Okta",
             guideName: "implement-oauth-for-okta",
           },
@@ -999,10 +1003,6 @@ export const reference = [
                   path: "/docs/reference/scim/scim-11/",
                },
             ],
-         },
-         {
-            title: "Beta-only Reference Docs",
-            path: "/docs/reference/beta-only/",
          },
          {
             title: "Postman Collections",

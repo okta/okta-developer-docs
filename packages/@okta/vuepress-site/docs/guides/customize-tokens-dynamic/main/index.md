@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiAmProdWarning />
 
-This guide explains how to define custom Group claims for tokens that are returned from Okta, by using a dynamic allowlist to define user limits with a default or custom Authorization Server.
+This guide explains how to define custom Group claims for tokens that are returned from Okta, by using a dynamic allowlist to define user limits with a default or custom authorization server.
 
 ---
 
@@ -25,9 +25,9 @@ This guide explains how to define custom Group claims for tokens that are return
 
 ## About the dynamic allow list
 
-You can create a dynamic or [static allowlist](/docs/guides/customize-tokens-static/) when you need to set Group allowlists on a per-app basis using both the Org Authorization Server and a Custom Authorization Server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of Groups that can then easily be referenced.
+You can create a dynamic or [static allowlist](/docs/guides/customize-tokens-static/) when you need to set Group allowlists on a per-app basis using both the org authorization server and a custom authorization server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of Groups that can then easily be referenced.
 
-Additionally, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the Okta Org Authorization Server. You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server.
+Additionally, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the org authorization server. You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server.
 
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
@@ -44,19 +44,19 @@ To test the full authentication flow that returns an ID token or an access token
 
 2. Use the authorization server's authorization endpoint:
 
-    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
-    * An Okta Org Authorization Server authorization endpoint looks like this:
+    * An org authorization server authorization endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/v1/authorize`
 
-    * A Custom Authorization Server authorization endpoint looks like this:
+    * A custom authorization server authorization endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
-    > **Note:** If you add the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
+    > **Note:** If you add the claim to the default custom authorization server, the `${authorizationServerId}` is `default`.
 
-    You can retrieve a Custom Authorization Server's authorization endpoint using the server's metadata URI:
+    You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
 
     **ID token**
     `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
@@ -124,14 +124,14 @@ You can use this function anywhere to get a list of Groups of which the current 
 >See the Parameter Examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 >
 
-You can use a dynamic group allowlist with both the Okta Org Authorization Server and a Custom Authorization Server:
+You can use a dynamic group allowlist with both the org authorization server and a custom authorization server:
 
-* [Use a dynamic group allowlist with the Org Authorization Server](#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
-* [Use a dynamic group allowlist with a Custom Authorization Server](#use-a-dynamic-group-allow-list-with-a-custom-authorization-server)
+* [Use a dynamic group allowlist with the org authorization server](#use-a-dynamic-group-allow-list-with-the-org-authorization-server)
+* [Use a dynamic group allowlist with a custom authorization server](#use-a-dynamic-group-allow-list-with-a-custom-authorization-server)
 
-## Use a dynamic group allow list with the Org Authorization Server
+## Use a dynamic group allow list with the org authorization server
 
-To use the Group Functions to create a token using a dynamic group allowlist, create a Groups claim on an app. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim.
+To use the Group Functions to create a token using a dynamic group allowlist, create a Groups claim on an app. For an org authorization server, you can only create an ID token with a Groups claim.
 
 > **Note:** In this example, the user signing in to your app is assigned to a group called "IT".
 
@@ -183,13 +183,13 @@ The decoded JWT looks something like this:
 }
 ```
 
-## Use a dynamic group allow list with a Custom Authorization Server
+## Use a dynamic group allow list with a custom authorization server
 
-To use the Group Functions to create an ID token or an access token using a dynamic group allowlist, create a Groups claim and a Groups scope in the Custom Authorization Server. For this example, we are adding a claim for use with an access token.
+To use the Group Functions to create an ID token or an access token using a dynamic group allowlist, create a Groups claim and a Groups scope in the custom authorization server. For this example, we are adding a claim for use with an access token.
 
 > **Note:** In this example, the user signing in to your app is assigned to a group called "IT".
 
-1. In the Admin Console, from the **Security** menu, select **API**, and then select the Custom Authorization Server that you want to configure.
+1. In the Admin Console, from the **Security** menu, select **API**, and then select the custom authorization server that you want to configure.
 1. Go to the **Claims** tab and click **Add Claim**.
 1. Enter a name for the claim. For this example, name it **dynamic_group**.
 1. In the **Include in token type** section, leave **Access Token** selected.

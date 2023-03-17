@@ -20,7 +20,7 @@ Import any Okta API collection for Postman from the following list:
 | Authorization Servers             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3db644315e549633361a) |
 | Brands                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb) |
 | CAPTCHAs <ApiLifecycle access="ie" /><ApiLifecycle access="Limited GA" /> | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c51413d80cc8e88fd101)|
-| Client secret rotation and key management | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8e9d91cef0d5ab9e9fa7) |
+| Client secret rotation and key management | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6141897-f748f16b-9417-483a-b26c-11f1c571b1d5?action=collection%2Ffork&collection-url=entityId%3D6141897-f748f16b-9417-483a-b26c-11f1c571b1d5%26entityType%3Dcollection%26workspaceId%3Da45ffa98-f8f8-4fe5-bc7e-b85ab3af4b3c) |
 | Custom Templates                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f7e83cebd2d31f7d1a7) |
 | Devices                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/8eeb8dd1bb6e2aa56535?action=collection%2Fimport) |
 | Domains                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/96fbe3dea3ccd0602186) |

@@ -4,6 +4,11 @@ title: Risk Events
 
 # Risk Events API
 
+The Risk Events API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskEvent/#tag/RiskEvent).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Risk Events API Postman collection.
+
+<!--
 <ApiLifecycle access="ea" />
 
 The Okta Risk Events API provides the ability for third-party Risk Providers to send Risk Events to Okta.
@@ -138,3 +143,5 @@ The Risk Subject object has the following properties:
     "message": "none"
 }
 ```
+
+-->

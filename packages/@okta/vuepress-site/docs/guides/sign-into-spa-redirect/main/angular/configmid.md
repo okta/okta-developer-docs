@@ -21,4 +21,8 @@ Make the following changes to `src/app/app.module.ts`:
    });
    ```
 
-4. Add `{ provide: OKTA_CONFIG, useValue: { oktaAuth } }` to the `providers` array to add the Okta services to the dependency injection system. The Okta Angular SDK provides the `OKTA_CONFIG` injection token.
+4. Add the Okta configuration to the `OktaAuthModule` using the `forRoot` static method:
+
+   ```ts
+   OktaAuthModule.forRoot({ oktaAuth })
+   ```

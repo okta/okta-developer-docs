@@ -8,7 +8,7 @@ title: IAM terminology
 
 - **Authentication:** Processes and services to prove the claimed identity of an individual user, machine, software component, or any other entity. Typical authentication mechanisms include conventional password schemes, biometrics devices, cryptographic methods, and one-time passcodes. See [The Ultimate Authentication Playbook](https://www.okta.com/blog/2019/02/the-ultimate-authentication-playbook/).
 
-- **Authorization:** Processes and services to define what resources a given user is allowed to access and what functions they are allowed to perform with them. Authorization also includes *Access Control* (see above). See [Authorization](/books/api-security/authz/) and [Authentication vs. Authorization](https://www.okta.com/identity-101/authentication-vs-authorization/).
+- **Authorization:** Processes and services to define what resources a given user is allowed to access and what functions they are allowed to perform with them. Authorization also includes *Access control* (see above). See [Authorization](/books/api-security/authz/) and [Authentication vs. Authorization](https://www.okta.com/identity-101/authentication-vs-authorization/).
 
 - **Bot detection:** Techniques used to identify whether a user is human or a bot (short for *robot*, an automated process). See [Okta + Shape Security: Taking on Automated Login Attacks, Account Takeover and Fraud](https://www.okta.com/blog/2018/12/okta-shape-security-taking-on-automated-login-attacks-account-takeover-and-fraud/) and [Bot Management Definition, Strategies & Best Practices](https://www.okta.com/identity-101/bot-management/).
 
