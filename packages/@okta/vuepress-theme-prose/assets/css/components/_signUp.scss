@@ -3,7 +3,7 @@
 
   background: var(--c-lightgray-450);
   @include media(">tablet") {
-    padding: 108px 0 102px;
+    padding: 106px 0 102px;
   }
   @include media(">signup") {
     padding: 128px 0 133px;
@@ -30,12 +30,13 @@
   text-align: center;
   color: var(--c-gray-950);
   @include media(">tablet") {
+    margin-bottom: 48px;
+
     font-size: 48px;
     line-height: 56px;
   }
   @include media(">signup") {
     display: block;
-    margin-bottom: 48px;
     padding: 0;
 
     font-size: 56px;
@@ -121,7 +122,7 @@
   border-radius: 12px;
   background-color: var(--c-gray-075);
   @include media(">tablet") {
-    margin-top: -429px;
+    margin-top: -427px;
   }
   @include media(">signup") {
     position: absolute;
@@ -424,6 +425,12 @@
   margin-left: 2px;
 
   color: var(--c-warning-required);
+  @include media(">tablet") {
+    margin-top: -5px;
+  }
+  @include media(">signup") {
+    margin-top: 0;
+  }
 }
 
 .signup__form__input {
@@ -703,7 +710,6 @@ select.signup__form__input:required:invalid {
   @include media(">tablet") {
     position: absolute;
 
-    padding-top: 28px;
     width: calc(50% - 15px);
   }
   @include media(">signup") {
@@ -744,6 +750,7 @@ select.signup__form__input:required:invalid {
   color: var(--c-gray-950);
   @include media(">tablet") {
     grid-column: 7 / 13;
+    padding-bottom: 30px;
   }
   @include media(">signup") { 
     grid-column: 1 / 13;
@@ -803,9 +810,6 @@ select.signup__form__input:required:invalid {
 
 .signup__description {
   margin-top: 27px;
-  @include media(">tablet") {
-    margin-top: 30px;
-  }
   @include media(">signup") {
     margin-top: 48px;
   }
@@ -831,7 +835,6 @@ select.signup__form__input:required:invalid {
   background-color: var(--c-gray-075);
   @include media(">tablet") {
     margin-left: 15px;
-    padding-top: 26px;
   }
   @include media(">signup") {
     margin: 0 40px;
@@ -853,6 +856,7 @@ select.signup__form__input:required:invalid {
     grid-column: 1 / 13;
     margin-top: 30px;
     margin-left: 0;
+    padding-bottom: 29px;
     width: 100%;
   }
   @include media(">signup") {
@@ -877,8 +881,6 @@ select.signup__form__input:required:invalid {
   @include media(">tablet") {
     grid-column: 7 / 13;
     margin-left: 15px;
-    padding-top: 28px;
-    padding-bottom: 33px;
     width: calc(100% - 15px);
   }
   @include media(">signup") {
@@ -902,7 +904,7 @@ select.signup__form__input:required:invalid {
   padding: 23px 6px 21px;
   @include media(">tablet") {
     margin-top: 41px;
-    padding: 26px 26px 19px;
+    padding: 21px 16px 25px;
   }
   @include media(">signup") {
     margin-top: 47px;
@@ -921,7 +923,7 @@ select.signup__form__input:required:invalid {
   @include media(">tablet") {
     grid-column: 1 / 13;
     margin-left: 0;
-    padding-top: 1px;
+    padding: 1px 38.5px 31px;
     width: 100%;
   }
   @include media(">signup") {
@@ -929,6 +931,17 @@ select.signup__form__input:required:invalid {
     margin-top: 35px;
     padding-top: 0;
     padding-right: 39px;
+    padding-bottom: 0;
+    padding-left: 39px;
+  }
+}
+
+.signup__description-bordered .signup__content {
+  @include media(">tablet") {
+    padding: 27px 16px;
+  }
+  @include media(">signup") {
+    padding: 31px 28px 18px;
   }
 }
 
@@ -1010,8 +1023,9 @@ select.signup__form__input:required:invalid {
 
   text-align: center;
   @include media(">tablet") {
-    margin-top: 41px;
+    margin-top: 38px;
     padding-top: 21px;
+    padding-bottom: 25px;
   }
   @include media(">signup") {
     margin-top: 57px;
@@ -1129,7 +1143,7 @@ select.signup__form__input:required:invalid {
 .signup__trigger {
   margin: 23px auto 0;
   @include media(">tablet") {
-    margin: 34px auto 0;
+    margin: 24px auto 0;
     max-width: 376px;
   }
   @include media(">signup") {

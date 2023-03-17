@@ -83,6 +83,12 @@
   background-color: var(--c-gray-950);
 
   color: var(--c-lightgray-450);
+  @include media(">tablet") {
+    background-color: var(--c-gray-765);
+  }
+  @include media(">signup") {
+    background-color: var(--c-gray-950);
+  }
 }
 
 .signup__form__button i {
@@ -155,6 +161,16 @@
 
     background-color: transparent;
   }
+}
+
+.signup__popup__container span:nth-child(3) {
+  color: var(--c-lightgray-450);
+}
+
+.signup__popup__container span:nth-child(3) a {
+  border-color: var(--c-lightgray-450);
+
+  color: var(--c-lightgray-450);
 }
 
 .signup__content__title {
