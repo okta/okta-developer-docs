@@ -903,8 +903,8 @@ select.signup__form__input:required:invalid {
   margin-top: 39px;
   padding: 23px 6px 21px;
   @include media(">tablet") {
-    margin-top: 41px;
-    padding: 21px 16px 25px;
+    margin-top: 39px;
+    padding: 25px 16px 21px;
   }
   @include media(">signup") {
     margin-top: 47px;
@@ -998,9 +998,6 @@ select.signup__form__input:required:invalid {
   text-align: center;
   color: var(--c-gray-950);
   @include media(">tablet") {
-    padding-top: 6px;
-  }
-  @include media(">signup") {
     padding-top: 8px;
   }
 }
@@ -1023,9 +1020,9 @@ select.signup__form__input:required:invalid {
 
   text-align: center;
   @include media(">tablet") {
-    margin-top: 38px;
-    padding-top: 21px;
-    padding-bottom: 25px;
+    margin-top: 36px;
+    padding-top: 25px;
+    padding-bottom: 21px;
   }
   @include media(">signup") {
     margin-top: 57px;
