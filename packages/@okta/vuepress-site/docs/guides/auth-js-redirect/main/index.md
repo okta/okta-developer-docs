@@ -39,20 +39,20 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
    > **Note:** If you choose an inappropriate application type, it breaks the sign-in or sign-out flows by requiring the verification of a client secret, which public clients don't have.
 1. Enter an **App integration name**.
-1. Select the **Authorization Code** and **Interaction Code** grant types.
+1. Select the **Authorization Code** grant type.
 1. Enter the **Sign-in redirect URIs** for local development. For this sample, use `http://localhost:9000`.
 1. Enter the **Sign-out redirect URIs** for local development. For this sample, use `http://localhost:9000`. For more information on callback URIs, see [Define callback route](#define-a-callback-route).
 1. In the **Assignments** section, define the type of **Controlled access** for your app. Select **Allow everyone in your organization to access**. For more information, see the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
 1. Make sure to clear the checkbox **Enable immediate access with Federation Broker Mode**.
 1. Click **Save** to create the app integration. The configuration pane for the integration opens after it's saved. Keep this pane open as you'll need to copy the **Client ID** and your org domain name when configuring your app.
 
-## Enable Interaction Code grant type
+### Enable Trusted Origins
 
-1. From the Admin Console, go to **Security** > **API** and click your Authorization Server.
-1. Click the **Access Policies** tab.
-1. Edit the **Default Policy Rule** or the rule for your client application.
-1. In the **IF Grant type is** section, select the `Interaction Code` checkbox.
-1. Click **Update rule** to save.
+Reduce possible attack vectors by defining Trusted Origins, which are the websites allowed to access the Okta API for your app integration. Cross-Origin Resource Sharing (CORS) enables JavaScript requests using `XMLHttpRequest` with the Okta session cookie. For information on enabling CORS, see [Grant cross-origin access to websites](/docs/guides/enable-cors/main/#grant-cross-origin-access-to-websites).
+
+>**Note:** To reduce risk, only grant access to the Okta API to specific websites (origins) that you both control and trust.
+
+To set trusted origins go to **Security** > **API** and select the **Trusted Origins** tab. See [Enable Trusted Origins](/docs/guides/enable-cors/). Add the URL `http://localhost:9000`.
 
 ## Create a basic app
 
@@ -177,7 +177,7 @@ If your app isn't working, ensure that:
 * Your org URL is accurate and formatted correctly, including the secure protocol, `https://`.
 * Your client ID is accurate from your Okta app integration.
 * Your `redirectUri` is accurate or the web-server port number is correct.
-* Your default authorization server access policy is enabled for `Interaction Code`. See step 2 in [Create the rule](/docs/guides/configure-access-policy/-/main/#create-the-rule). Ensure that Interaction Code is selected for **Grant type is**.
+* You've enabled a Trusted Origin for `http://localhost:9000`. See [Enable Trusted Origin](#enable-trusted-origins).
 
 ## Use Cases
 
@@ -202,4 +202,4 @@ Talk about session management, and what happens when the page is refreshed. (To 
 * [Redirect auth in the sample app](https://developer.okta.com/docs/guides/sampleapp-oie-redirectauth/angular/main/)
 * [Auth JS fundamentals](/docs/guides/auth-js/main/)
 * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
-* [Interaction Code grant type](/docs/concepts/interaction-code/)
+
