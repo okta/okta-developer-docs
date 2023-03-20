@@ -41,7 +41,7 @@ Using the Policy API, admins were able to set the `MFA_ENROLL` policy factor set
 | [OIDC Identity Providers private/public key pair support is GA](#oidc-identity-providers-private-public-key-pair-support-is-ga)                               |June 08, 2022     |
 | [API service integrations are GA in Preview](#api-service-integrations-are-ga-in-preview)                                                                     |November 03, 2022 |
 | [Log Streaming is GA in Production](#log-streaming-is-ga-in-production)                                                                                       |March 30, 2022    |
-| [Optional consent for OAuth 2.0 scopes is GA in Prod](#optional-consent-for-oauth-2-0-scopes-is-ga-in-prod)                                                   |January 11, 2023  |
+| [Optional consent for OAuth 2.0 scopes is GA in Production](#optional-consent-for-oauth-2-0-scopes-is-ga-in-production)                                                   |January 11, 2023  |
 | [OAuth 2.0 authentication for inline hooks is GA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-preview)                                     |October 05, 2022  |
 | [Honor force authentication support for SAML Apps API](#honor-force-authentication-support-for-saml-apps-api)                                                 |March 08, 2023    |
 | [OIN Manager support for Workflow Connector submission is GA in Preview](#oin-manager-support-for-workflow-connector-submission-is-ga-in-preview)             |March 08, 2023    |
@@ -66,7 +66,7 @@ Many organizations use third-party systems to monitor, aggregate, and act on the
 
 Log Streaming enables Okta admins to more easily and securely send System Log events to a specified systems, such as the Splunk Cloud or Amazon Eventbridge, in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it doesn't require a third-party system to store an Okta Admin API token. See [Log Streaming API](/docs/reference/api/log-streaming/). <!--OKTA-578532-->
 
-#### Optional consent for OAuth 2.0 scopes is GA in Prod
+#### Optional consent for OAuth 2.0 scopes is GA in Production
 
 OAuth 2.0 Optional consent provides an optional property that enables a user to opt in or out of an app's requested OAuth scopes. When optional is set to true for a scope, the user can skip consent for that scope. See [Request user consent](/docs/guides/request-user-consent/main/). <!--OKTA-581292-->
 
