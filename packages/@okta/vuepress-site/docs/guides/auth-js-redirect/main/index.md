@@ -202,4 +202,3 @@ Talk about session management, and what happens when the page is refreshed. (To 
 * [Redirect auth in the sample app](https://developer.okta.com/docs/guides/sampleapp-oie-redirectauth/angular/main/)
 * [Auth JS fundamentals](/docs/guides/auth-js/main/)
 * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
-
