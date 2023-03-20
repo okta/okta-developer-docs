@@ -2103,7 +2103,7 @@ The following table shows the possible relationships between all the authenticat
 
 > **Note**:
 > * Method characteristics with an asterisk (*) indicate that the condition is only satisfied with certain configurations, devices, or flows.
-> * Inherence (user verifying characteristic) constraint can't be configured, but can be satisfied as the second part of a 2FA assurance if the device or platform supports biometrics.
+> * You can't configure inherence (user verifying characteristic) constraint, but you can satisfy it as the second part of a 2FA assurance if the device or platform supports biometrics.
 
 | Authenticator key | Authenticator type | Authenticator method | Constraints<br>(factor class) | Hardware<br>protection | Device<br>bound | Phishing<br>resistant | User<br>presence | User<br>verifying<br>(biometrics) |
 | ----------------- | ------------------ | ---------- | ------ | -------- | -------| ---------- | ---------- | ---------- |
