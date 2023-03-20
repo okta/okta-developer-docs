@@ -11,7 +11,9 @@
 }
 
 .signup__items.active .signup__container {
-  background-color: var(--c-gray-765);
+  @include media(">signup") {
+    background-color: var(--c-gray-765);
+  }
 }
 
 .signup__popup:before {
@@ -140,7 +142,9 @@
 }
 
 .signup__items.active {
-  background-color: var(--c-gray-765);
+  @include media(">signup") {
+    background-color: var(--c-gray-765);
+  }
 }
 
 .signup__items.active .signup__content {
