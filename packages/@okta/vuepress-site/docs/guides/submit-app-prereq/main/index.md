@@ -110,7 +110,7 @@ Specify support contacts for your integration in the **General Settings** > **Cu
 
 ## Test account guidelines
 
-Create a test account for your app so that the OIN team can use it to test and verify your integration. The test account details and credentials are specified in the **General Settings** > **Test Account** fields from the OIN Manager.
+Create a test account for your app so that the OIN team can use it to test and verify your integration. Specify test account details and credentials in the **General Settings** > **Test Account** fields in the OIN Manager.
 
 In general, the test account allows the OIN team to verify that your integration flow works as expected for your use case. The test account is typically an admin user in your app with extra privileges depending on your use case:
 
