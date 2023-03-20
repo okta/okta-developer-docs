@@ -1,4 +1,5 @@
 .dark-theme {
+  @import "../themes/dark/authorization";
   @import "../themes/dark/global";
   @import "../themes/dark/login";
   @import "../themes/dark/selectorTile";

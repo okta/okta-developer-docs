@@ -3,13 +3,20 @@
     <div class="fixed-header">
       <Header />
     </div>
-    <Content />
+
+    <div class="page-body">
+      <section class="authorization-layout--content">
+        <Content />
+      </section>
+    </div>
+
     <div class="authorization-layout--footer">
       <Footer />
     </div>
     <portal-target name="dialog-wrapper" />
   </div>
 </template>
+
 
 <script>
 

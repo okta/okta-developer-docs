@@ -335,6 +335,42 @@
                   >
                     {{ error }}
                   </div>
+                  <div
+                    v-show="displayConsent"
+                    class="consent--section"
+                  >
+                    <div class="consent--section-text">
+                      <p>
+                        By clicking "SIGN UP" I agree to the
+                        <SmartLink :item="{ link: '/terms/', target: '_blank' }">
+                          Developer Edition Subscription Agreement
+                        </SmartLink>
+                        and Okta’s
+                        <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }">
+                          Privacy Policy
+                        </SmartLink>
+                        during my use of the Okta Developer Edition Service.
+                      </p>
+                      <p>
+                        I agree that Okta may contact me with marketing communications.
+                        See Privacy Policy for details on how to unsubscribe.
+                      </p>
+                    </div>
+                    <div
+                      v-show="displayAgree"
+                      class="consent--section-agree"
+                    >
+                      <label for="agree-checkbox">
+                        <input
+                          id="agree-checkbox"
+                          v-model="form.consentAgree.value"
+                          type="checkbox"
+                          name=""
+                        >
+                        I agree (Optional)
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div class="signup__form__footer">
                   <label
@@ -387,13 +423,28 @@
           </div>
         </div>
         <div class="signup__footer">
-          <p><span>Not sure what to choose?</span> <span>Learn more about</span> <a href="#">Workforce Identity</a> <span class="hidden">and</span> <a href="#">Customer Identity</a></p>
+          <p>
+            <span>Not sure what to choose?</span> <span>Learn more about</span>
+            <a 
+              target="_blank" 
+              href="https://www.okta.com/video/welcome-to-okta-workforce-identity-cloud/"
+            > Workforce Identity</a> <span class="hidden">and</span>
+            <a 
+              target="_blank" 
+              href="https://www.okta.com/video/welcome-to-okta-customer-identity-cloud"
+            > Customer Identity
+            </a>
+          </p>
         </div>
       </div>
     </div>
   </section>
 </template>
 
+
+"These should link to the videos:
+Workforce: 
+Customer: "
 <script>
 import VueRecaptcha from "vue-recaptcha";
 import { SignUpValidation } from "../util/signupValidation.service";

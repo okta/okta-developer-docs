@@ -11,15 +11,15 @@
 }
 
 .signup__items.active .signup__container {
-  background-color: var(--c-gray-950);
+  background-color: var(--c-gray-765);
 }
 
 .signup__popup:before {
-  background-color: var(--c-gray-950);
+  background-color: var(--c-gray-765);
 }
 
 .signup__popup:after {
-  background: var(--c-gray-950);
+  background: var(--c-gray-765);
 }
 
 .signup__popup__title h2 {
@@ -128,8 +128,6 @@
 }
 
 .signup__rate__title {
-  border-bottom: 1px solid var(--c-lightgray-450);
-
   color: var(--c-lightgray-450);
 }
 
@@ -141,6 +139,10 @@
   background-color: var(--c-gray-765);
 }
 
+.signup__items.active {
+  background-color: var(--c-gray-765);
+}
+
 .signup__items.active .signup__content {
   @include media(">signup") {
     background-color: var(--c-gray-980);
@@ -149,18 +151,21 @@
 
 .signup__items.active .signup__description {
   @include media(">signup") {
-    background-color: var(--c-gray-950);
+    background-color: var(--c-gray-765);
   }
 }
 
 .signup__items.active .signup__popup {
-  border: 1px solid var(--c-gray-075);
   background-color: var(--c-gray-765);
   @include media(">signup") {
     overflow: hidden;
 
     background-color: transparent;
   }
+}
+
+.signup__items.active .signup__container .signup__description-bordered {
+  background-color: var(--c-gray-765);
 }
 
 .signup__popup__container span:nth-child(3) {
@@ -186,6 +191,18 @@
   background-color: transparent;
 }
 
+.signup__link:hover {
+  @include media(">signup") {
+    border-color: var(--c-green-300);
+  }
+}
+
+.signup__link a:hover span {
+  @include media(">signup") {
+    color: var(--c-green-300);
+  }
+}
+
 .signup__link a,
 .signup__link button {
   color: var(--c-lightgray-450);
@@ -195,18 +212,31 @@
   background-color: transparent;
 }
 
-.signup__link a span {
-  border-bottom: none;
+.signup__link button:hover {
+  @include media(">signup") {
+    color: var(--c-green-300);
+  }
 }
 
 .signup__link-dark {
   background-color: var(--c-lightgray-450);
 }
 
-.signup__link-dark a span {
-  border-bottom: 1px solid var(--c-lightgray-450);
+.signup__link-dark:hover {
+  @include media(">signup") {
+    border-color: var(--c-green-300);
+    background-color: var(--c-green-300);
+  }
+}
 
+.signup__link-dark a span {
   color: var(--c-gray-950);
+}
+
+.signup__link-dark a:hover span {
+  @include media(">signup") {
+    color: var(--c-white);
+  }
 }
 
 .signup__footer {
@@ -234,4 +264,8 @@
 
 .signup__container .signup__item__title:before {
   display: none;
+}
+
+.error-msg {
+  color: var(--c-red-300);
 }
