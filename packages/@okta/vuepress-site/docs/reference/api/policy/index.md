@@ -2103,7 +2103,8 @@ The following table shows the possible relationships between all the authenticat
 
 > **Note**:
 > * Method characteristics with an asterisk (*) indicate that the condition is only satisfied with certain configurations, devices, or flows.
-> * You can't configure inherence (user verifying characteristic) constraint, but you can satisfy it as the second part of a 2FA assurance if the device or platform supports biometrics.
+> * You can't configure an inherence (user verifying characteristic) constraint, but you can satisfy it as the second part of a 2FA assurance if the device or platform supports biometrics.
+> * For `smart_card_idp` authenticators, a PIN acts as user verifying so it can satisfy the inherence constraint.
 
 | Authenticator key | Authenticator type | Authenticator method | Constraints<br>(factor class) | Hardware<br>protection | Device<br>bound | Phishing<br>resistant | User<br>presence | User<br>verifying<br>(biometrics) |
 | ----------------- | ------------------ | ---------- | ------ | -------- | -------| ---------- | ---------- | ---------- |
@@ -2123,9 +2124,9 @@ The following table shows the possible relationships between all the authenticat
 | `custom_otp` | `SECURITY_KEY` | `OTP` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
 | `onprem_mfa` | `SECURITY_KEY` | `OTP` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
 | `rsa_token` | `SECURITY_KEY` | `OTP` | possession |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
-| `yubikey_token` | `SECURITY_KEY` | `OTP` | possession | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> ? | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
+| `yubikey_token` | `SECURITY_KEY` | `OTP` | possession | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
 | `external_idp` | `FEDERATED` | `IDP` | possession |  |  |  | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> |  |
-| `smart_card_idp` | `FEDERATED` | `CERT` | possession, knowledge | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
+| `smart_card_idp` | `FEDERATED` | `CERT` | possession, knowledge, inherence | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> | <span style="width: 20px;display:inline-block">![x](/img/icons/icon--check.svg)</span> * |
 
 #### Verification Method JSON examples
 
