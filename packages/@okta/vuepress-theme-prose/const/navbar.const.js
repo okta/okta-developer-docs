@@ -845,330 +845,330 @@ export const languagesSdk = [
 ];
 
 export const reference = [
-   {
-      title: "References",
-      path: "/docs/reference/",
-      subLinks: [
-         {
-            title: "Core Okta API",
-            path: "/docs/reference/core-okta-api/",
+  {
+    title: "References",
+    path: "/docs/reference/",
+    subLinks: [
+      {
+        title: "Core Okta API",
+        path: "/docs/reference/core-okta-api/",
+        subLinks: [
+          {
+            title: "Rate Limits",
+            path: "/docs/reference/rate-limits/",
             subLinks: [
-               {
-                  title: "Rate Limits",
-                  path: "/docs/reference/rate-limits/",
-                  subLinks: [
-                     {
-                        title: "Rate limit dashboard",
-                        path: "/docs/reference/rl-dashboard/",
-                     },
-                     {
-                        title: "Authn/End-user rate limits",
-                        path: "/docs/reference/rl-global-enduser/",
-                     },
-                     {
-                        title: "Management rate limits",
-                        path: "/docs/reference/rl-global-mgmt/",
-                     },
-                     {
-                        title: "Other endpoint rate limits",
-                        path: "/docs/reference/rl-global-other-endpoints/",
-                     },
-                     {
-                        title: "Additional limits",
-                        path: "/docs/reference/rl-additional-limits/",
-                     },
-                     {
-                        title: "Rate limit best practices",
-                        path: "/docs/reference/rl-best-practices/",
-                     },
-                     {
-                        title: "Client-based rate limits",
-                        path: "/docs/reference/rl-clientbased/",
-                     },
-                     {
-                        title: "DynamicScale",
-                        path: "/docs/reference/rl-dynamic-scale/",
-                     },
-                     {
-                        title: "Previous rate limits",
-                        path: "/docs/reference/rl-previous/",
-                     },
-                     {
-                        title: "System Log events for rate limits",
-                        path: "/docs/reference/rl-system-log-events/"
-                     },
-                  ]
-               },
-               { title: "Error Codes", path: "/docs/reference/error-codes/" },
-               { title: "User query options", path: "/docs/reference/user-query/" },
-               { title: 'Sign in Your Users', path: 'empty' },
-               { title: "Authentication", path: "/docs/reference/api/authn/" },
-               { title: "Identity Providers", path: "/docs/reference/api/idps/" },
-               { title: "OpenID Connect & OAuth 2.0 API", path: "/docs/reference/api/oidc/" },
-               { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
-               { title: "Manage Okta Objects", path: "empty" },
-               { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
-               { title: "Apps", path: "/docs/reference/api/apps/" },
-               { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
-               { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/" },
-               { title: "Brands", path: "/docs/reference/api/brands/" },
-               { title: "CAPTCHAs", path: "/docs/reference/api/captchas/" },
-               { title: "Devices", path: "/docs/reference/api/devices/" },
-               { title: "Domains", path: "/docs/reference/api/domains/" },
-               { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
-               { title: "Event Types", path: "/docs/reference/api/event-types/" },
-               { title: "Factors", path: "/docs/reference/api/factors/" },
-               { title: "Features", path: "/docs/reference/api/features/" },
-               { title: "Groups", path: "/docs/reference/api/groups/" },
-               { title: "Identity Sources", path: "/docs/reference/api/xaas/" },
-               { title: "Key Management", path: "/docs/reference/api/hook-keys/" },
-               { title: "Linked Objects", path: "/docs/reference/api/linked-objects/" },
-               { title: "Log Streaming", path: "/docs/reference/api/log-streaming/" },
-               { title: "Mappings", path: "/docs/reference/api/mappings/" },
-               { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
-               { title: "Org", path: "/docs/reference/api/org/" },
-               { title: "Policy", path: "/docs/reference/api/policy/" },
-               { title: "Push Providers", path: "/docs/reference/api/push-providers/" },
-               { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
-               { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
-               { title: "Schemas", path: "/docs/reference/api/schemas/" },
-               { title: "Sessions", path: "/docs/reference/api/sessions/" },
-               { title: "Subscriptions", path: "/docs/reference/api/admin-notifications/" },
-               { title: "System Log", path: "/docs/reference/api/system-log/" },
-               { title: "Templates", path: "/docs/reference/api/templates/" },
-               { title: "ThreatInsight", path: "/docs/reference/api/threat-insight/" },
-               { title: "Trusted Origins", path: "/docs/reference/api/trusted-origins/" },
-               { title: "UI Schema", path: "/docs/reference/api/uischema/" },
-               { title: "User Types", path: "/docs/reference/api/user-types/" },
-               { title: "Users", path: "/docs/reference/api/users/" },
-               { title: "Zones", path: "/docs/reference/api/zones/" }
+              {
+                title: "Rate limit dashboard",
+                path: "/docs/reference/rl-dashboard/",
+              },
+              {
+                title: "Authn/End-user rate limits",
+                path: "/docs/reference/rl-global-enduser/",
+              },
+              {
+                title: "Management rate limits",
+                path: "/docs/reference/rl-global-mgmt/",
+              },
+              {
+                title: "Other endpoint rate limits",
+                path: "/docs/reference/rl-global-other-endpoints/",
+              },
+              {
+                title: "Additional limits",
+                path: "/docs/reference/rl-additional-limits/",
+              },
+              {
+                title: "Rate limit best practices",
+                path: "/docs/reference/rl-best-practices/",
+              },
+              {
+                title: "Client-based rate limits",
+                path: "/docs/reference/rl-clientbased/",
+              },
+              {
+                title: "DynamicScale",
+                path: "/docs/reference/rl-dynamic-scale/",
+              },
+              {
+                title: "Previous rate limits",
+                path: "/docs/reference/rl-previous/",
+              },
+              {
+                title: "System Log events for rate limits",
+                path: "/docs/reference/rl-system-log-events/"
+              },
             ]
-         },
-         {
-            title: "Advanced Server Access API",
-            subLinks: [
-               {
-                  title: "Introduction",
-                  path: "/docs/reference/api/asa/introduction/",
-               },
-               {
-                  title: "ASA Attributes API",
-                  path: "/docs/reference/api/asa/attributes/",
-               },
-               { title: "ASA Audits API", path: "/docs/reference/api/asa/audits/" },
-               {
-                  title: "ASA Clients API",
-                  path: "/docs/reference/api/asa/clients/",
-               },
-               {
-                  title: "ASA Entitlements API",
-                  path: "/docs/reference/api/asa/entitlements/",
-               },
-               { title: "ASA Groups API", path: "/docs/reference/api/asa/groups/" },
-               {
-                  title: "ASA Projects API",
-                  path: "/docs/reference/api/asa/projects/",
-               },
-               {
-                  title: "ASA Service Users API",
-                  path: "/docs/reference/api/asa/service-users/",
-               },
-               { title: "ASA Teams API", path: "/docs/reference/api/asa/teams/" },
-               { title: "ASA Users API", path: "/docs/reference/api/asa/users/" },
-            ],
-         },
-         {
-            title: "SCIM Protocol",
-            path: "/docs/reference/scim/",
-            subLinks: [
-               {
-                  title: "SCIM V2.0",
-                  path: "/docs/reference/scim/scim-20/",
-               },
-               {
-                  title: "SCIM V1.1",
-                  path: "/docs/reference/scim/scim-11/",
-               },
-            ],
-         },
-         {
-            title: "Postman Collections",
-            path: "/docs/reference/postman-collections/",
-         },
-         {
-            title: "Hooks",
-            subLinks: [
-               {
-                  title: "Event Hooks Management API",
-                  path: "/docs/reference/api/event-hooks/",
-               },
-               {
-                  title: "Inline Hooks Management API",
-                  path: "/docs/reference/api/inline-hooks/",
-               },
-               {
-                  title: "Inline Hook Types",
-                  subLinks: [
-                     {
-                        title: "Password Import Hook",
-                        path: "/docs/reference/password-hook/",
-                     },
-                     {
-                        title: "Registration Hook",
-                        path: "/docs/reference/registration-hook/",
-                     },
-                     { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-                     {
-                        title: "Telephony Hook",
-                        path: "/docs/reference/telephony-hook/",
-                     },
-                     { title: "Token Hook", path: "/docs/reference/token-hook/" },
-                     {
-                        title: "User Import Hook",
-                        path: "/docs/reference/import-hook/",
-                     },
-                  ],
-               },
-               {
-                  title: "Hooks best practices",
-                  path: "/docs/reference/hooks-best-practices/",
-               },
-            ],
-         },
-         {
-            title: "Okta Expression Language",
-            path: "/docs/reference/okta-expression-language/",
-         },
-         {
-            title: "Expression Language in Identity Engine",
-            path: "/docs/reference/okta-expression-language-in-identity-engine/",
-         },
-         {
-            title: "Release Life Cycle",
-            path: "/docs/reference/releases-at-okta/",
-         },
-      ],
-   },
+          },
+          { title: "Error Codes", path: "/docs/reference/error-codes/" },
+          { title: "User query options", path: "/docs/reference/user-query/" },
+          { title: 'Sign in Your Users', path: 'empty' },
+          { title: "Authentication", path: "/docs/reference/api/authn/" },
+          { title: "Identity Providers", path: "/docs/reference/api/idps/" },
+          { title: "OpenID Connect & OAuth 2.0 API", path: "/docs/reference/api/oidc/" },
+          { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
+          { title: "Manage Okta Objects", path: "empty" },
+          { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
+          { title: "Apps", path: "/docs/reference/api/apps/" },
+          { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
+          { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/" },
+          { title: "Brands", path: "/docs/reference/api/brands/" },
+          { title: "CAPTCHAs", path: "/docs/reference/api/captchas/" },
+          { title: "Devices", path: "/docs/reference/api/devices/" },
+          { title: "Domains", path: "/docs/reference/api/domains/" },
+          { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
+          { title: "Event Types", path: "/docs/reference/api/event-types/" },
+          { title: "Factors", path: "/docs/reference/api/factors/" },
+          { title: "Features", path: "/docs/reference/api/features/" },
+          { title: "Groups", path: "/docs/reference/api/groups/" },
+          { title: "Identity Sources", path: "/docs/reference/api/xaas/" },
+          { title: "Key Management", path: "/docs/reference/api/hook-keys/" },
+          { title: "Linked Objects", path: "/docs/reference/api/linked-objects/" },
+          { title: "Log Streaming", path: "/docs/reference/api/log-streaming/" },
+          { title: "Mappings", path: "/docs/reference/api/mappings/" },
+          { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
+          { title: "Org", path: "/docs/reference/api/org/" },
+          { title: "Policy", path: "/docs/reference/api/policy/" },
+          { title: "Push Providers", path: "/docs/reference/api/push-providers/" },
+          { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
+          { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
+          { title: "Schemas", path: "/docs/reference/api/schemas/" },
+          { title: "Sessions", path: "/docs/reference/api/sessions/" },
+          { title: "Subscriptions", path: "/docs/reference/api/admin-notifications/" },
+          { title: "System Log", path: "/docs/reference/api/system-log/" },
+          { title: "Templates", path: "/docs/reference/api/templates/" },
+          { title: "ThreatInsight", path: "/docs/reference/api/threat-insight/" },
+          { title: "Trusted Origins", path: "/docs/reference/api/trusted-origins/" },
+          { title: "UI Schema", path: "/docs/reference/api/uischema/" },
+          { title: "User Types", path: "/docs/reference/api/user-types/" },
+          { title: "Users", path: "/docs/reference/api/users/" },
+          { title: "Zones", path: "/docs/reference/api/zones/" }
+        ]
+    },
+      {
+        title: "Advanced Server Access API",
+        subLinks: [
+          {
+            title: "Introduction",
+            path: "/docs/reference/api/asa/introduction/",
+          },
+          {
+            title: "ASA Attributes API",
+            path: "/docs/reference/api/asa/attributes/",
+          },
+          { title: "ASA Audits API", path: "/docs/reference/api/asa/audits/" },
+          {
+            title: "ASA Clients API",
+            path: "/docs/reference/api/asa/clients/",
+          },
+          {
+            title: "ASA Entitlements API",
+            path: "/docs/reference/api/asa/entitlements/",
+          },
+          { title: "ASA Groups API", path: "/docs/reference/api/asa/groups/" },
+          {
+            title: "ASA Projects API",
+            path: "/docs/reference/api/asa/projects/",
+          },
+          {
+            title: "ASA Service Users API",
+            path: "/docs/reference/api/asa/service-users/",
+          },
+          { title: "ASA Teams API", path: "/docs/reference/api/asa/teams/" },
+          { title: "ASA Users API", path: "/docs/reference/api/asa/users/" },
+        ],
+      },
+      {
+        title: "SCIM Protocol",
+        path: "/docs/reference/scim/",
+        subLinks: [
+          {
+            title: "SCIM V2.0",
+            path: "/docs/reference/scim/scim-20/",
+          },
+          {
+            title: "SCIM V1.1",
+            path: "/docs/reference/scim/scim-11/",
+          },
+        ],
+      },
+      {
+        title: "Postman Collections",
+        path: "/docs/reference/postman-collections/",
+      },
+      {
+          title: "Hooks",
+          subLinks: [
+            {
+              title: "Event Hooks Management API",
+              path: "/docs/reference/api/event-hooks/",
+            },
+            {
+              title: "Inline Hooks Management API",
+              path: "/docs/reference/api/inline-hooks/",
+            },
+            {
+                title: "Inline Hook Types",
+                subLinks: [
+                  {
+                    title: "Password Import Hook",
+                    path: "/docs/reference/password-hook/",
+                  },
+                  {
+                    title: "Registration Hook",
+                    path: "/docs/reference/registration-hook/",
+                  },
+                  { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
+                  {
+                    title: "Telephony Hook",
+                    path: "/docs/reference/telephony-hook/",
+                  },
+                  { title: "Token Hook", path: "/docs/reference/token-hook/" },
+                  {
+                    title: "User Import Hook",
+                    path: "/docs/reference/import-hook/",
+                  },
+                ],
+            },
+            {
+              title: "Hooks best practices",
+              path: "/docs/reference/hooks-best-practices/",
+            },
+          ],
+      },
+      {
+        title: "Okta Expression Language",
+        path: "/docs/reference/okta-expression-language/",
+      },
+      {
+        title: "Expression Language in Identity Engine",
+        path: "/docs/reference/okta-expression-language-in-identity-engine/",
+      },
+      {
+        title: "Release Life Cycle",
+        path: "/docs/reference/releases-at-okta/",
+      },
+    ],
+  },
 ];
 
 export const releaseNotes = [
-   {
+    {
       title: "Release Notes",
       path: "/docs/release-notes/",
       subLinks: [
-         { title: "2023", path: "/docs/release-notes/2023/" },
-         {
-            title: "2023 - Okta Identity Engine",
-            path: "/docs/release-notes/2023-okta-identity-engine/",
-         },
-         { title: "2022", path: "/docs/release-notes/2022/" },
-         {
-            title: "2022 - Okta Identity Engine",
-            path: "/docs/release-notes/2022-okta-identity-engine/",
-         },
-         { title: "2021", path: "/docs/release-notes/2021/" },
-         {
-            title: "2021 - Okta Identity Engine",
-            path: "/docs/release-notes/2021-okta-identity-engine/",
-         },
-         { title: "2020", path: "/docs/release-notes/2020/" },
-         { title: "2019", path: "/docs/release-notes/2019/" },
-         { title: "2018", path: "/docs/release-notes/2018/" },
-         { title: "2017", path: "/docs/release-notes/2017/" },
-         { title: "2016", path: "/docs/release-notes/2016/" },
-      ],
-   },
+        { title: "2023", path: "/docs/release-notes/2023/" },
+        {
+          title: "2023 - Okta Identity Engine",
+          path: "/docs/release-notes/2023-okta-identity-engine/",
+        },
+        { title: "2022", path: "/docs/release-notes/2022/" },
+        {
+          title: "2022 - Okta Identity Engine",
+          path: "/docs/release-notes/2022-okta-identity-engine/",
+        },
+        { title: "2021", path: "/docs/release-notes/2021/" },
+        {
+          title: "2021 - Okta Identity Engine",
+          path: "/docs/release-notes/2021-okta-identity-engine/",
+        },
+        { title: "2020", path: "/docs/release-notes/2020/" },
+        { title: "2019", path: "/docs/release-notes/2019/" },
+        { title: "2018", path: "/docs/release-notes/2018/" },
+        { title: "2017", path: "/docs/release-notes/2017/" },
+        { title: "2016", path: "/docs/release-notes/2016/" },
+    ],
+  },
 ];
 
 export const architectureCenter = [
-   {
-     title: 'Architecture Center',
-     path: '/architecture-center/',
-     cards: true,
-     subLinks: [
-       {
-         title: 'Case studies',
-         path: '/architecture-center/case-studies/'
-       },
-       {
-         title: 'Tutorials',
-         path: '/architecture-center/tutorials/',
-         cards: true,
-         subLinks: [
-           {
-             title: "Directory coexistence",
-             path: "/architecture-center/tutorials/directory-coexistence",
-             subLinks: [
-                {
-                   title: "Lab",
-                   path: "/architecture-center/tutorials/directory-coexistence/lab-overview",
-                   subLinks: [
-                      {
-                         title: "Prerequisites",
-                         path: "/architecture-center/tutorials/directory-coexistence/lab-prerequisites",
-                      },
-                      {
-                         title: "1: From Azure AD to Okta",
-                         path: "/architecture-center/tutorials/directory-coexistence/lab-1-azure-ad",
-                      },
-                      {
-                         title: "2: From LDAP to Okta",
-                         path: "/architecture-center/tutorials/directory-coexistence/lab-2-ldap-server",
-                      },
-                      {
-                         title: "3: From database to Okta",
-                         path: "/architecture-center/tutorials/directory-coexistence/lab-3-generic-database",
-                      },
-                   ],
-                },
-             ],
-           },
-           {
-             title: "Managing multiple Okta environments",
-             path: "/architecture-center/tutorials/mmoe",
-             subLinks: [
-                {
-                   title: "Lab",
-                   path: "/architecture-center/tutorials/mmoe/lab-overview",
-                   subLinks: [
-                      {
-                         title: "Prerequisites",
-                         path: "/architecture-center/tutorials/mmoe/lab-prerequisites",
-                      },
-                      {
-                         title: "1: Configure Terraform Cloud",
-                         path: "/architecture-center/tutorials/mmoe/lab-1-configure-terraform-cloud",
-                      },
-                      {
-                         title: "2: Create resources",
-                         path: "/architecture-center/tutorials/mmoe/lab-2-create-resources",
-                      },
-                      {
-                         title: "3: Rename a group",
-                         path: "/architecture-center/tutorials/mmoe/lab-3-rename-a-group",
-                      },
-                      {
-                         title: "4: Deploy changes to production",
-                         path: "/architecture-center/tutorials/mmoe/lab-4-deploy-changes-to-production",
-                      },
-                      {
-                         title: "5: Detect drift",
-                         path: "/architecture-center/tutorials/mmoe/lab-5-detect-drift",
-                      },
-                      {
-                         title: "6: Synchronize environments daily",
-                         path: "/architecture-center/tutorials/mmoe/lab-6-synchronize-environments-daily",
-                      },
-                   ],
-                },
-                {
-                   title: "Further reading",
-                   path: "/architecture-center/tutorials/mmoe/resources",
-                },
-             ],
-           },
-         ],
-       },
-     ],
-   },
- ];
+  {
+    title: 'Architecture Center',
+    path: '/architecture-center/',
+    cards: true,
+    subLinks: [
+      {
+        title: 'Case studies',
+        path: '/architecture-center/case-studies/'
+      },
+      {
+        title: 'Tutorials',
+        path: '/architecture-center/tutorials/',
+        cards: true,
+        subLinks: [
+          {
+            title: "Directory coexistence",
+            path: "/architecture-center/tutorials/directory-coexistence/",
+            subLinks: [
+              {
+                  title: "Lab",
+                  path: "/architecture-center/tutorials/directory-coexistence/lab-overview/",
+                  subLinks: [
+                    {
+                        title: "Prerequisites",
+                        path: "/architecture-center/tutorials/directory-coexistence/lab-prerequisites/",
+                    },
+                    {
+                        title: "1: From Azure AD to Okta",
+                        path: "/architecture-center/tutorials/directory-coexistence/lab-1-azure-ad/",
+                    },
+                    {
+                        title: "2: From LDAP to Okta",
+                        path: "/architecture-center/tutorials/directory-coexistence/lab-2-ldap-server/",
+                    },
+                    {
+                        title: "3: From database to Okta",
+                        path: "/architecture-center/tutorials/directory-coexistence/lab-3-generic-database/",
+                    },
+                  ],
+              },
+            ],
+          },
+          {
+            title: "Managing multiple Okta environments",
+            path: "/architecture-center/tutorials/mmoe/",
+            subLinks: [
+              {
+                  title: "Lab",
+                  path: "/architecture-center/tutorials/mmoe/lab-overview/",
+                  subLinks: [
+                    {
+                        title: "Prerequisites",
+                        path: "/architecture-center/tutorials/mmoe/lab-prerequisites/",
+                    },
+                    {
+                        title: "1: Configure Terraform Cloud",
+                        path: "/architecture-center/tutorials/mmoe/lab-1-configure-terraform-cloud/",
+                    },
+                    {
+                        title: "2: Create resources",
+                        path: "/architecture-center/tutorials/mmoe/lab-2-create-resources/",
+                    },
+                    {
+                        title: "3: Rename a group",
+                        path: "/architecture-center/tutorials/mmoe/lab-3-rename-a-group/",
+                    },
+                    {
+                        title: "4: Deploy changes to production",
+                        path: "/architecture-center/tutorials/mmoe/lab-4-deploy-changes-to-production/",
+                    },
+                    {
+                        title: "5: Detect drift",
+                        path: "/architecture-center/tutorials/mmoe/lab-5-detect-drift/",
+                    },
+                    {
+                        title: "6: Synchronize environments daily",
+                        path: "/architecture-center/tutorials/mmoe/lab-6-synchronize-environments-daily/",
+                    },
+                  ],
+              },
+              {
+                  title: "Further reading",
+                  path: "/architecture-center/tutorials/mmoe/resources/",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+];
