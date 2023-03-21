@@ -122,7 +122,7 @@ function group() {
 }
 
 function send_promotion_message() {
-    curl -H "Authorization: Bearer ${TESTSERVICE_SLAVE_JWT}" \
+    curl -H "x-aurm-token: ${AURM_TOKEN}" \
       -H "Content-Type: application/json" \
       -X POST -d "[{\"artifactId\":\"$1\",\"repository\":\"npm-release\",\"artifact\":\"$2\",\"version\":\"$3\",\"promotionType\":\"ARTIFACT\"}]" \
       -k "${APERTURE_BASE_URL}/v1/artifact-promotion/createPromotionEvent"

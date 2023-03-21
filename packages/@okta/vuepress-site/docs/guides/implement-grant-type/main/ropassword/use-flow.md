@@ -2,7 +2,7 @@ If implementing the Resource Owner Password flow is your only option, you need t
 
 ### Request for tokens
 
-Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
+Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the [default custom authorization server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
 
 ```bash
 curl --request POST \
@@ -20,7 +20,7 @@ Note the parameters that are being passed:
 - `grant_type` is `password`, indicating that we are using the Resource Owner Password grant type.
 - `username` is the username of a user registered with Okta.
 - `password` is the password of a user registered with Okta.
-- `scope` must be at least `openid`. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+- `scope` must be at least `openid`. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 
 For more information on these parameters, see the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token).
 

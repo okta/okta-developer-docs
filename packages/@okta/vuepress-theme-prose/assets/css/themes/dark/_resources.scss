@@ -1,0 +1,39 @@
+.resources__list-link {
+  span {
+    border-bottom: 1px solid var(--c-white);
+  }
+
+  @include media(">desktop") {
+    &:hover {
+      span {
+        border-color: var(--c-green-300);
+      }
+    }
+  }
+}
+
+.resources__status {
+  color: var(--c-gray-405);
+}
+
+.resources__title {
+  border-bottom-color: var(--c-gray-760);
+
+  color: var(---c-gray-350);
+}
+
+.resources__paragraph {
+  color: var(---c-gray-350);
+}
+
+.resources__list {
+  background-color: var(--c-gray-980);
+}
+
+.resources__list-title {
+  color: var(--c-gray-405);
+}
+
+.resources__list-text {
+  color: var(---c-gray-350);
+}

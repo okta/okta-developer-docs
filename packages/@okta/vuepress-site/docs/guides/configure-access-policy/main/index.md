@@ -93,7 +93,7 @@ Let's test your access policy and get back an access token.
 
      It looks like this: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
-     Unless you are using the default Authorization Server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
+     Unless you are using the default authorization server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
 3. Add the following `/authorize` endpoint query parameters to the URL:
 
@@ -183,7 +183,7 @@ Let's test your access policy and get back an access token.
 
      It looks like this: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
-     Unless you are using the default Authorization Server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
+     Unless you are using the default authorization server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
 3. Add the following `/authorize` endpoint query parameters to the URL:
 

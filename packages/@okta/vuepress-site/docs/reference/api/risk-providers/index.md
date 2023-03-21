@@ -4,6 +4,11 @@ title: Risk Providers
 
 # Risk Providers API
 
+The Risk Providers API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/#tag/RiskProvider).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Risk Providers API Postman collection.
+
+<!--
 <ApiLifecycle access="ea" />
 
 The Okta Risk Providers API provides the ability to manage the Risk Providers within Okta.
@@ -331,3 +336,4 @@ The Risk Provider object has the following properties:
     "clientId": "A-Valid-Client-ID"
   }
 ```
+-->

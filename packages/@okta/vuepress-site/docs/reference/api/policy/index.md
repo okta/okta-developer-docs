@@ -1237,6 +1237,7 @@ The authenticator enrollment policy controls which authenticators are available 
 | ---       | ---                                           | ---                                                                         | ---      |
 | key       | A label that identifies the authenticator     | String                                                                      | Yes      |
 | enroll    | Enrollment requirements for the authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
+| constraints  <ApiLifecycle access="ea" />  | Constraints for the authenticator | [Policy Authenticator Constraints object](#policy-authenticator-constraints-object)   | No      |
 
 #### Policy Authenticator Enroll object
 
@@ -1245,6 +1246,39 @@ The authenticator enrollment policy controls which authenticators are available 
 | Parameter | Description                                    | Data Type                                | Required | Default       |
 | ---       | ---                                            | ---                                      | ---      | ---           |
 | self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
+
+#### Policy Authenticator Constraints object
+
+<ApiLifecycle access="ie" />
+<ApiLifecycle access="ea" />
+
+> **Note:** Allow List for FIDO2 (WebAuthn) Authenticators is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
+Configure which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments by defining WebAuthn authenticator groups, then specifying which groups are in the allow list for enrollments. The authenticators in the group are based on FIDO Alliance Metadata Service that is identified by name or the Authenticator Attestation Global Unique Identifier ([AAGUID](https://support.yubico.com/hc/en-us/articles/360016648959-YubiKey-Hardware-FIDO2-AAGUIDs)) number. These groups are defined in the [WebAuthn authenticator method settings](/docs/reference/api/authenticators-admin/#authenticator-method-settings-propeties).
+
+| Parameter | Description                                    | Data Type                                | Required |
+| ---       | ---                                            | ---                                      | ---      |
+| aaguidGroups      | The list of FIDO2 WebAuthn authenticator groups allowed for enrollment | Array of strings | No      |
+
+##### Authenticator enrollment policy WebAuthn constraints example
+
+<ApiLifecycle access="ie" />
+<ApiLifecycle access="ea" />
+
+```json
+{
+  "key": "webauthn",
+  "enroll": {
+    "self": "OPTIONAL"
+  },
+  "constraints": {
+    "aaguidGroups": [
+      "mixedSecurityKey",
+      "YubiKey5"
+    ]
+  }
+}
+```
 
 ### Policy conditions
 
@@ -2013,7 +2047,7 @@ Multifactor Authentication (MFA) is the use of more than one Factor. MFA is the 
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `factorMode`         | String            | The number of factors required to satisfy this assurance level                                                         | `1FA`, `2FA`                                                                                      |
 | `type`         | String            | The Verification Method type                                                         | `ASSURANCE`     |
-| `constraints`        | Array of [Constraint Object](#constraints)           | A JSON array that contains nested Authenticator Constraint objects that are organized by the Authenticator class        | [Constraint Object](#constraints) that consists of a `POSSESSION` constraint, a `KNOWLEDGE` constraint, or both. See [Verification Method JSON Examples](#verification-method-json-examples).  |
+| `constraints`        | Array of [Constraint Object](#constraints)           | A JSON array that contains nested Authenticator Constraint objects that are organized by the Authenticator class        | [Constraint Object](#constraints) that consists of a `POSSESSION` constraint, a `KNOWLEDGE` constraint, or both. You can't configure an `INHERENCE` constraint, but an inherence factor can satisfy the second part of a 2FA assurance if no other constraints are specified. See [Verification Method JSON Examples](#verification-method-json-examples).  |
 | `reauthenticateIn`   | String (ISO 8601) | The duration after which the user must re-authenticate, regardless of user activity. Keep in mind that the re-authentication intervals for `constraints` (see [Constraint object](#constraints)) take precedent over this value. | ISO 8601 period format for recurring time intervals (for example: `PT2H`, `PT0S`, `PT43800H`, and so on)  |
 | `inactivityPeriod`   | String (ISO 8601) | The inactivity duration after which the user must re-authenticate  | ISO 8601 period format (for example: `PT2H`)  |
 
@@ -2058,7 +2092,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 | Property            | Data Type              | Description                                                                                                             | Supported Values                                  | Default |
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |-----------|
 | `types`              | Array  of Authenticator types           | The Authenticator types that are permitted                                                                           | [ `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`, `APP`, `FEDERATED` ]                         |  N/A|
-| `methods`            | Array of Authenticator methods           | The Authenticator methods that are permitted                                                                          | [ `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `PUSH`, `SIGNED_NONCE`, `OTP`, `WEBAUTHN`, `DUO`, `IDP` ] |  N/A|
+| `methods`            | Array of Authenticator methods           | The Authenticator methods that are permitted                                                                          | [ `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `PUSH`, `SIGNED_NONCE`, `OTP`, `TOTP`, `WEBAUTHN`, `DUO`, `IDP`] |  N/A|
 | `hardwareProtection` | String            | Indicates if any secrets or private keys that are used during authentication must be hardware protected and not exportable. This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`     |   `OPTIONAL`|
 | `deviceBound` | String            | Indicates if device-bound Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `phishingResistant` | String            | Indicates if phishing-resistant Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
@@ -2067,7 +2101,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 
 #### Verification Method JSON examples
 
-##### Any single Factor
+##### Any single factor
 
 ```json
 {
@@ -2078,7 +2112,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 }
 ```
 
-##### Password + any Factor
+##### Password + any factor
 
 ```json
 {
@@ -2136,7 +2170,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 }
 ```
 
-##### Any two Factors with one being a hardware-protected Authenticator
+##### Any two factors with one being a hardware-protected Authenticator
 
 ```json
 {
@@ -2150,6 +2184,69 @@ The number of Authenticator class constraints in each Constraint object must be 
     }
   ],
   "reauthenticateIn": "PT4H"
+}
+```
+
+###### Single factor Duo only
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "1FA",
+  "constraints": [
+    {
+      "possession": {
+        "types": [
+          "app"
+        ],
+        "methods": [
+          "duo"
+        ]
+      }
+    }
+  ]
+}
+```
+
+###### Single factor WebAuthn
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "1FA",
+  "constraints": [
+    {
+      "possession": {
+        "types": [
+          "security_key"
+        ],
+        "methods": [
+          "webauthn"
+        ]
+      }
+    }
+  ]
+}
+```
+
+###### Okta Verify: OTP only
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "1FA",
+  "constraints": [
+    {
+      "possession": {
+        "types": [
+          "app"
+        ],
+        "methods": [
+          "totp"
+        ]
+      }
+    }
+  ]
 }
 ```
 

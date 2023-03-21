@@ -23,11 +23,11 @@ Create custom claims for tokens.
 
 Tokens contain claims that are statements about the subject, such as name, role, or email address. Beyond the [default set of claims](/docs/guides/validate-id-tokens/main/#verify-the-claims) that are contained in ID tokens and access tokens, you can define your custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
-You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of App Groups and User Groups to perform SSO using the Okta Org Authorization Server. And, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-the-org-authorization-server) to ID tokens for any combination of App Groups and User Groups to perform SSO using the org authorization server. And, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim/main/#add-a-groups-claim-for-a-custom-authorization-server) to ID tokens and access tokens to perform authentication and authorization using a custom authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 <ApiAmProdWarning />
 
-Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist when you need to set Group allowlists on a per-app basis using both the Org Authorization Server and a Custom Authorization Server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of Groups that can then easily be referenced.
+Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allowlist when you need to set Group allowlists on a per-app basis using both the org authorization server and a custom authorization server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allowlist of Groups that can then easily be referenced.
 
 ## Request a token that contains the custom claim
 
@@ -44,17 +44,17 @@ To test the full authentication flow that returns an ID token or an access token
 
     > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
-    * An Okta Org Authorization Server authorization endpoint looks like this:
+    * An org authorization server authorization endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/v1/authorize`
 
-    * A Custom Authorization Server endpoint looks like this:
+    * A custom authorization server endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
-    > **Note:** If you add the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
+    > **Note:** If you add the claim to the default custom authorization server, the `${authorizationServerId}` is `default`.
 
-    You can retrieve a Custom Authorization Server's authorization endpoint using the server's metadata URI:
+    You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
 
     **ID token**
     `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
@@ -105,15 +105,15 @@ To test the full authentication flow that returns an ID token or an access token
 
 ## Add a custom claim to a token
 
-To include custom claims in an ID token or an access token, add the claim to your Custom Authorization Server.
+To include custom claims in an ID token or an access token, add the claim to your custom authorization server.
 
-> **Note:** You can only add custom claims to a Custom Authorization Server, not the Org Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+> **Note:** You can only add custom claims to a custom authorization server, not the org authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 To add a custom claim:
 
 1. In the Admin Console, go to **Security** > **API**.
 
-2. On the **Authorization Servers** tab, select the name of the Custom Authorization Server (or select **default** when you use the `default` Custom Authorization Server) and then click **Claims**. Okta provides a default subject claim. You can edit that mapping or create your own claims. For this example, we are creating a custom claim.
+2. On the **Authorization Servers** tab, select the name of the custom authorization server (or select **default** when you use the `default` custom authorization server) and then click **Claims**. Okta provides a default subject claim. You can edit that mapping or create your own claims. For this example, we are creating a custom claim.
 
 3. Click **Add Claim**, and then configure the claim settings:
 
@@ -140,7 +140,7 @@ To confirm that your custom claim is successfully added, you can [retrieve a lis
 
 `https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/claims`
 
-> **Note:** If you add the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
+> **Note:** If you add the claim to the default custom authorization server, the `${authorizationServerId}` is `default`.
 
 ### Request a token with the custom claim
 
@@ -214,7 +214,7 @@ If you want to include certain app-specific information in a token claim, you ca
 To include, for example, the app `label` parameter in a token claim:
 
 * Create an app with the Profile object.
-* Add a custom claim to your Custom Authorization Server.
+* Add a custom claim to your custom authorization server.
 
 > **Note:** You can directly use both `app.id` and `app.clientId` as claims.
 
@@ -255,13 +255,13 @@ Create an app with the Profile object using the [Apps API](/docs/reference/api/a
 
 ### Add a custom claim
 
-> **Note:** You can only add custom claims to a Custom Authorization Server, not the Org Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
+> **Note:** You can only add custom claims to a custom authorization server, not the org authorization server. See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 To add a custom claim:
 
 1. In the Admin Console, go to **Security** > **API**.
 
-2. On the **Authorization Servers** tab, select the name of the Custom Authorization Server that you want to add the claim to (or select **default** when you use the default Custom Authorization Server), and then click **Claims**.
+2. On the **Authorization Servers** tab, select the name of the custom authorization server that you want to add the claim to (or select **default** when you use the default custom authorization server), and then click **Claims**.
 
 3. Click **Add Claim**, and then configure the claim settings:
 
@@ -283,11 +283,11 @@ To add a custom claim:
 
 4. Click **Create**.
 
-5. (Optional) Confirm that your custom claim was successfully added by retrieving a list of all claims from your Custom Authorization Server, including the custom claims, using the `/claims` endpoint. See [Verify the custom claim](#verify-the-custom-claim).
+5. (Optional) Confirm that your custom claim was successfully added by retrieving a list of all claims from your custom authorization server, including the custom claims, using the `/claims` endpoint. See [Verify the custom claim](#verify-the-custom-claim).
 
 ### Request a token with the custom claim
 
-In this example, the service application's `token_endpoint_auth_method` was set to `client_secret_post` when we created the app above. Include both the `client_id` and the `client_secret` values as additional parameters in the POST request body to your Custom Authorization Server's `/token` endpoint. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
+In this example, the service application's `token_endpoint_auth_method` was set to `client_secret_post` when we created the app above. Include both the `client_id` and the `client_secret` values as additional parameters in the POST request body to your custom authorization server's `/token` endpoint. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
 
 ```bash
 curl -v -X POST \

@@ -31,7 +31,7 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is the quick
 3. Make a note of the Okta Domain as you need that later.
 4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
 
-   ```
+   ``` bash
    Your Okta Domain: https://dev-xxxxxxx.okta.com
    To set your password open this link:
    https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
@@ -41,19 +41,19 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is the quick
 
 5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command. You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/).
 
-   ```
+   ``` bash
    okta login
    ```
 
 ## Create an Okta integration for your app
 
-An Application Integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including: which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
+An application integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including: which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
 To create your app integration in Okta using the CLI:
 
 1. Create the app integration by running:
 
-   ```
+   ``` bash
    okta apps create web
    ```
 

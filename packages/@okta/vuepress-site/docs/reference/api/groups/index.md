@@ -753,7 +753,7 @@ This operation:
 | `id eq "00gak46y5hydV6NdM0g4"`                            | Groups with a specified `id`                                              |
 | `profile.name eq "West Coast Users"`                      | Groups that have a `name` of `West Coast Users`                           |
 | `profile.samAccountName sw "West Coast" `                 | Groups whose `samAccountName` starts with `West Coast`                    |
-| `source.id` eq `0oa2v0el0gP90aqjJ0g7`                     | Groups that have the source application with a specified `source.id`      |
+| `source.id eq "0oa2v0el0gP90aqjJ0g7"`                     | Groups that have the source application with a specified `source.id`      |
 
 ##### Search Examples
 
