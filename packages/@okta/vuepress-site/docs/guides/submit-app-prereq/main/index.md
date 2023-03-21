@@ -212,8 +212,8 @@ Include this section if there are known issues that apply to the entire configur
 ##### OIDC examples
 
 * [HacWare](https://docs.google.com/document/d/1k-TNUDCXZslL4D3wZyH3KgZyU45qUgiaIG9U0i6Jupc/edit)
+* [Parmonic](https://partners.parmonic.com/okta)
 * [Upwave](https://help.upwave.io/en/articles/4129778-okta-configuration-guide)
-<!--* [Parmonic](https://help.parmonic.com/hc/en-us/articles/6767650476183-Instructions-to-setup-Okta-SSO)-->
 
 ##### SAML examples
 
