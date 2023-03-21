@@ -88,7 +88,7 @@ Include this script in your target HTML page (`index.html`) by including the fol
 
 ```html
 <!-- Latest CDN production Auth JS SDK-->
-<script src="https://global.oktacdn.com/okta-auth-js/7.2.0/okta-auth-js.polyfill.js" type="text/javascript"></script>
+<script src="https://global.oktacdn.com/okta-auth-js/7.2.0/okta-auth-js.min.js" type="text/javascript"></script>
 ```
 
 Note: If you're using a package manager, you can also install it through the appropriate command, for example `yarn add @okta/okta-auth-js` or `npm install @okta/okta-auth-js`.
