@@ -75,7 +75,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 ## App description guidelines
 
-After your integration is published, the content in the OIN Manager **General Settings** > **App description** field is displayed on the Integration detail page under the **Overview** heading. Descriptions must be less than 1024 characters and should describe the value that you provide to customers by partnering with Okta. See an app description example in this [Integration detail page](https://www.okta.com/integrations/servicenow-ud/).
+The content in the OIN Manager **General Settings** > **App description** field is displayed on the Integration detail page under the **Overview** heading for your published integration. Descriptions must be less than 1024 characters and should describe the value that you provide to customers by partnering with Okta. See an app description example in this [Integration detail page](https://www.okta.com/integrations/servicenow-ud/).
 
 ## Use case guidelines
 
@@ -87,15 +87,14 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 | [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta’s APIs using OAuth 2.0.  |
 | [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. API service integrations that poll the Okta API for System Logs using OAuth 2.0 support this use case. |
 | [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for human resources (HR) solutions using the SCIM or Workflow Connectors. |
-| [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring that compliance requirements are met as user roles evolve and access levels change. This use case is most common with either System for Cross-domain Identity Management (SCIM) or Workflow Connector integrations. |
+| [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring that the company meets compliance requirements as user roles evolve and access levels change. This use case is most common with either System for Cross-domain Identity Management (SCIM) or Workflow Connector integrations. |
 | [Identity Proofing](https://www.okta.com/integrations/?category=identity-proofing) | Enables user self-verification to improve identity assurance and approve access for authorized individuals using document-based and/or knowledge-based proofs |
 | [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Simplifies and manages an organization's identity and access lifecycles across multiple systems |
 | [Zero Trust](https://www.okta.com/integrations/?category=zero-trust) | Enables secure access for users regardless of their location, device, or network |
 | [Bot or Fraud Detection](https://www.okta.com/integrations/?category=bot-or-fraud-detection) | Provides protection from inauthentic, forged, or otherwise fraudulent attempts to register, sign in, recover, or perform identity-related transactions. Most integrations in this use case are API service integrations that send risk signals to Okta using OAuth 2.0. |
-| [Multifactor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an additional layer of security with multifactor authentication for an organization's cloud, mobile, and web apps |
+| [Multifactor Authentication (MFA)](https://www.okta.com/integrations/?category=multi-factor-authentication-mfa) | Provides an extra layer of security with multifactor authentication for an organization's cloud, mobile, and web apps |
 | [Risk Signal Sharing](https://www.okta.com/integrations/?category=risk-signal-sharing)| Provides enriched context on clients, apps, users, and other first-party subjects to augment and inform Okta adaptive authentication and authorization decisions |
 | [Apps for Good](https://www.okta.com/integrations/?category=apps-for-good) | Pre-built integrations with leading apps that enable your workforce to give back. If your organization belongs in the Apps for Good use case, you first need approval from the Apps for Good team. Email [AppsForGood@okta.com](mailto:AppsForGood@okta.com) to request approval.  |
-
 
 ## Customer support contact guidelines
 
@@ -106,7 +105,7 @@ Specify support contacts for your integration in the **General Settings** > **Cu
     * **Email**: An email support contact, such as `support@your-app.com` (see an [OIN email support contact example](https://www.okta.com/integrations/careervillage/))
     * **Phone Number**: A public phone number that customers can call for support
 
-* **Escalation support contact**: This is a private support contact used by Okta to contact your organization. It isn't shared with customers. In an emergency, Okta may need to reach your company's escalation support team, so this should be a monitored email distribution list or a phone number. Don’t use a general support contact that queues regular customer inquiries.
+* **Escalation support contact**: This is a private support contact used by Okta to contact your organization. It isn't shared with customers. In an emergency, Okta may need to reach your company's escalation support team, so this email or phone number needs to be monitored. Don’t use a general support contact that queues regular customer inquiries.
 
 ## Test account guidelines
 
@@ -124,9 +123,11 @@ In general, the test account allows the OIN team to verify that your integration
 
 A configuration guide helps your customers understand how to configure your Okta integration to work with your cloud application.
 
-Provide a configuration guide as part of the OIN submission process. You can format the guide in any format that is accessible through a URL link (such as a webpage, a Google doc, or a PDF). During the OIN verification process, the link to your configuration guide needs to be accessible by the OIN team so that they can check your document for general adherence to the configuration instructions. After your integration is published to the OIN, you can make the link public or customer‐accessible. Your guide is provided to administrators through the Okta Admin Console.
+Provide a configuration guide as part of the OIN submission process. You can format the guide in any format that is accessible through a URL link (such as a webpage, a Google doc, or a PDF). During the OIN verification process, the link to your configuration guide needs to be accessible by the OIN team so that they can check your document for general adherence to the configuration instructions. Ensure that your guide link is public or customer-accessible after your integration is published in the OIN.
 
->**Note:** A configuration guide is required for all integrations, but optional for SAML integrations. Okta already supplies documentation for SAML integrations.
+Your guide link is available to administrators through the Okta Admin Console.
+
+>**Note:** A configuration guide is required for all integrations.
 
 ### Configuration guide content
 
@@ -136,7 +137,7 @@ The following are section suggestions for your configuration guide:
 * [Supported features](#supported-features)
 * [Procedure](#procedure)
 * [SP-initiated SSO](#sp-initiated-sso)
-* [Troubleshooting tips](#troubleshooting-and-tips)
+* [Troubleshoot](#troubleshoot)
 
 #### Prerequisites
 
@@ -202,7 +203,7 @@ The sign-in process is initiated from {yourCompanyAppPortal}.
 If your credentials are valid, you are redirected to the {yourCompanyApp} dashboard.
 ```
 
-#### Troubleshooting and tips
+#### Troubleshoot
 
 Include this section if there are known issues that apply to the entire configuration. You can include best practices with the step-by-step procedure instructions. You can also include information on how to contact your organization if the customer has any support queries.
 
