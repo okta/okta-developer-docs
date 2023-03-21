@@ -391,7 +391,7 @@ Passing an invalid `brandId` returns a `404 Not Found` status code with the erro
 
 #### Use examples
 
-The following example returns all of the Themes in the Brand.
+The following example returns all the Themes in the Brand.
 
 ##### Request
 
@@ -2387,16 +2387,16 @@ You can publish a theme for a page or email template with different combinations
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `OKTA_DEFAULT`                  | Use the Okta logo and Okta favicon with no background image, and the Okta colors on the Okta sign-in page.   |
 | `BACKGROUND_SECONDARY_COLOR`    | Use the logo and favicon from the Theme with the `secondaryColorHex` as the background color for the Okta sign-in page.  |
-| `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from Theme.                                                            |
+| `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from the Theme. |
 
 #### Variants for the Okta End-User Dashboard:
 
 | Enum Value                      | Description                                                                                                             |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `OKTA_DEFAULT`                  | Use the Okta logo and Okta favicon with a white background color for the logo and the side navigation bar background color.                           |
-| `WHITE_LOGO_BACKGROUND`         | Use the logo from Theme with a white background color for the logo, use favicon from Theme, and use `primaryColorHex` for the side navigation bar background color.   |
-| `FULL_THEME`                    | Use the logo from Theme, `primaryColorHex` for the logo and the side navigation bar background color, and use favicon from Theme                                    |
-| `LOGO_ON_FULL_WHITE_BACKGROUND` | Use the logo from Theme, white background color for the logo and the side navigation bar background color, and use favicon from Theme                                    |
+| `WHITE_LOGO_BACKGROUND`         | Use the logo from the Theme with a white background color for the logo, use the favicon from the Theme, and use `primaryColorHex` for the side navigation bar background color.   |
+| `FULL_THEME`                    | Use the logo from the Theme, `primaryColorHex` for the logo and the side navigation bar background color, and use the favicon from the Theme.                                    |
+| `LOGO_ON_FULL_WHITE_BACKGROUND` | Use the logo from the Theme, white background color for the logo and the side navigation bar background color, and use the favicon from the Theme.                                    |
 
 #### Variants for Error Page:
 
@@ -2404,24 +2404,20 @@ You can publish a theme for a page or email template with different combinations
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta logo, Okta favicon, and the Okta background color.                                      |
-| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with `secondaryColorHex` as the background color for the error page and use favicon from Theme.                 |
-| `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use the Okta logo, the Okta favicon, and the Okta background. color.                                      |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from the Theme with `secondaryColorHex` as the background color for the error page and use the favicon from the Theme.                 |
+| `BACKGROUND_IMAGE`              | Use the logo, the favicon, and the background image from the Theme. |
 
 #### Variants for Email Templates:
 
 | Enum Value                      | Description                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------- |
 | `OKTA_DEFAULT`                  | Use the Okta logo and the Okta colors in the email templates.    |
-| `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` as the background color for buttons.      |
+| `FULL_THEME`                    | Use the logo from the Theme and `primaryColorHex` as the background color for buttons.      |
 
 
 
-#### Variants for the Okta loading page:
-
-<ApiLifecycle access="ea" />
-
-> **Note:** Okta loading page variants are only available if the **Loading Page Animation** Early Access feature is enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+#### Variants for the Okta loading page
 
 | Enum Value                      | Description                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------- |
