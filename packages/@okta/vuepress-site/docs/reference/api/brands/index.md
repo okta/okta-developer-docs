@@ -2613,6 +2613,14 @@ The Email Template Settings Object resource defines the following properties:
 | ---------------| ----------------------- | --------------------------------------------------------------------------------------------- |
 | `_links`       | [Links](#links-object)  | Link relations for this object                                                                |
 
+### Recipients Enum
+
+| Enum Value | Description |
+| ------------------------------- | ----------------------------------------------- |
+| `ALL_USERS`                     | Send emails to all users (default)              |
+| `ADMINS_ONLY`                   | Send emails to administrators only              |
+| `NO_USERS`                      | Do not send emails to any user                  |
+
 ## Links object
 
 Specifies link relations available for the status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
