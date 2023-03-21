@@ -143,7 +143,7 @@ The following are section suggestions for your configuration guide:
 
 In this section, specify any prerequisites required before your customer configures your integration in Okta. Examples may include enabling specific Okta features, enabling API access to your SCIM server, or adding a particular version of an integration in Okta.
 
-##### Prerequisite example
+##### SAML prerequisite example
 
 ```markdown
 When using SAML as the SSO mode with provisioning, you need to enable a specific account plan on the application side for silent activation.
@@ -153,33 +153,32 @@ When using SAML as the SSO mode with provisioning, you need to enable a specific
 
 In this section of your guide, list the features that your application supports and include any restrictions or limitations.
 
-> **Note:** You can briefly describe what each feature does. See the SCIM guides from the [configuration guide examples](#scim-examples).
+> **Note:** You can also briefly describe what each feature does.
 
-##### Supported feature example
-
-###### OIDC supported feature example
+##### OIDC supported feature example
 
 ```markdown
 * SP-initiated SSO (Single Sign-On)
+* IdP-initiated SSO (through [Third-party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin))
+* Just-In-Time provisioning
 * SP-initiated SLO (Single Logout)
-* IdP-initiated SSO (through [third-party initiated login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin))
 
 For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
 ```
 
-###### SAML supported feature example
+##### SAML supported feature example
 
 ```markdown
 * IdP-initiated SSO
 * SP-initiated SSO
-* SP-initiated SLO
 * Just-In-Time provisioning
+* SP-initiated SLO
 * Force authentication
 
 For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
 ```
 
-###### SCIM supported feature example
+##### SCIM supported feature example
 
 ```markdown
 * Create users
