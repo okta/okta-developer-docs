@@ -157,11 +157,31 @@ In this section of your guide, list the features that your application supports 
 
 ##### Supported feature example
 
+###### OIDC supported feature example
+
+```markdown
+* SP-initiated SSO (Single Sign-On)
+* SP-initiated SLO (Single Logout)
+* IdP-initiated SSO (through [third-party initiated login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin))
+
+For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
+```
+
+###### SAML supported feature example
+
 ```markdown
 * IdP-initiated SSO
 * SP-initiated SSO
-* SLO (Single Log Out)
+* SP-initiated SLO
+* Just-In-Time provisioning
 * Force authentication
+
+For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
+```
+
+###### SCIM supported feature example
+
+```markdown
 * Create users
 * Update user attributes
 * Deactivate users
@@ -169,8 +189,11 @@ In this section of your guide, list the features that your application supports 
 * Import groups
 * Sync password
 * Profile sourcing
+* Group push
 
 Okta can't update user attributes for Admin users. This is an API limitation.
+
+For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
 ```
 
 #### Procedure
