@@ -9,7 +9,7 @@ category: management
 
 The Okta Brands API allows you to customize the look and feel of pages and templates, including:
 
-- The Okta-hosted sign-in Page
+- The Okta-hosted sign-in page
 - Error pages
 - Email templates
 - The Okta End-User Dashboard
@@ -1922,8 +1922,9 @@ Returns a `409 Conflict` if:
 - The `isDefault` parameter is `false` and the email customization being updated is the default.
 
 Returns a `400 Bad Request` if:
-- `language` isn’t one of the [supported locales](#supported-locales).
-- `body` doesn’t contain a required variable reference.
+
+- The `language` parameter isn’t one of the [supported locales](#supported-locales).
+- The `body` parameter doesn’t contain a required variable reference.
 
 Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with the error code `E0000007`.
 
@@ -2261,7 +2262,7 @@ HTTP/1.1 200 OK
 
 ## Sign-in page operations
 
-See the [Customized Sign-in Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage) on the new beta reference site.
+See the [Customized sign-in page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage) on the new beta reference site.
 
 ## Sign-out page operations
 
@@ -2378,14 +2379,14 @@ The Theme object defines the following properties:
 
 You can publish a theme for a page or email template with different combinations of assets, and `variants` are preset combinations of those assets.
 
-#### Variants for the Okta Sign-In Page:
+#### Variants for the Okta sign-in page
 
 > **Note:** For a non-`OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta logo, Okta favicon with no background image, and the Okta colors on the Okta Sign-In Page.   |
-| `BACKGROUND_SECONDARY_COLOR`    | Use the logo and favicon from Theme with the `secondaryColorHex` as the background color for the Okta Sign-In Page.  |
+| `OKTA_DEFAULT`                  | Use the Okta logo and Okta favicon with no background image, and the Okta colors on the Okta sign-in page.   |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo and favicon from the Theme with the `secondaryColorHex` as the background color for the Okta sign-in page.  |
 | `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from Theme.                                                            |
 
 #### Variants for the Okta End-User Dashboard:
@@ -2460,7 +2461,7 @@ The Theme Response object defines the following properties:
 | `primaryColorContrastHex`             | String                  | Primary color contrast hex code             |
 | `secondaryColorHex`                   | String                  | Secondary color hex code                    |
 | `secondaryColorContrastHex`           | String                  | Secondary color contrast hex code           |
-| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta Sign-In Page           |
+| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta sign-in page           |
 | `endUserDashboardTouchPointVariant`   | Enum                    | Variant for the Okta End-User Dashboard     |
 | `errorPageTouchPointVariant`          | Enum                    | Variant for the error page                  |
 | `emailTemplateTouchPointVariant`      | Enum                    | Variant for email templates                 |
