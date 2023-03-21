@@ -603,7 +603,6 @@ curl -v -X DELETE \
 | type           | The channel type. Currently the only supported type is `HTTP`.   | string                      | FALSE      | FALSE    | TRUE       | Must match a valid channel type            |
 | version        | Version of the channel. The currently-supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number                |
 
-
 ### Config object
 
 | Property   | Description                                                                                                | DataType                                | Required | Unique | ReadOnly | Validation                                                                                                             |
@@ -628,6 +627,53 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 |----------|------------------------------------------------------------------------------|----------|----------|----------|
 | type     | The events object type. Currently the only supported type is `EVENT_TYPE`.   | String   | TRUE     | FALSE    |
 | items    | The [event types](#supported-events-for-subscription) to subscribe to       | Array of String  | TRUE     | FALSE    |
+| filter    | The filter defined on a specific event type    | filter object  | FALSE     | FALSE    |
+
+### Filter object
+
+| Property | Description                                                                  | DataType | Required | ReadOnly |
+|----------|------------------------------------------------------------------------------|----------|----------|----------|
+| type     | The type of filter. Okta only supports `EXPRESSION_LANGUAGE`   | String   | TRUE     | TRUE   |
+| eventFilterMap    | The object that maps the filter to the event type.      | Array of eventFilterMap objects  | FALSE    | FALSE    |
+
+### Event filter map object
+
+| Property | Description                                                                  | DataType | Required | ReadOnly |
+|----------|------------------------------------------------------------------------------|----------|----------|----------|
+| event    | The filtered event type   | String   | TRUE     | FALSE   |
+| condition    | The object that defines the filter using Okta Expression Language      | condition object  | TRUE    | FALSE    |
+
+### Condition object
+
+| Property | Description                                                                  | DataType | Required | ReadOnly |
+|----------|------------------------------------------------------------------------------|----------|----------|----------|
+| version    | ??   | String   | TRUE     | FALSE   |
+| expression   | The Okta Expression language statement that filters the event type    | ??  | TRUE    | FALSE    |
+
+##### Example of event object with filter
+
+```json
+
+"events": {
+            "type": "EVENT_TYPE",
+            "items": [
+                "user.session.end",
+                "user.session.start"
+            ],
+            "filter": {
+                "type": "EXPRESSION_LANGUAGE",
+                "eventFilterMap": [
+                    {
+                        "event": "user.session.end",
+                        "condition": {
+                            "version": null,
+                            "expression": "event.eventType eq 'Admin' && event.eventType ne 'Bob'"
+                        }
+                    }
+                ]
+            }
+        }
+```
 
 ## Supported events for subscription
 
