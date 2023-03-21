@@ -827,7 +827,7 @@ Content-Type: application/json
 }
 ```
 
-> **Note:** The [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) still works, but pages use the logo from the Theme if the `THEME_BUILDER` feature is enabled.
+> **Note:** If you've enabled the theme builder feature, the [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) still works, but pages use the logo from the theme.
 >
 > See [Logo scenarios](#logo-scenarios) for more information.
 
@@ -1118,14 +1118,15 @@ The Email Templates API allows you to programmatically manage email customizatio
 
 ### Email Templates
 
-Okta provides many customizable **email templates**. For example, the `UserActivation` email template allows users to activate their account. Each template has **default content** that is translated to any one of the [supported languages](#supported-languages).
+Okta provides many customizable **email templates**. For example, the `UserActivation` email template allows users to activate their account. Each template has **default content** that Okta translates to any one of the [supported languages](#supported-languages).
 
 ### Email Customizations
 
 **Email customizations** allow you to override an email template's default content.
 
 The following constraints apply to email customizations:
-- If an email template has any customizations at all, exactly one of them must be the default (where `isDefault` is `true`). The default customization is used when no other customization applies to the user's language settings.
+
+- If an email template has any customizations at all, exactly one of them must be the default (where `isDefault` is `true`). Okta uses the default customization when no other customization applies to the user's language settings.
 - Each email template can have only one customization for each [supported language](#supported-languages).
 
 ### Supported Languages
