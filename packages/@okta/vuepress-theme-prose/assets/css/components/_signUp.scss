@@ -557,6 +557,19 @@ select.signup__form__input:required:invalid {
   }
 }
 
+.signup__form__button:hover {
+  @include media(">signup") {
+    color: var(--c-blue-550);
+    border-color: var(--c-blue-550);
+  }
+}
+
+.signup__form__button-dark:hover {
+  @include media(">signup") {
+    background-color: var(--c-blue-550);
+  }
+}
+
 .signup__popup__container .signup__form__button:nth-child(1) {
   @include media(">tablet") {
     order: 1;
@@ -1265,4 +1278,12 @@ select.signup__form__input:required:invalid {
 
 .consent--section {
   margin-top: 20px;
+}
+
+.consent--section-agree {
+  margin-top: 8px;
+}
+
+.consent--section-agree input {
+  margin: 0;
 }

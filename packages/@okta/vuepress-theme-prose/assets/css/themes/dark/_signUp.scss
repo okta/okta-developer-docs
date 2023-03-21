@@ -93,6 +93,25 @@
   }
 }
 
+.signup__form__button:hover {
+  @include media(">signup") {
+    color: var(--c-green-300);
+    border-color: var(--c-green-300);
+  }
+}
+
+.signup__form__button-dark:hover {
+  @include media(">signup") {
+    background-color: var(--c-green-300);
+  }
+}
+
+.signup__form__button-dark:hover input {
+  @include media(">signup") {
+    color: var(--c-white);
+  }
+}
+
 .signup__form__button i {
   color: var(--c-lightgray-450);
 }
