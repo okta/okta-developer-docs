@@ -175,11 +175,11 @@ The [Brand](#brand-object)
 
 Returns an updated [Brand Response](#brand-response-object)
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 Not providing `agreeToCustomPrivacyPolicy` with `customPrivacyPolicyUrl` returns a `400 Bad Request` status code with the error code `E0000001`.
 
-`removePoweredByOkta` is optional. Default value is `false`.
+The `removePoweredByOkta` parameter is optional. Default value is `false`.
 
 #### Use examples
 
@@ -391,7 +391,7 @@ Passing an invalid `brandId` returns a `404 Not Found` status code with the erro
 
 #### Use examples
 
-The following example returns all Themes in the Brand.
+The following example returns all of the Themes in the Brand.
 
 ##### Request
 
@@ -588,7 +588,7 @@ Returns an updated [Theme Response](#theme-response-object)
 * Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
-* Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
+* Passing invalid body parameters returns a `400 Bad Request` status code with the error code `E0000001`.
 
 #### Use examples
 
@@ -1681,8 +1681,9 @@ The [Email Customization](#email-customization) resource that was created.
 If this is the first customization being created for the email template, `isDefault` is set to `true`.
 
 Returns a `400 Bad Request` if:
-- `language` isn’t one of the [supported languages](#supported-languages).
-- `body` doesn’t contain a required variable reference.
+
+- The `language` parameter isn’t one of the [supported languages](#supported-languages).
+- The `body` parameter doesn’t contain a required variable reference.
 
 Returns a `409 Conflict` with the error code `E0000182` if `isDefault` is `true` and a default customization exists.
 
@@ -1913,11 +1914,12 @@ The [Email Customization](#email-customization) resource to update.
 
 The [Email Customization](#email-customization) resource that was updated.
 
-If `isDefault` is `true`, the previous default email customization has its `isDefault` set to `false`.
+If the `isDefault` parameter is `true`, the previous default email customization has `isDefault` set to `false`.
 
 Returns a `409 Conflict` if:
+
 - There’s already another email customization for the specified `language`.
-- `isDefault` is `false` and the email customization being updated is the default.
+- The `isDefault` parameter is `false` and the email customization being updated is the default.
 
 Returns a `400 Bad Request` if:
 - `language` isn’t one of the [supported locales](#supported-locales).
@@ -2366,7 +2368,7 @@ The Theme object defines the following properties:
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
 | `loadingPageTouchPointVariant`        | Enum     | (Optional) Variant for the Okta loading page. Applicable only if the **Loading Page Animation** feature is enabled. Accepted values: `OKTA_DEFAULT`, `NONE`.                                 | `OKTA_DEFAULT`    |
 
-> **Note:** `primaryColorContrastHex` and `secondaryColorContrastHex` are automatically optimized for the highest possible contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
+> **Note:** Okta optimizes the `primaryColorContrastHex` and `secondaryColorContrastHex` properties for the highest contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
 
 > **Note:** Contrast color is used by pages to optimize the opacity of text color when primary or secondary color is used as the background.
 
@@ -2620,7 +2622,7 @@ The Email Template Settings Object resource defines the following properties:
 | ------------------------------- | ----------------------------------------------- |
 | `ALL_USERS`                     | Send emails to all users (default)              |
 | `ADMINS_ONLY`                   | Send emails to administrators only              |
-| `NO_USERS`                      | Do not send emails to any user                  |
+| `NO_USERS`                      | Don’t send emails to any user                  |
 
 ## Links object
 
