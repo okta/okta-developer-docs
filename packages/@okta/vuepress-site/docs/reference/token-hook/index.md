@@ -23,7 +23,7 @@ This type of inline hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) t
 
 This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
-In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid.
+In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can update how long an access token or an ID token is valid. You can also refresh the access token using a unique refresh token ID sent in the request. That ID is stored and when the refresh token request is sent, the unique refresh token ID is matched against what is stored before issuing the refreshed access token.
 
 This inline hook works only when using an [Okta Custom Authorization Server](/docs/guides/customize-authz-server/main/#create-an-authorization-server), not the built-in Okta Authorization Server.
 
@@ -98,11 +98,11 @@ The following commands are supported for the token inline hook type:
 
 The `value` object is where you specify the specific operation to perform. It is an array, allowing you to request more than one operation.
 
-| Property | Description                                                                                                                                                                                                       | Data Type       |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                   | String          |
+| Property | Description                                                                                       | Data Type       |
+|----------|---------------------------------------------------------------------------------------------------|-----------------|
+| op       | The name of one of the [supported ops](#list-of-supported-ops).                                   | String          |
 | path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with `/claims/`  and is followed by the name of the new claim that you are adding. When replacing a token lifetime, the path should always be `/token/lifetime/expiration`. | String          |
-| value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
+| value    | Value to set the claim to.                                       | Any JSON object |
 
 #### List of supported ops
 
@@ -137,7 +137,7 @@ Okta defines a number of reserved claims that can't be overridden. When you add 
 | client_id      | ID Token          |
 | client_ip      | ID Token          |
 | client_req_id  | ID Token          |
-| client_type    |ID Token           |
+| client_type    | ID Token           |
 | client_user_agent |ID Token        |
 | cnf            | ID Token          |
 | c_hash         | ID Token          |
@@ -145,7 +145,7 @@ Okta defines a number of reserved claims that can't be overridden. When you add 
 | device_id      | ID Token          |
 | device_known   | ID Token          |
 | device_managed | ID Token          |
-| device_name    |  ID Token         |
+| device_name    | ID Token         |
 | device_trust   | ID Token          |
 | did            | ID Token          |
 | dst            | ID Token          |
@@ -327,7 +327,10 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
           "action": "GRANT"
         }
       }
-    }
+    },
+     "refresh_token": {
+         "jti": "oarob4a0tckCkGcyo1d6"
+      }
   }
 }
 ```
