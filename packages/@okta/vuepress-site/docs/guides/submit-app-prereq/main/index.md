@@ -247,9 +247,9 @@ Include this section if there are known issues that apply to the entire configur
 
 ##### SCIM examples
 
-* [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
 * [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
-* [Zscaler](https://help.zscaler.com/zia/saml-scim-configuration-guide-okta)
+* [Reftab](https://www.reftab.com/faq/scim-okta/)
+* [TrackTik](https://support.tracktik.com/hc/en-us/articles/12421581629463-Set-up-and-use-provisioning-for-Okta)
 
 ## OIN limitations
 
