@@ -1105,8 +1105,6 @@ export const reference = [
         title: "Release Life Cycle",
         path: "/docs/reference/releases-at-okta/",
       },
-    ],
-  },
 ];
 
 export const releaseNotes = [
