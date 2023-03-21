@@ -62,6 +62,7 @@ guides:
  - submit-app-prereq
  - deployment-checklist
  - deploy-your-app
+ - dpop
  - protect-your-api
  - quickstart
  - sampleapp-oie-redirectauth

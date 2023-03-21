@@ -1,6 +1,6 @@
 The Okta Angular SDK has a guard to check for the authenticated state that you can add to protected routes. It's common in Angular to use feature modules and protect the route to the feature so that all child routes are also guarded.
 
-In `app-routing.module.ts`, add the `OktaAuthGuard` to protect the route accessing a lazy loaded feature module using the `canLoad` property.
+In `app-routing.module.ts`, add the `OktaAuthGuard` to protect the route accessing a lazy loaded feature module using the `canActivate` property.
 
 1. Update the Okta import statement to:
 
@@ -14,7 +14,7 @@ In `app-routing.module.ts`, add the `OktaAuthGuard` to protect the route accessi
    {
      path: 'protected',
      loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule),
-     canLoad: [OktaAuthGuard]
+     canActivate: [OktaAuthGuard]
    },
    ```
 

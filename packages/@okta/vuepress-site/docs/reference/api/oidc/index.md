@@ -1057,6 +1057,7 @@ curl -X GET \
 | request_object_signing_alg_values_supported                       | The signing algorithms that this authorization server supports for signed requests.                                                       | Array   |
 | backchannel_token_delivery_modes_supported                        | The delivery modes that this authorization server supports for Client-Initiated Backchannel Authentication. Valid types include `poll`, `ping` and `push`. Supported values: `poll`. <ApiLifecycle access="ie" />                                                          | Array   |
 | backchannel_authentication_request_signing_alg_values_supported   | The signing algorithms that this authorization server supports for Client-Initiated Backchannel Authentication signed requests. <ApiLifecycle access="ie" />          | Array   |
+| dpop_signing_alg_values_supported                                 | JSON array that contains a list of the JWS algorithm values supported by the authorization server for Demonstrating Proof-of-Possession (DPoP) JWTs. <ApiLifecycle access="ea" />           | Array   |
 
 #### Response example (success)
 
@@ -1165,6 +1166,14 @@ curl -X GET \
         "ES256",
         "ES384",
         "ES512"
+    ],
+    "dpop_signing_alg_values_supported": [
+      "RS256",
+      "RS384",
+      "RS512",
+      "ES256",
+      "ES384",
+      "ES512"
     ]
 }
 ```
@@ -1230,6 +1239,8 @@ curl -X GET \
 | token_endpoint_auth_methods_supported                             | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                                                                                                                            | Array   |
 | backchannel_token_delivery_modes_supported                        | The delivery modes that this authorization server supports for Client-Initiated Backchannel Authentication. Valid types include `poll`, `ping` and `push`. Supported values: `poll`. <ApiLifecycle access="ie" />                                                          | Array   |
 | backchannel_authentication_request_signing_alg_values_supported   | The signing algorithms that this authorization server supports for Client-Initiated Backchannel Authentication signed requests. <ApiLifecycle access="ie" />           | Array   |
+| dpop_signing_alg_values_supported                                 | JSON array that contains a list of the JWS `alg` values supported by the authorization server for Demonstrating Proof-of-Possession (DPoP) JWTs. <ApiLifecycle access="ea" />          | Array   |
+
 
 #### Response example (success)
 
@@ -1352,6 +1363,14 @@ curl -X GET \
         "ES256",
         "ES384",
         "ES512"
+    ],
+    "dpop_signing_alg_values_supported": [
+      "RS256",
+      "RS384",
+      "RS512",
+      "ES256",
+      "ES384",
+      "ES512"
     ]
 }
 ```
