@@ -83,7 +83,7 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 
 | Use case | Integration capability |
 | -------- | ---------------------- |
-| [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) (most common) | Enables users to access your application from any device with a single entry of their Okta user credentials. This use case is appropriate for SAML and OpenID Connect (OIDC) integrations. |
+| [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) (most common) | Enables users to access your application from any device with a single entry of their Okta user credentials. This use case is appropriate for Security Assertion Markup Language (SAML) and OpenID Connect (OIDC) integrations. |
 | [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta’s APIs using OAuth 2.0.  |
 | [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. API service integrations that poll the Okta API for System Logs using OAuth 2.0 support this use case. |
 | [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for human resources (HR) solutions using the SCIM or Workflow Connectors. |
@@ -197,9 +197,11 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 #### Procedure
 
-This section explains all the configuration steps needed to get your customers set up with your integration. Detail all settings and include any screenshots that can assist the user.
+This section explains all the configuration steps needed to get your customers set up with your integration. Detail all settings and include any images that can assist the user.
 
 Also include any best practices for your procedure, such as SCIM guidance on setting mappings for attributes, especially required attributes that don't have a default mapping.
+
+> **Note:** You can get SAML metadata values for your SAML configuration setup from the Admin Console. Navigate to **Applications** > **Applications** > your SAML app > **Sign-On Options** tab > **Sign on methods** > **SAML 2.0** > **Metadata details**. See [SAML configuration steps example](#saml-configuration-steps-example).
 
 ##### SAML configuration steps example
 
@@ -262,7 +264,7 @@ Assign the mapping to the correct value for your organization.
 
 #### SP-initiated SSO
 
-> **Note**: This section is only required for SAML or OIDC integrations that support app-initiated Single Sign-On (SSO), also known as service provider (SP) initiated SSO.
+> **Note**: This section applies only to SAML or OIDC integrations that support app-initiated Single Sign-On (SSO), also known as service provider (SP) initiated SSO.
 
 Provide instructions for your users to sign in with Okta from your app. The user sign-in flow starts from your app's sign-in page. The user enters their credentials and your app sends the authorization request to Okta (the Identity Provider) to authenticate the user.
 
