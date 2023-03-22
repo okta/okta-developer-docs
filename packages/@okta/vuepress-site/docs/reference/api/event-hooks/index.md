@@ -672,8 +672,8 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 
 | Property | Description                                                                  | DataType | Required | ReadOnly |
 |----------|------------------------------------------------------------------------------|----------|----------|----------|
-| version    | ??   | String   | TRUE     | FALSE   |
-| expression   | The Okta Expression language statement that filters the event type    | ??  | TRUE    | FALSE    |
+| version    | Internal field   | String   | TRUE     | TRUE   |
+| expression   | The Okta Expression language statement that filters the event type    | String  | TRUE    | FALSE    |
 
 ## Supported events for subscription
 
