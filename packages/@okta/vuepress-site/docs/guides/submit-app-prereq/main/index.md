@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide provides you with a list of requirements you need to prepare before submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/).
+This guide provides you with a list of the requirements you need to prepare before submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/).
 
 ---
 
@@ -57,7 +57,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 * If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 
-* You can use a slightly non-square icon, but consider the scaling that occurs when your logo is resized to fit a 200 x 200 pixel area. If you have more logo questions, contact the [OIN team](mailto:oin@okta.com).
+* You can use a slightly non-square icon, but consider the scaling that occurs when your logo resizes to fit a 200 x 200 pixel area. If you have more logo questions, contact the [OIN team](mailto:oin@okta.com).
 
 <div class="full">
 
@@ -75,19 +75,21 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 ## App description guidelines
 
-The content in the OIN Manager **General Settings** > **App description** field is displayed on the Integration detail page under the **Overview** heading for your published integration. Descriptions must be less than 1024 characters and should describe the value that you provide to customers by partnering with Okta. See an app description example in this [Integration detail page](https://www.okta.com/integrations/servicenow-ud/).
+From the OIN Manager, you can specify the app description in the **General Settings** > **App description** field. Descriptions must be less than 1024 characters and should describe the value that you provide to customers by partnering with Okta.
+
+You can find the app description in the OIN catalog under the **Integration detail** > **Overview** section of your published integration. See an app description example in this [Integration detail page](https://www.okta.com/integrations/servicenow-ud/).
 
 ## Use case guidelines
 
-Integrations are organized by use cases in the OIN catalog. From the OIN Manager, you can specify the use case categories that your integration supports in the **General Settings** > **App use case** field. You can select up to five use cases. Use the following description list to determine the appropriate use case category for your integration:
+The OIN catalog organizes integrations into use cases. From the OIN Manager, you can specify the use case categories that your integration supports in the **General Settings** > **App use case** field. You can select up to five use cases. Use the following description list to determine the appropriate use case category for your integration:
 
 | Use case | Integration capability |
 | -------- | ---------------------- |
-| [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) (most common) | Enables users to access your application from any device with a single entry of their Okta user credentials. This use case is appropriate for SAML and OpenID Connect (OIDC) integrations. |
+| [Single Sign-On](https://www.okta.com/integrations/?category=single-sign-on) (most common) | Enables users to access your application from any device with a single entry of their Okta user credentials. This use case is appropriate for Security Assertion Markup Language (SAML) and OpenID Connect (OIDC) integrations. |
 | [Automation](https://www.okta.com/integrations/?category=automation)  | Automates business processes and Okta administration tasks. Most integrations in this use case are API service integrations that access Okta’s APIs using OAuth 2.0.  |
 | [Centralized Logging](https://www.okta.com/integrations/?category=centralized-logging) | Aggregates Okta logs into a central location, like a Security Information and Event Management (SIEM) tool, for optimized searching and alerting capabilities. API service integrations that poll the Okta API for System Logs using OAuth 2.0 support this use case. |
-| [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for human resources (HR) solutions using the SCIM or Workflow Connectors. |
-| [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring that the company meets compliance requirements as user roles evolve and access levels change. This use case is most common with either System for Cross-domain Identity Management (SCIM) or Workflow Connector integrations. |
+| [Directory and HR Sync](https://www.okta.com/integrations/?category=directory-and-hr-sync) | Provides synchronization capabilities for external-sourced user profiles with the Okta Universal Directory. This use case is most common for human resources (HR) solutions using the System for Cross-domain Identity Management (SCIM) or [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf). |
+| [Lifecycle Management](https://www.okta.com/integrations/?category=lifecycle-management) | Enables organizations to securely manage their entire identity lifecycle: from on-boarding to off-boarding, and ensuring that the company meets compliance requirements as user roles evolve and access levels change. This use case is most common with either SCIM or Workflows connector integrations. |
 | [Identity Proofing](https://www.okta.com/integrations/?category=identity-proofing) | Enables user self-verification to improve identity assurance and approve access for authorized individuals using document-based and/or knowledge-based proofs |
 | [Identity Governance and Administration (IGA)](https://www.okta.com/integrations/?category=identity-governance-and-administration-iga) | Simplifies and manages an organization's identity and access lifecycles across multiple systems |
 | [Zero Trust](https://www.okta.com/integrations/?category=zero-trust) | Enables secure access for users regardless of their location, device, or network |
@@ -100,8 +102,8 @@ Integrations are organized by use cases in the OIN catalog. From the OIN Manager
 
 Specify support contacts for your integration in the **General Settings** > **Customer Support** fields from the OIN Manager. There are two types of contacts that you must provide:
 
-* **Support contacts**: These are public support contacts that are visible from your Integration detail page in the OIN catalog. These contacts are for customers who need assistance with your integration. You can provide more than one of the following contact options:
-    * **URL**: A link to an FAQ or a troubleshooting guide (see an [OIN URL support contact example](https://www.okta.com/integrations/onfido/) )
+* **Support contacts**: These are public support contacts that are visible from your integration detail page in the OIN catalog. These contacts are for customers who need assistance with your integration. You can provide more than one of the following contact options:
+    * **URL**: A link to an FAQ or a troubleshooting guide (see an [OIN URL support contact example](https://www.okta.com/integrations/onfido/))
     * **Email**: An email support contact, such as `support@your-app.com` (see an [OIN email support contact example](https://www.okta.com/integrations/careervillage/))
     * **Phone Number**: A public phone number that customers can call for support
 
@@ -111,10 +113,10 @@ Specify support contacts for your integration in the **General Settings** > **Cu
 
 Create a test account for your app so that the OIN team can use it to test and verify your integration. Specify test account details and credentials in the **General Settings** > **Test Account** fields in the OIN Manager.
 
-In general, the test account allows the OIN team to verify that your integration flow works as expected for your use case. The test account is typically an admin user in your app with extra privileges depending on your use case:
+The test account allows the OIN team to verify that your integration flow works as expected for your use case. The test account is typically an admin user in your app with extra privileges depending on your use case:
 
 * For a lifecycle management integration, ensure that your admin test account has HR admin privileges to onboard, change roles, or offboard employees on your app.
-* For an SSO or SCIM integration, ensure that your admin test account has privileges to configure SSO and SCIM (even if your app is already configured with SSO or SCIM). The OIN team needs to verify whether users and/or groups were created by SCIM provisioning or by SAML/OIDC (JiT) in your application.
+* For an SSO or SCIM integration, ensure that your admin test account has privileges to configure SSO and SCIM. The OIN team needs to verify whether users and/or groups were created by SCIM provisioning or by SAML/OIDC (JiT) in your application.
 * For an API service integration, ensure that your admin test account has privileges to configure an API integration and trigger API requests in your application.
 
 > **Note:** The OIN team recommends `isvtest@okta.com` as the test account username, however, you can provide an alternative username with a different domain.
@@ -123,11 +125,13 @@ In general, the test account allows the OIN team to verify that your integration
 
 A configuration guide helps your customers understand how to configure your Okta integration to work with your cloud application.
 
-Provide a configuration guide as part of the OIN submission process. You can format the guide in any format that is accessible through a URL link (such as a webpage, a Google doc, or a PDF). During the OIN verification process, the link to your configuration guide needs to be accessible by the OIN team so that they can check your document for general adherence to the configuration instructions. Ensure that your guide link is public or customer-accessible after your integration is published in the OIN.
+Provide a configuration guide as part of the OIN submission process for all integrations:
 
-Your guide link is available to administrators through the Okta Admin Console.
+* Format the guide so that it's accessible through a URL link (such as a webpage, a Google doc, or a PDF).
+* During the OIN verification process, ensure that the link to your configuration guide is accessible to the OIN team. The OIN team checks your document for general adherence to the configuration instructions.
+* After your integration is in the OIN catalog, ensure that your guide link is public or customer-accessible.
 
->**Note:** A configuration guide is required for all integrations.
+Your guide link is available to administrators through the **View SAML setup instructions** link from the integration SAML setup in the Okta Admin Console.
 
 ### Configuration guide content
 
@@ -138,6 +142,8 @@ The following are section suggestions for your configuration guide:
 * [Procedure](#procedure)
 * [SP-initiated SSO](#sp-initiated-sso)
 * [Troubleshoot](#troubleshoot)
+
+> **Note:** Each section contains examples for OIDC, SAML, or SCIM content. You can use the examples as an initial template. Copy and paste the example markdown text into your customer configuration document and customize the content for your integration.
 
 #### Prerequisites
 
@@ -197,11 +203,48 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 #### Procedure
 
-This section explains all the configuration steps needed to get your customers set up with your integration. Detail all settings and include any screenshots that can assist the user.
+This section explains all the configuration steps needed to get your customers set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
 
-Also include any best practices for your procedure, such as SCIM guidance on setting mappings for attributes, especially required attributes that don't have a default mapping.
+> **Note:** You can get SAML metadata values for your SAML configuration setup from the Admin Console. Go to **Applications** > **Applications** > your SAML app > **Sign-On Options** tab > **Sign on methods** > **SAML 2.0** > **Metadata details**. See [SAML configuration steps example](#saml-configuration-steps-example).
 
-##### Procedure note example
+##### SAML configuration steps example
+
+The following is an example of a simple SAML customer procedure:
+
+```markdown
+1. Copy the **Metadata URL** from the **SAML 2.0** > **Metadata details** section in the Admin Console and save this value for the next step.
+2. Contact the {appName} support team (for example, support@{appName}.com) and request that they enable SAML 2.0 for your account. Include **Metadata URL** value from the previous step.
+   The {appName} support team processes your request and provides you with an SSO ID and an encryption certificate.
+3. In your Okta Admin Console, select the **General** tab for the {appName} SAML app, then click **Edit** and follow the steps below:
+   * **Encryption Certificate**: Upload the certificate provided by {appName} support in the previous step.
+   * Scroll down to **Advanced Sign-on Settings** and enter your **SSO ID**
+   * **Application username format**: Select **email**
+   * Click **Save**.
+4. Your SAML configuration for {appName} is complete. You can start assigning people to the application.
+```
+
+> **Note:** The **General** tab for your app integration may have different fields from the previous example. Adjust your configuration guide as required from the example template.
+
+##### SAML admin configuration steps example
+
+For some integrations, the customer admin needs to configure SAML settings in your app. The following is an example of an admin procedure to configure SAML settings:
+
+```markdown
+1. Copy the **Metadata URL** from the **SAML 2.0** > **Metadata details** section in the Admin Console and save this value for the next few steps.
+2. Sign in to {appName}.
+3. Navigate to **Admin** >  **Settings** > **SAML SSO**.
+4. Specify the following:
+   * **ENABLE SAML SSO**: Select **Yes**.
+   * **IDP Provider**: Select **Okta**.
+   * **Metadata URL**: Copy and paste the metadata URL value from step one.
+4. Click **Save Changes**.
+
+The SAML setting is complete in {appName}.
+```
+
+> **Note:** Your app integration may require specific SAML settings than the SAML **Metadata URL**. You can also copy **Sign on URL**, **Sign out URL**, **Issuer**, and **Signing Certificate** values from the same **SAML 2.0** > **Metadata details** section in the Admin Console. Adjust your configuration guide as required from the example template.
+
+##### SCIM procedure note example
 
 ```markdown
 The External ID is a required attribute, but it doesn't have a default mapping.
@@ -209,20 +252,34 @@ This is because some customers prefer to set it to `EmployeeNumber`, and others 
 Assign the mapping to the correct value for your organization.
 ```
 
+##### SAML procedure note example
+
+```markdown
+* Ensure that you entered the correct value in the **Subdomain** field under the **General** tab. The wrong subdomain value prevents you from authenticating through SAML to {appName}.
+
+* The following SAML attributes are supported:
+
+   | Name      | Value          |
+   | --------- | -------------- |
+   | email     | user.email     |
+   | firstName | user.firstName |
+   | lastName  | user.lastName  |
+```
+
 #### SP-initiated SSO
 
-> **Note**: This section is only required for SAML or OIDC integrations that support app-initiated Single Sign-On (SSO), also known as service provider (SP) initiated SSO.
+> **Note**: This section applies only to SAML or OIDC integrations that support app-initiated Single Sign-On (SSO), also known as service provider (SP) initiated SSO.
 
 Provide instructions for your users to sign in with Okta from your app. The user sign-in flow starts from your app's sign-in page. The user enters their credentials and your app sends the authorization request to Okta (the Identity Provider) to authenticate the user.
 
 ##### SP-initiated SSO instructions example
 
 ```markdown
-The sign-in process is initiated from {yourCompanyAppPortal}.
+The sign-in process is initiated from {yourAppPortal}.
 
-1. From your browser, navigate to the {yourCompanyApp} sign-in page.
+1. From your browser, navigate to the {appName} sign-in page.
 2. Enter your Okta credentials (your email and password) and click **Sign in with Okta**.
-If your credentials are valid, you are redirected to the {yourCompanyApp} dashboard.
+If your credentials are valid, you are redirected to the {appName} dashboard.
 ```
 
 #### Troubleshoot
