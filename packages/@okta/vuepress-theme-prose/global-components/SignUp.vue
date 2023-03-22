@@ -129,8 +129,8 @@
             </div>
           </div>
           <div 
-            v-if="formHidden"
             class="signup__popup" 
+            :class="formHidden ? 'active' : ''"
           >
             <div class="signup__popup__container">
               <div class="signup__popup__title">
@@ -568,16 +568,16 @@ export default {
   },
   methods: {
     setHeight(isNotUSAAndCanada) {
-      if (window.innerWidth > 1314) {
-        if (!isNotUSAAndCanada) {
-          setTimeout(function() {
-            let height = document.querySelector('.signup__form').getBoundingClientRect().height + 139 + 'px';
-            document.querySelector('.signup__items.active').style.height = height;
-          }, 10);
-        } else {
-          document.querySelector('.signup__items.active').style.height = 'auto';
-        }
-      }
+      // if (window.innerWidth > 1314) {
+      //   if (!isNotUSAAndCanada) {
+      //     setTimeout(function() {
+      //       let height = document.querySelector('.signup__form').getBoundingClientRect().height + 139 + 'px';
+      //       document.querySelector('.signup__items.active').style.height = height;
+      //     }, 10);
+      //   } else {
+      //     document.querySelector('.signup__items.active').style.height = 'auto';
+      //   }
+      // }
     },
     hideForm() {
       if (document.querySelector('.signup__items.active') && !this.formHidden) {

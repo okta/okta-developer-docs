@@ -95,8 +95,9 @@
 
 .signup__form__button:hover {
   @include media(">signup") {
-    color: var(--c-green-300);
     border-color: var(--c-green-300);
+
+    color: var(--c-green-300);
   }
 }
 
@@ -163,12 +164,6 @@
 .signup__items.active {
   @include media(">signup") {
     background-color: var(--c-gray-765);
-  }
-}
-
-.signup__items.active .signup__content {
-  @include media(">signup") {
-    background-color: var(--c-gray-980);
   }
 }
 
@@ -272,6 +267,12 @@
   color: var(--c-lightgray-450);
 }
 
+.signup__footer a:hover {
+  @include media(">signup") {
+    border-color: var(--c-green-100);
+  }
+}
+
 .signup__container .signup__description {
   background-color: var(--c-gray-980);
 }
@@ -289,6 +290,6 @@
   display: none;
 }
 
-.error-msg {
+.signup__form__field .error-color {
   color: var(--c-red-300);
 }
