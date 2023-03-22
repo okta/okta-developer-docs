@@ -35,7 +35,7 @@ This method works with both Okta Identity Engine and Okta Classic Engine.
 
 SDK: [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift).
 
-Example: [Browser sign in](https://github.com/okta/samples-ios/tree/master/browser-sign-in).
+Example: [Browser sign-in](https://github.com/okta/samples-ios/tree/master/browser-sign-in).
 
 
 ### Use the embedded model

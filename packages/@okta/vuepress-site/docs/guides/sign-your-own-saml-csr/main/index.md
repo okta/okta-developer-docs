@@ -171,7 +171,7 @@ Follow the third-party Certificate Authority (CA) process that your company uses
 
 The CA that you choose provides instructions on how to upload the CSR that you generated in the previous step.
 
-Okta generates the CSR in Base64 DER format. If your process requires a different format, convert it using OpenSSL or a third-party decoder. Free third-party decoders are readily available.
+Okta generates the CSR in Base64-encoded DER format. If your process requires a different format, convert it using OpenSSL or a third-party decoder. Free third-party decoders are readily available.
 
 ## Publish a CSR with a certificate
 
@@ -189,7 +189,7 @@ Base64 encoding and PEM, DER, and CER certificate formats are supported.
 
 Collect the returned Key ID (`credentials.signing.kid`) to use in the next step.
 
-The following request publishes a CSR with a certificate in base64 encoded `DER` format.
+The following request publishes a CSR with a certificate in Base64-encoded `DER` format.
 
 ### Request
 

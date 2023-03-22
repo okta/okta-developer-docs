@@ -62,9 +62,9 @@ where the `${appName}` is a unique identifier provided to you after your integra
 
 ### Base URL
 
-You can choose any Base URL for your API endpoint. Note that a Base URL can't contain the underscore `_` character.
+You can choose any base URL for your API endpoint. Note that a base URL can't contain the underscore `_` character.
 
-If you are implementing a new SCIM API, we suggest using `/scim/v2/` as your Base URL. For example: `https://example.com/scim/v2/`.
+If you are implementing a new SCIM API, we suggest using `/scim/v2/` as your base URL. For example: `https://example.com/scim/v2/`.
 
 If you have multiple Okta orgs using your service, you can use the same SCIM server for all of them. To do so, one way is to implement a 1:1 client to tenant subdomain for each org running on the SCIM server. For example, if you have three Okta orgs:
 
@@ -72,7 +72,7 @@ If you have multiple Okta orgs using your service, you can use the same SCIM ser
 - company-b.okta.com
 - company-c.okta.com
 
-You can pass a Base URL containing the name of the org:
+You can pass a base URL containing the name of the org:
 
 - `https://company-a.example.com/scim/v2`
 - `https://company-b.example.com/scim/v2`

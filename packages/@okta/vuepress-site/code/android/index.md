@@ -36,7 +36,7 @@ This method works with both Okta Identity Engine and Okta Classic Engine.
 
 SDK: [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin).
 
-Example: [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in).
+Example: [Browser sign-in](https://github.com/okta/samples-android/tree/master/browser-sign-in).
 
 
 ### Use the embedded model
