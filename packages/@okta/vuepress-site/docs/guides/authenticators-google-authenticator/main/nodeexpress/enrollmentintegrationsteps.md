@@ -63,7 +63,7 @@ When the user selects and submits Google Authenticator, call `OktaAuth.idx.proce
 
 ### 4: Display shared secret and QR Code
 
-Next, display the shared secret to the user so they can copy the value to the Google Authenticator app. The response from `OktaAuth.idx.proceed()` allows you to display a string and QR code that contains the shared secret. `IdxTransaction` is returned with `authenticator.contextualData.sharedsecret` set to a string of the secret and `authenticator.contextualData.qrcode.href` stores the secret in a base64-encoded PNG image. See the following `IdxTransaction` example.
+Next, display the shared secret to the user so they can copy the value to the Google Authenticator app. The response from `OktaAuth.idx.proceed()` allows you to display a string and QR code that contains the shared secret. `IdxTransaction` is returned with `authenticator.contextualData.sharedsecret` set to a string of the secret and `authenticator.contextualData.qrcode.href` stores the secret in a Base64-encoded PNG image. See the following `IdxTransaction` example.
 
 ``` json
 {

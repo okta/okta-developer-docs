@@ -15,7 +15,7 @@ case AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION:
 
 #### 3: Display QR code and start polling
 
-When the user selects to enroll the Okta Verify `Authenticator` the form posts back to the `idxAuthenticationWrapper.selectAuthenticator()` method. This will trigger an `AWAITING_POLL_ENROLLMENT` state.  The state's `ContextualData` object contains a base64 encoded QR code image for display to the user.
+When the user selects to enroll the Okta Verify `Authenticator` the form posts back to the `idxAuthenticationWrapper.selectAuthenticator()` method. This will trigger an `AWAITING_POLL_ENROLLMENT` state.  The state's `ContextualData` object contains a Base64-encoded QR code image for display to the user.
 
 ```java
 case AWAITING_POLL_ENROLLMENT:
