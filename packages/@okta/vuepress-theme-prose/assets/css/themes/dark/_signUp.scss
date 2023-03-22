@@ -24,6 +24,10 @@
   background: var(--c-gray-980);
 }
 
+.signup__popup__title {
+  border-color: var(--c-gray-760);
+}
+
 .signup__popup__title h2 {
   color: var(--c-lightgray-450);
 }
@@ -74,6 +78,10 @@
 
 .signup__form__recaptcha {
   color: var(--c-lightgray-450);
+}
+
+.signup__form__recaptcha .error-color {
+  color: var(--c-red-300);
 }
 
 .signup__form__splitter {
@@ -161,12 +169,6 @@
   background-color: var(--c-gray-765);
 }
 
-.signup__items.active {
-  @include media(">signup") {
-    background-color: var(--c-gray-765);
-  }
-}
-
 .signup__items.active .signup__description {
   @include media(">signup") {
     background-color: var(--c-gray-980);
@@ -187,6 +189,14 @@
 }
 
 .signup__container .signup__description-bordered {
+  border-color: var(--c-gray-760);
+}
+
+.signup__items .signup__description-bordered {
+  color: var(--c-gray-760);
+}
+
+.signup__items.active .signup__description-bordered {
   border-color: var(--c-gray-760);
 }
 

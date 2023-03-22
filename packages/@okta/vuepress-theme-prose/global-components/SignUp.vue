@@ -317,6 +317,7 @@
                     for="recaptcha"
                   >
                     <vue-recaptcha
+                      v-if="formHidden"
                       ref="recaptcha"
                       :load-recaptcha-script="true"
                       :sitekey="captchaSiteKey"
