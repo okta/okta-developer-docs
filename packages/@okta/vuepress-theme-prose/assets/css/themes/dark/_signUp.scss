@@ -12,16 +12,16 @@
 
 .signup__items.active .signup__container {
   @include media(">signup") {
-    background-color: var(--c-gray-765);
+    background-color: var(--c-gray-980);
   }
 }
 
 .signup__popup:before {
-  background-color: var(--c-gray-765);
+  background-color: var(--c-gray-980);
 }
 
 .signup__popup:after {
-  background: var(--c-gray-765);
+  background: var(--c-gray-980);
 }
 
 .signup__popup__title h2 {
@@ -169,12 +169,12 @@
 
 .signup__items.active .signup__description {
   @include media(">signup") {
-    background-color: var(--c-gray-765);
+    background-color: var(--c-gray-980);
   }
 }
 
 .signup__items.active .signup__popup {
-  background-color: var(--c-gray-765);
+  background-color: var(--c-gray-980);
   @include media(">signup") {
     overflow: hidden;
 
@@ -183,7 +183,7 @@
 }
 
 .signup__items.active .signup__container .signup__description-bordered {
-  background-color: var(--c-gray-765);
+  background-color: var(--c-gray-980);
 }
 
 .signup__popup__container span:nth-child(3) {
