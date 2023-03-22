@@ -358,13 +358,21 @@ The following is a list of operations that are considered high risk and require 
   * Enable or disable user verification for push authenticator enrollment
   * Delete push authenticator enrollment
 
-Other operations are low risk and may not require interactive authentication. For that reason, the Okta OIDC SDK provides the silent user reauthentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for reauthentication that allows an application to silently perform the following operations:
+### Maintenance token configuration and usage
+
+Other operations are low risk and may not require interactive authentication. For that reason, the Okta Devices SDK provides the silent user reauthentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for reauthentication that allows an application to silently perform the following operations:
 
 * Request pending push challenges
 * Enable and disable CIBA capability for the push authenticator enrollment
 * Update device tokens for push authenticator enrollment
 
-Usage example:
+#### Usage example
+
+In order to successfully obtain the maintenance token, your OIDC application must first be configured to support the JWT Bearer grant type. You can use the [Update application](/docs/reference/api/apps/#update-application) operation (`PUT /apps/${appId}`) to modify the `settings.oauthClient.grant_types` property array to include the JWT Bearer grant type `urn:ietf:params:oauth:grant-type:jwt-bearer`.
+
+Alternatively, when you add or update an existing application a custom authenticator, the application will automatically be bootstrapped with the JWT Bearer grant type.
+
+For more information on how to configure and use the JWT Bearer grant type, refer to this Postman Collection <insert hyperlink> or contact Okta Support.
 
 ```swift
 func retrievePushChallenges() {
@@ -377,7 +385,7 @@ func retrievePushChallenges() {
                 enrollment.retrievePushChallenges(authenticationToken: authToken) { result in
                     switch result {
                     case .success(let challenges):
-                        print("Challenges retrieve: \(challenges)")      
+                        print("Challenges retrieve: \(challenges)")
                     case .failure(let error):
                         print(error.localizedDescription)
                 }
