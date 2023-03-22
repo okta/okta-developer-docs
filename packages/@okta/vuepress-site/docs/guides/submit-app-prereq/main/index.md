@@ -123,11 +123,9 @@ In general, the test account allows the OIN team to verify that your integration
 
 A configuration guide helps your customers understand how to configure your Okta integration to work with your cloud application.
 
-Provide a configuration guide as part of the OIN submission process. You can format the guide in any format that is accessible through a URL link (such as a webpage, a Google doc, or a PDF). During the OIN verification process, the link to your configuration guide needs to be accessible by the OIN team so that they can check your document for general adherence to the configuration instructions. Ensure that your guide link is public or customer-accessible after your integration is published in the OIN.
+You must provide a configuration guide as part of the OIN submission process for all integrations. You can format the guide in any format that is accessible through a URL link (such as a webpage, a Google doc, or a PDF). During the OIN verification process, the link to your configuration guide needs to be accessible by the OIN team so that they can check your document for general adherence to the configuration instructions. Ensure that your guide link is public or customer-accessible after your integration is published in the OIN.
 
 Your guide link is available to administrators through the Okta Admin Console.
-
->**Note:** A configuration guide is required for all integrations.
 
 ### Configuration guide content
 
@@ -138,6 +136,8 @@ The following are section suggestions for your configuration guide:
 * [Procedure](#procedure)
 * [SP-initiated SSO](#sp-initiated-sso)
 * [Troubleshoot](#troubleshoot)
+
+> **Note:** Each section contains examples for OIDC, SAML, or SCIM content. You can use the examples as an initial template. Copy and paste the example Markdown text into your customer configuration document and customize the content for your integration.
 
 #### Prerequisites
 
@@ -201,12 +201,63 @@ This section explains all the configuration steps needed to get your customers s
 
 Also include any best practices for your procedure, such as SCIM guidance on setting mappings for attributes, especially required attributes that don't have a default mapping.
 
-##### Procedure note example
+##### SAML configuration steps example
+
+The following is an example of a simple SAML customer procedure:
+
+```markdown
+1. From your Okta Admin Console, navigate to **Applications** > **Applications**.
+2. Click **Browse App Catalog** and search for {appName}.
+3. When you find {appName}, click **Add** on the details page.
+4. Enter the required information under **General Settings**, and then click **Next**.
+5. In the **Sign-On Options** > **Sign on methods**, select **SAML 2.0**.
+6. From the **Metadata details** section, copy the **Metadata URL** and save this value for the next step.
+7. Contact the {appName} support team (for example, support@{appName}.com) and request that they enable SAML 2.0 for your account. Include **Metadata URL** value from the previous step.
+
+   The {appName} support team processes your request and provides you with an SSO ID and an encryption certificate.
+8. In your Okta Admin Console, select the **General settings** tab for the {appName} SAML app, then click **Edit** and follow the steps below:
+   * **Encryption Certificate**: Upload the certificate provided by {appName} support in the previous step.
+   * Scroll down to **Advanced Sign-on Settings** and enter your **SSO ID**
+   * **Application username format**: Select **email**
+   * Click **Save**.
+9. Your SAML configuration for {appName} is complete. You can start assigning people to the application.
+```
+
+##### SAML admin configuration steps example
+
+For some integrations, your organization's admin needs to configure SAML settings for your customer. The following is an example of an admin procedure to configure SAML settings:
+
+```markdown
+1. Sign in to {appName}.
+2. Navigate to **Admin** >  **Settings** > **SAML SSO**.
+3. Specify the following:
+   * **ENABLE SAML SSO**: Select **Yes**.
+   * **IDP Provider**: Select **Okta**.
+   * **Metadata URL**: Copy and paste the metadata URL provided to you by the customer.
+4. Click **Save Changes**.
+The SAML setting is complete in {appName}.
+```
+
+##### SCIM procedure note example
 
 ```markdown
 The External ID is a required attribute, but it doesn't have a default mapping.
 This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`.
 Assign the mapping to the correct value for your organization.
+```
+
+##### SAML procedure note example
+
+```markdown
+* Ensure that you entered the correct value in the **Subdomain** field under the **General** tab. The wrong subdomain value prevents you from authenticating through SAML to {appName}.
+
+* The following SAML attributes are supported:
+
+   | Name      | Value          |
+   | --------- | -------------- |
+   | email     | user.email     |
+   | firstName | user.firstName |
+   | lastName  | user.lastName  |
 ```
 
 #### SP-initiated SSO
@@ -218,11 +269,11 @@ Provide instructions for your users to sign in with Okta from your app. The user
 ##### SP-initiated SSO instructions example
 
 ```markdown
-The sign-in process is initiated from {yourCompanyAppPortal}.
+The sign-in process is initiated from {yourAppPortal}.
 
-1. From your browser, navigate to the {yourCompanyApp} sign-in page.
+1. From your browser, navigate to the {appName} sign-in page.
 2. Enter your Okta credentials (your email and password) and click **Sign in with Okta**.
-If your credentials are valid, you are redirected to the {yourCompanyApp} dashboard.
+If your credentials are valid, you are redirected to the {appName} dashboard.
 ```
 
 #### Troubleshoot
