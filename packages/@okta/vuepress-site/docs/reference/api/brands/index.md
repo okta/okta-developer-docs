@@ -3,13 +3,13 @@ title: Brands
 category: management
 ---
 
+> **Important!** Multibrand customization updates are available in our new API reference docs. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+
 # Brands API
 
 The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard.
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
-
-> **Important:** Despite being called the Brands API (due to conventions around REST API naming), each org can currently contain only one brand and one theme. We will likely allow multiple brands and themes per org at some point in the future, so stay tuned!
 
 ## Get started
 
@@ -113,7 +113,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}"
 ```
 
 ##### Response
@@ -190,7 +190,7 @@ curl -v -X PUT \
 -d '{
   "agreeToCustomPrivacyPolicy": true,
   "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy"
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}"
 ```
 
 ##### Response
@@ -239,7 +239,7 @@ curl -v -X PUT \
 -d '{
   "customPrivacyPolicyUrl": null,
   "removePoweredByOkta": true
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}"
 ```
 
 ##### Response
@@ -287,7 +287,7 @@ curl -v -X PUT \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "customPrivacyPolicyUrl": "randomValue"
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}"
 ```
 
 ##### Response
@@ -322,7 +322,7 @@ curl -v -X PUT \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
   "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy"
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}"
 ```
 
 ##### Response
@@ -391,7 +391,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes"
 ```
 
 ##### Response
@@ -489,7 +489,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}"
 ```
 
 ##### Response
@@ -600,7 +600,7 @@ curl -v -X PUT \
     "errorPageTouchPointVariant": "OKTA_DEFAULT",
     "emailTemplateTouchPointVariant": "OKTA_DEFAULT",
     "loadingPageTouchPointVariant": "OKTA_DEFAULT"
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}"
 ```
 
 ##### Response
@@ -683,7 +683,7 @@ curl -v -X PUT \
     "errorPageTouchPointVariant": "OKTA_DEFAULT_RANDOM",
     "emailTemplateTouchPointVariant": "OKTA_DEFAULT_RANDOM",
     "loadingPageTouchPointVariant": "OKTA_DEFAULT_RANDOM"
-}' "https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}"
+}' "https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}"
 ```
 
 ##### Response
@@ -763,7 +763,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/logo"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/logo"
 ```
 
 #### Response
@@ -788,7 +788,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/invalid-file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/logo"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/logo"
 ```
 
 #### Response
@@ -852,7 +852,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/logo"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/logo"
 ```
 
 ##### Response
@@ -893,7 +893,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/favicon"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/favicon"
 ```
 
 #### Response
@@ -918,7 +918,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/invalid-file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/favicon"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/favicon"
 ```
 
 #### Response
@@ -973,7 +973,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/favicon"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/favicon"
 ```
 
 ##### Response
@@ -1014,7 +1014,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/background-image"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/background-image"
 ```
 
 #### Response
@@ -1039,7 +1039,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -F 'file=@/path/to/invalid-file' \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/background-image"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/background-image"
 ```
 
 #### Response
@@ -1094,7 +1094,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/brands/{brandId}/themes/{themeId}/background-image"
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/themes/${themeId}/background-image"
 ```
 
 ##### Response
@@ -1192,7 +1192,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email"
 ```
 
 ##### Response
@@ -1285,7 +1285,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation?expand=settings,customizationCount'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation?expand=settings,customizationCount"
 ```
 
 ##### Response
@@ -1381,7 +1381,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content"
 ```
 
 ##### Response
@@ -1461,7 +1461,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/default-content/preview"
 ```
 
 ##### Response
@@ -1546,7 +1546,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test?language=fr'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/test?language=fr"
 ```
 
 ##### Response
@@ -1585,7 +1585,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
 ```
 
 ##### Response
@@ -1697,7 +1697,7 @@ curl -v -X POST \
   "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
   "isDefault": true
 }' \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
 ```
 
 ##### Response
@@ -1784,7 +1784,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations"
 ```
 
 ##### Response
@@ -1824,7 +1824,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}"
 ```
 
 ##### Response
@@ -1934,7 +1934,7 @@ curl -v -X PUT \
   "body": "<!DOCTYPE html><html>...${activationLink}...</html>",
   "isDefault": true
 }' \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}"
 ```
 
 ##### Response
@@ -2026,7 +2026,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}"
 ```
 
 ##### Response
@@ -2066,7 +2066,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}/preview'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/customizations/${customizationId}/preview"
 ```
 
 ##### Response
@@ -2142,7 +2142,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings"
 ```
 
 ##### Response
@@ -2217,7 +2217,7 @@ curl -v -X PUT \
 -d '{
   "recipients": "NO_USERS"
 }' \
-'https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings'
+"https://${yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserActivation/settings"
 ```
 
 ##### Response

@@ -44,36 +44,6 @@ The following Event Types are available only in Identity Engine and can't be use
 
 ***
 
-### Target.ID value simulated for mobile phone event types
-
-**What Changed:** `Target.ID` represents a simulated value for the following event types:
-
-* `system.voice.send_phone_verification_call`
-* `system.sms.send_phone_verification_message`
-
-Specifically, when `Target.Type` equals `MobilePhone` for these events, `Target.ID` has no intrinsic value other than being a placeholder that allows backward compatibility with Classic Engine. In Classic Engine, `Target.ID` is unique per phone number, stored in Okta's backend systems, and can be used to link all events for a given phone number. The following example from the System Log API shows these fields:
-
-```json
-  "target": [
-    {
-      "id": "qFGtyCw3hwhHh55555555z",
-      "type": "MobilePhone",
-      "alternateId": "+15555555555",
-      "displayName": "+15555555555",
-      "detailEntry": null
-    }
-  ]
-```
-
-If you use the `Target.Id` to link and reconcile events in Classic, use the phone number in Identity Engine. The phone number is found in `Target.AlternateId`.
-
-**Further Information:**
-
-* [System Log](/docs/reference/api/system-log/)
-* [Event Types](/docs/reference/api/event-types/)
-
-***
-
 ### Help Support number
 
 **What Changed:** In Identity Engine, if the user is unable to use an Authenticator, the Help Support number is no longer provided. The only support available is the Authenticator list page that provides alternative ways for the user to authenticate.
@@ -147,7 +117,7 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 **What Changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in Identity Engine because of the new flexible authentication policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible authentication policy.
 
-**Further information:** [IDP-initiated step-up authentication](/docs/reference/api/authn/#idp-initiated-step-up-authentication)
+**Further information:** [IdP-initiated step-up authentication](/docs/reference/api/authn/#idp-initiated-step-up-authentication)
 
 ***
 
@@ -169,7 +139,7 @@ See the [SDK uses cases](/docs/guides/oie-embedded-common-org-setup/main/) in ou
 
 ***
 
-### Password recovery limitations with the /authn API
+### Password recovery limitations with the Classic Authentication API
 
 Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine Authentication APIs are denied recovery.
 

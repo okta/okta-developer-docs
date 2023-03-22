@@ -1,0 +1,41 @@
+.news__title {
+  border-color: var(--c-gray-760);
+
+  color: var(---c-gray-350);
+}
+
+.news__article {
+  background-color: var(--c-workforce-block-bg);
+}
+
+@include media(">desktop") {
+  .news__article:hover .news__text {
+    color: var(--c-gray-980);
+  }
+
+  .news__article:hover .news__article-title,
+  .news__article:hover .news__article-link {
+    color: var(--c-gray-950);
+  }
+
+  .news__article:hover {
+    background-color: var(--c-green-300);
+  }
+}
+
+.news__text {
+  color: var(--c-gray-405);
+}
+
+.news__article-link {
+  border-color: var(--c-white);
+
+  color: var(--c-white);
+  @include media(">desktop") {
+    &:hover {
+      border-color: var(--c-black);
+
+      color: var(--c-black) !important;
+    }
+  }
+}

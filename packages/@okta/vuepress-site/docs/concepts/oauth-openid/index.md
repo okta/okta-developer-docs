@@ -57,7 +57,7 @@ At the core of both OAuth 2.0 and its OpenID Connect extension is the authorizat
 
 The authorization server also acts as an OpenID Connect Provider, which means you can request [ID tokens](/docs/reference/api/oidc/#id-token) in addition to [access tokens](/docs/reference/api/oidc/#access-token) from the authorization server endpoints.
 
-> **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization Servers](/docs/concepts/auth-servers).
+> **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization servers](/docs/concepts/auth-servers).
 
 ### OpenID Connect
 
@@ -119,7 +119,7 @@ If your app is not high-trust, you should use the [Authorization Code](/docs/gui
 
 ### Interaction Code flow
 
-The Interaction Code flow is an extension to the OAuth 2 and OIDC standard, and is available when using Identity Engine orgs. It requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
+The Interaction Code flow is an extension to the OAuth 2 and OIDC standard, and is available when using Identity Engine orgs. It requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta authorization server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
 
 <!--
 See http://www.plantuml.com/plantuml/uml/
@@ -172,7 +172,7 @@ A rogue app could only intercept the authorization code, but it wouldn't have ac
 
 <div class="full">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
+![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
 
 </div>
 
@@ -233,7 +233,7 @@ For information on how to set up your application to use this flow, see [Impleme
 
 ### Client Credentials flow
 
-The Client Credentials flow is intended for server-side (AKA "confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it can't be used by an actual end user. It involves a single, authenticated request to the `/token` endpoint, which returns an access token.
+The Client Credentials flow is intended for server-side ("confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it can't be used by an actual end user. It involves a single, authenticated request to the `/token` endpoint, which returns an access token.
 
 > **Note:** The Client Credentials flow doesn't support refresh tokens.
 

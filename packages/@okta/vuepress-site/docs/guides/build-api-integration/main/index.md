@@ -14,7 +14,7 @@ Build, test, and submit an API service integration to the Okta Integration Netwo
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
    > **Note:** The API Service Integrations is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable this feature.
-<!-- Need OAUTH_ADMIN_CONSENT_DIALOG FF enabled -->
+<!-- Need OAUTH_ADMIN_CONSENT_DIALOG feature flag enabled -->
 * A service app that needs to access Okta APIs for your customer
 
 **Sample code**
@@ -56,7 +56,7 @@ client -> app: Request with access token
 app -> client: Response
 -->
 
-1. Your customer's service app instance makes an access token request to their Okta Authorization Server using their client credentials.
+1. Your customer's service app instance makes an access token request to their Okta authorization server using their client credentials.
 
    Your customer needs to install and authorize your integration in their Okta org so that Okta can accept the access token request. See [Add an API Service Integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-api-service-integration) for customer tenant Admin Console instructions. After installing your integration, the customer obtains their client credentials and passes them to your app. The customer's app instance can now make an access token request to Okta. See [Request for access token](#request-an-access-token).
 
@@ -99,7 +99,7 @@ There are two types of scope: read and manage. Read scopes can only view resourc
 | Update | No | Yes |
 | Delete | No | Yes |
 
-The [Okta Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server) returns all the scopes that you request if you registered those scopes along with your integration. Currently, API service integrations don't support optional scopes. You can request a subset of your integration-supported scopes when requesting an access token from the `/token` endpoint. For example, if you registered the `okta.users.manage`, `okta.groups.manage`, and `okta.apps.manage` scopes for your integration, but your service only needs to retrieve and update Okta groups for a specific task, then you can specify only the `okta.groups.manage` scope in your access token request.
+The [org authorization server](/docs/concepts/auth-servers/#org-authorization-server) returns all the scopes that you request if you registered those scopes along with your integration. Currently, API service integrations don't support optional scopes. You can request a subset of your integration-supported scopes when requesting an access token from the `/token` endpoint. For example, if you registered the `okta.users.manage`, `okta.groups.manage`, and `okta.apps.manage` scopes for your integration, but your service only needs to retrieve and update Okta groups for a specific task, then you can specify only the `okta.groups.manage` scope in your access token request.
 
 ### Register your API service integration
 
@@ -113,9 +113,9 @@ To register your API service registration:
 1. Sign in with the credentials of the Okta org you used to build your integration (this is typically your developer-edition Okta org).
 1. Click **Add New Submission**.
 1. On the **General Settings** tab, specify values in the **App Information**, **Customer Support**, and **Test Account** sections. See [Configure general settings](/docs/guides/submit-app/openidconnect/main/#configure-general-settings) for field descriptions.
-1. On the **OAUTH** tab, select **On** from the **OAUTH Support** dropdown menu.
+1. On the **API Service** tab, select **On** from the **API Service support** dropdown menu.
 
-   The **OAuth Settings** appear, and the **Client Credentials** grant type is selected. This is the only supported grant type for OAuth 2.0 API service integrations.
+   The **API Service Settings** appear, and the **Client Credentials** grant type is selected. This is the only supported grant type for OAuth 2.0 API service integrations.
 1. Under **Enable scopes**, click **+ Add Another** to specify a scope for your app integration.
 
    * Enter the Okta API scope to grant access from your integration. See [Scope selection](#scope-selection).
@@ -128,11 +128,9 @@ To register your API service registration:
 Use the test functionality in the OIN Manager to obtain test integration credentials:
 
 1. From the [OIN Manager](https://oinmanager.okta.com/), click **Edit** next to your API service integration submission.
-1. From the **OAUTH** tab, click **Test in Okta** on the right side of your page.
+1. From the **API Service** tab, click **Test in Okta** at the bottom of your page.
 
    Your browser redirects to the Authorize integration page in your Okta org.
-
-   > **Note:** The **Test in Okta** option isn't available if you're missing required fields in the submission or have enabled another protocol tab (for example, OIDC or SAML) by mistake.
 
 1. From the Authorize integration page, click **Install and Authorize**.
 1. Copy the client secret from the dialog and securely store it for your integration test.
@@ -242,7 +240,7 @@ You can click **Test in Okta** again from the OIN Manager to install another tes
 After you test your API service integration and specify all fields and artifacts in the OIN Manager, you can submit your integration to Okta.
 
 1. Sign in to [OIN Manager](https://oinmanager.okta.com/) and click **Edit** next to your API service integration submission.
-1. From the **OAUTH** tab, click **Submit for Review** on the right side of your page.
+1. From the **API Service** tab, click **Submit for Review** on the right side of your page.
 
    A dialog appears and displays the completed submission tabs.
 

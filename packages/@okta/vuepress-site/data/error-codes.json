@@ -1,6 +1,6 @@
 {
-  "release" : "2023.01.1",
-  "build" : "2023.01.1-begin-163-g3ee566bf2f32",
+  "release" : "2023.03.1",
+  "build" : "2023.03.1-begin-155-g0a3aa94c1bba",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1578,12 +1578,12 @@
     "errorSummary" : "Origin validation failed.",
     "errorDescription" : null
   }, {
-    "title" : "Cannot update page settings for default brand exception",
+    "title" : "Cannot update page content for default brand exception",
     "includesExceptionMessage" : true,
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000213",
-    "errorSummary" : "Cannot update page settings for the default brand.",
+    "errorSummary" : "Cannot update page content for the default brand.",
     "errorDescription" : null
   }, {
     "title" : "User has no enrollments that are ciba enabled",
@@ -1632,6 +1632,78 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000219",
     "errorSummary" : "This action can't be completed because it would result in 0 phishing resistant authenticators and your org has at least one authentication policy rule that requires phishing resistant authenticators. To continue, either enable FIDO 2 (WebAuthn) or remove the phishing resistance constraint from the affected policies. Policy rules: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Brand limit exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000220",
+    "errorSummary" : "Brand count limit reached.",
+    "errorDescription" : null
+  }, {
+    "title" : "Realm limit exceeded exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000221",
+    "errorSummary" : "You have reached the maximum number of realms. An org cannot have more than {0} realms.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email server already enabled exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000222",
+    "errorSummary" : "You can enable only one SMTP server at a time. Another SMTP server is already enabled.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email server connection failed exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000223",
+    "errorSummary" : "Connection with the specified SMTP server failed.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email server auth failed exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000224",
+    "errorSummary" : "Authentication with the specified SMTP server failed.",
+    "errorDescription" : null
+  }, {
+    "title" : "Email server max enrolled exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000225",
+    "errorSummary" : "You reached the maximum number of enrolled SMTP servers. An org can't have more than {0} enrolled servers.",
+    "errorDescription" : null
+  }, {
+    "title" : "Required telephony inline hook enabled for phone authenticator exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000226",
+    "errorSummary" : "You must have an active telephony inline hook to activate and use the Phone authenticator.",
+    "errorDescription" : null
+  }, {
+    "title" : "Non applicable app as principal type exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000227",
+    "errorSummary" : "Roles can only be granted to service application type",
+    "errorDescription" : null
+  }, {
+    "title" : "SMS template customization not allowed exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000228",
+    "errorSummary" : "SMS template customization isn't permitted.",
     "errorDescription" : null
   } ]
 }

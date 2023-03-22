@@ -28,7 +28,7 @@
 @import "helpers/dont-break-out";
 
 // Components
-@import "components/announcementBanner";
+@import "components/hero";
 @import "components/apiLifecycle";
 @import "components/apiOperation";
 @import "components/breadcrumb";
@@ -74,6 +74,14 @@
 @import "components/nutritionFacts";
 @import "components/main-card";
 @import "components/tag";
+@import "components/support";
+@import "components/workforce";
+@import "components/resources";
+@import "components/news";
+@import "components/dont-break-out";
+@import "components/dialog";
+@import "components/visually-hidden";
+@import "components/wrapper";
 
 //Custom Landing
 @import "components/customLanding/main";
