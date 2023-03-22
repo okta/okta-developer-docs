@@ -59,7 +59,8 @@ curl -v -X POST \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -97,7 +98,8 @@ curl -v -X POST \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter": null
     },
     "channel" : {
         "type" : "HTTP",
@@ -159,7 +161,8 @@ curl -v -X GET \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+    "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -212,7 +215,8 @@ curl -v -X GET \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -270,7 +274,8 @@ curl -v -X PUT \
             "user.lifecycle.create",
             "user.lifecycle.activate",
             "user.lifecycle.deactivate"
-        ]
+        ],
+         "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -307,7 +312,8 @@ curl -v -X PUT \
             "user.lifecycle.create",
             "user.lifecycle.activate",
             "user.lifecycle.deactivate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -331,6 +337,7 @@ curl -v -X PUT \
     "lastUpdated": "2018-05-15T01:23:08.000Z"
 }
 ```
+
 > **Note:** Updating the `channel` property requires you to verify an event hook again.
 
 ### Verify event hook
@@ -346,7 +353,6 @@ Verifies that the event hook matches the provided `eventHookId`. Your endpoint n
 Only `ACTIVE` and `VERIFIED` event hooks can receive events from Okta.
 
 A timeout of three seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
-
 
 ##### Request example
 
@@ -369,7 +375,8 @@ curl -v -X POST \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+    "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -432,7 +439,8 @@ curl -v -X POST \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -494,7 +502,8 @@ curl -v -X POST \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -570,7 +579,8 @@ curl -v -X DELETE \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
