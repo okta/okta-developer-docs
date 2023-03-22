@@ -186,6 +186,10 @@
   background-color: var(--c-gray-980);
 }
 
+.signup__container .signup__description-bordered {
+  border-color: var(--c-gray-760);
+}
+
 .signup__popup__container span:nth-child(3) {
   color: var(--c-lightgray-450);
 }

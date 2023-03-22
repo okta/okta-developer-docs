@@ -464,6 +464,12 @@ select.signup__form__input:required:invalid {
   color: var(--c-red-400);
 }
 
+.signup__form__recaptcha .error-color {
+  position: absolute;
+
+  color: var(--c-red-400);
+}
+
 .signup__form__field .error-color {
   position: absolute;
   bottom: -11px;
@@ -488,16 +494,19 @@ select.signup__form__input:required:invalid {
     max-height: 72px;
   }
   @include media(">signup") {
+    margin-top: 0;
     margin-bottom: 32px;
     max-height: 100%;
   }
 }
 
 .signup__form__body > .error-color {
-  margin-top: 13px;
+  margin-top: 25px;
 }
 
 .signup__form__recaptcha {
+  position: relative;
+
   font-size: 14px;
   line-height: 19px;
   color: var(--c-gray-950);
