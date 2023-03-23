@@ -213,7 +213,7 @@ To successfully obtain the maintenance token, you must first configure your Okta
 
 * You can use the Apps API's [update application](/docs/reference/api/apps/#update-application) operation (`PUT /apps/${appId}`) to modify the `settings.oauthClient.grant_types` property array to include the JWT Bearer grant type, `urn:ietf:params:oauth:grant-type:jwt-bearer`.
 
-* Alternatively, when you use the Admin Console to add or update a custom authenticator with an existing OIDC application, then the application automatically updates with the JWT Bearer grant type. See [Add a custom authenticator](#add-a-custom-authenticator).
+* Alternatively, when you use the Admin Console to add or update the OIDC application in a custom authenticator, then the application automatically updates with the JWT Bearer grant type. See [Add a custom authenticator](#add-a-custom-authenticator).
 
 ##### Apps API usage sample
 
