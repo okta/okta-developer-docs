@@ -339,11 +339,6 @@ Alternatively, you can retrieve undelivered challenges by using the [MyAccount A
 
 ## Access token management
 
-> **Note:** To enable the JWT bearer grant type:
->  * Send a PUT request to `/apps/{appId}`. Ensure that the `grant_types` array contains the following string:
->    `urn:ietf:params:oauth:grant-type:jwt-bearer`
->  * If you use custom authorization servers, update the policy rules to update the grant type. See [Authorization Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/replaceAuthorizationServerPolicyRule)
-
 The SDK communicates with an Okta server using the HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and access token requests, use the latest version of the [Okta Swift mobile SDK](https://github.com/okta/okta-mobile-swift). To enroll a push authenticator, the user needs to have an access token that contains the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
 
 * Enroll and unenroll user verification keys
@@ -366,13 +361,24 @@ Other operations are low risk and may not require interactive authentication. Fo
 * Enable and disable CIBA capability for the push authenticator enrollment
 * Update device tokens for push authenticator enrollment
 
-#### Usage example
+In order to successfully obtain the maintenance token, your Okta OIDC application must first be configured to support the JWT Bearer grant type.
 
-In order to successfully obtain the maintenance token, your OIDC application must first be configured to support the JWT Bearer grant type. You can use the [Update application](/docs/reference/api/apps/#update-application) operation (`PUT /apps/${appId}`) to modify the `settings.oauthClient.grant_types` property array to include the JWT Bearer grant type `urn:ietf:params:oauth:grant-type:jwt-bearer`.
+You can use the Apps API's [update application](/docs/reference/api/apps/#update-application) operation (`PUT /apps/${appId}`) to modify the `settings.oauthClient.grant_types` property array to include the JWT Bearer grant type, `urn:ietf:params:oauth:grant-type:jwt-bearer`.
 
-Alternatively, when you add or update an existing application a custom authenticator, the application will automatically be bootstrapped with the JWT Bearer grant type.
+Alternatively, when you add or update a custom authenticator with an existing OIDC application, the application is automatically bootstrapped with the JWT Bearer grant type.
 
-For more information on how to configure and use the JWT Bearer grant type, refer to this Postman Collection <insert hyperlink> or contact Okta Support.
+See the [Configure and Use JWT Bearer Grant](https://www.postman.com/okta-eng/workspace/okta-example-collections/collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=share&creator=15037798) Postman collection for API examples of
+* How to get your OIDC app object properties
+* How to update your OIDC app to include the `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type
+* How to obtain a token with your OIDC app client ID
+
+Explore the **Configure and Use JWT Bearer Grant** Postman collection: [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e)
+
+Fork this collection and add `url`, `apiKey`, `appId`, and `clientId` environment variables to run the example endpoints. The `PUT` method is a full property-replace operation, so you need to specify all of the required OIDC app properties, including any previous grant types.
+
+>  **Note:** If you use custom authorization servers, update the policy rules to update the grant type. See [Authorization Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/replaceAuthorizationServerPolicyRule)
+
+##### Usage example
 
 ```swift
 func retrievePushChallenges() {
@@ -388,6 +394,7 @@ func retrievePushChallenges() {
                         print("Challenges retrieve: \(challenges)")
                     case .failure(let error):
                         print(error.localizedDescription)
+                    }
                 }
             case .failure(let error):
                 print(error.localizedDescription)
