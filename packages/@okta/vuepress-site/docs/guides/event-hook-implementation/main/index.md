@@ -38,13 +38,15 @@ Setting up an event hook in your Okta org requires the following generic steps:
 
 These steps are explained in the following event hook example, which uses the Okta event for a user deactivation. When this event occurs, the example external service code receives an Okta request. The external service responds with an acknowledgement to Okta that the request has been received and, in this example, simply displays the deactivated user’s name to the console.
 
-This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the event hook with an Okta org. See the following Glitch project to copy a working code example that implements the following scenario or build your own using the code snippets:
+## Set up the sample external service
 
-[Okta Event Hook: Display Deactivated Users](https://glitch.com/~okta-event-hook/)
+This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the event hook with an Okta org. See the following Glitch project to re-mix (copy) a working code example that implements the user deactivated scenario:[Okta Event Hook: Display Deactivated Users](https://glitch.com/~okta-event-hook/).
+
+If you copy the project, you can go directly to the [Enable and verify the event hook](#enable-and-verify-the-event-hook) section to enable and run the project. Or review the following sections to understand how to receive and parse the event hook call from Okta or create the project on your own.
 
 > **Tip:** For another in-depth look at an event hook implementation, see the following Developer Experience blog example by Heather Wallander, [Build Easy User Sync Webhooks with Okta](https://developer.okta.com/blog/2020/07/20/easy-user-sync-hooks).
 
-## Configure initial event hook verification
+### Configure initial event hook verification
 
 Okta event hooks require an initial verification of the external service endpoint prior to ongoing triggering of the Hook. For more information on this request, see [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request).
 
@@ -54,7 +56,7 @@ Add the following code to your external service to address this request.
 
 <StackSelector snippet="verification" noSelector/>
 
-## Parse the event hook request
+### Parse the event hook request
 
 When a user is deactivated in the Okta org, your external service receives the event hook request from Okta, and must parse the Event Object to determine the user name or other data required by your external service.
 
@@ -62,7 +64,7 @@ In this example, after parsing the event hook request, the code simply displays 
 
 <StackSelector snippet="parse-request" noSelector/>
 
-## Examine the Event Hook object
+### Examine the Event Hook object
 
 The JSON body includes the properties accessed in this example, namely `target` and `displayName`. To see this or other Event Objects, call your Okta org with the [System Log API](/docs/reference/api/system-log), using the specific event type as a [filter parameter](/docs/reference/api/system-log/#filtering-results). For example:
 
