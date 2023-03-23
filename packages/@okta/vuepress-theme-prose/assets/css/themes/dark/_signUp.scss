@@ -90,15 +90,9 @@
 
 .signup__form__button {
   border: 1px solid var(--c-lightgray-450);
-  background-color: var(--c-gray-950);
+  background-color: var(--c-gray-980);
 
   color: var(--c-lightgray-450);
-  @include media(">tablet") {
-    background-color: var(--c-gray-765);
-  }
-  @include media(">signup") {
-    background-color: var(--c-gray-950);
-  }
 }
 
 .signup__form__button:hover {
