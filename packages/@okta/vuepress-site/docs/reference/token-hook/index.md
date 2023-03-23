@@ -133,7 +133,6 @@ Okta defines a number of reserved claims that can't be overridden. When you add 
 | app_id         | ID Token          |
 | app_type       | ID Token          |
 | at_hash        | ID Token          |
-| auth_time      | ID Token          |
 | client_id      | ID Token          |
 | client_ip      | ID Token          |
 | client_req_id  | ID Token          |
@@ -177,6 +176,7 @@ Okta defines a number of reserved claims that can't be overridden. When you add 
 | jti            | Access Token & ID Token |
 | token_type     | Access Token & ID Token |
 | ver            | Access Token & ID Token |
+| auth_time      | Access Token & ID Token |
 
 ### error
 
