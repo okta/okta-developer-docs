@@ -4,7 +4,7 @@ excerpt: Learn how to build, test, and register an API service integration to th
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" /><!--For both Classic and Identity Engine-->
+<ApiLifecycle access="ea" /><!--For both Classic Engine and Identity Engine-->
 
 Build, test, and submit an API service integration to the Okta Integration Network (OIN) for review and publication.
 

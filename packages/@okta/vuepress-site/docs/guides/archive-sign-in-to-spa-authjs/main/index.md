@@ -5,7 +5,7 @@ layout: Guides
 ---
 
 ::: slot description
-For Okta Classic customers: Add embedded authentication to your SPA app with Okta Auth JS.
+For Okta Classic Engine customers: Add embedded authentication to your SPA app with Okta Auth JS.
 :::
 
 <StackSnippet snippet="guide" />
