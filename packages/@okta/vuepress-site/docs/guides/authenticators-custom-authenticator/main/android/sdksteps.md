@@ -187,11 +187,6 @@ Alternatively, you can retrieve undelivered challenges by using the [MyAccount A
 
 ### Access token management
 
-> **Note:** To enable the JWT bearer grant type:
->  * Send a PUT request to `/apps/{appId}`. Ensure that the `grant_types` array contains the following string:
->    `urn:ietf:params:oauth:grant-type:jwt-bearer`
->  * If you use a custom authorization server, update the policy rules to update the grant type.
-
 The SDK communicates with an Okta server using the HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and access token requests, use the latest version of the [Okta Kotlin Mobile SDK](https://github.com/okta/okta-mobile-kotlin). To enroll a push authenticator, the user needs to have an access token that contains the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
 
 * Enroll and unenroll user verification keys
@@ -206,13 +201,30 @@ The SDK communicates with an Okta server using the HTTPS protocol and requires a
   * Enable or disable user verification for push authenticator enrollment
   * Delete push authenticator enrollment
 
-Other operations are considered low risk and may not require interactive authentication. For that reason, the Okta OIDC SDK provides the silent user reauthentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for reauthentication that allows an application to silently perform the following operations:
+### Maintenance token configuration and usage
+
+Other operations are low risk and may not require interactive authentication. For that reason, the Okta Devices SDK provides the silent user reauthentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for reauthentication that allows an application to silently perform the following operations:
 
 * Request pending push challenges
 * Enable and disable CIBA capability for the push authenticator enrollment
 * Update device tokens for push authenticator enrollment
 
-Usage example:
+To successfully obtain the maintenance token, you must first configure your Okta OIDC application to support the JWT Bearer grant type.
+
+You can use the Apps API's [update application](/docs/reference/api/apps/#update-application) operation (`PUT /apps/${appId}`) to modify the `settings.oauthClient.grant_types` property array to include the JWT Bearer grant type, `urn:ietf:params:oauth:grant-type:jwt-bearer`.
+
+Alternatively, when you add or update a custom authenticator with an existing OIDC application, the application automatically updates with the JWT Bearer grant type.
+
+See the [Configure and Use JWT Bearer Grant](https://www.postman.com/okta-eng/workspace/okta-example-collections/collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=share&creator=15037798) Postman Collection for API examples of
+* How to get your OIDC app object properties
+* How to update your OIDC app to include the `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type
+* How to obtain a token with your OIDC app client ID
+
+Explore the **Configure and Use JWT Bearer Grant** Postman Collection: [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e)
+
+Fork this collection and add `url`, `apiKey`, `appId`, and `yourClientId` environment variables to run the example endpoints. The `PUT` method is a full property-replace operation, so you need to specify all required OIDC app properties, including any previous grant types. See [Create an API token](/docs/guides/create-an-api-token/main/) to obtain an `apiKey` from your org for testing purposes.
+
+##### Usage example
 
 ```kotlin
 suspend fun retrievePushChallenges() {

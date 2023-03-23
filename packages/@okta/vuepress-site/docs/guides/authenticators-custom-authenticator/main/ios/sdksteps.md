@@ -355,7 +355,7 @@ The following is a list of operations that are considered high risk and require 
 
 ### Maintenance token configuration and usage
 
-Other operations are low risk and may not require interactive authentication. For that reason, the Okta Devices SDK provides the silent user re-authentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for re-authentication that allows an application to silently perform the following operations:
+Other operations are low risk and may not require interactive authentication. For that reason, the Okta Devices SDK provides the silent user reauthentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for reauthentication that allows an application to silently perform the following operations:
 
 * Request pending push challenges
 * Enable and disable CIBA capability for the push authenticator enrollment
@@ -374,9 +374,7 @@ See the [Configure and Use JWT Bearer Grant](https://www.postman.com/okta-eng/wo
 
 Explore the **Configure and Use JWT Bearer Grant** Postman Collection: [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e)
 
-Fork this collection and add `url`, `apiKey`, `appId`, and `clientId` environment variables to run the example endpoints. The `PUT` method is a full property-replace operation, so you need to specify all required OIDC app properties, including any previous grant types.
-
->  **Note:** If you use custom authorization servers, update the policy rules to update the grant type. See [Authorization Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/replaceAuthorizationServerPolicyRule).
+Fork this collection and add `url`, `apiKey`, `appId`, and `yourClientId` environment variables to run the example endpoints. The `PUT` method is a full property-replace operation, so you need to specify all required OIDC app properties, including any previous grant types. See [Create an API token](/docs/guides/create-an-api-token/main/) to obtain an `apiKey` from your org for testing purposes.
 
 ##### Usage example
 
