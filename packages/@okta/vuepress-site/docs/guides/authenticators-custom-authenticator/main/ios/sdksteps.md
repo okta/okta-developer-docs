@@ -27,9 +27,8 @@ A valid user account authentication token is necessary to add a device as an aut
 
 Then add the extra permissions that the Devices SDK requires to the access token. Add the following strings to the space-delimited list of scopes in the `Okta.plist` file:
 
-- `okta.authenticators.manage.self`
-- `okta.authenticators.read`
-- `okta.users.read.self`
+- `okta.myAccount.appAuthenticator.manage`
+- `okta.myAccount.appAuthenticator.read`
 
 If you’re initializing the scopes in your app's code instead of using the `Okta.plist` file, update that code using the scopes as strings.
 
@@ -84,7 +83,7 @@ func initOktaDeviceAuthenticator() {
 }
 ```
 
-Use the name of the group you added when you added the App Group Capability earlier. The compiler conditional ensures that Device Authenticator uses the appropriate APNs environment.
+Use the name of the group that you included when you added the App Group Capability earlier. The compiler conditional ensures that Device Authenticator uses the appropriate APNs environment.
 
 ### Register the device
 
@@ -99,7 +98,7 @@ To enroll a device, you need:
 
 Alternatively, you can enroll the device by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/createAppAuthenticatorEnrollment).
 
-There are many different ways that your app may start the flow for enrolling a device, such as the user setting a preference or adding an authentication method. No matter how the enrollment flow is started it follows the same steps:
+There are many different ways that your app may start the flow for enrolling a device, such as the user setting a preference or adding an authentication method. No matter how the enrollment flow starts, it follows the same steps:
 
 - Sign the user in if they’re currently signed out.
 - Create the configuration for the authenticator.
@@ -339,11 +338,6 @@ Alternatively, you can retrieve undelivered challenges by using the [MyAccount A
 
 ## Access token management
 
-> **Note:** To enable the JWT bearer grant type:
->  * Send a PUT request to `/apps/{appId}`. Ensure that the `grant_types` array contains the following string:
->    `urn:ietf:params:oauth:grant-type:jwt-bearer`
->  * If you use custom authorization servers, update the policy rules to update the grant type. See [Authorization Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/replaceAuthorizationServerPolicyRule)
-
 The SDK communicates with an Okta server using the HTTPS protocol and requires an access token for user authentication and authorization. For authentication flows and access token requests, use the latest version of the [Okta Swift mobile SDK](https://github.com/okta/okta-mobile-swift). To enroll a push authenticator, the user needs to have an access token that contains the `okta.myAccount.appAuthenticator.manage` scope. You can also use this scope for the following operations:
 
 * Enroll and unenroll user verification keys
@@ -358,13 +352,30 @@ The following is a list of operations that are considered high risk and require 
   * Enable or disable user verification for push authenticator enrollment
   * Delete push authenticator enrollment
 
-Other operations are low risk and may not require interactive authentication. For that reason, the Okta OIDC SDK provides the silent user reauthentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for reauthentication that allows an application to silently perform the following operations:
+### Maintenance token configuration and usage
+
+Other operations are low risk and may not require interactive authentication. For that reason, the Okta Devices SDK provides the silent user reauthentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for reauthentication that allows an application to silently perform the following operations:
 
 * Request pending push challenges
 * Enable and disable CIBA capability for the push authenticator enrollment
 * Update device tokens for push authenticator enrollment
 
-Usage example:
+To successfully obtain the maintenance token, you must first configure your Okta OIDC application to support the JWT Bearer grant type:
+
+* You can use the Apps API's [update application](/docs/reference/api/apps/#update-application) operation (`PUT /apps/${appId}`) to modify the `settings.oauthClient.grant_types` property array to include the JWT Bearer grant type, `urn:ietf:params:oauth:grant-type:jwt-bearer`.
+
+* Alternatively, when you use the Admin Console to add or update the OIDC application in a custom authenticator, the application automatically updates with the JWT Bearer grant type. See [Add a custom authenticator](#add-a-custom-authenticator).
+
+##### Apps API usage sample
+
+Explore the [Configure and Use JWT Bearer Grant](https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e) Postman Collection for API examples of how to do the following:
+* Get your OIDC app object properties.
+* Update your OIDC app to include the `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type.
+* Obtain a token with your OIDC app client ID.
+
+Fork this collection and add `url`, `apiKey`, `appId`, and `yourClientId` environment variables to run the example endpoints. The `PUT` method is a full property-replace operation, so you need to specify all required OIDC app properties, including any previous grant types. See [Create an API token](/docs/guides/create-an-api-token/main/) to obtain an `apiKey` from your org for testing purposes.
+
+##### Swift maintenance token usage example
 
 ```swift
 func retrievePushChallenges() {
@@ -377,9 +388,10 @@ func retrievePushChallenges() {
                 enrollment.retrievePushChallenges(authenticationToken: authToken) { result in
                     switch result {
                     case .success(let challenges):
-                        print("Challenges retrieve: \(challenges)")      
+                        print("Challenges retrieve: \(challenges)")
                     case .failure(let error):
                         print(error.localizedDescription)
+                    }
                 }
             case .failure(let error):
                 print(error.localizedDescription)
