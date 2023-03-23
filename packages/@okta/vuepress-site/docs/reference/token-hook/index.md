@@ -336,9 +336,9 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
         }
       }
     },
-     "refresh_token": {
-         "jti": "oarob4a0tckCkGcyo1d6"
-      }
+    "refresh_token": {
+       "jti": "oarob4a0tckCkGcyo1d6"
+    }
   }
 }
 ```
