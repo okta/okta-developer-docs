@@ -1,4 +1,4 @@
-Use the Devices SDK to enable your app to verify the identity of a user by responding to notifications from a custom authenticator.
+Use the Devices SDK to enable your app to verify the identity of a user by responding to notifications from a Custom Authenticator.
 
 To set up and configure your app:
 
@@ -355,28 +355,28 @@ The following is a list of operations that are considered high risk and require 
 
 ### Maintenance token configuration and usage
 
-Other operations are low risk and may not require interactive authentication. For that reason, the Okta Devices SDK provides the silent user reauthentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for reauthentication that allows an application to silently perform the following operations:
+Other operations are low risk and may not require interactive authentication. For that reason, the Okta Devices SDK provides the silent user re-authentication method, `retrieveMaintenanceToken`. This method retrieves a maintenance access token for re-authentication that allows an application to silently perform the following operations:
 
 * Request pending push challenges
 * Enable and disable CIBA capability for the push authenticator enrollment
 * Update device tokens for push authenticator enrollment
 
-In order to successfully obtain the maintenance token, your Okta OIDC application must first be configured to support the JWT Bearer grant type.
+To successfully obtain the maintenance token, you must first configure your Okta OIDC application to support the JWT Bearer grant type.
 
 You can use the Apps API's [update application](/docs/reference/api/apps/#update-application) operation (`PUT /apps/${appId}`) to modify the `settings.oauthClient.grant_types` property array to include the JWT Bearer grant type, `urn:ietf:params:oauth:grant-type:jwt-bearer`.
 
-Alternatively, when you add or update a custom authenticator with an existing OIDC application, the application is automatically bootstrapped with the JWT Bearer grant type.
+Alternatively, when you add or update a custom authenticator with an existing OIDC application, the application automatically bootstraps with the JWT Bearer grant type.
 
-See the [Configure and Use JWT Bearer Grant](https://www.postman.com/okta-eng/workspace/okta-example-collections/collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=share&creator=15037798) Postman collection for API examples of
+See the [Configure and Use JWT Bearer Grant](https://www.postman.com/okta-eng/workspace/okta-example-collections/collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=share&creator=15037798) Postman Collection for API examples of
 * How to get your OIDC app object properties
 * How to update your OIDC app to include the `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type
 * How to obtain a token with your OIDC app client ID
 
-Explore the **Configure and Use JWT Bearer Grant** Postman collection: [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e)
+Explore the **Configure and Use JWT Bearer Grant** Postman Collection: [![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e)
 
-Fork this collection and add `url`, `apiKey`, `appId`, and `clientId` environment variables to run the example endpoints. The `PUT` method is a full property-replace operation, so you need to specify all of the required OIDC app properties, including any previous grant types.
+Fork this collection and add `url`, `apiKey`, `appId`, and `clientId` environment variables to run the example endpoints. The `PUT` method is a full property-replace operation, so you need to specify all required OIDC app properties, including any previous grant types.
 
->  **Note:** If you use custom authorization servers, update the policy rules to update the grant type. See [Authorization Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/replaceAuthorizationServerPolicyRule)
+>  **Note:** If you use custom authorization servers, update the policy rules to update the grant type. See [Authorization Servers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/AuthorizationServer/#tag/AuthorizationServer/operation/replaceAuthorizationServerPolicyRule).
 
 ##### Usage example
 
