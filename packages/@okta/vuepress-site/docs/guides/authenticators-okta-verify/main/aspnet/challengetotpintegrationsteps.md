@@ -4,7 +4,7 @@ The user signs in with a username and password, and then chooses Okta Verify fro
 
 #### 2 - 3. Retrieve and display a list of challenge methods
 
-When the user selects Okta Verify and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. In Challenge Flow, a list of available challenge methods is retrieved and presented to the user.
+When the user selects Okta Verify and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. In challenge flow, a list of available challenge methods is retrieved and presented to the user.
 
 The code for this is shared with Steps 2 and 3 of [Integrate Challenge using push notification](#integrate-challenge-using-push-notification-option).
 

@@ -145,7 +145,7 @@ For example, if the user has previously enrolled the email authenticator, Google
 
 When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method, which checks whether the user is in Challenge or Enrollment Flow.
 
-When in Challenge Flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Email Authenticator ID.
+When in challenge flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Email Authenticator ID.
 
 ```csharp
 var selectAuthenticatorOptions = new SelectAuthenticatorOptions
