@@ -360,11 +360,11 @@ Other operations are low risk and may not require interactive authentication. Fo
 * Enable and disable CIBA capability for the push authenticator enrollment
 * Update device tokens for push authenticator enrollment
 
-To successfully obtain the maintenance token, you must first configure your Okta OIDC application to support the JWT Bearer grant type.
+To successfully obtain the maintenance token, you must first configure your Okta OIDC application to support the JWT Bearer grant type:
 
-You can use the Apps API's [update application](/docs/reference/api/apps/#update-application) operation (`PUT /apps/${appId}`) to modify the `settings.oauthClient.grant_types` property array to include the JWT Bearer grant type, `urn:ietf:params:oauth:grant-type:jwt-bearer`.
+* You can use the Apps API's [update application](/docs/reference/api/apps/#update-application) operation (`PUT /apps/${appId}`) to modify the `settings.oauthClient.grant_types` property array to include the JWT Bearer grant type, `urn:ietf:params:oauth:grant-type:jwt-bearer`.
 
-Alternatively, when you add or update a custom authenticator with an existing OIDC application, the application automatically updates with the JWT Bearer grant type.
+* Alternatively, when you use the Admin Console to add or update a custom authenticator with an existing OIDC application, then the application automatically updates with the JWT Bearer grant type. See [Add a custom authenticator](#add-a-custom-authenticator).
 
 Explore the [Configure and Use JWT Bearer Grant](https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e) Postman Collection for API examples of
 * How to get your OIDC app object properties
