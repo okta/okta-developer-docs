@@ -70,7 +70,7 @@ Provides the refresh token ID that you can store on the first access token reque
 
 | Property   | Description                              | Data Type |
 |------------|------------------------------------------|-----------|
-| jti        | Refresh token ID                         | Number    |
+| jti        | Refresh token ID                         | String    |
 
 ## Objects in the response that you send
 
