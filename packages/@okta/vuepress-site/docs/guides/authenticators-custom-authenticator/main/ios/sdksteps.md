@@ -366,6 +366,8 @@ To successfully obtain the maintenance token, you must first configure your Okta
 
 * Alternatively, when you use the Admin Console to add or update a custom authenticator with an existing OIDC application, then the application automatically updates with the JWT Bearer grant type. See [Add a custom authenticator](#add-a-custom-authenticator).
 
+##### Apps API usage sample
+
 Explore the [Configure and Use JWT Bearer Grant](https://god.gw.postman.com/run-collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=collection%2Ffork&collection-url=entityId%3D26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd%26entityType%3Dcollection%26workspaceId%3Daf55a245-1ac6-42d1-8af4-11e21e791e4e) Postman Collection for API examples of
 * How to get your OIDC app object properties
 * How to update your OIDC app to include the `urn:ietf:params:oauth:grant-type:jwt-bearer` grant type
@@ -373,7 +375,7 @@ Explore the [Configure and Use JWT Bearer Grant](https://god.gw.postman.com/run-
 
 Fork this collection and add `url`, `apiKey`, `appId`, and `yourClientId` environment variables to run the example endpoints. The `PUT` method is a full property-replace operation, so you need to specify all required OIDC app properties, including any previous grant types. See [Create an API token](/docs/guides/create-an-api-token/main/) to obtain an `apiKey` from your org for testing purposes.
 
-##### Usage example
+##### Swift maintenance token usage example
 
 ```swift
 func retrievePushChallenges() {
