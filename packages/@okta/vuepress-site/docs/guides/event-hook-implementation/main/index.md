@@ -52,7 +52,7 @@ Add the following code to your external service to address this request.
 
 > **Note:** Also, make sure to have the required default code and packages in your project. See [Overview and considerations](/docs/guides/common-hook-set-up-steps/main) for further information.
 
-<StackSelector snippet="verification"/>
+<StackSelector snippet="verification" noSelector/>
 
 ## Parse the event hook request
 
@@ -67,7 +67,7 @@ In this example, after parsing the event hook request, the code simply displays 
 The JSON body includes the properties accessed in this example, namely `target` and `displayName`. To see this or other Event Objects, call your Okta org with the [System Log API](/docs/reference/api/system-log), using the specific event type as a [filter parameter](/docs/reference/api/system-log/#filtering-results). For example:
 
 ```JavaScript
-https://${yourOktaDomain}/api/v1/logs?filter=eventType eq "user.lifecycle.deactivated"
+https://${yourOktaDomain}/api/v1/logs?filter=eventType eq "user.lifecycle.deactivate"
 ```
 
 <StackSelector snippet="event-object" noSelector/>
@@ -90,9 +90,9 @@ The event hook must be set up and verified within your Okta Admin Console.
 
 6. Include authentication field and secret. In this example:
 
-    - **Authentication field** = `authorization`
+    * ***Authentication field** = `authorization`
 
-    - **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+    * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
 7. In the **REQUESTS** section of the dialog box, subscribe to the Event Type you want to monitor. In this example, a user deactivated in the Okta org: `User deactivated`.
 
@@ -108,11 +108,11 @@ You must verify the event hook to prove that your external service controls the 
 
 To complete the one-time verification of the event hook:
 
-- After creating the event hook, and if your external service is ready to handle the request, click **Verify** to complete the one-time verification step.
+* After creating the event hook, and if your external service is ready to handle the request, click **Verify** to complete the one-time verification step.
 
 or
 
-- After making sure that your external service is ready for the external verification call, go to the event hooks table, click the **Actions** dropdown menu of any **UNVERIFIED** event hook, and select **Verify**.
+* After making sure that your external service is ready for the external verification call, go to the event hooks table, click the **Actions** dropdown menu of any **UNVERIFIED** event hook, and select **Verify**.
 
 The event hook is now set up with a status of **VERIFIED** and is ready to send event hook calls to your external service.
 
