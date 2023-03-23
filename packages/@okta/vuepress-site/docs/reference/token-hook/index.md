@@ -50,14 +50,6 @@ Provides information on the properties of the access token that Okta has generat
 | lifetime | Lifetime of the token.             | [lifetime](#lifetime) object |
 | scopes   | The scopes contained in the token. | [scopes](#scopes) object     |
 
-#### data.refresh_token
-
-Provides the refresh token ID that you can store on the first access token request. When you make the refresh token grant, the ID matches what was stored. This allows you to connect the two requests.
-
-| Property   | Description                              | Data Type |
-|------------|------------------------------------------|-----------|
-| jti        | Refresh token ID                         | Number    |
-
 #### claims
 
 Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
@@ -71,6 +63,14 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 #### scopes
 
 The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
+
+#### data.refresh_token
+
+Provides the refresh token ID that you can store on the first access token request. When you make the refresh token grant, the ID matches what was stored. This allows you to connect the two requests.
+
+| Property   | Description                              | Data Type |
+|------------|------------------------------------------|-----------|
+| jti        | Refresh token ID                         | Number    |
 
 ## Objects in the response that you send
 
