@@ -27,9 +27,8 @@ A valid user account authentication token is necessary to add a device as an aut
 
 Then add the extra permissions that the Devices SDK requires to the access token. Add the following strings to the space-delimited list of scopes in the `Okta.plist` file:
 
-- `okta.authenticators.manage.self`
-- `okta.authenticators.read`
-- `okta.users.read.self`
+- `okta.myAccount.appAuthenticator.manage`
+- `okta.myAccount.appAuthenticator.read`
 
 If you’re initializing the scopes in your app's code instead of using the `Okta.plist` file, update that code using the scopes as strings.
 
