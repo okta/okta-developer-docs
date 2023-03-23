@@ -67,7 +67,7 @@ To configure and run the SCIM CRUD tests:
         * Click **Tokens** and **Create Token**.
         * Give the token a name click **Create Token**.
         * Copy the resulting token value over to this Runscope variable.
-    * `SCIMUrl` - the Base URL of the SCIM implementation on your server. For example: `https://example.com/scim/v2`
+    * `SCIMUrl` - the base URL of the SCIM implementation on your server. For example: `https://example.com/scim/v2`
     * `SCIMAuth` - the Basic or OAuth authorization token used to access your SCIM API.
 
     The final Runscope values should look similar to the following:

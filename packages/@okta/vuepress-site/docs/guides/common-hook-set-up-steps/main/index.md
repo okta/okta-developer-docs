@@ -46,7 +46,7 @@ Start with a new Node.js project built on the Express framework or a Node.js SQL
 
 The Glitch project templates don't have any body-parsing code. To include this content:
 
-* Add the Body Parser `npm` package to your Glitch project
+* Add the body-parser `npm` package to your Glitch project
 * Add the code snippet below
 
 If you remix a Glitch inline hook project, the packages and code are already included.
@@ -63,7 +63,7 @@ To add the `npm` packages:
 
 ## Add authentication method
 
-Okta inline hooks can use header authentication as well as OAuth 2.0 authentication to secure the calls from Okta to your external service. The inline hook Glitch projects use basic authentication. See the following sections to implement basic authentication or to use the OAuth 2.0 client secret or the private key method.
+Okta inline hooks can use header authentication as well as OAuth 2.0 authentication to secure the calls from Okta to your external service. The inline hook Glitch projects use Basic Authentication. See the following sections to implement Basic Authentication or to use the OAuth 2.0 client secret or the private key method.
 
 ### HTTP header: Basic Authentication
 

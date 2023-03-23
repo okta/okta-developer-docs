@@ -1107,35 +1107,6 @@ export const reference = [
       },
 ];
 
-export const releaseNotes = [
-    {
-      title: "Release Notes",
-      path: "/docs/release-notes/",
-      subLinks: [
-        { title: "2023", path: "/docs/release-notes/2023/" },
-        {
-          title: "2023 - Okta Identity Engine",
-          path: "/docs/release-notes/2023-okta-identity-engine/",
-        },
-        { title: "2022", path: "/docs/release-notes/2022/" },
-        {
-          title: "2022 - Okta Identity Engine",
-          path: "/docs/release-notes/2022-okta-identity-engine/",
-        },
-        { title: "2021", path: "/docs/release-notes/2021/" },
-        {
-          title: "2021 - Okta Identity Engine",
-          path: "/docs/release-notes/2021-okta-identity-engine/",
-        },
-        { title: "2020", path: "/docs/release-notes/2020/" },
-        { title: "2019", path: "/docs/release-notes/2019/" },
-        { title: "2018", path: "/docs/release-notes/2018/" },
-        { title: "2017", path: "/docs/release-notes/2017/" },
-        { title: "2016", path: "/docs/release-notes/2016/" },
-    ],
-  },
-];
-
 export const architectureCenter = [
   {
     title: 'Architecture Center',
@@ -1227,4 +1198,33 @@ export const architectureCenter = [
       },
     ],
   },
+];
+
+export const releaseNotes = [
+   {
+      title: "Release Notes",
+      path: "/docs/release-notes/",
+      subLinks: [
+         { title: "2023", path: "/docs/release-notes/2023/" },
+         {
+            title: "2023 - Okta Identity Engine",
+            path: "/docs/release-notes/2023-okta-identity-engine/",
+         },
+         { title: "2022", path: "/docs/release-notes/2022/" },
+         {
+            title: "2022 - Okta Identity Engine",
+            path: "/docs/release-notes/2022-okta-identity-engine/",
+         },
+         { title: "2021", path: "/docs/release-notes/2021/" },
+         {
+            title: "2021 - Okta Identity Engine",
+            path: "/docs/release-notes/2021-okta-identity-engine/",
+         },
+         { title: "2020", path: "/docs/release-notes/2020/" },
+         { title: "2019", path: "/docs/release-notes/2019/" },
+         { title: "2018", path: "/docs/release-notes/2018/" },
+         { title: "2017", path: "/docs/release-notes/2017/" },
+         { title: "2016", path: "/docs/release-notes/2016/" },
+      ],
+   },
 ];

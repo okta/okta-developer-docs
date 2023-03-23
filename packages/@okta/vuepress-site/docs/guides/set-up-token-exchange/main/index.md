@@ -72,7 +72,7 @@ In token exchange use cases, an API microservice can act both as a resource serv
 1. In the **General Settings** section of the **General** tab, click **Edit** and select **Token Exchange** as the grant type for your application.
 1. Click **Save**.
 1. Copy the client ID in the **Client Credentials** section, and then copy the client secret in the **CLIENT SECRETS** section.
-1. [Base64 encode](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret) the client ID and client secret for use in the token exchange request from API1 to API2.
+1. [Base64-encode](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret) the client ID and client secret for use in the token exchange request from API1 to API2.
 
 ### Update the authorization servers
 
@@ -188,7 +188,7 @@ Use the following example to build the request to exchange the authorization cod
 curl --location --request POST \
   --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Basic {Base64 encoded service app client ID and client secret}' \
+  --header 'Authorization: Basic {Base64-encoded service app client ID and client secret}' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
   --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:access_token' \
@@ -289,7 +289,7 @@ Perform the requests in the previous [Flow specifics](#flow-specifics) section. 
 curl --location --request POST \
   --url 'https://${yourOktaDomain}/oauth2/{trustedAuthServerId}/v1/token' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Basic {Base64 encoded service app client ID and client secret}' \
+  --header 'Authorization: Basic {Base64-encoded service app client ID and client secret}' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
   --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:access_token' \

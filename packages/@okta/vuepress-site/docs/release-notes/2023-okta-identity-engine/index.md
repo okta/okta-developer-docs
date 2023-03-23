@@ -6,6 +6,20 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## March
 
+### Weekly release 2023.03.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.03.2](#bugs-fixed-in-2023-03-2) | March 22, 2023 |
+
+#### Bugs fixed in 2023.03.2
+
+* In some cases, groups with a `status` of INACTIVE were synchronized with the reporting database as ACTIVE. (OKTA-589084)
+
+* Requests to the Policies API (`PUT /policies/${defaultIdpPolicy}/rules/${IdpRule}`) with an empty `userIdentifier` parameter returned an HTTP 500 Internal Server error. (OKTA-565856)
+
+* Admins were able to modify the `auth_time` claim for an access token using a token inline hook. (OKTA-503099)
+
 ### Weekly release 2023.03.1
 
 | Change | Expected in Preview Orgs |
@@ -30,7 +44,7 @@ Using the Policy API, admins were able to set the `MFA_ENROLL` policy factor set
 | [OIDC Identity Providers private/public key pair support is GA](#oidc-identity-providers-private-public-key-pair-support-is-ga)                               |June 08, 2022     |
 | [API service integrations are GA in Preview](#api-service-integrations-are-ga-in-preview)                                                                     |November 03, 2022 |
 | [Log Streaming is GA in Production](#log-streaming-is-ga-in-production)                                                                                       |March 30, 2022    |
-| [Optional consent for OAuth 2.0 scopes is GA in Prod](#optional-consent-for-oauth-2-0-scopes-is-ga-in-prod)                                                   |January 11, 2023  |
+| [Optional consent for OAuth 2.0 scopes is GA in Production](#optional-consent-for-oauth-2-0-scopes-is-ga-in-production)                                                   |January 11, 2023  |
 | [OAuth 2.0 authentication for inline hooks is GA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-preview)                                     |October 05, 2023  |
 | [Transactional verification with CIBA is GA in Preview](#transactional-verification-with-ciba-is-ga-in-preview)                                               |December 09, 2023 |
 | [Improvements to self-service account activities for AD and LDAP users](#improvements-to-self-service-account-activities-for-ad-and-ldap-users)               |November 30, 2022 |
@@ -47,7 +61,7 @@ Rate limit violations mainly occur on authenticated endpoints. Currently, it isn
 
 Authenticator enrollment provides a standardized way for a user to enroll a new authenticator using the OAuth `/authorize` endpoint. This feature uses query parameters such as prompt and `enroll_amr_values` to specify which authenticator the user wants to enroll. It also automatically verifies at least two factors as long the user has already enrolled two or more factors. <!--OKTA-544671-->
 
-#### OIDC Identity Providers private/public key pair support is GA 
+#### OIDC Identity Providers private/public key pair support is GA
 
 Previously, Okta only supported the use of client secret as the client authentication method with an OpenID Connect-based Identity Provider. Okta now supports the use of private/public key pairs (`private_key_jwt`) with OpenID Connect-based Identity Providers. Additionally, the Signed Request Object now also supports the use of private/public key pairs. See [Create an Identity Provider in Okta](/docs/guides/add-an-external-idp/openidconnect/main/#custom-okta-hosted-sign-in-page). <!--OKTA-573913-->
 
@@ -61,7 +75,7 @@ Many organizations use third-party systems to monitor, aggregate, and act on the
 
 Log Streaming enables Okta admins to more easily and securely send System Log events to a specified systems, such as the Splunk Cloud or Amazon Eventbridge, in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it doesn't require a third-party system to store an Okta Admin API token. See [Log Streaming API](/docs/reference/api/log-streaming/). <!--OKTA-578532-->
 
-#### Optional consent for OAuth 2.0 scopes is GA in Prod
+#### Optional consent for OAuth 2.0 scopes is GA in Production
 
 OAuth 2.0 Optional consent provides an optional property that enables a user to opt in or out of an app's requested OAuth scopes. When optional is set to true for a scope, the user can skip consent for that scope. See [Request user consent](/docs/guides/request-user-consent/main/). <!--OKTA-581292-->
 
@@ -85,13 +99,9 @@ CIBA extends OpenID Connect to define a decoupled flow where the authentication 
 
 Previously, the self-service unlock (SSU) and self-service password reset (SSPR) flows created unnecessary friction for AD and LDAP users. This feature enhancement introduces a seamless magic link experience in emails sent to unlock accounts and reset passwords. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the application. These improvements are now GA in Preview. See [Customize email notifications](/docs/guides/custom-email/main/#use-vtl-variables). <!--OKTA-584526-->
 
-
 #### Honor force authentication support for SAML Apps API
 
-Previously, the **Honor Force Authentication** parameter 
-(`honorForceAuthn`) could only be set from the 
-[SAML 2.0 App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). 
-When this property is set to `true`, users are prompted for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. You can now set this property for your SAML app without using the app integration wizard. See the [SAML 2.0 settings parameters in the Apps API](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-550077-->
+Previously, the **Honor Force Authentication** parameter (`honorForceAuthn`) could only be set from the [SAML 2.0 App Integration Wizard](https://help.okta.com/okta_help.htm?type=oie&id=csh-apps-aiw-saml). When this property is set to `true`, users are prompted for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. You can now set this property for your SAML app without using the app integration wizard. See the [SAML 2.0 settings parameters in the Apps API](/docs/reference/api/apps/#add-saml-2-0-authentication-application). <!--OKTA-550077-->
 
 #### OIN Manager support for Workflow Connector submission is GA in Preview
 
