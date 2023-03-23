@@ -23,7 +23,7 @@ This type of inline hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) t
 
 This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
-In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can update how long an access token or an ID token is valid. You can also refresh the access token using a unique refresh token ID sent in the request. That ID is stored and when the refresh token request is sent, the unique refresh token ID is matched against what is stored before issuing the refreshed access token.
+In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid.
 
 This inline hook works only when using an [Okta Custom Authorization Server](/docs/guides/customize-authz-server/main/#create-an-authorization-server), not the built-in Okta Authorization Server.
 
@@ -49,6 +49,14 @@ Provides information on the properties of the access token that Okta has generat
 | claims   | Claims included in the token.      | [claims](#claims) object     |
 | lifetime | Lifetime of the token.             | [lifetime](#lifetime) object |
 | scopes   | The scopes contained in the token. | [scopes](#scopes) object     |
+
+#### data.refresh_token
+
+Provides the refresh token ID that you can store on the first access token request. When you make the refresh token grant, the ID matches what was stored. This allows you to connect the two requests.
+
+| Property   | Description                              | Data Type |
+|------------|------------------------------------------|-----------|
+| jti        | Refresh token ID                         | Number    |
 
 #### claims
 
