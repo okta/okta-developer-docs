@@ -1,4 +1,4 @@
-Use the Devices SDK to enable your app to verify the identity of a user by responding to notifications from a Custom Authenticator.
+Use the Devices SDK to enable your app to verify the identity of a user by responding to notifications from a custom authenticator.
 
 To set up and configure your app:
 
@@ -84,7 +84,7 @@ func initOktaDeviceAuthenticator() {
 }
 ```
 
-Use the name of the group you added when you added the App Group Capability earlier. The compiler conditional ensures that Device Authenticator uses the appropriate APNs environment.
+Use the name of the group that you added when you added the App Group Capability earlier. The compiler conditional ensures that Device Authenticator uses the appropriate APNs environment.
 
 ### Register the device
 
@@ -99,7 +99,7 @@ To enroll a device, you need:
 
 Alternatively, you can enroll the device by using the [MyAccount App Authenticators API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/AppAuthenticator/#tag/AppAuthenticator/operation/createAppAuthenticatorEnrollment).
 
-There are many different ways that your app may start the flow for enrolling a device, such as the user setting a preference or adding an authentication method. No matter how the enrollment flow is started it follows the same steps:
+There are many different ways that your app may start the flow for enrolling a device, such as the user setting a preference or adding an authentication method. No matter how the enrollment flow starts, it follows the same steps:
 
 - Sign the user in if they’re currently signed out.
 - Create the configuration for the authenticator.
@@ -365,7 +365,7 @@ To successfully obtain the maintenance token, you must first configure your Okta
 
 You can use the Apps API's [update application](/docs/reference/api/apps/#update-application) operation (`PUT /apps/${appId}`) to modify the `settings.oauthClient.grant_types` property array to include the JWT Bearer grant type, `urn:ietf:params:oauth:grant-type:jwt-bearer`.
 
-Alternatively, when you add or update a custom authenticator with an existing OIDC application, the application automatically bootstraps with the JWT Bearer grant type.
+Alternatively, when you add or update a custom authenticator with an existing OIDC application, the application automatically updates with the JWT Bearer grant type.
 
 See the [Configure and Use JWT Bearer Grant](https://www.postman.com/okta-eng/workspace/okta-example-collections/collection/26510466-46beb74b-4755-4cf0-9847-845ccac1ccbd?action=share&creator=15037798) Postman Collection for API examples of
 * How to get your OIDC app object properties
