@@ -9,7 +9,7 @@ The Enrollment flow follows the same first four steps as the [Challenge flow](#i
 
 ### 5. Check authenticator status and send email to the user
 
-When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge or Enrollment Flow. When in Enrollment Flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Email Authenticator ID.
+When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge or enrollment flow. When in enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Email Authenticator ID.
 
 ```csharp
 var enrollAuthenticatorOptions = new SelectEnrollAuthenticatorOptions

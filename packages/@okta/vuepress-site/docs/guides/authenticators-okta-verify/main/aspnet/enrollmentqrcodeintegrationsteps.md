@@ -4,7 +4,7 @@ The user signs in with a username and password, and then chooses Okta Verify fro
 
 #### 2. Request QR code
 
-When the user selects Okta Verify and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in challenge flow or Enrollment Flow. When in Enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Okta Verify factor ID.
+When the user selects Okta Verify and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in challenge flow or enrollment flow. When in Enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Okta Verify factor ID.
 
 ```csharp
 var enrollAuthenticatorOptions = new SelectEnrollAuthenticatorOptions
