@@ -83,7 +83,7 @@ func initOktaDeviceAuthenticator() {
 }
 ```
 
-Use the name of the group that you added when you added the App Group Capability earlier. The compiler conditional ensures that Device Authenticator uses the appropriate APNs environment.
+Use the name of the group that you included when you added the App Group Capability earlier. The compiler conditional ensures that Device Authenticator uses the appropriate APNs environment.
 
 ### Register the device
 
