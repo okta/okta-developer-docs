@@ -139,7 +139,7 @@ The following are section suggestions for your configuration guide:
 
 * [Prerequisites](#prerequisites)
 * [Supported features](#supported-features)
-* [Procedure](#procedure)
+* [Configuration steps](#configuration-steps)
 * [SP-initiated SSO](#sp-initiated-sso)
 * [Troubleshoot](#troubleshoot)
 
@@ -152,6 +152,8 @@ In this section, specify any prerequisites required before your customer configu
 ##### SAML prerequisite example
 
 ```markdown
+## Prerequisites
+
 When using SAML as the SSO mode with provisioning, you need to enable a specific account plan on the application side for silent activation.
 ```
 
@@ -164,6 +166,8 @@ In this section of your guide, list the features that your application supports 
 ##### OIDC supported feature example
 
 ```markdown
+## Supported features
+
 * SP-initiated SSO (Single Sign-On)
 * IdP-initiated SSO (through [Third-party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin))
 * Just-In-Time provisioning
@@ -175,6 +179,8 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 ##### SAML supported feature example
 
 ```markdown
+## Supported features
+
 * IdP-initiated SSO
 * SP-initiated SSO
 * Just-In-Time provisioning
@@ -187,6 +193,8 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 ##### SCIM supported feature example
 
 ```markdown
+## Supported features
+
 * Create users
 * Update user attributes
 * Deactivate users
@@ -201,9 +209,9 @@ Okta can't update user attributes for Admin users. This is an API limitation.
 For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
 ```
 
-#### Procedure
+#### Configuration steps
 
-This section explains all the configuration steps needed to get your customers set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
+This section explains the procedure needed to get your customers set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
 
 > **Note:** You can get SAML metadata values for your SAML configuration setup from the Admin Console. Go to **Applications** > **Applications** > your SAML app > **Sign-On Options** tab > **Sign on methods** > **SAML 2.0** > **Metadata details**. See [SAML configuration steps example](#saml-configuration-steps-example).
 
@@ -212,6 +220,8 @@ This section explains all the configuration steps needed to get your customers s
 The following is an example of a simple SAML customer procedure:
 
 ```markdown
+## Configuration steps
+
 1. Copy the **Metadata URL** from the **SAML 2.0** > **Metadata details** section in the Admin Console and save this value for the next step.
 2. Contact the {appName} support team (for example, support@{appName}.com) and request that they enable SAML 2.0 for your account. Include **Metadata URL** value from the previous step.
    The {appName} support team processes your request and provides you with an SSO ID and an encryption certificate.
@@ -230,6 +240,8 @@ The following is an example of a simple SAML customer procedure:
 For some integrations, the customer admin needs to configure SAML settings in your app. The following is an example of an admin procedure to configure SAML settings:
 
 ```markdown
+## Configuration steps
+
 1. Copy the **Metadata URL** from the **SAML 2.0** > **Metadata details** section in the Admin Console and save this value for the next few steps.
 2. Sign in to {appName}.
 3. Navigate to **Admin** >  **Settings** > **SAML SSO**.
@@ -242,19 +254,13 @@ For some integrations, the customer admin needs to configure SAML settings in yo
 The SAML setting is complete in {appName}.
 ```
 
-> **Note:** Your app integration may require specific SAML settings than the SAML **Metadata URL**. You can also copy **Sign on URL**, **Sign out URL**, **Issuer**, and **Signing Certificate** values from the same **SAML 2.0** > **Metadata details** section in the Admin Console. Adjust your configuration guide as required from the example template. See [How to Configure SAML 2.0](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-General-Information.html) for an example.
+> **Note:** Your app integration may require specific SAML settings than the SAML **Metadata URL**. You can also copy **Sign on URL**, **Sign out URL**, **Issuer**, and **Signing Certificate** values from the same **SAML 2.0** > **Metadata details** section in the Admin Console. Adjust your configuration guide as required from the example template. See [Configure SAML settings at Create SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-saml).
 
-##### SCIM procedure note example
-
-```markdown
-The External ID is a required attribute, but it doesn't have a default mapping.
-This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`.
-Assign the mapping to the correct value for your organization.
-```
-
-##### SAML procedure note example
+##### SAML configuration steps note example
 
 ```markdown
+## Note
+
 * Ensure that you entered the correct value in the **Subdomain** field under the **General** tab. The wrong subdomain value prevents you from authenticating through SAML to {appName}.
 
 * The following SAML attributes are supported:
@@ -266,6 +272,16 @@ Assign the mapping to the correct value for your organization.
    | lastName  | user.lastName  |
 ```
 
+##### SCIM configuration steps note example
+
+```markdown
+## Note
+
+The External ID is a required attribute, but it doesn't have a default mapping.
+This is because some customers prefer to set it to `EmployeeNumber`, and others like to set it to `emailAddress`.
+Assign the mapping to the correct value for your organization.
+```
+
 #### SP-initiated SSO
 
 > **Note**: This section applies only to SAML or OIDC integrations that support app-initiated Single Sign-On (SSO), also known as service provider (SP) initiated SSO.
@@ -275,6 +291,8 @@ Provide instructions for your users to sign in with Okta from your app. The user
 ##### SP-initiated SSO instructions example
 
 ```markdown
+## SP-initiated SSO
+
 The sign-in process is initiated from {yourAppPortal}.
 
 1. From your browser, navigate to the {appName} sign-in page.
