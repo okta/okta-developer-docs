@@ -827,7 +827,9 @@ export const languagesSdk = [
          {
             title: "Server-side",
             subLinks: [
-               { title: ".NET", path: "/code/dotnet/aspnetcore/" },
+               { title: "ASP.NET Core", path: "/code/dotnet/aspnetcore/" },
+               { title: "ASP.NET Framework", path: "/code/dotnet/aspnet/" },
+               { title: "Blazor", path: "/code/dotnet/blazor/" },
                { title: "Go", path: "/code/go/" },
                { title: "Java", path: "/code/java/" },
                { title: "Node.js", path: "/code/nodejs/" },
