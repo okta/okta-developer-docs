@@ -38,7 +38,9 @@ The sign-in page is a JavaScript library that gives you a fully-featured and cus
 
 ### Branding and the Sign-In Widget third generation
 
-The third generation of the Okta Sign-In Widget doesn’t support CSS overrides. That is, if you use the code editor to override the sign-in page’s default styles, you shouldn’t enable the third generation yet. See Sign-In Widget (third generation). [insert EA tag]
+<ApiLifecycle access="ea" />
+
+The third generation of the Okta Sign-In Widget doesn’t support CSS overrides. That is, if you use the code editor to override the sign-in page’s default styles, you shouldn’t enable the third generation yet. See [Sign-In Widget (third generation)]().
 
 ## Style for redirect authentication
 
