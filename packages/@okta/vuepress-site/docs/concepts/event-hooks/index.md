@@ -31,6 +31,10 @@ For general information on how Okta encapsulates events, see the [System Log API
 
 Event types include user lifecycle changes, the completion by a user of a specific stage in an Okta process flow, and changes in Okta objects. You can configure an event hook, for example, to deliver notifications of user deactivation events. You can use hooks to trigger processes that you need to execute internally every time a user is deactivated. For example, updating a record in an HR system, creating a ticket in a support system, or generating an email message.
 
+<ApiLifecycle access="ea" /> You can reduce the number of event hooks triggered by defining filters on specific instances of the subscribed event type. For example, if you want a hook triggered by user sign-in events for a specific group of users, you can filter on that group, rather than having an event hook trigger for every user sign in. See [Create an event hook filter](#create-an-event-hook-filter).
+
+<EventHookEANote/>
+
 ## Requests sent by Okta
 
 When events occur in your org that match an event type monitored by your event hook, the event hook is automatically triggered and sends a request to your external service. The JSON payload of the request provides information on the event. A sample JSON payload is provided in [Sample event delivery payload](#sample-event-delivery-payload).
@@ -125,6 +129,14 @@ After implementing your external service, you need to register it with Okta. To 
 ### Verify your endpoint
 
 After registering the event hook, you need to trigger a one-time verification process by clicking the **Verify** button in the Admin Console. When you trigger a verification, Okta calls out to your external service, making the one-time verification request to it. You need to have implemented functionality in your service to handle the expected request and response. The purpose of this step is to prove that you control the endpoint. See [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
+
+### Create an event hook filter
+
+<ApiLifecycle access="ea" />
+
+In the Admin Console, you can optionally create a filter on the event hook to reduce the number of times the event hook triggers. Use the Okta Expression Language or the simple UI tool to define filters that trigger events based on specific event type attributes. See [Edit and event hook filter](https://help.okta.com/okta_help.htm?id=ext-edit-eventhooks-filters) and [Okta Expression Language and event hooks](https://help.okta.com/okta_help.htm?type=oie&locale=en&id=csh-event-hooks-el).
+
+<EventHookEANote/>
 
 ### Preview your hook
 
