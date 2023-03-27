@@ -31,7 +31,9 @@ For general information on how Okta encapsulates events, see the [System Log API
 
 Event types include user lifecycle changes, the completion by a user of a specific stage in an Okta process flow, and changes in Okta objects. You can configure an event hook, for example, to deliver notifications of user deactivation events. You can use hooks to trigger processes that you need to execute internally every time a user is deactivated. For example, updating a record in an HR system, creating a ticket in a support system, or generating an email message.
 
-<ApiLifecycle access="ea" /> You can reduce the number of event hooks triggered by defining filters on specific instances of the subscribed event type. For example, if you want a hook triggered by user sign-in events for a specific group of users, you can filter on that group, rather than having an event hook trigger for every user sign in. See [Create an event hook filter](#create-an-event-hook-filter).
+<ApiLifecycle access="ea" />
+
+You can reduce the number of event hooks triggered by defining filters on specific instances of the subscribed event type. For example, if you want a hook triggered by user sign-in events for a specific group of users, you can filter on that group, rather than having an event hook trigger for every user sign in. See [Create an event hook filter](#create-an-event-hook-filter).
 
 <EventHookEANote/>
 
