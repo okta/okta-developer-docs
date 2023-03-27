@@ -13,6 +13,12 @@ Okta brands allow you to customize the look and feel of pages and templates. You
 
 Each org starts with Okta default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta default brand assets. You can then publish these assets directly to your pages and templates.
 
+### Branding and the Sign-In Widget (third generation)
+
+<ApiLifecycle access="ea" />
+
+The third generation of the Okta Sign-In Widget doesn’t support CSS overrides. That is, if you use the code editor to override the sign-in page’s default styles, you shouldn’t enable the third generation yet. See [Sign-In Widget (third generation)](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw).
+
 ## What is multibrand customization?
 
 > **Note:** Multibrand customization is available on both Okta Identity Engine and Okta Classic Engine.
