@@ -36,6 +36,10 @@ The sign-in page is a JavaScript library that gives you a fully-featured and cus
 
 * Embedded authentication: After you have [installed the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) into your project and configured the authentication scenarios that you want to support, you can then customize the sign-in page. You can apply customizations to match your branding using CSS and JavaScript. See [Style for embedded authentication](#style-for-embedded-authentication).
 
+### Branding and the Sign-In Widget third generation
+
+The third generation of the Okta Sign-In Widget doesn’t support CSS overrides. That is, if you use the code editor to override the sign-in page’s default styles, you shouldn’t enable the third generation yet. See Sign-In Widget (third generation). [insert EA tag]
+
 ## Style for redirect authentication
 
 You can add any HTML, CSS, or JavaScript to the sign-in page and also customize it [per application](#per-application-customization) and with multiple brands. This page covers what you can change when you are using redirect authentication, how to use the variables and request context, and also how to bypass the custom sign-in page.
