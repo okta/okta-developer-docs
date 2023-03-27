@@ -9,7 +9,39 @@ It has been using 250+ SaaS apps, 500+ on-prem apps, and 400+ cloud-native apps 
 
 The combination of these legacy IAM systems and newer cloud-based ones creates inefficiencies with provisioning and onboarding/offboarding. As Company X adds more cloud applications it’s running into issues with building and maintaining integrations as well as issues with inconsistent onboarding and offboarding. It’s also observing spikes in support tickets for login-related issues from users who need to remember multiple credential combinations. To address these, Company X is looking to consolidate all its IAM systems into a single directory for ease of management as well as to expedite cloud based app integrations. The end goal for Company X is to consolidate multiple identity stores into one and multiple Identity Providers for different applications and services into one. Company X hopes this will enable benefits such as Single Sign-On, and centralized user management and authorization policies.
 
-## Use case
+## Use case: Directory Coexistence
+
+<figure class="main-card">
+  <img
+    class="main-card__image"
+    src="https://picsum.photos/200/300"
+    alt="It's a simple title"
+  >
+  <figcaption class="main-card__body">
+    <h2 class="main-card__title">
+      <a
+        class="main-card__main-link"
+        href="/architecture-center/reference-architectures/directory-coexistence"
+      >
+        Directory Coexistence
+      </a>
+    </h2>
+    <div class="main-card__wrapper">
+      <span class="main-card__tag">
+        Architecture paper
+      </span>
+      <span class="main-card__tag">
+        User migration
+      </span>
+      <span class="main-card__tag">
+        Universal Directory
+      </span>
+    </div>
+    <p class="main-card__text">
+      Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping both source and target directories active during the process. <a class="main-card__link" href="/architecture-center/reference-architectures/directory-coexistence">Learn more</a>
+    </p>
+  </figcaption>
+</figure>
 
 Company X wantsto consolidate its users into a single directory for ease of management and wishes to migrate its users, groups and device profiles from multiple IAM systems which are a combination of legacy on-prem systems and cloud based systems. These were split across many Identity Providers (IdPs):
 
@@ -125,38 +157,3 @@ A single username and password provided access to all the workplace productivity
 **Simplified user access auditing**
 
 Company X was able to get real-time data within Okta so IT could troubleshoot and address single sign-on security issues immediately, and use pre-built reporting to get a deeper understanding of how end users were using its apps and where it had potential security risks.
-
-
-## Associated Architecture Papers
-
-<figure class="main-card">
-  <img
-    class="main-card__image"
-    src="https://picsum.photos/200/300"
-    alt="It's a simple title"
-  >
-  <figcaption class="main-card__body">
-    <h2 class="main-card__title">
-      <a
-        class="main-card__main-link"
-        href="/architecture-center/reference-architectures/directory-coexistence"
-      >
-        Directory Coexistence
-      </a>
-    </h2>
-    <div class="main-card__wrapper">
-      <span class="main-card__tag">
-        Architecture paper
-      </span>
-      <span class="main-card__tag">
-        User migration
-      </span>
-      <span class="main-card__tag">
-        Universal Directory
-      </span>
-    </div>
-    <p class="main-card__text">
-      Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping both source and target directories active during the process. <a class="main-card__link" href="/architecture-center/reference-architectures/directory-coexistence">Learn more</a>
-    </p>
-  </figcaption>
-</figure>

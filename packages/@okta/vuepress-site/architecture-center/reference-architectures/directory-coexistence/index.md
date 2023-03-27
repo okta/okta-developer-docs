@@ -7,8 +7,6 @@ excerpt:
 
 # Directory coexistence
 
-> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
-
 Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping both source and target directories active during the process.
 
 ## Introduction
@@ -22,6 +20,40 @@ Use directory coexistence for:
 * Switching to Okta and migrating user, group, and device profiles over time.
 * Consolidating multiple Identity Providers for different applications and services into one provider.
 * Merging different identity stores into a single Identity Provider after merging with or acquiring another company.
+
+## Associated Case Studies
+
+<figure class="main-card">
+  <img
+    class="main-card__image"
+    src="https://picsum.photos/200/300"
+    alt="It's a simple title"
+  >
+  <figcaption class="main-card__body">
+    <h2 class="main-card__title">
+      <a
+        class="main-card__main-link"
+        href="/architecture-center/case-studies/companyx/"
+      >
+        Company X
+      </a>
+    </h2>
+    <div class="main-card__wrapper">
+      <span class="main-card__tag">
+        Case Study
+      </span>
+      <span class="main-card__tag">
+        User Migration
+      </span>
+      <span class="main-card__tag">
+        Directory Coexistence
+      </span>
+    </div>
+    <p class="main-card__text">
+      Company X used the Directory Coexistence architecture to combine their various IAM solutions into one. <a class="main-card__link" href="/architecture-center/case-studies/companyx/">Learn more.</a>
+    </p>
+  </figcaption>
+</figure>
 
 ## Lab
 
@@ -112,27 +144,3 @@ OAuth 2.0 and OIDC are the standard protocols on which Okta authentication and a
 Using Universal Directory as a single Identity Provider for your applications, you can already take advantage of [Okta Workflows](https://help.okta.com/wf/en-us/Content/Topics/Workflows/workflows-main.htm) to simplify onboarding and offboarding, user management, and reporting. To take full advantage of Okta's features and enable [Single Sign-On](https://www.okta.com/topic/single-sign-on/), multifactor authentication, passwordless access, and more, all your applications should use OIDC to authenticate users rather than SAML or another solution.
 
 For a more in-depth introduction to the protocols and different authorization flows you can implement in your applications, see [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/).
-
-## Associated Case Studies
-
-<figure class="main-card">
-  <img
-    class="main-card__image"
-    src="https://picsum.photos/200/300"
-    alt="It's a simple title"
-  >
-  <figcaption class="main-card__body">
-    <h2 class="main-card__title">
-      <a
-        class="main-card__main-link"
-        href="#"
-      >
-        Company X
-      </a>
-    </h2>
-    <div class="main-card__wrapper">
-      <span class="main-card__tag">
-        Directory Coexistence
-      </span>
-  </figcaption>
-</figure>

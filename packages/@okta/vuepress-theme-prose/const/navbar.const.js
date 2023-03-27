@@ -1096,94 +1096,101 @@ export const releaseNotes = [
 ];
 
 export const architectureCenter = [
-  {
-    title: 'Architecture Center',
-    path: '/architecture-center/',
-    cards: true,
-    subLinks: [
-      {
-        title: 'Case studies',
-        path: '/architecture-center/case-studies/'
-      },
-      {
-        title: 'Tutorials',
-        path: '/architecture-center/reference-architectures/',
-        cards: true,
-        subLinks: [
-          {
-            title: "Directory coexistence",
-            path: "/architecture-center/reference-architectures/directory-coexistence/",
+   {
+      title: 'Architecture Center',
+      path: '/architecture-center/',
+      cards: true,
+      subLinks: [
+         {
+            title: 'Case studies',
+            path: '/architecture-center/case-studies/',
+            cards: true,
             subLinks: [
-              {
-                  title: "Lab",
-                  path: "/architecture-center/reference-architectures/directory-coexistence/lab-overview/",
-                  subLinks: [
-                    {
-                        title: "Prerequisites",
-                        path: "/architecture-center/reference-architectures/directory-coexistence/lab-prerequisites/",
-                    },
-                    {
-                        title: "1: From Azure AD to Okta",
-                        path: "/architecture-center/reference-architectures/directory-coexistence/lab-1-azure-ad/",
-                    },
-                    {
-                        title: "2: From LDAP to Okta",
-                        path: "/architecture-center/reference-architectures/directory-coexistence/lab-2-ldap-server/",
-                    },
-                    {
-                        title: "3: From database to Okta",
-                        path: "/architecture-center/reference-architectures/directory-coexistence/lab-3-generic-database/",
-                    },
-                  ],
-              },
+               {
+                  title: "CompanyX",
+                  path: "/architecture-center/case-studies/companyx/",
+               },
             ],
-          },
-          {
-            title: "Managing multiple Okta environments",
-            path: "/architecture-center/reference-architectures/mmoe/",
+         },
+         {
+            title: 'Reference Architectures',
+            path: '/architecture-center/reference-architectures/',
+            cards: true,
             subLinks: [
-              {
-                  title: "Lab",
-                  path: "/architecture-center/reference-architectures/mmoe/lab-overview/",
+               {
+                  title: "Directory coexistence",
+                  path: "/architecture-center/reference-architectures/directory-coexistence/",
                   subLinks: [
-                    {
-                        title: "Prerequisites",
-                        path: "/architecture-center/reference-architectures/mmoe/lab-prerequisites/",
-                    },
-                    {
-                        title: "1: Configure Terraform Cloud",
-                        path: "/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud/",
-                    },
-                    {
-                        title: "2: Create resources",
-                        path: "/architecture-center/reference-architectures/mmoe/lab-2-create-resources/",
-                    },
-                    {
-                        title: "3: Rename a group",
-                        path: "/architecture-center/reference-architectures/mmoe/lab-3-rename-a-group/",
-                    },
-                    {
-                        title: "4: Deploy changes to production",
-                        path: "/architecture-center/reference-architectures/mmoe/lab-4-deploy-changes-to-production/",
-                    },
-                    {
-                        title: "5: Detect drift",
-                        path: "/architecture-center/reference-architectures/mmoe/lab-5-detect-drift/",
-                    },
-                    {
-                        title: "6: Synchronize environments daily",
-                        path: "/architecture-center/reference-architectures/mmoe/lab-6-synchronize-environments-daily/",
-                    },
+                     {
+                        title: "Lab",
+                        path: "/architecture-center/reference-architectures/directory-coexistence/lab-overview/",
+                        subLinks: [
+                           {
+                              title: "Prerequisites",
+                              path: "/architecture-center/reference-architectures/directory-coexistence/lab-prerequisites/",
+                           },
+                           {
+                              title: "1: From Azure AD to Okta",
+                              path: "/architecture-center/reference-architectures/directory-coexistence/lab-1-azure-ad/",
+                           },
+                           {
+                              title: "2: From LDAP to Okta",
+                              path: "/architecture-center/reference-architectures/directory-coexistence/lab-2-ldap-server/",
+                           },
+                           {
+                              title: "3: From database to Okta",
+                              path: "/architecture-center/reference-architectures/directory-coexistence/lab-3-generic-database/",
+                           },
+                        ],
+                     },
                   ],
-              },
-              {
-                  title: "Further reading",
-                  path: "/architecture-center/reference-architectures/mmoe/resources/",
-              },
+               },
+               {
+                  title: "Managing multiple Okta environments",
+                  path: "/architecture-center/reference-architectures/mmoe/",
+                  subLinks: [
+                     {
+                        title: "Lab",
+                        path: "/architecture-center/reference-architectures/mmoe/lab-overview/",
+                        subLinks: [
+                           {
+                              title: "Prerequisites",
+                              path: "/architecture-center/reference-architectures/mmoe/lab-prerequisites/",
+                           },
+                           {
+                              title: "1: Configure Terraform Cloud",
+                              path: "/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud/",
+                           },
+                           {
+                              title: "2: Create resources",
+                              path: "/architecture-center/reference-architectures/mmoe/lab-2-create-resources/",
+                           },
+                           {
+                              title: "3: Rename a group",
+                              path: "/architecture-center/reference-architectures/mmoe/lab-3-rename-a-group/",
+                           },
+                           {
+                              title: "4: Deploy changes to production",
+                              path: "/architecture-center/reference-architectures/mmoe/lab-4-deploy-changes-to-production/",
+                           },
+                           {
+                              title: "5: Detect drift",
+                              path: "/architecture-center/reference-architectures/mmoe/lab-5-detect-drift/",
+                           },
+                           {
+                              title: "6: Synchronize environments daily",
+                              path: "/architecture-center/reference-architectures/mmoe/lab-6-synchronize-environments-daily/",
+                           },
+                        ],
+                     },
+                     {
+                        title: "Further reading",
+                        path: "/architecture-center/reference-architectures/mmoe/resources/",
+                     },
+                  ],
+               },
             ],
-          },
-        ],
-      },
-    ],
-  },
+         },
+      ],
+   },
 ];
