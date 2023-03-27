@@ -235,6 +235,8 @@ The following is an example of a simple SAML customer procedure:
 
 > **Note:** The **Sign On** tab for your app integration may have different fields from the previous example. Adjust your configuration guide as required from the example template.
 
+For a complete customer configuration guide example that requires support to configure SAML, see [How to configure SAML 2.0 for AppName with support](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-SAML-instructions-support.html).
+
 ##### SAML admin configuration steps example
 
 For some integrations, the customer admin needs to configure SAML settings in your app. The following is an example of an admin procedure to configure SAML settings:
@@ -255,6 +257,8 @@ The SAML setting is complete in {appName}.
 ```
 
 > **Note:** Your app integration may require specific SAML settings than the SAML **Metadata URL**. You can also copy **Sign on URL**, **Sign out URL**, **Issuer**, and **Signing Certificate** values from the same **SAML 2.0** > **Metadata details** section in the Admin Console. Adjust your configuration guide as required from the example template. See [Configure SAML settings at Create SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-saml).
+
+For a complete customer configuration guide example, see [How to configure SAML 2.0](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-SAML-instructions-ISV.html).
 
 ##### SAML configuration steps note example
 
