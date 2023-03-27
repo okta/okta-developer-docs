@@ -113,8 +113,26 @@ Using Universal Directory as a single Identity Provider for your applications, y
 
 For a more in-depth introduction to the protocols and different authorization flows you can implement in your applications, see [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/).
 
-1. A numbered item
+## Associated Case Studies
 
-   The block appears indented and aligned under the numbered item.
-
-   > **Note:** This note is indented and aligned under the numbered item. Add 3 spaces to indent code blocks as well as image tags.
+<figure class="main-card">
+  <img
+    class="main-card__image"
+    src="https://picsum.photos/200/300"
+    alt="It's a simple title"
+  >
+  <figcaption class="main-card__body">
+    <h2 class="main-card__title">
+      <a
+        class="main-card__main-link"
+        href="#"
+      >
+        Company X
+      </a>
+    </h2>
+    <div class="main-card__wrapper">
+      <span class="main-card__tag">
+        Directory Coexistence
+      </span>
+  </figcaption>
+</figure>

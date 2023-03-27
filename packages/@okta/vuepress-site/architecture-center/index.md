@@ -37,7 +37,29 @@ title: Architecture Center
   </figcaption>
 </figure>
 
-## Latest Tutorials
+<figure class="main-card">
+  <img
+    class="main-card__image"
+    src="https://picsum.photos/200/300"
+    alt="It's a simple title"
+  >
+  <figcaption class="main-card__body">
+    <h2 class="main-card__title">
+      <a
+        class="main-card__main-link"
+        href="#"
+      >
+        Company X
+      </a>
+    </h2>
+    <div class="main-card__wrapper">
+      <span class="main-card__tag">
+        Directory Coexistence
+      </span>
+  </figcaption>
+</figure>
+
+## Reference Architectures
 
 <figure class="main-card">
   <img
@@ -56,7 +78,7 @@ title: Architecture Center
     </h2>
     <div class="main-card__wrapper">
       <span class="main-card__tag">
-        Tutorial
+        Architecture paper
       </span>
       <span class="main-card__tag">
         User migration
@@ -88,7 +110,7 @@ title: Architecture Center
     </h2>
     <div class="main-card__wrapper">
       <span class="main-card__tag">
-        Tutorial
+        Architecture paper
       </span>
       <span class="main-card__tag">
         Devops
@@ -100,5 +122,29 @@ title: Architecture Center
     <p class="main-card__text">
       Create solutions for deploying and managing multiple application Okta environments with Terraform. <a class="main-card__link" href="/architecture-center/reference-architectures/mmoe">Learn more</a>
     </p>
+  </figcaption>
+</figure>
+
+## Case Studies
+
+<figure class="main-card">
+  <img
+    class="main-card__image"
+    src="https://picsum.photos/200/300"
+    alt="It's a simple title"
+  >
+  <figcaption class="main-card__body">
+    <h2 class="main-card__title">
+      <a
+        class="main-card__main-link"
+        href="#"
+      >
+        Company X
+      </a>
+    </h2>
+    <div class="main-card__wrapper">
+      <span class="main-card__tag">
+        Directory Coexistence
+      </span>
   </figcaption>
 </figure>
