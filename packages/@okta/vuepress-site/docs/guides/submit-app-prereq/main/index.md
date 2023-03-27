@@ -222,10 +222,10 @@ The following is an example of a simple SAML customer procedure:
 ```markdown
 ## Configuration steps
 
-1. Copy the **Metadata URL** from the **SAML 2.0** > **Metadata details** section in the Admin Console and save this value for the next step.
+1. Copy the **Metadata URL** from the Okta Admin Console, SAML 2.0 **Sign on methods** section.
 2. Contact the {appName} support team (for example, support@{appName}.com) and request that they enable SAML 2.0 for your account. Include **Metadata URL** value from the previous step.
    The {appName} support team processes your request and provides you with an SSO ID and an encryption certificate.
-3. In your Okta Admin Console, select the **General** tab for the {appName} SAML app, then click **Edit** and follow the steps below:
+3. In your Okta Admin Console, select the **Sign on** tab for the {appName} SAML app, then click **Edit** and follow the steps below:
    * **Encryption Certificate**: Upload the certificate provided by {appName} support in the previous step.
    * Scroll down to **Advanced Sign-on Settings** and enter your **SSO ID**
    * **Application username format**: Select **email**
@@ -233,7 +233,7 @@ The following is an example of a simple SAML customer procedure:
 4. Your SAML configuration for {appName} is complete. You can start assigning people to the application.
 ```
 
-> **Note:** The **General** tab for your app integration may have different fields from the previous example. Adjust your configuration guide as required from the example template.
+> **Note:** The **Sign On** tab for your app integration may have different fields from the previous example. Adjust your configuration guide as required from the example template.
 
 ##### SAML admin configuration steps example
 
