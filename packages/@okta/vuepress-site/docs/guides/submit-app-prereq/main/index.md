@@ -261,7 +261,7 @@ The SAML setting is complete in {appName}.
 ```markdown
 ## Note
 
-* Ensure that you entered the correct value in the **Subdomain** field under the **General** tab. The wrong subdomain value prevents you from authenticating through SAML to {appName}.
+* Ensure that you entered the correct value in the "Subdomain" field under the General tab. The wrong subdomain value prevents you from authenticating through SAML to {appName}.
 
 * The following SAML attributes are supported:
 
@@ -296,7 +296,7 @@ Provide instructions for your users to sign in with Okta from your app. The user
 The sign-in process is initiated from {yourAppPortal}.
 
 1. From your browser, navigate to the {appName} sign-in page.
-2. Enter your Okta credentials (your email and password) and click **Sign in with Okta**.
+2. Enter your Okta credentials (your email and password) and click "Sign in with Okta".
 If your credentials are valid, you are redirected to the {appName} dashboard.
 ```
 
