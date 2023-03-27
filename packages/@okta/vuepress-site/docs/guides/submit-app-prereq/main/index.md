@@ -222,14 +222,14 @@ The following is an example of a simple SAML customer procedure:
 ```markdown
 ## Configuration steps
 
-1. Copy the **Metadata URL** from the Okta Admin Console, SAML 2.0 **Sign on methods** section.
-2. Contact the {appName} support team (for example, support@example.com) and request that they enable SAML 2.0 for your account. Include **Metadata URL** value from the previous step.
+1. Copy the Metadata URL from the Okta Admin Console, SAML 2.0 Sign on methods section.
+2. Contact the {appName} support team (for example, support@example.com) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
    The {appName} support team processes your request and provides you with an SSO ID and an encryption certificate.
-3. In your Okta Admin Console, select the **Sign on** tab for the {appName} SAML app, then click **Edit** and follow the steps below:
-   * **Encryption Certificate**: Upload the certificate provided by {appName} support in the previous step.
-   * Scroll down to **Advanced Sign-on Settings** and enter your **SSO ID**
-   * **Application username format**: Select **email**
-   * Click **Save**.
+3. In your Okta Admin Console, select the Sign on tab for the {appName} SAML app, then click "Edit" and follow the steps below:
+   * "Encryption Certificate": Upload the certificate provided by {appName} support in the previous step.
+   * Scroll down to Advanced Sign-on Settings and enter your "SSO ID".
+   * Application username format: Select "email".
+   * Click "Save".
 4. Your SAML configuration for {appName} is complete. You can start assigning people to the application.
 ```
 
@@ -242,14 +242,14 @@ For some integrations, the customer admin needs to configure SAML settings in yo
 ```markdown
 ## Configuration steps
 
-1. Copy the **Metadata URL** from the **SAML 2.0** > **Metadata details** section in the Admin Console and save this value for the next few steps.
+1. Copy the Metadata URL from the SAML 2.0 Metadata details section in the Admin Console and save this value for the next few steps.
 2. Sign in to {appName}.
-3. Navigate to **Admin** >  **Settings** > **SAML SSO**.
+3. Navigate to Admin >  Settings > SAML SSO.
 4. Specify the following:
-   * **ENABLE SAML SSO**: Select **Yes**.
-   * **IDP Provider**: Select **Okta**.
-   * **Metadata URL**: Copy and paste the metadata URL value from step one.
-4. Click **Save Changes**.
+   * ENABLE SAML SSO: Select "Yes".
+   * IDP Provider: Select "Okta".
+   * Metadata URL: Copy and paste the metadata URL value from step one.
+4. Click "Save Changes".
 
 The SAML setting is complete in {appName}.
 ```
