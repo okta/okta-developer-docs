@@ -148,8 +148,6 @@ If you don't have a Runscope account, you can sign up with a [free trial to Runs
 
 If you are developing your SCIM integration in a local environment and need to expose it to Runscope for testing, we suggest using the [ngrok](https://ngrok.com/) tool so you can route external address requests to your local web server.
 
-> **Note:** You must create at least one user in your SCIM server before running the Okta SCIM API test suite.
-
 To get started using Runscope to test your SCIM API:
 
 1. Download the Okta SCIM Spec Test file that corresponds to the version of SCIM you set up on your server. You will use this file to import the Okta SCIM test suite into Runscope.
@@ -217,6 +215,8 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 1. Click **Save**.
 
 ## Running Okta SPEC tests against your SCIM server
+
+> **Note:** You must create at least one user in your SCIM server before running the Okta SCIM API test suite.
 
 After you have customized your SCIM test in Runscope with the details of your SCIM server, you can run the test:
 
