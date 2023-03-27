@@ -29,10 +29,11 @@ When you are redirecting to the Okta-hosted widget, make sure that your user exp
 
 ## Update the Embedded Sign-In Widget
 
-When you are embedding the widget, consider and plan for the following steps, depending on your needs:
+When you are embedding the widget, consider and plan for the following steps depending on your needs:
 
 * [Update your widget](/docs/guides/oie-upgrade-sign-in-widget) to the latest version.
 * [Add support for the Interaction Code](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server) in your custom authorization servers and embedded auth applications.
+* [Add CORS for your widget](https://help.okta.com/okta_help.htm?type=oie&id=trusted-origins) to help locate potential integrations. Enable CORS to isolate where an SDK is initialized.
 * [Change your embedded Sign-In Widget’s configuration](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) to support the Interaction Code grant type in your project.
 * [Upgrade your application to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#map-basic-sign-in-code-to-the-identity-engine-sdk) to update your app if you are using `setCookieAndRedirect` to get tokens. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 * Test and verify your user experience both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
