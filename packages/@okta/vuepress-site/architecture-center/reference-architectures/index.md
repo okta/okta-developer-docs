@@ -1,9 +1,9 @@
 ---
 layout: Landing
-title: Architecture Center
+title: Tutorials
 ---
 
-## Featured this month
+## Featured Tutorial
 
 <figure class="main-card main-card_size_large">
   <img
