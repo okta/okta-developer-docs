@@ -258,7 +258,7 @@ The SAML setting is complete in {appName}.
 
 > **Note:** Your app integration may require specific SAML settings than the SAML **Metadata URL**. You can also copy **Sign on URL**, **Sign out URL**, **Issuer**, and **Signing Certificate** values from the same **SAML 2.0** > **Metadata details** section in the Admin Console. Adjust your configuration guide as required from the example template. See [Configure SAML settings at Create SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-saml).
 
-For a complete customer configuration guide example, see [How to configure SAML 2.0](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-SAML-instructions-ISV.html).
+For a complete customer configuration guide example, see [How to configure SAML 2.0 for AppName](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-SAML-instructions-ISV.html).
 
 ##### SAML configuration steps note example
 
@@ -322,6 +322,8 @@ Include this section if there are known issues that apply to the entire configur
 * [Runscope](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Runscope.html)
 * [Salesforce](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-in-Salesforce.html)
 * [Zoom.us](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Zoom.us.html)
+* [How to configure SAML 2.0 for AppName](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-SAML-instructions-ISV.html) example
+* [How to configure SAML 2.0 for AppName with support](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-SAML-instructions-support.html) example
 
 ##### SCIM examples
 
