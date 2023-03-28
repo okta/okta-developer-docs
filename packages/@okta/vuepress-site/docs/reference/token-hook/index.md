@@ -13,19 +13,19 @@ For a general introduction to Okta inline hooks, see [inline hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this inline hook, see below, [Enabling a token inline hook](#enabling-a-token-inline-hook).
+For steps to enable this inline hook, see [Enabling a token inline hook](#enabling-a-token-inline-hook).
 
 For an example implementation of this inline hook, see [Token inline hook](/docs/guides/token-inline-hook).
 
 ## About
 
-This type of inline hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token or to modify existing claims.
+This type of inline hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta custom authorization server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token or to modify existing claims.
 
-This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
+This functionality can be used to add data that is sensitive, calculated at runtime, or complexly structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
 In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid.
 
-This inline hook works only when using an [Okta Custom Authorization Server](/docs/guides/customize-authz-server/main/#create-an-authorization-server), not the built-in Okta Authorization Server.
+This inline hook works only when using an [Okta custom authorization server](/docs/guides/customize-authz-server/main/#create-an-authorization-server), not the built-in Okta authorization server.
 
 ## Objects in the request from Okta
 
@@ -80,11 +80,11 @@ For the token inline hook, the `commands` and `error` objects that you can retur
 
 ### commands
 
-The `commands` object is where you can provide commands to Okta. It is where you can tell Okta to add additional claims to the token.
+The `commands` object is where you can provide commands to Okta. It's where you can tell Okta to add more claims to the token.
 
 The `commands` object is an array, allowing you to send multiple commands. In each array element, there needs to be a `type` property and `value` property. The `type` property is where you specify which of the supported commands you want to execute, and `value` is where you supply an operand for that command.
 
-In the case of the Token hook type, the `value` property is itself a nested object in which you specify a particular operation, a path to act on, and a value.
+In the case of the token hook type, the `value` property is itself a nested object in which you specify a particular operation, a path to act on, and a value.
 
 | Property | Description                                                              | Data Type       |
 |----------|--------------------------------------------------------------------------|-----------------|
@@ -104,12 +104,12 @@ The following commands are supported for the token inline hook type:
 
 #### value
 
-The `value` object is where you specify the specific operation to perform. It is an array, allowing you to request more than one operation.
+The `value` object is where you specify the specific operation to perform. It's an array, allowing you to request more than one operation.
 
 | Property | Description                                                                                       | Data Type       |
 |----------|---------------------------------------------------------------------------------------------------|-----------------|
 | op       | The name of one of the [supported ops](#list-of-supported-ops).                                   | String          |
-| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with `/claims/`  and is followed by the name of the new claim that you are adding. When replacing a token lifetime, the path should always be `/token/lifetime/expiration`. | String          |
+| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with `/claims/`  and is followed by the name of the new claim that you're adding. When replacing a token lifetime, the path should always be `/token/lifetime/expiration`. | String          |
 | value    | Value to set the claim to.                                       | Any JSON object |
 
 #### List of supported ops
@@ -122,7 +122,7 @@ The `value` object is where you specify the specific operation to perform. It is
 
 #### Reserved claims for Token Hooks
 
-Okta defines a number of reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, don't use the following reserved claims:
+Okta defines various reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, don't use the following reserved claims:
 
 | Claim Name     | Token Type        |
 |----------------|-------------------|
@@ -488,17 +488,17 @@ This `add` operation adds `lax` to the end of the array. Alternatively, you can 
 }
 ```
 
-**Note:** If you attempt to add an element within an array that doesn't exist or specify an invalid index, the entire PATCH will fail and errors will be logged in the token hooks events.
+**Note:** If you attempt to add an element within an array that doesn't exist or specify an invalid index, the entire PATCH fails and errors are logged in the token hooks events.
 
 ### Sample response to replace an existing claim
 
 You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
-See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't modify.
+See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token-reserved claims that you can't modify.
 
 >**Note:** Although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
 
-See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
+See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token-reserved claims that you can't modify.
 
 ```json
 {
@@ -610,11 +610,11 @@ You can modify how long the access and ID tokens are valid by specifying the `li
 
 ### Sample response to remove token claims
 
-You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. If you attempt to remove a system-specific claim or use an invalid operation, the entire PATCH will fail and errors will be logged in the token hooks events.
+You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. If you attempt to remove a system-specific claim or use an invalid operation, the entire PATCH fails and errors are logged in the token hooks events.
 
-See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't remove.
+See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token-reserved claims that you can't remove.
 
-See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
+See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token-reserved claims that you can't remove.
 
 > **Note:** The `value` property for the `remove` operation isn't required. If you provide it in the response, it should be set to `null`. Providing any other value fails the entire PATCH response.
 
@@ -739,7 +739,7 @@ The resulting JSON object:
 
 ## Timeout behavior
 
-After receiving the Okta request, if there is a response timeout, the Okta process flow proceeds with original token returned. See [Troubleshooting](#troubleshooting).
+After receiving the Okta request, if there's a response timeout, the Okta process flow proceeds with original token returned. See [Troubleshooting](#troubleshooting).
 
 ## Enabling a token inline hook
 
