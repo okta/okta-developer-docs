@@ -216,6 +216,8 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 
 ## Running Okta SPEC tests against your SCIM server
 
+> **Note:** You must create at least one user in your SCIM server before running the Okta SCIM API test suite.
+
 After you have customized your SCIM test in Runscope with the details of your SCIM server, you can run the test:
 
 1. If you followed the steps above, **Run Now** appears at the top of your test.
