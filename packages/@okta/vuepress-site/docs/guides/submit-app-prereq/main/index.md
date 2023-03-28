@@ -57,7 +57,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 * If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 
-* You can use a slightly non-square icon, but consider the scaling that occurs when your logo resizes to fit a 200 x 200 pixel area. If you have more logo questions, contact the [OIN team](mailto:oin@okta.com).
+* You can use a slightly non-square icon, but consider the scaling that occurs when your logo resizes to fit a 200 x 200 pixel area.
 
 <div class="full">
 
@@ -77,7 +77,15 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 From the OIN Manager, you can specify the app description in the **General Settings** > **App description** field. Descriptions must be less than 1024 characters and should describe the value that you provide to customers by partnering with Okta.
 
-You can find the app description in the OIN catalog under the **Integration detail** > **Overview** section of your published integration. See an app description example in this [Integration detail page](https://www.okta.com/integrations/servicenow-ud/).
+You can find the app description in the OIN catalog under the **Integration detail** > **Overview** section of your published integration.
+
+##### SSO app description example
+
+Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. Okta's Acme integration allows customers to sign in to the Acme platform using Okta as a Single Sign-On provider.
+
+##### SSO and SCIM app description example
+
+Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. Okta’s Acme integration allows users to authenticate securely through Single Sign-On with SAML along with provisioning capabilities.
 
 ## Use case guidelines
 
@@ -213,8 +221,6 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 This section explains the procedure needed to get your customers set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
 
-> **Note:** You can get SAML metadata values for your SAML configuration setup from the Admin Console. Go to **Applications** > **Applications** > your SAML app > **Sign-On Options** tab > **Sign on methods** > **SAML 2.0** > **Metadata details**. See [SAML configuration steps example](#saml-configuration-steps-example).
-
 ##### SAML configuration steps example
 
 The following is an example of a simple SAML customer procedure:
@@ -235,7 +241,7 @@ The following is an example of a simple SAML customer procedure:
 
 > **Note:** The **Sign On** tab for your app integration may have different fields from the previous example. Adjust your configuration guide as required from the example template.
 
-For a complete customer configuration guide example that requires support to configure SAML, see [How to configure SAML 2.0 for AppName with support](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-SAML-instructions-support.html).
+For a complete customer configuration guide example that requires support to configure SAML, see [How to Configure SAML 2.0 for {AppName}&mdash;with support](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-with-company-support.html).
 
 ##### SAML admin configuration steps example
 
@@ -256,9 +262,10 @@ For some integrations, the customer admin needs to configure SAML settings in yo
 The SAML setting is complete in {appName}.
 ```
 
-> **Note:** Your app integration may require specific SAML settings than the SAML **Metadata URL**. You can also copy **Sign on URL**, **Sign out URL**, **Issuer**, and **Signing Certificate** values from the same **SAML 2.0** > **Metadata details** section in the Admin Console. Adjust your configuration guide as required from the example template. See [Configure SAML settings at Create SAML app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_App_Integration_Wizard-saml).
+> **Note:** Your app integration may require specific SAML settings than the SAML **Metadata URL** (such as **Sign on URL**, **Sign out URL**, **Issuer**, or **Signing Certificate** settings).
+> You can find these SAML settings at **Applications** > **Applications** > your SAML app > **Sign-On Options** tab > **Sign on methods** > **SAML 2.0** > **Metadata details** in the Admin Console. See [Configure Single Sign-On options](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Overview_of_Managing_Apps_and_SSO). Adjust your configuration guide as required from the example template.
 
-For a complete customer configuration guide example, see [How to configure SAML 2.0 for AppName](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-SAML-instructions-ISV.html).
+For a complete customer admin configuration guide example, see [How to Configure SAML 2.0 for {AppName}&mdash;for customer admin](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-self.html).
 
 ##### SAML configuration steps note example
 
@@ -318,12 +325,12 @@ Include this section if there are known issues that apply to the entire configur
 
 ##### SAML examples
 
+* [How to Configure SAML 2.0 for {AppName}&mdash;for customer admin](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-self.html) example
+* [How to Configure SAML 2.0 for {AppName}&mdash;with support](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-with-company-support.html) example
 * [GitHub Enterprise](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github_Enterprise.html)
 * [Runscope](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Runscope.html)
 * [Salesforce](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-in-Salesforce.html)
 * [Zoom.us](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Zoom.us.html)
-* [How to configure SAML 2.0 for AppName](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-SAML-instructions-ISV.html) example
-* [How to configure SAML 2.0 for AppName with support](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-SAML-instructions-support.html) example
 
 ##### SCIM examples
 
