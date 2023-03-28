@@ -100,6 +100,8 @@ Each call to your local application appears in the interface and includes the re
 
 Create the Okta event hook to work with your local application, which can now be exposed externally. The event hook must be set up and verified within your Okta Admin Console.
 
+<EventHookEANoteProcedure/>
+
 ### Set up the event hook
 
 1. Sign in to your [Okta org](https://login.okta.com/).

@@ -96,6 +96,8 @@ Hookdeck URLs are reusable and permanent (when you create a free account) and se
 
 Create the Okta event hook to work with your local application. Set up and verify your event hook using the following Admin Console procedure or through the [Event Hooks Management API](/docs/reference/api/event-hooks/).
 
+<EventHookEANoteProcedure/>
+
 ### Set up the event hook
 
 1. Sign in to your [Okta org](https://login.okta.com/).
