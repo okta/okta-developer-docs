@@ -130,9 +130,9 @@
 }
 
 a {
+  font-weight: 500 !important;
   text-decoration: none;
   color: cv("link");
-
   &:visited,
   &:active,
   &:focus {
@@ -140,7 +140,7 @@ a {
   }
   @include media(">desktop") {
     &:hover {
-      color: #3f59e4 !important;
+      color: #3f59e4;
     }
   }
 }
@@ -156,6 +156,7 @@ h6 {
 
   font-weight: 600;
   color: cv("text", "darker");
+  -webkit-font-smoothing: antialiased;
 }
 
 h1 {
@@ -214,4 +215,14 @@ input:-moz-placeholder {
 textarea:-ms-input-placeholder,
 input:-ms-input-placeholder {
   font-family: "Aeonik";
+}
+
+button {
+  background: transparent;
+
+  font-family: "Aeonik";
+}
+
+a[href="#"] {
+  font-weight: 500 !important;
 }

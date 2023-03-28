@@ -248,6 +248,12 @@
   background-color: var(--c-lightgray-450);
 }
 
+.signup__link-dark a:hover span {
+  @include media(">signup") {
+    color: var(--c-gray-980);
+  }
+}
+
 .signup__link-dark:hover {
   @include media(">signup") {
     border-color: var(--c-green-300);
@@ -255,14 +261,14 @@
   }
 }
 
-.signup__link-dark a span {
-  color: var(--c-gray-950);
+.signup__link-dark:hover a {
+  @include media(">signup") {
+    color: var(--c-gray-980) !important;
+  }
 }
 
-.signup__link-dark a:hover span {
-  @include media(">signup") {
-    color: var(--c-white);
-  }
+.signup__link-dark a span {
+  color: var(--c-gray-950);
 }
 
 .signup__footer {

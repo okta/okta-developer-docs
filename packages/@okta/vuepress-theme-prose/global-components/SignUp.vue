@@ -4,10 +4,10 @@
     vue-if="!isRegionLoading"
   >
     <div class="signup__wrapper">
-      <div v-if="isRegionLocked">
+      <!-- <div v-if="isRegionLocked">
         <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
-      </div>
-      <div v-else>
+      </div> -->
+      <div>
         <h1 class="signup__title">
           Choose what works best. 
           <span>Sign up is free.</span>
