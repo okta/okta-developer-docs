@@ -41,7 +41,7 @@ Review the [Event hook implementation](/docs/guides/event-hook-implementation) t
 
 ## Create an event hook with a filter
 
-The Glitch event hook example uses the Okta event for a user deactivation. This event hook triggers for every instance of a user deactivation. With event hook filters, we can create business logic, using the Okta Expression Language, to isolate only certain deactivations that trigger the event hook. In this example, deactivated users with an email of `test_user@example.com` don't trigger the event hook.
+The Glitch event hook example uses the Okta event for a user deactivation. This event hook triggers for every instance of a user deactivation. With event hook filters, we can create business logic, using the Okta Expression Language, to isolate only certain deactivations that trigger the event hook. In this example, deactivated users with an email of `test_user@example.com` trigger the event hook.
 
 1. Sign in to your [Okta org](https://login.okta.com/).
 
