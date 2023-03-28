@@ -136,7 +136,7 @@ After registering the event hook, you need to trigger a one-time verification pr
 
 <ApiLifecycle access="ea" />
 
-In the Admin Console, you can optionally create a filter on the event hook to reduce the number of times the event hook triggers. Use the Okta Expression Language or the simple UI tool to define filters that trigger events based on specific event type attributes. See [Edit and event hook filter](https://help.okta.com/okta_help.htm?id=ext-edit-eventhooks-filters) and [Okta Expression Language and event hooks](https://help.okta.com/okta_help.htm?type=oie&locale=en&id=csh-event-hooks-el).
+In the Admin Console, you can optionally create a filter on the event hook to reduce the number of times the event hook triggers. Use the Okta Expression Language or the simple UI tool to define filters that trigger events based on specific event type attributes. See [Edit an event hook filter](https://help.okta.com/okta_help.htm?id=ext-edit-eventhooks-filters) and [Okta Expression Language and event hooks](https://help.okta.com/okta_help.htm?type=oie&locale=en&id=csh-event-hooks-el).
 
 <EventHookEANote/>
 
