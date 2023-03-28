@@ -99,4 +99,52 @@ In your Okta org, sign in as an administrator and create a couple of test users 
 
     * Username: `test_user@example.com`
 
-1. Click **Save and Add Another**
+1. Click **Save and Add Another**.
+
+1. Fill in the following fields for the second test user:
+
+    * First name  `Non-Test`
+
+    * Last name: `User`
+
+    * Username: `non_test_user@example.com`
+
+1. Click **Save**.
+
+## Test the event hook filter
+
+1. Start by going to your Glitch application and opening the log console (**Tools** > **Logs**). Ensure your application is listening for requests.
+
+1. Return to your Okta org, and search for your two test users.
+
+1. Click on the name of the Non-Test User's profile.
+
+1. Click the **More Actions** dropdown menu, and select **Deactivate**.
+
+1. Confirm the deactivation.
+
+1. Go to your Glitch application's log console. There should be no output to the console.
+
+1. Return to your Okta org, and click on the Test User's profile.
+
+1. Click the **More Actions** dropdown menu, and select **Deactivate**.
+
+1. Confirm the deactivation.
+
+1. Go to your Glitch application's log console. You should see the following output to the console:
+
+    `The user test_user@example.com has been deactivated on the Okta org!`
+
+## Next steps
+
+Review the following guides to implement other inline hook examples:
+
+* [Password import inline hook](/docs/guides/password-import-inline-hook/)
+* [Registration inline hook](/docs/guides/registration-inline-hook/)
+* [Token inline hook](/docs/guides/token-inline-hook/)
+* [SAML assertion inline hook](/docs/guides/saml-inline-hook)
+* [Telephony inline hook](/docs/guides/telephony-inline-hook)
+
+## See also
+
+For background conceptual information on event hooks, see [Event hooks](/docs/concepts/event-hooks/).
