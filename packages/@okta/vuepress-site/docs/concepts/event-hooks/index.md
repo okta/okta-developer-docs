@@ -150,52 +150,124 @@ The following is an example of a JSON payload of a request from Okta to your ext
 
 ```json
 {
-  "eventType": "com.okta.event_hook",
-  "eventTypeVersion": "1.0",
-  "cloudEventsVersion": "0.1",
-  "contentType": "application/json",
-  "eventId": "b5a188b9-5ece-4636-b041-482ffda96311",
-  "eventTime": "2019-03-27T16:59:53.032Z",
-  "source": "https://${yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
-  "data": {
-    "events": [
-      {
-        "version": "0",
-        "severity": "INFO",
-        "client": {
-          "zone": "OFF_NETWORK",
-          "device": "Unknown",
-          "userAgent": {
-            "os": "Unknown",
-            "browser": "UNKNOWN",
-            "rawUserAgent": "UNKNOWN-DOWNLOAD"
-          },
-          "ipAddress": "12.97.85.90"
-        },
-        "actor": {
-          "id": "00u1qw6mqitPHM8AJ0g7",
-          "type": "User",
-          "alternateId": "admin@example.com",
-          "displayName": "Example Admin"
-        },
-        "outcome": {
-          "result": "SUCCESS"
-        },
-        "uuid": "f790999f-fe87-467a-9880-6982a583986c",
-        "published": "2018-03-28T22:23:07.777Z",
-        "eventType": "user.session.start",
-        "displayMessage": "User login to Okta",
-        "transaction": {
-          "type": "WEB",
-          "id": "V04Oy4ubUOc5UuG6s9DyNQAABtc"
-        },
-        "legacyEventType": "core.user_auth.login_success",
-        "authenticationContext": {
-          "authenticationStep": 0,
-          "externalSessionId": "1013FfF-DKQSvCI4RVXChzX-w"
-        }
-      }
-    ]
-  }
-}
-```
+    "eventType": "com.okta.event_hook",
+    "eventTypeVersion": "1.0",
+    "cloudEventsVersion": "0.1",
+    "source": "https://{yourOktaDomain}/api/v1/eventHooks/who7hphp39JoHLni81d7",
+    "eventId": "85b60edb-4263-4e13-993b-818e26201052",
+    "data": {
+        "events": [
+            {
+                "uuid": "f1d0b993-cc19-11ed-a688-db22c99ef6c4",
+                "published": "2023-03-26T21:05:32.159Z",
+                "eventType": "user.session.start",
+                "version": "0",
+                "displayMessage": "User login to Okta",
+                "severity": "INFO",
+                "client": {
+                    "userAgent": {
+                        "rawUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+                        "os": "Mac OS X",
+                        "browser": "CHROME"
+                    },
+                    "zone": "null",
+                    "device": "Computer",
+                    "id": null,
+                    "ipAddress": "142.126.158.61",
+                    "geographicalContext": {
+                        "city": "Toronto",
+                        "state": "Ontario",
+                        "country": "Canada",
+                        "postalCode": "M4M",
+                        "geolocation": {
+                            "lat": 43.6567,
+                            "lon": -79.34
+                        }
+                    },
+                    "ipChain": [
+                        {
+                            "ip": "142.126.158.61",
+                            "geographicalContext": {
+                                "city": "Toronto",
+                                "state": "Ontario",
+                                "country": "Canada",
+                                "postalCode": "M4M",
+                                "geolocation": {
+                                    "lat": 43.6567,
+                                    "lon": -79.34
+                                }
+                            },
+                            "version": "V4",
+                            "source": null
+                        }
+                    ]
+                },
+                "device": null,
+                "actor": {
+                    "id": "00uz9fj5aT69fHVro1d6",
+                    "type": "User",
+                    "alternateId": "admin@okta.com",
+                    "displayName": "Admin Name",
+                    "detailEntry": null
+                },
+                "outcome": {
+                    "result": "SUCCESS",
+                    "reason": null
+                },
+                "target": [
+                    {
+                        "id": "lae42mkdc9i9cbw3U1d6",
+                        "type": "AuthenticatorEnrollment",
+                        "alternateId": "unknown",
+                        "displayName": "Password",
+                        "detailEntry": null
+                    },
+                    {
+                        "id": "0oaz9fj21WKqTeaqs1d6",
+                        "type": "AppInstance",
+                        "alternateId": "Okta Admin Console",
+                        "displayName": "Okta Admin Console",
+                        "detailEntry": null
+                    }
+                ],
+                "transaction": {
+                    "type": "WEB",
+                    "id": "ZCCzm8j2wTvzwele2NwLnwAADSc",
+                    "detail": {}
+                },
+                "debugContext": {
+                    "debugData": {
+                        "authnRequestId": "ZCCzlCoZuOyo8RfASqHmPAAAAc8",
+                        "deviceFingerprint": "3411ee4c591b2229f3bea251e12e0c1a",
+                        "requestId": "ZCCzm8j2wTvzwele2NwLnwAADSc",
+                        "dtHash": "f59d98b2e02f1319ef4ca651f57c36e3f25507f67dd6daf0408f753896b7e8dc",
+                        "origin": "https://{yourOktaDomain}",
+                        "requestUri": "/idp/idx/identify",
+                        "threatSuspected": "false",
+                        "url": "/idp/idx/identify?"
+                    }
+                },
+                "legacyEventType": "core.user_auth.login_success",
+                "authenticationContext": {
+                    "authenticationProvider": null,
+                    "credentialProvider": null,
+                    "credentialType": null,
+                    "issuer": null,
+                    "authenticationStep": 0,
+                    "externalSessionId": "idxyNcxVX2ESsSL0u462548Qg",
+                    "interface": null
+                },
+                "securityContext": {
+                    "asNumber": null,
+                    "asOrg": null,
+                    "isp": null,
+                    "domain": null,
+                    "isProxy": null
+                },
+                "insertionTimestamp": null
+            }
+        ]
+    },
+    "eventTime": "2023-03-28T17:03:37.093Z",
+    "contentType": "application/json"
+}```
