@@ -4,6 +4,18 @@ title: Okta API Products release notes 2023
 
 ## March
 
+### Weekly release 2023.03.3
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.03.3](#bugs-fixed-in-2023-03-3) | March 29, 2023 |
+
+#### Bugs fixed in 2023.03.3
+
+* App sign-on events with usernames that exceeded 100 characters weren't always added to the System Log. (OKTA-585478)
+* The groups count on the Admin Dashboard was incorrect. (OKTA-592512)
+* Some validations weren't enforced when requests were made to the Apps API. (OKTA-585354)
+
 ### Weekly release 2023.03.2
 
 | Change | Expected in Preview Orgs |
