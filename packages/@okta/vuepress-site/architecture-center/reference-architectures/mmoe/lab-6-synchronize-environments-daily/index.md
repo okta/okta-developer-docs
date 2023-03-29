@@ -12,6 +12,16 @@ If any changes are detected, it sends a notification message to a Slack channel.
 
 This simulates an enterprise that transforms to fully automated processes for detecting drift in your environments.
 
+## Create A Slack channel
+
+This tutorial uses Slack as the target for its workflow notification messages. To create a free trial Slack instance and channel:
+
+1. Visit [slack.com](https://slack.com), and click **TRY FOR FREE**.
+2. Supply your email address and click **Continue**.
+3. Enter the 6-digit code that's sent to your email address.
+4. Click **Create a Workspace** to create a Slack workspace.
+5. Specify your company name, identify other team members to invite to the workspace (if any), and enter a short name used as the name of the channel. For example, _Terraform Drift_.
+
 ## Configure Terraform
 
 To enable the Terraform workflow, you must create a [Team API token](https://developer.hashicorp.com/terraform/cloud-docs/users-teams-organizations/api-tokens#team-api-tokens) to allow access to both workspaces. You also need your workspace ID for the workflow.

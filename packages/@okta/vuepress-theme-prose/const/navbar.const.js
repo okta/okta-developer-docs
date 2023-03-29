@@ -1144,42 +1144,32 @@ export const architectureCenter = [
                   path: "/architecture-center/reference-architectures/mmoe/",
                   subLinks: [
                      {
-                        title: "Lab",
+                        title: "Lab overview & prerequisites",
                         path: "/architecture-center/reference-architectures/mmoe/lab-overview/",
-                        subLinks: [
-                           {
-                              title: "Prerequisites",
-                              path: "/architecture-center/reference-architectures/mmoe/lab-prerequisites/",
-                           },
-                           {
-                              title: "1: Configure Terraform Cloud",
-                              path: "/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud/",
-                           },
-                           {
-                              title: "2: Create resources",
-                              path: "/architecture-center/reference-architectures/mmoe/lab-2-create-resources/",
-                           },
-                           {
-                              title: "3: Rename a group",
-                              path: "/architecture-center/reference-architectures/mmoe/lab-3-rename-a-group/",
-                           },
-                           {
-                              title: "4: Deploy changes to production",
-                              path: "/architecture-center/reference-architectures/mmoe/lab-4-deploy-changes-to-production/",
-                           },
-                           {
-                              title: "5: Detect drift",
-                              path: "/architecture-center/reference-architectures/mmoe/lab-5-detect-drift/",
-                           },
-                           {
-                              title: "6: Synchronize environments daily",
-                              path: "/architecture-center/reference-architectures/mmoe/lab-6-synchronize-environments-daily/",
-                           },
-                        ],
                      },
                      {
-                        title: "Further reading",
-                        path: "/architecture-center/reference-architectures/mmoe/resources/",
+                        title: "Configure Terraform Cloud",
+                        path: "/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud/",
+                     },
+                     {
+                        title: "Create resources",
+                        path: "/architecture-center/reference-architectures/mmoe/lab-2-create-resources/",
+                     },
+                     {
+                        title: "Rename a group",
+                        path: "/architecture-center/reference-architectures/mmoe/lab-3-rename-a-group/",
+                     },
+                     {
+                        title: "Deploy changes to production",
+                        path: "/architecture-center/reference-architectures/mmoe/lab-4-deploy-changes-to-production/",
+                     },
+                     {
+                        title: "Detect drift",
+                        path: "/architecture-center/reference-architectures/mmoe/lab-5-detect-drift/",
+                     },
+                     {
+                        title: "Synchronize environments daily",
+                        path: "/architecture-center/reference-architectures/mmoe/lab-6-synchronize-environments-daily/",
                      },
                   ],
                },
