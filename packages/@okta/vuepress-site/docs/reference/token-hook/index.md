@@ -185,6 +185,8 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 | jti            | access token & ID token |
 | token_type     | access token & ID token |
 | ver            | access token & ID token |
+| auth_time      | access token & ID token |
+
 
 ### error
 

@@ -143,7 +143,7 @@ The following are section suggestions for your configuration guide:
 
 In this section, specify any prerequisites required before your customer configures your integration in Okta. Examples may include enabling specific Okta features, enabling API access to your SCIM server, or adding a particular version of an integration in Okta.
 
-##### Prerequisite example
+##### SAML prerequisite example
 
 ```markdown
 When using SAML as the SSO mode with provisioning, you need to enable a specific account plan on the application side for silent activation.
@@ -153,15 +153,34 @@ When using SAML as the SSO mode with provisioning, you need to enable a specific
 
 In this section of your guide, list the features that your application supports and include any restrictions or limitations.
 
-> **Note:** You can briefly describe what each feature does. See the SCIM guides from the [configuration guide examples](#scim-examples).
+> **Note:** You can also briefly describe what each feature does.
 
-##### Supported feature example
+##### OIDC supported feature example
+
+```markdown
+* SP-initiated SSO (Single Sign-On)
+* IdP-initiated SSO (through [Third-party Initiated Login](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin))
+* Just-In-Time provisioning
+* SP-initiated SLO (Single Logout)
+
+For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
+```
+
+##### SAML supported feature example
 
 ```markdown
 * IdP-initiated SSO
 * SP-initiated SSO
-* SLO (Single Log Out)
+* Just-In-Time provisioning
+* SP-initiated SLO
 * Force authentication
+
+For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
+```
+
+##### SCIM supported feature example
+
+```markdown
 * Create users
 * Update user attributes
 * Deactivate users
@@ -169,8 +188,11 @@ In this section of your guide, list the features that your application supports 
 * Import groups
 * Sync password
 * Profile sourcing
+* Group push
 
 Okta can't update user attributes for Admin users. This is an API limitation.
+
+For more information on the listed features, visit the [Okta Glossary](https://help.okta.com/okta_help.htm?type=oie&id=ext_glossary).
 ```
 
 #### Procedure
@@ -212,8 +234,8 @@ Include this section if there are known issues that apply to the entire configur
 ##### OIDC examples
 
 * [HacWare](https://docs.google.com/document/d/1k-TNUDCXZslL4D3wZyH3KgZyU45qUgiaIG9U0i6Jupc/edit)
+* [Parmonic](https://partners.parmonic.com/okta)
 * [Upwave](https://help.upwave.io/en/articles/4129778-okta-configuration-guide)
-<!--* [Parmonic](https://help.parmonic.com/hc/en-us/articles/6767650476183-Instructions-to-setup-Okta-SSO)-->
 
 ##### SAML examples
 
@@ -224,9 +246,9 @@ Include this section if there are known issues that apply to the entire configur
 
 ##### SCIM examples
 
-* [Atlassian Cloud](https://confluence.atlassian.com/cloud/configure-user-provisioning-with-okta-957492956.html)
 * [Contentful](https://www.contentful.com/help/okta-user-provisioning-integration-with-scim/)
-* [Zscaler](https://help.zscaler.com/zia/saml-scim-configuration-guide-okta)
+* [Reftab](https://www.reftab.com/faq/scim-okta/)
+* [TrackTik](https://support.tracktik.com/hc/en-us/articles/12421581629463-Set-up-and-use-provisioning-for-Okta)
 
 ## OIN limitations
 
