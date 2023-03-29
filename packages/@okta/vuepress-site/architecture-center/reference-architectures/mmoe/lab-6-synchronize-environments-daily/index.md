@@ -4,8 +4,6 @@ title: Schedule drift detection daily
 
 # Manage multiple Okta environments tutorial 6: Schedule drift detection daily
 
-> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
-
 In the previous tutorial, you learned how to detect changes in the production environment and synchronize those changes back to your development environment. Now add a workflow to trigger a daily plan run through Terraform. Specifically, create a workflow to run a speculative plan to detect changes in the production environment daily at 0900 EST.
 
 If any changes are detected, it sends a notification message to a Slack channel.

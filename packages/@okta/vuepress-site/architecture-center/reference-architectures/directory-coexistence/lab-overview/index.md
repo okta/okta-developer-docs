@@ -4,8 +4,6 @@ title: Directory coexistence lab overview
 
 # Directory coexistence: Lab overview
 
-> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
-
 In this lab, you learn how to migrate users from three different types of user directories into Universal Directory using a directory coexistence strategy. Then, you reconfigure a sample application to authenticate a user with Universal Directory rather than the original user directory.
 
 * [Prerequisites](/architecture-center/reference-architectures/directory-coexistence/lab-prerequisites)

@@ -5,7 +5,7 @@ title: Architecture Center
 
 # Architecture Center
 
-The architecture center is a reference for solution engineers, architects, and DevOps people who want to integrate Okta into their systems. Here, you'll find tutorials to incorporate "reference architectures" into Docker-based systems so you can see how to apply RAs to your own systems. You'll also discover how existing customers have  integrated Okta workforce solutions into their systems by applying these reference architectures themselves.
+The architecture center is a reference for solution engineers, architects, and DevOps people who want to integrate Okta into their systems. Here, you'll find tutorials to incorporate "reference architectures" into Docker-based systems so you can see how to apply them to your own systems. You'll also discover how existing customers have  integrated Okta workforce solutions into their systems by applying these reference architectures themselves.
 
 > **Note:** Please leave feedback on the content and format of the architecture center by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
 

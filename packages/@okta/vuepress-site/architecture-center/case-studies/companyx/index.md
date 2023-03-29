@@ -45,7 +45,7 @@ Company X is a Global 2000 company with 200,000 team members worldwide. It uses 
   </figcaption>
 </figure>
 
-## The Problem: Too many legacy IAM systems spoil the user management broth
+## The Problem: Too many legacy IAM systems spoil the user administration broth
 
 The company's legacy IAM systems and newer IdPs don't interact well. The number of support tickets related to user onboarding and offboarding is increasing. So are the number of tickets from those users struggling to remember multiple credential combinations as the IAM systems don't synchronize user profiles between them.
 
@@ -60,7 +60,7 @@ The company's legacy IAM systems and newer IdPs don't interact well. The number 
 
 ## The Solution: Okta Universal Directory
 
-Company X wants to consolidate its user, group, and device profiles into [Okta Universal Directory](/docs/concepts/user-profiles/#what-is-the-okta-universal-directory) and use that as its sole Identity Provider. This will immediately answer the login tickets by requiring a single set of credentials for all users. Onboarding and offboarding processes will also become easier as admins only have one centralized system. Finally, using a single directory will realize additional benefits, such as [Single Sign-On](https://www.okta.com/products/single-sign-on/) (SSO) across its apps, centralized authentication policies, and lower maintenance costs for one system instead of five.
+Company X wants to consolidate its user, group, and device profiles into [Okta Universal Directory](/docs/concepts/user-profiles/#what-is-the-okta-universal-directory) and use that as its sole Identity Provider. This will immediately answer the login tickets by requiring a single set of credentials for all users. Onboarding and offboarding processes will also become easier as admins only have one centralized system. Finally, using a single directory will realize additional benefits, such as [Single Sign-On](/docs/guides/oin-sso-overview/) (SSO) across its apps, centralized authentication policies, and lower maintenance costs for one system instead of five.
 
 ### Key challenges
 

@@ -4,8 +4,6 @@ title: Detect drift between environments and correct it
 
 # Manage multiple Okta environments tutorial 5: Detect drift between environments and correct it
 
-> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
-
 Drift occurs when an Okta object changes in the destination (production) environment and is out of sync with its source (development) environment. This situation can occur during an outage when changes are made quickly to a production environment to restore service.
 
 In this tutorial, you update a resource in production using the Admin Console, and then run a Terraform plan to detect if an asset has changed. If so, this tells the admin that someone has made a change without going through Terraform, and it needs to be investigated.

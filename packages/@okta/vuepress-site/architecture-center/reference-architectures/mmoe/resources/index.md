@@ -4,8 +4,6 @@ Title: Resources
 
 ## Resources
 
-> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
-
 ### Further reading
 
 From Okta

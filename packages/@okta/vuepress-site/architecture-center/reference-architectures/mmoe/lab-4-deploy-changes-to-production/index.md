@@ -4,8 +4,6 @@ title: Deploy changes to production
 
 # Manage multiple Okta environments tutorial 4: Deploy changes to production
 
-> **Note:** This area is a work in progress. Please leave feedback on the content and format of this new type of architecture article by posting comments in the [Architecture area of the developer forums](https://devforum.okta.com/c/questions/architecture/24).
-
 In tutorials 2 and 3, you made changes in a preview environment that isn't available to most users. This makes it easy for developers, testers, and early adopters to test their changes without impacting production.
 
 Now use Terraform to deploy your changes to another Okta org. This example of moving objects between two Okta orgs simulates moving objects between non-production and production environments. You can use this example to integrate into critical software development practices like change management and continuous integration and continuous deployment.
