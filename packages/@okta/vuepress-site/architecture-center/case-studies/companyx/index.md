@@ -1,15 +1,17 @@
 ---
 layout: Landing
-title: Company X
+title: User Migration for Company X
 ---
 
-Company X is a Global 2000 company with 200,000 team members worldwide
+# User Migration for Company X
 
-It has been using 250+ SaaS apps, 500+ on-prem apps, and 400+ cloud-native apps and has 5 legacy IAM systems with multiple Identity Providers (IDPs), all of which are in use. The company is running a VPN along with on-prem multi-factor authentication (MFA), on-prem federation, and on-prem web access management.
+Learn how Company X applied the directory coexistence reference architecture when planning their user migration strategy and the benefits they saw.
 
-The combination of these legacy IAM systems and newer cloud-based ones creates inefficiencies with provisioning and onboarding/offboarding. As Company X adds more cloud applications it’s running into issues with building and maintaining integrations as well as issues with inconsistent onboarding and offboarding. It’s also observing spikes in support tickets for login-related issues from users who need to remember multiple credential combinations. To address these, Company X is looking to consolidate all its IAM systems into a single directory for ease of management as well as to expedite cloud based app integrations. The end goal for Company X is to consolidate multiple identity stores into one and multiple Identity Providers for different applications and services into one. Company X hopes this will enable benefits such as Single Sign-On, and centralized user management and authorization policies.
+## Company Overview
 
-## Use case: Directory Coexistence
+Company X is a Global 2000 company with 200,000 team members worldwide. It uses over 250 SaaS apps, 500 on-premises apps, and 400 cloud-native apps backed by five legacy Identity and Access Management (IAM) systems and multiple Identity Providers (IdPs).
+
+## Related Reference Architecture
 
 <figure class="main-card">
   <img
@@ -38,122 +40,68 @@ The combination of these legacy IAM systems and newer cloud-based ones creates i
       </span>
     </div>
     <p class="main-card__text">
-      Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping both source and target directories active during the process. <a class="main-card__link" href="/architecture-center/reference-architectures/directory-coexistence">Learn more</a>
+      Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping both source and target directories active during the process. <a class="main-card__link" href="/architecture-center/reference-architectures/directory-coexistence/">Learn more</a>
     </p>
   </figcaption>
 </figure>
 
-Company X wantsto consolidate its users into a single directory for ease of management and wishes to migrate its users, groups and device profiles from multiple IAM systems which are a combination of legacy on-prem systems and cloud based systems. These were split across many Identity Providers (IdPs):
+## The Problem: Too many legacy IAM systems spoil the user management broth
 
-* Cloud-based IdPs such as Microsoft Azure Active Directory
-* On-premises IdPs based on LDAP
-* On-premises IdPs based on a proprietary database
-
-Many of the users have accounts on several of these servers so user accounts also need to be consolidated during the migration. The IT team wanted to maximize the uptime for the Identity and Access Management (IAM) solution during the migration by keeping **all user directories active**. They also needed a roadmap to migrate their apps to the new user store over time and therefore have both legacy and new stores available for a period of time.
-
-### Key challenges
-
-* Switching to Okta across the org and migrating user, group, and device profiles over time
-* Consolidating multiple Identity Providers for different applications and services into one provider
+The company's legacy IAM systems and newer IdPs don't interact well. The number of support tickets related to user onboarding and offboarding is increasing. So are the number of tickets from those users struggling to remember multiple credential combinations as the IAM systems don't synchronize user profiles between them.
 
 ### Pain points
 
-**End Users:**
+* Users need to remember several usernames and passwords to access applications.
+* User profiles aren't synchronized across IAM systems, so they must be manually updated in several places.
+* There is no single sign-on between apps.
+* Administering five legacy IAM systems and trying to coordinate them is difficult and error-prone.
+* Consistent policy-based access management isn't possible as each system implements it differently.
+* Onboarding and offboarding are complex and cause major issues.
 
-* Users need to remember several usernames and passwords to access applications
-* Users are unable to login in one single place and having trouble accessing accounts because of updating issues
+## The Solution: Okta Universal Directory
 
-**IT admins:**
+Company X wants to consolidate its user, group, and device profiles into [Okta Universal Directory](/docs/concepts/user-profiles/#what-is-the-okta-universal-directory) and use that as its sole Identity Provider. This will immediately answer the login tickets by requiring a single set of credentials for all users. Onboarding and offboarding processes will also become easier as admins only have one centralized system. Finally, using a single directory will realize additional benefits, such as [Single Sign-On](https://www.okta.com/products/single-sign-on/) (SSO) across its apps, centralized authentication policies, and lower maintenance costs for one system instead of five.
 
-* Administering 5 legacy IAM systems rather than one and trying to consolidate into one (using scripts, for instance)
-* Controlling and ensuring consistent policy based application access across five services
-* Onboarding and offboarding can be complex and can cause major issues
+### Key challenges
 
-## Key technologies used
+Company X identified several key challenges in migrating their users to Universal Directory.
 
-* Okta Universal Directory
-* Okta Active Directory Agent
-* Okta Lightweight Directory Access Protocol (LDAP) Agent
-* Okta System for Cross-domain Identity Management (SCIM) connector
-* Okta Provisioning Agent
+* **Different source IdPs**
+   User information was split across cloud-based (Microsoft Azure Active Directory) and on-prem IdPs (LDAP-based and proprietary). Each type of IdP would need its own migration process and tools.
+* **Merging user profiles**
+   Most users have profiles on multiple IdPs which would need to be merged into one as migration occurred.
+* **Maintaining uptime during migration**
+   The IT team wanted to maximize the uptime for the IAM solution during migration by keeping all user directories active as much as possible.
+* **A transition period for applications**
+   The IT team needed a roadmap to migrate their apps to Universal Directory over time. Therefore they needed both legacy and new IdPs available for a period of time after migration.
 
-## Solution - key considerations, steps, and delivery
+### Architecture Implementation
 
-### Migration from Azure Active Directory to Universal Directory
+Company X used the [Directory Coexistence architecture](/architecture-center/reference-architectures/directory-coexistence/) during its user migration process. This gave the IT team consistent access to both legacy IdPs and Universal Directory throughout the process and as they updated their applications to use Universal Directory as their IdP.
 
-For the cloud authentication IAM, users were migrated from Azure Active Directory to Universal Directory by mirroring them using the Okta Active directory agent. In this scenario, Universal Directory served as a single source of truth for user data and lets administrators centrally manage policies and profiles. However, the user passwords were still managed in the original IdP. This directory coexistence can stay in place until you migrate all your user information to Universal Directory and no longer require the other IdP. The architecture diagram for this can be seen below
+* The company installed an Okta AD Agent to mirror its users from their Azure AD user store to Okta Universal Directory. Universal Directory now acts as the single source of truth for those users. However, user passwords are still managed in Azure AD. The Agent mirrors any changes to a user back to Azure AD.
+* The company installed an Okta LDAP Agent for each on-prem LDAP directory to mirror them to Okta Universal Directory. Universal Directory now acts as the single source of truth for those users. However, user passwords are still managed in the on-prem LDAP user store. The Agent mirrors any changes to a user back to the on-prem LDAP store.
+* The company wrote a script using the [Okta Users API](/docs/reference/api/users/) and the [password inline import hook](/docs/reference/password-hook/) to import the users stored in their on-prem proprietary user databases into Universal Directory. Universal Directory now acts as the single source of truth for those users. This script worked only one way, and the proprietary IdP was closed.
+* The company opted for a **hybrid strategy** for each migration to Universal Directory. It migrated active users with a just-in-time strategy - users were migrated to Universal Directory if it existed in the original IdP but not Universal Directory. It migrated inactive users in bulk.
+* The company updated all its apps to use OpenID Connect (OIDC) to authenticate users rather than SAML or another solution. If an app existed already in the [Okta Integration Network](/docs/guides/okta-integration-network/) already, they used that. If not, they reconfigured the app manually. This meant they could take full advantage of Okta's features and enable Single Sign-On, multifactor authentication, passwordless access, and more.
 
-<div class="full">
+> **Note:** To read how to implement the architecture, devise the strategy, and understand the key considerations, see [Directory Coexistence](/architecture-center/reference-architectures/directory-coexistence/) .
+>
+> For a more in-depth introduction to the protocols and different authorization flows you can implement in your applications, see [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/).
 
-  ![An architecture diagram showing the authorization flow from user to Okta to Azure Active Directory and back again.](/img/architecture/directory-coexistence/ad-to-okta-flow-diagram.png)
+## Key Benefits
 
-  <!--
-    Source image: fill-this-in ad-to-okta-flow-diagram
-  -->
-</div>
+The company saw the following key benefits after implementing the Directory Coexistence pattern and migrating its user base to Universal Directory.
 
-### Migration of users from an on-premises LDAP directory to Universal Directory
+* **A massively simplified end-user experience**
+   Company X could use Okta SSO for their apps, having centralized and consolidated user accounts to Universal Directory. Their users now need only to provide a single username and password once a session to access all their apps.
+* **A far easier-to-use IAM system**
+   After migration, Company X saw a 75% reduction in login-related help desk calls and a 500% speed increase in user onboarding, offboarding, and integration with acquired businesses.
+* **Consistent and adaptive security policies**
+   By implementing Okta SSO, the IT team protects its users with consistent security policies that adapt to their behavior. Built-in security tools, such as Okta Insights, help Company X take advantage of Okta's scale and automatically identify and block malicious login attempts seen across the network.
+* **Faster cloud deployment and on-prem integration**
+   The 7,000+ pre-built integrations in the Okta Integration Network helped Company X securely adopt and deploy SSO to cloud apps in weeks, not months, without building and maintaining the integrations themselves.
 
-Some of the IAM systems were handling authentication through an on-premises LDAP directory. To mirror those users to Universal Directory and then redirect applications to Okta for authentication,  an on-premises Okta LDAP Agent was installed. In this scenario, Universal Directory serves as a single source of truth for user data and lets administrators centrally manage policies and profiles. Admins can assign them to any application registered with their Okta Organization. Access to those assigned applications can be through any protocol, such as LDAP Interface, OpenID Connect (OIDC), SAML, and so on.
-
-However, authentication of the LDAP user is delegated to the LDAP server through the Okta LDAP Interface so that users can authenticate with Okta using their LDAP directory server credentials. This directory coexistence can stay in place until admins migrate all user information to Universal Directory and no longer require the LDAP directory.
-
-<div class="full">
-
-  ![An architecture diagram showing the authorization flow from user to Okta to an OpenLDAP Directory server and back again.](/img/architecture/directory-coexistence/ldap-to-okta-flow-diagram.png)
-
-  <!--
-    Source image: fill-this-in ldap-to-okta-flow-diagram
-  -->
-</div>
-
-### Migration of users from an on-premises database to Universal Directory
-
-Finally some user profiles and groups were stored in a generic on-premises database. To migrate these to UD the organization had two options:
-
-1. Export all user credentials into a CSV (or similar) file and then import the data from the file into Universal Directory
-1. Write a script that queries the database for user information and then uses the Okta Users API to import the users into Universal Directory
-
-In the interests of reducing migration time, admins might wish to avoid resetting user passwords. For either of the above options, Okta can import not just user names but also hashed passwords, provided that the hash is supported by Okta). Even if the hash is not supported admins can still choose to import passwords by using Okta’s inline import hook.
-
-The organization opted for option two. Since Okta didn’t support the hash, it couldn’t import the user's password. However, the organization used Okta’s password inline import hook to import user records that use an unsupported hash type without requiring the user to reset their password.
-
-### Choice of migration strategy for each of these three scenarios
-
-Until Company X was ready to use only Okta for authentication, it wanted to ensure that users can sign in to Okta, and Okta delegated authentication to your current Identity Provider. This way current identity directories and Universal Directory could coexist as long as required.
-
-There are three strategies that were considered for user migration:
-
-1. **Bulk migration strategy:** In this scenario, admins first divide users, groups, and data into sections and then create an order in which each section is migrated as a whole, and a schedule for migrating each section. For example, admins may migrate everything in one go or create twelve portions and migrate one a month.
-1. **Just-in-time strategy:** In this scenario, when a user signs into their application, their credentials are checked against their original Identity Provider. If the user exists in the original IDP but not in Okta, the user is mirrored in Okta. If the user already exists in both the original IDP and in Okta, AND the information in the original has been updated, then the user's information in Okta is updated from the original.
-1. **A hybrid of bulk and just-in-time strategies.**
-
-Company X opted for a hybrid strategy - it migrated active users using a just-in-time strategy and inactive users with a bulk migration strategy.
-
-To take full advantage of Okta's features and enable Single Sign-On, multi factor authentication, passwordless access, and more, Company X decided to update all its applications to use the OpenID Connect (OIDC) protocol to authenticate users as opposed to using Security Assertion Markup Language (SAML) or another solution.
-
-For a more in-depth introduction to the protocols and different authorization flows you can implement in your applications, see OAuth 2.0 and OpenID Connect Overview.
-
-# Key benefits
-
-**Ease of administration with single IAM system (Single Sign On)**
-
-Using Okta Universal Directory as the company's sole Identity Provider enables benefits such as Single Sign-On. This resulted in 75% fewer login-related help desk calls and sped up IT integration with acquired businesses by 500%.
-
-**Consistent and adaptive security policies**
-
-Because Company X now uses  Okta SSO, its IT team can protect users with consistent security policies that adapt to their behavior. Built-in security tools, such as Okta Insights, thelp Company X take advantage of Okta’s scale and automatically identify and block malicious login attempts seen across the network.
-
-**Faster cloud deployment and on-prem integration**
-
-Okta’s network of 7,000+ pre-built integrations helped Company X securely adopt and deploy SSO to cloud apps in weeks, not months, all without building and maintaining the integrations themselves
-
-Additionally Okta’s cloud-based single sign-on service with 1,400+ SAML and OpenID Connect integrations, password vaulting, RADIUS and LDAP support, and connections to third-party legacy SSO solutions made it possible for Company X to use SSO for all its IAM systems.
-
-**Simplified end user experience:**
-
-A single username and password provided access to all the workplace productivity apps that Company X’s staff uses which massively simplified the end-user experience.
-
-**Simplified user access auditing**
-
-Company X was able to get real-time data within Okta so IT could troubleshoot and address single sign-on security issues immediately, and use pre-built reporting to get a deeper understanding of how end users were using its apps and where it had potential security risks.
+   Okta's cloud-based SSO service with 1,400+ SAML and OpenID Connect integrations, password vaulting, RADIUS and LDAP support, and connections to third-party legacy SSO solutions made it possible for Company X to use SSO for all its IAM systems.
+* **Simplified user access auditing**
+  Company X was able to get real-time data within Okta so IT could troubleshoot and address single sign-on security issues immediately and use pre-built reporting to understand better how end users were using its apps and where it had potential security risks.
