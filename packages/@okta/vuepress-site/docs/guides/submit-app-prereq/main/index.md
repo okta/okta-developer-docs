@@ -219,7 +219,7 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 #### Configuration steps
 
-This section explains the procedure needed to get your customers set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
+This section helps you define how your customers get set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
 
 ##### SAML configuration steps example
 
