@@ -50,7 +50,7 @@ When you're embedding your authentication with our SDKs, consider all the steps 
 
 2. [Update the application settings](/docs/guides/implement-grant-type/interactioncode/main/#enable-the-interaction-code-grant-on-an-application) of your embedded authentication applications to include the Interaction Code grant type.
 
-   > **Note:** Performing steps one and two doesn’t change the way your authorization server or application behaves, but supports the new Identity Engine model. Turning the Interaction Code grant type on in your custom authorization server simply enables the server to accept a request of that type. The application behavior doesn’t change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) and move away from using Classic Engine authentication APIs to using the appropriate SDK.
+   > **Note:** Performing these steps doesn’t change the way your authorization server or application behaves, but instead adds support for the new Identity Engine model. Enabling the Interaction Code grant type in your custom authorization server simply allows the server to accept a request of that type. The application behavior doesn’t change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) and move away from using Classic Engine authentication APIs to using the appropriate SDK.
 
    <!-- [move away from using Classic Authentication APIs to using the appropriate SDK](/docs/guides/). -->
 
