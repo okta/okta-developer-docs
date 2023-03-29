@@ -111,7 +111,7 @@
 
 .signup__form__button-dark:hover input {
   @include media(">signup") {
-    color: var(--c-white);
+    color: var(--c-gray-980);
   }
 }
 
