@@ -93,7 +93,7 @@ These case studies demonstrate how Okta customers took and applied the tenets of
         class="main-card__main-link"
         href="/architecture-center/case-studies/companyx/"
       >
-        Company X
+        User Migration for Company X
       </a>
     </h2>
     <div class="main-card__wrapper">
@@ -108,7 +108,7 @@ These case studies demonstrate how Okta customers took and applied the tenets of
       </span>
     </div>
     <p class="main-card__text">
-      Company X used the Directory Coexistence architecture to combine their various IAM solutions into one. <a class="main-card__link" href="/architecture-center/case-studies/companyx/">Learn more.</a>
+      Learn how Company X applied the directory coexistence reference architecture when planning their user migration strategy and the benefits they saw. <a class="main-card__link" href="/architecture-center/case-studies/companyx/">Learn more.</a>
     </p>
   </figcaption>
 </figure>
