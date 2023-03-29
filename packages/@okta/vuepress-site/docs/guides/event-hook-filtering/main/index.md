@@ -75,7 +75,7 @@ The Glitch event hook example uses the Okta event for a user deactivation. This 
 
 1. Click the **User Okta Expression Language (advanced)** link to review the Okta Expression Language statement: `event.target.?[alternateId eq 'test_user@example.com'].size()>0`.
 
-    This statement, when TRUE, triggers an event hook request to your external service when a user is deactivated with a `test_user@example.com`. All other deactivated users do not trigger an event hook.
+    This statement triggers an event hook request to your external service when a user is deactivated with a `test_user@example.com` (the statement is TRUE). All other deactivated users do not trigger an event hook.
 
 1. Click **Save & Continue**.
 
