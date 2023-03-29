@@ -18,7 +18,7 @@ Also, create continuous pieces of work that your team must do to fully upgrade t
 
 ## What’s your scenario?
 
-While it isn’t possible to exactly document every upgrade scenario, the following main stages cover the most common scenarios. These steps are't all-inclusive. See the associated documentation in each stage for more detailed steps that you can use to plan and prioritize your process.
+While it isn’t possible to fully document every upgrade scenario, the following stages cover the most common scenarios. These steps are't all-inclusive. See the associated documentation in each stage for more detailed steps that you can use to plan and prioritize your process.
 
 * [Redirecting to the Okta-hosted Sign-In Widget](#update-the-okta-hosted-sign-in-widget)
 * [Embedding our Sign-In Widget](#update-the-embedded-sign-in-widget)
