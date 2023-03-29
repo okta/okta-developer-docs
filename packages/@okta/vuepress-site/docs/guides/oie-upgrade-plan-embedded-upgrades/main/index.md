@@ -6,7 +6,7 @@ title: Plan embedded auth app upgrades
 
 We understand that upgrades can be stressful. We've carefully considered how you can break up the upgrade steps to ensure that you maintain the best user experience across your applications.
 
-We don’t recommend doing this upgrade all at once, but rather in sections with breaks for testing. This process is designed to be non-disruptive and iterative over a time. Make the upgrade steps part of your normal product development process.
+We don’t recommend doing this upgrade all at once, but rather in sections with breaks for testing. This process is designed to be non-disruptive and iterative over time. Make the upgrade steps part of your normal product development process.
 
 After the [initial upgrade process](/docs/guides/oie-upgrade-overview/#upgrade-process) is complete for your orgs, there are more steps that you should walk through to finish the upgrade. Which steps that you take are related to your deployment model and should be carefully planned.
 
