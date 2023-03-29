@@ -1122,26 +1122,20 @@ export const architectureCenter = [
                   path: "/architecture-center/reference-architectures/directory-coexistence/",
                   subLinks: [
                      {
-                        title: "Lab",
+                        title: "Lab overview & prerequisites",
                         path: "/architecture-center/reference-architectures/directory-coexistence/lab-overview/",
-                        subLinks: [
-                           {
-                              title: "Prerequisites",
-                              path: "/architecture-center/reference-architectures/directory-coexistence/lab-prerequisites/",
-                           },
-                           {
-                              title: "1: From Azure AD to Okta",
-                              path: "/architecture-center/reference-architectures/directory-coexistence/lab-1-azure-ad/",
-                           },
-                           {
-                              title: "2: From LDAP to Okta",
-                              path: "/architecture-center/reference-architectures/directory-coexistence/lab-2-ldap-server/",
-                           },
-                           {
-                              title: "3: From database to Okta",
-                              path: "/architecture-center/reference-architectures/directory-coexistence/lab-3-generic-database/",
-                           },
-                        ],
+                     },
+                     {
+                        title: "From Azure AD to Okta",
+                        path: "/architecture-center/reference-architectures/directory-coexistence/lab-1-azure-ad/",
+                     },
+                     {
+                        title: "From LDAP to Okta",
+                        path: "/architecture-center/reference-architectures/directory-coexistence/lab-2-ldap-server/",
+                     },
+                     {
+                        title: "From database to Okta",
+                        path: "/architecture-center/reference-architectures/directory-coexistence/lab-3-generic-database/",
                      },
                   ],
                },

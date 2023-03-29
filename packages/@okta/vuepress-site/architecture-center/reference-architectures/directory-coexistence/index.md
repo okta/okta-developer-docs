@@ -57,8 +57,7 @@ Use directory coexistence for:
 
 ## Lab
 
-* [Overview](/architecture-center/reference-architectures/directory-coexistence/lab-overview)
-* [Prerequisites](/architecture-center/reference-architectures/directory-coexistence/lab-prerequisites)
+* [Overview and prerequisites](/architecture-center/reference-architectures/directory-coexistence/lab-overview)
 * Tutorial 1: [Migrate users from Azure Active Directory to Universal Directory](/architecture-center/reference-architectures/directory-coexistence/lab-1-azure-ad)
 * Tutorial 2: [Migrate users from an on-premises LDAP directory server to Universal Directory](/architecture-center/reference-architectures/directory-coexistence/lab-2-ldap-server)
 * Tutorial 3: [Migrate users from an on-premises generic database to Universal Directory](/architecture-center/reference-architectures/directory-coexistence/lab-3-generic-database)

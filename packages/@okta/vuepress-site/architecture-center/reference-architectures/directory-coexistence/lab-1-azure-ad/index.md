@@ -22,7 +22,7 @@ At the end of the tutorial, when a user attempts to sign in to the application, 
   -->
 </div>
 
-> **Note:** This tutorial assumes that you have an instance of Azure AD you can use for testing.
+> **Note:** You need an instance of [Azure Active Directory](https://azure.microsoft.com/en-ca/products/active-directory/) to follow this tutorial.
 
 ## Configure Azure AD as an IdP in Okta
 
