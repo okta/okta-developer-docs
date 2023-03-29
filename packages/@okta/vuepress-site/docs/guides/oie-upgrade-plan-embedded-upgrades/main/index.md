@@ -74,7 +74,7 @@ When you're embedding your authentication with our SDKs, consider all the steps 
 
     * **Self-Service Password Recovery:** Replace with the remediation form of the password reset flow. This may also mean removing features like security questions and some other configurations from the Password Authenticator's settings. See [Upgrade your application to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 
-    * **Self-Service Registration:** The Identity Engine SDK provides full support for user sign-up flows. See the [Self-service registration integration guide](/docs/guides/oie-embedded-sdk-use-case-self-reg/-/main/) for more information on how to integrate the sign up use case into your application using the Identity Engine SDK.
+    * **Self-Service Registration:** The Identity Engine SDK provides full support for user sign-up flows. See the [Self-service registration integration guide](/docs/guides/oie-embedded-sdk-use-case-self-reg/-/main/) for more information on how to integrate the sign-up use case into your application using the Identity Engine SDK.
 
     * **Authentication**
 
