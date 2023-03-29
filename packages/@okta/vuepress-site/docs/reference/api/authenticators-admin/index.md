@@ -1217,7 +1217,7 @@ An [Authenticator Method object](#authenticator-method-object)
 > YubiKey enrollment has the following limitations:
 > * Enrollment is currently unsupported on Firefox.
 > * Enrollment is currently unsupported on Chrome if User Verification is set to `DISCOURAGED` and a PIN is set on the YubiKey.
-> * If prompted during enrollment, users must allow Okta to see make and model of the security key.
+> * If prompted during enrollment, users must allow Okta to see the make and model of the security key.
 
 | Property | Type | Description  | Applies to Authenticator Method type |
 | -------- | ---- | ------------ | ------------------------------------ |
