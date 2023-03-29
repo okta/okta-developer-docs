@@ -4,9 +4,11 @@ title: Migrate users from Azure Active Directory to Universal Directory
 
 # Directory coexistence tutorial 1: Migrate users from Azure Active Directory to Universal Directory
 
-If you already handle authentication through a cloud-based Identity Provider (IdP) such as Azure Active Directory (AD), you can mirror those users in Universal Directory. In this scenario, Universal Directory serves as a single source of truth for user data and lets administrators centrally manage policies and profiles. However, the user passwords are still managed in your original IdP. This directory coexistence can stay in place until you migrate all your user information to Universal Directory and no longer require the other IdP.
+Suppose you already handle authentication through cloud-based Identity Provider (IdP) such as Azure Active Directory (AD) but want to replace it with Okta. You can install an on-premises Okta AD Agent to mirror those users to Universal Directory and then redirect your applications to Okta for authentication. In this scenario, Universal Directory serves as a single source of truth for user data and lets administrators centrally manage policies and profiles. You can assign them to any application registered with your Okta Organization.
 
-In this tutorial:
+However, the user passwords are still managed in your original IdP. This directory coexistence can stay in place until you migrate all your user information to Universal Directory and no longer require the other IdP.
+
+In this tutorial, you migrate all the users in a simple Active Directory instance to Universal Directory with the Okta AD Agent, and then create an application to authenticate its users with Universal Directory. Specifically:
 
 * [Configure Okta to mirror an Azure AD instance and enable JIT provisioning](#configure-azure-ad-as-an-idp-in-okta).
 * [Create an OIDC-based application that redirects to Okta for authentication](#create-an-oidc-based-application-that-redirects-to-okta-for-authentication).
@@ -151,7 +153,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
 
    </div>
 
-## Tear down the example
+## Stop the example
 
 After you complete the example, stop the application and remove the running Docker containers.
 
