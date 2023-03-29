@@ -325,8 +325,8 @@ Include this section if there are known issues that apply to the entire configur
 
 ##### SAML examples
 
-* [How to Configure SAML 2.0 for Template self](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-self.html) example
-* [How to Configure SAML 2.0 Template with company support](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-with-company-support.html) example
+* [How to Configure SAML 2.0 for Template self](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-self.html)
+* [How to Configure SAML 2.0 Template with company support](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-with-company-support.html)
 * [GitHub Enterprise](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github_Enterprise.html)
 * [Runscope](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Runscope.html)
 * [Salesforce](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-in-Salesforce.html)
