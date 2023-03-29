@@ -265,7 +265,7 @@ The SAML setting is complete in {appName}.
 > **Note:** Your app integration may require specific SAML settings than the SAML **Metadata URL** (such as **Sign on URL**, **Sign out URL**, **Issuer**, or **Signing Certificate** settings).
 > You can find these SAML settings at **Applications** > **Applications** > your SAML app > **Sign-On Options** tab > **Sign on methods** > **SAML 2.0** > **Metadata details** in the Admin Console. See [Configure Single Sign-On options](https://help.okta.com/okta_help.htm?type=oie&id=ext_Apps_Overview_of_Managing_Apps_and_SSO). Adjust your configuration guide as required from the example template.
 
-For a complete customer admin configuration guide example, see [How to Configure SAML 2.0 Template self](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-self.html).
+For a complete customer admin configuration guide example, see [How to Configure SAML 2.0 Template for admins](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-self.html).
 
 ##### SAML configuration steps note example
 
@@ -325,7 +325,7 @@ Include this section if there are known issues that apply to the entire configur
 
 ##### SAML examples
 
-* [How to Configure SAML 2.0 for Template self](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-self.html)
+* [How to Configure SAML 2.0 for Template for admins](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-self.html)
 * [How to Configure SAML 2.0 Template with company support](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-Template-with-company-support.html)
 * [GitHub Enterprise](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Github_Enterprise.html)
 * [Runscope](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-Runscope.html)
