@@ -110,6 +110,6 @@ This section details common issues and errors that you may encounter during your
 | Issue / error | Cause |
 | ------ | -------------------------- |
 | Error message: "The requested feature isn't available in this environment" | This is reported when your [Okta org](/docs/concepts/okta-organizations/) hasn't been upgraded to Identity Engine and you try to turn on [interaction code](/docs/concepts/interaction-code/) in the embedded SDK/Sign-In Widget. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version. |
-| &nbsp; | This error is also reported when you've upgraded your org to Identity Engine and interaction code is turned on in the embedded SDK, but it isn't turned on in your app or authorization server. |
+| &nbsp; | This is also reported when you've upgraded your org to Identity Engine and enabled interaction code in the embedded SDK, but it isn't enabled in your app or authorization server. |
 | Various SDK errors | If your Okta org hasn't been upgraded to Identity Engine and you start trying to replace Classic Engine API/SDK calls with Identity Engine SDK calls, you see errors in your apps. |
 | Your org and SDK are upgraded to Identity Engine, but your app still behaves like Classic Engine | [Interaction code](/docs/guides/implement-grant-type/interactioncode/main/) is turned off in the SDK. This is required for upgrading [Embedded Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) and [Embedded SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/)-based apps.  |
