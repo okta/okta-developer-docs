@@ -16,8 +16,8 @@ These reference architectures describe different problem scenarios your systems 
 <figure class="main-card main-card_size_large">
   <img
     class="main-card__image"
-    src="https://picsum.photos/200/300"
-    alt="It's a simple title"
+    src="/img/architecture/thumbs/usermgmt.png"
+    alt="User management"
   >
   <figcaption class="main-card__body">
     <h2 class="main-card__title">
@@ -48,8 +48,8 @@ These reference architectures describe different problem scenarios your systems 
 <figure class="main-card">
   <img
     class="main-card__image"
-    src="https://picsum.photos/200/300"
-    alt="It's a simple title"
+    src="/img/architecture/thumbs/devops.png"
+    alt="DevOps"
   >
   <figcaption class="main-card__body">
     <h2 class="main-card__title">
@@ -84,8 +84,8 @@ These case studies demonstrate how Okta customers took and applied the tenets of
 <figure class="main-card main-card_size_large">
   <img
     class="main-card__image"
-    src="https://picsum.photos/200/300"
-    alt="It's a simple title"
+    src="/img/architecture/thumbs/companyx.jpg"
+    alt="CompanyX"
   >
   <figcaption class="main-card__body">
     <h2 class="main-card__title">

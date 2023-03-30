@@ -16,8 +16,8 @@ Company X is a Global 2000 company with 200,000 team members worldwide. It uses 
 <figure class="main-card">
   <img
     class="main-card__image"
-    src="https://picsum.photos/200/300"
-    alt="It's a simple title"
+    src="/img/architecture/thumbs/usermgmt.png"
+    alt="UserManagement"
   >
   <figcaption class="main-card__body">
     <h2 class="main-card__title">
