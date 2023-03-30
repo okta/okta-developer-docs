@@ -811,7 +811,7 @@ An [Authenticator Method object](#authenticator-method-object)
 | `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                             | All Authenticators |
 | `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created               | All Authenticators |
 | `id`          | String                                                          | A unique identifier for the Authenticator                  | All Authenticators |
-| `key`         | String                                                          | A human-readable string that identifies the Authenticator. Values include: `custom_app`, `duo`, `okta_email`, `google_otp`, `okta_password`, `okta_verify`, `phone_number`, `security_key`, `security_question`, `smart_card_idp`, or `webauthn` | All Authenticators |
+| `key`         | String                                                          | A human-readable string that identifies the Authenticator. Values include: `custom_app`, `duo`, `okta_email`, `google_otp`, `external_idp`, `okta_password`, `okta_verify`, `onprem_mfa`, `phone_number`, `security_key`, `security_question`, `symantec_vip`, `smart_card_idp`, `webauthn`, or `yubikey_token` | All Authenticators |
 | `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                | All Authenticators |
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified         | All Authenticators |
 | `name`        | String                                                          | Display name of the Authenticator                         | All Authenticators |
@@ -1212,6 +1212,12 @@ An [Authenticator Method object](#authenticator-method-object)
 #### Authenticator Method Settings properties
 
 > **Note:** The `aaguidGroups` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
+
+> **Note**: 
+> YubiKey enrollment has the following limitations:
+> * Enrollment is currently unsupported on Firefox.
+> * Enrollment is currently unsupported on Chrome if User Verification is set to `DISCOURAGED` and a PIN is set on the YubiKey.
+> * If prompted during enrollment, users must allow Okta to see the make and model of the security key.
 
 | Property | Type | Description  | Applies to Authenticator Method type |
 | -------- | ---- | ------------ | ------------------------------------ |
