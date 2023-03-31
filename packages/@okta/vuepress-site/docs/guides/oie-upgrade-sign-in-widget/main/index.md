@@ -59,9 +59,9 @@ To update the widget:
 
 1. Go to the **Settings** tab.
 
-1. In the **Sign-In Widget Version** section, check that the **Major Version** is the highest version available and **Minor Version** is **latest**. The widget is always the latest version if you're not using a custom URL domain.
-
-1. If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version. Click **Edit** in the **Sign-In Widget Version** section and then select the **Major Version** and **Minor Version** fields.
+  - In the **Sign-In Widget Version** section, check that the **Major Version** is the highest version available and **Minor Version** is **latest**. The widget is always the latest version if you're not using a custom URL domain.
+  - If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can change the widget's version. Click **Edit** in the **Sign-In Widget Version** section and then select the **Major Version** and **Minor Version** fields.
+  - 
 
 1. Click **Save** at the bottom of the page.
 
