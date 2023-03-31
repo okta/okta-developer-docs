@@ -17,7 +17,7 @@ Each org starts with Okta default branding. You can upload your own assets (colo
 
 <ApiLifecycle access="ea" />
 
-The third generation of the Okta Sign-In Widget doesn’t support CSS overrides. That is, if you use the code editor to override the sign-in page’s default styles, you shouldn’t enable the third generation yet. See [Sign-In Widget (third generation)](https://help.okta.com/okta_help.htm?type=oie&id=ext-compare-siw).
+The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
 
 ## What is multibrand customization?
 
