@@ -156,6 +156,11 @@ as -> cl: Tokens
 * A higher level of effort to integrate and maintain is required compared to the Okta-hosted Sign-In Widget.
 * The user is kept in the application, which reduces redirects to and from Okta.
 
+## Direct authentication
+
+<ApiLifecycle access="ea" />
+
+You have the option to use the Direct Authentication API with your apps in Identity Engine rather than an embedded SDK. This allows you to directly authenticate users rather than delegating authentication to Okta Identity Providers and authorization servers through an HTTP redirect in a web browser. Direct authentication is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. See the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/challengeCustomAS) or the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/oob-authenticateCustomAS) for more information on how to tailor authentication to your specific use cases.
 
 ## Deployment models and the Authentication API
 
