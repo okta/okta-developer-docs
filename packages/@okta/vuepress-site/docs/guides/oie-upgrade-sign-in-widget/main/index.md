@@ -57,21 +57,21 @@ To update the widget:
 
 1. In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the **Sign-in page** section. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
 
-1. Go to the **Settings** tab. (EA users: in the **Pages** tab, click **Configure** for the page that has the version you want to upgrade.)
+2. Go to the **Settings** tab. (EA users: in the **Pages** tab, click **Configure** for the page that has the version you want to upgrade.)
 
-  - In the **Sign-In Widget Version** section, check that the **Version** is the highest version available. The widget is always the latest version if you're not using a custom URL domain.
-  - If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can pin the widget's version. Click **Edit** in the **Sign-In Widget Version** section and then select the **Version** field.
-  - (EA users: You can't customize the Sign-In Widget for the Okta default brand.)
+    - In the **Sign-In Widget Version** section, check that the **Version** is the highest version available. The widget is always the latest version if you're not using a custom URL domain.
+    - If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can pin the widget's version. Click **Edit** in the **Sign-In Widget Version** section and then select the **Version** field.
+    - (EA users: You can't customize the Sign-In Widget for the Okta default brand.)
 
-  > **Note:** When the third generation of the Sign-In Widget is enabled, the pinned version is ignored.
+    > **Note:** When the third generation of the Sign-In Widget is enabled, the pinned version is ignored.
 
-1. Click **Save to draft**.
+3. Click **Save to draft**.
 
-1. Test your app's supported authentication sign-up and recovery flows to ensure that they still work.
+4. Test your app's supported authentication sign-up and recovery flows to ensure that they still work.
 
-1. Verify the CSS and localization changes that you made are reflected in the new version.
+5. Verify the CSS and localization changes that you made are reflected in the new version.
 
-> **Note:** The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+  > **Note:** The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
 
 ## Upgrade process for an embedded widget
 
