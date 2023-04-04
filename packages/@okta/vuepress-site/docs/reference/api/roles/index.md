@@ -1406,6 +1406,60 @@ You're able to grant third-party admin status when you assign a new role, or you
 
 When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
 
+### List Users with Role Assignments
+
+<ApiOperation method="get" url="/api/v1/iam/assignees/users" />
+
+Lists all the Users with Role Assignments
+
+##### Request parameters
+
+
+| Parameter     | Description                                          | Param Type  | DataType  | Required  |
+| :------------ | :--------------------------------------------------- | :---------- | :-------- | :-------- |
+| `after`       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
+| `limit`       | Specifies the number of results for a page (default is 100)     | Query        | Number     | FALSE    |
+
+##### Response parameters
+
+Array of RoleAssignedUser
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/iam/assignees/users"
+```
+
+##### Response example
+
+```json
+{
+  "value": [
+    {
+      "id": "00u118oQYT4TBGuay0g4",
+      "orn": "orn:okta:00o5rb5mt2H3d1TJd0h7:users:00u118oQYT4TBGuay0g4",
+      "_links": {
+        "self": {
+          "href": "http://your-subdomain.okta.com/api/v1/users/00u118oQYT4TBGuay0g4"
+        },
+        "roles": {
+          "href": "http://your-subdomain.okta.com/api/v1/users/00u118oQYT4TBGuay0g4/roles"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "next": {
+      "href": "http://your-subdomain.okta.com/api/v1/iam/assignees/users?after=00u118oQYT4TBGuay0g4&limit=1"
+    }
+  }
+}
+```
+
 ### List Roles
 
 #### List Roles assigned to a User
