@@ -159,6 +159,10 @@ export const guides = [
             title: "Redirect authentication",
             subLinks: [
               {
+                title: "Sign in to SPA with AuthJS",
+                guideName: "auth-js-redirect",
+              },
+              {
                 title: "Sign in to SPA",
                 guideName: "sign-into-spa-redirect",
               },

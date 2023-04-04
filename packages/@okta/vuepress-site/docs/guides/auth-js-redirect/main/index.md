@@ -23,7 +23,7 @@ The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/a
 
 These experiences include fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/), and redirect authentication. Auth JS is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. It also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [Quickstart guides](/docs/guides/quickstart/).
 
-In this guide, you don’t need to use a specific server-side or front-end framework that Okta officially supports to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps, whether you're adding centralized sign-in to a new app or retrofitting it to an existing app.
+In this guide, you don’t need to use a specific server-side or front-end framework that Okta officially supports to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps, whether you're adding centralized sign-in to a new app or retrofitting it to an existing app. To see examples of Auth JS with other front-end frameworks, go to [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/).
 
 If you'd like to explore the entire Auth JS SDK, see [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
 
@@ -91,7 +91,7 @@ Include this script in your target HTML page (`index.html`) by including the fol
 <script src="https://global.oktacdn.com/okta-auth-js/7.2.0/okta-auth-js.min.js" type="text/javascript"></script>
 ```
 
-Note: If you're using a package manager, you can also install it through the appropriate command, for example `yarn add @okta/okta-auth-js` or `npm install @okta/okta-auth-js`.
+>**Note:** If you're using a package manager, you can also install it through the appropriate command, for example `yarn add @okta/okta-auth-js` or `npm install @okta/okta-auth-js`.
 
 ### Add JavaScript to initialize the SDK
 
@@ -179,7 +179,7 @@ If your app isn't working, ensure that:
 * Your `redirectUri` is accurate or the web-server port number is correct.
 * You've enabled a Trusted Origin for `http://localhost:9000`. See [Enable Trusted Origin](#enable-trusted-origins).
 
-## Use Cases
+<!-- ## Use Cases - Review these headings for future content
 
 * Retrofitting
 * Centralized login
@@ -194,7 +194,7 @@ Sign-in policy
 Recovery
 Sign-up
 
-Talk about session management, and what happens when the page is refreshed. (To decide: app manages the session or uses the “built-in token manager”.
+Talk about session management, and what happens when the page is refreshed. (To decide: app manages the session or uses the “built-in token manager”.-->
 
 ## See also
 
