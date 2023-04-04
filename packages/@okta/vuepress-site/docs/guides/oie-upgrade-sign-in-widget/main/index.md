@@ -67,7 +67,7 @@ To update the widget:
 
 3. Click **Save to draft**.
 
-4. Test your app's supported authentication sign-up and recovery flows to ensure that they still work.
+4. Go to the **Page Design** tab to preview the draft of your sign-in page.
 
 5. Verify the CSS and localization changes that you made are reflected in the new version.
 
