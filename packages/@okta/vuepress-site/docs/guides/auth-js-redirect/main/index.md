@@ -42,7 +42,7 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. Select the **Authorization Code** grant type.
 1. Enter the **Sign-in redirect URIs** for local development. For this sample, use `http://localhost:9000`.
 1. Enter the **Sign-out redirect URIs** for local development. For this sample, use `http://localhost:9000`. See [Define callback route](#define-a-callback-route).
-1. In the **Assignments** section, define the type of **Controlled access** for your app. Select **Allow everyone in your organization to access**. For more information, see the [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign) topic in the Okta product documentation.
+1. In the **Assignments** section, define the type of **Controlled access** for your app. Select **Allow everyone in your organization to access**. See [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign).
 1. Make sure to clear the checkbox **Enable immediate access with Federation Broker Mode**.
 1. Click **Save** to create the app integration. The configuration pane for the integration opens after it's saved. Keep this pane open as you'll need to copy the **Client ID** and your org domain name when configuring your app.
 
