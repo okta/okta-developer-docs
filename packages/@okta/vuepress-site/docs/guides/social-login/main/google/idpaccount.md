@@ -1,1 +1,1 @@
-with [Google](https://accounts.google.com/signup)
+[Google](https://accounts.google.com/signup)
