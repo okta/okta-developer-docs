@@ -117,7 +117,7 @@ const authClient = new OktaAuth({
 </script>
 ```
 
-This code initializes the SDK by creating an instance of the `OktaAuth()` object. The object stores all the necessary config information for your auth session, and is used to control subsequent steps of the process.
+This code initializes the SDK by creating an instance of the `OktaAuth()` object. The object stores all the necessary config information for your auth session and is used to control subsequent steps of the process.
 
 ### Get info about the user
 
