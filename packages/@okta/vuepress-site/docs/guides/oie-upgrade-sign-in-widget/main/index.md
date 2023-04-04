@@ -22,14 +22,14 @@ This guide covers how to upgrade the Okta Sign-In Widget. The upgrade depends on
 
 ## About the Okta Sign-In Widget
 
-The widget is a JavaScript library that gives you a full-featured and customizable sign-in experience that you can use to authenticate users of web and mobile applications.
+The widget is a JavaScript library that provides a full-featured and customizable sign-in experience that you can use to authenticate web and mobile app users.
 
-The widget is used on the Okta default sign-in page to start an Okta SSO session and to set the Okta [session cookie](/docs/guides/session-cookie/) in the web browser. The widget can also perform a complete [OpenID Connect (OIDC)](/docs/concepts/oauth-openid/) flow and/or integrate with [external Identity Providers](/docs/concepts/identity-providers/).
+Use the widget on the Okta default sign-in page to start an Okta SSO session and to set the Okta [session cookie](/docs/guides/session-cookie/) in the web browser. The widget can also perform a complete [OpenID Connect (OIDC)](/docs/concepts/oauth-openid/) flow and/or integrate with [external Identity Providers](/docs/concepts/identity-providers/).
 
 This article teaches you how to upgrade the Sign-In Widget when it’s used in any of the following ways:
 
 * Redirect sign-in page (default): Okta provides a sign-in page that is available at your [org's URL](/docs/concepts/okta-organizations/). By default, a user who signs in on this page is redirected to the Okta user dashboard.
-* Redirect sign-in page (customizable): Okta provides a sign-in page that you can customize and make available under a custom domain that is a subdomain of your company's top-level domain.
+* Redirect sign-in page (customizable): Okta provides a sign-in page that you can customize. You can then make it available under a custom domain that's a subdomain of your company's top-level domain.
 * Embedded (self-hosted): You can embed the widget directly into your application.
 
 After you've completed the widget upgrade, review the [Okta Identity Engine overview](/docs/concepts/oie-intro/) to take advantage of the new features in Identity Engine.
@@ -48,8 +48,9 @@ The specific steps to upgrade your widget depend on your [user authentication de
 
 The widget upgrade for a redirect sign-in flow depends on whether you configured a custom URL domain:
 
-* If you haven't configured a [custom domain](/docs/guides/custom-url-domain/) and don't have customizations outside of simple branding styles, your widget is automatically upgraded to the latest version when it's loaded from the content delivery network (CDN).
-* If you've configured a [custom domain](/docs/guides/custom-url-domain/) and have other customizations, admins must update the widget version in the Admin Console.
+* [Custom domain](/docs/guides/custom-url-domain/) and customizations outside of simple branding styles aren't configured: The widget is automatically upgraded to the latest version when it's loaded from the content delivery network (CDN).
+
+* [Custom domain](/docs/guides/custom-url-domain/) and other customizations are configured: Admins must update the widget version in the Admin Console.
 
 To update the widget:
 
@@ -213,11 +214,11 @@ The following specific features are no longer supported, and you can't configure
 
 * `features.autoPush`: Displayed a checkbox to enable the "Send push automatically" function in the MFA challenge flow. It may be added to the policy configuration in a future release.
 
-* `features.smsRecovery`: Recovered the password for users with a configured mobile phone number by using an SMS message. See the [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) topic in the Okta product documentation to enable and configure a possession (for example, a phone) authenticator.
+* `features.smsRecovery`: Recovered the password for users with a configured mobile phone number by using an SMS message. See  [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession (for example, a phone) authenticator.
 
-* `features.callRecovery`: Recovered the password for users with a configured mobile phone number by using a voice call. See the [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) topic in the Okta product documentation to enable and configure a possession (for example, a phone) authenticator.
+* `features.callRecovery`: Recovered the password for users with a configured mobile phone number by using a voice call. See [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession (for example, a phone) authenticator.
 
-* `features.webauthn`: Prevented the widget from invoking the legacy Windows Hello factor. See the [sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) in the Okta product documentation to enable and configure a possession authenticator.
+* `features.webauthn`: Prevented the widget from invoking the legacy Windows Hello factor. See [sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-osop) to enable and configure a possession authenticator.
 
 * `features.selfServiceUnlock`: Displayed the "Unlock Account" link so that users could unlock their accounts. See [self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr) to enable this feature.
 
@@ -227,7 +228,7 @@ The following specific features are no longer supported, and you can't configure
 
 * `features.idpDiscovery`: Enabled IdP Discovery when the user signed in. The [Identity Provider routing rules](https://help.okta.com/okta_help.htm?id=ext_Identity_Provider_Discovery) are evaluated by default when applicable.
 
-* `features.showPasswordToggleOnSignInPage`: Provided end users with the ability to toggle visibility of their password on the Okta sign-in page so that they could check their password entry before clicking **Sign In**. This feature also prevented an account lockout due to exceeding their org's permitted number of failed sign-in attempts.
+* `features.showPasswordToggleOnSignInPage`: Provided end users with the ability to toggle visibility of their password on the Okta sign-in page. This allows users to check their password entry before clicking **Sign In**. This feature also prevented an account lockout due to exceeding their org's permitted number of failed sign-in attempts.
 
 * `features.scrollOnError`: Scrolled errors into view. Errors appear inside the widget.
 
@@ -256,7 +257,7 @@ Developers can't subscribe to the `processCreds` hook in the widget.
 
 Existing registration inline hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta registration inline hook request. Your application may require code updates to consume the new request format properly.
 
-In the Admin Console, the enablement of a registration inline hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the registration inline hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
+In the Admin Console, where you enable a registration inline hook has changed from the Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the registration inline hook remains the same. You can use either the Admin Console or Inline Hook Management APIs.
 
 See [Registration hooks API reference](/docs/reference/registration-hook/) and [Manage Profile Enrollment Policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
