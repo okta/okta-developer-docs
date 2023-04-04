@@ -177,7 +177,7 @@ If your app isn't working, ensure that:
 * Your org URL is accurate and formatted correctly, including the secure protocol, `https://`.
 * Your client ID is accurate from your Okta app integration.
 * Your `redirectUri` is accurate or the web server port number is correct.
-* You've enabled a Trusted Origin for `http://localhost:9000`. See [Enable Trusted Origin](#enable-trusted-origins).
+* You've enabled a Trusted Origin for `http://localhost:9000`. See [Enable Trusted Origins](#enable-trusted-origins).
 
 <!-- ## Use Cases - Review these headings for future content
 
