@@ -214,7 +214,7 @@ The following specific features are no longer supported, and you can't configure
 
 * `features.autoPush`: Displayed a checkbox to enable the "Send push automatically" function in the MFA challenge flow. It may be added to the policy configuration in a future release.
 
-* `features.smsRecovery`: Recovered the password for users with a configured mobile phone number by using an SMS message. See  [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession (for example, a phone) authenticator.
+* `features.smsRecovery`: Recovered the password for users with a configured mobile phone number by using an SMS message. See [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession (for example, a phone) authenticator.
 
 * `features.callRecovery`: Recovered the password for users with a configured mobile phone number by using a voice call. See [password recovery policy](https://help.okta.com/okta_help.htm?id=ext-add-self-service-password-reset) to enable and configure a possession (for example, a phone) authenticator.
 
