@@ -32,7 +32,7 @@ If you'd like to explore the entire Auth JS SDK, see [Okta Auth JS JavaScript SD
 An Okta app integration represents your app in your Okta org. The integration configures how your app integrates with the Okta services including which users and groups have access, authentication policies, token refresh requirements, redirect URLs, and more. The integration includes configuration information required by the app to access Okta.
 
 1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
-1. Click the **Admin** button on the top right of the page.
+1. Click **Admin** in the upper-right corner of the page.
 1. Open the Applications configuration pane by selecting **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select a **Sign-in method** of **OIDC - OpenID Connect**, then click **Next**.
