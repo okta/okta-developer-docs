@@ -23,7 +23,7 @@ The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/a
 
 These experiences include fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/) and redirect authentication. Auth JS is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. It also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [Quickstart guides](/docs/guides/quickstart/).
 
-In this guide, you don’t need to use a specific server-side or front-end framework that Okta officially supports to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps, whether you're adding centralized sign-in to a new app or retrofitting it to an existing app. To see examples of Auth JS with other front-end frameworks, go to [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/).
+In this guide, you don’t need to use a specific server-side or front-end framework that Okta officially supports to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps, whether you're adding a centralized sign-in flow to a new app or retrofitting it to an existing app. To see examples of Auth JS with other front-end frameworks, go to [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/).
 
 If you'd like to explore the entire Auth JS SDK, see [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
 
