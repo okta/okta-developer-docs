@@ -56,7 +56,7 @@ To set trusted origins go to **Security** > **API** and select the **Trusted Ori
 
 ## Create a basic app
 
-To make this sample as versatile as possible, the following starter app redirects to Okta to sign in as you load it into the browser. In your own apps, you might want to initiate the redirect through the press of a sign-in button, or when visiting a certain route that requires authentication (such as an admin page). The key is that you initiate the sign in through the redirect.
+To make this sample as versatile as possible, the following starter app redirects to Okta to sign in as you load it into the browser. In your own apps, you might want to initiate the redirect through the press of a sign-in button, or when visiting a certain route that requires authentication (such as an admin page). The key is that you initiate the sign in flow through the redirect.
 
 ### Create a simple HTML UI
 
