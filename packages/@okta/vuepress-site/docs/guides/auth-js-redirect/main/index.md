@@ -2,7 +2,7 @@
 title: Sign users in to your SPA using the redirect model and Auth JS
 ---
 
-The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js), (Auth JS), provides functionality to help implement a wide variety of web authentication solutions for both the [redirect and embedded model](/docs/concepts/redirect-vs-embedded/). This guide shows you how to create a simple redirect authentication solution using Auth JS, which can be dropped into just about any front-end or server-side web application.
+The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js), (Auth JS), provides functionality to help implement a wide variety of web authentication solutions for both the [redirect and embedded model](/docs/concepts/redirect-vs-embedded/). This guide shows you how to create a simple redirect authentication solution using Auth JS, which you can drop into just about any front-end or server-side web application.
 
 ---
 
