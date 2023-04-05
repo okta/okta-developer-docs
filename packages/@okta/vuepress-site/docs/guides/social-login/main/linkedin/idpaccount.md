@@ -1,1 +1,1 @@
-with [LinkedIn](https://developer.linkedin.com/)
+[LinkedIn](https://developer.linkedin.com/)

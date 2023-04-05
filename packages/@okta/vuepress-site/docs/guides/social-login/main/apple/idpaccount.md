@@ -1,1 +1,1 @@
-with [Apple](https://developer.apple.com/)
+[Apple](https://developer.apple.com/)
