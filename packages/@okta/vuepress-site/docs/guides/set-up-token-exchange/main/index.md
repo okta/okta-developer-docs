@@ -4,8 +4,6 @@ excerpt: This guide discusses how to retain user context in requests to downstre
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide discusses how to retain user context in requests to downstream services using On-Behalf-Of Token Exchange. You can use On-Behalf-Of Token Exchange with a single custom authorization server or between other custom authorization servers under the same Okta tenant.
 
 ---
