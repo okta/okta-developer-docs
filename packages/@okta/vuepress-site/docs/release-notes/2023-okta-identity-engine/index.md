@@ -12,13 +12,13 @@ title: Okta Identity Engine API Products release notes 2023
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
 | [Transactional verification with CIBA is GA in Production](#transactional-verification-with-ciba-is-ga-in-production) | December 09, 2022 |
 | [Support added for DPoP with service apps](#support-added-for-dpop-with-service-apps) | April 05, 2023 |
-| [OAuth 2.0 authentication for inline hooks is GA in Production](#oauth-20-authentication-for-inline-hooks-is-ga-in-production) | October 05, 2022 |
+| [OAuth 2.0 authentication for inline hooks is GA in Production](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-production) | October 05, 2022 |
 | [API service integrations are GA in Production](#api-service-integrations-are-ga-in-production) | November 03, 2022 |
 | [OIN Manager support for Workflow Connector submission is GA in Production](#oin-manager-support-for-workflow-connector-submission-is-ga-in-production) | March 08, 2023 |
-| [OAuth 2.0 grant scopes added](#oauth-20-grant-scopes-added) | April 05, 2023 |
+| [OAuth 2.0 grant scopes added](#oauth-2-0-grant-scopes-added) | April 05, 2023 |
 | [Scope parameter length increased](#scope-parameter-length-increased) | April 05, 2023 |
-| [OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview](#oauth-20-on-behalf-of-token-exchange-is-ga-in-preview) | February 08, 2023 |
-| [Configurable rate limits for OAuth 2.0 apps is GA in Production](#configurable-rate-limits-for-oauth-20-apps-is-ga-in-production) | March 08, 2023 |
+| [OAuth 2.0 On-Behalf-Of Token Exchange is GA in Preview](#oauth-2-0-on-behalf-of-token-exchange-is-ga-in-preview) | February 08, 2023 |
+| [Configurable rate limits for OAuth 2.0 apps is GA in Production](#configurable-rate-limits-for-oauth-2-0-apps-is-ga-in-production) | March 08, 2023 |
 
 #### Transactional verification with CIBA is GA in Production
 
@@ -28,7 +28,7 @@ CIBA extends OpenID Connect to define a decoupled flow where the authentication 
 
 #### Support added for DPoP with service apps
 
-Okta now supports [Demonstrating Proof-of-Possession](/docs/guides/dpop/main/) for service apps. However, service apps can provide the same level of security by using `private_key_jwt` for [client authentication](/docs/api/openapi/okta-oauth/guides/client-auth/).<!--OKTA-592258-->
+Okta now supports [Demonstrating Proof-of-Possession](/docs/guides/dpop/main/) for service apps. However, service apps can provide the same level of security by using `private_key_jwt` for [client authentication](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/).<!--OKTA-592258-->
 
 #### OAuth 2.0 authentication for inline hooks is GA in Production
 
