@@ -73,6 +73,8 @@ rs -> client: Validates the DPoP-bound access token and grants access to client
 
 This section explains how to configure DPoP in your org and prepare the DPoP JWT.
 
+> **Note:** Okta supports DPoP for service apps. However, service apps can provide the same level of security by using `private_key_jwt` for [client authentication](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/client-auth/).
+
 ### Configure the app integration
 
 Create or update an app to include the DPoP parameter.
