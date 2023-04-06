@@ -54,6 +54,12 @@ You can create up to three custom domains with multibrand customizations and up 
 
 You can only preview or visit a branded page (such as viewing brand assets applied to the Okta-hosted sign-in page) after you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
+#### Branding and the Sign-In Widget third generation
+
+<ApiLifecycle access="ea" />
+
+The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+
 ### Caveats
 
 * You must provide a subdomain for customizing the Okta org domain. Okta doesn't support the use of a root domain name.

@@ -1,6 +1,6 @@
 {
-  "release" : "2023.03.1",
-  "build" : "2023.03.1-begin-155-g0a3aa94c1bba",
+  "release" : "2023.04.1",
+  "build" : "2023.04.1-begin-117-gf53d88e71baf",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -310,6 +310,48 @@
     "errorCode" : "access_denied",
     "errorDescription" : "Failed to initiate the MFA challenge for the Client-Initiated Backchannel Authentication flow."
   }, {
+    "title" : "Direct auth policy denied",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_policy_denied",
+    "errorCode" : "access_denied",
+    "errorDescription" : "User couldn't be signed-in through direct authentication because authentication policy wasn't satisfied."
+  }, {
+    "title" : "Direct auth not challenged for required factor type",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_not_challenged_for_required_factor_type",
+    "errorCode" : "access_denied",
+    "errorDescription" : "Unable to prompt for the requested authenticators. Review the Authentication Policyâs requirements or request another authenticator and try again."
+  }, {
+    "title" : "Direct auth factor enrollment required",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_factor_enrollment_required",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The required authenticator cannot be used to sign-in. Check if it is included in the authentication policy and the user is enrolled in the authenticator and try again."
+  }, {
+    "title" : "Direct auth expired token",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_expired_token",
+    "errorCode" : "access_denied",
+    "errorDescription" : "'{0}' has expired. Use a new 'oob_code' or 'mfa_token' and try again."
+  }, {
+    "title" : "Direct auth grant types supported not prompted",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_grant_types_supported_not_prompted",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The 'grant_types_supported' '{0}' are not sufficient to satisfy the authentication policy. Configure additional grant types for the client or revise the authentication policy to allow the user to sign-in."
+  }, {
+    "title" : "Direct auth prompted grant type disabled for client",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "internalErrorCode" : "direct_auth_prompted_grant_type_disabled_for_client",
+    "errorCode" : "access_denied",
+    "errorDescription" : "The grant types required to satisfy sign on policy are disabled for the client."
+  }, {
     "title" : "Authorization pending",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -323,6 +365,13 @@
     "internalErrorCode" : "ciba_authorization_pending",
     "errorCode" : "authorization_pending",
     "errorDescription" : "The authorization request is still pending as the user hasn't yet been authenticated."
+  }, {
+    "title" : "Direct auth authorization pending",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_authorization_pending",
+    "errorCode" : "authorization_pending",
+    "errorDescription" : "No user response received on the out-of-band authenticator yet. Continue polling to wait for a response."
   }, {
     "title" : "Client credentials self scope requested",
     "statusCode" : 400,
@@ -365,20 +414,6 @@
     "internalErrorCode" : "no_org_scopes_granted",
     "errorCode" : "consent_required",
     "errorDescription" : "You are not allowed any of the requested scopes."
-  }, {
-    "title" : "Direct auth authorization pending",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_authorization_pending",
-    "errorCode" : "direct_auth_authorization_pending",
-    "errorDescription" : "Out-of-band authorization has not been completed. Continue polling."
-  }, {
-    "title" : "Direct auth oob code not for MFA token",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_oob_code_not_for_mfa_token",
-    "errorCode" : "direct_auth_oob_code_not_for_mfa_token",
-    "errorDescription" : "The 'oob_code' provided is not associated with the provided 'mfa_token'."
   }, {
     "title" : "Expired token",
     "statusCode" : 400,
@@ -709,6 +744,13 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "The 'client_id' parameter does not match the expected value for the provided request_uri."
   }, {
+    "title" : "Direct auth invalid client ID",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "direct_auth_invalid_client_id",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client_id '{0}' does not match the client_id in the original request '{1}'. Use the original client id and try again."
+  }, {
     "title" : "Invalid client metadata",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -722,13 +764,6 @@
     "internalErrorCode" : "invalid_dpop_proof",
     "errorCode" : "invalid_dpop_proof",
     "errorDescription" : "The DPoP proof JWT is invalid."
-  }, {
-    "title" : "Invalid dpop proof service client not allowed",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "invalid_dpop_proof_service_client_not_allowed",
-    "errorCode" : "invalid_dpop_proof",
-    "errorDescription" : "The DPoP proof JWT is not supported for service clients."
   }, {
     "title" : "Invalid dpop proof missing header",
     "statusCode" : 400,
@@ -1038,82 +1073,19 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "The jti of the JWT Bearer Grant was already used."
   }, {
-    "title" : "Direct auth policy denied",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_policy_denied",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "Direct Authentication denied by sign on policy."
-  }, {
     "title" : "Direct auth invalid otp",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "direct_auth_invalid_otp",
     "errorCode" : "invalid_grant",
-    "errorDescription" : "The 'otp' provided is invalid."
-  }, {
-    "title" : "Direct auth not challenged for required factor type",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_not_challenged_for_required_factor_type",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "Sign on policy did not prompt for any factor types specified by the client."
-  }, {
-    "title" : "Direct auth factor enrollment required",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_factor_enrollment_required",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "User is not enrolled in required factor."
-  }, {
-    "title" : "Direct auth expired token",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_expired_token",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "Either the 'oob_code' or 'mfa_token' is expired or invalid."
-  }, {
-    "title" : "Direct auth invalid channel hint",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_invalid_channel_hint",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "The 'channel_hint' provided is invalid."
+    "errorDescription" : "The 'otp' provided is either empty or incorrect. Use the correct OTP and try again."
   }, {
     "title" : "Direct auth oob rejected",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "direct_auth_oob_reject",
     "errorCode" : "invalid_grant",
-    "errorDescription" : "Authentication was rejected out-of-band."
-  }, {
-    "title" : "Direct auth invalid challenge type",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_invalid_challenge_type",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "'{0}' is not a valid challenge type."
-  }, {
-    "title" : "Direct auth invalid grant type supported",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_invalid_grant_type_supported",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "'{0}' is not a valid grant type."
-  }, {
-    "title" : "Direct auth grant types supported not prompted",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_grant_types_supported_not_prompted",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "None of the supported grant types are sufficient to satisfy the app sign on policy."
-  }, {
-    "title" : "Direct auth prompted grant type disabled for client",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "direct_auth_prompted_grant_type_disabled_for_client",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "The grant types required to satisfy sign on policy are disabled for the client."
+    "errorDescription" : "User rejected out-of-band authentication prompt."
   }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
@@ -1612,6 +1584,41 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The recovery token is invalid"
   }, {
+    "title" : "Direct auth invalid channel hint",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_channel_hint",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'{0}' is not supported as a 'channel_hint'. Try again with another value."
+  }, {
+    "title" : "Direct auth oob code not for MFA token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_oob_code_not_for_mfa_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'oob_code' and the 'mfa_token' provided are not associated with each other. Review the values and try again."
+  }, {
+    "title" : "Direct auth invalid challenge type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_challenge_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "{0} is not supported as a 'challenge_type'. Try again with another value."
+  }, {
+    "title" : "Direct auth invalid grant type supported",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_grant_type_supported",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "{0} is not supported as a 'grant_type'. Remove or replace the value and try again."
+  }, {
+    "title" : "Direct auth invalid as ID",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_as_id",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The authorization server id '{0}' in the url_path parameter does not match the authorization server id in the original request '{1}'. Use the original authorization server id and try again."
+  }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1841,14 +1848,14 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "direct_auth_invalid_scope",
     "errorCode" : "invalid_scope",
-    "errorDescription" : "The 'scope' must not be changed from the originally requested scopes. Requested scopes '{0}' do not match the originally requested scopes '{1}'"
+    "errorDescription" : "The requested scopes '{0}' do not match the scopes requested in the original request '{1}'. Use the originally requested scopes and try again."
   }, {
     "title" : "Direct auth scope not allowed",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "direct_auth_scope_not_allowed",
     "errorCode" : "invalid_scope",
-    "errorDescription" : "The 'scope' must not be sent on this endpoint."
+    "errorDescription" : "The 'scope' parameter is unsupported on this endpoint. Try again without this parameter."
   }, {
     "title" : "Invalid social token",
     "statusCode" : 400,
@@ -2054,11 +2061,11 @@
     "errorDescription" : "The MFA attestation request cannot proceed because the client app policy does not require MFA."
   }, {
     "title" : "Direct auth MFA required",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
     "internalErrorCode" : "mfa_required",
     "errorCode" : "mfa_required",
-    "errorDescription" : "An additional authentication factor is required."
+    "errorDescription" : "Verify with an additional authenticator to complete the sign-in process."
   }, {
     "title" : "Missing initiate login URI",
     "statusCode" : 400,
