@@ -1213,9 +1213,9 @@ An [Authenticator Method object](#authenticator-method-object)
 
 > **Note:** The `aaguidGroups` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Allow List for FIDO2 (WebAuthn) Authenticators feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 >
-> This feature has several limitations when enrolling a YubiKey:
+> This feature has several limitations when enrolling a security key:
 > * Enrollment is currently unsupported on Firefox.
-> * Enrollment is currently unsupported on Chrome if User Verification is set to `DISCOURAGED` and a PIN is set on the YubiKey.
+> * Enrollment is currently unsupported on Chrome if User Verification is set to `DISCOURAGED` and a PIN is set on the security key.
 > * If prompted during enrollment, users must allow Okta to see the make and model of the security key.
 
 | Property | Type | Description  | Applies to Authenticator Method type |
