@@ -744,7 +744,7 @@ The Rules object defines several attributes:
 
 ### Actions objects
 
-Just as Policies contain settings, Rules contain "Actions" that typically specify actions to be taken, or operations that may be allowed, if the Rule conditions are satisfied. For example, in a Password Policy, Rule actions govern whether self-service operations such as reset password or unlock are permitted. Just as different Policy types have different settings, Rules have different actions depending on the type of Policy that they belong to.
+Just as Policies contain settings, Rules contain "Actions" that typically specify actions to be taken, or operations that may be allowed, if the Rule conditions are satisfied. For example, in a Password Policy, Rule actions govern whether self-service operations such as reset password or unlock are permitted (see [Password Rules Action data](#password-rules-action-data)). Just as different Policy types have different settings, Rules have different actions depending on the type of Policy that they belong to.
 
 ### Conditions object
 
@@ -1790,16 +1790,63 @@ In the final example, end users are required to verify two Authenticators before
 
 ##### Self Service Password Reset Action object
 
-> **Note:** The following indicated objects and properties are only available as a part of the Identity Engine. Please contact support for further information.
+This object enables or disables users to reset their own password and defines the authenticators and constraints needed to complete the reset.
 
-| Property                                                       | Data Type   | Description                                                                                 | Supported Values                | Required | Default
-| ---                                                            | ---         | ---                                                                                         | ---                             | ---      | ---
-| `access`                                                       | String      | Indicates if the action is permitted                                                        | `ALLOW`, `DENY`                 | No       | `DENY`
-| `requirement` <ApiLifecycle access="ie" />                     | Object      | JSON object that contains Authenticator methods required to be verified if `access` is `ALLOW`. If access is `ALLOW` and `requirement` isn't specified, `recovery.factors` from the parent policy object is used to determine recovery factors.                             | No       |
-| `requirement.primary.methods` <ApiLifecycle access="ie" />     | Array       | Authenticator methods that can be used by the End User to initiate a password recovery            | `EMAIL`, `SMS`, `VOICE`, `PUSH` | Yes |
-| `requirement.stepUp.required` <ApiLifecycle access="ie" />     | Boolean     | Indicates if any step-up verification is required to recover a password that follows a primary methods verification | `true`, `false` | Yes |
-| `requirement.stepUp.methods`  <ApiLifecycle access="ie" />     | Array       | If `requirement.stepUp.required` is `true`, a JSON object that contains Authenticator methods is required to be verified as a step up. If not specified, any enrolled Authenticator methods allowed for sign-on can be used as step up. | `null` or an array containing`SECURITY_QUESTION` | No
+> **Note:** The following indicated objects and properties are only available as a part of the Identity Engine. Please contact support for further information. <ApiLifecycle access="ie" />
 
+| Property | Description | Data Type | Supported Values | Required | Default |
+| -------- | --------- | ----------- | ---------------- | -------- | ------- |
+| access | Indicates if the action is permitted | String | `ALLOW`, `DENY`  | No  | `DENY` |
+| type <ApiLifecycle access="ie" /> | Type of rule action | String | `selfServicePasswordReset` | No | `selfServicePasswordReset` |
+| requirement <ApiLifecycle access="ie" /> | JSON object that contains Authenticator methods required to be verified if `access` is `ALLOW`. If access is `ALLOW` and `requirement` isn't specified, `recovery.factors` from the parent policy object is used to determine recovery factors. | [Self Service Password Reset Action Requirement object](#self-service-password-reset-action-requirement-object)  | No | |
+
+###### Self Service Password Reset Action Requirement object
+
+<ApiLifecycle access="ie" />
+
+Describes the initial and secondary (step-up) authenticator requirements a user needs to reset their password
+
+| Property | Description | Data Type | Required |
+| -------- | ----------- | --------- | -------- |
+| primary  | Defines the authenticators permitted for the initial authentication step of password recovery | [Self Service Password Reset Action Primary Requirement object](#self-service-password-reset-action-primary-requirement-object) | No |
+| stepUp  | Defines the authenticators permitted for the secondary authentication step of password recovery | [Self Service Password Reset Action Step-up Requirement object](#self-service-password-reset-action-step-up-requirement-object) | No |
+
+###### Self Service Password Reset Action Primary Requirement object
+
+<ApiLifecycle access="ie" />
+
+Defines the authenticators permitted for the initial authentication step of password recovery
+
+| Property | Description | Data Type | Supported Values | Required | Default |
+| -------- | ----------- | --------- | ---------------- | -------- | ------- |
+| methodConstraints | Constraints on the values specified in the `methods` array. Specifying a constraint limits methods to specific authenticators. Currently, Google OTP is the only accepted constraint. | [Self Service Password Reset Action Primary Requirement Constraint object](#self-service-password-reset-action-primary-requirement-constraint-object) | | No | |
+| methods | Authenticator methods allowed for the initial authentication step of password recovery. Method `otp` requires a constraint limiting it to a Google authenticator. | Array | `push`, `sms`, `voice`, `email`, `otp` | No | |
+
+###### Self Service Password Reset Action Primary Requirement Constraint object
+
+<ApiLifecycle access="ie" />
+
+Constraints on the values specified in the `requirement.primary.methods` array. Specifying a constraint limits methods to specific authenticators. Currently, Google OTP is the only accepted constraint.
+
+| Property | Description | Data Type | Supported Values | Required | Default |
+| -------- | ----------- | --------- | ---------------- | -------- | ------- |
+| allowedAuthenticators | Limits the authenticators that can be used for a given method. Currently, only the `otp` method supports constraints, and Google authenticator is the only allowed authenticator. | Array of [authenticator keys](/docs/reference/api/authenticators-admin/#authenticator-properties). | `[ { "key": "google_otp" } ]` | No | |
+| method  | Specifies the method that is limited to the specific authenticator in `allowedAuthenticators`. Currently, Google OTP is the only accepted constraint. | String | `otp` | No | |
+
+###### Self Service Password Reset Action Step-up Requirement object
+
+<ApiLifecycle access="ie" />
+
+Defines the secondary authenticators needed for password reset if `stepUp.required` is true. The following are three valid configurations:
+
+* `required` = false
+* `required` = true with no methods to use any SSO authenticator
+* `required` = true with `security_question` as the method
+
+| Property | Description | Data Type | Supported Values | Required | Default |
+| -------- | ----------- | --------- | ---------------- | -------- | ------- |
+| required  | Indicates if any step-up verification is required to recover a password that follows a primary methods verification | Boolean  |  `true`, `false` | Yes | |
+| methods | Authenticator methods required for secondary authentication step of password recovery.  Specify this value only when `required` is true and `security_question` is permitted for the secondary authentication. | Array of strings | `[ "security_question" ]` | No | |
 
 ##### Self Service Unlock Action object
 
