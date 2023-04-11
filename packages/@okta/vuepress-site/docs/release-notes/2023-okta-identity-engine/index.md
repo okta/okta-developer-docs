@@ -6,6 +6,17 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## April
 
+### Weekly release 2023.04.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.04.1](#bugs-fixed-in-2023-04-1) | April 12, 2023 |
+
+#### Bugs fixed in 2023.04.1
+
+* Orgs with Multibrand enabled couldn’t add the same custom email domain that they’d previously deleted. (OKTA-587938)
+* Token exchange errors occurred when users selected **Keep me signed in** during sign-in flows for Native SSO or the Okta AWS CLI. (OKTA-571266)
+
 ### Monthly release 2023.04.0
 
 | Change | Expected in Preview Orgs |
