@@ -4,6 +4,16 @@ title: Okta API Products release notes 2023
 
 ## April
 
+### Weekly release 2023.04.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2023.04.1](#bug-fixed-in-2023-04-1) | April 12, 2023 |
+
+#### Bug fixed in 2023.04.1
+
+Orgs with Multibrand enabled couldn’t add the same custom email domain that they’d previously deleted. (OKTA-587938)
+
 ### Monthly release 2023.04.0
 
 | Change | Expected in Preview Orgs |
