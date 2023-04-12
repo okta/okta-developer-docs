@@ -21,8 +21,8 @@ user -> client: Enters credentials
 client -> okta: Sends credentials and grant_type in /token request
 okta -> client: Sends HTTP 403 error and mfa_token in response
 client -> okta: Sends /challenge request with mfa_token and challenge_types_supported
-okta -> client: Responds with challenge_type and oob_code
-okta -> user: Sends push notification to user
+okta -> client: Sends challenge_type and oob_code
+okta -> user: Sends push notification
 client -> user: Prompts user to allow or deny
 user -> client: Responds to prompt
 client -> okta: Sends mfa_token, oob_code, grant_type in /token endpoint request

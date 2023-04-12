@@ -9,12 +9,12 @@
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
 skinparam monochrome true
-actor "Resource Owner (User)" as user
+actor "User" as user
 participant "Client App (Your App)" as client
 participant "Authorization Server (Okta) " as okta
 
 autonumber "<b>#."
-client -> user: Prompts user for username and password in app UI
+client -> user: Prompts user for username and password
 user -> client: Enters credentials
 client -> okta: Sends credentials and grant_type in /token request
 okta -> client: Sends HTTP 403 error and mfa_token in response

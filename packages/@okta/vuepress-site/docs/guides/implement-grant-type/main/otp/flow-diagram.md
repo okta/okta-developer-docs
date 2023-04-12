@@ -9,7 +9,7 @@
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
 skinparam monochrome true
-actor "Resource Owner (User)" as user
+actor "User" as user
 participant "Client App (Your App)" as client
 participant "Authorization Server (Okta)" as okta
 

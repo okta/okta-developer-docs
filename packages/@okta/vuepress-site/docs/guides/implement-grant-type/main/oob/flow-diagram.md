@@ -19,8 +19,8 @@ user -> client: Enters username
 client -> okta: Sends OOB authentication request to /oob-authenticate
 okta -> client: Acknowledges and sends oob_code
 client -> okta: Sends oob_code and grant_type in /token request
-okta -> client: Responds with authorization_pending
-okta -> user: Sends push notification to user
+okta -> client: Responds with HTTP 400 authorization_pending.
+okta -> user: Sends push notification
 client -> user: Prompts user to respond
 user -> client: Responds to prompt
 client -> okta: Polls /token endpoint with oob_code
