@@ -38,7 +38,7 @@ At a high-level, this flow has the following steps:
 1. Your app sends the `oob_code` and the OOB `grant_type` (`urn:okta:params:oauth:grant-type:oob`) in a `/token` request to the Okta authorization server.
 1. Okta responds with an HTTP 400 `authorization_pending` error.
 1. Okta sends a push notification to the user.
-1. Your app prompts the user to allow or deny.
+1. Your app prompts the user to respond.
 1. The user responds to the prompt.
 1. Your app sends another `/token` request with the `oob_code`.
 1. Okta responds with the requested tokens.

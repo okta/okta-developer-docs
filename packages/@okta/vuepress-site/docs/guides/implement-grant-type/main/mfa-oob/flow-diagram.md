@@ -1,7 +1,5 @@
 ### Direct Authentication MFA OOB flow
 
-This flow example uses Okta Verify Push as an out-of-band (OOB) factor.
-
 <div class="full">
 
 ![Sequence diagram that displays the back and forth between the rresource owner, client app, and authorization server for MFA OOB flow"](/img/authorization/oauth-mfaoob-grant-flow.png)
@@ -37,7 +35,7 @@ At a high-level, this flow has the following steps:
 1. Your app sends the user's credentials and the Resource Owner Password `grant_type` (`password`) to the Okta authorization server.
     You need to register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See [Request for tokens](#request-for-tokens).
 1. Okta sends an HTTP 403 error that MFA is required and includes the `mfa_token` in the response.
-1. Your app sends `/challenge` request with the `mfa_token` and the `challenge_types_supported` (`http://auth0.com/oauth/grant-type/mfa-oob`) to the Okta authorization server.
+1. Your app sends a `/challenge` request with the `mfa_token` and the `challenge_types_supported` (`http://auth0.com/oauth/grant-type/mfa-oob`) to the Okta authorization server.
 1. Okta responds with a `challenge_type` and `oob_code`.
 1. Okta sends a push notification to the user.
 1. Your app prompts the user to respond.
