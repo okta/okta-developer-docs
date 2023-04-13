@@ -96,7 +96,7 @@ In this scenario, the org is set up in the following manner:
 
 1. The org is initially configured following the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
 
-2. The application's sign-on policy is updated for only the password factor. In the Admin Console, the **AND User must authenticate with** field is set to **Password**.
+2. The application's authentication policy is updated for only the password factor. In the Admin Console, the **AND User must authenticate with** field is set to **Password**.
 
 3. The **Email verification** field in the profile enrollment's Default Policy is set to **Required before access is granted**. You can find the profile enrollment configuration by navigating to **Security** > **Profile Enrollment**.
 
