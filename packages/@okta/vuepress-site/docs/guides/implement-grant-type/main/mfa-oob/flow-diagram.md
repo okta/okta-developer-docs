@@ -20,9 +20,7 @@ client -> okta: Sends credentials and grant_type in /token request
 okta -> client: Sends HTTP 403 error and mfa_token in response
 client -> okta: Sends /challenge request with mfa_token and challenge_types_supported
 okta -> client: Sends challenge_type and oob_code
-okta -> user: Sends push notification
-client -> user: Prompts user to allow or deny
-user -> client: Responds to prompt
+okta <-> user: Sends push notification to user, and user responds
 client -> okta: Sends mfa_token, oob_code, grant_type in /token endpoint request
 okta -> client: Responds with access token (optionally refresh token)
 
@@ -37,8 +35,6 @@ At a high-level, this flow has the following steps:
 1. Okta sends an HTTP 403 error that MFA is required and includes the `mfa_token` in the response.
 1. Your app sends a `/challenge` request with the `mfa_token` and the `challenge_types_supported` (`http://auth0.com/oauth/grant-type/mfa-oob`) to the Okta authorization server.
 1. Okta responds with a `challenge_type` and `oob_code`.
-1. Okta sends a push notification to the user.
-1. Your app prompts the user to respond.
-1. The user responds to the prompt.
+1. Okta sends a push notification to the user, and the user responds.
 1. Your app sends a `/token` request with the `oob_code`, `mfa_token`, and MFA OOB `grant_type` (http://auth0.com/oauth/grant-type/mfa-oob) to the authorization server.
 1. Okta responds with the requested tokens.

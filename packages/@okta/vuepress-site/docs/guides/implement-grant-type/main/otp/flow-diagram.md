@@ -15,7 +15,7 @@ participant "Authorization Server (Okta)" as okta
 
 autonumber "<b>#."
 client -> user: Prompts user for username and OTP
-user -> client: Enters username and OTP from authenticator app
+user -> client: Enters username and OTP
 client -> okta: Sends OTP, username, grant_type in /token request
 okta -> client: Sends access token (optionally refresh token)
 
@@ -23,7 +23,7 @@ okta -> client: Sends access token (optionally refresh token)
 
 At a high-level, this flow has the following steps:
 
-1. Your client app prompts the user for their username and then an OTP from an authenticator app such as Okta Verify or Google Authenticator.
+1. Your client app prompts the user for their username and then an OTP.
 1. The user enters username, opens authenticator app to get the OTP, and then enters the OTP in the app UI.
 1. Your app sends the OTP, the username as a `login_hint`, and the OTP `grant_type` (`urn:okta:params:oauth:grant-type:otp`) in a `/token` request to the Okta authorization server.
 

@@ -19,10 +19,8 @@ user -> client: Enters username
 client -> okta: Sends OOB authentication request to /oob-authenticate
 okta -> client: Acknowledges and sends oob_code
 client -> okta: Sends oob_code and grant_type in /token request
-okta -> client: Responds with HTTP 400 authorization_pending.
-okta -> user: Sends push notification
-client -> user: Prompts user to respond
-user -> client: Responds to prompt
+okta -> client: Responds with HTTP 400 authorization_pending
+okta <-> user: Sends push notification to user and user responds
 client -> okta: Polls /token endpoint with oob_code
 okta -> client: Responds with access token (optionally refresh token)
 
@@ -37,8 +35,6 @@ At a high-level, this flow has the following steps:
 1. Okta returns an acknowledgement and the `oob_code` in the response.
 1. Your app sends the `oob_code` and the OOB `grant_type` (`urn:okta:params:oauth:grant-type:oob`) in a `/token` request to the Okta authorization server.
 1. Okta responds with an HTTP 400 `authorization_pending` error.
-1. Okta sends a push notification to the user.
-1. Your app prompts the user to respond.
-1. The user responds to the prompt.
+1. Okta sends a push notification to the user, and the user responds.
 1. Your app sends another `/token` request with the `oob_code`.
 1. Okta responds with the requested tokens.
