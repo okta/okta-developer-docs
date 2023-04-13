@@ -131,7 +131,7 @@ To enable self-service password-optional enrollments in the Sign-In Widget, <Sta
 
 ## Add MFA with a mandatory second factor
 
-You can modify the application's authentication policy to require the user to have a second factor enabled for authentication. In this example, we use the Phone Authenticator.
+You can modify the application's authentication policy to require the user to have a second factor enabled for authentication. In this example, we use the Phone authenticator.
 
 > **Note:** Your Okta org may have different Authenticators enabled by default.
 
