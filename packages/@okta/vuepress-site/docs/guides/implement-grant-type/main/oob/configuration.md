@@ -20,7 +20,7 @@ To use the OOB flow, both your client app and the [Okta authorization server](/d
 
 > **Note:** See [Create an authorization server](/docs/guides/customize-authz-server/) to create your own custom authorization server.
 
-### Enable OOB grant on your authorization server
+### Enable the OOB grant on your authorization server
 
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, select the pencil icon next to the authorization server that you want to use.

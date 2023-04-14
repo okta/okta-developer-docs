@@ -14,16 +14,16 @@ The direct authentication MFA OTP flow uses passwordless authentication, like si
 
 ## Set up your authorization server
 
-To use the OOB flow, both your client app and the [Okta authorization server](/docs/concepts/auth-servers/) that you are using with the app must have the OOB grant type enabled in your Okta org.
+To use the MFA OTP flow, both your client app and the [Okta authorization server](/docs/concepts/auth-servers/) that you are using with the app must have the MFA OTP grant type enabled in your Okta org.
 
 > **Note:** See [Create an authorization server](/docs/guides/customize-authz-server/) to create your own custom authorization server.
 
-### Enable OOB grant on your authorization server
+### Enable the MFA OTP grant on your authorization server
 
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, select the pencil icon next to the authorization server that you want to use.
 3. Select the **Access Policies** tab.
 4. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
-    If you aren’t using the Default Policy for your client app that requires the OOB grant, select the Policy that applies to your app.
-5. In the **Edit Rule** dialog, select the **OOB** checkbox (in addition to any other grant type that is already supported by the authorization server).
+    If you aren’t using the Default Policy for your client app that requires the MFA OTP grant, select the Policy that applies to your app.
+5. In the **Edit Rule** dialog, select the **MFA OTB** checkbox (in addition to any other grant type that is already supported by the authorization server).
 6. Click **Update Rule**.
