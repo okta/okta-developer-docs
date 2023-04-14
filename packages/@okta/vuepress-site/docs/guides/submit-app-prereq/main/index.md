@@ -38,7 +38,11 @@ Before you submit your integration, ensure that your integration doesn't use Okt
 The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following:
 
 * Submit a logo file that's less than one MB.
-* Submit a logo image with one of the following dimensions: 244 x 244, 200 x 200, 244 x 156, or 156 x 244 pixels.
+* Submit a logo image with one of the following dimensions:
+  * 244 x 244 pixels
+  * 200 x 200 pixels
+  * 244 x 156 pixels
+  * 156 x 244 pixels
 * Don't submit a logo with the trademark (:tm:) symbol.
 * Submit an icon rather than a wordmark (a graphic that includes the company or product name).
    > **Note:** The OIN catalog already lists the product name in plain text. Logos with text can appear redundant.
@@ -51,9 +55,11 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 * If your logo isn't in one of the acceptable formats, ask your design team to convert your existing logo to the preferred PNG format.
 
+* If your image isn't in one of the four allowed dimensions, ask your design team to scale your logo appropriately. The OIN Manager doesn't allow you to submit any other dimensions.
+
 * A square logo is preferred. If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 
-* If you submit an image that is outside of the four allowed dimensions, your logo might be distorted when it's displayed in the catalog. OIN app icons are placed in a 200 x 200 pixel grid, so consider the scaling that occurs when your logo resizes to fit the grid.
+* If you submit an image that's outside of the four allowed dimensions, your logo might be distorted when it's displayed in the catalog. OIN app icons are placed in a 200 x 200 pixel grid, so consider the scaling that occurs when your logo resizes to fit the grid.
 
 <div class="full">
 
