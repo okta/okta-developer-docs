@@ -38,26 +38,22 @@ Before you submit your integration, ensure that your integration doesn't use Okt
 The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following:
 
 * Submit a logo file that's less than one MB.
-* Submit a square-dimensioned logo that has a 1:1 aspect ratio.
-
-   > **Note:** OIN app icons are placed in a 200 x 200 pixel grid.
-
+* Submit a logo image in SVG or high-resolution PNG format.
+* Submit a logo image with one of the following dimensions: 244 x 244, 200 x 200, 244 x 156, or 156 x 244 pixels.
+* Don't submit a logo with the trademark (:tm:) symbol.
 * Submit an icon rather than a wordmark (a graphic that includes the company or product name).
 
    > **Note:** The OIN catalog already lists the product name in plain text. Logos with text can appear redundant.
 
-* Don't submit a logo with the trademark (:tm:) symbol.
-* Submit a logo image that's in PNG format with a transparent background.
-    * GIF and JPEG/JPG formats are also acceptable
-    * A colored background is acceptable if it's a part of the logo color scheme
+* Submit a logo image with sharp corners (no rounded corners).
 
 ### Logo tips
 
-* If your logo isn't in one of the acceptable formats, ask your design team to convert your existing logo to the preferred PNG format. If you have difficulty with converting your image to an acceptable format, contact the [OIN team](mailto:oin@okta.com).
+* If your logo isn't in one of the acceptable formats, ask your design team to convert your existing logo to the preferred SVG or PNG format.
 
-* If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
+* A square logo is preferred. If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 
-* You can use a slightly non-square icon, but consider the scaling that occurs when your logo resizes to fit a 200 x 200 pixel area.
+* If you submit an image that is outside of the four allowed dimensions, your logo might be distorted when it's displayed in the catalog. OIN app icons are placed in a 200 x 200 pixel grid, so consider the scaling that occurs when your logo resizes to fit the grid.
 
 <div class="full">
 
