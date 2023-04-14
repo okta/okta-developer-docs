@@ -56,13 +56,13 @@ The company's legacy IAM systems and newer IdPs weren't interacting well. The nu
 * Users had to remember several usernames and passwords to access company applications.
 * User profiles weren't synchronized across IAM systems. They had to be updated manually in several places.
 * There was no Single Sign-On (SSO) between apps.
-* Administering five legacy IAM systems and trying to coordinate them was complex and error-prone.
-* Consistent policy-based access management wasn't possible as each system implemented it differently.
-* Onboarding and offboarding were complex and caused significant issues.
+* Synchronizing users, groups, and roles across all five IAM systems was difficult and error-prone.
+* Each IAM system implemented policy-based access management differently so consistency across all five systems wasn't possible.
+* Onboarding and offboarding tasks were complex and caused significant issues.
 
 ## The solution
 
-Company X decided to consolidate its user, group, and device profiles into [Okta Universal Directory](/docs/concepts/user-profiles/#what-is-the-okta-universal-directory) and use that as its sole IdP. This answered the support tickets by requiring a single set of credentials for all users. Onboarding and offboarding processes became less complex as admins had only one centralized system. Finally, using a single directory realized additional benefits, such as [Okta Single Sign-On](/docs/guides/oin-sso-overview/) (SSO) across its apps, centralized authentication policies, and lower maintenance costs for one system instead of five.
+Company X decided to consolidate its user, group, and device profiles into [Okta Universal Directory](/docs/concepts/user-profiles/#what-is-the-okta-universal-directory) and use that as its sole IAM system and IdP. This answered the support tickets by requiring a single set of credentials for all users. Onboarding and offboarding processes became less complex as admins had only one centralized system. Finally, using a single directory realized additional benefits, such as [Okta Single Sign-On](/docs/guides/oin-sso-overview/) (SSO) across its apps, centralized authentication policies, and lower maintenance costs for one system instead of five.
 
 ### Key challenges
 

@@ -37,12 +37,6 @@ To find your Terraform workspace ID:
 1. Go to your top-level Workspaces page.
 1. Find the ID under your workspace's name.
 
-<div class="full border">
-
-![Workspace overview page](/img/architecture/mmoe/figure-8-3.png)
-
-</div>
-
 ## Create a workflow
 
 1. Open the Admin Console for your production org.
