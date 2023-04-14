@@ -59,8 +59,6 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 * A square logo is preferred. If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 
-* If you submit an image that's outside of the four allowed dimensions, your logo might be distorted when it's displayed in the catalog. OIN app icons are placed in a 200 x 200 pixel grid, so consider the scaling that occurs when your logo resizes to fit the grid.
-
 <div class="full">
 
 ![OIN acceptable logos](/img/oin/oin-logo-size-guide.png)
