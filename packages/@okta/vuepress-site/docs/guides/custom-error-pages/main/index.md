@@ -120,8 +120,8 @@ Triple curly braces (`{{{`) are only used for the `errorDescription` variable to
 | <span v-pre>`{{bgImageUrl}}`</span> | The URL to the background image configured for your application. You can change this image by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the background image in all instances where the variable is used, including your custom sign-in page. If you want to change only the background image for your custom error pages, include the URL to the image instead of the variable. |
 | <span v-pre>`{{orgLogo}}`</span> | The logo image that has been configured for your application. You can change this logo by using the [Sign-in Configuration](https://help.okta.com/okta_help.htm?type=oie&id=ext-branding-set-theme) option, but this changes the org logo in all instances where the variable is used, including your custom sign-in page. If you want to change only the logo image for your custom error pages, include the URL to the image instead of the variable. |
 | <span v-pre>`{{{errorDescription}}}`</span> | A detailed description of the error |
-| <span v-pre>`{{back}}`</span> | The text "Go to Homepage". When the user clicks the button, they are returned to the sign-in page. |
-| <span v-pre>`{{technicalDetails}}`</span> | Any additional messaging, if the error code has any. Here are sample technical details for an error code:</br>"If you are using custom expressions like `\{0}`, make sure that the field `customField` is present in the user profile. Please review your attribute list and make the appropriate change."</br>See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code). |
+| <span v-pre>`{{back}}`</span> | The text "Go to Homepage". When the user clicks the button, they’re returned to the sign-in page. |
+| <span v-pre>`{{technicalDetails}}`</span> | Any additional messaging, if the error code has any. Here are sample technical details for an error code:</br>"If you’re using custom expressions like `\{0}`, make sure that the field `customField` is present in the user profile. Please review your attribute list and make the appropriate change."</br>See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code). |
 | <span v-pre>`{{buttonText}}`</span> | Inserts the button text based on the page context. When the user selects the button, they're directed to the `buttonHref` URL. The <span v-pre>`{{back}}`</span> variable is also supported for the same purpose. |
 | <span v-pre>`{{buttonHref}}`</span> | The hyperlink for the button |
 | <span v-pre>`{{themedStylesUrl}}`</span> | The URL for the themed style sheet |
@@ -129,13 +129,13 @@ Triple curly braces (`{{{`) are only used for the `errorDescription` variable to
 
 ## Customization examples
 
-Use the following customization examples to help you personalize your error page by extending the look and feel of the page with your own stylesheet (CSS).
+Use the following customization examples to help you personalize your error page by extending the look and feel of the page with your own style sheet (CSS).
 
-### Add a stylesheet
+### Add a style sheet
 
-You can add your own stylesheet to extend the look of your error page.
+You can add your own style sheet to extend the look of your error page.
 
-In the code editor, add a link to your stylesheet in the `<head>` section, below the  `<link rel="stylesheet" type="text/css" href="/assets/css/sections/errors-v2.css">` line.
+In the code editor, add a link to your style sheet in the `<head>` section, below the  `<link rel="stylesheet" type="text/css" href="/assets/css/sections/errors-v2.css">` line.
 
 Example:
 
