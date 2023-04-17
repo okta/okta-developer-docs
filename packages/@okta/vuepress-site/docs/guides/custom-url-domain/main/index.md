@@ -4,9 +4,9 @@ excerpt: Learn how to setup a custom domain and a custom email address.
 layout: Guides
 ---
 
-This guide explains how to customize your Okta org with your custom domain and how to configure a custom email address so that you can present a branded experience to your end users.
+This guide explains how to customize your Okta org with your custom domain. It also explains how to configure a custom email address so that you can present a branded experience to your end users.
 
-> **Note:** You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom domain (Okta-managed or using your own TLS certificate). You must sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
+> **Note:** You can't sign in to [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) through a custom domain (Okta-managed or using your own Transport Layer Security (TLS) certificate). Sign in through your default [Okta domain](/docs/guides/find-your-domain/main/).
 
 ---
 
@@ -65,7 +65,7 @@ You can only preview or visit a branded page (such as viewing brand assets appli
     * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add `letsencrypt.org` to the issuers list or remove the CAA record.
 
 
-* Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
+* Any DNS text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
@@ -189,7 +189,7 @@ You need to add a DNS TXT record to your domain to verify ownership of your doma
 
 4. Paste the value that you copied from the **Data** column into the appropriate field, for example, the **Record** or **Value** field.
 
-5. Wait for the DNS record to propagate (typically 10 to 15 minutes, but it may take longer).
+5. Wait for the DNS record to propagate (typically 10–15 minutes, but it may take longer).
 
     > **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
 
@@ -252,7 +252,7 @@ There are websites available for flushing the caches for [Google DNS](https://go
 
 ## Update other Okta settings
 
-After you add your custom domain, some features or APIs require additional configuration to reflect that change.
+After you add your custom domain, some features or APIs require extra configuration to reflect that change.
 
 ### Update Custom Authorization Server
 
@@ -267,7 +267,7 @@ You need to update existing Custom Authorization Servers to return the custom do
 
 ### Update issuer for OpenID Connect apps
 
-Additionally, you may want to change the issuer for your OpenID Connect apps that are using the org authorization server.
+Also, you may want to change the issuer for your OpenID Connect apps that are using the org authorization server.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click the OpenID Connect app that you want to update.
@@ -291,7 +291,7 @@ You might notice that it has your Okta `dev-*` domain, rather than your custom d
 You need to update your Authorization Server to use your custom domain to fix this:
 
 1. Sign in to your Okta account and go to **API** > **Authorization Servers**.
-2. Select the  **default** Custom Authorization Server, and then click **Edit**.
+2. Select the **default** Custom Authorization Server, and then click **Edit**.
 3. Change the **Issuer** to use **Custom URL**.
 4. Try `./well-known/openid-configuration` again. It should now display your custom domain.
 
@@ -305,7 +305,7 @@ Okta sends your super admins a confirmation email after your custom email addres
 
 ## Configure a custom email address
 
-1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email** section, click **Edit** then click **Add custom emaildomain**).
+1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email** section, click **Edit** then click **Add custom email domain**).
 
 2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
 
