@@ -55,7 +55,7 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 * If your logo isn't in one of the acceptable formats, ask your design team to convert your existing logo to the preferred PNG format.
 
-* If your image isn't in one of the four allowed dimensions, ask your design team to scale your logo appropriately. The OIN Manager doesn't allow you to submit any other dimensions.
+* If your image isn't in one of the allowed dimensions, ask your design team to scale your logo appropriately. The OIN Manager doesn't allow you to submit any other dimensions.
 
 * A square logo is preferred. If your logo isn't square, consider using your website favicon. Alternatively, you can use the first letter of your app wordmark and convert it to a square image.
 
