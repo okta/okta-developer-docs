@@ -4,13 +4,13 @@ excerpt: Learn how to customize the sign-in page for both redirect and embedded 
 layout: Guides
 ---
 
-This guide explains how to customize the sign-in page for both redirect and embedded authentication models.
+This guide explains how to customize the sign-in page for both redirect and embedded deployment models.
 
 ---
 
 **Learning outcomes**
 
-* Add stylesheets and custom JavaScript.
+* Add style sheets and custom JavaScript.
 * (Redirect authentication): Modify strings and customize localization content.
 
 **What you need**
@@ -31,7 +31,7 @@ This guide explains how to customize the sign-in page for both redirect and embe
 
 ## About the sign-in page
 
-The sign-in page is a JavaScript library that gives you a fully-featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the sign-in page depends if Okta hosts it (redirect authentication) or you embed it in your app (embedded authentication).
+The sign-in page is a JavaScript library that gives you a fully featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the sign-in page depends if Okta hosts it (redirect authentication) or you embed it in your app (embedded authentication).
 
 * Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the page using easy controls or a code editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
 
@@ -526,9 +526,9 @@ var config = {
 
 Use the following examples to help you customize the sign-in page with your own CSS, scripts, and per-application branding.
 
-### Add your own stylesheet
+### Add your own style sheet
 
-You can add your own stylesheet to extend the look of the sign-in page. In the embedded HTML editor, add a link to your stylesheet in the `<head>` section, below the <span v-pre>`{{{SignInWidgetResources}}}`</span> line.
+You can add your own style sheet to extend the look of the sign-in page. In the embedded HTML editor, add a link to your style sheet in the `<head>` section, below the <span v-pre>`{{{SignInWidgetResources}}}`</span> line.
 
 Example:
 
