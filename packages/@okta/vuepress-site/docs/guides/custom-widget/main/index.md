@@ -49,7 +49,7 @@ Set up a [custom domain](/docs/guides/custom-url-domain/main/) and customize you
 
 To analyze and detect potentially malicious IP addresses that seek to bypass your CSP, use [Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-threatinsight).
 
-### Known limitations
+#### Known limitations
 
 * Avoid using `meta` tags to customize the CSP. `meta` tags impact the overall policy. It's easier to control CSP customizations by adding trusted origin URLs in the Admin Console. See [Multiple content security policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#multiple_content_security_policies).
 * If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted origins in Okta.
