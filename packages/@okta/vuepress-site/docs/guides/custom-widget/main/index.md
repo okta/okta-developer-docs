@@ -31,7 +31,7 @@ This guide explains how to customize the sign-in page for both redirect and embe
 
 ## About the sign-in page
 
-The sign-in page is a JavaScript library that gives you a fully featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the sign-in page depends if Okta hosts it (redirect authentication) or you embed it in your app (embedded authentication).
+The sign-in page is a JavaScript library that gives you a fully featured and customizable sign-in experience that you can use to authenticate users on any website. How you customize the sign-in page depends on whether Okta hosts it (redirect authentication) or you embed it in your app (embedded authentication).
 
 * Redirect authentication: Okta hosts the sign-in page that appears when your applications redirect to Okta to sign users in. You can customize the page using easy controls or a code editor that is provided. See [Style for redirect authentication](#style-for-redirect-authentication).
 
