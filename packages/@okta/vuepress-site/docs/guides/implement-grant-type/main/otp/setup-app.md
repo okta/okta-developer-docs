@@ -1,22 +1,25 @@
 4. Select **Native Application** as the **Application type**, then click **Next**.
 5. Specify the **App integration name**.
 6. Enable the **OTP** grant type in addition to the defaults.
-7. Select Allow everyone in your organization to access then save.
-8. Fill in the remaining details for your app integration, then click **Save**.
-9. From the **General** tab of your app integration, copy and save the generated **Client ID** value to implement your authorization flow.
+7. Select **Allow everyone in your organization to access**, then click **Save**.
+8. From the **General** tab of your app integration, copy and save the generated **Client ID** value to implement your authorization flow.
 
 ## Set up the authentication policy
 
-Navigate to the app’s “Sign on” tab and at the bottom press “view policy details”
+In direct authentication flows, the client tells the server which authenticator it wants to authenticate with through the grant type. However, the server can't grant a token until the client’s authentication policy is satisfied.
 
-Add a rule (recommended to have it apply to only your test user) and leave everything as is, except update “User must authenticate with” to the scenario you want to test. E.g. password only, any 1 factor, password plus any second factor, etc.
+1. Navigate to your app’s **Sign On** tab, scroll to the bottom, and click **View policy details**.
+1. On the Authentication Policies page, click **Add a rule**.
+1. For **AND User is**, specify your test user.
+1. Skip down to **AND User must authenticate with** and select **Any 1 factor type**.
+1. Click **Save**.
 
 ## Update the Global Session Policy
 
-Select - any factor used to meet the authentication policy requirements
-Leave default of not required for MFA
+To use a one factor direct auth grant such as OTP, configure the Global Session Policy to not have a password requirement.<!-- After phase 1, this may change>
 
-
-click Update Rule
-
-6. using the SWSS token - link to how to get one if they don't have one????
+1. Select **Global Session Policy** from the left navigation.
+1. Select the pencil icon of the Default Rule.
+1. in the Edit Rule dialog, select **Any factor used to meet the Authentication Policy requirements** for **Establish the user session with**.
+1. For **Multifactor authentication (MFA) is**, leave the default of **Not required**.
+1. Click **Update rule**.

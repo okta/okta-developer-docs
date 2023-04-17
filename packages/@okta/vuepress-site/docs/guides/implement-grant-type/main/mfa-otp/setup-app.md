@@ -1,0 +1,23 @@
+4. Select **Native Application** as the **Application type**, then click **Next**.
+5. Specify the **App integration name**.
+6. Enable the **MFA OTP** grant type in addition to the defaults.
+7. Select **Allow everyone in your organization to access**, then click **Save**.
+8. From the **General** tab of your app integration, copy and save the generated **Client ID** value to implement your authorization flow.
+
+## Set up the authentication policy
+
+In direct authentication flows, the client tells the server which authenticator it wants to authenticate with through the grant type. However, the server can't grant a token until the client’s authentication policy is satisfied.
+
+1. Navigate to your app’s **Sign On** tab, scroll to the bottom, and click **View policy details**.
+1. On the Authentication Policies page, click **Add a rule**.
+1. For **AND User is**, specify your test user.
+1. Skip down to **AND User must authenticate with** and select **Password + Another factor**.
+1. Click **Save**.
+
+## Update the Global Session Policy
+
+1. Select **Global Session Policy** from the left navigation.
+1. Select the pencil icon of the Default Rule.
+1. in the Edit Rule dialog, select **Any factor used to meet the Authentication Policy requirements** for **Establish the user session with**.
+1. For **Multifactor authentication (MFA) is**, leave the default of **Not required**.
+1. Click **Update rule**.
