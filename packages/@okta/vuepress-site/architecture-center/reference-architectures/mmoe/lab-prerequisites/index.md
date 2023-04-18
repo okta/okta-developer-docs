@@ -69,7 +69,7 @@ You need to create a copy of an example Terraform script in your GitHub reposito
    1. **Clear** the **Copy the prod branch only** checkbox.
    1. Click **Create fork**.
 
-The repository you are forking has two branches: prod and preview. The preview branch should be populated and is the one to use in tutorials 2 and 3. The prod branch should be empty. In tutorial 4 onwards, promote your code to prod and then use the prod branch for the remaining exercises.
+The repository you are forking has two branches: prod and preview. If not, create them. The preview branch should be populated and is the one to use in tutorials 2 and 3. The prod branch should be empty. In tutorial 4 onwards, promote your code to prod and then use the prod branch for the remaining exercises.
 
 ## Terraform Cloud account
 

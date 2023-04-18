@@ -40,7 +40,7 @@ To find your Terraform workspace ID:
 ## Create a workflow
 
 1. Open the Admin Console for your production org.
-1. Choose **Workflow** > **Workflows** to show the **Welcome to Workflows** page.
+1. Choose **Workflow** > **Workflows console** to show the **Welcome to Workflows** page.
 1. Select the **Flows** tab.
 1. In the sidebar, click the **+** icon to add a new folder.
 1. Set a folder name, for example, _Okta Configuration Drift_.
@@ -48,27 +48,20 @@ To find your Terraform workspace ID:
 
    <div class="full border">
 
-   ![Okta workflows new folder name dialog box](/img/architecture/mmoe/figure-8-5.png)
+   ![Okta workflows new folder name dialog box](/img/architecture/mmoe/lab-6-new-workflow-folder.jpg)
 
    </div>
 
 1. Click the name of your new folder in the sidebar to open it.
 1. Import the workflow.
-   1. Click the gear icon next to your folder name in the sidebar.
-
-      <div class="full border">
-
-      ![Okta workflows folders list with gear menu icon highlighted](/img/architecture/mmoe/figure-8-6.png)
-
-      </div>
-
+   1. Click the icon next to your folder name in the sidebar.
    1. Select **Import** in the menu to open an **Import** page.
    1. Navigate to your local copy of the github repo for this tutorial. Select `workflow/executeTerraformPlanToDetectDrift.flow` to import the example workflow.
 1. In your new folder, observe that you imported one flow, it's a scheduled flow, and it's turned off.
 
 <div class="full border">
 
-![Okta configuration drift folder config page showing scheduled flow imported](/img/architecture/mmoe/figure-8-7.png)
+![Okta configuration drift folder config page showing scheduled flow imported](/img/architecture/mmoe/lab-6-scheduled-flow.jpg)
 
 </div>
 
@@ -81,7 +74,7 @@ Update the workflow before you run it.
 
    <div class="full border">
 
-   ![Okta workflows compose post body card with id highlighted](/img/architecture/mmoe/figure-8-8.png)
+   ![Okta workflows compose post body card with id highlighted](/img/architecture/mmoe/lab-6-compose-post-body.jpg)
 
    </div>
 
@@ -90,16 +83,10 @@ Update the workflow before you run it.
    2. Click **+ New Connection**.
    3. In the **New Connection** dialog:
       1. Optional. Enter a new name for **Connection Nickname**, for example, _Terraform Cloud_.
-      2. Select **Custom for Auth Type**.
+      2. Set**Auth Type** to **Custom**.
       3. Set **Header Name** to **Authorization**.
       4. Set **Header Value** to **Bearer** followed by a space and the Terraform Team API token that you created in [Configure Terraform](#configure-terraform).
       5. Click **Create**.
-
-         <div class="half">
-
-         ![Okta workflows new connection dialog showing terraform cloud connection details](/img/architecture/mmoe/figure-8-9.png)
-
-         </div>
 
 4. In the **Send Message to Channel** card, configure the output channel used for notifications when drift is detected.
    1. Click **Choose Connection**, select the channel you set up in [a Slack channel](/architecture-center/reference-architectures/mmoe/lab-prerequisites/#a-slack-channel), and select your desired input and output fields.
@@ -107,9 +94,9 @@ Update the workflow before you run it.
    3. Pick a name for your Slack bot, for example, _Terraform-drift-bot_. This is used as the originator of the drift notification.
    4. Click **Save**.
 
-      <div class="full border">
+      <div class="half border">
 
-      ![Okta workflow with send message to channel card highlighted](/img/architecture/mmoe/figure-8-10.png)
+      ![Okta workflow with send message to channel card highlighted](/img/architecture/mmoe/lab-6-slack-channel.jpg)
 
       </div>
 
@@ -132,11 +119,4 @@ The connection is added to the **Connections** tab for the workflow.
 
 1. On the **Flows** tab, click the **ON/OFF** toggle to enable the workflow.
 2. Select your workflow, and then click **Test** to run through the flow. The **Flow History** panel shows the results.
-
-   <div class="full border">
-
-   ![Okta workflow showing flow history panel, with succcess highlighted](/img/architecture/mmoe/figure-8-11.png)
-
-   </div>
-
 3. If the result is **Success**, congratulations! If the result is an error, see the associated card for error information. Click the **ON/OFF** toggle to disable the flow, resolve the issue, and return to the first step in this section to retry the test. Repeat until the most recent (top) results are **Success**.

@@ -10,7 +10,7 @@ In this tutorial, you use Terraform to update the name of an existing group in G
 
    <div class="full border">
 
-   ![FILL IN ALT TEXT](/img/architecture/mmoe/figure-5-1.png)
+   ![Latest run panel, showing the results of the most recent update](/img/architecture/mmoe/lab-3-latest-run.png)
 
    </div>
 
@@ -22,23 +22,17 @@ In this tutorial, you use Terraform to update the name of an existing group in G
 
    <div class="full border">
 
-   ![Latest run panel, showing updated customer-portal.tf](/img/architecture/mmoe/figure-5-2.png)
+   ![groups.tf code, showing renamed test group](/img/architecture/mmoe/lab-3-test-group-renamed.jpg)
 
    </div>
 
 5. Scroll down to the **Commit changes** panel, add a title and description for the change, make sure **Commit directly to the preview branch** is selected, and click **Commit changes**.
 
-   <div class="full border">
-
-   ![groups.tf code, showing highlighted name = test group](/img/architecture/mmoe/figure-5-3.png)
-
-   </div>
-
 6. Monitor the status in the **Latest Run** panel of your workspace **Overview** page. You should see the title change to the title in your GitHub commit panel. You should also see the state change from **Applied**, to **Planning**, to **Applying**, to **Applied** when the run completes.
 
    <div class="full border">
 
-   ![Commit changes dialog showing Update groups.tf change summary](/img/architecture/mmoe/figure-5-4.png)
+   ![Commit changes dialog showing Update groups.tf change summary](/img/architecture/mmoe/lab-3-group-rename-applied.png)
 
    </div>
 

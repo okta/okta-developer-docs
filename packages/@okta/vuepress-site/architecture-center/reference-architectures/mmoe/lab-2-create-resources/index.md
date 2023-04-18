@@ -50,7 +50,7 @@ In this exercise, you add a new User Schema property to the workspace, commit yo
 
    <div class="full border">
 
-     ![An updated run showing a modified userschema.tf](/img/architecture/mmoe/figure-4-1.png)
+     ![An updated run showing a modified userschema.tf](/img/architecture/mmoe/lab-2-latest-run-applied.png)
 
    </div>
 

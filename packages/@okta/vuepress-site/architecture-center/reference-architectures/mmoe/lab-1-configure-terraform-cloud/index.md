@@ -64,7 +64,7 @@ Now that you have an account, connect Terraform to your Github repo.
    6. Verify that **Automatic Run Triggering** is set to **Always trigger runs** to have your repository trigger a Terraform planning run whenever you check in a change.
    7. Set **VCS branch** to **preview** to use your `preview` branch instead of the default (`prod`) branch.
    8. Verify that **Automatic speculative plans** is set in **Pull Requests** to trigger speculative plans (**Plan only**).
-   9. Verify that **Submodules on clone** is cleared in **Other Settings**.
+   9. Verify that **Include submodules on clone** is cleared in **Other Settings**.
    10. Click **Create workspace** to create the new workspace.
 
 This opens a **Workspace created** page for you to configure Terraform variables.
@@ -93,7 +93,7 @@ In Terraform, a speculative plan checks the policies set for runs in general (se
 > **Tip:** Unless instructed otherwise, use the latest version of Terraform Cloud. In all of these exercises, the plan should finish with no errors.
 
 1. In your Terraform console, navigate to the **Overview** page.
-2. Click **Actions** and select **Start new plan**.
+2. Click **Actions** and select **Start new run**.
 3. In the **Start a new run** dialog:
    1. Optional. Enter **Reason for starting run**. For example, _Test run_.
    1. For **Choose plan type**, select **Plan only**. The Plan only option creates a speculative plan.
@@ -128,29 +128,21 @@ To demonstrate this:
 1. Instead of confirming the results, click **Actions**, and then select **Start new run** again.
 1. Set **plan type** to **Plan & Apply**.
 
-The second plan is queued because the first run is still active. To see if this is the case, navigate to the **Runs** page and see if one or more runs are **Pending**. If so, the associated entry looks something like this:
+The second plan is queued because the first run is still active. To see if this is the case, navigate to the **Runs** page and see if one or more runs are **Pending**. If so, click **Pending** to see what's blocking the run. This opens a view similar to this:
 
 <div class="full border">
 
-![A pending teraform run summary](/img/architecture/mmoe/figure-3-1.png)
-
-</div>
-
-Click **Pending** to see what's blocking the run. This opens a view similar to this:
-
-<div class="full border">
-
-![A pending teraform run detail view](/img/architecture/mmoe/figure-3-2.png)
+![A pending Terraform run detail view](/img/architecture/mmoe/lab-1-clashing-runs.jpg)
 
 </div>
 
 From this view, you can:
 
-* Get more information about the blocking run, including its status, how it was initiated, and by whom.
-* Cancel the blocking run(s) and run the selected plan.
-* Get details about the selected plan.
-* Cancel the selected plan.
-* Add a comment to the selected plan without changing its state.
+1. Get more information about the blocking run, including its status, how it was initiated, and by whom.
+1. Cancel the blocking run(s) and run the selected plan.
+1. Get details about the selected plan.
+1. Cancel the selected plan.
+1. Add a comment to the selected plan without changing its state.
 
 ## Verify that a speculative plan runs automatically when you commit changes
 
