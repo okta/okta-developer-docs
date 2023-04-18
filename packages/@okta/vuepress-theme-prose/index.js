@@ -1,17 +1,17 @@
 module.exports = (options, ctx) => {
   const { themeConfig, siteConfig } = ctx;
   return {
-    plugins: [
-      [
-        "@vuepress/last-updated",
-        {
-          transformer: (timestamp, lang) => {
-            const { DateTime } = require('luxon');
-            return DateTime.fromMillis(timestamp).setLocale(lang).toLocaleString(DateTime.DATE_FULL);
-          }
-        }
-      ]
-    ],
+    // plugins: [
+    //   [
+    //     "@vuepress/last-updated",
+    //     {
+    //       transformer: (timestamp, lang) => {
+    //         const { DateTime } = require('luxon');
+    //         return DateTime.fromMillis(timestamp).setLocale(lang).toLocaleString(DateTime.DATE_FULL);
+    //       }
+    //     }
+    //   ]
+    // ],
     extendPageData($page) {
       $page.fullHeaders = resolveHeaders($page);
     }

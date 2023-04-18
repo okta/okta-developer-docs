@@ -36,6 +36,7 @@ function configUris() {
 }
 
 module.exports = ctx => ({
+  lastUpdated: false,
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
   /**
