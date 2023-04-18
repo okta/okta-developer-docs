@@ -131,6 +131,7 @@ curl -v -X POST \
         "action": "NONE"
       }
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 120000,
     "subject": {
       "userNameTemplate": {
@@ -221,6 +222,7 @@ curl -v -X POST \
             "matchType": "USERNAME",
             "matchAttribute": null
         },
+        "mapAMRClaims": false,
         "maxClockSkew": 0
     },
     "_links": {
@@ -406,6 +408,7 @@ curl -v -X POST \
       "filter": "(\\S+@example\\.com)",
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -590,6 +593,7 @@ curl -v -X POST \
       "matchType": "USERNAME",
       "matchAttribute": null
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -669,6 +673,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   }
 }' "https://${yourOktaDomain}/api/v1/idps"
@@ -735,6 +740,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -817,6 +823,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   }
 }' "https://${yourOktaDomain}/api/v1/idps"
@@ -883,6 +890,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -964,6 +972,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   }
 }' "https://${yourOktaDomain}/api/v1/idps"
@@ -1029,6 +1038,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -1107,6 +1117,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   }
 }' "https://${yourOktaDomain}/api/v1/idps"
@@ -1174,6 +1185,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -1245,6 +1257,7 @@ curl -v -X POST \
       "action":"DISABLED"
       }
     },
+    "mapAMRClaims": false,
     "maxClockSkew":120000,
     "subject": {
       "matchType": "EMAIL",
@@ -1306,6 +1319,7 @@ curl -v -X POST \
       "matchType": "EMAIL",
       "matchAttribute": null
     },
+    "mapAMRClaims": false,
     "maxClockSkew":120000
   },
   "_links": {
@@ -1425,6 +1439,7 @@ curl -v -X GET \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -1555,6 +1570,7 @@ curl -v -X GET \
         "filter": null,
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -1651,6 +1667,7 @@ curl -v -X GET \
         "filter": "(\\S+@example\\.com)",
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -1748,6 +1765,7 @@ curl -v -X GET \
         "filter": null,
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -1829,6 +1847,7 @@ curl -v -X GET \
         "filter": null,
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -1912,6 +1931,7 @@ curl -v -X GET \
         "filter": null,
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -2004,6 +2024,7 @@ curl -v -X GET \
               "matchType": "USERNAME",
               "matchAttribute": null
           },
+          "mapAMRClaims": false,
           "maxClockSkew": 0
       },
       "_links": {
@@ -2072,6 +2093,7 @@ curl -v -X GET \
       "matchType": "EMAIL",
       "matchAttribute": null
     },
+    "mapAMRClaims": false,
     "maxClockSkew":0
   },
   "_links": {
@@ -2197,6 +2219,7 @@ curl -v -X GET \
         "filter": "(\\S+@example\\.com)",
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -2330,6 +2353,7 @@ curl -v -X GET \
         "filter": "(\\S+@example\\.com)",
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -2478,6 +2502,7 @@ curl -v -X PUT \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 120000
   },
   "_links": {
@@ -2646,6 +2671,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -2761,6 +2787,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -4384,6 +4411,7 @@ curl -v -X GET \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -4738,6 +4766,7 @@ curl -v -X GET \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 120000
   },
   "_links": {
@@ -5663,12 +5692,13 @@ Certificate chain description for verifying assertions from the Smart Card.
 
 ### Policy Object
 
-| Property     | Description                                                                                    | DataType                                                  | Nullable | Readonly |
-| ------------ | ---------------------------------------------------------------                                | -------------------------------------------               | -------- | -------- |
-| accountLink  | Policy rules to link an IdP User to an existing Okta User                                      | [Account Link Policy object](#account-link-policy-object) | FALSE    | FALSE    |
-| maxClockSkew | Maximum allowable clock skew when processing messages from the IdP                             | Number                                                    | FALSE    | FALSE    |
-| provisioning | Policy rules to just-in-time (JIT) provision an IdP User as a new Okta User                    | [Provisioning Policy object](#provisioning-policy-object) | FALSE    | FALSE    |
-| subject      | Policy rules to select the Okta sign-in identifier for the IdP User and determine matching rules | [Subject Policy object](#subject-policy-object)           | FALSE    | FALSE    |
+| Property     | Description                                                                                    | DataType                                                  | Nullable | Readonly | Default |
+| ------------ | ---------------------------------------------------------------                                | -------------------------------------------               | -------- | -------- | ------- |
+| accountLink  | Policy rules to link an IdP User to an existing Okta User                                      | [Account Link Policy object](#account-link-policy-object) | FALSE    | FALSE    |         |
+| mapAMRClaims | Determines whether the IDP should map AMR claims from the IDP into the Okta session            | Boolean                                                   | TRUE     | FALSE    | FALSE   |
+| maxClockSkew | Maximum allowable clock skew when processing messages from the IdP                             | Number                                                    | FALSE    | FALSE    |         |
+| provisioning | Policy rules to just-in-time (JIT) provision an IdP User as a new Okta User                    | [Provisioning Policy object](#provisioning-policy-object) | FALSE    | FALSE    |         |
+| subject      | Policy rules to select the Okta sign-in identifier for the IdP User and determine matching rules | [Subject Policy object](#subject-policy-object)         | FALSE    | FALSE    |         |
 
 ```json
 {
@@ -5699,6 +5729,7 @@ Certificate chain description for verifying assertions from the Smart Card.
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 120000
   }
 }
