@@ -132,13 +132,15 @@ The test account allows the OIN team to verify that your integration flow works 
 
 A configuration guide helps your customers understand how to configure your Okta integration to work with your cloud application.
 
-Provide a configuration guide as part of the OIN submission process for all integrations:
+Provide a separate configuration guide as part of the OIN submission process for each type of integration:
 
 * Format the guide so that it's accessible through a URL link (such as a webpage, a Google doc, or a PDF).
 * During the OIN verification process, ensure that the link to your configuration guide is accessible to the OIN team. The OIN team checks your document for general adherence to the configuration instructions.
 * After your integration is in the OIN catalog, ensure that your guide link is public or customer-accessible.
 
-Your guide link is available to administrators through the **View SAML setup instructions** link from the integration SAML setup in the Okta Admin Console.
+Your guide link is available to administrators through the Okta Admin Console when they add your integration to their Okta org. For example, when customer admins add your SAML integration, they have access to your guide through the **View SAML setup instructions** link in the Admin Console SAML setup page.
+
+> **Note**: Submit a separate guide for each type of integration if your integration supports more than one type. For example, if your integration supports both SSO and SCIM, you need to submit a guide for SSO and a separate guide for SCIM.
 
 ### Configuration guide content
 
