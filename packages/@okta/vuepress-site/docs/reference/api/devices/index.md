@@ -605,6 +605,121 @@ curl -v -X GET \
 ]
 ```
 
+### List all Users for a Device
+
+<ApiOperation method="list" url="/api/v1/devices/${deviceId}/users" />
+
+Lists all [Users](/docs/reference/api/users/#user-object) for a Device by `deviceId`
+
+#### Request parameters
+
+| Parameter | Description                                                | ParamType | DataType | Required | Default |
+| --------- | ---------------------------------------------------------- | --------- | -------- | -------- | ------- |
+| after     | Specifies the pagination cursor for the next page of users | Query     | String   | FALSE    |         |
+| id        | ID of the Device                                          | URL       | String   | TRUE     |         |
+| limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 1000    |
+
+> **Note:** Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+
+> **Note:** If you receive an HTTP 500 status code, you likely exceed the request timeout. Retry your request with a smaller `limit` and page the results. See [Pagination](/docs/reference/core-okta-api/#pagination).
+
+#### Response parameters
+
+Array of [Users](/docs/reference/api/users/#user-object)
+
+#### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}/users?limit=200"
+```
+
+#### Response example
+
+```json
+[
+   {
+      "created":"2021-08-20T17:13:35.000Z",
+      "managementStatus":"NOT_MANAGED",
+      "user":{
+         "id":"00u17vh0q8ov8IU881d7",
+         "status":"ACTIVE",
+         "created":"2021-08-20T16:08:25.000Z",
+         "activated":null,
+         "statusChanged":"2021-08-20T16:39:41.000Z",
+         "lastLogin":"2023-04-18T17:54:12.000Z",
+         "lastUpdated":"2021-12-20T18:27:30.000Z",
+         "passwordChanged":"2021-12-20T18:27:30.000Z",
+         "type":{
+            "id":"oty17vh0n2EHVnbYF1d7"
+         },
+         "profile":{
+            "firstName":"Bunk",
+            "lastName":"Moreland",
+            "mobilePhone":null,
+            "secondEmail":null,
+            "login":"bunk.moreland@example.com",
+            "email":"bunk.moreland@example.com"
+         },
+         "credentials":{
+            "password":{
+            },
+            "provider":{
+               "type":"OKTA",
+               "name":"OKTA"
+            }
+         },
+         "_links":{
+            "suspend":{
+               "href":"https://{yourOktaDomain}/api/v1/users/00u17vh0q8ov8IU881d7/lifecycle/suspend",
+               "method":"POST"
+            },
+            "schema":{
+               "href":"https://{yourOktaDomain}/api/v1/meta/schemas/user/osc17vh0n2EHVnbYF1d7"
+            },
+            "resetPassword":{
+               "href":"https://{yourOktaDomain}/api/v1/users/00u17vh0q8ov8IU881d7/lifecycle/reset_password",
+               "method":"POST"
+            },
+            "forgotPassword":{
+               "href":"https://{yourOktaDomain}/api/v1/users/00u17vh0q8ov8IU881d7/credentials/forgot_password",
+               "method":"POST"
+            },
+            "expirePassword":{
+               "href":"https://{yourOktaDomain}/api/v1/users/00u17vh0q8ov8IU881d7/lifecycle/expire_password",
+               "method":"POST"
+            },
+            "changeRecoveryQuestion":{
+               "href":"https://{yourOktaDomain}/api/v1/users/00u17vh0q8ov8IU881d7/credentials/change_recovery_question",
+               "method":"POST"
+            },
+            "self":{
+               "href":"https://{yourOktaDomain}/api/v1/users/00u17vh0q8ov8IU881d7"
+            },
+            "resetFactors":{
+               "href":"https://{yourOktaDomain}/api/v1/users/00u17vh0q8ov8IU881d7/lifecycle/reset_factors",
+               "method":"POST"
+            },
+            "type":{
+               "href":"https://{yourOktaDomain}/api/v1/meta/types/user/oty17vh0n2EHVnbYF1d7"
+            },
+            "changePassword":{
+               "href":"https://{yourOktaDomain}/api/v1/users/00u17vh0q8ov8IU881d7/credentials/change_password",
+               "method":"POST"
+            },
+            "deactivate":{
+               "href":"https://{yourOktaDomain}/api/v1/users/00u17vh0q8ov8IU881d7/lifecycle/deactivate",
+               "method":"POST"
+            }
+         }
+      }
+   }
+]
+```
+
 ### Delete Device
 
 <ApiOperation method="delete" url="/api/v1/devices/${deviceId}" />
