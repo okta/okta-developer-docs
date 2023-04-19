@@ -2,7 +2,7 @@ The following section outlines the main request required to implement the OTP fl
 
 ### Request for tokens
 
-Before you can begin this flow, collect the username and the OTP from the user in a manner of your choosing. Then, make a single API call to the [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the [default custom authorization server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
+Before you can begin this flow, collect the username and the OTP from the user in a manner of your choosing. Then, make a single API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the [default custom authorization server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
 
 ```bash
 curl --request POST \
@@ -20,9 +20,11 @@ Note the parameters that are passed:
 - `otp` is the one-time passcode that your app obtained from the user.
 - `login_hint` is the username (email) of a user registered with Okta.
 
-For more information on these parameters, see [Custom Authorization Servers](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/challengeCustomAS).
+For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS).
 
-If the credentials are valid, your application receives back access and ID tokens:
+**Response**
+
+If the credentials are valid, Okta responds with the required tokens.
 
 ```json
 {
