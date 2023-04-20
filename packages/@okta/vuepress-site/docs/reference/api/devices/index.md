@@ -608,7 +608,7 @@ curl -v -X GET \
 
 ### List all Users for a Device
 
-<ApiOperation method="list" url="/api/v1/devices/${deviceId}/users" />
+<ApiOperation method="get" url="/api/v1/devices/${deviceId}/users" />
 
 Lists all [Users](/docs/reference/api/users/#user-object) for a Device by `deviceId`
 
