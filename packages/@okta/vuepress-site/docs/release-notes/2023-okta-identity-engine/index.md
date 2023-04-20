@@ -21,7 +21,6 @@ title: Okta Identity Engine API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
-| [Transactional verification with CIBA is GA in Production](#transactional-verification-with-ciba-is-ga-in-production) | December 09, 2022 |
 | [Support added for DPoP with service apps](#support-added-for-dpop-with-service-apps) | April 05, 2023 |
 | [OAuth 2.0 authentication for inline hooks is GA in Production](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-production) | October 05, 2022 |
 | [API service integrations are GA in Production](#api-service-integrations-are-ga-in-production) | November 03, 2022 |
@@ -32,12 +31,6 @@ title: Okta Identity Engine API Products release notes 2023
 | [Configurable rate limits for OAuth 2.0 apps is GA in Production](#configurable-rate-limits-for-oauth-2-0-apps-is-ga-in-production) | March 08, 2023 |
 | [Developer documentation update in 2023.04.0](#developer-documentation-update-in-2023-04-0) | April 05, 2023 |
 | [Bug fixed in 2023.04.0](#bug-fixed-in-2023-04-0) | April 05, 2023 |
-
-#### Transactional verification with CIBA is GA in Production
-
-Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-Initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
-
-CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba/main/). <!--OKTA-584442-->
 
 #### Support added for DPoP with service apps
 
@@ -139,7 +132,6 @@ Using the Policy API, admins were able to set the `MFA_ENROLL` policy factor set
 | [Log Streaming is GA in Production](#log-streaming-is-ga-in-production)                                                                                       |March 30, 2022    |
 | [Optional consent for OAuth 2.0 scopes is GA in Production](#optional-consent-for-oauth-2-0-scopes-is-ga-in-production)                                                   |January 11, 2023  |
 | [OAuth 2.0 authentication for inline hooks is GA in Preview](#oauth-2-0-authentication-for-inline-hooks-is-ga-in-preview)                                     |October 05, 2022 |
-| [Transactional verification with CIBA is GA in Preview](#transactional-verification-with-ciba-is-ga-in-preview)                                               |December 09, 2022 |
 | [Improvements to self-service account activities for AD and LDAP users](#improvements-to-self-service-account-activities-for-ad-and-ldap-users)               |November 30, 2022 |
 | [Honor force authentication support for SAML Apps API](#honor-force-authentication-support-for-saml-apps-api)                                                 |March 08, 2023    |
 | [OIN Manager support for Workflow Connector submission is GA in Preview](#oin-manager-support-for-workflow-connector-submission-is-ga-in-preview)             |March 08, 2023    |
@@ -181,12 +173,6 @@ To improve the security of inline hooks, Okta now supports authentication with O
 When creating inline hooks in the Admin Console (or by API), administrators or developers can now select OAuth 2.0 authentication and choose between two methods of OAuth 2.0: Client Secret or Private Key. A new Key Management API and Admin Console page is also available to create public/private key pairs for use with OAuth 2.0 inline hooks. See [Key management](https://help.okta.com/okta_help.htm?type=oie&id=ext-key-management).
 
 Using the OAuth 2.0 framework provides better security than Basic Authentication or custom headers, and is less work than setting up an IP allowlisting solution. Clients also have the ability to use access tokens minted by their own custom authorization servers to guarantee that Okta is calling their client web services and isn't triggered by any external actors. See [Add an inline hook](https://help.okta.com/okta_help.htm?type=oie&id=ext-add-inline-hook). <!--OKTA-581803-->
-
-#### Transactional verification with CIBA is GA in Preview
-
-Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-Initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
-
-CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba/main/). <!--OKTA-584442-->
 
 #### Improvements to self-service account activities for AD and LDAP users
 

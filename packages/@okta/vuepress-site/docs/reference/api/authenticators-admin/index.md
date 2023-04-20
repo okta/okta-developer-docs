@@ -34,7 +34,7 @@ Explore the Authenticators Administration API: [![Run in Postman](https://run.ps
 
 The Authenticators Administration API has the following CRUD operations:
 
-* [Create Authenticator](#create-authenticator)
+<!-- * [Create Authenticator](#create-authenticator)-->
 * [List Authenticators](#list-authenticators)
 * [Get an Authenticator by ID](#get-an-authenticator-by-id)
 * [Update Authenticator settings](#update-authenticator-settings)
@@ -46,11 +46,12 @@ The Authenticators Administration API has the following CRUD operations:
 * [Activate an Authenticator Method](#activate-an-authenticator-method)
 * [Deactivate an Authenticator Method](#deactivate-an-authenticator-method)
 
+<!--
 ### Create Authenticator
 
 <ApiOperation method="post" url="/api/v1/authenticators" />
 
-Create an Authenticator
+ Create an Authenticator
 
 > **Note:** You can use this operation as part of the "Create a custom authenticator" flow. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/android/main/).
 
@@ -154,6 +155,7 @@ curl -v -X POST \
     }
 }
 ```
+-->
 
 ### List Authenticators
 
@@ -828,11 +830,14 @@ An [Authenticator Method object](#authenticator-method-object)
 | `provider.configuration.integrationKey` | String | The Duo Security integration key | `duo` |
 | `provider.configuration.secretKey` | String | The Duo Security secret key | `duo` |
 | `provider.configuration.userNameTemplate.template` | String | The Duo Security user template name | `duo` |
+| `agreeToTerms` | Boolean | A value of `true` indicates that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator. Okta requires that you accept the terms when creating a new `custom_app` authenticator. Other authenticators don't require this field. | `custom_app`|
+<!--
 | `provider.configuration.apns.id`| String | ID of the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.apns.id`| String | AppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.apns.id`| String | DebugAppBundleId for the APNs (Apple Push Notification Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
 | `provider.configuration.fcm.id` | String  | ID of the FCM (Firebase Cloud Messaging Service) [configuration](/docs/reference/api/push-providers/) | `custom_app` |
-| `agreeToTerms` | Boolean | A value of `true` indicates that the administrator accepts the [terms](https://www.okta.com/privacy-policy/) for creating a new authenticator. Okta requires that you accept the terms when creating a new `custom_app` authenticator. Other authenticators don't require this field. | `custom_app`|
+-->
+
 
 #### Example Email Authenticator
 

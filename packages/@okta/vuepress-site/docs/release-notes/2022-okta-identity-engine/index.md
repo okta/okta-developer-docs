@@ -54,7 +54,6 @@ An error occurred if a request was made to the `/authorize` endpoint of a custom
 | [Rate limit parameter matching](#rate-limit-parameter-matching)                       | December 9, 2022         |
 | [Improvements to the sign-in experience](#improvements-to-the-sign-in-experience)                       | November 3, 2022         |
 | [Improvements to the self-service registration experience](#improvements-to-the-self-service-registration-experience)                       | July 7, 2022         |
-| [Transactional verification with CIBA is EA in Preview](#transactional-verification-with-ciba-is-ea-in-preview)                       | December 9, 2022         |
 | [Manage embedded widget sign-in support is GA in Prod](#manage-embedded-widget-sign-in-support-is-ga-in-prod)                       | October 5, 2022         |
 | [Bugs fixed in 2022.12.0](#bugs-fixed-in-2022-12-0)                       | December 9, 2022         |
 
@@ -89,12 +88,6 @@ When users create an account using the "Sign Up" link in the Sign-In Widget, the
 #### Improvements to the self-service registration experience
 
 Earlier versions of the self-service registration (SSR) flow used a complicated array of templates to send activation emails to users. The simplified SSR flow reduces this to only two email templates with customized welcome messages. If your application requires immediate verification of the user’s email address, use the **Registration - Activation** template. This template includes a magic link for a smoother sign-in experience. If email verification is not immediately required to sign in to the application, use the **Registration - Email Verification** template. This template includes a link for users to complete email verification at any time after they successfully sign in to the application. See [Customize email notifications](/docs/guides/custom-email/main/) and the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/). <!-- OKTA-552780-->
-
-#### Transactional verification with CIBA is EA in Preview
-
-Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-Initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
-
-CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba). <!-- OKTA-553199-->
 
 #### Manage embedded widget sign-in support is GA in Prod
 
@@ -555,7 +548,6 @@ Previously, the self-service unlock (SSU) flow created unnecessary friction in t
 | [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
 | [Updates to default global session policy](#updates-to-default-global-session-policy) | August 3, 2022|
 | [Improved error messages for MyAccount API](#improved-error-messages-for-myaccount-api) | August 3, 2022|
-| [New custom authenticator for push notifications](#new-custom-authenticator-for-push-notifications) | August 3, 2022|
 | [Developer documentation updates in 2022.08.0](#developer-documentation-updates-in-2022-08-0) | August 3, 2022|
 | [Bug fixed in 2022.08.0](#bug-fixed-in-2022-08-0) | August 3, 2022|
 
@@ -590,10 +582,6 @@ You can now edit the secondary factor in the default rule of the global session 
 #### Improved error messages for MyAccount API
 
 The [MyAccount API](/docs/reference/api/myaccount/) includes improved error messages for end users to identify why email and phone operations couldn’t be completed or accessed. <!-- OKTA-484080 -->
-
-#### New custom authenticator for push notifications
-
-Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization’s mobile apps. Your users are presented with a push and biometric experience within your organization’s apps, with your organization’s branding on it. They never have to leave your app, and they don’t need to download a third-party app, such as Okta Verify, to complete their verification. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/) for [Android](/docs/guides/authenticators-custom-authenticator/android/main/) and [iOS](/docs/guides/authenticators-custom-authenticator/ios/main) instructions. <!-- OKTA-517891 -->
 
 #### Developer documentation updates in 2022.08.0
 
