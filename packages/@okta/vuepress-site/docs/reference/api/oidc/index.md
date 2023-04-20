@@ -424,7 +424,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### /bc/authorize
+<!-- ### /bc/authorize
 
 <ApiOperation method="post" url="${baseUrl}/v1/bc/authorize" /> <ApiLifecycle access="ie" />
 
@@ -535,7 +535,7 @@ Content-Type: application/json;charset=UTF-8
     "error_description" : "No client credentials found."
 }
 ```
-
+-->
 ### /token
 
 <ApiOperation method="post" url="${baseUrl}/v1/token" />

@@ -322,10 +322,6 @@ export const guides = [
                 guideName: "authenticators-okta-verify"
               },
               {
-                title: "Custom authenticator",
-                guideName: "authenticators-custom-authenticator"
-              },
-              {
                 title: "Google authenticator",
                 guideName: "authenticators-google-authenticator",
               },
@@ -493,10 +489,6 @@ export const guides = [
           {
             title: "Create an authorization server",
             guideName: "customize-authz-server",
-          },
-          {
-            title: "Transactional verification using CIBA",
-            guideName: "configure-ciba",
           },
           {
             title: "Configure SSO for native apps",
