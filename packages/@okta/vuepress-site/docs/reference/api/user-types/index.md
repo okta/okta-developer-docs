@@ -336,7 +336,7 @@ The User Type object defines several properties:
 | ------------- | ------------------------------------------------- | -------------------------------------------------------------- | -------- | ------ | -------- |
 | id            | Unique key for the User Type                      | String                                                         | FALSE    | TRUE   | TRUE     |
 | displayName   | The display name for the type                     | String                                                         | FALSE    | FALSE  | FALSE    |
-| name          | The name for the type                             | String                                                         | FALSE    | TRUE   | TRUE     |
+| name          | The name for the type                             | String                                                         | FALSE    | TRUE   | FALSE    |
 | description   | A human-readable description of the type          | String                                                         | FALSE    | FALSE  | FALSE    |
 | createdBy     | The user ID of the creator of this type           | String                                                         | FALSE    | FALSE  | TRUE     |
 | lastUpdatedBy | The user ID of the last user to edit this type    | String                                                         | FALSE    | FALSE  | TRUE     |
