@@ -32,7 +32,7 @@ title: Reference Architectures
       </span>
     </div>
     <p class="main-card__text">
-      Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping both source and target directories active during the process. <a class="main-card__link" href="/architecture-center/reference-architectures/directory-coexistence">Learn more</a>
+      Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping your source IAM servers active during the process.<a class="main-card__link" href="/architecture-center/reference-architectures/directory-coexistence">Learn more</a>
     </p>
   </figcaption>
 </figure>
@@ -49,7 +49,7 @@ title: Reference Architectures
         class="main-card__main-link"
         href="/architecture-center/reference-architectures/mmoe"
       >
-        Managing multiple Okta environments
+        Manage multiple Okta environments
       </a>
     </h2>
     <div class="main-card__wrapper">
@@ -64,7 +64,7 @@ title: Reference Architectures
       </span>
     </div>
     <p class="main-card__text">
-      Create solutions for deploying and managing multiple application Okta environments with Terraform. <a class="main-card__link" href="/architecture-center/reference-architectures/mmoe">Learn more</a>
+      Create solutions to deploy and manage multiple Okta environments with Terraform. <a class="main-card__link" href="/architecture-center/reference-architectures/mmoe">Learn more</a>
     </p>
   </figcaption>
 </figure>

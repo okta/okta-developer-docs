@@ -1,15 +1,15 @@
 ---
 title: Manage multiple Okta environments
-excerpt: Create solutions for deploying and Manage multiple application Okta environments with Terraform.
+excerpt: Create solutions for deploying and managing multiple Okta environments with Terraform.
 ---
 
 # Manage multiple Okta environments
 
-Create solutions for deploying and managing multiple application Okta environments with Terraform.
+Create solutions for deploying and managing multiple Okta environments with Terraform.
 
 ## Introduction
 
-Use Terraform to make managing complex Okta org configurations easier. By incorporating [Terraform](https://www.terraform.io/) into your continuous integration, continuous delivery, and development pipelines, you can define a configuration once and apply it to all environments.
+Use Terraform to make managing complex Okta org configurations easier. By incorporating [Terraform](https://www.terraform.io/) into your continuous integration, continuous delivery, and development pipelines, you can define a single configuration once and apply it to all environments.
 
 Terraform can create, manage, and update various infrastructure resources, including Okta. This allows you to make your Okta org and application infrastructure more predictable, easier to maintain, and deterministic. You spend less time managing Okta when onboarding new applications, reduce risk by defining configuration information in source files, and can rapidly detect and recover from changes to your infrastructure.
 
@@ -17,19 +17,21 @@ Use this architecture to:
 
 * Include Okta org configurations in your Continuous Integration / Deployment processes
 * Configure multiple Okta orgs to the same standards
-* Detect changes between Okta orgs and resynchronising them
+* Detect changes between Okta orgs and resynchronising their configurations.
 
-Upon completing the lab, you should have a firm understanding of how to automate Okta and keep environments in sync.
+Upon completing the lab, you should understand how to automate Okta and keep environments in sync.
 
 ## Lab
 
+The tutorials in this lab are designed to run sequentially, with each tutorial starting with the results on the one before:
+
 * [Overview and prerequisites](/architecture-center/reference-architectures/mmoe/lab-overview)
-* Tutorial 1. [How to configure Terraform Cloud](/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud)
-* Tutorial 2. [How to create resources for your environment](/architecture-center/reference-architectures/mmoe/lab-2-create-resources)
-* Tutorial 3. [How to change an object in that environment](/architecture-center/reference-architectures/mmoe/lab-3-rename-a-group)
-* Tutorial 4. [How to move objects between environments](/architecture-center/reference-architectures/mmoe/lab-4-deploy-changes-to-production)
-* Tutorial 5. [How to detect drift between environments and correct it](/architecture-center/reference-architectures/mmoe/lab-5-detect-drift)
-* Tutorial 6. [How to schedule drift detection daily](/architecture-center/reference-architectures/mmoe/lab-6-synchronize-environments-daily)
+* Tutorial 1: [Configure Terraform Cloud](/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud)
+* Tutorial 2: [Create resources for your environment](/architecture-center/reference-architectures/mmoe/lab-2-create-resources)
+* Tutorial 3: [Change an object in that environment](/architecture-center/reference-architectures/mmoe/lab-3-rename-a-group)
+* Tutorial 4: [Move objects between environments](/architecture-center/reference-architectures/mmoe/lab-4-deploy-changes-to-production)
+* Tutorial 5: [Detect drift between environments and correct it](/architecture-center/reference-architectures/mmoe/lab-5-detect-drift)
+* Tutorial 6: [Schedule drift detection daily](/architecture-center/reference-architectures/mmoe/lab-6-synchronize-environments-daily)
 
 ## What Okta technologies are used?
 

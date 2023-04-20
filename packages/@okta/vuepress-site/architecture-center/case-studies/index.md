@@ -5,6 +5,8 @@ title: Case Studies
 
 # Case Studies
 
+These case studies explain how existing Okta customers implemented the tenets of a reference architecture into their own systems.
+
 <figure class="main-card main-card_size_large">
   <img
     class="main-card__image"
@@ -32,7 +34,7 @@ title: Case Studies
       </span>
     </div>
     <p class="main-card__text">
-      Learn how Company X applied the directory coexistence reference architecture when planning their user migration strategy and the benefits they saw. <a class="main-card__link" href="/architecture-center/case-studies/companyx/">Learn more.</a>
+      Learn how Company X planned their user migration strategy to apply the Directory Coexistence reference architecture. <a class="main-card__link" href="/architecture-center/case-studies/companyx/">Learn more.</a>
     </p>
   </figcaption>
 </figure>

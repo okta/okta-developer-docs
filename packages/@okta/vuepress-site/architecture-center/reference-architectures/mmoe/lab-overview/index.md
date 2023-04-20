@@ -13,12 +13,12 @@ This lab is intended for admins with Okta experience who have multiple orgs. It 
 
 The tutorials in this lab are designed to run sequentially, with each tutorial starting with the results on the one before:
 
-1. In [How to configure Terraform Cloud](/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud), you create a free Terraform Cloud account, connect it to your Github account and development Okta org. Then, you configure it to react to changes in your Github repo.
-1. In [How to create resources for your environment](/architecture-center/reference-architectures/mmoe/lab-2-create-resources), you use Terraform to create the resources required to make your org functional.
-1. In [How to change an object in that environment](/architecture-center/reference-architectures/mmoe/lab-3-rename-a-group), you use Terraform to update the name of an existing group in the new org.
-1. In [How to move objects between environments](/architecture-center/reference-architectures/mmoe/lab-4-deploy-changes-to-production), you deploy your changes from the development environment to a separate production environment.
-1. In [How to detect drift between environments and correct it](/architecture-center/reference-architectures/mmoe/lab-5-detect-drift), you update a resource in production outside of Terraform, and then run a Terraform plan to detect if an asset is changed.
-1. In [How to schedule drift detection daily](/architecture-center/reference-architectures/mmoe/lab-6-synchronize-environments-daily), you create a workflow to automatically run a speculative plan daily in production to detect drift.
+1. In [Configure Terraform Cloud](/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud), you create a free Terraform Cloud account, connect it to your Github account and development Okta org. Then, you configure it to react to changes in your Github repo.
+1. In [Create resources for your environment](/architecture-center/reference-architectures/mmoe/lab-2-create-resources), you use Terraform to create the resources required to make your org functional.
+1. In [Change an object in that environment](/architecture-center/reference-architectures/mmoe/lab-3-rename-a-group), you use Terraform to update the name of an existing group in the new org.
+1. In [Move objects between environments](/architecture-center/reference-architectures/mmoe/lab-4-deploy-changes-to-production), you deploy your changes from the development environment to a separate production environment.
+1. In [Detect drift between environments and correct it](/architecture-center/reference-architectures/mmoe/lab-5-detect-drift), you update a resource in production outside of Terraform, and then run a Terraform plan to detect if an asset is changed.
+1. In [Schedule drift detection daily](/architecture-center/reference-architectures/mmoe/lab-6-synchronize-environments-daily), you create a workflow to automatically run a speculative plan daily in production to detect drift.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ This lab uses [Okta CLI](https://cli.okta.com/) to create Okta developer account
 
 ## Two Okta developer accounts
 
-This lab requires two Okta developer accounts, one to represent a development environment, and one to act as the live environment. Both need to be running **Okta Identity Engine**.
+This lab requires two Okta developer accounts, one to represent a development environment, and one to act as a production environment. Both accounts must use **Okta Identity Engine**.
 
 > **Tip:** If you are using existing accounts and want to check that the org is running Okta Identity Engine rather than Okta Classic Engine, check the footer on any page of the Admin Console for that org. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
@@ -67,7 +67,7 @@ Tutorial 6 requires your production org to have [Okta Workflows](https://www.okt
 
 1. Open the Admin Console for your production org.
 2. Choose **Workflow** from the menu.
-3. If there is no Workflows console item under Workflow, then Workflows needs to be enabled for the Okta account that you are using. Reach out to your customer account team to have this done.
+3. If the menu doesn't include a `Workflows console` option, this feature is not enabled. Contact your customer account team to enable Workflows for your account.
 
 ## A Slack channel
 
@@ -89,19 +89,19 @@ You need to create a copy of an example Terraform script in your GitHub reposito
    1. **Clear** the **Copy the prod branch only** checkbox.
    1. Click **Create fork**.
 
-The repository you are forking has two branches: prod and preview. The preview branch should be populated and is the one to use in tutorials 2 and 3. The prod branch should be empty. In tutorial 4 onwards, promote your code to prod and then use the prod branch for the remaining exercises.
+This repository has two branches:`prod` and `preview`. The `preview` branch is pre-populated with information for use in tutorials 2 and 3. The `prod` branch is empty and is used in tutorials 4, 5, and 6.
 
 ## Terraform Cloud account
 
-Terraform has two offerings for building your automation. The first is available for free through a Command Line Interface (CLI). Another option is through their paid SaaS offering, [Terraform Cloud](https://cloud.hashicorp.com/products/terraform), which is free to try. In this lab, you use an instance of Terraform Cloud. Tutorial 1 covers how to create and configure your account.
+Terraform provides two options to build your automations. The first is available for free through a Command Line Interface (CLI). Another option is through their paid SaaS offering, [Terraform Cloud](https://cloud.hashicorp.com/products/terraform), which is free to try. In this lab, you use an instance of Terraform Cloud. Tutorial 1 covers how to create and configure your account.
 
 ## Values and variables
 
 Connect Terraform to Okta using the following values:
 
-* `${OKTA_DOMAIN}` is the full URL of your Okta developer org.
+* `${OKTA_DOMAIN}`: The full URL of your Okta developer org.
    For example, `https://dev-133337.okta.com`.
-* `${OKTA_DOMAIN_NAME}` is the subdomain of your Okta developer org.
+* `${OKTA_DOMAIN_NAME}`: The subdomain of your Okta developer org.
    For example, `dev-133337`.
 
 To find these settings in the Admin Console, see [Configuration Settings](/docs/guides/oie-embedded-common-download-setup-app/java/main/#configuration-settings).

@@ -8,7 +8,9 @@ Suppose you already handle authentication through cloud-based Identity Provider 
 
 However, the user passwords are still managed in your original IdP. This directory coexistence can stay in place until you migrate all your user information to Universal Directory and no longer require the other IdP.
 
-In this tutorial, you migrate all the users in a simple Active Directory instance to Universal Directory with the Okta AD Agent, and then create an application to authenticate its users with Universal Directory. Specifically:
+> **Note:** You need an instance of [Azure Active Directory](https://azure.microsoft.com/en-ca/products/active-directory/) to follow this tutorial.
+
+In this tutorial, you migrate all the users in a simple Azure Active Directory instance to Universal Directory with the Okta AD Agent, and then create an application to authenticate its users with Universal Directory. Specifically:
 
 * [Configure Okta to mirror an Azure AD instance and enable JIT provisioning](#configure-azure-ad-as-an-idp-in-okta).
 * [Create an OIDC-based application that redirects to Okta for authentication](#create-an-oidc-based-application-that-redirects-to-okta-for-authentication).
@@ -23,8 +25,6 @@ At the end of the tutorial, when a user attempts to sign in to the application, 
     Source image: fill-this-in ad-to-okta-flow-diagram
   -->
 </div>
-
-> **Note:** You need an instance of [Azure Active Directory](https://azure.microsoft.com/en-ca/products/active-directory/) to follow this tutorial.
 
 ## Configure Azure AD as an IdP in Okta
 
@@ -153,9 +153,9 @@ To run the sample application and connect directly to the Okta sign-in dialog:
 
    </div>
 
-## Stop the example
+## Stop the application
 
-After you complete the example, stop the application and remove the running Docker containers.
+After you complete this tutorial, stop the application and remove the Docker containers.
 
 1. In the `okta-server-side-example` directory, stop the current running containers with <kbd>Ctrl</kbd> + <kbd>C</kbd>.
 

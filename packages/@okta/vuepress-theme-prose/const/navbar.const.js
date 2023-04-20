@@ -1144,7 +1144,7 @@ export const architectureCenter = [
                   ],
                },
                {
-                  title: "Managing multiple Okta environments",
+                  title: "Manage multiple Okta environments",
                   path: "/architecture-center/reference-architectures/mmoe/",
                   subLinks: [
                      {

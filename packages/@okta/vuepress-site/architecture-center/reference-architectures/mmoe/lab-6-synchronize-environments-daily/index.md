@@ -17,7 +17,7 @@ This simulates an enterprise that transforms to fully automated processes for de
 This tutorial uses Slack as the target for its workflow notification messages. To create a free trial Slack instance and channel:
 
 1. Visit [slack.com](https://slack.com), and click **TRY FOR FREE**.
-2. Supply your email address and click **Continue**.
+2. Enter an email address and click **Continue**.
 3. Enter the 6-digit code that's sent to your email address.
 4. Click **Create a Workspace** to create a Slack workspace.
 5. Specify your company name, identify other team members to invite to the workspace (if any), and enter a short name used as the name of the channel. For example, _Terraform Drift_.
@@ -83,7 +83,7 @@ Update the workflow before you run it.
    2. Click **+ New Connection**.
    3. In the **New Connection** dialog:
       1. Optional. Enter a new name for **Connection Nickname**, for example, _Terraform Cloud_.
-      2. Set**Auth Type** to **Custom**.
+      2. Set **Auth Type** to **Custom**.
       3. Set **Header Name** to **Authorization**.
       4. Set **Header Value** to **Bearer** followed by a space and the Terraform Team API token that you created in [Configure Terraform](#configure-terraform).
       5. Click **Create**.

@@ -50,7 +50,7 @@ Use directory coexistence for:
       </span>
     </div>
     <p class="main-card__text">
-      Learn how Company X applied the directory coexistence reference architecture when planning their user migration strategy and the benefits they saw. <a class="main-card__link" href="/architecture-center/case-studies/companyx/">Learn more.</a>
+      Learn how Company X planned their user migration strategy to apply the Directory Coexistence reference architecture. <a class="main-card__link" href="/architecture-center/case-studies/companyx/">Learn more.</a>
     </p>
   </figcaption>
 </figure>

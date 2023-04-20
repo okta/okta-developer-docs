@@ -286,9 +286,9 @@ Open a browser to `http://localhost:4040`;  the URL assigned to the **Web Interf
 
 </div>
 
-## Stop the example
+## Stop the application
 
-After you complete the example, stop the application and remove the running Docker containers.
+After you complete this tutorial, stop the application and remove the Docker containers.
 
 1. In the `okta-reference-coexistence-db-example` directory, stop the current running containers with <kbd>Ctrl</kbd> + <kbd>C</kbd>.
 1. Remove the containers:

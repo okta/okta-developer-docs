@@ -528,9 +528,9 @@ You can replace the Okta LDAP Interface by updating the application to use OIDC.
 
    </div>
 
-### Stop the example
+### Stop the application
 
-After you complete the example, stop the application and remove the running Docker containers.
+After you complete this tutorial, stop the application and remove the Docker containers.
 
 1. In the `okta-reference-coexistence-ldap-example` directory, stop the current running containers with <kbd>Ctrl</kbd> + <kbd>C</kbd>.
 
@@ -544,6 +544,6 @@ After you complete the example, stop the application and remove the running Dock
 
 ## Migrate users from LDAP to Okta
 
-The LDAP users are already stored in Okta, but the passwords are managed by the LDAP server. To learn how to migrate users completely from LDAP to Okta, see [Migrating users from LDAP to Okta Universal Directory](https://support.okta.com/help/s/question/0D50Z00008Vr0MLSAZ/migrating-users-from-ldap-to-okta-universal-directory?language=en_US).
+The LDAP users are already stored in Okta, but the passwords are managed by the LDAP server. If you want Okta to take over the authentication part instead of Delegated Authentication to LDAP, disable Delegated Authentication for LDAP by navigating to **Security** > **Delegated Authentication** > **LDAP**. This will require you to reset passwords for the all the LDAP users so that users can set an Okta password to login. This will still retain the user's profile to be mastered by LDAP but authentication will be handled by Okta. If you want user profiles to be mastered by Okta, you will have to turn off Profile Master setting under **Directories** > **LDAP** > **Settings** > **Import Settings** and **Disable Profile Master**. This will convert all LDAP user profiles to be mastered by Okta.
 
-> **Note**: The instructions in the article linked above require resetting the users' passwords. If you don't want to reset all user passwords, you can use an Okta password import hook. See [Account for hash types Okta doesn't support](/architecture-center/reference-architectures/directory-coexistence/lab-3-generic-database/#account-for-hash-types-okta-does-not-support).
+> **Note**: This requires resetting the users' passwords. If you don't want to reset all user passwords, you can use an Okta password import hook. See [Account for hash types Okta doesn't support](/architecture-center/reference-architectures/directory-coexistence/lab-3-generic-database/#account-for-hash-types-okta-does-not-support).

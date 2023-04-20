@@ -79,9 +79,9 @@ Terraform has two offerings for building your automation. The first is available
 
 Connect Terraform to Okta using the following values:
 
-* `${OKTA_DOMAIN}` is the full URL of your Okta developer org.
+* `${OKTA_DOMAIN}`: The full URL of your Okta developer org.
    For example, `https://dev-133337.okta.com`.
-* `${OKTA_DOMAIN_NAME}` is the subdomain of your Okta developer org.
+* `${OKTA_DOMAIN_NAME}`: The subdomain of your Okta developer org.
    For example, `dev-133337`.
 
 To find these settings in the Admin Console, see [Configuration Settings](/docs/guides/oie-embedded-common-download-setup-app/java/main/#configuration-settings).
