@@ -5695,7 +5695,7 @@ Certificate chain description for verifying assertions from the Smart Card.
 | Property     | Description                                                                                    | DataType                                                  | Nullable | Readonly | Default |
 | ------------ | ---------------------------------------------------------------                                | -------------------------------------------               | -------- | -------- | ------- |
 | accountLink  | Policy rules to link an IdP User to an existing Okta User                                      | [Account Link Policy object](#account-link-policy-object) | FALSE    | FALSE    |         |
-| mapAMRClaims | Determines whether the IDP should map AMR claims from the IDP into the Okta session            | Boolean                                                   | TRUE     | FALSE    | FALSE   |
+| mapAMRClaims <ApiLifecycle access="ea" /> | Determines whether the IdP should map AMR claims from the IdP to the Okta session            | Boolean                                                   | TRUE     | FALSE    | FALSE   |
 | maxClockSkew | Maximum allowable clock skew when processing messages from the IdP                             | Number                                                    | FALSE    | FALSE    |         |
 | provisioning | Policy rules to just-in-time (JIT) provision an IdP User as a new Okta User                    | [Provisioning Policy object](#provisioning-policy-object) | FALSE    | FALSE    |         |
 | subject      | Policy rules to select the Okta sign-in identifier for the IdP User and determine matching rules | [Subject Policy object](#subject-policy-object)         | FALSE    | FALSE    |         |
