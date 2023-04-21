@@ -1995,7 +1995,7 @@ Custom property names for the [Profile object](/docs/reference/api/users/#profil
 
 All Okta-defined Profile properties are defined in a Profile subschema with the resolution scope `#base`. You can't modify these properties, except to update permissions, to change the nullability of `firstName` and `lastName`, or to specify a [pattern](#login-pattern-validation) for `login`.  They can't be removed.
 
-The base User Profile is based on the [System for Cross-Domain Identity Management: Core Schema](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#section-4.1.1) and has the following standard properties:
+The base User Profile is based on the [System for Cross-domain Identity Management: Core Schema](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#section-4.1.1) and has the following standard properties:
 
 | Property          | Description                                                                                                                        | DataType | Nullable | Unique | Readonly | MinLength | MaxLength | Validation                                                                                                        |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
