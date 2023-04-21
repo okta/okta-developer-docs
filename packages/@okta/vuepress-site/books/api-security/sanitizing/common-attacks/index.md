@@ -31,7 +31,7 @@ The cause of this issue is the use of poor string concatenation.  In the example
 
 Most web frameworks and ORM libraries provide tools to protect against SQL injection attacks, be sure to look through your developer library documentation to ensure you're using these tools properly.
 
-### XSS - Cross Site Scripting
+### XSS - Cross-Site Scripting
 A cross-site scripting attack (XSS) is an attack that executes code in a web page viewed by a user. There are three different types of XSS attacks:
 
 * **Stored XSS** - A persisted (in a database, log, etc) payload is rendered to an HTML page. For example, content on an forum.
