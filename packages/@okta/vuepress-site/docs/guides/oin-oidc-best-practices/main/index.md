@@ -14,7 +14,7 @@ Due to the OIN restrictions of using an org authorization server and the authori
 
 A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission in the OIN manager, be sure to upload a graphic that your customers will instantly recognize.
 
-The logo file must be smaller than 1 MB in size and be in either PNG, JPG, or GIF file format. For best results, use a PNG image with a transparent background, a landscape orientation, and use a minimum resolution of 420 x 120 pixels to prevent any unsightly upscaling.
+The logo file must be smaller than 1 MB and be in either PNG, JPG, or GIF file format. For best results, use a 200 x 200 pixels square-dimension PNG image with a transparent background. See [Logo guidelines in OIN submission requirements](/docs/guides/submit-app-prereq/main/#logo-guidelines).
 
 ## Rate restrictions
 

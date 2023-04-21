@@ -25,17 +25,17 @@ OpenID Connect is used to authenticate users with a web app. The app uses the ID
 
 ## Available authorization server types
 
-Okta has two types of authorization servers: the Org Authorization Server and the custom authorization server.
+Okta has two types of authorization servers: the org authorization server and the custom authorization server.
 
 ### Org authorization server
 
-Every Okta org comes with a built-in authorization server called the Org Authorization Server. The base URL for the Org Authorization Server is `https://${yourOktaOrg}`.
+Every Okta org comes with a built-in authorization server called the org authorization server. The base URL for the org authorization server is `https://${yourOktaOrg}`.
 
-You use the Org Authorization Server to perform SSO with Okta for your OpenID Connect apps or to get an access token for the Okta APIs. You can't customize this authorization server with regards to audience, claims, policies, or scopes. Additionally, the resulting access token's issuer is `https://${yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own applications.
+You use the org authorization server to perform SSO with Okta for your OpenID Connect apps or to get an access token for the Okta APIs. You can't customize this authorization server with regards to audience, claims, policies, or scopes. Additionally, the resulting access token's issuer is `https://${yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own applications.
 
-#### Org Authorization Server discovery endpoints
+#### Org authorization server discovery endpoints
 
-The following discovery endpoints return OpenID Connect or OAuth 2.0 metadata related to your Org Authorization Server. Clients can use this information to programmatically configure their interactions with Okta.
+The following discovery endpoints return OpenID Connect or OAuth 2.0 metadata related to your org authorization server. Clients can use this information to programmatically configure their interactions with Okta.
 
 **OpenID:** `https://${yourOktaOrg}/.well-known/openid-configuration`
 
@@ -77,13 +77,13 @@ The OpenID and OAuth discovery endpoints for the default custom authorization se
 
 ## Which authorization server should you use
 
-If you are just looking to add SSO for your OpenID Connect-based applications, you can use your Org Authorization Server. You should also use the Org Authorization Server if you want to use [OAuth 2.0 bearer tokens with your Okta APIs](/docs/guides/implement-oauth-for-okta/). Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
+If you are just looking to add SSO for your OpenID Connect-based applications, you can use your org authorization server. You should also use the org authorization server if you want to use [OAuth 2.0 bearer tokens with your Okta APIs](/docs/guides/implement-oauth-for-okta/). Only the org authorization server can mint access tokens that contain Okta API scopes.
 
 If your application has requirements such as additional scopes, customizing rules for when to grant scopes, or you need additional authorization servers with different scopes and claims, then you need to [create a custom authorization server](/docs/guides/customize-authz-server/).
 
-The following table describes which capabilities are supported by the custom authorization server (includes the default custom authorization server) and which are supported by the Okta Org Authorization Server.
+The following table describes which capabilities are supported by the custom authorization server (includes the default custom authorization server) and which are supported by the org authorization server.
 
-| Capabilities                               | Custom authorization server          | Org Authorization Server    |
+| Capabilities                               | Custom authorization server          | Org authorization server    |
 | :----------------------------------------- | :----------------------------------- | :-------------------------- |
 | SSO with OpenID Connect                    | Yes                                  | Yes                         |
 | Use Okta Developer SDKs & Widgets for SSO  | Yes                                  | Yes                         |

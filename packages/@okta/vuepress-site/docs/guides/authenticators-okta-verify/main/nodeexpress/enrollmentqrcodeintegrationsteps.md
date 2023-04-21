@@ -43,7 +43,7 @@ The following table describes the most important `IdxTransaction` properties for
 |----------------|---------------------------------------------------|---------------------------------------------------|
 | `IdxTransaction.status` | `PENDING`  | Status of transaction. A value of `PENDING` indicates that Okta is waiting for the user to complete the Okta Verify setup.|
 | `IdxTransaction.nextStep.name` | `enroll-poll` | Name of the next step in the sign-in flow. A value of `enroll-poll` indicates that the app should show the QR Code and poll Okta to determine when the user completes the Okta Verify setup.  |
-| `IdxTransaction.nextStep.authenticator.contextualData.qrcode.href` | "data:image/png;base64,..." | The QR code base64 encoded PNG image.
+| `IdxTransaction.nextStep.authenticator.contextualData.qrcode.href` | "data:image/png;base64,..." | The QR code Base64-encoded PNG image.
 
 A `IdxTransaction.status` value of `PENDING` and `IdxTransaction.nextStep.name` value of `enroll-poll` signifies that Okta is waiting for the user to add their account to Okta Verify. At this time, your app should start polling to determine when the user completes the Okta Verify account setup.
 

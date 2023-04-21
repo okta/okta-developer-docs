@@ -4,8 +4,6 @@ excerpt: This guide discusses how to retain user context in requests to downstre
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide discusses how to retain user context in requests to downstream services using On-Behalf-Of Token Exchange. You can use On-Behalf-Of Token Exchange with a single custom authorization server or between other custom authorization servers under the same Okta tenant.
 
 ---
@@ -72,7 +70,7 @@ In token exchange use cases, an API microservice can act both as a resource serv
 1. In the **General Settings** section of the **General** tab, click **Edit** and select **Token Exchange** as the grant type for your application.
 1. Click **Save**.
 1. Copy the client ID in the **Client Credentials** section, and then copy the client secret in the **CLIENT SECRETS** section.
-1. [Base64 encode](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret) the client ID and client secret for use in the token exchange request from API1 to API2.
+1. [Base64-encode](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret) the client ID and client secret for use in the token exchange request from API1 to API2.
 
 ### Update the authorization servers
 
@@ -125,60 +123,70 @@ An [access policy](/docs/guides/configure-access-policy/main/) helps you secure 
 
 Use the Authorization Code with PKCE flow to obtain an authorization code for the client. In this case, the mobile app requests tokens so that it can talk to API1.
 
-```cURL
-curl --location --request POST \
-  --url 'https://${yourOktaDomain}/oauth2/{authServerId}/v1/authorize' \
-  --header 'Accept: application/json' \
-  --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id=${nativeAppClientId}' \
-  --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
-  --data-urlencode 'response_type=code' \
-  --data-urlencode 'scope=openid' \
-  --data-urlencode 'state=testState' \
-  --data-urlencode 'code_challenge_method=S256' \
-  --data-urlencode 'code_challenge=${code_challenge}' \
-```
+#### Request an authorization code
+
+Navigate to the `/authorize` endpoint using a request URL with the appropriate parameters: 
+
+  ```bash
+    https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${nativeAppClientId}&response_type=code&scope=openid&redirect_uri=${configuredRedirectUri}&state=teststate&code_challenge_method=S256&code_challenge=${code_challenge}
+  ```
+
+Note the parameters that are being passed:
+
+* `client_id` matches the client ID of your application that you created in the [Create a native app integration](#create-a-native-app-integration) section.
+* `response_type` is `code`, indicating that we are using the Authorization Code grant type.
+* `scope` is `openid`, which means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an authorization server](/docs/guides/customize-authz-server/main/#create-scopes) guide.
+* `redirect_uri` is the callback location where the user agent is directed to along with the code. This must match one of the **Sign-in redirect URIs** that you specified when you created your native app.
+* `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
+* `code_challenge_method` is the hash method used to generate the challenge, which is always `S256`.
+* `code_challenge` is the code challenge used for PKCE.
+
+> **Note:** See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
+
+If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, the user arrives at the specified `redirect_uri` along with an authorization `code`:
 
 **Response**
 
 ```bash
-https://${configuredRedirectUri}/?code=FQGFlDO-J1jXl....7-cfYJ0KtKB8&state=testState`
+https://${configuredRedirectUri}/?code=FQGFlDO-J1jXl....7-cfYJ0KtKB8&state=testState
 ```
+#### Exchange code for tokens request
 
-### Exchange code for tokens request
+Use the following example to build the request to exchange the authorization code for tokens.
 
-```curl
-curl --location --request POST \
-  --url 'https://${yourOktaDomain}/oauth2/{authServerId}/v1/token' \
-  --header 'Accept: application/json' \
-  --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'grant_type=authorization_code' \
-  --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
-  --data-urlencode 'code=FQGFlDO-J1j.....QvabuZ7-cfYJ0KtKB8' \
-  --data-urlencode 'code_verifier=xO5wgOEH5UA2XUdVQ88pM.....Rtc5ERKq1MeonMo8QLCSRYlDk' \
-  --data-urlencode 'client_id=${nativeAppClientId}'
+```bash
+  curl --location --request POST \
+    --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'grant_type=authorization_code' \
+    --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
+    --data-urlencode 'code=FQGFlDO-J1j.....QvabuZ7-cfYJ0KtKB8' \
+    --data-urlencode 'code_verifier=xO5wgOEH5UA2XUdVQ88pM.....Rtc5ERKq1MeonMo8QLCSRYlDk' \
+    --data-urlencode 'client_id=${nativeAppClientId}'
 ```
 
 **Response**
 
 ```json
-{
+  {
     "token_type": "Bearer",
     "expires_in": 3600,
     "access_token": "eyJraWQiOiJ6………X1Z4QA",
-    "scope": "openid"
-}
+    "scope": "openid",
+    "id_token": "eyJraWQiOiJRVXlG.....-NAtVFdwD1bg2JprEJQ"
+  }
 ```
 
 ### Token exchange request from service app to API
 
 > **Note:** Include the Base64-encoded client ID and secret within the Authorization header. See the following example for the format.
 
-```curl
+```bash
 curl --location --request POST \
   --url 'https://${yourOktaDomain}/oauth2/default/v1/token' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Basic {Base64 encoded service app client ID and client secret}' \
+  --header 'Authorization: Basic {Base64-encoded service app client ID and client secret}' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
   --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:access_token' \
@@ -275,11 +283,11 @@ Perform the requests in the previous [Flow specifics](#flow-specifics) section. 
 
 > **Note:** Include the Base64-encoded client ID and secret within the Authorization header. See the following example for the format.
 
-```curl
+```bash
 curl --location --request POST \
   --url 'https://${yourOktaDomain}/oauth2/{trustedAuthServerId}/v1/token' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Basic {Base64 encoded service app client ID and client secret}' \
+  --header 'Authorization: Basic {Base64-encoded service app client ID and client secret}' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
   --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:access_token' \

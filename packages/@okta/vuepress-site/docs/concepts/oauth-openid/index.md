@@ -57,7 +57,7 @@ At the core of both OAuth 2.0 and its OpenID Connect extension is the authorizat
 
 The authorization server also acts as an OpenID Connect Provider, which means you can request [ID tokens](/docs/reference/api/oidc/#id-token) in addition to [access tokens](/docs/reference/api/oidc/#access-token) from the authorization server endpoints.
 
-> **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization Servers](/docs/concepts/auth-servers).
+> **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization servers](/docs/concepts/auth-servers).
 
 ### OpenID Connect
 
@@ -119,7 +119,7 @@ If your app is not high-trust, you should use the [Authorization Code](/docs/gui
 
 ### Interaction Code flow
 
-The Interaction Code flow is an extension to the OAuth 2 and OIDC standard, and is available when using Identity Engine orgs. It requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta Authorization Server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
+The Interaction Code flow is an extension to the OAuth 2 and OIDC standard, and is available when using Identity Engine orgs. It requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta authorization server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
 
 <!--
 See http://www.plantuml.com/plantuml/uml/
@@ -172,7 +172,7 @@ A rogue app could only intercept the authorization code, but it wouldn't have ac
 
 <div class="full">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
+![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
 
 </div>
 
@@ -264,7 +264,7 @@ For information on how to set up your application to use this flow, see [Impleme
 
 The SAML 2.0 Assertion flow is intended for a client app that wants to use an existing trust relationship without a direct user approval step at the authorization server. It enables a client application to obtain an authorization from a valid, signed SAML assertion from the SAML Identity Provider. The client app can then exchange it for an OAuth access token from the OAuth authorization server. For example, this flow is useful when you want to fetch data from APIs that only support delegated permissions without prompting the user for credentials.
 
-To use a SAML 2.0 Assertion as an authorization grant, the client makes a SAML request to the Identity Provider and the Identity Provider sends the SAML 2.0 Assertion back in the response. The client then makes a request for an access token with the `urn:ietf:params:oauth:grant-type:saml2-bearer` grant type and includes the `assertion` parameter. The value of the `assertion` parameter is the SAML 2.0 assertion that is Base64 encoded. You can send only one SAML assertion in that request.
+To use a SAML 2.0 Assertion as an authorization grant, the client makes a SAML request to the Identity Provider and the Identity Provider sends the SAML 2.0 Assertion back in the response. The client then makes a request for an access token with the `urn:ietf:params:oauth:grant-type:saml2-bearer` grant type and includes the `assertion` parameter. The value of the `assertion` parameter is the SAML 2.0 assertion that is Base64-encoded. You can send only one SAML assertion in that request.
 
 <div class="full">
 

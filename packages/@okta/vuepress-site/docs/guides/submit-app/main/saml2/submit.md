@@ -1,10 +1,29 @@
+To submit a SAML integration, click the **SAML** tab and select **On** from the **SAML support** dropdown menu.
+
+* **Provide the instance URL for your app where Okta will retrieve configuration details:** Specify the Okta instance URL for your integration.
+
+   To retrieve your Okta instance URL from your development org:
+
+   1. From the Okta Admin Console, navigate to **Applications** > **Applications** to see all the integrations in your org.
+   1. Click the name of the app integration that you're going to submit.
+   1. Confirm that the app settings match what you want as the global defaults for all customers.
+   1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
+   1. Back in the OIN Manager, paste that URL in the **Provide the instance URL for your app where Okta will retrieve configuration details** field of your submission protocol tab.
+
+<!--
+1. Click the **General** tab.
+1. Go to the **App Embed Link** section and copy the text in the Embed Link field:
+   ![App Embed Link](/img/oin/isv-portal_app-embed-link.png "App Embed Link GUI in the Application settings")
+1. Paste that value into your submission.
+-->
+
 #### Setup instructions
 
 * **Is your Service Provider configured as a “Big Bang”?**: If **Yes**, what is the backdoor URL for admins to sign in if SAML is misconfigured? If the SP is a "Big Bang", Okta suggests that you have a backdoor URL or some other recovery mechanism available.
 
 * **Is SAML support available in the SP for all tenants by default or is it available only for specific SKUs?**: If you select **Certain SKUs**, provide details on which products provide SAML support.
 
-* **To configure SAML, can your customers do it by themselves from your app's UI, or do they need to contact your support team?**: If a customer needs support to configure your app integration, you need to include support contact information in your configuration guide. We recommend that you build a UI that enables self-service configuration to reduce the setup time for your customers.
+* **To configure SAML, can your customers do it by themselves from your app's UI, or do they need to contact your support team?**: If a customer needs support to configure your app integration, you need to include support contact information in your configuration guide. See [SAML configuration steps example](/docs/guides/submit-app-prereq/main/#saml-configuration-steps-example) for configuration steps when the customer requires the support team to configure SAML. See [SAML admin configuration steps example](/docs/guides/submit-app-prereq/main/#saml-admin-configuration-steps-example) for configuration steps when the customer configures SAML for themselves. Okta recommends that you build a UI that enables self-service configuration to reduce the setup time for your customers.
 
 * **Are tenants deployed on-premises?**: If tenant data for your application is hosted locally on your customer's systems, select **Yes**. If the tenant data for your application is hosted on your servers, select **No**.
 
@@ -12,7 +31,7 @@
 
 * **What is the unique SAML identifier for authentication: the subject NameID or a specific SAML attribute?**: What identifier is used by the integration to perform authentication against your SAML application? If you are using an attribute different than the `NameID` attribute, what is the name of that attribute?
 
-* **Optional: link to configuration guide**: Your configuration guide (in HTML or PDF format) should have step-by-step instructions on how to configure SSO between Okta and your systems. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
+* **Link to configuration guide**: Your configuration guide (in HTML or PDF format) should have step-by-step instructions on how to configure SSO between Okta and your systems. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
 
 #### Configure variables
 

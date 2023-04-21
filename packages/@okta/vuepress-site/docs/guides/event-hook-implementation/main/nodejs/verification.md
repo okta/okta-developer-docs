@@ -10,6 +10,7 @@ app.get("/userDeactivated", (request, response) => {
   var returnValue = {
     "verification": request.headers['x-okta-verification-challenge'],
   };
+  console.log("Event hook verification request received.")
   response.json(returnValue);
 });
 

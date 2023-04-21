@@ -1,19 +1,19 @@
 ---
-title: Configure Okta Sign-On and App Sign-On Policies
-excerpt: How to configure an Okta Sign-On policy and an App Sign-On Policy.
+title: Configure Okta sign-on and app sign-on policies
+excerpt: How to configure an Okta Sign-On policy and an app sign-on policy.
 layout: Guides
 ---
 
 > **Note:** This document is only for Okta Classic Engine. If you are using Okta Identity Engine, see [Configure a global session policy and authentication policies](/docs/guides/configure-signon-policy). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.”
 
-This guide explains how to add and configure Okta Sign-On Policies and App Sign-On Policies to your [Okta organization](/docs/concepts/okta-organizations/), and what the Policies are used for.
+This guide explains how to add and configure Okta sign-on policies and app sign-on policies to your [Okta organization](/docs/concepts/okta-organizations/), and what the Policies are used for.
 
 ---
 
 **Learning outcomes**
 
-* Know the purpose of Okta Sign-On and App Sign-On Policies.
-* Add and configure Okta Sign-On and App Sign-On Policies.
+* Know the purpose of Okta Sign-On and app sign-on policies.
+* Add and configure Okta Sign-On and app sign-on policies.
 
 **What you need**
 
@@ -24,13 +24,13 @@ This guide explains how to add and configure Okta Sign-On Policies and App Sign-
 
 ---
 
-## About the Okta Sign-On and App Sign-On Policies
+## About the Okta Sign-On and app sign-on policies
 
-An Okta Sign-On Policy helps you control who can sign in and how a user is allowed to sign in to Okta, including whether they are challenged for MFA and how long they are allowed to remain signed in before re-authenticating. Additionally, you can configure App Sign-On Policies for each application for extra levels of authentication that you may want performed before an application can be accessed.
+An Okta sign-on policy helps you control who can sign in and how a user is allowed to sign in to Okta, including whether they are challenged for MFA and how long they are allowed to remain signed in before re-authenticating. Additionally, you can configure app sign-on policies for each application for extra levels of authentication that you may want performed before an application can be accessed.
 
-Add a rule to the Okta Sign-On Policy, for example, when you need to make sure that only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) can access your application, or you need to exclude certain roles in your organization from accessing it. Add a rule for an App Sign-On Policy, for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes. There is only one App Sign-On Policy, but you can add as many rules to it as you need.
+Add a rule to the Okta sign-on policy, for example, when you need to make sure that only users who are inside your [corporate network](/docs/reference/api/policy/#network-condition-object) can access your application, or you need to exclude certain roles in your organization from accessing it. Add a rule for an app sign-on policy, for example, to prompt groups that are assigned to your app to re-authenticate after 60 minutes. There is only one app sign-on policy, but you can add as many rules to it as you need.
 
-You can specify any number of Okta Sign-On Policies and the order in which they are executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There is one required organization-wide policy named **Default**. By definition, the Default policy applies to all users.
+You can specify any number of Okta sign-on policies and the order in which they are executed. If a policy in the list doesn't apply to the user trying to sign in, the system moves to the next policy. There is one required organization-wide policy named **Default**. By definition, the Default policy applies to all users.
 
 In addition to the Default policy, which you can't delete, there may be another organization-wide policy named **Legacy** that is present only if you have already configured MFA. This policy reflects the MFA settings that were in place when you enabled your Sign-On Policy and ensures that no changes in MFA behavior occur unless you modify your policy. If required, you can delete it.
 
@@ -38,14 +38,14 @@ In addition to the Default policy, which you can't delete, there may be another 
 
 ## Configure sign-on policies for common scenarios
 
-This guide provides step-by-step instructions to configure an Okta Sign-On Policy and an App Sign-On Policy for two of the most common scenarios:
+This guide provides step-by-step instructions to configure an Okta sign-on policy and an app sign-on policy for two of the most common scenarios:
 
 * [Prompt for an MFA factor for a certain group](#prompt-for-an-mfa-factor-for-a-certain-group)
 * [Prompt for an MFA factor when a user is outside the US](#prompt-for-an-mfa-factor-when-a-user-is-outside-the-us)
 
 ## Prompt for an MFA factor for a certain group
 
-The following are step-by-step instructions to configure an Okta Sign-On Policy to prompt a user for a factor (multifactor authentication (MFA)) when the user is a member of a certain group.
+The following are step-by-step instructions to configure an Okta sign-on policy to prompt a user for a factor (multifactor authentication (MFA)) when the user is a member of a certain group.
 
 ### Create the policy container
 
@@ -99,7 +99,7 @@ The following are step-by-step instructions to configure an Okta Sign-On Policy 
 
 ## Prompt for an MFA factor when a user is outside the US
 
-In addition to the Okta Sign-On Policy, there is an App Sign-On Policy for each application that determines the extra levels of authentication that you may want performed before a user can access an application. The following are step-by-step instructions to configure an App Sign-On Policy to prompt a user for an MFA factor when the user is outside the United States.
+In addition to the Okta sign-on policy, there is an app sign-on policy for each application that determines the extra levels of authentication that you may want performed before a user can access an application. The following are step-by-step instructions to configure an app sign-on policy to prompt a user for an MFA factor when the user is outside the United States.
 
 > **Note:** This example assumes that you have already [set up a Dynamic Zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) for the United States.
 
@@ -145,7 +145,7 @@ In addition to the Okta Sign-On Policy, there is an App Sign-On Policy for each 
 
 ## Next steps
 
-You should now understand how to add an Okta Sign-On Policy and an App Sign-On Policy.
+You should now understand how to add an Okta sign-on policy and an app sign-on policy.
 
 Next, take a look at the following:
 
@@ -153,6 +153,6 @@ Next, take a look at the following:
 * [Set up self-registration](/docs/guides/set-up-self-service-registration/)
 * [Configure an access policy](/docs/guides/configure-access-policy/)
 
-## See also 
+## See also
 
 [Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)
