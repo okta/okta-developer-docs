@@ -157,7 +157,7 @@ This can be fixed by moving the resource to the same domain or enabling CORS.
 #### Internet Explorer
 
 ```
-SEC7118: XMLHttpRequest for https://{yourOktaDomain}/api/v1/users/me required Cross Origin Resource Sharing (CORS).
+SEC7118: XMLHttpRequest for https://{yourOktaDomain}/api/v1/users/me required Cross-Origin Resource Sharing (CORS).
 
 SEC7120: Origin https://{yourOktaDomain} not found in Access-Control-Allow-Origin header.
 

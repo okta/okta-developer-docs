@@ -80,7 +80,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 ### Enabling Cross-Origin Access
 
-Because the Widget makes cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **Security** > **API** > **Trusted Origins**). See [Enable CORS](/docs/guides/enable-cors/) page.
+Because the Widget makes cross-origin requests, you need to enable Cross-Origin Resource Sharing (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **Security** > **API** > **Trusted Origins**). See [Enable CORS](/docs/guides/enable-cors/) page.
 
 ## Add code to reference the Widget
 
