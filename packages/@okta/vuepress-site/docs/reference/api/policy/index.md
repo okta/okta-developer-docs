@@ -298,6 +298,239 @@ curl -v -X GET \
 HTTP 200:
 Array of [Application objects](/docs/reference/api/apps/#application-object)
 
+## Policy Simulation operations
+<ApiLifecycle access="ie" />
+> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+
+### Access Simulation
+Access simulation API is an admin API that evaluates policy and policy rules based on the existing policy rule configuration. The evaluation result simulates what the real world authentication flow is and what policy rules have been applied or matched to the authentication flow.
+
+<ApiOperation method="post" url="/api/v1/policies/simulate" />
+
+#### Request
+The section below explains the request parameters and the properties inside the request body.
+
+##### Request parameters
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `expand` | String | (Optional) `expand=EVALUATED` to include list of evaluated but not matched policy and policy rules `expand=RULE` include detail about why a rule condition (not)matched|
+
+##### Request Body
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `policyTypes` | Array| (Optional) Supported PolicyTypes for simulation: OKTA_SIGN_ON, MFA_ENROLL, PROFILE_ENROLLMENT, ACCESS_POLICY. Default `null`, return all types|
+| `appInstance` | String | (Required) The appInstance ID for this simulation |
+| `policyContext.user.id` | String | (Required) The userId for this simulation. Only userId or groupIds allowed, not both  |
+| `policyContext.groups.ids` | Array | (Required) The groupIds for this simulation. Only userId or groupIds allowed, not both |
+| `policyContext.ip` | String | (Optional) The network rule condition, zone or IP address. See [Network Condition](#network-condition-object) |
+| `policyContext.zones.ids` | String | (Optional) The zone ID under the network rule condition. See [Network Condition](#network-condition-object) |
+| `policyContext.risk` | String | (Optional) The risk rule condition: LOW, MEDIUM, HIGH. See [Risk Score Condition](#risk-score-condition-object)|
+| `policyContext.device.managed` | Boolean | (Optional) If the device is registered. See [Device Condition](#device-condition-object)|
+| `policyContext.device.registered` | Boolean | (Optional) If the device is managed. See [Device Condition](#device-condition-object)|
+| `policyContext.device.platform` |String | (Optional) The platform of the device, eg: IOS. See [Platform Condition](#platform-condition-object)|
+| `policyContext.device.assuranceId` | String | (Optional) The device assurance policy ID for the simulation|
+
+##### Request example
+> **Note:** You can only evaluate `user` or `groups` not both, same for the `ip` and `zone.ids`. Use payload below for reference only
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '
+{
+    "policyTypes": ["OKTA_SIGN_ON", "MFA_ENROLL"],
+    "appInstance": "0oa4eroj3nYCIJIW70g7",
+    "policyContext": {
+        "user": {
+            "id": "00u4eralyizp8NPOb0g7"
+        },
+        "groups": {
+            "ids": [
+              "00g4eralvekR5RLuS0g7", "00g4eralvekR5RLuS0g8"
+            ]
+        },
+        "risk": {
+            "level": "LOW"
+        },
+        "ip": "9.9.9.9",
+        "zones": {
+          "ids": [
+            "nzo4eralxcRnbIHYJ0g7"
+            ]
+        },
+        "device": {
+            "platform": "IOS",
+            "registered": true,
+            "managed": true
+        }
+    }
+}' "https://${yourOktaDomain}/api/v1/policies/simulate?expand=EVALUATED&expand=RULE"
+```
+
+#### Response
+The response section below explains the error responses and the response body
+
+##### Error Responses
+HTTP 400:
+Please provide the policy context for the request. ErrorCode: E0000001.
+
+Please provide only group IDs or a user ID. ErrorCode: E0000001.
+
+Please provide only zone IDs or an IP address. ErrorCode: E0000001.
+
+This request contains an invalid policyType. ErrorCode: E0000001.
+
+Please provide a valid application instance for the request. ErrorCode: E0000001.
+
+Please provide valid group IDs for the request. `groupIds` is an invalid ID. ErrorCode: E0000001.
+
+Please provide a valid user for the request. ErrorCode: E0000001.
+
+Access to `appName` is not allowed. `user or group` is not assigned to this application. ErrorCode: E0000001.
+
+##### Response Body
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `policyType` | String| The policy type we are simulating|
+| `id` | String| ID of the specified policy/rule type|
+| `name` | String| Policy name or policy rule name|
+| `status` | 	ENUM(MATCH, NOT_MATCH, UNDEFINED)| The result of this entity evaluation|
+| `conditions` | Array | List of all condition that involved for this rule/policy evaluation|
+| `conditions.type` | String| The type of this condition|
+| `name` | String| Policy name or policy rule name|
+| `conditions.status` | ENUM(MATCH, NOT_MATCH, UNDEFINED) | The result of this condition evaluation|
+| `undefined` | Object | A list of undefined but not matched policy/rules |
+| `evaluated` | Object | A list of evaluated but not matched policy/rules |
+
+
+##### Response example
+HTTP 200:
+```json
+{
+    "evaluation": [
+        {
+            "status": null,
+            "policyType": "OKTA_SIGN_ON",
+            "result": {
+                "policies": [
+                    {
+                        "id": "00p4eromwukk6qUku0g7",
+                        "name": "test policy",
+                        "status": "MATCH",
+                        "conditions": [],
+                        "rules": [
+                            {
+                                "id": "0pr4erof85nGcyC7Y0g7",
+                                "name": "test rule",
+                                "status": "MATCH",
+                                "conditions": [
+                                    {
+                                        "type": "people.groups.include",
+                                        "status": "MATCH"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "undefined": {
+                "policies": []
+            },
+            "evaluated": {
+                "policies": []
+            }
+        },
+        {
+            "status": null,
+            "policyType": "MFA_ENROLL",
+            "result": {
+                "policies": [
+                    {
+                        "id": "00p4eram2kw1aLcrx0g7",
+                        "name": "Default Policy",
+                        "status": "MATCH",
+                        "conditions": [],
+                        "rules": [
+                            {
+                                "id": "0pr4eram2lMQT5FZF0g7",
+                                "name": null,
+                                "status": "MATCH",
+                                "conditions": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "undefined": {
+                "policies": []
+            },
+            "evaluated": {
+                "policies": []
+            }
+        },
+        {
+            "status": null,
+            "policyType": "ACCESS_POLICY",
+            "result": {
+                "policies": [
+                    {
+                        "id": "rst4eram06ZKZewEe0g7",
+                        "name": "Any two factors",
+                        "status": "MATCH",
+                        "conditions": [],
+                        "rules": [
+                            {
+                                "id": "rul4eram07VsWgybo0g7",
+                                "name": "Catch-all Rule",
+                                "status": "MATCH",
+                                "conditions": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "undefined": {
+                "policies": []
+            },
+            "evaluated": {
+                "policies": []
+            }
+        },
+        {
+            "status": null,
+            "policyType": "PROFILE_ENROLLMENT",
+            "result": {
+                "policies": [
+                    {
+                        "id": "rst4eram08ZSjPTOl0g7",
+                        "name": "Default Policy",
+                        "status": "MATCH",
+                        "conditions": [],
+                        "rules": [
+                            {
+                                "id": "rul4eram094PrQ2BX0g7",
+                                "name": "Catch-all Rule",
+                                "status": "MATCH",
+                                "conditions": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "undefined": {
+                "policies": []
+            },
+            "evaluated": {
+                "policies": []
+            }
+        }
+    ]
+}
+```
+
 ## Rules operations
 
 ### Get Policy Rules
