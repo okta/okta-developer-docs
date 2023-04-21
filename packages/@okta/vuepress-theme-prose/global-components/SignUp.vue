@@ -272,6 +272,7 @@
                       <option
                         v-for="country in getCountries"
                         :key="country.value"
+                        required
                         :value="country.value"
                       >{{ country.name }}</option>
                     </select>
@@ -279,6 +280,9 @@
                       v-if="form.country.errorList.length"
                       class="error-color error-msg"
                     >{{ validationService.errorDictionary.emptyField }}</span>
+                    <div class="signup__form__chevron">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.00007 9.9394L12.4697 5.46973L13.5304 6.53039L8.5304 11.5304C8.2375 11.8233 7.76263 11.8233 7.46973 11.5304L2.46974 6.53039L3.5304 5.46973L8.00007 9.9394Z" fill="#191919"/></svg>
+                    </div>
                   </label>
                   <label
                     v-if="states.list.length"
@@ -296,9 +300,10 @@
                       @focusout="setHeight()"
                     >
                       <option
+                        value="" 
+                        disabled 
                         selected
-                        disabled
-                      >{{ states.label }}</option>
+                      >Select...</option>
                       <option
                         v-for="state in states.list"
                         :key="state.name"
@@ -309,6 +314,9 @@
                       v-if="form.state.errorList.length"
                       class="error-color error-msg"
                     >{{ validationService.errorDictionary.emptyField }}</span>
+                    <div class="signup__form__chevron">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.00007 9.9394L12.4697 5.46973L13.5304 6.53039L8.5304 11.5304C8.2375 11.8233 7.76263 11.8233 7.46973 11.5304L2.46974 6.53039L3.5304 5.46973L8.00007 9.9394Z" fill="#191919"/></svg>
+                    </div>
                   </label>
                 </div>
                 <div class="signup__form__body">
@@ -428,11 +436,11 @@
             <span>Not sure what to choose?</span> <span>Learn more about</span>
             <a 
               target="_blank" 
-              href="https://www.okta.com/video/welcome-to-okta-workforce-identity-cloud/"
+              href="https://www.okta.com/workforce-identity/"
             > Workforce Identity</a> <span class="hidden">and</span>
             <a 
               target="_blank" 
-              href="https://www.okta.com/video/welcome-to-okta-customer-identity-cloud"
+              href="https://www.okta.com/customer-identity/"
             > Customer Identity
             </a>
           </p>
@@ -569,14 +577,22 @@ export default {
   },
   methods: {
     setHeight(isNotUSAAndCanada) {
+      let height;
       if (window.innerWidth > 1314) {
         if (!isNotUSAAndCanada) {
           setTimeout(function() {
-            let height = document.querySelector('.signup__form').getBoundingClientRect().height + 139 + 'px';
+            height = document.querySelector('.signup__form').getBoundingClientRect().height + 139 + 'px';
             document.querySelector('.signup__items.active').style.height = height;
           }, 10);
         } else {
           document.querySelector('.signup__items.active').style.height = 'auto';
+        }
+      }
+      window.onresize = function() {
+        if (window.innerWidth < 1314) {
+          document.querySelector('.signup__items.active').style.height = 'auto';
+        } else {
+          document.querySelector('.signup__items.active').style.height = height;
         }
       }
     },

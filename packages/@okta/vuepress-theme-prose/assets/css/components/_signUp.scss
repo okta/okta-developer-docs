@@ -284,6 +284,7 @@
 
 .signup__popup__title a:hover {
   @include media(">signup") {
+    color: var(--c-blue-550);
     border-color: var(--c-blue-550);
   }
 }
@@ -408,6 +409,7 @@
 
 .signup__form__label {
   display: flex;
+  position: relative;
   margin-bottom: 8px;
 
   font-weight: 500;
@@ -481,8 +483,24 @@ select.signup__form__input:required:invalid {
 
 .signup__form__input:active,
 .signup__form__input:focus {
-  box-shadow: 0 0 0 4px var(--c-blue-350);
+  box-shadow: 0 0 0 4px var(--c-blue-650);
   border-color: var(--c-blue-550);
+}
+
+.signup__form__chevron {
+  transition: transform .3s;
+  will-change: transform;
+  position: absolute;
+  right: 20px;
+  top: 48px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.signup__form__input:focus + .signup__form__chevron {
+  transform: rotate(180deg);
 }
 
 .signup__form__body {
@@ -490,9 +508,6 @@ select.signup__form__input:required:invalid {
   flex-direction: column;
   margin-bottom: 26px;
   width: 100%;
-  @include media(">tablet") {
-    max-height: 72px;
-  }
   @include media(">signup") {
     margin-top: 0;
     margin-bottom: 32px;
