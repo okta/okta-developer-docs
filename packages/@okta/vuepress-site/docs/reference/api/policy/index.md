@@ -379,7 +379,7 @@ The response section below explains the error responses and the response body
 | `policyType` | String| The policy type we are simulating|
 | `id` | String| ID of the specified policy/rule type|
 | `name` | String| Policy name or policy rule name|
-| `status` | 	ENUM(MATCH, NOT_MATCH, UNDEFINED)| The result of this entity evaluation|
+| `status` | 	ENUM (MATCH, NOT_MATCH, UNDEFINED)| The result of this entity evaluation|
 | `conditions` | Array | List of all condition that involved for this rule/policy evaluation|
 | `conditions.type` | String| The type of this condition|
 | `name` | String| Policy name or policy rule name|
