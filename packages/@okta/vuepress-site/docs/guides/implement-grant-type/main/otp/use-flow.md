@@ -2,11 +2,11 @@ The following section outlines the main request required to implement the OTP fl
 
 ### Request for tokens
 
-Before you can begin this flow, collect the username and the OTP from the user in a manner of your choosing. Then, make a single API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the [default custom authorization server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
+Before you can begin this flow, collect the username and the OTP from the user in a manner of your choosing. Then, make a single API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/token` endpoint. Your request should look something like this:
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'client_id=${client_id}&scope=openid profile&grant_type=urn:okta:params:oauth:grant-type:otp&otp=${123456}&login_hint=${testuser%40example.com}'
@@ -20,7 +20,7 @@ Note the parameters that are passed:
 - `otp` is the one-time passcode that your app obtained from the user.
 - `login_hint` is the username (email) of a user registered with Okta.
 
-For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS).
+For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
 **Response**
 

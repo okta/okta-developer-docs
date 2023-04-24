@@ -1,12 +1,12 @@
 The following sections outline the requests required to implement the MFA OOB flow using direct calls to the Okta OIDC & OAuth 2.0 API.
 
-### Initial request for tokens
+### Request for tokens
 
-Before you can begin this flow, collect the username and password from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/token` endpoint using the Resource Owner Password grant type. If you're using the [default custom authorization server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
+Before you can begin this flow, collect the username and password from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/token` endpoint using the Resource Owner Password grant type. Your request should look something like this:
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'client_id=${client_id}&scope=openid profile&grant_type=password&username=${testuser%40example.com}&password={$userpassword}'
@@ -24,7 +24,7 @@ Not used in this example:
 
 `grant_types_supported` (Optional) is a list of grant types that the client supports. Some clients aren't able to support all grant types. Use this parameter to specify to Okta that the included grant types are all that the client supports so that Okta can return an error if the the provided grant types won't satisfy the access policy.
 
-For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS).
+For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
 **Response**
 
@@ -44,11 +44,10 @@ Next, your app sends a request to the authorization server `/challenge` endpoint
 
 - Always call this endpoint after the authorization server returns `mfa_required` in response to the `/token` request.
 - Don't use this endpoint with primary factor authentication flows.
-- This endpoint is optional. The client can directly call the `/token` endpoint if it has another way of knowing which factor to authenticate with and can challenge the user for that factor.
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/challenge \
+  --url https://${yourOktaDomain}/oauth2/v1/challenge \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'client_id=${client_id}&mfa_token=fCRU9lDO0rMHQ_FIADFL&challenge_types_supported=http://auth0.com/oauth/grant-type/mfa-oob'
@@ -62,7 +61,7 @@ Note the parameters that are passed:
 
 > **Note:** This field may seem redundant since the `/token` request should validate `grant_types_supported`. However, this field is included because some clients can't send  `grant_types_supported` in the request or the server can't validate `grant_types_supported` on the `/token` endpoint.
 
-For more information on these parameters, see the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/challenge-cust-as).
+For more information on these parameters, see the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/challenge).
 
 **Response**
 
@@ -96,7 +95,7 @@ Your app polls the authorization server `/token` endpoint at the set `interval`.
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'client_id=${client_id}&scope=openid profile&grant_type=http://auth0.com/oauth/grant-type/mfa-oob&oob_code=ftqmhFRXHxOVo-4t4JoQhtbsqww3XTMCp2&mfa_token=fCRU9lDO0rMHQ_FIADFL'
@@ -110,7 +109,7 @@ Note the parameters that are passed:
 - `oob_code` is an identifier of an out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, this code is used to identify the factor transaction.
 - `mfa_token` is a unique token used for identifying multifactor authentication flows to link the request to the original authentication flow.
 
-For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS).
+For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
 **Response**
 
@@ -123,7 +122,7 @@ Okta responds to the poll request with an HTTP 400 `authorization_pending` error
   }
 ```
 
-### Request for tokens
+### Second request for tokens
 
 After the user responds to the push notification, the app polls the `/token` endpoint again. See the response in [Initial request for tokens](#initial-request-for-tokens) for a response example.
 

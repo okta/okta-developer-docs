@@ -2,11 +2,11 @@ The following sections outline the requests required to implement the MFA OTP fl
 
 ### Request for tokens
 
-Before you can begin this flow, collect the username and password from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/token` endpoint using the Resource Owner Password grant type. If you're using the [default custom authorization server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
+Before you can begin this flow, collect the username and password from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/token` endpoint using the Resource Owner Password grant type. Your request should look something like this:
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'client_id=${client_id}&scope=openid profile&grant_type=password&username=${testuser%40example.com}&password={$userpassword}'
@@ -20,7 +20,11 @@ Note the parameters that are passed:
 - `username` is the identifier for the user (email).
 - `password` is the password of the matching user.
 
-For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS).
+Not used in this example:
+
+`grant_types_supported` (Optional) is a list of grant types that the client supports. Some clients aren't able to support all grant types. Use this parameter to specify to Okta that the included grant types are all that the client supports so that Okta can return an error if the the provided grant types won't satisfy the access policy.
+
+For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
 **Response**
 
@@ -40,7 +44,7 @@ Your app prompts the user for an OTP in the app UI. The user obtains the OTP and
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'client_id=${client_id}&scope=openid profile&grant_type=http://auth0.com/oauth/grant-type/mfa-otp&otp=${123456}&mfa_token=${F5snZpk1UBRKHYR6N7Mh}'
@@ -51,9 +55,10 @@ Note the parameters that are passed:
 - `client_id` matches the client ID of the native application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `scope` must be at least `openid`. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `grant_type` is `http://auth0.com/oauth/grant-type/mfa-otp`, indicating that you are using the direct authentication MFA OTP grant type. Use this grant type for OTP factors (such as Google Authenticator) that you want to use as a secondary factor.
+- `otp` is the one-time passcode that your app obtained from the user.
 - `mfa_token` is a unique token used for identifying multifactor authentication flows to link the request to the original authentication flow.
 
-For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS).
+For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
 **Response**
 

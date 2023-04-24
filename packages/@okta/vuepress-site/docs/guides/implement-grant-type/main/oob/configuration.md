@@ -18,9 +18,7 @@ The direct authentication OOB flow uses passwordless authentication, such as sig
 
 To use the OOB flow, both your client app and the [Okta authorization server](/docs/concepts/auth-servers/) that you are using with the app must have the OOB grant type enabled in your Okta org.
 
-> **Note:** See [Create an authorization server](/docs/guides/customize-authz-server/) to create your own custom authorization server.
-
-### Enable the OOB grant on your authorization server
+If your Okta org uses Identity Engine, then the OOB grant type is automatically configured in your org authorization server. For custom authorization servers that you are using with your app, you must enable the OOB grant:
 
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, select the pencil icon next to the authorization server that you want to use.

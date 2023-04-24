@@ -2,7 +2,7 @@
 
 The direct authentication MFA OOB flow uses passwordless authentication, such as signing in with email or SMS. You need an authenticator enabled to use the direct authentication MFA OOB flow.
 
-> **Note:** Okta currently supports Okta Verify for the MFA OOB flow. <!-- Need to update this after the entire feature is rolled out and not limited to Okta Verify>
+> **Note:** Okta currently supports Okta Verify for the MFA OOB flow. <!-- Need to update this after the entire feature is rolled out and not limited to Okta Verify -->
 
 1. Open the Admin Console for your org.
 1. Select **Security** > **Authenticators** to view the available authenticators.
@@ -18,9 +18,7 @@ The direct authentication MFA OOB flow uses passwordless authentication, such as
 
 To use the MFA OOB flow, both your client app and the [Okta authorization server](/docs/concepts/auth-servers/) that you are using with the app must have the MFA OOB grant type enabled in your Okta org.
 
-> **Note:** See [Create an authorization server](/docs/guides/customize-authz-server/) to create your own custom authorization server.
-
-### Enable the MFA OOB grant on your authorization server
+If your Okta org uses Identity Engine, then the MFA OOB grant type is automatically configured in your org authorization server. For custom authorization servers that you are using with your app, you must enable the MFA OOB grant:
 
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, select the pencil icon next to the authorization server that you want to use.

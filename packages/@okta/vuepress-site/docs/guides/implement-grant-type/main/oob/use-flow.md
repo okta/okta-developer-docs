@@ -2,13 +2,13 @@ The following sections outline the requests required to implement the OOB flow u
 
 ### Request for out-of-band authentication
 
-Before you can begin this flow, collect the username from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/oob-authenticate` endpoint. Use this endpoint to initiate an authentication flow with an out-of-band (OOB) factor as the primary factor. If you're using the [default custom authorization server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
+Before you can begin this flow, collect the username from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/oob-authenticate` endpoint. Use this endpoint to initiate an authentication flow with an out-of-band (OOB) factor as the primary factor. Yur request should look something like this:
 
 > **Note:** The `/oob-authenticate` endpoint doesn't support multifactor authentication.
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/oob-authenticate \
+  --url https://${yourOktaDomain}/oauth2/v1/oob-authenticate \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'client_id=${client_id}&login_hint=${testuser%40example.com}&channel_hint=push'
@@ -20,7 +20,7 @@ Note the parameters that are passed:
 - `login_hint` is the username (email) of a user registered with Okta.
 - `channel_hint` is the out-of-band channel that the client wants to use. For example, Okta Verify or SMS. Okta currently only supports Okta Verify Push.<!-- need to update this when phase 2 is complete -->
 
-For more information on these parameters, see the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/oob-authenticate-custom-as).
+For more information on these parameters, see the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticate).
 
 **Response**
 
@@ -52,7 +52,7 @@ Your app polls the authorization server `/token` endpoint at the set `interval`.
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'client_id=${client_id}&scope=openid profile&grant_type=urn:okta:params:oauth:grant-type:oob&oob_code=&{oob code}'
@@ -65,7 +65,7 @@ Note the parameters that are passed:
 - `grant_type` is `urn:okta:params:oauth:grant-type:oob`, indicating that you are using the direct authentication OOB grant type. Use this grant type for OOB factors that you want to use as a primary factor.
 - `oob_code` is an identifier of a single out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, this code is used to identify the factor transaction.
 
-For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/CustomAS/#tag/CustomAS/operation/tokenCustomAS).
+For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
 **Response**
 

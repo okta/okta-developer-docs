@@ -20,7 +20,7 @@ In direct authentication flows, the client tells the server which authenticator 
 
 ## Update the Global Session Policy
 
-To use a one factor direct auth grant such as OTP, configure the Global Session Policy to not have a password requirement.<!-- After phase 1, this may change>
+To use a one factor direct auth grant such as OTP, configure the Global Session Policy to not have a password requirement.<!-- After phase 1, this may change -->
 
 1. Select **Global Session Policy** from the left navigation.
 1. Select the pencil icon of the Default Rule.
