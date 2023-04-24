@@ -323,7 +323,7 @@ The section below explains the request parameters and the properties inside the 
 | `appInstance` | String | (Required) The appInstance ID for this simulation |
 | `policyContext.user.id` | String | (Required) The userId for this simulation. Only userId or groupIds allowed, not both  |
 | `policyContext.groups.ids` | Array | (Required) The groupIds for this simulation. Only userId or groupIds allowed, not both |
-| `policyContext.ip` | String | (Optional) The network rule condition, zone or IP address. See [Network Condition](#network-condition-object) |
+| `policyContext.ip` | String | (Optional) The network rule condition, zone, or IP address. See [Network Condition](#network-condition-object) |
 | `policyContext.zones.ids` | String | (Optional) The zone ID under the network rule condition. See [Network Condition](#network-condition-object) |
 | `policyContext.risk` | String | (Optional) The risk rule condition: LOW, MEDIUM, HIGH. See [Risk Score Condition](#risk-score-condition-object)|
 | `policyContext.device.managed` | Boolean | (Optional) If the device is registered. See [Device Condition](#device-condition-object)|
