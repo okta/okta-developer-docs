@@ -144,9 +144,14 @@ Okta periodically updates the default schema template used for new orgs. New Use
 
 >**Note:** If you modified your default schema, those changes won't propagate into this new User Type.
 
-##### Request Parameters
+##### Request parameters
 
-The [User Type](#user-type-object) you want to create
+| Parameter    | Description                                                      | Param Type | DataType | Required |
+| ------------ | -----------------------------------------------------------------| ---------- | -------- | -------- |
+| displayName  | The display name for the type                                    | Body       | string   |  TRUE    |
+| name         | The name for the type. The name must start with A-Z or a-z and contain only A-Z, a-z, 0-9, or underscore (_). This value becomes read-only after creation and can't be updated.
+| Body       | string   |  TRUE    |
+| description  | A human-readable description of the type | Body       | string   |  TRUE    |
 
 ##### Response parameters
 
