@@ -314,7 +314,7 @@ The section below explains the request parameters and the properties inside the 
 ##### Request parameters
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
-| `expand` | String | (Optional) `expand=EVALUATED` to include list of evaluated but not matched policy and policy rules `expand=RULE` include detail about why a rule condition (not)matched|
+| `expand` | String | (Optional) Use `expand=EVALUATED` to include a list of evaluated but not matched policy and policy rules. Use `expand=RULE` to include details about why a rule condition was (not) matched. |
 
 ##### Request Body
 | Property | Type                     | Description                          |
