@@ -332,7 +332,7 @@ The section below explains the request parameters and the properties inside the 
 | `policyContext.device.assuranceId` | String | (Optional) The device assurance policy ID for the simulation|
 
 ##### Request example
-> **Note:** You can only evaluate `user` or `groups` not both, same for the `ip` and `zone.ids`. Use payload below for reference only
+> **Note:** You can only evaluate `user` or `groups` not both, and either `ip` or `zone.ids`, not both. Use the following payload for reference only.
 
 ```bash
 curl -v -X POST \
