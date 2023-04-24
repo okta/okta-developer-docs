@@ -371,7 +371,7 @@ curl -v -X POST \
 ```
 
 #### Response
-The response section below explains the error responses and the response body
+The following response section explains the error responses and the response body.
 
 ##### Response Body
 | Property | Type                     | Description                          |
