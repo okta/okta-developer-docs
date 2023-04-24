@@ -300,6 +300,7 @@ Array of [Application objects](/docs/reference/api/apps/#application-object)
 
 ## Policy Simulation operations
 <ApiLifecycle access="ie" />
+
 > **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 ### Access Simulation
