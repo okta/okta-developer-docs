@@ -373,24 +373,6 @@ curl -v -X POST \
 #### Response
 The response section below explains the error responses and the response body
 
-##### Error Responses
-HTTP 400:
-Please provide the policy context for the request. ErrorCode: E0000001.
-
-Please provide only group IDs or a user ID. ErrorCode: E0000001.
-
-Please provide only zone IDs or an IP address. ErrorCode: E0000001.
-
-This request contains an invalid policyType. ErrorCode: E0000001.
-
-Please provide a valid application instance for the request. ErrorCode: E0000001.
-
-Please provide valid group IDs for the request. `groupIds` is an invalid ID. ErrorCode: E0000001.
-
-Please provide a valid user for the request. ErrorCode: E0000001.
-
-Access to `appName` is not allowed. `user or group` is not assigned to this application. ErrorCode: E0000001.
-
 ##### Response Body
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
