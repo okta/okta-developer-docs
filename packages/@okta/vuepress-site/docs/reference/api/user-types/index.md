@@ -150,7 +150,7 @@ Okta periodically updates the default schema template used for new orgs. New Use
 | ------------ | -----------------------------------------------------------------| ---------- | -------- | -------- |
 | displayName  | The display name for the type                                    | Body       | string   |  TRUE    |
 | name         | The name for the type. The name must start with A-Z or a-z and contain only A-Z, a-z, 0-9, or underscore (_) characters. This value becomes read-only after creation and can't be updated.     | Body       | string   |  TRUE    |
-| description  | A human-readable description of the type | Body       | string   |  TRUE    |
+| description  | A human-readable description of the type | Body       | string   |  FALSE    |
 
 ##### Response parameters
 
