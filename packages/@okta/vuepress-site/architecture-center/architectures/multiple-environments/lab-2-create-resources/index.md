@@ -2,7 +2,7 @@
 title: Create resources for your environment
 ---
 
-# Manage multiple Okta environments tutorial 2: Create resources for your environment
+# Tutorial 2: Create resources for your environment
 
 In this tutorial, you use Terraform to create the resources required to make your org functional in the **preview** branch in Github. The tutorial takes you through creating the resources, applying the plan, and demonstrating the functions of the newly created org. You can apply this when adding new environments like a staging environment or provisioning a new tenant.
 

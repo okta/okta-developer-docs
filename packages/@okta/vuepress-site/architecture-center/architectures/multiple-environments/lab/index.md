@@ -1,8 +1,8 @@
 ---
-title: Manage multiple Okta environments Lab overview
+title: Lab overview and prerequisites
 ---
 
-# Manage multiple Okta environments: Lab overview
+# Lab overview and prerequisites
 
 Before incorporating Terraform into a company's continuous deployment architecture, there isn't a way to create, rebuild, or update an Okta environment consistently. Nor is it easy to determine if one environment has changed - for example, a group updated, a new autentication policy - and to synchronize the others with it. This is known as analysing drift between environments.
 
@@ -13,12 +13,12 @@ This lab is intended for admins with Okta experience who have multiple orgs. It 
 
 The tutorials in this lab are designed to run sequentially, with each tutorial starting with the results on the one before:
 
-1. In [Configure Terraform Cloud](/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud), you create a free Terraform Cloud account, connect it to your Github account and development Okta org. Then, you configure it to react to changes in your Github repo.
-1. In [Create resources for your environment](/architecture-center/reference-architectures/mmoe/lab-2-create-resources), you use Terraform to create the resources required to make your org functional.
-1. In [Change an object in that environment](/architecture-center/reference-architectures/mmoe/lab-3-rename-a-group), you use Terraform to update the name of an existing group in the new org.
-1. In [Move objects between environments](/architecture-center/reference-architectures/mmoe/lab-4-deploy-changes-to-production), you deploy your changes from the development environment to a separate production environment.
-1. In [Detect drift between environments and correct it](/architecture-center/reference-architectures/mmoe/lab-5-detect-drift), you update a resource in production outside of Terraform, and then run a Terraform plan to detect if an asset is changed.
-1. In [Schedule drift detection daily](/architecture-center/reference-architectures/mmoe/lab-6-synchronize-environments-daily), you create a workflow to automatically run a speculative plan daily in production to detect drift.
+1. In [Configure Terraform Cloud](/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud), you create a free Terraform Cloud account, connect it to your Github account and development Okta org. Then, you configure it to react to changes in your Github repo.
+1. In [Create resources for your environment](/architecture-center/architectures/multiple-environments/lab-2-create-resources), you use Terraform to create the resources required to make your org functional.
+1. In [Change an object in that environment](/architecture-center/architectures/multiple-environments/lab-3-rename-a-group), you use Terraform to update the name of an existing group in the new org.
+1. In [Move objects between environments](/architecture-center/architectures/multiple-environments/lab-4-deploy-changes-to-production), you deploy your changes from the development environment to a separate production environment.
+1. In [Detect drift between environments and correct it](/architecture-center/architectures/multiple-environments/lab-5-detect-drift), you update a resource in production outside of Terraform, and then run a Terraform plan to detect if an asset is changed.
+1. In [Synchronize environments daily](/architecture-center/architectures/multiple-environments/lab-6-synchronize-environments-daily), you create a workflow to automatically run a speculative plan daily in production to detect drift.
 
 ## Prerequisites
 
@@ -89,7 +89,7 @@ You need to create a copy of an example Terraform script in your GitHub reposito
    1. **Clear** the **Copy the prod branch only** checkbox.
    1. Click **Create fork**.
 
-This repository has two branches:`prod` and `preview`. The `preview` branch is pre-populated with information for use in tutorials 2 and 3. The `prod` branch is empty and is used in tutorials 4, 5, and 6.
+The repository you are forking has two branches: `preview` and `prod`. If not, you must create these branches. The `preview` branch is pre-populated and is used in tutorials 2-3. The `prod` branch is empty and used to promote code in tutorials 4-6.
 
 ## Terraform Cloud account
 

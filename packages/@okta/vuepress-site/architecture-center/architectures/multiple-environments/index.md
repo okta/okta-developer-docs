@@ -25,13 +25,13 @@ Upon completing the lab, you should understand how to automate Okta and keep env
 
 The tutorials in this lab are designed to run sequentially, with each tutorial starting with the results on the one before:
 
-* [Overview and prerequisites](/architecture-center/reference-architectures/mmoe/lab-overview)
-* Tutorial 1: [Configure Terraform Cloud](/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud)
-* Tutorial 2: [Create resources for your environment](/architecture-center/reference-architectures/mmoe/lab-2-create-resources)
-* Tutorial 3: [Change an object in that environment](/architecture-center/reference-architectures/mmoe/lab-3-rename-a-group)
-* Tutorial 4: [Move objects between environments](/architecture-center/reference-architectures/mmoe/lab-4-deploy-changes-to-production)
-* Tutorial 5: [Detect drift between environments and correct it](/architecture-center/reference-architectures/mmoe/lab-5-detect-drift)
-* Tutorial 6: [Schedule drift detection daily](/architecture-center/reference-architectures/mmoe/lab-6-synchronize-environments-daily)
+* [Overview and prerequisites](/architecture-center/architectures/multiple-environments/lab)
+* Tutorial 1: [Configure Terraform Cloud](/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud)
+* Tutorial 2: [Create resources for your environment](/architecture-center/architectures/multiple-environments/lab-2-create-resources)
+* Tutorial 3: [Change an object in that environment](/architecture-center/architectures/multiple-environments/lab-3-rename-a-group)
+* Tutorial 4: [Move objects between environments](/architecture-center/architectures/multiple-environments/lab-4-deploy-changes-to-production)
+* Tutorial 5: [Detect drift between environments and correct it](/architecture-center/architectures/multiple-environments/lab-5-detect-drift)
+* Tutorial 6: [Synchronize environments daily](/architecture-center/architectures/multiple-environments/lab-6-synchronize-environments-daily)
 
 ## What Okta technologies are used?
 

@@ -2,7 +2,7 @@
 title: Detect drift between environments and correct it
 ---
 
-# Manage multiple Okta environments tutorial 5: Detect drift between environments and correct it
+# Tutorial 5: Detect drift between environments and correct it
 
 Drift occurs when an Okta object changes in the destination (production) environment and is out of sync with its source (development) environment. This situation can occur during an outage when changes are made quickly to a production environment to restore service.
 

@@ -1,16 +1,16 @@
 ---
-title: Directory coexistence lab overview
+title: Lab overview and prerequisites
 ---
 
-# Directory coexistence: Lab overview
+# Lab overview and prerequisites
 
 In this lab, you learn how to migrate users from three different types of user directories into Universal Directory using a directory coexistence strategy. Then, you reconfigure a sample application to authenticate a user with Universal Directory rather than the original user directory.
 
-* Tutorial 1: [Migrate users from Azure Active Directory to Universal Directory](/architecture-center/reference-architectures/directory-coexistence/lab-1-azure-ad)
-* Tutorial 2: [Migrate users from an on-premises LDAP directory server to Universal Directory](/architecture-center/reference-architectures/directory-coexistence/lab-2-ldap-server)
-* Tutorial 3: [Migrate users from an on-premises generic database to Universal Directory](/architecture-center/reference-architectures/directory-coexistence/lab-3-generic-database)
+* [Migrate users from Azure Active Directory](/architecture-center/architectures/directory-coexistence/lab-azure-ad)
+* [Migrate users from an on-premises LDAP directory server](/architecture-center/architectures/directory-coexistence/lab-ldap-server)
+* [Migrate users from an on-premises generic database](/architecture-center/architectures/directory-coexistence/lab-generic-database)
 
-These tutorials are independent of each other. They can be completed in any order.
+> **Note:** These tutorials are independent of each other. They can be completed in any order.
 
 ## Prerequisites
 

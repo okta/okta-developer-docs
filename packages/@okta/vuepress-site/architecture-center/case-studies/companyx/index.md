@@ -25,7 +25,7 @@ Company X is a Forbes Global 2000 company with 200,000 team members worldwide. I
     <h2 class="main-card__title">
       <a
         class="main-card__main-link"
-        href="/architecture-center/reference-architectures/directory-coexistence/"
+        href="/architecture-center/architectures/directory-coexistence/"
       >
         Directory Coexistence
       </a>
@@ -42,7 +42,7 @@ Company X is a Forbes Global 2000 company with 200,000 team members worldwide. I
       </span>
     </div>
     <p class="main-card__text">
-      Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping your source IAM servers active during the process.<a class="main-card__link" href="/architecture-center/reference-architectures/directory-coexistence">Learn more</a>
+      Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping your source IAM servers active during the process.<a class="main-card__link" href="/architecture-center/architectures/directory-coexistence">Learn more</a>
     </p>
   </figcaption>
 </figure>
@@ -53,7 +53,7 @@ CompanyX had a number of legacy IAM systems and newer IdPs that weren't designed
 
 ### Pain points
 
-* Users had to remember several usernames and passwords to access company applications.
+* Users needed multiple usernames and passwords to access company applications.
 * User profiles weren't synchronized automatically across IAM systems. Administrators had to run scripts and update them manually.
 * Single Sign-On (SSO) wasn't available between apps.
 * Synchronizing users, groups, and roles across multiple IAM systems was difficult and error-prone.
@@ -75,7 +75,7 @@ Company X identified several key challenges in migrating their users to Universa
 
 ### Architecture Implementation
 
-Company X used the [Directory Coexistence architecture](/architecture-center/reference-architectures/directory-coexistence/) during its user migration process. This gave their IT team consistent access to both legacy IdPs and Universal Directory as they updated their applications to use Universal Directory as their primary IdP.
+Company X used the [Directory Coexistence architecture](/architecture-center/architectures/directory-coexistence/) during its user migration process. This gave their IT team consistent access to both legacy IdPs and Universal Directory as they updated their applications to use Universal Directory as their primary IdP.
 
 * The company installed an Okta AD Agent to mirror its users from their Azure AD user store to Okta Universal Directory. Universal Directory now acts as the single source of truth for those users. However, user passwords are still managed in Azure AD. The Agent mirrors any changes to a user back to Azure AD.
 * The company installed an Okta LDAP Agent for each on-premises LDAP directory to mirror them to Okta Universal Directory. Universal Directory now acts as the single source of truth for those users. However, user passwords are still managed in the on-premises LDAP user store. The Agent mirrors any changes to a user back to the on-premises LDAP store.
@@ -83,7 +83,7 @@ Company X used the [Directory Coexistence architecture](/architecture-center/ref
 * The company opted for a **hybrid strategy** for each migration to Universal Directory. It migrated active users with a just-in-time strategy - users were migrated to Universal Directory if it existed in the original IdP but not Universal Directory. It migrated inactive users in bulk.
 * The company updated each app to authenticate users with OpenID Connect (OIDC) rather than SAML or another solution. If an app existed already in the [Okta Integration Network](/docs/guides/okta-integration-network/), they used that. If not, they reconfigured the app manually. This meant they could take full advantage of Okta's features and enable Single Sign-On, multifactor authentication, passwordless access, and more.
 
-> **Note:** For details on how to implement the architecture, devise the strategy, and understand the key considerations, see [Directory Coexistence](/architecture-center/reference-architectures/directory-coexistence/) .
+> **Note:** For details on how to implement the architecture, devise the strategy, and understand the key considerations, see [Directory Coexistence](/architecture-center/architectures/directory-coexistence/) .
 >
 > For a more in-depth introduction to the protocols and different authorization flows you can implement in your applications, see [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/).
 

@@ -1,8 +1,8 @@
 ---
-title: Migrate users from an on-premises generic database to Universal Directory
+title: Migrate users from an on-premises generic database
 ---
 
-# Directory coexistence tutorial 3: Migrate users from an on-premises generic database to Universal Directory
+# Migrate users from an on-premises generic database
 
 Suppose you store your user profiles and groups in a generic on-premises database, but want to replace it with Universal Directory. In this case, you have two options:
 
@@ -63,7 +63,7 @@ Create the initial environment for the tutorial where an application authenticat
 
 1. Sign in with username **user1@example.com** and password **password**. The following dialog appears after successful authentication:
 
-   <div class="full border">
+   <div class="three-quarters border">
 
    ![Sign-in response with welcome home successful authentication response](/img/architecture/directory-coexistence/db-to-okta-successful-signin.png)
 
@@ -95,7 +95,7 @@ Stop the currently running containers and sign in to your Okta account.
    Overwrite configuration file? [Y/n]
    ```
 
-   a. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/reference-architectures/directory-coexistence/lab-prerequisites/#values-and-variables).
+   a. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/architectures/directory-coexistence/lab/#values-and-variables).
 
    b. Follow the instructions in [Create an API token](/docs/guides/create-an-api-token) to create a token. After you have the token, enter it at the Okta API token prompt.
 
@@ -135,8 +135,8 @@ There is one more user in the generic database whose password is hashed with a h
 
 Check that the three imported users appear in your Okta Universal Directory.
 
-1. In a browser window, sign in to `https://${DOMAIN_NAME}-admin.okta.com`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/reference-architectures/directory-coexistence/lab-prerequisites/#values-and-variables).
-1. Choose **Directory > People**. The page lists three users in addition to those created in [Migrate users from an on-premises LDAP directory to Universal Directory](/architecture-center/reference-architectures/directory-coexistence/lab-2-ldap-server): **Admin Istrator**, **User One**, and **User2 Two**.
+1. In a browser window, sign in to `https://${DOMAIN_NAME}-admin.okta.com`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/architectures/directory-coexistence/lab/#values-and-variables).
+1. Choose **Directory > People**. The page lists three users in addition to those created in [Migrate users from an on-premises LDAP directory](/architecture-center/architectures/directory-coexistence/lab-ldap-server): **Admin Istrator**, **User One**, and **User2 Two**.
 
    > **Note:** If you don't see the three users, refresh the page.
 
@@ -174,7 +174,7 @@ Now that the users are mirrored in Universal Directory, you can reconfigure the 
    CLIENT_SECRET=fF4BMQ0OhGp3D63s71BBTZoztIWqICdrCXBdkCtn
    ```
 
-   The sample web application in the Docker container uses the client ID and client secret to communicate with the Okta OIDC application to use Okta as the Identity Provider. See [Values and variables](/architecture-center/reference-architectures/directory-coexistence/lab-prerequisites/#values-and-variables).
+   The sample web application in the Docker container uses the client ID and client secret to communicate with the Okta OIDC application to use Okta as the Identity Provider. See [Values and variables](/architecture-center/architectures/directory-coexistence/lab/#values-and-variables).
 
 1. Rebuild the application:
 
@@ -192,7 +192,7 @@ Now that the users are mirrored in Universal Directory, you can reconfigure the 
 
    When the user is authenticated by Okta, the following appears:
 
-   <div class="half border">
+   <div class="three-quarters border">
 
    ![Successful sign-in response](/img/architecture/directory-coexistence/db-to-okta-successful-signin.png)
 

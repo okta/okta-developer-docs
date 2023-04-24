@@ -1,8 +1,8 @@
 ---
-title: Migrate users from Azure Active Directory to Universal Directory
+title: Migrate users from Azure Active Directory
 ---
 
-# Directory coexistence tutorial 1: Migrate users from Azure Active Directory to Universal Directory
+# Migrate users from Azure Active Directory
 
 Suppose you already handle authentication through cloud-based Identity Provider (IdP) such as Azure Active Directory (AD) but want to replace it with Okta. You can install an on-premises Okta AD Agent to mirror those users to Universal Directory and then redirect your applications to Okta for authentication. In this scenario, Universal Directory serves as a single source of truth for user data and lets administrators centrally manage policies and profiles. You can assign them to any application registered with your Okta Organization.
 
@@ -30,7 +30,7 @@ At the end of the tutorial, when a user attempts to sign in to the application, 
 
 To migrate user profiles from Active Directory to Okta, first delegate authentication to Active Directory by configuring it as an IdP in Okta. This process involves creating the Okta enterprise application in Active Directory and adding it as an Identity Provider in Okta. For full instructions, [Make Azure Active Directory an Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=ext-azure-idp-setup).
 
-> **Note:** Set up Just-In-Time (JIT) provisioning at this point if you want to use a [JIT migration strategy](/architecture-center/reference-architectures/directory-coexistence/overview/#just-in-time-migration). Remember that this allows Active Directory and Universal Directory profiles to co-exist. It also provides a seamless experience because users don't have to create a new username or password in Universal Directory.
+> **Note:** Set up Just-In-Time (JIT) provisioning at this point if you want to use a [JIT migration strategy](/architecture-center/architectures/directory-coexistence/overview/#just-in-time-migration). Remember that this allows Active Directory and Universal Directory profiles to co-exist. It also provides a seamless experience because users don't have to create a new username or password in Universal Directory.
 
 After users are in Okta, you can provide access to applications that you have registered with Okta. You can also set [policies](https://developer.okta.com/docs/concepts/policies/#what-are-policies) for the users in Okta, such as requiring a user to sign in again after a given time. Additionally, you can implement [multifactor authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators) for your Okta users.
 
@@ -67,7 +67,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
    Overwrite configuration file? [Y/n]
    ```
 
-   a. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/reference-architectures/directory-coexistence/lab-prerequisites/#values-and-variables).
+   a. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/architectures/directory-coexistence/lab/#values-and-variables).
 
    b. Follow the instructions in [Create an API token](/docs/guides/create-an-api-token) to create a token. After you have the token, enter it at the Okta API token prompt.
 
@@ -147,7 +147,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
 
 1. Sign in with your Okta org account credentials. You should see the following:
 
-   <div class="half border">
+   <div class="three-quarters border">
 
    ![Sign-in response with welcome home successful authentication response](/img/architecture/directory-coexistence/ad-to-okta-signin-response.png)
 

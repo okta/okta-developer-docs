@@ -1,8 +1,8 @@
 ---
-title: Schedule drift detection daily
+title: Synchronize environments daily
 ---
 
-# Manage multiple Okta environments tutorial 6: Schedule drift detection daily
+# Tutorial 6: Synchronize environments daily
 
 In the previous tutorial, you learned how to detect changes in the production environment and synchronize those changes back to your development environment. Now add a workflow to trigger a daily plan run through Terraform. Specifically, create a workflow to run a speculative plan to detect changes in the production environment daily at 0900 EST.
 
@@ -89,7 +89,7 @@ Update the workflow before you run it.
       5. Click **Create**.
 
 4. In the **Send Message to Channel** card, configure the output channel used for notifications when drift is detected.
-   1. Click **Choose Connection**, select the channel you set up in [a Slack channel](/architecture-center/reference-architectures/mmoe/lab-prerequisites/#a-slack-channel), and select your desired input and output fields.
+   1. Click **Choose Connection**, select the channel you set up in [a Slack channel](/architecture-center/architectures/multiple-environments/lab/#a-slack-channel), and select your desired input and output fields.
    2. Click **Options** to choose your channel options (for example, select your channel ID for **Channel** and **Yes** for **send as bot**), and click **Save**.
    3. Pick a name for your Slack bot, for example, _Terraform-drift-bot_. This is used as the originator of the drift notification.
    4. Click **Save**.

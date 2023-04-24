@@ -2,7 +2,7 @@
 title: Deploy changes to production
 ---
 
-# Manage multiple Okta environments tutorial 4: Deploy changes to production
+# Tutorial 4: Deploy changes to production
 
 In tutorials 2 and 3, you made changes in a preview environment that isn't available to most users. This makes it easy for developers, testers, and early adopters to test their changes without impacting production.
 
@@ -37,7 +37,7 @@ Merge the changes in the `preview` branch into the `prod` branch in GitHub.
 
 ### Create a production workspace in Terraform
 
-In this exercise, you create a new workspace in Terraform Cloud to represent the production environment. Target the same repository as in [Connect Terraform to GitHub](/architecture-center/reference-architectures/mmoe/lab-1-configure-terraform-cloud/#connect-terraform-to-github), but select the `prod` branch. Also, set **Apply Method** in Terraform Cloud to **Manual apply** so you have to manually review and apply changes if the planning stage is successful.
+In this exercise, you create a new workspace in Terraform Cloud to represent the production environment. Target the same repository as in [Connect Terraform to GitHub](/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud/#connect-terraform-to-github), but select the `prod` branch. Also, set **Apply Method** in Terraform Cloud to **Manual apply** so you have to manually review and apply changes if the planning stage is successful.
 
 1. In your browser, go to [app.terraform.io](app.terraform.io).
 1. Click your profile picture in the sidebar. If the dropdown menu says you are signed in with any account other than your current Terraform user ID:
@@ -46,7 +46,7 @@ In this exercise, you create a new workspace in Terraform Cloud to represent the
 1. Navigate to the **Workspaces** page and click **+ New workspace**.
 1. On the **Create a new Workspace** page, select **Version control workflow** to declare that your configuration is saved in a version control system.
 1. On the **Connect to VCS** tab, select **GitHub** > **GitHub.com**. These exercises use GitHub, but you can select a different VCS. This selection grants permission for Terraform Cloud to access your project.
-1. On the **Choose a repository** tab, select the repo that you created in [A working Terraform repository](/architecture-center/reference-architectures/mmoe/lab-prerequisites/#a-working-terraform-repository).
+1. On the **Choose a repository** tab, select the repo that you created in [A working Terraform repository](/architecture-center/architectures/multiple-environments/lab/#a-working-terraform-repository).
 
    > **Tip:** Be sure that the path is to your copy of the repo and not to the original one.
 
@@ -63,7 +63,7 @@ In this exercise, you create a new workspace in Terraform Cloud to represent the
    10. Click **Create workspace** to create the new workspace.
 
 1. On the **Workspace created** page:
-   1. Set **org_name** to your [${OKTA_DOMAIN_NAME}](/architecture-center/reference-architectures/mmoe/lab-prerequisites/#values-and-variables) for the production org.
+   1. Set **org_name** to your [${OKTA_DOMAIN_NAME}](/architecture-center/architectures/multiple-environments/lab/#values-and-variables) for the production org.
    2. Set **api_token** to the token you created earlier in [Create an API token](#create-an-okta-api-token).
    3. Set **base_url** to your org's base URL. For example, _okta.com_.
 1. Click **Save variables**.
