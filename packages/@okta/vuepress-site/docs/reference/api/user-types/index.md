@@ -149,7 +149,7 @@ Okta periodically updates the default schema template used for new orgs. New Use
 | Parameter    | Description                                                      | Param Type | DataType | Required |
 | ------------ | -----------------------------------------------------------------| ---------- | -------- | -------- |
 | displayName  | The display name for the type                                    | Body       | string   |  TRUE    |
-| name         | The name for the type. The name must start with A-Z or a-z and contain only A-Z, a-z, 0-9, or underscore (_). This value becomes read-only after creation and can't be updated.
+| name         | The name for the type. The name must start with A-Z or a-z and contain only A-Z, a-z, 0-9, or underscore (_) characters. This value becomes read-only after creation and can't be updated.
 | Body       | string   |  TRUE    |
 | description  | A human-readable description of the type | Body       | string   |  TRUE    |
 
@@ -195,7 +195,7 @@ curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 }
 ```
 
-### Replace a User Type
+### Replace User Type
 
 <ApiOperation method="PUT" url="/api/v1/meta/types/user/${typeId}" />
 
@@ -258,7 +258,7 @@ curl -s -X PUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 
 <ApiOperation method="POST" url="/api/v1/meta/types/user/${typeId}" />
 
-Updates an existing User Type. A POST is a partial update. Only the `displayName` and `description` elements can be changed; the `name` of an existing User Type can't be changed.
+Updates an existing User Type. A POST is a partial update. Only the `displayName` and `description` elements can be changed. The `name` of an existing User Type can't be changed.
 
 The schema associated with this type isn't editable with this API. If you want to edit the schema, use the [schema update API](/docs/reference/api/schemas/#add-property-to-user-profile-schema).
 
