@@ -298,7 +298,7 @@ curl -v -X GET \
 HTTP 200:
 Array of [Application objects](/docs/reference/api/apps/#application-object)
 
-## Policy Simulation operations
+## Policy simulation operations
 <ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
