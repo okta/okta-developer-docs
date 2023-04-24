@@ -304,7 +304,7 @@ Array of [Application objects](/docs/reference/api/apps/#application-object)
 > **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 ### Access simulation
-Access simulation API is an admin API that evaluates policy and policy rules based on the existing policy rule configuration. The evaluation result simulates what the real world authentication flow is and what policy rules have been applied or matched to the authentication flow.
+The access simulation API is an admin API that evaluates policy and policy rules based on the existing policy rule configuration. The evaluation result simulates what the real world authentication flow is and what policy rules have been applied or matched to the authentication flow.
 
 <ApiOperation method="post" url="/api/v1/policies/simulate" />
 
