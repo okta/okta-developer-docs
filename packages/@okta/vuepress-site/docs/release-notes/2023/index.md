@@ -4,6 +4,20 @@ title: Okta API Products release notes 2023
 
 ## April
 
+### Weekly release 2023.04.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.04.2](#bugs-fixed-in-2023-04-2) | April 26, 2023 |
+
+#### Bugs fixed in 2023.04.2
+
+- When the sign-in page was edited using the code editor, the event type `system.custom_error.update` was logged. (OKTA-591800)
+
+- A "Next" link wasn't returned when a List Identity Providers request was made and a limit of 200 was set. (OKTA-597359)
+
+- When the API Service Integration feature is disabled, a query for active app integrations incorrectly returned a list with revoked API service integrations. (OKTA-596437)
+
 ### Weekly release 2023.04.1
 
 | Change | Expected in Preview Orgs |
