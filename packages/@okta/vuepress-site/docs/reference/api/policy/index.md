@@ -328,7 +328,7 @@ The section below explains the request parameters and the properties inside the 
 | `policyContext.risk` | String | (Optional) The risk rule condition: LOW, MEDIUM, HIGH. See [Risk Score Condition](#risk-score-condition-object)|
 | `policyContext.device.managed` | Boolean | (Optional) If the device is registered. See [Device Condition](#device-condition-object)|
 | `policyContext.device.registered` | Boolean | (Optional) If the device is managed. See [Device Condition](#device-condition-object)|
-| `policyContext.device.platform` |String | (Optional) The platform of the device, eg: IOS. See [Platform Condition](#platform-condition-object)|
+| `policyContext.device.platform` |String | (Optional) The platform of the device, for example: IOS. See [Platform Condition](#platform-condition-object)|
 | `policyContext.device.assuranceId` | String | (Optional) The device assurance policy ID for the simulation|
 
 ##### Request example
