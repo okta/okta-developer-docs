@@ -86,7 +86,7 @@ For Identity Engine, the widget is configured differently. You can remove some s
 
 ### Interaction Code flow
 
-Identity Engine uses the [Interaction Code grant type](/docs/concepts/interaction-code) to manage user interactions, such as registration or multifactor authentication. For embedded Sign-In Widget (self-hosted) deployments, the Interaction Code flow is the only supported authentication flow with Identity Engine.
+Identity Engine uses the [Interaction Code grant type](/docs/concepts/interaction-code/) to manage user interactions, such as registration or multifactor authentication. For embedded Sign-In Widget (self-hosted) deployments, the Interaction Code flow is the only supported authentication flow with Identity Engine.
 
 In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the `config` object:
 
