@@ -338,6 +338,7 @@ Adds a new permission to an existing Role
 | :----------------| :------------------------------------| :----------- | :------------------------------------| :------- |
 | `roleIdOrLabel`  | `id` or `label` of the Role          | URL          | String                               | TRUE     |
 | `permissionType` | Permission to add to the Role        | URL          | [Permission](#permission-types) name | TRUE     |
+| `conditions` <ApiLifecycle access="ea" />      | Conditions for further restricting a permission     | Body         | [Condition](#condition-object) object | FALSE    |
 
 #### Response parameters
 
@@ -452,8 +453,8 @@ Gets a permission from an existing Role
 
 #### Response parameters
 
-The requested permission object
-<ApiLifecycle access="ea" /> Will also include the conditions on the permission (if applicable)
+The requested permission object<br>
+<ApiLifecycle access="ea" />Will also include the conditions on the permission (if applicable)
 
 #### Request example
 
