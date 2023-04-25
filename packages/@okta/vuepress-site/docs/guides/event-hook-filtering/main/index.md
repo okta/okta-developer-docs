@@ -25,7 +25,7 @@ This guide provides a working example of an Okta event hook filter in use with a
 
 **Sample code**
 
-* [Okta Event Hook: Display Deactivated Users](https://glitch.com/~okta-event-hook)
+* [Okta Event Hook with Filtering](https://glitch.com/~okta-event-hook)
 
 ---
 
@@ -35,13 +35,13 @@ Event hook filters reduce the amount of event hook calls to your external servic
 
 ## Set up the sample external service
 
-This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the event hook with an Okta org. See the following Glitch project to remix (copy) a working code example that implements an event hook when a user is deactivated: [Okta Event Hook: Display Deactivated Users](https://glitch.com/~okta-event-hook/).
+This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the event hook with an Okta org. See the following Glitch project to remix (copy) a working code example that implements an event hook when a user is added to a group: [Okta Event Hook with Filtering](https://glitch.com/~okta-event-hook/).
 
-Review the [Event hook implementation](/docs/guides/event-hook-implementation) to understand how to receive and parse the event hook call in your external service code. After copying the project, go to the following section to create and event hook with a filter
+Review the [Event hook implementation](/docs/guides/event-hook-implementation) to understand how to receive and parse the event hook call in your external service code. After copying the project, go to the following section to create an event hook with a filter
 
 ## Create an event hook with a filter
 
-The Glitch event hook example uses the Okta event for a user deactivation. This event hook triggers for every instance of a user deactivation. With event hook filters, we can create business logic, using the Okta Expression Language, to isolate only certain deactivations that trigger the event hook. In this example, deactivated users with an email of `test_user@example.com` trigger the event hook.
+The Glitch event hook example uses the Okta event triggered when a user is added to a group. This event hook triggers for every instance of a group addition. With event hook filters, we can create business logic, using the Okta Expression Language, to isolate only certain group additions that trigger the event hook. In this example, only users added to the Sales group trigger the event hook.
 
 1. Sign in to your [Okta org](https://login.okta.com/).
 
@@ -49,9 +49,9 @@ The Glitch event hook example uses the Okta event for a user deactivation. This 
 
 1. Click **Create Event Hook**.
 
-1. In the **Endpoint URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/userDeactivated`.
+1. In the **Endpoint URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/userAdded`.
 
-1. In the **Event Hook Name**, add a unique name for the hook (in this example, "Deactivated User Event Hook with Filter).
+1. In the **Event Hook Name**, add a unique name for the hook (in this example, "User Added to Sales Group Event Hook).
 
 1. In the **Customize request** section, include authentication field and secret. In this example, use [Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication):
 
@@ -59,7 +59,7 @@ The Glitch event hook example uses the Okta event for a user deactivation. This 
 
     * **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
-1. In the **Select Events** section, subscribe to the event type you want to monitor. In this example, a user deactivated in the Okta org. Click in the field to search for `User deactivated`.
+1. In the **Select Events** section, subscribe to the event type you want to monitor. In this example, a user added to a group. Click in the field to search for `User added to group`.
 
 1. Click **Create hook & Continued**.
 
@@ -67,15 +67,23 @@ The Glitch event hook example uses the Okta event for a user deactivation. This 
 
 1. Create the example filter by selecting the following values in the Simple UI:
 
-    * **Field** = `target.alternateId`
+    * **Field** = `target.type`
 
     * **Operator** = `eq`
 
-    * **Value** = `test_user@example.com`
+    * **Value** = `UserGroup`
 
-1. Click the **User Okta Expression Language (advanced)** link to review the Okta Expression Language statement: `event.target.?[alternateId eq 'test_user@example.com'].size()>0`.
+    And click **Add Another**:
 
-    This statement triggers an event hook request to your external service when a user is deactivated with a `test_user@example.com` (the statement is TRUE). All other deactivated users do not trigger an event hook.
+    * **Field** = `target.displayName`
+
+    * **Operator** = `eq`
+
+    * **Value** = `Sales`
+
+1. Click the **User Okta Expression Language (advanced)** link to review the Okta Expression Language statement: `event.eventType eq 'UserGroup' && event.target.?[displayName eq 'Sales'].size()>0`.
+
+    This statement triggers an event hook request to your external service when a user is added to the Sales group (the statement is TRUE). Other additions to different groups do not trigger an event hook.
 
 1. Click **Save & Continue**.
 
@@ -85,9 +93,19 @@ The Glitch event hook example uses the Okta event for a user deactivation. This 
 
 1. Ensure your Glitch application is listening for your requests, and then click **Verify** to complete the one-time verification step. For more information on this process, see [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
 
-## Create test users
+## Create test data
 
-In your Okta org, sign in as an administrator and create a couple of test users in the Admin Console.
+In your Okta org, sign in as an administrator and create two groups in the Admin Console.
+
+1. Go to **Directory** > **Groups**, and click **Add Group**.
+
+1. Fill in the **Name** field in the **Add Group** dialog. In this example, use **Sales**.
+
+1. Click **Save**.
+
+1. Repeat the process to add a group named **Support**.
+
+If necessary, create a test user:
 
 1. Go to **Directory** > **People**, and click **Add Person**.
 
@@ -98,16 +116,6 @@ In your Okta org, sign in as an administrator and create a couple of test users 
     * Last name: `User`
 
     * Username: `test_user@example.com`
-
-1. Click **Save and Add Another**.
-
-1. Fill in the following fields for the second test user:
-
-    * First name  `Non-Test`
-
-    * Last name: `User`
-
-    * Username: `non_test_user@example.com`
 
 1. Click **Save**.
 
