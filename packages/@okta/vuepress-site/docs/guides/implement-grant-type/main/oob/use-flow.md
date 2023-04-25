@@ -2,7 +2,7 @@ The following sections outline the requests required to implement the OOB flow u
 
 ### Request for out-of-band authentication
 
-Before you can begin this flow, collect the username from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/oob-authenticate` endpoint. Use this endpoint to initiate an authentication flow with an out-of-band (OOB) factor as the primary factor. Yur request should look something like this:
+Before you can begin this flow, collect the username from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/oob-authenticate` endpoint. Use this endpoint to initiate an authentication flow with an out-of-band (OOB) factor as the primary factor. Your request should look something like this:
 
 > **Note:** The `/oob-authenticate` endpoint doesn't support multifactor authentication.
 
@@ -16,7 +16,7 @@ curl --request POST \
 
 Note the parameters that are passed:
 
-- `client_id` matches the client ID of the native application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
+- `client_id` matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `login_hint` is the username (email) of a user registered with Okta.
 - `channel_hint` is the out-of-band channel that the client wants to use. For example, Okta Verify or SMS. Okta currently only supports Okta Verify Push.<!-- need to update this when phase 2 is complete -->
 

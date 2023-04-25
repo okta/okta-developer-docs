@@ -14,9 +14,9 @@ curl --request POST \
 
 Note the parameters that are passed:
 
-- `client_id` matches the client ID of the native application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
+- `client_id` matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `scope` must be at least `openid`. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
-- `grant_type` is `urn:okta:params:oauth:grant-type:otp`, indicating that you are using the direct authentication OTP grant type. Use this grant type for OTP factors (such as Google Authenticator) that you want to use as a primary factor.
+- `grant_type` is `urn:okta:params:oauth:grant-type:otp`, indicating that you're using the direct authentication OTP grant type. Use this grant type for OTP factors (such as Google Authenticator) that you want to use as a primary factor.
 - `otp` is the one-time passcode that your app obtained from the user.
 - `login_hint` is the username (email) of a user registered with Okta.
 

@@ -27,13 +27,13 @@ okta -> client: Responds with access token (optionally refresh token)
 
 -->
 
-At a high-level, this flow has the following steps:
+At a high level, this flow has the following steps:
 
 1. Your client app prompts the user for their username in the app UI.
 1. The user enters their username.
 1. Your app sends the username as a `login_hint` and `push` as the `channel_hint` to the Okta authorization server `/oob-authenticate` endpoint.
-    You need to register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See [Request for tokens](#request-for-tokens).
-1. Okta returns an acknowledgement, the `oob_code`, and the `interval` in seconds to poll (default is `5`).
+    Register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See [Request for tokens](#request-for-tokens).
+1. Okta returns an acknowledgment, the `oob_code`, and the `interval` in seconds to poll (default is `5`).
 1. Okta sends a push notification to the user.
 1. Your app polls the Okta `/token` endpoint at the set `interval`. The `oob_code` and the OOB `grant_type` (`urn:okta:params:oauth:grant-type:oob`) are included in the requests.
 1. Okta responds with an HTTP 400 `authorization_pending` error.
