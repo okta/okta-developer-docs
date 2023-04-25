@@ -34,7 +34,7 @@ You can specify any number of Okta sign-on policies and the order in which they 
 
 In addition to the Default policy, which you can't delete, there may be another organization-wide policy named **Legacy** that is present only if you have already configured MFA. This policy reflects the MFA settings that were in place when you enabled your Sign-On Policy and ensures that no changes in MFA behavior occur unless you modify your policy. If required, you can delete it.
 
-> **Note:** See [Policies](/docs/concepts/policies) for an overview of the supported Okta policies and how they work.
+> **Note:** See [Policies](/docs/concepts/policies/) for an overview of the supported Okta policies and how they work.
 
 ## Configure sign-on policies for common scenarios
 

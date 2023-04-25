@@ -170,7 +170,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 
 * Never use an access token granted from the org authorization server for authorization within your applications. These tokens are intended for use with Okta, and your app can't validate them. Instead, use tokens granted from a custom authorization server.
 
-> **Note:** See [Authorization servers](/docs/concepts/auth-servers).
+> **Note:** See [Authorization servers](/docs/concepts/auth-servers/).
 
 #### Resource (API) servers
 

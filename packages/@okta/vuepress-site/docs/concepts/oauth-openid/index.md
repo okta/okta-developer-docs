@@ -57,7 +57,7 @@ At the core of both OAuth 2.0 and its OpenID Connect extension is the authorizat
 
 The authorization server also acts as an OpenID Connect Provider, which means you can request [ID tokens](/docs/reference/api/oidc/#id-token) in addition to [access tokens](/docs/reference/api/oidc/#access-token) from the authorization server endpoints.
 
-> **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization servers](/docs/concepts/auth-servers).
+> **Note:** For information on authorization servers, how they work, and how you can use them, see [Authorization servers](/docs/concepts/auth-servers/).
 
 ### OpenID Connect
 

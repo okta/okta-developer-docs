@@ -39,7 +39,7 @@ The event hook use case is a simple local application response to the addition o
     <h1>Congratulations, your simple test application is working.</h1>
     <p>See the following links for more information:
     <ul>
-        <li><a href="https://developer.okta.com/docs/concepts/event-hooks">
+        <li><a href="https://developer.okta.com/docs/concepts/event-hooks/">
         Event hook concepts</a></li>
         <li><a href="https://developer.okta.com/docs/guides/event-hook-implementation/">
         Event hook guides</a></li>

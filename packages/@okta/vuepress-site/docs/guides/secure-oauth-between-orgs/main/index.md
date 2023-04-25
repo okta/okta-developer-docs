@@ -243,7 +243,7 @@ After you've assigned your users or groups in the spoke org, validate that the s
 
 ## Key rotation
 
-An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/docs/concepts/key-rotation) to adhere to cryptographic best practices. You can rotate keys for a specific OAuth 2.0 connection by following these API steps:
+An advantage to using the OAuth 2.0 connection is that you can [rotate keys](/docs/concepts/key-rotation/) to adhere to cryptographic best practices. You can rotate keys for a specific OAuth 2.0 connection by following these API steps:
 
 1. [Generate a new key for the Org2Org app](#generate-a-new-key-for-the-org2org-app)
 2. [Register the new key with the corresponding service app](#register-the-new-org2org-app-key-with-the-corresponding-service-app)

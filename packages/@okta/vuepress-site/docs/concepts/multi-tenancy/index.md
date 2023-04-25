@@ -219,7 +219,7 @@ okta-dac consists of the following components:
 * [Okta org](#okta-org)
 * [Tenants API](#tenants-api)
 * [Delegated Admin Console (DAC)](#delegated-admin-console)
-* [Okta End-User dashboard](#end-user-dashboard)
+* [Okta End-User dashboard](#okta-end-user-dashboard)
 * [Admin Console](#admin-console)
 
 #### Okta org

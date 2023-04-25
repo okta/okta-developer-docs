@@ -16,7 +16,7 @@ Understand the basics of Okta APIs and architecture.
 </Cards>
 <br>
 <Cards>
-  <Card href="/docs/concepts/iam-overview" cardTitle="IAM Overview">Learn the important concepts of Identity and Access Management (IAM) for customers and workforce.</Card>
+  <Card href="/docs/concepts/iam-overview/" cardTitle="IAM Overview">Learn the important concepts of Identity and Access Management (IAM) for customers and workforce.</Card>
 </Cards>
 <br>
 <Cards>

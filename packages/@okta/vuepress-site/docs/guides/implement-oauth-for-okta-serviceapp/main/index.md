@@ -231,7 +231,7 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
 
 ## Get an access token
 
-To request an access token using the Client Credentials grant flow, your app makes a request to your Okta [org authorization server's](/docs/concepts/auth-servers) `/token` endpoint.
+To request an access token using the Client Credentials grant flow, your app makes a request to your Okta [org authorization server's](/docs/concepts/auth-servers/) `/token` endpoint.
 
 Include the following parameters:
 
