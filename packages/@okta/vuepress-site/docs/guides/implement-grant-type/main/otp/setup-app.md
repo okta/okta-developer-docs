@@ -24,6 +24,6 @@ To use a one factor direct auth grant such as OTP, configure the Global Session 
 
 1. Select **Global Session Policy** from the left navigation.
 1. Select the pencil icon of the Default Rule.
-1. in the Edit Rule dialog, select **Any factor used to meet the Authentication Policy requirements** for **Establish the user session with**.
+1. In the Edit Rule dialog, select **Any factor used to meet the Authentication Policy requirements** for **Establish the user session with**.
 1. For **Multifactor authentication (MFA) is**, leave the default of **Not required**.
 1. Click **Update rule**.
