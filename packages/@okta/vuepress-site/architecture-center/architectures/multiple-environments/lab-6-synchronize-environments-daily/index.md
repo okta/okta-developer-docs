@@ -48,7 +48,7 @@ To find your Terraform workspace ID:
 
    <div class="full border">
 
-   ![Okta workflows new folder name dialog box](/img/architecture/mmoe/lab-6-new-workflow-folder.jpg)
+   ![Okta workflows new folder name dialog box](/img/architecture/multiple-environments/lab-6-new-workflow-folder.png)
 
    </div>
 
@@ -61,7 +61,7 @@ To find your Terraform workspace ID:
 
 <div class="full border">
 
-![Okta configuration drift folder config page showing scheduled flow imported](/img/architecture/mmoe/lab-6-scheduled-flow.jpg)
+![Okta configuration drift folder config page showing scheduled flow imported](/img/architecture/multiple-environments/lab-6-scheduled-flow.png)
 
 </div>
 
@@ -74,7 +74,7 @@ Update the workflow before you run it.
 
    <div class="full border">
 
-   ![Okta workflows compose post body card with id highlighted](/img/architecture/mmoe/lab-6-compose-post-body.jpg)
+   ![Okta workflows compose post body card with id highlighted](/img/architecture/multiple-environments/lab-6-compose-post-body.png)
 
    </div>
 
@@ -96,7 +96,7 @@ Update the workflow before you run it.
 
       <div class="half border">
 
-      ![Okta workflow with send message to channel card highlighted](/img/architecture/mmoe/lab-6-slack-channel.jpg)
+      ![Okta workflow with send message to channel card highlighted](/img/architecture/multiple-environments/lab-6-slack-channel.png)
 
       </div>
 

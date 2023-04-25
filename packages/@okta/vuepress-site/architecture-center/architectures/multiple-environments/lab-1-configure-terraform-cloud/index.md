@@ -132,7 +132,7 @@ The second plan is queued because the first run is still active. To see if this 
 
 <div class="full border">
 
-![A pending Terraform run detail view](/img/architecture/mmoe/lab-1-clashing-runs.jpg)
+![A pending Terraform run detail view](/img/architecture/multiple-environments/lab-1-clashing-runs.png)
 
 </div>
 

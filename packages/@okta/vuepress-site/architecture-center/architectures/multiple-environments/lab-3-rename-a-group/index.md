@@ -10,7 +10,7 @@ In this tutorial, you use Terraform to update the name of an existing group in G
 
    <div class="full border">
 
-   ![Latest run panel, showing the results of the most recent update](/img/architecture/mmoe/lab-3-latest-run.png)
+   ![Latest run panel, showing the results of the most recent update](/img/architecture/multiple-environments/lab-3-latest-run.png)
 
    </div>
 
@@ -22,7 +22,7 @@ In this tutorial, you use Terraform to update the name of an existing group in G
 
    <div class="full border">
 
-   ![groups.tf code, showing renamed test group](/img/architecture/mmoe/lab-3-test-group-renamed.jpg)
+   ![groups.tf code, showing renamed test group](/img/architecture/multiple-environments/lab-3-test-group-renamed.png)
 
    </div>
 
@@ -32,7 +32,7 @@ In this tutorial, you use Terraform to update the name of an existing group in G
 
    <div class="full border">
 
-   ![Commit changes dialog showing Update groups.tf change summary](/img/architecture/mmoe/lab-3-group-rename-applied.png)
+   ![Commit changes dialog showing Update groups.tf change summary](/img/architecture/multiple-environments/lab-3-group-rename-applied.png)
 
    </div>
 
