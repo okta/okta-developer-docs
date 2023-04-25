@@ -1817,10 +1817,10 @@ Describes the initial and secondary (step-up) authenticator requirements a user 
 
 Defines the authenticators permitted for the initial authentication step of password recovery
 
-| Property | Description | Data Type | Supported Values | Required | Default |
-| -------- | ----------- | --------- | ---------------- | -------- | ------- |
-| methodConstraints | Specifies an authenticator-specific constraint on the values in the `methods` array. Currently, Google OTP is the only accepted constraint for the `OTP` method. | Array of [Self Service Password Reset Action Primary Requirement Constraint object](#self-service-password-reset-action-primary-requirement-constraint-object) | `[ {"method": "otp", "allowedAuthenticators": [ { "key": "google_otp" } ] } ]` | No | |
-| methods | Authenticator methods allowed for the initial authentication step of password recovery. The `OTP` method requires a constraint limiting it to the Google authenticator. | Array | `PUSH`, `SMS`, `VOICE`, `EMAIL`, and `OTP` | No | |
+| Property | Description | Data Type | Supported Values | Required |
+| -------- | ----------- | --------- | ---------------- | -------- |
+| methodConstraints | Specifies an authenticator-specific constraint on the values in the `methods` array. Currently, Google OTP is the only accepted constraint for the `OTP` method. | Array of [Self Service Password Reset Action Primary Requirement Constraint object](#self-service-password-reset-action-primary-requirement-constraint-object) | `[ {"method": "otp", "allowedAuthenticators": [ { "key": "google_otp" } ] } ]` | No |
+| methods | Authenticator methods allowed for the initial authentication step of password recovery. The `OTP` method requires a constraint limiting it to the Google authenticator. | Array | `PUSH`, `SMS`, `VOICE`, `EMAIL`, and `OTP` | No |
 
 ###### Self Service Password Reset Action Primary Requirement Constraint object
 
@@ -1828,10 +1828,10 @@ Defines the authenticators permitted for the initial authentication step of pass
 
 Constraints on the values specified in the `selfServicePasswordReset.requirement.primary.methods` array. Specifying a constraint limits methods to specific authenticators. Currently, Google OTP is the only accepted constraint.
 
-| Property | Description | Data Type | Supported Values | Required | Default |
-| -------- | ----------- | --------- | ---------------- | -------- | ------- |
-| allowedAuthenticators | Limits the authenticators that can be used for a given method. Currently, only the `OTP` method supports constraints and Google authenticator is the only allowed authenticator. | Array of [authenticator keys](/docs/reference/api/authenticators-admin/#authenticator-properties) | `[ { "key": "google_otp" } ]` | No | |
-| method  | Specifies the method that is limited to the specific authenticator in `allowedAuthenticators`. Currently, Google OTP is the only accepted constraint. | String | `OTP` | No | |
+| Property | Description | Data Type | Supported Values | Required |
+| -------- | ----------- | --------- | ---------------- | -------- |
+| allowedAuthenticators | Limits the authenticators that can be used for a given method. Currently, only the `OTP` method supports constraints and Google authenticator is the only allowed authenticator. | Array of [authenticator keys](/docs/reference/api/authenticators-admin/#authenticator-properties) | `[ { "key": "google_otp" } ]` | No |
+| method  | Specifies the method that is limited to the specific authenticator in `allowedAuthenticators`. Currently, Google OTP is the only accepted constraint. | String | `OTP` | No |
 
 ###### Self Service Password Reset Action Step-up Requirement object
 
@@ -1843,10 +1843,10 @@ Defines the secondary authenticators needed for password reset if `selfServicePa
 * `required` = true with no methods to use any SSO authenticator
 * `required` = true with `security_question` as the method
 
-| Property | Description | Data Type | Supported Values | Required | Default |
-| -------- | ----------- | --------- | ---------------- | -------- | ------- |
-| required  | Indicates if any step-up verification is required to recover a password that follows a primary methods verification | Boolean  |  `true`, `false` | No | |
-| methods | Authenticator methods required for secondary authentication step of password recovery.  When `required` is true, the only supported secondary authentication method is `security_question`. | Array of strings | `[ "security_question" ]` | No | |
+| Property | Description | Data Type | Supported Values | Required |
+| -------- | ----------- | --------- | ---------------- | -------- |
+| required  | Indicates if any step-up verification is required to recover a password that follows a primary methods verification | Boolean  |  `true`, `false` | No |
+| methods | Authenticator methods required for secondary authentication step of password recovery.  When `required` is true, the only supported secondary authentication method is `security_question`. | Array of strings | `[ "security_question" ]` | No |
 
 ##### Self Service Unlock Action object
 
