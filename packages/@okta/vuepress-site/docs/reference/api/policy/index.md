@@ -1820,7 +1820,7 @@ Defines the authenticators permitted for the initial authentication step of pass
 | Property | Description | Data Type | Supported Values | Required | Default |
 | -------- | ----------- | --------- | ---------------- | -------- | ------- |
 | methodConstraints | Specifies an authenticator-specific constraint on the values in the `methods` array. Currently, Google OTP is the only accepted constraint for the `OTP` method. | Array of [Self Service Password Reset Action Primary Requirement Constraint object](#self-service-password-reset-action-primary-requirement-constraint-object) | `[ {"method": "otp", "allowedAuthenticators": [ { "key": "google_otp" } ] } ]` | No | |
-| methods | Authenticator methods allowed for the initial authentication step of password recovery. The `OTP` method requires a constraint limiting it to the Google authenticator. | Array | `PUSH`, `SMS`, `VOICE`, `EMAIL`, `OTP` | No | |
+| methods | Authenticator methods allowed for the initial authentication step of password recovery. The `OTP` method requires a constraint limiting it to the Google authenticator. | Array | `PUSH`, `SMS`, `VOICE`, `EMAIL`, and `OTP` | No | |
 
 ###### Self Service Password Reset Action Primary Requirement Constraint object
 
