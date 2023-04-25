@@ -125,23 +125,17 @@ If necessary, create a test user:
 
 1. Return to your Okta org, and search for your two test users.
 
-1. Click on the name of the Non-Test User's profile.
+1. Click on the name of the Test User's profile.
 
-1. Click the **More Actions** dropdown menu, and select **Deactivate**.
+1. Click the **Groups** tab, and select search for the **Support** group, and click to add.
 
-1. Confirm the deactivation.
+1. Search for **Sales** group, and click to add.
 
-1. Go to your Glitch application's log console. There should be no output to the console.
+1. Go to your Glitch application's log console. There should only be the following output to the console:
 
-1. Return to your Okta org, and click on the Test User's profile.
+    `The user Test User has been added to the Sales group!`
 
-1. Click the **More Actions** dropdown menu, and select **Deactivate**.
-
-1. Confirm the deactivation.
-
-1. Go to your Glitch application's log console. You should see the following output to the console:
-
-    `The user test_user@example.com has been deactivated on the Okta org!`
+The Event hook filter only triggers requests for the addition of a user to the Sales group. All other group additions are ignored.
 
 ## Next steps
 
