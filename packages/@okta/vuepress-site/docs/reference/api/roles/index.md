@@ -334,9 +334,9 @@ Adds a new permission to an existing Role
 
 #### Request parameters
 
-| Parameter      | Description                          | Param Type   | DataType                              | Required |
-| :------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
-| `roleIdOrLabel`  | `id` or `label` of the Role          | URL          | String                                | TRUE     |
+| Parameter        | Description                          | Param Type   | DataType                             | Required |
+| :----------------| :------------------------------------| :----------- | :------------------------------------| :------- |
+| `roleIdOrLabel`  | `id` or `label` of the Role          | URL          | String                               | TRUE     |
 | `permissionType` | Permission to add to the Role        | URL          | [Permission](#permission-types) name | TRUE     |
 
 #### Response parameters
@@ -361,6 +361,82 @@ curl -v -X POST \
 HTTP/1.1 204 No Content
 ```
 
+<ApiLifecycle access="ea" />
+Will return an error if the permission already exists
+
+```http
+HTTP/1.1 400 Bad Request
+```
+
+### Update permission
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="put" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
+
+Update an existing permission in a Role
+
+#### Request parameters
+
+| Parameter        | Description                                         | Param Type   | DataType                              | Required |
+| :----------------| :-------------------------------------------------- | :----------- | :------------------------------------ | :------- |
+| `roleIdOrLabel`  | `id` or `label` of the Role                         | URL          | String                                | TRUE     |
+| `permissionType` | Permission to update in the Role                    | URL          | [Permission](#permission-types) name  | TRUE     |
+| `conditions`     | Conditions for further restricting a permission     | Body         | [Condition](#condition-object) object | FALSE    |
+
+NOTE: Currently conditions are only available for `okta.users.read` and `okta.users.userprofile.manage`
+
+#### Response parameters
+
+The updated permission object
+
+#### Request example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.read"
+-d '{
+    "conditions": {
+      "include": {
+        "okta:ResourceAttribute/User/Profile": [
+          "city",
+          "state",
+          "zipCode"
+        ]
+      }
+    }
+  }'
+```
+
+#### Response example
+
+```json
+{
+  "label" : "okta.users.read",
+  "conditions": {
+    "include": {
+      "okta:ResourceAttribute/User/Profile": [
+        "city",
+        "state",
+        "zipCode"
+      ]
+    }
+  },
+  "created": "2021-02-06T16:20:57.000Z",
+  "lastUpdated": "2021-02-06T16:20:57.000Z",
+  "_links": {
+    "role": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.read"
+    }
+  }
+}
+```
+
 ### Get permission
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
@@ -377,6 +453,7 @@ Gets a permission from an existing Role
 #### Response parameters
 
 The requested permission object
+<ApiLifecycle access="ea" /> Will also include the conditions on the permission (if applicable)
 
 #### Request example
 
@@ -401,6 +478,34 @@ curl -v -X GET \
     },
     "self": {
       "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.manage"
+    }
+  }
+}
+```
+
+#### Response example with Conditions
+<ApiLifecycle access="ea" /> 
+
+```json
+{
+  "label" : "okta.users.read",
+  "conditions": {
+    "include": {
+      "okta:ResourceAttribute/User/Profile": [
+        "city",
+        "state",
+        "zipCode"
+      ]
+    }
+  },
+  "created": "2021-02-06T16:20:57.000Z",
+  "lastUpdated": "2021-02-06T16:20:57.000Z",
+  "_links": {
+    "role": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+    },
+    "self": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions/okta.users.read"
     }
   }
 }
@@ -3447,4 +3552,52 @@ The ID of a Member is unique to the Binding, whereas the link that points to the
         }
       }
     }
+```
+
+## Condition object
+<ApiLifecycle access="ea" />
+
+A Condition is a way to further restrict a permission in a Custom Admin Role. Ex. restricting access to specific profile attributes.
+
+NOTE: Currently conditions are only available for `okta.users.read` and `okta.users.userprofile.manage`
+
+### Condition object Properties
+
+| Property         | Description                                                           | DataType | Required  |
+| :--------------- | :-------------------------------------------------------------------- | :------- | :-------- |
+| `include`        | Object that contains attributes on which access should be allowed     | Object   | FALSE     |
+| `exclude`        | Object that contains attributes on which access should not be allowed | Object   | FALSE     |
+
+NOTE: Exactly one of `include` or `exclude` must be present in the conditions object
+
+#### Conditions example to include city, state, zipCode user attributes
+
+```json
+{
+  "conditions": {
+    "include": {
+      "okta:ResourceAttribute/User/Profile": [
+        "city",
+        "state",
+        "zipCode"
+      ]
+    }
+  }
+}
+```
+
+#### Conditions example to include all user attributes except for city, state, zipCode
+
+```json
+{
+  "conditions": {
+    "exclude": {
+      "okta:ResourceAttribute/User/Profile": [
+        "city",
+        "state",
+        "zipCode"
+      ]
+    }
+  }
+}
 ```
