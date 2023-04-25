@@ -93,6 +93,8 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. Ensure your Glitch application is listening for your requests, and then click **Verify** to complete the one-time verification step. For more information on this process, see [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
 
+> **Note:** It may take up to a minute before events are sent to the event hook after it’s created or updated.
+
 ## Create test data
 
 In your Okta org, sign in as an administrator and create two groups in the Admin Console.
