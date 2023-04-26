@@ -14,7 +14,7 @@ title: Okta API Products release notes 2023
 
 - When the sign-in page was edited using the code editor, the event type `system.custom_error.update` was logged. (OKTA-591800)
 
-- A `Next` link wasn't returned when a List Identity Providers request was made and a limit of 200 was set. (OKTA-597359)
+- A `next` link wasn't returned when a List Identity Providers request was made and a limit of 200 was set. (OKTA-597359)
 
 - When the API Service Integration feature is disabled, a query for inactive app integrations incorrectly returned a list with revoked API service integrations. (OKTA-596437)
 
