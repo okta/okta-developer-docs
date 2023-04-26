@@ -20,7 +20,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 - A "Next" link wasn't returned when a List Identity Providers request was made and a limit of 200 was set. (OKTA-597359)
 
-- When the API Service Integration feature is disabled, a query for active app integrations incorrectly returned a list with revoked API service integrations. (OKTA-596437)
+- When the API Service Integration feature is disabled, a query for inactive app integrations incorrectly returned a list with revoked API service integrations. (OKTA-596437)
 
 - A session wasn't properly established when an `/authorize` request specified `prompt=none` and included a `sessionToken` acquired during user activation. (OKTA-594051)
 
