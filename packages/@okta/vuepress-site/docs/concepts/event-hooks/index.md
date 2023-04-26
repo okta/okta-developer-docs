@@ -19,7 +19,7 @@ Before the introduction of event hooks, polling the [System Log API](/docs/refer
 
 You can have a maximum of 10 active and verified event hooks set up in your org at any time. Each event hook can be configured to deliver multiple event types.
 
->Note: To deliver event information, event hooks use the data structure associated with the [System Log API](/docs/reference/api/system-log/), not the data structure associated with the older [Events API](/docs/reference/api/events/).
+> **Note:** To deliver event information, event hooks use the data structure associated with the [System Log API](/docs/reference/api/system-log/), not the data structure associated with the older [Events API](/docs/reference/api/events/).
 
 ## Which events are eligible?
 
@@ -119,6 +119,8 @@ The basic steps to register and verify a new event hook are as follows:
 - Preview the event hook in the Admin Console.
 
 For a working example of an end-to-end event hook setup, see the [Event hook guide](/docs/guides/event-hook-implementation).
+
+> **Note:** It may take up to a few minutes before events are sent to the event hook after it’s created or updated.
 
 ### Implement your service
 
