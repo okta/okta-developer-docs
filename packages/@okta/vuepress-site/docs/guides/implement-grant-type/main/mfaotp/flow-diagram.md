@@ -25,7 +25,7 @@ okta -> client: Sends access token (optionally refresh token)
 
 -->
 
-At a high-level, this flow has the following steps:
+At a high level, this flow has the following steps:
 
 1. Your client app prompts the user for their username and password in the app UI.
 1. The user enters their credentials.

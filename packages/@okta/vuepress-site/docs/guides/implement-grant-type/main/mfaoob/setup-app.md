@@ -8,13 +8,13 @@
 
 In direct authentication flows, the client tells the server which authenticator it wants to authenticate with through the grant type. However, the server can't grant a token until the client’s authentication policy is satisfied.
 
-1. Navigate to your app’s **Sign On** tab, scroll to the bottom, and click **View policy details**.
+1. Go to your app’s **Sign On** tab, scroll to the bottom, and click **View policy details**.
     > **Note:** This example creates a new authentication policy for the app for testing purposes.
 1. Click **Actions** on the right of the policy assigned to the app by default.
 1. Select **Edit name and description**.
 1. Name the policy (for example, **Direct Auth MFA OOB 2FA**), enter a description, and click **Save**.
 1. Click **Add a rule**, and then name it (for example, **2 MFA OOB Factor**).
 1. On the Authentication Policies page, click **Add a rule**.
-1. For **AND User is**, specify your test user.
+1. Specify your test user for **AND User is**.
 1. Skip down to **AND User must authenticate with** and select **Password + Another factor**.
 1. Click **Save**.

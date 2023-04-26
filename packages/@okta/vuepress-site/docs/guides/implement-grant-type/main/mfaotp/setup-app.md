@@ -2,14 +2,14 @@
 5. Specify the **App integration name**.
 6. Enable the **Resource Owner Password** and **MFA OTP** grant types in addition to the defaults.
 7. Select **Allow everyone in your organization to access**, then click **Save**.
-8. From the **General** tab of your app integration, copy and save the generated **Client ID** value to implement your authorization flow.
+8. Select the **General** tab of your app integration, and then copy and save the generated **Client ID** value to implement your authorization flow.
 
 ## Set up the authentication policy
 
 In direct authentication flows, the client tells the server which authenticator it wants to authenticate with through the grant type. However, the server can't grant a token until the client’s authentication policy is satisfied.
 
-1. Navigate to your app’s **Sign On** tab, scroll to the bottom, and click **View policy details**.
-    > **Note:** This example creates a new authentication policy for the app for testing purposes.
+1. Go to your app’s **Sign On** tab, scroll to the bottom, and click **View policy details**.
+    > **Note:** This example creates an authentication policy for the app for testing purposes.
 1. Click **Actions** on the right of the policy assigned to the app by default.
 1. Select **Edit name and description**.
 1. Name the policy (for example, **Direct Auth MFA OTP 2FA**), enter a description, and click **Save**.
