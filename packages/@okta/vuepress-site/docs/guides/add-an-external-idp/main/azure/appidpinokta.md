@@ -1,7 +1,6 @@
 * **Name**: Enter a name for the Identity Provider configuration.
 * **Client Id**: Paste the client ID that you obtained from Azure AD when you configured the Identity Provider in the previous section.
 * **Client Secret**: Paste the secret that you obtained in the previous section.
-* **Authentication method reference (AMR) claims**: Select **Trust AMR claims from this identity provider** to have Okta evaluate any AMR claims sent in the request from the IdP to meet sign-on policy requirements.
 * **Scopes**: Leave the defaults. These scopes are included when Okta makes an OpenID Connect request to Azure AD.
 
     > **Note:** By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
