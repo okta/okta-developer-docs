@@ -673,6 +673,10 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 
 #### Event filter map object
 
+<ApiLifecycle access="ea" />
+
+<EventHookEANote/>
+
 | Property | Description                                                                  | DataType | Required | ReadOnly |
 |----------|------------------------------------------------------------------------------|----------|----------|----------|
 | event    | The filtered event type   | String   | TRUE     | FALSE   |
