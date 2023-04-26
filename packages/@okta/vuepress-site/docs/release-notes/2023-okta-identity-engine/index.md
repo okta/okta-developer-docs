@@ -18,7 +18,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 - The Policy API `constraints` object could be set with the `types` and `methods` of disabled authenticators or methods. (OKTA-586221)
 
-- A "Next" link wasn't returned when a List Identity Providers request was made and a limit of 200 was set. (OKTA-597359)
+- A `Next` link wasn't returned when a List Identity Providers request was made and a limit of 200 was set. (OKTA-597359)
 
 - When the API Service Integration feature is disabled, a query for inactive app integrations incorrectly returned a list with revoked API service integrations. (OKTA-596437)
 
