@@ -31,13 +31,13 @@ This guide provides a functional example of an Okta event hook filter. It's base
 
 ## About event hook filters
 
-Event hook filters reduce the amount of event hook calls to your external service endpoint. The filter triggers hooks only for events based on logic you define. You can implement one or more filters to your event hook and apply them when creating a hook or at a later date. For further information, see [Event hooks](/docs/concepts/event-hooks/#which-events-are-eligible).
+Event hook filters reduce the amount of event hook calls to your external service endpoint. The filter triggers hooks only for events based on the logic that you define. You can implement one or more filters to your event hook and apply them when creating a hook or later. For further information, see [Event hooks](/docs/concepts/event-hooks/#which-events-are-eligible).
 
 ## Set up the sample external service
 
-This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the event hook with an Okta org. See the following Glitch project to remix (copy) a working code example that implements an event hook when a user is added to a group: [Okta Event Hook with Filtering](https://glitch.com/~okta-event-hook/).
+This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the event hook with an Okta org. See the following Glitch project to remix (copy) a functional code example that implements an event hook when a user is added to a group: [Okta Event Hook with Filtering](https://glitch.com/~okta-event-hook/).
 
-Review the [Event hook implementation](/docs/guides/event-hook-implementation) to understand how to receive and parse the event hook call in your external service code. After copying the project, go to the following section to create an event hook with a filter
+Review the [Event hook implementation](/docs/guides/event-hook-implementation) to understand how to receive and parse the event hook call in your code. After copying the project, go to the following section to create an event hook with a filter.
 
 ## Create an event hook with a filter
 
@@ -83,15 +83,15 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. Click the **User Okta Expression Language (advanced)** link to review the Okta Expression Language statement: `event.target.?[type eq 'UserGroup'].size()>0 && event.target.?[displayName eq 'Sales'].size()>0`.
 
-    This statement triggers an event hook request to your external service when a user is added to the Sales group (the statement is TRUE). Other additions to different groups do not trigger an event hook.
+    This statement triggers an event hook request to your external service when a user is added to the Sales group (the statement is TRUE). Other additions to different groups don’t trigger an event hook.
 
 1. Click **Save & Continue**.
 
 1. On the **Preview** section, click **Skip this step**.
 
-    >**Note:** The event hook preview feature bypasses the event hook filter. Do not test your filter with the **Preview** tab or screen.
+    >**Note:** The event hook preview bypasses the event hook filter. Don’t test your filter with the **Preview** feature.
 
-1. Ensure your Glitch application is listening for your requests, and then click **Verify** to complete the one-time verification step. For more information on this process, see [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
+1. Ensure that your Glitch application is listening for your requests, and then click **Verify** to complete the one-time verification step. For more information on this process, see [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
 
 > **Note:** It may take a few minutes before events are sent to the event hook after it’s created or updated.
 
@@ -123,11 +123,11 @@ If necessary, create a test user:
 
 ## Test the event hook filter
 
-1. Start by going to your Glitch application and opening the log console (**Tools** > **Logs**). Ensure your application is listening for requests.
+1. Start by going to your Glitch application and opening the log console (**Tools** > **Logs**). Ensure that your application is listening for requests.
 
 1. Return to your Okta org, and search for your test user.
 
-1. Click on the name of the test user's profile.
+1. Click the name of the test user's profile.
 
 1. Click the **Groups** tab, and click in the search field. Search for the **Support** group, and click to add.
 
@@ -137,7 +137,7 @@ If necessary, create a test user:
 
     `The user Test User has been added to the Sales group!`
 
-The Event hook filter only triggers requests for the addition of a user to the Sales group. All other group additions are ignored.
+The event hook filter only triggers requests for the addition of a user to the Sales group. All other group additions are ignored.
 
 ## Next steps
 
