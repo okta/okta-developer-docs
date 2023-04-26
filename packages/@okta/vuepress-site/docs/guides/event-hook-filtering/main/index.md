@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiLifecycle access="ea" />
 
-This guide provides a working example of an Okta event hook filter in use with an external service. It is based on the [Event hook implementation](/docs/guides/evevnt-hook-implementation) project, which uses the website [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Okta event hook calls.
+This guide provides a functional example of an Okta event hook filter. It's based on the [Event hook implementation](/docs/guides/evevnt-hook-implementation) project, which uses the website [Glitch.com](https://glitch.com) to act as an external service. This service receives and responds to Okta event hook calls.
 
 <EventHookEANote/>
 
@@ -15,7 +15,7 @@ This guide provides a working example of an Okta event hook filter in use with a
 **Learning outcomes**
 
 * Understand the Okta event hook calls and responses with a filter implementation.
-* Implement a working example of an Okta event hook filter with a Glitch.com project, which acts as an external service.
+* Implement a functional example of an Okta event hook filter with a Glitch.com project.
 * Test the Okta event hook filter.
 
 **What you need**
@@ -31,7 +31,7 @@ This guide provides a working example of an Okta event hook filter in use with a
 
 ## About event hook filters
 
-Event hook filters reduce the amount of event hook calls to your external service endpoint. You can implement one or more filters to your event hook and apply them when creating a hook or at a later date. For further information, see [Event hooks](/docs/concepts/event-hooks/#which-events-are-eligible).
+Event hook filters reduce the amount of event hook calls to your external service endpoint. The filter triggers hooks only for events based on logic you define. You can implement one or more filters to your event hook and apply them when creating a hook or at a later date. For further information, see [Event hooks](/docs/concepts/event-hooks/#which-events-are-eligible).
 
 ## Set up the sample external service
 
@@ -41,7 +41,7 @@ Review the [Event hook implementation](/docs/guides/event-hook-implementation) t
 
 ## Create an event hook with a filter
 
-The Glitch event hook example uses the Okta event triggered when a user is added to a group. This event hook triggers for every instance of a group addition. With event hook filters, we can create business logic, using the Okta Expression Language, to isolate only certain group additions that trigger the event hook. In this example, only users added to the Sales group trigger the event hook.
+The Glitch event hook example uses the Okta event triggered when a user is added to a group. This event hook triggers for every instance of a group addition. With event hook filters, you can create business logic, using the Okta Expression Language, to isolate only certain group additions that trigger the event hook. In this example, only users added to the Sales group trigger the event hook.
 
 1. Sign in to your [Okta org](https://login.okta.com/).
 
@@ -49,9 +49,9 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. Click **Create Event Hook**.
 
-1. In the **Endpoint URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/userAdded`.
+1. In the **Endpoint URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://${your-glitch-projectname}.glitch.me/userAdded`.
 
-1. In the **Event Hook Name**, add a unique name for the hook (in this example, "User Added to Sales Group Event Hook).
+1. In the **Event Hook Name**, add a unique name for the hook (in this example, "User added to Sales group event hook).
 
 1. In the **Customize request** section, include authentication field and secret. In this example, use [Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication):
 
@@ -61,9 +61,9 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. In the **Select Events** section, subscribe to the event type you want to monitor. In this example, a user added to a group. Click in the field to search for `User added to group`.
 
-1. Click **Create hook & Continued**.
+1. Click **Create hook & Continue**.
 
-1. In the **Apply filters**, select the **Apply filter** checkbox.
+1. In the **Apply filters** section, select the **Apply filter** checkbox.
 
 1. Create the example filter by selecting the following values in the Simple UI:
 
@@ -81,7 +81,7 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
     * **Value** = `Sales`
 
-1. Click the **User Okta Expression Language (advanced)** link to review the Okta Expression Language statement: `event.eventType eq 'UserGroup' && event.target.?[displayName eq 'Sales'].size()>0`.
+1. Click the **User Okta Expression Language (advanced)** link to review the Okta Expression Language statement: `event.target.?[type eq 'UserGroup'].size()>0 && event.target.?[displayName eq 'Sales'].size()>0`.
 
     This statement triggers an event hook request to your external service when a user is added to the Sales group (the statement is TRUE). Other additions to different groups do not trigger an event hook.
 
@@ -125,11 +125,11 @@ If necessary, create a test user:
 
 1. Start by going to your Glitch application and opening the log console (**Tools** > **Logs**). Ensure your application is listening for requests.
 
-1. Return to your Okta org, and search for your two test users.
+1. Return to your Okta org, and search for your test user.
 
-1. Click on the name of the Test User's profile.
+1. Click on the name of the test user's profile.
 
-1. Click the **Groups** tab, and select search for the **Support** group, and click to add.
+1. Click the **Groups** tab, and click in the search field. Search for the **Support** group, and click to add.
 
 1. Search for **Sales** group, and click to add.
 
