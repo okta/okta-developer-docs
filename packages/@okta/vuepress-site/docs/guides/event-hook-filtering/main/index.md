@@ -25,7 +25,7 @@ This guide provides a functional example of an Okta event hook filter. It's base
 
 **Sample code**
 
-* [Okta Event Hook with Filtering](https://glitch.com/~okta-event-hook)
+* [Okta Event Hook with Filtering](https://glitch.com/~okta-event-hook-with-filtering)
 
 ---
 
@@ -35,7 +35,7 @@ Event hook filters reduce the amount of event hook calls to your external servic
 
 ## Set up the sample external service
 
-This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the event hook with an Okta org. See the following Glitch project to remix (copy) a functional code example that implements an event hook when a user is added to a group: [Okta Event Hook with Filtering](https://glitch.com/~okta-event-hook/).
+This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the event hook with an Okta org. See the following Glitch project to remix (copy) a functional code example that implements an event hook when a user is added to a group: [Okta Event Hook with Filtering](https://glitch.com/~okta-event-hook-with-filtering/).
 
 Review the [Event hook implementation](/docs/guides/event-hook-implementation) to understand how to receive and parse the event hook call in your code. After copying the project, go to the following section to create an event hook with a filter.
 
