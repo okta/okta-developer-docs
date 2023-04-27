@@ -2,7 +2,7 @@
 
 In the **Authentication Settings** section:
 
-* **Authentication method reference (AMR) claims**: Select **Trust AMR claims from this identity provider** to have Okta evaluate that AMR claims sent in the IdP request meet sign-on policy requirements.
+* **Authentication method reference (AMR) claims**: Select **Trust AMR claims from this identity provider** to have Okta evaluate that AMR claims sent in the IdP response meet sign-on policy requirements.
 
 * **IdP Username**: This is the expression (written in Okta Expression Language) that is used to convert an Identity Provider attribute to the application user's `username`. This Identity Provider username is used for matching an application user to an Okta user.
 
