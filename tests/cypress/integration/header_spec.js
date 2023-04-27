@@ -16,7 +16,7 @@ describe('header sanity check', () => {
   });
 
   it('should have pricing link for new tab with href on okta.com pricing section', () => {
-    mainPage.getFooterPricingLink().should('have.attr', 'href').and('eq', 'https://www.okta.com/pricing/#customer-identity-products');
+    mainPage.getFooterPricingLink().should('have.attr', 'href').and('eq', 'https://www.okta.com/pricing/#workforce-identity-pricing');
     mainPage.getFooterPricingLink().should('have.attr', 'target').and('eq', '_blank');
   });
 });

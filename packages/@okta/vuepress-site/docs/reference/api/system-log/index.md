@@ -360,7 +360,7 @@ indicates that this event was the result of an action performed through an API u
 
 ### DebugContext object
 
-For some kinds of events (for example, OMM provisioning, sign-in request, second factor SMS, and so on), the fields that are provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the `debugContext` object provides a way to store additional information.
+For some kinds of events (for example, OLM provisioning, sign-in request, second factor SMS, and so on), the fields that are provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the `debugContext` object provides a way to store additional information.
 
 For example, an event where a second factor SMS token is sent to a user may have a `debugContext` that looks like the following:
 
@@ -389,7 +389,7 @@ If for some reason the information that is needed to implement a feature isn't p
 
 All authentication relies on validating one or more credentials that prove the authenticity of the actor's identity. Credentials are sometimes provided by the actor, as is the case with passwords, and at other times provided by a third party, and validated by the authentication provider.
 
-The `authenticationContext` contains metadata about how the actor is authenticated. For example, an `authenticationContext` for an event, where a user authenticates with IWA, looks like the following:
+The `authenticationContext` contains metadata about how the actor is authenticated. For example, an `authenticationContext` for an event, where a user authenticates with Integrated Windows Authentication (IWA), looks like the following:
 
 ```json
 {

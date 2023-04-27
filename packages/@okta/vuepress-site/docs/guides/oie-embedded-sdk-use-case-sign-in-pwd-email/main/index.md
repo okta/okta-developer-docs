@@ -29,7 +29,7 @@ Enable a password and email sign-in flow in your application using the embedded 
 
 ## Overview
 
-With the Embedded SDK, your app can verify a user's identity using a password and then the email authenticator. The email authenticator can complete its verification using <StackSnippet snippet="magiclinksoverviewlink" inline />, a one-time password (OTP), or a combination of both.
+With the Embedded SDK, your app can verify a user's identity using a password and then the email authenticator. The email authenticator can complete its verification using <StackSnippet snippet="magiclinksoverviewlink" inline />, a one-time passcode (OTP), or a combination of both.
 
 <div class="half">
 

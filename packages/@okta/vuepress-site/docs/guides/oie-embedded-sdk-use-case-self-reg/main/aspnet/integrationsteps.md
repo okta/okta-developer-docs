@@ -204,14 +204,7 @@ var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
 var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-### 12 (Optional): Update the sent email template
-
-The email sent to the user has a **Verify Email Address** link that isn't yet
-supported. Accordingly, there are two recommended options to mitigate this limitation.
-See
-[The email link to verify that the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-that-the-email-address-isn-t-working).
-
-### 13: Handle the submit response
+### 12: Handle the submit response
 
 If the call to `EnrollAuthenticatorAsync` was successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the user's email, and the user needs to verify this code.
 
@@ -228,7 +221,7 @@ switch (enrollResponse?.AuthenticationStatus)
 }
 ```
 
-### 14: Obtain the email verification code from email
+### 13: Obtain the email verification code from email
 
 Build the email verification code page that accepts the code from the email.
 
@@ -243,7 +236,7 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### 15: Submit the email code
+### 14: Submit the email code
 
 The next step is to call `VerifyAuthenticatorAsync`. In the email verification, the code that is passed into `VerifyAuthenticatorAsync` is the code found in the verification email.
 
@@ -257,7 +250,7 @@ var idxAuthClient = new IdxClient(null);
 var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-### 16: Handle the submit response
+### 15: Handle the submit response
 
 The next step is to handle the response from `VerifyAuthenticatorAsync`. If the email code was valid, the method should return `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status signifies that there is another factor (required or optional) waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user should be sent back to the authenticator list page that shows only the phone authenticator.
 
@@ -278,7 +271,7 @@ switch (authnResponse.AuthenticationStatus)
       }
 ```
 
-### 17: Show the remaining list of authenticators
+### 16: Show the remaining list of authenticators
 
 The remaining authenticator should display the phone factor to the user. Since this factor is currently optional and no other required factors need to be verified, the user should have the ability to skip the factor. Create a **Skip** button for this use case. This **Skip** button is governed by the `CanSkip` property on the `AuthenticationResponse`. See the following screenshot for an illustration.
 
@@ -295,9 +288,9 @@ Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 The user can either enroll in the phone factor or skip the phone factor. Your code should handle both scenarios that will be described in the following steps.
 
-### 18: Handle the phone authenticator options
+### 17: Handle the phone authenticator options
 
-#### Option 1: Enroll and verify the phone authenticator
+#### 18 Option 1: Enroll and verify the phone authenticator
 
 1. Start phone verification
 
@@ -430,7 +423,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
    }
    ```
 
-#### Option 2: Skip phone enrollment
+#### 19 Option 2: Skip phone enrollment
 
 1. If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor:
 

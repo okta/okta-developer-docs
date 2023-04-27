@@ -4,11 +4,11 @@ title: Email Magic Links overview
 
 <ApiLifecycle access="ie" /><br />
 
-Enable a user to enter a One-Time Password (OTP) in a single step by clicking an embedded email link.
+Enable a user to enter a one-time passcode (OTP) in a single step by clicking an embedded email link.
 
 ## Introduction
 
-When using email to prove their identity, a user can copy an OTP from an email into the application they want to use. Email Magic Links (EML) provides a second option, which allows them to click a hyperlink in the email rather than use the OTP. This a quicker, more user-convenient, and still secure experience. However, applications based on the Embedded Sign-In Widget or an Embedded SDK must be adapted to make use of EML.
+When using email to prove their identity, a user can copy an OTP from an email into the application they want to use. Email Magic Links (EML) provide a second option, which allows the user to click a hyperlink in the email rather than use the OTP. This results in a quicker, more user-convenient, and still secure experience. However, applications based on the Embedded Sign-In Widget or an Embedded SDK must be adapted to make use of EML.
 
 <div class="three-quarters">
 
@@ -27,7 +27,7 @@ When using email to prove their identity, a user can copy an OTP from an email i
 
 > **Note**: Email Magic Links are only supported in OIDC-based app integrations.
 
-## Email Magic Links vs. one-time passwords
+## Email Magic Links vs. one-time passcodes
 
 The Okta email authenticator provides a simple way for a user to authenticate themselves or recover their accounts. It supports two methods for them to validate their credentials as part of those processes. In both methods, an email is sent to their primary email address and either:
 
@@ -167,7 +167,7 @@ All Okta email templates are written using [Velocity Templating Language (VTL)](
 
 | Variable                     | Contains                                                       |
 |------------------------------|----------------------------------------------------------------|
-| `${verificationToken}`       | The one-time password that Identity Engine generated for the user              |
+| `${verificationToken}`       | The one-time passcode that Identity Engine generated for the user              |
 | `${request.relayState}`      | The [OIDC/OAuth2 state parameter](/docs/guides/implement-grant-type/authcodepkce/main/#request-an-authorization-code) for the current authorization request         |
 | `${emailAuthenticationLink}` | The Okta-hosted URL that continues the password recovery flow  |
 

@@ -391,11 +391,11 @@ See the following:
 
 * Android:
 * [Sign users in to your Android mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/android/main/)
-* [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in)
+* [Browser sign-in](https://github.com/okta/samples-android/tree/master/browser-sign-in)
 * [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin)
 * iOS:
 * [Sign users in to your iOS mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/ios/main/)
-* [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in)
+* [Browser sign-in](https://github.com/okta/samples-ios/tree/master/browser-sign-in)
 * [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift)
 
 You can also develop your mobile app with frameworks like Ionic and Flutter. We currently don't have native SDKs for either, but they should work with an AppAuth library. We recommend [Ionic AppAuth](https://github.com/wi3land/ionic-appauth) and the [Flutter AppAuth Plugin](https://pub.dev/packages/flutter_appauth).

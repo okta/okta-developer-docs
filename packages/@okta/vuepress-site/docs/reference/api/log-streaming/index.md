@@ -5,12 +5,8 @@ category: management
 
 # Log Streaming API
 
-<ApiLifecycle access="ea" />
-
 The Okta Log Streaming API provides operations to manage Log Stream configurations for an org.
 You can configure up to two Log Stream integrations per org.
-
-> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Feature Lifecycle Management](https://developer.okta.com/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
 
 ## Get started
 
@@ -25,8 +21,6 @@ The Log Streaming API has the following CRUD operations:
 * [Update a Log Stream](#update-a-log-stream)
 * [Delete a Log Stream](#delete-a-log-stream)
 ### Add a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams" />
 
@@ -92,8 +86,6 @@ curl -v -X POST \
 
 ### Get a Log Stream
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/logStreams/${logStreamId}" />
 
 Fetches a Log Stream by `id`
@@ -148,8 +140,6 @@ curl -v -X GET \
 ```
 
 ### List Log Streams
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/logStreams" />
 
@@ -237,8 +227,8 @@ curl -v -X GET \
     "created": "2021-11-30T15:16:09.000Z",
     "status": "ACTIVE",
     "settings": {
-      "host": "acme.splunkcloud.com",
-      "token": "1e652bb8-3ef8-427b-9f00-222e1bbe3832"
+      "edition": "aws",
+      "host": "acme.splunkcloud.com"
     },
     "_links": {
       "self": {
@@ -347,8 +337,6 @@ curl -v -X GET \
 
 ### Update a Log Stream
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="put" url="/api/v1/logStreams/${logStreamId}" />
 
 Updates the configuration for a Log Stream
@@ -412,8 +400,6 @@ curl -v -X PUT \
 ```
 ### Delete a Log Stream
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/logStreams/${logStreamId}" />
 
 Removes a Log Stream from your org
@@ -452,8 +438,6 @@ The Log Streaming API has the following lifecycle operations:
 * [Deactivate a Log Stream](#deactivate-a-log-stream)
 
 ### Activate a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/activate" />
 
@@ -509,8 +493,6 @@ curl -v -X POST \
 ```
 
 ### Deactivate a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/deactivate" />
 
@@ -668,13 +650,19 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 | us-east-1 | US East (N. Virginia) |
 | us-west-1 | US West (N. California) |
 | us-west-2 | US West (Oregon) |
+| ap-south-1 | Asia Pacific (Mumbai) |
+| ap-northeast-3 | Asia Pacific (Osaka) |
+| ap-northeast-2 | Asia Pacific (Seoul) |
+| ap-southeast-1 | Asia Pacific (Singapore) |
+| ap-southeast-2 | Asia Pacific (Sydney) |
+| ap-northeast-1 | Asia Pacific (Tokyo) |
 | ca-central-1 | Canada (Central) |
 | eu-central-1 | Europe (Frankfurt) |
 | eu-west-1 | Europe (Ireland) |
 | eu-west-2 | Europe (London) |
 | eu-west-3 | Europe (Paris) |
-| eu-south-1 | Europe (Milan) |
 | eu-north-1 | Europe (Stockholm) |
+| sa-east-1 | South America (São Paulo) |
 
 
 ### Splunk Cloud Settings object
@@ -685,7 +673,8 @@ The Splunk Cloud Settings object specifies the configuration for the `splunk_clo
 
 ```json
 {
-  "host": "acme.splunkcloud.com"
+  "edition": "aws",
+  "host": "acme.splunkcloud.com",
   "token": "11111111-1111-2222-2222-222222222222"
 }
 ```
@@ -694,7 +683,8 @@ The Splunk Cloud Settings object specifies the configuration for the `splunk_clo
 
 | Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
+| edition       | The edition of the Splunk Cloud instance. Supported values: `aws`, `gcp`, or `aws_govcloud`     | String                                    | FALSE    | FALSE   | FALSE     |      -     |     -      |
 | host            | The domain name for your Splunk Cloud instance. Don't include `http` or `https` in the string. For example: `acme.splunkcloud.com`                                       | String                                                         | FALSE    | FALSE   | FALSE     |      17     |     116      |
-| token     | The HEC token for your Splunk Cloud HTTP Event Collector             | String (GUID format)  | FALSE | FALSE | FALSE  |  36 |  36   |
+| token     | The HEC token for your Splunk Cloud HTTP Event Collector. The token value is set during object creation, but isn't returned.            | String (GUID format)  | FALSE | FALSE | FALSE  |  36 |  36   |
 
 

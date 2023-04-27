@@ -5,9 +5,9 @@
       :key="index"
       :item="item"
       :index="index"
-      :itemCss="itemCss"
-      :subItemCss="subItemCss"
-      ></MenuItem>
+      :item-css="itemCss"
+      :sub-item-css="subItemCss"
+    />
   </ul>
 </template>
 

@@ -243,7 +243,7 @@ These bug fixes are expected on preview orgs starting October 11, 2017, and on p
 * Deleting a user failed if the user's primary and secondary emails were the same. (OKTA-142765)
 * Deleting a user failed if the domain portion of the username string was too long. (OKTA-141876)
 * Radius authentication flows would erroneously trigger `user.session.end` events in the log. (OKTA-138775)
-* When a user signed in to Okta via IWA and without an MFA prompt, there was no sign on policy evaluation entry present in the system log. (OKTA-136545)
+* When a user signed in to Okta via Integrated Windows Authentication (IWA) and without an MFA prompt, there was no sign on policy evaluation entry present in the system log. (OKTA-136545)
 * User authentication attempts blocked by geographic restrictions in Adaptive MFA were logged as a successful login followed by a `Login Denied` event in the system log. (OKTA-112077)
 
 
@@ -771,7 +771,7 @@ You can configure the JIT settings for a SAML identity provider (IdP) to enable 
 
 #### Email Factor
 
- You can send a one-time password (OTP) and an activation link to an email address as part of enrolling a user.<!-- OKTA-132297  -->
+ You can send a one-time passcode (OTP) and an activation link to an email address as part of enrolling a user.<!-- OKTA-132297  -->
 
 ### Platform Bugs Fixed
 
@@ -2159,7 +2159,7 @@ For a full description of the rate limit changes, see [API Rate Limits](/docs/re
 
  * Request to [`/api/v1/authn/factors/<factorId>/verify`](/docs/reference/api/authn/#enroll-factor) responded with a valid `stateToken` after user status
  became `LOCKED_OUT`, causing user interface errors. (OKTA-115153)
- * The AuthSJ SDK produced a debug log message with some browsers. (OKTA-115460)
+ * The AuthJS SDK produced a debug log message with some browsers. (OKTA-115460)
 
 ## 2017.09
 

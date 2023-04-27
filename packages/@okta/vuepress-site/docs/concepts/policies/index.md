@@ -109,7 +109,7 @@ Policy evaluation is different when you use the AuthN authentication pipeline ve
 
 |                               | Sign on policy | Multifactor Authentication (MFA) |
 | :--------------------------- | :------------------------------ | :--------- | :-------------------- |
-| AuthN authentication pipeline | Uses the [Okta Sign-On Policy](/docs/guides/archive-configure-signon-policy/main/) only when making calls using the SDKs or the Authn API. | Set MFA at the org level using the [Okta Sign-On Policy](/docs/guides/archive-configure-signon-policy/main/#prompt-for-an-mfa-factor-for-a-certain-group) for apps that use the AuthN API. |
+| AuthN authentication pipeline | Uses the [Okta Sign-On Policy](/docs/guides/archive-configure-signon-policy/main/) only when making calls using the SDKs or the Classic Authentication API. | Set MFA at the org level using the [Okta Sign-On Policy](/docs/guides/archive-configure-signon-policy/main/#prompt-for-an-mfa-factor-for-a-certain-group) for apps that use the Classic Authentication API. |
 | Identity Engine authentication pipeline | Evaluates both the global session policy and authentication policies when authenticating users. | [Set MFA](/docs/guides/configure-signon-policy/main/) at either the org level or at the application level. |
 
 ### Suggestions when you have both Classic Engine and Identity Engine applications

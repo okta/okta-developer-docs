@@ -243,4 +243,4 @@ Learn more:
 
 - [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf) has links for learning more about Workflows.
 
-**Next step: [Authentication Factors](/docs/concepts/iam-overview-authentication-factors/).**
+**Next step: [Authentication factors](/docs/concepts/iam-overview-authentication-factors/).**

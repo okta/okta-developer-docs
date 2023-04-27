@@ -1,4 +1,4 @@
-> **Note:** Before implementing your embedded app with the Identity Engine Java SDK, ensure that your app and Custom Authorization Server are configured for Identity Engine. See [Set up your authorization server](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server).
+> **Note:** Before implementing your embedded app with the Identity Engine Java SDK, ensure that your app and custom authorization server are configured for Identity Engine. See [Set up your authorization server](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server).
 
 If you are using Apache Maven for your project, include the following dependency:
 

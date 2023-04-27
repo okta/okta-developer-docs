@@ -1,31 +1,40 @@
 <template>
-  <div class="signup" vue-if="!isRegionLoading">
+  <div
+    class="signup"
+    vue-if="!isRegionLoading"
+  >
     <div class="signup--content">
       <div class="signup--form">
         <div v-if="isRegionLocked">
           <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
         </div>
         <div v-else>
-          <form id="signupForm" @submit="submitForm">
+          <form
+            id="signupForm"
+            @submit="submitForm"
+          >
             <div class="row">
-              <label class="field-wrapper" for="email">
+              <label
+                class="field-wrapper"
+                for="email"
+              >
                 Work Email
                 <input
-                  type="text"
                   id="email"
-                  maxlength="128"
                   v-model="form.email.value"
+                  type="text"
+                  maxlength="128"
                   :class="{ error: !form.email.isValid }"
                   @blur="validationService.checkEmailInput('email')"
-                />
+                >
                 <ul
-                  class="error-color error-msg"
                   v-if="form.email.errorList.length"
+                  class="error-color error-msg"
                 >
                   <li
-                    class="error-color"
                     v-for="(error, index) in form.email.errorList"
-                    v-bind:key="index"
+                    :key="index"
+                    class="error-color"
                   >
                     {{ error }}
                   </li>
@@ -34,24 +43,27 @@
             </div>
             <div class="user-name">
               <div class="row">
-                <label class="field-wrapper" for="firstName">
+                <label
+                  class="field-wrapper"
+                  for="firstName"
+                >
                   First Name
                   <input
-                    type="text"
                     id="firstName"
-                    maxlength="128"
                     v-model="form.firstName.value"
+                    type="text"
+                    maxlength="128"
                     :class="{ error: !form.firstName.isValid }"
                     @blur="validationService.checkFormInput('firstName')"
-                  />
+                  >
                   <ul
-                    class="error-color error-msg"
                     v-if="form.firstName.errorList.length"
+                    class="error-color error-msg"
                   >
                     <li
-                      class="error-color"
                       v-for="(error, index) in form.firstName.errorList"
-                      v-bind:key="index"
+                      :key="index"
+                      class="error-color"
                     >
                       {{ error }}
                     </li>
@@ -59,24 +71,27 @@
                 </label>
               </div>
               <div class="row">
-                <label class="field-wrapper" for="lastName">
+                <label
+                  class="field-wrapper"
+                  for="lastName"
+                >
                   Last Name
                   <input
-                    type="text"
                     id="lastName"
-                    maxlength="128"
                     v-model="form.lastName.value"
+                    type="text"
+                    maxlength="128"
                     :class="{ error: !form.lastName.isValid }"
                     @blur="validationService.checkFormInput('lastName')"
-                  />
+                  >
                   <ul
-                    class="error-color error-msg"
                     v-if="form.lastName.errorList.length"
+                    class="error-color error-msg"
                   >
                     <li
-                      class="error-color"
                       v-for="(error, index) in form.lastName.errorList"
-                      v-bind:key="index"
+                      :key="index"
+                      class="error-color"
                     >
                       {{ error }}
                     </li>
@@ -86,12 +101,16 @@
             </div>
 
             <div class="row">
-              <label class="field-wrapper" for="country">
+              <label
+                class="field-wrapper"
+                for="country"
+              >
                 Country/Region
                 <select
-                  name=""
-                  v-model="form.country.value"
                   id="country"
+                  v-model="form.country.value"
+                  name=""
+                  :class="{ error: !form.country.isValid }"
                   @change="
                     validationService.checkFormInput('country');
                     validationService.resetFormField('state', {
@@ -101,92 +120,117 @@
                     showConsentSection(form.country.value);
                     states = form.country.value;
                   "
-                  :class="{ error: !form.country.isValid }"
                 >
-                  <option disabled selected>Country</option>
+                  <option
+                    disabled
+                    selected
+                  >Country</option>
                   <option
                     v-for="country in getCountries"
-                    v-bind:key="country.value"
+                    :key="country.value"
                     :value="country.value"
-                    >{{ country.name }}</option
-                  >
+                  >{{ country.name }}</option>
                 </select>
                 <span
-                  class="error-color error-msg"
                   v-if="form.country.errorList.length"
-                  >{{ validationService.errorDictionary.emptyField }}</span
-                >
+                  class="error-color error-msg"
+                >{{ validationService.errorDictionary.emptyField }}</span>
               </label>
             </div>
-            <div class="row" v-if="states.list.length">
-              <label class="field-wrapper" for="state">
+            <div
+              v-if="states.list.length"
+              class="row"
+            >
+              <label
+                class="field-wrapper"
+                for="state"
+              >
                 {{ states.label }}
                 <select
-                  name=""
                   id="state"
                   v-model="form.state.value"
-                  @change="validationService.checkFormInput('state')"
+                  name=""
                   :class="{ error: !form.state.isValid }"
+                  @change="validationService.checkFormInput('state')"
                 >
-                  <option selected disabled>{{ states.label }}</option>
+                  <option
+                    selected
+                    disabled
+                  >{{ states.label }}</option>
                   <option
                     v-for="state in states.list"
-                    v-bind:key="state.name"
+                    :key="state.name"
                     :value="state.value"
-                    >{{ state.name }}</option
-                  >
+                  >{{ state.name }}</option>
                 </select>
                 <span
-                  class="error-color error-msg"
                   v-if="form.state.errorList.length"
-                  >{{ validationService.errorDictionary.emptyField }}</span
-                >
+                  class="error-color error-msg"
+                >{{ validationService.errorDictionary.emptyField }}</span>
               </label>
             </div>
             <div class="row signup--recaptcha">
-              <label class="field-wrapper" for="recaptcha">
+              <label
+                class="field-wrapper"
+                for="recaptcha"
+              >
                 <vue-recaptcha
                   ref="recaptcha"
-                  :loadRecaptchaScript="true"
-                  @verify="onCaptchaVerified"
-                  @expired="onCaptchaExpired"
+                  :load-recaptcha-script="true"
                   :sitekey="captchaSiteKey"
                   :theme="theme"
-                >
-                </vue-recaptcha>
+                  @verify="onCaptchaVerified"
+                  @expired="onCaptchaExpired"
+                />
                 <span
-                  class="error-color error-msg"
                   v-if="form.captcha.errorList.length"
-                  >{{ validationService.errorDictionary.emptyField }}</span
-                >
+                  class="error-color error-msg"
+                >{{ validationService.errorDictionary.emptyField }}</span>
               </label>
             </div>
-            <div class="row error-color" v-if="error !== null">
+            <div
+              v-if="error !== null"
+              class="row error-color"
+            >
               {{ error }}
             </div>
             <div class="row signup--submit">
-              <label class="field-wrapper" for="signup" id="submitbutton">
-                <a class="btn pending" v-if="isPending">
-                  <img src="/img/ajax-loader-white.gif" />
+              <label
+                id="submitbutton"
+                class="field-wrapper"
+                for="signup"
+              >
+                <a
+                  v-if="isPending"
+                  class="btn pending"
+                >
+                  <img src="/img/ajax-loader-white.gif">
                 </a>
                 <input
+                  v-else
+                  id="signup"
                   type="submit"
                   class="btn"
                   :disabled="!validationService.isValidForm()"
-                  id="signup"
                   value="Sign up"
-                  v-else
-                />
+                >
               </label>
             </div>
 
-            <div class="consent--section" v-show="displayConsent">
+            <div
+              v-show="displayConsent"
+              class="consent--section"
+            >
               <div class="consent--section-text">
                 <p>
                   By clicking "SIGN UP" I agree to the
-                  <SmartLink :item="{ link: '/terms/', target: '_blank' }">Developer Edition Subscription Agreement</SmartLink>
+                  <SmartLink :item="{ link: '/terms/', target: '_blank' }">
+                    Developer Edition Subscription Agreement
+                  </SmartLink>
                   and Okta’s
-                  <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }">Privacy Policy</SmartLink>
+                  <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }">
+                    Privacy Policy
+                  </SmartLink>
                   during my use of the Okta Developer Edition Service.
                 </p>
                 <p>
@@ -194,23 +238,26 @@
                   See Privacy Policy for details on how to unsubscribe.
                 </p>
               </div>
-              <div class="consent--section-agree" v-show="displayAgree">
+              <div
+                v-show="displayAgree"
+                class="consent--section-agree"
+              >
                 <label for="agree-checkbox">
                   <input
-                    type="checkbox"
-                    name=""
                     id="agree-checkbox"
                     v-model="form.consentAgree.value"
-                  />
+                    type="checkbox"
+                    name=""
+                  >
                   I agree (Optional)
                 </label>
               </div>
             </div>
           </form>
           <div class="splitter">
-            <span></span>
+            <span />
             <span>or</span>
-            <span></span>
+            <span />
           </div>
           <div class="row">
             <div class="field-wrapper">
@@ -219,7 +266,7 @@
                 class="btn social-btn"
                 @click="openTermsConditionsDialog(uris.github)"
               >
-                <i class="fa fa-github"></i> Continue with GitHub
+                <i class="fa fa-github" /> Continue with GitHub
               </button>
             </div>
           </div>
@@ -230,40 +277,48 @@
                 class="btn social-btn"
                 @click="openTermsConditionsDialog(uris.google)"
               >
-                <span class="google-logo"></span> Continue with Google
+                <span class="google-logo" /> Continue with Google
               </button>
             </div>
           </div>
           <TermsAndConditionsDialog
             v-if="isShowTermsConditionsDialog"
-            :socialUrl="socialUrl"
+            :social-url="socialUrl"
             @close="closeTermsConditionsDialog()"
-          ></TermsAndConditionsDialog>
+          />
           <div class="row goto-signin">
             Already signed up?
-            <SmartLink :item="{ link: '/login/' }">Sign in</SmartLink>
+            <SmartLink :item="{ link: '/login/' }">
+              Sign in
+            </SmartLink>
           </div>
         </div>
       </div>
       <div class="signup--description">
         <Content slot-key="signup-description" />
         <div class="logo-wrapper">
-          <CompanyLogos withHeading small v-bind:centered="false" />
+          <CompanyLogos
+            with-heading
+            small
+            :centered="false"
+          />
         </div>
-        <div class="auth0-banner" v-if="!isRegionLocked">
+        <div
+          v-if="!isRegionLocked"
+          class="auth0-banner"
+        >
           <div class="auth0-banner--content">
             <p>
               Are you a developer looking for a pay-as-you-go option? Check out Auth0 self-service plans starting at $23 per month.
             </p>
             <p>
-              <SmartLink :item="{ link: 'https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup', target: '_self' }"
-              >
+              <SmartLink :item="{ link: 'https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup', target: '_self' }">
                 Start Building for Free &rsaquo;
               </SmartLink>
             </p>
           </div>
           <div class="auth0-banner--logo">
-            <img src="/img/logos/auth0-shield.svg" />
+            <img src="/img/logos/auth0-shield.svg">
           </div>
         </div>
       </div>
@@ -369,6 +424,26 @@ export default {
         google: getIdpUri(uris, "google")
       };
     }
+  },
+  beforeMount() {
+    const { captcha } = this.$site.themeConfig;
+
+    if (window.location.hostname === "developer.okta.com") {
+      this.captchaSiteKey = captcha.production;
+    } else {
+      this.captchaSiteKey = captcha.test;
+    }
+
+    this.theme = this.getTheme();
+
+    this.isRegionLocked = isRegionLocked();
+    new GeoLocation(() => {
+      this.isRegionLocked = isRegionLocked();
+      this.isRegionLoading = false;
+    });
+  },
+  mounted() {
+    this.analyticsValues = getAnalyticsValues();
   },
   methods: {
     getTheme: function() {
@@ -487,26 +562,6 @@ export default {
       this.socialUrl = url;
       this.isShowTermsConditionsDialog = true;
     }
-  },
-  beforeMount() {
-    const { captcha } = this.$site.themeConfig;
-
-    if (window.location.hostname === "developer.okta.com") {
-      this.captchaSiteKey = captcha.production;
-    } else {
-      this.captchaSiteKey = captcha.test;
-    }
-
-    this.theme = this.getTheme();
-
-    this.isRegionLocked = isRegionLocked();
-    new GeoLocation(() => {
-      this.isRegionLocked = isRegionLocked();
-      this.isRegionLoading = false;
-    });
-  },
-  mounted() {
-    this.analyticsValues = getAnalyticsValues();
   },
 };
 </script>

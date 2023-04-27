@@ -5,11 +5,17 @@
     :to="item.link"
     :exact="exact"
   >
-    <slot v-if="$slots.default"></slot>
+    <slot v-if="$slots.default" />
     <span v-else-if="item.text">{{ item.text }}</span>
   </RouterLink>
-  <a v-else :href="item.link" :class="classes" :target="target" :rel="rel">
-    <slot v-if="$slots.default"></slot>
+  <a
+    v-else
+    :href="item.link"
+    :class="classes"
+    :target="target"
+    :rel="rel"
+  >
+    <slot v-if="$slots.default" />
     <span v-else-if="item.text">{{ item.text }}</span>
   </a>
 </template>
@@ -39,12 +45,6 @@ export default {
     return {
       isSearchPage: false,
     };
-  },
-  beforeMount() {
-    this.setIsSearchPage();
-  },
-  watch: {
-    $route: "setIsSearchPage",
   },
   computed: {
     exact() {
@@ -83,6 +83,12 @@ export default {
       }
       return this.isBlankTarget ? "noopener noreferrer" : null;
     },
+  },
+  watch: {
+    $route: "setIsSearchPage",
+  },
+  beforeMount() {
+    this.setIsSearchPage();
   },
   methods: {
     setIsSearchPage: function() {

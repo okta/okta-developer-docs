@@ -58,14 +58,14 @@ describe('Sign up page check spec', () => {
       signUpPage.getGithubButtonInput().click();
 
       dialogWindow.getDialogWindow().should('exist');
-      dialogWindow.getDialogWindow().contains(/^Tell us more about yourself$/);
+      dialogWindow.getDialogWindow().contains('Tell us more about yourself');
     });
 
     it('sign up with google button click display dialog window for "Terms and Conditions"', () => {
       signUpPage.getGoogleButtonInput().click();
 
       dialogWindow.getDialogWindow().should('exist');
-      dialogWindow.getDialogWindow().contains(/^Tell us more about yourself$/);
+      dialogWindow.getDialogWindow().contains('Tell us more about yourself');
     });
 
     it('should contain proper router for signin link', () => {

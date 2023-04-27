@@ -1,8 +1,15 @@
 <template>
-  <div class="page-title" v-if="showPageTitle">
+  <div
+    v-if="showPageTitle"
+    class="page-title"
+  >
     <h1 class="page-title--title">
-      <i class='icon-48' v-if="$page.frontmatter.icon" :class="$page.frontmatter.icon" ></i>
-      {{$page.title}}
+      <i
+        v-if="$page.frontmatter.icon"
+        class="icon-48"
+        :class="$page.frontmatter.icon"
+      />
+      {{ $page.title }}
     </h1>
   </div>
 </template>

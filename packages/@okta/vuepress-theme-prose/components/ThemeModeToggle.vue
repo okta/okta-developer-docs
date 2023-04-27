@@ -1,7 +1,35 @@
 <template>
-  <label class="toggle-switch switch-theme" @click="toggleDarkMode">
-    <span :class="{'light-mode': true, 'active': !isDarkMode}"></span>
-    <span :class="{'dark-mode': true, 'active': isDarkMode}"></span>
+  <label
+    class="toggle-switch switch-theme"
+    @click="toggleDarkMode"
+  >
+    <span :class="{'light-mode': true, 'active': !isDarkMode}">
+      <img
+        src="/img/icons/mode-light.svg"
+        width="16"
+        height="16"
+        aria-hidden="true"
+        alt=""
+      >
+    </span>
+    <span :class="{'dark-mode': true, 'active': isDarkMode}">
+      <img
+        v-if="isDarkMode"
+        src="/img/icons/mode-dark.svg"
+        width="12"
+        height="13"
+        aria-hidden="true"
+        alt=""
+      >
+      <img
+        v-else
+        src="/img/icons/mode-dark-not-active.svg"
+        width="12"
+        height="13"
+        aria-hidden="true"
+        alt=""
+      >
+    </span>
   </label>
 </template>
 
@@ -25,8 +53,8 @@ export default {
 
   methods: {
     getDarkMode: function() {
-      this.isDarkMode = storage.getItem(THEME_MODE_KEY) 
-        ? JSON.parse(storage.getItem(THEME_MODE_KEY))  
+      this.isDarkMode = storage.getItem(THEME_MODE_KEY)
+        ? JSON.parse(storage.getItem(THEME_MODE_KEY))
         : window.matchMedia('(prefers-color-scheme: dark)').matches;
     },
 

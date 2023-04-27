@@ -42,7 +42,7 @@ If you configure your Okta org as detailed in [Configuration updates](#update-co
 }
 ```
 
-Use the `IdxTransaction` properties to show a challenge page that displays a one-time password input field. The sample app constructs this page using a [Mustache](https://mustache.github.io/) template.
+Use the `IdxTransaction` properties to show a challenge page that displays a one-time passcode input field. The sample app constructs this page using a [Mustache](https://mustache.github.io/) template.
 
 ```xml
 <div class="field">
@@ -60,7 +60,7 @@ Use the `IdxTransaction` properties to show a challenge page that displays a one
 </button>
 ```
 
-UI showing the one-time password input field.
+UI showing the one-time passcode input field.
 
 <div class="three-quarter">
 
@@ -68,9 +68,9 @@ UI showing the one-time password input field.
 
 </div>
 
-### 3: Get one-time password from Google authenticator
+### 3: Get one-time passcode from Google authenticator
 
-Next, the user opens Google Authenticator on their mobile device and finds the one-time password for their account.
+Next, the user opens Google Authenticator on their mobile device and finds the one-time passcode for their account.
 
 <div class="three-quarter">
 
@@ -78,9 +78,9 @@ Next, the user opens Google Authenticator on their mobile device and finds the o
 
 </div>
 
-### 4: Submit one-time password in your app
+### 4: Submit one-time passcode in your app
 
-When the user enters and submits this one-time password, call `OktaAuth.idx.proceed()` and pass in the password.
+When the user enters and submits this one-time passcode, call `OktaAuth.idx.proceed()` and pass in the password.
 
 ```javascript
   const { verificationCode } = req.body;

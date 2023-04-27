@@ -1,4 +1,4 @@
-1. Add a new empty API Controller class to the Controller folder named `InfoController`.
+1. Add a new empty API controller class to the Controller folder named `InfoController`.
 2. Add the following `using` statements to the top of the file:
 
    ```csharp
