@@ -3560,7 +3560,8 @@ The ID of a Member is unique to the Binding, whereas the link that points to the
 
 A Condition is a way to further restrict a permission in a Custom Admin Role. Ex. restricting access to specific profile attributes.
 
-NOTE: Currently conditions are only available for `okta.users.read` and `okta.users.userprofile.manage`
+NOTE: Currently conditions are only available for `okta.users.read` and `okta.users.userprofile.manage`.
+NOTE: Admins cannot be restricted from viewing some attributes (First name, Last name, Username, Primary$ email, or Mobile phone).
 
 ### Condition object Properties
 
@@ -3569,7 +3570,7 @@ NOTE: Currently conditions are only available for `okta.users.read` and `okta.us
 | `include`        | Object that contains attributes on which access should be allowed     | Object   | FALSE     |
 | `exclude`        | Object that contains attributes on which access should not be allowed | Object   | FALSE     |
 
-NOTE: Exactly one of `include` or `exclude` must be present in the conditions object
+NOTE: Exactly one of `include` or `exclude` must be present in the conditions object.
 
 #### Conditions example to include city, state, zipCode user attributes
 
