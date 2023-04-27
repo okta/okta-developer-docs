@@ -1,0 +1,6 @@
+.archetecture-center__tooltip {
+  background-color: cv("arch", "card-hover");
+  &:before {
+    border-top: 10px solid cv("arch", "card-hover");
+  }
+}
