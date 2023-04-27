@@ -4,39 +4,21 @@ title: Multi-tenant solutions
 
 # Multi-tenant solutions
 
-Organizations that need to manage a diverse set of user types should consider
-the Okta multi-tenant solution. This doc provides an overview of the
-solution, identifies reasons why organizations may want to consider it, and
-lists the different multi-tenant configurations available.
+Organizations that need to manage a diverse set of user types should consider the Okta multi-tenant solution. This doc provides an overview of the solution, identifies reasons why organizations may want to consider it, and lists the different multi-tenant configurations available.
 
-> **Important**: When implementing a multi-tenant solution, ensure that
- all tenants are on the same version of Okta, either Okta Classic or Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your
- tenant's Okta version.
+> **Important**: When implementing a multi-tenant solution, ensure that all tenants are on the same version of Okta, either Okta Classic or Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your tenant's Okta version.
 
 ## Acme Bank example
 
-Acme Bank, a fictitious bank, is used throughout this doc to explain the
-details and key concepts around multi-tenancy. The company came to Okta to
-centralize and improve their existing identity management infrastructure.
-To meet the needs and demands of their employees, customers, and partners,
-they built their solution with a multi-tenant configuration.
+Acme Bank, a fictitious bank, is used throughout this doc to explain the details and key concepts around multi-tenancy. The company came to Okta to centralize and improve their existing identity management infrastructure.To meet the needs and demands of their employees, customers, and partners, they built their solution with a multi-tenant configuration.
 
 ## What is a tenant?
 
-A tenant is a single instance of software and supporting infrastructure that
-supports a group of users. Tenant's can represent any entity that
-interfaces with the organization such as its employees, customers, or partners.
-A tenant supports both a business-to-customer (B2C) and business-to-business
-(B2B) model where users can be either be direct customers or another
-organization's customers.
+A tenant is a single instance of software and supporting infrastructure that supports a group of users. Tenant's can represent any entity that interfaces with the organization such as its employees, customers, or partners. A tenant supports both a business-to-customer (B2C) and business-to-business (B2B) model where users can be either be direct customers or another organization's customers.
 
 ### A tenant within Identity Access Management
 
-A tenant can also be considered as an isolated island of data that is separate
-and private from other tenants. In the context of identity management, each
-tenant has its own security policies, user registration settings, user groups,
-roles, and rules that determine application access. An illustration of these
-different types of data is shown below:
+A tenant can also be considered as an isolated island of data that is separate and private from other tenants. In the context of identity management, each tenant has its own security policies, user registration settings, user groups, roles, and rules that determine application access. An illustration of these different types of data is shown below:
 
 <div class="three-quarter">
 
@@ -46,17 +28,12 @@ different types of data is shown below:
 
 ## Why would you want more than one tenant
 
-An organization can create a new tenant for a variety of reasons. For example
-they may want to:
+An organization can create a new tenant for a variety of reasons. For example they may want to:
 
-* Separate user administration and application access for internal employees
-  from outside customers
-* Store customer data in a certain region due to regulations and data
-residency requirements
-* Satisfy a unique set of requirements (for example, distinct branding emails,
-onboarding videos) for a business with their own set of users
-* Increase isolation, performance, and scalability for an organization with a large
-user base
+* Separate user administration and application access for internal employees from outside customers
+* Store customer data in a certain region due to regulations and data residency requirements
+* Satisfy a unique set of requirements (for example, distinct branding emails, onboarding videos) for a business with their own set of users
+* Increase isolation, performance, and scalability for an organization with a large user base
 
 ## Types of tenants
 
@@ -90,10 +67,7 @@ Acme Bank defined their tenants as:
 
 ### Before we begin
 
-This doc assumes a basic knowledge of the Okta data model and uses Okta
-terminology such as "org" and "Universal Directory" when describing key
-concepts and configurations. For more information on these entities and how
-they relate to each another, see the following resources:
+This doc assumes a basic knowledge of the Okta data model and uses Okta terminology such as "org" and "Universal Directory" when describing key concepts and configurations. For more information on these entities and how they relate to each another, see the following resources:
 
 * [What is an Okta org?](/docs/concepts/okta-organizations/)
 * [Overview of the Okta data model](/docs/concepts/okta-data-model/)
@@ -101,12 +75,7 @@ they relate to each another, see the following resources:
 
 ### Overview
 
-Okta has a highly adaptable and configurable solution for customers looking to
-implement multi-tenancy. Depending on the solution, a tenant can take the form
-of an org container, user groups within an org, or a customer-defined entity
-that is separate from the Okta platform. What form the tenant takes within Okta’s
-platform is ultimately decided by the customer. Okta offers four main
-configurations for multi-tenancy. They are:
+Okta has a highly adaptable and configurable solution for customers looking to implement multi-tenancy. Depending on the solution, a tenant can take the form of an org container, user groups within an org, or a customer-defined entity that is separate from the Okta platform. What form the tenant takes within Okta's platform is ultimately decided by the customer. Okta offers four main configurations for multi-tenancy. They are:
 
 * [Configuration 1: Host tenants in a single org using Universal Directory (UD)](#configuration-1)
 * [Configuration 2: Host tenants in separate orgs (for example, hub-and-spoke](#configuration-2)
@@ -119,14 +88,12 @@ Host tenants in a single org using Universal Directory (UD)
 
 ### Summary
 
-This configuration hosts all tenants in a single org. Customers have two
-ways to do this:
+This configuration hosts all tenants in a single org. Customers have two ways to do this:
 
 * Roll your own custom solution
 * Use the [okta-dac](https://docs.idp.rocks/) project
 
-Since a tenant doesn't exist as a separate entity within the org, both methods
-require abstracting tenants through the use of the org’s users and user groups.
+Since a tenant doesn't exist as a separate entity within the org, both methods require abstracting tenants through the use of the org's users and user groups.
 
 ### When to choose this configuration
 
@@ -137,24 +104,14 @@ Okta customers should choose this configuration when:
 * User self-registration is the same for all users in all tenants.
 * All tenants have a relatively small number of password policies (>1000).
 * None of their customers and users have data residency requirements.
-* All branding communications and onboarding experiences are the same for all
-  users.
-* It's acceptable to support unique usernames for each tenant by storing them
-  in the Okta platform with custom naming conventions (for example, `app-1-johndoe`,
-  `app-2-johndoe`).
+* All branding communications and onboarding experiences are the same for all users.
+* It's acceptable to support unique usernames for each tenant by storing them in the Okta platform with custom naming conventions (for example, `app-1-johndoe`, `app-2-johndoe`).
 
 ### How tenants are built
 
-In this configuration there is one org for all tenants. For example, Acme Bank
-configures one org for all of their individual customers, business customers, and
-partners. Regardless of how this configuration is implemented, tenants are
-typically created using groups. A group or collection of groups represent the
-users in a tenant. Groups are assigned to applications that give application
-access to all users within that group.
+In this configuration there is one org for all tenants. For example, Acme Bank configures one org for all of their individual customers, business customers, and partners. Regardless of how this configuration is implemented, tenants are typically created using groups. A group or collection of groups represent the users in a tenant. Groups are assigned to applications that give application access to all users within that group.
 
-Acme Bank offers products, website portals, and other wealth management apps
-to their customers and partners. Below is a diagram that lays out
-how these products, users, and groups would be organized within the Okta org.
+Acme Bank offers products, website portals, and other wealth management apps to their customers and partners. Below is a diagram that lays out how these products, users, and groups would be organized within the Okta org.
 
 <div class="three-quarter">
 
@@ -164,9 +121,7 @@ how these products, users, and groups would be organized within the Okta org.
 
 #### User types
 
-A recommended strategy is to create user types that allow a hierarchy of users
-with increasing permissions. As shown in the above diagram, three types of
-users are defined:
+A recommended strategy is to create user types that allow a hierarchy of users with increasing permissions. As shown in the above diagram, three types of users are defined:
 
 * [User](#user)
 * [Admin User](#admin-user)
@@ -174,12 +129,7 @@ users are defined:
 
 #### User
 
-These people are users of the tenant. They can be individual customers in a
-customer's tenant, customers of a financial technology company, or employees of
-the Okta customer. Users have the ability to access products and applications
-assigned to them. Depending on the setup, they can also manage their own profile
-settings including updating passwords and enrolling in multifactor
-authentication (MFA).
+These people are users of the tenant. They can be individual customers in a customer's tenant, customers of a financial technology company, or employees of the Okta customer. Users have the ability to access products and applications assigned to them. Depending on the setup, they can also manage their own profile settings including updating passwords and enrolling in multifactor authentication (MFA).
 
 #### Admin user
 
@@ -192,25 +142,18 @@ Admin users manage users of a tenant. Their responsibilities include:
 
 #### Super user
 
-These users can create new tenants and tenant admins. They are used by
-the Okta customer to manage tenants in their org.
+These users can create new tenants and tenant admins. They are used by the Okta customer to manage tenants in their org.
 
 ### The okta-dac project
 
-The okta-dac project is one such implementation of this configuration. This
-project enables multi-tenancy in a single org and is maintained by Okta team
-members and supported by the developer community. This project (Okta
-Multi-Tenant Admin) supports the following functionality:
+The okta-dac project is one such implementation of this configuration. This project enables multi-tenancy in a single org and is maintained by Okta team members and supported by the developer community. This project (Okta Multi-Tenant Admin) supports the following functionality:
 
 * Multi-tenancy in a single org
 * Users can be admins of their own tenants
 * Tenant admins can self-configure their own Identity Providers for their tenants
 * Tenant admins can manage their own user base
 
-This doc briefly summarizes the Okta Multi-Tenant Admin. For more
-detailed information on okta-dac as it relates to architecture,
-setup, and deployment, see the project’s main
-[site](https://docs.idp.rocks/).
+This doc briefly summarizes the Okta Multi-Tenant Admin. For more detailed information on okta-dac as it relates to architecture, setup, and deployment, see the project's main [site](https://docs.idp.rocks/).
 
 #### Application architecture
 
@@ -224,24 +167,18 @@ okta-dac consists of the following components:
 
 #### Okta org
 
-A container object that stores applications and a tenant’s users and groups
+A container object that stores applications and a tenant's users and groups
 
 #### Tenants API
 
-An API that is used by the Delegated Admin Console (DAC) and the Okta End-User
-dashboard. The Tenants API wraps the
-[Okta API](/docs/reference/core-okta-api/) that is
-used to manage the Okta org’s data.
+An API that is used by the Delegated Admin Console (DAC) and the Okta End-User dashboard. The Tenants API wraps the [Okta API](/docs/reference/core-okta-api/) that is used to manage the Okta org's data.
 
 #### Delegated Admin Console
 
-A tool (DAC) that is used to manage users of a tenant. The tool is split
-into two UIs that include:
+A tool (DAC) that is used to manage users of a tenant. The tool is split into two UIs that include:
 
-* **Super Admin UI:** Used to create new tenants and their first admin user.
-Used by Super Admins.
-* **Tenant Admin UI:** Used to manage users of a specific tenant. Used by
-the Admin user of a tenant.
+* **Super Admin UI:** Used to create new tenants and their first admin user. Used by Super Admins.
+* **Tenant Admin UI:** Used to manage users of a specific tenant. Used by the Admin user of a tenant.
 
 #### Okta End-User Dashboard
 
@@ -249,11 +186,7 @@ A dashboard used to access applications and products
 
 #### Admin console
 
-A [console](/docs/concepts/okta-organizations/#admin-console)
-used to manage user authentication settings and application access.
-Although you can manage users and groups through the Admin Console,
-it isn't recommended when using okta-dac due to the project's specific
-naming conventions and unique organizational constraints.
+A [console](/docs/concepts/okta-organizations/#admin-console) used to manage user authentication settings and application access. Although you can manage users and groups through the Admin Console, it isn't recommended when using okta-dac due to the project's specific naming conventions and unique organizational constraints.
 
 The diagram below illustrates how these components work together:
 
@@ -265,18 +198,11 @@ The diagram below illustrates how these components work together:
 
 #### Customizations
 
-The DAC, Okta End-User Dashboard, and Admin Console are default UIs provided
-by Okta. Since these tools use Tenant and Okta APIs to manage the Okta org,
-Okta customers can plug in their own custom UIs.
+The DAC, Okta End-User Dashboard, and Admin Console are default UIs provided by Okta. Since these tools use Tenant and Okta APIs to manage the Okta org, Okta customers can plug in their own custom UIs.
 
 #### From logical to physical
 
-The Delegated Admin Console and Okta End-User Dashboard use the Tenant API to
-convert the org's inherently more flattened layout into abstract concepts
-such as tenants and products. Concepts such as products and tenants become
-applications, groups, and users (people) under the physical structure of
-the org. Following the previous examples, this conversion looks
-like the following:
+The Delegated Admin Console and Okta End-User Dashboard use the Tenant API to convert the org's inherently more flattened layout into abstract concepts such as tenants and products. Concepts such as products and tenants become applications, groups, and users (people) under the physical structure of the org. Following the previous examples, this conversion looks like the following:
 
 <div class="three-quarter">
 
@@ -285,8 +211,7 @@ like the following:
 </div>
 
 > **Note:** okta-dac isn't an official Okta product and doesn't
-qualify for any support. It's recommended to work with your preferred Okta
-Solution Provider to integrate this code within your existing portal.
+qualify for any support. It's recommended to work with your preferred Okta Solution Provider to integrate this code within your existing portal.
 
 #### More information
 
@@ -298,60 +223,34 @@ Host tenants in separate orgs (for example, hub-and-spoke)
 
 ### Summary
 
-This configuration separates tenants into separate containers (orgs).
-The most popular architecture for this configuration is known as hub-and-spoke.
+This configuration separates tenants into separate containers (orgs). The most popular architecture for this configuration is known as hub-and-spoke.
 
 ### When to use this configuration
 
 Reasons why organizations choose this configuration include:
 
-* **Data residency requirements:** The data in tenants can more easily be
-isolated when placed into separate orgs. This isolation becomes relevant
-when user data is required to reside in a specific region (for
-example, government regulations).
-* **Strong delegated admin support:** Although there is delegated admin
-support in [okta-dac](#the-okta-dac-project), the number of delegated
-responsibilities that are supported is limited. Splitting customers and
-partners into separate orgs offer the maximum level of delegated
-responsibility support.
-* **Out-of-the-box duplicate name support:** This configuration offers
-native support for duplicate usernames, since duplicate usernames can exist
-in different orgs.
-* **Branding emails:** Branding emails, onboarding videos, and other
-communications are set at the org level. As a result, this configuration
-supports unique forms of communications per tenant.
-* **Performance:** For large enterprise customers, there are performance
-advantages to spreading tenant user authentications into multiple orgs.
-* **Analytics:** Reading analytics and tracking user adoption for each
-tenant is exponentially easier when tenants are separated into orgs.
-* **Unique DNSs:** Customers in each tenant may want to customize their
-DNS and "post sign-in" redirect page. In this case, a tenant per org natively
-supports this functionality.
+* **Data residency requirements:** The data in tenants can more easily be isolated when placed into separate orgs. This isolation becomes relevant when user data is required to reside in a specific region (for example, government regulations).
+* **Strong delegated admin support:** Although there is delegated admin support in [okta-dac](#the-okta-dac-project), the number of delegated responsibilities that are supported is limited. Splitting customers and partners into separate orgs offer the maximum level of delegated responsibility support.
+* **Out-of-the-box duplicate name support:** This configuration offers native support for duplicate usernames, since duplicate usernames can exist in different orgs.
+* **Branding emails:** Branding emails, onboarding videos, and other communications are set at the org level. As a result, this configuration supports unique forms of communications per tenant.
+* **Performance:** For large enterprise customers, there are performance advantages to spreading tenant user authentications into multiple orgs.
+* **Analytics:** Reading analytics and tracking user adoption for each tenant is exponentially easier when tenants are separated into orgs.
+* **Unique DNSs:** Customers in each tenant may want to customize their DNS and "post sign-in" redirect page. In this case, a tenant per org natively supports this functionality.
 
 ### Implementations
 
-The Okta supported design for a multi-org, multi-tenant configuration is
-the hub-and-spoke setup.
+The Okta supported design for a multi-org, multi-tenant configuration is the hub-and-spoke setup.
 
 ### Hub-and-spoke physical layout
 
 The two main components of the hub-and-spoke layout are:
 
-* **Spoke:** Org that contains users, user groups, and applications specific to
- that tenant. Spokes are responsible for lifecycle management and
- the authentication of its users.
-
-* **Hub:** Org that contains shared users, user groups, and applications. Spokes
-access shared applications and platform services through the hub. Hubs provide
-shared directory services, authentication, sign-in policies, and authorization
-services to spokes in a centralized way. In addition, hubs can route users
-to different spokes for authentication access to other spoke’s specific
-applications.
+* **Spoke:** Org that contains users, user groups, and applications specific to that tenant. Spokes are responsible for lifecycle management and the authentication of its users.
+* **Hub:** Org that contains shared users, user groups, and applications. Spokes access shared applications and platform services through the hub. Hubs provide shared directory services, authentication, sign-in policies, and authorization services to spokes in a centralized way. In addition, hubs can route users to different spokes for authentication access to other spoke's specific applications.
 
 #### Connecting the spokes to the hubs
 
-Using the Org2Org connector, spokes can add users and give access to shared
-applications and services through the hub.
+Using the Org2Org connector, spokes can add users and give access to shared applications and services through the hub.
 
 #### Diagram
 
@@ -376,12 +275,7 @@ Hybrid - host tenants in both single and separate orgs
 
 ### Summary
 
-Okta supports a hybrid configuration that mixes the setups described in both the
-first and second configurations. How this configuration is set up varies from
-customer to customer. One example of this hybrid configuration lays out orgs
-in a hub-and-spoke pattern like configuration 2. A spoke on this configuration
-can be composed of single or multiple tenants. See the diagram below for an
-illustrated example of this setup:
+Okta supports a hybrid configuration that mixes the setups described in both the first and second configurations. How this configuration is set up varies from customer to customer. One example of this hybrid configuration lays out orgs in a hub-and-spoke pattern like configuration 2. A spoke on this configuration can be composed of single or multiple tenants. See the diagram below for an illustrated example of this setup:
 
 <div class="three-quarter">
 
@@ -391,11 +285,7 @@ illustrated example of this setup:
 
 ### When to use this option
 
-Depending on the requirements, business customers may require the data
-isolation, customizations, and other features provided by a single org.
-Other customers may not have these demands and can be placed on a shared
-org with other customers. This hybrid configuration supports both types of
-customers.
+Depending on the requirements, business customers may require the data isolation, customizations, and other features provided by a single org. Other customers may not have these demands and can be placed on a shared org with other customers. This hybrid configuration supports both types of customers.
 
 ## Configuration 4
 
@@ -403,11 +293,7 @@ Host tenants in a single org not using Universal Directory
 
 ### Summary
 
-In this configuration, the customer assumes responsibility for managing
-users, groups, and application access outside of the Okta org. Okta’s Universal
-Directory (UD) isn't used to store the tenants’ users and groups. See below
-for an illustrated example of this
-configuration.
+In this configuration, the customer assumes responsibility for managing users, groups, and application access outside of the Okta org. Okta's Universal Directory (UD) isn't used to store the tenants' users and groups. See below for an illustrated example of this configuration.
 
 <div class="three-quarter">
 
@@ -427,17 +313,13 @@ Additional multi-tenancy resources are below:
 
 #### Org
 
-The Okta identity solution is centered around an org. An org is a private container
-of data that holds all the resources necessary to manage user authentication.
-It is comprised of three main objects:
+The Okta identity solution is centered around an org. An org is a private container of data that holds all the resources necessary to manage user authentication. It is comprised of three main objects:
 
 * Applications
 * Groups
 * People (Users)
 
-The Okta org is also a place that stores lists of available Identity Providers
-(IdPs), factors (for MFAs), password policies, and other security related
-features.
+The Okta org is also a place that stores lists of available Identity Providers (IdPs), factors (for MFAs), password policies, and other security related features.
 
 The diagram below illustrates a simplified view of the Okta org.
 
