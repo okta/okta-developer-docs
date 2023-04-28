@@ -4,7 +4,7 @@ title: Lab overview and prerequisites
 
 # Lab overview and prerequisites
 
-In this lab, you learn how to migrate users from three different types of user directories into Universal Directory using a directory coexistence strategy. Then, you reconfigure a sample application to authenticate a user with Universal Directory rather than the original user directory.
+Learn how to migrate users from three different types of user directories into Universal Directory using a directory coexistence strategy. Then, reconfigure a sample application to authenticate a user with Universal Directory rather than the original user directory.
 
 * [Migrate users from Azure Active Directory](/architecture-center/architectures/directory-coexistence/lab-azure-ad)
 * [Migrate users from an on-premises LDAP directory server](/architecture-center/architectures/directory-coexistence/lab-ldap-server)
@@ -14,7 +14,7 @@ In this lab, you learn how to migrate users from three different types of user d
 
 ## Prerequisites
 
-You need to set up the following to complete the tutorials in this lab.
+Set up the following to complete the tutorials in this lab.
 
 ### Applications
 
@@ -32,7 +32,7 @@ This lab uses Docker containers to provide a starting point for each tutorial. T
 An Okta developer account is required to act as the target of your user migration. Okta CLI is the quickest way to work with your Okta org, so we recommend using it for the first few steps. Alternatively, you can manually sign up for an org instead.
 
 1. Open your terminal.
-2. Run `okta register`, and enter your first name, last name, email address, and country.
+2. Run `okta register`, and enter your first name, family name, email address, and country.
 3. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
 
 > **Tip:** If you don't receive a confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
@@ -55,9 +55,9 @@ An Okta developer account is required to act as the target of your user migratio
 
 Make note of your Okta domain. Use it wherever you see `${OKTA_DOMAIN}` in the lab.
 
-> **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled by opening your Admin Console and verifying **Security** > **API** is a menu option. If it isn't, you can:
+> **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled: Open your Admin Console and verify **Security** > **API** is a menu option. If it isn't, you can:
 >
-> * Create a new developer account and Org with Okta CLI.
+> * Create a developer account and Org with Okta CLI.
 > * Contact your support team to enable the feature in your Org.
 > * Use the Admin Console to create your app integrations manually instead of the CLI.
 >

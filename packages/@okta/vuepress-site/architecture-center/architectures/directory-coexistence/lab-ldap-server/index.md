@@ -4,7 +4,7 @@ title: Migrate users from an on-premises LDAP directory
 
 # Migrate users from an on-premises LDAP directory
 
-Suppose you already handle authentication through an on-premises LDAP directory but want to replace it with Okta. You can install an on-premises Okta LDAP Agent to mirror those users to Universal Directory and then redirect your applications to Okta for authentication. In this scenario, Universal Directory serves as a single source of truth for user data and lets administrators centrally manage policies and profiles. You can assign them to any application registered with your Okta Organization. Access to those assigned applications can be through any protocol, such as LDAP Interface, OpenID Connect (OIDC), SAML, and so on.
+Suppose you already handle authentication through an on-premises LDAP directory but want to replace it with Okta. You can install an on-premises Okta LDAP Agent to mirror those users to Universal Directory and then redirect your applications to Okta for authentication. In this scenario, Universal Directory serves as a single source of truth for user data and lets administrators centrally manage policies and profiles. You can assign them to any application registered with your Okta org. Access to those assigned applications can be through any protocol, such as LDAP Interface, OpenID Connect (OIDC), SAML, and so on.
 
 However, authentication of the LDAP user is delegated to the LDAP server through the Okta LDAP Interface so that users can authenticate with Okta using their LDAP directory server credentials. This directory coexistence can stay in place until you migrate all your user information to Universal Directory and no longer require the LDAP directory.
 
@@ -104,7 +104,7 @@ Stop the currently running containers and sign in to your Okta account.
    Overwrite configuration file? [Y/n]
    ```
 
-   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you are not using an Okta developer account. To resolve this error, see [Okta developer account](/architecture-center/architectures/directory-coexistence/lab/#okta-developer-account).
+   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you aren’t using an Okta developer account. To resolve this error, see [Okta developer account](/architecture-center/architectures/directory-coexistence/lab/#okta-developer-account).
 
    {style="list-style-type:lower-alpha"}
    1. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/architectures/directory-coexistence/lab/#values-and-variables).
@@ -307,7 +307,7 @@ The Okta LDAP Agent now connects the LDAP Server to Okta so you can import users
 
    </div>
 
-he selected LDAP users and groups are now imported, and you can assign them to any application that you’ve registered with your Okta org. Users can access those assigned applications through any protocol, such as LDAP Interface, OIDC, SAML, and so on.
+The selected LDAP users and groups are now imported, and you can assign them to any application that you’ve registered with your Okta org. Users can access those assigned applications through any protocol, such as LDAP Interface, OIDC, SAML, and so on.
 
 However, authentication of the LDAP user is delegated to the LDAP server through the Okta LDAP Agent. Delegated authentication is used when that user signs in to an assigned application in your Okta org.
 
@@ -544,6 +544,6 @@ After you complete this tutorial, stop the application and remove the Docker con
 
 ## Migrate users from LDAP to Okta
 
-The LDAP users are already stored in Okta, but the passwords are managed by the LDAP server. If you want Okta to take over the authentication part instead of Delegated Authentication to LDAP, disable delegated Authentication for LDAP by going to **Security** > **Delegated Authentication** > **LDAP**. This requires you to reset passwords for the all the LDAP users so that users can set an Okta password to sign in. This will still retain the user's profile to be mastered by LDAP but authentication will be handled by Okta. If you want user profiles to be mastered by Okta, you’ll have to turn off Profile Master setting under **Directories** > **LDAP** > **Settings** > **Import Settings** and **Disable Profile Master**. This converts all LDAP user profiles to be mastered by Okta.
+The LDAP users are already stored in Okta, but the passwords are managed by the LDAP server. If you want Okta to take over the authentication part instead of Delegated Authentication to LDAP, disable delegated Authentication for LDAP by going to **Security** > **Delegated Authentication** > **LDAP**. This requires you to reset passwords for the all the LDAP users so that users can set an Okta password to sign in. This will still retain the user's profile to be sourced by LDAP but authentication will be handled by Okta. If you want user profiles to be sourced by Okta, turn off Profile Master setting under **Directories** > **LDAP** > **Settings** > **Import Settings** and **Disable Profile Master**. This converts all LDAP user profiles to be sourced by Okta.
 
 > **Note**: This requires resetting the users' passwords. If you don't want to reset all user passwords, you can use an Okta password import hook. See [Account for hash types Okta doesn't support](/architecture-center/architectures/directory-coexistence/lab-generic-database/#account-for-hash-types-okta-does-not-support).
