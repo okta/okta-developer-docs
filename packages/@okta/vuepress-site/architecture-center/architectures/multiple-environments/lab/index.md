@@ -41,6 +41,9 @@ Okta CLI is the quickest way to create an Okta org, so we recommend using it to 
 1. Open your terminal.
 2. Run `okta register`, and enter your First name, Last name, Email address, and Country.
 3. Click or tap **Activate** in the account activation email that is sent to the email address that you provided.
+
+> **Tip:** If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
+
 4. After your domain is registered, look for output similar to this:
 
    ```txt
@@ -59,7 +62,13 @@ Okta CLI is the quickest way to create an Okta org, so we recommend using it to 
 
 7. Repeat steps 1 - 6 to create a second Okta domain. This is your production domain.
 
-> **Tip:** If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
+> **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled by opening your Admin Console and verifying **Security** > **API** is a menu option. If it isn't, you can:
+>
+> * Create a new developer account and Org with Okta CLI.
+> * Contact your support team to enable the feature in your Org.
+> * Use the Admin Console to create your app integrations manually instead of the CLI.
+>
+> All accounts created with Okta CLI are developer accounts.
 
 ## Okta Workflows
 

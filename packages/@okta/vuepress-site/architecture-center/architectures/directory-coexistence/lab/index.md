@@ -34,6 +34,9 @@ An Okta developer account is required to act as the target of your user migratio
 1. Open your terminal.
 2. Run `okta register`, and enter your first name, last name, email address, and country.
 3. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
+
+> **Tip:** If you don't receive a confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
+
 4. After your domain is registered, look for output similar to this:
 
    ```txt
@@ -52,7 +55,13 @@ An Okta developer account is required to act as the target of your user migratio
 
 Make note of your Okta domain. Use it wherever you see `${OKTA_DOMAIN}` in the lab.
 
-> **Tip:** If you don't receive a confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`.
+> **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled by opening your Admin Console and verifying **Security** > **API** is a menu option. If it isn't, you can:
+>
+> * Create a new developer account and Org with Okta CLI.
+> * Contact your support team to enable the feature in your Org.
+> * Use the Admin Console to create your app integrations manually instead of the CLI.
+>
+> All accounts created with Okta CLI are developer accounts.
 
 ### Azure Active Directory
 

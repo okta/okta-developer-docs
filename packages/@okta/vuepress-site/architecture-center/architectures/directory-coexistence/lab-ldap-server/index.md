@@ -104,9 +104,11 @@ Stop the currently running containers and sign in to your Okta account.
    Overwrite configuration file? [Y/n]
    ```
 
-   a. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/architectures/directory-coexistence/lab/#values-and-variables).
+   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you are not using an Okta developer account. To resolve this error, see [Okta developer account](/architecture-center/architectures/directory-coexistence/lab/#okta-developer-account).
 
-   b. Follow the instructions in [Create an API token](/docs/guides/create-an-api-token) to create a token. After you have the token, enter it at the Okta API token prompt.
+   {style="list-style-type:lower-alpha"}
+   1. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/architectures/directory-coexistence/lab/#values-and-variables).
+   1. Follow the instructions in [Create an API token](/docs/guides/create-an-api-token) to create a token. After you have the token, enter it at the Okta API token prompt.
 
 ### Set up the Okta LDAP Agent
 

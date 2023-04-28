@@ -67,9 +67,11 @@ To run the sample application and connect directly to the Okta sign-in dialog:
    Overwrite configuration file? [Y/n]
    ```
 
-   a. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/architectures/directory-coexistence/lab/#values-and-variables).
+   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you are not using an Okta developer account. To resolve this error, see [Okta developer account](/architecture-center/architectures/directory-coexistence/lab/#okta-developer-account).
 
-   b. Follow the instructions in [Create an API token](/docs/guides/create-an-api-token) to create a token. After you have the token, enter it at the Okta API token prompt.
+   {style="list-style-type:lower-alpha"}
+   1. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/architectures/directory-coexistence/lab/#values-and-variables).
+   1. Follow the instructions in [Create an API token](/docs/guides/create-an-api-token) to create a token. After you have the token, enter it at the Okta API token prompt.
 
 1. Register the sample application with Okta:
 
@@ -77,13 +79,15 @@ To run the sample application and connect directly to the Okta sign-in dialog:
    okta start
    ```
 
-   The CLI shows the following message:
+   Okta CLI shows the following message:
 
    ```txt
    Configuring a new OIDC application, almost done:
    Created OIDC application, client-id: 0oa1jnble6
    Okta configuration written to .env
    ```
+
+   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you are not using an Okta developer account. To resolve this error, see [Okta developer account](/architecture-center/architectures/directory-coexistence/lab/#okta-developer-account).
 
    > **Note:** If you are asked to select the authorization server to use, select the default server.
 
