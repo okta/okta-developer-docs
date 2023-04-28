@@ -14,7 +14,7 @@ For a step-by-step guide on implementing an example event hook, see the [Event h
 
 ## Get started
 
-Explore the event hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/15901964-61517094-f0ed-45e9-982a-f7a6a2db1bab?action=collection%2Ffork&collection-url=entityId%3D15901964-61517094-f0ed-45e9-982a-f7a6a2db1bab%26entityType%3Dcollection%26workspaceId%3D9f1d6c8f-d027-4107-a5c5-20d963c2c9d8)
+Explore the event hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2fdf75c2fb3319ef5e73)
 
 ## Event hook operations
 
@@ -676,6 +676,8 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 <ApiLifecycle access="ea" />
 
 <EventHookEANote/>
+
+Explore the event hooks API with filters: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/15901964-61517094-f0ed-45e9-982a-f7a6a2db1bab?action=collection%2Ffork&collection-url=entityId%3D15901964-61517094-f0ed-45e9-982a-f7a6a2db1bab%26entityType%3Dcollection%26workspaceId%3D9f1d6c8f-d027-4107-a5c5-20d963c2c9d8)
 
 | Property | Description                                                                  | DataType | Required | ReadOnly |
 |----------|------------------------------------------------------------------------------|----------|----------|----------|
