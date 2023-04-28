@@ -100,6 +100,7 @@ The Identity Sources API bulk upsert operation accepted an empty profile payload
 #### Bugs fixed in 2023.03.3
 
 * App sign-on events with usernames that exceeded 100 characters weren't always added to the System Log. (OKTA-585478)
+* CSV values that could trigger a computation weren’t escaped in the `User-Agent` string. (OKTA-452381)
 * The groups count on the Admin Dashboard was incorrect. (OKTA-592512)
 * Some validations weren't enforced when requests were made to the Apps API. (OKTA-585354)
 
