@@ -62,7 +62,7 @@ Okta CLI is the quickest way to create an Okta org, so we recommend using it to 
 
 7. Repeat steps 1–6 to create a second Okta domain. This is your production domain.
 
-> **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled by opening your Admin Console and verifying **Security** > **API** is a menu option. If it isn't, you can:
+> **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify you have an **Authorization Servers** tab. If not, you can:
 >
 > * Create a new developer account and org with Okta CLI.
 > * Contact your support team to enable the feature in your org.

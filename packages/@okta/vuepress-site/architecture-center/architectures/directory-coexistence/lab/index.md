@@ -55,7 +55,7 @@ An Okta developer account is required to act as the target of your user migratio
 
 Make note of your Okta domain. Use it wherever you see `${OKTA_DOMAIN}` in the lab.
 
-> **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled: Open your Admin Console and verify **Security** > **API** is a menu option. If it isn't, you can:
+> **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify you have an **Authorization Servers** tab. If not, you can:
 >
 > * Create a developer account and org with Okta CLI.
 > * Contact your support team to enable the feature in your org.
