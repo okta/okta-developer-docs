@@ -10,14 +10,14 @@ Now use Terraform to deploy your changes to another Okta org. This example of mo
 
 ## Create an Okta API token
 
-Follow the same process to create an Okta API token as you did in tutorial 1, but this time create a token for Terraform to access the production org.
+Create a token for Terraform to access the production org. Follow the same process to create an Okta API token as you did in tutorial 1.
 
 1. Open the Admin Console for your **production** org.
 1. Choose **Security** > **API** to view the API access management page.
 1. Select **Tokens** to view the API token management tab.
 1. Click **Create token** to open a **Create token** dialog.
 1. Set a name for your token. For example, _Terraform Cloud access for production org_.
-1. Click **Create token** to save a copy of the token. You won't be able to view it again.
+1. Click **Create token** to save a copy of the token. You can't view it again.
 
 ## Merge changes to production
 
@@ -37,10 +37,10 @@ Merge the changes in the `preview` branch into the `prod` branch in GitHub.
 
 ### Create a production workspace in Terraform
 
-In this exercise, you create a new workspace in Terraform Cloud to represent the production environment. Target the same repository as in [Connect Terraform to GitHub](/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud/#connect-terraform-to-github), but select the `prod` branch. Also, set **Apply Method** in Terraform Cloud to **Manual apply** so you have to manually review and apply changes if the planning stage is successful.
+In this exercise, you create a workspace in Terraform Cloud to represent the production environment. Target the same repository as in [Connect Terraform to GitHub](/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud/#connect-terraform-to-github), but select the `prod` branch. Also, set **Apply Method** in Terraform Cloud to **Manual apply** so you have to manually review and apply changes if the planning stage is successful.
 
 1. In your browser, go to [app.terraform.io](app.terraform.io).
-1. Click your profile picture in the sidebar. If the dropdown menu says you are signed in with any account other than your current Terraform user ID:
+1. Click your profile picture in the sidebar. If the dropdown menu says you're signed in with any account other than your current Terraform user ID:
    1. Click **Sign out** in the menu.
    2. On the Terraform Cloud sign-in page, sign in with the sign-in credentials for your **production** org.
 1. Navigate to the **Workspaces** page and click **+ New workspace**.
@@ -64,7 +64,7 @@ In this exercise, you create a new workspace in Terraform Cloud to represent the
 
 1. On the **Workspace created** page:
    1. Set **org_name** to your [${OKTA_DOMAIN_NAME}](/architecture-center/architectures/multiple-environments/lab/#values-and-variables) for the production org.
-   2. Set **api_token** to the token you created earlier in [Create an API token](#create-an-okta-api-token).
+   2. Set **api_token** to the token that you created earlier in [Create an API token](#create-an-okta-api-token).
    3. Set **base_url** to your org's base URL. For example, _okta.com_.
 1. Click **Save variables**.
 1. Mark your `api_token` variable as sensitive.

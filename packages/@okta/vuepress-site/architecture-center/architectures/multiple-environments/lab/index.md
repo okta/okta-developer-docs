@@ -4,16 +4,16 @@ title: Lab overview and prerequisites
 
 # Lab overview and prerequisites
 
-Before incorporating Terraform into a company's continuous deployment architecture, there isn't a way to create, rebuild, or update an Okta environment consistently. Nor is it easy to determine if one environment has changed - for example, a group updated, a new autentication policy - and to synchronize the others with it. This is known as analysing drift between environments.
+Before incorporating Terraform into a company's continuous deployment architecture, there isn't a way to create, rebuild, or update an Okta environment consistently. Nor is it easy to determine if one environment has changed - for example, a group updated, a new authentication policy - and to synchronize the others with it. This is known as analyzing drift between environments.
 
 This lab is intended for admins with Okta experience who have multiple orgs. It assumes that you have previous knowledge of Okta, but not necessarily about Terraform Cloud. For more information on:
 
 * Okta and IAM, see [Identity and Access Management (IAM) overview](https://developer.okta.com/docs/concepts/iam-overview/).
-* Terraform Cloud, see [What is Terraform Cloud?](https://developer.hashicorp.com/terraform/cloud-docs).
+* Terraform Cloud, see [What is Terraform Cloud?](https://developer.hashicorp.com/terraform/cloud-docs)
 
 The tutorials in this lab are designed to run sequentially, with each tutorial starting with the results on the one before:
 
-1. In [Configure Terraform Cloud](/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud), you create a free Terraform Cloud account, connect it to your Github account and development Okta org. Then, you configure it to react to changes in your Github repo.
+1. In [Configure Terraform Cloud](/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud), you create a free Terraform Cloud account, connect it to your GitHub account and development Okta org. Then, you configure it to react to changes in your GitHub repo.
 1. In [Create resources for your environment](/architecture-center/architectures/multiple-environments/lab-2-create-resources), you use Terraform to create the resources required to make your org functional.
 1. In [Change an object in that environment](/architecture-center/architectures/multiple-environments/lab-3-rename-a-group), you use Terraform to update the name of an existing group in the new org.
 1. In [Move objects between environments](/architecture-center/architectures/multiple-environments/lab-4-deploy-changes-to-production), you deploy your changes from the development environment to a separate production environment.
@@ -22,7 +22,7 @@ The tutorials in this lab are designed to run sequentially, with each tutorial s
 
 ## Prerequisites
 
-You will need to set up the following to complete the tutorials in this lab.
+You'll need to set up the following to complete the tutorials in this lab.
 
 ## Applications
 
@@ -34,7 +34,7 @@ This lab uses [Okta CLI](https://cli.okta.com/) to create Okta developer account
 
 This lab requires two Okta developer accounts, one to represent a development environment, and one to act as a production environment. Both accounts must use **Okta Identity Engine**.
 
-> **Tip:** If you are using existing accounts and want to check that the org is running Okta Identity Engine rather than Okta Classic Engine, check the footer on any page of the Admin Console for that org. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
+> **Tip:** If you're using existing accounts and want to check the org is running Okta Identity Engine rather than Okta Classic Engine, check the footer on any page of the Admin Console for that org. The version number is appended with **E** for Identity Engine orgs and **C** for Classic Engine orgs.
 
 Okta CLI is the quickest way to create an Okta org, so we recommend using it to create both new orgs. Alternatively, you can manually sign up instead.
 
@@ -60,12 +60,12 @@ Okta CLI is the quickest way to create an Okta org, so we recommend using it to 
    Your Okta Domain: https://dev-xxxxxxx.okta.com
    ```
 
-7. Repeat steps 1 - 6 to create a second Okta domain. This is your production domain.
+7. Repeat steps 1–6 to create a second Okta domain. This is your production domain.
 
 > **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled by opening your Admin Console and verifying **Security** > **API** is a menu option. If it isn't, you can:
 >
-> * Create a new developer account and Org with Okta CLI.
-> * Contact your support team to enable the feature in your Org.
+> * Create a new developer account and org with Okta CLI.
+> * Contact your support team to enable the feature in your org.
 > * Use the Admin Console to create your app integrations manually instead of the CLI.
 >
 > All accounts created with Okta CLI are developer accounts.
@@ -76,7 +76,7 @@ Tutorial 6 requires your production org to have [Okta Workflows](https://www.okt
 
 1. Open the Admin Console for your production org.
 2. Choose **Workflow** from the menu.
-3. If the menu doesn't include a `Workflows console` option, this feature is not enabled. Contact your customer account team to enable Workflows for your account.
+3. If the menu doesn't include a `Workflows console` option, this feature isn't enabled. Contact your customer account team to enable Workflows for your account.
 
 ## A Slack channel
 
@@ -98,7 +98,7 @@ You need to create a copy of an example Terraform script in your GitHub reposito
    1. **Clear** the **Copy the prod branch only** checkbox.
    1. Click **Create fork**.
 
-The repository you are forking has two branches: `preview` and `prod`. If not, you must create these branches. The `preview` branch is pre-populated and is used in tutorials 2-3. The `prod` branch is empty and used to promote code in tutorials 4-6.
+The repository you're forking has two branches: `preview` and `prod`. If not, you must create these branches. The `preview` branch is pre-populated and is used in tutorials 2–3. The `prod` branch is empty and used to promote code in tutorials 4–6.
 
 ## Terraform Cloud account
 

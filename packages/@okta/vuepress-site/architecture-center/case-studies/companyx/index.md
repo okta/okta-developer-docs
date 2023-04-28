@@ -42,14 +42,14 @@ Company X is a Forbes Global 2000 company with 200,000 team members worldwide. I
       </span>
     </div>
     <p class="main-card__text">
-      Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping your source IAM servers active during the process.<a class="main-card__link" href="/architecture-center/architectures/directory-coexistence">Learn more</a>
+      Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping your source IAM servers active during the process. <a class="main-card__link" href="/architecture-center/architectures/directory-coexistence">Learn more</a>
     </p>
   </figcaption>
 </figure>
 
 ## The problem
 
-CompanyX had a number of legacy IAM systems and newer IdPs that weren't designed to integrate with each other. The customer was seeing an increase in the number of support tickets related to user onboarding, offboarding and account access issues. Because the IAM systems weren't synchronizing user credentials, changes to a password weren't consistently propagated to every system.
+CompanyX had a number of legacy IAM systems and newer IdPs that weren't designed to integrate with each other. The customer was seeing an increase in the number of support tickets related to user onboarding, offboarding, and account access issues. Because the IAM systems weren't synchronizing user credentials, changes to a password weren't consistently propagated to every system.
 
 ### Pain points
 

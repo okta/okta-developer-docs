@@ -14,7 +14,7 @@ In this tutorial, you update a resource in production using the Admin Console, a
 
    <div class="full border">
 
-   ![Latest run panel showing run trigged by ui is accepted](/img/architecture/multiple-environments/lab-5-latest-run-panel.png)
+   ![Latest run panel showing run triggered by UI is accepted](/img/architecture/multiple-environments/lab-5-latest-run-panel.png)
 
    </div>
 

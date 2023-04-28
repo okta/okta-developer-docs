@@ -57,8 +57,8 @@ Make note of your Okta domain. Use it wherever you see `${OKTA_DOMAIN}` in the l
 
 > **Note:** If you're using an existing org and want to use Okta CLI in this lab, check API Access Management is enabled: Open your Admin Console and verify **Security** > **API** is a menu option. If it isn't, you can:
 >
-> * Create a developer account and Org with Okta CLI.
-> * Contact your support team to enable the feature in your Org.
+> * Create a developer account and org with Okta CLI.
+> * Contact your support team to enable the feature in your org.
 > * Use the Admin Console to create your app integrations manually instead of the CLI.
 >
 > All accounts created with Okta CLI are developer accounts.

@@ -26,7 +26,7 @@ In this tutorial, you use Terraform to update the name of an existing group in G
 
    </div>
 
-5. Scroll down to the **Commit changes** panel, add a title and description for the change, make sure **Commit directly to the preview branch** is selected, and click **Commit changes**.
+5. Scroll down to the **Commit changes** panel, and add a title and description for the change. Make sure **Commit directly to the preview branch** is selected, and click **Commit changes**.
 
 6. Monitor the status in the **Latest Run** panel of your workspace **Overview** page. You should see the title change to the title in your GitHub commit panel. You should also see the state change from **Applied**, to **Planning**, to **Applying**, to **Applied** when the run completes.
 

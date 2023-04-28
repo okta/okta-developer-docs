@@ -17,7 +17,7 @@ Use this architecture to:
 
 * Include Okta org configurations in your Continuous Integration / Deployment processes
 * Configure multiple Okta orgs to the same standards
-* Detect changes between Okta orgs and resynchronising their configurations.
+* Detect changes between Okta orgs and resynchronizing their configurations.
 
 Upon completing the lab, you should understand how to automate Okta and keep environments in sync.
 

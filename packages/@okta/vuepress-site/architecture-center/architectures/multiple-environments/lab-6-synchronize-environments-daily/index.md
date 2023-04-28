@@ -8,7 +8,7 @@ In the previous tutorial, you learned how to detect changes in the production en
 
 If any changes are detected, it sends a notification message to a Slack channel.
 
-> **Note:** You have various options for where to send the notification. This example uses Slack. If you don't have Slack, it's easy to create a trial account if you want to follow along, or you can choose a different destination and use this example as a guide.
+> **Note:** You have various options for where to send the notification. This example uses Slack. If you don't have Slack, you can create a trial account, or you can choose a different destination and use this example as a guide.
 
 This simulates an enterprise that transforms to fully automated processes for detecting drift in your environments.
 
@@ -30,7 +30,7 @@ To create a Team API token in Terraform Cloud:
 
 1. Go to your top-level Terraform Workspaces page.
 1. Navigate to **Settings > Teams**.
-1. In the Team API Token section, click **Create a team token** to generate and display the token. You won't be able to see it again.
+1. In the Team API Token section, click **Create a team token** to generate and display the token. You can't see it again.
 
 To find your Terraform workspace ID:
 
@@ -48,7 +48,7 @@ To find your Terraform workspace ID:
 
    <div class="full border">
 
-   ![Okta workflows new folder name dialog box](/img/architecture/multiple-environments/lab-6-new-workflow-folder.png)
+   ![Okta Workflow's new folder name dialog box](/img/architecture/multiple-environments/lab-6-new-workflow-folder.png)
 
    </div>
 
@@ -56,7 +56,7 @@ To find your Terraform workspace ID:
 1. Import the workflow.
    1. Click the icon next to your folder name in the sidebar.
    1. Select **Import** in the menu to open an **Import** page.
-   1. Navigate to your local copy of the github repo for this tutorial. Select `workflow/executeTerraformPlanToDetectDrift.flow` to import the example workflow.
+   1. Navigate to your local copy of the GitHub repo for this tutorial. Select `workflow/executeTerraformPlanToDetectDrift.flow` to import the example workflow.
 1. In your new folder, observe that you imported one flow, it's a scheduled flow, and it's turned off.
 
 <div class="full border">
@@ -119,4 +119,4 @@ The connection is added to the **Connections** tab for the workflow.
 
 1. On the **Flows** tab, click the **ON/OFF** toggle to enable the workflow.
 2. Select your workflow, and then click **Test** to run through the flow. The **Flow History** panel shows the results.
-3. If the result is **Success**, congratulations! If the result is an error, see the associated card for error information. Click the **ON/OFF** toggle to disable the flow, resolve the issue, and return to the first step in this section to retry the test. Repeat until the most recent (top) results are **Success**.
+3. If the result is **Success**, well done. If the result is an error, see the associated card for error information. Click the **ON/OFF** toggle to disable the flow, resolve the issue, and return to the first step in this section to retry the test. Repeat until the most recent (top) results are **Success**.
