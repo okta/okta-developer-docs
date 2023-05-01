@@ -4,6 +4,7 @@ title: Create resources for your environment
 
 # Tutorial 2: Create resources for your environment
 
+<!--
 In this tutorial, you use Terraform to create the resources required to make your org functional in the **preview** branch in GitHub. The tutorial takes you through creating the resources, applying the plan, and demonstrating the functions of the newly created org. You can apply this when adding new environments like a staging environment or provisioning a new tenant.
 
 For each of the following cases, you:
@@ -195,3 +196,4 @@ In this example, you add an Authorization Server resource and associated Authori
    ```
 
 6. On your workspace **Overview** page, observe that a new plan runs, changes are applied automatically, and **Resources changed** shows `+1 ~0 -0` to reflect the added resource. The **Latest Run** status is **Applied**.
+-->
