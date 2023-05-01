@@ -10,7 +10,7 @@ meta:
 
 The Okta Administrator Roles API provides operations to manage administrative Role assignments for a User.
 
-Role listing APIs provide a union of both standard and Custom Roles assigned to a User or Group. We are, therefore, providing both groups of APIs and their intersections in this single doc.
+Role listing APIs provide a union of both standard and Custom Roles assigned to a User or Group. Okta provides both groups of APIs and their intersections in this doc.
 
 ## Get started
 
@@ -24,7 +24,7 @@ These operations allow the creation and manipulation of Custom Roles as custom c
 
 <ApiOperation method="post" url="/api/v1/iam/roles" />
 
-Creates a new Role with a custom collection of permissions
+Creates a Role with a custom collection of permissions
 
 #### Request parameters
 
@@ -81,7 +81,7 @@ curl -v -X POST \
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
-Gets a Custom Role by its ID or label
+Retrieves a Custom Role by its ID or label
 
 #### Request parameters
 
@@ -179,7 +179,7 @@ curl -v -X PUT \
 
 <ApiOperation method="get" url="/api/v1/iam/roles" />
 
-Gets a paginated list of Custom Roles
+Lists all Custom Roles
 
 #### Response parameters
 
@@ -243,7 +243,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions" />
 
-Gets the list of permissions included in a Custom Role identified by its `id` or `label`
+Lists all permissions included in a Custom Role identified by its `id` or `label`
 
 #### Request parameters
 
@@ -330,7 +330,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
-Adds a new permission to an existing Role
+Adds a permission to an existing Role
 
 #### Request parameters
 
@@ -363,7 +363,7 @@ HTTP/1.1 204 No Content
 ```
 
 <ApiLifecycle access="ea" />
-Returns an error if the permission already exists
+Returns an error if the permission exists
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -442,7 +442,7 @@ curl -v -X PUT \
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
-Gets a permission from an existing Role
+Retrieves a permission from an existing Role
 
 #### Request parameters
 
@@ -590,7 +590,7 @@ These operations allow the creation and manipulation of Resource Sets as custom 
 
 <ApiOperation method="post" url="/api/v1/iam/resource-sets" />
 
-Creates a new Resource Set with a custom collection of resources
+Creates a Resource Set with a custom collection of resources
 
 #### Request parameters
 
@@ -650,7 +650,7 @@ curl -v -X POST \
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}" />
 
-Gets a Resource Set by its ID or Label
+Retrieves a Resource Set by its ID or Label
 
 #### Request parameters
 
@@ -695,11 +695,11 @@ curl -v -X GET \
 }
 ```
 
-### List Resource Sets
+### List all Resource Sets
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets" />
 
-Gets a paginated list of Resource Sets
+Lists all Resource Sets
 
 #### Response parameters
 
@@ -1021,7 +1021,7 @@ Removes a resource from a Resource Set
 | `resourceSetIdOrLabel`  | ID or label of the Resource Set                  | URL          | String       | TRUE     |
 | `resourceId`     | ID of the resource within the Resource Set       | URL          | String       | TRUE     |
 
-`resourceId` is the ID that is obtained when [resources are listed within the Resource Set](#list-resources). For example, if the resource object is:
+The `resourceId` parameter is the ID that is obtained when [resources are listed within the Resource Set](#list-resources). For example, if the resource object is:
 
 ```json
     {
@@ -1037,7 +1037,7 @@ Removes a resource from a Resource Set
     }
 ```
 
-then `ire106sQKoHoXXsAe0g4` could be used as `resourceId` to remove the Groups from the list of resources in the set.
+You can use `ire106sQKoHoXXsAe0g4` as the `resourceId` to remove the Groups from the list of resources in the set.
 
 ##### Response parameters
 
@@ -1064,7 +1064,7 @@ HTTP/1.1 204 No Content
 ## Custom Role assignment operations
 
 These operations allow the assignment and unassignment of Custom Roles. This is done by creating a Binding.
-A Binding represents an association of a principal, Role, and Resource Set that is uniquely identified by the `bindingId`.
+A Binding represents an association where the `bindingId` identifies the Principal, Role, and Resource Set.
 
 ### Create a new Binding
 
@@ -1078,15 +1078,15 @@ Assigns a Custom Role by creating a Binding between the Role and the admin that 
 | :------------- |:----------------------------------------------------------------------| :------------ | :------------- | :------- |
 | `resourceSetIdOrLabel`| ID or label of the Resource Set                                       | URL           | String         | TRUE     |
 | `role`           | ID of the Role                                                        | Body          | String         | TRUE     |
-| `members`        | The hrefs that point to User(s) and/or Group(s) that receive the Role | Body          | Array of hrefs | TRUE     |
+| `members`        | The `hrefs` that point to Users and/or Groups that receive the Role | Body          | Array of `hrefs` | TRUE     |
 
 #### Response parameters
 
 The following `_links` are returned:
 
-* `self` gets this Role's Binding within the Resource Set
-* `bindings` get a paginable list of Role Bindings in the Resource Set
-* `resource-set` gets the Resource Set
+- `self`: Retrieves this Role's Binding within the Resource Set
+- `bindings`: Lists all Role Bindings in the Resource Set
+- `resource-set`: Retrieves the Resource Set
 
 #### Request example
 
@@ -1133,15 +1133,15 @@ Adds more Members to a Role Binding that is already created in a Resource Set
 | :------------- |:-------------------------------------------------------------------------------| :----------- | :------------- | :------- |
 | `resourceSetIdOrLabel`  | ID or label of the target Resource Set                                  | URL          | String         | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role to grant                                               | URL          | String         | TRUE     |
-| `additions`      | Array of hrefs that point to the User(s) and/or Group(s) that receive the Role | Body         | Array of hrefs | TRUE     |
+| `additions`      | Array of hrefs that point to one or more Users and/or Groups that receive the Role | Body         | Array of hrefs | TRUE     |
 
 #### Response parameters
 
 The following `_links` are returned:
 
-* `self` gets this Role's Binding within the Resource Set
-* `bindings` get a paginable list of Role Bindings in the Resource Set
-* `resource-set` gets the Resource Set
+* `self`: Retrieves this Role's Binding within the Resource Set
+* `bindings`: Lists all Role Bindings in the Resource Set
+* `resource-set`: Retrieves the Resource Set
 
 #### Request example
 
@@ -1180,7 +1180,7 @@ curl -v -X PATCH \
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}/members" />
 
-Gets a paginated list of Members that are assigned to a Role in a Resource Set
+Lists all Members that are assigned to a Role in a Resource Set
 
 #### Request parameters
 
@@ -1243,7 +1243,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}/members/${memberId}" />
 
-Gets a Member of a Role in a Resource Set
+Retrieves a Member of a Role in a Resource Set
 
 #### Request parameters
 
@@ -1254,7 +1254,7 @@ Gets a Member of a Role in a Resource Set
 | `memberId`       | ID of the Member within the Binding             | URL          | String         | TRUE     |
 
 
-`memberId` is the ID that is obtained when [Members are listed in a Binding](#list-members-in-a-binding). For example, if the Member object was:
+The `memberId` parameter is the ID that is obtained when [Members are listed in a Binding](#list-members-in-a-binding). For example, if the Member object was:
 
 ```json
 {
@@ -1269,7 +1269,7 @@ Gets a Member of a Role in a Resource Set
 }
 ```
 
-then `irb1qe6PGuMc7Oh8N0g4` could be used as `memberId` to remove the User from the list of Members in the Binding.
+Then `irb1qe6PGuMc7Oh8N0g4` could be used as `memberId` to remove the User from the list of Members in the Binding.
 
 #### Response parameters
 
@@ -1315,7 +1315,7 @@ Deletes a Member of a Role in a Resource Set
 | `memberId`       | ID of the Member in the Binding                 | URL          | String         | TRUE     |
 
 
-`memberId` is the ID that is obtained when [Members are listed in a Binding](#list-members-in-a-binding). For example, if the Member object was:
+The `memberId` parameter is the ID that is obtained when [Members are listed in a Binding](#list-members-in-a-binding). For example, if the Member object was:
 
 ```json
 {
@@ -1328,7 +1328,7 @@ Deletes a Member of a Role in a Resource Set
 }
 ```
 
-then `irb1qe6PGuMc7Oh8N0g4` could be used as `memberId` to remove the User from the list of Members in the Binding.
+Then `irb1qe6PGuMc7Oh8N0g4` could be used as `memberId` to remove the User from the list of Members in the Binding.
 
 #### Response parameters
 
@@ -1358,7 +1358,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}" />
 
-Gets a Binding from a Resource Set by its Role ID
+Retrieves a Binding from a Resource Set by its Role ID
 
 ##### Request parameters
 
@@ -1369,11 +1369,11 @@ Gets a Binding from a Resource Set by its Role ID
 
 ##### Response parameters
 
-The `id` of the Role as well as the following `_links`:
+The `id` of the Role and the following `_links`:
 
-* `self` gets this Role's Binding within the Resource Set
-* `bindings` get a paginable list of Role Bindings in the Resource Set
-* `resource-set` gets the Resource Set
+* `self`: Retrieves this Role's Binding within the Resource Set
+* `bindings`: Lists all paginable Role Bindings in the Resource Set
+* `resource-set`: Retrieves the Resource Set
 
 ##### Request example
 
@@ -1408,7 +1408,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings" />
 
-Gets all the Bindings from a Resource Set
+Lists all the Bindings in a Resource Set
 
 ##### Request parameters
 
@@ -1508,9 +1508,9 @@ HTTP/1.1 204 No Content
 
 You can grant third-party admin status by using an optional query parameter on the Administrator Roles API called `disableNotifications`.
 
-You're able to grant third-party admin status when you assign a new role, or you can update an existing role assignment status by passing just the query parameter.
+You can grant third-party admin status when you assign a new role, or you can update an existing role assignment status by passing just the query parameter.
 
-When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
+When this setting is enabled, the admins don't receive any of the default Okta administrator emails. These admins also don't have access to contact Okta Support and open support cases on behalf of your org.
 
 ### List Roles
 
@@ -1955,7 +1955,7 @@ The recommended way to assign a Custom Role is by using one of the [Custom Role 
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/roles" />
 
-or to assign to a Group:
+Or to assign to a Group:
 
 <ApiOperation method="post" url="/api/v1/groups/${groupId}/roles" />
 
@@ -2140,7 +2140,7 @@ The recommended way to unassign a Custom Role is by using one of the [Custom Rol
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/roles/${bindingId}" />
 
-or to unassign from a Group:
+Or to unassign from a Group:
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${bindingId}" />
 
@@ -2167,14 +2167,14 @@ HTTP/1.1 204 No Content
 Role targets are a way of defining permissions for admin roles into a smaller subset of Groups or Apps within your org. Targets limit an admin's permissions to a targeted area of the org. You can define admin roles to target Groups, Applications, and Application Instances.
 
 * **Group targets:** Grant an admin permission to manage only a specified Group. For example, an admin role may be assigned to manage only the IT Group.
-* **App targets:** Grant an admin permission to manage all instances of the specified Apps. Target Apps are Okta catalog Apps. For example, you can have multiple configurations of an Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook App as a target, that grants the admin permission to manage all the instances of those Apps and create new instances of them.
+* **App targets:** Grant an admin permission to manage all instances of the specified Apps. Target Apps are Okta catalog Apps. For example, you can have multiple configurations of an Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook App as a target, the admin receives permission to manage all the instances of those Apps and create instances of them.
 * **App Instance targets:** Grant an admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins have created in their org. For example, there may be a Salesforce App configured differently for each sales region of a company. When you create an App Instance target, you can assign an admin to manage only two instances of the configured Salesforce Apps and then also to manage an instance of another configured App such as Workday.
 
 > **Note:** Don't use these operations with a Custom Role ID. Custom Role assignments always require a target Resource Set. Use [Custom Role assignment operations](#custom-role-assignment-operations) or the backward-compatible [Role assignment](#assign-a-custom-role-to-a-user-or-group) or [unassignment](#unassign-a-custom-role-from-a-user-or-group) operations.
 
 ### Group administrator role group targets
 
-Assigns a Group admin role to a specific Group that grants the admin permission to manage only that Group. For example, you can assign an admin role to manage only the IT group. The permissions for specifically what an admin can do within that Group depends on the admin role that they are assigned to. See [Administrators](https://help.okta.com/okta_help.htm?id=ext_Administrators).
+Assigns a group admin role to a specific Group that grants the admin permission to manage only that Group. For example, you can assign an admin role to manage only the IT group. The permissions for specifically what an admin can do within that Group depends on the admin role that they’re assigned to. See [Administrators](https://help.okta.com/okta_help.htm?id=ext_Administrators).
 
 #### List Group targets for the group administrator role
 
@@ -2492,7 +2492,7 @@ HTTP/1.1 204 No Content
 
 ### App administrator role for App targets
 
-Assign an admin role to a subset of Apps to grant the admin permission to manage all the instances of those Apps. Targeted Apps are Okta catalog Apps, and you can assign App targets for these Apps to an admin role regardless of whether a specific instance of the App has been created. For example, there can be multiple configurations of one Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook App as a target, that grants the admin permission to manage all the instances of Salesforce or Facebook Apps and create new instances of them.
+Assign an admin role to a subset of Apps to grant the admin permission to manage all the instances of those Apps. Targeted Apps are Okta catalog Apps, and you can assign App targets for these Apps to an admin role regardless of whether a specific instance of the App has been created. For example, there can be multiple configurations of one Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook App as a target, that grants the admin permission to manage all the instances of Salesforce or Facebook Apps and create instances of them.
 
 #### List App targets for an App administrator role
 
@@ -2531,7 +2531,7 @@ curl -v -X GET \
 
 ###### Response example
 
-The example shows two applications and two instances. Note that the response for instances has an `id` field.
+The example shows two applications and two instances. The response for instances has an `id` field.
 
 ```json
 [
@@ -2663,7 +2663,7 @@ curl -v -X GET \
 
 ###### Response example
 
-The example shows one application and one instance. Note that the response for instances has an `id` field.
+The example shows one application and one instance. The response for instances has an `id` field.
 
 ```json
 [
@@ -3084,7 +3084,7 @@ HTTP/1.1 204 No Content
 
 #### Sample Custom Role assigned to the User directly
 
-Note that the following fields are different compared to those for [an individually assigned standard Role](#sample-role-assigned-to-the-user-directly):
+The following fields are different compared to those for [an individually assigned standard Role](#sample-role-assigned-to-the-user-directly):
 
 * The `id` field has a different format, but it has the same application.
 * The `type` field for Custom Roles always has the value `CUSTOM`.
@@ -3127,7 +3127,7 @@ Note that the following fields are different compared to those for [an individua
 
 #### Sample Custom Role assigned to the User through a Group membership
 
-Note that the following fields are different compared to those for [a Group assigned standard Role](#sample-role-assigned-to-the-user-through-a-group-membership):
+The following fields are different compared to those for [a Group assigned standard Role](#sample-role-assigned-to-the-user-through-a-group-membership):
 
 * The `id` field has a different format, but it has the same application.
 * The `type` field for Custom Roles always has the value `CUSTOM`.
@@ -3189,11 +3189,11 @@ The Role object defines several **read-only** properties:
 
 The following `_links` are returned:
 
-* `assignee`: Gets the User or Group through which this Role is assigned
-* `resource-set`: (Only for Custom Roles) Gets the Resource Set that is targeted by this assignment
-* `permissions`: (Only for Custom Roles) Gets a list of Permissions that is granted through this assignment
-* `role`: (Only for Custom Roles) gets the Role that is granted through this assignment
-* `member`: (Only for Custom Roles) gets the Member object from the Binding that grants this Role
+* `assignee`: Retrieves the User or Group to which this Role is assigned
+* `resource-set`: (Only for Custom Roles) Retrieves the Resource Set that is targeted by this assignment
+* `permissions`: (Only for Custom Roles) Lists all Permissions that are granted through this assignment
+* `role`: (Only for Custom Roles) Retrieves the Role that is granted through this assignment
+* `member`: (Only for Custom Roles) Retrieves the Member object from the Binding that grants this Role
 
 #### Role types
 
@@ -3209,7 +3209,7 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 | `HELP_DESK_ADMIN`                       | Help Desk Administrator             | [Groups](/docs/reference/api/groups/) |
 | `MOBILE_ADMIN`                          | Mobile Administrator                |                                       |
 | `ORG_ADMIN`                             | Organizational Administrator        |                                       |
-| `READ_ONLY_ADMIN`                       | Read-Only Administrator             |                                       |
+| `READ_ONLY_ADMIN`                       | Read-only Administrator             |                                       |
 | `REPORT_ADMIN`                          | Report Administrator                |                                       |
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
 | `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
@@ -3219,7 +3219,7 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 
 ##### IAM-based Role types
 <ApiLifecycle access="ea" />
-We also support the following IAM-based standard roles:
+Okta also supports the following IAM-based standard roles:
 | Role type                                               | Label                            | Permissions                                   |
 | :------------------------------------------------------ | :------------------------------- | :-------------------------------------------- |
 | `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Administrator | `okta.governance.accessCertifications.manage` |
@@ -3273,7 +3273,7 @@ A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role
 
 Permissions can be added to, or removed from, Custom Roles.  Permissions to manage a resource also grant the viewing privileges for the same resource so that you won't need to assign them separately.
 
-User permissions are only effective with respect to the Group(s) to which the admin is granted a Role through Resource Set assignments.
+User permissions are only effective regarding the Groups to which the admin is granted a Role through Resource Set assignments.
 
 #### Permission properties
 
@@ -3320,10 +3320,10 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.customizations.manage`            | Allows the admin to manage customizations                                                                                                           | All customizations |
 | `okta.workflows.invoke`                 | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
 | `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Access Certifications |
-| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access requests                                                                                       | All Access Requests |
+| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage Access Requests                                                                                       | All Access Requests |
 | `okta.apps.manageFirstPartyApps`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage first-party apps                                                                                       | All Access Requests |
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use these to create or update other roles.
-> **Note:** `okta.apps.manageFirstPartyApps` permission is currently only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use it to create or update other roles.
+> **Note:** `okta.apps.manageFirstPartyApps` permission is only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use it to create or update other roles.
 
 #### Example
 
@@ -3356,9 +3356,9 @@ A Resource Set is a collection of resources. As there can be many resources in a
 
 The following `_links` are returned:
 
-* `self` gets this Resource Set
-* `resources` gets a paginable list of resources included in this set
-* `bindings` gets a paginable list of admin Role Bindings assigned to this set
+* `self`: Retrieves the Resource Set
+* `resources`: Lists all resources included in this set
+* `bindings`: Lists all admin Role Bindings assigned to this set
 
 ### Resource object
 
@@ -3497,7 +3497,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
 
 ### Binding object
 
-A Binding represents the assignment of a [Custom Role](#custom-role-object) to a list of admins. Bindings are specific to a [Resource Set](#resource-set-object). There is a maximum of one Binding object per Role in a Resource Set.
+A Binding represents the assignment of a [Custom Role](#custom-role-object) to a list of admins. Bindings are specific to a [Resource Set](#resource-set-object). There’s a maximum of one Binding object per Role in a Resource Set.
 
 The admin list assigned to a Role is made of [Resource objects](#resource-object) that represent either of the following types of admin assignments:
 
@@ -3511,8 +3511,8 @@ The admin list assigned to a Role is made of [Resource objects](#resource-object
 
 The following `_links` are returned:
 
-* `self` gets this Binding
-* `members` gets a paginable list of Members included in this Binding
+* `self`: Retrieves this Binding
+* `members`: Lists all Members included in this Binding
 
 #### Member object
 
