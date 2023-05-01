@@ -1115,24 +1115,24 @@ export const architectureCenter = [
                {
                   title: "Directory coexistence",
                   path: "/architecture-center/architectures/directory-coexistence/",
-                  // subLinks: [
-                  //    {
-                  //       title: "Lab overview and prerequisites",
-                  //       path: "/architecture-center/architectures/directory-coexistence/lab/",
-                  //    },
-                  //    {
-                  //       title: "Migrate users from Azure AD",
-                  //       path: "/architecture-center/architectures/directory-coexistence/lab-azure-ad/",
-                  //    },
-                  //    {
-                  //       title: "Migrate users from an LDAP server",
-                  //       path: "/architecture-center/architectures/directory-coexistence/lab-ldap-server/",
-                  //    },
-                  //    {
-                  //       title: "Migrate users from a generic database",
-                  //       path: "/architecture-center/architectures/directory-coexistence/lab-generic-database/",
-                  //    },
-                  // ],
+                  subLinks: [
+                     {
+                        title: "Lab overview and prerequisites",
+                        path: "/architecture-center/architectures/directory-coexistence/lab/",
+                     },
+                     {
+                        title: "Migrate users from Azure AD",
+                        path: "/architecture-center/architectures/directory-coexistence/lab-azure-ad/",
+                     },
+                     {
+                        title: "Migrate users from an LDAP server",
+                        path: "/architecture-center/architectures/directory-coexistence/lab-ldap-server/",
+                     },
+                     {
+                        title: "Migrate users from a generic database",
+                        path: "/architecture-center/architectures/directory-coexistence/lab-generic-database/",
+                     },
+                  ],
                },
                {
                   title: "Manage multiple Okta environments",
