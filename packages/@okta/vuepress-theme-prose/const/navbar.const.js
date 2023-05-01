@@ -1126,7 +1126,7 @@ export const architectureCenter = [
                   path: "/architecture-center/architectures/directory-coexistence/",
                   subLinks: [
                      {
-                        title: "Lab overview & prerequisites",
+                        title: "Lab overview and prerequisites",
                         path: "/architecture-center/architectures/directory-coexistence/lab/",
                      },
                      {
@@ -1148,7 +1148,7 @@ export const architectureCenter = [
                   path: "/architecture-center/architectures/multiple-environments/",
                   subLinks: [
                      {
-                        title: "Lab overview & prerequisites",
+                        title: "Lab overview and prerequisites",
                         path: "/architecture-center/architectures/multiple-environments/lab/",
                      },
                      {
