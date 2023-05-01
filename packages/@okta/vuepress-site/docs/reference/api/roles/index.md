@@ -326,11 +326,11 @@ curl -v -X GET \
 }
 ```
 
-### Add permission
+### Update a permission
 
 <ApiOperation method="post" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
-Adds a permission to an existing Role
+Updates a permission on an existing Role
 
 #### Request parameters
 
@@ -857,11 +857,11 @@ HTTP/1.1 204 No Content
 
 These operations add, remove, and list the resources within a Resource Set.
 
-#### Add more resources
+#### Update resources
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/resources" />
 
-Adds more resources to a Resource Set
+Updates resources to a Resource Set
 
 ##### Request parameters
 
@@ -1121,11 +1121,11 @@ curl -v -X POST \
 }
 ```
 
-### Add more Members to a Binding
+### Update a Binding with more Members
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetIdOrLabel}/bindings/${roleIdOrLabel}/members" />
 
-Adds more Members to a Role Binding that is already created in a Resource Set
+Updates a Role Binding that is already created in a Resource Set with more Members
 
 #### Request parameters
 
@@ -1372,7 +1372,7 @@ Retrieves a Binding from a Resource Set by its Role ID
 The `id` of the Role and the following `_links`:
 
 * `self`: Retrieves this Role's Binding within the Resource Set
-* `bindings`: Lists all paginable Role Bindings in the Resource Set
+* `bindings`: Lists all paginated Role Bindings in the Resource Set
 * `resource-set`: Retrieves the Resource Set
 
 ##### Request example
@@ -2327,15 +2327,15 @@ curl -v -X GET \
 ]
 ```
 
-#### Add a Group target to a group administrator role
+#### Replace a Group target in a group administrator role
 
-##### Add a Group target to a group administrator role given to a user
+##### Replace a Group target in a group administrator role given to a user
 
 <ApiOperation method="put" url="/api/v1/users/${userId}/roles/${roleId}/targets/groups/${groupId}" />
 
-Adds a Group target for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a User
+Replaces a Group target for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a User
 
-When you add the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
+When you replace the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
 
 ###### Request parameters
 
@@ -2371,13 +2371,13 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-##### Add Group target to group administrator role given to a group
+##### Replace a Group target in a group administrator role given to a group
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/groups/${targetGroupId}" />
 
-Adds a Group target for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Group
+Replaces a Group target for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Group
 
-When you add the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
+When you replace the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
 
 ###### Request parameters
 
@@ -2705,17 +2705,17 @@ The example shows one application and one instance. The response for instances h
 ]
 ```
 
-#### Add an App target to an App administrator role
+#### Replace an App target to an App administrator role
 
-##### Add an App target to an App administrator role given to a User
+##### Replace an App target to an App administrator role given to a User
 
 <ApiOperation method="put" url="/api/v1/users/${userId}/roles/${roleId}/targets/catalog/apps/${appName}" />
 
-Adds an App target for an `APP_ADMIN` Role assigned to a User
+Replaces an App target for an `APP_ADMIN` Role assigned to a User
 
-When you add the first App target, you reduce the scope of the Role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
+When you replace the first App target, you reduce the scope of the Role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
 
-Adding an App target overrides any existing App Instance targets of the App. For example, if someone was assigned to administer a specific Facebook instance, calling this endpoint with `facebook` for `appName`, would make them administrator for all Facebook instances.
+Replacing an App target overrides any existing App Instance targets of the App. For example, if someone was assigned to administer a specific Facebook instance, calling this endpoint with `facebook` for `appName`, would make them administrator for all Facebook instances.
 
 ###### Request parameters
 
@@ -2748,15 +2748,15 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-##### Add an App target to an App administrator role given to a Group
+##### Replace an App target in an App administrator role given to a Group
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/catalog/apps/${appName}" />
 
-Adds an App target for an `APP_ADMIN` Role assigned to a Group
+Replaces an App target for an `APP_ADMIN` Role assigned to a Group
 
-When you add the first App target, you reduce the scope of the role assignment. The Role no longer applies to all App targets but applies only to the specified target.
+When you replace the first App target, you reduce the scope of the role assignment. The Role no longer applies to all App targets but applies only to the specified target.
 
-An App target that is added overrides any existing instance targets of the app. For example, if someone is assigned to administer a specific Facebook instance, a call to this endpoint with `facebook` for `appName` would make that person the administrator for all Facebook instances.
+An App target that is replaced overrides any existing instance targets of the app. For example, if someone is assigned to administer a specific Facebook instance, a call to this endpoint with `facebook` for `appName` would make that person the administrator for all Facebook instances.
 
 ###### Request parameters
 
@@ -2789,19 +2789,19 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-#### Add an App Instance target to an App administrator role
+#### Replace an App Instance target in an App administrator role
 
 Assign an admin role to a specific App Instance to grant the admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins create in their org. For example, there may be a Salesforce App configured differently for each sales region of a company. When you create an App Instance target, you may assign an admin to manage only two instances of the configured Salesforce Apps and then also to manage an instance of another configured App such as Workday.
 
 > **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all the instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all the instances of a Salesforce app and then also specific configurations of the Salesforce app.
 
-##### Add an App Instance target to an App administrator role given to a User
+##### Replace an App Instance target in an App administrator role given to a User
 
 <ApiOperation method="put" url="/api/v1/users/${userId}/roles/${roleId}/targets/catalog/apps/${appName}/${appInstanceId}" />
 
-Adds an App Instance target for an `APP_ADMIN` Role assigned to a User
+Replaces an App Instance target for an `APP_ADMIN` Role assigned to a User
 
-When you add the first App or App Instance target, you reduce the scope of the role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
+When you replace the first App or App Instance target, you reduce the scope of the role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
 
 > **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all the instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all the instances of a Salesforce app and then also specific configurations of the Salesforce app.
 
@@ -2837,13 +2837,13 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-##### Add an App Instance target to an App administrator role given to a Group
+##### Replace an App Instance target in an App administrator role given to a Group
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/catalog/apps/${appName}/${appInstanceId}" />
 
-Adds an App Instance target for an `APP_ADMIN` Role assigned to a Group
+Replaces an App Instance target for an `APP_ADMIN` Role assigned to a Group
 
-When you add the first App or App Instance target, you reduce the scope of the role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
+When you replace the first App or App Instance target, you reduce the scope of the role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
 
 > **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all the instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all the instances of a Salesforce app and then also specific configurations of the Salesforce app.
 
@@ -3345,7 +3345,7 @@ User permissions are only effective regarding the Groups to which the admin is g
 
 ## Resource Set object
 
-A Resource Set is a collection of resources. As there can be many resources in a set, the object itself doesn't list the resources but provides a paginable link to fetch resources.
+A Resource Set is a collection of resources. As there can be many resources in a set, the object itself doesn't list the resources but provides a paginated link to fetch resources.
 
 | Property         | Description                                             | DataType                                                                                                      | Nullable   | Unique   | Read Only |
 | :--------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------ | :--------- | :------- | :-------- |
