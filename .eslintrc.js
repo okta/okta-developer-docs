@@ -19,6 +19,7 @@ module.exports = {
     "vue/require-prop-type-constructor": "off",
     "vue/prop-name-casing": "off",
     "vue/no-mutating-props": "off",
+    "vue/no-use-v-if-with-v-for": "off",
     "no-unused-vars": "off",
     "no-prototype-builtins": "off",
     "no-undef": "off",
