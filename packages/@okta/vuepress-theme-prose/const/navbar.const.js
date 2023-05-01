@@ -1107,69 +1107,69 @@ export const architectureCenter = [
                },
             ],
          },
-         // {
-         //    title: 'Reference Architectures',
-         //    path: '/architecture-center/architectures/',
-         //    cards: true,
-         //    subLinks: [
-         //       {
-         //          title: "Directory coexistence",
-         //          path: "/architecture-center/architectures/directory-coexistence/",
-         //          subLinks: [
-         //             {
-         //                title: "Lab overview and prerequisites",
-         //                path: "/architecture-center/architectures/directory-coexistence/lab/",
-         //             },
-         //             {
-         //                title: "Migrate users from Azure AD",
-         //                path: "/architecture-center/architectures/directory-coexistence/lab-azure-ad/",
-         //             },
-         //             {
-         //                title: "Migrate users from an LDAP server",
-         //                path: "/architecture-center/architectures/directory-coexistence/lab-ldap-server/",
-         //             },
-         //             {
-         //                title: "Migrate users from a generic database",
-         //                path: "/architecture-center/architectures/directory-coexistence/lab-generic-database/",
-         //             },
-         //          ],
-         //       },
-         //       {
-         //          title: "Manage multiple Okta environments",
-         //          path: "/architecture-center/architectures/multiple-environments/",
-         //          subLinks: [
-         //             {
-         //                title: "Lab overview and prerequisites",
-         //                path: "/architecture-center/architectures/multiple-environments/lab/",
-         //             },
-         //             {
-         //                title: "Configure Terraform Cloud",
-         //                path: "/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud/",
-         //             },
-         //             {
-         //                title: "Create resources",
-         //                path: "/architecture-center/architectures/multiple-environments/lab-2-create-resources/",
-         //             },
-         //             {
-         //                title: "Rename a group",
-         //                path: "/architecture-center/architectures/multiple-environments/lab-3-rename-a-group/",
-         //             },
-         //             {
-         //                title: "Deploy changes to production",
-         //                path: "/architecture-center/architectures/multiple-environments/lab-4-deploy-changes-to-production/",
-         //             },
-         //             {
-         //                title: "Detect drift",
-         //                path: "/architecture-center/architectures/multiple-environments/lab-5-detect-drift/",
-         //             },
-         //             {
-         //                title: "Synchronize environments daily",
-         //                path: "/architecture-center/architectures/multiple-environments/lab-6-synchronize-environments-daily/",
-         //             },
-         //          ],
-         //       },
-         //    ],
-         // },
+         {
+            title: 'Reference Architectures',
+            path: '/architecture-center/architectures/',
+            cards: true,
+            subLinks: [
+               {
+                  title: "Directory coexistence",
+                  path: "/architecture-center/architectures/directory-coexistence/",
+                  // subLinks: [
+                  //    {
+                  //       title: "Lab overview and prerequisites",
+                  //       path: "/architecture-center/architectures/directory-coexistence/lab/",
+                  //    },
+                  //    {
+                  //       title: "Migrate users from Azure AD",
+                  //       path: "/architecture-center/architectures/directory-coexistence/lab-azure-ad/",
+                  //    },
+                  //    {
+                  //       title: "Migrate users from an LDAP server",
+                  //       path: "/architecture-center/architectures/directory-coexistence/lab-ldap-server/",
+                  //    },
+                  //    {
+                  //       title: "Migrate users from a generic database",
+                  //       path: "/architecture-center/architectures/directory-coexistence/lab-generic-database/",
+                  //    },
+                  // ],
+               },
+               {
+                  title: "Manage multiple Okta environments",
+                  path: "/architecture-center/architectures/multiple-environments/",
+               //    subLinks: [
+               //       {
+               //          title: "Lab overview and prerequisites",
+               //          path: "/architecture-center/architectures/multiple-environments/lab/",
+               //       },
+               //       {
+               //          title: "Configure Terraform Cloud",
+               //          path: "/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud/",
+               //       },
+               //       {
+               //          title: "Create resources",
+               //          path: "/architecture-center/architectures/multiple-environments/lab-2-create-resources/",
+               //       },
+               //       {
+               //          title: "Rename a group",
+               //          path: "/architecture-center/architectures/multiple-environments/lab-3-rename-a-group/",
+               //       },
+               //       {
+               //          title: "Deploy changes to production",
+               //          path: "/architecture-center/architectures/multiple-environments/lab-4-deploy-changes-to-production/",
+               //       },
+               //       {
+               //          title: "Detect drift",
+               //          path: "/architecture-center/architectures/multiple-environments/lab-5-detect-drift/",
+               //       },
+               //       {
+               //          title: "Synchronize environments daily",
+               //          path: "/architecture-center/architectures/multiple-environments/lab-6-synchronize-environments-daily/",
+               //       },
+               //    ],
+               },
+            ],
+         },
       ],
    },
 ];
