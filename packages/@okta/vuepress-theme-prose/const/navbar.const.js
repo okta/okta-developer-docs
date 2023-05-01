@@ -1137,36 +1137,36 @@ export const architectureCenter = [
                {
                   title: "Manage multiple Okta environments",
                   path: "/architecture-center/architectures/multiple-environments/",
-               //    subLinks: [
-               //       {
-               //          title: "Lab overview and prerequisites",
-               //          path: "/architecture-center/architectures/multiple-environments/lab/",
-               //       },
-               //       {
-               //          title: "Configure Terraform Cloud",
-               //          path: "/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud/",
-               //       },
-               //       {
-               //          title: "Create resources",
-               //          path: "/architecture-center/architectures/multiple-environments/lab-2-create-resources/",
-               //       },
-               //       {
-               //          title: "Rename a group",
-               //          path: "/architecture-center/architectures/multiple-environments/lab-3-rename-a-group/",
-               //       },
-               //       {
-               //          title: "Deploy changes to production",
-               //          path: "/architecture-center/architectures/multiple-environments/lab-4-deploy-changes-to-production/",
-               //       },
-               //       {
-               //          title: "Detect drift",
-               //          path: "/architecture-center/architectures/multiple-environments/lab-5-detect-drift/",
-               //       },
-               //       {
-               //          title: "Synchronize environments daily",
-               //          path: "/architecture-center/architectures/multiple-environments/lab-6-synchronize-environments-daily/",
-               //       },
-               //    ],
+                  subLinks: [
+                     {
+                        title: "Lab overview and prerequisites",
+                        path: "/architecture-center/architectures/multiple-environments/lab/",
+                     },
+                     {
+                        title: "Configure Terraform Cloud",
+                        path: "/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud/",
+                     },
+                     {
+                        title: "Create resources",
+                        path: "/architecture-center/architectures/multiple-environments/lab-2-create-resources/",
+                     },
+                     {
+                        title: "Rename a group",
+                        path: "/architecture-center/architectures/multiple-environments/lab-3-rename-a-group/",
+                     },
+                     {
+                        title: "Deploy changes to production",
+                        path: "/architecture-center/architectures/multiple-environments/lab-4-deploy-changes-to-production/",
+                     },
+                     {
+                        title: "Detect drift",
+                        path: "/architecture-center/architectures/multiple-environments/lab-5-detect-drift/",
+                     },
+                     {
+                        title: "Synchronize environments daily",
+                        path: "/architecture-center/architectures/multiple-environments/lab-6-synchronize-environments-daily/",
+                     },
+                  ],
                },
             ],
          },
