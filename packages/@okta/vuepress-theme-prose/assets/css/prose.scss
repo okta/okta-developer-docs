@@ -24,6 +24,9 @@
 @import "layouts/authorizationLayout.scss";
 @import "layouts/darktheme.scss";
 
+// Helpers
+@import "helpers/dont-break-out";
+
 // Components
 @import "components/hero";
 @import "components/apiLifecycle";
@@ -69,6 +72,8 @@
 @import "components/dialogWindow";
 @import "components/termsAndConditionsDialog";
 @import "components/nutritionFacts";
+@import "components/main-card";
+@import "components/tag";
 @import "components/support";
 @import "components/workforce";
 @import "components/resources";
@@ -90,3 +95,6 @@
 //Pages
 @import "okta/pages/multi-tenancy";
 @import "okta/pages/oie-embedded-sdk";
+
+//archetectureCenter
+@import "components/archetectureCenter/generated-item";
