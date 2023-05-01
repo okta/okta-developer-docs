@@ -18,7 +18,7 @@ The following section discusses different use cases and what the changes are aft
 
 1. **Are you using the Sign-In Widget?** Everything works as configured. The Sign-In Widget takes care of calling the correct Identity Engine endpoints and returns the `idx` cookie in the response.
 
-2. **Are you creating a session with a [session token](/docs/reference/api/sessions/#create-session-with-a-session-token)?** Okta recommends that you use the [Okta Identity Engine SDKs](/code/oie/).
+2. **Are you creating a session with a [session token](/docs/reference/api/sessions/#create-session-with-a-session-token)?** Okta recommends that you use the [Okta Identity Engine SDKs](/docs/guides/identity-engine-sdk-upgrade/).
 
     However, creating a session with a session token does continue to work usually:
 
