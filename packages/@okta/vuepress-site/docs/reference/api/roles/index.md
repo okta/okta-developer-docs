@@ -363,7 +363,7 @@ HTTP/1.1 204 No Content
 ```
 
 <ApiLifecycle access="ea" />
-Will return an error if the permission already exists
+Returns an error if the permission already exists
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -374,7 +374,7 @@ HTTP/1.1 400 Bad Request
 
 <ApiOperation method="put" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
-Update an existing permission in a Role
+Updates an existing permission in a Role
 
 #### Request parameters
 
@@ -384,11 +384,11 @@ Update an existing permission in a Role
 | `permissionType` | Permission to update in the Role                    | URL          | [Permission](#permission-types) name  | TRUE     |
 | `conditions`     | Conditions for further restricting a permission     | Body         | [Condition](#condition-object) object | FALSE    |
 
-NOTE: Currently conditions are only available for `okta.users.read` and `okta.users.userprofile.manage`
+> **NOTE:** Conditions are only available for `okta.users.read` and `okta.users.userprofile.manage`
 
 #### Response parameters
 
-The updated permission object
+The updated Permission object
 
 #### Request example
 
@@ -454,7 +454,7 @@ Gets a permission from an existing Role
 #### Response parameters
 
 The requested permission object<br>
-<ApiLifecycle access="ea" />Will also include the conditions on the permission (if applicable)
+<ApiLifecycle access="ea" />Includes the conditions on the permission (if applicable)
 
 #### Request example
 
@@ -3558,19 +3558,24 @@ The ID of a Member is unique to the Binding, whereas the link that points to the
 ## Condition object
 <ApiLifecycle access="ea" />
 
-A Condition is a way to further restrict a permission in a Custom Admin Role. Ex. restricting access to specific profile attributes.
+Use a Condition object to further restrict a permission in a Custom Admin Role. For example, you can restrict access to specific profile attributes.
 
-NOTE: Currently conditions are only available for `okta.users.read` and `okta.users.userprofile.manage`.
-NOTE: Admins cannot be restricted from viewing some attributes (First name, Last name, Username, Primary$ email, or Mobile phone).
+> **NOTE:** Conditions are only available for `okta.users.read` and `okta.users.userprofile.manage`.
+> **NOTE:** You can't restrict admins from viewing certain attributes:
+> - first name
+> - last name
+> - username
+> - primary email
+> - mobile phone
 
 ### Condition object Properties
 
-| Property         | Description                                                           | DataType | Required  |
-| :--------------- | :-------------------------------------------------------------------- | :------- | :-------- |
-| `include`        | Object that contains attributes on which access should be allowed     | Object   | FALSE     |
-| `exclude`        | Object that contains attributes on which access should not be allowed | Object   | FALSE     |
+| Property         | Description                                           | DataType | Required  |
+| :--------------- | :---------------------------------------------------- | :------- | :-------- |
+| `include`        | Object with attributes to which access is allowed     | Object   | FALSE     |
+| `exclude`        | Object with attributes to which access isn't allowed  | Object   | FALSE     |
 
-NOTE: Exactly one of `include` or `exclude` must be present in the conditions object.
+> **NOTE:** Exactly one of `include` or `exclude` must be present in the conditions object.
 
 #### Conditions example to include city, state, zipCode user attributes
 
