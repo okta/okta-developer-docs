@@ -1057,84 +1057,6 @@ export const reference = [
             title: "Release Life Cycle",
             path: "/docs/reference/releases-at-okta/",
          },
-         {
-            title: "Architecture tutorials",
-            path: "/docs/reference/architecture-tutorials",
-            subLinks: [
-               {
-                  title: "Directory coexistence",
-                  path: "/docs/reference/architecture-tutorials/directory-coexistence/overview",
-                  subLinks: [
-                     {
-                        title: "Lab",
-                        path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-overview",
-                        subLinks: [
-                           {
-                              title: "Prerequisites",
-                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-prerequisites",
-                           },
-                           {
-                              title: "1: From Azure AD to Okta",
-                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-1-azure-ad",
-                           },
-                           {
-                              title: "2: From LDAP to Okta",
-                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-2-ldap-server",
-                           },
-                           {
-                              title: "3: From database to Okta",
-                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-3-generic-database",
-                           },
-                        ],
-                     },
-                  ],
-               },
-               {
-                  title: "Managing multiple Okta environments",
-                  path: "/docs/reference/architecture-tutorials/mmod/overview",
-                  subLinks: [
-                     {
-                        title: "Lab",
-                        path: "/docs/reference/architecture-tutorials/mmod/lab-overview",
-                        subLinks: [
-                           {
-                              title: "Prerequisites",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-prerequisites",
-                           },
-                           {
-                              title: "1: Configure Terraform Cloud",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-1-configure-terraform-cloud",
-                           },
-                           {
-                              title: "2: Create resources",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-2-create-resources",
-                           },
-                           {
-                              title: "3: Rename a group",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-3-rename-a-group",
-                           },
-                           {
-                              title: "4: Deploy changes to production",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-4-deploy-changes-to-production",
-                           },
-                           {
-                              title: "5: Detect drift",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-5-detect-drift",
-                           },
-                           {
-                              title: "6: Synchronize environments daily",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-6-synchronize-environments-daily",
-                           },
-                        ],
-                     },
-                     {
-                        title: "Further reading",
-                        path: "/docs/reference/architecture-tutorials/mmod/resources",
-                     },
-                  ],
-               },
-            ],
-         },
       ],
    },
 ];
@@ -1164,6 +1086,90 @@ export const releaseNotes = [
          { title: "2018", path: "/docs/release-notes/2018/" },
          { title: "2017", path: "/docs/release-notes/2017/" },
          { title: "2016", path: "/docs/release-notes/2016/" },
+      ],
+   },
+];
+
+export const architectureCenter = [
+   {
+      title: 'Architecture Center',
+      path: '/architecture-center/',
+      cards: true,
+      subLinks: [
+         {
+            title: 'Case studies',
+            path: '/architecture-center/case-studies/',
+            cards: true,
+            subLinks: [
+               {
+                  title: "CompanyX",
+                  path: "/architecture-center/case-studies/companyx/",
+               },
+            ],
+         },
+         // {
+         //    title: 'Reference Architectures',
+         //    path: '/architecture-center/architectures/',
+         //    cards: true,
+         //    subLinks: [
+         //       {
+         //          title: "Directory coexistence",
+         //          path: "/architecture-center/architectures/directory-coexistence/",
+         //          subLinks: [
+         //             {
+         //                title: "Lab overview and prerequisites",
+         //                path: "/architecture-center/architectures/directory-coexistence/lab/",
+         //             },
+         //             {
+         //                title: "Migrate users from Azure AD",
+         //                path: "/architecture-center/architectures/directory-coexistence/lab-azure-ad/",
+         //             },
+         //             {
+         //                title: "Migrate users from an LDAP server",
+         //                path: "/architecture-center/architectures/directory-coexistence/lab-ldap-server/",
+         //             },
+         //             {
+         //                title: "Migrate users from a generic database",
+         //                path: "/architecture-center/architectures/directory-coexistence/lab-generic-database/",
+         //             },
+         //          ],
+         //       },
+         //       {
+         //          title: "Manage multiple Okta environments",
+         //          path: "/architecture-center/architectures/multiple-environments/",
+         //          subLinks: [
+         //             {
+         //                title: "Lab overview and prerequisites",
+         //                path: "/architecture-center/architectures/multiple-environments/lab/",
+         //             },
+         //             {
+         //                title: "Configure Terraform Cloud",
+         //                path: "/architecture-center/architectures/multiple-environments/lab-1-configure-terraform-cloud/",
+         //             },
+         //             {
+         //                title: "Create resources",
+         //                path: "/architecture-center/architectures/multiple-environments/lab-2-create-resources/",
+         //             },
+         //             {
+         //                title: "Rename a group",
+         //                path: "/architecture-center/architectures/multiple-environments/lab-3-rename-a-group/",
+         //             },
+         //             {
+         //                title: "Deploy changes to production",
+         //                path: "/architecture-center/architectures/multiple-environments/lab-4-deploy-changes-to-production/",
+         //             },
+         //             {
+         //                title: "Detect drift",
+         //                path: "/architecture-center/architectures/multiple-environments/lab-5-detect-drift/",
+         //             },
+         //             {
+         //                title: "Synchronize environments daily",
+         //                path: "/architecture-center/architectures/multiple-environments/lab-6-synchronize-environments-daily/",
+         //             },
+         //          ],
+         //       },
+         //    ],
+         // },
       ],
    },
 ];
