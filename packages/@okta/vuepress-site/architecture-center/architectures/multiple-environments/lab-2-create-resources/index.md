@@ -20,7 +20,7 @@ In this tutorial, you:
 * [Add new group and group rules resources](#add-new-group-and-group-rules-resources)
 * [Add a new customer application portal resource](#add-a-new-customer-application-portal-resource)
 * [Add a new authentication policy resource](#add-a-new-authentication-policy-resource)
-* [Add a new Authorization Server and custom scopes and claims resources](#add-a-new-authorization-server-and-custom-scopes-and-claims-resources)
+* [Add a new authorization server, custom scopes and claims resources](#add-a-new-authorization-server-custom-scopes-and-claims-resources)
 
 > **Note**: For more information about Okta's Terraform providers, resources, and data, see [Okta Provider](https://registry.terraform.io/providers/okta/okta/latest/docs).
 
