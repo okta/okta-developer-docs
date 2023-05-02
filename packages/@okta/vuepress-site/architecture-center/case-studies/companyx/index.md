@@ -1,5 +1,4 @@
 ---
-layout: Landing
 title: User migration for Company X
 ---
 
