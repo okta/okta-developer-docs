@@ -55,6 +55,8 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 
    1. Make a note of your Okta domain. Use it wherever you see `${yourOktaDomain}` in the lab.
 
+1. Run `okta login` to connect to your org if you didn't create one in the last step (successfully creating an Okta org also signs you in). You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/).
+
 > **Note**: If you're using an existing org and want to use Okta CLI, check API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify an **Authorization Servers** tab is present. If not, you can:
 >
 > * Create a developer account and org with Okta CLI.
@@ -62,8 +64,6 @@ Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-lin
 > * Use the Admin Console to create your app integrations instead of the CLI.
 >
 > All accounts created with Okta CLI are developer accounts.
-
-1. Run `okta login` to connect to your org if you didn't create one in the last step (successfully creating an Okta org also signs you in). You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/).
 
 ## Create an Okta integration for your app
 
