@@ -2327,15 +2327,15 @@ curl -v -X GET \
 ]
 ```
 
-#### Replace a Group target in a group administrator role
+#### Assign a Group Target to a group administrator Role
 
-##### Replace a Group target in a group administrator role given to a user
+##### Assign a Group Target to a group administrator Role given to a User
 
 <ApiOperation method="put" url="/api/v1/users/${userId}/roles/${roleId}/targets/groups/${groupId}" />
 
-Replaces a Group target for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a User
+Assigns a Group target to a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a User
 
-When you replace the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
+When you assign the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
 
 ###### Request parameters
 
@@ -2371,13 +2371,13 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-##### Replace a Group target in a group administrator role given to a group
+##### Assign a Group Target to a group administrator Role given to a Group
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/groups/${targetGroupId}" />
 
-Replaces a Group target for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Group
+Assigns a Group Target to a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Group
 
-When you replace the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
+When you assign the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
 
 ###### Request parameters
 
@@ -2705,9 +2705,9 @@ The example shows one application and one instance. The response for instances h
 ]
 ```
 
-#### Replace an App target to an App administrator role
+#### Assign an App Target to an App administrator Role
 
-##### Replace an App target to an App administrator role given to a User
+##### Assign an App Target to an App administrator Role given to a User
 
 <ApiOperation method="put" url="/api/v1/users/${userId}/roles/${roleId}/targets/catalog/apps/${appName}" />
 
