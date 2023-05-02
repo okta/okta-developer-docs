@@ -47,7 +47,7 @@ Set up your developer account and [Okta org](/docs/concepts/okta-organizations/)
    https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
    ```
 
-1. Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following.
+1. Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
 
    ```txt
    New Okta Account created!
@@ -56,7 +56,7 @@ Set up your developer account and [Okta org](/docs/concepts/okta-organizations/)
 
 1. Make a note of your Okta domain. Use it wherever you see `${yourOktaDomain}` in the lab.
 
-> Note: If you're using an existing org, check API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify an **Authorization Servers** tab is present. If not, you can:
+> **Note**: If you're using an existing org, check API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify an **Authorization Servers** tab is present. If not, you can:
 >
 > * Create a developer account and org with Okta CLI.
 > * Contact your support team to enable the feature in your org.
