@@ -1,5 +1,4 @@
 ---
-layout: Landing
 title: Architecture Center
 ---
 

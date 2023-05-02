@@ -1,5 +1,4 @@
 ---
-layout: Landing
 title: Directory coexistence
 excerpt:
    Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping both source and target directories active during the process.
