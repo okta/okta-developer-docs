@@ -162,7 +162,7 @@ curl -v -X GET \
             "user.lifecycle.create",
             "user.lifecycle.activate"
         ],
-    "filter" : null
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -275,7 +275,7 @@ curl -v -X PUT \
             "user.lifecycle.activate",
             "user.lifecycle.deactivate"
         ],
-         "filter" : null
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -376,7 +376,7 @@ curl -v -X POST \
             "user.lifecycle.create",
             "user.lifecycle.activate"
         ],
-    "filter" : null
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -682,7 +682,7 @@ Explore the event hooks API with filters: [![Run in Postman](https://run.pstmn.i
 | Property | Description                                                                  | DataType | Required | ReadOnly |
 |----------|------------------------------------------------------------------------------|----------|----------|----------|
 | event    | The filtered event type   | String   | TRUE     | FALSE   |
-| condition    | The object that defines the filter using Okta Expression Language      | [condition object](#condition-object)  | TRUE    | FALSE    |
+| condition    | The object that defines the filter       | [condition object](#condition-object)  | TRUE    | FALSE    |
 
 #### Condition object
 
