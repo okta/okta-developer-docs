@@ -8,9 +8,8 @@
         Our developer portal enables you to deploy auth that protects your users, apps, APIs, and infrastructure.
       </p>
       <p style="color: white; font-size: x-large; font-weight: bold">Learn what’s new with Okta at Devday23 on May 16 and 17.
+      <a style="color: white; font-size: x-large; font-weight: bold; hover: black; href=https://developerday.com/ ">REGISTER NOW</a>
       </p>
     </div>
-    <div>
-    <a style="color: white; font-size: x-large; font-weight: bold; hover: black; href=https://developerday.com/ ">REGISTER NOW</a></div>
   </section>
 </template>
