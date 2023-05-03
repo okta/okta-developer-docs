@@ -2327,9 +2327,9 @@ curl -v -X GET \
 ]
 ```
 
-#### Assign a Group Target to a group administrator Role
+#### Assign a Group target to a group administrator Role
 
-##### Assign a Group Target to a group administrator Role given to a User
+##### Assign a Group target to a group administrator Role given to a User
 
 <ApiOperation method="put" url="/api/v1/users/${userId}/roles/${roleId}/targets/groups/${groupId}" />
 
@@ -2371,11 +2371,11 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-##### Assign a Group Target to a group administrator Role given to a Group
+##### Assign a Group target to a group administrator Role given to a Group
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/groups/${targetGroupId}" />
 
-Assigns a Group Target to a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Group
+Assigns a Group target to a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Group
 
 When you assign the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
 
@@ -2705,13 +2705,13 @@ The example shows one application and one instance. The response for instances h
 ]
 ```
 
-#### Assign an App Target to an App administrator Role
+#### Assign an App target to an App administrator Role
 
-##### Assign an App Target to an App administrator Role given to a User
+##### Assign an App target to an App administrator Role given to a User
 
 <ApiOperation method="put" url="/api/v1/users/${userId}/roles/${roleId}/targets/catalog/apps/${appName}" />
 
-Assigns an App Target for an `APP_ADMIN` Role assigned to a User
+Assigns an App target for an `APP_ADMIN` Role assigned to a User
 
 When you assign the first App target, you reduce the scope of the Role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
 
@@ -2748,11 +2748,11 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-##### Assign an App Target in an App administrator Role given to a Group
+##### Assign an App target to an App administrator Role given to a Group
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/catalog/apps/${appName}" />
 
-Assigns an App Target to an `APP_ADMIN` Role assigned to a Group
+Assigns an App target to an `APP_ADMIN` Role assigned to a Group
 
 When you assign the first App target, you reduce the scope of the role assignment. The Role no longer applies to all App targets but applies only to the specified target.
 
@@ -2789,13 +2789,13 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-#### Assign an App Instance Target to an App administrator Role
+#### Assign an App Instance target to an App administrator Role
 
 Assign an admin role to a specific App Instance to grant the admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins create in their org. For example, there may be a Salesforce App configured differently for each sales region of a company. When you create an App Instance target, you may assign an admin to manage only two instances of the configured Salesforce Apps and then also to manage an instance of another configured App such as Workday.
 
 > **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all the instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all the instances of a Salesforce app and then also specific configurations of the Salesforce app.
 
-##### Assign an App Instance Target to an App administrator Role given to a User
+##### Assign an App Instance target to an App administrator Role given to a User
 
 <ApiOperation method="put" url="/api/v1/users/${userId}/roles/${roleId}/targets/catalog/apps/${appName}/${appInstanceId}" />
 
@@ -2837,11 +2837,11 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-##### Assign an App Instance Target to an App administrator Role given to a Group
+##### Assign an App Instance target to an App administrator Role given to a Group
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/catalog/apps/${appName}/${appInstanceId}" />
 
-Assigns an App Instance Target to an `APP_ADMIN` Role assigned to a Group
+Assigns an App Instance target to an `APP_ADMIN` Role assigned to a Group
 
 When you assign the first App or App Instance target, you reduce the scope of the role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
 
