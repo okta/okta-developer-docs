@@ -326,7 +326,7 @@ curl -v -X GET \
 }
 ```
 
-### Update a permission
+### Create a Permission
 
 <ApiOperation method="post" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
