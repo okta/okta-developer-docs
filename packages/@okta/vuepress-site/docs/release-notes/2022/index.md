@@ -754,7 +754,7 @@ When you use the [AuthN APIs](/docs/reference/api/authn/#request-parameters-for-
 
 #### Bug fixed in 2022.04.3
 
-* The `ssh_certificate_type` parameter was incorrectly set as required in the [Projects](/docs/reference/api/asa/projects/#create-a-project) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-489376)
+* The `ssh_certificate_type` parameter was incorrectly set as required in the [Projects](https://developer.okta.com/docs/api/openapi/asa/asa/tag/projects/#tag/projects/operation/CreateProject) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-489376)
 
 ### Weekly release 2022.04.1
 
@@ -834,7 +834,7 @@ The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-
 
 * An error was incorrectly returned when a valid [update request](/docs/reference/api/authorization-servers/#update-a-scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
 
-* The `servers` parameter was incorrectly set as required in the [Preauthorization](/docs/reference/api/asa/projects/#create-a-preauthorization) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-478566)
+* The `servers` parameter was incorrectly set as required in the [Preauthorization](https://developer.okta.com/docs/api/openapi/asa/asa/tag/projects/#tag/projects/operation/CreatePreauthorization) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-478566)
 
 ### Weekly release 2022.03.1
 
