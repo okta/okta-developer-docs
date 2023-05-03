@@ -120,7 +120,7 @@ The basic steps to register and verify a new event hook are as follows:
 
 For a working example of an end-to-end event hook setup, see the [Event hook guide](/docs/guides/event-hook-implementation).
 
-> **Note:** It may take up to a few minutes before events are sent to the event hook after it’s created or updated.
+> **Note:** It may take several minutes before events are sent to the event hook after it’s created or updated.
 
 ### Implement your service
 
