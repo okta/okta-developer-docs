@@ -330,7 +330,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
-Updates a permission on an existing Role
+Creates a Permission on an existing Role
 
 #### Request parameters
 
