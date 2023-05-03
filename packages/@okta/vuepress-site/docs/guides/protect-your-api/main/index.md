@@ -33,30 +33,32 @@ A [custom authorization server](/docs/concepts/auth-servers/#custom-authorizatio
 Set up your developer account and [Okta org](/docs/concepts/okta-organizations/). The Okta command-line interface (CLI) is the quickest way to do this. Alternatively, you can [manually sign up for a developer account](https://developer.okta.com/signup/).
 
 1. Install [Okta CLI](https://cli.okta.com/).
-1. Open your terminal.
-1. Run `okta register`, and enter your first name, last name, email address, and country.
-1. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
+1. If you don't already have a free Okta developer account:
+   1. Open your terminal.
+   {style="list-style-type:lower-alpha"}
+   1. Run `okta register`, and enter your first name, last name, email address, and country.
+   1. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
 
-   > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
+      > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
-1. After your domain is registered, look for output similar to this:
+   1. Find your new domain and a link to set your password in the email:
 
-   ```txt
-   Your Okta Domain: https://dev-xxxxxxx.okta.com
-   To set your password open this link:
-   https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-   ```
+      ```txt
+      Your Okta Domain: https://dev-xxxxxxx.okta.com
+      To set your password open this link:
+      https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
+      ```
 
-1. Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
+   1. Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
 
-   ```txt
-   New Okta Account created!
-   Your Okta Domain: https://dev-xxxxxxx.okta.com
-   ```
+      ```txt
+      New Okta Account created!
+      Your Okta Domain: https://dev-xxxxxxx.okta.com
+      ```
 
-1. Make a note of your Okta domain. Use it wherever you see `${yourOktaDomain}` in the lab.
+   1. Make a note of your Okta domain. Use it wherever `${yourOktaDomain}` appears in this guide.
 
-> **Note**: If you're using an existing org, check API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify an **Authorization Servers** tab is present. If not, you can:
+> **Note**: If you're using an existing org, verify that API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify that an **Authorization Servers** tab is present. If not, choose one of the following:
 >
 > * Create a developer account and org with Okta CLI.
 > * Contact your support team to enable the feature in your org.
