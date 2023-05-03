@@ -9,6 +9,7 @@ guides:
  - archive-sign-in-to-spa-embedded-widget
  - archive-configure-signon-policy
  - auth-js
+ - auth-js-redirect
  - archive-overview
  - build-custom-ui-mobile
  - build-self-signed-jwt

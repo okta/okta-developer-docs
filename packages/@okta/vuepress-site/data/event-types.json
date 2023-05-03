@@ -1,6 +1,6 @@
 {
-  "release" : "2023.03.1",
-  "build" : "2023.03.1-begin-155-g0a3aa94c1bba",
+  "release" : "2023.04.1",
+  "build" : "2023.04.1-begin-117-gf53d88e71baf",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -50,8 +50,8 @@
     "id" : "developer-platform",
     "name" : "Developer Platform"
   }, {
-    "id" : "devices-okta-join",
-    "name" : "Okta Join"
+    "id" : "device-access",
+    "name" : "Device Access"
   }, {
     "id" : "globalization-core",
     "name" : "Globalization Core"
@@ -122,6 +122,9 @@
     "id" : "outbound-federation",
     "name" : "Outbound Federation"
   }, {
+    "id" : "passwordless",
+    "name" : "PasswordLess"
+  }, {
     "id" : "performance",
     "name" : "Performance"
   }, {
@@ -133,6 +136,12 @@
   }, {
     "id" : "provisioning-fabric",
     "name" : "Provisioning Fabric"
+  }, {
+    "id" : "resource-insights",
+    "name" : "Resource Insights"
+  }, {
+    "id" : "resource-management-platform",
+    "name" : "Resource Management Platform"
   }, {
     "id" : "security",
     "name" : "Security"
@@ -154,6 +163,9 @@
   }, {
     "id" : "account-services",
     "name" : "Account Services"
+  }, {
+    "id" : "auth-experiences",
+    "name" : "Auth Experiences"
   } ],
   "tags" : [ {
     "id" : "network-zone",
@@ -804,6 +816,10 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "realms",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "plugin",
     "description" : "",
     "tags" : [ ]
@@ -817,6 +833,10 @@
     "tags" : [ ]
   }, {
     "id" : "access",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "resource",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -898,7 +918,7 @@
       "tags" : [ "account-service" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "SkuDebugData",
         "actor" : null,
         "targets" : [ "ProductResourceDetails" ]
       }
@@ -915,7 +935,7 @@
       "tags" : [ "account-service" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "OrgStatusDebugData",
         "actor" : null,
         "targets" : [ "ProductResourceDetails" ]
       }
@@ -6394,6 +6414,57 @@
         "targets" : [ "DirectoryResourceDetails" ]
       }
     }, {
+      "id" : "directory.realm.lifecycle.create",
+      "category" : "ud-core",
+      "description" : "A new realm has been created. This event may be used to identify when a realm is created, and who it was that created the realm. This may be useful for admins to audit realm activity in the system log. This event only indicates the creation of a realm. See directory.realm.lifecycle.delete for deletion of realms.",
+      "info" : {
+        "created" : "2023-02-15",
+        "release" : "2023.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "realms" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "directory.realm.lifecycle.delete",
+      "category" : "ud-core",
+      "description" : "An existing realm has been deleted. This event may be used to identify when a realm is deleted, and who it was that deleted the realm. This may be useful for admins to audit realm activity in the system log. This event only indicates the deletion of a realm. See directory.realm.lifecycle.create for creation of realms.",
+      "info" : {
+        "created" : "2023-02-15",
+        "release" : "2023.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "realms" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "directory.realm.lifecycle.update",
+      "category" : "ud-core",
+      "description" : "An existing realm has been updated. This event may be used to identify when properties of a realm such as the name are updated, and who it was that made the updates. This may be useful for admins to audit realm activity in the system log. This event only indicates that properties of the realm object were changed. It does not indicate that users were added or removed from a realm. Additionally, it does not describe realm creation or deletion. For that information, see directory.realm.lifecycle.create and directory.realm.lifecycle.delete.",
+      "info" : {
+        "created" : "2023-02-15",
+        "release" : "2023.03.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "realms" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "RealmUpdateResourceDetails" ]
+      }
+    }, {
       "id" : "directory.user_profile.bootstrap",
       "category" : "lca",
       "description" : "Bootstrap universal directory user profile.",
@@ -7117,7 +7188,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "inline-hook" ],
+      "tags" : [ "event-hook-eligible", "inline-hook" ],
       "mappings" : [ "platform.inline_hook.executed.failure", "platform.inline_hook.executed.success" ],
       "schema" : {
         "debugData" : "InlineHookDebugData",
@@ -8793,7 +8864,7 @@
     }, {
       "id" : "pam.project.create",
       "category" : "asa",
-      "description" : "This event is triggered after a project is created.",
+      "description" : "This event is triggered after a Project is created. For ASA, this event only contains the Project name. For Okta Privileged Access, this event contains the Project name and the associated Resource Group.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
@@ -8810,7 +8881,7 @@
     }, {
       "id" : "pam.project.delete",
       "category" : "asa",
-      "description" : "This event is triggered after a project is deleted.",
+      "description" : "This event is triggered after a Project is deleted. For ASA, this event only contains the Project name. For Okta Privileged Access, this event contains the Project name and the associated Resource Group.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
@@ -8842,12 +8913,131 @@
         "targets" : null
       }
     }, {
+      "id" : "pam.project.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a Project is updated. Only applicable for Okta Privileged Access. This event contains the Project name and the associated Resource Group.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "pam.project_group_selector.update",
       "category" : "asa",
       "description" : "This event is triggered after server selectors for a group assigned to a project are updated.",
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.resource_group.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a Resource Group is created. Monitor this event to be notified when new teams in your Okta org begin using Okta Privileged Access. Only applicable for Okta Privileged Access. This event defines when a Resource Administrator has created a new Resource Group to manage resources.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.resource_group.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after a Resource Group is deleted. Monitor this event to be notified when a team in your Okta org stops managing access to a resource. Only applicable for Okta Privileged Access. This event defines when a Resource Administrator deleted a Resource Group.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.resource_group.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a Resource Group is updated. Monitor this event to be notified when Resource Group settings change. Only applicable for Okta Privileged Access. This event defines when a Resource Administrator has modified the settings for a Resource Group.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.security_policy.create",
+      "category" : "asa",
+      "description" : "This event is triggered after a Security Policy is created. Use this event to determine when Security Administrators create new Security Policies. Only applicable for Okta Privileged Access. This event contains the Principals associated with the Security Policy and the number of rules in the policy.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.security_policy.delete",
+      "category" : "asa",
+      "description" : "This event is triggered after a Security Policy is deleted. Use this event to indicate that a policy that was previously in place is no longer active and end user access to resources may be changed. Only applicable for Okta Privileged Access. This event contains the Principals associated with the Security Policy and the number of rules in the policy.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.security_policy.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a Security Policy is updated. Use this event to determine when Security Administrators update Security Policies and to identify important changes made to policies. Only applicable for Okta Privileged Access. This event contains the Principals associated with the Security Policy and the number of rules in the policy.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
       },
       "beta" : false,
       "internal" : false,
@@ -8916,6 +9106,91 @@
       "info" : {
         "created" : "2022-02-01",
         "release" : "2022.02.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.server_account.discovered",
+      "category" : "asa",
+      "description" : "This event is triggered after a server account is first discovered by the Server Agent. Only applicable for Okta Privileged Access. This event contains the name of the discovered account and the associated server.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.server_account.password_change.initiated",
+      "category" : "asa",
+      "description" : "This event is triggered after a password rotation is requested for a local server account. Use this event to verify that the password settings are being correctly applied to your servers. This event contains the name of the local server account being modified and the associated server.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.server_account.password_change.out_of_band",
+      "category" : "asa",
+      "description" : "This event is triggered after a server account password is altered via a method other than scheduled rotation. You MUST monitor this event to ensure that unauthorized users are not attempting to reset local server account passwords in an attempt to gain access to servers. Only applicable for Okta Privileged Access. This event contains the modified server account and the associated server.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.server_account.password_change.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a server reports an attempt to perform a password rotation. The outcome.result field contains either 'SUCCESS' or 'FAILURE' and should be monitored to detect any password rotation errors. Only applicable for Okta Privileged Access. This event contains the name of the local server account, the associated server, and indicates if the rotation was successful.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "pam" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pam.server_account.update",
+      "category" : "asa",
+      "description" : "This event is triggered after a discovered server account is updated. Use this event to observe how often the system updates server accounts. Only applicable for Okta Privileged Access. This event contains the name of the updated account and the associated server.",
+      "info" : {
+        "created" : "2023-04-05",
+        "release" : "2023.04.0"
       },
       "beta" : false,
       "internal" : false,
@@ -9556,21 +9831,21 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
-      "id" : "policy.continuous_access_evaluate.deny",
+      "id" : "policy.continuous_access_evaluate.fail",
       "category" : "idx",
-      "description" : "Continuous Access Evaluation has occurred and has resulted in a DENY action. Can be used to identify which user, apps, and session were involved in a CAE DENY event. Event fired when CAE evaluation results in DENY.",
+      "description" : "Continuous Access Evaluation has occurred and has resulted in a DENY action. Can be used to identify which user, apps, and session were involved in a CAE failure event. Event fired when CAE evaluation results in failure.",
       "info" : {
         "created" : "2023-02-10",
         "release" : "2023.03.0"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "policy", "security", "session" ],
+      "tags" : [ "event-hook-eligible", "policy", "security", "session" ],
       "mappings" : [ ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "ContinuousAccessEvaluationDebugData",
         "actor" : null,
-        "targets" : [ "CAEDenyResourceDetails" ]
+        "targets" : [ "PolicyEvaluationResourceDetails" ]
       }
     }, {
       "id" : "policy.evaluate_sign_on",
@@ -9860,6 +10135,23 @@
         "debugData" : "AutomationsDebugData",
         "actor" : null,
         "targets" : [ "ExecutePolicyResourceDetails" ]
+      }
+    }, {
+      "id" : "resource.user_entitlements.update",
+      "category" : "id-fabric",
+      "description" : "Updated user's entitlements in a resource. Can be used to provision user's entitlements in a downstream resource. User-entitlements and list of active grant endpoints can be used to get more details on user's current entitlements and to know what triggered this event.",
+      "info" : {
+        "created" : "2023-03-01",
+        "release" : "2023.03.3"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "resource" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "GrantDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "scheduled_action.user_suspension.canceled",
@@ -11673,7 +11965,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "email" ],
+      "tags" : [ "email", "event-hook-eligible" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "EmailDeliveryDebugData",
@@ -12937,6 +13229,23 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "DevOrgCreateResourceDetails" ]
+      }
+    }, {
+      "id" : "system.internal.migrate.appuser",
+      "category" : "analytics",
+      "description" : "Created to migrate AppUsers to new backend system. Created to migrate AppUsers to new backend system in order to enable Reports 1.0 deprecation. This event is fired to hold several AppUsers which will then be migrated to new Reports data store. For internal use only.",
+      "info" : {
+        "created" : "2023-02-27",
+        "release" : "2023.03.1"
+      },
+      "beta" : false,
+      "internal" : true,
+      "tags" : [ "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "AppUserMigrationResourceDetails" ]
       }
     }, {
       "id" : "system.iwa.create",
@@ -14852,7 +15161,7 @@
       },
       "beta" : true,
       "internal" : false,
-      "tags" : [ "risk", "security" ],
+      "tags" : [ "event-hook-eligible", "risk", "security" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -14901,9 +15210,9 @@
         "created" : "2023-01-11",
         "release" : "2023.01.0"
       },
-      "beta" : false,
+      "beta" : true,
       "internal" : false,
-      "tags" : [ "end-user-visible", "event-hook-eligible", "session", "user" ],
+      "tags" : [ "session", "user" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "SessionContextDebugData",
@@ -20313,6 +20622,19 @@
           }
         }
       },
+      "ContinuousAccessEvaluationDebugData" : {
+        "name" : "ContinuousAccessEvaluationDebugData",
+        "properties" : {
+          "trigger_event_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "432sdf345235" ]
+          }
+        }
+      },
       "CsvReportExportDebugData" : {
         "name" : "CsvReportExportDebugData",
         "properties" : {
@@ -22056,6 +22378,195 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "PLUGIN_ONBOARDING", "QUICK_ACCESS_APPS", "PLUGIN_POPOVER_QUICK_ACCESS_APPS", "PASSWORD_CHANGED_EMAIL_NOTIFICATIONS", "OFFICE365_PASS_CLAIM_FOR_MFA", "PASSWORDLESS_AUTHN_SIGNON_POLICY", "PROV_LITMOS_ENABLE_ADVANCED_CUSTOM_PROPERTIES", "WORKSPACE1_DEVICE_TRUST_IOS_DEVICE", "ENDUSER_V2", "HEALTH_INSIGHT_TOR_LOGIN_METRICS" ]
+          }
+        }
+      },
+      "GrantDebugData" : {
+        "name" : "GrantDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "grant_action" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ALLOW", "DENY" ]
+          },
+          "grant_source" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "POLICY", "CUSTOM", "ENTITLEMENT_BUNDLE" ]
+          },
+          "grant_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "gra1q2MG1jbsEamBO0g3", "gra1q2MG1jbsEamBO0g0" ]
           }
         }
       },
@@ -25542,6 +26053,14 @@
             "format" : "text",
             "examples" : [ "api://default" ]
           },
+          "authorization_server_audience" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "api://default", "com.api.example" ]
+          },
           "actor_token_type" : {
             "type" : "String",
             "sensitive" : false,
@@ -27701,6 +28220,187 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "2020-08-04 00:00:00.0", "2020-08-25 00:00:00.0", "2020-08-13 00:00:00.0" ]
+          }
+        }
+      },
+      "OrgStatusDebugData" : {
+        "name" : "OrgStatusDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "old_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ACTIVE", "INACTIVE" ]
+          },
+          "new_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ACTIVE", "INACTIVE" ]
           }
         }
       },
@@ -29871,6 +30571,187 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "trsqSU8G8G8Tf6FrTOOOhABeQ", "102fyOyNMIAQRKmbM79sS9BfQ" ]
+          }
+        }
+      },
+      "SkuDebugData" : {
+        "name" : "SkuDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "skus_deleted" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "P100001, P100002", "P100001" ]
+          },
+          "skus_added" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "P100001, P100002", "P100001" ]
           }
         }
       },
@@ -33950,35 +34831,6 @@
           }
         }
       },
-      "CAEDenyResourceDetails" : {
-        "name" : "CAEDenyResourceDetails",
-        "properties" : {
-          "app_instance_ids" : {
-            "type" : "List",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "[\"appInstanceId1\",\"appInstanceId2\"]" ]
-          },
-          "global_session_policy_action" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "enum",
-            "examples" : [ "ALLOW", "DENY" ]
-          },
-          "session_id" : {
-            "type" : "String",
-            "sensitive" : false,
-            "personal" : false,
-            "customer" : false,
-            "format" : "text",
-            "examples" : [ "aSessionId" ]
-          }
-        }
-      },
       "CaptchaResourceDetails" : {
         "name" : "CaptchaResourceDetails",
         "properties" : {
@@ -34974,6 +35826,59 @@
           }
         }
       },
+      "PolicyEvaluationResourceDetails" : {
+        "name" : "PolicyEvaluationResourceDetails",
+        "properties" : {
+          "app_instance_ids" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[\"appInstanceId1\",\"appInstanceId2\"]" ]
+          },
+          "matched_rule_assurance_met" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "matched_rule_action" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ALLOW", "DENY" ]
+          },
+          "matched_rule_display_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "My Rule Name" ]
+          },
+          "matched_rule_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "00pyfphL1VzqpPOKo0g3", "rsty14UDd30XRoSI20g3" ]
+          },
+          "policy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "OKTA_SIGN_ON" ]
+          }
+        }
+      },
       "PolicyLifecycleResourceDetails" : {
         "name" : "PolicyLifecycleResourceDetails",
         "properties" : {
@@ -35100,6 +36005,35 @@
             "customer" : false,
             "format" : "text",
             "examples" : [ "00ox7oj39kH8PPs1v0g3", "00owu6i9Vm1NZM4aa0g3" ]
+          }
+        }
+      },
+      "RealmUpdateResourceDetails" : {
+        "name" : "RealmUpdateResourceDetails",
+        "properties" : {
+          "default_realm" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "previous_name_of_realm" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Default Realm", "My Custom Realm" ]
+          },
+          "new_realm_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "Default Realm", "My Custom Realm" ]
           }
         }
       },

@@ -424,7 +424,7 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-### /bc/authorize
+<!-- ### /bc/authorize
 
 <ApiOperation method="post" url="${baseUrl}/v1/bc/authorize" /> <ApiLifecycle access="ie" />
 
@@ -535,7 +535,7 @@ Content-Type: application/json;charset=UTF-8
     "error_description" : "No client credentials found."
 }
 ```
-
+-->
 ### /token
 
 <ApiOperation method="post" url="${baseUrl}/v1/token" />
@@ -1556,7 +1556,7 @@ The header only includes the following reserved claims:
 | Property | Description                                                                                                                                                                               | DataType |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | alg      | Identifies the digital signature algorithm used. This is always `RS256`.                                                                                                                  | String   |
-| kid      | Identifies the `public-key` used to sign the `access_token`. The corresponding `public-key` can be found via the JWKS in the [discovery document](#well-knownoauth-authorization-server). | String   |
+| kid      | Identifies the `public-key` used to sign the `access_token`. The corresponding `public-key` can be found via the JWKS in the [discovery document](#well-known-oauth-authorization-server). | String   |
 
 ###### Reserved claims in the payload section
 
@@ -1682,7 +1682,7 @@ Claims in the Header are always returned.
 | Property        | Description                                                                                                                                                                                                    | DataType      |
 | :-------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------ |
 | alg             | Identifies the digital signature algorithm used. This is always `RS256`.                                                                                                                                      | String        |
-| kid             | Identifies the public key used to verify the ID token. The corresponding public key can be found via the JWKS in the [discovery document](#well-knownopenid-configuration).                                    | String        |
+| kid             | Identifies the public key used to verify the ID token. The corresponding public key can be found via the JWKS in the [discovery document](#well-known-openid-configuration).                                    | String        |
 
 ##### Claims in the Payload section
 
