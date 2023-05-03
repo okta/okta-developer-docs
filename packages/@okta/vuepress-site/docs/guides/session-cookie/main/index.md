@@ -2,7 +2,7 @@
 title: Work with Okta session cookies
 ---
 
-<ClassicDocOieVersionNotAvailable />
+> **Note:** This document is written for Okta Classic Engine. If you're using Okta Identity Engine, see [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/) and the [Sessions APIs](/docs/guides/ie-limitations/main/#sessions-apis) section of the Identity Engine limitations page. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 This guide provides examples for programmatically retrieving and setting a session cookie for different deployment scenarios to provide SSO capabilities for custom web apps built on Okta.
 

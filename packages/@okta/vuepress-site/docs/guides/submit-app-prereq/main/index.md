@@ -22,14 +22,14 @@ A built and tested OIN integration that's ready for Okta verification
 
 ## Overview
 
-Before using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, you need to review the following guidelines to prepare for the artifacts requested during the submission process:
+Before using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, you need to prepare for the artifacts requested during the submission process. Review the following submission artifact guidelines:
 
-* [Logo guidelines](#logo-guidelines)
-* [App description guidelines](#app-description-guidelines)
-* [Use case guidelines](#use-case-guidelines)
-* [Customer support contact guidelines](#customer-support-contact-guidelines)
-* [Test account guidelines](#test-account-guidelines)
-* [Customer configuration document guidelines](#customer-configuration-document-guidelines)
+* [Logo](#logo-guidelines)
+* [App description](#app-description-guidelines)
+* [Use case](#use-case-guidelines)
+* [Customer support contact](#customer-support-contact-guidelines)
+* [Test account](#test-account-guidelines)
+* [Customer configuration document](#customer-configuration-document-guidelines)
 
 Before you submit your integration, ensure that your integration doesn't use Okta features that aren't supported in the OIN. See [OIN limitations](#oin-limitations).
 
@@ -341,7 +341,7 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations.
 
-* **Custom authorization server:** To support the potentially large numbers of Okta orgs accessing an authorization server through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+* **Custom authorization server:** An OIDC or API service integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
 * **Refresh token:**  Refresh tokens aren't supported for integrations published in the OIN.
 
