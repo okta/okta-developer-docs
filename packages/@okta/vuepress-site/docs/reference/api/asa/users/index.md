@@ -5,6 +5,11 @@ category: asa
 
 # ASA Users API
 
+The ASA Users API reference is now available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/asa/asa/tag/users/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Risk Events API Postman collection.
+
+<!--
 ## Get started
 
 The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is logically separate from the rest of the Okta APIs and uses a different API namespace:
@@ -337,4 +342,4 @@ https://app.scaleft.com/v1/teams/${team_name}/users/${user_name}/groups
 }
 ```
 
-
+-->
