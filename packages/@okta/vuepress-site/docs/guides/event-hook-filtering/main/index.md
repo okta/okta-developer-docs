@@ -31,7 +31,7 @@ This guide provides a functional example of an Okta event hook filter. It's base
 
 ## About event hook filters
 
-Event hook filters reduce the amount of event hook calls to your external service endpoint. The filter triggers hooks only for events based on the logic that you define. You can implement one or more filters to your event hook and apply them when creating a hook or later. For further information, see [Event hooks](/docs/concepts/event-hooks/#which-events-are-eligible).
+Event hook filters reduce the amount of event hook calls to your external service endpoint. The filter triggers hooks only for events based on the logic that you define. You can implement one or more filters for your event hook and apply them when creating a hook or apply them later. See [Event hooks](/docs/concepts/event-hooks/#which-events-are-eligible).
 
 ## Set up the sample external service
 
@@ -51,7 +51,7 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. In the **Endpoint URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://${your-glitch-projectname}.glitch.me/userAdded`.
 
-1. In the **Event Hook Name**, add a unique name for the hook (in this example, "User added to Sales group event hook).
+1. In the **Event Hook Name**, add a unique name for the hook (in this example, "User added to Sales group event hook").
 
 1. In the **Customize request** section, include authentication field and secret. In this example, use [Basic Authentication](/docs/guides/common-hook-set-up-steps/nodejs/main/#http-header-basic-authentication):
 
@@ -73,7 +73,7 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
     * **Value** = `UserGroup`
 
-    And click **Add Another**:
+    Click **Add Another**:
 
     * **Field** = `target.displayName`
 
@@ -87,11 +87,11 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
 1. Click **Save & Continue**.
 
-1. On the **Preview** section, click **Skip this step**.
+1. In the **Preview** section, click **Skip this step**.
 
     >**Note:** The event hook preview bypasses the event hook filter. Don’t test your filter with the **Preview** feature.
 
-1. Ensure that your Glitch application is listening for your requests, and then click **Verify** to complete the one-time verification step. For more information on this process, see [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
+1. Ensure that your Glitch application is listening for your requests, and then click **Verify** to complete the one-time verification step. See [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
 
 > **Note:** It may take a few minutes before events are sent to the event hook after it’s created or updated.
 
