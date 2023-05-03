@@ -10,7 +10,7 @@
       <p style="color: white; font-size: x-large; font-weight: bold">
         Learn what’s new with Okta at Devday23 on May 16 and 17<br>
         <a id="hoverlink"
-          href="https://developerday.com/">REGISTER NOW</a>
+           href="https://developerday.com/">REGISTER NOW</a>
       </p>
     </div>
   </section>
@@ -18,9 +18,9 @@
 
 <style>
 #hoverlink {
-  color: purple !important;
+  color: #603F8B !important;
 }
 #hoverlink:hover {
-  color: white !important;
+  color: #FFFFFF !important;
 }
 </style>
