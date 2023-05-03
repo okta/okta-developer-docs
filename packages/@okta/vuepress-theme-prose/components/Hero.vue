@@ -18,7 +18,7 @@
 
 <style>
 #hoverlink {
-  color: #603f8b !important;
+  color: #570861 !important;
 }
 #hoverlink:hover {
   color: #ffffff !important;
