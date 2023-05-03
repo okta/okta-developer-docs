@@ -146,7 +146,7 @@ Or:
 
 The event hook is now set up with a status of **VERIFIED** and is ready to send event hook calls to your external service.
 
->**Note:** A successful event hook verification also indicates that your local application is useable with the ngrok session. Review the ngrok terminal or inspector interface for details on the first `GET` call to your local application.
+>**Note:** A successful event hook verification also indicates that your local application is usable with the ngrok session. Review the ngrok terminal or inspector interface for details on the first `GET` call to your local application.
 
 ## Test, preview, and review the event hook
 
