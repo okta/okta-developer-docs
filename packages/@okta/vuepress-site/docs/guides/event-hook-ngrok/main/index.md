@@ -47,30 +47,18 @@ To use this guide:
 
 If you already have ngrok installed, move on to [Run ngrok](#run-ngrok). If not, follow the installation instructions at [https://ngrok.com/download](https://ngrok.com/download) to install in your sample application folder (or the location of your choice).
 
-Some installation notes:
+Installation notes:
 
 * A free ngrok account isn't required, but can provide additional features including basic authentication.
-* ```
-* You can install ngrok directly in your project folder, sample-app, as documented from the ngrok download page. Or you can install on your system's path directory to be able to run ngrok from any folder. Alternatively, you can install the executable in your favorite local folder, but you need the folder path when referencing the tool.
+
+* You can install ngrok in the system path directory or the project directory. Alternatively, you can install the executable in another local directory, as long as you reference the directory path when using the tool.
 
 ### Run ngrok
 
-After installing ngrok, ensure that it's running by creating a "tunnel" into a local port (8082 in this example). If you installed directly into your project folder (for example, sample-app), run the following command in your terminal:
+After installing ngrok, ensure that it's running by creating a "tunnel" into a local port (`8082` in this example). If you installed directly into your project directory (for example, `sample-app`), run the following command in your terminal:
 
 ```shell
 sample-app > ./ngrok http 8082
-```
-
-Or if you installed in your system path:
-
-```shell
-sample-app > ngrok http 8082
-```
-
-Or if you used your favorite folder:
-
-```shell
-sample-app > ~/applications/ngrok http 8082
 ```
 
 If you see the following content in your terminal, ngrok is running successfully:
@@ -129,21 +117,9 @@ Create the Okta event hook to work with your local application, which can now be
 
 ### Verify the event hook
 
-Verify the event hook to prove that your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request).
+You must verify the event hook to prove that your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request).
 
-To complete the one-time verification of the event hook:
-
-* After creating the event hook, and:
-
-  * Your local application server is running (`>node server.js`).
-
-  * Your local ngrok session is running (and the forwarding URL is the same as the URL field defined in the event hook).
-
-  Click **Verify** to complete the one-time verification step.
-
-Or:
-
-* After making sure that your ngrok session and local application are ready for the external verification call, go to the Event Hooks table, click the **Actions** dropdown menu of your **UNVERIFIED** event hook, and select **Verify**.
+If you didn't verify the hook during the [Create the event hook](#create-an-okta-event-hook) procedure, ensure that your ngrok session and local application are ready for the external verification call, and go to the Event Hooks table, click the **Actions** dropdown menu of your **UNVERIFIED** event hook, and select **Verify**.
 
 The event hook is now set up with a status of **VERIFIED** and is ready to send event hook calls to your external service.
 
@@ -177,7 +153,7 @@ To run a preview call of your event hook:
 1. In the Admin Console, go to **Workflow** > **Event Hooks**.
 1. Locate the event hook that you created during the set-up step. In this example, select `New User Event Hook` or the name you gave the event hook.
 1. Click the **Actions** menu for this hook, and select **Preview**.
-1. In the **Configure Event Hook request** section, select an event from the **Event Type** dropdown menu. In this example, there’s only one: `User Created (user.lifecycle.create)`.
+1. In the **Configure Event Hook request** section, select an event from the **Event Type** dropdown menu. In this example, the only available option is: `User Created (user.lifecycle.create)`.
 1. The most recent event (in this case, user John Doe created previously) populates the **Preview & Deliver Event Hook** section with the JSON body of the event hook. You can also select an older event from the **System Log Event** dropdown menu. If no event is available, the JSON body populates with sample data.
 
     > **Note:**
