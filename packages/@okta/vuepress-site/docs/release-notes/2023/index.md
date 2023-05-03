@@ -16,7 +16,7 @@ title: Okta API Products release notes 2023
 
 * An API request to retrieve app instances (GET `/apps`) returned a large custom payload in the `settings.app.domains` property for an Office 365 app instance. (OKTA-593595)
 
-* Some requests to the Sessions API (`/sessions`) with an SSWS token returned an HTTP 500 Internal Server error.
+* Some requests to the Sessions API (`/sessions`) with an SSWS token returned an HTTP 500 Internal Server error. (OKTA-306349)
 
 ### Weekly release 2023.04.2
 
