@@ -1,8 +1,8 @@
 ### Direct Authentication MFA OOB flow
 
-<div class="full">
+<div class="three-quarter">
 
-![Sequence diagram that displays the back and forth between the resource owner, client app, and authorization server for MFA OOB flow"](/img/authorization/oauth-mfaoob-grant-flow.png)
+![Sequence diagram that displays the back and forth between the resource owner, client app, and authorization server for MFA OOB flow"](/img/authorization/mfaoob.png)
 
 </div>
 
