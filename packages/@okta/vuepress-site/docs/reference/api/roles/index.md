@@ -453,7 +453,7 @@ Retrieves a permission from an existing Role
 
 #### Response parameters
 
-The requested permission object<br>
+The requested Permission<br>
 <ApiLifecycle access="ea" />Includes the conditions on the permission (if applicable)
 
 #### Request example
