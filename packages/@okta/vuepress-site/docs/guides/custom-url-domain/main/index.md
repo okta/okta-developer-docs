@@ -309,7 +309,7 @@ Okta sends your super admins a confirmation email after your custom email addres
 
 1. In the Admin Console, go to **Customizations** > **Emails**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email** section, click **Add domain**).
 
-2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
+2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This is displayed in the emails sent to your users.
 
 3. In the **Name of email sender** field, enter the name of sender. This name appears as the sender in the emails sent to your users.
 
