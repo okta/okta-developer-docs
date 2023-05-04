@@ -54,7 +54,7 @@ Multibrand orgs have a non-deletable default brand called the subdomain brand. H
 
 ### Multibrand and resource sets
 
-Make a custom admin role specific to a brand by using a customization resource type. For more information:
+Make a custom admin role specific to a brand by using a customization resource type. See:
 
 - [Create a resource set - Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-resource-set)
 - [Create a resource set - Okta Classic Engine](https://help.okta.com/okta_help.htm?id=ext-create-resource-set)
