@@ -247,7 +247,7 @@ The following customizations aren't supported:
 
 See [Okta Sign-in Widget: Help links](https://github.com/okta/okta-signin-widget/#help-links).
 
-### `processCreds` hook
+### The `processCreds` hook
 
 Developers can't subscribe to the `processCreds` hook in the widget.
 
