@@ -1,6 +1,6 @@
 ## Enable authenticators for your org
 
-The direct authentication MFA OOB flow uses passwordless authentication, such as signing in with email or SMS. You need an authenticator enabled to use the direct authentication MFA OOB flow.
+The direct authentication MFA OOB flow uses passwordless authentication, such as signing in with email or SMS. You need a non-password authenticator enabled in your org to use the direct authentication MFA OOB flow.
 
 > **Note:** Okta currently supports Okta Verify for the MFA OOB flow. <!-- Need to update this after the entire feature is rolled out and not limited to Okta Verify -->
 
