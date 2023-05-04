@@ -52,6 +52,13 @@ You can only visit a branded touchpoint (such as a logo or color) after you map 
 
 Multibrand orgs have a non-deletable default brand called the subdomain brand. However, you can create several custom brands. The subdomain brand always appears at the Okta subdomain URL and can’t have a custom domain. You can swap out the logo and other assets, but you can’t edit custom code for the sign-in page or error pages. You can only use custom domain and custom code for sign-in pages and error pages on custom brands.
 
+### Multibrand and resource sets
+
+Make a custom admin role specific to a brand by using a customization resource type. For more information:
+
+- [Create a resource set - Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-resource-set)
+- [Create a resource set - Okta Classic Engine](https://help.okta.com/okta_help.htm?id=ext-create-resource-set)
+
 ### Multibrand and emails
 
 When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
@@ -79,7 +86,7 @@ There are public APIs and updates to existing APIs for multibrand customization:
 - [Sign-out page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings)
 - [Brand locale](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/listBrands)
 
-### Authorization servers and multibrand customizations
+### Multibrand and authorization servers
 
 Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the domain from the authorize request as the domain for the redirect URI when returning the authentication response. The Admin Console UI displays the org's Okta subdomain when the org has multiple custom domains configured.
 
