@@ -99,7 +99,7 @@ Yes. When you turn the custom domain on, the Okta domain (for example, `example.
 
 This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own TLS certificate.
 
-> **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact your Okta account team or post on our [forum](https://devforum.okta.com/) to request a seamless migration with no downtime.
+> **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact [Support](https://support.okta.com/help/s/opencase).
 
 > **Note:** You don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record to use an Okta-managed TLS certificate. However, if you do have a CAA record, keep the following in mind:
 >
