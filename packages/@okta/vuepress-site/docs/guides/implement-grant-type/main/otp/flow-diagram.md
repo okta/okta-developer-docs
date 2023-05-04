@@ -2,7 +2,7 @@
 
 <div class="three-quarter">
 
-![Sequence diagram that displays the back and forth between the resource owner, client app, and authorization server for OTP flow"](/img/authorization/otp.png)
+![Sequence diagram that displays the back and forth between the resource owner, client app, and authorization server for OTP flow"](/img/authorization/oauth-otp-grant-flow.png)
 
 </div>
 

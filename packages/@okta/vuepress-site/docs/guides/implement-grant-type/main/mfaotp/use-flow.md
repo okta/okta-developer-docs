@@ -9,13 +9,13 @@ curl --request POST \
   --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid profile&grant_type=password&username=${testuser%40example.com}&password={$userpassword}'
+  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=password&username=${testuser%40example.com}&password={$userpassword}'
 ```
 
 Note the parameters that are passed:
 
 - `client_id` matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
-- `scope` must be at least `openid`. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+- `scope` must be at least `openid`. If you're using a custom authorization server, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 - `grant_type` is `password`, indicating that you're using the Resource Owner Password grant type.
 - `username` is the identifier for the user (email).
 - `password` is the password of the matching user.
@@ -28,7 +28,7 @@ For more information on these parameters, see the `/token` [endpoint](https://de
 
 **Response**
 
-Since this is a two factor flow, Okta sends an HTTP 403 error and includes the `mfa_token` in the response. The `mfa_token` is a unique token used for identifying multifactor authentication flows to link the request to the original authentication flow.
+Since this is a two-factor flow, Okta sends an HTTP 403 error and includes the `mfa_token` in the response. The `mfa_token` is a unique token used for identifying multifactor authentication flows to link the request to the original authentication flow.
 
 ```json
     {
@@ -40,14 +40,14 @@ Since this is a two factor flow, Okta sends an HTTP 403 error and includes the `
 
 ### Second token request
 
-Your app prompts the user for an OTP in the app UI. The user obtains the OTP and enters it into the app UI. Your app then makes a `/token` request to the authorization server:
+Your app prompts the user for an OTP in the app UI. The user obtains the OTP and enters it into the app interface. Your app then makes a `/token` request to the authorization server:
 
 ```bash
 curl --request POST \
   --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid profile&grant_type=http://auth0.com/oauth/grant-type/mfa-otp&otp=${123456}&mfa_token=${F5snZpk1UBRKHYR6N7Mh}'
+  --data 'client_id=${client_id}&scope=openid profile&grant_type=http://auth0.com/oauth/grant-type/mfa-otp&otp=${otp_value}&mfa_token=${mfa_token_value}'
 ```
 
 Note the parameters that are passed:

@@ -1,6 +1,6 @@
 ## Enable authenticators for your org
 
-The direct authentication MFA OTP flow uses passwordless authentication, like signing in with email, SMS, or using multifactor authentication. You need an authenticator enabled to use the direct authentication MFA OTP flow.
+The direct authentication MFA OTP flow uses passwordless authentication, like signing in with email, SMS, or using multifactor authentication. You need a passwordless authenticator enabled to use the direct authentication MFA OTP flow.
 
 1. Open the Admin Console for your org.
 1. Select **Security** > **Authenticators** to view the available authenticators.
