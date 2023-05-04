@@ -1357,13 +1357,14 @@ This operation:
 
 | Filter                                          | Description                                      |
 | :---------------------------------------------- | :----------------------------------------------- |
-| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`           |
-| `status eq "PROVISIONED"`                       | Users that have a `status` of `PROVISIONED`      |
 | `status eq "ACTIVE"`                            | Users that have a `status` of `ACTIVE`           |
-| `status eq "RECOVERY"`                          | Users that have a `status` of `RECOVERY`         |
-| `status eq "PASSWORD_EXPIRED"`                  | Users that have a `status` of `PASSWORD_EXPIRED` |
-| `status eq "LOCKED_OUT"`                        | Users that have a `status` of `LOCKED_OUT`       |
 | `status eq "DEPROVISIONED"`                     | Users that have a `status` of `DEPROVISIONED`    |
+| `status eq "LOCKED_OUT"`                        | Users that have a `status` of `LOCKED_OUT`       |
+| `status eq "PASSWORD_EXPIRED"`                  | Users that have a `status` of `PASSWORD_EXPIRED` |
+| `status eq "PROVISIONED"`                       | Users that have a `status` of `PROVISIONED`      |
+| `status eq "RECOVERY"`                          | Users that have a `status` of `RECOVERY`         |
+| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`           |
+| `status eq "SUSPENDED"`                         | Users that have a `status` of `SUSPENDED`        |
 | `lastUpdated lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated before a specific timestamp   |
 | `lastUpdated eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated at a specific timestamp       |
 | `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp    |
