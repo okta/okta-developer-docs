@@ -124,7 +124,7 @@ Okta responds to the poll request with an HTTP 400 `authorization_pending` error
 
 ### Second request for tokens
 
-After the user responds to the push notification, the app polls the `/token` endpoint again. See the request in [Initial request for tokens](#initial-request-for-tokens) for a request example.
+After the user responds to the push notification, the app polls the `/token` endpoint again. See the request in [Request for tokens](#request-for-tokens) for a request example.
 
 **Response**
 
