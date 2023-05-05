@@ -172,6 +172,34 @@ Go to `http://localhost:9000`. The sample app starts the redirect flow when the 
 
 ### Troubleshoot your app
 
+## Enable self-service registration
+
+You can enable the self-service registration feature, which provides a Sign-up link on the Sign-In Widget for end users to register and sign in to your app. See [Self-Service Registration](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr).
+
+By default, self-service enrollment is enabled for all apps. Follow the steps below to understand the policy configurations and to make this feature only available to your application.
+
+1. Make sure your app is assigned to the Everyone group:
+    1. Go to **Applications > Applications** and select your app.
+    1. Click the **Assignments** tab.
+    1. Click the **Groups** filter.
+    1. If the Everyone group is not assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
+1. Go to **Security > Profile Enrollment**, and edit the **Default Policy**.
+1. In the **Profile Enrollment** section, select **Denied** for **Self-service registration**. This setting removes the ability for self-registration for all apps assigned to the default policy. Click **Done**.
+1. [Test your app](#test-your-app) again and note that the Sign-up link no longer appears on the sign-in page.
+1. In the Admin Console,return to the **Security > Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and create a name for the policy (for example, "App self-service registration").
+1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing purposes, clear the **Email verification** checkbox. Click **Save**.
+1. Click **Manage Apps** and then **Add an App to This Policy**.
+1. [Test your app](#test-your-app) again and note that the Sign-pn link now appears for your app. Click the Sign-up link to add a new user. Enter your first name, last name, and email address, and then create a new password. You're now logged into the app with the new user's profile.
+
+Based on other policy configurations, the self-service registration flow may be different or include other authenticators. See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-sign-in-flows).
+
+
+
+
+
+
+
+
 If your app isn't working, ensure that:
 
 * Your org URL is accurate and formatted correctly, including the secure protocol, `https://`.
