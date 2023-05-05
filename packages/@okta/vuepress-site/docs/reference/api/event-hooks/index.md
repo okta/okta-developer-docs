@@ -669,7 +669,7 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 | Property | Description                                                                  | DataType | Required | ReadOnly |
 |----------|------------------------------------------------------------------------------|----------|----------|----------|
 | type     | The type of filter. Okta only supports `EXPRESSION_LANGUAGE`   | String   | TRUE     | TRUE   |
-| eventFilterMap    | The object that maps the filter to the event type.      | Array of [eventFilterMap objects](#event-filter-map-object)  | FALSE    | FALSE    |
+| eventFilterMap    | The object that maps the filter to the event type      | Array of [eventFilterMap objects](#event-filter-map-object)  | FALSE    | FALSE    |
 
 #### Event filter map object
 

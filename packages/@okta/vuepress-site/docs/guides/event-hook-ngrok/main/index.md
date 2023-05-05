@@ -69,7 +69,7 @@ If you see the following content in your terminal, ngrok is running successfully
 
 </div>
 
-> **Note:** Copy the forwarding URL that is available from the ngrok terminal session. For example: `https://2d20-142-126-163-77.ngrok.io`. You use this URL when setting up your Okta event hook.
+> **Note:** Copy the forwarding URL that is available from the ngrok terminal session. For example: `https://2d20-142-126-163-77.ngrok.io`. Use this URL when setting up your Okta event hook.
 
 See [ngrok](https://ngrok.com) or their [documentation](https://ngrok.com/docs) for further information.
 
