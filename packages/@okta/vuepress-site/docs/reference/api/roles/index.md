@@ -438,7 +438,7 @@ curl -v -X PUT \
 }
 ```
 
-### Get permission
+### Retrieve a permission
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
