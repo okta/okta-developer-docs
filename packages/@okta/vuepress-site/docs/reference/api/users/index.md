@@ -4216,7 +4216,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 
 ##### Password Hook object
 
-Specifies that a [password import inline hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
+Specifies that a [password import inline hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-import-inline-hook) for information on using this object when creating a user.
 
 When updating a user with a password hook the user must be in the `STAGED` status.
 
