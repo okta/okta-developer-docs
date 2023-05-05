@@ -1,8 +1,8 @@
 ## Enable authenticators for your org
 
-The direct authentication OOB flow uses passwordless authentication, such as signing in with email or SMS. You need an authenticator enabled to use the this flow.
+The direct authentication OOB flow uses passwordless authentication, such as using Okta Verify. You need an authenticator enabled to use this flow. <!--add signing in with email or SMS after the entire feature is rolled out and not limited to Okta Verify -->
 
-> **Note:** Okta currently supports Okta Verify for the OOB flow. <!-- Update this after the entire feature is rolled out and not limited to Okta Verify>
+> **Note:** Okta currently supports only Okta Verify for the OOB flow. <!-- Update this after the entire feature is rolled out and not limited to Okta Verify -->
 
 1. Open the Admin Console for your org.
 1. Select **Security** > **Authenticators** to view the available authenticators.

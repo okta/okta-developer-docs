@@ -6,4 +6,4 @@ Also, you can use direct authentication where usability constraints hinder the u
 
 Use the direct authentication MFA OOB flow when you want to use an out-of-band factor as a secondary factor. An out-of-band factor is a type of factor that requires a secondary verification method through a separate communication channel along with the initial user credentials.
 
->**Note:** Okta supports only Okta Verify Push for the MFA OOB flow.
+>**Note:** Okta currently supports only Okta Verify Push for the MFA OOB flow.

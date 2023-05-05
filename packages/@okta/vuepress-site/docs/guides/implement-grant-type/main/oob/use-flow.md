@@ -18,7 +18,9 @@ Note the parameters that are passed:
 
 - `client_id` matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `login_hint` is the username (email) of a user registered with Okta.
-- `channel_hint` is the out-of-band channel that the client wants to use. For example, Okta Verify or SMS. Okta currently only supports Okta Verify Push.<!-- need to update this when phase 2 is complete -->
+- `channel_hint` is the out-of-band channel that the client wants to use. For example, Okta Verify or SMS.
+
+  > **Note:** Okta currently supports only Okta Verify Push.<!-- need to update this when phase 2 is complete -->
 
 For more information on these parameters, see the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticate).
 
@@ -42,9 +44,9 @@ Note the parameters included:
 
 - `oob_code` is an identifier of a single out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, this code is used to identify the factor transaction.
 - `expires_in` is the time, in seconds, until the `oob_code` expires.
-- `interval` is the frequency in seconds at which the client should poll to check if the out-of-band factor is completed. This is only relevant to polling factors such as Okta Verify Push.
+- `interval` is the frequency, in seconds, at which the client needs to poll Okta to check if the out-of-band factor is completed. This is only relevant to polling factors such as Okta Verify Push.
 - `channel` is the type of out-of-band channel used. Okta currently only supports Okta Verify Push.<!-- need to update this when phase 2 is complete -->
-- `binding_method` is the method used to bind the out-of-band-channel with the primary channel. Since Okta Verify Push doesn't require any binding, the only supported value for EA is `none`.<!-- need to update this when phase 2 is complete -->
+- `binding_method` is the method used to bind the out-of-band channel with the primary channel. Since Okta Verify Push doesn't require any binding, the only supported value for EA is `none`.<!-- need to update this when phase 2 is complete -->
 
 ### Poll the Okta authorization server
 
@@ -55,7 +57,7 @@ curl --request POST \
   --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'client_id=${client_id}&scope=openid profile&grant_type=urn:okta:params:oauth:grant-type:oob&oob_code=&{oob code}'
+  --data 'client_id=${client_id}&scope=openid%20profile&grant_type=urn:okta:params:oauth:grant-type:oob&oob_code=&{oob_code}'
 ```
 
 Note the parameters that are passed:
@@ -80,7 +82,7 @@ Okta responds to the poll request with an HTTP 400 `authorization_pending` error
 
 ### Request for tokens
 
-After the user responds to the push notification, the app polls the `/token` endpoint again. See the response in [Poll the Okta authorization server](#poll-the-okta-authorization-server) for a response example.
+After the user responds to the push notification, the app polls the `/token` endpoint again. See the request in [Poll the Okta authorization server](#poll-the-okta-authorization-server) for a request example.
 
 **Response**
 
@@ -95,7 +97,3 @@ Okta responds with the required tokens.
     "id_token": "eyJraWQiOiJFVkRZ[.....]GKwhgZa3TdIfCXA"
 }
 ```
-
-### Validate access token
-
-When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

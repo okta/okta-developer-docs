@@ -139,7 +139,3 @@ Okta responds with the required tokens.
     "id_token": "eyJraWQiOiJFVkRZ[.....]GKwhgZa3TdIfCXA"
 }
 ```
-
-### Validate access token
-
-When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

@@ -4,4 +4,4 @@ Use direct authentication when you want your application to directly authenticat
 
 Also, you can use direct authentication where usability constraints hinder the use of browser-based flows, such as native mobile applications.
 
-Use the OTP flow when you want to use an OTP factor, such as Google TOTP or Okta Verify, as a primary factor.
+Use the OTP flow when you want to use an OTP factor, such as Google time-based one-time passcode (TOTP) or Okta Verify, as a primary factor.
