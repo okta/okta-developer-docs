@@ -130,7 +130,7 @@
 }
 
 a {
-  font-weight: 500 !important;
+  font-weight: 500;
   text-decoration: none;
   color: cv("link");
   &:visited,
@@ -197,32 +197,13 @@ blockquote {
   border-radius: 4px;
 }
 
-textarea::-webkit-input-placeholder,
-input::-webkit-input-placeholder {
-  font-family: "Aeonik";
-}
-
-textarea::-moz-placeholder,
-input::-moz-placeholder {
-  font-family: "Aeonik";
-}
-
-textarea:-moz-placeholder,
-input:-moz-placeholder {
-  font-family: "Aeonik";
-}
-
-textarea:-ms-input-placeholder,
-input:-ms-input-placeholder {
-  font-family: "Aeonik";
-}
-
 button {
   background: transparent;
 
   font-family: "Aeonik";
 }
 
-a[href="#"] {
-  font-weight: 500 !important;
+input,
+textarea {
+  font-family: "Aeonik";
 }

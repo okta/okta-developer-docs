@@ -4,9 +4,9 @@
     vue-if="!isRegionLoading"
   >
     <div class="signup__wrapper">
-      <!-- <div v-if="isRegionLocked">
+      <div v-if="isRegionLocked">
         <p>We believe that you are located in a region recently impacted by the US sanctions and we are no longer able to process this request. This policy is in effect until further notice.</p>
-      </div> -->
+      </div>
       <div>
         <h1 class="signup__title">
           Choose what works best. 
@@ -76,7 +76,7 @@
                   BEST FOR IT ADMINS
                 </div>
                 <div class="signup__content__title">
-                  Secure my employees, <br> contractors, & partners
+                  Secure my employees, <br> contractors, &amp; partners
                 </div>
                 <div class="signup__content__text">
                   Manage secure, frictionless access <br> to the tools and data your teams <br> need, on demand.
@@ -463,10 +463,6 @@
   </section>
 </template>
 
-
-"These should link to the videos:
-Workforce: 
-Customer: "
 <script>
 import VueRecaptcha from "vue-recaptcha";
 import { SignUpValidation } from "../util/signupValidation.service";
@@ -621,7 +617,7 @@ export default {
       }
     },
     getTheme: function() {
-      return document.querySelector('body').classList.contains('dark-theme') ? 'dark' : 'light'
+      return JSON.parse(storage.getItem(THEME_MODE_KEY)) === true ? "dark" : "light";
     },
     async submitForm(e) {
       e.preventDefault();
