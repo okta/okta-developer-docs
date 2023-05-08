@@ -4,8 +4,6 @@ excerpt: Learn how to build, test, and register an API service integration to th
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" /><!--For both Classic and Identity Engine-->
-
 Build, test, and submit an API service integration to the Okta Integration Network (OIN) for review and publication.
 
 ---
@@ -13,8 +11,7 @@ Build, test, and submit an API service integration to the Okta Integration Netwo
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-   > **Note:** The API Service Integrations is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable this feature.
-<!-- Need OAUTH_ADMIN_CONSENT_DIALOG feature flag enabled -->
+
 * A service app that needs to access Okta APIs for your customer
 
 **Sample code**
@@ -28,7 +25,7 @@ Build, test, and submit an API service integration to the Okta Integration Netwo
 A service-to-service app where a backend service or a daemon calls [Okta management APIs](/docs/reference/core-okta-api/) for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration.
 API service integrations access Okta APIs using the OAuth 2.0 [Client Credentials flow](/docs/concepts/oauth-openid/#client-credentials-flow), where access isn't associated with a user and you can restrict resources with scoped access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
-> **Note:** Currently, Okta only supports the OAuth APIs listed in [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
+> **Note:** API service integrations can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server) (Org AS) that is built-in with each Okta org. The Org AS supports the OAuth APIs listed in [OAuth 2.0 Scopes for Okta Admin Management](https://developer.okta.com/docs/api/oauth2/#okta-admin-management).
 
 Customers can use any API service integration listed in the OIN catalog with their Okta tenant org. Each customer Okta org has its own authorization server that supports the Client Credentials flow. When a customer authorizes your API service integration to access their org, Okta generates a unique set of credentials (client ID and client secret) for that org.
 You must collect and [store these credentials](#save-customer-credentials) for each customer to allow your integration to work with your customer's Okta org.

@@ -7,7 +7,7 @@ meta:
 
 # API Access Management with Okta
 
-> **Note**: [The Okta Developer Edition](/signup/) makes most key developer features available by default for testing. Okta's API Access Management product is an optional add-on in production environments.
+> **Note**: [The Okta Developer Edition](/signup/) makes most key developer features available by default for testing. The Okta API Access Management product is an optional add-on in production environments.
 
 API Access Management is the implementation of the OAuth 2.0 standard by Okta. Okta integrates API Access Management with the implementation of OpenID Connect for authentication. OpenID Connect is also available separately. Similarly, Okta provides a client management API for onboarding, monitoring, and deprovisioning client apps. Use API Access Management to secure your APIs.
 
@@ -65,7 +65,7 @@ Okta helps you manage ID tokens (OpenID Connect) and access tokens (OAuth 2.0).
 
 Use an ID token to pass along user profile information, such as first name, family name, and email. OpenID Connect uses the concepts of thin ID token and fat ID token, where:
 
-* A thin ID token is a returned ID token and access token that carries minimal profile information. If you want to retrieve the rest of the information, you need to call Okta's `/userinfo` endpoint using the access token that you receive.
+* A thin ID token is a returned ID token and access token that carries minimal profile information. If you want to retrieve the rest of the information, you need to call the Okta `/userinfo` endpoint using the access token that you receive.
 * A fat ID is a returned ID token that carries all the profile information.
 
 A thin ID token contains base claims (information embedded in a token) and some scope-dependent claims. Okta doesn't return profile attributes and groups. Some examples of when both the ID token and access token are returned:

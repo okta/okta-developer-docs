@@ -25,7 +25,7 @@ Managing user lifecycles in your organization is a fundamental business problem.
 
 </div>
 
-As your company grows, the number of user accounts and provisioned software applications increases exponentially. Requests to add and remove users, reset passwords, change permissions, and add new types of accounts all take up valuable IT department time.
+As your company grows, the number of user accounts and provisioned software applications increases. Requests to add and remove users, reset passwords, change permissions, and add new types of accounts all take up valuable IT department time.
 
 With the SCIM protocol, user data is stored in a consistent way and can be shared with different applications. Since data is transferred automatically, complex exchanges are simplified and the risk of error is reduced.
 

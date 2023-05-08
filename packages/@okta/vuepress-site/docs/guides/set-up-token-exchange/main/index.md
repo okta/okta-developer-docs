@@ -4,8 +4,6 @@ excerpt: This guide discusses how to retain user context in requests to downstre
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide discusses how to retain user context in requests to downstream services using On-Behalf-Of Token Exchange. You can use On-Behalf-Of Token Exchange with a single custom authorization server or between other custom authorization servers under the same Okta tenant.
 
 ---
@@ -18,7 +16,6 @@ Understand the purpose of OAuth 2.0 On-Behalf-Of Token Exchange.
 
 * [Okta Developer Edition org](https://developer.okta.com/signup)
 * Two custom authorization servers. See [Create an authorization server](/docs/guides/customize-authz-server/main/#create-an-authorization-server) if you need to add them for use with this guide.
-* The OAuth 2.0 On-Behalf-Of Token Exchange feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the OAuth 2.0 On-Behalf-Of Token Exchange feature, and enable.
 
 ---
 

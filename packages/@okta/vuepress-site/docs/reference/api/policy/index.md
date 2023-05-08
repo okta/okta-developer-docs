@@ -1880,7 +1880,6 @@ You can define multiple IdP instances in a single Policy Action. This allows use
 | name <ApiLifecycle access="ie" />  | Provider `name` in Okta | String    | No       |
 
 #### Policy Action with Dynamic IdP routing
-<ApiLifecycle access="ea"/>
 
 > **Note:** Dynamic IdP Routing is an [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) feature. You can enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
