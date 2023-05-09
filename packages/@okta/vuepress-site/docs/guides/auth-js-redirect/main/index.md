@@ -193,8 +193,12 @@ By default, self-service enrollment is enabled for all apps. Follow the steps be
 
 Based on other policy configurations, the self-service registration flow may be different or include other authenticators. See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-sign-in-flows).
 
+## Add MFA with a mandatory second factor
 
 
+
+
+## Enable password recovery with email magic link
 
 
 
