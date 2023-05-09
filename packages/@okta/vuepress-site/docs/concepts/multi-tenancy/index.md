@@ -96,7 +96,7 @@ concepts and configurations. For more information on these entities and how
 they relate to each another, see the following resources:
 
 * [What is an Okta org?](/docs/concepts/okta-organizations/)
-* [Overview of the Okta data model](/docs/concepts/okta-data-model/)
+* [Overview of the Okta Data Model](/docs/concepts/okta-data-model/)
 * [Terminology section in this doc](#relevant-terminology)
 
 ### Overview

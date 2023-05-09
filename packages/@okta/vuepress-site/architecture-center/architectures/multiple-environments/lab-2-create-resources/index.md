@@ -162,7 +162,7 @@ In this example, you add an Authorization Server resource and associated Authori
    resource "okta_auth_server" "test_server" {
      audiences   = ["api://iatcore.com"]
      description = "Auth Server that handles test apps"
-     name        = "Test ‘Server"
+     name        = "Test Server"
      issuer_mode = "ORG_URL"
      status      = "ACTIVE"
    }
