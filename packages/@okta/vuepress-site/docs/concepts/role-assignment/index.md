@@ -176,7 +176,7 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
   https://${yourOktaDomain}/api/v1/groups/${memberGroupId}
   ```
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 * [A specific client application](/docs/reference/api/oauth-clients/#get-an-oauth-client)
 
   ```bash
