@@ -4,6 +4,58 @@ title: Okta Identity Engine API Products release notes 2023
 
 <ApiLifecycle access="ie" />
 
+## May
+
+### Monthly release 2023.05.0
+
+| Change | Expected in Preview Orgs |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
+| [OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production](#oauth-2.0-on-behalf-of-token-exchange-is-ga-in-production) | February 8, 2023 |
+| [Multibrand customizations are EA in Preview](#multibrand-customizations-are-ga-in-preview) | February 8, 2023 |
+| [Unique refresh token ID added to token inline hook requests](#unique-refresh-token-id-added-to-token-inline-hook-requests) | May 11, 2023 |
+| [Event hook filtering is EA in Preview](#event-hook-filtering-is-ea-in-preview) | May 11, 2023 |
+| [The new Direct Authentication API is EA in Preview](#the-new-direct-authentication-api-is-ea-in-preview) | May 11, 2023 |
+| [Additional measures to counter toll fraud](#additional-measures-to-counter-toll-fraud) | May 11, 2023 |
+| [Developer documentation update in 2023.05.0](#developer-documentation-update-in-2023-05-0) | May 11, 2023 |
+| [Bugs fixed in 2023.05.0](#bugs-fixed-in-2023-05-0) | May 11, 2023 |
+
+#### OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production
+
+OAuth 2.0 On-Behalf-Of Token Exchange helps retain the user context in requests to downstream services. It provides a protocol approach to support scenarios where a client can exchange an access token received from an upstream client with a new token by interacting with the authorization server. See [Set up OAuth 2.0 On-Behalf-Of Token Exchange](/docs/guides/set-up-token-exchange/main/). <!--OKTA-572343--> <!--FF: ON_BEHALF_TOKEN_EXCHANGE-->
+
+#### Multibrand customizations are GA in Preview
+
+Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures where customers create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which can be mapped to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the End-User Dashboard. See [Brands](/docs/concepts/brands/). <!--OKTA-587566, OKTA-568807-->
+
+#### Event hook filtering is EA in Preview
+
+You can now filter individual events of the same event type based on custom business logic hosted in Okta. These filters reduce the amount of events that trigger hooks, removing an unnecessary load on your external service.
+
+This feature includes an improved creation workflow for event hooks and a new **Filters** tab that you can use to create event filters with direct Expression Language statements or using a simple UI format.
+
+Applying the Okta event hook feature brings filtering natively within Okta. Using filters significantly reduces the amount of event hook requests and the need for custom code on your respective services. See [Which events are eligible](/docs/concepts/event-hooks/#which-events-are-eligible) and [Event hook filtering](/docs/guides/event-hook-fitlering/main/).
+
+#### The new Direct Authentication API is EA in Preview
+
+The [Direct Authentication API](docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) offers a new set of OAuth grants that give app developers greater control over the authentication process. When redirect authentication isn't an option, you can use this API to allow client apps to authenticate users directly, without relying on HTTP redirection through a web browser. This is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. By leveraging the Direct Authentication API, app developers can tailor the authentication experience to their specific use case, resulting in a smoother and more efficient authentication process. See [Implement by authorization by grant type](/docs/guides/implement-grant-type/otp/main/).
+
+#### Unique refresh token ID added to token inline hook requests
+
+A unique refresh token ID is now included in token inline hook requests. This ensures that the refresh token ID is persisted in the request to maintain seamless access and improve security. <!--OKTA-576905--> <!--FF: ENG_REFRESH_TOKEN_ID_IN_TOKEN_INLINE_HOOK-->
+
+#### Additional measures to counter toll fraud
+
+Additional mitigation measures are added to counter phone-number-based toll fraud. <!--OKTA-603999--> <!--Set TEL_CAT_AREA_CODE_RL_RULE to HARD enforcement-->
+
+#### Developer documentation update in 2023.05.0
+
+A new sign-in redirect guide is available for single page apps (SPA) using JavaScript and the Auth JS SDK. No frontend framework required! A quick and easy demonstration of the redirect sign-in flow. See [Sign users in to your SPA using the redirect model and Auth JS](/docs/guides/auth-js-redirect/main/). <!--OKTA-577531-->
+
+#### Bugs fixed in 2023.05.0
+
+* When an org was migrated from Okta Classic Engine to Okta Identity Engine, MyAccount API calls to delete an unverified phone number (`DELETE /idp/myaccount/phones/{id}`) failed. (OKTA-586685)
+* Admins saw Okta Fast Pass listed in the `GET /api/v1/users/{{userId}}/factors` response for users who didn't enable the factor. (OKTA-587429)
+
 ## April
 
 ### Weekly release 2023.04.3
