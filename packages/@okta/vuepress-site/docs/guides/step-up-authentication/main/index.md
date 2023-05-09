@@ -33,7 +33,7 @@ Okta has created predefined `acr_values` that are described in the [Predefined p
 
 > **Note:** You can specify a `max_age` parameter value to require an elapsed time frame. Additionally, if you want to ignore the existing session and reauthenticate the user each time, pass `max_age=0` in the request. For Classic Engine, pass `max_age=1`. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
 
-Okta's [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect application, such as web, native, or SPA, and it’s supported by both the [Okta Org Authorization Server and custom authorization servers](/docs/concepts/auth-servers/).
+Okta's [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect application, such as web, native, or SPA, and it’s supported by both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/).
 
 ### Evaluation flow
 

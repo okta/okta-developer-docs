@@ -5,7 +5,7 @@ meta:
     content: This is an Anything-as-a-Source custom client developer guide to synchronize any HR source with Okta user profiles.
 ---
 
-<ApiLifecycle access="ea" /><!--EA for both Classic and Identity Engine. Okta needs to turn on IDENTITY_SOURCE_APPS FF (not Self-Service)-->
+<ApiLifecycle access="ea" /><!--EA for both Classic Engine and Identity Engine. Okta needs to turn on IDENTITY_SOURCE_APPS feature flag (not Self-Service)-->
 
 This guide outlines how to develop a custom client to manage an identity source with Okta for the Anything-as-a-Source (XaaS) integration. The custom client can be a standalone app or a component of an existing app that drives the synchronization between the HR source (the identity source) and the Okta Universal Directory.
 
@@ -19,7 +19,7 @@ This guide outlines how to develop a custom client to manage an identity source 
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup/)
    * A Custom Identity Source integration configured in your Okta org (see [Anything-as-a-Source](https://help.okta.com/okta_help.htm?type=oie&id=ext-anything-as-a-source))
-      >  **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature. <!-- IDENTITY_SOURCE_APPS FF needs to be enabled-->
+      >  **Note:** Your org needs to have the Identity Source Apps feature enabled. Contact your Okta account team to enable this feature. <!-- IDENTITY_SOURCE_APPS feature flag needs to be enabled-->
    * [An Okta API token](/docs/guides/create-an-api-token/) to make secure API calls
 
 * An HR source from which you want to synchronize user data with Okta
@@ -179,7 +179,7 @@ Use these steps to insert or update a set of user data profiles from your HR sou
                     "lastName": "${lastName}",
                     "email": "${userEmail}",
                     "secondEmail": "${userEmail2}",
-                    "mobilePhone": “${userMobileNumber}",
+                    "mobilePhone": "${userMobileNumber}",
                     "homeAddress": "${userAddress}"
                 }
             }

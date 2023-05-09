@@ -16,7 +16,7 @@ The Push Providers API supports the following Authorization Schemes:
 * SSWS - [API tokens](/docs/reference/core-okta-api/#authentication)
 * Bearer - [OAuth2.0 and OpenID Connect](/docs/concepts/oauth-openid/)
 
-> **Note:** You can use the Push Providers API as part of the "Create a custom authenticator" flow. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/android/main/).
+<!-- > **Note:** You can use the Push Providers API as part of the "Create a custom authenticator" flow. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/android/main/).-->
 
 ## Get started
 

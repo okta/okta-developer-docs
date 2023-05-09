@@ -10,19 +10,42 @@
   width: 100%;
   overflow-x: auto;
 
-  background-color: cv("header", "nav");
+  background-color: #2b2b2b;
 }
 
 .header-nav a {
   position: relative;
 
-  margin-right: 28px;
+  margin-right: 40px;
   padding: 18px 0 16px;
 
-  font-size: 14px;
+  font-weight: 500;
+  font-size: 16px;
   line-height: 21px;
   white-space: nowrap;
-  color: cv("header", "nav-link");
+  color: #fffefa;
+
+  @include media(">desktop") {
+    &:hover {
+      color: #b6caff !important;
+
+      &::after {
+        background-color: currentcolor;
+      }
+    }
+  }
+}
+
+.dark-theme .header-nav a {
+  @include media(">desktop") {
+    &:hover {
+      color: #b1e4de !important;
+    }
+  }
+}
+
+.header-nav a.router-link-active:hover::after {
+  background-color: currentcolor;
 }
 
 .header-nav a:before {
@@ -54,12 +77,15 @@
 }
 
 .header-nav a.router-link-active {
-  font-weight: 700;
-  color: cv("link");
+  color: #b6caff;
+}
+
+.dark-theme .header-nav a.router-link-active {
+  color: #b1e4de;
 }
 
 .header-nav a.router-link-active:after {
-  background-color: cv("link");
+  background-color: currentcolor;
 }
 
 @include media("<desktop-xl") {

@@ -13,21 +13,21 @@ meta:
 These resources walk you through adding user authentication to your Go app in minutes.
 
 <ul class='language-ctas'>
-	<li>
-		<a href='/docs/guides/sign-into-web-app-redirect/go/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sign users in quickstart</span>
-		</a>
-	</li>
-	<li>
+   <li>
+      <a href='/docs/guides/sign-into-web-app-redirect/go/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+         <span>Sign users in quickstart</span>
+      </a>
+   </li>
+   <li>
     <a href='/docs/guides/protect-your-api/go/main/' class='Button--blueDarkOutline' data-proofer-ignore>
       <span>Protect your API quickstart</span>
     </a>
   </li>
-	<li>
-		<a href='https://github.com/okta/samples-golang' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample app</span>
-		</a>
-	</li>
+   <li>
+      <a href='https://github.com/okta/samples-golang' class='Button--blueDarkOutline' data-proofer-ignore>
+         <span>Sample app</span>
+      </a>
+   </li>
 </ul>
 
 ## Integrate with Okta using the Okta-hosted Sign-In Widget
@@ -44,7 +44,7 @@ These SDKs help you integrate with Okta to build your own fully-branded authenti
 * [Golang embedded authentication with SDK sample app](https://github.com/okta/samples-golang/tree/master/identity-engine/embedded-auth-with-sdk)
 * [Golang embedded Sign-In Widget sample app](https://github.com/okta/samples-golang/tree/master/identity-engine/embedded-sign-in-widget)
 
-## Other Okta Classic SDKs
+## Other Classic Engine SDKs
 
 * The [Okta Management SDK for Go](https://github.com/okta/okta-sdk-golang) can be used in your server-side code to create and update users, groups, applications, and more.
 * [Okta JWT Verifier for Go](https://github.com/okta/okta-jwt-verifier-golang)

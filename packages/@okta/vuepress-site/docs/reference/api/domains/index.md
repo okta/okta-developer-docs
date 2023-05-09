@@ -177,7 +177,7 @@ curl -v -X POST \
 
 <ApiOperation method="put" url="/api/v1/domains/${id}/certificate" />
 
-Creates the certificate for the Domain. If the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, it becomes `MANUAL` and Okta no longer manages and renews certificates for this domain since a user-managed certificate has been provided.
+Creates or renews the `MANUAL` certificate for the Domain. If the certificateSourceType in the [Domain](#domain-object) is `OKTA_MANAGED`, it becomes `MANUAL` and Okta no longer manages and renews certificates for this domain since a user-managed certificate has been provided. 
 
 #### Request path parameters
 

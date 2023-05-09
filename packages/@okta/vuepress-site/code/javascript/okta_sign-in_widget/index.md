@@ -48,9 +48,9 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 > **Note:** Loading CSS requires the css-loader plugin. You can find more information about it [here](https://github.com/webpack-contrib/css-loader#usage).
 
-### Enabling Cross-Origin Access
+### Enabling cross-origin access
 
-Because the widget is making cross-origin requests, you need to enable Cross-Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). You can find more information about this in the [Enable CORS](/docs/guides/enable-cors/) guide.
+Because the widget is making cross-origin requests, you need to enable Cross-Origin Resource Sharing (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). You can find more information about this in the [Enable CORS](/docs/guides/enable-cors/) guide.
 
 ## Usage
 
@@ -342,14 +342,14 @@ We also have mobile SDKs for Android, React Native, iOS, and Xamarin.
 
 For mobile apps, embedding the Sign-In Widget isn't currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted Sign-In Widget](/docs/guides/custom-widget/main/#style-the-okta-hosted-sign-in-widget). Support is provided for building your own UI in mobile apps.
 
-See the following examples:
+See the following Okta Classic Engine examples:
 
 - Android:
     - [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
-    - [Custom sign-in example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
+    - [Custom sign-in example](https://github.com/okta/samples-android/tree/legacy-samples/custom-sign-in)
 - iOS:
     - [Authenticate a user](https://github.com/okta/okta-auth-swift#authenticate-a-user)
-    - [Okta iOS custom sign-in example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+    - [Okta iOS custom sign-in example](https://github.com/okta/samples-ios/tree/legacy-samples/custom-sign-in)
 
 <!--
 - React Native

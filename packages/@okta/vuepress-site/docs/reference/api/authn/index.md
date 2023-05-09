@@ -11,7 +11,7 @@ The Okta Authentication API provides operations to authenticate users, perform m
 The API is targeted for developers who want to build their own end-to-end login experience to replace the built-in Okta login experience and addresses the following key scenarios:
 
 * **Primary authentication** allows you to verify username and password credentials for a user.
-* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time password or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your global session policy.
+* **Multifactor authentication** (MFA) strengthens the security of password-based authentication by requiring additional verification of another Factor such as a temporary one-time passcode or an SMS passcode. The Authentication API supports user enrollment with MFA factors enabled by the administrator, as well as MFA challenges based on your global session policy.
 * **Recovery** allows users to securely reset their password if they've forgotten it, or unlock their account if it has been locked out due to excessive failed login attempts. This functionality is subject to the security policy set by the administrator.
 
 ## Application types
@@ -90,6 +90,9 @@ The authentication transaction [state machine](#transaction-state) can be modifi
 The context object allows [trusted web applications](#trusted-application) such as an external portal to pass additional context for the authentication or recovery transaction.
 
 > **Note:** Overriding context such as `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication or recovery requests with a valid *administrator API token*. If an API token is not provided, the `deviceToken` will be ignored.
+
+> **Caution:** The `deviceToken` parameter isn't shared between the Authentication API and the Okta Identity Engine-specific APIs. See [Upgrade to Okta Identity Engine](https://developer.okta.com/docs/guides/oie-upgrade-overview/main/).
+
 
 | Property    | Description                                                                   | DataType | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ----------- | ----------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- |
@@ -5496,6 +5499,7 @@ curl -v -X POST \
          "_embedded":{
             "challenge":{
                "challenge":"K0UNqWlz2TCCDd5qEkBf",
+               "userVerification": "preferred",
                "extensions":{
                }
             }
@@ -5738,7 +5742,7 @@ Starts a new password recovery transaction for a given user and issues a [recove
 
 > **Note:** A valid `factorType` is required for requests without an API token with administrator privileges. For more information, see [Forgot Password with Trusted Application](#forgot-password-with-trusted-application).
 
-> **Note:** The optional parameter `relayState` can be included as part of the body in the Forgot Password request. `relayState` is a link to a site where the user will be redirected when the password recovery operation completes. The 'relayState' link must point to a trusted origin.
+> **Note:** You can include the optional parameter `relayState` as part of the body in the Forgot Password request. `relayState` is a link to a site where the user is redirected when the password recovery operation completes. The 'relayState' link must point to a trusted origin. The `relayState` parameter is only supported in Okta Classic Engine orgs.
 
 The response is different, depending on whether the request is for a public application or a trusted application.
 

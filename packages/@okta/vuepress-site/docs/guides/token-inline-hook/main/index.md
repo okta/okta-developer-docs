@@ -111,7 +111,7 @@ The token inline hook is now set up with a status of active.
 
 1. Navigate to **Security** > **API** > **Authorization Servers**.
 
-2. Select a Custom Authorization Server from the list (usually **default**).
+2. Select a custom authorization server from the list (usually **default**).
 
 3. Select the **Access Policies** tab. Navigate to the Rule table and click the Edit icon next to the policy rule that will use the Inline hook. In most cases, edit the **Default Policy Rule** of the **Default Policy**.
 
@@ -186,7 +186,7 @@ The token inline hook is ready for preview and testing. You now have the followi
     * The user should sign in as normal; only the user name should appear in the Glitch log window.
     * If you extended the sample application, click `My Profile` in the left-hand navigation pane. Only the user info claims are included in the table.
 
-6. Sign out of the sample application, and now sign in with an Okta user who IS in the Patients' data store.
+6. Sign out of the sample application, and now sign in with an Okta user who is in the Patients' data store.
 
     * The user should sign in as normal; however, this user should have a patient ID displayed in the Glitch console output, as well as a successful implementation record of the token inline hook, available for review in your Okta org System Log (**Reports** > **System Log**).
     * If you extended the sample application, click `My Profile` in the left-hand navigation pane. The patient ID is added as part of the Claims table.

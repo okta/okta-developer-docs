@@ -20,14 +20,14 @@ Changes, regardless of life cycle stage, are always reported in the [Okta API Pr
 
 | Description                | Beta                 | EA                   | GA                   | Deprecated |
 | :------------              | :------------------: | :-----------------:  | :------------------: | :---------:|
-| Contact with Product Team  | &check;              | &cross;              | &cross;              | NA         |
+| Contact with Product Team  | &check;              | &cross;              | &cross;              | N/A         |
 | API  Changes               | Subject to change    | Backwards compatible | Backwards compatible | N/A        |
 | Okta Support               | &cross;              | &check;              | &check;              | &check;    |
 | Service-level agreements   | &cross;              | &check;              | &check;              | &check;    |
 | Announced in Release Notes | &cross;              | &check;              | &check;              | &check;    |
 | In preview orgs            | By invitation or self-service, depending on the feature | By request or self-service, depending on the feature | &check;| &check;|
 | In production orgs         | &cross;              | By request or self-service, depending on the feature| &check;| &check; |
-| Documentation              | Limited              | &check;              | &check;              | NA         |
+| Documentation              | Limited              | &check;              | &check;              | N/A         |
 
 ## Beta Release
 

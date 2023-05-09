@@ -9,7 +9,7 @@ body {
 
   background-color: cv("body");
 
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-size: 16px;
   font-family: $font-family;
@@ -77,7 +77,7 @@ body.loaded {
 
 .page-body {
   flex: 1 0 auto;
-  padding-top: 142px;
+  padding-top: 141px;
 
   background-color: #ffffff;
 }
@@ -115,5 +115,5 @@ p {
 }
 
 strong {
-  font-weight: 500;
+  font-weight: 700;
 }

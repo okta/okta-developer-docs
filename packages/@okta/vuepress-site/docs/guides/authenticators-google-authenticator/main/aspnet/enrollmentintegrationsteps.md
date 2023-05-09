@@ -151,7 +151,7 @@ In this use case, only Google Authenticator appears, as shown in the following s
 
 ### 5: Retrieve shared secret and QR Code
 
-When the user selects the Google Authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge Flow or Enrollment Flow.
+When the user selects the Google Authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in challenge flow or enrollment flow.
 
 When in Enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Google Authenticator factor ID.
 
@@ -255,11 +255,11 @@ The user sees the following
 
 ### 7: Copy shared secret to Google Authenticator
 
-After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering the secret string. Once added, Google Authenticator displays the time-based one-time password (TOTP) for the newly added account.
+After the shared secret appears, the user installs the Google Authenticator app on their mobile device if it's not already installed. Next, they add the secret code to the Google Authenticator app by either taking a photo of the QR code or manually entering the secret string. Once added, Google Authenticator displays the time-based one-time passcode (TOTP) for the newly added account.
 
 <div class="half">
 
-![A time-based one-time password being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
+![A time-based one-time passcode being shown in Google Authenticator](/img/authenticators/authenticators-google-one-time-password.png)
 
 </div>
 
@@ -300,11 +300,11 @@ The user sees the following:
 
 <div class="half border">
 
-![A form for the user to enter their one-time password](/img/authenticators/dotnet-authenticators-google-challenge-flow-page.png)
+![A form for the user to enter their one-time passcode](/img/authenticators/dotnet-authenticators-google-challenge-flow-page.png)
 
 </div>
 
-### 9: Process the one-time password
+### 9: Process the one-time passcode
 
 Once a user has entered the TOTP and clicked **Submit**, create a `VerifyAuthenticatorOptions` object and set its `Code` property to the password entered by the user. Pass this object as a parameter to the `IdxClient.VerifyAuthenticatorAsync` method.
 

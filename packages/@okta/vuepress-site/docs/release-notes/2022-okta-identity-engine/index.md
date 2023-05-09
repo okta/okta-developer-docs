@@ -6,6 +6,42 @@ title: Okta Identity Engine API Products release notes 2022
 
 ## December
 
+### Weekly release 2022.12.3
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2022.12.3](#bug-fixed-in-2022-12-3)                       |January 5, 2023           |
+
+#### Bug fixed in 2022.12.3
+
+An error occurred if a request was made to the `/authorize` endpoint of a custom authorization server and the `prompt` parameter value was set to `enroll_authenticator`. (OKTA-552063)
+
+### Weekly release 2022.12.2
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.12.2](#bugs-fixed-in-2022-12-2)                      |December 21, 2022            |
+
+#### Bugs fixed in 2022.12.2
+
+* Attempts to save sign-in page edits sometimes failed when using the full-feature code editor. (OKTA-551632)
+
+* If an admin added a redirect URI that reached the character limit, then they couldn't edit the redirect URI list using the Apps API.  (OKTA-476668)
+
+* When an admin viewed a user's profile, an error sometimes occurred. (OKTA-558220)
+
+### Weekly release 2022.12.1
+
+| Change | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2022.12.1](#bugs-fixed-in-2022-12-1)                      |December 14, 2022            |
+
+#### Bugs fixed in 2022.12.1
+
+* A List Users API call made with a search parameter didn’t return deactivated users with a `login` property that started with the Okta User `id`. (OKTA-537805)
+
+* When a custom app used the `/sso/idps/{idpId}` endpoint for IdP routing with a `login_hint` parameter, the `login_hint` was ignored. (OKTA-549212)
+
 ### Monthly release 2022.12.0
 
 | Change | Expected in Preview Orgs |
@@ -18,7 +54,6 @@ title: Okta Identity Engine API Products release notes 2022
 | [Rate limit parameter matching](#rate-limit-parameter-matching)                       | December 9, 2022         |
 | [Improvements to the sign-in experience](#improvements-to-the-sign-in-experience)                       | November 3, 2022         |
 | [Improvements to the self-service registration experience](#improvements-to-the-self-service-registration-experience)                       | July 7, 2022         |
-| [Transactional verification with CIBA is EA in Preview](#transactional-verification-with-ciba-is-ea-in-preview)                       | December 9, 2022         |
 | [Manage embedded widget sign-in support is GA in Prod](#manage-embedded-widget-sign-in-support-is-ga-in-prod)                       | October 5, 2022         |
 | [Bugs fixed in 2022.12.0](#bugs-fixed-in-2022-12-0)                       | December 9, 2022         |
 
@@ -54,12 +89,6 @@ When users create an account using the "Sign Up" link in the Sign-In Widget, the
 
 Earlier versions of the self-service registration (SSR) flow used a complicated array of templates to send activation emails to users. The simplified SSR flow reduces this to only two email templates with customized welcome messages. If your application requires immediate verification of the user’s email address, use the **Registration - Activation** template. This template includes a magic link for a smoother sign-in experience. If email verification is not immediately required to sign in to the application, use the **Registration - Email Verification** template. This template includes a link for users to complete email verification at any time after they successfully sign in to the application. See [Customize email notifications](/docs/guides/custom-email/main/) and the [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/). <!-- OKTA-552780-->
 
-#### Transactional verification with CIBA is EA in Preview
-
-Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-Initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
-
-CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba). <!-- OKTA-553199-->
-
 #### Manage embedded widget sign-in support is GA in Prod
 
 Okta provides the Okta Sign-In Widget out of the box so that customers can authenticate users by simply redirecting them to the widget. For customers who need a customized sign-in experience, Okta also provides a widget SDK that developers can embed within their applications. This embedded widget uses a custom authorization mode called the Interaction Code grant type to authenticate users. The **Embedded widget sign-in support** toggle allows super admins to disable the embedded sign-in option across all applications and authorization servers. This helps to create consistency and improve the security posture of your applications. See [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
@@ -92,7 +121,12 @@ Okta provides the Okta Sign-In Widget out of the box so that customers can authe
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
+| [Improvements to self-service account activities for AD and LDAP users are EA in Preview](#improvements-to-self-service-account-activities-for-ad-and-ldap-users-are-ea-in-preview)            |November 30, 2022            |
 | [Bugs fixed in 2022.11.1](#bugs-fixed-in-2022-11-1)                      | November 30, 2022            |
+
+#### Improvements to self-service account activities for AD and LDAP users are EA in Preview
+
+Previously, the self-service unlock (SSU) and self-service password reset (SSPR) flows created unnecessary friction for AD and LDAP users. This feature enhancement introduces a seamless magic link experience in emails sent to unlock accounts and reset passwords. Users no longer need to provide consent when using the same browser. In addition, after successfully unlocking their account, clicking the email magic link counts towards the application's assurance policy. After the assurance requirements are met, the user is signed directly in to the application. See [Customize email notifications](/docs/guides/custom-email/main/#use-vtl-variables). <!--OKTA-546374-->
 
 #### Bugs fixed in 2022.11.1
 
@@ -306,7 +340,7 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 #### Bugs fixed in 2022.10.0
 
-* Users were able to make more than five attempts to activate their One-Time Password (OTP) based factors. (OKTA-429940)
+* Users were able to make more than five attempts to activate their one-time passcode (OTP) based factors. (OKTA-429940)
 
 * Searching for users with the Users API returned a 503 Service Unavailable error if the call included an empty `sortBy` parameter with the `after` parameter. (OKTA-503711)
 
@@ -514,7 +548,6 @@ Previously, the self-service unlock (SSU) flow created unnecessary friction in t
 | [Trusted Origins for iFrame embedding is GA in Production](#trusted-origins-for-iframe-embedding-is-ga-in-production) | May 4, 2022|
 | [Updates to default global session policy](#updates-to-default-global-session-policy) | August 3, 2022|
 | [Improved error messages for MyAccount API](#improved-error-messages-for-myaccount-api) | August 3, 2022|
-| [New custom authenticator for push notifications](#new-custom-authenticator-for-push-notifications) | August 3, 2022|
 | [Developer documentation updates in 2022.08.0](#developer-documentation-updates-in-2022-08-0) | August 3, 2022|
 | [Bug fixed in 2022.08.0](#bug-fixed-in-2022-08-0) | August 3, 2022|
 
@@ -550,13 +583,9 @@ You can now edit the secondary factor in the default rule of the global session 
 
 The [MyAccount API](/docs/reference/api/myaccount/) includes improved error messages for end users to identify why email and phone operations couldn’t be completed or accessed. <!-- OKTA-484080 -->
 
-#### New custom authenticator for push notifications
-
-Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization’s mobile apps. Your users are presented with a push and biometric experience within your organization’s apps, with your organization’s branding on it. They never have to leave your app, and they don’t need to download a third-party app, such as Okta Verify, to complete their verification. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/) for [Android](/docs/guides/authenticators-custom-authenticator/android/main/) and [iOS](/docs/guides/authenticators-custom-authenticator/ios/main) instructions. <!-- OKTA-517891 -->
-
 #### Developer documentation updates in 2022.08.0
 
-A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-overview/aspnet/main/ ) feature in Identity Engine has been added. This covers the differences between using EML and one-time passwords, and how to integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK. <!-- OKTA-507346 -->
+A new [overview of the Email Magic Links (EML)](/docs/guides/email-magic-links-overview/aspnet/main/ ) feature in Identity Engine has been added. This covers the differences between using EML and one-time passcodes, and how to integrate EML into applications using the embedded Sign-In Widget or a supported embedded SDK. <!-- OKTA-507346 -->
 
 #### Bug fixed in 2022.08.0
 
@@ -663,6 +692,8 @@ The MyAccount API now provides user-scoped endpoints that don’t require admin 
 * A `Number` type schema property could erroneously be made unique. This resulted in inconsistent behavior and is no longer supported. Use `Integer` or `String` properties instead. (OKTA-506002)
 
 * Sometimes an error occurred when an admin attempted to edit a resource set that included a deleted app. (OKTA-510483)
+
+* Making a POST reset factors request to `/api/v1/users/${userId}/lifecycle/reset_factors` didn't reset the enrolled phone authenticator. (OKTA-463900)
 
 ## June
 
@@ -950,7 +981,7 @@ Passwords are weak authenticators and prone to security issues. Currently all us
 
 #### Improved email magic link authentication experience is EA in Preview
 
-Email magic links are enhanced to allow end users to authenticate in two different contexts. The end user can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time password to proceed with authentication. See [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
+Email magic links are enhanced to allow end users to authenticate in two different contexts. The end user can authenticate using the same location where they click the link and quickly return to the application context. Or, if the end user clicks the link in a different browser, they can enter a one-time passcode to proceed with authentication. See [Okta email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/aspnet/main/) and [Use redirect auth with the Identity Engine sample apps](/docs/guides/sampleapp-oie-redirectauth/).
 
 #### Password as an optional authenticator is EA in Preview
 

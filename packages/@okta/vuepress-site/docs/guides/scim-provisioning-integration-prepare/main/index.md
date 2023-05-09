@@ -62,9 +62,9 @@ where the `${appName}` is a unique identifier provided to you after your integra
 
 ### Base URL
 
-You can choose any Base URL for your API endpoint. Note that a Base URL can't contain the underscore `_` character.
+You can choose any base URL for your API endpoint. Note that a base URL can't contain the underscore `_` character.
 
-If you are implementing a new SCIM API, we suggest using `/scim/v2/` as your Base URL. For example: `https://example.com/scim/v2/`.
+If you are implementing a new SCIM API, we suggest using `/scim/v2/` as your base URL. For example: `https://example.com/scim/v2/`.
 
 If you have multiple Okta orgs using your service, you can use the same SCIM server for all of them. To do so, one way is to implement a 1:1 client to tenant subdomain for each org running on the SCIM server. For example, if you have three Okta orgs:
 
@@ -72,7 +72,7 @@ If you have multiple Okta orgs using your service, you can use the same SCIM ser
 - company-b.okta.com
 - company-c.okta.com
 
-You can pass a Base URL containing the name of the org:
+You can pass a base URL containing the name of the org:
 
 - `https://company-a.example.com/scim/v2`
 - `https://company-b.example.com/scim/v2`
@@ -176,7 +176,7 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 1. The **Okta SCIM X.X SPEC Test** window appears. Under the **Environment** section of your test, there is a collapsed section labelled **Test Settings**. Click the small arrow to expand this section.
 1. Select the **Initial Variables** tab.
 
-   <div class="half">
+   <div class="half border">
 
    ![Initial Variables tab](/img/oin/scim_test-init_variables.png "Showing the location of the Initial Variables tab")
 
@@ -193,7 +193,7 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 1. In a new browser window, open the [Initial Script Spec](/standards/SCIM/SCIMFiles/Initial_Script_Spec.txt) text file and copy all the text to your clipboard.
 1. Back in the Runscope **Environment** panel, select the **Initial Script** tab, and then paste the text into the script console on this tab.
 
-   <div class="three-quarter">
+   <div class="three-quarter border">
 
    ![Initial Script tab](/img/oin/scim-test_init-script.png "Showing the location of the Initial Script tab")
 
@@ -215,6 +215,8 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 1. Click **Save**.
 
 ## Running Okta SPEC tests against your SCIM server
+
+> **Note:** You must create at least one user in your SCIM server before running the Okta SCIM API test suite.
 
 After you have customized your SCIM test in Runscope with the details of your SCIM server, you can run the test:
 

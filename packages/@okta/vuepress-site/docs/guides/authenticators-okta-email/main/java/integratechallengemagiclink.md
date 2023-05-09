@@ -87,7 +87,7 @@ The next authentication status will be `AWAITING_AUTHENTICATOR_VERIFICATION` whi
 
 ### 6. Display OTP input page
 
-Build a form that allows the user to enter the One-Time Password (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where the OTP may be required or simply more convenient. For example, a user checking their email from a different device must use an OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
+Build a form that allows the user to enter the one-time passcode (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where the OTP may be required or simply more convenient. For example, a user checking their email from a different device must use an OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
 
 ### 7. User clicks the email magic link
 
@@ -103,7 +103,7 @@ After the user completes this step, the next authentication response returns a s
 
 The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0oai9ifvveyL3QZ8K696?token=ftr2eAgsg...`
 
-When the user clicks the magic link, your org receives the request, gets the OTP and state parameters, and forwards the request with these parameters to your application. The org combines the Callback URI that you defined in [Update configurations](#update-configurations) with the OTP and state parameters to produce a final callback URL for the user. For example, `http://localhost:8080/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
+When the user clicks the magic link, your org receives the request, gets the OTP and state parameters, and forwards the request with these parameters to your application. The org combines the callback URI that you defined in [Update configurations](#update-configurations) with the OTP and state parameters to produce a final callback URL for the user. For example, `http://localhost:8080/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
 ### 8. Handle the magic link redirect in your app
 

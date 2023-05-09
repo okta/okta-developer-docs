@@ -9,21 +9,21 @@ meta:
 ---
 
 <ul class='language-tabs'>
-	<li>
-		<RouterLink to='/code/dotnet/aspnetcore/'>
-			<i class='icon code-dotnet-32'></i><span>ASP.NET Core</span>
-		</RouterLink>
-	</li>
-	<li>
-		<RouterLink to='/code/dotnet/aspnet/'>
-			<i class='icon code-dotnet-32'></i><span>ASP.NET</span>
-		</RouterLink>
-	</li>
-	<li>
-		<RouterLink to='/code/dotnet/blazor/'>
-			<i class='icon code-dotnet-32'></i><span>Blazor</span>
-		</RouterLink>
-	</li>
+   <li>
+      <RouterLink to='/code/dotnet/aspnetcore/'>
+         <i class='icon code-dotnet-32'></i><span>ASP.NET Core</span>
+      </RouterLink>
+   </li>
+   <li>
+      <RouterLink to='/code/dotnet/aspnet/'>
+         <i class='icon code-dotnet-32'></i><span>ASP.NET</span>
+      </RouterLink>
+   </li>
+   <li>
+      <RouterLink to='/code/dotnet/blazor/'>
+         <i class='icon code-dotnet-32'></i><span>Blazor</span>
+      </RouterLink>
+   </li>
 </ul>
 
 ## Get started with ASP.NET Core + Okta
@@ -31,21 +31,21 @@ meta:
 These resources walk you through adding user authentication to your ASP.NET Core app in minutes.
 
 <ul class='language-ctas'>
-	<li>
-		<a href='/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sign users in quickstart</span>
-		</a>
-	</li>
-	<li>
-		<a href='/docs/guides/protect-your-api/aspnetcore3/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Protect your API quickstart</span>
-		</a>
-	</li>
-	<li>
-		<a href='https://github.com/okta/samples-aspnetcore' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample app</span>
-		</a>
-	</li>
+   <li>
+      <a href='/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+         <span>Sign users in quickstart</span>
+      </a>
+   </li>
+   <li>
+      <a href='/docs/guides/protect-your-api/aspnetcore3/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+         <span>Protect your API quickstart</span>
+      </a>
+   </li>
+   <li>
+      <a href='https://github.com/okta/samples-aspnetcore' class='Button--blueDarkOutline' data-proofer-ignore>
+         <span>Sample app</span>
+      </a>
+   </li>
 </ul>
 
 ## Integrate with Okta using the Okta-hosted Sign-In Widget
@@ -62,13 +62,13 @@ Okta Identity Engine:
 
 [Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
 
-Okta Classic:
+Okta Classic Engine:
 
 * The [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet) is useful if you can't use OIDC and need your server-side code to interact with the Authentication API for handling the sign-in flow.
 * Okta's [Okta ASP.NET Core OIDC middleware integration](https://github.com/okta/okta-aspnet) makes it easy to add a sign-in flow to your ASP.NET Core applications and protect your Web APIs.
 * [Okta ASP.NET Core OIDC integration on NuGet](https://www.nuget.org/packages/Okta.AspNetCore)
 
-## Other Classic .NET libraries
+## Other Classic Engine .NET libraries
 
 * The [Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet) uses .NET Standard and works with both .NET Framework and .NET Core. It's helpful to work with the Okta Management API to manage users, groups, apps, and so on, on the fly.
 * The [Okta Xamarin SDK](https://github.com/okta/okta-oidc-xamarin) follows current best practice for native apps using OIDC and the Authorization Code flow + PKCE.
@@ -77,7 +77,7 @@ Okta Classic:
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign users in to your web app using the redirect model ](/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/)
+[Sign users in to your web app using the redirect model](/docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/)
 
 Embedded SDK and Sign-In Widget sign-in guide:
 

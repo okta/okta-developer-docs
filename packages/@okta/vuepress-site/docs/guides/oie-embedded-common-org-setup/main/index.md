@@ -40,7 +40,7 @@ Sample apps are provided for each solution to show you exactly how to integrate 
 
 1. [Create your Okta account](#create-your-okta-account).
 1. [Verify that the Interaction Code grant type is enabled](/docs/guides/implement-grant-type/interactioncode/main/#verify-that-the-interaction-code-grant-type-is-enabled).
-1. [Update the default Custom Authorization Server](#update-the-default-custom-authorization-server).
+1. [Update the default custom authorization server](#update-the-default-custom-authorization-server).
 1. [Create a new application](#create-a-new-application).
 
 After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) scenario.
@@ -55,12 +55,12 @@ If you don't have an Okta Identity Engine org, you need to sign up for an Okta a
 
 1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/concepts/okta-organizations/#admin-console) of your new Identity Engine org.
 
-### Update the default Custom Authorization Server
+### Update the default custom authorization server
 
-You need to configure your default Custom Authorization Server to enable the Interaction Code flow.
+You need to configure your default custom authorization server to enable the Interaction Code flow.
 
 1. From your Okta org's [Admin Console](/docs/concepts/okta-organizations/#admin-console), select **Security** > **API**.
-1. On the **Authorization Servers** tab, select the pencil icon for the **default** Custom Authorization Server.
+1. On the **Authorization Servers** tab, select the pencil icon for the **default** custom authorization server.
 1. Select the **Access Policies** tab.
 1. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
 1. In the **Edit Rule** dialog box, select the **Interaction Code** checkbox.
@@ -348,7 +348,7 @@ The final step is to add the [created Facebook IdP](#_4-create-the-facebook-iden
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 1. On the Identity Providers page, click the **Routing Rules** tab.
 1. Click **Add Routing Rule**.
-1. Specify the **Rule Name** (for example, FB and Okta Rule).
+1. Specify the **Rule Name** (for example, Facebook and Okta Rule).
 1. From the **THEN Use this identity provider** drop-down list, select the [Facebook Identity Provider that you've just created](#_4-create-the-facebook-identity-provider-in-okta). Since Okta is the default IdP, the two values should be:
 
    * Okta

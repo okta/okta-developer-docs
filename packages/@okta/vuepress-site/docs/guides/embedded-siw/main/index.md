@@ -78,9 +78,9 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 > Loading CSS requires the css-loader plugin. You can find more information about it at the [css-loader gitHub repository](https://github.com/webpack-contrib/css-loader#usage).
 
-### Enabling Cross-Origin Access
+### Enabling cross-origin access
 
-Because the Widget makes cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **Security** > **API** > **Trusted Origins**). See [Enable CORS](/docs/guides/enable-cors/) page.
+Because the Widget makes cross-origin requests, you need to enable Cross-Origin Resource Sharing (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **Security** > **API** > **Trusted Origins**). See [Enable CORS](/docs/guides/enable-cors/) page.
 
 ## Add code to reference the Widget
 
@@ -391,11 +391,11 @@ See the following:
 
 * Android:
 * [Sign users in to your Android mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/android/main/)
-* [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in)
+* [Browser sign-in](https://github.com/okta/samples-android/tree/master/browser-sign-in)
 * [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin)
 * iOS:
 * [Sign users in to your iOS mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/ios/main/)
-* [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in)
+* [Browser sign-in](https://github.com/okta/samples-ios/tree/master/browser-sign-in)
 * [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift)
 
 You can also develop your mobile app with frameworks like Ionic and Flutter. We currently don't have native SDKs for either, but they should work with an AppAuth library. We recommend [Ionic AppAuth](https://github.com/wi3land/ionic-appauth) and the [Flutter AppAuth Plugin](https://pub.dev/packages/flutter_appauth).

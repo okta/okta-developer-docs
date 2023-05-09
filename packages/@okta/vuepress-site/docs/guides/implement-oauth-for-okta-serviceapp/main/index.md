@@ -37,7 +37,7 @@ The following are the high-level steps required to perform the Client Credential
 1. Grant the required OAuth 2.0 scopes to the app.
 1. Create a JSON Web Token (JWT) and sign it using the private key for use as the client assertion when making the `/token` endpoint API call.
 
-> **Note:** At this time, OAuth for Okta works only with the APIs listed on the [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints) page. We are actively working towards supporting additional APIs. Our goal is to cover all public Okta API endpoints.
+> **Note:** OAuth for Okta works only with the APIs listed on the [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/) page.
 
 ## Create a service app integration
 
@@ -54,6 +54,8 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 3. On the Create a new app integration page, select **API Services** as the **Sign-in method** and click **Next**.
 
 4. Enter a name for your app integration and click **Save**.
+
+5. Optional. Click the **Application rate limits** tab to adjust the rate-limit capacity percentage for this service application. By default, each new application sets this percentage at 50%.
 
 ## Generate the JWK using the API
 
@@ -157,7 +159,7 @@ This option allows you to host your public key in a URI and paste the link to th
 
 ## Grant allowed scopes
 
-Now that you've created the service app and registered the public key with that service app, you need to [define the allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). When a request is sent to the Okta Org Authorization Server's `/token` endpoint, it validates all of the requested scopes in the request against the service app's grants collection. The scope is granted if the scope exists in the service app's grants collection.
+Now that you've created the service app and registered the public key with that service app, you need to [define the allowed scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). When a request is sent to the org authorization server's `/token` endpoint, it validates all of the requested scopes in the request against the service app's grants collection. The scope is granted if the scope exists in the service app's grants collection.
 
 > **Note:** Only the Super Admin role has permissions to grant scopes to an app.
 
@@ -195,7 +197,7 @@ For testing purposes, use [this tool](https://www.jsonwebtoken.dev) to generate 
 
 You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) in the request for a scoped access token:
 
-* `alg`: One of the supported algorithm values (RS265, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#generate-the-jwk-using-the-admin-console). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
+* `alg`: One of the supported algorithm values (RS256, RS384, RS512, ES256, ES384, or ES512). This is required for Okta to successfully verify the token by using the signing keys provided in the [previous step](#generate-the-jwk-using-the-admin-console). The `alg` parameter goes in the JWT header rather than a claim in the payload of the body.
 * `aud`: The full URL of the resource that you're using the JWT to authenticate to
 * `exp`: The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
 * `jti`: (Optional) The token's unique identifier. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
@@ -229,7 +231,7 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
 
 ## Get an access token
 
-To request an access token using the Client Credentials grant flow, your app makes a request to your Okta [Org Authorization Server's](/docs/concepts/auth-servers) `/token` endpoint.
+To request an access token using the Client Credentials grant flow, your app makes a request to your Okta [org authorization server's](/docs/concepts/auth-servers) `/token` endpoint.
 
 Include the following parameters:
 

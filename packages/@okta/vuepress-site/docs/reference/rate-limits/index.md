@@ -42,7 +42,7 @@ The Admin Console tracks any rate-limit warnings or violations directly in a Rat
 
 <div class="half">
 
-![Displays the Rate Limits Monitoring widget on the Admin Console Dashboard to show rate limit warnings, bursts, or violations.](/img/rate-limits/rl-monitoring-widget.png)
+![Displays the Rate Limits Monitoring widget on the Admin Dashboard to show rate limit warnings, bursts, or violations.](/img/rate-limits/rl-monitoring-widget.png)
 
 </div>
 

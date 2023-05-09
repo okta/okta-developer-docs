@@ -10,8 +10,6 @@ Add embedded authentication to your SPA app with Okta Auth JS.
 
 <ApiLifecycle access="ie" /><br>
 
-<StackSelector />
-
 <StackSnippet snippet="nutrition" />
 
 ## About using Okta Auth JS with your SPA app

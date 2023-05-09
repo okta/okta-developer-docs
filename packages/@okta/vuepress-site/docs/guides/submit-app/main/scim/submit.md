@@ -1,7 +1,25 @@
+To submit a SCIM integration, click the **SCIM** tab and select **On** from the **SCIM support** dropdown menu.
+
+* **Provide the instance URL for your app where Okta will retrieve configuration details:** Specify the Okta instance URL for your integration.
+
+   To retrieve your Okta instance URL from your development org:
+
+   1. From the Okta Admin Console, navigate to **Applications** > **Applications** to see all the integrations in your org.
+   1. Click the name of the app integration that you're going to submit.
+   1. Confirm that the app settings match what you want as the global defaults for all customers.
+   1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
+   1. Back in the OIN Manager, paste that URL in the **Provide the instance URL for your app where Okta will retrieve configuration details** field of your submission protocol tab.
+
+<!--
+1. Click the **General** tab.
+1. Go to the **App Embed Link** section and copy the text in the Embed Link field:
+   ![App Embed Link](/img/oin/isv-portal_app-embed-link.png "App Embed Link GUI in the Application settings")
+1. Paste that value into your submission.
+-->
 
 * **What SCIM version should this integration use?**: Choose either **SCIM 2.0** (Okta preferred version) or **SCIM 1.1**.
 
-* **Link to configuration guide**: Your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/scim/main/#prepare-a-customer-facing-configuration-guide).
+* **Link to configuration guide**: Your configuration guide (in HTML or PDF format) should have step-by-step instructions on how to set up provisioning between Okta and your systems. See [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines).
 
 * **Select provisioning features to be supported in the integration**: These provisioning features should match what you have selected on the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app) and [Profile Sourcing activation](/docs/guides/scim-provisioning-integration-test/main/#profile-sourcing-activation).
 
@@ -11,11 +29,12 @@
     * **Variable Name**: An automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
     * **Help Text**: Any descriptive text to be shown to administrators when installing your app integration.
     * **Type**: The property type for your parameter. Options are "String", "URL", or "HTTPS URL".
-  * Click **Save** to add the variable to the list.
 
-  After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
+    Click **Save** to add the variable to the list.
 
-  * **Construct your dynamic Base URL by copying the variables above and pasting them where applicable**: Provide the Base URL that your integration uses when sending an outbound call to your SCIM server.
+    After you create the variable, click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
+
+  * **Construct your dynamic Base URL by copying the variables above and pasting them where applicable**: Provide the base URL that your integration uses when sending an outbound call to your SCIM server.
 
     If you're using a per tenant design, include the variable names that you created. For example:
 

@@ -13,21 +13,21 @@ meta:
 These resources walk you through adding user authentication to your Node.js Express app in minutes.
 
 <ul class='language-ctas'>
-	<li>
-		<a href='/docs/guides/sign-into-web-app-redirect/node-express/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sign users in quickstart</span>
-		</a>
-	</li>
-	<li>
+   <li>
+      <a href='/docs/guides/sign-into-web-app-redirect/node-express/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+         <span>Sign users in quickstart</span>
+      </a>
+   </li>
+   <li>
         <a href='/docs/guides/protect-your-api/nodeexpress/main/' class='Button--blueDarkOutline' data-proofer-ignore>
             <span>Protect your API quickstart</span>
         </a>
   </li>
-	<li>
-		<a href='https://github.com/okta/samples-nodejs-express-4' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample app</span>
-		</a>
-	</li>
+   <li>
+      <a href='https://github.com/okta/samples-nodejs-express-4' class='Button--blueDarkOutline' data-proofer-ignore>
+         <span>Sample app</span>
+      </a>
+   </li>
 </ul>
 
 ## Integrate with Okta using the Okta-hosted Sign-In Widget
@@ -44,7 +44,7 @@ These SDKs help you integrate with Okta to build your own fully-branded authenti
 * [Express JS embedded authentication with SDK sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-auth-with-sdk)
 * [Express JS embedded Sign-In Widget sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-sign-in-widget)
 
-## Okta Classic Node.js SDKs
+## Okta Classic Engine Node.js SDKs
 
 * The [Okta Node.js SDK](https://github.com/okta/okta-sdk-nodejs) can be used in your server-side code to create and update users and groups.
 * [okta-sdk-nodejs on npm](https://www.npmjs.com/package/@okta/okta-sdk-nodejs)

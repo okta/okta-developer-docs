@@ -149,7 +149,7 @@ The WebAuthn factor option is listed as **Security Key or Biometric**, as shown 
 
 ### 5: Retrieve encrypted challenge and user information
 
-When the user selects the WebAuthn authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge Flow or Enrollment Flow.
+When the user selects the WebAuthn authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in challenge flow or enrollment flow.
 
 When in Enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the WebAuthn Authenticator factor ID.
 

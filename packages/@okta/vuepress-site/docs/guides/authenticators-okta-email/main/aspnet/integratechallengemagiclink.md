@@ -143,9 +143,9 @@ For example, if the user has previously enrolled the email authenticator, Google
 
 ### 5. Submit the email authenticator
 
-When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method, which checks whether the user is in Challenge or Enrollment Flow.
+When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method, which checks whether the user is in Challenge or enrollment flow.
 
-When in Challenge Flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Email Authenticator ID.
+When in challenge flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Email Authenticator ID.
 
 ```csharp
 var selectAuthenticatorOptions = new SelectAuthenticatorOptions
@@ -184,7 +184,7 @@ switch (selectAuthenticatorResponse?.AuthenticationStatus)
 
 ### 6. Display OTP input page
 
-Build a form that allows the user to enter the One-Time Password (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where the OTP may be required or simply more convenient. For example, a user checking their email from a different device must use an OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
+Build a form that allows the user to enter the one-time passcode (OTP) sent to them by email. Although this use case covers the magic link scenario, displaying an OTP page allows for an OTP verification fallback in cases where the OTP may be required or simply more convenient. For example, a user checking their email from a different device must use an OTP. [Integrate different browser and device scenario](#integrate-different-browser-and-device-scenario-with-magic-links) covers the integration details for the different browser and device scenarios.
 
 ```razor
 <section id="enterCodeForm">
@@ -242,7 +242,7 @@ Next, the user opens their email and clicks the magic link. The following screen
 
 The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0oai9ifvveyL3QZ8K696?token=ftr2eAgsg...`
 
-When the user clicks the magic link, your org receives the request, gets the OTP and state parameters, and forwards the request with these parameters to your application. The org combines the Callback URI that you defined in [Update configurations](#update-configurations) with the OTP and state parameters to produce a final callback URL for the user. For example, `https://localhost:44314/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
+When the user clicks the magic link, your org receives the request, gets the OTP and state parameters, and forwards the request with these parameters to your application. The org combines the callback URI that you defined in [Update configurations](#update-configurations) with the OTP and state parameters to produce a final callback URL for the user. For example, `https://localhost:44314/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
 ### 8. Handle the magic link redirect in your app
 

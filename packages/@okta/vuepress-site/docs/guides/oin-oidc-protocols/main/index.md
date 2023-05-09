@@ -28,10 +28,10 @@ For an OIN app, the Authorization Code flow looks like the following:
   * `response_type=code`: A value that informs Okta (as the authorization server) that you want to get back an access token and an ID token in exchange for the authorization code
   * `scope`: A parameter that must contain `openid` to indicate that this is an OIDC request and that you want to get back an ID token. You can add optional scopes to your request to limit the user information returned.
   * `state`: A value that is returned in the token. The client application can use it to remember the state of its interaction with the end user at the time of the authentication call.
-* Your application sends a redirect response to the browser that contains the composed authentication request. The browser interprets the redirect and sends the authentication request to the `/authorize` endpoint on the Okta Authorization Server over secure HTTPS.
+* Your application sends a redirect response to the browser that contains the composed authentication request. The browser interprets the redirect and sends the authentication request to the `/authorize` endpoint on the Okta authorization server over secure HTTPS.
 * Okta then sends the browser to a sign-in page that either asks the end user to provide authentication and consent to the requested scopes or confirms that Okta has authenticated the user.
 * The end user provides proof of identity (using any of the supported authentication methods) and gives consent for any requested claims defined in your `scopes` parameter. These claims are specific pieces of information that are included in the token provided by Okta.
-* The browser receives an authorization code response from the Okta Authorization Server. If there is an error or the authentication fails for any reason, the browser returns the error to the end user. If the authentication is successful, the Okta Authorization Server issues an authorization code value and includes it in a redirect that sends the browser over to the Client at one of the **Sign-in redirect URIs** callback locations.
+* The browser receives an authorization code response from the Okta authorization server. If there is an error or the authentication fails for any reason, the browser returns the error to the end user. If the authentication is successful, the Okta authorization server issues an authorization code value and includes it in a redirect that sends the browser over to the Client at one of the **Sign-in redirect URIs** callback locations.
 * The Client (your application) then submits a request to the Okta `/token` endpoint by using the authorization code value and the client secret. If both are valid, then Okta returns:
   * `access_token`: Restricted to give access only to what the end user authorized for your application
   * `token_type=Bearer`: The authentication method that is used
@@ -46,7 +46,7 @@ The Authorization Code flow depends on Okta and your SaaS back-end systems being
 
 > **Note:** Your application needs to verify user identity through a user store. Otherwise, your app could be spoofed by fake applications in the Android or Apple app stores, or an end user could view and possibly modify your code. For this reason, native and mobile app integrations aren't acceptable for OIDC app integrations in the OIN. You must set up your application to use an authentication flow so that your client application talks to your SaaS back end, which then communicates with Okta.
 
-To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server. You can only use the [Org Authorization Server](https://developer.okta.com/docs/concepts/auth-servers/#available-authorization-server-types).
+To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server. You can only use the [org authorization server](https://developer.okta.com/docs/concepts/auth-servers/#available-authorization-server-types).
 
 Another general outline of the Authorization Code flow is in our Okta developer guide: [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 
@@ -56,12 +56,12 @@ Also, if you have used SAML for SSO in the past, it's important to realize that 
 
 If you are building a Single Page Application (SPA) for the OIN, then Okta recommends using the Authorization Code flow with a Proof Key for Code Exchange (PKCE) to control the access between your application and a resource server. See our [OAuth 2.0 overview](/docs/concepts/oauth-openid/#authorization-code-with-pkce) for more information on the Authorization Code flow with PKCE, including why to use it.
 
-Just like with the regular Authorization Code flow, your app starts by redirecting the end user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. However, in this instance, you also have to pass along a code challenge.
+Just like with the regular Authorization Code flow, your app starts by redirecting the end user's browser to your authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. However, in this instance, you also have to pass along a code challenge.
 
 Your first step is to generate a code verifier and challenge:
 
 * Code verifier: Random URL-safe string with a minimum length of 43 characters
-* Code challenge: Base64 URL-encoded SHA-256 hash of the code verifier
+* Code challenge: Base64URL-encoded SHA-256 hash of the code verifier
 
 You need to add code in your SPA app to create the code verifier and code challenge.
 
@@ -76,10 +76,10 @@ The Authorization Code flow with PKCE looks like this for an OIN app:
   * `scope`: Must contain `openid` to indicate that you want to get back an ID token from the `/token` endpoint
   * `code_challenge`: The PKCE code challenge that you previously generated
   * `code_challenge_method`: The hash method that is used to generate the challenge value. This value is always `S256`.
-* Your application sends a redirect response to the browser that contains the composed authentication request. The browser interprets the redirect and sends the authentication request to the `/authorize` endpoint on the Okta Authorization Server over secure HTTPS.
+* Your application sends a redirect response to the browser that contains the composed authentication request. The browser interprets the redirect and sends the authentication request to the `/authorize` endpoint on the Okta authorization server over secure HTTPS.
 * Okta then sends the browser to a sign-in page that either asks the end user to provide authentication and consent to the requested scopes or confirms that Okta has authenticated the user.
 * The end user provides proof of identity (using any of the supported authentication methods) and gives consent for any requested claims defined in your `scopes` parameter. These claims are specific pieces of information that are included in the token provided by Okta.
-* The browser receives an authorization code response from the Okta Authorization Server. If there is an error or the authentication fails for any reason, the browser returns the error to the end user. If the authentication is successful, the Okta Authorization Server issues an authorization code value and includes it in a redirect that sends the browser over to the Client at one of the **Sign-in redirect URIs** callback location.
+* The browser receives an authorization code response from the Okta authorization server. If there is an error or the authentication fails for any reason, the browser returns the error to the end user. If the authentication is successful, the Okta authorization server issues an authorization code value and includes it in a redirect that sends the browser over to the Client at one of the **Sign-in redirect URIs** callback location.
 * The Client (your application) then submits a request to the Okta `/token` endpoint using:
   * The authorization `code` value
   * The `code_verifier` value
@@ -112,11 +112,12 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 
 * `address`: Requests access to the `address` claim
 * `phone`: Requests access to the `phone_number` and `phone_number_verified` claims
-* `groups`: Requests access to the `groups` claim. This is a custom scope for Okta
 
-> **Note**: `offline_access` scope isn't available since refresh tokens aren't supported for apps published in OIN.
+> **Note**: The following scopes aren't supported for integrations published in the OIN:
+> * `offline_access` scope (since refresh tokens aren't supported)
+> * Custom scopes (such as the `groups` scope)
 
-You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). Custom scopes, like the `groups` scope, can't be configured.
+You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). However, custom scopes can't be configured.
 
 Okta utilizes access policies to decide whether the scopes can be granted. If any of the requested scopes are rejected by the access policies, the request is rejected.
 
@@ -132,7 +133,7 @@ There are three URIs that you need to consider when creating an OIDC app for the
 
 For checking access tokens, the `/introspect` [endpoint](/docs/reference/api/oidc/#introspect) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
 
-As OIN app integrations can't use custom auth servers, you must use remote token validation (through the Introspection API endpoint) for access tokens and local validation for ID tokens.
+As OIN app integrations can't use custom authorization servers, you must use remote token validation (through the Introspection API endpoint) for access tokens and local validation for ID tokens.
 
 This remote validation incurs a network cost, but you can use it when you want to guarantee that the access token hasn't been revoked.
 

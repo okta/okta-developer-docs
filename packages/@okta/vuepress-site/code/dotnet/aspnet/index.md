@@ -9,21 +9,21 @@ meta:
 ---
 
 <ul class='language-tabs'>
-	<li>
-		<RouterLink to='/code/dotnet/aspnetcore/'>
-			<i class='icon code-dotnet-32'></i><span>ASP.NET Core</span>
-		</RouterLink>
-	</li>
-	<li>
-		<RouterLink to='/code/dotnet/aspnet/'>
-			<i class='icon code-dotnet-32'></i><span>ASP.NET</span>
-		</RouterLink>
-	</li>
-	<li>
-		<RouterLink to='/code/dotnet/blazor/'>
-			<i class='icon code-dotnet-32'></i><span>Blazor</span>
-		</RouterLink>
-	</li>
+   <li>
+      <RouterLink to='/code/dotnet/aspnetcore/'>
+         <i class='icon code-dotnet-32'></i><span>ASP.NET Core</span>
+      </RouterLink>
+   </li>
+   <li>
+      <RouterLink to='/code/dotnet/aspnet/'>
+         <i class='icon code-dotnet-32'></i><span>ASP.NET</span>
+      </RouterLink>
+   </li>
+   <li>
+      <RouterLink to='/code/dotnet/blazor/'>
+         <i class='icon code-dotnet-32'></i><span>Blazor</span>
+      </RouterLink>
+   </li>
 </ul>
 
 ## Get started with ASP.NET + Okta
@@ -66,13 +66,13 @@ Okta Identity Engine:
 * [ASP.NET embedded authentication with SDK sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-auth-with-sdk)
 * [ASP.NET embedded Sign-In Widget sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-sign-in-widget)
 
-Okta Classic:
+Okta Classic Engine:
 
 * The [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet) is useful if you cann't use OIDC and need your server-side code to interact with the Authentication API for handling the sign-in flow.
 * Okta's [Okta ASP.NET OIDC middleware Integration](https://github.com/okta/okta-aspnet) makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
 * [Okta ASP.NET OIDC integration on NuGet](https://www.nuget.org/packages/Okta.AspNet)
 
-## Other Classic .NET libraries
+## Other Classic Engine .NET libraries
 
 * The [Okta Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet) uses .NET Standard and works with both .NET Framework and .NET Core. It's helpful to work with the Okta Management API to manage users, groups, apps, and so on, on the fly.
 * The [Okta Xamarin SDK](https://github.com/okta/okta-oidc-xamarin) follows current best practice for native apps using OIDC and the Authorization Code flow + PKCE.
@@ -81,7 +81,7 @@ Okta Classic:
 
 Okta-hosted Sign-In Widget guide:
 
-[Sign into your web app with redirect auth](#) (coming soon)
+Sign into your web app with redirect auth  (coming soon)
 
 Embedded SDK and Sign-In Widget sign-in guide:
 

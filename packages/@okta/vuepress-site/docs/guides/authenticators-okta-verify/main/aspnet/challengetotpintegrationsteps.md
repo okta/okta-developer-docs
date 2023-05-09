@@ -4,7 +4,7 @@ The user signs in with a username and password, and then chooses Okta Verify fro
 
 #### 2 - 3. Retrieve and display a list of challenge methods
 
-When the user selects Okta Verify and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. In Challenge Flow, a list of available challenge methods is retrieved and presented to the user.
+When the user selects Okta Verify and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. In challenge flow, a list of available challenge methods is retrieved and presented to the user.
 
 The code for this is shared with Steps 2 and 3 of [Integrate Challenge using push notification](#integrate-challenge-using-push-notification-option).
 
@@ -45,7 +45,7 @@ The user sees the following:
 
 <div class="common-image-format bordered-image">
 
-![A page asking the user to enter a Time-based One-Time Password from their Okta Verify mobile app](/img/authenticators/dotnet-authenticators-okta-verify-challenge-enter-totp.png "A prompt for the user to enter their TOTP")
+![A page asking the user to enter a time-based one-time passcode from their Okta Verify mobile app](/img/authenticators/dotnet-authenticators-okta-verify-challenge-enter-totp.png "A prompt for the user to enter their TOTP")
 
 </div>
 

@@ -1,15 +1,14 @@
 <template>
   <div class="header--links">
-    
     <MenuItems
       :items="$themeConfig.primary_left_nav"
-      :itemCss="'link link--small link--semi-bold'"
-      :subItemCss="'link link--small link--semi-bold link--black'"
+      :item-css="'link link--small link--semi-bold'"
+      :sub-item-css="'link link--small link--semi-bold link--black'"
     />
     <MenuItems
       :items="$themeConfig.primary_right_nav"
-      :itemCss="'link link--small link--semi-bold'"
-      :subItemCss="'link link--small link--semi-bold link--black'"
+      :item-css="'link link--small link--semi-bold'"
+      :sub-item-css="'link link--small link--semi-bold link--black'"
     />
 
     <DocsMenuItems />

@@ -365,8 +365,10 @@ Adds a SAML 2.0 application instance
 
 | Parameter | Description                                     | DataType | Nullable | Unique | Validation                                |
 | --------- | ----------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
-| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |  |
-| destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |                                           |
+| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | Array of [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |  |
+| configuredAttributeStatements   | SAML attributes that are inherited from app metadata during app creation and are used to configure group attributes | Array of [Group Attribute Statements](#group-attribute-statements-object) | TRUE     | FALSE  |  |
+| destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |  |
+| honorForceAuthn       | Set to `true` to prompt users for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. Users are prompted to enter their credentials, even if they normally sign in through Desktop SSO. Set this parameter to `false` to ignore the `ForceAuthn` attribute in the SAML request.       | Boolean   | FALSE    | FALSE  |  |
 | url       | The URL of the sign-in page for this app          | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
 ##### Request example
@@ -984,7 +986,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 | destination           | Identifies the location where the SAML response is intended to be sent inside of the SAML assertion               | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | destinationOverride   | Overrides the `destination` setting                                                                               | String                                               | TRUE     | FALSE  |                                           |
 | digestAlgorithm       | Determines the digest algorithm used to digitally sign the SAML assertion and response                            | String                                               | FALSE    | FALSE  |                                           |
-| honorForceAuthn       | Prompt user to re-authenticate if SP asks for it                                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
+| honorForceAuthn       | Prompts the user to re-authenticate if the SAML request has the `ForceAuthn` attribute set to `true`. If this property is `false`, the `ForceAuthn` attribute in the SAML request is ignored. | Boolean                                              | FALSE    | FALSE  |                                           |
 | idpIssuer             | SAML Issuer ID                                                                                                    | String                                               | FALSE    | FALSE  |                                           |
 | inlineHooks           | Associates the application with SAML inline hooks. See the [SAML assertion inline hook reference](/docs/reference/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
 | recipient             | The location where the app may present the SAML assertion                                                         | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
@@ -1350,9 +1352,10 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | tos_uri                                                                                                   | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | refresh_token                                                               | Refresh token configuration                                                                                                                                                                                                | [Refresh Token object](#refresh-token-object)                                                                                            | TRUE       | FALSE    | TRUE      |
 | jwks_uri                                                                     | URL string that references a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                                                                                      | String                                                                                        | TRUE       | FALSE    | TRUE      |
-| backchannel_token_delivery_mode <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />                 | The delivery mode for Client-Initiated Backchannel Authentication. Valid types include `poll`, `ping`, and `push`. Supported values: `poll`.                                                                  | String                                                                                        | TRUE       | FALSE    | TRUE      |
-| backchannel_authentication_request_signing_alg <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />  | The signing algorithm for Client-Initiated Backchannel Authentication signed requests. If this value isn't set and a signed request is sent, the request fails.                                                                     | String                                                                                        | TRUE       | FALSE    | TRUE      |
-| backchannel_custom_authenticator_id <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />             | The ID of the custom authenticator that authenticates the user.                                                                                                                                                        | String                                                                                        | TRUE       | FALSE    | TRUE      |
+| backchannel_token_delivery_mode <ApiLifecycle access="ie" />                 | The delivery mode for Client-Initiated Backchannel Authentication. Valid types include `poll`, `ping`, and `push`. Supported values: `poll`.                                                                  | String                                                                                        | TRUE       | FALSE    | TRUE      |
+| backchannel_authentication_request_signing_alg <ApiLifecycle access="ie" /> | The signing algorithm for Client-Initiated Backchannel Authentication signed requests. If this value isn't set and a signed request is sent, the request fails.                                                                     | String                                                                                        | TRUE       | FALSE    | TRUE      |
+| backchannel_custom_authenticator_id <ApiLifecycle access="ie" />             | The ID of the custom authenticator that authenticates the user.                                                                                                                                                        | String                                                                                        | TRUE       | FALSE    | TRUE      |
+| dpop_bound_access_tokens  <ApiLifecycle access="ea" />                                                    | Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If omitted, the default value is `false`. If `true`, the authorization server rejects token requests from this client that don't contain the DPoP header.  | Boolean  | TRUE       | FALSE    | TRUE      |
 
 ###### Details
 
@@ -1404,8 +1407,9 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
 
 > **Note:** The `refresh_token` <ApiLifecycle access="ea" /> parameter is visible only if the client has `refresh_token` defined as one of its allowed `grant_types`. See [Refresh token object](#refresh-token-object).
 
-> **Note:** The parameters `backchannel_token_delivery_mode`, `backchannel_authentication_request_signing_alg`, and `backchannel_custom_authenticator_id` appear only if the client has `urn:openid:params:grant-type:ciba` defined as one of its allowed `grant_types`. <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />
+> **Note:** The parameters `backchannel_token_delivery_mode`, `backchannel_authentication_request_signing_alg`, and `backchannel_custom_authenticator_id` appear only if the client has `urn:openid:params:grant-type:ciba` defined as one of its allowed `grant_types`. <ApiLifecycle access="ie" />
 
+> **Note:** If the `dpop_bound_access_tokens` parameter is set to `true`, then the `client_credentials` and `implicit` `grant_types` parameters aren't allowed. <ApiLifecycle access="ea" />
 
 **Notes:**
 
@@ -1416,7 +1420,53 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
   * After an app is created, you can't change the `application_type`.
 
+#### Create an app with a Profile object
 
+To include app-specific information that you want to reference later, such as in a token claim, add those parameters within the app [Profile object](#profile-object) when you create an app. An Profile object is a container for any valid JSON schema that you can reference from a request. You can only add the Profile object to OAuth 2.0 client applications.
+
+The following example shows how to add an app `label` parameter to the Profile object when creating an app.
+
+> **Note:** See [Update application level profile attributes](#update-application-level-profile-attributes) for an update example.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "name": "oidc_client",
+    "label": "Sample Client profile",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+      "oauthClient": {
+        "token_endpoint_auth_method": "client_secret_post"
+        }
+    },
+    "profile": {
+        "label": "oauth2 client app 1"
+        },
+    "settings": {
+      "oauthClient": {
+        "client_uri": "http://localhost:8080",
+        "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+        "redirect_uris": [
+          "https://example.com/oauth2/callback",
+          "myapp://callback"
+        ],
+        "response_types": [
+          "token",
+          "id_token",
+          "code"
+        ],
+        "grant_types": [
+          "implicit",
+          "authorization_code"
+        ],
+        "application_type": "native"
+      }
+    }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
 
 ### Get application
 
@@ -3267,7 +3317,7 @@ curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
--d {
+-d '{
     "id": "0oap6nz61rKdsoyOY0h7",
     "name": "oidc_client",
     "label": "SampleClient",
@@ -3338,7 +3388,7 @@ curl -v -X PUT \
             "issuer_mode": "CUSTOM_URL"
         }
     }
-}`
+}' "https://${yourOktaDomain}/api/v1/apps/${appId}"
 ```
 
 ##### Response example
@@ -3449,6 +3499,7 @@ curl -v -X PUT \
     }
 }
 ```
+
 #### Update application level profile attributes
 
 Updates the Application profile attributes
@@ -3462,7 +3513,7 @@ Updates the Application profile attributes
 
 ##### Response parameters
 
-[Application](#application-object) with updated `profile attributes`
+[Application](#application-object) with updated profile attributes
 
 ##### Request example
 
@@ -3483,7 +3534,7 @@ curl -v -X PUT \
     }
   },
   "profile": {
-    "label": "oauth2 client app 1"
+    "label": "oauth2 client app 2"
   },
   "settings": {
     "oauthClient": {
@@ -3633,6 +3684,7 @@ curl -v -X PUT \
   }
 }
 ```
+
 ### Delete application
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}" />
@@ -7029,7 +7081,7 @@ Updates a Feature object for an application.
 | Parameter       | Description                                | Parameter Type   | DataType   | Required |
 | :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
 | applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
-| capabilities   | Capabilites of the feature                  | Body              | [Capabilites Object](#capabilties-object) | TRUE     |
+| capabilities   | Capabilities of the feature                  | Body              | [Capabilities Object](#capabilties-object) | TRUE     |
 | name   | Name of the feature                      | URL              | String     | TRUE     |
 
 ##### Reponse parameters
@@ -7128,7 +7180,7 @@ curl -v -X PUT \
 * [Refresh Token object](#refresh-token-object)
 * [Application object](#application-object)
 * [Application User object](#application-user-object)
-* [Appliction Group object](#application-group-object)
+* [Application Group object](#application-group-object)
 
 ### Idp-Initiated Login object
 
@@ -7871,7 +7923,7 @@ Specifies access settings for the application
   }
 }
 ```
-> **Note:** The `loginRedirectUrl` field is deprecated in Identity Engine.
+> **Note:** The `loginRedirectUrl` property is deprecated in Identity Engine. This property is used with the custom app login feature. Orgs that actively use this feature can continue to do so. Orgs that don't use custom app login should use the [Okta-hosted sign-in experience](/docs/guides/redirect-authentication/) or [configure IdP routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-cfg-routing-rules) that redirect users to the appropriate app to sign in.
 
 ### Visibility object
 
@@ -8123,7 +8175,7 @@ Specifies (optional) attribute statements for a SAML application
 | ---------- | -------------------------------------------------------------------------------------------- | ------------ | -------- |
 | name       | The reference name of the attribute statement                                                | String       | FALSE    |
 | namespace  | The name format of the attribute                                                             | String       | FALSE    |
-| type       | The type of attribute statements object                                                      | `EXPRESSION` | FALSE    |
+| type       | The type of attribute statements object. Supported value: `EXPRESSION`                       | String       | FALSE    |
 | values     | The values of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)   | Array        | FALSE    |
 
 ### Single Logout object
@@ -8230,6 +8282,7 @@ Profile Requirements
 * The `profile` property doesn't limit the level of nesting in the JSON schema you created, but there is a practical size limit. We recommend a JSON schema size of 1 MB or less for best performance.
 
 > **Note:** Profile object is only available to OAuth 2.0 client applications.
+
 
 ### Application User object
 
@@ -8530,7 +8583,7 @@ The metadata for a CSR
 
 ### Application CSR object
 
-The application CSR object defines a certificate signing request for a signature or encryption credential for an application.
+The application CSR object defines a Certificate Signing Request for a signature or encryption credential for an application.
 
 #### Example
 

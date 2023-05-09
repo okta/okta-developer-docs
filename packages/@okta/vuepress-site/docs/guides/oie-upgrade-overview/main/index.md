@@ -6,7 +6,7 @@ meta:
 ---
 <ApiLifecycle access="ie" />
 
-To leverage the power of [Okta Identity Engine](/docs/concepts/oie-intro/) and to easily adopt new features, migrate your existing orgs and apps from Okta Classic Engine onto Identity Engine. Upgrading to Identity Engine allows you to implement many new capabilities in Okta's access management products and provides more flexibility to manage your user authentication. This document provides an overview of the upgrade process for customer identity & developer use cases.
+To leverage the power of [Okta Identity Engine](/docs/concepts/oie-intro/) and to easily adopt new features, migrate your existing orgs and apps from Okta Classic Engine onto Identity Engine. Upgrading to Identity Engine allows you to implement many new capabilities in Okta's access management products and provides more flexibility to manage your user authentication. This document provides an overview of the upgrade process for Customer Identity & developer use cases.
 
 ## Plan your upgrade
 
@@ -48,7 +48,7 @@ For a more detailed look at the upgrade steps, see the [Plan embedded auth appli
     **Are you embedding our Sign-In Widget?**
 
     * [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) to the latest version.
-    
+
     * Test your app to make sure the widget works OK.
 
     * Make any necessary [updates to the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
@@ -57,7 +57,7 @@ For a more detailed look at the upgrade steps, see the [Plan embedded auth appli
 
     * Add the appropriate Identity Engine SDK to your application code or update to the latest version of the Identity Engine SDK. See [Add the latest Auth SDKs to your applications](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
 
-    **Are you moving to an architecture that leverages an Okta SDK?** More detailed information coming soon. <!-- See [Move away from using Authn APIs to using the appropriate SDK](/docs/guides/) for details on this task. -->
+    **Are you moving to an architecture that leverages an Okta SDK?** More detailed information coming soon. <!-- See [Move away from using Classic Authentication APIs to using the appropriate SDK](/docs/guides/) for details on this task. -->
 
 3. Test your user experience.
 
