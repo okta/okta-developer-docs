@@ -17,7 +17,7 @@ Terraform can create, manage, and update various infrastructure resources, inclu
 
 Use this architecture to:
 
-* Include Okta org configurations in your Continuous Integration / Deployment processes
+* Include Okta org configurations in your continuous integration / deployment (CI / CD) processes
 * Configure multiple Okta orgs to the same standards
 * Detect changes between Okta orgs and resynchronising them
 

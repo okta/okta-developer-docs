@@ -151,7 +151,7 @@ In this use case, only Google Authenticator appears, as shown in the following s
 
 ### 5: Retrieve shared secret and QR Code
 
-When the user selects the Google Authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge Flow or Enrollment Flow.
+When the user selects the Google Authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in challenge flow or enrollment flow.
 
 When in Enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Google Authenticator factor ID.
 

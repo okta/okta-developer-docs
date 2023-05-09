@@ -64,7 +64,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * You must provide a subdomain for customizing the Okta org domain. Okta doesn't support the use of a root domain name.
 
-* If you use an Okta-managed TLS certificate, you don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, keep the following in mind:
+* If you use an Okta-managed TLS certificate, you don't need a [Certificate Authority Authorization (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, keep the following in mind:
 
     * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
 
@@ -101,7 +101,7 @@ This method of configuring a custom domain is recommended because Okta manages y
 
 > **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact [Support](https://support.okta.com/help/s/opencase).
 
-> **Note:** You don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record to use an Okta-managed TLS certificate. However, if you do have a CAA record, keep the following in mind:
+> **Note:** You don't need a [Certificate Authority Authorization (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record to use an Okta-managed TLS certificate. However, if you do have a CAA record, keep the following in mind:
 >
 >  * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
 >

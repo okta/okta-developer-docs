@@ -7081,7 +7081,7 @@ Updates a Feature object for an application.
 | Parameter       | Description                                | Parameter Type   | DataType   | Required |
 | :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
 | applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
-| capabilities   | Capabilites of the feature                  | Body              | [Capabilites Object](#capabilties-object) | TRUE     |
+| capabilities   | Capabilities of the feature                  | Body              | [Capabilities Object](#capabilties-object) | TRUE     |
 | name   | Name of the feature                      | URL              | String     | TRUE     |
 
 ##### Reponse parameters
@@ -8583,7 +8583,7 @@ The metadata for a CSR
 
 ### Application CSR object
 
-The application CSR object defines a certificate signing request for a signature or encryption credential for an application.
+The application CSR object defines a Certificate Signing Request for a signature or encryption credential for an application.
 
 #### Example
 

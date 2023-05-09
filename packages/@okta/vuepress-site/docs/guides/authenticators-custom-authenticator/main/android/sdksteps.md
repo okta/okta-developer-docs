@@ -6,7 +6,7 @@ The following image shows how data flows through the Devices SDK:
 
 <div class="full border">
 
-![Custom Authenticator flow chart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
+![Custom authenticator flow chart](/img/authenticators/authenticators-custom-authenticator-data-flow.png)
 
 </div>
 

@@ -54,7 +54,7 @@ The following image shows what the Devices SDK enables for end users:
 
 <div class="three-quarter border">
 
-![Custom Authenticator flow chart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
+![Custom authenticator flow chart](/img/authenticators/authenticators-custom-authenticator-flowchart.png)
 
 </div>
 

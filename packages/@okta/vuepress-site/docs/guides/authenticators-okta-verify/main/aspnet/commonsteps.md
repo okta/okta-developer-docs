@@ -47,8 +47,8 @@ Query the `AuthenticationStatus` property of the `AuthenticationResponse` object
 
 If you configured your Okta org correctly, you need to respond to two specific authenticator statuses to handle this scenario in addition to `Success` and `PasswordExpired`:
 
-* `AwaitingAuthenticatorEnrollment` indicates that the user is in Enrollment Flow
-* `AwaitingChallengeAuthenticatorSelection` indicates that the user is in Challenge Flow
+* `AwaitingAuthenticatorEnrollment` indicates that the user is in enrollment flow
+* `AwaitingChallengeAuthenticatorSelection` indicates that the user is in challenge flow
 
 You can find the names of the authenticators available for enrollment or challenge in the `AuthenticationResponse` object's `Authenticators` collection. Redirect the user to a list of authenticators to select Okta Verify for enrollment.
 
@@ -198,7 +198,7 @@ It's recommended you define one endpoint for enrollment flows and another for ch
 
 #### 2. Poll the Okta Server for current state of flow
 
-When an endpoint receives a poll request from the JavaScript function, it sends a query to the Okta server for information. In Enrollment Flow, the endpoint should call the `PollAuthenticatorEnrollmentStatusAsync()` method on the `idxClient` object. In Challenge Flow, it should call `PollAuthenticatorPushStatusAsync()`.
+When an endpoint receives a poll request from the JavaScript function, it sends a query to the Okta server for information. In enrollment flow, the endpoint should call the `PollAuthenticatorEnrollmentStatusAsync()` method on the `idxClient` object. In challenge flow, it should call `PollAuthenticatorPushStatusAsync()`.
 
 ```csharp
 public async Task<ActionResult> EnrollPoll()
@@ -284,7 +284,7 @@ public async Task<ActionResult> ChallengePoll()
 
 #### 3. Return flow state to client
 
-Regardless of whether you're in Enrollment Flow or in Challenge Flow, the endpoint needs to return, in a JSON object, the `Refresh` and `ContinuePolling` values and the page to redirect to if polling has ended as a JSON object.
+Regardless of whether you're in enrollment flow or in challenge flow, the endpoint needs to return, in a JSON object, the `Refresh` and `ContinuePolling` values and the page to redirect to if polling has ended as a JSON object.
 
 ```csharp
     return Json(pollViewModel, JsonRequestBehavior.AllowGet);

@@ -3999,7 +3999,7 @@ Specifies [standard](#default-profile-properties) and [custom](#custom-profile-p
 
 #### Default Profile properties
 
-The default user profile is based on the [System for Cross-Domain Identity Management: Core Schema](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#section-4.1.1) and has following standard properties:
+The default user profile is based on the [System for Cross-domain Identity Management: Core Schema](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#section-4.1.1) and has following standard properties:
 
 | Property            | Description                                                                                                                          | DataType   | Nullable        | Unique   | Readonly   | MinLength   | MaxLength   | Validation                                                                                                       |
 | :------------------ | :----------------------------------------------------------------------------------------------------------------------------------- | :--------- | :---------      | :------- | :--------- | :---------- | :---------- | :--------------------------------------------------------------------------------------------------------------- |

@@ -4,14 +4,14 @@ title: Role Assignment
 
 # Role assignment
 
-Role assignment to principals makes them administrators of your org. Principals can be Users or Groups of Users. When a Role is assigned to a Group, all members of the Group automatically have the privileges granted by the Role.
-Roles can be one of the [standard Roles](#standard-role-assignment) that are provided by default. Alternatively, you can create your own Custom Roles by choosing from the collection of available [permissions](#permission-types).
-On this page, we discuss the concepts of Role assignment through APIs. See [Custom Admin Roles Help](https://help.okta.com/okta_help.htm?id=csh-cstm-admin-roles).
+Role assignment to principals makes them administrators of your org. Principals can be users or groups of users. When a role is assigned to a group, all members of the group automatically have the privileges granted by the role.
+Roles can be one of the [standard roles](#standard-role-assignment) that are provided by default. Alternatively, you can create your own custom roles by choosing from the collection of available [permissions](#permission-types).
+On this page, we discuss the concepts of role assignment through APIs. See [Custom administrator roles](https://help.okta.com/okta_help.htm?id=csh-cstm-admin-roles).
 
-## Standard Role assignment
+## Standard role assignment
 
-### Standard Role Types
-The following Role types are provided and supported:
+### Standard role Types
+The following role types are provided and supported:
 
 | Role type                               | Label                               | Optional targets                      |
 | :-------------------------------------- | :---------------------------------- | :------------------------------------ |
@@ -26,7 +26,7 @@ The following Role types are provided and supported:
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
 | `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
 
-### IAM-based Standard Role Types
+### IAM-based standard role Types
 <ApiLifecycle access="ea" />
 We also support the following IAM-based standard roles:
 | Role type                                                  | Label                               | Permissions                                   |
@@ -39,45 +39,45 @@ Similar to other standard roles, these roles are also immutable and can't be upd
 ### Standard Role Assignment steps
 Perform standard role assignment in two steps:
 
-1. Assign a Role to a User or Group. At this point, the admin has the supported privileges of the Role over all resources across organization.
-2. (Optional) If the Role supports targets, use one of the [target operations](/docs/reference/api/roles/#role-target-operations) to indicate which specific resource the admin can manage.
+1. Assign a role to a user or group. At this point, the admin has the supported privileges of the role over all resources across organization.
+2. (Optional) If the role supports targets, use one of the [target operations](/docs/reference/api/roles/#role-target-operations) to indicate which specific resource the admin can manage.
 
-Note that the entities involved in standard Role assignment are:
+Note that the entities involved in standard role assignment are:
 
-* A Role: Identified either by type or ID returned from the [listing API](/docs/reference/api/roles/#list-roles)
-* A principal: Either a Group or a User
-* (Optional) A resource: When using [target operations](/docs/reference/api/roles/#role-target-operations) this can be either an App or a Group
+* A role: Identified either by type or ID returned from the [listing API](/docs/reference/api/roles/#list-roles)
+* A principal: Either a group or a user
+* (Optional) A resource: When using [target operations](/docs/reference/api/roles/#role-target-operations) this can be either an App or a group
 
-## Custom Role assignment
+## Custom role assignment
 
-Custom Roles can be built by piecing [Permissions](/docs/reference/api/roles/#permission-types) together. After a Custom Role is built, you can use its `id` or `label` to assign to admins. The process is:
+Custom roles can be built by piecing [Permissions](/docs/reference/api/roles/#permission-types) together. After a custom role is built, you can use its `id` or `label` to assign to admins. The process is:
 
-1. Build a Custom Role.
+1. Build a custom role.
 2. Build a set of resources.
-3. Bind the admin with the Role from step one that targets the Resource Set from step two.
+3. Bind the admin with the role from step one that targets the resource set from step two.
 
-An assignment of a Role to an admin is called a [Binding](/docs/reference/api/roles/#binding-object). Conceptually, a Binding is identified by a unique ID, and represents a single unique combination of principal, Resource Set, and Custom Role. A given Resource Set can have multiple Bindings that allow for different combinations of principals and Roles as necessary to grant permission to the encompassing resource.
+An assignment of a role to an admin is called a [Binding](/docs/reference/api/roles/#binding-object). Conceptually, a Binding is identified by a unique ID, and represents a single unique combination of principal, resource set, and custom role. A given resource set can have multiple Bindings that allow for different combinations of principals and roles as necessary to grant permission to the encompassing resource.
 
-Therefore, when dealing with Custom Roles, these three entities always exist:
+Therefore, when dealing with custom roles, these three entities always exist:
 
-* A Role: Identified by its `label` or `id`
-* A principal: Either a Group or a User - known as a Member of the Binding
-* A Resource Set: Identified by its `id`
+* A role: Identified by its `label` or `id`
+* A principal: Either a group or a user - known as a Member of the Binding
+* A resource set: Identified by its `id`
 
-### Custom Role Assignment for IAM-based Standard Roles
+### Custom role Assignment for IAM-based standard roles
 <ApiLifecycle access="ea" />
-When using IAM-based Standard Roles the same concepts as Custom Roles apply with the following distinctions:
-1. IAM-based standard roles can only be used with predefined Resource Sets.
-2. For both IAM-based Standard Roles and Resource Sets, there is a predefined constant `id`. This `id` is always the `type` of the Role or Resource Set.
+When using IAM-based standard roles the same concepts as custom roles apply with the following distinctions:
+1. IAM-based standard roles can only be used with predefined resource sets.
+2. For both IAM-based standard roles and resource sets, there is a predefined constant `id`. This `id` is always the `type` of the role or resource set.
 
 | Role id (type)                                          | Applicable Resource Set id (type)    |
 | :------------------------------------------------------ | :----------------------------------- |
 | `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | `ACCESS_CERTIFICATIONS_IAM_POLICY` |
 | `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | `ACCESS_REQUESTS_IAM_POLICY`       |
 
-### Resource Sets
+### Resource sets
 
-A Resource Set is simply a collection of resources. There are two types of resource identifiers. Resources can either be identified by an Okta Resource Name (ORN) or by a REST URL format.
+A resource set is simply a collection of resources. There are two types of resource identifiers. Resources can either be identified by an Okta Resource Name (ORN) or by a REST URL format.
 
 #### Okta Resource Name (ORN)
 
@@ -156,7 +156,7 @@ The following are the supported resources.
 |                         | A specific Delegated Flow                                           | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                              |                                                                                                                                                         |
 | Governance              | All Access Certifications         <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:certifications`                                   |                                                                                                                                                         |
 |                         | All Access Requests               <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:requests`                                         |                                                                                                                                                         |
-> **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, it doesn't affect the admin Role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
+> **Note:** If you use a role with permissions that don't apply to the resources in the resource set, it doesn't affect the admin role. For example, the `okta.users.userprofile.manage` permission gives the admin no privileges if it is granted to a resource set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the users within the group, the resource set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
 
 > **Note:** Governance resources are currently only supported as part of the [Standard Resource Sets](#standard-resource-sets). You can't use these to create or update other resource sets.
 
@@ -176,7 +176,7 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
   https://${yourOktaDomain}/api/v1/groups/${memberGroupId}
   ```
 
-### Standard Resource Sets
+### Standard resource sets
 <ApiLifecycle access="ea" />
 The following resource sets are currently supported out of the box and can be used to assign admins only when used with
 their associated roles. Standard resource sets and roles are always identified using their type as `id`.
@@ -188,14 +188,14 @@ Standard resource sets are managed by Okta only and can't be updated or deleted.
 
 ## Custom vs. standard
 
-1. An admin can have both standard Role assignments and Custom Role Bindings. Note that privileges granted to an admin are an aggregate of:
-    * Standard Roles directly assigned
-    * Standard Roles granted through group membership
-    * Custom Roles directly assigned
-    * Custom Roles granted through group membership
+1. An admin can have both standard role assignments and custom role bindings. Note that privileges granted to an admin are an aggregate of:
+    * Standard roles directly assigned
+    * Standard roles granted through group membership
+    * Custom roles directly assigned
+    * Custom roles granted through group membership
 
-    As a result, if an admin was granted a standard Role that is limited to a single Group, and at the same time received group management privileges on all Groups in the org through a Custom Role, the ultimate outcome is group management on all Groups.
-2. You can't assign a Custom Role without a Resource Set. The Custom Role is applicable only to a subset of resources. Standard Roles on the other hand, are initially granted to the entire org. They are only scoped to specific resources by subsequent invoking of the [target operations](/docs/reference/api/roles/#role-target-operations).
+    As a result, if an admin was granted a standard role that is limited to a single group, and at the same time received group management privileges on all groups in the org through a custom role, the ultimate outcome is group management on all groups.
+2. You can't assign a custom role without a resource set. The custom role is applicable only to a subset of resources. Standard roles on the other hand, are initially granted to the entire org. They are only scoped to specific resources by subsequent invoking of the [target operations](/docs/reference/api/roles/#role-target-operations).
 
 ### Permission types
 
