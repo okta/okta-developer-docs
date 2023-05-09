@@ -85,6 +85,8 @@ The Glitch event hook example uses the Okta event triggered when a user is added
 
     This statement triggers an event hook request to your external service when a user is added to the Sales group (the statement is TRUE). Other additions to different groups don’t trigger an event hook.
 
+    > **Note:** Review the Okta System Log (from the Admin Console, **Reports > System Log**) to create expressions that target your real-world event data.
+
 1. Click **Save & Continue**.
 
 1. In the **Preview** section, click **Skip this step**.
