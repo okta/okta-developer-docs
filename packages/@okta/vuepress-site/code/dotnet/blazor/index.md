@@ -59,12 +59,6 @@ These SDKs help you integrate with Okta to build your own fully-branded authenti
 
 ## Recommended guides
 
-Okta-hosted Sign-In Widget guide:
-
-Sign users in to your SPA using the redirect model  (coming soon)
-
-Other guides:
-
 * [Manual JWT validation in .NET](/code/dotnet/jwt-validation/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)
