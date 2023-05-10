@@ -172,6 +172,13 @@ Go to `http://localhost:9000`. The sample app starts the redirect flow when the 
 
 ### Troubleshoot your app
 
+If your app isn't working, ensure that:
+
+* Your org URL is accurate and formatted correctly, including the secure protocol, `https://`.
+* Your client ID is accurate from your Okta app integration.
+* Your `redirectUri` is accurate or the web server port number is correct.
+* You've enabled a Trusted Origin for `http://localhost:9000`. See [Enable Trusted Origins](#enable-trusted-origins).
+
 ## Enable self-service registration
 
 You can enable the self-service registration feature, which provides a Sign-up link on the Sign-In Widget for end users to register and sign in to your app. See [Self-Service Registration](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr).
@@ -195,8 +202,28 @@ Based on other policy configurations, the self-service registration flow may be 
 
 ## Add MFA with a mandatory second factor
 
+By default, your dev org has xyz. Follow the steps below to understand the policy configurations for mandatory multi-factor authentication and to enable the phone authenticator.
 
+1. Go to **Security > Authenticators** and ensure the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
 
+   1. If it isn't listed, click **Add Authenticator**, and then click **Add** in the **Phone** tile.
+   1. Set **This authenticator can  be used for** to **Authentication and recovery**, and click **Add**.
+
+1. Go to **Security > Authentication policies**, and review the **Mandatory 2FA** policy.
+
+1. In the **Catch-all Rule**, click **Edit** under the **Actions** dropdown menu.
+
+1. Ensure that the selection for **User must authenticate with** is **Password / IdP +  Another factor**.
+
+1. Go to **Applications > Applications** and select your app.
+
+1. Click the **Sign On** tab
+
+1. Scroll down to the **User authentication** section and click **Edit**.
+
+1. From the **Authentication policy** dropdown menu, select **Mandatory 2FA** and click **Save**.
+
+1. Test the new configurations by logging into your app with two authenticators. If your test user does not have a phone number enrolled, the user is prompted for the enrollment during the sign in.
 
 ## Enable password recovery with email magic link
 
@@ -204,12 +231,7 @@ Based on other policy configurations, the self-service registration flow may be 
 
 
 
-If your app isn't working, ensure that:
 
-* Your org URL is accurate and formatted correctly, including the secure protocol, `https://`.
-* Your client ID is accurate from your Okta app integration.
-* Your `redirectUri` is accurate or the web server port number is correct.
-* You've enabled a Trusted Origin for `http://localhost:9000`. See [Enable Trusted Origins](#enable-trusted-origins).
 
 <!-- ## Use Cases - Review these headings for future content
 
