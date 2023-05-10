@@ -227,11 +227,40 @@ By default, your dev org has xyz. Follow the steps below to understand the polic
 
 ## Enable password recovery with email magic link
 
+By default, the dev org is not configured for email password recovery (xyz!). Follow the steps below to enable your sample app end users to recover their password through an email magic link.
 
+1. Go to **Security > Authenticators** and ensure the email authenticator is available in the **Authenticators** list on the **Setup** tab, and it's used for **Recovery**.
 
+   1. If it isn't listed, click **Add Authenticator**, and then click **Add** in the **Email** tile.
+   1. Set **This authenticator can  be used for** to **Recovery**, and click **Add**.
 
+1. Go to **Security > Authenticators** and edit the **Password** authenticator, by clicking **Actions > Edit**.
 
+1. Scroll to the bottom of the **Default Policy**, and edit the **Default Rule**.
 
+1. Ensure that **Password reset** is selected for the **Users can perform self-service** section.
+
+1. Ensure that **Email** is selected for the **Users can initiate recovery with** section.
+
+1. Click **Update rule**.
+
+1. For ease of testing, go to **Applications > Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **Authentication policy** dropdown menu, select **One factor access** and click **Save**.
+
+Test the new configurations by recovering a password for a user of your sample app:
+
+1. Start your app. On the Okta Sign-In Widget, click the **Forgot password?** link.
+
+1. Add the email address for your test user.
+
+1. Click the **Send me an email** link.
+
+1. Check your test user's email inbox and wait for the **Account password reset** email from your Okta dev org.
+
+   >**Note:** Stay in the same browser window as the application sign-in tab.
+
+1. In the body of the email, click the **Reset Password** link.
+
+1. On the **Reset your Okta password** widget, create and verify a new password. Click **Reset Password**. Your test user is now signed in to your sample app with a new password.
 
 <!-- ## Use Cases - Review these headings for future content
 
