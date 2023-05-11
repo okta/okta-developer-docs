@@ -78,6 +78,8 @@ https://${yourOktaDomain}/api/v1/logs?filter=eventType eq "user.lifecycle.deacti
 
 Set up and verify the event hook within your Admin Console.
 
+<EventHookEANoteProcedure/>
+
 ### Set up the event hook
 
 1. Sign in to your [Okta org](https://login.okta.com/).
