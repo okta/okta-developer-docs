@@ -6,7 +6,7 @@ layout: Guides
 
 <ApiLifecycle access="ea" />
 
-This guide provides a functional example of an Okta event hook filter. It's based on the [Event hook implementation](/docs/guides/evevnt-hook-implementation) project, which uses the website [Glitch.com](https://glitch.com) to act as an external service. This service receives and responds to Okta event hook calls.
+This guide provides a functional example of an Okta event hook filter. It's based on the [Event hook implementation](/docs/guides/event-hook-implementation) project, which uses the website [Glitch.com](https://glitch.com) to act as an external service. This service receives and responds to Okta event hook calls.
 
 <EventHookEANote/>
 
