@@ -7861,6 +7861,9 @@ An additional `notes` object can be passed within the `settings` object. The `no
 
 > **Note:** You can't currently manage app provisioning settings via the API. Use the administrator UI.
 
+###### Identity Store ID
+You can set an additional `identityStoreId` string parameter within the `settings` object if your application supports an identity store. The `identityStoreId` value must be a valid identity store application `id`. This identity store application must be created in the same org as your application.
+
 ##### Features
 
 Applications may support optional provisioning features on a per-app basis.
