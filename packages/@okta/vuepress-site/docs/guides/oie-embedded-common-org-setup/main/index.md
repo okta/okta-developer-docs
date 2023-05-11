@@ -34,6 +34,10 @@ Okta provides two embedded identity solutions:
 
 This guide shows you how to set up your Okta org to support the embedded SDK or the embedded widget with SDK solutions. Ensure that you [get set up](#get-set-up) with Okta and [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) before you <StackSnippet snippet="downloadguideuri" inline />.
 
+<ApiLifecycle access="ea" />
+
+> **Note:** You have the option to use the Direct Authentication API with your apps in Identity Engine rather than an embedded SDK. This allows you to directly authenticate users rather than delegating authentication to Okta Identity Providers and authorization servers through an HTTP redirect in a web browser. Direct authentication is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. See the `/challenge` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/challengeOrgAS), the `/oob-authenticate` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/oob-authenticateOrgAS), and the new `grant_types` for the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) to help tailor authentication to your specific use cases. Also, for information on how to set up each new grant type, see [Implement by grant type](/docs/guides/implement-grant-type/main/).
+
 ## Get set up
 
 Sample apps are provided for each solution to show you exactly how to integrate the SDK and the Widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:

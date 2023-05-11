@@ -1,6 +1,6 @@
 {
-  "release" : "2023.04.1",
-  "build" : "2023.04.1-begin-117-gf53d88e71baf",
+  "release" : "2023.05.1",
+  "build" : "2023.05.1-begin-167-gae1723149091",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1704,6 +1704,14 @@
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000228",
     "errorSummary" : "SMS template customization isn't permitted.",
+    "errorDescription" : null
+  }, {
+    "title" : "Non bio or pin user verification compliance enrollment exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000229",
+    "errorSummary" : "Invalid Enrollment. Biometrics with Pin fallback required.",
     "errorDescription" : null
   } ]
 }

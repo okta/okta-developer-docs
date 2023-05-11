@@ -1,5 +1,9 @@
+
 # Introduction to the Advanced Server Access API
 
+The ASA API reference is now available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/asa/guides/overview/).
+
+<!--
 ## Authentication
 
 Most calls to the Advanced Server Access (ASA) API require an HTTP `Authorization`
@@ -154,3 +158,4 @@ Advanced Server Access can return the following HTTP errors:
 |`service_offline`             | `503` | The service is temporarily offline. Try again later.|
 |`gateway_timeout`             | `504` | The Gateway responded within the timeout period. Try again later. |
 |`unknown_error`               | `500` | This error is for miscellaneous API errors. This error is usually temporary and can be retried. |
+-->

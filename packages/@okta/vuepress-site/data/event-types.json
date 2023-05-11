@@ -1,6 +1,6 @@
 {
-  "release" : "2023.04.1",
-  "build" : "2023.04.1-begin-117-gf53d88e71baf",
+  "release" : "2023.05.1",
+  "build" : "2023.05.1-begin-167-gae1723149091",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -25,6 +25,9 @@
   }, {
     "id" : "authn",
     "name" : "Authentication"
+  }, {
+    "id" : "authn-platform",
+    "name" : "Authentication Platform"
   }, {
     "id" : "ciamx",
     "name" : "CIAM Experiences"
@@ -137,6 +140,9 @@
     "id" : "provisioning-fabric",
     "name" : "Provisioning Fabric"
   }, {
+    "id" : "resource-access-policy",
+    "name" : "Resource Access Policy"
+  }, {
     "id" : "resource-insights",
     "name" : "Resource Insights"
   }, {
@@ -166,6 +172,12 @@
   }, {
     "id" : "auth-experiences",
     "name" : "Auth Experiences"
+  }, {
+    "id" : "workforce-authenticators",
+    "name" : "Workforce Authenticators"
+  }, {
+    "id" : "authenticator-platform",
+    "name" : "Authenticator Platform"
   } ],
   "tags" : [ {
     "id" : "network-zone",
@@ -2213,6 +2225,40 @@
         "debugData" : "OAuth2PlatformDebugData",
         "actor" : null,
         "targets" : [ "OAuth2PlatformResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.client.privilege.grant",
+      "category" : "dda",
+      "description" : "An OAuth 2.0 client app's admin privileges changed. This can be used to audit the provisioning of admin privileges for OAuth 2.0 client apps. When fired, this event contains information about the type of admin privileges the OAuth 2.0 client app currently has.  Related events include: APP_OAUTH2_CLIENT_PRIVILEGE_REVOKE.",
+      "info" : {
+        "created" : "2023-03-23",
+        "release" : "2023.04.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-client" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AppOauth2ClientRoleDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "app.oauth2.client.privilege.revoke",
+      "category" : "dda",
+      "description" : "All privileges for OAuth 2.0 client app were revoked. This can be used to audit the deprovisioning of admin privileges from OAuth 2.0 client apps. When fired, this event indicates the OAuth 2.0 client app has no more admin privileges. All of OAuth 2.0 client app's privileges were revoked.  Related events include: APP_OAUTH2_CLIENT_PRIVILEGE_GRANT.",
+      "info" : {
+        "created" : "2023-03-23",
+        "release" : "2023.04.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "event-hook-eligible", "oauth2", "oauth2-client" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AppOauth2ClientRoleDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "app.oauth2.client_id_rate_limit_warning",
@@ -6627,7 +6673,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "group" ],
+      "tags" : [ "event-hook-eligible", "group" ],
       "mappings" : [ "group.application_assignment.add" ],
       "schema" : {
         "debugData" : "GroupAppDebugData",
@@ -6644,7 +6690,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "group" ],
+      "tags" : [ "event-hook-eligible", "group" ],
       "mappings" : [ "group.application_assignment.remove" ],
       "schema" : {
         "debugData" : "GroupAppDebugData",
@@ -6678,7 +6724,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "group" ],
+      "tags" : [ "event-hook-eligible", "group" ],
       "mappings" : [ "group.application_assignment.update" ],
       "schema" : {
         "debugData" : "GroupAppDebugData",
@@ -7050,7 +7096,7 @@
         "created" : "2022-10-31",
         "release" : "2022.12.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -7067,7 +7113,7 @@
         "created" : "2022-10-31",
         "release" : "2022.12.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "admin-role", "event-hook-eligible" ],
       "mappings" : [ ],
@@ -9833,7 +9879,7 @@
     }, {
       "id" : "policy.continuous_access_evaluate.fail",
       "category" : "idx",
-      "description" : "Continuous Access Evaluation has occurred and has resulted in a DENY action. Can be used to identify which user, apps, and session were involved in a CAE failure event. Event fired when CAE evaluation results in failure.",
+      "description" : "Continuous Access Evaluation has occurred and has resulted in a FAIL action. Can be used to identify which user, apps, and session were involved in a CAE failure event. Event fired when CAE evaluation results in failure.",
       "info" : {
         "created" : "2023-02-10",
         "release" : "2023.03.0"
@@ -11453,7 +11499,7 @@
         "created" : "2019-07-01",
         "release" : "2019.07.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "admin", "self-service-feature-management", "system" ],
       "mappings" : [ "core.beta.feature.enable" ],
@@ -12196,12 +12242,12 @@
     }, {
       "id" : "system.feature.disable",
       "category" : "ace",
-      "description" : "Fired when self service features are requested to be disabled by admins. This can be used to understand who disabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, their names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.enable'.",
+      "description" : "Fired when self service features are requested to be disabled by admins. Use to determine who enabled the features and any limitations the features have. When fired, this event contains information about the requested features, their names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.enable'.",
       "info" : {
         "created" : "2019-04-30",
         "release" : "2019.05.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "admin", "self-service-feature-management", "system" ],
       "mappings" : [ "core.feature.disable" ],
@@ -12230,12 +12276,12 @@
     }, {
       "id" : "system.feature.enable",
       "category" : "ace",
-      "description" : "Fired when self service features are requested to be enabled by admins. This can be used to understand who enabled the features and whether there are any limitations concerning the features. When fired, this event contains information about the requested features, their names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.disable.",
+      "description" : "Fired when self service features are requested to be enabled by admins. Use to determine who enabled the features and any limitations the features have. When fired, this event contains information about the requested features, their names and lifecycle state, the admin who made the change, and any possible limitations associated with the features. Related events include 'system.feature.disable'.",
       "info" : {
         "created" : "2019-04-30",
         "release" : "2019.05.0"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "admin", "self-service-feature-management", "system" ],
       "mappings" : [ "core.feature.enable" ],
@@ -14795,7 +14841,7 @@
         "targets" : null
       }
     }, {
-      "id" : "user.internal.session_context_changed",
+      "id" : "user.internal.session_context_change",
       "category" : "adaptive",
       "description" : "User session context changed. This internal event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.",
       "info" : {
@@ -15203,7 +15249,7 @@
         "targets" : null
       }
     }, {
-      "id" : "user.session.context.changed",
+      "id" : "user.session.context.change",
       "category" : "cred-platform",
       "description" : "User session context changed. This event indicates that the context in which the session is being used has changed significantly enough from the context in which the event was created, that re-evaluation of policy may be required. Often this indicates a security issue related to the session.",
       "info" : {
@@ -17975,6 +18021,187 @@
           }
         }
       },
+      "AppOauth2ClientRoleDebugData" : {
+        "name" : "AppOauth2ClientRoleDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "privilege_revoked" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Super administrator, Organization administrator" ]
+          },
+          "privilege_granted" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Help Desk administrator, Report administrator", "Read-only Administrator" ]
+          }
+        }
+      },
       "AppSignOnPolicyRuleChangeDebugData" : {
         "name" : "AppSignOnPolicyRuleChangeDebugData",
         "properties" : {
@@ -20625,6 +20852,166 @@
       "ContinuousAccessEvaluationDebugData" : {
         "name" : "ContinuousAccessEvaluationDebugData",
         "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "risk_change" : {
+            "type" : "RiskChangeSecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"riskLevel\": \"HIGH\",\"priorRiskLevel\": \"LOW\",\"direction\": \"increase\", \"reasonCode\": \"High threat IP observed!\"}" ]
+          },
+          "log_only_security_data" : {
+            "type" : "LogOnlySecurityData",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"}, \"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{\"reasons\":\"Anomalous Device\",\"level\":\"MEDIUM\"},\"behaviors\":{}}", "{\"risk\":{},\"behaviors\":{\"New Geo-Location\":\"NEGATIVE\",\"New Device\":\"POSITIVE\",\"New IP\":\"NEGATIVE\",\"New State\":\"BAD_REQUEST\",\"New Country\":\"NEGATIVE\",\"Velocity\":\"NEGATIVE\",\"New City\":\"BAD_REQUEST\"}}", "{\"risk\":{},\"behaviors\":{}}" ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "dt_hash" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "fc735b3e2a613ad06e315578b8d94e289475ab1c4cdf83512f3f18d0536a13e1" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
           "trigger_event_id" : {
             "type" : "String",
             "sensitive" : false,
