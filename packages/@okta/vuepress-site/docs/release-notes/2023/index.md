@@ -36,7 +36,7 @@ You can now filter individual events of the same event type based on custom busi
 
 This feature includes an improved creation workflow for event hooks and a new **Filters** tab that you can use to create event filters with direct Expression Language statements or with a simple UI format.
 
-Using event hook filters significantly reduces the amount of event hook requests and the need for custom code on your respective services. See [Which events are eligible](/docs/concepts/event-hooks/#which-events-are-eligible) and [Event hook filtering](/docs/guides/event-hook-filtering/main/). <!--OKTA-592286--> <!--FF: EVENT_HOOK_FILTERING-->
+Using event hook filters significantly reduces the amount of event hook requests and the need for custom code on your respective services. See [Which events are eligible](/docs/concepts/event-hooks/#which-events-are-eligible) and <!--[Event hook filtering](/docs/guides/event-hook-filtering/main/).--> <!--OKTA-592286--> <!--FF: EVENT_HOOK_FILTERING-->
 
 #### Identity store property for the Applications API
 
