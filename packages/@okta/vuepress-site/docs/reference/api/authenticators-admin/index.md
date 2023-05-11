@@ -34,7 +34,7 @@ Explore the Authenticators Administration API: [![Run in Postman](https://run.ps
 
 The Authenticators Administration API has the following CRUD operations:
 
-<!-- * [Create Authenticator](#create-authenticator)-->
+* [Create Authenticator](#create-authenticator)
 * [List Authenticators](#list-authenticators)
 * [Get an Authenticator by ID](#get-an-authenticator-by-id)
 * [Update Authenticator settings](#update-authenticator-settings)
@@ -46,15 +46,15 @@ The Authenticators Administration API has the following CRUD operations:
 * [Activate an Authenticator Method](#activate-an-authenticator-method)
 * [Deactivate an Authenticator Method](#deactivate-an-authenticator-method)
 
-<!--
 ### Create Authenticator
 
 <ApiOperation method="post" url="/api/v1/authenticators" />
 
  Create an Authenticator
 
+<!--
 > **Note:** You can use this operation as part of the "Create a custom authenticator" flow. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/android/main/).
-
+-->
 #### Request path parameters
 
 N/A
@@ -155,7 +155,6 @@ curl -v -X POST \
     }
 }
 ```
--->
 
 ### List Authenticators
 
