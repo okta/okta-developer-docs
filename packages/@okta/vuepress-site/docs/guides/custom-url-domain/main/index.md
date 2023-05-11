@@ -32,7 +32,7 @@ For configuring a custom email address:
 * Access to the DNS records of your public custom domain
 * An implementation of the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implemented SPF in your custom domain, ensure that you update the SPF record.
 
-* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding) <ApiLifecycle access="ea" />
+* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding)
 
 ---
 
@@ -48,7 +48,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
 
-### Multibrand and custom domains <ApiLifecycle access="ea" />
+### Multibrand and custom domains
 
 You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
 
@@ -107,10 +107,8 @@ This method of configuring a custom domain is recommended because Okta manages y
 >
 >  * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add letsencrypt.org to the issuers list or remove the CAA record.
 
-> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
-
-1. In the Admin Console, go to **Customizations** > **Domain**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
-2. In the **Custom URL Domain** box, click **Edit**. (EA users: on the **Domains** tab in the **Custom domain** section, click **Add domain**).
+1. In the Admin Console, go to **Customizations** > **Domain**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want.)
+2. In the **Custom URL Domain** box, click **Edit**. (If you enabled multibrand customization, on the **Domains** tab in the **Custom domain** section, click **Add domain**).
 3. Click **Get started**.
 4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Okta-managed (faster and easier)**.
 
@@ -307,13 +305,11 @@ A custom email address allows you to present a branded experience to your end us
 
 Okta sends your super admins a confirmation email after your custom email address is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default address `noreply@okta.com` until the problem is resolved.
 
-> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
-
 ## Configure a custom email address
 
-1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email** section, click **Edit** then click **Add custom emaildomain**).
+1. In the Admin Console, go to **Customizations** > **Emails**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab > **Email** section, click **Add domain**).
 
-2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
+2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This email address appears in the emails sent to your users.
 
 3. In the **Name of email sender** field, enter the name of sender. This name appears as the sender in the emails sent to your users.
 

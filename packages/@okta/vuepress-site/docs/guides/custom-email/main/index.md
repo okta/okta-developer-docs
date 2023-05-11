@@ -16,7 +16,7 @@ Customize email notifications.
 
 - [Okta Developer Edition organization](https://developer.okta.com/signup)
 - Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
-* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding) <ApiLifecycle access="ea" />
+* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding)
 
 **Sample code**
 
@@ -46,7 +46,7 @@ See [Brands](/docs/concepts/brands/).
 
 ### Use the Brands API
 
-The Brands API allows you to customize the look and feel of pages and templates, including:
+The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/) allows you to customize the look and feel of pages and templates, including:
 
 - The custom sign-in page
 - Error pages
@@ -75,9 +75,7 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 
 > **Note:** To access email customization with a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help).
 
-> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
-
-1. In the Admin Console, go to **Customizations** > **Branding**. (EA users: got to **Customizations** > **Brands**, and then select the brand you want.)
+1. In the Admin Console, go to **Customizations** > **Branding**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want.)
 1. In the **Communications** section, in the **Emails** box, click **Edit**.
 1. In the **Email Templates** table, click a template name.
    - The code editor is in preview mode.
