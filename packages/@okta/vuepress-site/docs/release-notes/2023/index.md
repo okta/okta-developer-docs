@@ -8,13 +8,15 @@ title: Okta API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
-| [OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production](#oauth-2.0-on-behalf-of-token-exchange-is-ga-in-production) | February 8, 2023 |
+| [OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production](#oauth-2-0-on-behalf-of-token-exchange-is-ga-in-production) | February 8, 2023 |
 | [Multibrand customizations are EA in Preview](#multibrand-customizations-are-ga-in-preview) | February 8, 2023 |
+| [Password hooks global availability is GA in Preview](#password-hooks-global-availability-is-ga-in-preview) | December 20, 2020 |
 | [Event hook filtering is EA in Preview](#event-hook-filtering-is-ea-in-preview) | May 11, 2023 |
+| [Identity store property for the Applications API](#identity-store-property-for-the-applications-api) | May 3, 2023 |
 | [Unique refresh token ID added to token inline hook requests](#unique-refresh-token-id-added-to-token-inline-hook-requests) | May 11, 2023 |
 | [Additional measures to counter toll fraud](#additional-measures-to-counter-toll-fraud) | May 11, 2023 |
 | [Developer documentation update in 2023.05.0](#developer-documentation-update-in-2023-05-0) | May 11, 2023 |
-| [Bug fixed in 2023.05.0](#bugs-fixed-in-2023-05-0) | May 11, 2023 |
+| [Bug fixed in 2023.05.0](#bug-fixed-in-2023-05-0) | May 11, 2023 |
 
 #### OAuth 2.0 On-Behalf-Of Token Exchange is GA in Production
 
@@ -24,13 +26,21 @@ OAuth 2.0 On-Behalf-Of Token Exchange helps retain the user context in requests 
 
 Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures where customers create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which can be mapped to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the End-User Dashboard. See [Brands](/docs/concepts/brands/). <!--OKTA-587566, OKTA-568807-->
 
+#### Password hooks global availability is GA in Preview
+
+The [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!--OKTA-604521--> <!--FF: ENG_ALLOW_PASSWORD_IMPORT_HOOKS_FOR_USERS_IN_ANY_STATUS--> <!--Originally available in December 2020-->
+
 #### Event hook filtering is EA in Preview
 
 You can now filter individual events of the same event type based on custom business logic hosted in Okta. These filters reduce the amount of events that trigger hooks, removing an unnecessary load on your external service.
 
-This feature includes an improved creation workflow for event hooks and a new **Filters** tab that you can use to create event filters with direct Expression Language statements or using a simple UI format.
+This feature includes an improved creation workflow for event hooks and a new **Filters** tab that you can use to create event filters with direct Expression Language statements or with a simple UI format.
 
-Applying the Okta event hook feature brings filtering natively within Okta. Using filters significantly reduces the amount of event hook requests and the need for custom code on your respective services. See [Which events are eligible](/docs/concepts/event-hooks/#which-events-are-eligible) and [Event hook filtering](/docs/guides/event-hook-fitlering/main/).
+Using event hook filters significantly reduces the amount of event hook requests and the need for custom code on your respective services. See [Which events are eligible](/docs/concepts/event-hooks/#which-events-are-eligible) and [Event hook filtering](/docs/guides/event-hook-filtering/main/). <!--OKTA-592286--> <!--FF: EVENT_HOOK_FILTERING-->
+
+#### Identity store property for the Applications API
+
+A new `identityStoreId` property is now available in the Applications API resource (`/api/v1/apps`) to store an identity store app associated with your app. You can set the `identityStoreId` value to the `id` of the identity store app you previously created in the same org. See the [optional `settings.identityStoreId` property](/docs/reference/api/apps/#identity-store-id). <!--OKTA-595777--> <!--FF: DYNAMIC_UI_APPS_API_AUGMENT--> <!--Orig avail 2023.04.2-->
 
 #### Unique refresh token ID added to token inline hook requests
 
@@ -38,15 +48,15 @@ A unique refresh token ID is now included in token inline hook requests. This en
 
 #### Additional measures to counter toll fraud
 
-Additional mitigation measures are added to counter phone-number-based toll fraud. <!--OKTA-603999--> <!--Set TEL_CAT_AREA_CODE_RL_RULE to HARD enforcement-->
+For SMS and voice authentications, additional mitigation measures now help counter phone number-based toll fraud. <!--OKTA-603999--> <!--Set TEL_CAT_AREA_CODE_RL_RULE to HARD enforcement-->
 
 #### Developer documentation update in 2023.05.0
 
-A new sign-in redirect guide is available for single page apps (SPA) using JavaScript and the Auth JS SDK. No frontend framework required! A quick and easy demonstration of the redirect sign-in flow. See [Sign users in to your SPA using the redirect model and Auth JS](/docs/guides/auth-js-redirect/main/). <!--OKTA-577531-->
+A new event hook guide is available that demonstrates the self-service EA feature event hook filtering. Filter only those event instances you want to trigger an event hook. See [Event hook filtering](https://developer.okta.com/docs/guides/event-hook-filtering/main/). <!--OKTA-592286-->
 
-#### Bugs fixed in 2023.05.0
+#### Bug fixed in 2023.05.0
 
-Admins saw Okta Fast Pass listed in the `GET /api/v1/users/{{userId}}/factors` response for users who didn't enable the factor. (OKTA-603999)
+Admins saw Okta FastPass listed in the `GET /api/v1/users/{{userId}}/factors` response for users who didn't enable the factor. (OKTA-603999)
 
 ## April
 
