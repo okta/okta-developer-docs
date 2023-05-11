@@ -164,19 +164,25 @@ The following are the supported resources.
 
 To specify Binding Members, use the REST URL of the corresponding Okta API:
 
-* [A specific User](/docs/reference/api/users/#get-user)
+* [A specific user](/docs/reference/api/users/#get-user)
 
-  ``` http
+  ```bash
   https://${yourOktaDomain}/api/v1/users/${memberUserId}
   ```
 
-* [A specific Group](/docs/reference/api/groups/#get-group)
+* [A specific group](/docs/reference/api/groups/#get-group)
 
-  ``` http
+  ```bash
   https://${yourOktaDomain}/api/v1/groups/${memberGroupId}
   ```
 
-### Standard resource sets
+<ApiLifecycle access="ea" />
+* [A specific client application](/docs/reference/api/oauth-clients/#get-an-oauth-client)
+
+  ```bash
+  https://${yourOktaDomain}/oauth2/v1/clients/${clientId}
+  ```
+
 <ApiLifecycle access="ea" />
 The following resource sets are currently supported out of the box and can be used to assign admins only when used with
 their associated roles. Standard resource sets and roles are always identified using their type as `id`.
