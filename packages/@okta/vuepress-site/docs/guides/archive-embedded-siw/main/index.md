@@ -333,7 +333,7 @@ See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js
 
 ### React
 
-The [Okta Sign-In Widget and React guide](/code/react/okta_react_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in a React app.
+The [Okta Sign-In Widget and React guide](/code/react/okta_react_sign-in_widget) shows the code you'll need in order to embed the Sign-In Widget in a React app.
 
 See the [Okta React + Custom Login Example](https://github.com/okta/samples-js-react/tree/master/custom-login) for a working example using the [okta-react](https://github.com/okta/okta-react) SDK.
 
