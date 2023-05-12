@@ -4713,7 +4713,6 @@ redirects:
     to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-best-practices/main/#rate-restrictions
     to: /docs/guides/build-sso-integration/openidconnect/main/#rate-limit-considerations
-
   - from: /docs/guides/third-party-risk-integration/overview
     to: /docs/guides/third-party-risk-integration/
   - from: /docs/guides/third-party-risk-integration/overview/index.html
