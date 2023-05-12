@@ -631,10 +631,6 @@ export const guides = [
                 title: "Multi-tenancy",
                 path: "/docs/guides/oin-oidc-multi-tenancy/main/",
               },
-              {
-                title: "Best practices",
-                path: "/docs/guides/oin-oidc-best-practices/main/",
-              },
             ],
           },
           {

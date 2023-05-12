@@ -45,7 +45,6 @@ This series contains the following parts:
 
 * [OIDC and the OIN &mdash; Protocol-level requirements](/docs/guides/oin-oidc-protocols/): Background information on the protocol requirements for OIDC-based OIN applications.
 * [OIDC and the OIN &mdash; Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/): multi-tenancy as it relates to Okta and OIN applications.
-* [OIDC and the OIN &mdash; OIN integration best practices](/docs/guides/oin-oidc-best-practices/): OIN integration best practices, including logos and rate limits.
 
 ## Next steps
 
