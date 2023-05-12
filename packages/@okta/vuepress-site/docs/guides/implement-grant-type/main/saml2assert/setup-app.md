@@ -6,8 +6,8 @@
 
     > **Note:** The refresh token lifetime depends on the assertion lifetime and the [API Access Management policies](#configure-the-authorization-server-policy). The lowest of both of these defined values is the refresh token max lifetime.
 
-8. Click **Save**.
-9. On the **General** tab, make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need these credentials in the SAML 2.0 Assertion [flow specifics](#flow-specifics) section.
+9. Click **Save**.
+10. On the **General** tab, make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need these credentials in the SAML 2.0 Assertion [flow specifics](#flow-specifics) section.
 
 > **Note:** You can use either an existing OpenID Connect app integration or create a new one. In the previous instruction, we are creating a Native app using the Admin Console. You must use the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#client-application-object) to create a SPA or Web client application for use with the SAML 2.0 Assertion grant type.
 
