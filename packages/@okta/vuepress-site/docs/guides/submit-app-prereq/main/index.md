@@ -35,6 +35,8 @@ Before you submit your integration, ensure that your integration doesn't use Okt
 
 ## Logo guidelines
 
+A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission in the OIN manager, be sure to upload a graphic that your customers will instantly recognize.
+
 The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following:
 
 * Submit a logo file that's less than one MB.
