@@ -1,4 +1,4 @@
-Access the external SAML Identity Provider (IdP) you want to integrate with and gather the following information. You use this information to configure the SAML Identity Provider in Okta in the next step. Make sure ßthe SAML IdP supports Service Provider-initiated SAML.
+Access the external SAML Identity Provider (IdP) you want to integrate with and gather the following information. You use this information to configure the SAML Identity Provider in Okta in the next step. Make sure the SAML IdP supports Service Provider-initiated SAML.
 
 > **Note:** If you need a quick and easy SAML IdP to use for testing purposes, you can try using this [SAML Identity Provider on GitHub](https://github.com/mcguinness/saml-idp).
 
