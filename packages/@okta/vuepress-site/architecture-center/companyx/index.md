@@ -40,7 +40,7 @@ Company X identified several key challenges in migrating their users to Universa
 
 ### Architecture Implementation
 
-Company X used the [Directory Coexistence architecture](/docs/reference/architecture-center/directory-coexistence) during its user migration process. This gave their IT team consistent access to both legacy IdPs and Universal Directory as they updated their applications to use Universal Directory as their primary IdP.
+Company X used the [Directory Coexistence architecture](/architecture-center/directory-coexistence) during its user migration process. This gave their IT team consistent access to both legacy IdPs and Universal Directory as they updated their applications to use Universal Directory as their primary IdP.
 
 * The company installed an Okta AD Agent to mirror its users from their Azure AD user store to Okta Universal Directory. Universal Directory now acts as the single source of truth for those users. However, user passwords are still managed in Azure AD. The Agent mirrors any changes to a user back to Azure AD.
 * The company installed an Okta LDAP Agent for each on-premises LDAP directory to mirror them to Okta Universal Directory. Universal Directory now acts as the single source of truth for those users. However, user passwords are still managed in the on-premises LDAP user store. The Agent mirrors any changes to a user back to the on-premises LDAP store.
@@ -48,7 +48,7 @@ Company X used the [Directory Coexistence architecture](/docs/reference/architec
 * The company opted for a **hybrid strategy** for each migration to Universal Directory. It migrated active users with a just-in-time strategy - users were migrated to Universal Directory if it existed in the original IdP but not Universal Directory. It migrated inactive users in bulk.
 * The company updated each app to authenticate users with OpenID Connect (OIDC) rather than SAML or another solution. If an app existed already in the [Okta Integration Network](/docs/guides/okta-integration-network), they used that. If not, they reconfigured the app manually. This meant they could take full advantage of Okta's features and enable Single Sign-On, multifactor authentication, passwordless access, and more.
 
-> **Note:** For details on how to implement the architecture, devise the strategy, and understand the key considerations, see [Directory Coexistence](/docs/reference/architecture-center/directory-coexistence) .
+> **Note:** For details on how to implement the architecture, devise the strategy, and understand the key considerations, see [Directory Coexistence](/architecture-center/directory-coexistence) .
 >
 > For a more in-depth introduction to the protocols and different authorization flows you can implement in your applications, see [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid).
 

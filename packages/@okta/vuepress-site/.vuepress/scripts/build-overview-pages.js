@@ -12,7 +12,8 @@ function getNavbarConstPages() {
       .replace('export const guides = ', '')
       .replace('export const languagesSdk = ', '')
       .replace('export const reference = ', '')
-      .replace('export const releaseNotes = ', '');
+      .replace('export const releaseNotes = ', '')
+      .replace('export const architectureCenter = ', '');
       if (cleared !== '') {
         let evaled = eval(cleared);
         if (evaled) {

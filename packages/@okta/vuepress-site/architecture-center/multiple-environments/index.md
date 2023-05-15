@@ -25,13 +25,13 @@ Upon completing the lab, you should understand how to automate Okta and keep env
 
 The tutorials in this lab are designed to run sequentially, with each tutorial starting with the results on the one before:
 
-* [Overview and prerequisites](/docs/reference/architecture-center/multiple-environments/lab)
-* Tutorial 1: [Configure Terraform Cloud](/docs/reference/architecture-center/multiple-environments/lab-1-configure-terraform-cloud)
-* Tutorial 2: [Create resources for your environment](/docs/reference/architecture-center/multiple-environments/lab-2-create-resources)
-* Tutorial 3: [Change an object in that environment](/docs/reference/architecture-center/multiple-environments/lab-3-rename-a-group)
-* Tutorial 4: [Move objects between environments](/docs/reference/architecture-center/multiple-environments/lab-4-deploy-changes-to-production)
-* Tutorial 5: [Detect drift between environments and correct it](/docs/reference/architecture-center/multiple-environments/lab-5-detect-drift)
-* Tutorial 6: [Synchronize environments daily](/docs/reference/architecture-center/multiple-environments/lab-6-synchronize-environments-daily)
+* [Overview and prerequisites](/architecture-center/multiple-environments/lab)
+* Tutorial 1: [Configure Terraform Cloud](/architecture-center/multiple-environments/lab-1-configure-terraform-cloud)
+* Tutorial 2: [Create resources for your environment](/architecture-center/multiple-environments/lab-2-create-resources)
+* Tutorial 3: [Change an object in that environment](/architecture-center/multiple-environments/lab-3-rename-a-group)
+* Tutorial 4: [Move objects between environments](/architecture-center/multiple-environments/lab-4-deploy-changes-to-production)
+* Tutorial 5: [Detect drift between environments and correct it](/architecture-center/multiple-environments/lab-5-detect-drift)
+* Tutorial 6: [Synchronize environments daily](/architecture-center/multiple-environments/lab-6-synchronize-environments-daily)
 
 ## What Okta technologies are used?
 

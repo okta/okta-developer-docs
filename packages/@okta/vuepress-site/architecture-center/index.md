@@ -10,12 +10,12 @@ The Architecture Center is a reference point designed for solution engineers, ar
 
 These reference architectures describe common usage scenarios encountered by Okta customers. Each scenario explains a complete end to end implementation process.
 
-* [Directory coexistence](/docs/reference/architecture-center/directory-coexistence): Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping your source IAM servers active during the process.
+* [Directory coexistence](/architecture-center/directory-coexistence): Minimize downtime while migrating user, group, and device profiles to Okta Universal Directory by keeping your source IAM servers active during the process.
 
-* [Managing multiple Okta environments](/docs/reference/architecture-center/multiple-environments): Create solutions to deploy and manage multiple Okta environments with Terraform.
+* [Managing multiple Okta environments](/architecture-center/multiple-environments): Create solutions to deploy and manage multiple Okta environments with Terraform.
 
 ## Case Studies
 
 These case studies explain how existing Okta customers implemented the tenets of a reference architecture into their own systems.
 
-* [User migration for Company X](/docs/reference/architecture-center/companyx)
+* [User migration for Company X](/architecture-center/companyx)
