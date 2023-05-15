@@ -4,6 +4,16 @@ title: Okta API Products release notes 2023
 
 ## May
 
+### Weekly release 2023.05.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.05.1]() | May 17, 2023 |
+
+#### Bugs fixed in 2023.05.1
+
+* 
+
 ### Monthly release 2023.05.0
 
 | Change | Expected in Preview Orgs |
