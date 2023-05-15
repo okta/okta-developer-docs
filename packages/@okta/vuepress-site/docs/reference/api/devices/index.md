@@ -612,17 +612,11 @@ curl -v -X GET \
 
 Lists all [Users](/docs/reference/api/users/#user-object) for a Device by `deviceId`
 
-#### Request parameters
+#### Request parameter
 
 | Parameter | Description                                                | ParamType | DataType | Required | Default |
 | --------- | ---------------------------------------------------------- | --------- | -------- | -------- | ------- |
-| after     | Specifies the pagination cursor for the next page of users | Query     | String   | FALSE    |         |
-| id        | ID of the Device                                          | URL       | String   | TRUE     |         |
-| limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 1000    |
-
-> **Note:** Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
-
-> **Note:** If you receive an HTTP 500 status code, you likely exceed the request timeout. Retry your request with a smaller `limit` and page the results. See [Pagination](/docs/reference/core-okta-api/#pagination).
+| deviceId        | ID of the Device                                          | URL       | String   | TRUE     |         |
 
 #### Response parameters
 
@@ -635,7 +629,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/devices/${deviceId}/users?limit=200"
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}/users"
 ```
 
 #### Response example
