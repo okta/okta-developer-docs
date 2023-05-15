@@ -616,7 +616,7 @@ Lists all [Users](/docs/reference/api/users/#user-object) for a Device by `devic
 
 | Parameter | Description                                                | ParamType | DataType | Required | Default |
 | --------- | ---------------------------------------------------------- | --------- | -------- | -------- | ------- |
-| id        | ID of the Device                                          | URL       | String   | TRUE     |         |
+| deviceId        | ID of the Device                                          | URL       | String   | TRUE     |         |
 
 #### Response parameters
 
