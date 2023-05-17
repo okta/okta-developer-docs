@@ -1156,7 +1156,7 @@ The first three parameters in the table below correspond to different ways to li
 | limit       | Specifies the number of results returned (maximum 200).                           | Query        | Number     | FALSE    |
 | after       | Specifies the pagination cursor for the next page of users.                                                                                     | Query        | String     | FALSE    |
 | sortBy      | Specifies field to sort by (for search queries only).                                                                                           | Search query | String     | FALSE    |
-| sortOrder   | Specifies sort order asc or desc (for search queries only).                                                                                     | Search query | String     | FALSE    |
+| sortOrder   | Specifies sort order asc or desc (for search queries only). Sorting is done in ASCII sort order (that is, by ASCII character value), but isn't case sensitive.                                                                                                                                                    | Search query | String     | FALSE    |
 
 - If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
 - An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
@@ -1357,13 +1357,14 @@ This operation:
 
 | Filter                                          | Description                                      |
 | :---------------------------------------------- | :----------------------------------------------- |
-| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`           |
-| `status eq "PROVISIONED"`                       | Users that have a `status` of `PROVISIONED`      |
 | `status eq "ACTIVE"`                            | Users that have a `status` of `ACTIVE`           |
-| `status eq "RECOVERY"`                          | Users that have a `status` of `RECOVERY`         |
-| `status eq "PASSWORD_EXPIRED"`                  | Users that have a `status` of `PASSWORD_EXPIRED` |
-| `status eq "LOCKED_OUT"`                        | Users that have a `status` of `LOCKED_OUT`       |
 | `status eq "DEPROVISIONED"`                     | Users that have a `status` of `DEPROVISIONED`    |
+| `status eq "LOCKED_OUT"`                        | Users that have a `status` of `LOCKED_OUT`       |
+| `status eq "PASSWORD_EXPIRED"`                  | Users that have a `status` of `PASSWORD_EXPIRED` |
+| `status eq "PROVISIONED"`                       | Users that have a `status` of `PROVISIONED`      |
+| `status eq "RECOVERY"`                          | Users that have a `status` of `RECOVERY`         |
+| `status eq "STAGED"`                            | Users that have a `status` of `STAGED`           |
+| `status eq "SUSPENDED"`                         | Users that have a `status` of `SUSPENDED`        |
 | `lastUpdated lt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated before a specific timestamp   |
 | `lastUpdated eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated at a specific timestamp       |
 | `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Users last updated after a specific timestamp    |
@@ -3998,7 +3999,7 @@ Specifies [standard](#default-profile-properties) and [custom](#custom-profile-p
 
 #### Default Profile properties
 
-The default user profile is based on the [System for Cross-Domain Identity Management: Core Schema](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#section-4.1.1) and has following standard properties:
+The default user profile is based on the [System for Cross-domain Identity Management: Core Schema](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#section-4.1.1) and has following standard properties:
 
 | Property            | Description                                                                                                                          | DataType   | Nullable        | Unique   | Readonly   | MinLength   | MaxLength   | Validation                                                                                                       |
 | :------------------ | :----------------------------------------------------------------------------------------------------------------------------------- | :--------- | :---------      | :------- | :--------- | :---------- | :---------- | :--------------------------------------------------------------------------------------------------------------- |
@@ -4215,9 +4216,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 
 ##### Password Hook object
 
-Specifies that a [password import inline hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-hook) for information on using this object when creating a user.
-
-When updating a user with a password hook the user must be in the `STAGED` status.
+Specifies that a [password import inline hook](/docs/reference/password-hook/) should be triggered to handle verification of the user's password the first time the user logs in. This allows an existing password to be imported into Okta directly from some other store. See [Create User with Password Hook](#create-user-with-password-import-inline-hook) for information on using this object when creating a user.
 
 > **Note:** Because the plain text password isn't specified when a password hook is specified, password policy isn't applied.
 

@@ -20,11 +20,11 @@
             Blog
           </p>
           <h3 class="news__article-title dont-break-out">
-            How to build a secure React and Fastify API App
+            How Authentication and Authorization Work for SPAs
           </h3>
           <a
             class="news__article-link dont-break-out"
-            href="https://developer.okta.com/blog/2022/12/06/react-fastify-postgres"
+            href="https://developer.okta.com/blog/2023/04/04/spa-auth-tokens"
           >
             Read the blog post
           </a>
@@ -32,14 +32,28 @@
       </article>
       <article class="news__article">
         <p class="news__text dont-break-out">
-          Blog
+          Video
         </p>
         <h3 class="news__article-title dont-break-out">
-          Secure secrets with Spring Cloud Config and Vault
+          Podcast: Phishing-Resistant Authenticators with Megha Rastogi
         </h3>
         <a
           class="news__article-link dont-break-out"
-          href="https://developer.okta.com/blog/2022/10/20/spring-vault"
+          href="https://www.youtube.com/watch?v=PiY5HDp0ABI"
+        >
+          Watch the video
+        </a>
+      </article>
+      <article class="news__article">
+        <p class="news__text dont-break-out">
+          Blog
+        </p>
+        <h3 class="news__article-title dont-break-out">
+          Step-up Authentication in Modern Applications
+        </h3>
+        <a
+          class="news__article-link dont-break-out"
+          href="https://developer.okta.com/blog/2023/03/08/step-up-auth"
         >
           Read the blog post
         </a>
@@ -49,11 +63,11 @@
           Blog
         </p>
         <h3 class="news__article-title dont-break-out">
-          Quick JavaScript authentication with OktaDev schematics
+          A Secure and Themed Sign-in Page
         </h3>
         <a
           class="news__article-link dont-break-out"
-          href="https://developer.okta.com/blog/2022/10/14/quick-javascript-authentication"
+          href="https://developer.okta.com/blog/2023/01/12/signin-custom-domain"
         >
           Read the blog post
         </a>
@@ -63,25 +77,11 @@
           Blog
         </p>
         <h3 class="news__article-title dont-break-out">
-          Integrate React Native and Spring Boot securely
+          Streamline Your Okta Configuration in Angular Apps
         </h3>
         <a
           class="news__article-link dont-break-out"
-          href="https://developer.okta.com/blog/2022/10/12/integrate-react-native-and-spring-boot-securely"
-        >
-          Read the blog post
-        </a>
-      </article>
-      <article class="news__article">
-        <p class="news__text dont-break-out">
-          Blog
-        </p>
-        <h3 class="news__article-title dont-break-out">
-          Practical uses of dependency injection in Angular
-        </h3>
-        <a
-          class="news__article-link dont-break-out"
-          href="https://developer.okta.com/blog/2022/10/11/angular-dependency-injection"
+          href="https://developer.okta.com/blog/2023/03/07/angular-forroot"
         >
           Read the blog post
         </a>

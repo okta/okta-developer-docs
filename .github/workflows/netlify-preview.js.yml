@@ -25,7 +25,7 @@ jobs:
     - name: Has secrets?
       if: env.NETLIFY_AUTH_TOKEN == '' || env.NETLIFY_SITE_ID == ''
       run: exit 1
-    
+
     - uses: vishnudxb/cancel-workflow@v1.2
       if: failure()
       with:
@@ -35,6 +35,8 @@ jobs:
 
     - name: Checkout repository!
       uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }} # OKTA-568681
 
     - name: Checkout Pull Request
       run: hub pr checkout ${{ github.event.issue.number }}

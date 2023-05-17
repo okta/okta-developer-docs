@@ -9,7 +9,7 @@ The Enrollment flow follows the same first four steps as the [Challenge flow](#i
 
 ### 5. Check authenticator status and send email to the user
 
-When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge or Enrollment Flow. When in Enrollment Flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Email Authenticator ID.
+When the user selects the Email Authenticator and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge or enrollment flow. When in enrollment flow, a call is made to `idxClient.SelectEnrollAuthenticatorAsync`, using its `enrollAuthenticatorOptions` parameter to pass in the Email Authenticator ID.
 
 ```csharp
 var enrollAuthenticatorOptions = new SelectEnrollAuthenticatorOptions
@@ -42,7 +42,7 @@ switch (enrollResponse?.AuthenticationStatus)
 
 ### 6. Display OTP input page
 
-Build a form that allows the user to enter the One-Time Passcode (OTP) sent to them by email. This is exactly the same as Step 8 in the Challenge Flow instructions.
+Build a form that allows the user to enter the One-Time Passcode (OTP) sent to them by email. This is exactly the same as Step 8 in the challenge flow instructions.
 
 ### 7. Open email and copy OTP
 

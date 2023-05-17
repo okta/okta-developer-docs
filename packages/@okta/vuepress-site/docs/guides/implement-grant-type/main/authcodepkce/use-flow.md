@@ -7,7 +7,7 @@ Similar to the standard [Authorization Code flow](/docs/guides/implement-grant-t
 Your first step is to generate a code verifier and challenge:
 
 * Code verifier: Random URL-safe string with a minimum length of 43 characters
-* Code challenge: Base64 URL-encoded SHA-256 hash of the code verifier
+* Code challenge: Base64URL-encoded SHA-256 hash of the code verifier
 
 You need to add code in your native app to create the code verifier and code challenge.
 
@@ -20,7 +20,7 @@ The PKCE generator code creates output like this:
 }
 ```
 
-The `code_challenge` is a Base64 URL-encoded SHA256 hash of the `code_verifier`. Your app saves the `code_verifier` for later, and sends the `code_challenge` along with the authorization request to your authorization server's `/authorize` URL.
+The `code_challenge` is a Base64URL-encoded SHA256 hash of the `code_verifier`. Your app saves the `code_verifier` for later, and sends the `code_challenge` along with the authorization request to your authorization server's `/authorize` URL.
 
 ### Request an authorization code
 

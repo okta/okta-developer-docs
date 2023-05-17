@@ -4,9 +4,9 @@ The user signs in with a username and password, and then chooses Okta Verify fro
 
 #### 2. Retrieve a list of challenge methods
 
-When the user selects the **Okta Verify** factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge or Enrollment Flow.
+When the user selects the **Okta Verify** factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge or enrollment flow.
 
-When in Challenge Flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Okta Verify factor ID.
+When in challenge flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Okta Verify factor ID.
 
 ```csharp
 var selectAuthenticatorOptions = new SelectOktaVerifyAuthenticatorOptions

@@ -56,6 +56,7 @@ Create the client application that you want to use with the Okta APIs.
     > **Note:** It is good practice to create and use groups for testing purposes.
 1. Click **Save**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** and **Client secret** listed in the **Client Credentials** section. You need this information for the [Get an access token and make a request](#get-an-access-token-and-make-a-request) task.
 1. Click the **Assignments** tab and ensure that the right users are assigned to the app. If you skipped assignment during the app integration creation, you must add one or more users now. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation. For more information about which users have access to which scopes, see the [Scopes and supported endpoints](#scopes-and-supported-endpoints) section.
+1. Optional. Click the **Application rate limits** tab to adjust the rate-limit capacity percentage for this application. By default, each new application sets this percentage at 50%.
 
 ## Define allowed scopes
 

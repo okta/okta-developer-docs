@@ -1512,7 +1512,7 @@ The following response is only a subset of properties for brevity.
 
 Fetches the schema for a Log Stream type. The `${typeId}` element in the URL specifies the Log Stream type, which is either `aws_eventbridge` or `splunk_cloud_logstreaming`. Use the `aws_eventbridge` literal to retrieve the AWS EventBridge type schema, and use the `splunk_cloud_logstreaming` literal retrieve the Splunk Cloud type schema.
 
-See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
+See [Log Streaming API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/) for examples of Log Stream objects.
 
 ##### Request parameters
 
@@ -1628,7 +1628,7 @@ For brevity, the following response doesn't include all available properties.
 
 Lists schemas for all Log Stream types visible for this org.
 
-See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
+See [Log Streaming API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/) for examples of Log Stream objects.
 
 ##### Request parameters
 
@@ -1995,7 +1995,7 @@ Custom property names for the [Profile object](/docs/reference/api/users/#profil
 
 All Okta-defined Profile properties are defined in a Profile subschema with the resolution scope `#base`. You can't modify these properties, except to update permissions, to change the nullability of `firstName` and `lastName`, or to specify a [pattern](#login-pattern-validation) for `login`.  They can't be removed.
 
-The base User Profile is based on the [System for Cross-Domain Identity Management: Core Schema](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#section-4.1.1) and has the following standard properties:
+The base User Profile is based on the [System for Cross-domain Identity Management: Core Schema](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#section-4.1.1) and has the following standard properties:
 
 | Property          | Description                                                                                                                        | DataType | Nullable | Unique | Readonly | MinLength | MaxLength | Validation                                                                                                        |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- | ----------------------------------------------------------------------------------------------------------------- |

@@ -11,7 +11,7 @@ The rate limit dashboard is a tool that helps you understand the use of each API
 * The ability to track the rate limit's consumption.
 * The ability to change rate limit settings and customize the warning threshold.
 * Notification alerts when you're about to hit or have hit the rate limit or exceeded the rate limit (burst rate limits).
-* The ability to track rate limits by API token or IP address.
+* The ability to track rate limits by API token, OAuth 2.0 application, or IP address.
 * The ability for you to investigate the issue when an API has reached the rate limit.
 
 The following describes some typical reasons for viewing the dashboard:
@@ -83,7 +83,7 @@ The APIs table shows each API and its corresponding rate limit for your org. The
 
 </div>
 
-You can sort on all the columns. The Trendline is sorted by the current usage. Use the **Filters** dropdown list to filter between all APIs that have rate-limit multipliers applied or that are multiplier eligible.
+You can sort on all the columns. The Trendline is sorted by the current usage. Use the **Filters** dropdown menu to filter between all APIs, those that have rate-limit multipliers applied or are multiplier eligible, or those that are ineligible.
 
 Each API is a link that navigates you to the [dashboard view of API rate limits and violations](#api-rate-limits-and-violations) where you can obtain more details on the API.
 
@@ -194,11 +194,11 @@ The timeline graph shows use over the last week. When a rate violation occurs, y
 
 ##### Bar graph
 
-The bar graph shows either the top 10 IP addresses or top 10 API tokens that are consuming the most traffic for the API. This view enables you to check if there are IP addresses or API tokens that are creating the spike in traffic.
+The bar graph shows either the top 10 IP addresses, top 10 API tokens, or top 10 OAuth 2.0 applications that consume the most traffic for the API. This view helps you identify the cause of any spikes in traffic.
 
-Display the desired bar graph by selecting **Top Requests by IP** or **Top Requests by API Token** in the dropdown menu.
+Display the desired bar graph by selecting **Top Requests by IP**, **Top Requests by API Token**, or **Top Requests by Application** in the dropdown menu.
 
-Click an IP address or API token bar once to view the traffic for that IP address or API token on the line graph.
+Click an IP address, API token, or Application bar to view the associated traffic on the line graph.
 
 <div class="three-quarter">
 

@@ -9,6 +9,7 @@ guides:
  - archive-sign-in-to-spa-embedded-widget
  - archive-configure-signon-policy
  - auth-js
+ - auth-js-redirect
  - archive-overview
  - build-custom-ui-mobile
  - build-self-signed-jwt
@@ -32,6 +33,7 @@ guides:
  - device-authorization-grant
  - embedded-siw
  - enable-cors
+ - event-hook-filtering
  - event-hook-hookdeck
  - event-hook-implementation
  - event-hook-ngrok
@@ -62,6 +64,7 @@ guides:
  - submit-app-prereq
  - deployment-checklist
  - deploy-your-app
+ - dpop
  - protect-your-api
  - quickstart
  - sampleapp-oie-redirectauth

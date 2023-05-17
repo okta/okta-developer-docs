@@ -3846,7 +3846,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/idps/${idpId}/credentials/csrs" />
 
-Generates a new key pair and returns a Certificate Signing Request for it.
+Generates a new key pair and returns a Certificate Signing Request (CSR) for it.
 
 > **Note:** The private key isn't listed in the [Signing Key Credentials for IdP](#list-signing-key-credentials-for-idp) until it is published.
 

@@ -86,14 +86,14 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 > **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above. The steps may be different if you didn't.
 
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add Profile Enrollment Policy**.
 2. Give your Policy a **Name** and then click **Save**.
 3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
 4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
 5. Locate the <StackSnippet snippet="applang" inline /> app that you created earlier, click **Apply**, and then **Close**.
 6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+7. Click **Edit** in the **Profile Enrollment** section.
+8. Set **Self-service registration** to **Allowed**, and then click **Save**.
 
 > **Note:** See [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
@@ -131,7 +131,7 @@ To enable self-service password-optional enrollments in the Sign-In Widget, <Sta
 
 ## Add MFA with a mandatory second factor
 
-You can modify the Application's Sign-On Policy to require the user to have a second factor enabled for authentication. In this example, we use the Phone Authenticator.
+You can modify the application's authentication policy to require the user to have a second factor enabled for authentication. In this example, we use the Phone authenticator.
 
 > **Note:** Your Okta org may have different Authenticators enabled by default.
 
@@ -141,9 +141,9 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 
     If it isn't listed, add it:
     * Click **Add Authenticator**, and then click **Add** in the **Phone** authentication box.
-    * Leave **Authentication (MFA/SSO)** selected in the **Add Phone** dialog box, and click **Add**.
+    * Set **This authenticator can be used for** to **Authentication and recovery**, and click **Add**.
 
-2. From the side navigation, select **Applications** > **Applications** and then select the Okta OAuth app that you created to represent the <StackSnippet snippet="applang" inline /> app.
+2. From the side navigation, select **Applications** > **Applications** and then select the app integration that you created earlier.
 3. Select the **Sign On** tab.
 4. Scroll down to the **User authentication** section and click **Edit**.
 5. From the **Authentication policy** dropdown menu, select **Any two factors** and click **Save**.

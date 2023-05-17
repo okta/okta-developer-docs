@@ -3,13 +3,18 @@ title: Brands
 category: management
 ---
 
-> **Important!** Multibrand customization updates are available in our new API reference docs. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+> **Important** Multibrand customization updates are available in our new API reference docs. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
 
 # Brands API
 
-The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard.
+The Okta Brands API allows you to customize the look and feel of pages and templates, including:
 
-Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
+- The Okta-hosted sign-in page
+- Error pages
+- Email templates
+- The Okta End-User Dashboard
+
+Each org starts off with Okta default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta default brand assets. You can then publish these assets directly to your pages and templates.
 
 ## Get started
 
@@ -32,7 +37,7 @@ List all the brands in your org
 
 Array of the [Brand Response](#brand-response-object)
 
-> **Important**: Currently only one Brand per org is supported, therefore this contains a single object only.
+> **Important**: Currently Okta only supports one Brand per org, therefore this contains a single object only.
 
 #### Use examples
 
@@ -100,7 +105,7 @@ Fetches a brand by `brandId`
 
 The requested [Brand Response](#brand-response-object)
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 #### Use examples
 
@@ -170,11 +175,11 @@ The [Brand](#brand-object)
 
 Returns an updated [Brand Response](#brand-response-object)
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` returns a `404 Not Found` status code with the error code `E0000007`.
 
-Not providing `agreeToCustomPrivacyPolicy` with `customPrivacyPolicyUrl` returns a `400 Bad Request` status code with error code `E0000001`.
+Not providing `agreeToCustomPrivacyPolicy` with `customPrivacyPolicyUrl` returns a `400 Bad Request` status code with the error code `E0000001`.
 
-`removePoweredByOkta` is optional. Default value is `false`.
+The `removePoweredByOkta` parameter is optional. Default value is `false`.
 
 #### Use examples
 
@@ -227,7 +232,11 @@ Content-Type: application/json
 }
 ```
 
-The following example resets a privacy policy URL to use the Okta default privacy policy URL and removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard.
+The following example does the following:
+
+- Resets a privacy policy URL to use the Okta default privacy policy URL
+- Removes "Powered by Okta" from the Okta-hosted sign-in page
+- Removes "© 2021 Okta, Inc." from the Okta End-User Dashboard
 
 ##### Request
 
@@ -311,7 +320,7 @@ Content-Type: application/json
 }
 ```
 
-The following example shows consent required validation.
+The following example shows consent-required validation.
 
 ##### Request
 
@@ -376,13 +385,13 @@ List all the themes in your brand
 
 Array of the [Theme Response](#theme-response-object)
 
-> **Important**: Currently only one Theme per org is supported, therefore this contains a single object only.
+> **Important**: Currently each org supports only one Theme, therefore this contains a single object only.
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 #### Use examples
 
-The following example returns all Themes in the Brand.
+The following example returns all the Themes in the Brand.
 
 ##### Request
 
@@ -476,7 +485,7 @@ Fetches a Theme for a Brand
 
 The requested [Theme Response](#theme-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 #### Use examples
 
@@ -576,10 +585,10 @@ The [Theme](#theme-object)
 
 Returns an updated [Theme Response](#theme-response-object)
 
-* Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+* Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
-* Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
+* Passing invalid body parameters returns a `400 Bad Request` status code with the error code `E0000001`.
 
 #### Use examples
 
@@ -742,15 +751,15 @@ Updates the logo for your Theme
 
 | Property | Type | Description                                                                                                                                                                                               |
 |----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`   | File | The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. |
+| `file`   | File | The file must be in PNG, JPG, or GIF format and less than 1 MB. For best results use landscape orientation, a transparent background, and a minimum size of 420 px by 120 px to prevent upscaling. |
 
 #### Response body
 
 Returns `201 Created` with [logo URL](#image-upload-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
-Passing an invalid `file` returns a `400 Bad Request` status code with error code `E0000001`.
+Passing an invalid `file` returns a `400 Bad Request` status code with the error code `E0000001`.
 
 #### Use examples
 
@@ -818,7 +827,7 @@ Content-Type: application/json
 }
 ```
 
-> **Note:** The [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) still works, but pages use the logo from the Theme if the `THEME_BUILDER` feature is enabled.
+> **Note:** If you've enabled the theme builder feature, the [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) still works, but pages use the logo from the theme.
 >
 > See [Logo scenarios](#logo-scenarios) for more information.
 
@@ -839,7 +848,7 @@ Deletes a Theme logo. The org then uses the Okta default logo.
 
 None.
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 #### Use examples
 
@@ -877,10 +886,10 @@ Updates the favicon for your theme
 
 Returns `201 Created` with the [favicon URL](#image-upload-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
-Passing an invalid `file` returns a `400 Bad Request` status code with error code `E0000001`.
+Passing an invalid `file` returns a `400 Bad Request` status code with the error code `E0000001`.
 
 #### Use examples
 
@@ -959,7 +968,7 @@ Deletes a Theme favicon. The org then uses the Okta default favicon.
 
 None.
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
 #### Use examples
@@ -992,16 +1001,16 @@ Updates the background image for your Theme
 
 | Property | Type | Description                                                                                                                                                                                               |
 |----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`   | File | The image must be a PNG, JPG, or GIF file and be less than 2MB in size. |
+| `file`   | File | The image must be a PNG, JPG, or GIF file and be less than 2 MB. |
 
 #### Response body
 
 Returns `201 Created` with the [background image URL](#image-upload-response-object)
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
-Passing an invalid `file` returns a `400 Bad Request` status code with error code `E0000001`.
+Passing an invalid `file` returns a `400 Bad Request` status code with the error code `E0000001`.
 
 #### Use examples
 
@@ -1080,7 +1089,7 @@ Deletes a Theme background image
 
 None.
 
-Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with the error code `E0000007`.
 
 
 #### Use examples
@@ -1105,25 +1114,26 @@ HTTP/1.1 204 No Content
 
 ## Email template operations
 
-The Email Templates API allows you to programatically manage email customizations.
+The Email Templates API allows you to programmatically manage email customizations.
 
 ### Email Templates
 
-Okta provides many customizable **email templates**. For example, the `UserActivation` email template allows users to activate their account. Each template has **default content** that is translated to any one of the [supported languages](#supported-languages).
+Okta provides many customizable **email templates**. For example, the `UserActivation` email template allows users to activate their account. Each template has **default content** that Okta translates to any one of the [supported languages](#supported-languages).
 
 ### Email Customizations
 
 **Email customizations** allow you to override an email template's default content.
 
 The following constraints apply to email customizations:
-- If an email template has any customizations at all, exactly one of them must be the default (where `isDefault` is `true`). The default customization is used when no other customization applies to the user's language settings.
+
+- If an email template has any customizations at all, exactly one of them must be the default (where `isDefault` is `true`). Okta uses the default customization when no other customization applies to the user's language settings.
 - Each email template can have only one customization for each [supported language](#supported-languages).
 
 ### Supported Languages
 
 Email customizations can be created for the following languages. Language values must be in [BCP 47 language tag](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) format.
 
-| Language               | BCP 47 Language Tag |
+| Language               | BCP 47 language tag |
 | ---------------------- | ------------------- |
 | Czech                  | `cs`                |
 | Danish                 | `da`                |
@@ -1150,8 +1160,8 @@ Email customizations can be created for the following languages. Language values
 | Turkish                | `tr`                |
 | Ukrainian              | `uk`                |
 | Vietnamese             | `vi`                |
-| Chinese (Simplified)   | `zh-CN`             |
-| Chinese (Traditional)  | `zh-TW`             |
+| Chinese (simplified)   | `zh-CN`             |
+| Chinese (traditional)  | `zh-TW`             |
 
 * [List email templates](#list-email-templates)
 * [Get email template](#get-email-template)
@@ -1177,13 +1187,13 @@ Lists all supported email templates
 | Parameter      | Description            | ParamType | DataType | Required |
 | -------------- | ---------------------- | --------- | -------- | -------- |
 | `brandId`      | ID of a Brand string   | Query     | String   | TRUE     |
-| `expand`       | If specified, it causes additional metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
+| `expand`       | If specified, it causes more metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
 
 #### Response body
 
 A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Template](#email-template) resources
 
-Passing an invalid `brandId` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` returns a `404 Not Found` with the error code `E0000007`.
 
 ##### Request
 
@@ -1266,13 +1276,13 @@ Fetches the email template named `templateName`
 | -------------- | ---------------------- | --------- | -------- | -------- |
 | `brandId`      | ID of a Brand string   | Query     | String   | TRUE     |
 | `templateName` | Name of an email template | Query     | String   | TRUE     |
-| `expand`       | If specified, it causes additional metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
+| `expand`       | If specified, it causes more metadata to be included in the response. Supported values: `settings` and/or `customizationCount`. Use commas to separate values if both are used.          | Query     | String    | FALSE     |
 
 #### Response body
 
 The requested [Email Template](#email-template) resource.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -1366,7 +1376,7 @@ Fetches an email template's default content
 
 The requested email template's default [Email Content](#email-content) resource.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 If `language` isn't specified or is invalid, it defaults to the current user's language.
 
@@ -1446,7 +1456,7 @@ Fetches a preview of an email template's default content
 
 The requested email template's default [Email Content](#email-content) resource, with variables populated using the current user's context.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 If `language` isn't specified or is invalid, it defaults to the current user's language.
 
@@ -1531,7 +1541,7 @@ The following set of priorities determines the content of the email:
 
 Returns a `204 No Content` on success.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 If `language` isn't specified or is invalid, it defaults to the current user's language.
 
@@ -1572,7 +1582,7 @@ Lists all customizations for an email template
 
 A [paginated](/docs/reference/core-okta-api/#pagination) list of [Email Customization](#email-customization) resources
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -1651,7 +1661,7 @@ Link: <https://{yourOktaDomain}/api/v1/brands/${brandId}/templates/email/UserAct
 
 <ApiOperation method="post" url="/api/v1/brands/${brandId}/templates/email/${templateName}/customizations" />
 
-Creates a new email customization
+Creates an email customization
 
 #### Request path parameters
 
@@ -1671,12 +1681,13 @@ The [Email Customization](#email-customization) resource that was created.
 If this is the first customization being created for the email template, `isDefault` is set to `true`.
 
 Returns a `400 Bad Request` if:
-- `language` is not one of the [supported languages](#supported-languages).
-- `body` does not contain a required variable references.
 
-Returns a `409 Conflict` with error code `E0000182` If `isDefault` is `true` and a default customization already exists.
+- The `language` parameter isn’t one of the [supported languages](#supported-languages).
+- The `body` parameter doesn’t contain a required variable reference.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Returns a `409 Conflict` with the error code `E0000182` if `isDefault` is `true` and a default customization exists.
+
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 > **Note:** See [Email Customizations](#email-customizations) for details about email customization constraints.
 
@@ -1771,7 +1782,7 @@ Deletes an email customization
 
 Returns a `204 No Content` on success.
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -1811,7 +1822,7 @@ Fetches an email customization
 
 The requested [Email Customization](#email-customization) resource.
 
-Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -1903,17 +1914,19 @@ The [Email Customization](#email-customization) resource to update.
 
 The [Email Customization](#email-customization) resource that was updated.
 
-If `isDefault` is `true`, the previous default email customization will have its `isDefault` set to `false`.
+If the `isDefault` parameter is `true`, the previous default email customization has `isDefault` set to `false`.
 
 Returns a `409 Conflict` if:
-- there is already another email customization for the specified `language`.
-- `isDefault` is `false` and the email customization being updated is the default.
+
+- There’s already another email customization for the specified `language`.
+- The `isDefault` parameter is `false` and the email customization being updated is the default.
 
 Returns a `400 Bad Request` if:
-- `language` is not one of the [supported locales](#supported-locales).
-- `body` does not contain a required variable references.
 
-Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+- The `language` parameter isn’t one of the [supported locales](#supported-locales).
+- The `body` parameter doesn’t contain a required variable reference.
+
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with the error code `E0000007`.
 
 > **Note:** See [Email Customizations](#email-customizations) for details about email customization constraints.
 
@@ -2011,7 +2024,7 @@ Returns a `204 No Content` on success.
 
 Returns a `409 Conflict` if the email customization to be deleted is the default.
 
-Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with the error code `E0000007`.
 
 > **Note:** See [Email Customizations](#email-customizations) for details about email customization constraints.
 
@@ -2053,7 +2066,7 @@ Fetches a preview of an email customization
 
 The requested email customization's [Email Content](#email-content) resource, with variables populated using the current user's context.
 
-Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId`, `templateName`, or `customizationId` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -2129,7 +2142,7 @@ Fetches the settings associated with the template
 
 The requested [Email Template Settings](#email-template-settings-object) resource, with variables populated using the current user's context
 
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -2197,11 +2210,7 @@ The [Email Template Settings Object](#email-template-settings-object) resource t
 
 The [Email Template Settings Object](#email-template-settings-object) resource that was updated
 
-Returns a `422 Unprocessable Entity` if the template doesn't support the recipient's value.
-
-> **Note**: The templates that don't support all recipient values are New Sign-On Notification, Authenticator Enrolled, Authenticator Reset, Password Changed, and Change Email Confirmation.
-
-Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with error code `E0000007`.
+Passing an invalid `brandId` or `templateName` returns a `404 Not Found` with the error code `E0000007`.
 
 #### Use examples
 
@@ -2253,7 +2262,7 @@ HTTP/1.1 200 OK
 
 ## Sign-in page operations
 
-See the [Customized Sign-in Page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage) on the new beta reference site.
+See the [Customized sign-in page API reference](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignInPage) on the new beta reference site.
 
 ## Sign-out page operations
 
@@ -2360,7 +2369,7 @@ The Theme object defines the following properties:
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
 | `loadingPageTouchPointVariant`        | Enum     | (Optional) Variant for the Okta loading page. Applicable only if the **Loading Page Animation** feature is enabled. Accepted values: `OKTA_DEFAULT`, `NONE`.                                 | `OKTA_DEFAULT`    |
 
-> **Note:** `primaryColorContrastHex` and `secondaryColorContrastHex` are automatically optimized for the highest possible contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
+> **Note:** Okta optimizes the `primaryColorContrastHex` and `secondaryColorContrastHex` properties for the highest contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
 
 > **Note:** Contrast color is used by pages to optimize the opacity of text color when primary or secondary color is used as the background.
 
@@ -2370,49 +2379,45 @@ The Theme object defines the following properties:
 
 You can publish a theme for a page or email template with different combinations of assets, and `variants` are preset combinations of those assets.
 
-#### Variants for the Okta Sign-In Page:
+#### Variants for the Okta sign-in page
 
-> **Note:** For a non `OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
+> **Note:** For a non-`OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta logo, Okta favicon with no background image, and the Okta colors on the Okta Sign-In Page.   |
-| `BACKGROUND_SECONDARY_COLOR`    | Use the logo and favicon from Theme with the `secondaryColorHex` as the background color for the Okta Sign-In Page.  |
-| `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use the Okta logo and Okta favicon with no background image, and the Okta colors on the Okta sign-in page.   |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo and favicon from the Theme with the `secondaryColorHex` as the background color for the Okta sign-in page.  |
+| `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from the Theme. |
 
 #### Variants for the Okta End-User Dashboard:
 
 | Enum Value                      | Description                                                                                                             |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `OKTA_DEFAULT`                  | Use the Okta logo and Okta favicon with a white background color for the logo and the side navigation bar background color.                           |
-| `WHITE_LOGO_BACKGROUND`         | Use the logo from Theme with a white background color for the logo, use favicon from Theme, and use `primaryColorHex` for the side navigation bar background color.   |
-| `FULL_THEME`                    | Use the logo from Theme, `primaryColorHex` for the logo and the side navigation bar background color, and use favicon from Theme                                    |
-| `LOGO_ON_FULL_WHITE_BACKGROUND` | Use the logo from Theme, white background color for the logo and the side navigation bar background color, and use favicon from Theme                                    |
+| `WHITE_LOGO_BACKGROUND`         | Use the logo from the Theme with a white background color for the logo, use the favicon from the Theme, and use `primaryColorHex` for the side navigation bar background color.   |
+| `FULL_THEME`                    | Use the logo from the Theme, `primaryColorHex` for the logo and the side navigation bar background color, and use the favicon from the Theme.                                    |
+| `LOGO_ON_FULL_WHITE_BACKGROUND` | Use the logo from the Theme, white background color for the logo and the side navigation bar background color, and use the favicon from the Theme.                                    |
 
 #### Variants for Error Page:
 
-> **Note:** For the non `OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
+> **Note:** For the non-`OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta logo, Okta favicon, and the Okta background color.                                      |
-| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with `secondaryColorHex` as the background color for the error page and use favicon from Theme.                 |
-| `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use the Okta logo, the Okta favicon, and the Okta background. color.                                      |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from the Theme with `secondaryColorHex` as the background color for the error page and use the favicon from the Theme.                 |
+| `BACKGROUND_IMAGE`              | Use the logo, the favicon, and the background image from the Theme. |
 
 #### Variants for Email Templates:
 
 | Enum Value                      | Description                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------- |
 | `OKTA_DEFAULT`                  | Use the Okta logo and the Okta colors in the email templates.    |
-| `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` as the background color for buttons.      |
+| `FULL_THEME`                    | Use the logo from the Theme and `primaryColorHex` as the background color for buttons.      |
 
 
 
-#### Variants for the Okta loading page:
-
-<ApiLifecycle access="ea" />
-
-> **Note:** Okta loading page variants are only available if the **Loading Page Animation** Early Access feature is enabled. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+#### Variants for the Okta loading page
 
 | Enum Value                      | Description                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------- |
@@ -2452,7 +2457,7 @@ The Theme Response object defines the following properties:
 | `primaryColorContrastHex`             | String                  | Primary color contrast hex code             |
 | `secondaryColorHex`                   | String                  | Secondary color hex code                    |
 | `secondaryColorContrastHex`           | String                  | Secondary color contrast hex code           |
-| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta Sign-In Page           |
+| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta sign-in page           |
 | `endUserDashboardTouchPointVariant`   | Enum                    | Variant for the Okta End-User Dashboard     |
 | `errorPageTouchPointVariant`          | Enum                    | Variant for the error page                  |
 | `emailTemplateTouchPointVariant`      | Enum                    | Variant for email templates                 |
@@ -2564,7 +2569,7 @@ The following scenarios explain which logo is used when based on the `THEME_BUIL
 > **Notes:**
 > Enabling the `THEME_BUILDER` feature automatically updates the Theme logo from Org. The Org logo is still stored.
 > Disabling the `THEME_BUILDER` feature uses the logo configured for the Org.
-> Pages use the logo from the source defined above based on feature status.
+> Pages use the logo from the preceding source based on feature status.
 
 ## Email Template Resources
 
@@ -2606,22 +2611,16 @@ The Email Template Settings Object resource defines the following properties:
 
 | Property       | Type                    | Description                                                                                   |
 | ---------------| ----------------------- | --------------------------------------------------------------------------------------------- |
-| `recipients`   | enum                    | The [eligible user type](#recipients-enum) that can receive emails generated from the template |
 | `_links`       | [Links](#links-object)  | Link relations for this object                                                                |
 
 ### Recipients Enum
 
-| Enum Value                      | Description                                                                                          |
+| Enum Value | Description |
 | ------------------------------- | ----------------------------------------------- |
 | `ALL_USERS`                     | Send emails to all users (default)              |
 | `ADMINS_ONLY`                   | Send emails to administrators only              |
-| `NO_USERS`                      | Do not send emails to any user                  |
-
-
-> **Note:** The following is a list of the email templates with certain Enum values:
-> * `NO_USERS, ALL_USERS`: `NewSignOnNotification`, `PasswordChanged`, `AuthenticatorEnrolled`, and `AuthenticatorReset`
-> * `ALL_USERS, ADMINS_ONLY`: `ChangeEmailConfirmation`
+| `NO_USERS`                      | Don’t send emails to any user                  |
 
 ## Links object
 
-Specifies link relations available for the current status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
+Specifies link relations available for the status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.

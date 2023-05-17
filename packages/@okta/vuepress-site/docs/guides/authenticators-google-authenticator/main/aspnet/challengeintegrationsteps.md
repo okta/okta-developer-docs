@@ -9,9 +9,9 @@ The challenge flow follows the same first four steps as the [enrollment flow](#i
 
 ### 5: Check Authenticator Status
 
-When the user selects Google Authenticator to authenticate themselves and clicks **Submit**, the application checks whether the user is in Challenge Flow or in Enrollment Flow by posting back to `SelectAuthenticatorAsync`.
+When the user selects Google Authenticator to authenticate themselves and clicks **Submit**, the application checks whether the user is in challenge flow or in enrollment flow by posting back to `SelectAuthenticatorAsync`.
 
-When in Challenge Flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Google Authenticator factor ID.
+When in challenge flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the Google Authenticator factor ID.
 
 ```csharp
 var selectAuthenticatorOptions = new SelectAuthenticatorOptions

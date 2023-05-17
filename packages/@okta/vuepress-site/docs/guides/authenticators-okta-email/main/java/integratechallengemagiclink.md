@@ -103,7 +103,7 @@ After the user completes this step, the next authentication response returns a s
 
 The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0oai9ifvveyL3QZ8K696?token=ftr2eAgsg...`
 
-When the user clicks the magic link, your org receives the request, gets the OTP and state parameters, and forwards the request with these parameters to your application. The org combines the Callback URI that you defined in [Update configurations](#update-configurations) with the OTP and state parameters to produce a final callback URL for the user. For example, `http://localhost:8080/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
+When the user clicks the magic link, your org receives the request, gets the OTP and state parameters, and forwards the request with these parameters to your application. The org combines the callback URI that you defined in [Update configurations](#update-configurations) with the OTP and state parameters to produce a final callback URL for the user. For example, `http://localhost:8080/magiclink/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
 ### 8. Handle the magic link redirect in your app
 

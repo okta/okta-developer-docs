@@ -97,7 +97,7 @@ Where:
 
 `<application id>` is the application ID you used in Step 1.
 
-> **Note:** Certificates downloaded with this method contain the Begin Certificate and End Certificate lines.
+> **Note:** Certificates downloaded with this method contain the **Begin Certificate** and **End Certificate** lines.
 
 ## Get the app info
 
@@ -263,7 +263,7 @@ Pass the app ID (`id`) that was collected in the previous step as the app ID (`a
 using the method described below. After determining which certificate is the SHA1 certificate, note the signing key id, `kid`.
 
 The certificate is contained in the element, `x5c` and is not in PEM format; that is, it does not
-contain *Begin Certificate* and *End Certificate* lines.  (The certificates shown in this how-to have been altered and are not valid.)
+contain **Begin Certificate** and **End Certificate** lines.  (The certificates shown in this how-to have been altered and are not valid.)
 
 In the sample response shown below, there are two certificates to check to find the SHA1 certificate.
 

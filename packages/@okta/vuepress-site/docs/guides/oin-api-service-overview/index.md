@@ -5,11 +5,6 @@ meta:
     content: Provides an overview of why and when to build API service integrations for the Okta Integration Network.
 ---
 
-<ApiLifecycle access="ea" />
-
-> **Note:** The API Service Integration is a [self-service Early Access (EA)](/docs/concepts/feature-lifecycle-management/#self-service-features) feature. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_secur_manage_ea_bata) to enable this feature.
-<!-- Need OAUTH_ADMIN_CONSENT_DIALOG feature flag enabled -->
-
 You can publish any service app that accesses or modifies Okta resources (such as system logs, apps, sessions, or policies) in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer tenant Okta org through [Okta management APIs](/docs/reference/core-okta-api/) using OAuth 2.0.
 
 Before this feature, a service requiring Okta management API access used an API token tied to a specific Okta user. This approach meant that you couldn't restrict the service’s access to particular resources. However, with an OAuth 2.0 API service integration, your service app can have secure, reliable, and granular access to Okta APIs without being associated with a user.

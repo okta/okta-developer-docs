@@ -159,6 +159,10 @@ export const guides = [
             title: "Redirect authentication",
             subLinks: [
               {
+                title: "Sign in to SPA with AuthJS",
+                guideName: "auth-js-redirect",
+              },
+              {
                 title: "Sign in to SPA",
                 guideName: "sign-into-spa-redirect",
               },
@@ -316,10 +320,6 @@ export const guides = [
               {
                 title: "Okta Verify",
                 guideName: "authenticators-okta-verify"
-              },
-              {
-                title: "Custom authenticator",
-                guideName: "authenticators-custom-authenticator"
               },
               {
                 title: "Google authenticator",
@@ -491,10 +491,6 @@ export const guides = [
             guideName: "customize-authz-server",
           },
           {
-            title: "Transactional verification using CIBA",
-            guideName: "configure-ciba",
-          },
-          {
             title: "Configure SSO for native apps",
             guideName: "configure-native-sso",
           },
@@ -655,6 +651,10 @@ export const guides = [
         title: "API Security",
         subLinks: [
           {
+            title: "Configure Demonstrating Proof-of-Possession",
+            guideName: "dpop",
+          },
+          {
             title: "Configure OAuth for Okta",
             guideName: "implement-oauth-for-okta",
           },
@@ -734,6 +734,10 @@ export const guides = [
           {
             title: "Event hooks with Hookdeck",
             guideName: "event-hook-hookdeck",
+          },
+          {
+            title: "Event hooks with filters",
+            guideName: "event-hook-filtering",
           },
           {
             title: "Password import inline hook",
@@ -823,7 +827,9 @@ export const languagesSdk = [
          {
             title: "Server-side",
             subLinks: [
-               { title: ".NET", path: "/code/dotnet/aspnetcore/" },
+               { title: "ASP.NET Core", path: "/code/dotnet/aspnetcore/" },
+               { title: "ASP.NET Framework", path: "/code/dotnet/aspnet/" },
+               { title: "Blazor", path: "/code/dotnet/blazor/" },
                { title: "Go", path: "/code/go/" },
                { title: "Java", path: "/code/java/" },
                { title: "Node.js", path: "/code/nodejs/" },
@@ -937,7 +943,6 @@ export const reference = [
                { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
                { title: "Org", path: "/docs/reference/api/org/" },
                { title: "Policy", path: "/docs/reference/api/policy/" },
-               { title: "Push Providers", path: "/docs/reference/api/push-providers/" },
                { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
                { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
                { title: "Schemas", path: "/docs/reference/api/schemas/" },
@@ -1057,78 +1062,76 @@ export const reference = [
             path: "/docs/reference/releases-at-okta/",
          },
          {
-            title: "Architecture tutorials",
-            path: "/docs/reference/architecture-tutorials/",
+            title: 'Architecture Center',
+            path: '/docs/reference/architecture-center/',
             subLinks: [
                {
-                  title: "Directory coexistence",
-                  path: "/docs/reference/architecture-tutorials/directory-coexistence/overview/",
+                  title: 'Case studies',
                   subLinks: [
                      {
-                        title: "Lab",
-                        path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-overview/",
-                        subLinks: [
-                           {
-                              title: "Prerequisites",
-                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-prerequisites/",
-                           },
-                           {
-                              title: "1: From Azure AD to Okta",
-                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-1-azure-ad/",
-                           },
-                           {
-                              title: "2: From LDAP to Okta",
-                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-2-ldap-server/",
-                           },
-                           {
-                              title: "3: From database to Okta",
-                              path: "/docs/reference/architecture-tutorials/directory-coexistence/lab-3-generic-database/",
-                           },
-                        ],
+                        title: "CompanyX",
+                        path: "/docs/reference/architecture-center/companyx/",
                      },
                   ],
                },
                {
-                  title: "Managing multiple Okta environments",
-                  path: "/docs/reference/architecture-tutorials/mmod/overview/",
+                  title: 'Reference Architectures',
                   subLinks: [
                      {
-                        title: "Lab",
-                        path: "/docs/reference/architecture-tutorials/mmod/lab-overview/",
+                        title: "Directory coexistence",
+                        path: "/docs/reference/architecture-center/directory-coexistence/",
                         subLinks: [
                            {
-                              title: "Prerequisites",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-prerequisites/",
+                              title: "Lab overview and prerequisites",
+                              path: "/docs/reference/architecture-center/directory-coexistence/lab/",
                            },
                            {
-                              title: "1: Configure Terraform Cloud",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-1-configure-terraform-cloud/",
+                              title: "Migrate users from Azure AD",
+                              path: "/docs/reference/architecture-center/directory-coexistence/lab-azure-ad/",
                            },
                            {
-                              title: "2: Create resources",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-2-create-resources/",
+                              title: "Migrate users from an LDAP server",
+                              path: "/docs/reference/architecture-center/directory-coexistence/lab-ldap-server/",
                            },
                            {
-                              title: "3: Rename a group",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-3-rename-a-group/",
-                           },
-                           {
-                              title: "4: Deploy changes to production",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-4-deploy-changes-to-production/",
-                           },
-                           {
-                              title: "5: Detect drift",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-5-detect-drift/",
-                           },
-                           {
-                              title: "6: Synchronize environments daily",
-                              path: "/docs/reference/architecture-tutorials/mmod/lab-6-synchronize-environments-daily/",
+                              title: "Migrate users from a generic database",
+                              path: "/docs/reference/architecture-center/directory-coexistence/lab-generic-database/",
                            },
                         ],
                      },
                      {
-                        title: "Further reading",
-                        path: "/docs/reference/architecture-tutorials/mmod/resources/",
+                        title: "Manage multiple Okta environments",
+                        path: "/docs/reference/architecture-center/multiple-environments/",
+                        subLinks: [
+                           {
+                              title: "Lab overview and prerequisites",
+                              path: "/docs/reference/architecture-center/multiple-environments/lab/",
+                           },
+                           {
+                              title: "Configure Terraform Cloud",
+                              path: "/docs/reference/architecture-center/multiple-environments/lab-1-configure-terraform-cloud/",
+                           },
+                           {
+                              title: "Create resources",
+                              path: "/docs/reference/architecture-center/multiple-environments/lab-2-create-resources/",
+                           },
+                           {
+                              title: "Rename a group",
+                              path: "/docs/reference/architecture-center/multiple-environments/lab-3-rename-a-group/",
+                           },
+                           {
+                              title: "Deploy changes to production",
+                              path: "/docs/reference/architecture-center/multiple-environments/lab-4-deploy-changes-to-production/",
+                           },
+                           {
+                              title: "Detect drift",
+                              path: "/docs/reference/architecture-center/multiple-environments/lab-5-detect-drift/",
+                           },
+                           {
+                              title: "Synchronize environments daily",
+                              path: "/docs/reference/architecture-center/multiple-environments/lab-6-synchronize-environments-daily/",
+                           },
+                        ],
                      },
                   ],
                },

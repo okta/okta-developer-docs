@@ -101,7 +101,7 @@ The link points to your Okta org as in: `https://yourorg.okta.com/email/verify/0
 
 ### 7. Send request to Okta
 
-When the user clicks the magic link, the request is first routed to your Okta org that then forwards the request to your application including the `otp` and `state` parameters. The org uses the `Callback URI` that you defined in [Update configurations](#update-configurations) to build the URL path and adds the `otp` and `state` query parameters. An example callback URL: `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
+When the user clicks the magic link, the request is first routed to your Okta org that then forwards the request to your application including the `otp` and `state` parameters. The org uses the callback URI that you defined in [Update configurations](#update-configurations) to build the URL path and adds the `otp` and `state` query parameters. An example callback URL: `http://localhost:8080/login/callback?otp=726009&state=1b34371af02dd31d2bc4c48a3607cd32`
 
 ### 8: Handle redirect in your app
 

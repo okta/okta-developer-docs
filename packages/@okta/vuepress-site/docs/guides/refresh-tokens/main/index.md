@@ -105,7 +105,7 @@ To get a refresh token, you send a request to your Okta authorization server.
 
 The only flows that support refresh tokens are the authorization code flow and the resource owner password flow. This means that the following combinations of grant type and scope, when sent to the `/token` endpoint, return a refresh token:
 
-> **Note:** The maximum length for the scope parameter value is 1024 characters.
+> **Note:** The maximum length for the scope parameter value is 4096 characters.
 
 | Grant Type           | Scope                       |
 | -----------          | -----                       |

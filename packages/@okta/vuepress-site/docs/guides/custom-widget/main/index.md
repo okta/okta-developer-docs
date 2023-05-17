@@ -17,7 +17,7 @@ This guide explains how to customize the sign-in page for both redirect and embe
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * (Redirect authentication): [Custom URL domain](/docs/guides/custom-url-domain/main/)
-* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding) <ApiLifecycle access="ea" />
+* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding)
 * (Embedded authentication): [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) installed into your project with configured authentication scenarios
 
 **Sample code**
@@ -48,18 +48,12 @@ The **Custom Sign-In Page** offers basic and advanced customization options to c
 
 > **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/).
 
-To access this page:
-
-> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
-
-In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the **Sign-in page** section. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
-
 ### Use the code editor
 
 Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. See [Customization examples](#customization-examples) for snippets that you can update and use.
 
-1. In the Admin Console, go to **Customizations** > **Branding**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
-2. In the **Sign-in page** box, click **Edit**. (EA users: in the **Pages** tab, click **Configure** for the page that you want to customize.)
+1. In the Admin Console, go to **Customizations** > **Branding**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want.)
+2. In the **Sign-in page** box, click **Edit**. (If you enabled multibrand customization, in the **Pages** tab, click **Configure** in the **Sign-in page** panel.)
 3. To open the code editor, turn on the toggle next to **Code editor**.
 
    > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/).
@@ -74,7 +68,7 @@ Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. 
 
 ### Use the Brands API
 
-The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted sign-in page, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain.
+The [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/) is a feature that allows you to set icons, images, and colors across your Okta-hosted sign-in page, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain.
 
 ### Bypass the custom sign-in page
 

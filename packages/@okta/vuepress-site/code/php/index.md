@@ -13,21 +13,21 @@ meta:
 These resources walk you through adding user authentication to your PHP app in minutes.
 
 <ul class='language-ctas'>
-	<li>
-		<a href='/docs/guides/sign-into-web-app-redirect/php/main/' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sign users in quickstart</span>
-		</a>
-	</li>
-	<!-- <li>
+   <li>
+      <a href='/docs/guides/sign-into-web-app-redirect/php/main/' class='Button--blueDarkOutline' data-proofer-ignore>
+         <span>Sign users in quickstart</span>
+      </a>
+   </li>
+   <!-- <li>
     <a href='/docs/guides/protect-your-api/php/main/' class='Button--blueDarkOutline' data-proofer-ignore>
       <span>Protect your API quickstart</span>
     </a>
   </li> -->
-	<li>
-		<a href='https://github.com/okta/samples-php' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sample app</span>
-		</a>
-	</li>
+   <li>
+      <a href='https://github.com/okta/samples-php' class='Button--blueDarkOutline' data-proofer-ignore>
+         <span>Sample app</span>
+      </a>
+   </li>
 </ul>
 
 ## Integrate with Okta using the Okta-hosted Sign-In Widget
@@ -36,7 +36,7 @@ These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widge
 
 [PHP redirect authentication sample app](https://github.com/okta/samples-php): See [Okta-hosted login](https://github.com/okta/samples-php/tree/develop/okta-hosted-login) for a redirect configuration.
 
-## Okta Classic PHP SDKs
+## Okta Classic Engine PHP SDKs
 
 * The [Okta PHP Management SDK](https://github.com/okta/okta-sdk-php) can be used in your server-side code to create and update users.
 * [okta/sdk on Packagist](http://packagist.org/packages/okta/sdk)

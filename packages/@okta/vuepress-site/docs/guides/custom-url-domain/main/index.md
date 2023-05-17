@@ -32,7 +32,7 @@ For configuring a custom email address:
 * Access to the DNS records of your public custom domain
 * An implementation of the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implemented SPF in your custom domain, ensure that you update the SPF record.
 
-* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding) <ApiLifecycle access="ea" />
+* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding)
 
 ---
 
@@ -48,17 +48,23 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
 
-### Multibrand and custom domains <ApiLifecycle access="ea" />
+### Multibrand and custom domains
 
 You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
 
 You can only preview or visit a branded page (such as viewing brand assets applied to the Okta-hosted sign-in page) after you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
+#### Branding and the Sign-In Widget third generation
+
+<ApiLifecycle access="ea" />
+
+The third generation of the Okta Sign-In Widget doesn’t guarantee the stability of CSS selectors. Instead, customization in the third generation gets better support through branding. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/).
+
 ### Caveats
 
 * You must provide a subdomain for customizing the Okta org domain. Okta doesn't support the use of a root domain name.
 
-* If you use an Okta-managed TLS certificate, you don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, keep the following in mind:
+* If you use an Okta-managed TLS certificate, you don't need a [Certificate Authority Authorization (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, keep the following in mind:
 
     * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
 
@@ -93,18 +99,16 @@ Yes. When you turn the custom domain on, the Okta domain (for example, `example.
 
 This method of configuring a custom domain is recommended because Okta manages your certificate renewals in perpetuity through an integration with Let's Encrypt, which is a free certificate authority. The certificate procurement process is free, and also faster and easier than configuring a custom domain with your own TLS certificate.
 
-> **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact your Okta account team or post on our [forum](https://devforum.okta.com/) to request a seamless migration with no downtime.
+> **Note:** If your custom domain uses your own TLS certificate and you want to migrate to an Okta-managed certificate, contact [Support](https://support.okta.com/help/s/opencase).
 
-> **Note:** You don't need a [Certificate Authorization Authority (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record to use an Okta-managed TLS certificate. However, if you do have a CAA record, keep the following in mind:
+> **Note:** You don't need a [Certificate Authority Authorization (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record to use an Okta-managed TLS certificate. However, if you do have a CAA record, keep the following in mind:
 >
 >  * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
 >
 >  * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add letsencrypt.org to the issuers list or remove the CAA record.
 
-> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
-
-1. In the Admin Console, go to **Customizations** > **Domain**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
-2. In the **Custom URL Domain** box, click **Edit**. (EA users: on the **Domains** tab in the **Custom domain** section, click **Add domain**).
+1. In the Admin Console, go to **Customizations** > **Domain**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want.)
+2. In the **Custom URL Domain** box, click **Edit**. (If you enabled multibrand customization, on the **Domains** tab in the **Custom domain** section, click **Add domain**).
 3. Click **Get started**.
 4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Okta-managed (faster and easier)**.
 
@@ -301,13 +305,11 @@ A custom email address allows you to present a branded experience to your end us
 
 Okta sends your super admins a confirmation email after your custom email address is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default address `noreply@okta.com` until the problem is resolved.
 
-> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
-
 ## Configure a custom email address
 
-1. In the Admin Console, go to **Customizations** > **Emails**. (EA users: go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab, in the **Email** section, click **Edit** then click **Add custom emaildomain**).
+1. In the Admin Console, go to **Customizations** > **Emails**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab > **Email** section, click **Add domain**).
 
-2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This is what displays in the emails sent to your users.
+2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This email address appears in the emails sent to your users.
 
 3. In the **Name of email sender** field, enter the name of sender. This name appears as the sender in the emails sent to your users.
 

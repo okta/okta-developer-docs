@@ -95,7 +95,6 @@ import React, { useState, useEffect } from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
 const Protected = () => {
-  <h3 id="protected">Protected</h3>
   const { authState, oktaAuth } = useOktaAuth();
   const [userInfo, setUserInfo] = useState(null);
 

@@ -3182,9 +3182,9 @@ redirects:
   - from: /docs/guides/common-hook-set-up-steps/-/setting-up-an-external-service
     to: /docs/guides/common-hook-set-up-steps/-/main/#set-up-an-external-service
   - from: /docs/guides/common-hook-set-up-steps/-/adding-basic-auth/index.html
-    to: /docs/guides/common-hook-set-up-steps/-/main/#add-basic-authorization-and-body-parsing
+    to: /docs/guides/common-hook-set-up-steps/-/main/#http-header-basic-authentication
   - from: /docs/guides/common-hook-set-up-steps/-/adding-basic-auth
-    to: /docs/guides/common-hook-set-up-steps/-/main/#add-basic-authorization-and-body-parsing
+    to: /docs/guides/common-hook-set-up-steps/-/main/#http-header-basic-authentication
   - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting/index.html
     to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
   - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting
@@ -5567,3 +5567,11 @@ redirects:
     to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
   - from: /docs/reference/beta-only
     to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
+  - from: /docs/guides/sign-into-web-app-redirect/aspnetcore3/main
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
+  - from: /docs/guides/sign-into-web-app-redirect/aspnetcore3/main/index.html
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
+  - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main
+    to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
+  - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
+    to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
