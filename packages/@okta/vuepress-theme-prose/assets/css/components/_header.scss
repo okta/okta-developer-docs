@@ -66,16 +66,18 @@ header.page-header .sign-up--button {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  padding: 7px 12px;
-  height: 38px;
+  padding: 12px 32px;
+  height: 46px;
 
   outline: none;
   border: 1px solid cv("body", "white");
   border-radius: 4px;
   background: cv("header");
 
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 500;
+
+  font-size: 16px;
+  line-height: 24px;
   color: cv("body", "white") !important;
 }
 
@@ -186,7 +188,7 @@ header.page-header .link:focus {
 @include media("<desktop-xl") {
   header.page-header {
     padding: 0 35px;
-    height: 70px;
+    height: 60px;
   }
 
   header.page-header .header--logo > img {
@@ -217,9 +219,10 @@ header.page-header .link:focus {
 
   header.page-header .sign-up--button {
     margin-left: 10px;
-    padding: 7px 10px;
+    padding: 13px 32px;
 
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   header.page-header .link {
