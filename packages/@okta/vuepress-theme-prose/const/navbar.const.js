@@ -1099,14 +1099,14 @@ export const releaseNotes = [
 export const architectureCenter = [
    {
       title: 'Architecture Center',
-      path: '/architecture-center/',
+      path: '/ac22/',
       subLinks: [
          {
             title: 'Case studies',
             subLinks: [
                {
                   title: "CompanyX",
-                  path: "/architecture-center/companyx/",
+                  path: "/ac22/companyx/",
                },
             ],
          },
@@ -1115,57 +1115,57 @@ export const architectureCenter = [
             subLinks: [
                {
                   title: "Directory coexistence",
-                  path: "/architecture-center/directory-coexistence/",
+                  path: "/ac22/directory-coexistence/",
                   subLinks: [
                      {
                         title: "Lab overview and prerequisites",
-                        path: "/architecture-center/directory-coexistence/lab/",
+                        path: "/ac22/directory-coexistence/lab/",
                      },
                      {
                         title: "Migrate users from Azure AD",
-                        path: "/architecture-center/directory-coexistence/lab-azure-ad/",
+                        path: "/ac22/directory-coexistence/lab-azure-ad/",
                      },
                      {
                         title: "Migrate users from an LDAP server",
-                        path: "/architecture-center/directory-coexistence/lab-ldap-server/",
+                        path: "/ac22/directory-coexistence/lab-ldap-server/",
                      },
                      {
                         title: "Migrate users from a generic database",
-                        path: "/architecture-center/directory-coexistence/lab-generic-database/",
+                        path: "/ac22/directory-coexistence/lab-generic-database/",
                      },
                   ],
                },
                {
                   title: "Manage multiple Okta environments",
-                  path: "/architecture-center/multiple-environments/",
+                  path: "/ac22/multiple-environments/",
                   subLinks: [
                      {
                         title: "Lab overview and prerequisites",
-                        path: "/architecture-center/multiple-environments/lab/",
+                        path: "/ac22/multiple-environments/lab/",
                      },
                      {
                         title: "Configure Terraform Cloud",
-                        path: "/architecture-center/multiple-environments/lab-1-configure-terraform-cloud/",
+                        path: "/ac22/multiple-environments/lab-1-configure-terraform-cloud/",
                      },
                      {
                         title: "Create resources",
-                        path: "/architecture-center/multiple-environments/lab-2-create-resources/",
+                        path: "/ac22/multiple-environments/lab-2-create-resources/",
                      },
                      {
                         title: "Rename a group",
-                        path: "/architecture-center/multiple-environments/lab-3-rename-a-group/",
+                        path: "/ac22/multiple-environments/lab-3-rename-a-group/",
                      },
                      {
                         title: "Deploy changes to production",
-                        path: "/architecture-center/multiple-environments/lab-4-deploy-changes-to-production/",
+                        path: "/ac22/multiple-environments/lab-4-deploy-changes-to-production/",
                      },
                      {
                         title: "Detect drift",
-                        path: "/architecture-center/multiple-environments/lab-5-detect-drift/",
+                        path: "/ac22/multiple-environments/lab-5-detect-drift/",
                      },
                      {
                         title: "Synchronize environments daily",
-                        path: "/architecture-center/multiple-environments/lab-6-synchronize-environments-daily/",
+                        path: "/ac22/multiple-environments/lab-6-synchronize-environments-daily/",
                      },
                   ],
                },

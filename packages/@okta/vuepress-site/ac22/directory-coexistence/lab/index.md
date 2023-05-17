@@ -6,9 +6,9 @@ title: Lab overview and prerequisites
 
 Learn how to migrate users from three different types of user directories into Universal Directory using a directory coexistence strategy. Then, reconfigure a sample application to authenticate a user with Universal Directory rather than the original user directory.
 
-* [Migrate users from Azure Active Directory](/architecture-center/directory-coexistence/lab-azure-ad)
-* [Migrate users from an on-premises LDAP directory server](/architecture-center/directory-coexistence/lab-ldap-server)
-* [Migrate users from an on-premises generic database](/architecture-center/directory-coexistence/lab-generic-database)
+* [Migrate users from Azure Active Directory](/ac22/directory-coexistence/lab-azure-ad)
+* [Migrate users from an on-premises LDAP directory server](/ac22/directory-coexistence/lab-ldap-server)
+* [Migrate users from an on-premises generic database](/ac22/directory-coexistence/lab-generic-database)
 
 > **Note:** These tutorials are independent of each other. They can be completed in any order.
 
@@ -65,7 +65,7 @@ Make note of your Okta domain. Use it wherever you see `${OKTA_DOMAIN}` in the l
 
 ### Azure Active Directory
 
-For [Migrate users from Azure Active Directory](/architecture-center/directory-coexistence/lab-azure-ad), you need an instance of [Azure Active Directory](https://azure.microsoft.com/en-ca/products/active-directory/) to follow along.
+For [Migrate users from Azure Active Directory](/ac22/directory-coexistence/lab-azure-ad), you need an instance of [Azure Active Directory](https://azure.microsoft.com/en-ca/products/active-directory/) to follow along.
 
 ### GitHub repository
 

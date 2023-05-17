@@ -95,10 +95,10 @@ Stop the currently running containers and sign in to your Okta account.
    Overwrite configuration file? [Y/n]
    ```
 
-   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you are not using an Okta developer account. To resolve this error, see [Okta developer account](/architecture-center/directory-coexistence/lab/#okta-developer-account).
+   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you are not using an Okta developer account. To resolve this error, see [Okta developer account](/ac22/directory-coexistence/lab/#okta-developer-account).
 
    {style="list-style-type:lower-alpha"}
-   1. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/directory-coexistence/lab/#values-and-variables).
+   1. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/ac22/directory-coexistence/lab/#values-and-variables).
    1. Follow the instructions in [Create an API token](/docs/guides/create-an-api-token) to create a token. After you have the token, enter it at the Okta API token prompt.
 
 ### Run the import script
@@ -137,8 +137,8 @@ There's one more user in the generic database whose password is hashed with a ha
 
 Check that the three imported users appear in your Okta Universal Directory.
 
-1. In a browser window, sign in to `https://${DOMAIN_NAME}-admin.okta.com`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/directory-coexistence/lab/#values-and-variables).
-1. Choose **Directory > People**. The page lists three users in addition to those created in [Migrate users from an on-premises LDAP directory](/architecture-center/directory-coexistence/lab-ldap-server): **Admin Istrator**, **User One**, and **User2 Two**.
+1. In a browser window, sign in to `https://${DOMAIN_NAME}-admin.okta.com`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/ac22/directory-coexistence/lab/#values-and-variables).
+1. Choose **Directory > People**. The page lists three users in addition to those created in [Migrate users from an on-premises LDAP directory](/ac22/directory-coexistence/lab-ldap-server): **Admin Istrator**, **User One**, and **User2 Two**.
 
    > **Note:** If you don't see the three users, refresh the page.
 
@@ -176,7 +176,7 @@ Now that the users are mirrored in Universal Directory, you can reconfigure the 
    CLIENT_SECRET=fF4BMQ0OhGp3D63s71BBTZoztIWqICdrCXBdkCtn
    ```
 
-   The sample web application in the Docker container uses the client ID and client secret to communicate with the Okta OIDC application to use Okta as the Identity Provider. See [Values and variables](/architecture-center/directory-coexistence/lab/#values-and-variables).
+   The sample web application in the Docker container uses the client ID and client secret to communicate with the Okta OIDC application to use Okta as the Identity Provider. See [Values and variables](/ac22/directory-coexistence/lab/#values-and-variables).
 
 1. Rebuild the application:
 

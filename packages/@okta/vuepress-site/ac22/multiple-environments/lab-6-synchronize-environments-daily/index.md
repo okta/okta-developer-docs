@@ -100,7 +100,7 @@ Update the workflow before you run it.
       5. Click **Create**.
 
 4. In the **Send Message to Channel** card, configure the output channel used for notifications when drift is detected.
-   1. Click **Choose Connection**, select the channel you set up in [a Slack channel](/architecture-center/multiple-environments/lab/#a-slack-channel), and select your desired input and output fields.
+   1. Click **Choose Connection**, select the channel you set up in [a Slack channel](/ac22/multiple-environments/lab/#a-slack-channel), and select your desired input and output fields.
    2. Click **Options** to choose your channel options (for example, select your channel ID for **Channel** and **Yes** for **send as bot**), and click **Save**.
    3. Pick a name for your Slack bot, for example, _Terraform-drift-bot_. This is used as the originator of the drift notification.
    4. Click **Save**.

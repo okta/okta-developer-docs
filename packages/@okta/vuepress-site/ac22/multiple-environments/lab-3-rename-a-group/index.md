@@ -6,7 +6,7 @@ title: Rename a group
 
 In this tutorial, you use Terraform to update the name of an existing group in GitHub and see the effect in the Admin Console. This simulates changing a resource with the Okta Terraform Provider and applying the change in a destination org.
 
-1. Display your workspace **Overview** page in a browser window. The **Latest Run** panel should reflect the results of your most recent update in [the previous exercise](/architecture-center/multiple-environments/lab-2-create-resources/).
+1. Display your workspace **Overview** page in a browser window. The **Latest Run** panel should reflect the results of your most recent update in [the previous exercise](/ac22/multiple-environments/lab-2-create-resources/).
 
    <div class="full border">
 
