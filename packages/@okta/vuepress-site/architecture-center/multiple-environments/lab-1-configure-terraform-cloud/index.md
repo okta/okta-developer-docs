@@ -51,7 +51,7 @@ Now that you have an account, connect Terraform to your Github repo.
 
    > **Tip:** If necessary, configure your browser to allow pop-ups for `app.terraform.io`.
 
-1. On the **Choose a repository** tab, select the repo you created in [A working Terraform repository](/ac22/multiple-environments/lab/#a-working-terraform-repository). This is where you intend to store your Terraform configurations.
+1. On the **Choose a repository** tab, select the repo you created in [A working Terraform repository](/architecture-center/multiple-environments/lab/#a-working-terraform-repository). This is where you intend to store your Terraform configurations.
 
    > **Tip:** Be sure the path is to your copy of the repo and not to the original one.
 
@@ -74,7 +74,7 @@ This opens a **Workspace created** page for you to configure Terraform variables
 Finally, before you can test that Terraform is working, connect it to your Okta development org.
 
 1. On the **Workspace created** page:
-   1. Set **org_name** to your [${OKTA_DOMAIN_NAME}](/ac22/multiple-environments/lab/#values-and-variables).
+   1. Set **org_name** to your [${OKTA_DOMAIN_NAME}](/architecture-center/multiple-environments/lab/#values-and-variables).
    2. Set **api_token** to the token that you created earlier in [Create an API token](#create-an-okta-api-token).
    3. Set **base_url** to your org's base URL. For example, _okta.com_.
 

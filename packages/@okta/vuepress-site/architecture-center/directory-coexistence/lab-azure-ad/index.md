@@ -30,7 +30,7 @@ At the end of the tutorial, when a user attempts to sign in to the application, 
 
 To migrate user profiles from Active Directory to Okta, first delegate authentication to Active Directory by configuring it as an IdP in Okta. This process involves creating the Okta enterprise application in Active Directory and adding it as an Identity Provider in Okta. For full instructions, [Make Azure Active Directory an Identity Provider](https://help.okta.com/okta_help.htm?type=oie&id=ext-azure-idp-setup).
 
-> **Note:** Set up Just-In-Time (JIT) provisioning at this point if you want to use a [JIT migration strategy](/ac22/directory-coexistence/#just-in-time-migration). Remember that this allows Active Directory and Universal Directory profiles to co-exist. It also provides a seamless experience because users don't have to create a new username or password in Universal Directory.
+> **Note:** Set up Just-In-Time (JIT) provisioning at this point if you want to use a [JIT migration strategy](/architecture-center/directory-coexistence/#just-in-time-migration). Remember that this allows Active Directory and Universal Directory profiles to co-exist. It also provides a seamless experience because users don't have to create a new username or password in Universal Directory.
 
 After users are in Okta, you can provide access to applications that you've registered with Okta. You can also set [policies](https://developer.okta.com/docs/concepts/policies/#what-are-policies) for the users in Okta, such as requiring a user to sign in again after a given time. Also, you can implement [multifactor authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators) for your Okta users.
 
@@ -67,10 +67,10 @@ To run the sample application and connect directly to the Okta sign-in dialog:
    Overwrite configuration file? [Y/n]
    ```
 
-   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you aren't using an Okta developer account. To resolve this error, see [Okta developer account](/ac22/directory-coexistence/lab/#okta-developer-account).
+   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you aren't using an Okta developer account. To resolve this error, see [Okta developer account](/architecture-center/directory-coexistence/lab/#okta-developer-account).
 
    {style="list-style-type:lower-alpha"}
-   1. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/ac22/directory-coexistence/lab/#values-and-variables).
+   1. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/architecture-center/directory-coexistence/lab/#values-and-variables).
    1. Follow the instructions in [Create an API token](/docs/guides/create-an-api-token) to create a token. After you have the token, enter it at the Okta API token prompt.
 
 1. Register the sample application with Okta:
@@ -87,7 +87,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
    Okta configuration written to .env
    ```
 
-   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you aren't using an Okta developer account. To resolve this error, see [Okta developer account](/ac22/directory-coexistence/lab/#okta-developer-account).
+   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you aren't using an Okta developer account. To resolve this error, see [Okta developer account](/architecture-center/directory-coexistence/lab/#okta-developer-account).
 
    > **Note:** If you're asked to select the authorization server to use, select the default server.
 

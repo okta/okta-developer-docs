@@ -37,7 +37,7 @@ Merge the changes in the `preview` branch into the `prod` branch in GitHub.
 
 ### Create a production workspace in Terraform
 
-In this exercise, you create a workspace in Terraform Cloud to represent the production environment. Target the same repository as in [Connect Terraform to GitHub](/ac22/multiple-environments/lab-1-configure-terraform-cloud/#connect-terraform-to-github), but select the `prod` branch. Also, set **Apply Method** in Terraform Cloud to **Manual apply** so you have to manually review and apply changes if the planning stage is successful.
+In this exercise, you create a workspace in Terraform Cloud to represent the production environment. Target the same repository as in [Connect Terraform to GitHub](/architecture-center/multiple-environments/lab-1-configure-terraform-cloud/#connect-terraform-to-github), but select the `prod` branch. Also, set **Apply Method** in Terraform Cloud to **Manual apply** so you have to manually review and apply changes if the planning stage is successful.
 
 1. In your browser, go to [app.terraform.io](app.terraform.io).
 1. Click your profile picture in the sidebar. If the dropdown menu says you're signed in with any account other than your current Terraform user ID:
@@ -46,7 +46,7 @@ In this exercise, you create a workspace in Terraform Cloud to represent the pro
 1. Navigate to the **Workspaces** page and click **+ New workspace**.
 1. On the **Create a new Workspace** page, select **Version control workflow** to declare that your configuration is saved in a version control system.
 1. On the **Connect to VCS** tab, select **GitHub** > **GitHub.com**. These exercises use GitHub, but you can select a different VCS. This selection grants permission for Terraform Cloud to access your project.
-1. On the **Choose a repository** tab, select the repo that you created in [A working Terraform repository](/ac22/multiple-environments/lab/#a-working-terraform-repository).
+1. On the **Choose a repository** tab, select the repo that you created in [A working Terraform repository](/architecture-center/multiple-environments/lab/#a-working-terraform-repository).
 
    > **Tip:** Be sure that the path is to your copy of the repo and not to the original one.
 

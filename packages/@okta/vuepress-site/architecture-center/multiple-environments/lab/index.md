@@ -13,12 +13,12 @@ This lab is intended for admins with Okta experience who have multiple orgs. It 
 
 The tutorials in this lab are designed to run sequentially, with each tutorial starting with the results on the one before:
 
-1. In [Configure Terraform Cloud](/ac22/multiple-environments/lab-1-configure-terraform-cloud), you create a free Terraform Cloud account, connect it to your GitHub account and development Okta org. Then, you configure it to react to changes in your GitHub repo.
-1. In [Create resources for your environment](/ac22/multiple-environments/lab-2-create-resources), you use Terraform to create the resources required to make your org functional.
-1. In [Change an object in that environment](/ac22/multiple-environments/lab-3-rename-a-group), you use Terraform to update the name of an existing group in the new org.
-1. In [Move objects between environments](/ac22/multiple-environments/lab-4-deploy-changes-to-production), you deploy your changes from the development environment to a separate production environment.
-1. In [Detect drift between environments and correct it](/ac22/multiple-environments/lab-5-detect-drift), you update a resource in production outside of Terraform, and then run a Terraform plan to detect if an asset is changed.
-1. In [Synchronize environments daily](/ac22/multiple-environments/lab-6-synchronize-environments-daily), you create a workflow to automatically run a speculative plan daily in production to detect drift.
+1. In [Configure Terraform Cloud](/architecture-center/multiple-environments/lab-1-configure-terraform-cloud), you create a free Terraform Cloud account, connect it to your GitHub account and development Okta org. Then, you configure it to react to changes in your GitHub repo.
+1. In [Create resources for your environment](/architecture-center/multiple-environments/lab-2-create-resources), you use Terraform to create the resources required to make your org functional.
+1. In [Change an object in that environment](/architecture-center/multiple-environments/lab-3-rename-a-group), you use Terraform to update the name of an existing group in the new org.
+1. In [Move objects between environments](/architecture-center/multiple-environments/lab-4-deploy-changes-to-production), you deploy your changes from the development environment to a separate production environment.
+1. In [Detect drift between environments and correct it](/architecture-center/multiple-environments/lab-5-detect-drift), you update a resource in production outside of Terraform, and then run a Terraform plan to detect if an asset is changed.
+1. In [Synchronize environments daily](/architecture-center/multiple-environments/lab-6-synchronize-environments-daily), you create a workflow to automatically run a speculative plan daily in production to detect drift.
 
 ## Prerequisites
 
