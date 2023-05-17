@@ -53,7 +53,7 @@ Okta provides a pre-configured custom authorization server called `default`. A `
 
 To use the `default` custom authorization server, use `default` as the authorization server ID:
 
-`https://${yourOktaDomian}/api/v1/authorizationServers/default`
+`https://${yourOktaDomain}/api/v1/authorizationServers/default`
 
 For custom authorization servers that you create yourself, the `${authorizationServerId}` is a random ID such as `aus9o8wzkhckw9TLa0h7z`.
 
