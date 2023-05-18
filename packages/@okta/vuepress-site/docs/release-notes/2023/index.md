@@ -4,6 +4,18 @@ title: Okta API Products release notes 2023
 
 ## May
 
+### Weekly release 2023.05.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.05.1](#bugs-fixed-in-2023-05-1) | May 17, 2023 |
+
+#### Bugs fixed in 2023.05.1
+
+* Users attempting to sign in to an app weren't prompted to sign in at the SAML Identity Provider when `prompt=login` and `idp={IdP}` were passed in the `/authorize` request. (OKTA-601342)
+
+* Calling `/api/v1/groups/groupId/apps` with the Okta Administrators Group ID returned a 403 error code. (OKTA-606150)
+
 ### Monthly release 2023.05.0
 
 | Change | Expected in Preview Orgs |
