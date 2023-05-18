@@ -5,7 +5,7 @@ category: management
 
 # ThreatInsight configuration API
 
-[Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IP addresses that consistently exhibit malicious activity. Authentication requests that are associated with an IP in this list can be logged in [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) and blocked. ThreatInsight also covers non-authentication requests in limited capacity depending on the attack patterns of these malicious IPs.
+[Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IP addresses that consistently exhibit malicious activity. Authentication requests that are associated with an IP in this list can be logged to the [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) and blocked. ThreatInsight also covers non-authentication requests in limited capacity depending on the attack patterns of these malicious IPs.
 
 The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
 
@@ -15,7 +15,7 @@ The Okta ThreatInsight Configuration API provides operations to manage your Thre
 
 | Field Name  | Description	| Data Type   | Required      |
 | :---------- | :----------	| :---------- | :------------ |
-| action         | Specifies how Okta responds to authentication requests from suspicious IPs. Supported values:<br><ul><li>`none`: Indicates that ThreatInsight is disabled</li><li>`audit`: Indicates that Okta logs suspicious requests in the System Log</li><li>`block`:  Indicates that Okta logs suspicious requests in the System Log and blocks the requests</li></ul> | String (enums: `none`, `audit`, or `block`) | Yes |
+| action         | Specifies how Okta responds to authentication requests from suspicious IPs. Supported values:<br><ul><li>`none`: Indicates that ThreatInsight is disabled</li><li>`audit`: Indicates that Okta logs suspicious requests to the System Log</li><li>`block`:  Indicates that Okta logs suspicious requests to the System Log and blocks the requests</li></ul> | String (enums: `none`, `audit`, or `block`) | Yes |
 | excludeZones   | Accepts a list of [Network Zone](/docs/reference/api/zones/) IDs. IPs in the excluded network zones aren't logged or blocked. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. | List | No |
 
 ## ThreatInsight configuration API operations
