@@ -5,11 +5,11 @@ category: management
 
 # ThreatInsight configuration API
 
-[Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IP addresses that consistently exhibit malicious activity. Authentication requests associated with an IP in this list can be logged in [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) and blocked. ThreatInsight also covers non-authentication requests depending on the attack patterns of these malicious IPs.
+[Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IP addresses that consistently exhibit malicious activity. Authentication requests associated with an IP in this list can be logged in [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) and blocked. ThreatInsight also covers non-authentication requests in limited capacity depending on the attack patterns of these malicious IPs.
 
 The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
 
-> **Note:** In order to prevent abuse, Okta ThreatInsight works in a limited capacity for free trial editions. Please contact Okta support if fully functional Okta ThreatInsight is required.
+> **Note:** In order to prevent abuse, Okta ThreatInsight works in a limited capacity for free trial edition orgs. Please contact Okta support if fully functional Okta ThreatInsight is required.
 
 ## ThreatInsight configuration object
 
