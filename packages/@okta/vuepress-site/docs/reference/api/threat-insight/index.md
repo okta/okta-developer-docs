@@ -9,6 +9,8 @@ category: management
 
 The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
 
+> **Note:** In order to prevent abuse, Okta ThreatInsight works in a limited capacity for free trial editions. Please contact Okta support if fully functional Okta ThreatInsight is required.
+
 ## ThreatInsight configuration object
 
 | Field Name  | Description	| Data Type   | Required      |
