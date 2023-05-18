@@ -5,17 +5,16 @@ category: management
 
 # ThreatInsight configuration API
 
-[Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IPs that exhibit suspicious behaviors suggestive of malicious activity. Authentication requests associated with an IP in this list can be logged in [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) and blocked. The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
+[Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IP addresses that consistently exhibit malicious activity. Authentication requests associated with an IP in this list can be logged in [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) and blocked. ThreatInsight also covers non-authentication requests depending on the attack patterns of these malicious IPs.
 
-In order to prevent abuse, Okta ThreatInsight works in a limited capacity for free trial editions. Please contact Okta support if fully functional Okta ThreatInsight is required.
+The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
 
 ## ThreatInsight configuration object
 
-| Field Name     | Description                                                         	| Data Type                                     | Required      | Max Length    |
-| :------------- | :------------------------------------------------------------------	| :-------------------------------------------- | :------------ | :------------ |
-| action         | Specifies how Okta responds to authentication requests from suspicious IPs. Values are none, audit, or block. A value of none indicates that ThreatInsight is disabled. A value of audit indicates that Okta logs suspicious requests in the System Log. A value of block indicates that Okta logs suspicious requests in the System Log and blocks the requests. | String                                        | Yes		| N/A           |
-| excludeZones   | Accepts a list of [Network Zone](/docs/reference/api/zones/) IDs. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. | List	                                        | No		| N/A           |
-
+| Field Name  | Description	| Data Type   | Required      |
+| :---------- | :----------	| :---------- | :------------ |
+| action         | Specifies how Okta responds to authentication requests from suspicious IPs. Supported values:<br><ul><li>`none`: Indicates that ThreatInsight is disabled</li><li>`audit`: Indicates that Okta logs suspicious requests in the System Log</li><li>`block`:  Indicates that Okta logs suspicious requests in the System Log and blocks the requests</li></ul> | String (enums: `none`, `audit`, or `block`) | Yes |
+| excludeZones   | Accepts a list of [Network Zone](/docs/reference/api/zones/) IDs. IPs in the excluded network zones aren't logged or blocked and requests proceed to authentication rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. | List | No |
 
 ## ThreatInsight configuration API operations
 
