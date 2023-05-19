@@ -54,15 +54,13 @@ The widget upgrade for a redirect sign-in flow depends on whether you configured
 
 To update the widget:
 
-> **Note:** If you've enabled [Early Access (EA) multibrand customization](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding), your Admin Console navigation is different. See parenthetical notes.
+1. In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the **Sign-in page** section. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want.)
 
-1. In the Admin Console, go to **Customizations** > **Branding** then click **Edit** in the **Sign-in page** section. (EA users: go to **Customizations** > **Brands**, and then select the brand you want.)
-
-2. Go to the **Settings** tab. (EA users: in the **Pages** tab, click **Configure** for the page that has the version you want to upgrade.)
+2. Go to the **Settings** tab. (If you enabled multibrand customization, in the **Pages** tab, click **Configure** for the page that has the version you want to upgrade.)
 
     - In the **Sign-In Widget Version** section, check that the **Version** is the highest version available. The widget is always the latest version if you're not using a custom URL domain.
     - If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can pin the widget's version. Click **Edit** in the **Sign-In Widget Version** section and then select the **Version** field.
-    - (EA users: You can't customize the Sign-In Widget for the Okta default brand.)
+    - If you enabled multibrand customization, you can't customize the Sign-In Widget for the Okta default brand. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding).
 
     > **Note:** When the third generation of the Sign-In Widget is enabled, the pinned version is ignored.
 
@@ -249,7 +247,7 @@ The following customizations aren't supported:
 
 See [Okta Sign-in Widget: Help links](https://github.com/okta/okta-signin-widget/#help-links).
 
-### `processCreds` hook
+### The `processCreds` hook
 
 Developers can't subscribe to the `processCreds` hook in the widget.
 

@@ -199,7 +199,7 @@ You can now configure your org to use the [Native SSO](/docs/guides/configure-na
 
 #### The Subscriptions API is GA in Production
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications.
+The [Subscriptions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/) provides operations to manage email subscription settings for Okta administrator notifications.
 
 * Super Admins can manage the default admin notifications that each admin receives based on their role.
 * Individual admins can update their own notification preferences by subscribing or unsubscribing. <!--OKTA-411527-->

@@ -26,7 +26,7 @@ case AWAITING_AUTHENTICATOR_VERIFICATION:
 
 ### 6. Display OTP input page
 
-Build a form that allows the user to enter the One-Time Passcode (OTP) sent to them by email. This is exactly the same as Step 8 in the Challenge Flow instructions.
+Build a form that allows the user to enter the One-Time Passcode (OTP) sent to them by email. This is exactly the same as Step 8 in the challenge flow instructions.
 
 ### 7. Open email and copy OTP
 

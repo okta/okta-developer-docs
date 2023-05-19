@@ -288,7 +288,7 @@ Dynamic Issuer Mode helps with:
 
 #### The Subscriptions API is GA in Production
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications.
+The [Subscriptions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/) provides operations to manage email subscription settings for Okta administrator notifications.
 
 * Super Admins can manage the default admin notifications that each admin receives based on their role.
 * Individual admins can update their own notification preferences by subscribing or unsubscribing. <!--OKTA-411527-->
@@ -555,7 +555,7 @@ When OpenID Connect (OIDC) apps are created using the App Integration Wizard or 
 
 #### The Subscriptions API is GA in Preview
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) is now Generally Available in Preview. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.
+The [Subscriptions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/) is now Generally Available in Preview. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.
 
 * Super Admins can manage the default admin notifications that each admin receives based on their role.
 * Individual admins can update their own notification preferences by subscribing or unsubscribing.
@@ -912,7 +912,7 @@ ISVs and developers who want to create and submit a SCIM-only app integration to
 
 #### The Subscriptions API is now available in Self-Service Early Access (EA)
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) is now available in Self-Service EA. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.<!--OKTA-325794-->
+The [Subscriptions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/) is now available in Self-Service EA. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.<!--OKTA-325794-->
 
 #### New phone rate limits
 

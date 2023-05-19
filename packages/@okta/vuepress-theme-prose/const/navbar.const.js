@@ -736,6 +736,10 @@ export const guides = [
             guideName: "event-hook-hookdeck",
           },
           {
+            title: "Event hooks with filters",
+            guideName: "event-hook-filtering",
+          },
+          {
             title: "Password import inline hook",
             guideName: "password-import-inline-hook",
           },

@@ -9,21 +9,21 @@ meta:
 ---
 
 <ul class='language-tabs'>
-	<li>
-		<RouterLink to='/code/dotnet/aspnetcore/'>
-			<i class='icon code-dotnet-32'></i><span>ASP.NET Core</span>
-		</RouterLink>
-	</li>
-	<li>
-		<RouterLink to='/code/dotnet/aspnet/'>
-			<i class='icon code-dotnet-32'></i><span>ASP.NET</span>
-		</RouterLink>
-	</li>
-	<li>
-		<RouterLink to='/code/dotnet/blazor/'>
-			<i class='icon code-dotnet-32'></i><span>Blazor</span>
-		</RouterLink>
-	</li>
+   <li>
+      <RouterLink to='/code/dotnet/aspnetcore/'>
+         <i class='icon code-dotnet-32'></i><span>ASP.NET Core</span>
+      </RouterLink>
+   </li>
+   <li>
+      <RouterLink to='/code/dotnet/aspnet/'>
+         <i class='icon code-dotnet-32'></i><span>ASP.NET</span>
+      </RouterLink>
+   </li>
+   <li>
+      <RouterLink to='/code/dotnet/blazor/'>
+         <i class='icon code-dotnet-32'></i><span>Blazor</span>
+      </RouterLink>
+   </li>
 </ul>
 
 ## Get started with Blazor + Okta
@@ -31,11 +31,11 @@ meta:
 These resources walk you through adding user authentication to your ASP.NET Core app in minutes.
 
 <ul class='language-ctas'>
-	<!-- <li>
-		<a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
-			<span>Sign users in quickstart</span>
-		</a>
-	</li> -->
+   <!-- <li>
+      <a href='#' class='Button--blueDarkOutline' data-proofer-ignore>
+         <span>Sign users in quickstart</span>
+      </a>
+   </li> -->
   <li>
     <DropdownButton caption="Sample app">
       <DropdownButtonOption href='https://github.com/okta/samples-blazor/tree/master/server-side/okta-hosted-login'>Blazor Server-Side</DropdownButtonOption>
@@ -55,15 +55,9 @@ These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widge
 These SDKs help you integrate with Okta to build your own fully-branded authentication by embedding an Okta Sign-In Widget and/or SDK.
 
 * [Okta Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
-* [Okta Classic Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet)
+* [Okta Classic Engine Management SDK for .NET](https://github.com/okta/okta-sdk-dotnet)
 
 ## Recommended guides
-
-Okta-hosted Sign-In Widget guide:
-
-[Sign users in to your SPA using the redirect model](#) (coming soon)
-
-Other guides:
 
 * [Manual JWT validation in .NET](/code/dotnet/jwt-validation/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)

@@ -33,6 +33,7 @@ guides:
  - device-authorization-grant
  - embedded-siw
  - enable-cors
+ - event-hook-filtering
  - event-hook-hookdeck
  - event-hook-implementation
  - event-hook-ngrok

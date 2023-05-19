@@ -4,7 +4,7 @@ excerpt: How to demonstrate event hooks using Hookdeck to expose a local app to 
 layout: Guides
 ---
 
-This guide provides a working example of an Okta event hook that uses the Hookdeck utility.
+This guide provides a functional example of an Okta event hook that uses the Hookdeck utility.
 
 ---
 
@@ -68,7 +68,7 @@ With this data, Hookdeck creates a session and URL to use for sending requests. 
 
 <div class="three-quarter">
 
-![A screenshot of a terminal that displays a Hookdeck session status. The session status contains urls that tunnel into the local port.](/img/hooks/hookdeck-and-event-hooks-session.png)
+![An image of a terminal that displays a Hookdeck session status. The session status contains urls that tunnel into the local port.](/img/hooks/hookdeck-and-event-hooks-session.png)
 
 </div>
 
@@ -84,7 +84,7 @@ Each call to your local application appears in the dashboard and includes the re
 
 <div class="full border">
 
-![A screenshot of the Hookdeck web dashboard that includes the response body, header, and other details.](/img/hooks/hookdeck-dashboard.png)
+![An image of the Hookdeck web dashboard that includes the response body, header, and other details.](/img/hooks/hookdeck-dashboard.png)
 
 </div>
 
@@ -96,6 +96,8 @@ Hookdeck URLs are reusable and permanent (when you create a free account) and se
 
 Create the Okta event hook to work with your local application. Set up and verify your event hook using the following Admin Console procedure or through the [Event Hooks Management API](/docs/reference/api/event-hooks/).
 
+<EventHookEANoteProcedure/>
+
 ### Set up the event hook
 
 1. Sign in to your [Okta org](https://login.okta.com/).
@@ -104,7 +106,7 @@ Create the Okta event hook to work with your local application. Set up and verif
 
 3. Click **Create Event Hook**. The **Add Event Hook Endpoint** dialog box opens.
 
-4. In the **Name** field, add a unique name for the Hook (in this example, "New User Event Hook").
+4. In the **Name** field, add a unique name for the hook (in this example, "New user event hook").
 
 5. In the **URL** field, add your external service URL from Hookdeck. For this example, use the **Webhook URL** highlighted after running Hookdeck. See [Run Hookdeck](#run-hookdeck). For example, your URL should appear similar to: `https://events.hookdeck.com/e/src_s8lCGfojGBPj8L0lszAZl6fD`.
 
@@ -134,7 +136,7 @@ To complete the one-time verification of the event hook:
 
 * After creating the event hook, click **Verify** to complete the one-time verification step.
 
-Or
+Or:
 
 * Go to the Event Hooks table, click the **Actions** dropdown menu of your **UNVERIFIED** event hook, and select **Verify**.
 
@@ -142,7 +144,7 @@ The event hook is set up with a status of **VERIFIED**. It's ready to send event
 
 ## Preview, test, and review the event hook
 
-With your local application now exposed externally through a Hookdeck session, you can preview and test Okta event hook calls. Review details of the calls by using the Hookdeck dashboard. The Okta org is setup to call your local application when a user-creation event triggers. In this example, the event triggers when you add a user to your Okta org.
+With your local application now exposed externally through a Hookdeck session, you can preview and test Okta event hook calls. Review details of the calls by using the Hookdeck dashboard. The Okta org is set up to call your local application when a user-creation event triggers. In this example, the event triggers when you add a user to your Okta org.
 
 ### Preview
 
@@ -151,14 +153,14 @@ To run a preview call of your event hook:
 1. In the Admin Console, go to **Workflow** > **Event Hooks**.
 1. Locate the event hook that you created during the set-up step. In this example, select `New User Event Hook` or the name you gave the event hook.
 1. Click the **Actions** menu for this hook, and select **Preview**.
-1. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there’s only `User Created (user.lifecycle.create)`.
+1. In the **Configure Event Hook request** section, select an event from the **Event Type** dropdown menu. In this example, there’s only `User Created (user.lifecycle.create)`.
 1. The most recent event populates the **Preview & Deliver Event Hook** section with the JSON body of the event hook if there’s one. If no event is available, the JSON body populates with sample data.
 1. Ensure that both your Hookdeck session and local sample application are running.
 1. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Review your local application console to view the output of the event hook body. For example:
 
    <div class="three-quarter">
 
-   ![A screenshot of the application terminal with response body output to the console.](/img/hooks/hookdeck-application-console-output.png)
+   ![An image of the application terminal with response body output to the console.](/img/hooks/hookdeck-application-console-output.png)
 
    </div>
 
@@ -166,7 +168,7 @@ To run a preview call of your event hook:
 
    <div class="full">
 
-   ![A screenshot of the Hookdeck terminal with output to the console.](/img/hooks/hookdeck-terminal-output.png)
+   ![An image of the Hookdeck terminal with output to the console.](/img/hooks/hookdeck-terminal-output.png)
 
    </div>
 
@@ -174,7 +176,7 @@ To run a preview call of your event hook:
 
     <div class="half border">
 
-    ![A screenshot of the Hookdeck dashboard that includes body details.](/img/hooks/hookdeck-dashboard-small.png)
+    ![An image of the Hookdeck dashboard that includes body details.](/img/hooks/hookdeck-dashboard-small.png)
 
     </div>
 
@@ -199,7 +201,7 @@ To run a test of your event hook:
 
 <div class="three-quarter">
 
-![A screenshot of the Hookdeck dashboard that includes body details.](/img/hooks/hookdeck-body-detail.png)
+![An image of the Hookdeck dashboard that includes body details.](/img/hooks/hookdeck-body-detail.png)
 
 </div>
 

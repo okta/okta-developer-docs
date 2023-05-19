@@ -1,5 +1,5 @@
 /* Basic styling to be applied to all images inside the main content column */
-.content__default div img {
+.content__default div img:not([class]) {
   display: block;
   margin: 0 auto;
   margin-bottom: 24px;

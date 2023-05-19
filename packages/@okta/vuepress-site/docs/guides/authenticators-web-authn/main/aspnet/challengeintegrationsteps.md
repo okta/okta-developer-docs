@@ -9,9 +9,9 @@ The challenge flow follows the same first four steps as the [enrollment flow](/d
 
 ### 5: Retrieve encrypted challenge and user information
 
-When the user selects the WebAuthn Authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in Challenge Flow or Enrollment Flow.
+When the user selects the WebAuthn Authenticator factor and clicks **Submit**, the form posts back to the `SelectAuthenticatorAsync` method. This checks whether the user is in challenge flow or enrollment flow.
 
-When in Challenge Flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the WebAuthn authenticator factor ID.
+When in challenge flow, a call is made to `idxClient.SelectChallengeAuthenticatorAsync`, using its `selectAuthenticatorOptions` parameter to pass in the WebAuthn authenticator factor ID.
 
 ```csharp
 var selectAuthenticatorOptions = new SelectAuthenticatorOptions

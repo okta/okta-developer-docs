@@ -9,9 +9,7 @@ the Okta multi-tenant solution. This doc provides an overview of the
 solution, identifies reasons why organizations may want to consider it, and
 lists the different multi-tenant configurations available.
 
-> **Important**: When implementing a multi-tenant solution, ensure that
- all tenants are on the same version of Okta, either Okta Classic or Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your
- tenant's Okta version.
+> **Important**: When implementing a multi-tenant solution, ensure that all tenants are on the same version of Okta, either Okta Classic Engine or Okta Identity Engine. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your tenant's Okta version.
 
 ## Acme Bank example
 

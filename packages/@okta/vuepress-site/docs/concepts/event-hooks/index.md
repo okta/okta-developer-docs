@@ -19,7 +19,7 @@ Before the introduction of event hooks, polling the [System Log API](/docs/refer
 
 You can have a maximum of 10 active and verified event hooks set up in your org at any time. Each event hook can be configured to deliver multiple event types.
 
->Note: To deliver event information, event hooks use the data structure associated with the [System Log API](/docs/reference/api/system-log/), not the data structure associated with the older [Events API](/docs/reference/api/events/).
+> **Note:** To deliver event information, event hooks use the data structure associated with the [System Log API](/docs/reference/api/system-log/), not the data structure associated with the older [Events API](/docs/reference/api/events/).
 
 ## Which events are eligible?
 
@@ -30,6 +30,12 @@ To see the list of event types currently eligible for use in event hooks, use th
 For general information on how Okta encapsulates events, see the [System Log API](/docs/reference/api/system-log/) documentation.
 
 Event types include user lifecycle changes, the completion by a user of a specific stage in an Okta process flow, and changes in Okta objects. You can configure an event hook, for example, to deliver notifications of user deactivation events. You can use hooks to trigger processes that you need to execute internally every time a user is deactivated. For example, updating a record in an HR system, creating a ticket in a support system, or generating an email message.
+
+<ApiLifecycle access="ea" />
+
+You can reduce the number of event hook calls by defining filters on specific instances of the subscribed event type. For example, if you want an event hook call triggered by user sign-in events for a specific group of users, you can filter on that group, rather than having an event hook call for every user sign in. See [Create an event hook filter](#create-an-event-hook-filter).
+
+<EventHookEANote/>
 
 ## Requests sent by Okta
 
@@ -67,7 +73,9 @@ When Okta calls your external service, it enforces a default timeout of 3 second
 
 See [Your Service's responses to event delivery requests](#your-service-s-responses-to-event-delivery-requests) for more information on the HTTP responses that you need to send.
 
-### HTTP headers
+> **Note** If event hook requests are identified as failing (timing out) for 15 minutes (1500 failures in 15 minutes), Okta skips the deliveries for that hook for the next 15 minutes (quiet period) to improve system performance. Okta resumes deliveries after the quiet period but won't retry the event hooks that were skipped.
+
+### HTTP Headers
 
 The header of requests sent by Okta appears as follows, provided that you configure the recommended authorization header and don't define additional custom headers:
 
@@ -114,6 +122,8 @@ The basic steps to register and verify a new event hook are as follows:
 
 For a working example of an end-to-end event hook setup, see the [Event hook guide](/docs/guides/event-hook-implementation).
 
+> **Note:** It may take several minutes before events are sent to the event hook after it’s created or updated.
+
 ### Implement your service
 
 Implement a web service with an internet-accessible endpoint to receive event hook calls from Okta. It's your responsibility to develop the code and to arrange its hosting on a system external to Okta. Okta defines the REST API contract for the REST requests it sends to your service. See [Requests sent by Okta](/docs/concepts/event-hooks/#requests-sent-by-okta) for information on the REST API contract.
@@ -126,6 +136,14 @@ After implementing your external service, you need to register it with Okta. To 
 
 After registering the event hook, you need to trigger a one-time verification process by clicking the **Verify** button in the Admin Console. When you trigger a verification, Okta calls out to your external service, making the one-time verification request to it. You need to have implemented functionality in your service to handle the expected request and response. The purpose of this step is to prove that you control the endpoint. See [One-time verification request](/docs/concepts/event-hooks/#one-time-verification-request).
 
+### Create an event hook filter
+
+<ApiLifecycle access="ea" />
+
+In the Admin Console, you can optionally create a filter on the event hook to reduce the number of times the event hook triggers. Use the Okta Expression Language or the simple UI tool to define filters that trigger events based on specific event type attributes. See [Edit an event hook filter](https://help.okta.com/okta_help.htm?id=ext-event-hooks-filters) and [Okta Expression Language and event hooks](https://help.okta.com/okta_help.htm?type=oie&locale=en&id=csh-event-hooks-el).
+
+<EventHookEANote/>
+
 ### Preview your hook
 
 You can preview the JSON payload for the event hook request from the Admin Console's **Preview** tab. This preview provides a review of the request syntax for the specific event type. The request can be delivered to your external service to make sure it's successfully received. See [Event hook preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
@@ -136,52 +154,124 @@ The following is an example of a JSON payload of a request from Okta to your ext
 
 ```json
 {
-  "eventType": "com.okta.event_hook",
-  "eventTypeVersion": "1.0",
-  "cloudEventsVersion": "0.1",
-  "contentType": "application/json",
-  "eventId": "b5a188b9-5ece-4636-b041-482ffda96311",
-  "eventTime": "2019-03-27T16:59:53.032Z",
-  "source": "https://${yourOktaDomain}/api/v1/eventHooks/whoql0HfiLGPWc8Jx0g3",
-  "data": {
-    "events": [
-      {
-        "version": "0",
-        "severity": "INFO",
-        "client": {
-          "zone": "OFF_NETWORK",
-          "device": "Unknown",
-          "userAgent": {
-            "os": "Unknown",
-            "browser": "UNKNOWN",
-            "rawUserAgent": "UNKNOWN-DOWNLOAD"
-          },
-          "ipAddress": "12.97.85.90"
-        },
-        "actor": {
-          "id": "00u1qw6mqitPHM8AJ0g7",
-          "type": "User",
-          "alternateId": "admin@example.com",
-          "displayName": "Example Admin"
-        },
-        "outcome": {
-          "result": "SUCCESS"
-        },
-        "uuid": "f790999f-fe87-467a-9880-6982a583986c",
-        "published": "2018-03-28T22:23:07.777Z",
-        "eventType": "user.session.start",
-        "displayMessage": "User login to Okta",
-        "transaction": {
-          "type": "WEB",
-          "id": "V04Oy4ubUOc5UuG6s9DyNQAABtc"
-        },
-        "legacyEventType": "core.user_auth.login_success",
-        "authenticationContext": {
-          "authenticationStep": 0,
-          "externalSessionId": "1013FfF-DKQSvCI4RVXChzX-w"
-        }
-      }
-    ]
-  }
-}
-```
+    "eventType": "com.okta.event_hook",
+    "eventTypeVersion": "1.0",
+    "cloudEventsVersion": "0.1",
+    "source": "https://{yourOktaDomain}/api/v1/eventHooks/who7hphp39JoHLni81d7",
+    "eventId": "85b60edb-4263-4e13-993b-818e26201052",
+    "data": {
+        "events": [
+            {
+                "uuid": "f1d0b993-cc19-11ed-a688-db22c99ef6c4",
+                "published": "2023-03-26T21:05:32.159Z",
+                "eventType": "user.session.start",
+                "version": "0",
+                "displayMessage": "User login to Okta",
+                "severity": "INFO",
+                "client": {
+                    "userAgent": {
+                        "rawUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
+                        "os": "Mac OS X",
+                        "browser": "CHROME"
+                    },
+                    "zone": "null",
+                    "device": "Computer",
+                    "id": null,
+                    "ipAddress": "142.126.158.61",
+                    "geographicalContext": {
+                        "city": "Toronto",
+                        "state": "Ontario",
+                        "country": "Canada",
+                        "postalCode": "M4M",
+                        "geolocation": {
+                            "lat": 43.6567,
+                            "lon": -79.34
+                        }
+                    },
+                    "ipChain": [
+                        {
+                            "ip": "142.126.158.61",
+                            "geographicalContext": {
+                                "city": "Toronto",
+                                "state": "Ontario",
+                                "country": "Canada",
+                                "postalCode": "M4M",
+                                "geolocation": {
+                                    "lat": 43.6567,
+                                    "lon": -79.34
+                                }
+                            },
+                            "version": "V4",
+                            "source": null
+                        }
+                    ]
+                },
+                "device": null,
+                "actor": {
+                    "id": "00uz9fj5aT69fHVro1d6",
+                    "type": "User",
+                    "alternateId": "admin@okta.com",
+                    "displayName": "Admin Name",
+                    "detailEntry": null
+                },
+                "outcome": {
+                    "result": "SUCCESS",
+                    "reason": null
+                },
+                "target": [
+                    {
+                        "id": "lae42mkdc9i9cbw3U1d6",
+                        "type": "AuthenticatorEnrollment",
+                        "alternateId": "unknown",
+                        "displayName": "Password",
+                        "detailEntry": null
+                    },
+                    {
+                        "id": "0oaz9fj21WKqTeaqs1d6",
+                        "type": "AppInstance",
+                        "alternateId": "Okta Admin Console",
+                        "displayName": "Okta Admin Console",
+                        "detailEntry": null
+                    }
+                ],
+                "transaction": {
+                    "type": "WEB",
+                    "id": "ZCCzm8j2wTvzwele2NwLnwAADSc",
+                    "detail": {}
+                },
+                "debugContext": {
+                    "debugData": {
+                        "authnRequestId": "ZCCzlCoZuOyo8RfASqHmPAAAAc8",
+                        "deviceFingerprint": "3411ee4c591b2229f3bea251e12e0c1a",
+                        "requestId": "ZCCzm8j2wTvzwele2NwLnwAADSc",
+                        "dtHash": "f59d98b2e02f1319ef4ca651f57c36e3f25507f67dd6daf0408f753896b7e8dc",
+                        "origin": "https://{yourOktaDomain}",
+                        "requestUri": "/idp/idx/identify",
+                        "threatSuspected": "false",
+                        "url": "/idp/idx/identify?"
+                    }
+                },
+                "legacyEventType": "core.user_auth.login_success",
+                "authenticationContext": {
+                    "authenticationProvider": null,
+                    "credentialProvider": null,
+                    "credentialType": null,
+                    "issuer": null,
+                    "authenticationStep": 0,
+                    "externalSessionId": "idxyNcxVX2ESsSL0u462548Qg",
+                    "interface": null
+                },
+                "securityContext": {
+                    "asNumber": null,
+                    "asOrg": null,
+                    "isp": null,
+                    "domain": null,
+                    "isProxy": null
+                },
+                "insertionTimestamp": null
+            }
+        ]
+    },
+    "eventTime": "2023-03-28T17:03:37.093Z",
+    "contentType": "application/json"
+}```

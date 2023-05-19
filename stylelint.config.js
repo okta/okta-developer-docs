@@ -31,7 +31,6 @@ module.exports = {
 
     // Empty
     "block-no-empty": true,
-    "no-empty-source": true,
     "no-empty-source": null,
 
     // Invalid
