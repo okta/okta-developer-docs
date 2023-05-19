@@ -70,7 +70,7 @@ Creating users with a `FEDERATION` or `SOCIAL` provider sets the user status to 
 
 #### Create User with Optional Password enabled
 
-<ApiLifeCycle access="ea" />
+<ApiLifecycle access="ea" />
 
 When Optional Password is enabled, the user status following user creation can be affected by the enrollment policy. See [Create an authenticator enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy).
 Based on the group memberships that are specified when the user is created, a password may or may not be required to make the user's status `ACTIVE`. See [Create user in a group](#create-user-in-group).
