@@ -69,7 +69,7 @@ This parameter allows you to force the validation of the password policy's `minA
 
 The following bug fixes will be available on preview orgs starting Dec 13, 2017, and will be available on production orgs starting December 19, 2017:
 
-* When using the [Zones API](/docs/reference/api/zones/#update-a-network-zone), erasing all IP addresses in the Default IP Blocklist zone caused an error. (OKTA-145602)
+* When using the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/#tag/NetworkZone/operation/replaceNetworkZone), erasing all IP addresses in the Default IP Blocklist zone caused an error. (OKTA-145602)
 
 
 ## 2017.49
@@ -483,7 +483,7 @@ Dates for preview and production release are the earliest possible release date.
 
 Zones are used to group IP Address ranges so that policy decisions can be made based on the client's IP location.
 
-[The Zones API](/docs/reference/api/zones/) is an <ApiLifecycle access="ea" /> release. Contact [Support](https://support.okta.com/help/open_case) to enable it.
+[The Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) is an <ApiLifecycle access="ea" /> release. Contact [Support](https://support.okta.com/help/open_case) to enable it.
 This API can be enabled beginning August 22, 2017 for preview orgs, and beginning September 5, 2017 for production orgs.
 
 ### API Bug Fix
@@ -529,7 +529,7 @@ You can also create an OpenID Connect app more easily with this simplified flow:
 
 Zones are used to group IP Address ranges so that policy decisions can be made based on the client's IP location.
 
-[The Zones API](/docs/reference/api/zones/) is an <ApiLifecycle access="ea" /> release. Contact [Support](https://support.okta.com/help/open_case) to enable it.
+[The Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) is an <ApiLifecycle access="ea" /> release. Contact [Support](https://support.okta.com/help/open_case) to enable it.
 This API can be enabled beginning August 22, 2017 for preview orgs, and beginning September 5, 2017 for production orgs.
 
 ### API Bug Fixes
@@ -1577,7 +1577,7 @@ The Zones API is now Generally Available in preview orgs. It will be at least on
 
 Zones are used to group IP Address ranges so that policy decisions can be made based on the zone a client's IP belongs to.
 
-For more information, see [the Zones API developer documentation](/docs/reference/api/zones/).
+For more information, see [the Zones API developer documentation](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
 > Update: Zones API is [a Beta release](/docs/reference/releases-at-okta/). This release note is in error.
 
@@ -1980,7 +1980,7 @@ Instead, Okta will send a customer communication explaining the migration path t
 
 ### Platform Feature Improvement: Zones API Generally Available in Preview
 
-Access policies can now be defined based on an IP address range using [the Zones API](/docs/reference/api/zones/).
+Access policies can now be defined based on an IP address range using [the Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 This feature is Generally Available in preview orgs for at least one month before being Generally Available in production. <!-- OKTA-121280 -->
 
 ### Platform Bugs Fixed

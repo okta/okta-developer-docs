@@ -841,7 +841,7 @@ Specifies an authentication entry point
 
 #### Network Condition object
 
-Specifies a network selection mode and a set of network zones to be included or excluded. If the connection parameter's data type is `ZONE`, one of the include or exclude arrays is required. Specific zone IDs to include or exclude are enumerated in the respective arrays. You can use the [Zones API](/docs/reference/api/zones/) to manage network zones.
+Specifies a network selection mode and a set of network zones to be included or excluded. If the connection parameter's data type is `ZONE`, one of the include or exclude arrays is required. Specific zone IDs to include or exclude are enumerated in the respective arrays. You can use the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) to manage network zones.
 
 | Parameter  | Description            | Data Type          | Required                               |
 | ---------  | ---------------------- | ------------------ | -------------------------------------- |
