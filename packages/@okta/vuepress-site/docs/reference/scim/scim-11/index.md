@@ -277,7 +277,7 @@ When importing User objects from the SCIM server, Okta accesses the `/Users` end
 
 Okta uses `count=100` as the pagination reference to return up to 100 elements. If the value of `totalResults` is higher than 100, then after Okta finishes retrieving the first 100 resources, the `startIndex` becomes `startIndex+100` and is passed as a query parameter along with `count` in a new request to the `/Users` endpoint. This pagination operation repeats until all pages are viewed.
 
-The SCIM server must consistently return the same ordering of results for the requests, regardless of which values are provided for the `count` and `startIndex` pagination references. For more information on pagination, see [Section 3.2.2.3](http://www.simplecloud.info/specs/draft-scim-api-01.html#query-resources) of the V1.1 specification.
+The SCIM server must consistently return the same ordering of results for the requests, regardless of which values are provided for the `count` and `startIndex` pagination references. For more information on pagination, see [Section 3.2.2.3](https://scim.cloud/specs/draft-scim-api-01.html#query-resources) of the V1.1 specification.
 
 A sample request from Okta to retrieve the Users from the SCIM application:
 
@@ -843,5 +843,5 @@ Date: Fri, 18 Oct 2019 07:16:10 GMT
 * [What is SCIM?](https://www.okta.com/blog/2017/01/what-is-scim/)
 * [SCIM Provisioning using Okta Lifecycle Management](/docs/concepts/scim/)
 * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
-* [SCIM 1.1 RFC: Core Schema](http://www.simplecloud.info/specs/draft-scim-core-schema-01.html)
-* [SCIM 1.1 RFC: Protocol](http://www.simplecloud.info/specs/draft-scim-api-01.html)
+* [SCIM 1.1 RFC: Core Schema](https://scim.cloud/specs/draft-scim-core-schema-01.html)
+* [SCIM 1.1 RFC: Protocol](https://scim.cloud/specs/draft-scim-api-01.html)
