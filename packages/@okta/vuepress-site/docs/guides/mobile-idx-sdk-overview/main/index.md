@@ -2,7 +2,7 @@
 title: Overview of the mobile Identity Engine SDK
 ---
 
-Design the implementation of the sign-in flow for your mobile app by understanding the representation of the flow and the associated objects.
+Design the implementation of sign-in for your mobile app by understanding the objects and messages that represent the sign-in flow.
 
 <ApiLifecycle access="ie" /><br>
 
@@ -17,9 +17,9 @@ This guide is an overview of building your own user interface using the embedded
 
 ## Sign-in flow
 
-Okta supports many ways of authenticating the identity of a user during the sign-in flow. An Okta org administrator creates _policies_, different mixes of *authenticators*, or ways of verifying the identity of a user, and assigns them to apps, people, groups, and more. Policies also configure whether an authenticator is required or optional, as well as the minimum number of authenticators required for a successful sign-on. Many flows require multiple *factors* (multifactor authentication), the category of an authenticator. Factors include biometrics, such as a fingerprint, knowledge, such as a password, and more. This results in a many of possible combinations of the different authenticators, the steps in the sign-in flow.
+Okta supports many ways of authenticating the identity of a user during the sign-in flow. An Okta org administrator creates _policies_, different mixes of *authenticators*, or ways of verifying the identity of a user, and assigns them to apps, people, groups, and more. Policies also configure whether an authenticator is required or optional, as well as the minimum number of authenticators required for a successful sign-in. Responding to each authenticator is a step in the sign-in flow. Many flows require multiple *factors* (multifactor authentication), the category of an authenticator. Factors include biometrics, such as a fingerprint, knowledge, such as a password, and more. This effectively results in an infinite number of combinations of authenticators and the order in which they're presented.
 
-The Android and iOS Identity Engine SDKs represent the sign-in flow as a state machine. You initialize the machine with the details of your Okta org app integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
+The Android and Swift Identity Engine SDKs represent the sign-in flow as a state machine. You initialize the machine with the details of your Okta org app integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
 
 <div class="three-quarter">
 
@@ -30,7 +30,7 @@ The Android and iOS Identity Engine SDKs represent the sign-in flow as a state m
 Each sign-in step may include one or more possible user actions, such as:
 
 - Choosing an authenticator, such as Okta Verify or security questions.
-- Entering an OTP.
+- Entering a one-time passcode (OTP).
 - Cancelling the sign-in flow.
 
 ## Sign-in objects
@@ -44,55 +44,38 @@ The SDK represents the sign-in flow using a number of different objects:
 </div>
 
 - **Response:** The top-level object that represents a step and contains all the other objects. It includes a property that indicates a successful sign-in and functions for cancelling the sign-in flow, or retrieving the access token after the sign-in flow succeeds. A response may contain multiple authenticators and remediations.
-- **Remediation:** Represents the main user actions for a step, such as enrolling in an authenticator or entering an OTP. It includes a function for requesting the next step in the flow.
+- **Remediation:** Represents the main user actions for a step, such as enrolling in an authenticator or entering an OTP. In the Swift SDK it includes a function for requesting the next step in the flow.
 - **Authenticator:** Represents an authenticator that's used to verify the identity of a user, such as Okta Verify.
-- **Method:** Represents a channel for an authenticator, such as using SMS or voice for an authenticator that uses a phone. An authenticator may have zero or more.
+- **Method:** Represents a channel for an authenticator, such as using SMS or voice for an authenticator that uses a phone. An authenticator may have zero or more methods.
 - **Capability:** A user action associated with a remediation, authenticator, or method, such as requesting a new OTP or a password reset.
-- **Field:** Represents a UI element, either a static item, such as a label, or user input, such as a selection list. It includes properties for state information, such as whether the associated value is required. Properties also store the current value of user input field, such as the string for an OTP or the selected choice. Options, or lists of choices, are represented by a collection of fields. A field may contain a form that contains more fields.
+- **Field:** Represents a UI element, either a static item, such as a label, or user input, such as a selection list. It includes properties for state information, such as whether the associated value is required. Properties also store the current value of user input field, such as the string for an OTP or the selected choice. A lists of choices, or **Options**, are represented by a collection of fields. A field may contain a form that contains more fields.
 - **Form:** Contains the fields that represent the user action for a remediation.
-- **Configuration:** Contains the settings used by the SDK to connect to your Okta org app integration.
-- **Client:** Represents the session during the sign-in flow.
+- **InteractionCodeFlow:** Represents the session during the sign-in flow. In the Android SDK it includes the function for requesting the next step in the flow.
 
 
 ## Objects and the flow
 
-<div class="three-quarter">
+<StackSnippet snippet="objectsandflow" />
 
-!["A diagram that shows the main objects associated with each step in the sign-in flow."](/img/mobile-sdk/mobile-idx-objects-and-flow.png)
+## Manage the sign-in flow
 
-</div>
+An object that manages the sign-in flow includes the following functionality:
 
-The main objects associated with each step in the flow are:
-
-| Sign-in step                       | Objects                         |
-| :--------------------------------- | :------------------------------ |
-| Initialize SDK                     | Configuration <br/> Client      |
-| Request initial step               | Client                          |
-| Receive step                       | Response                        |
-| Check completion, cancel, or error | Response <br/> Remediation      |
-| Gather user input                  | Remediation <br/> Authenticator |
-| Send input                         | Remediation                     |
-| Done                               | Response                        |
-
-
-## Common parts of the flow
-
-Some parts of the sign-in flow are the same:
-
-- Add the SDK to your app.
-- Configure the SDK.
-- Initialize the client and start the flow.
+- Initialize the flow.
+- Start the sign-in.
 - Process the response.
 - Request a token.
 - Sign the user out.
 
 ### Add the SDK
 
+Before you can implement the manager you need to add the SDK to your project.
+
 <StackSnippet snippet="adddependency" />
 
-### Create and manage configurations
+### Initialize the flow
 
-The values for a configuration object are:
+Configure the flow with the information it needs to communicate with your Okta org application integration:
 
 | Value         | Description |
 | :------------ | :---------- |
@@ -103,11 +86,11 @@ The values for a configuration object are:
 
 The configuration information in a shipping app is usually static. You can initialize the configuration values directly in the code or read them from a file. During development you may want to provide a way to edit configuration values.
 
-<StackSnippet snippet="loadingaconfiguration" />
+<StackSnippet snippet="initializeflow" />
 
-### Start sign-in
+### Start the sign-in
 
-Start the sign-in flow by creating an SDK client, and then requesting the first step.
+Start the sign-in flow after initializing an `InteractionCodeFlow` object.
 
 <StackSnippet snippet="initializingsdksession" />
 
@@ -115,13 +98,13 @@ Start the sign-in flow by creating an SDK client, and then requesting the first 
 
 The steps for processing a response are:
 
-1. Check for a successful sign-in flow.
+1. Check if the sign-in succeeded.
 1. Check for messages, such as an invalid password.
 1. Check for remediations.
 1. Process the remediations.
 1. Process the authenticators.
 
-After the user enters the required information, update the remediation and request the next step.
+After the user enters any required information, update the remediation and request the next step.
 
 <StackSnippet snippet="processresponse" />
 
