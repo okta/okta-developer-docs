@@ -4,7 +4,7 @@ This example shows parts of a singleton class for managing the sign-in flow. It 
 import OktaIdx
 import AuthFoundation
 
-class SignInController {
+class SignInController: InteractionCodeFlowDelegate {
    var flowClient: InteractionCodeFlow?
    var username: String?
 

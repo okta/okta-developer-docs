@@ -8,7 +8,7 @@ Design the implementation of sign-in for your mobile app by understanding the ob
 
 ## Introduction
 
-Integrate the Okta sign-in flow into your app in one of two ways:
+There are two ways to use Okta for sign-in in your app:
 
 - Redirect the request to Okta which handles the flow in its own window (the redirect model).
 - Handle each step in the flow by building the appropriate user interface elements, capturing the information, and updating Okta (the embedded model).
@@ -17,9 +17,9 @@ This guide is an overview of building your own user interface using the embedded
 
 ## Sign-in flow
 
-Okta supports many ways of authenticating the identity of a user during the sign-in flow. An Okta org administrator creates _policies_, different mixes of *authenticators*, or ways of verifying the identity of a user, and assigns them to apps, people, groups, and more. Policies also configure whether an authenticator is required or optional, as well as the minimum number of authenticators required for a successful sign-in. Responding to each authenticator is a step in the sign-in flow. Many flows require multiple *factors* (multifactor authentication), the category of an authenticator. Factors include biometrics, such as a fingerprint, knowledge, such as a password, and more. This effectively results in an infinite number of combinations of authenticators and the order in which they're presented.
+Okta supports many ways of authenticating the identity of a user during the sign-in flow. An Okta org administrator creates _policies_, different mixes of *authenticators*, or ways of verifying the identity of a user, and assigns them to apps, people, groups, and more. Policies also configure whether an authenticator is required or optional, as well as the minimum number of authenticators required for a successful sign-in. Responding to each authenticator is a step in the sign-in flow. Many flows require multiple *factors* (multifactor authentication), the category of an authenticator. Factors include: biometrics, such as a fingerprint; knowledge, such as a password; and more. This effectively results in an infinite number of combinations of authenticators and the order in which they're presented.
 
-The Android and Swift Identity Engine SDKs represent the sign-in flow as a state machine. You initialize the machine with the details of your Okta org app integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
+The Android and Swift Identity Engine SDKs represent the sign-in flow as a state machine. You initialize the machine with the details of the Okta org application integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
 
 <div class="three-quarter">
 
@@ -43,7 +43,7 @@ The SDK represents the sign-in flow using a number of different objects:
 
 </div>
 
-- **Response:** The top-level object that represents a step and contains all the other objects. It includes a property that indicates a successful sign-in and functions for cancelling the sign-in flow, or retrieving the access token after the sign-in flow succeeds. A response may contain multiple authenticators and remediations.
+- **Response:** The top-level object that represents a step and contains all the other objects. It includes a property that indicates a successful sign-in and functions for cancelling the sign-in flow or retrieving the access token after the sign-in flow succeeds. A response may contain multiple authenticators and remediations.
 - **Remediation:** Represents the main user actions for a step, such as enrolling in an authenticator or entering an OTP. In the Swift SDK it includes a function for requesting the next step in the flow.
 - **Authenticator:** Represents an authenticator that's used to verify the identity of a user, such as Okta Verify.
 - **Method:** Represents a channel for an authenticator, such as using SMS or voice for an authenticator that uses a phone. An authenticator may have zero or more methods.
@@ -96,7 +96,7 @@ Start the sign-in flow after initializing an `InteractionCodeFlow` object.
 
 ### Process the response
 
-The steps for processing a response are:
+The steps for processing each response are:
 
 1. Check if the sign-in succeeded.
 1. Check for messages, such as an invalid password.
@@ -128,7 +128,7 @@ For a fixed number of methods (a static UI), you create appropriate views and po
 
 - Update the code in the app before policy changes are enabled.
 - Distribute the updated app to users before the policy changes are enabled.
-- Ensure all your users' devices use the updated.
+- Ensure all your users' devices use the updated app.
 
 The usual way to satisfy the last condition is with an enterprise-managed workforce app. Also note that there's additional risks as external events may require an immediate policy change that can result in the inability of mobile users to sign in.
 

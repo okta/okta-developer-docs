@@ -41,3 +41,5 @@ let flow = InteractionCodeFlow(
     scopes: ["openid", "email", "offline_access"],
     redirectUri: "{com.your.app:/callback-uri}")
 ```
+
+> **Note:** `OAuth2Client.Configuration`, an object for managing configurations is included in the AuthFoundation package.
