@@ -2,7 +2,7 @@
 title: Sign users in to your SPA using the redirect model and Auth JS
 ---
 
-The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js), (Auth JS), provides functionality to help implement a wide variety of web authentication solutions for both the [redirect and embedded model](/docs/concepts/redirect-vs-embedded/). This guide shows you how to create a simple redirect authentication solution using Auth JS, which you can drop into just about any front-end or server-side web application.
+The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) helps implement a wide variety of web authentication solutions for both the [redirect and embedded model](/docs/concepts/redirect-vs-embedded/). This guide creates a simple redirect authentication solution using Auth JS, which you can drop into just about any front-end or server-side web application.
 
 ---
 
@@ -39,10 +39,10 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. Select an **Application type** of **Single-Page Application**, then click **Next**.
    > **Note:** If you choose an inappropriate application type, it breaks the sign-in or sign-out flows by requiring the verification of a client secret, which public clients don't have.
 1. Enter an **App integration name**.
-1. Ensure the **Authorization Code** grant type is selected.
+1. Ensure that the **Authorization Code** grant type is selected.
 1. Enter the **Sign-in redirect URIs** for local development. For this sample, use `http://localhost:9000`.
 1. Enter the **Sign-out redirect URIs** for local development. For this sample, use `http://localhost:9000`.
-1. Enter the **Base URIs** for the trusted origin. For this sample, use use `http://localhost:9000`. See [Trusted Origins](#about-trusted-origins).
+1. Enter the **Base URIs** for the trusted origin. For this sample, use `http://localhost:9000`. See [Trusted Origins](#about-trusted-origins).
 1. In the **Assignments** section, define the type of **Controlled access** for your app. Select **Allow everyone in your organization to access**. See [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign).
 1. Ensure to clear the checkbox **Enable immediate access with Federation Broker Mode**.
 1. Click **Save** to create the app integration. The configuration pane for the integration opens after it's saved. Keep this pane open as you need to copy the **Client ID** and your org domain name when configuring your app.
@@ -96,7 +96,7 @@ Include this script in your target HTML page (`index.html`) by including the fol
 
 ### Add JavaScript to initialize the SDK
 
-In the same `index.html` file, add the following JavaScript code after the Auth JS SDK reference. Ensure you update the `baseOktaURL` from your org and the `appClientID` value available from the previous [Create an Okta app integration](#create-an-okta-app-integration) procedure.
+In the same `index.html` file, add the following JavaScript code after the Auth JS SDK reference. Ensure you update the `baseOktaURL` from your org and the `appClientID` value available from the previous procedure, [Create an Okta app integration](#create-an-okta-app-integration).
 
 ```html
 <script type="text/javascript">
@@ -177,45 +177,45 @@ If your app isn't working, ensure that:
 
 * Your org URL is accurate and formatted correctly, including the secure protocol, `https://`.
 * Your client ID is accurate from your Okta app integration.
-* Your `redirectUri` is accurate or the web server port number is correct.
+* Your `redirectUri` is accurate or the port number for your local web server is correct.
 * You've enabled a Trusted Origin for `http://localhost:9000`. See [About Trusted Origins](#about-trusted-origins).
-* If your app is bypassing the SIW, your user is already signed-in. Use a new private or incognito browser window or optionally set the Authentication Policy for your app to always sign in. That is, **Re-authentication frequency is** set to **Every sign-in attempt**.
+* If your app is bypassing the Okta Sign-In Widget, your user is already signed-in. Use a new private or incognito browser window or optionally set the Authentication Policy for your app to always sign in. That is, **Re-authentication frequency is** set to **Every sign-in attempt**.
 
 ## Enable self-service registration
 
-You can enable the self-service registration feature, which provides a Sign-up link on the Sign-In Widget for end users to register and sign in to your app. See [Self-Service Registration](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr).
+The self-service registration feature provides a **Sign-up** link on the Sign-In Widget for end users to register and sign in to your app.
 
-By default, self-service enrollment is not enabled for all apps. Follow the steps below to understand the policy configurations and to make this feature only available to your application.
+By default, self-service registration isn’t enabled for all apps. Use the following steps to understand the policy configurations and to make this feature only available to your application. See [Self-Service Registration](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr).
 
-1. Make sure your app is assigned to the Everyone group:
+1. Ensure that your app is assigned to the Everyone group:
 
     1. Go to **Applications > Applications** and select your app.
     {style="list-style-type:lower-alpha"}
     1. Click the **Assignments** tab.
     1. Click the **Groups** filter.
-    1. If the Everyone group is not assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
+    1. If the Everyone group isn’t assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
 1. Go to **Security > Profile Enrollment**, and edit the **Default Policy**.
-1. In the **Profile Enrollment** section, note that **Denied** is selected for **Self-service registration**. This setting removes the ability for self-registration for all apps assigned to the default policy.
-1. [Test your app](#test-your-app) and note that the **Sign-up** link does not appear under the Sign-In Widget.
+1. In the **Profile Enrollment** section, **Denied** is selected for **Self-service registration**. This setting removes the ability for self-registration for all apps assigned to the default policy.
+1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn’t appear under the Sign-In Widget.
 1. In the Admin Console, select **Back to all Profile Enrollment Policies** to return to the **Security > Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and create a name for the policy (for example, "App self-service registration").
 1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing purposes and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
-1. [Test your app](#test-your-app) again and note that **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a new user. Enter your first name, last name, and email address, and then click **Sign up**. Click **Set up** to add a new password. (Click **Set up later** for any other authenticators.) You're now logged into the app with the new user's profile.
+1. [Test your app](#test-your-app) again and note that **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user. Enter your first name, last name, and email address, and then click **Sign up**. Click **Set up** to add a new password. (Click **Set up later** for any other authenticators.) You're now logged into the app with the new user's profile.
 
 Based on other policy configurations, the self-service registration flow may be different or include other authenticators. See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-sign-in-flows).
 
-> **Note:** All new users through the self-registration process receive a Welcome email. This email activates user access to apps on your dev org and demonstrates ownership of the email authenticator.
+> **Note:** All new users through the self-registration process receive a welcome email. This email activates user access to apps on your dev org and demonstrates ownership of the email authenticator.
 
 ## Add MFA with a mandatory second factor
 
-By default, your dev org is not configured for multi-factor authentication. Follow the steps below to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
+By default, your dev org isn’t configured for multifactor authentication. Use the following steps to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
 
-1. Go to **Security > Authenticators** and ensure the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
+1. Go to **Security > Authenticators** and ensure that the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
 
    1. If it isn't listed, click **Add Authenticator**, and then click **Add** in the **Phone** tile.
    {style="list-style-type:lower-alpha"}
    1. For **User can verify with**, select **SMS**.
-   1. Set **This authenticator can  be used for** to **Authentication and recovery**, and click **Add**.
+   1. Set **This authenticator can be used for** to **Authentication and recovery**, and click **Add**.
 
 1. Go to **Security > Authentication policies**, click **Add a policy**.
 
@@ -223,7 +223,7 @@ By default, your dev org is not configured for multi-factor authentication. Foll
 
 1. In the **Catch-all Rule**, click **Edit** under the **Actions** dropdown menu.
 
-1. For **User must authenticate with** select **Password / IdP +  Another factor**. Ensure the **Possession factor constraints are** doesn't have the **Exclude phone and email authenticators** checkbox selected. Click **Save**.
+1. For the option **User must authenticate with**, select **Password / IdP +  Another factor**. Ensure that the **Possession factor constraints are** doesn't have the **Exclude phone and email authenticators** checkbox selected. Click **Save**.
 
 1. Go to **Applications > Applications** and select your app.
 
@@ -233,13 +233,13 @@ By default, your dev org is not configured for multi-factor authentication. Foll
 
 1. From the **Authentication policy** dropdown menu, select your new authentication policy, **Mandatory MFA**. Click **Save**.
 
-1. Test the new configurations by logging into your app. If your test user does not have a phone number enrolled, the user is prompted for the enrollment during the sign in. Any new users signing up also require the enrollment of the phone authenticator.
+1. Test the new configurations by logging into your app. If your test user doesn’t have a phone number enrolled, the user is prompted for the enrollment during the sign in. Any new users signing up also require the enrollment of the phone authenticator.
 
-After your users have enrolled in the phone authenticator, future sign ins require both a password and SMS code to access your app.
+After your users have enrolled in the phone authenticator, future sign-ins require both a password and SMS code to access your app.
 
 ## Enable password recovery with email magic link
 
-By default, the dev org is configured for a self-service user password reset. Review the steps below to understand the policy configurations and to enable your sample app users to self-recover their password through an email magic link.
+By default, the dev org is configured for a self-service password reset. Review the following steps to understand the policy configurations and to enable your sample app users to self-recover their password through an email magic link.
 
 1. Go to **Security > Authenticators** and ensure the email authenticator is available in the **Authenticators** list on the **Setup** tab, and it's used for **Recovery**.
 
@@ -255,7 +255,7 @@ By default, the dev org is configured for a self-service user password reset. Re
 
 1. Ensure that **Email** is selected for the **Users can initiate recovery with** section.
 
-1. Click **Not required** for **Additional verification is** question, and then click **Update rule**.
+1. Click **Not required** for **additional verification is** question, and then click **Update rule**.
 
 1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications > Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **Authentication policy** dropdown menu, select **One factor access** and click **Save**.
 
