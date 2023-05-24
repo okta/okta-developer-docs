@@ -249,7 +249,7 @@ By default, the dev org is configured for a self-service password reset. Review 
 
 1. Go to **Security** > **Authenticators** and edit the **Password** authenticator by clicking **Actions** > **Edit**.
 
-1. Scroll to the bottom of the **Default Policy**, and edit the **Default Rule**.
+1. Scroll to the bottom of the **Default Policy** and edit the **Default Rule**.
 
 1. Ensure that **Password reset** is selected for the **Users can perform self-service** section.
 
