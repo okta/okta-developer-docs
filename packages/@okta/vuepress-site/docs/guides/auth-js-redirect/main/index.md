@@ -44,7 +44,7 @@ An Okta app integration represents your app in your Okta org. The integration co
 1. Enter the **Sign-out redirect URIs** for local development. For this sample, use `http://localhost:9000`.
 1. Enter the **Base URIs** for the trusted origin. For this sample, use `http://localhost:9000`. See [Trusted Origins](#about-trusted-origins).
 1. In the **Assignments** section, define the type of **Controlled access** for your app. Select **Allow everyone in your organization to access**. See [Assign app integrations](https://help.okta.com/okta_help.htm?type=oie&id=ext-lcm-user-app-assign).
-1. Ensure to clear the checkbox **Enable immediate access with Federation Broker Mode**.
+1. Clear the **Enable immediate access with Federation Broker Mode** checkbox .
 1. Click **Save** to create the app integration. The configuration pane for the integration opens after it's saved. Keep this pane open as you need to copy the **Client ID** and your org domain name when configuring your app.
 
 ### About Trusted Origins
