@@ -257,7 +257,7 @@ By default, the dev org is configured for a self-service password reset. Review 
 
 1. Click **Not required** for the **additional verification is** question, and then click **Update rule**.
 
-1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications > Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **Authentication policy** dropdown menu, select **One factor access** and click **Save**.
+1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications** > **Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **Authentication policy** dropdown menu, select **One factor access** and click **Save**.
 
 Test the new configurations by recovering a password for a user of your sample app:
 
