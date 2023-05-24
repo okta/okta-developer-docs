@@ -194,7 +194,7 @@ By default, self-service registration isn’t enabled for all apps. Use the foll
     1. Click the **Assignments** tab.
     1. Click the **Groups** filter.
     1. If the Everyone group isn’t assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
-1. Go to **Security > Profile Enrollment**, and edit the **Default Policy**.
+1. Go to **Security** > **Profile Enrollment** and edit the **Default Policy**.
 1. In the **Profile Enrollment** section, **Denied** is selected for **Self-service registration**. This setting removes the ability for self-registration for all apps assigned to the default policy.
 1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn’t appear under the Sign-In Widget.
 1. In the Admin Console, select **Back to all Profile Enrollment Policies** to return to the **Security > Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and create a name for the policy (for example, "App self-service registration").
