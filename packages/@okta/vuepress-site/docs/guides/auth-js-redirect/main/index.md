@@ -228,7 +228,7 @@ By default, your dev org isn’t configured for multifactor authentication. Use 
 
 1. For the option **User must authenticate with**, select **Password / IdP +  Another factor**. Ensure that the **Possession factor constraints are** doesn't have the **Exclude phone and email authenticators** checkbox selected. Click **Save**.
 
-1. Go to **Applications > Applications** and select your app.
+1. Go to **Applications** > **Applications** and select your app.
 
 1. Click the **Sign On** tab
 
