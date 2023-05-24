@@ -16,11 +16,11 @@ title: Okta Identity Engine API Products release notes 2023
 
 #### MyAccount API password update and 2FA support is EA in Preview
 
-You can now use the [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/) to update passwords. Previously, you could only update non-authenticator attributes like first name or last name with the API. Also, we enforce 2FA for users that enroll any factor using the API.
+You can now use the [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/) to update passwords. Previously, you could only update non-authenticator attributes like first name or last name with the API. Also, we enforce 2FA for users that enroll any factor using the API. <!-- OKTA-612157 FF: IDP_MY_ACCOUNT_API_PASSWORD & IDP_MY_ACCOUNT_2FA_IF_POSSIBLE -->
 
 #### AMR Claims Mapping for IdPs is EA in Preview
 
-This feature allows admins to configure their org to accept Authentication Method Reference (AMR) claims from SAML or OpenID Connect IdPs during SSO. Mapping AMR claims for third-party IdPs eliminates duplicate factor challenges during user authentication. AMR claims provide important context to Okta during policy evaluation, enabling a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reducing friction, and boosting productivity. See [Add an external Identity Provider](/docs/guides/add-an-external-idp/oktatookta/main/#create-an-identity-provider-in-okta).
+This feature allows admins to configure their org to accept Authentication Method Reference (AMR) claims from SAML or OpenID Connect IdPs during SSO. Mapping AMR claims for third-party IdPs eliminates duplicate factor challenges during user authentication. AMR claims provide important context to Okta during policy evaluation, enabling a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reducing friction, and boosting productivity. See [Add an external Identity Provider](/docs/guides/add-an-external-idp/oktatookta/main/#create-an-identity-provider-in-okta). <!-- OKTA-612157 FF: IDP_AMR_CLAIMS_MAPPING -->
 
 #### Bugs fixed in 2023.05.2
 
