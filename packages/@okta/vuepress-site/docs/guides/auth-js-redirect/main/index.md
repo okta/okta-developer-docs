@@ -244,7 +244,7 @@ After your users have enrolled in the phone authenticator, future user sign-in f
 
 By default, the dev org is configured for a self-service password reset. Review the following steps to understand the policy configurations and to enable your sample app users to self-recover their password through an email magic link.
 
-1. Go to **Security > Authenticators** and ensure the email authenticator is available in the **Authenticators** list on the **Setup** tab, and it's used for **Recovery**.
+1. Go to **Security** > **Authenticators** and ensure that the email authenticator is available in the **Authenticators** list on the **Setup** tab, and that it's used for **Recovery**.
 
    1. If it isn't listed, click **Add Authenticator**, and then click **Add** in the **Email** tile.
    {style="list-style-type:lower-alpha"}
