@@ -220,7 +220,7 @@ By default, your dev org isn’t configured for multifactor authentication. Use 
    1. For **User can verify with**, select **SMS**.
    1. Set **This authenticator can be used for** to **Authentication and recovery**, and click **Add**.
 
-1. Go to **Security > Authentication policies**, click **Add a policy**.
+1. Go to **Security** > **Authentication policies**, click **Add a policy**.
 
 1. Add a name for the policy. For example, **Mandatory MFA**
 
