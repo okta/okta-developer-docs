@@ -189,7 +189,7 @@ By default, self-service registration isn’t enabled for all apps. Use the foll
 
 1. Ensure that your app is assigned to the Everyone group:
 
-    1. Go to **Applications > Applications** and select your app.
+    1. Go to **Applications** > **Applications** and select your app.
     {style="list-style-type:lower-alpha"}
     1. Click the **Assignments** tab.
     1. Click the **Groups** filter.
