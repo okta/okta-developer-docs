@@ -247,7 +247,7 @@ By default, the dev org is configured for a self-service password reset. Review 
    {style="list-style-type:lower-alpha"}
    1. Set **This authenticator can  be used for** to **Recovery**, and click **Add**.
 
-1. Go to **Security > Authenticators** and edit the **Password** authenticator, by clicking **Actions > Edit**.
+1. Go to **Security** > **Authenticators** and edit the **Password** authenticator by clicking **Actions** > **Edit**.
 
 1. Scroll to the bottom of the **Default Policy**, and edit the **Default Rule**.
 
