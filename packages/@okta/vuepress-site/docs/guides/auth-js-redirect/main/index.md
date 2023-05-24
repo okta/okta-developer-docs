@@ -213,7 +213,7 @@ Based on other policy configurations, the self-service registration flow may be 
 
 By default, your dev org isn’t configured for multifactor authentication. Use the following steps to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
 
-1. Go to **Security > Authenticators** and ensure that the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
+1. Go to **Security** > **Authenticators** and ensure that the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
 
    1. If it isn't listed, click **Add Authenticator**, and then click **Add** in the **Phone** tile.
    {style="list-style-type:lower-alpha"}
