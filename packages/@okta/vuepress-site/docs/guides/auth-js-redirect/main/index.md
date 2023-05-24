@@ -200,8 +200,9 @@ By default, self-service registration isn’t enabled for all apps. Use the foll
 1. In the Admin Console, select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and then create a name for the policy (for example, "App self-service registration").
 1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
-1. [Test your app](#test-your-app) again and note that **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user.
+1. [Test your app](#test-your-app) again and note that the text **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user.
     1. Enter your first name, last name, and email address and click **Sign up**.
+    {style="list-style-type:lower-alpha"}
     1. Click **Set up** to add a new password. (Click **Set up later** for any other authenticators.)
     You're now logged into the app with the new user's profile.
 
@@ -276,7 +277,7 @@ Test the new configurations by recovering a password for a user of your sample a
 
 1. In the body of the email, click the **Reset Password** link.
 
-1. On the **Reset your Okta password** widget, create and verify a new password. Click **Reset Password**. Your test user is now signed in to your sample app with a new password.
+1. Create and verify a new password. Click **Reset Password**. Your test user is now signed in to your sample app with a new password.
 
 See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr).
 
