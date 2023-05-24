@@ -248,7 +248,7 @@ By default, the dev org is configured for a self-service password reset. Review 
 
    1. If it isn't listed, click **Add Authenticator**, and then click **Add** in the **Email** tile.
    {style="list-style-type:lower-alpha"}
-   1. Set **This authenticator can  be used for** to **Recovery**, and click **Add**.
+   1. Set **This authenticator can be used for** to **Recovery**, and click **Add**.
 
 1. Go to **Security** > **Authenticators** and edit the **Password** authenticator by clicking **Actions** > **Edit**.
 
