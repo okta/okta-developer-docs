@@ -96,13 +96,13 @@ Include this script in your target HTML page (`index.html`) by including the fol
 
 ### Add JavaScript to initialize the SDK
 
-In the same `index.html` file, add the following JavaScript code after the Auth JS SDK reference:
+In the same `index.html` file, add the following JavaScript code after the Auth JS SDK reference. Ensure you update the `baseOktaURL` from your org and the `appClientID` value available from the previous [Create an Okta app integration](#create-an-okta-app-integration) procedure.
 
 ```html
 <script type="text/javascript">
 
 // UPDATE THESE FOR YOUR OKTA TENANT
-var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://example.oktapreview.com
+var baseOktaURL = "https:${yourOKtaDomain}"; //For example, https://dev-08607539.okta.com
 var appClientID = "${yourClientID}"; // For example, 0oa73hm5sh9jf6s5e1d6
 
 // Bootstrap the AuthJS Client
@@ -169,7 +169,7 @@ You can now run your app by using a local web server. For example, with a macOS,
 python3 -m http.server 9000
 ```
 
-Go to `http://localhost:9000`. The sample app starts the redirect flow when the page opens.
+Open a private or incognito browser, and go to `http://localhost:9000` or the port for your local web server. The sample app starts the redirect flow when the page opens, and the Sign-In Widget for your org appears. Sign in with a user assigned to your app, and with a successful authentication, your app's `index.html` page displays the ID token for the signed-in user.
 
 ### Troubleshoot your app
 
@@ -179,6 +179,7 @@ If your app isn't working, ensure that:
 * Your client ID is accurate from your Okta app integration.
 * Your `redirectUri` is accurate or the web server port number is correct.
 * You've enabled a Trusted Origin for `http://localhost:9000`. See [About Trusted Origins](#about-trusted-origins).
+* If your app is bypassing the SIW, your user is already signed-in. Use a new private or incognito browser window or optionally set the Authentication Policy for your app to always sign in. That is, **Re-authentication frequency is** set to **Every sign-in attempt**.
 
 ## Enable self-service registration
 
@@ -195,13 +196,15 @@ By default, self-service enrollment is not enabled for all apps. Follow the step
     1. If the Everyone group is not assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
 1. Go to **Security > Profile Enrollment**, and edit the **Default Policy**.
 1. In the **Profile Enrollment** section, note that **Denied** is selected for **Self-service registration**. This setting removes the ability for self-registration for all apps assigned to the default policy.
-1. [Test your app](#test-your-app) and note that the Sign-up link does not appear on the sign-in page.
-1. In the Admin Console, return to the **Security > Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and create a name for the policy (for example, "App self-service registration").
-1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing purposes, clear the **Email verification** checkbox. Click **Save**.
+1. [Test your app](#test-your-app) and note that the **Sign-up** link does not appear under the Sign-In Widget.
+1. In the Admin Console, select **Back to all Profile Enrollment Policies** to return to the **Security > Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and create a name for the policy (for example, "App self-service registration").
+1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing purposes and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
-1. [Test your app](#test-your-app) again and note that the **Sign up** link now appears for your app. Click the link to add a new user. Enter your first name, last name, and email address, and then click **Set up** to add a new password. (Click **Set up later** for any other authenticators.) You're now logged into the app with the new user's profile.
+1. [Test your app](#test-your-app) again and note that **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a new user. Enter your first name, last name, and email address, and then click **Sign up**. Click **Set up** to add a new password. (Click **Set up later** for any other authenticators.) You're now logged into the app with the new user's profile.
 
 Based on other policy configurations, the self-service registration flow may be different or include other authenticators. See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-sign-in-flows).
+
+> **Note:** All new users through the self-registration process receive a Welcome email. This email activates user access to apps on your dev org and demonstrates ownership of the email authenticator.
 
 ## Add MFA with a mandatory second factor
 
