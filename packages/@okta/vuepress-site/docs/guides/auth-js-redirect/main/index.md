@@ -236,7 +236,7 @@ By default, your dev org isn’t configured for multifactor authentication. Use 
 
 1. From the **Authentication policy** dropdown menu, select your new authentication policy, **Mandatory MFA**. Click **Save**.
 
-1. Test the new configurations by logging into your app. If your test user doesn’t have a phone number enrolled, the user is prompted for the enrollment during the sign in. Any new users signing up also require the enrollment of the phone authenticator.
+1. Test the new configurations by signing into your app. If your test user doesn’t have a phone number enrolled, the user is prompted for the enrollment during the sign in. Any new users signing up also require the enrollment of the phone authenticator.
 
 After your users have enrolled in the phone authenticator, future sign-ins require both a password and SMS code to access your app.
 
