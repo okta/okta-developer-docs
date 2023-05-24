@@ -16,7 +16,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 #### MyAccount API password update and 2FA support is EA in Preview
 
-You can now use the [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/) to update passwords. Previously, you could only update non-authenticator attributes like first name or last name with the API. Also, Okta enforces 2FA for users that enroll any factor using the API. <!-- OKTA-612157 FF: IDP_MY_ACCOUNT_API_PASSWORD & IDP_MY_ACCOUNT_2FA_IF_POSSIBLE -->
+You can now use the [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/) to update passwords. Previously, you could only update non-authenticator attributes like first name or last name with the API. Also, Okta enforces 2FA for users that enroll any factor using the API. <!-- OKTA-612157 FF: IDP_MY_ACCOUNT_API_PASSWORD & IDP_MY_ACCOUNT_2FA_IF_POSSIBLE -->
 
 #### AMR Claims Mapping for IdPs is EA in Preview
 
