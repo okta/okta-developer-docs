@@ -169,7 +169,7 @@ You can now run your app by using a local web server. For example, with a macOS,
 python3 -m http.server 9000
 ```
 
-Open a private or incognito browser, and go to `http://localhost:9000` or the port for your local web server. The sample app starts the redirect flow when the page opens, and the Sign-In Widget for your org appears. Sign in with a user assigned to your app, and with a successful authentication, your app's `index.html` page displays the ID token for the signed-in user.
+Open a private or incognito browser window and go to `http://localhost:9000` or the port for your local web server. The sample app starts the redirect flow when the page opens, and the Sign-In Widget for your org appears. Sign in with a user assigned to your app, and with a successful authentication, your app's `index.html` page displays the ID token for the signed-in user.
 
 ### Troubleshoot your app
 
