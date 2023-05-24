@@ -208,7 +208,7 @@ Based on other policy configurations, the self-service registration flow may be 
 
 ## Add MFA with a mandatory second factor
 
-By default, your dev org has is not configured for multi-factor authentication. Follow the steps below to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
+By default, your dev org is not configured for multi-factor authentication. Follow the steps below to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
 
 1. Go to **Security > Authenticators** and ensure the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
 
@@ -223,7 +223,7 @@ By default, your dev org has is not configured for multi-factor authentication. 
 
 1. In the **Catch-all Rule**, click **Edit** under the **Actions** dropdown menu.
 
-1. For **User must authenticate with** select **Password / IdP +  Another factor**. Ensure the **Possession factor constraints are** doesn't have the **Exclude phone and email authenticators** checkbox selected.
+1. For **User must authenticate with** select **Password / IdP +  Another factor**. Ensure the **Possession factor constraints are** doesn't have the **Exclude phone and email authenticators** checkbox selected. Click **Save**.
 
 1. Go to **Applications > Applications** and select your app.
 
@@ -235,9 +235,11 @@ By default, your dev org has is not configured for multi-factor authentication. 
 
 1. Test the new configurations by logging into your app. If your test user does not have a phone number enrolled, the user is prompted for the enrollment during the sign in. Any new users signing up also require the enrollment of the phone authenticator.
 
+After your users have enrolled in the phone authenticator, future sign ins require both a password and SMS code to access your app.
+
 ## Enable password recovery with email magic link
 
-By default, the dev org is configured for a user request to an admin to reset a password. Follow the steps below to understand the policy configurations and to enable your sample app users to self-recover their password through an email magic link.
+By default, the dev org is configured for a self-service user password reset. Review the steps below to understand the policy configurations and to enable your sample app users to self-recover their password through an email magic link.
 
 1. Go to **Security > Authenticators** and ensure the email authenticator is available in the **Authenticators** list on the **Setup** tab, and it's used for **Recovery**.
 
@@ -255,11 +257,11 @@ By default, the dev org is configured for a user request to an admin to reset a 
 
 1. Click **Not required** for **Additional verification is** question, and then click **Update rule**.
 
-1. For ease of testing, go to **Applications > Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **Authentication policy** dropdown menu, select **One factor access** and click **Save**.
+1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications > Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **Authentication policy** dropdown menu, select **One factor access** and click **Save**.
 
 Test the new configurations by recovering a password for a user of your sample app:
 
-1. Start your app. On the Okta Sign-In Widget, click the **Forgot password?** link.
+1. Start your app. On the Sign-In Widget, click the **Forgot password?** link.
 
 1. Add the email address for your test user.
 
