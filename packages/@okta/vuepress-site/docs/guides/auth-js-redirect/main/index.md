@@ -198,7 +198,7 @@ By default, self-service registration isn’t enabled for all apps. Use the foll
 1. In the **Profile Enrollment** section, **Denied** is selected for **Self-service registration**. This setting removes the self-registration option for all apps assigned to the default policy.
 1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn’t appear under the Sign-In Widget.
 1. In the Admin Console, select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and then create a name for the policy (for example, "App self-service registration").
-1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing purposes and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
+1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
 1. [Test your app](#test-your-app) again and note that **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user. Enter your first name, last name, and email address, and then click **Sign up**. Click **Set up** to add a new password. (Click **Set up later** for any other authenticators.) You're now logged into the app with the new user's profile.
 
