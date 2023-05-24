@@ -96,7 +96,7 @@ Include this script in your target HTML page (`index.html`) by including the fol
 
 ### Add JavaScript to initialize the SDK
 
-In the same `index.html` file, add the following JavaScript code after the Auth JS SDK reference. Ensure you update the `baseOktaURL` from your org and the `appClientID` value available from the previous procedure, [Create an Okta app integration](#create-an-okta-app-integration).
+In the same `index.html` file, add the following JavaScript code after the Auth JS SDK reference. Update the `baseOktaURL` to your org and the `appClientID` to the client ID from the [Create an Okta app integration](#create-an-okta-app-integration) section.
 
 ```html
 <script type="text/javascript">
