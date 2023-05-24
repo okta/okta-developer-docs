@@ -230,7 +230,7 @@ By default, your dev org isn’t configured for multifactor authentication. Use 
 
 1. Go to **Applications** > **Applications** and select your app.
 
-1. Click the **Sign On** tab
+1. Click the **Sign On** tab.
 
 1. Scroll down to the **User authentication** section and click **Edit**.
 
