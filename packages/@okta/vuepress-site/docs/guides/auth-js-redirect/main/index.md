@@ -255,7 +255,7 @@ By default, the dev org is configured for a self-service password reset. Review 
 
 1. Ensure that **Email** is selected for the **Users can initiate recovery with** section.
 
-1. Click **Not required** for **additional verification is** question, and then click **Update rule**.
+1. Click **Not required** for the **additional verification is** question, and then click **Update rule**.
 
 1. If you previously set the sign-on policy for your app as Mandatory MFA, go to **Applications > Applications** and select your app. Click the **Sign On** tab and scroll down to the **User authentication** section and click **Edit**. From the **Authentication policy** dropdown menu, select **One factor access** and click **Save**.
 
