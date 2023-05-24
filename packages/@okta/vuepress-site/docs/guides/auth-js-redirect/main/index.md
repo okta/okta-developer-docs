@@ -200,7 +200,10 @@ By default, self-service registration isn’t enabled for all apps. Use the foll
 1. In the Admin Console, select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and then create a name for the policy (for example, "App self-service registration").
 1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
-1. [Test your app](#test-your-app) again and note that **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user. Enter your first name, last name, and email address, and then click **Sign up**. Click **Set up** to add a new password. (Click **Set up later** for any other authenticators.) You're now logged into the app with the new user's profile.
+1. [Test your app](#test-your-app) again and note that **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user.
+    1. Enter your first name, last name, and email address and click **Sign up**.
+    1. Click **Set up** to add a new password. (Click **Set up later** for any other authenticators.)
+    You're now logged into the app with the new user's profile.
 
 Based on other policy configurations, the self-service registration flow may be different or include other authenticators. See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-sign-in-flows).
 
