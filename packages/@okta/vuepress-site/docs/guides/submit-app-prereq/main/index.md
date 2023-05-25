@@ -237,8 +237,8 @@ They are able to access the app through the Okta service.
 
 ### Backup URL
 
-[AppName] doesn't provide a backup sign-in URL where users can sign in using their regular username and password.
-If necessary, contact [AppName] Support (support@[AppName].com) to turn off SAML.
+{appName} doesn't provide a backup sign-in URL where users can sign in using their regular username and password.
+If necessary, contact {appName} Support (support@{appName}.com) to turn off SAML.
 ```
 
 ##### SAML configuration steps example
@@ -249,7 +249,7 @@ The following is an example of a simple SAML customer procedure:
 ## Configuration steps
 
 1. Copy the Metadata URL from the Okta Admin Console, SAML 2.0 Sign on methods section.
-2. Contact the {appName} support team (for example, support@example.com) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
+2. Contact the {appName} support team (for example, support@{appName}.com) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
    The {appName} support team processes your request and provides you with an SSO ID and an encryption certificate.
 3. In your Okta Admin Console, select the Sign on tab for the {appName} SAML app, then click "Edit" and follow the steps below:
    * "Encryption Certificate": Upload the certificate provided by {appName} support in the previous step.
