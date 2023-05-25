@@ -1,9 +1,11 @@
-Access the external SAML Identity Provider that you want to integrate with and gather the following information for use in configuring the SAML Identity Provider in Okta in the next step. Make sure that the SAML Identity Provider supports Service Provider-initiated SAML.
+Access the external SAML Identity Provider (IdP) you want to integrate with and gather the following information. You use this information to configure the SAML Identity Provider in Okta in the next step. Make sure the SAML IdP supports Service Provider-initiated SAML.
 
-> **Note:** If you need a quick and easy SAML Identity Provider to use for testing purposes, you can try using this [SAML Identity Provider on GitHub](https://github.com/mcguinness/saml-idp).
+> **Note:** If you need a quick and easy SAML IdP to use for testing purposes, you can try using this [SAML Identity Provider on GitHub](https://github.com/mcguinness/saml-idp).
 
 Sometimes the Issuer, Single Sign-On URL, and Certificate aren't available from the external IdP until the metadata (the Assertion Consumer Service URL (ACS URL) and Audience URI) is uploaded to the external IdP. And, the ACS URL and Audience URI values aren't available until the IdP in Okta is configured. If that is the case with your external IdP, continue to the next step.
 
-* **IdP Issuer URI**: The issuer URI of the Identity Provider. This value is usually the SAML Metadata `entityID` of the Identity Provider `EntityDescriptor`.
-* **IdP Single Sign-On URL**: The binding specific Identity Provider authentication request protocol endpoint that receives SAML AuthN Request messages from Okta.
+* **IdP Issuer URI**: The issuer URI of the IdP. This value is usually the SAML Metadata `entityID` of the IdP `EntityDescriptor`.
+* **IdP Single Sign-On URL**: The binding specific IdP authentication request protocol endpoint that receives SAML AuthN Request messages from Okta.
 * **IdP Signature Certificate**: The PEM or DER encoded public key certificate of the Identity Provider used to verify SAML message and assertion signatures.
+
+> **Note:** When you add the attribute statement for the client app at the SAML IdP, be sure to add `session.amr` as an attribute and `session.amr` as the value. This allows Okta to accept Authentication Method Reference (AMR) claims sent in the SAML IdP response. <ApiLifecycle access="ea" />
