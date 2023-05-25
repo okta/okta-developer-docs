@@ -222,7 +222,7 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 This section helps you define how your customers get set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
 
-> **Note:** If you configure Okta as a Big Bang Service Provider, you need to provide a warning note to your customer. See [SAML configuration warning example](#saml-configuration-warning-example).
+> **Note:** If your Service Provider is configured as a "Big Bang", you need to provide a warning note to your customer. See [SAML configuration warning example](#saml-configuration-warning-example).
 
 ##### SAML configuration warning example
 
