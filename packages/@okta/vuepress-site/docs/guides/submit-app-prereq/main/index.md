@@ -222,6 +222,25 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 This section helps you define how your customers get set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
 
+> **Note:** If you configure Okta as a Big Bang Service Provider, you need to provide a warning note to your customer. See [SAML configuration warning example](#saml-configuration-warning-example).
+
+##### SAML configuration warning example
+
+If you only allow sign-in through Okta (Big Bang configuration), ensure that you provide a warning note before the configuration steps. For example:
+
+```markdown
+### Read this before you enable SAML
+
+Enabling SAML affects all users who use this application.
+Users won't be able to sign in through their regular sign-in page.
+They are able to access the app through the Okta service.
+
+### Backup URL
+
+[AppName] doesn't provide a backup sign-in URL where users can sign in using their regular username and password.
+If necessary, contact [AppName] Support (support@[AppName].com) to turn off SAML.
+```
+
 ##### SAML configuration steps example
 
 The following is an example of a simple SAML customer procedure:
