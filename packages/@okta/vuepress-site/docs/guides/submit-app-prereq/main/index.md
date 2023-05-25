@@ -294,6 +294,8 @@ For a complete customer admin configuration guide example, see [How to Configure
 
 * Ensure that you entered the correct value in the "Subdomain" field under the General tab. The wrong subdomain value prevents you from authenticating through SAML to {appName}.
 
+* Since only SP-initiated flow is supported, Okta recommends hiding the application icon for users.
+
 * The following SAML attributes are supported:
 
    | Name      | Value          |
