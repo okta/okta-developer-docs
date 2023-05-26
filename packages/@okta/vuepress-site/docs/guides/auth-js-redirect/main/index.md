@@ -201,14 +201,14 @@ By default, self-service registration isn’t enabled for all apps. Use the foll
 1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
 1. [Test your app](#test-your-app) again and note that the text **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user.
-    1. Enter your first name, last name, and email address and click **Sign up**.
+    1. Enter a first name, last name, and email address and click **Sign up**.
     {style="list-style-type:lower-alpha"}
     1. Click **Set up** to add a new password. (Click **Set up later** for any other authenticators.)
     You're now logged into the app with the new user's profile.
 
 Based on other policy configurations, the self-service registration flow may be different or include other authenticators. See [Sign-in flows](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-sign-in-flows).
 
-> **Note:** All new users through the self-registration process receive a welcome email. This email activates user access to apps on your dev org and demonstrates ownership of the email authenticator.
+> **Note:** All new users through the self-registration process receive a welcome email. This email activates user access to apps on your dev org and demonstrates ownership of the email authenticator. If you complete this process, ensure you're in the same browser window as the application sign-in tab.
 
 ## Add MFA with a mandatory second factor
 
@@ -237,7 +237,7 @@ By default, your dev org isn’t configured for multifactor authentication. Use 
 
 1. From the **Authentication policy** dropdown menu, select your new authentication policy, **Mandatory MFA**. Click **Save**.
 
-1. Test the new configurations by signing into your app. If your test user doesn’t have a phone number enrolled, the user is prompted for the enrollment during the sign in. Any new users signing up also require the enrollment of the phone authenticator.
+1. Test the new configurations by signing into your app. If your test user doesn’t have a phone number enrolled, the user is prompted for the enrollment during the sign in. Enroll the test user, add the SMS code, and the user is signed-in to your sample app.
 
 After your users have enrolled in the phone authenticator, future user sign-in flows require both a password and SMS code to access your app.
 
