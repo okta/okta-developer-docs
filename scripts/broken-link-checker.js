@@ -16,6 +16,10 @@ const server = http.createServer((request, response) => {
 });
 
 var options = {
+  cacheResponses: false,
+  filterLevel: 0,
+  excludeLinksToSamePage: true,
+  maxSocketsPerHost: 1,
   excludedKeywords: [
     "*.xml",
     "*.yml",
@@ -55,11 +59,12 @@ var customData = {
   pageBrokenCount: 0,
   totalLinkCount: 0,
   totalExcludedCount: 0,
-  totalBrokenCount: 0
+  totalBrokenCount: 0,
 };
 
 function summarizeBrokenLinks(customData) {
   var brokenLinkMap = new Map();
+  var pageLinkMap;
   for (const result of customData.brokenLinks) {
     var linkUrl;
     var pageUrl;
@@ -70,7 +75,6 @@ function summarizeBrokenLinks(customData) {
       linkUrl = result.url.resolved;
       pageUrl = result.base.resolved;
     }
-    var pageLinkMap;
     if (!brokenLinkMap.has(linkUrl)) {
       pageLinkMap = new Map();
       pageLinkMap.set(pageUrl, 1);
@@ -102,14 +106,14 @@ var siteChecker = new blc.SiteChecker(options, {
     if (customData.firstLink) {
       customData.firstLink = false;
     }
-    if (result.broken) {
+    if (result.broken === true) {
       customData.brokenLinks.push(result);
       customData.pageBrokenCount++;
     } else if (result.excluded) {
       customData.pageExcludedCount++;
     } else {
-      //good link
       if (customData.outputGoodLinks) {
+        //good link
       }
     }
     customData.pageLinkCount++;
@@ -163,4 +167,5 @@ server.listen(8080, () => {
   console.log('Running at http://localhost:8080');
 });
 
+siteChecker.clearCache();
 siteChecker.enqueue(siteUrl, customData);
