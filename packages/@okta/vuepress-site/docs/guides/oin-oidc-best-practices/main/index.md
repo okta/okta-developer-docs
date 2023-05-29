@@ -4,6 +4,8 @@ excerpt: OIN integration best practices, including logos and rate limits.
 layout: Guides
 ---
 
+<ApiLifecycle access="deprecated" />
+
 This guide covers some OIN integration best practices, including logos and rate limits.
 
 ## Software development kits

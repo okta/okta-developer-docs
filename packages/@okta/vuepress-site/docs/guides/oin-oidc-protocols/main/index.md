@@ -4,6 +4,8 @@ excerpt: The protocol requirements for OIDC-based OIN applications
 layout: Guides
 ---
 
+<ApiLifecycle access="deprecated" />
+
 This guide provides background information on the protocol requirements for OIDC-based OIN applications.
 
 ## Authorization Code flow

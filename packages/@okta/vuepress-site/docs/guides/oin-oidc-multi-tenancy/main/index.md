@@ -4,6 +4,8 @@ excerpt: The concept of multi-tenancy as it relates to Okta and OIN applications
 layout: Guides
 ---
 
+<ApiLifecycle access="deprecated" />
+
 This guide explains the concept of multi-tenancy as it relates to Okta and OIN applications.
 
 ## Tenants in Okta

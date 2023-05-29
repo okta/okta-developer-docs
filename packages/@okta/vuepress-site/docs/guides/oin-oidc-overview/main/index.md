@@ -3,6 +3,7 @@ title: OIDC and the OIN - A developer primer
 excerpt: How to create OIDC app integrations to work with the Okta Integration Network
 layout: Guides
 ---
+<ApiLifecycle access="deprecated" />
 
 This guide series provides a background primer for developers on how to create OpenID Connect (OIDC) applications specifically intended for publication in the Okta Integration Network (OIN).
 
