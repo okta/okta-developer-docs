@@ -25,4 +25,4 @@ Before you create a new OIDC integration in Okta:
 1. Determine the sign-in redirect URIs on your system. A redirect URI is where Okta sends the authentication response and ID token during the sign-in flow. You can specify more than one URI if required.
 1. Your application must support automatic credential rotation. For more information, see [Key rotation](/docs/reference/api/oidc/#key-rotation).
 
-> **Note:** The Okta SDKs can't be used for OIN app integration development if you need to validate access tokens. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
+> **Note:** The Okta SDKs can't be used for OIN app integration development if you need to validate access tokens with the org authorization server. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
