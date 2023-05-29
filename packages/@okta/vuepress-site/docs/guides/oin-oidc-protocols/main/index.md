@@ -147,4 +147,4 @@ For more information, see [key rotation](/docs/concepts/key-rotation/) or the `/
 
 ## Next steps
 
-Now that you understand the protocol-level requirements of OIN integrations, the next stage is to read up on [Multi-tenancy](/docs/guides/oin-oidc-multi-tenancy/) as it relates to OIDC and the OIN.
+Now that you understand the protocol-level requirements of OIN integrations, the next stage is to read up on [Multi-tenancy](/docs/guides/oin-sso-overview/#oidc-multi-tenancy-in-the-oin) as it relates to OIDC and the OIN.

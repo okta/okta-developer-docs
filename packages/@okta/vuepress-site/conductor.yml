@@ -4690,7 +4690,7 @@ redirects:
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements
     to: /docs/guides/oin-oidc-protocols/main/
   - from: /docs/guides/oin-oidc-guide/multi-tenancy
-    to: /docs/guides/oin-oidc-multi-tenancy/main/
+    to: /docs/guides/oin-sso-overview/#oidc-multi-tenancy-in-the-oin
   - from: /docs/guides/oin-oidc-guide/integration-best-practices
     to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/next-steps
@@ -4702,7 +4702,7 @@ redirects:
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements/index.html
     to: /docs/guides/oin-oidc-protocols/main/
   - from: /docs/guides/oin-oidc-guide/multi-tenancy/index.html
-    to: /docs/guides/oin-oidc-multi-tenancy/main/
+    to: /docs/guides/oin-sso-overview/#oidc-multi-tenancy-in-the-oin
   - from: /docs/guides/oin-oidc-guide/integration-best-practices/index.html
     to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/next-steps/index.html
@@ -4713,6 +4713,10 @@ redirects:
     to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-best-practices/main/#rate-restrictions
     to: /docs/guides/build-sso-integration/openidconnect/main/#rate-limit-considerations
+  - from: /docs/guides/oin-oidc-multi-tenancy/main
+    to: /docs/guides/oin-sso-overview/#oidc-multi-tenancy-in-the-oin
+  - from: /docs/guides/oin-oidc-multi-tenancy/main/index.html
+    to: /docs/guides/oin-sso-overview/#oidc-multi-tenancy-in-the-oin
   - from: /docs/guides/third-party-risk-integration/overview
     to: /docs/guides/third-party-risk-integration/
   - from: /docs/guides/third-party-risk-integration/overview/index.html

@@ -626,11 +626,7 @@ export const guides = [
               {
                 title: "Protocol requirements",
                 path: "/docs/guides/oin-oidc-protocols/main/",
-              },
-              {
-                title: "Multi-tenancy",
-                path: "/docs/guides/oin-oidc-multi-tenancy/main/",
-              },
+              }
             ],
           },
           {

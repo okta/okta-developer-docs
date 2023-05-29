@@ -29,22 +29,22 @@ Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) an
 | **Description** | [OpenID Connect](/docs/concepts/oauth-openid/#openid-connect) extends the OAuth 2.0 protocol to provide an ID token that can be used to verify a user’s identity and sign them into a cloud-based application. It's quickly becoming the new standard for SSO. | [Security Assertion Markup Language (SAML)](/docs/concepts/saml) is a traditional enterprise protocol for SSO in web applications. Okta supports SAML 2.0. |
 | **Benefits** | <ul><li>Newer protocol with widespread and growing use</li> <li>Best Okta customer configuration experience</li> <li>Ideal for mobile and cloud applications</li> </ul> | <ul><li>Many people are familiar with SAML because it's an older protocol</li> <li>Widely used federation protocol for SSO in Web applications</li> <li>Many SaaS providers support SAML integration to grant SSO access to end users</li></ul>|
 | **Technology** | <ul><li>An identity layer on top of the [OAuth 2.0](https://oauth.net/2/) protocol</li> <li>Verifies end-user identity and obtains profile information</li> <li>Lightweight and REST-based</li></ul> |   <ul><li>XML-based messages</li> <li>Specification doesn’t have user consent, although it can be built into the flow</li> </ul> |
-| **Resources** | <ul><li>[OpenID Connect Foundation](https://openid.net/connect/)  </li></ul>| <ul><li>[SAML 2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) </li></ul> |
+| **Resources** | <ul><li>[OpenID Connect Foundation](https://openid.net/connect/)</li><li>[OIDC: multi-tenancy in the OIN](#oidc-multi-tenancy-in-the-oin)</li></ul>| <ul><li>[SAML 2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) </li></ul> |
 | **Get started** | <ul><li>[Build an Okta SSO integration with OIDC](/docs/guides/build-sso-integration/openidconnect/main/)  </li></ul>| <ul><li>[Build an Okta SSO integration with SAML](/docs/guides/build-sso-integration/saml2/main/) </li></ul> |
 
-## Multi-tenancy with OIDC and the OIN
+### OIDC: multi-tenancy in the OIN
 
-This section explains the concept of multi-tenancy as it relates to Okta and OIN applications.
+This section explains the concept of multi-tenancy as it relates to OIDC applications in the OIN.
 
-### Tenants in Okta
+#### Tenants in Okta
 
-Within Okta, the concept of a "tenant" is instantiated as an Okta "org". In terms of creating a user store, handling connections, and mapping profile information from Okta to your application, the org is the home for all of the user identity and access management. To provide OIDC SSO for your application, your Okta org is what you will be using to authenticate your users.
+Within Okta, the concept of a "tenant" is instantiated as an Okta "org". The org is the home for all user identity and access management, such as user store, handling connections, and mapping profile information. Your Okta org is used to authenticate your users for your application.
 
-You may be familiar with how identity works in Google Cloud products, where the user identity is established using their email address and that identity is globally unique across the entire identity namespace. By contrast, in Okta the unique identity concept is specific to just within the tenant used to authenticate and authorize. Your application must be coded so that it's aware of what tenant is being used to authenticate that user.
+In Google Cloud products, the user identity is globally unique across the entire identity namespace through their email address. By contrast, in Okta the unique identity concept is specific to just within the tenant used to authenticate and authorize. Your application must be coded so that it's aware of what tenant is being used to authenticate that user.
 
 As an example, `alice.doe@example.com` is a registered Okta user in both the Company1 and Company2 Okta tenants, accessed at `https://company1.okta.com` and `https://company2.okta.com`. Your application aims to provide different services for users, but specific to each tenant. You can't assume that the user information is identical for a given user across both tenants. Your application needs to manage user credentials to identify each unique combination of user and tenant.
 
-Okta orgs host their interfaces through individual subdomains and each org is assigned a separate URL. The typical org URL is the tenant name (the subdomain) followed by the domain name, however you can customize the domain name for your own domain and add individual aliases for each of your tenants. The process for specifying the variable app instance names in an OIDC application is explained in the [OIN Manager submission guide](/docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings).
+Okta orgs host their interfaces through individual subdomains and each org is assigned a separate URL. The typical org URL is the tenant name (the subdomain) followed by the domain name. However, you can customize the domain name for your own domain and add individual aliases for each of your tenants. The process for specifying the variable app instance names in an OIDC application is explained in the [Publish an OIN integration: OIDC settings](/docs/guides/submit-app/openidconnect/main/#configure-protocol-or-tool-specific-settings).
 
 ## Use case examples
 

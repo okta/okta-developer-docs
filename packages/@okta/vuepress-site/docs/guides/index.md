@@ -49,7 +49,6 @@ guides:
  - migrate-to-okta-password-hooks
  - mobile-idx-sdk-overview
  - oin-oidc-overview
- - oin-oidc-multi-tenancy
  - oin-oidc-protocols
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
