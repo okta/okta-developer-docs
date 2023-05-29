@@ -67,7 +67,7 @@ The error condition resolves itself when there's another concurrent thread avail
 
 You can request a temporary rate limit increase if you anticipate a large number of requests over a specified time period. Contact [Okta Support](mailto:support@okta.com) to open a ticket to permit the exception.
 
-> **Note:** The following public metadata endpoints aren't subjected to rate limiting.
+> **Note:** The following public metadata endpoints aren't subjected to rate limits:
 > * `/oauth2/v1/keys`
 > * `/.well-known/openid-configuration`
 > * `/.well-known/oauth-authorization-server`
