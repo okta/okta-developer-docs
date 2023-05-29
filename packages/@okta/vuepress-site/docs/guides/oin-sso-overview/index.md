@@ -32,6 +32,20 @@ Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) an
 | **Resources** | <ul><li>[OpenID Connect Foundation](https://openid.net/connect/)  </li></ul>| <ul><li>[SAML 2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) </li></ul> |
 | **Get started** | <ul><li>[Build an Okta SSO integration with OIDC](/docs/guides/build-sso-integration/openidconnect/main/)  </li></ul>| <ul><li>[Build an Okta SSO integration with SAML](/docs/guides/build-sso-integration/saml2/main/) </li></ul> |
 
+## Multi-tenancy with OIDC and the OIN
+
+This section explains the concept of multi-tenancy as it relates to Okta and OIN applications.
+
+### Tenants in Okta
+
+Within Okta, the concept of a "tenant" is instantiated as an Okta "org". In terms of creating a user store, handling connections, and mapping profile information from Okta to your application, the org is the home for all of the user identity and access management. To provide OIDC SSO for your application, your Okta org is what you will be using to authenticate your users.
+
+You may be familiar with how identity works in Google Cloud products, where the user identity is established using their email address and that identity is globally unique across the entire identity namespace. By contrast, in Okta the unique identity concept is specific to just within the tenant used to authenticate and authorize. Your application must be coded so that it's aware of what tenant is being used to authenticate that user.
+
+As an example, `alice.doe@example.com` is a registered Okta user in both the Company1 and Company2 Okta tenants, accessed at `https://company1.okta.com` and `https://company2.okta.com`. Your application aims to provide different services for users, but specific to each tenant. You can't assume that the user information is identical for a given user across both tenants. Your application needs to manage user credentials to identify each unique combination of user and tenant.
+
+Okta orgs host their interfaces through individual subdomains and each org is assigned a separate URL. The typical org URL is the tenant name (the subdomain) followed by the domain name, however you can customize the domain name for your own domain and add individual aliases for each of your tenants. The process for specifying the variable app instance names in an OIDC application is explained in the [OIN Manager submission guide](/docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings).
+
 ## Use case examples
 
 ### Example of a partner integration journey with Okta
