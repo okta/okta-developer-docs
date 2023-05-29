@@ -32,6 +32,8 @@ Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) an
 | **Resources** | <ul><li>[OpenID Connect Foundation](https://openid.net/connect/)</li><li>[OIDC: multi-tenancy in the OIN](#oidc-multi-tenancy-in-the-oin)</li></ul>| <ul><li>[SAML 2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) </li></ul> |
 | **Get started** | <ul><li>[Build an Okta SSO integration with OIDC](/docs/guides/build-sso-integration/openidconnect/main/)  </li></ul>| <ul><li>[Build an Okta SSO integration with SAML](/docs/guides/build-sso-integration/saml2/main/) </li></ul> |
 
+> **Note:** For specific OIDC and SAML protocol features not supported in the OIN, see [OIN submission limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
+
 ### OIDC: multi-tenancy in the OIN
 
 This section explains the concept of multi-tenancy as it relates to OIDC applications in the OIN.
