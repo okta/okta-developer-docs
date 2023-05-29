@@ -96,6 +96,6 @@ Ready to get started? Choose how you want to implement your SSO integration:
 </Cards>
 <br>
 
-After your app integration is built and tested, [submit the integration](/docs/guides/submit-app/) to the Okta OIN team for verification through the OIN Manager.
+After your app integration is built and tested, [review the submission requirements](/docs/guides/submit-app-prereq/main/) and [submit the integration](/docs/guides/submit-app/) to the Okta OIN team for verification.
 
 Want to automate even more for your customers and increase adoption of your product? Learn more about [lifecycle management integration](/docs/guides/oin-lifecycle-mgmt-overview/) in the OIN.

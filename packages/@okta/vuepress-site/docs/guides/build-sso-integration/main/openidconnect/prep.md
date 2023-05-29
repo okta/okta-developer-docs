@@ -1,15 +1,5 @@
 ### Prepare an OIDC integration
 
-#### Multi-tenancy
-
-Okta uses a [multi-tenant](/docs/concepts/multi-tenancy) local credential system for OIDC integrations. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
-
-For example, consider a scenario where your app integration is added to 10 separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This scenario creates a total of 13 sets of client credentials for your application that you need to track.
-
-This multi-tenant approach is different from other IdPs that use a global credential system, where a given application has the same customer credentials across all orgs.
-
-#### Prerequisites
-
 Before you create a new OIDC integration in Okta:
 
 1. Have your application developed and tested, with a front-end (for example, JavaScript and HTML) and back-end (for example, middleware and database software) stack, along with services available through APIs, and accepting HTTP connections.
