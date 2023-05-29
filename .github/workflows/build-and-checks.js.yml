@@ -1,6 +1,6 @@
 name: '[dev.okta] build and checks'
 
-on: pull_request
+on: workflow_dispatch
 
 jobs:
   build:
