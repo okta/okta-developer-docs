@@ -15,9 +15,10 @@ const checker = new LinkChecker();
 
 server.listen(8080, () => {
   checker.on('link', (link) => {
-    if (link.state === 'BROKEN') {
-      console.log(link);
-    }
+    console.log(`Source: ${link.url}`);
+    console.log(`Status: ${link.status}`);
+    console.log(`Parent: ${link.parent}`);
+    console.log('');
   });
 
   checker.check({
