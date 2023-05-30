@@ -5,6 +5,7 @@ The Okta Identity Engine SDK is available as a Swift package. Add it to your pro
 1. Click **Add Package**.
 
 The SDK includes a dependency on the Okta `AuthFoundation` library.
+
 Import the packages into Swift files to access the SDK:
 
 ```swift

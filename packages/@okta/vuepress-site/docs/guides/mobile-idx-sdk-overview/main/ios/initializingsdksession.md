@@ -1,4 +1,4 @@
-This example shows parts of a singleton class for managing the sign-in flow. It assumes that the configuration information is in a property list file called  `Okta.plist`.
+This example shows parts of a singleton class for managing the sign-in flow. It assumes that the configuration information is in a property list file called `Okta.plist`.
 
 ```swift
 import OktaIdx

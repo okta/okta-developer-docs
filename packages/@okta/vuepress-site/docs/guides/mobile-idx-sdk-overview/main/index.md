@@ -2,13 +2,13 @@
 title: Overview of the mobile Identity Engine SDK
 ---
 
-Design the implementation of sign-in for your mobile app by understanding the objects and messages that represent the sign-in flow.
+Design the sign-in implementation for your mobile app by understanding the objects and messages that represent the sign-in flow.
 
 <ApiLifecycle access="ie" /><br>
 
 ## Introduction
 
-There are two ways to use Okta for sign-in in your app:
+There are two ways to use Okta services for user sign-in in your app:
 
 - Redirect the request to Okta which handles the flow in its own window (the redirect model).
 - Handle each step in the flow by building the appropriate user interface elements, capturing the information, and updating Okta (the embedded model).
@@ -17,9 +17,11 @@ This guide is an overview of building your own user interface using the embedded
 
 ## Sign-in flow
 
-Okta supports many ways of authenticating the identity of a user during the sign-in flow. An Okta org administrator creates _policies_, different mixes of *authenticators*, or ways of verifying the identity of a user, and assigns them to apps, people, groups, and more. Policies also configure whether an authenticator is required or optional, as well as the minimum number of authenticators required for a successful sign-in. Responding to each authenticator is a step in the sign-in flow. Many flows require multiple *factors* (multifactor authentication), the category of an authenticator. Factors include: biometrics, such as a fingerprint; knowledge, such as a password; and more. This effectively results in an infinite number of combinations of authenticators and the order in which they're presented.
+Okta supports many different __authenticators__ for identifying a user during the sign-in flow, such as a password or fingerprint. Responding to each authenticator is a step in the sign-in flow. Many flows require multiple __factors__ (multifactor authentication), the type of an authenticator. For example, a fingerprint is a biometric factor and a USB Token is a possession factor.
 
-The Android and Swift Identity Engine SDKs represent the sign-in flow as a state machine. You initialize the machine with the details of the Okta org application integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
+An Okta org administrator creates __policies__, different mixes of authenticators, and assigns them to apps, people, groups, and more. Policies also configure whether an authenticator is required or optional, as well as the minimum number of authenticators required for a successful sign-in. This effectively results in an infinite number of combinations of authenticators and the order in which they're presented.
+
+The Android and Swift Identity Engine SDKs represent the sign-in flow as a state machine. You initialize the machine with the details of an Okta org application integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
 
 <div class="three-quarter">
 
@@ -48,7 +50,7 @@ The SDK represents the sign-in flow using a number of different objects:
 - **Authenticator:** Represents an authenticator that's used to verify the identity of a user, such as Okta Verify.
 - **Method:** Represents a channel for an authenticator, such as using SMS or voice for an authenticator that uses a phone. An authenticator may have zero or more methods.
 - **Capability:** A user action associated with a remediation, authenticator, or method, such as requesting a new OTP or a password reset.
-- **Field:** Represents a UI element, either a static item, such as a label, or user input, such as a selection list. It includes properties for state information, such as whether the associated value is required. Properties also store the current value of user input field, such as the string for an OTP or the selected choice. A lists of choices, or **Options**, are represented by a collection of fields. A field may contain a form that contains more fields.
+- **Field:** Represents a UI element, either a static item, such as a label, or user input, such as a selection list. It includes properties for state information, such as whether the associated value is required. A property also stores the current value of a user input field, such as the string for an OTP or the selected choice. A collection of fields, or **Options**, represents a list of choices. A field may contain a form that contains more fields.
 - **Form:** Contains the fields that represent the user action for a remediation.
 - **InteractionCodeFlow:** Represents the session during the sign-in flow. In the Android SDK it includes the function for requesting the next step in the flow.
 
@@ -59,7 +61,7 @@ The SDK represents the sign-in flow using a number of different objects:
 
 ## Manage the sign-in flow
 
-An object that manages the sign-in flow includes the following functionality:
+To create an object that manages the sign-in flow, include the following functionality:
 
 - Initialize the flow.
 - Start the sign-in.
@@ -88,7 +90,7 @@ The configuration information in a shipping app is usually static. You can initi
 
 <StackSnippet snippet="initializeflow" />
 
-### Start the sign-in
+### Start the sign-in flow
 
 Start the sign-in flow after initializing an `InteractionCodeFlow` object.
 
@@ -98,7 +100,7 @@ Start the sign-in flow after initializing an `InteractionCodeFlow` object.
 
 The steps for processing each response are:
 
-1. Check if the sign-in succeeded.
+1. Check for a successful sign-in.
 1. Check for messages, such as an invalid password.
 1. Check for remediations.
 1. Process the remediations.

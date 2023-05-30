@@ -1,6 +1,6 @@
-Getting the authorization token takes two-steps. First, request a the token after the sign-in is successful. Then receive that token from the server. The access token is represented by a `Token` object from the `AuthFoundation` library that is a dependency for the Swift IDX SDK. You can store the token securely in the Keychain using `Credential`, another class from the `AuthFoundation` library.
+Request the access token after a successful sign-in. The access token is represented by a `Token` object from the `AuthFoundation` library that is a dependency for the Swift IDX SDK. You can store the token securely in the Keychain using `Credential`, another class from the `AuthFoundation` library.
 
-This example shows part of the implementation of the `InteractionCodeFlowDelegate` protocol functions that are called as part of getting the authorization token.
+This example shows part of the implementation of the `InteractionCodeFlowDelegate` protocol functions that are called as part of getting the access token.
 
 
 ```swift

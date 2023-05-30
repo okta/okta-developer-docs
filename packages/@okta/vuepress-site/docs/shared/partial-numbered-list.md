@@ -1,3 +1,0 @@
-1. INSERTED step 1
-1. INSERTED step 2
-1. INSERTED step 3

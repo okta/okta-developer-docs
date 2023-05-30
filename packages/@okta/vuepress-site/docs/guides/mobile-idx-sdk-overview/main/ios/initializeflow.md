@@ -2,11 +2,11 @@ You can provide the configuration information in a property list file or in the 
 
 #### Add configuration with a property list
 
-The `init()` function of `InteractionCodeFlow` looks for a property list called `Okta.plist`. You can also call `init(plist:)` to specify a file.
+The default `init()` function of `InteractionCodeFlow` looks for a property list called `Okta.plist`. You can also call `init(issuer:clientId:scopes:redirectUri:additionalParameters:)` to set the configuration values.
 
-To use a property list first create a property list file, such as `Okta.plist`. Next, add key-value pairs with the configuration settings for your Application Integration. For example, in the following text version of a `plist`, substitute your issuer URL for `{yourIssuerUrl}`, the client ID of your Application Integration for `{yourClientId}`, and a URI that launches your app. Set the scopes based on the access required by your app.
+To use a property list, first create a property list file, such as `Okta.plist`. Next, add key-value pairs with the configuration settings for your application integration. For example, in the following text version of a `plist`, substitute your issuer URL for `{yourIssuerUrl}`, the client ID of your application integration for `{yourClientId}`, and a URI that launches your app. Set the scopes based on the access required by your app.
 
-```xml
+```properties
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -23,7 +23,7 @@ To use a property list first create a property list file, such as `Okta.plist`. 
 </plist>
 ```
 
-Then, add code to create an `InteractionCodeFlow`, this example uses `Okta.plist`.
+Then, add code to create an `InteractionCodeFlow` object. This example uses `Okta.plist`.
 
 ```swift
 let flow = InteractionCodeFlow()
@@ -42,4 +42,4 @@ let flow = InteractionCodeFlow(
     redirectUri: "{com.your.app:/callback-uri}")
 ```
 
-> **Note:** `OAuth2Client.Configuration`, an object for managing configurations is included in the AuthFoundation package.
+> **Note:** `OAuth2Client.Configuration`, an object for managing configurations, is included in the `AuthFoundation` package.
