@@ -98,7 +98,7 @@ Admins can't update a [Profile Enrollment policy](/docs/reference/api/policy/#pr
 
 #### Bug fixed in 2021.11.2
 
-Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
+Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/#tag/CustomDomain/operation/upsertCertificate!path=certificateChain&t=request) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
 
 ### Weekly release 2021.11.1
 

@@ -222,6 +222,25 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 This section helps you define how your customers get set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
 
+> **Note:** If your Service Provider is configured as a "Big Bang", you need to provide a warning note to your customer. See [SAML configuration warning example](#saml-configuration-warning-example).
+
+##### SAML configuration warning example
+
+If you only allow sign-in through Okta (Big Bang configuration), ensure that you provide a warning note before the configuration steps. For example:
+
+```markdown
+### Read this before you enable SAML
+
+Enabling SAML affects all users who use this application.
+Users won't be able to sign in through their regular sign-in page.
+They are able to access the app through the Okta service.
+
+### Backup URL
+
+{appName} doesn't provide a backup sign-in URL where users can sign in using their regular username and password.
+If necessary, contact {appName} Support (support@{appName}.com) to turn off SAML.
+```
+
 ##### SAML configuration steps example
 
 The following is an example of a simple SAML customer procedure:
@@ -230,7 +249,7 @@ The following is an example of a simple SAML customer procedure:
 ## Configuration steps
 
 1. Copy the Metadata URL from the Okta Admin Console, SAML 2.0 Sign on methods section.
-2. Contact the {appName} support team (for example, support@example.com) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
+2. Contact the {appName} support team (for example, support@{appName}.com) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
    The {appName} support team processes your request and provides you with an SSO ID and an encryption certificate.
 3. In your Okta Admin Console, select the Sign on tab for the {appName} SAML app, then click "Edit" and follow the steps below:
    * "Encryption Certificate": Upload the certificate provided by {appName} support in the previous step.
@@ -274,6 +293,8 @@ For a complete customer admin configuration guide example, see [How to Configure
 ## Note
 
 * Ensure that you entered the correct value in the "Subdomain" field under the General tab. The wrong subdomain value prevents you from authenticating through SAML to {appName}.
+
+* Since only SP-initiated flow is supported, Okta recommends hiding the application icon for users.
 
 * The following SAML attributes are supported:
 
