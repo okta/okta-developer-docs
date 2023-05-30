@@ -8,7 +8,7 @@ export CHROME_HEADLESS=true
 # Check the links
 # Note: yarn build should already have been run in previous github action step
 # so we don't have to run it again here
-group yarn_check_links yarn broken-link-checker:internal
+group yarn_check_links yarn linkinator
 
 # Build site and Run tests
 group yarn_test yarn test
