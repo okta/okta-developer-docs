@@ -8,9 +8,10 @@ const brokenLinks = [];
 
 checker.on('link', (link) => {
   if (link.url.match(LINK_EXTERNAL_REGEXP)) {
-    if (link.status === 404) {
+    if (link.state === 'BROKEN') {
       brokenLinks.push({
         url: link.url,
+        status: link.status,
       })
     }
   }
@@ -23,6 +24,8 @@ await checker.check({
 
 if (brokenLinks.length) {
   for (const brokenLink of brokenLinks) {
-    console.log(brokenLink.url);
+    console.log(`Source: ${brokenLink.url}`);
+    console.log(`Status: ${brokenLink.status}`);
+    console.log('');
   }
 }
