@@ -1,12 +1,11 @@
 {
   "private": true,
-  "type": "module",
   "workspaces": [
     "packages/@okta/*"
   ],
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
-    "build": "yarn lint-all && yarn workspace @okta/vuepress-site build",
+    "build": "yarn lint-all && yarn workspace @okta/vuepress-site build && yarn linkinator",
     "broken-link-checker:all": "node scripts/broken-link-checker all",
     "broken-link-checker:internal": "node scripts/broken-link-checker internal",
     "broken-link-checker:external": "node scripts/broken-link-checker external",
@@ -32,7 +31,7 @@
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "lint-all": "yarn eslint && yarn stylelint",
-    "linkinator:external": "node linkinator.js"
+    "linkinator": "node linkinator.mjs"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
