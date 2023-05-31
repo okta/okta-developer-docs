@@ -6901,7 +6901,7 @@ HTTP/1.1 204 No Content
 
 ### Deactivate default Provisioning Connection for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/lifecycle/deactivate" />
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate" />
 
 Deactivates the default Provisioning Connection for an application.
 
