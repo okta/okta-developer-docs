@@ -139,6 +139,7 @@ guides:
  - pwd-optional-overview
  - build-api-integration
  - add-logingov-idp
+ - policy-simulation
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
