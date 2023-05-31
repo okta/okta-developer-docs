@@ -1,5 +1,5 @@
 ---
-title: Test your policies with Access simulations
+title: Test your policies with access simulations
 excerpt: Provides documentation on testing your policies using the Policy APIs simulate endpoint
 layout: Guides
 ---
@@ -42,9 +42,7 @@ For background information on policies, see [Policies](/docs/concepts/policies) 
 
 ## Sample Use Case
 
-For your sample application, create a group called "Sales" and assign it to your app. Also assign the "Everyone" group.
-
-The sample use case creates a scenario based on group access to your sample app. The policy simulation endpoint can test access to the app when different groups are assigned to the app, and when only the Sales group is assigned to the app.
+The sample use case creates a scenario based on group access to your sample app. The policy simulation endpoint tests access to the app when different groups are assigned to the app, and when only the Sales group is assigned to the app.
 
 To configure this set up, create a new group called Sales and ensure that only this group is assigned to your sample app. See [Manage Groups](https://help.okta.com/okta_help.htm?type=oie&id=ext_Directory_Groups).
 
@@ -56,7 +54,7 @@ For this call, you need the `id` for your application and the `id` for the Sales
 
 To find these values:
 
-1. Call the [Groups API](/docs/reference/api/groups/#find-groups)with the query parameter as follows: `https://${yourOktaDomain}/api/v1/groups?q=Sales`. Save the `id` value from the response.
+1. Call the [Groups API](/docs/reference/api/groups/#find-groups) with the query parameter as follows: `https://${yourOktaDomain}/api/v1/groups?q=Sales`. Save the `id` value from the response.
 
 1. Call the [Apps API](/docs/reference/api/apps/#list-applications) with the query parameter as follows: `https://${yourOktaDomain}/api/v1/apps?q={YourAppName}`. Save the `id` value from the response. Alternatively, the client ID available in the Admin Console is the `id` of your application.
 
@@ -64,7 +62,7 @@ To simulate the first scenario, use the following call but replace the following
 
 * `api_token`: your org's API token value
 
-* `yourOktaDomain`: your Okta domain, for example, "https://exampmle.oktapreview.com"
+* `yourOktaDomain`: your Okta domain, for example, "https://example.oktapreview.com"
 
 * `yourAppID`: the `id` value that represents your sample app
 
@@ -81,8 +79,9 @@ curl -v -X POST \
   "policyContext": {
     "groups": {"ids":["${yourSalesGroupID}"]},
     "risk":{"level":"LOW"}
-  }
-' "https://${yourOktaDomain}/api/v1/policies/simulate?expand=EVALUATED&expand=RULE'" \
+    }
+  }'
+  "https://${yourOktaDomain}/api/v1/policies/simulate?expand=EVALUATED&expand=RULE"
 
 ```
 
