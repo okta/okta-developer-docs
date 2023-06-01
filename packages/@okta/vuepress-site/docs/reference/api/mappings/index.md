@@ -5,7 +5,7 @@ category: management
 
 # Mappings API
 
-The Mappings API reference is now available at the new [Okta API reference portal](/docs/api/openapi/okta-management/management/tag/ProfileMapping/) as Profile Mappings.
+The Mappings API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/) as Profile Mappings.
 
 Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Profile Mappings API Postman collection.
 
