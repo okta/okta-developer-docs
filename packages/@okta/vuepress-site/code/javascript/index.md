@@ -27,9 +27,9 @@ These resources walk you through adding user authentication to your JavaScript a
 
 > **Note**: This set of resources is relevant to front-end JavaScript. For back-end JavaScript, see [Node.js](/code/nodejs/).
 
-## Integrate with Okta using the Okta-hosted Sign-In Widget
+## Integrate with Okta using redirect authentication and the Sign-In Widget
 
-These SDKs help you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
+This SDK helps you integrate with Okta by redirecting to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
 [Okta's OpenID Connect JS library](https://github.com/okta/okta-oidc-js)
 
@@ -50,6 +50,7 @@ Embedded SDK and Sign-In Widget sign-in guide:
 
 Other guides:
 
+* [Sign users in to your SPA using the redirect model and AuthJS](/docs/guides/auth-js-redirect/)
 * [Implementing the Implicit flow](/docs/guides/implement-grant-type/implicit/main/)
 * [Implementing the PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
