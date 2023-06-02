@@ -620,16 +620,6 @@ export const guides = [
             ],
           },
           {
-            title: "Primer for OIN OIDC",
-            path: "/docs/guides/oin-oidc-overview/main/",
-            subLinks: [
-              {
-                title: "Protocol requirements",
-                path: "/docs/guides/oin-oidc-protocols/main/",
-              }
-            ],
-          },
-          {
             title: "OIN submission requirements",
             guideName: "submit-app-prereq",
           },

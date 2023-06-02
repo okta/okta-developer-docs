@@ -41,10 +41,5 @@ OIDC relies on a set of standardized API endpoints for verifying and sharing use
 
 ## Guides
 
-This series contains the following parts:
-
-* [OIDC and the OIN &mdash; Protocol-level requirements](/docs/guides/oin-oidc-protocols/): Background information on the protocol requirements for OIDC-based OIN applications.
-
 ## Next steps
 
-Begin your exploration by reading our [OIDC and the OIN &mdash; Protocol-level requirements](/docs/guides/oin-oidc-protocols/) guide.

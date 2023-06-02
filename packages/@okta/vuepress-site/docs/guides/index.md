@@ -48,8 +48,6 @@ guides:
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
  - mobile-idx-sdk-overview
- - oin-oidc-overview
- - oin-oidc-protocols
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
