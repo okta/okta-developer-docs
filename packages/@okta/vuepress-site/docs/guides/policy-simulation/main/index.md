@@ -74,11 +74,9 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-  "policyTypes":[],
   "appInstance": "${yourAppID}",
   "policyContext": {
-    "groups": {"ids":["${yourSalesGroupID}"]},
-    "risk":{"level":"LOW"}
+    "groups": {"ids":["${yourSalesGroupID}"]}
     }
   }'
   "https://${yourOktaDomain}/api/v1/policies/simulate?expand=EVALUATED&expand=RULE"
