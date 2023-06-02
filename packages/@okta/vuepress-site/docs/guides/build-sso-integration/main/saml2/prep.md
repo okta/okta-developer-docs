@@ -1,3 +1,5 @@
+See [Understanding SAML](/docs/concepts/saml/) for details on how to plan and design a SAML integration.
+
 ### Prepare a SAML integration
 
 In a SAML integration, Okta is the Identity Provider (IdP), and your application is the Service Provider (SP). If you need more background on the protocol or for SAML best practices for your application, review our [SAML concept](/docs/concepts/saml/) documentation.

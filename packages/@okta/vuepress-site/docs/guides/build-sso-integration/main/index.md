@@ -7,14 +7,13 @@ meta:
 layout: Guides
 ---
 
-This guide teaches you how to build federated Single Sign-On with Okta for your application. This guide assumes that you intend to make this app integration public by publishing it in the Okta Integration Network (OIN).
+This guide teaches you how to build federated SSO with Okta for your application. This guide assumes that you intend to make this app integration public by publishing it in the Okta Integration Network (OIN).
 
 ---
 
 **Learning outcomes**
 
-* Create an SSO app integration with the OIDC or SAML protocol for OIN submission.
-* Test your SSO app integration.
+* Create and test an SSO app integration for OIN submission.
 
 **What you need**
 
@@ -25,9 +24,9 @@ This guide teaches you how to build federated Single Sign-On with Okta for your 
 
 ## Overview
 
-Single Sign-On (SSO) is an authentication method that enables end users to sign in to multiple applications (apps) with one set of credentials. If you have customers that use Okta as an Identity Provider, you want to create an SSO integration and have it published in the OIN. When your app SSO integration is in the OIN, your customers can easily add and configure the integration. After your customer sets up the integration, their users can seamlessly access your app with the authentication experience offered by Okta.
+Single Sign-On (SSO) is an authentication method that enables end users to sign in to multiple applications (apps) with one set of credentials. If you have customers that use Okta as an Identity Provider, you want to publish your app SSO integration to the OIN. See [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview) for all the benefits of having your app SSO integration in the OIN catalog.
 
-To create an SSO integration, first sign up for a free [Okta Developer Edition org](https://developer.okta.com/signup/). Next, select the protocol that you want to implement SSO. Okta supports two SSO standards for your integration:
+To create an SSO integration for the OIN, first sign up for a free [Okta Developer Edition org](https://developer.okta.com/signup/). Next, select the protocol that you want to implement SSO. Okta supports two SSO standards for your integration:
 
 * OpenID Connect (OIDC)
 * Security Assertion Markup Language (SAML)
@@ -36,7 +35,7 @@ To create an SSO integration, first sign up for a free [Okta Developer Edition o
 
 ### Deployment models
 
-After you've decided on a protocol, select a deployment model. Okta offers [redirect](/docs/concepts/redirect-vs-embedded/#redirect-authentication) or [embedded](/docs/concepts/redirect-vs-embedded/#embedded-authentication) authentication models for SSO. The redirect authentication model uses the [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-sign-in-widget) and is the easiest, most secure way to integrate with Okta.
+After you've decided on a protocol, select a deployment model. Okta offers [redirect](/docs/concepts/redirect-vs-embedded/#redirect-authentication) or [embedded](/docs/concepts/redirect-vs-embedded/#embedded-authentication) authentication deploy models for SSO. Redirect authentication uses the [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#okta-sign-in-widget) and is the easiest, most secure way to integrate with Okta.
 
 Okta recommends the redirect authentication deployment model if your situation meets the [requirements](/docs/concepts/redirect-vs-embedded/#redirect-vs-embedded). For more information on deployment models and other authentication considerations, see:
 
@@ -45,15 +44,9 @@ Okta recommends the redirect authentication deployment model if your situation m
 * [Embedded authentication guides](/docs/guides/embedded-authentication/)
 * [Deployment models and the Authentication API](/docs/concepts/redirect-vs-embedded/#deployment-models-and-the-authentication-api)
 
-### Organizations
-
-In a typical scenario, your app relies on Okta to act as a multi-tenant Identity Provider (IdP) for your customers' Okta organizations. An [Okta org](/docs/concepts/okta-organizations/) acts as a container that sets hard boundaries for all users, applications, and other entities associated with a single customer. This provides tenant-based isolation. In developing your SSO app integration, the customer’s Okta org serves as the authorization server (OIDC) or as the IdP (SAML).
-
-<StackSnippet snippet="protocolinfo" />
-
 ## Prepare your integration
 
-After you've decided which protocol is right for your needs, you need to gather some information for your integration.
+After you've decided which protocol is right for your needs, you need to plan and gather some information for your integration.
 
 <StackSnippet snippet="prep" />
 

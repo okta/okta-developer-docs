@@ -7,9 +7,14 @@ meta:
 
 The Okta Integration Network (OIN) is a collection of over 7000 pre-built app integrations to connect and exchange secure authentication between users, devices, and applications. Customers can easily integrate Okta Single Sign-On (SSO) to applications in the OIN with a guided experience that still supports the most secure configuration options.
 
-To get your app integration into the OIN, [build an app integration](/docs/guides/build-sso-integration/) using a free [Okta Developer Edition org](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta. [Submit your app](/docs/guides/submit-app/) integration for verification and approval by the Okta OIN team. Your app is available in the OIN for the Okta community to use after your integration is verified by Okta.
+To get your app integration into the OIN:
 
-With an Okta SSO integration, your customer's workforce can use their company-issued Okta credentials to securely access your application. In addition to the typical email and password credentials, your customers have the ability to control their authentication experience with Okta sign-on policies and features, such as [Multifactor Authentication](https://help.okta.com/okta_help.htm?id=ext_MFA) and [FastPass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-enable).
+1. [Build an app integration](/docs/guides/build-sso-integration/) using a free [Okta Developer Edition org](https://developer.okta.com/signup/) and any of the wide array of [languages and libraries](/code/) supported by Okta.
+1. [Submit your app](/docs/guides/submit-app/) integration for verification and approval by the Okta OIN team.
+
+Your app is available in the OIN for the Okta community to use after Okta verifies your integration.
+
+After your customer adds your SSO integration to their Okta org, their workforce can use their company-issued Okta credentials to securely access your app. In addition to email-password credentials, your customers can control their authentication experience with Okta sign-on policies and features, such as [Multifactor Authentication](https://help.okta.com/okta_help.htm?id=ext_MFA) and [Okta FastPass](https://help.okta.com/okta_help.htm?type=oie&id=ext-fp-enable).
 
 ## Why build an SSO integration with Okta?
 
@@ -26,17 +31,17 @@ Okta supports two protocols for handling federated SSO: OpenID Connect (OIDC) an
 
 | &nbsp; |  <span style="width: 24px;display:inline-block">![OIDC](/img/idp-logos/oidc.png)</span> OIDC | <span style="width: 22px;display:inline-block">![SAML](/img/idp-logos/saml.png)</span> SAML  |
 | ------ | :------------------- | :----------------------- |
-| **Description** | [OpenID Connect](/docs/concepts/oauth-openid/#openid-connect) extends the OAuth 2.0 protocol to provide an ID token that can be used to verify a user’s identity and sign them into a cloud-based application. It's quickly becoming the new standard for SSO. | [Security Assertion Markup Language (SAML)](/docs/concepts/saml) is a traditional enterprise protocol for SSO in web applications. Okta supports SAML 2.0. |
-| **Benefits** | <ul><li>Newer protocol with widespread and growing use</li> <li>Best Okta customer configuration experience</li> <li>Ideal for mobile and cloud applications</li> </ul> | <ul><li>Many people are familiar with SAML because it's an older protocol</li> <li>Widely used federation protocol for SSO in Web applications</li> <li>Many SaaS providers support SAML integration to grant SSO access to end users</li></ul>|
+| **Description** | [OpenID Connect](/docs/concepts/oauth-openid/#openid-connect) extends the OAuth 2.0 to provide an ID token that can be used to verify a user’s identity and sign them into a cloud-based application. It's quickly becoming the new standard for SSO. | [Security Assertion Markup Language (SAML)](/docs/concepts/saml) is a traditional enterprise protocol for SSO in web applications. Okta supports SAML 2.0. |
+| **Benefits** | <ul><li>Newer protocol with widespread and growing use</li> <li>Best Okta customer configuration experience</li> <li>Ideal for mobile and cloud applications</li> </ul> | <ul><li>Many people are familiar with SAML because it's an older protocol</li> <li>Widely used federation protocol for SSO in web apps</li> <li>Many SaaS providers support SAML integration to grant SSO access to end users</li></ul>|
 | **Technology** | <ul><li>An identity layer on top of the [OAuth 2.0](https://oauth.net/2/) protocol</li> <li>Verifies end-user identity and obtains profile information</li> <li>Lightweight and REST-based</li></ul> |   <ul><li>XML-based messages</li> <li>Specification doesn’t have user consent, although it can be built into the flow</li> </ul> |
 | **Resources** | <ul><li>[OpenID Connect Foundation](https://openid.net/connect/)</li><li>[OIDC: multi-tenancy in the OIN](#oidc-multi-tenancy-in-the-oin)</li></ul>| <ul><li>[SAML 2.0 Technical Overview](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html) </li></ul> |
 | **Get started** | <ul><li>[Build an Okta SSO integration with OIDC](/docs/guides/build-sso-integration/openidconnect/main/)  </li></ul>| <ul><li>[Build an Okta SSO integration with SAML](/docs/guides/build-sso-integration/saml2/main/) </li></ul> |
 
 > **Note:** For specific OIDC and SAML protocol features not supported in the OIN, see [OIN submission limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
 
-### OIDC: multi-tenancy in the OIN
+### Okta organization and multi-tenancy
 
-This section explains the concept of multi-tenancy as it relates to OIDC applications in the OIN.
+In a typical scenario, your app relies on Okta to act as a multi-tenant Identity Provider (IdP) for your customers' Okta organizations. An [Okta org](/docs/concepts/okta-organizations/) acts as a container that sets hard boundaries for all users, applications, and other entities associated with a single customer. This provides tenant-based isolation. In developing your SSO app integration, the customer’s Okta org serves as the authorization server (OIDC) or as the IdP (SAML).
 
 #### Tenants in Okta
 
@@ -46,7 +51,9 @@ In Google Cloud products, the user identity is globally unique across the entire
 
 As an example, `alice.doe@example.com` is a registered Okta user in both the Company1 and Company2 Okta tenants, accessed at `https://company1.okta.com` and `https://company2.okta.com`. Your application aims to provide different services for users, but specific to each tenant. You can't assume that the user information is identical for a given user across both tenants. Your application needs to manage user credentials to identify each unique combination of user and tenant.
 
-Okta orgs host their interfaces through individual subdomains and each org is assigned a separate URL. The typical org URL is the tenant name (the subdomain) followed by the domain name. However, you can customize the domain name for your own domain and add individual aliases for each of your tenants. The process for specifying the variable app instance names in an OIDC application is explained in the [Publish an OIN integration: OIDC settings](/docs/guides/submit-app/openidconnect/main/#configure-protocol-or-tool-specific-settings).
+Okta orgs host their interfaces through individual subdomains and each org is assigned a separate URL. The typical org URL is the tenant name (the subdomain) followed by the domain name. However, you can customize the domain name for your own domain and add individual aliases for each of your tenants.
+
+> **Note:** The process for specifying the variable app instance names in an OIDC application is explained in the [Publish an OIN integration: OIDC settings](/docs/guides/submit-app/openidconnect/main/#configure-protocol-or-tool-specific-settings).
 
 ## Use case examples
 
@@ -60,7 +67,7 @@ Erika performs the following tasks:
 * Documents the required configuration steps for the customer admin
 * Submits the integration and corresponding documentation for the Okta OIN team to verify and review
 
-After approval, Acme’s app is published on the OIN. With a pre-built Acme-Okta integration, Acme avoids additional support staff required for each individual customer integration.
+After approval, Acme’s app is published on the OIN. With a pre-built Acme-Okta integration, Acme avoids extra support staff required for each individual customer integration.
 
 ### Example of an identity admin journey with Okta
 
@@ -68,7 +75,8 @@ Ali is an IT admin at Initech. Initech is looking to add Acme's application into
 
 Ali performs the following tasks:
 
-* Finds the Acme app in the OIN catalog. Since Acme is in the OIN, Ali knows that he can trust Acme to be securely incorporated into their existing Okta-managed SSO with minimal integration effort required.
+* Finds the Acme app in the OIN catalog
+  Since Acme is in the OIN, Ali knows that he can trust Acme to be securely incorporated into their existing Okta-managed SSO with minimal integration effort required.
 * Adds the Acme app integration from the Okta Admin Console
 * Follows the instructions provided by Acme to configure the app integration
 * Configures the Okta authentication policy and the group of Initech employees who will have access to the Acme app
