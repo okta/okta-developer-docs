@@ -1,4 +1,4 @@
-##### OIDC customer org credentials
+#### OIDC customer org credentials
 
 Okta uses a [multi-tenant](/docs/concepts/multi-tenancy) local credential system for OIDC integrations. When your customer adds your integration in their Okta org, they obtain a unique set of OIDC credentials. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
 
@@ -8,7 +8,7 @@ This multi-tenant approach differs from other IdPs that use a global credential 
 
 ### Implement OIDC
 
-For OIDC web apps, Okta recommends building an integration that securely stores a client secret and exchanges information with an authorization server through trusted back-channel connections. The [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/) is best suited for SSO web apps in the OIN.
+For OIDC web apps, Okta recommends the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). This flow is used for integrations that can securely store a client secret and exchange information with an authorization server through trusted back-channel connections.
 
 If you're building a single page application (SPA) integration, then Okta recommends using the [Authorization Code flow with a Proof Key for Code Exchange (PKCE)](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce).
 
@@ -17,31 +17,28 @@ You can follow these guides to implement the flows:
 * [Implement Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Implement Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 
-You can also use these guides which provide example app integrations in various languages:
+You can also review these sample app integration guides in various languages:
 
 * [Sign in to SPA](/docs/guides/sign-into-spa-redirect/)
 * [Sign in to web application](/docs/guides/sign-into-web-app-redirect/)
 
-When you follow these guides, one big caveat is the use of the authorization server. Most of the examples show how to make an `/authorize` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). Some examples also set the issuer setting to a custom authorization server, but OIDC integrations in the OIN 
+When you follow these guides, one caveat is the use of the authorization server. Most of the examples show you how to make an `/authorize` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). Some examples also set the issuer setting to a custom authorization server, but OIDC integrations in the OIN must use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
 To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server. You can only use the [org authorization server](https://developer.okta.com/docs/concepts/auth-servers/#available-authorization-server-types).
 
-  > **Note**: The `refresh_token` option isn't supported for apps published in OIN.
+For example, the following are the various `/authorize` request URLs for the different authorization servers:
 
+**org authorization server**:`https://${customerOktaDomain}/oauth2/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
 
-> **Note:** Your application needs to verify user identity through a user store. Otherwise, your app could be spoofed by fake applications in the Android or Apple app stores, or an end user could view and possibly modify your code. For this reason, native and mobile app integrations aren't acceptable for OIDC app integrations in the OIN. You must set up your application to use an authentication flow so that your client application talks to your SaaS back end, which then communicates with Okta.
+**custom authorization server**: `https://${customerOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
 
+**default custom authorization server**(`${authorizationServerId}=default`): `https://${customerOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
 
-### Authorization Code flow with PKCE
+> **Notes:**
+> * The `refresh_token` option isn't supported for apps published in OIN.
+> * Your application needs to verify user identity through a user store. Otherwise, your app could be spoofed by fake applications in the Android or Apple app stores, or an end user could view and possibly modify your code. For this reason, native and mobile app integrations aren't acceptable for OIDC app integrations in the OIN. You must set up your application to use an authentication flow so that your client application talks to your SaaS back end, which then communicates with Okta.
 
-Just like with the regular Authorization Code flow, your app starts by redirecting the end user's browser to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. However, in this instance, you also have to pass along a code challenge.
-
-
-  > **Note**: The `refresh_token` option isn't supported for apps published in OIN.
-
-* The access token is then used by your application to retrieve the protected resources and information requested at the Resource Server for the end user.
-
-### Scopes
+#### Scopes
 
 Your OIDC client needs to use scope values to define the access privileges being requested with individual access tokens. The scopes associated with access tokens determine what resources are available when the tokens are used to access the protected endpoints. Scopes can be used to request that specific sets of values be available as claim information about the end user.
 
@@ -52,20 +49,20 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 * `profile`: The end user's default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`
 * `email`: Requests access to the `email` and `email_verified` claims
 
-    >**Note:** ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
+  > **Note:** Don't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
 * `address`: Requests access to the `address` claim
 * `phone`: Requests access to the `phone_number` and `phone_number_verified` claims
 
 > **Note**: The following scopes aren't supported for integrations published in the OIN:
-> * `offline_access` scope (since refresh tokens aren't supported)
-> * Custom scopes (such as the `groups` scope)
+>   * `offline_access` scope (since refresh tokens aren't supported)
+>   * Custom scopes (such as the `groups` scope)
 
-You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). However, custom scopes can't be configured.
+You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). Custom scopes can't be configured.
 
 Okta utilizes access policies to decide whether the scopes can be granted. If any of the requested scopes are rejected by the access policies, the request is rejected.
 
-## Uniform Resource Identifier (URI)
+#### Uniform Resource Identifier (URI)
 
 There are three URIs that you need to consider when creating an OIDC app for the OIN:
 
@@ -73,7 +70,7 @@ There are three URIs that you need to consider when creating an OIDC app for the
 2. Optional. **Initiate login URI**: This URI is used if the application is launched from the Okta dashboard (known as an IdP-initiated flow) and you want your Okta integration to handle redirecting your users to your application to start the sign-in request. When end users click your app in their Okta dashboard, they are redirected to the `initiate_login_uri` of the client application, which constructs the authentication request and redirects the end user back to the authorization server. This URI must exactly match the Initiate URI value that is pre-registered in the Okta app integration settings.
 3. Optional. **Sign-out redirect URIs**: A location to send the user after a sign-off operation is performed and their session is terminated. Otherwise, the user is redirected back to the sign-in page.
 
-### Token validation
+#### Token validation
 
 For checking access tokens, the `/introspect` [endpoint](/docs/reference/api/oidc/#introspect) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
 
@@ -81,7 +78,7 @@ As OIN app integrations can't use custom authorization servers, you must use rem
 
 This remote validation incurs a network cost, but you can use it when you want to guarantee that the access token hasn't been revoked.
 
-### Key rotation
+#### Key rotation
 
 The standard behavior in identity and access management is to rotate the keys used to sign tokens. Okta changes these keys typically four times a year (every 90 days), but that rotation schedule can change without notice. Okta automatically rotates the keys for your authorization server on a regular basis.
 
@@ -89,7 +86,7 @@ Your OIDC client should periodically query the `/keys` endpoint and retrieve the
 
 For more information, see [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](/docs/reference/api/oidc/#keys) for specific details on handling queries and responses.
 
-### Rate limit considerations
+#### Rate limit considerations
 
 When constructing your SSO application, you want to be aware of the limits on requests to Okta APIs. For reference on the categories and cumulative rate limits, see [Rate limits overview](/docs/reference/rate-limits/). Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 
