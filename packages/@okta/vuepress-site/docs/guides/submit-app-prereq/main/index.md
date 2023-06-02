@@ -345,7 +345,7 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **Custom authorization server:** An OIDC or API service integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
-* **Okta SDKs and validating tokens:** The Okta SDKs can't be used to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+* **Okta SDKs and validating access tokens:** The Okta SDKs can't be used to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
 * **Refresh token:**  Refresh tokens aren't supported for integrations published in the OIN.
 

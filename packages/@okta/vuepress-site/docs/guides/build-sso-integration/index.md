@@ -1,9 +1,9 @@
 ---
 title: Build a Single Sign-On (SSO) integration
-excerpt: Create an app integration using SAML or OIDC.
+excerpt: Build an SSO app integration using SAML or OIDC for the OIN.
 meta:
   - name: description
-    content: Use this guide to learn how to build federated Single Sign-On into your Okta integration.
+    content: Use this guide to learn how to build a federated Single Sign-On integration with Okta.
 layout: Guides
 sections:
  - main
