@@ -6,14 +6,14 @@ layout: Guides
 
 <ApiLifecycle access="ea" />
 
-This guide explains how to test your access policies by using the Policy API's `/simulate` endpoint.
+This guide explains how to test your access policies by using the `/simulate` endpoint of the Policy API.
 
 ---
 
 **Learning outcomes**
 
 * Understand how to configure and send policy simulation tests using the Policy API.
-* Send and receive an example simulation call
+* Send and receive an example simulation call.
 
 **What you need**
 
@@ -29,9 +29,9 @@ If you need a simple application for testing, see [Sign users in to your SPA usi
 
 ## About Policy Simulation
 
-The policy api can be used to simulate real-world user requests to access an application. In the Admin Console, these simulations are run using the Access Testing Tool available from **Reports** > **Access testing tool**. See [Access Testing Tool](https://help.okta.com/en/programs/aps/Content/Topics/betas/closed/access-policy-simulation/test-an-access-scenario.htm). <!--Update this link to alias when ready --> The API endpoint that underpins this tool is also available for developers to simulate policy configurations and to test application access. For full details on the API endpoint, see the [Policy API reference](/docs/reference/api//policy/#access-simulation).
+The policy API can be used to simulate real-world user requests to access an application. In the Admin Console, these simulations are run using the Access Testing Tool available from **Reports** > **Access testing tool**. See [Access Testing Tool](https://help.okta.com/en/programs/aps/Content/Topics/betas/closed/access-policy-simulation/test-an-access-scenario.htm). <!--Update this link to alias when ready --> The API endpoint that underpins this tool is also available for developers to simulate policy configurations and to test application access. For full details on the API endpoint, see the [Policy API reference](/docs/reference/api//policy/#access-simulation).
 
-The policy simulations run access tests based on existing policy configurations, and which rules and settings were matched to create the authentication and enrollment requirements <!--??? -->. Results of the tests determine individual or group access to an app. You can simulate matches for the following types of policies and rules:
+The policy simulations run access tests based on existing policy configurations, and which rules and settings were matched to create the authentication and enrollment requirements. Results of the tests determine individual or group access to an app. You can simulate matches for the following types of policies and rules:
 
 * Authentication policies
 * Authenticator enrollment policies
@@ -42,9 +42,9 @@ For background information on policies, see [Policies](/docs/concepts/policies) 
 
 ## Sample Use Case
 
-The sample use case creates a scenario based on group access to your sample app. The policy simulation endpoint tests access to the app when different groups are assigned to the app, and when only the Sales group is assigned to the app.
+The sample use case creates a scenario based on group access to your sample app. The policy simulation endpoint tests access to the app when different groups are assigned to the app.
 
-To configure this set up, create a new group called Sales and ensure that only this group is assigned to your sample app. See [Manage Groups](https://help.okta.com/okta_help.htm?type=oie&id=ext_Directory_Groups).
+To configure this set up, create a group called Sales and ensure that only this group is assigned to your sample app. See [Manage Groups](https://help.okta.com/okta_help.htm?type=oie&id=ext_Directory_Groups).
 
 In this use-case, the app only allows users of the Sales group to access your sample application. Use the following calls to test this scenario.
 
@@ -60,13 +60,13 @@ To find these values:
 
 To simulate the first scenario, use the following call but replace the following values:
 
-* `api_token`: your org's API token value
+* `${api_token}`: your org's API token value
 
-* `yourOktaDomain`: your Okta domain, for example, "https://example.oktapreview.com"
+* `${yourOktaDomain}`: your Okta domain, for example, "https://example.oktapreview.com"
 
-* `yourAppID`: the `id` value that represents your sample app
+* `${yourAppID}`: the `id` value that represents your sample app
 
-* `yourSalesGroupID`: the `id` value that represents your Sales group
+* `${yourSalesGroupID}`: the `id` value that represents your Sales group
 
 ```bash
 curl -v -X POST \
@@ -229,9 +229,9 @@ For this call, you need the `id` for another group not assigned to your app, for
 
 To find this value:
 
-* Call the [Groups API](/docs/reference/api/groups/#find-groups)with the query parameter as follows: `https://${yourOktaDomain}/api/v1/groups?q=Everyone`. Save the `id` value from the response.
+* Call the [Groups API](/docs/reference/api/groups/#find-groups) with the query parameter as follows: `https://${yourOktaDomain}/api/v1/groups?q=Everyone`. Save the `id` value from the response.
 
-To simulate the second scenario, use the following call but replace group ID for Sales for the group ID of another group. In this case, Everyone:
+To simulate the second scenario, use the following call but replace the group ID for Sales for the group ID of another group. In this case, Everyone:
 
 ```bash
 curl -v -X POST \
@@ -251,7 +251,7 @@ curl -v -X POST \
 
 ### Review evaluation response for Sales
 
-After the call, you receive the following error response, because the Everyone group is not assigned to your app:
+After the call, you receive the following error response, because the Everyone group isn’t assigned to your app:
 
 ```json
 {
