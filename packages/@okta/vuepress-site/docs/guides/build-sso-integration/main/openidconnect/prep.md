@@ -2,18 +2,24 @@
 
 Before you build your OIDC integration with Okta:
 
-1. [Determine the suitable OAuth 2.0 flow](#determine-the-oauth-2-0-flow-to-use) to use based on your type of application.
+1. [Determine a suitable OAuth 2.0 flow](#determine-the-oauth-2-0-flow-to-use) to use based on your app type.
 1. [Determine the scopes](#scopes) that you require for your OIDC client (your app).
-1. Consider how your integration stores each [customer client credentials](#oidc-customer-org-credentials).
+1. Consider how your app stores [customer client credentials](#oidc-customer-org-credentials).
 1. Understand how to [validate tokens](#token-validation) in your OIDC client.
+
    > **Note:** The Okta SDKs can't be used for OIN app integration development if you need to validate access tokens with the org authorization server. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
-1. Implement credential rotation. Your application must support automatic credential rotation. See [key rotation](#key-rotation).
-1. Determine the sign-in redirect URIs for your app. A redirect URI is where Okta sends the authentication response and ID token during the sign-in flow. You can specify more than one URI if required.
-1. Consider [rate limit considerations](#rate-limit-considerations) when you build your integration.
+1. Implement credential rotation in your app.
+
+   Your app must support automatic credential rotation. See [key rotation](#key-rotation).
+1. Determine the sign-in redirect URIs for your app.
+
+   A redirect URI is where Okta sends the authentication response and ID token during the sign-in flow. You can specify more than one URI if required.
+
+1. [Consider rate limits](#rate-limit-considerations) when you build your integration.
 
 Build your integration with this guidance (use the samples and examples provided in the [Determine the OAuth 2.0 flow to use](#determine-the-oauth-20-flow-to-use) section).
 
-After you have build your integration, register it in your Developer Edition org as a private . See [Create your integration in Okta](#create-your-integration-in-okta).
+After you've build your integration, register it in your developer-edition org. Use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. See [Create your integration in Okta](#create-your-integration-in-okta). Use the client credentials from this app integration instance to [test](#test-your-integration) your SSO flows.
 
 #### OIDC customer org credentials
 
@@ -25,44 +31,41 @@ This multi-tenant approach differs from other IdPs that use a global credential 
 
 #### Determine the OAuth 2.0 flow to use
 
-For OIDC applications destined for the OIN, you can create either of the following:
+Select the OAuth 2.0 flow to use based on your app:
 
-* A Web application with a dedicated server-side back-end capable of securely storing a client secret and exchanging information with an authorization server through trusted back-channel connections.
-  > **Note** Okta recommends using the Authorization Code flow with an exchange of the client credentials for controlling the access between your application and the resource server.
-* A Single Page Application (SPA) that uses an Authorization Code flow with a Proof Key for Code Exchange (PKCE).
-   > **Note:** Okta recommends this method to control the access between your SPA application and a resource server.
+* For web apps:
 
----
+   Okta recommends the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). This flow is used for apps with a dedicated server-side back-end capable of securely storing a client secret. The app integration can also exchanging information with an authorization server through trusted back-channel connections.
 
-For OIDC web apps, Okta recommends the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). This flow is used for integrations that can securely store a client secret and exchange information with an authorization server through trusted back-channel connections.
+* For single-page apps (SPA):
 
-If you're building a single page application (SPA) integration, then Okta recommends using the [Authorization Code flow with a Proof Key for Code Exchange (PKCE)](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce).
+   Okta recommends the [Authorization Code flow with a Proof Key for Code Exchange (PKCE)](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce) to control access between your SPA application and a resource server.
 
-You can follow these guides to implement the flows:
+> **Note:** Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN. Set up your app to use an authentication flow that allows your client app to talk to your SaaS back end. Your SaaS back end can then securely communicate with Okta through trusted back-channel connections.
+
+Follow these guides to implement the OAuth 2.0 flows:
 
 * [Implement Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Implement Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 
-You can also review these sample app integration guides in various languages:
+> **Note:** You can also review these sample app integration quickstarts that use the Okta CLI:
+> * [Sign in to SPA](/docs/guides/sign-into-spa-redirect/)
+> * [Sign in to web application](/docs/guides/sign-into-web-app-redirect/)
 
-* [Sign in to SPA](/docs/guides/sign-into-spa-redirect/)
-* [Sign in to web application](/docs/guides/sign-into-web-app-redirect/)
-
-When you follow these guides, one caveat is the use of the authorization server. Most of the examples show you how to make an `/authorize` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). Some examples also set the issuer setting to a custom authorization server, but OIDC integrations in the OIN must use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
-
-To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server. You can only use the [org authorization server](https://developer.okta.com/docs/concepts/auth-servers/#available-authorization-server-types).
+When you follow these guides, one caveat is the use of the authorization server. Most of the examples show you how to make an `/authorize` or `/token` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
 For example, the following are the various `/authorize` request URLs for the different authorization servers:
-
-**org authorization server**:`https://${customerOktaDomain}/oauth2/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
 
 **custom authorization server**: `https://${customerOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
 
 **default custom authorization server**(`${authorizationServerId}=default`): `https://${customerOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
 
-> **Notes:**
+**org authorization server**:`https://${customerOktaDomain}/oauth2/v1/authorize?client_id=${clientId}&response_type=code&scope=openid&redirect_uri=${redirectURI}&state=${state}`
+
+Make sure you only use the **org authorization server** URL.
+
+> **Note:**
 > * The `refresh_token` option isn't supported for apps published in OIN.
-> * Your application needs to verify user identity through a user store. Otherwise, your app could be spoofed by fake applications in the Android or Apple app stores, or an end user could view and possibly modify your code. For this reason, native and mobile app integrations aren't acceptable for OIDC app integrations in the OIN. You must set up your application to use an authentication flow so that your client application talks to your SaaS back end, which then communicates with Okta.
 
 #### Scopes
 

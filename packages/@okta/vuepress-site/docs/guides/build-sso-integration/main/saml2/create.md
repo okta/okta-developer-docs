@@ -1,5 +1,3 @@
-### Create a SAML integration
-
 4. Select **SAML 2.0** in the **Sign-in method** section.
 1. Click **Next**.
 1. On the **General Settings** tab, enter a name for your integration and optionally upload a logo. You can also choose to hide the integration from your end-user's Okta dashboard or mobile app. Click **Next**.

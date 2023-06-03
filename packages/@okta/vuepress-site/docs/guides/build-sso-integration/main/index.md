@@ -24,9 +24,9 @@ This guide teaches you how to build federated SSO with Okta for your application
 
 ## Overview
 
-Single Sign-On (SSO) is an authentication method that enables end users to sign in to multiple applications (apps) with one set of credentials. If you have customers that use Okta as an Identity Provider, you want to publish your app SSO integration to the OIN. See [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview) for all the benefits of having your app SSO integration in the OIN catalog.
+Single Sign-On (SSO) is an authentication method that enables end users to sign in to multiple applications (apps) with one set of credentials. If you have customers that use Okta as an Identity Provider, you want to publish your SSO app integration to the OIN. By having your integration in the OIN catalog, your customers can easily configure SSO for your app. See [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview) for all the benefits of having your integration in the OIN catalog.
 
-To create an SSO integration for the OIN, first sign up for a free [Okta Developer Edition org](https://developer.okta.com/signup/). Next, select the protocol that you want to implement SSO. Okta supports two SSO standards for your integration:
+To create an SSO integration for the OIN, first sign up for a free [Okta developer-edition org](https://developer.okta.com/signup/). Next, select the protocol that you want to implement SSO. Okta supports two SSO standards for your integration:
 
 * **OpenID Connect (OIDC)**
 * **Security Assertion Markup Language (SAML)**
@@ -52,9 +52,9 @@ After you've decided which protocol is right for your needs, you need to plan an
 
 ## Create your integration in Okta
 
-Register your app by Create an SSO integration inside the Okta org associated with your developer account. Use the Application Integration Wizard (AIW) in the Admin Console to create your integration.
+After you've built your integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for you to test your SSO flows.
 
->**Note:** Creating your SSO app integration doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've created and tested it, you need to [submit your app integration](/docs/guides/submit-app/) to the OIN.
+> **Note:** Creating your app integration instance doesn't automatically make it available in the [OIN](https://www.okta.com/integrations/). After you've tested your integration, you need to [submit it](/docs/guides/submit-app/) to the OIN team for verification.
 
 1. Sign in to your [developer-edition Okta org](/login/) as a user with administrative privileges.
 1. In the Admin Console, go to  **Applications** > **Applications**.
@@ -66,7 +66,7 @@ Register your app by Create an SSO integration inside the Okta org associated wi
 
 This portion of the guide takes you through the steps for configuring your specific SSO integration using the Okta Admin Console.
 
-After you create your integration in the [Create your integration](#create-your-integration) step, the main settings page appears for your new integration in the Admin Console. Specify **General Settings** and **Sign On** options, and assign the integration to users in your org. Click **Edit** if you need to change any of the options, and **Save** when you've made your changes.
+After you create your integration in the [Create your integration in Okta](#create-your-integration-in-okta) step, the main settings page appears for your new integration in the Admin Console. Specify **General Settings** and **Sign On** options, and assign the integration to users in your org. Click **Edit** if you need to change any of the options, and **Save** when you've made your changes.
 
 <StackSnippet snippet="settings" />
 
