@@ -1151,23 +1151,37 @@ The following diagram shows the state object for a Device:
 
 #### Device profile properties
 
-| Property           | Type       | Description                                                                                   |
-| :----------------- | :--------- | :---------------------------------------------------------------------------------------------|
-| `displayName`      | String     | The display name of the device (from 1 through 255 characters)                                           |
-| `platform`         | String     | OS platform of the device. Possible values: `MACOS`, `WINDOWS`, `ANDROID`, `IOS`.              |
-| `registered`       | Boolean    | Indicates if the device is registered at Okta                                               |
-| `imei`             | String     | (Optional) International Mobile Equipment Identity of the device (from 15 through 17 numeric characters)  |
-| `manufacturer`     | String     | (Optional) Name of the manufacturer of the device (from 0 through 127 characters)                         |
-| `meid`             | String     | (Optional) Mobile equipment identifier of the device (14 characters)                         |
-| `model`            | String     | (Optional) Model of the device (127 characters)                                              |
-| `osVersion`        | String     | (Optional) Version of the device OS (127 characters)                                         |
-| `serialNumber`     | String     | (Optional) Serial number of the device (127 characters)                                      |
-| `sid`              | String     | (Optional) Windows Security identifier of the device (256 characters)                        |
-| `udid`             | String     | (Optional) macOS Unique Device identifier (47 characters)                      |
-| `tpmPublicKeyHash` | String     | (Optional) Windows Trusted Platform Module hash value                                        |
-| `secureHardwarePresent` | Boolean    | (Optional) Indicates if the device contains a secure hardware functionality            |
+| Property                 | Type       | Description                                                                                                       | Applicable Platforms       |
+| :----------------------- | :--------- | :-----------------------------------------------------------------------------------------------------------------| :---------------------------|
+| `displayName`            | String     | The display name of the device (from 1 through 255 characters)                                                    | All                         |
+| `platform`               | Enum       | OS platform of the device. Possible values: `MACOS`, `WINDOWS`, `ANDROID`, `IOS`.                                 | All                         |
+| `registered`             | Boolean    | Indicates if the device is registered at Okta                                                                     | All                         |
+| `diskEncryptionType`     | Enum       | (Optional) The type of disk encryption on the device. [Possible Values for `diskEncryptionType`](#possible-values-for-diskencryptiontype)      | All                         |
+| `imei`                   | String     | (Optional) International Mobile Equipment Identity of the device (from 15 through 17 numeric characters)          | All                         |
+| `integrityJailbreak`     | Boolean    | (Optional) Indicates if the device is jailbroken or rooted                                                        | `IOS` and `ANDROID`         |
+| `manufacturer`           | String     | (Optional) Name of the manufacturer of the device (from 0 through 127 characters)                                 | All                         |
+| `meid`                   | String     | (Optional) Mobile equipment identifier of the device (14 characters)                                              | All                         |
+| `model`                  | String     | (Optional) Model of the device (127 characters)                                                                   | All                         |
+| `osVersion`              | String     | (Optional) Version of the device OS (127 characters)                                                              | All                         |
+| `serialNumber`           | String     | (Optional) Serial number of the device (127 characters)                                                           | All                         |
+| `sid`                    | String     | (Optional) Windows Security identifier of the device (256 characters)                                             | All                         |
+| `udid`                   | String     | (Optional) macOS Unique Device identifier (47 characters)                                                         | All                         |
+| `tpmPublicKeyHash`       | String     | (Optional) Windows Trusted Platform Module hash value                                                             | All                         |
+| `secureHardwarePresent`  | Boolean    | (Optional) Indicates if the device contains a secure hardware functionality                                       | All                         |
 
-#### Device profile example
+##### Possible Values for `diskEncryptionType`
+
+| Value                       | Description                                              | Applicable Platforms       |
+| :-------------------------- | :--------------------------------------------------------| :---------------------------|
+| `NONE`                      | No encryption has been set                               | All                         |
+| `FULL`                      | Disk is fully encrypted                                  | `IOS` and `ANDROID`         |
+| `USER`                      | Encryption key is tied to the user or profile            | `ANDROID`                   |
+| `ALL_INTERNAL_VOLUMES`      | All internal disks are encrypted                         | `WINDOWS` and `MACOS`       |
+| `SYSTEM_VOLUME`             | Only the system volume is encrypted                      | `WINDOWS` and `MACOS`       |
+
+**Note:** The following values map to Disk Encryption ON (otherwise OFF): `FULL`, `USER`, `ALL_INTERNAL_VOLUMES`
+
+#### Device profile examples
 
 ```json
 {
@@ -1182,9 +1196,33 @@ The following diagram shows the state object for a Device:
         "meid": null,
         "udid": "36A56558-1793-5B3A-8362-ECBAA14EDD2D",
         "sid": null,
-        "tpmPublicKeyHash":null,
-        "registered":true,
-        "secureHardwarePresent":false
+        "tpmPublicKeyHash": null,
+        "registered": true,
+        "secureHardwarePresent": false,
+        "diskEncryptionType": null
+    }
+}
+```
+
+```json
+{
+    "profile": {
+        "displayName": "Bob - New Device",
+        "platform": "IOS",
+        "manufacturer": "Apple Inc.",
+        "model": "iPhone 13 Pro Max",
+        "osVersion": "15.1.1",
+        "serialNumber": "C02VW333HTDF",
+        "imei": null,
+        "integrityJailbreak": ,
+        "meid": null,
+        "udid": "36A56558-1793-5B3A-8362-ECBAA14EDD2D",
+        "sid": null,
+        "tpmPublicKeyHash": null,
+        "registered": true,
+        "secureHardwarePresent": false,
+        "diskEncryptionType": "FULL",
+        "integrityJailbreak": false
     }
 }
 ```
