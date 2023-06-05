@@ -4,7 +4,7 @@ category: management
 ---
 # Zones API
 
-The Zones API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) as Network Zones API.
+The Zones API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) as the Network Zones API.
 
 Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Network Zones API Postman collection.
 
