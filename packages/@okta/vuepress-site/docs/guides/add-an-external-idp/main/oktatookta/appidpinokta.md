@@ -2,6 +2,9 @@
 * **Client Id**: Paste the client ID that you obtained from the Okta org that represents the Identity Provider in the previous section.
 * **Client Secret**: Paste the secret that you obtained in the previous section.
 * **Authentication method reference (AMR) claims**: Select **Trust AMR claims from this identity provider** to have Okta evaluate that AMR claims sent in the IdP response meet sign-on policy requirements. <ApiLifecycle access="ea" />
+
+    > **Note:** In the IdP response, ensure that you send the AMR claims that your [sign-on policy](/docs/guides/configure-signon-policy/main/) is expecting.
+
 * **Scopes**: Leave the defaults. These scopes are included when your Okta org makes a request to the other Okta org that represents the Identity Provider.
 
     > **Note:** By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to the Okta Universal Directory.
