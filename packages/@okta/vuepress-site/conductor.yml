@@ -4690,7 +4690,7 @@ redirects:
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements
     to: /docs/guides/build-sso-integration/openidconnect/main/#prepare-your-integration
   - from: /docs/guides/oin-oidc-guide/multi-tenancy
-    to: /docs/guides/oin-sso-overview/#oidc-multi-tenancy-in-the-oin
+    to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
   - from: /docs/guides/oin-oidc-guide/integration-best-practices
     to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/next-steps
@@ -4702,7 +4702,7 @@ redirects:
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements/index.html
     to: /docs/guides/build-sso-integration/openidconnect/main/#prepare-your-integration
   - from: /docs/guides/oin-oidc-guide/multi-tenancy/index.html
-    to: /docs/guides/oin-sso-overview/#oidc-multi-tenancy-in-the-oin
+    to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
   - from: /docs/guides/oin-oidc-guide/integration-best-practices/index.html
     to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/next-steps/index.html
