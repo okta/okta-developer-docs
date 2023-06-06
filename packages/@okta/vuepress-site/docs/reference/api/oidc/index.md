@@ -424,13 +424,13 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-<!-- ### /bc/authorize
+### /bc/authorize
 
 <ApiOperation method="post" url="${baseUrl}/v1/bc/authorize" /> <ApiLifecycle access="ie" />
 
 This endpoint returns a unique identifier (`auth_request_id`) that identifies the authentication flow while it tries to authenticate the user in the background.
 
->  **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
+> **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
 
 #### Request parameters
 
@@ -535,7 +535,7 @@ Content-Type: application/json;charset=UTF-8
     "error_description" : "No client credentials found."
 }
 ```
--->
+
 ### /token
 
 <ApiOperation method="post" url="${baseUrl}/v1/token" />
