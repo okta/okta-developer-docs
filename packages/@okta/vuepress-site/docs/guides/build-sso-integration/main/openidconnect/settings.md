@@ -31,6 +31,8 @@
 
 * If required, you can generate a new client secret. In the **Client Credentials** section, click **Edit**, then **Generate New Client Secret**.
 
+> **Note:** If you generate a new set of client credentials, update your app to include the new credentials for your SSO integration.
+
 <!--[ian 2020.02.25] we don't currently support OIDC native applications in the OIN -->
 <!--
 #### Native applications

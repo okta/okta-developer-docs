@@ -1,13 +1,14 @@
-### Prepare an OIDC integration
+If you haven't build the OIDC service in your application yet, review the [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/) concept.
 
-Before you build your OIDC integration with Okta:
+For OIDC integrations to be published in the OIN catalog, review the following implementation topics:
 
 1. [Determine a suitable OAuth 2.0 flow](#determine-the-oauth-2-0-flow-to-use) to use based on your app type.
 1. [Determine the scopes](#scopes) that you require for your OIDC client (your app).
 1. Consider how your app stores [customer client credentials](#oidc-customer-org-credentials).
 1. Understand how to [validate tokens](#token-validation) in your OIDC client.
 
-   > **Note:** The Okta SDKs can't be used for OIN app integration development if you need to validate access tokens with the org authorization server. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
+   > **Note:** The Okta SDKs can't be used to validate access tokens for apps in the OIN. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
+
 1. Implement credential rotation in your app.
 
    Your app must support automatic credential rotation. See [key rotation](#key-rotation).
@@ -17,11 +18,13 @@ Before you build your OIDC integration with Okta:
 
 1. [Consider rate limits](#rate-limit-considerations) when you build your integration.
 
-Build your integration with this guidance (use the samples and examples provided in the [Determine the OAuth 2.0 flow to use](#determine-the-oauth-20-flow-to-use) section).
+Build your integration with these guidances.
 
-After you've build your integration, register it in your developer-edition org. Use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. See [Create your integration in Okta](#create-your-integration-in-okta). Use the client credentials from this app integration instance to [test](#test-your-integration) your SSO flows.
+> **Note:** You can see quickstarts and example links provided in the [Determine the OAuth 2.0 flow to use](#determine-the-oauth-2-0-flow-to-use) section for example OIDC implementations outside of the OIN.
 
-#### OIDC customer org credentials
+After you've build your integration, test your SSO integration with an Okta app integration instance. See [Create your integration in Okta](#create-your-integration-in-okta).
+
+### OIDC customer org credentials
 
 Okta uses a [multi-tenant](/docs/concepts/multi-tenancy) local credential system for OIDC integrations. When your customer adds your integration in their Okta org, they obtain a unique set of OIDC credentials. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
 
@@ -29,7 +32,7 @@ For example, consider a scenario where your app integration is added to 10 separ
 
 This multi-tenant approach differs from other IdPs that use a global credential system, where a given application has the same customer credentials across all orgs.
 
-#### Determine the OAuth 2.0 flow to use
+### Determine the OAuth 2.0 flow to use
 
 Select the OAuth 2.0 flow to use based on your app:
 
@@ -67,7 +70,7 @@ Make sure you only use the **org authorization server** URL.
 > **Note:**
 > * The `refresh_token` option isn't supported for apps published in OIN.
 
-#### Scopes
+### Scopes
 
 Your OIDC client needs to use scope values to define the access privileges being requested with individual access tokens. The scopes associated with access tokens determine what resources are available when the tokens are used to access the protected endpoints. Scopes can be used to request that specific sets of values be available as claim information about the end user.
 
@@ -91,7 +94,7 @@ You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). Custom
 
 Okta utilizes access policies to decide whether the scopes can be granted. If any of the requested scopes are rejected by the access policies, the request is rejected.
 
-#### Uniform Resource Identifier (URI)
+### Uniform Resource Identifier (URI)
 
 There are three URIs that you need to consider when creating an OIDC app for the OIN:
 
@@ -99,7 +102,7 @@ There are three URIs that you need to consider when creating an OIDC app for the
 2. Optional. **Initiate login URI**: This URI is used if the application is launched from the Okta dashboard (known as an IdP-initiated flow) and you want your Okta integration to handle redirecting your users to your application to start the sign-in request. When end users click your app in their Okta dashboard, they are redirected to the `initiate_login_uri` of the client application, which constructs the authentication request and redirects the end user back to the authorization server. This URI must exactly match the Initiate URI value that is pre-registered in the Okta app integration settings.
 3. Optional. **Sign-out redirect URIs**: A location to send the user after a sign-off operation is performed and their session is terminated. Otherwise, the user is redirected back to the sign-in page.
 
-#### Token validation
+### Token validation
 
 For checking access tokens, the `/introspect` [endpoint](/docs/reference/api/oidc/#introspect) takes your token as a URL query parameter and then returns a simple JSON response with the boolean `active` property.
 
@@ -109,7 +112,7 @@ This remote validation incurs a network cost, but you can use it when you want t
 
 > **Note:** The Okta SDKs can't be used for OIN app integration development if you need to validate access tokens with the org authorization server. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
 
-#### Key rotation
+### Key rotation
 
 The standard behavior in identity and access management is to rotate the keys used to sign tokens. Okta changes these keys typically four times a year (every 90 days), but that rotation schedule can change without notice. Okta automatically rotates the keys for your authorization server on a regular basis.
 
@@ -117,7 +120,7 @@ Your OIDC client should periodically query the `/keys` endpoint and retrieve the
 
 For more information, see [key rotation](/docs/concepts/key-rotation/) or the `/keys` [API endpoint](/docs/reference/api/oidc/#keys) for specific details on handling queries and responses.
 
-#### Rate limit considerations
+### Rate limit considerations
 
 When constructing your SSO application, you want to be aware of the limits on requests to Okta APIs. For reference on the categories and cumulative rate limits, see [Rate limits overview](/docs/reference/rate-limits/). Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 
@@ -145,4 +148,3 @@ You can request a temporary rate limit increase if you anticipate a large number
 > * `/oauth2/v1/keys`
 > * `/.well-known/openid-configuration`
 > * `/.well-known/oauth-authorization-server`
-
