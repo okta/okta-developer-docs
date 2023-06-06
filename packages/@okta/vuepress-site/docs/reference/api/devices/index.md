@@ -217,7 +217,7 @@ None
 | Parameter      | Type   | Description                                                                                                               |
 | -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
 | `search`       | String | Searches for devices with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties |
-| `limit`        | Number | Specifies the number of results returned (maximum `200`)                                                                    |
+| `limit`        | Number | Specifies the number of results returned (recomended `20`)                                                                    |
 | `after`        | String | Specifies the pagination cursor for the next page of devices                                                              |
 | `expand=user`  | String | Lists associated users for the device in `_embedded` element                                                              |
 
