@@ -33,7 +33,7 @@ In addition to storing user profiles and app user profiles, the Universal Direct
 
 See also [About attribute mappings](https://help.okta.com/okta_help.htm?id=ext-usgp-about-attribute-mappings)
 
-You can manage the Universal Directory mappings between profiles using the Admin Console or the [Mappings API](/docs/reference/api/mappings/).
+You can manage the Universal Directory mappings between profiles using the Admin Console or the [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/).
 
 ## User Profile types
 

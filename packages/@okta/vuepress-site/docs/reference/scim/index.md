@@ -18,7 +18,7 @@ For a developer's guide to implementing the SCIM REST API with Okta and your app
 
 Okta currently supports both Version 2.0 and Version 1.1 of the SCIM protocol specifications. If you haven't yet implemented SCIM, Okta recommends that you implement SCIM 2.0.
 
-To work with Okta, your SCIM application must use RESTful endpoints constructed according to either the [V2.0](https://tools.ietf.org/html/rfc7644) or [V1.1](http://www.simplecloud.info/specs/draft-scim-api-01.html) SCIM protocol specification. The URL of your SCIM server is plugged into the SCIM integration in your Okta org. Okta then communicates with the endpoints through a series of HTTP requests and responses using POST, GET, PUT, and PATCH operations.
+To work with Okta, your SCIM application must use RESTful endpoints constructed according to either the [V2.0](https://tools.ietf.org/html/rfc7644) or [V1.1](https://scim.cloud/specs/draft-scim-api-01.html) SCIM protocol specification. The URL of your SCIM server is plugged into the SCIM integration in your Okta org. Okta then communicates with the endpoints through a series of HTTP requests and responses using POST, GET, PUT, and PATCH operations.
 
 ### Differences between version 2.0 and 1.1
 

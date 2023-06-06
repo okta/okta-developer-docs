@@ -5,6 +5,12 @@ category: management
 
 # Mappings API
 
+The Mappings API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/) as Profile Mappings.
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Profile Mappings API Postman collection.
+
+<!--
+
 The Okta Mappings API provides operations to manage the mapping of properties between an Okta User's and an App User's
 [Profile properties](/docs/reference/api/users/#profile-object) using [Okta Expression Language](/docs/reference/okta-expression-language).
 More information on Okta User and App User Profiles can be found in
@@ -528,3 +534,5 @@ Consists of a target property, in String form, that maps to a valid [JSON Schema
 | pushStatus  | Indicates whether to update target properties on user create and update or just on create | `DONT_PUSH` or `PUSH`         | FALSE    | FALSE  | FALSE    |           |
 
 > **Note:** Having a pushStatus of `PUSH` causes properties in the target to be updated on create and update. Having a pushStatus of `DONT_PUSH` causes properties in the target to be updated only on create.
+
+-->

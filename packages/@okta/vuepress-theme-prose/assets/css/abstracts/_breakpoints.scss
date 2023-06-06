@@ -1,6 +1,6 @@
 $breakpoints: (
   "phone": 320px,
-  "tablet": 768px,
+  "tablet": 767px,
   "desktop": 1024px,
   "desktop-xl": 1440px,
   "desktop-xx-large": 1920px,
@@ -8,4 +8,5 @@ $breakpoints: (
   "bootstrap-lg": 992px,
   // for 'bootstrap-md' use 'tablet'
   "bootstrap-sm": 576px,
+  "signup": 1315px,
 );
