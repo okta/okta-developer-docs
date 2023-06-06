@@ -526,6 +526,7 @@ curl -v -X GET \
          "users":[
             {
                "managementStatus": "MANAGED",
+               "screenLockType": "BIOMETRIC",
                "created":"2021-10-01T16:52:41.000Z",
                "user":{
                   "id":"${userId}",
@@ -639,6 +640,7 @@ curl -v -X GET \
    {
       "created":"2021-08-20T17:13:35.000Z",
       "managementStatus":"NOT_MANAGED",
+      "screenLockType":"BIOMETRIC",
       "user":{
          "id":"00u17vh0q8ov8IU881d7",
          "status":"ACTIVE",
