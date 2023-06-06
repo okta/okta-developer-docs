@@ -4,7 +4,7 @@ In the **Authentication Settings** section:
 
 * **Authentication method reference (AMR) claims**: Select **Trust AMR claims from this identity provider** to have Okta evaluate that AMR claims sent in the IdP response meet sign-on policy requirements. <ApiLifecycle access="ea" />
 
-    > **Note:** In the IdP response, ensure that you send the AMR claims that your [sign-on policy](/docs/guides/configure-signon-policy/main/) is expecting.
+    > **Note:** Ensure that the IdP includes the correct AMR claims in the IdP response and that the claims match the requirements of your [sign-on policies](/docs/guides/configure-signon-policy/main/). If the claims don't satisfy the requirements, then users can't sign in to the application.
 
 * **IdP Username**: This is the expression (written in Okta Expression Language) that is used to convert an Identity Provider attribute to the application user's `username`. This Identity Provider username is used for matching an application user to an Okta user.
 

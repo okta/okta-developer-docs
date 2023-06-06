@@ -3,7 +3,7 @@
 * **Client Secret**: Paste the secret that you obtained in the previous section.
 * **Authentication method reference (AMR) claims**: Select **Trust AMR claims from this identity provider** to have Okta evaluate that AMR claims sent in the IdP response meet sign-on policy requirements. <ApiLifecycle access="ea" />
 
-    > **Note:** In the IdP response, ensure that you send the AMR claims that your [sign-on policy](/docs/guides/configure-signon-policy/main/) is expecting.
+    > **Note:** Ensure that the IdP includes the correct AMR claims in the IdP response and that the claims match the requirements of your [sign-on policies](/docs/guides/configure-signon-policy/main/). If the claims don't satisfy the requirements, then users can't sign in to the application.
 
 * **Scopes**: Leave the defaults. These scopes are included when your Okta org makes a request to the other Okta org that represents the Identity Provider.
 
