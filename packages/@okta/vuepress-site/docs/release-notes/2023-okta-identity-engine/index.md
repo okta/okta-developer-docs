@@ -10,12 +10,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [API service integration client secret rotation](#api-service-integration-client-secret-rotation) | June 07, 2023 |
 | [Bugs fixed in 2023.05.3](#bug-fixed-in-2023-05-3) | June 07, 2023 |
-
-#### API service integration client secret rotation
-
-New in this release is the ability to rotate client secrets for an API service integration through the API. Previously, if a customer wanted to update the client secret for an API service integration, they would have to reinstall the integration to obtain a new client ID and secret. There was no option to revoke the client secret while maintaining the client ID and API service integration instance in Okta. With this new feature, customers can generate a new secret, deactivate an old secret, and remove a deactivated secret from the API service integration instance. These functionalities help customers implement security best practices without service downtime. See [API Service Integration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/#tag/ApiServiceIntegrations/operation/createApiServiceIntegrationInstanceSecret) API references.
 
 #### Bug fixed in 2023.05.3
 
