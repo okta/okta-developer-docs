@@ -56,7 +56,7 @@ To update the widget:
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 
-2. In the **Pages** tab, click **Configure** in the **Sign-in page** section. Go to the **Settings** tab.
+2. On the **Pages** tab, click **Configure** in the **Sign-in page** section. Go to the **Settings** tab.
 
     - In the **Sign-In Widget Version** section, check that the **Version** is the highest version available. The widget is always the latest version if you're not using a custom URL domain.
     - If you're using the [custom domain feature](/docs/guides/custom-url-domain/) and the version isn't correct, you can pin the widget's version. Click **Edit** in the **Sign-In Widget Version** section and then select the **Version** field.
