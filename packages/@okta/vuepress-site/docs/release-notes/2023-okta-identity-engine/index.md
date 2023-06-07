@@ -11,7 +11,7 @@ title: Okta Identity Engine API Products release notes 2023
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [API service integration client secret rotation](#api-service-integration-client-secret-rotation) | June 07, 2023 |
-| [Bugs fixed in 2023.05.2](#bug-fixed-in-2023-05-3) | June 07, 2023 |
+| [Bugs fixed in 2023.05.3](#bug-fixed-in-2023-05-3) | June 07, 2023 |
 
 #### API service integration client secret rotation
 
