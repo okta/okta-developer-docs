@@ -75,7 +75,7 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 > **Note:** To access email customization with a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help).
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
-1. In the **Emails** tab, click an email template name.
+1. In the **Emails** tab, click an email template name:
    - The code editor is in preview mode.
    - **Audience**: Select the email audience: **All users**, **Admin only**, or **Disabled for all**.
    - **Translations**: Customize email template translations. See [Add translations](#add-translations).
