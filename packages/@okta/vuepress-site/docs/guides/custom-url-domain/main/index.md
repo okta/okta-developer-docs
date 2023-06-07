@@ -295,7 +295,11 @@ A custom email address allows you to present a branded experience to your end us
 
 Okta sends your super admins a confirmation email after your custom email address is configured and operating correctly. To ensure continuous operation, Okta polls your custom email domain once every 24 hours. If a problem occurs, Okta alerts super admins by email, and Okta-generated emails are sent from the default address `noreply@okta.com` until the problem is resolved.
 
-## Configure a custom email address
+### Use the Brands API
+
+The [Email Domains API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/EmailDomain/) is a feature that allows you to create, update, and delete email domains for your organization.
+
+### Configure a custom email address
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 
