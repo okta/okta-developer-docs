@@ -16,7 +16,6 @@ Customize email notifications.
 
 - [Okta Developer Edition organization](https://developer.okta.com/signup)
 - Access to email template customization. Contact [Okta support](https://support.okta.com/help) for help.
-* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding)
 
 **Sample code**
 
@@ -75,9 +74,8 @@ Use these steps to add or edit a template in one of the Okta-supported languages
 
 > **Note:** To access email customization with a free developer edition of an Okta org, you need to contact [Okta support](https://support.okta.com/help).
 
-1. In the Admin Console, go to **Customizations** > **Branding**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want.)
-1. In the **Communications** section, in the **Emails** box, click **Edit**.
-1. In the **Email Templates** table, click a template name.
+1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
+1. In the **Emails** tab, click an email template name.
    - The code editor is in preview mode.
    - **Audience**: Select the email audience: **All users**, **Admin only**, or **Disabled for all**.
    - **Translations**: Customize email template translations. See [Add translations](#add-translations).
