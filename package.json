@@ -31,7 +31,7 @@
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "lint-all": "yarn eslint && yarn stylelint",
-    "linkinator": "node scripts/linkinator.mjs"
+    "linkinator:external": "node scripts/linkinator.mjs external"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
