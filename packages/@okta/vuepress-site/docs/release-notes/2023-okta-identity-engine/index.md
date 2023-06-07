@@ -4,15 +4,35 @@ title: Okta Identity Engine API Products release notes 2023
 
 <ApiLifecycle access="ie" />
 
+## June
+
+### Monthly release 2023.06.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [API service integration client secret rotation](#api-service-integration-client-secret-rotation) | June 14, 2023 |
+| [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
+
+#### API service integration client secret rotation
+
+New in this release is the ability to rotate client secrets for an API service integration through the API. Previously, if a customer wanted to update the client secret for an API service integration, they would have to reinstall the integration to obtain a new client ID and secret. There was no option to revoke the client secret while maintaining the client ID and API service integration instance in Okta. With this new feature, customers can generate a new secret, deactivate an old secret, and remove a deactivated secret from the API service integration instance. These functionalities help customers implement security best practices without service downtime. See [API Service Integration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/#tag/ApiServiceIntegrations/operation/createApiServiceIntegrationInstanceSecret) API references.
+
+#### Bugs fixed in 2023.06.0
+
 ## May
 
 ### Weekly release 2023.05.3
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2023.05.3](#bug-fixed-in-2023-05-3) | June 07, 2023 |
+| [API service integration client secret rotation](#api-service-integration-client-secret-rotation) | June 07, 2023 |
+| [Bugs fixed in 2023.05.3](#bugs-fixed-in-2023-05-3) | June 07, 2023 |
 
-#### Bug fixed in 2023.05.3
+#### API service integration client secret rotation
+
+New in this release is the ability to rotate client secrets for an API service integration through the API. Previously, if a customer wanted to update the client secret for an API service integration, they would have to reinstall the integration to obtain a new client ID and secret. There was no option to revoke the client secret while maintaining the client ID and API service integration instance in Okta. With this new feature, customers can generate a new secret, deactivate an old secret, and remove a deactivated secret from the API service integration instance. These functionalities help customers implement security best practices without service downtime. See [API Service Integration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/#tag/ApiServiceIntegrations/operation/createApiServiceIntegrationInstanceSecret) API references.
+
+#### Bugs fixed in 2023.05.3
 
 * Requests to the Email Domains API (DELETE /email-domains/{emailDomainId}) failed if the same domain name was used by multiple orgs. (OKTA-612312)
 * Some attributes previously added to user profiles from incoming SAML responses weren't cleared when the attribute was later omitted. (OKTA-609021)
