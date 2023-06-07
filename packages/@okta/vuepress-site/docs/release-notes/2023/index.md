@@ -8,7 +8,7 @@ title: Okta API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2023.05.3](#bug-fixed-in-2023-05-3) | June 07, 2023 |
+| [Bugs fixed in 2023.05.3](#bugs-fixed-in-2023-05-3) | June 07, 2023 |
 
 #### Bugs fixed in 2023.05.3
 
