@@ -303,7 +303,7 @@ The [Email Domains API](https://developer.okta.com/docs/api/openapi/okta-managem
 
 1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 
-2. In the **Domains** tab > **Emails** section, click **Add domain**.
+2. On the **Domains** tab > **Emails** section, click **Add domain**.
 
 3. In the **Email address** field, enter the email address that you want to send the system notification emails from. This email address appears in the emails sent to your users.
 
