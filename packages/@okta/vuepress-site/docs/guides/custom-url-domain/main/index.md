@@ -307,7 +307,7 @@ The [Email Domains API](https://developer.okta.com/docs/api/openapi/okta-managem
 
 3. In the **Email address** field, enter the email address that you want to send the system notification emails from. This email address appears in the emails sent to your users.
 
-4. In the **Name of email sender** field, enter the name of sender. This name appears as the sender in the emails sent to your users.
+4. Enter the sender name in the **Name of email sender** field. This name appears as the sender of the emails sent to your users.
 
 5. Click **Continue**.
 
