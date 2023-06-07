@@ -5567,3 +5567,11 @@ redirects:
     to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
   - from: /docs/reference/beta-only
     to: /docs/reference/#apis-documented-only-on-the-new-beta-reference
+  - from: /docs/guides/sign-into-web-app-redirect/aspnetcore3/main
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
+  - from: /docs/guides/sign-into-web-app-redirect/aspnetcore3/main/index.html
+    to: /docs/guides/sign-into-web-app-redirect/asp-net-core-3/main/
+  - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main
+    to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/
+  - from: /docs/guides/sign-into-mobile-app-redirect/react-native/main/index.html
+    to: /docs/guides/sampleapp-oie-redirectauth/reactnativedroid/main/

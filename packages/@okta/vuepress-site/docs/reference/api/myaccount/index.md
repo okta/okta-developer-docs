@@ -15,6 +15,8 @@ The Okta MyAccount API allows end users to fetch and update their own Okta user 
 * The API doesn't support lifecycle operations.
 * All operations in this API implicitly refer to the user making the API call. No user ID is needed or even accepted.
 
+> Note: The MyAccount API doesn't support [delegated authentication](https://help.okta.com/okta_help.htm?id=ext_Security_Authentication).
+
 ## Get started
 
 * This API is only for Okta Identity Engine. If you’re using Okta Classic Engine, see [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/). See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.

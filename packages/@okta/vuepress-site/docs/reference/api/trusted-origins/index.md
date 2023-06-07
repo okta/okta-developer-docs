@@ -11,8 +11,6 @@ When external URLs are requested during sign-in, sign-out, or recovery operation
 
 You can also configure Trusted Origins to allow iFrame embedding of Okta resources, such as Okta sign-in pages and the Okta End-User Dashboard, within that origin. This is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/).
 
-> **Note:** This Early Access feature is supported for Okta domains only. It isn't currently supported for custom domains.
-
 ## Trusted Origins API operations
 
 ### Create Trusted Origin

@@ -9,16 +9,16 @@ meta:
 ---
 
 <ul class='language-tabs'>
-	<li>
-		<RouterLink to='/code/java/'>
-			<i class='icon code-java-32'></i><span>Java</span>
-		</RouterLink>
-	</li>
-	<li >
-		<RouterLink to='/code/java/spring/'>
-			<i class='icon code-spring-32'></i><span>Spring</span>
-		</RouterLink>
-	</li>
+   <li>
+      <RouterLink to='/code/java/'>
+         <i class='icon code-java-32'></i><span>Java</span>
+      </RouterLink>
+   </li>
+   <li >
+      <RouterLink to='/code/java/spring/'>
+         <i class='icon code-spring-32'></i><span>Spring</span>
+      </RouterLink>
+   </li>
 </ul>
 
 ## Get started with Java + Okta
@@ -29,8 +29,8 @@ These resources help you add user authentication to your Java app.
 
 SDKs help you integrate with Okta by redirecting apps to the Okta Sign-In Widget using OpenID Connect (OIDC) client libraries.
 
-- [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot)
-- [Micronaut redirect authentication sample app](https://github.com/okta/samples-java-micronaut/tree/master/okta-hosted-login)
+* [Okta Spring Boot Starter](https://github.com/okta/okta-spring-boot)
+* [Micronaut redirect authentication sample app](https://github.com/okta/samples-java-micronaut/tree/master/okta-hosted-login)
 
 ## Integrate with Okta using embedded Sign-In Widget and SDKs
 
@@ -41,12 +41,12 @@ Okta Identity Engine:
 * [Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
 * [Java embedded authentication with SDK sample app](https://github.com/okta/okta-idx-java/tree/master/samples/embedded-auth-with-sdk)
 
-Okta Classic:
+Okta Classic Engine:
 
 * The [Okta Authentication SDK](https://github.com/okta/okta-auth-java) can be used in scenarios where using OAuth 2.0 isn't possible.
 * [Okta Authentication SDK reference (Javadoc)](https://developer.okta.com/okta-auth-java/apidocs/)
 
-## Other Classic SDKs
+## Other Classic Engine SDKs
 
 * The [Okta Java Management SDK](https://github.com/okta/okta-sdk-java) can be used in your server-side code to create and update users, groups, and more.
   * [Okta Java Management SDK Reference (Javadoc)](https://developer.okta.com/okta-sdk-java/apidocs/)

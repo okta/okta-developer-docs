@@ -13,19 +13,19 @@ For a general introduction to Okta inline hooks, see [inline hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this inline hook, see below, [Enabling a token inline hook](#enabling-a-token-inline-hook).
+For steps to enable this inline hook, see [Enabling a token inline hook](#enabling-a-token-inline-hook).
 
 For an example implementation of this inline hook, see [Token inline hook](/docs/guides/token-inline-hook).
 
 ## About
 
-This type of inline hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token or to modify existing claims.
+This type of inline hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta custom authorization server. Before sending the token to the requester, Okta calls out to your external service. Your service can then respond with commands to add custom claims to the token or to modify existing claims.
 
-This functionality can be used to add data that is sensitive, calculated at runtime, or complexly-structured and not appropriate for storing in Okta user profiles. Data added this way is never logged or stored by Okta. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
+Use this functionality to add data that is sensitive, calculated at runtime, or complexly structured and not appropriate for storing in Okta user profiles. Okta never logs nor stores data that is added this way. As an example, tokens minted for a medical app could be augmented with confidential patient data provided by your external service and not stored in Okta.
 
 In addition to adding custom claims, you can modify or remove an existing custom claim or an OIDC standard profile claim. You can also update how long an access token or an ID token is valid.
 
-This inline hook works only when using an [Okta Custom Authorization Server](/docs/guides/customize-authz-server/main/#create-an-authorization-server), not the built-in Okta Authorization Server.
+This inline hook works only when using an [Okta custom authorization server](/docs/guides/customize-authz-server/main/#create-an-authorization-server), not the built-in Okta authorization server.
 
 ## Objects in the request from Okta
 
@@ -52,7 +52,7 @@ Provides information on the properties of the access token that Okta has generat
 
 #### claims
 
-Consists of name-value pairs for each included claim. For descriptions of the claims that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
+Consists of name-value pairs for each included claim. For descriptions of the claims that you can include, see the Okta [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
 
 #### lifetime
 
@@ -62,7 +62,15 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 #### scopes
 
-The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
+The set of scopes that have been granted. For descriptions of the scopes that can be included, see the Okta [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
+
+#### data.refresh_token
+
+Provides the refresh token ID that you can store on the first access token request. When you make the refresh token grant, the ID matches what was stored. This allows you to connect the two requests.
+
+| Property   | Description                              | Data Type |
+|------------|------------------------------------------|-----------|
+| jti        | Refresh token ID                         | String    |
 
 ## Objects in the response that you send
 
@@ -72,11 +80,11 @@ For the token inline hook, the `commands` and `error` objects that you can retur
 
 ### commands
 
-The `commands` object is where you can provide commands to Okta. It is where you can tell Okta to add additional claims to the token.
+The `commands` object is where you can provide commands to Okta. It's where you can tell Okta to add more claims to the token.
 
 The `commands` object is an array, allowing you to send multiple commands. In each array element, there needs to be a `type` property and `value` property. The `type` property is where you specify which of the supported commands you want to execute, and `value` is where you supply an operand for that command.
 
-In the case of the Token hook type, the `value` property is itself a nested object in which you specify a particular operation, a path to act on, and a value.
+In the case of the token hook type, the `value` property is itself a nested object in which you specify a particular operation, a path to act on, and a value.
 
 | Property | Description                                                              | Data Type       |
 |----------|--------------------------------------------------------------------------|-----------------|
@@ -96,13 +104,13 @@ The following commands are supported for the token inline hook type:
 
 #### value
 
-The `value` object is where you specify the specific operation to perform. It is an array, allowing you to request more than one operation.
+The `value` object is where you specify the specific operation to perform. It's an array, allowing you to request more than one operation.
 
-| Property | Description                                                                                                                                                                                                       | Data Type       |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                   | String          |
-| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with `/claims/`  and is followed by the name of the new claim that you are adding. When replacing a token lifetime, the path should always be `/token/lifetime/expiration`. | String          |
-| value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
+| Property | Description                                                                                       | Data Type       |
+|----------|---------------------------------------------------------------------------------------------------|-----------------|
+| op       | The name of one of the [supported ops](#list-of-supported-ops).                                   | String          |
+| path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with `/claims/`  and is followed by the name of the new claim that you're adding. When replacing a token lifetime, the path should always be `/token/lifetime/expiration`. | String          |
+| value    | Value to set the claim to.                                       | Any JSON object |
 
 #### List of supported ops
 
@@ -114,77 +122,79 @@ The `value` object is where you specify the specific operation to perform. It is
 
 #### Reserved claims for Token Hooks
 
-Okta defines a number of reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, don't use the following reserved claims:
+Okta defines various reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, don't use the following reserved claims:
 
-| Claim Name     | Token Type        |
+| Claim name     | Token type        |
 |----------------|-------------------|
-| acr            | Access Token      |
-| amr            | Access Token      |
-| as_uri         | Access Token      |
-| cid            | Access Token      |
-| groups         | Access Token      |
-| rpt            | Access Token      |
-| rsi            | Access Token      |
-| uid            | Access Token      |
-| username       | Access Token      |
-| active         | ID Token          |
-| aid            | ID Token          |
-| aud            | ID Token          |
-| app_id         | ID Token          |
-| app_type       | ID Token          |
-| at_hash        | ID Token          |
-| client_id      | ID Token          |
-| client_ip      | ID Token          |
-| client_req_id  | ID Token          |
-| client_type    |ID Token           |
-| client_user_agent |ID Token        |
-| cnf            | ID Token          |
-| c_hash         | ID Token          |
-| device_compliance |ID Token        |
-| device_id      | ID Token          |
-| device_known   | ID Token          |
-| device_managed | ID Token          |
-| device_name    |  ID Token         |
-| device_trust   | ID Token          |
-| did            | ID Token          |
-| dst            | ID Token          |
-| group          | ID Token          |
-| groups         |  ID Token         |
-| hotk           | ID Token          |
-| idp            |  ID Token         |
-| idp_iss        | ID Token          |
-| mac_key        | ID Token          |
-| may_act        | ID Token          |
-| nonce          | ID Token          |
-| oid            | ID Token          |
-| okta_emailVerified | ID Token      |
-| okta_lastUpdated | ID Token        |
-| orig           | ID Token          |
-| permissions    | ID Token          |
-| purpose        | ID Token          |
-| pwd_exp_days   |ID Token           |
-| pwd_exp_time   | ID Token          |
-| rid            | ID Token          |
-| role           | ID Token          |
-| scope          | ID Token          |
-| scopes         | ID Token          |
-| sid            | ID Token          |
-| sub            | ID Token          |
-| term           | ID Token          |
-| user_ip        | ID Token          |
-| iss            | Access Token & ID Token |
-| jti            | Access Token & ID Token |
-| token_type     | Access Token & ID Token |
-| ver            | Access Token & ID Token |
-| auth_time      | Access Token & ID Token |
+| acr            | access token      |
+| amr            | access token      |
+| as_uri         | access token      |
+| cid            | access token      |
+| groups         | access token      |
+| rpt            | access token      |
+| rsi            | access token      |
+| uid            | access token      |
+| username       | access token      |
+| active         | ID token          |
+| aid            | ID token          |
+| aud            | ID token          |
+| app_id         | ID token          |
+| app_type       | ID token          |
+| at_hash        | ID token          |
+| auth_time      | ID token          |
+| client_id      | ID token          |
+| client_ip      | ID token          |
+| client_req_id  | ID token          |
+| client_type    | ID token           |
+| client_user_agent |ID token        |
+| cnf            | ID token          |
+| c_hash         | ID token          |
+| device_compliance |ID token        |
+| device_id      | ID token          |
+| device_known   | ID token          |
+| device_managed | ID token          |
+| device_name    | ID token         |
+| device_trust   | ID token          |
+| did            | ID token          |
+| dst            | ID token          |
+| group          | ID token          |
+| groups         | ID token         |
+| hotk           | ID token          |
+| idp            | ID token         |
+| idp_iss        | ID token          |
+| mac_key        | ID token          |
+| may_act        | ID token          |
+| nonce          | ID token          |
+| oid            | ID token          |
+| okta_emailVerified | ID token      |
+| okta_lastUpdated | ID token        |
+| orig           | ID token          |
+| permissions    | ID token          |
+| purpose        | ID token          |
+| pwd_exp_days   |ID token           |
+| pwd_exp_time   | ID token          |
+| rid            | ID token          |
+| role           | ID token          |
+| scope          | ID token          |
+| scopes         | ID token          |
+| sid            | ID token          |
+| sub            | ID token          |
+| term           | ID token          |
+| user_ip        | ID token          |
+| iss            | access token & ID token |
+| jti            | access token & ID token |
+| token_type     | access token & ID token |
+| ver            | access token & ID token |
+| auth_time      | access token & ID token |
+
 
 ### error
 
 When you return an error object, it should have the following structure:
 
-| Property     | Description                          | Data Type |
+| Property     | Description                          | Data type |
 |--------------|--------------------------------------|-----------|
-| errorSummary | Human-readable summary of the error. | String    |
+| errorSummary | Human-readable summary of the error | String    |
 
 Returning an error object causes Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string that you supplied in the `errorSummary` property of the `error` object that you returned.
 
@@ -327,6 +337,9 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
           "action": "GRANT"
         }
       }
+    },
+    "refresh_token": {
+       "jti": "oarob4a0tckCkGcyo1d6"
     }
   }
 }
@@ -458,7 +471,7 @@ The resulting JSON object:
 }
 ```
 
-This `add` operation adds `lax` to the end of the array. Alternatively, you can just specify the array name followed by a hyphen `-` in the path to append an element at the end of the array.
+This `add` operation adds `lax` to the end of the array. Alternatively, you can specify the array name followed by a hyphen `-` in the path to append an element at the end of the array.
 
 ```json
 {
@@ -477,17 +490,17 @@ This `add` operation adds `lax` to the end of the array. Alternatively, you can 
 }
 ```
 
-**Note:** If you attempt to add an element within an array that doesn't exist or specify an invalid index, the entire PATCH will fail and errors will be logged in the token hooks events.
+**Note:** If you attempt to add an element within an array that doesn't exist or specify an invalid index, the entire PATCH fails and errors are logged in the token hooks events.
 
 ### Sample response to replace an existing claim
 
 You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
-See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't modify.
+See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token-reserved claims that you can't modify.
 
 >**Note:** Although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
 
-See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
+See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token-reserved claims that you can't modify.
 
 ```json
 {
@@ -599,11 +612,11 @@ You can modify how long the access and ID tokens are valid by specifying the `li
 
 ### Sample response to remove token claims
 
-You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. If you attempt to remove a system-specific claim or use an invalid operation, the entire PATCH will fail and errors will be logged in the token hooks events.
+You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. If you attempt to remove a system-specific claim or use an invalid operation, the entire PATCH fails and errors are logged in the token hooks events.
 
-See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't remove.
+See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token-reserved claims that you can't remove.
 
-See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
+See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token-reserved claims that you can't remove.
 
 > **Note:** The `value` property for the `remove` operation isn't required. If you provide it in the response, it should be set to `null`. Providing any other value fails the entire PATCH response.
 
@@ -728,35 +741,35 @@ The resulting JSON object:
 
 ## Timeout behavior
 
-After receiving the Okta request, if there is a response timeout, the Okta process flow proceeds with original token returned. See [Troubleshooting](#troubleshooting).
+After receiving the Okta request, if there's a response timeout, the Okta process flow proceeds with original token returned. See [Troubleshooting](#troubleshooting).
 
 ## Enabling a token inline hook
 
 To activate the inline hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-You then need to associate the registered inline hook with a Custom Authorization Server Policy Rule by completing the following steps:
+You then need to associate the registered inline hook with a custom authorization server policy rule by completing the following steps:
 
-1. Go to **Security > API > Authorization Servers**.
+1. Go to **Security** > **API** > **Authorization Servers**.
 
-1. Select a Custom Authorization Server from the list.
+1. Select a custom authorization server from the list.
 
-1. Select **Access Policies** and select a policy to use with the hook. In most cases, just pick the Default Policy.
+1. Select **Access Policies** and select a policy to use with the hook. In most cases, pick the Default Policy.
 
 1. One of the policy's rules needs to trigger the inline hook. Click the pencil icon for a rule to edit it. If you only have one rule, edit the Default Policy Rule.
 
-1. Click the **Use this Inline Hook** dropdown menu. Any inline hooks you have registered are listed. Select the hook you would like to use.
+1. Click the **Use this Inline Hook** dropdown menu. Any inline hooks that you have registered are listed. Select the hook that you would like to use.
 
 1. Click **Update Rule**.
 
 > **Note:** You can associate only one inline hook with each rule.
 
-## Troubleshooting
+## Troubleshoot
 
 This section covers what happens when a token inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response, or the inline hook patch fails.
 
 > **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks concept piece for more information on the events related to inline hooks that the Okta System Log captures.
 
-- When there is a communication failure with the external service, a timeout for example, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+- When there's a communication failure with the external service, a timeout for example, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
   **Who can see this error?** Administrators
 

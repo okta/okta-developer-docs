@@ -5,6 +5,12 @@ category: management
 
 # CAPTCHAS API
 
+The CAPTCHAS API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CAPTCHA/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the CAPTCHAS API Postman collection.
+
+<!--
+
 <ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
@@ -947,3 +953,5 @@ Property           | Type                             | Description             
 ### Org-wide CAPTCHA Links object
 
 Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only.
+
+-->

@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide provides you with a list of the requirements you need to prepare before submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/).
+This guide provides you with a list of the requirements needed before submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/).
 
 ---
 
@@ -22,14 +22,14 @@ A built and tested OIN integration that's ready for Okta verification
 
 ## Overview
 
-Before using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, you need to review the following guidelines to prepare for the artifacts requested during the submission process:
+Before using the [OIN Manager](https://oinmanager.okta.com)&nbsp;to submit your OIN integration, you need to prepare for the artifacts requested during the submission process. Review the following submission artifact guidelines:
 
-* [Logo guidelines](#logo-guidelines)
-* [App description guidelines](#app-description-guidelines)
-* [Use case guidelines](#use-case-guidelines)
-* [Customer support contact guidelines](#customer-support-contact-guidelines)
-* [Test account guidelines](#test-account-guidelines)
-* [Customer configuration document guidelines](#customer-configuration-document-guidelines)
+* [Logo](#logo-guidelines)
+* [App description](#app-description-guidelines)
+* [Use case](#use-case-guidelines)
+* [Customer support contact](#customer-support-contact-guidelines)
+* [Test account](#test-account-guidelines)
+* [Customer configuration document](#customer-configuration-document-guidelines)
 
 Before you submit your integration, ensure that your integration doesn't use Okta features that aren't supported in the OIN. See [OIN limitations](#oin-limitations).
 
@@ -39,14 +39,14 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 * Submit a logo file that's less than one MB.
 * Submit a logo image with one of the following dimensions:
-  * 244 x 244 pixels
-  * 200 x 200 pixels
-  * 244 x 156 pixels
-  * 156 x 244 pixels
+  * 244 x 244 pixels for circular logos
+  * 200 x 200 pixels for square logos
+  * 244 x 156 pixels for tall logos
+  * 156 x 244 pixels for wide logos
 * Don't submit a logo with the trademark (:tm:) symbol.
 * Submit an icon rather than a wordmark (a graphic that includes the company or product name).
    > **Note:** The OIN catalog already lists the product name in plain text. Logos with text can appear redundant.
-* Submit a logo image that's in PNG format with a transparent background.
+* Submit a logo image that's in PNG format with a transparent background:
     * GIF and JPEG/JPG formats are also acceptable
     * A colored background is acceptable if it's a part of the logo color scheme
 * Submit a logo image with sharp corners (no rounded corners).
@@ -79,7 +79,7 @@ From the OIN Manager, you can specify the app description in the **General Setti
 
 You can find the app description in the OIN catalog under the **Integration detail** > **Overview** section of your published integration.
 
-##### SSO app description example
+##### Single Sign-On (SSO) app description example
 
 Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. Okta's Acme integration allows customers to sign in to the Acme platform using Okta as a Single Sign-On provider.
 
@@ -138,7 +138,7 @@ Provide a separate configuration guide as part of the OIN submission process for
 * During the OIN verification process, ensure that the link to your configuration guide is accessible to the OIN team. The OIN team checks your document for general adherence to the configuration instructions.
 * After your integration is in the OIN catalog, ensure that your guide link is public or customer-accessible.
 
-Your guide link is available to administrators through the Okta Admin Console when they add your integration to their Okta org. For example, when customer admins add your SAML integration, they have access to your guide through the **View SAML setup instructions** link in the Admin Console SAML setup page.
+Your guide link is available to customer administrators through the Okta Admin Console when they add your integration to their Okta org. For example, when admins add your SAML integration in the Admin Console, they have access to your guide through the **View SAML setup instructions** link.
 
 > **Note**: Submit a separate guide for each type of integration if your integration supports more than one type. For example, if your integration supports both SSO and SCIM, you need to submit a guide for SSO and a separate guide for SCIM.
 
@@ -222,6 +222,25 @@ For more information on the listed features, visit the [Okta Glossary](https://h
 
 This section helps you define how your customers get set up with your integration. Detail all settings and include any images that can assist the user. Include any best practices for your procedure, such as SCIM guidance on mappings for attributes, especially required attributes that don't have a default mapping.
 
+> **Note:** If your Service Provider is configured as a "Big Bang", you need to provide a warning note to your customer. See [SAML configuration warning example](#saml-configuration-warning-example).
+
+##### SAML configuration warning example
+
+If you only allow sign-in through Okta (Big Bang configuration), ensure that you provide a warning note before the configuration steps. For example:
+
+```markdown
+### Read this before you enable SAML
+
+Enabling SAML affects all users who use this application.
+Users won't be able to sign in through their regular sign-in page.
+They are able to access the app through the Okta service.
+
+### Backup URL
+
+{appName} doesn't provide a backup sign-in URL where users can sign in using their regular username and password.
+If necessary, contact {appName} Support (support@{appName}.com) to turn off SAML.
+```
+
 ##### SAML configuration steps example
 
 The following is an example of a simple SAML customer procedure:
@@ -230,7 +249,7 @@ The following is an example of a simple SAML customer procedure:
 ## Configuration steps
 
 1. Copy the Metadata URL from the Okta Admin Console, SAML 2.0 Sign on methods section.
-2. Contact the {appName} support team (for example, support@example.com) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
+2. Contact the {appName} support team (for example, support@{appName}.com) and request that they enable SAML 2.0 for your account. Include the "Metadata URL" value from the previous step.
    The {appName} support team processes your request and provides you with an SSO ID and an encryption certificate.
 3. In your Okta Admin Console, select the Sign on tab for the {appName} SAML app, then click "Edit" and follow the steps below:
    * "Encryption Certificate": Upload the certificate provided by {appName} support in the previous step.
@@ -274,6 +293,8 @@ For a complete customer admin configuration guide example, see [How to Configure
 ## Note
 
 * Ensure that you entered the correct value in the "Subdomain" field under the General tab. The wrong subdomain value prevents you from authenticating through SAML to {appName}.
+
+* Since only SP-initiated flow is supported, Okta recommends hiding the application icon for users.
 
 * The following SAML attributes are supported:
 
@@ -341,12 +362,12 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations.
 
-* **Custom authorization server:** To support the potentially large numbers of Okta orgs accessing an authorization server through the OIN, an OIDC integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+* **Custom authorization server:** An OIDC or API service integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
 * **Refresh token:**  Refresh tokens aren't supported for integrations published in the OIN.
 
 * **Unsupported scopes:** <br>
-   * `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
+   * The `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
    * Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
    * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 

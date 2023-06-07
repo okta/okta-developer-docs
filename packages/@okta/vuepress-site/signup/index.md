@@ -1,5 +1,5 @@
 ---
-layout: AuthorizationLayout
+layout: SignUpLayout
 ---
 
 ::: slot signup-description

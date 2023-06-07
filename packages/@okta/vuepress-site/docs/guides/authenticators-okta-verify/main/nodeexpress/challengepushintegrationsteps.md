@@ -9,7 +9,7 @@ Display a page informing the user a push notification was sent to their Okta Ver
 
 <div class="common-image-format">
 
-![Screen showing the Challenge Okta Verify page](/img/authenticators/authenticators-oktaverify-challenge-push-sent.png)
+![Screen showing the Okta Verify challenge page](/img/authenticators/authenticators-oktaverify-challenge-push-sent.png)
 
 </div>
 

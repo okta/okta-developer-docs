@@ -34,7 +34,7 @@ Review the following sections to understand the concepts behind the Identity Eng
 
 <StackSelector snippet="upgrade" noSelector />
 
-## Okta Classic Authentication APIs and SDK vs Identity Engine SDK
+## Classic Engine Authentication APIs and SDK vs Identity Engine SDK
 
 <StackSelector snippet="auth-vs-oie" noSelector />
 
@@ -44,7 +44,7 @@ The following sections highlight the Classic Engine Authentication SDK method ca
 
 <StackSelector snippet="auth" noSelector />
 
-### Map Classic Authentication APIs to the Identity Engine SDK
+### Map Classic Engine Authentication APIs to the Identity Engine SDK
 
 If your application uses direct APIs for an authentication flow, your application code may call the following Okta APIs:
 
@@ -177,7 +177,7 @@ The following sections highlight the Classic Engine Authentication SDK method ca
 
 <StackSelector snippet="mfaauth" noSelector />
 
-### Map Classic MFA Authentication APIs to the Identity Engine SDK
+### Map Classic Engine Authentication APIs to the Identity Engine SDK
 
 If your application uses direct APIs for a multifactor authentication flow, your application code may call the following Okta APIs:
 

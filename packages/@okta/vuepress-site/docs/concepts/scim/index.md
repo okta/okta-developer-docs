@@ -13,7 +13,7 @@ When you are ready to start creating a SCIM integration, see our [Build a SCIM p
 
 ## What is SCIM for?
 
-SCIM, or the [System for Cross-domain Identity Management](http://www.simplecloud.info/) specification, is an open standard designed to manage user identity information. SCIM provides a defined schema for representing users and groups, and a RESTful API to run CRUD operations on those user and group resources.
+SCIM, or the [System for Cross-domain Identity Management](https://scim.cloud) specification, is an open standard designed to manage user identity information. SCIM provides a defined schema for representing users and groups, and a RESTful API to run CRUD operations on those user and group resources.
 
 The goal of SCIM is to securely automate the exchange of user identity data between your company's cloud applications and any service providers, such as enterprise SaaS applications.
 
@@ -25,7 +25,7 @@ Managing user lifecycles in your organization is a fundamental business problem.
 
 </div>
 
-As your company grows, the number of user accounts and provisioned software applications increases exponentially. Requests to add and remove users, reset passwords, change permissions, and add new types of accounts all take up valuable IT department time.
+As your company grows, the number of user accounts and provisioned software applications increases. Requests to add and remove users, reset passwords, change permissions, and add new types of accounts all take up valuable IT department time.
 
 With the SCIM protocol, user data is stored in a consistent way and can be shared with different applications. Since data is transferred automatically, complex exchanges are simplified and the risk of error is reduced.
 
@@ -128,7 +128,7 @@ If you want to read more about how to use the Okta Admin Console to set up provi
 * [Create a SCIM integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim)
 * [Provisioning Concepts](https://support.okta.com/help/s/article/okta-provisioning?language=en_US)
 * [Configuring On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure)
-* IETF [Overview and Specification of the SCIM Protocol](http://www.simplecloud.info/)
+* IETF [Overview and Specification of the SCIM Protocol](https://scim.cloud)
 
 For setting up Active Directory or LDAP for profile sourcing:
 

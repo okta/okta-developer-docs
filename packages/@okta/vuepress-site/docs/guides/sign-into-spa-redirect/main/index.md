@@ -28,26 +28,43 @@ Add authentication with Okta's [redirect model](https://developer.okta.com/docs/
 
 ## Set up Okta
 
-Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is the quickest way to work with your Okta org, so we recommend using it for the first few steps. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead. We provide non-CLI instructions along with the CLI steps below.
+Set up your [Okta org](/docs/concepts/okta-organizations/). The Okta command-line interface (CLI) is the quickest way to do this. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead.
 
-1. Install the Okta command-line interface: [Okta CLI](https://cli.okta.com/).
-2. If you don't already have a free Okta developer account, create one by entering `okta register` on the command line.
-3. Make a note of the Okta Domain as you need that later.
-4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
+1. Install [Okta CLI](https://cli.okta.com/).
+1. If you don't already have a free Okta developer account:
+   1. Open your terminal.
+   {style="list-style-type:lower-alpha"}
+   1. Run `okta register`, and enter your first name, last name, email address, and country.
+   1. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
 
-   ```
-   Your Okta Domain: https://dev-xxxxxxx.okta.com
-   To set your password open this link:
-   https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-   ```
+      > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
-   > **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
+   1. Find your new domain and a link to set your password in the email:
 
-5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command. You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/):
+      ```txt
+      Your Okta Domain: https://dev-xxxxxxx.okta.com
+      To set your password open this link:
+      https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
+      ```
 
-   ```
-   okta login
-   ```
+   1. Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
+
+      ```txt
+      New Okta Account created!
+      Your Okta Domain: https://dev-xxxxxxx.okta.com
+      ```
+
+   1. Make a note of your Okta domain. Use it wherever `${yourOktaDomain}` appears in this guide.
+
+1. Run `okta login` to connect to your org if you didn't create one in the last step (successfully creating an Okta org also signs you in). You need the URL of your org, which is `https://` followed by your [Okta domain](/docs/guides/find-your-domain/), and an [API/access token](/docs/guides/create-an-api-token/).
+
+> **Note**: If you're using an existing org, verify that API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify that an **Authorization Servers** tab is present. If not, choose one of the following:
+>
+> * Create a developer account and org with Okta CLI.
+> * Contact your support team to enable the feature in your org.
+> * Use the Admin Console to create your app integrations instead of the CLI.
+>
+> All accounts created with Okta CLI are developer accounts.
 
 ## Create an Okta integration for your app
 
@@ -57,9 +74,11 @@ To create your app integration in Okta using the CLI:
 
 1. Create the app integration by running:
 
-   ```
+   ```bash
    okta apps create spa
    ```
+
+   > **Tip**: If Okta CLI returns the error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you're not using an Okta developer account. To resolve this, see [Set up Okta](#set-up-okta).
 
 2. Enter **Quickstart** when prompted for the app name.
 3. Specify the required redirect URI values:

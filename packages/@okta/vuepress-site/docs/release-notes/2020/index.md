@@ -13,7 +13,7 @@ title: Okta API Products Release Notes 2020
 
 #### Manage email subscription settings using the Subscriptions API
 
-The `/subscriptions` API is now available in Self-Service EA. The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications. <!--OKTA-325794-->
+The `/subscriptions` API is now available in Self-Service EA. The [Subscriptions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/) provides operations to manage email subscription settings for Okta administrator notifications. <!--OKTA-325794-->
 
 #### Bugs fixed in 2020.12.2
 

@@ -2,7 +2,7 @@
 title: Work with Okta session cookies
 ---
 
-<ClassicDocOieVersionNotAvailable />
+> **Note:** This document is written for Okta Classic Engine. If you're using Okta Identity Engine, see [Understand how sessions work after the upgrade](/docs/guides/oie-upgrade-sessions-api/) and the [Sessions APIs](/docs/guides/ie-limitations/main/#sessions-apis) section of the Identity Engine limitations page. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
 This guide provides examples for programmatically retrieving and setting a session cookie for different deployment scenarios to provide SSO capabilities for custom web apps built on Okta.
 
@@ -26,7 +26,7 @@ Okta uses an HTTP session cookie to provide access to your Okta org and apps acr
 
 Okta sessions are created and managed with the [Session API](/docs/reference/api/sessions/). A session token is sent as part of a request, contained in a `sessionToken` parameter. If the request is successful, the session cookie is set by a `Set-Cookie` header in the response.
 
-> **Important**: By default, Okta Classic orgs ignore the `sessionToken` in a request if there is already a session cookie set in the browser.
+> **Important**: By default, Okta Classic Engine orgs ignore the `sessionToken` in a request if there is already a session cookie set in the browser.
 
 ## Retrieve a session cookie through the OpenID Connect authorization endpoint
 

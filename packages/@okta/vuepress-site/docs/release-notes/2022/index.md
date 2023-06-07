@@ -754,7 +754,7 @@ When you use the [AuthN APIs](/docs/reference/api/authn/#request-parameters-for-
 
 #### Bug fixed in 2022.04.3
 
-* The `ssh_certificate_type` parameter was incorrectly set as required in the [Projects](/docs/reference/api/asa/projects/#create-a-project) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-489376)
+* The `ssh_certificate_type` parameter was incorrectly set as required in the [Projects](https://developer.okta.com/docs/api/openapi/asa/asa/tag/projects/#tag/projects/operation/CreateProject) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-489376)
 
 ### Weekly release 2022.04.1
 
@@ -790,7 +790,7 @@ Email magic links are enhanced to allow end users to authenticate in two differe
 
 Many organizations use third-party systems to monitor, aggregate, and act on the event data in Okta System Log events.
 
-Log Streaming enables Okta admins to more easily and securely send System Log events to a specified system such as the Splunk Cloud in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it does not require a third-party system to store an Okta Admin API token. See [Splunk Cloud in the Log Streaming API](/docs/reference/api/log-streaming/#splunk-cloud-settings-object).
+Log Streaming enables Okta admins to more easily and securely send System Log events to a specified system such as the Splunk Cloud in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it does not require a third-party system to store an Okta Admin API token. See [Splunk Cloud in the Log Streaming API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream/operation/createLogStream!path=1/settings&t=request).
 
 #### Burst rate limits available on Rate Limit Dashboard
 
@@ -834,7 +834,7 @@ The `auth_time` [claim](/docs/reference/api/oidc/#reserved-claims-in-the-header-
 
 * An error was incorrectly returned when a valid [update request](/docs/reference/api/authorization-servers/#update-a-scope) was made for the `device_sso` or `online_access` system scopes. (OKTA-417477)
 
-* The `servers` parameter was incorrectly set as required in the [Preauthorization](/docs/reference/api/asa/projects/#create-a-preauthorization) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-478566)
+* The `servers` parameter was incorrectly set as required in the [Preauthorization](https://developer.okta.com/docs/api/openapi/asa/asa/tag/projects/#tag/projects/operation/CreatePreauthorization) endpoint from the Advanced Server Access (ASA) Projects API. (OKTA-478566)
 
 ### Weekly release 2022.03.1
 

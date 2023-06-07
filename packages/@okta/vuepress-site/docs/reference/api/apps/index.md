@@ -1366,7 +1366,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
 
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`) or [Client Credentials](https://tools.ietf.org/html/rfc6749#section-4.4) flow (if `grant_types` contains the value `client_credentials`) then no redirect URI or response type is necessary. In these cases you can pass either null or an empty array for these attributes.
 
-* If `wildcard_redirect` <ApiLifecycle access="ea" /> is `DISABLED`, all redirect URIs must be absolute URIs and must not include a fragment component. If `wildcard_redirect` is `SUBDOMAIN`, then any configured redirect URIs may contain a single `*` character in the lowest-level domain (for example, `https://redirect-*-domain.example.com/oidc/redirect`) to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
+* If `wildcard_redirect` is `DISABLED`, all redirect URIs must be absolute URIs and must not include a fragment component. If `wildcard_redirect` is `SUBDOMAIN`, then any configured redirect URIs may contain a single `*` character in the lowest-level domain (for example, `https://redirect-*-domain.example.com/oidc/redirect`) to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
 
   * The wildcard can match any valid hostname characters, but can't span more than one domain. For example, if `https://redirect-*-domain.example.com/oidc/redirect` is configured as a redirect URI, then `https://redirect-1-domain.example.com/oidc/redirect` and `https://redirect-sub-domain.example.com/oidc/redirect` match, but `https://redirect-1.sub-domain.example.com/oidc/redirect` doesn't match.
 
@@ -6901,7 +6901,7 @@ HTTP/1.1 204 No Content
 
 ### Deactivate default Provisioning Connection for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/lifecycle/deactivate" />
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate" />
 
 Deactivates the default Provisioning Connection for an application.
 
@@ -7081,7 +7081,7 @@ Updates a Feature object for an application.
 | Parameter       | Description                                | Parameter Type   | DataType   | Required |
 | :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
 | applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
-| capabilities   | Capabilites of the feature                  | Body              | [Capabilites Object](#capabilties-object) | TRUE     |
+| capabilities   | Capabilities of the feature                  | Body              | [Capabilities Object](#capabilties-object) | TRUE     |
 | name   | Name of the feature                      | URL              | String     | TRUE     |
 
 ##### Reponse parameters
@@ -7861,6 +7861,9 @@ An additional `notes` object can be passed within the `settings` object. The `no
 
 > **Note:** You can't currently manage app provisioning settings via the API. Use the administrator UI.
 
+###### Identity Store ID
+You can set an additional `identityStoreId` string parameter within the `settings` object if your application supports an identity store. The `identityStoreId` value must be a valid identity store application `id`. This identity store application must be created in the same org as your application.
+
 ##### Features
 
 Applications may support optional provisioning features on a per-app basis.
@@ -8583,7 +8586,7 @@ The metadata for a CSR
 
 ### Application CSR object
 
-The application CSR object defines a certificate signing request for a signature or encryption credential for an application.
+The application CSR object defines a Certificate Signing Request for a signature or encryption credential for an application.
 
 #### Example
 

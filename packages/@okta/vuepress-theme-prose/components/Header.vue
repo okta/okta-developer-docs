@@ -23,7 +23,7 @@
         :item="{ link: '/signup/' }"
         classes="sign-up--button"
       >
-        Sign Up
+        Sign up
       </SmartLink>
       <div class="mobile--toggles">
         <div
