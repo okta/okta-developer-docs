@@ -32,8 +32,6 @@ For configuring a custom email address:
 * Access to the DNS records of your public custom domain
 * An implementation of the [Sender Policy Framework (SPF)](https://tools.ietf.org/html/rfc7208) to prevent sender address forgery. If you already implemented SPF in your custom domain, ensure that you update the SPF record.
 
-* Multibrand customizations enabled in your org. See [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding)
-
 ---
 
 ## About Okta domain customization
@@ -107,23 +105,17 @@ This method of configuring a custom domain is recommended because Okta manages y
 >
 >  * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add letsencrypt.org to the issuers list or remove the CAA record.
 
-1. In the Admin Console, go to **Customizations** > **Domain**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want.)
-2. In the **Custom URL Domain** box, click **Edit**. (If you enabled multibrand customization, on the **Domains** tab in the **Custom domain** section, click **Add domain**).
-3. Click **Get started**.
-4. On the **Add domain** page of the configuration wizard, in the **Certificate management** section, select **Okta-managed (faster and easier)**.
-
-### Add your subdomain information
-
-On the Add Domain page of the configuration wizard, enter your subdomain name, for example, `login.example.com`, and then click **Next**. Verifying domain ownership is the next step in the configuration wizard.
+1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
+2. On the **Domains** tab in the **Custom domain** section, click **Add domain**.
+3. On the **Add domain** page of the configuration wizard, enter a subdomain name, and then select **Okta-managed (faster and easier)**.
+4. Click **Next**.
 
 ### Update your DNS TXT
 
 You need to add DNS TXT and CNAME records for your domain to prove ownership of your domain with Okta before Okta can serve traffic over it. These records include the values provided in the Host and Value columns of the table on the Update your DNS page. Okta verifies that you own your domain when it finds the records that contain the required values.
 
 1. On the **Update your DNS** page of the configuration wizard, copy the values of the **Host** and **Value** columns into a text file.
-
 2. Sign in to your Domain Name registrar and locate the option to modify your DNS records.
-
 3. Add a TXT record and paste the value that you copied from the **Host** column into the appropriate field, for example, the **Name** or **Host** field.
 
     > **Note**: Depending on your domain provider, you may only need to enter `_acme-challenge.login` rather than `_acme-challenge.login.example.com`. If your domain provider doesn't support the value that you enter, verification fails and your custom URL domain configuration is incomplete.
@@ -131,9 +123,7 @@ You need to add DNS TXT and CNAME records for your domain to prove ownership of 
     > You can perform a DNS lookup of your `_acme-challenge` DNS record to verify that it's correctly configured. For example, you might use Google's [Dig](https://toolbox.googleapps.com/apps/dig/) tool to check your `_acme-challenge.login.example.com` DNS record.
 
 4. Paste the value that you copied from the **Value** column into the appropriate field, for example, the **Record** or **Value** field.
-
 5. Repeat Steps 3 and 4 for the CNAME record.
-
 6. Wait for the DNS record to propagate (typically one to five minutes, but it may take longer), and then return to Okta and click **Next** to prove to Okta that you have rights to use the domain name.
 
     > **Note:** It may take up to 24 hours for your DNS changes to propagate. If your changes don't appear within 24 hours, return to this step and confirm your settings. Use a tool like [Dig](https://toolbox.googleapps.com/apps/dig/) to check your DNS records.
@@ -307,21 +297,23 @@ Okta sends your super admins a confirmation email after your custom email addres
 
 ## Configure a custom email address
 
-1. In the Admin Console, go to **Customizations** > **Emails**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want. In the **Domains** tab > **Email** section, click **Add domain**).
+1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
 
-2. In the **Email address** field, enter the email address that you want to send the system notification emails from. This email address appears in the emails sent to your users.
+2. In the **Domains** tab > **Emails** section, click **Add domain**.
 
-3. In the **Name of email sender** field, enter the name of sender. This name appears as the sender in the emails sent to your users.
+3. In the **Email address** field, enter the email address that you want to send the system notification emails from. This email address appears in the emails sent to your users.
 
-4. Click **Continue**.
+4. In the **Name of email sender** field, enter the name of sender. This name appears as the sender in the emails sent to your users.
 
-5. Update your DNS records using the provided values.
+5. Click **Continue**.
 
-6. After you've updated your DNS records through your domain provider, click **I've updated the DNS records**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
+6. Update your DNS records using the provided values.
+
+7. After you've updated your DNS records through your domain provider, click **I've updated the DNS records**. Okta begins polling your DNS records until it detects your updates (this may take up to 24 hours). Your configuration is pending until the DNS updates are detected.
 
     Alternatively, you can click **I will update the DNS records later**. Your records aren't polled and your configuration is incomplete until you update the relevant DNS records and click **I've updated the DNS records**. You can view the list of records that require an update at any time.
 
-10. Add the SPF record to your DNS zone (the root domain). An SPF record specifies the mail servers that your organization has authorized to send mail from your domain. If your root domain already has an SPF record, the following update can prevent spoofers from sending mail that mimics your domain.
+8. Add the SPF record to your DNS zone (the root domain). An SPF record specifies the mail servers that your organization has authorized to send mail from your domain. If your root domain already has an SPF record, the following update can prevent spoofers from sending mail that mimics your domain.
 
     For example, if you only send mail from Microsoft Office 365, your SPF record has an include-statement similar to:
 
