@@ -56,6 +56,18 @@ const checker = new LinkChecker();
 checker.on('link', (link) => {
   linksInfo.linksCount++;
 
+  const internalLink = excludedKeywords.filter(
+    keyword => link.url.match(keyword)
+  );
+
+  if (linkCheckMode === 'internal' && internalLink.length) {
+    return;
+  }
+
+  if (linkCheckMode === 'internal' && !link.url.match(localhost)) {
+    return;
+  }
+
   if (link.url.match(linkExtRe) && link.status === 404) {
     linksInfo.brokenLinks.push({
       url: link.url,
