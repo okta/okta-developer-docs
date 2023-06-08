@@ -4,7 +4,7 @@ import handler from 'serve-handler';
 import http from 'http';
 
 const linkCheckMode = process.argv[2];
-const linkExtRe = new RegExp('https?://.*/[^/]+\\.[a-z]+$');
+const linkExtRe = /https?:\/\//g;
 const linksInfo = {
   brokenLinks: [],
   linksCount: 0,
@@ -52,7 +52,7 @@ server.listen(8080, () => {
 const checker = new LinkChecker();
 
 checker.on('link', (link) => {
-  if (linkExtRe.test(link.url)) {
+  if (link.url.match(linkExtRe)) {
     const internalLink = excludedKeywords.filter(
       keyword => link.url.match(keyword)
     );
