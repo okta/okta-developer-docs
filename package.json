@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
     "build": "yarn lint-all && yarn workspace @okta/vuepress-site build",
-    "broken-link-checker:all": "node scripts/broken-link-checker all",
-    "broken-link-checker:internal": "node scripts/broken-link-checker internal",
-    "broken-link-checker:external": "node scripts/broken-link-checker external",
-    "check-links": "yarn build && yarn broken-link-checker:internal",
-    "check-links:all": "yarn build && yarn broken-link-checker:all",
-    "check-links:external": "yarn build && yarn broken-link-checker:external",
+    "linkinator:all": "node scripts/linkinator.mjs all",
+    "linkinator:internal": "node scripts/linkinator.mjs internal",
+    "linkinator:external": "node scripts/linkinator.mjs external",
+    "check-links": "yarn build && yarn linkinator:internal",
+    "check-links:all": "yarn build && yarn linkinator:all",
+    "check-links:external": "yarn build && yarn linkinator:external",
     "migrate": "yarn workspace @okta/migrate-from-jekyll migrate",
     "test": "yarn dev & yarn test:test-local && yarn stop-all",
     "cy:open": "cypress open",
@@ -30,10 +30,7 @@
     "stylelint:scss": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.scss\"",
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
-    "lint-all": "yarn eslint && yarn stylelint",
-    "linkinator:all": "node scripts/linkinator.mjs all",
-    "linkinator:internal": "node scripts/linkinator.mjs internal",
-    "linkinator:external": "node scripts/linkinator.mjs external"
+    "lint-all": "yarn eslint && yarn stylelint"
   },
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
@@ -59,7 +56,6 @@
     "stylelint-scss": "^4.3.0"
   },
   "dependencies": {
-    "broken-link-checker": "^0.7.8",
     "linkinator": "4.0.0",
     "serve-handler": "^6.1.5",
     "vuepress": "1.9.8",
