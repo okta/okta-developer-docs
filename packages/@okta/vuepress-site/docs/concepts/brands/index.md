@@ -100,6 +100,22 @@ All paid orgs get a maximum of three custom domains. You can request up to 200 c
 
 Yes. Okta recommends this approach so customers never have to maintain any certificates.
 
+### How are apps assigned to brands?
+
+Users are routed to the desired app using the `client_id` in the custom domain as a URL parameter.
+
+For example, a specific OAuth/OpenID Connect (OIDC) app with `client_id=foo`:
+
+- `subdomain.okta.com/oauth2/v1/authorize?client_id=foo`: Shows the default brand
+- `custom.domain.one/oauth2/v1/authorize?client_id=foo`: Shows the brand associated with `custom.domain.one`
+- `another.domain.two/oauth2/v1/authorize?client_id=foo`: Shows the brand associated with `another.domain.two`
+
+In all three cases the user signs in to the same OIDC app, but sees three different brands. If you want each brand to send users to their own app, the `client_id` needs to correspond to the desired app.
+
+Access management to apps is controlled through app assignments, so any user can still access any app. You can apply any brand to any app.
+
+If a custom domain doesn’t contain a `client _id`, Okta routes the user to the default app.
+
 ### Any limitations/assumptions to be aware of?
 
 #### Email domains
@@ -122,22 +138,3 @@ With multibrand customizations enabled, you can't update the default brand's sig
 - **Flag ON behavior:** Okta migrates any customizations (code, logos, labels) to a newly created brand. This is a one-time migration for only the first time that an org turns on multibrand.
 
 - **Flag ON/OFF/ON behavior:** Okta doesn't remigrate existing customizations made to the default brand so that customizations don’t overwrite the previously customized brand.
-
-### How are apps assigned to brands?
-
-Users are routed to the desired app using the `client_id` in the custom domain as a URL parameter.
-
-For example, a specific OAuth/OpenID Connect (OIDC) app with `client_id=foo`:
-
-- `subdomain.okta.com/oauth2/v1/authorize?client_id=foo`: Shows the default brand
-- `custom.domain.one/oauth2/v1/authorize?client_id=foo`: Shows the brand associated with `custom.domain.one`
-- `another.domain.two/oauth2/v1/authorize?client_id=foo`: Shows the brand associated with `another.domain.two`
-
-In all three cases the user signs in to the same OIDC app, but sees three different brands. If you want each brand to send users to their own app, the `client_id` needs to correspond to the desired app.
-
-Access management to apps is controlled through app assignments, so any user can still access any app. You can apply any brand to any app.
-
-If a custom domain doesn’t contain a `client _id`, Okta routes the user to the default app.
-
-
-
