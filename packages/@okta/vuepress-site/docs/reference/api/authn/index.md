@@ -87,7 +87,9 @@ The authentication transaction [state machine](#transaction-state) can be modifi
 
 ##### Context object
 
-The context object allows applications, such as an external portal, to pass additional context for the authentication or recovery transaction.
+The context object allows [trusted web applications](#trusted-application) such as an external portal to pass additional context for the authentication or recovery transaction.
+
+> **Note:** Overriding context such as `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication or recovery requests with a valid *administrator API token*. If an API token is not provided, the `deviceToken` will be ignored.
 
 > **Caution:** The `deviceToken` parameter isn't shared between the Authentication API and the Okta Identity Engine-specific APIs. See [Upgrade to Okta Identity Engine](https://developer.okta.com/docs/guides/oie-upgrade-overview/main/).
 
@@ -566,6 +568,7 @@ Authenticates a user through a [trusted application](#trusted-application) or pr
 
 **Notes:**
 
+* Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for trusted application
@@ -621,6 +624,7 @@ Authenticates a user through a [trusted application](#trusted-application) or pr
 
 **Notes:**
 
+* Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [allowed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 * The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted.
 
