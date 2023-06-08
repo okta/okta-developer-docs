@@ -43,9 +43,14 @@ switch (linkCheckMode) {
     console.log('Running external link check...');
     BASE_URL = `${path}/**/*.md`;
   break;
+
+  default:
+    console.log('Running both internal and external link check...');
+    BASE_URL = localhost;
+  break;
 }
 
-if (linkCheckMode === 'internal') {
+if (linkCheckMode === 'internal' || linkCheckMode === 'all') {
   server.listen(8080, () => {
     console.log('Running at http://localhost:8080');
   });
@@ -60,7 +65,8 @@ checker.on('link', (link) => {
     keyword => link.url.match(keyword)
   );
 
-  if (linkCheckMode === 'internal' && internalLink.length) {
+  if (linkCheckMode === 'internal' && internalLink.length ||
+      linkCheckMode === 'all' && internalLink.length) {
     return;
   }
 
@@ -72,7 +78,7 @@ checker.on('link', (link) => {
     linksInfo.brokenLinks.push({
       url: link.url,
       status: link.status,
-      parent: linkCheckMode === 'internal' ? link.parent : `${localhost}${link.parent.slice(path.length, link.parent.lastIndexOf('/'))}`,
+      parent: linkCheckMode === 'internal' || linkCheckMode === 'all' ? link.parent : `${localhost}${link.parent.slice(path.length, link.parent.lastIndexOf('/'))}`,
     });
   }
 });

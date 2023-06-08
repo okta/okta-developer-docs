@@ -31,6 +31,7 @@
     "stylelint:vue": "stylelint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "eslint": "eslint \"packages/@okta/vuepress-theme-prose/**/*.vue\"",
     "lint-all": "yarn eslint && yarn stylelint",
+    "linkinator:all": "node scripts/linkinator.mjs all",
     "linkinator:internal": "node scripts/linkinator.mjs internal",
     "linkinator:external": "node scripts/linkinator.mjs external"
   },
