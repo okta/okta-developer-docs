@@ -4,15 +4,12 @@ import handler from 'serve-handler';
 import http from 'http';
 
 const linkCheckMode = process.argv[2];
-const linkExtRe = /https?:\/\//g;
-
-let BASE_URL = null;
 const linksInfo = {
   brokenLinks: [],
   linksCount: 0,
 };
-const path = 'packages/@okta/vuepress-site';
-const localhost = 'http://localhost:8080';
+
+let BASE_URL = 'http://localhost:8080';
 
 const excludedKeywords = [
   '.xml',
@@ -35,50 +32,40 @@ const server = http.createServer((request, response) => {
 
 switch (linkCheckMode) {
   case 'internal':
-      console.log('Running internal link check...');
-      BASE_URL = localhost;
+    console.log('Running internal link check...');
   break;
 
   case 'external':
     console.log('Running external link check...');
-    BASE_URL = `${path}/**/*.md`;
   break;
 
   default:
     console.log('Running both internal and external link check...');
-    BASE_URL = localhost;
-  break;
 }
 
-if (linkCheckMode === 'internal' || linkCheckMode === 'all') {
-  server.listen(8080, () => {
-    console.log('Running at http://localhost:8080');
-  });
-}
+server.listen(8080, () => {
+  console.log(`Running at ${BASE_URL}`);
+});
 
 const checker = new LinkChecker();
 
 checker.on('link', (link) => {
-  linksInfo.linksCount++;
-
   const internalLink = excludedKeywords.filter(
     keyword => link.url.match(keyword)
   );
 
-  if (linkCheckMode === 'internal' && internalLink.length ||
-      linkCheckMode === 'all' && internalLink.length) {
-    return;
-  }
+  if (linkCheckMode === 'external' && link.url.match(BASE_URL)) return;
+  if (linkCheckMode === 'internal' && !link.url.match(BASE_URL)) return;
+  if (linkCheckMode === 'internal' && internalLink.length) return;
+  if (linkCheckMode === 'all' && internalLink.length) return;
 
-  if (linkCheckMode === 'internal' && !link.url.match(localhost)) {
-    return;
-  }
+  linksInfo.linksCount++;
 
-  if (link.url.match(linkExtRe) && link.status === 404) {
+  if (link.status === 404) {
     linksInfo.brokenLinks.push({
       url: link.url,
       status: link.status,
-      parent: linkCheckMode === 'internal' || linkCheckMode === 'all' ? link.parent : `${localhost}${link.parent.slice(path.length, link.parent.lastIndexOf('/'))}`,
+      parent: link.parent,
     });
   }
 });
@@ -100,6 +87,7 @@ if (linksInfo.brokenLinks.length) {
 
   process.exit(1);
 } else {
+  console.log(`Total links found: ${linksInfo.linksCount}`);
   console.log(`No links found`);
 
   process.exit(0);
