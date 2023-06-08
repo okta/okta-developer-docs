@@ -228,7 +228,7 @@ curl -X POST \
 }' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/connections/default?activate=TRUE"
 ```
 
-> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App features operation](/docs/reference/api/apps/#list-features-for-application) and the [Mappings API](/docs/reference/api/mappings/). Alternatively, you can go to the Org2Org app **Provisioning** > **To App** settings from the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
+> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App features operation](/docs/reference/api/apps/#list-features-for-application) and the [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/). Alternatively, you can go to the Org2Org app **Provisioning** > **To App** settings from the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
 
 ### Assign users and groups in the Org2Org app
 

@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide provides you with a list of the requirements you need to prepare before submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/).
+This guide provides you with a list of the requirements needed before submitting your integration for publication in the [Okta Integration Network (OIN)](https://www.okta.com/integrations/).
 
 ---
 
@@ -39,14 +39,14 @@ The app logo that you submit to the OIN Manager in the **General Settings** > **
 
 * Submit a logo file that's less than one MB.
 * Submit a logo image with one of the following dimensions:
-  * 244 x 244 pixels
-  * 200 x 200 pixels
-  * 244 x 156 pixels
-  * 156 x 244 pixels
+  * 244 x 244 pixels for circular logos
+  * 200 x 200 pixels for square logos
+  * 244 x 156 pixels for tall logos
+  * 156 x 244 pixels for wide logos
 * Don't submit a logo with the trademark (:tm:) symbol.
 * Submit an icon rather than a wordmark (a graphic that includes the company or product name).
    > **Note:** The OIN catalog already lists the product name in plain text. Logos with text can appear redundant.
-* Submit a logo image that's in PNG format with a transparent background.
+* Submit a logo image that's in PNG format with a transparent background:
     * GIF and JPEG/JPG formats are also acceptable
     * A colored background is acceptable if it's a part of the logo color scheme
 * Submit a logo image with sharp corners (no rounded corners).
@@ -79,7 +79,7 @@ From the OIN Manager, you can specify the app description in the **General Setti
 
 You can find the app description in the OIN catalog under the **Integration detail** > **Overview** section of your published integration.
 
-##### SSO app description example
+##### Single Sign-On (SSO) app description example
 
 Acme is a CMR platform that helps modern businesses thrive. A platform that connects different departments, from accounting to sales to customer service, in a centralized manner. Okta's Acme integration allows customers to sign in to the Acme platform using Okta as a Single Sign-On provider.
 
@@ -138,7 +138,7 @@ Provide a separate configuration guide as part of the OIN submission process for
 * During the OIN verification process, ensure that the link to your configuration guide is accessible to the OIN team. The OIN team checks your document for general adherence to the configuration instructions.
 * After your integration is in the OIN catalog, ensure that your guide link is public or customer-accessible.
 
-Your guide link is available to administrators through the Okta Admin Console when they add your integration to their Okta org. For example, when customer admins add your SAML integration, they have access to your guide through the **View SAML setup instructions** link in the Admin Console SAML setup page.
+Your guide link is available to customer administrators through the Okta Admin Console when they add your integration to their Okta org. For example, when admins add your SAML integration in the Admin Console, they have access to your guide through the **View SAML setup instructions** link.
 
 > **Note**: Submit a separate guide for each type of integration if your integration supports more than one type. For example, if your integration supports both SSO and SCIM, you need to submit a guide for SSO and a separate guide for SCIM.
 
@@ -367,7 +367,7 @@ You can't publish integrations with the following Okta features in the OIN catal
 * **Refresh token:**  Refresh tokens aren't supported for integrations published in the OIN.
 
 * **Unsupported scopes:** <br>
-   * `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
+   * The `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
    * Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
    * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 

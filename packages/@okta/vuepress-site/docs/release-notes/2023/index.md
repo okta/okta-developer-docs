@@ -8,13 +8,11 @@ title: Okta API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2023.05.2](#bugs-fixed-in-2023-05-2) | May 24, 2023 |
+| [Bug fixed in 2023.05.2](#bug-fixed-in-2023-05-2) | May 24, 2023 |
 
-#### Bugs fixed in 2023.05.2
+#### Bug fixed in 2023.05.2
 
-*  During the Authorization Code flow, claims appeared in the ID token when `alwaysIncludeInToken` was set to `false`. (OKTA-599051)
-
-*  Token inline hooks failed even when a URL claim name was correctly encoded with a JSON pointer. (OKTA-602794)
+Token inline hooks failed even when a URL claim name was correctly encoded with a JSON pointer. (OKTA-602794)
 
 ### Weekly release 2023.05.1
 
