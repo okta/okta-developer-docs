@@ -4,6 +4,18 @@ title: Okta API Products release notes 2023
 
 ## May
 
+### Weekly release 2023.05.3
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.05.3](#bugs-fixed-in-2023-05-3) | June 07, 2023 |
+
+#### Bugs fixed in 2023.05.3
+
+* Requests to the Email Domains API (DELETE /email-domains/{emailDomainId}) failed if the same domain name was used by multiple orgs. (OKTA-612312)
+* Some attributes previously added to user profiles from incoming SAML responses weren't cleared when the attribute was later omitted. (OKTA-609021)
+* The Begmati Nepal region (`NP`) was missing from the Dynamic Zone `locations` property. (OKTA-605016)
+
 ### Weekly release 2023.05.2
 
 | Change | Expected in Preview Orgs |
