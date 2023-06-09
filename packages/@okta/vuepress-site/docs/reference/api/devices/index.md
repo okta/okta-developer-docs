@@ -217,7 +217,7 @@ None
 | Parameter      | Type   | Description                                                                                                               |
 | -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
 | `search`       | String | Searches for devices with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties |
-| `limit`        | Number | Specifies the number of results returned (recomended `20`)                                                                    |
+| `limit`        | Number | Specifies the number of results returned (recommended `20`)                                                                    |
 | `after`        | String | Specifies the pagination cursor for the next page of devices                                                              |
 | `expand=user`  | String | Lists associated users for the device in `_embedded` element                                                              |
 
@@ -622,6 +622,16 @@ Lists all [Users](/docs/reference/api/users/#user-object) for a Device by `devic
 #### Response parameters
 
 Array of [Users](/docs/reference/api/users/#user-object)
+
+##### Device - User attributes
+
+The following device attributes will be added to each user object in array of users.
+
+| Property                 | Type       | Description                                                                                                       |
+| :----------------------- | :--------- | :-----------------------------------------------------------------------------------------------------------------|
+| `managementStatus`       | ENUM       | Management status of the device for the user. Possible values are `NOT_MANAGED` and `MANAGED`                      |
+| `screenLockType`         | ENUM       | Screen lock type of the device for the user. Possible values are `NONE`, `PASSCODE` and `BIOMETRICS`              |
+
 
 #### Request example
 
@@ -1201,7 +1211,7 @@ The following diagram shows the state object for a Device:
         "tpmPublicKeyHash": null,
         "registered": true,
         "secureHardwarePresent": false,
-        "diskEncryptionType": null
+        "diskEncryptionType": "ALL_INTERNAL_VOLUMES"
     }
 }
 ```
