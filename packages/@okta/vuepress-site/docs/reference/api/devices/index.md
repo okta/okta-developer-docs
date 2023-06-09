@@ -1155,13 +1155,13 @@ The following diagram shows the state object for a Device:
 
 | Property                 | Type       | Description                                                                                                       | Applicable Platforms       |
 | :----------------------- | :--------- | :-----------------------------------------------------------------------------------------------------------------| :---------------------------|
-| `displayName`            | String     | The display name of the device (from 1 through 255 characters)                                                    | All                         |
+| `displayName`            | String     | The display name of the device (max 255 chars)                                                                    | All                         |
 | `platform`               | Enum       | OS platform of the device. Possible values: `MACOS`, `WINDOWS`, `ANDROID`, `IOS`.                                 | All                         |
 | `registered`             | Boolean    | Indicates if the device is registered at Okta                                                                     | All                         |
-| `diskEncryptionType`     | Enum       | (Optional) The type of disk encryption on the device. [Possible Values for `diskEncryptionType`](#possible-values-for-diskencryptiontype)      | All                         |
-| `imei`                   | String     | (Optional) International Mobile Equipment Identity of the device (from 15 through 17 numeric characters)          | All                         |
+| `diskEncryptionType`     | Enum       | (Optional) The type of disk encryption on the device. See [Possible values for `diskEncryptionType`](#possible-values-for-diskencryptiontype)      | All                         |
+| `imei`                   | String     | (Optional) International Mobile Equipment Identity of the device (15-17 numeric chars)                            | All                         |
 | `integrityJailbreak`     | Boolean    | (Optional) Indicates if the device is jailbroken or rooted                                                        | `IOS` and `ANDROID`         |
-| `manufacturer`           | String     | (Optional) Name of the manufacturer of the device (from 0 through 127 characters)                                 | All                         |
+| `manufacturer`           | String     | (Optional) Name of the manufacturer of the device (0-127 chars)                                                   | All                         |
 | `meid`                   | String     | (Optional) Mobile equipment identifier of the device (14 characters)                                              | All                         |
 | `model`                  | String     | (Optional) Model of the device (127 characters)                                                                   | All                         |
 | `osVersion`              | String     | (Optional) Version of the device OS (127 characters)                                                              | All                         |
@@ -1171,7 +1171,7 @@ The following diagram shows the state object for a Device:
 | `tpmPublicKeyHash`       | String     | (Optional) Windows Trusted Platform Module hash value                                                             | All                         |
 | `secureHardwarePresent`  | Boolean    | (Optional) Indicates if the device contains a secure hardware functionality                                       | All                         |
 
-##### Possible Values for `diskEncryptionType`
+##### Possible values for `diskEncryptionType`
 
 | Value                       | Description                                              | Applicable Platforms       |
 | :-------------------------- | :--------------------------------------------------------| :---------------------------|
@@ -1216,7 +1216,6 @@ The following diagram shows the state object for a Device:
         "osVersion": "15.1.1",
         "serialNumber": "C02VW333HTDF",
         "imei": null,
-        "integrityJailbreak": ,
         "meid": null,
         "udid": "36A56558-1793-5B3A-8362-ECBAA14EDD2D",
         "sid": null,
