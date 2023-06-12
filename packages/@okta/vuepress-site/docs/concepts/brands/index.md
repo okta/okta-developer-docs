@@ -133,7 +133,7 @@ The main Okta email provider allows you to use each unique email sender (root do
 
 If you try to use the Admin Console to send a branded User Activation email, the default Okta branding is applied.
 
-To ensure that the activation email is branded, use the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser). Change `subdomain.okta.com` to the custom domain associated with the brand. For example, `custom.domain.one`. See [Multibrand and custom domains](#multibrand-and-custom-domains).
+To ensure that the activation email is branded, use the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser). In your request, change `subdomain.okta.com` to the custom domain associated with the brand. For example, `custom.domain.one`. See [Multibrand and custom domains](#multibrand-and-custom-domains).
 
 > **Note:** This solution works for Okta Workforce Identity Cloud customers. If you import users with Active Directory or Human Resources as a Service (HRaaS), it can be difficult to use the API.
 
