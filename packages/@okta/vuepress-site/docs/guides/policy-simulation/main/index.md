@@ -40,7 +40,7 @@ The policy simulations run access tests based on existing policy configurations 
 
 For background information on policies, see [Policies](/docs/concepts/policies) and [Global session and authentication policies](/docs/guides/configure-signon-policy/main/).
 
-## Sample Use Case
+## Sample use case
 
 The sample use case creates a scenario based on group access to your sample app. The policy simulation endpoint tests access to the app when different groups are assigned to the app.
 
