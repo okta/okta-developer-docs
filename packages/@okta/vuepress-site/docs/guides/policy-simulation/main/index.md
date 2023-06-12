@@ -31,7 +31,7 @@ If you need a simple application for testing, see [Sign users in to your SPA usi
 
 You can use the Policy API to simulate real-world user requests to access an application. In the Admin Console, these simulations are run using the Access Testing Tool available from **Reports** > **Access testing tool**. See [Access Testing Tool](https://help.okta.com/en/programs/aps/Content/Topics/betas/closed/access-policy-simulation/test-an-access-scenario.htm). <!--Update this link to alias when ready --> The API endpoint that underpins this tool is also available for developers to simulate policy configurations and to test application access. For full details on the API endpoint, see the [Policy API reference](/docs/reference/api/policy/#access-simulation).
 
-The policy simulations run access tests based on existing policy configurations, and which rules and settings were matched to create the authentication and enrollment requirements. Results of the tests determine individual or group access to an app. You can simulate matches for the following types of policies and rules:
+The policy simulations run access tests based on existing policy configurations and which rules and settings are matched to create the authentication and enrollment requirements. Results of the tests determine individual or group access to an app. You can simulate matches for the following types of policies and rules:
 
 * Authentication policies
 * Authenticator enrollment policies
