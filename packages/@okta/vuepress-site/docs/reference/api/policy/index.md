@@ -368,9 +368,11 @@ curl -v -X POST \
 ```
 
 #### Response
+
 The following response section explains the error responses and the response body.
 
 ##### Response Body
+
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
 | `policyType` | String| The policy type we are simulating|
