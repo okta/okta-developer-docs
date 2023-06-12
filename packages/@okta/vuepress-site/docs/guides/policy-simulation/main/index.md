@@ -46,7 +46,7 @@ The sample use case creates a scenario based on group access to your sample app.
 
 To configure this set up, create a group called Sales and ensure that only this group is assigned to your sample app. See [Manage Groups](https://help.okta.com/okta_help.htm?type=oie&id=ext_Directory_Groups).
 
-In this use-case, the app only allows users of the Sales group to access your sample application. Use the following calls to test this scenario.
+In this use case, the app only allows users of the Sales group to access your sample application. Use the following calls to test this scenario.
 
 ## Create a Post call for Sales
 
