@@ -332,6 +332,7 @@ The section below explains the request parameters and the properties inside the 
 | `policyContext.device.assuranceId` | String | (Optional) The device assurance policy ID for the simulation|
 
 ##### Request example
+
 > **Note:** You can only evaluate `user` or `groups` not both, and either `ip` or `zone.ids`, not both. Use the following payload for reference only.
 
 ```bash
@@ -344,9 +345,6 @@ curl -v -X POST \
     "policyTypes": ["OKTA_SIGN_ON", "MFA_ENROLL"],
     "appInstance": "0oa4eroj3nYCIJIW70g7",
     "policyContext": {
-        "user": {
-            "id": "00u4eralyizp8NPOb0g7"
-        },
         "groups": {
             "ids": [
               "00g4eralvekR5RLuS0g7", "00g4eralvekR5RLuS0g8"
@@ -355,7 +353,6 @@ curl -v -X POST \
         "risk": {
             "level": "LOW"
         },
-        "ip": "9.9.9.9",
         "zones": {
           "ids": [
             "nzo4eralxcRnbIHYJ0g7"
@@ -387,9 +384,10 @@ The following response section explains the error responses and the response bod
 | `undefined` | Object | A list of undefined but not matched policy/rules |
 | `evaluated` | Object | A list of evaluated but not matched policy/rules |
 
-
 ##### Response example
+
 HTTP 200:
+
 ```json
 {
     "evaluation": [
