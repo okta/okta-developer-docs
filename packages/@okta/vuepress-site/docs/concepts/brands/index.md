@@ -129,6 +129,12 @@ Keep in mind the following when setting up domains for an org with branded email
 
 The main Okta email provider allows you to use each unique email sender (root domain, no-reply@company.com) only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
 
+#### User Activation email
+
+Use the [Brands API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/createEmailCustomization) to ensure that your customers receive the User Activation email with the correct branding. If you use the Okta Admin Console, the emails have the default Okta branding.
+
+> **Note:** This solution works for Okta Workforce Identity Cloud customers. If you import users with Active Directory or Human Resources as a Service (HRaaS), it can be difficult to use the API.
+
 #### Default brand sign-in page and error page
 
 With multibrand customizations enabled, you can't update the default brand's sign-in page or error page HTML content. The API returns a 403 HTTP status message. See [About subdomain brands and custom brands](#about-subdomain-brands-and-custom-brands).
