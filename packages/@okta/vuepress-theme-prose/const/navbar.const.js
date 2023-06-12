@@ -371,6 +371,10 @@ export const guides = [
             guideName: "configure-signon-policy"
           },
           {
+            title: "Test your access policies",
+            guideName: "policy-simulation"
+          },
+          {
             title: "Add an external Identity Provider",
             path: "/docs/guides/identity-providers/",
             subLinks: [
