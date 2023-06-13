@@ -33,7 +33,7 @@ Multibrand customizations allow customers to use one org to manage multiple bran
 
 #### Pagination for the Brands API is GA in Production
 
-The Brands API now supports [pagination](/docs/reference/core-okta-api/#pagination) when returning lists of brands. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Customizations](/docs//api/openapi/okta-management/management/tag/Customization). <!-- OKTA-574011 -->
+The Brands API now supports [pagination](/docs/reference/core-okta-api/#pagination) when returning lists of brands. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Customizations](/docs/api/openapi/okta-management/management/tag/Customization). <!-- OKTA-574011 -->
 
 #### New custom authenticator for push notifications
 
@@ -59,7 +59,7 @@ The Policy API Self-Service Password Reset object can now use Google Authenticat
 
 #### Policy Simulation API is EA in Preview
 
-With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes will be achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user will be granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=csh-access-testing-tool). The`/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!--OKTA-593826-->
+With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes will be achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user will be granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=csh-access-testing-tool). The`/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/). <!--OKTA-593826-->
 
 #### Universal Directory attribute and enum limits are GA in Production
 
@@ -67,7 +67,7 @@ Universal Directory now has limits to the number of attributes per org and the n
 
 #### Developer documentation update in 2023.06.0
 
-A new policy testing guide is available to demonstrate a new Policy API endpoint used to test access policies. This feature is also available in the Admin Console > Reports as the Access Testing Tool. See the new [simulate endpoint](/docs/reference/api/policy/#policy-simulation-operations) in the API reference and [Test your policies with access simulations](/docs/guides/policy-simulation).
+A new policy testing guide is available to demonstrate a new Policy API endpoint used to test access policies. This feature is also available in the Admin Console > Reports as the Access Testing Tool. See the new [simulate endpoint](/docs/reference/api/policy/#policy-simulation-operations) in the API reference and [Test your policies with access simulations](/docs/guides/).
 
 #### Bugs fixed in 2023.06.0
 
