@@ -118,7 +118,7 @@ When you return an error object, it should have the following structure:
 |--------------|--------------------------------------|-----------|
 | errorSummary | Human-readable summary of the error | String    |
 
-Returning an error object causes Okta to retry sending the OTP to the requester using Okta's telephony provider(s).
+Returning an error object causes Okta to retry sending the OTP to the requester using Okta's telephony providers.
 
 > **Note:** If the error object doesn't include a defined `errorSummary` property, the following default message is returned to the end user: `The callback service returned an error`.
 
@@ -206,7 +206,7 @@ This section provides example JSON payloads for the supported operations.
 
 ## Timeout behavior
 
-After receiving the Okta request, if there is a response timeout, the Okta process flow proceeds with trying to send the OTP using Okta's telephony provider(s). See [Troubleshooting](#troubleshooting).
+After receiving the Okta request, if there is a response timeout, the Okta process flow proceeds with trying to send the OTP using Okta's telephony providers. See [Troubleshooting](#troubleshooting).
 
 ## Troubleshooting
 
@@ -214,11 +214,11 @@ This section covers what happens when a telephony inline hook flow fails either 
 
 > **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks concept piece for more information on the events related to inline hooks that the Okta System Log captures.
 
-- When there is a communication failure with the external service, a timeout for example, the inline hook operation is skipped, and the OTP is delivered to the requester using Okta's telephony provider(s).
+- When there is a communication failure with the external service, a timeout for example, the inline hook operation is skipped, and the OTP is delivered to the requester using Okta's telephony providers.
 
   **Who can see this error?** Administrators
 
-- When the external service returns a response with any other HTTP status code besides `200`, the inline hook operation is skipped, and the OTP is delivered to the requester using Okta's telephony provider(s).
+- When the external service returns a response with any other HTTP status code besides `200`, the inline hook operation is skipped, and the OTP is delivered to the requester using Okta's telephony providers.
 
   **Who can see this error?** Administrators
 
