@@ -11,13 +11,15 @@ title: Okta Identity Engine API Products release notes 2023
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
 | [API service integration client secret rotation](#api-service-integration-client-secret-rotation) | June 14, 2023 |
-| [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
-| [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
-| [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
-| [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
-| [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
-| [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
-| [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
+| [Multibrand customizations are GA in Production](#multibrand-customizations-are-ga-in-production) | February 8, 2023 |
+| [Pagination for the Brands API is GA in Production](#pagination-for-the-brands-api-is-ga-in-production) | June 14, 2023 |
+| [New custom authenticator for push notifications](#new-custom-authenticator-for-push-notifications) | June 14, 2023 |
+| [Unique refresh token ID added to token inline hook requests](#unique-refresh-token-id-added-to-token-inline-hook-requests) | June 14, 2023 |
+| [Transactional verification with CIBA is GA in Production](#transactional-verification-with-ciba-is-ga-in-production) | June 14, 2023 |
+| [Password hooks global availability is GA in Production](#password-hooks-global-availability-is-ga-in-production) | December 20, 2020 |
+| [Google Authenticator for account recovery is now EA in Preview](#google-authenticator-for-account-recovery-is-now-ea-in-preview) | June 14, 2023 |
+| [Policy Simulation API is EA in Preview](#policy-simulation-api-is-ea-in-preview) | June 14, 2023 |
+| [Universal Directory attribute and enum limits are GA in Production](#universal-directory-attribute-and-enum-limits-are-ga-in-production) | June 14, 2023 |
 | [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
 
 #### API service integration client secret rotation
@@ -30,7 +32,7 @@ Multibrand customizations allow customers to use one org to manage multiple bran
 
 #### Pagination for the Brands API is GA in Production
 
-The Brands API now supports [pagination](/docs/api/#pagination) when returning lists of brands. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Customizations](/docs//api/openapi/okta-management/management/tag/Customization). <!-- OKTA-574011 -->
+The Brands API now supports [pagination](/docs/reference/core-okta-api/#pagination) when returning lists of brands. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Customizations](/docs//api/openapi/okta-management/management/tag/Customization). <!-- OKTA-574011 -->
 
 #### New custom authenticator for push notifications
 
@@ -46,7 +48,7 @@ Organizations are constantly looking for ways to offer a frictionless user exper
 
 CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device, and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba/main/). <!-- OKTA-584442 -->
 
-#### Password hooks global availability is GA in Preview
+#### Password hooks global availability is GA in Production
 
 The [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!-- OKTA-604521 -->
 
@@ -60,7 +62,7 @@ With the Policy API `/simulate` endpoint, you can quickly and easily test polici
 
 #### Universal Directory attribute and enum limits are GA in Production
 
-Universal Directory now has limits to the number of attributes per org and the number of enums that can be defined for a single attribute. <!--OKTA-614625>
+Universal Directory now has limits to the number of attributes per org and the number of enums that can be defined for a single attribute. <!--OKTA-614625-->
 
 #### Bugs fixed in 2023.06.0
 
