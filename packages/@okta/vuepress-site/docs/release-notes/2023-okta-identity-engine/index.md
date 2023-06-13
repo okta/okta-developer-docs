@@ -20,6 +20,7 @@ title: Okta Identity Engine API Products release notes 2023
 | [Google Authenticator for account recovery is now EA in Preview](#google-authenticator-for-account-recovery-is-now-ea-in-preview) | June 14, 2023 |
 | [Policy Simulation API is EA in Preview](#policy-simulation-api-is-ea-in-preview) | June 14, 2023 |
 | [Universal Directory attribute and enum limits are GA in Production](#universal-directory-attribute-and-enum-limits-are-ga-in-production) | June 14, 2023 |
+| [Developer documentation update in 2023.06.0](#developer-documentation-update-in-2023-06-0) | June 14, 2023 |
 | [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
 
 #### API service integration client secret rotation
@@ -63,6 +64,10 @@ With the Policy API `/simulate` endpoint, you can quickly and easily test polici
 #### Universal Directory attribute and enum limits are GA in Production
 
 Universal Directory now has limits to the number of attributes per org and the number of enums that can be defined for a single attribute. <!--OKTA-614625-->
+
+#### Developer documentation update in 2023.06.0
+
+A new policy testing guide is available to demonstrate a new Policy API endpoint used to test access policies. This feature is also available in the Admin Console > Reports as the Access Testing Tool. See the new [simulate endpoint](/docs/reference/api/policy/#policy-simulation-operations) in the API reference and [Test your policies with access simulations](/docs/guides/policy-simulation).
 
 #### Bugs fixed in 2023.06.0
 
