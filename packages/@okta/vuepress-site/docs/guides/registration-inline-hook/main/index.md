@@ -182,7 +182,7 @@ app.post('/registrationHook', async (request, response) => {
           {
             type: 'com.okta.action.update',
             value: {
-              registration: 'DENY',
+              'registration': 'DENY',
             },
           }
         ],
@@ -205,9 +205,9 @@ app.post('/registrationHook', async (request, response) => {
       returnValue = {
         'commands':[
           {
-            type: 'com.okta.user.profile.update',
+            type: 'com.okta.action.update',
             value: {
-              'login': emailRegistration,
+              'registration': 'ALLOW',
             }
           }
         ]
@@ -219,7 +219,7 @@ app.post('/registrationHook', async (request, response) => {
           {
             type: 'com.okta.action.update',
             value: {
-              registration: 'DENY',
+              'registration': 'DENY',
             },
           }
         ],
