@@ -22,7 +22,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 #### API service integration client secret rotation
 
-New in this release is the ability to rotate client secrets for an API service integration through the API. Previously, if a customer wanted to update the client secret for an API service integration, they would have to reinstall the integration to obtain a new client ID and secret. There was no option to revoke the client secret while maintaining the client ID and API service integration instance in Okta. With this new feature, customers can generate a new secret, deactivate an old secret, and remove a deactivated secret from the API service integration instance. These functionalities help customers implement security best practices without service downtime. See [API Service Integration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/#tag/ApiServiceIntegrations/operation/createApiServiceIntegrationInstanceSecret) API references.
+New in this release is the ability to rotate client secrets for an API service integration through the API. Previously, if a customer wanted to update the client secret for an API service integration, they would have to reinstall the integration to obtain a new client ID and secret. There was no option to revoke the client secret while maintaining the client ID and API service integration instance in Okta. With this new feature, customers can generate a new secret, deactivate an old secret, and remove a deactivated secret from the API service integration instance. These functionalities help customers implement security best practices without service downtime. See [API Service Integration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/#tag/ApiServiceIntegrations/operation/createApiServiceIntegrationInstanceSecret) API references. <!-- OKTA-584715 -->
 
 #### Multibrand customizations are GA in Production
 
@@ -34,7 +34,7 @@ The Brands API now supports [pagination](/docs/api/#pagination) when returning l
 
 #### New custom authenticator for push notifications
 
-Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization's mobile apps. Your users are presented with a push and biometric experience within your organization's apps, with your organization's branding on it. They never have to leave your app, and they don't need to download a third-party app, such as Okta Verify, to complete their verification. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/) for [Android](/docs/guides/authenticators-custom-authenticator/android/main/) and [iOS](/docs/guides/authenticators-custom-authenticator/ios/main) instructions. <!-- OKTA-517891 -->
+Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization's mobile apps. Your users are presented with a push and biometric experience within your organization's apps, with your organization's branding on it. They never have to leave your app, and they don't need to download a third-party app, such as Okta Verify, to complete their verification. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/) for [Android](/docs/guides/authenticators-custom-authenticator/android/main/) and [iOS](/docs/guides/authenticators-custom-authenticator/ios/main) instructions. <!-- OKTA-580039 -->
 
 #### Unique refresh token ID added to token inline hook requests
 
@@ -44,11 +44,11 @@ A unique refresh token ID is now included in token inline hook requests. This en
 
 Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-Initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
 
-CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba/main/). <!-- OKTA-584442 -->
+CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device, and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba/main/). <!-- OKTA-584442 -->
 
 #### Password hooks global availability is GA in Preview
 
-The [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) operation is now available for all users. Previously, password hooks required a user to be in the`STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!-- OKTA-OKTA-604521 -->
+The [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!-- OKTA-604521 -->
 
 #### Google Authenticator for account recovery is now EA in Preview
 
@@ -66,6 +66,10 @@ Universal Directory now has limits to the number of attributes per org and the n
 
 * Sometimes requests with an already used scope name didn't return appropriate error messages. (OKTA-570908)
 * Some customers received a 500 internal server error in response to a List all apps request. (OKTA-597493)
+* Unhelpful error messages appeared when the `NameIdPolicy` was unspecified in SAML client requests that required signed requests. (OKTA-607434)
+* When labels for Universal Directory properties on the profile enrollment form were customized, the sign-in page showed default content. (OKTA-397225)
+* The Identity Provider (IdP) AMR claims mapping feature ignored the IdP admin configuration for trusting AMR claims. (OKTA-615412)
+* The `max_age=0` property wasn't treated the same as `prompt=login` for OAuth 2.0 `/authorize` requests. (OKTA-588559)
 
 ## May
 
