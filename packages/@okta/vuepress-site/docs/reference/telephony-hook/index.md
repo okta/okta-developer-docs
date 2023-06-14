@@ -210,30 +210,16 @@ After receiving the Okta request, if there’s a response timeout, the Okta proc
 
 ## Troubleshooting
 
-This section covers what happens when a telephony inline hook flow fails either due to the external inline hook service returning an error object or not returning a successful response.
+This section explains several common causes of telephony inline hooks failure.
 
-> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks concept piece for more information on the events related to inline hooks that the Okta System Log captures.
+> **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks topic for details on events captured by the Okta System Log.
 
-- When there’s a communication failure with the external service, a timeout for example, the inline hook operation is skipped, and the OTP is delivered to the requester using the Okta telephony providers.
-
-  **Who can see this error?** Administrators
-
-- When the external service returns a response with any other HTTP status code besides `200`, the inline hook operation is skipped, and the OTP is delivered to the requester using the Okta telephony providers.
-
-  **Who can see this error?** Administrators
-
-- When the external service returns an error object in the response, the telephony inline hook flow fails with no OTP delivered using the hook.
-
-  **Who can see this error?** Administrators, developers, and end users
-
-- When a hook response is malformed or couldn't be mapped to the expected API response, the inline hook operation is skipped.
-
-  **Who can see this error?** Administrators
-
-  The following actions result in an error:
-
-  - Using an invalid status in the response
-
-  - Attempting to add an active telephony inline hook when one exists
-
-  - Not including the `authScheme` in the request header
+|       Issue      |          Impact            |      Error Visibility       |
+|------------------|----------------------------|-----------------------------|
+| External service fails to communicate or times out                          | Inline hook operation is skipped,  OTP is sent to requester using an Okta telephony provider   | Administrators only                       |
+| External service responds with any HTTP status code besides `200`           | Inline hook operation is skipped,  OTP is sent to requester using an Okta telephony provider   | Administrators only                       |
+| External service returns an error object                                    | Inline hook operation fails, no OTP is delivered                                               | Administrators, developers, and end users |
+| Hook response is malformed or can't be mapped to the expected API response  | Inline hook operation is skipped                                                               | Administrators only                       |
+| Request header doesn't include an `authScheme`                              | Inline hook operation is skipped                                                               | Administrators only                       |
+| Response uses an invalid status                                             | Inline hook operation is skipped                                                               | Administrators only                       |
+| Operation adds an active telephony inline hook when one already exists      | Inline hook operation is skipped                                                               | Administrators only                       |
