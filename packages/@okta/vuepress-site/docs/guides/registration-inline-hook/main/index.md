@@ -199,9 +199,9 @@ app.post('/registrationHook', async (request, response) => {
       };
     }
   } else {
-    console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " has registered!");
-    var emailRegistration = request.body.data.userProfile['email'];
+    var emailRegistration = (request.body.data.userProfile['email']).split('@');
     if (emailRegistration.includes('example.com')) {
+      console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " has registered!");
       returnValue = {
         'commands':[
           {
