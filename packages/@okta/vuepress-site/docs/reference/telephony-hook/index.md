@@ -28,7 +28,7 @@ When you create a telephony inline hook, you must include the `authScheme` param
 
 For the telephony inline hook, the outbound call from Okta to your external service includes the following objects in its JSON payload:
 
-### Request Type
+### requestType
 OTP request or event for which this transaction is being requested: authentication, enrollment, recovery
 
 Acceptable values for `requestType`
@@ -70,7 +70,7 @@ For the telephony inline hook, the `commands` and `error` objects that you can r
 
 <HookResponseSize/>
 
-### Commands
+### commands
 
 The `commands` object is where you can provide commands to Okta. It’s where you can tell Okta whether your attempt to send the OTP using your own telephony provider was successful.
 
@@ -87,30 +87,30 @@ The `value` property is itself a nested object in which you specify a status, pr
 
 The following commands are supported for a telephony inline hook:
 
-| Command                 | Description             |
-|-------------------------|-------------------------|
+| Command                   | Description                           |
+|---------------------------|---------------------------------------|
 | com.okta.telephony.action | Telephony operation action result     |
 
-#### Value
+#### value
 
-The `value` object is where you specify the result of the send OTP operation.
+The `value` object specifies the result of the Send OTP operation and includes the following properties:
 
-| Property | Description                                                                                                                                                                                                       | Data Type       |
-|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| status       | Whether the OTP was sent successfully using the customer's web service | [status](#status)          |
-| provider     | Provider that was used for sending the OTP using the customer's web service | String          |
-| transactionId    | Transaction ID that uniquely identifies an attempt to deliver the OTP to the requester | String |
-| transactionMetadata    | Any relevant transaction metadata, such as duration | String |
+| Property | Description                 | Data Type       |
+|----------|-----------------------------|-----------------|
+| status                 | Whether the OTP was sent successfully using the customer's web service                 | [status](#status) |
+| provider               | Provider used to send the OTP using the customer's web service                         | String            |
+| transactionId          | Transaction ID that uniquely identifies an attempt to deliver the OTP to the requester | String            |
+| transactionMetadata    | Any relevant transaction metadata, such as duration                                    | String            |
 
-#### Status
+#### status
 
-| Status      | Description               |
-|---------|---------------------------|
-| SUCCESSFUL     | External web service was able to deliver the OTP to the requester. |
-| PENDING | External web service wasn't able to confirm delivery of the OTP to the requester. |
-| FAILED  | External web service was unable to deliver the OTP to the requester. |
+| Status     | Description               |
+|------------|---------------------------|
+| SUCCESSFUL | External web service was able to deliver the OTP to the requester                |
+| PENDING    | External web service wasn't able to confirm delivery of the OTP to the requester |
+| FAILED     | External web service was unable to deliver the OTP to the requester              |
 
-### Error
+### error
 
 When you return an error object, it should have the following structure:
 
@@ -206,9 +206,9 @@ This section provides example JSON payloads for the supported operations.
 
 ## Timeout behavior
 
-After receiving the Okta request, if there’s a response timeout, the Okta process flow proceeds with trying to send the OTP using the Okta telephony providers. See [Troubleshooting](#troubleshooting).
+After receiving the Okta request, if there’s a response timeout, the Okta process flow proceeds with trying to send the OTP using the Okta telephony providers. See [Troubleshoot](#troubleshoot).
 
-## Troubleshooting
+## Troubleshoot
 
 This section explains several common causes of telephony inline hooks failure.
 
