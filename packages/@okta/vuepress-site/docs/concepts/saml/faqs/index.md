@@ -23,7 +23,7 @@ For a sample configuration, see our instructions on [How to Configure SAML 2.0 f
 
 **Q: My application currently supports WS-FED for Single Sign-On. Can I use it instead of SAML?**
 
-The Okta App Integration Wizard only supports SAML 2.0 for federated Single Sign-On. If your application supports WS-Fed, create a [WS-Fed Template App](https://help.okta.com/okta_help.htm?id=ext_Apps_Configure_Okta_Template_WS_Federation). You can only use this created template integration within your own account. To promote your template integration to the Okta Integration Network, contact your Okta rep, or ask on our [forum](https://devforum.okta.com/).
+The Okta App Integration Wizard only supports SAML 2.0 for federated Single Sign-On. If your application supports WS-Fed, create a [WS-Fed Template App](https://help.okta.com/okta_help.htm?id=ext_Apps_Configure_Okta_Template_WS_Federation). You can only use this created template integration within your own account. To promote your template integration to the Okta Integration Network, contact your Okta account team, or ask on our [forum](https://devforum.okta.com/).
 
 **Q: What is Secure Web Authentication (SWA)? Is it different than using SAML?**
 

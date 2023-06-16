@@ -25,7 +25,11 @@ To better understand SCIM and the specific implementation of SCIM using Okta, se
 
 ### Create Users
 
-![Flowchart - create User](/img/oin/scim_flow-user-create.png "Simple flow diagram for create User process")
+<div class="three-quarter">
+
+![Simple flow diagram for create User process](/img/oin/scim_flow-user-create.png)
+
+</div>
 
 The User creation operation brings the user's application profile from Okta over to the Service Provider as a User object. A user's application profile represents the key-value attributes defined on the **Profile** tab when a User object is added.
 
@@ -125,6 +129,8 @@ Authorization: <Authorization credentials>
     "active": true
 }
 ```
+
+> **Note:** Okta sends the `password` parameter in a create user request, even if password sync isn't enabled. This parameter acts as a placeholder for legacy provisioning platforms and its value isn't relevant or sensitive in nature.
 
 The response from the SCIM server contains the created User object:
 
@@ -304,7 +310,11 @@ Content-Type: text/json;charset=UTF-8
 
 ### Update a specific User (PUT)
 
-![Flowchart - update User (PUT)](/img/oin/scim_flow-user-update-put.png "Simple flow diagram for updating a User with a PUT method request")
+<div class="three-quarter">
+
+![Simple flow diagram for updating a User with a PUT method request](/img/oin/scim_flow-user-update-put.png)
+
+</div>
 
 Updating a User object refers to modifying an attribute in the Okta user's application profile that is mapped to an attribute in the SCIM application.
 
@@ -427,7 +437,11 @@ Content-Type: text/json;charset=UTF-8
 
 ### Update a specific User (PATCH)
 
-![Flowchart - update User (PATCH)](/img/oin/scim_flow-user-update-patch.png "Simple flow diagram for updating a User with a PATCH method request")
+<div class="three-quarter">
+
+![Simple flow diagram for updating a User with a PATCH method request](/img/oin/scim_flow-user-update-patch.png)
+
+</div>
 
 **PATCH** /Users/*$userID*
 
@@ -501,7 +515,11 @@ Content-Type: text/json;charset=UTF-8
 
 ### Delete Users
 
-![Flowchart - deprovision User](/img/oin/scim_flow-user-deprovision.png "Simple flow diagram for deprovisioning a User")
+<div class="three-quarter">
+
+![Simple flow diagram for deprovisioning a User](/img/oin/scim_flow-user-deprovision.png)
+
+</div>
 
 **DELETE** /Users/*$userID*
 
@@ -678,30 +696,48 @@ To add or remove users inside a specific pushed Group object on the SCIM server,
 
 If these three requirements are met, Okta sends a request to add the specified users to the Group object on the SCIM server.
 
-* For all new OIN app integrations, this request to update a Group object is sent through a PATCH method request.
-* For custom app integrations created using the AIW, this request to update a Group object is sent through a PUT request.
+* For all new OIN app integrations, a PATCH method request is used to update a Group object. For example:
 
-```http
-PATCH /scim/v2/Groups/abf4dd94-a4c0-4f67-89c9-76b03340cb9b HTTP/1.1
-User-Agent: Okta SCIM Client 1.0.0
-Authorization: <Authorization credentials>
+    ```http
+    PATCH /scim/v2/Groups/abf4dd94-a4c0-4f67-89c9-76b03340cb9b HTTP/1.1
+    User-Agent: Okta SCIM Client 1.0.0
+    Authorization: <Authorization credentials>
 
-{
-    "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-    "Operations": [{
-          "op": "remove",
-          "path": "members[value eq \"89bb1940-b905-4575-9e7f-6f887cfb368e\"]"
-        },
-        {
-          "op": "add",
-          "path": "members",
-          "value": [{
-              "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
-              "display": "test.user@okta.local"
+    {
+        "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
+        "Operations": [{
+            "op": "remove",
+            "path": "members[value eq \"89bb1940-b905-4575-9e7f-6f887cfb368e\"]"
+            },
+            {
+            "op": "add",
+            "path": "members",
+            "value": [{
+                "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+                "display": "test.user@okta.local"
+            }]
         }]
-    }]
-}
-```
+    }
+    ```
+
+* For custom app integrations created using the AIW, a PUT method request is used to update a Group object. For example:
+
+    ```http
+    PUT /scim/v2/Groups/abf4dd94-a4c0-4f67-89c9-76b03340cb9b HTTP/1.1
+    User-Agent: Okta SCIM Client 1.0.0
+    Authorization: <Authorization credentials>
+
+    {
+        "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
+        "displayName": "Test SCIMv2",
+        "members": [
+                {
+                "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+                "display": "test.user@okta.local"
+                }
+        ]
+    }
+    ```
 
 The SCIM server response is to return the updated Group object:
 
@@ -714,7 +750,12 @@ Content-Type: text/json;charset=UTF-8
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group"],
     "id": "abf4dd94-a4c0-4f67-89c9-76b03340cb9b",
     "displayName": "Test SCIMv20",
-    "members": null,
+    "members": [
+        {
+            "value": "23a35c27-23d3-4c03-b4c5-6443c09e7173",
+            "display": "test.user@okta.local"
+        }
+     ],
     "meta": {
         "resourceType": "Group"
     }

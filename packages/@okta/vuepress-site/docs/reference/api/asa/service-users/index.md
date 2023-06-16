@@ -5,6 +5,11 @@ category: asa
 
 # ASA Service Users API
 
+The ASA Service Users API reference is now available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/asa/asa/tag/service-users/).
+
+Explore the [Advanced Server Access Collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/collection/4920859-f91736f1-5ae0-4a0a-949d-abed2ada2c58) in the Okta Public API Collections workspace.
+
+<!--
 ## Get started
 
 The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is logically separate from the rest of the Okta APIs and uses a different API namespace:
@@ -33,7 +38,7 @@ The Service Users API has the following operations:
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_token" />
 Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of `Bearer ${AUTH_TOKEN}`.
-To retrieve an auth token, you need to [create a Service User and API key](https://help.okta.com/okta_help.htm?id=ext_asa_service_users), then pass the API key information to this endpoint.
+To retrieve an auth token, you need to [create a Service User and API key](https://help.okta.com/okta_help.htm?type=asa&id=ext_asa_service_users), then pass the API key information to this endpoint.
 Auth tokens may expire at any time, so code that uses them should be prepared to handle a 401 response code by creating a new auth token.
 
 #### Request path parameters
@@ -108,7 +113,7 @@ This endpoint requires the `access_admin` role.
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
 | `include_service_users`   |  string | (Optional) Include Service Users in the results |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `starts_with`   |  string | (Optional) Includes ASA Users with name that begins with the value |
 | `status`   |  string | (Optional) Includes ASA Users with specified statuses. Valid statuses: `ACTIVE`, `DISABLED`, and `DELETED`. |
@@ -535,3 +540,4 @@ HTTP 204 No Content
 ```
 
 
+-->

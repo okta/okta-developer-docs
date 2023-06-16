@@ -1,51 +1,309 @@
 .signup {
-  .signup--content {
-    .signup--form {
-      background-color: cv("body", "obscure");
-      box-shadow: 0px 24px 54px rgba(0, 0, 0, 0.21);
-      border-radius: 4px;
-    }
+  background: var(--c-gray-950);
+}
+
+.signup__title {
+  color: var(--c-lightgray-450);
+}
+
+.signup__wrapper h1 span {
+  color: var(--c-green-300);
+}
+
+.signup__items.active .signup__container {
+  @include media(">signup") {
+    background-color: var(--c-gray-980);
   }
-  &--description p {
-    color: cv("text", "darker");
+}
+
+.signup__popup:before {
+  background-color: var(--c-gray-980);
+}
+
+.signup__popup:after {
+  background: var(--c-gray-980);
+}
+
+.signup__popup__title {
+  border-color: var(--c-gray-760);
+}
+
+.signup__popup__title h2 {
+  color: var(--c-lightgray-450);
+}
+
+.signup__popup__title span {
+  color: var(--c-lightgray-450);
+}
+
+.signup__popup__title a {
+  border-bottom: 1px solid var(--c-lightgray-450);
+
+  color: var(--c-lightgray-450);
+}
+
+.signup__popup__title a:hover {
+  @include media(">signup") {
+    border-color: var(--c-green-100);
   }
-  &--form {
-    .fa-github:before {
-      color: cv("link", 'github');
-    }
-    .consent--section {
-      &-agree {
-        input[type="checkbox"] {
-          position: relative;
-          min-width: 1rem;
-          min-height: 1rem;
-          border: 1px solid cv("border", "checkbox");
-          background-color: cv("code");
-          border-radius: 4px;
-          appearance: none;
-          outline: 0;
-          cursor: pointer;
-          &::before {
-            position: absolute;
-            content: "";
-            display: block;
-            top: 1px;
-            left: 5px;
-            width: 5px;
-            height: 10px;
-            border-style: solid;
-            border-color: cv("action");
-            border-width: 0 1px 1px 0;
-            transform: rotate(45deg);
-            opacity: 0;
-          }
-          &:checked {
-            &::before {
-              opacity: 1;
-            }
-          }
-        }
-      }
-    }
+}
+
+.signup__popup__close {
+  background: url("/img/x-circle-white.svg") 50% 50% no-repeat;
+}
+
+.signup__container {
+  background-color: transparent;
+  @include media(">signup") {
+    background-color: var(--c-gray-980);
   }
+}
+
+.signup__form__label {
+  color: var(--c-lightgray-450);
+}
+
+.signup__form__input {
+  border: 1px solid var(--c-gray-450);
+  background-color: var(--c-gray-950);
+  
+  color: var(--c-lightgray-450);
+}
+
+.signup__form__input:active,
+.signup__form__input:focus {
+  box-shadow: 0 0 0 4px var(--c-green-200);
+  border-color: var(--c-green-300);
+}
+
+.signup__form__recaptcha {
+  color: var(--c-lightgray-450);
+}
+
+.signup__form__recaptcha .error-color {
+  color: var(--c-red-300);
+}
+
+.signup__form__splitter {
+  color: var(--c-gray-420);
+}
+
+.signup__form__button {
+  border: 1px solid var(--c-lightgray-450);
+  background-color: var(--c-gray-980);
+
+  color: var(--c-lightgray-450);
+}
+
+.signup__form__button:hover {
+  @include media(">signup") {
+    border-color: var(--c-green-300);
+
+    color: var(--c-green-300);
+  }
+}
+
+.signup__form__button-dark:hover {
+  @include media(">signup") {
+    background-color: var(--c-green-300);
+  }
+}
+
+.signup__form__button-dark:hover input {
+  @include media(">signup") {
+    color: var(--c-gray-980);
+  }
+}
+
+.signup__form__button i {
+  color: var(--c-lightgray-450);
+}
+
+.signup__form__button i::before {
+  color: var(--c-lightgray-450);
+}
+
+.signup__form__button-dark {
+  background: var(--c-lightgray-450);
+}
+
+.signup__form__button-dark input {
+  color: var(--c-gray-950);
+}
+
+.signup__item {
+  background-color: var(--c-gray-980);
+}
+
+.signup__item__title {
+  border-bottom: 1px solid var(--c-gray-760);
+
+  color: var(--c-lightgray-450);
+}
+
+.signup__item__title-logo {
+  display: none;
+}
+
+.signup__item__title-logo-white {
+  display: block;
+
+  background-color: var(--c-gray-980);
+}
+
+.signup__rate__title {
+  color: var(--c-lightgray-450);
+}
+
+.signup__rate__text {
+  color: var(--c-lightgray-450);
+}
+
+.signup__content {
+  background-color: var(--c-gray-765);
+}
+
+.signup__items.active .signup__description {
+  @include media(">signup") {
+    background-color: var(--c-gray-980);
+  }
+}
+
+.signup__items.active .signup__popup {
+  background-color: var(--c-gray-980);
+  @include media(">signup") {
+    overflow: hidden;
+
+    background-color: transparent;
+  }
+}
+
+.signup__items.active .signup__container .signup__description-bordered {
+  background-color: var(--c-gray-980);
+}
+
+.signup__container .signup__description-bordered {
+  border-color: var(--c-gray-760);
+}
+
+.signup__items .signup__description-bordered {
+  color: var(--c-gray-760);
+}
+
+.signup__items.active .signup__description-bordered {
+  border-color: var(--c-gray-760);
+}
+
+.signup__popup__container span:nth-child(3) {
+  color: var(--c-lightgray-450);
+}
+
+.signup__popup__container span:nth-child(3) a {
+  border-color: var(--c-lightgray-450);
+
+  color: var(--c-lightgray-450);
+}
+
+.signup__content__title {
+  color: var(--c-lightgray-450);
+}
+
+.signup__content__text {
+  color: var(--c-lightgray-450);
+}
+
+.signup__link {
+  border: 1px solid var(--c-lightgray-450);
+  background-color: transparent;
+}
+
+.signup__link:hover {
+  @include media(">signup") {
+    border-color: var(--c-green-300);
+  }
+}
+
+.signup__link a:hover span {
+  @include media(">signup") {
+    color: var(--c-green-300);
+  }
+}
+
+.signup__link a,
+.signup__link button {
+  color: var(--c-lightgray-450);
+}
+
+.signup__link button {
+  background-color: transparent;
+}
+
+.signup__link button:hover {
+  @include media(">signup") {
+    color: var(--c-green-300);
+  }
+}
+
+.signup__link-dark {
+  background-color: var(--c-lightgray-450);
+}
+
+.signup__link-dark a:hover span {
+  @include media(">signup") {
+    color: var(--c-gray-980);
+  }
+}
+
+.signup__link-dark:hover {
+  @include media(">signup") {
+    border-color: var(--c-green-300);
+    background-color: var(--c-green-300);
+  }
+}
+
+.signup__link-dark:hover a {
+  @include media(">signup") {
+    color: var(--c-gray-980) !important;
+  }
+}
+
+.signup__link-dark a span {
+  color: var(--c-gray-950);
+}
+
+.signup__footer {
+  color: var(--c-gray-125);
+}
+
+.signup__footer a {
+  border-bottom: 1px solid var(--c-lightgray-450);
+
+  color: var(--c-lightgray-450);
+}
+
+.signup__footer a:hover {
+  @include media(">signup") {
+    border-color: var(--c-green-100);
+  }
+}
+
+.signup__container .signup__description {
+  background-color: var(--c-gray-980);
+}
+
+.signup__container .signup__item__title {
+  border: none;
+  background-color: var(--c-gray-980);
+  @include media(">signup") {
+    border-bottom: 1px solid var(--c-gray-760);
+    background-color: transparent;
+  }
+}
+
+.signup__container .signup__item__title:before {
+  display: none;
+}
+
+.signup__form__field .error-color {
+  color: var(--c-red-300);
 }

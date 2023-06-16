@@ -18,7 +18,7 @@ const createServerConfig = require('../webpack/createServerConfig')
 const { applyUserWebpackConfig } = require('../util/index')
 
 const MAX_WORKER_THREADS = 6;
-const PAGES_PER_THREAD = 100;
+const PAGES_PER_THREAD = 25;
 
 /**
  * Expose Build Process Class.
@@ -29,7 +29,6 @@ module.exports = class Build extends EventEmitter {
     super()
     this.context = context;
     this.outDir = this.context.outDir;
-    this.pagesRemaining = this.context.pages.length;
     this.activeWorkers = 0;
     this.pagePaths = [];
     this.serverBundle = null;
@@ -96,8 +95,11 @@ module.exports = class Build extends EventEmitter {
 
     // if the user does not have a custom 404.md, generate the theme's default
     if (!this.context.pages.some(p => p.path === '/404.html')) {
-      this.context.addPage({ path: '/404.html' })
+      await this.context.addPage({ path: '/404.html' })
     }
+    // set this parameter after we've got all pages, otherwise a random page(s) will
+    // be skipped during the build
+    this.pagesRemaining = this.context.pages.length;
 
     // render pages
     logger.wait('Rendering static HTML...')

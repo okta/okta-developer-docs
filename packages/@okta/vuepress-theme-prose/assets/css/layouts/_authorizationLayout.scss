@@ -1,134 +1,172 @@
 .authorization-layout {
   display: flex;
-  background: #fff;
-  width: 100%;
-  min-height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  min-height: 100vh;
 
-  .mr-15 {
-    margin-right: 15px;
+  background: #ffffff;
+}
+
+.authorization-layout .mr-15 {
+  margin-right: 15px;
+}
+
+.authorization-layout .row {
+  display: flex;
+  margin: 0 -24px 17px 0;
+}
+
+.authorization-layout .row .field-wrapper {
+  position: relative;
+
+  flex: 1;
+  padding: 0 24px 0 0;
+}
+
+@include media("<tablet") {
+  .authorization-layout .row .field-wrapper {
+    padding: 0;
+  }
+}
+
+@include media("<tablet") {
+  .authorization-layout .row {
+    margin: 0 0 24px 0;
+  }
+}
+
+.authorization-layout .authorization-layout--header {
+  display: flex;
+  align-items: center;
+  margin: 0 0 111px 0;
+}
+
+@include media("<desktop-xl") {
+  .authorization-layout .authorization-layout--header {
+    margin: 0 0 50px;
+    padding: 0 35px;
+  }
+}
+
+@include media("<desktop") {
+  .authorization-layout .authorization-layout--header {
+    padding: 10px;
+  }
+}
+
+.authorization-layout .authorization-layout--content {
+  margin: 0 auto;
+  padding: 110px 64px 98px;
+  max-width: 1440px;
+
+  @import "../components/form";
+}
+
+.authorization-layout .authorization-layout--content .logo-wrapper {
+  margin: 36px 0 0 0;
+  width: 100%;
+}
+
+.authorization-layout .authorization-layout--content .logo-wrapper .company-logos--wrapper h4 {
+  margin-bottom: 60px;
+
+  font-weight: 400;
+  font-size: 20px;
+  color: cv("text", "darker");
+}
+
+.authorization-layout .authorization-layout--content .auth0-banner {
+  display: flex;
+  padding: 30px;
+
+  background-color: #f2f5ff;
+
+  font-weight: 500;
+  font-size: 22px;
+  color: #00297a;
+}
+
+.authorization-layout .authorization-layout--content .auth0-banner--logo {
+  position: relative;
+
+  display: flex;
+  align-self: center;
+  margin: 0 26px 0 66px;
+  min-width: 97px;
+}
+
+.authorization-layout .authorization-layout--content .auth0-banner--logo img {
+  margin: 0;
+  /* Override default positioning of content images */
+  width: 28px;
+}
+
+.authorization-layout .authorization-layout--content .auth0-banner--logo:after {
+  content: "";
+
+  position: absolute;
+  right: 0;
+
+  display: inline-block;
+  margin-left: 7px;
+  min-width: 63px;
+  max-width: 63px;
+  height: 30px;
+
+  background: url("/img/logos/auth0-inc-logo.svg") 50% 50% no-repeat;
+}
+
+@include media("<tablet") {
+  .authorization-layout .authorization-layout--content .auth0-banner--logo {
+    margin: 30px 0 50px 0;
+    min-width: 118px;
+  }
+}
+
+.authorization-layout .authorization-layout--content .auth0-banner a {
+  font-weight: 500;
+  font-size: 18px;
+  color: #00297a;
+}
+
+.authorization-layout .authorization-layout--content .auth0-banner a:link,
+.authorization-layout .authorization-layout--content .auth0-banner a:visited {
+  border-bottom: 1px solid currentcolor;
+
+  text-decoration: none;
+  color: #00297a;
+}
+
+.authorization-layout .authorization-layout--content .auth0-banner a:hover {
+  border-bottom: 0;
+}
+
+@include media("<tablet") {
+  .authorization-layout .authorization-layout--content .auth0-banner {
+    flex-direction: column-reverse;
   }
 
-  .row {
-    display: flex;
-    margin: 0 -24px 17px 0;
-    @include media("<tablet") {
-      margin: 0 0 24px 0;
-    }
-    .field-wrapper {
-      position: relative;
-      padding: 0 24px 0 0;
-      flex: 1;
-      @include media("<tablet") {
-        padding: 0;
-      }
-    }
+  .authorization-layout .authorization-layout--content .auth0-banner--logo {
+    padding: 0 20px;
   }
+}
 
-  .authorization-layout--header {
-    display: flex;
-    align-items: center;
-    margin: 0 0 111px 0;
-    @include media("<desktop-xl") {
-      margin: 0 0 50px;
-      padding: 0 35px;
-    }
-    @include media("<desktop") {
-      padding: 10px;
-    }
+@include media("<desktop") {
+  .authorization-layout .authorization-layout--content {
+    padding: 40px 20px 50px;
   }
+}
 
-  .authorization-layout--content {
-    padding: 110px 64px 98px;
-    max-width: 1440px;
-    margin: 0 auto;
+.authorization-layout .authorization-layout--footer {
+  display: flex;
+  flex-direction: column;
+}
 
-    @import '../components/form';
+.authorization-layout .authorization-layout--footer img {
+  width: 100%;
+}
 
-    @include media("<desktop") {
-      padding: 40px 20px 50px;
-    }
-
-    .logo-wrapper {
-      width: 100%;
-      margin: 36px 0 0 0;
-
-      .company-logos--wrapper {
-        h4 {
-          font-size: 20px;
-          font-weight: normal;
-          color: cv('text', 'darker');
-          margin-bottom: 60px;
-        }
-      }
-    }
-    .auth0-banner {
-      display: flex;
-      background-color: #F2F5FF;
-      padding: 30px;
-      font-size: 22px;
-      font-weight: 500;
-      color: #00297A;
-
-      &--logo {
-        display: flex;
-        align-self: center;
-        margin: 0 26px 0 66px;
-        position: relative;
-        min-width: 97px;
-        img {
-          width: 28px;
-        }
-        &:after {
-          content: '';
-          position: absolute;
-          display: inline-block;
-          right: 0;
-          margin-left: 7px;
-          background: url(/img/logos/auth0-inc-logo.svg) 50% 50% no-repeat;
-          min-width: 63px;
-          height: 30px;
-          max-width: 63px;
-        }
-        @include media("<tablet") {
-          min-width: 118px;
-          margin: 30px 0 50px 0;
-        }
-      }
-      a {
-        font-size: 18px;
-        font-weight: 500;
-        color:#00297A;
-        &:link, &:visited {
-          color:#00297A;
-          text-decoration: none;
-          border-bottom: 1px solid currentcolor;
-        }
-        &:hover {
-          border-bottom: 0;
-        }
-      }
-
-      @include media("<tablet") {
-        flex-direction: column-reverse;
-
-        &--logo {
-          padding: 0 20px;
-        }
-      }
-    }
-  }
-
-  .authorization-layout--footer {
-    img {
-      width: 100%;
-    }
-    flex-direction: column;
-    display: flex;
-  }
-
-  .error-color {
-    color: cv("cerise", "base");
-  }
+.authorization-layout .error-color {
+  color: cv("cerise", "base");
 }

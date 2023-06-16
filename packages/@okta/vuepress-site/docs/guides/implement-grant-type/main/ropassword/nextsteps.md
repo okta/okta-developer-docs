@@ -1,4 +1,4 @@
-Now that you have implemented authorization in your app, you can add features such as
+Now that you have implemented authorization in your app, you can add features such as:
 
-* Brand customization ([custom domain](/docs/guides/custom-url-domain/), [custom SMS messages](/docs/guides/custom-sms-messaging/), [custom emails](/docs/guides/custom-email/), [custom error pages](/docs/guides/custom-error-pages/), and [custom themes](/docs/guides/customize-themes/))
-* [Self-service enrollment](/docs/guides/set-up-self-service-registration/)
+* Brand customization ([custom domain](/docs/guides/custom-url-domain/), [custom SMS messages](/docs/guides/custom-sms-messaging/), [custom emails](/docs/guides/custom-url-domain/main/#about-custom-email-notification-domains), and [custom error pages](/docs/guides/custom-error-pages/)).
+* [Self-service enrollment](/docs/guides/set-up-self-service-registration/).

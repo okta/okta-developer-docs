@@ -4,8 +4,6 @@ excerpt: Learn how to synchronize users and groups between orgs with OAuth 2.0 i
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide explains how to securely set up Okta hub and spoke orgs to synchronize users and groups by using OAuth 2.0 in a [multi-tenant solution](/docs/concepts/multi-tenancy/). The connection between Okta orgs can be set up for API access to specific scoped data using the OAuth 2.0 client credential flow for the [Org2Org integration](https://help.okta.com/okta_help.htm?type=oie&id=ext-org2org-intg) app.
 
 > **Note**: Currently, only the Okta API can be used to enable OAuth 2.0-based provisioning.
@@ -29,7 +27,11 @@ This guide explains how to securely set up Okta hub and spoke orgs to synchroniz
 
 To secure API connections between orgs for a [multi-tenant solution](/docs/concepts/multi-tenancy/) that uses the hub and spoke model, Okta provides the OAuth 2.0 client credential flow using the Okta Org2Org integration as an OAuth 2.0 client. This enables Okta admins to push and match both users and groups from one Okta org to another. Previously, this integration only supported token-based access to the Okta API. Now the Org2Org integration can be configured to access the Okta API as an OAuth 2.0 client. This increases security by limiting the scope of access and providing a better mechanism to rotate credentials.
 
-![Displays the service apps required in the hub org and the Org2Org apps required in the spoke org.](/img/multi-tenancy/multi-org-provisioning.png "OAuth 2.0 connection configuration for hub and spoke org model")
+<div class="half">
+
+![Displays the service apps required in the hub org and the Org2Org apps required in the spoke org.](/img/multi-tenancy/multi-org-provisioning.png)
+
+</div>
 
 In this OAuth 2.0 flow, the hub org acts as the resource server as well as the [authorization server](/docs/concepts/auth-servers/). Each spoke org is represented by a [service app in the hub org for the OAuth 2.0 client credentials flow](/docs/guides/implement-oauth-for-okta-serviceapp/main/). At the spoke org level, you need to create an Org2Org app to represent the OAuth 2.0 client. The Okta Org2Org app automatically generates a JSON Web Key Set (JWKS) used by the client to authenticate with the authorization server. For each Org2Org app, you need to extract the JWKS public key for each corresponding service app in the hub org. To limit access to the OAuth 2.0 clients, you need to grant the hub org service app with allowed [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
 
@@ -226,7 +228,7 @@ curl -X POST \
 }' "https://${yourSpokeOrgDomain}/api/v1/apps/${yourOrg2OrgAppId}/connections/default?activate=TRUE"
 ```
 
-> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App features operation](/docs/reference/api/apps/#list-features-for-application) and the [Mappings API](/docs/reference/api/mappings/). Alternatively, you can go to the Org2Org app **Provisioning** > **To App** settings from the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
+> **Note**: After you enable provisioning, if you want to enable app features or edit Org2Org attribute mappings, you can use the [App features operation](/docs/reference/api/apps/#list-features-for-application) and the [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/). Alternatively, you can go to the Org2Org app **Provisioning** > **To App** settings from the Okta Admin Console and edit the **Provisioning To App** or the **Okta Org2Org Attribute Mappings** sections.
 
 ### Assign users and groups in the Org2Org app
 

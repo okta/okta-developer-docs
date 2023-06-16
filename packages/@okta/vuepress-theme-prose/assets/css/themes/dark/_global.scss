@@ -1,19 +1,24 @@
 .sidebar-area,
-table,
-.CodeMirror-vscrollbar {
+table {
   scrollbar-width: thin;
   scrollbar-color: dark;
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-  &::-webkit-scrollbar-track {
-    background: cv("body", "obscure");
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: cv("breadcrumb", "svg");
-    border-radius: 6px;
-    border: 2px solid cv("body", "obscure");
-  }
+}
+
+.sidebar-area::-webkit-scrollbar,
+table::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-area::-webkit-scrollbar-track,
+table::-webkit-scrollbar-track {
+  background: cv("body", "obscure");
+}
+
+.sidebar-area::-webkit-scrollbar-thumb,
+table::-webkit-scrollbar-thumb {
+  border: 2px solid cv("body", "obscure");
+  border-radius: 6px;
+  background-color: cv("breadcrumb", "svg");
 }
 
 .page-body {

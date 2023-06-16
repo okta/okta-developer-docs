@@ -98,7 +98,7 @@ Admins can't update a [Profile Enrollment policy](/docs/reference/api/policy/#pr
 
 #### Bug fixed in 2021.11.2
 
-Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
+Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/#tag/CustomDomain/operation/upsertCertificate!path=certificateChain&t=request) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
 
 ### Weekly release 2021.11.1
 
@@ -117,7 +117,7 @@ When the [Update User endpoint](/docs/reference/api/users/#update-user) or the [
 | [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
 | [New Devices API response property available](#new-devices-api-response-property-available) | November 3, 2021 |
 | [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
-| [Event Hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
+| [Event hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
 | [Token-based SSO between native apps is now GA in Production](#token-based-sso-between-native-apps-is-now-ga-in-production)                          | October 6, 2021          |
 
 #### Brands API support for auto-detecting contrast colors
@@ -126,15 +126,15 @@ The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-o
 
 #### New Devices API response property available
 
-Calls to the [List devices](/docs/reference/api/devices/#usage-example-expand-user) endpoint with an `expand=user` query now return the management status associated with each embedded user.<!--OKTA-431007-->
+Calls to the [List devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices) endpoint with an `expand=user` query now return the management status associated with each embedded user.<!--OKTA-431007-->
 
 #### New error page macros for themed templates
 
 Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
 
-#### Event Hooks daily limit
+#### Event hooks daily limit
 
-The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+The maximum allowable daily limit of event hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of event hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
 
 #### Token-based SSO between native apps is now GA in Production
 
@@ -175,7 +175,7 @@ You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in 
 
 #### New Devices API
 
-The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single device or a list of devices from an org. The API also allows you to activate, deactivate, suspend, unsuspend, and delete a device by ID. You can access the OAuth 2.0 supported Devices API by using the `okta.devices.manage` and `okta.devices.read` [scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-424362-->
+The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/) allows you to retrieve a single device or a list of devices from an org. The API also allows you to activate, deactivate, suspend, unsuspend, and delete a device by ID. You can access the OAuth 2.0 supported Devices API by using the `okta.devices.manage` and `okta.devices.read` [scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-424362-->
 
 #### New Policy Authenticator settings are available in the Policy API
 
@@ -199,7 +199,7 @@ You can now configure your org to use the [Native SSO](/docs/guides/configure-na
 
 #### The Subscriptions API is GA in Production
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications.
+The [Subscriptions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/) provides operations to manage email subscription settings for Okta administrator notifications.
 
 * Super Admins can manage the default admin notifications that each admin receives based on their role.
 * Individual admins can update their own notification preferences by subscribing or unsubscribing. <!--OKTA-411527-->

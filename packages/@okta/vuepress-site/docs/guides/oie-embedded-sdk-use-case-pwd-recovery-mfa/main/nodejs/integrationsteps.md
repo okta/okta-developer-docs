@@ -1,108 +1,137 @@
-### 1: Add the forgot password link to the sign-in page
+### 1. Start the password recovery flow
 
-The first step is to create a forgot your password link on the sign-in page, as in the following example. This link points to a **Recover password** page (`/recover-password)`.
+Add a link that allows the user to submit their username to begin the password recovery flow. The following wireframe shows a **Forgot your password?** link.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the sign-in page with a 'Forgot password?' link that the user can click to reset their password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![A sign-in form with fields for username and password, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
 
-</div>
+<!--
 
-Create a **Recover password** page that initiates the reset password flow. This page accepts the user's email address and has a **Next** button that starts the reset flow.
-
-<div class="common-image-format">
-
-![Displays the Reset Password page that has a field to input your password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset-nodejs.png)
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
 
 </div>
 
-After the user clicks **Next** to start the reset flow, the next step is to call `idx.recoverPassword` and pass in the email address captured from the form. This starts the password recovery flow and returns a status of `Idx.Status:PENDING` and a `nextStep` field with inputs for an authenticator type.
+### 2. Show the password recovery page
 
-The call is shown in the `recover-password.js` file of the SDK sample application.
+Next, build a password recovery page that allows the user to enter their account's username or email. Include a **Next** button that submits this username to the SDK when selected.
 
-```JavaScript
-router.post('/recover-password', async (req, res, next) => {
-  const { username } = req.body;
-  const authClient = getAuthClient(req);
+<div class="half wireframe-border">
+
+![A reset password form with an email address field and a next button](/img/wireframes/reset-password-form-email-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36756&t=wzNwSZkdctajVush-1  reset-password-form-email-only
+ -->
+
+</div>
+
+### 3. Submit username
+
+When the user enters their username and clicks **Next**, call `OktaAuth.idx.recoverPassword()`, passing in the username as a parameter.
+
+```javascript
+try {
   const transaction = await authClient.idx.recoverPassword({ username });
   handleTransaction({ req, res, next, authClient, transaction });
-});
+} catch (error) {
+  next(error);
+}
 ```
 
-The `handleTransaction.js` page routes the user to a select authenticators page (`/select-authenticator` in this example) that the user needs to use to select an authentication type. In this case, the email factor is configured.
+### 4. Display a list of available authenticators
 
-```JavaScript
-// authenticator authenticate
-    case 'select-authenticator-authenticate':
-      redirect({
-        req, res, path: '/select-authenticator'
-      });
-      return true;
+The next step is to display a list of available authenticators using the response from `OktaAuth.idx.recoverPassword()`. The method returns an `IdxTransaction` object indicating:
+
+* The sign-in `status` is in the `PENDING` state.
+* The next step is to choose an authenticator, that is, `nextStep.name` = `select-authenticator-authenticate`.
+* The email authenticator is an available option in the `options` array.
+
+```javascript
+{
+  status: "PENDING",
+  nextStep: {
+    name: "select-authenticator-authenticate",
+    inputs: [
+      {
+        name: "authenticator",
+        type: "string",
+        options: [
+          {
+            label: "Email",
+            value: "okta_email",
+          }
+        ],
+      },
+    ],
+  },
+}
 ```
 
->**Note:** Review the complete use of `idx.recoverPassword` in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxrecoverpassword).
+Using this response, display a list of authenticators to the user. In this case we are only showing the Email authenticator.
 
-### 2: Create the reset password authenticators page
+<div class="half wireframe-border">
 
-The next step is to create a page that shows the authenticator key returned from the `handleTransaction()` method. For this use case, the email authenticator is returned (`authenticator: AuthenticatorKey.OKTA_EMAIL`). The page includes the name of the returned authenticator and the ability to select the authenticator to initiate the authentication verification process.
+![A choose your authenticator form with only an email authenticator option and a next button](/img/wireframes/choose-authenticator-form-email-only.png)
 
-<div class="common-image-format">
+<!--
 
-![Displays the Select authenticator page that has a field to select email.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-select-auth-nodejs.png)
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36772&t=wzNwSZkdctajVush-1 choose-authenticator-form-email-only
+ -->
 
 </div>
 
-### 3: The user selects the email authenticator factor
+> **Note**: If email is not included in the list of available authenticators, check you've configured your org as described in [Configuration updates](#configuration-updates).
 
-After the user selects the email authenticator, the next step is to call `idx.recoverPassword` with the authenticator type, as shown in the `authenticator.js` file of the SDK sample application. The method returns a status of `Idx.Status:PENDING`. This status indicates that the Okta platform has emailed the verification code to the user's email address and is now awaiting verification. The response also includes a `nextStep` field that requires an email verification code input parameter.
+### 5. Verify identity with the email authenticator
 
-```JavaScript
-router.post('/select-authenticator', async (req, res, next) => {
-  const { idxMethod } = req.getFlowStates();
-  const { authenticator } = req.body;
-  const authClient = getAuthClient(req);
-  const transaction = await authClient.idx[idxMethod]({ authenticator });
-  handleTransaction({ req, res, next, authClient, transaction });
-});
+Next, the user verifies their identity with the email authenticator challenge. The email authenticator supports OTP and magic links, and you can integrate both methods into your application. Learn more about integrating the email authenticator challenge by visiting the [Okta email integration guide](/docs/guides/authenticators-okta-email/nodeexpress/main/#integrate-email-challenge-with-magic-links).
+
+### 6. Display password reset page
+
+After the user verifies their identity using the email authenticator, `OktaAuth.idx.proceed()` returns an `IdxTransaction` indicating:
+
+* The sign-in `status` is in the `PENDING` state.
+* The next step is to reset the user's password, that is, `nextStep.name` = `reset-authenticator`.
+
+```javascript
+{
+  status: "PENDING",
+  nextStep: {
+    name: "reset-authenticator",
+    inputs: [
+      {
+        name: "password",
+        label: "New password",
+        secret: true,
+        type: "string",
+        required: true,
+      },
+    ],
+  },
+}
 ```
 
-### 4: Create the code verification page and reset the password
+Create a password reset page that allows the user to enter their new password.
 
-After the call to `idx.recoverPassword` has responded with a status of `Idx.Status:PENDING`, the user is redirected to a code verification page. The page must display a field to enter a code and a button or link to send the code to Okta for the email verification.
+<div class="half wireframe-border">
 
-<div class="common-image-format">
+![A reset password form with two fields to enter and to confirm a new password and a next button](/img/wireframes/reset-password-form-new-password-fields.png)
 
-![Displays the Challenge email authenticator page that has a field to input your email verification code.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-challenge-nodejs.png)
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36886&t=2h5Mmz3COBLhqVzv-1  reset-password-form-new-password-fields
+ -->
 
 </div>
 
-After the user checks their email for the code and enters the value into the field, they click a button to initiate the verification. Call `idx.recoverPassword` with the verification code passed in, as shown in the `authenticator.js` page of the SDK sample application.
+### 7. Submit the new password
 
-```JavaScript
-router.post('/challenge-authenticator/email', async (req, res, next) => {
-  const { idxMethod } = req.getFlowStates();
-  const { verificationCode } = req.body;
-  const authClient = getAuthClient(req);
-  const transaction = await authClient.idx[idxMethod]({ verificationCode });
-  handleTransaction({ req, res, next, authClient, transaction });
-});
-```
+When the user submits their new password, check that the password and confirm password fields match, and pass it to `OktaAuth.idx.recoverPassword()`.
 
-If the `idx.recoverPassword` call is successful, it returns a status of `Idx.Status:PENDING` and the `nextStep` field indicates an input of a password value parameter. This status indicates that the user can now change their password. At this point, the user is redirected to a change password page.
-
-Create a reset password page that allows the user to enter the new password, confirm it, and initiate the update.
-
-<div class="common-image-format">
-
-![Displays the Reset Password page that has a field to input your password and a field to confirm the password value.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-set-password-nodejs.png)
-
-</div>
-
-### 5: Add the new password
-
-The final step is to make a call to `idx.recoverPassword`, passing in the value of the user input password, as shown in the `recover-password.js` file of the SDK sample application. This call resets the user's password.
-
-```JavaScript
+```javascript
 router.post('/reset-password', async (req, res, next) => {
   const { password, confirmPassword } = req.body;
   if (password !== confirmPassword) {
@@ -116,4 +145,6 @@ router.post('/reset-password', async (req, res, next) => {
 });
 ```
 
-If the response to the `idx.recoverPassword` call returns `Idx.Status:SUCCESS` and tokens, the change password flow completed successfully and you can redirect the user to the default home page.
+>**Note:** Review the complete use of `idx.recoverPassword` in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxrecoverpassword).
+
+If successful, the call to `OktaAuth.idx.recoverPassword()` returns a `status` of `SUCCESS` and the response will include ID and access tokens. The password reset is now complete and you can redirect the user to the default home page.

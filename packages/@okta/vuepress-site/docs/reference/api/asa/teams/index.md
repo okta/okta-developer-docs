@@ -5,6 +5,11 @@ category: asa
 
 # ASA Teams API
 
+The ASA Teams API reference is now available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/asa/asa/tag/teams/).
+
+Explore the [Advanced Server Access Collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/collection/4920859-f91736f1-5ae0-4a0a-949d-abed2ada2c58) in the Okta Public API Collections workspace.
+
+<!--
 ## Get started
 
 The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is logically separate from the rest of the Okta APIs and uses a different API namespace:
@@ -33,6 +38,8 @@ The Teams API has the following operations:
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/servers" />
 Lists all the Servers enrolled in a Team that the requesting ASA User has access to
 
+> **Note**: Server changes may take time to propagate to this endpoint. Some results might not be immediately available.
+
 This endpoint requires one of the following roles: `access_user`, `access_admin`, `authenticated_client`, `reporting_user`, or `server_admin`.
 
 #### Request path parameters
@@ -53,7 +60,7 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
 | `hostname`   |  string | (Optional) A hostname |
-| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 | `project_name`   |  string | (Optional) A Project name |
 | `selector`   |  string | (Optional) Server selectors. Same syntax as k8s |
@@ -77,7 +84,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `hostname`   | string | The hostname of the Server |
 | `id`   | string | The UUID corresponding to the Server |
 | `instance_details`   | object | Information that the cloud provider provides about the Server, if one exists |
-| `labels`   | object | (Optional) The labels for this server. This parameter is only available with the PolicySync feature, which is currently in EA. |
+| `labels`   | object | (Optional) The labels for this server. This parameter is used by the PolicySync feature. |
 | `last_seen`   | string | The last time that the Server made a request to the ASA platform |
 | `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA knows that it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server, such as CentOS 6 or Debian 9.13 |
@@ -159,7 +166,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 ### Update a Server
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/servers/${server_id}" />
-Updates a Server. This endpoint is only available with the PolicySync feature, which is currently in EA.
+Updates a Server. This endpoint is intended for use with the PolicySync feature.
 
 This endpoint requires one of the following roles: `access_admin`, or `server_admin`.
 
@@ -390,3 +397,4 @@ https://app.scaleft.com/v1/teams/${team_name}/team_stats
 ```
 
 
+-->

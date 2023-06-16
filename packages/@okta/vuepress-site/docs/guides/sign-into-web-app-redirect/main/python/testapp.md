@@ -1,9 +1,9 @@
 1. Run the following commands to start your app:
 
-```shell
-export FLASK_APP=app
-flask run
-```
+   ```shell
+   export FLASK_APP=app
+   flask run
+   ```
 
 2. Open a browser and navigate to `http://localhost:5000`.
 

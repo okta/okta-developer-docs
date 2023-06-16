@@ -16,6 +16,12 @@ Add authorization using Okta to protect your APIs. When you finish, you have a s
 * Require authorization on protected routes.
 * Make an HTTP request with and without a valid access token.
 
+**What you need**
+
+A [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server) to create and apply authorization policies to protect your APIs
+
+<ApiAmProdWarning />
+
 **Sample code**
 
 <StackSnippet snippet="samplecode" />
@@ -24,26 +30,40 @@ Add authorization using Okta to protect your APIs. When you finish, you have a s
 
 ## Set up Okta
 
-Set up your [Okta org](/docs/concepts/okta-organizations/). The CLI is the quickest way to work with your Okta org, so we recommend using it for the first few steps. If you don't want to install the CLI, you can [manually sign up for an org](https://developer.okta.com/signup/) instead. We provide non-CLI instructions along with the CLI steps below.
+Set up your developer account and [Okta org](/docs/concepts/okta-organizations/). The Okta command-line interface (CLI) is the quickest way to do this. Alternatively, you can [manually sign up for a developer account](https://developer.okta.com/signup/).
 
-1. Install the Okta command-line interface: [Okta CLI](https://cli.okta.com/).
-2. If you don't already have a free Okta developer account, create one by entering `okta register` on the command line.
-3. Make a note of the Okta Domain as you need that later.
-4. **IMPORTANT:** Set the password for your Okta developer org by opening the link that's shown after your domain is registered. Look for output similar to this:
+1. Install [Okta CLI](https://cli.okta.com/).
+1. If you don't already have a free Okta developer account:
+   1. Open your terminal.
+   {style="list-style-type:lower-alpha"}
+   1. Run `okta register`, and enter your first name, last name, email address, and country.
+   1. Click or tap **Activate** in the account activation email that is sent to the email address that you gave.
 
-```txt
-Your Okta Domain: https://dev-xxxxxxx.okta.com
-To set your password open this link:
-https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
-```
+      > **Tip**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
 
-> **Note**: If you don't receive the confirmation email sent as part of the creation process, check your spam filters for an email from `noreply@okta.com`
+   1. Find your new domain and a link to set your password in the email:
 
-5. Connect to your Okta developer org if you didn't create one in the last step (successfully creating an Okta org also signs you in) by running the following command. You need the URL of your org &mdash; which is your [Okta domain](/docs/guides/find-your-domain/) with `https://` prepended &mdash; and an [API/access token](/docs/guides/create-an-api-token/):
+      ```txt
+      Your Okta Domain: https://dev-xxxxxxx.okta.com
+      To set your password open this link:
+      https://dev-xxxxxxx.okta.com/welcome/xrqyNKPCZcvxL1ouKUoh
+      ```
 
-```bash
-okta login
-```
+   1. Set the password for your org by opening the link and following the instructions. Your Okta domain is returned, similar to the following:
+
+      ```txt
+      New Okta Account created!
+      Your Okta Domain: https://dev-xxxxxxx.okta.com
+      ```
+
+   1. Make a note of your Okta domain. Use it wherever `${yourOktaDomain}` appears in this guide.
+
+> **Note**: If you're using an existing org, verify that API Access Management is enabled: Open your Admin Console, go to **Security** > **API**, and verify that an **Authorization Servers** tab is present. If not, choose one of the following:
+>
+> * Create a developer account and org with Okta CLI.
+> * Contact your support team to enable the feature in your org.
+>
+> All accounts created with Okta CLI are developer accounts and have API Access Management enabled by default.
 
 ## Create a REST API
 
@@ -61,9 +81,7 @@ Create a new application with a simple API endpoint to add authorization to.
 
 You need to configure the API with some information about the [authorization server](/docs/guides/customize-authz-server/) used by your Okta organization.
 
-> **Note:** You can create custom authorization servers for your Okta org, however you use the **default** authorization server for this tutorial.
-
-<ApiAmProdWarning />
+> **Note:** This tutorial uses the **default** custom authorization server to secure your protected API. You can create your own custom authorization server for this purpose. In either case, you need an appropriate license to use the custom authorization server in production.
 
 #### Things you need
 
@@ -75,7 +93,7 @@ There are three pieces of information you may need, depending on the platform yo
 * **Authorization Server Name**: `default`
 * **Okta Domain**: Found in the global header located in the upper-right corner of the dashboard. Click the down arrow next to your email address and in the dropdown box that appears, move your pointer over the domain name. Click the Copy to clipboard icon that appears to copy the domain.
 
-> **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com`.
+   > **Note:** Your Okta domain is different from your admin domain. Your Okta domain doesn't include `-admin`, for example, `https://dev-133337.okta.com`.
 
 <StackSnippet snippet="configmid" />
 
@@ -122,7 +140,11 @@ If your API is consumed from another machine or service (instead of users), you 
 
 If you are using [Postman](/code/rest/) and the Client Credentials flow, you can use an API call of the form `https://${yourOktaDomain}/oauth2/default/v1/token`, with an Authorization header set, and you will get a response containing an access token.
 
-![Postman showing a token request post response including an access token](/img/postman-post-response.png)
+<div class="three-quarter border">
+
+![Postman showing a token request post response including an access token](/img/authorization/postman-post-response.png)
+
+</div>
 
 Copy the value in the `access_token` object field and use it for testing your API in the next step.
 
@@ -147,7 +169,11 @@ The expected results are as follows, provided you followed the instructions in t
 
 If you are using Postman, your GET call and response should look something like this:
 
-![Postman showing a get request to the protected endpoint with a token, and a resulting 200 response](/img/postman-get-response.png)
+<div class="three-quarter border">
+
+![Postman showing a get request to the protected endpoint with a token, and a resulting 200 response](/img/authorization/postman-get-response.png)
+
+</div>
 
 ## Next steps
 

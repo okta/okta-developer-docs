@@ -11,7 +11,7 @@ This guide explains how to upload your SAML certificates to sign the assertion f
 **Learning outcomes**
 
 * List your apps by using Okta APIs.
-* Generate, sign, and publish a certificate signing request (CSR).
+* Generate, sign, and publish a Certificate Signing Request (CSR).
 * Update your app and ISV to use the new certificate.
 * Clone the certificate for use across multiple apps.
 
@@ -134,7 +134,7 @@ Collect the values for both the CSR `id` and the `csr` from the response for use
 
 ```json
 201 Created
-Location: https://${yourOktaDomain}/api/v1/apps/00000id1U3iyFqLu0g4/credentials/csrs/abckutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azh000
+Location: https://{yourOktaDomain}/api/v1/apps/00000id1U3iyFqLu0g4/credentials/csrs/abckutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azh000
 
 {
   "id": "abckutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azh000",
@@ -143,7 +143,7 @@ Location: https://${yourOktaDomain}/api/v1/apps/00000id1U3iyFqLu0g4/credentials/
   "kty": "RSA",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/00000id1U3iyFqLu0g4/credentials/csrs/abckutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azh000",
+      "href": "https://{yourOktaDomain}/api/v1/apps/00000id1U3iyFqLu0g4/credentials/csrs/abckutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azh000",
       "hints": {
         "allow": [
           "GET",
@@ -152,7 +152,7 @@ Location: https://${yourOktaDomain}/api/v1/apps/00000id1U3iyFqLu0g4/credentials/
       }
     },
     "publish": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/00000id1U3iyFqLu0g4/credentials/csrs/abckutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azh000/lifecycle/publish",
+      "href": "https://{yourOktaDomain}/api/v1/apps/00000id1U3iyFqLu0g4/credentials/csrs/abckutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azh000/lifecycle/publish",
       "hints": {
         "allow": [
           "POST"
@@ -171,7 +171,7 @@ Follow the third-party Certificate Authority (CA) process that your company uses
 
 The CA that you choose provides instructions on how to upload the CSR that you generated in the previous step.
 
-Okta generates the CSR in Base64 DER format. If your process requires a different format, convert it using OpenSSL or a third-party decoder. Free third-party decoders are readily available.
+Okta generates the CSR in Base64-encoded DER format. If your process requires a different format, convert it using OpenSSL or a third-party decoder. Free third-party decoders are readily available.
 
 ## Publish a CSR with a certificate
 
@@ -189,7 +189,7 @@ Base64 encoding and PEM, DER, and CER certificate formats are supported.
 
 Collect the returned Key ID (`credentials.signing.kid`) to use in the next step.
 
-The following request publishes a CSR with a certificate in base64 encoded `DER` format.
+The following request publishes a CSR with a certificate in Base64-encoded `DER` format.
 
 ### Request
 
@@ -207,7 +207,7 @@ curl -v -X POST \
 
 ```json
 201 Created
-Location: https://${yourOktaDomain}/api/v1/apps/0oa1ysid1U3iyFqLu0g4/credentials/keys/ElsCzR8nbPamANBFu7QPRvtLD6Q3O1KQNJ92zkfFJNw
+Location: https://{yourOktaDomain}/api/v1/apps/0oa1ysid1U3iyFqLu0g4/credentials/keys/ElsCzR8nbPamANBFu7QPRvtLD6Q3O1KQNJ92zkfFJNw
 Content-Type: application/json;charset=UTF-8
 
 {
@@ -356,7 +356,7 @@ For Outbound SAML, complete the following steps (note that these steps can't be 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select your app integration.
 1. Select **Sign-On Options**.
-1. Click **View Setup Instructions**, as shown below.<br/>![Accessing SAML Setup Instructions](/img/saml_setup_link.png)
+1. Click **View Setup Instructions**.
 1. Perform the setup for your app integration again by using the instructions provided. During this setup, you can upload the certificate in a specified format, the metadata, or the certificate fingerprint.
 
 For Inbound SAML, follow the existing procedures for your setup.

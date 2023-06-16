@@ -2,6 +2,6 @@
 
 2. Add the middleware to the specific route group that requires authentication, for example:
 
-```go
-authorized := router.Group("/api", AuthMiddleware())
-```
+   ```go
+   authorized := router.Group("/api", AuthMiddleware())
+   ```

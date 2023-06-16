@@ -16,7 +16,11 @@ title: Okta API Products Release Notes 2017
 Configuring an application or integration to use OpenID Connect  ID tokens or OAuth 2.0 access tokens can take a lot of trial-and-error.
 Okta has made it easier to choose configuration settings and see the resulting tokens in the **Token Preview** tab of the Authorization Server page:
 
-![Screen shot of token preview tab](/img/release_notes/token_preview.png "Screen shot of token preview tab")
+<div class="three-quarter border">
+
+![Screen shot of token preview tab](/img/release_notes/token_preview.png)
+
+</div>
 
 Add values on the left side to see how they would affect the token on the right. All the fields are selection boxes except User.
 For User, type in the first few letters to see a choice of user names.
@@ -65,7 +69,7 @@ This parameter allows you to force the validation of the password policy's `minA
 
 The following bug fixes will be available on preview orgs starting Dec 13, 2017, and will be available on production orgs starting December 19, 2017:
 
-* When using the [Zones API](/docs/reference/api/zones/#update-an-ip-zone), erasing all IP addresses in the Default IP Blacklist zone caused an error. (OKTA-145602)
+* When using the [Zones API](/docs/reference/api/zones/#update-a-network-zone), erasing all IP addresses in the Default IP Blocklist zone caused an error. (OKTA-145602)
 
 
 ## 2017.49
@@ -239,7 +243,7 @@ These bug fixes are expected on preview orgs starting October 11, 2017, and on p
 * Deleting a user failed if the user's primary and secondary emails were the same. (OKTA-142765)
 * Deleting a user failed if the domain portion of the username string was too long. (OKTA-141876)
 * Radius authentication flows would erroneously trigger `user.session.end` events in the log. (OKTA-138775)
-* When a user signed in to Okta via IWA and without an MFA prompt, there was no sign on policy evaluation entry present in the system log. (OKTA-136545)
+* When a user signed in to Okta via Integrated Windows Authentication (IWA) and without an MFA prompt, there was no sign on policy evaluation entry present in the system log. (OKTA-136545)
 * User authentication attempts blocked by geographic restrictions in Adaptive MFA were logged as a successful login followed by a `Login Denied` event in the system log. (OKTA-112077)
 
 
@@ -505,12 +509,20 @@ Dates for preview and production release are the earliest possible release date.
 
 The new developer dashboard is available in all new developer orgs in preview:
 
-![New Developer Dashboard](/img/release_notes/dev-dashboard.png "New Developer Dashboard")
+<div class="three-quarter border">
+
+![New Developer Dashboard](/img/release_notes/dev-dashboard.png)
+
+</div>
 
 Use the developer dashboard to access quick-start guides for your favorite language and view recent system log events.
 You can also create an OpenID Connect app more easily with this simplified flow:
 
-![New Developer Dashboard](/img/release_notes/new-oidc-app-dashboard.png "New Developer Dashboard")
+<div class="three-quarter border">
+
+![New Developer Dashboard](/img/release_notes/new-oidc-app-dashboard.png)
+
+</div>
 
 #### Zones API is an Early Access Release
 <!-- OKTA-129115 -->
@@ -561,7 +573,7 @@ This allows you to use one `client_id` for an application that needs to make use
 OpenID Connect, which uses the Okta Authorization Server, can retrieve [application groups](/docs/reference/api/apps/#application-group-model) for use in tokens.
 Previously, application groups could only be retrieved with the Custom Authorization Server.
 
-You can use the Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
+You can use Okta Expression Language [`getFilteredGroups` function](/docs/reference/okta-expression-language/#group-functions) to retrieve application groups.
 
 #### SHA-256 Signed Certificates for New SAML 2.0 Apps
 
@@ -757,11 +769,9 @@ Version 1.13.0 of the [Okta Sign-In Widget](https://github.com/okta/okta-signin-
 
 You can configure the JIT settings for a SAML identity provider (IdP) to enable unsuspending users during inbound SAML login. See the [Identity Providers API](/docs/reference/api/idps) for more information.<!-- OKTA-128384 -->
 
-![JIT settings for SAML IdP](/img/release_notes/JIT_settings.png "JIT settings for SAML IdP")
-
 #### Email Factor
 
- You can send a one-time password (OTP) and an activation link to an email address as part of enrolling a user.<!-- OKTA-132297  -->
+ You can send a one-time passcode (OTP) and an activation link to an email address as part of enrolling a user.<!-- OKTA-132297  -->
 
 ### Platform Bugs Fixed
 
@@ -886,8 +896,14 @@ Logged information about key rotation and generation for apps and identity provi
 For more information, see [Identity Provider Signing Key Store Operations](/docs/reference/api/idps/#identity-provider-signing-key-store-operations)
 or [Update Key Credential for Application](/docs/reference/api/apps/#update-key-credential-for-application).
 
-Here is a response from `/api/v1/logs`
-![Logged Key Rotation Event](/img/release_notes/KeyRotateLog.png "Logged Key Rotation Event")
+Here is a response from `/api/v1/logs`:
+
+<div class="full">
+
+![Logged Key Rotation Event](/img/release_notes/KeyRotateLog.png)
+
+</div>
+
 <!-- (OKTA-76607) -->
 
 #### Client Registration API Is an Early Access Feature
@@ -905,7 +921,12 @@ to create and manage clients.
 Logged information about OAuth 2.0 client updates is now available by using GET requests to
 either log endpoint: `/api/v1/events` or `/api/v1/logs`.
 
-![Logged Key Rotation Event](/img/release_notes/DeactClientLog.png "Logged Key Rotation Event")
+<div class="full">
+
+![Logged Key Rotation Event](/img/release_notes/DeactClientLog.png)
+
+</div>
+
 <!-- (OKTA-86738, OKTA-127445) -->
 
 #### Support for RP-Initiated Logout
@@ -983,7 +1004,11 @@ Using either the administrator UI or API, you can configure default scopes for a
 If the client omits the scope parameter in an authorization request,
 Okta returns all default scopes in the Access Token that are permitted by the access policy rule.
 
-![Default Scope Configuration UI](/img/release_notes/default-scope.png "Default Scope Configuration UI")
+<div class="three-quarter border">
+
+![Default Scope Configuration UI](/img/release_notes/default-scope.png)
+
+</div>
 
 For more information about setting default scopes in the API, see [OAuth 2.0 API](/docs/reference/api/authorization-servers/#scope-properties).
 <!-- OKTA-122185 OKTA-122072 -->
@@ -992,7 +1017,11 @@ For more information about setting default scopes in the API, see [OAuth 2.0 API
 
 The wizard for creating an OpenID Connect app has been improved and consolidated onto a single screen.
 
-![New OpenID Connect Create Wizard](/img/release_notes/single-oidc-screen.png "New OpenID Connect Create Wizard")
+<div class="three-quarter border">
+
+![New OpenID Connect Create Wizard](/img/release_notes/single-oidc-screen.png)
+
+</div>
 
 <!-- OKTA-129127 -->
 
@@ -1419,7 +1448,7 @@ For a full description of the new rate limits, see [API Rate Limits](/docs/refer
 
 #### Okta Expression Language Function for Filtering Groups
 
-Use the Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
+Use Okta Expression Language function `getFilteredGroups` to create a list of groups that the current user belongs to.
 With such a list you can, for example, create claims in Access Tokens and ID Tokens based on the groups.
 For more information, see [Group Functions](/docs/reference/okta-expression-language/#group-functions). <!--OKTA-123127-->
 
@@ -1429,7 +1458,7 @@ The `profile` property in the Apps API accepts any well-formed JSON schema. You 
 For example:
 
 * Add an app manager contact email address.
-* Use the profile to define a whitelist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
+* Use the profile to define an allowlist of groups that you can then reference and pass as claims using the [Okta Expression Language function `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
 For more information, see the [Apps API](/docs/reference/api/apps/#profile-object).
 
@@ -2098,12 +2127,11 @@ For a full description of the rate limit changes, see [API Rate Limits](/docs/re
  to use multi-factor authentication for a user trying to log in. This log entry includes
  the user's zone.
 
-![Log screen](/img/graphics/SysLogMFA.png "Log screen")
 <!-- (OKTA-114417) -->
 
 ### Platform Bug Fixed
 
-For a user mastered from Active Directory and in password reset mode, the /api/v1/users API
+For a user sourced from Active Directory and in password reset mode, the /api/v1/users API
 returned the user's status as ACTIVE rather than RECOVERY. (OKTA-109772)
 
 ## 2017.10
@@ -2131,7 +2159,7 @@ For a full description of the rate limit changes, see [API Rate Limits](/docs/re
 
  * Request to [`/api/v1/authn/factors/<factorId>/verify`](/docs/reference/api/authn/#enroll-factor) responded with a valid `stateToken` after user status
  became `LOCKED_OUT`, causing user interface errors. (OKTA-115153)
- * The AuthSJ SDK produced a debug log message with some browsers. (OKTA-115460)
+ * The AuthJS SDK produced a debug log message with some browsers. (OKTA-115460)
 
 ## 2017.09
 
@@ -2234,7 +2262,11 @@ You can now search (exact match) for an authorization server name or resource UR
 To see the new search box, log into your Okta org, click the **Admin** button, and visit **Security > API > Authorization Servers**.
 <!-- OKTA-97833 -->
 
-![Search box for authorization servers](/img/release_notes/rn-search-as.png "Search box for authorization servers")
+<div class="full border">
+
+![Search box for authorization servers](/img/release_notes/rn-search-as.png)
+
+</div>
 
 #### Manual Key Rotation (Key Pinning)
 

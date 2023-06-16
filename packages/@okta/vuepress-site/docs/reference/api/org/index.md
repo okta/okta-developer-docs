@@ -74,10 +74,10 @@ curl -v -X GET \
     "postalCode": "94107",
     "_links": {
         "preferences": {
-            "href": "https://${yourOktaDomain}/api/v1/org/preferences"
+            "href": "https://{yourOktaDomain}/api/v1/org/preferences"
         },
         "uploadLogo": {
-            "href": "https://${yourOktaDomain}/api/v1/org/logo",
+            "href": "https://{yourOktaDomain}/api/v1/org/logo",
             "hints": {
                 "allow": [
                     "POST"
@@ -85,20 +85,21 @@ curl -v -X GET \
             }
         },
         "oktaCommunication": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaCommunication"
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaCommunication"
         },
         "logo": {
-            "href": "https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
+            "href": "https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
         },
         "oktaSupport": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport"
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport"
         },
         "contacts": {
-            "href": "https://${yourOktaDomain}/api/v1/org/contacts"
+            "href": "https://{yourOktaDomain}/api/v1/org/contacts"
         }
     }
 }
 ```
+
 ### Update Org Settings
 
 > **Note:** Use the `POST` method to make a partial update and the `PUT` method to make a full update.
@@ -174,10 +175,10 @@ curl -v -X PUT \
     "postalCode": "94107",
     "_links": {
         "preferences": {
-            "href": "https://${yourOktaDomain}/api/v1/org/preferences"
+            "href": "https://{yourOktaDomain}/api/v1/org/preferences"
         },
         "uploadLogo": {
-            "href": "https://${yourOktaDomain}/api/v1/org/logo",
+            "href": "https://{yourOktaDomain}/api/v1/org/logo",
             "hints": {
                 "allow": [
                     "POST"
@@ -185,20 +186,21 @@ curl -v -X PUT \
             }
         },
         "oktaCommunication": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaCommunication"
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaCommunication"
         },
         "logo": {
-            "href": "https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
+            "href": "https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
         },
         "oktaSupport": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport"
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport"
         },
         "contacts": {
-            "href": "https://${yourOktaDomain}/api/v1/org/contacts"
+            "href": "https://{yourOktaDomain}/api/v1/org/contacts"
         }
     }
 }
 ```
+
 ## Org Contact operations
 
 The Org Contact API has the following CRUD operations:
@@ -249,7 +251,7 @@ curl -v -X GET \
         "contactType": "BILLING",
         "_links": {
             "billing": {
-                "href": "https://${yourOktaDomain}/api/v1/org/contacts/billing"
+                "href": "https://{yourOktaDomain}/api/v1/org/contacts/billing"
             }
         }
     },
@@ -257,7 +259,7 @@ curl -v -X GET \
         "contactType": "TECHNICAL",
         "_links": {
             "technical": {
-                "href": "https://${yourOktaDomain}/api/v1/org/contacts/technical"
+                "href": "https://{yourOktaDomain}/api/v1/org/contacts/technical"
             }
         }
     }
@@ -309,7 +311,7 @@ curl -v -X GET \
     "userId": "00uuibMot2FBByTbs0g3",
     "_links": {
         "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00uuibMot2FBByTbs0g3"
+            "href": "https://{yourOktaDomain}/api/v1/users/00uuibMot2FBByTbs0g3"
         }
     }
 }
@@ -379,7 +381,7 @@ curl -v -X PUT \
     "userId": "00uuibMot2FBByTbs0g3",
     "_links": {
         "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00uuibMot2FBByTbs0g3"
+            "href": "https://{yourOktaDomain}/api/v1/users/00uuibMot2FBByTbs0g3"
         }
     }
 }
@@ -435,7 +437,7 @@ curl -v -X POST \
 
 ```
 HTTP/1.1 201 Content Created
-Location: https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
+Location: https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
 ```
 
 ## Okta Support operations
@@ -490,7 +492,7 @@ curl -v -X GET \
     "expiration": "2021-01-24T11:13:14.000Z",
     "_links": {
         "extend": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/extend",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport/extend",
             "hints": {
                 "allow": [
                     "POST"
@@ -498,7 +500,7 @@ curl -v -X GET \
             }
         },
         "revoke": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/revoke",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport/revoke",
             "hints": {
                 "allow": [
                     "POST"
@@ -553,7 +555,7 @@ curl -v -X POST \
     "expiration": "2021-01-24T11:13:14.000Z",
     "_links": {
         "extend": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/extend",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport/extend",
             "hints": {
                 "allow": [
                     "POST"
@@ -561,7 +563,7 @@ curl -v -X POST \
             }
         },
         "revoke": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/revoke",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport/revoke",
             "hints": {
                 "allow": [
                     "POST"
@@ -616,7 +618,7 @@ curl -v -X POST \
     "expiration": "2021-01-25T11:13:14.000Z",
     "_links": {
         "extend": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/extend",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport/extend",
             "hints": {
                 "allow": [
                     "POST"
@@ -624,7 +626,7 @@ curl -v -X POST \
             }
         },
         "revoke": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/revoke",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport/revoke",
             "hints": {
                 "allow": [
                     "POST"
@@ -680,7 +682,7 @@ curl -v -X POST \
     "expiration": null,
     "_links": {
         "grant": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/grant",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport/grant",
             "hints": {
                 "allow": [
                     "POST"
@@ -742,7 +744,7 @@ curl -v -X GET \
     "optOutEmailUsers": true,
     "_links": {
         "optIn": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaCommunication/optIn",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaCommunication/optIn",
             "hints": {
                 "allow": [
                     "POST"
@@ -796,7 +798,7 @@ curl -v -X POST \
     "optOutEmailUsers": true,
     "_links": {
         "optIn": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaCommunication/optIn",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaCommunication/optIn",
             "hints": {
                 "allow": [
                     "POST"
@@ -850,7 +852,7 @@ curl -v -X POST \
     "optOutEmailUsers": false,
     "_links": {
         "optOut": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaCommunication/optOut",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaCommunication/optOut",
             "hints": {
                 "allow": [
                     "POST"
@@ -910,7 +912,7 @@ curl -v -X GET \
     "showEndUserFooter": true,
     "_links": {
         "hideEndUserFooter": {
-            "href": "https://${yourOktaDomain}/api/v1/org/preferences/hideEndUserFooter",
+            "href": "https://{yourOktaDomain}/api/v1/org/preferences/hideEndUserFooter",
             "hints": {
                 "allow": [
                     "POST"
@@ -962,7 +964,7 @@ curl -v -X POST \
     "showEndUserFooter": true,
     "_links": {
         "hideEndUserFooter": {
-            "href": "https://${yourOktaDomain}/api/v1/org/preferences/hideEndUserFooter",
+            "href": "https://{yourOktaDomain}/api/v1/org/preferences/hideEndUserFooter",
             "hints": {
                 "allow": [
                     "POST"
@@ -1015,7 +1017,7 @@ curl -v -X POST \
     "showEndUserFooter": false,
     "_links": {
         "hideEndUserFooter": {
-            "href": "https://${yourOktaDomain}/api/v1/org/preferences/showEndUserFooter",
+            "href": "https://{yourOktaDomain}/api/v1/org/preferences/showEndUserFooter",
             "hints": {
                 "allow": [
                     "POST"
@@ -1174,6 +1176,7 @@ The Org Setting object defines several properties:
 
 
 #### Org Setting example
+
 ```json
 {
     "id": "00ou8s5wploBwX4710g3",
@@ -1195,10 +1198,10 @@ The Org Setting object defines several properties:
     "postalCode": "94107",
     "_links": {
         "preferences": {
-            "href": "https://${yourOktaDomain}/api/v1/org/preferences"
+            "href": "https://{yourOktaDomain}/api/v1/org/preferences"
         },
         "uploadLogo": {
-            "href": "https://${yourOktaDomain}/api/v1/org/logo",
+            "href": "https://{yourOktaDomain}/api/v1/org/logo",
             "hints": {
                 "allow": [
                     "POST"
@@ -1206,16 +1209,16 @@ The Org Setting object defines several properties:
             }
         },
         "oktaCommunication": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaCommunication"
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaCommunication"
         },
         "logo": {
-            "href": "https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
+            "href": "https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
         },
         "oktaSupport": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport"
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport"
         },
         "contacts": {
-            "href": "https://${yourOktaDomain}/api/v1/org/contacts"
+            "href": "https://{yourOktaDomain}/api/v1/org/contacts"
         }
     }
 }
@@ -1237,7 +1240,7 @@ The Contact Type object defines several properties:
         "contactType": "TECHNICAL",
         "_links": {
             "technical": {
-                "href": "https://${yourOktaDomain}/api/v1/org/contacts/technical"
+                "href": "https://{yourOktaDomain}/api/v1/org/contacts/technical"
             }
         }
     }
@@ -1255,12 +1258,13 @@ The Contact User object defines several properties:
 | `userId`                | String                                                         | ID of associated User                 |
 
 #### Contact Type example
+
 ```json
 {
         "userId": "TECHNICAL",
         "_links": {
             "technical": {
-                "href": "https://${yourOktaDomain}/api/v1/org/contacts/technical"
+                "href": "https://{yourOktaDomain}/api/v1/org/contacts/technical"
             }
         }
     }
@@ -1281,13 +1285,14 @@ The Okta Support Setting object defines several properties:
 
 
 #### Okta Support Setting example
+
 ```json
 {
     "support": "ENABLED",
     "expiration": "2021-01-24T11:13:14.000Z",
     "_links": {
         "extend": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/extend",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport/extend",
             "hints": {
                 "allow": [
                     "POST"
@@ -1295,7 +1300,7 @@ The Okta Support Setting object defines several properties:
             }
         },
         "revoke": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/revoke",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaSupport/revoke",
             "hints": {
                 "allow": [
                     "POST"
@@ -1324,7 +1329,7 @@ The Okta Communication Setting object defines several properties:
     "optOutEmailUsers": true,
     "_links": {
         "optIn": {
-            "href": "https://${yourOktaDomain}/api/v1/org/privacy/oktaCommunication/optIn",
+            "href": "https://{yourOktaDomain}/api/v1/org/privacy/oktaCommunication/optIn",
             "hints": {
                 "allow": [
                     "POST"
@@ -1353,7 +1358,7 @@ The Org Preferences object defines several properties:
     "showEndUserFooter": true,
     "_links": {
         "hideEndUserFooter": {
-            "href": "https://${yourOktaDomain}/api/v1/org/preferences/hideEndUserFooter",
+            "href": "https://{yourOktaDomain}/api/v1/org/preferences/hideEndUserFooter",
             "hints": {
                 "allow": [
                     "POST"

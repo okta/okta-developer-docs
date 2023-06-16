@@ -2,20 +2,20 @@ We suggest using the [CORS package](https://www.npmjs.com/package/cors) for enab
 
 1. Install the `cors` package by running the following command:
 
-```shell
-npm install cors@2.8 –save
-```
+   ```shell
+   npm install cors@2.8 –save
+   ```
 
 2. Add `cors` to the express app instance inside `server.js`:
 
-```js
-  ...
+   ```js
+     ...
 
-const cors = require('cors');
+   const cors = require('cors');
 
-  ...
+     ...
 
-app
-  .use(cors())
-  .listen(port, () => console.log('API Magic happening on port ' + port));
-```
+   app
+     .use(cors())
+     .listen(port, () => console.log('API Magic happening on port ' + port));
+   ```

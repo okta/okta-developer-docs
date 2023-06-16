@@ -12,7 +12,12 @@ For instructions on how to install and use Okta Identity Engine SDKs, refer to [
 
 An app integration using the client-hosted [Sign-In Widget](/code/javascript/okta_sign-in_widget/) with an appropriate [Identity Engine SDK](/docs/guides/oie-embedded-common-download-setup-app/) is a simpler way of implementing embedded authentication where most of the remediation process is handled by the Widget. You still have control over the step-by-step remediation user experience by configuring Authenticators and sign-on policies in your Okta org. With the remedial process managed by the Widget, your app just needs to handle the Interaction Code returned from the completed user interaction. See how this flow is built by reviewing the [Build a use case with the embedded Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in) guide.
 
-> **Note:** In addition to configuring the Interaction Code grant type in your [authorization server](#set-up-your-authorization-server) and [your app](#enable-interaction-code-grant-on-an-application), ensure that you use the `useInteractionCodeFlow=true` setting when you [initialize the Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/-/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app). Also see [setting up your Okta org](/docs/guides/oie-embedded-common-org-setup/) for typical use case configurations.
+In addition to configuring the Interaction Code grant type in your [authorization server](#set-up-your-authorization-server) and [your app](#enable-interaction-code-grant-on-an-application), make sure you are using the interaction code flow when you [initialize the Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/-/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app):
+
+* In Okta Sign-In Widget version 7+, Identity Engine is enabled by default, so there are no additional steps to take.
+* If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the config.
+
+> **Note**: Also see [setting up your Okta org](/docs/guides/oie-embedded-common-org-setup/) for typical use case configurations.
 
 ### Embedded authentication app using a native Identity Engine SDK
 

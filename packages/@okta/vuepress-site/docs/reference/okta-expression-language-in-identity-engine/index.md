@@ -2,7 +2,7 @@
 title: Okta Expression Language in Okta Identity Engine
 meta:
 - name: description
-  content: Learn more about the features and syntax of the Okta Expression Language in Okta Identity Engine.
+  content: Learn more about the features and syntax of Okta Expression Language in Okta Identity Engine.
 ---
 
 # Okta Expression Language in Okta Identity Engine
@@ -11,7 +11,7 @@ meta:
 
 ## Overview
 
-This document details the features and syntax of Okta Expression Language used in the Identity Engine. Expressions used outside of the Identity Engine should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
+This document details the features and syntax of Okta Expression Language used for the [Global session policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine. Expressions used outside of the application policies on Identity Engine orgs should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
 
 ## Unsupported features
 
@@ -35,6 +35,8 @@ The following operators and functionality offered by SpEL aren't supported in Ok
 ### Okta User Profile
 
 When you create an Okta expression, you can reference any property that exists in an Okta User Profile in addition to some top-level User properties.
+
+> **Note:** You can't use the `user.status` expression with group rules. See [Group rule operations](/docs/reference/api/groups/#group-rule-operations) and [Create group rules](https://help.okta.com/okta_help.htm?type=wf&id=ext-okta-method-creategrouprule).
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
@@ -60,6 +62,16 @@ You can specify certain [rule conditions](/docs/reference/api/policy/#conditions
 | ------ | ----------- | ---- | -------- | -----   |
 | security.risk.level | `security` - references the Security Context of the request<br>`risk` - references the [risk](https://help.okta.com/okta_help.htm?id=csh-risk-scoring) context of the request<br>`level` - the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
 | security.behaviors | `security` - references the Security Context of the request<br>`behaviors` - the list of matching [User behaviors](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
+
+### Login Context
+<ApiLifecycle access="ea"/>
+You can specify the [dynamic IdP](/docs/reference/api/policy/#policy-action-with-dynamic-IdP-routing) using expressions based on Login Context that holds the user's `username` as the `identifier`.
+
+| Syntax | Definitions | Type |
+| ------ | ----------- | ---- |
+| login.identifier| `login` references the Login Context of the request. `identifier` references the user's `username`. |String|
+
+
 
 ## Functions
 
@@ -92,7 +104,7 @@ Okta offers a variety of functions to manipulate properties to generate a desire
 | `$string_object.substring`              | (int startIndex, int endIndex)                | String      | `user.profile.firstName.substring(1,3)`          | "oh"             |
 | `$string_object.replace`                | (String match, String replacement)            | String      | `'hello'.replace('l', 'p')`                      | "heppo"          |
 |                                         |                                               |             | `user.profile.firstName.replace('ohn', 'ames')`  | "James"          |
-| `$string_object.replaceFirst`           | (String match, String replacement)            | String      | `'hello'.replaceFirst('l', 'p')`                 | "helpo"          |
+| `$string_object.replaceFirst`           | (String match, String replacement)            | String      | `'hello'.replaceFirst('l', 'p')`                 | "heplo"          |
 | `$string_object.length`                 | -                                             | Integer     | `'test'.length()`                                | 4                |
 | `$string_object.removeSpaces`           | -                                             | String      | `'This is a test'.removeSpaces()`                | "Thisisatest"    |
 | `$string_object.contains`               | (String searchString)                         | Boolean     | `'This is a test'.contains('test')`              | True             |
@@ -101,7 +113,7 @@ Okta offers a variety of functions to manipulate properties to generate a desire
 | `$string_object.substringAfter`         | (String searchString)                         | String      | `user.profile.email.substringAfter('@')`         | "okta.com"       |
 |                                         |                                               |             | `user.profile.email.substringAfter('.')`         | "doe@okta.com"   |
 
-**Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
+> **Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
 
 ### Array functions
 
@@ -247,7 +259,7 @@ The following functions are supported in conditions:
 * The `!` operator to designate NOT
 * Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>
 
-**Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
+> **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
 **Examples**
 

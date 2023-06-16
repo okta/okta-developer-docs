@@ -2,15 +2,15 @@ You need recent versions of [Node](https://nodejs.org/en/) and [npm](https://www
 
 1. Install Vue CLI with the following command:
 
-```shell
-npm install -g @vue/cli@4.5.15
-```
+   ```shell
+   npm install -g @vue/cli@4.5.15
+   ```
 
 2. Create a Vue application named **okta-vue-quickstart** using the following command:
 
-```shell
-vue create okta-vue-quickstart
-```
+   ```shell
+   vue create okta-vue-quickstart
+   ```
 
 3. You are asked to pick a present or manually select features. Choose `Manually select features`, and:
 
@@ -21,8 +21,8 @@ vue create okta-vue-quickstart
 
 4. Go into your app's root app directory to view the created files:
 
-```shell
-cd okta-vue-quickstart
-```
+   ```shell
+   cd okta-vue-quickstart
+   ```
 
 > **Note**: This sample application uses Vue CLI v4.5.15, okta-vue v5.1.1, and okta-auth-js v6.0.0.

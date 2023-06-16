@@ -1,10 +1,15 @@
 ### 1: Build a sign-in form
 
-Build a sign-in form that captures both the username and password. For example:
+Build a sign-in form that captures both the username and password, similar to the following wireframe.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the simple sign-in form for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-java.png)
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
 </div>
 
@@ -19,7 +24,7 @@ Begin the authentication process by calling the Java SDK's `IDXAuthenticationWra
 
 After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 
-```kotlin
+```java
     fun signIn() {
         if (!viewModel.isValid()) return
 
@@ -27,7 +32,6 @@ After the user submits their credentials, call `IDXAuthenticationWrapper.authent
             // Need to begin the transaction again, in case an error occurred.
             val beginResponse = authenticationWrapper.begin()
             handleTerminalTransitions(beginResponse)?.let { return@proceed it }
-
 
             val options = AuthenticationOptions(viewModel.username, viewModel.password)
             val response = authenticationWrapper.authenticate(options, beginResponse.proceedContext)

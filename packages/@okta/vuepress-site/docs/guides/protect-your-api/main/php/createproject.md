@@ -2,11 +2,11 @@
 1. In a folder for this project, create a directory called `public`.
 1. Create an empty file inside it called `index.php`.
 
-```bash
-mkdir api
-cd api
-mkdir public
-touch public/index.php
-```
+   ```bash
+   mkdir api
+   cd api
+   mkdir public
+   touch public/index.php
+   ```
 
 > **Note**: This guide was written with PHP 8.1.

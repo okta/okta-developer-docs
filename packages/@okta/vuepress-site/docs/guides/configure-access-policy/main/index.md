@@ -72,7 +72,7 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 4. Click the **x** to remove all of the scopes except for **openid** and **email**. This limits the scopes that the applications associated with this policy can request to just the `openid` and `email` scopes.
 
-     > **Note:** Access policies rules are allow lists. Verify that there are no other rules in the policy that have **any scopes** selected and that all of your rules match only the `openid` and/or the `email` scopes.
+     > **Note:** Access policies rules are allowlists. Verify that there are no other rules in the policy that have **any scopes** selected and that all of your rules match only the `openid` and/or the `email` scopes.
 
 5. Leave the other defaults and click **Create Rule**.
 
@@ -93,7 +93,7 @@ Let's test your access policy and get back an access token.
 
      It looks like this: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
-     Unless you are using the default Authorization Server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
+     Unless you are using the default authorization server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
 3. Add the following `/authorize` endpoint query parameters to the URL:
 
@@ -122,8 +122,8 @@ Let's test your access policy and get back an access token.
 {
   "ver": 1,
   "jti": "AT.ReRI96X_2Ny3nSf0DepnWLhbAJW5kB0nbl0WqSn22W8",
-  "iss": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
-  "aud": "https://${yourOktaDomain}",
+  "iss": "https://{yourOktaDomain}/oauth2/{authorizationServerId}",
+  "aud": "https://{yourOktaDomain}",
   "iat": 1594769008,
   "exp": 1594772608,
   "cid": "0oas6ywyq7cwyKUfF0h7",
@@ -183,7 +183,7 @@ Let's test your access policy and get back an access token.
 
      It looks like this: `https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize`
 
-     Unless you are using the default Authorization Server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
+     Unless you are using the default authorization server, then it looks like this: `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
 3. Add the following `/authorize` endpoint query parameters to the URL:
 
@@ -212,11 +212,7 @@ You should now understand how to configure an access policy.
 
 You can customize and style various Okta assets to match your company's visual identity and branding:
 
-* [Customize the Okta URL domain](/docs/guides/custom-url-domain/)
+* [Customize domain and email address](/docs/guides/custom-url-domain/)
 * [SMS customization](/docs/guides/custom-sms-messaging/)
 * [Email customization](/docs/guides/custom-email/)
 * [Style the Sign-In Widget](/docs/guides/custom-widget/)
-
-## Support
-
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).

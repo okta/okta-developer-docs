@@ -1,4 +1,4 @@
-When you are configuring federation between two Okta orgs using OpenID Connect:
+When you're configuring federation between two Okta orgs, use OpenID Connect as the sign-in method:
 
 1. In the Admin Console for the Okta org that represents the Identity Provider, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
@@ -11,6 +11,8 @@ When you are configuring federation between two Okta orgs using OpenID Connect:
     * Is where the IdP returns the authentication response (the access token and the ID token)
     * Needs to be a secure domain that you own
     * Should match the redirect URI sent in the authorize request from the client
+
+    Include all base domains (Okta domain and custom domain) that your users will interact with in the allowed redirect URI list.
 
 1. Assign a group or leave the **Everyone** default. Be sure to verify that the users you want to have access are assigned to the group that you select. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 1. Click **Save**.

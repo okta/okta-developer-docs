@@ -41,14 +41,14 @@ Refresh token rotation helps a public client to securely rotate refresh tokens a
 
 When a client wants to renew an access token, it sends the refresh token with the access token request to the `/token` endpoint. Okta validates the incoming refresh token and issues a new set of tokens. As soon as the new tokens are issued, Okta invalidates the refresh token that was passed with the initial request to the `/token` endpoint.
 
-If a previously used refresh token is used again with the token request, the Authorization Server automatically detects the attempted reuse of the refresh token. As a result, Okta immediately invalidates the most recently issued refresh token and all access tokens issued since the user authenticated. This protects your application from token compromise and replay attacks.
+If a previously used refresh token is used again with the token request, the authorization server automatically detects the attempted reuse of the refresh token. As a result, Okta immediately invalidates the most recently issued refresh token and all access tokens issued since the user authenticated. This protects your application from token compromise and replay attacks.
 
 #### System Log events
 
 Okta fires the following System Log [events](/docs/reference/api/event-types/) when token reuse is detected:
 
-* `app.oauth2.as.token.detect_reuse` for [Custom Authorization Servers](/docs/concepts/auth-servers/#custom-authorization-server)
-* `app.oauth2.token.detect_reuse` for the [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server)
+* `app.oauth2.as.token.detect_reuse` for [custom authorization servers](/docs/concepts/auth-servers/#custom-authorization-server)
+* `app.oauth2.token.detect_reuse` for the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server)
 
 ### Grace period for token rotation
 
@@ -91,19 +91,21 @@ After you enable refresh token rotation, the `refresh_token` property appears wi
 }
 ```
 
+> **Note:** A leeway of 0 doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
+
 See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
 
 ### Refresh token lifetime
 
-Refresh token lifetimes are managed through the [Authorization Server access policy](/docs/guides/configure-access-policy/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [Authorization Server actions object](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if it hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
+Refresh token lifetimes are managed through the [authorization server access policy](/docs/guides/configure-access-policy/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [authorization server actions object](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if it hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
 
 ## Get a refresh token
 
-To get a refresh token, you send a request to your Okta Authorization Server.
+To get a refresh token, you send a request to your Okta authorization server.
 
 The only flows that support refresh tokens are the authorization code flow and the resource owner password flow. This means that the following combinations of grant type and scope, when sent to the `/token` endpoint, return a refresh token:
 
-> **Note:** The maximum length for the scope parameter value is 1024 characters.
+> **Note:** The maximum length for the scope parameter value is 4096 characters.
 
 | Grant Type           | Scope                       |
 | -----------          | -----                       |
@@ -117,7 +119,7 @@ The only flows that support refresh tokens are the authorization code flow and t
 
 ### Get a refresh token with the code flow
 
-In the case of the authorization code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then use the `authorization_code` grant with this code in a request to the `/token` endpoint to get an access token and a refresh token.
+In the case of the authorization code flow, you use the authorization server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then use the `authorization_code` grant with this code in a request to the `/token` endpoint to get an access token and a refresh token.
 
 See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#authorize) and [Implementing the authorization code flow](/docs/guides/implement-grant-type/authcode/main/) for more information on the `/authorize` endpoint and the authorization code flow.
 
@@ -126,17 +128,19 @@ See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#author
 The following is an example request to the `/authorize` endpoint for an [authorization code](/docs/guides/implement-grant-type/authcode/main/) flow and includes the `offline_access` scope.
 
 ```bash
-GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}
- &response_type=code
- &scope=openid%20offline_access
- &redirect_uri=ourApp%3A%2Fcallback
- &state=237c671a-29d7-11eb-adc1-0242ac120002
+curl -x GET https://${yourOktaDomain}/oauth2/default/v1/authorize
+?client_id=${clientId}
+&response_type=code
+&scope=openid%20offline_access
+&redirect_uri=ourApp%3A%2Fcallback
+&state=237c671a-29d7-11eb-adc1-0242ac120002
 ```
 
-The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow and includes the `offline_access` scope.
+The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/#request-an-authorization-code) flow and includes the `offline_access` scope.
 
 ```bash
-https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}
+curl -x GET https://${yourOktaDomain}/oauth2/default/v1/authorize
+?client_id=${clientId}
 &response_type=code
 &scope=openid%20offline_access
 &redirect_uri=yourApp%3A%2Fcallback
@@ -161,18 +165,16 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/toke
 -d 'scope=openid offline_access'
 ```
 
-The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
+The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/#exchange-the-code-for-tokens). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
 -H 'Accept: application/json' \
--H 'Authorization: Basic ${Base64(${clientId}:${clientSecret})}' \
 -H 'Content-Type: application/x-www-form-urlencoded' \
 -d 'grant_type=authorization_code' \
 -d 'redirect_uri=${redirectUri}' \
 -d 'code=iyz1Lpim4NgN6gDQdT1a9PJDVTaCdxG1wJMYiUkfGts' \
--d 'state=419946f0-29d7-11eb-adc1-0242ac120002' \
--d 'scope=openid offline_access' \
+-d 'client_id=${clientId}' \
 -d 'code_verifier=M25iVXpKU3puUjFjYWg3T1NDTDQtcW1rOUY5YXlwalNoc0hhaoxifmZHag'
 ```
 
@@ -279,7 +281,7 @@ Read more about the SDKs that support refresh token rotation and reuse detection
 * [Okta Auth SDK Guide - JavaScript](/docs/guides/auth-js/main/)
 * [Okta Sign-in Widget Guide - JavaScript](/docs/guides/embedded-siw/main/)
 * [Okta Sign-in Widget and Angular](/docs/guides/sign-in-to-spa-embedded-widget/angular/main/)
-* [Okta Auth JS and Angular](/#)  (coming soon)
+* [Okta Auth JS and Angular](/docs/guides/sign-in-to-spa-authjs/angular/main/)
 * [Okta Sign-in Widget and React](/docs/guides/sign-in-to-spa-embedded-widget/react/main/)
 * [Okta Auth JS and React](/docs/guides/sign-in-to-spa-authjs/react/main/)
 * [Okta Sign-in Widget and Vue](/docs/guides/sign-in-to-spa-embedded-widget/vue/main/)

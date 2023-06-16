@@ -15,7 +15,7 @@ However, with increased collaboration and the move towards cloud-based environme
 
 Before looking at federated authentication, we need to understand what authentication really means. Authentication defines the way a user is identified and validated through some sort of credentials as part of a sign-in flow. Most applications present a sign-in page to an end user, allowing the user to specify a username and a password. In some cases, additional information may be required to locate the user, like a company ID or a client code. This information allows the application to narrow down the search of the username applicable to the provided info. This is often used to allow the same username to exist across multiple tenants belonging to different customers.
 
-Most applications have a user store (DB or LDAP) that contains, among other things, user profile information and credentials. When a user signs in, the credentials are validated against this user store. The advantage of this simple approach is that everything is managed within the application, providing a single and consistent way to authenticate an end user. However, if a user needs to access multiple applications where each one requires a different set of credentials, it becomes a problem for the end user. First, the user needs to remember different passwords, in addition to any other corporate password (for example, their AD password) that may already exist. The user is now forced to maintain separate usernames and passwords, and must handle different password policies and expirations. In addition, this scenario also creates a headache for administrators and ISVs when application users continue to have access to applications that should have been revoked.
+Most applications have a user store (database or LDAP) that contains, among other things, user profile information and credentials. When a user signs in, the credentials are validated against this user store. The advantage of this simple approach is that everything is managed within the application, providing a single and consistent way to authenticate an end user. However, if a user needs to access multiple applications where each one requires a different set of credentials, it becomes a problem for the end user. First, the user needs to remember different passwords, in addition to any other corporate password (for example, their AD password) that may already exist. The user is now forced to maintain separate usernames and passwords, and must handle different password policies and expirations. In addition, this scenario also creates a headache for administrators and ISVs when application users continue to have access to applications that should have been revoked.
 
 ## Federated Identity
 
@@ -33,7 +33,11 @@ See the [Security Assertion Markup Language (SAML) V2.0 Technical Overview](http
 
 SAML is mostly used as a web-based authentication mechanism as it relies on using the browser agent to broker the authentication flow. At a high-level, the authentication flow of SAML looks like this:
 
-![SAML flow](/img/saml_guidance_saml_flow.png "SAML flow")
+<div class="three-quarter">
+
+![SAML flow](/img/saml/saml_guidance_saml_flow.png)
+
+</div>
 
 We are now ready to introduce some common SAML terms. We will go into the technical details of these later, but it is important to understand the high-level concept during the planning stage.
 
@@ -87,21 +91,33 @@ To do this, the SP requires at least the following:
 - ACS Endpoint - Assertion Consumer Service URL - often referred to simply as the SP sign-in URL. This is the endpoint provided by the SP where SAML responses are posted. The SP needs to provide this information to the IdP.
 - IdP Sign-in URL - This is the endpoint on the IdP side where SAML requests are posted. The SP needs to obtain this information from the IdP.
 
-The easiest way to implement SAML is to leverage an OpenSource SAML toolkit. We have included a list at the end of this article of recommended toolkits for several languages. These toolkits provide the logic needed to digest the information in an incoming SAML Response. In addition, if the SP needs to support the SP-initiated sign-in flow, the toolkits also provide the logic needed to generate an appropriate SAML Authentication Request.
+The easiest way to implement SAML is to leverage an OpenSource SAML toolkit. We have included a list at the end of this article of recommended toolkits for several languages. These toolkits provide the logic needed to digest the information in an incoming SAML Response. In addition, if the SP needs to support the SP-initiated sign-in flow, the toolkits also provide the logic needed to generate an appropriate SAML authentication request.
 
 ### Single IdP vs multiple IdPs
 
 If you are building an internal integration and you want to SAML-enable it to integrate with your corporate SAML identity provider, then you are looking at supporting only a single IdP. In this case, your integration only needs to deal with a single set of IdP metadata (cert, endpoints, and so on).
 
-![Single IdP](/img/saml_guidance_one_idp.png "Single IdP")
+<div class="half">
 
-If you are an ISV building an enterprise SaaS product, or if you are building an external facing website/portal/community for your customers and partners, then you need to look at supporting multiple IdPs. This is the typical use case for many SaaS ISVs that need to integrate with customers' corporate identity infrastructure. Depending on the architecture of your application, you need to think about ways to store the SAML configuration (Certificates or IdP sign-in URLs, for example) from each identity provider, as well as how to provide the necessary SP information for each.
+![Single IdP](/img/saml/saml_guidance_one_idp.png)
 
-![Many IdPs](/img/saml_guidance_many_idp.png "Many IdPs")
+</div>
+
+If you are an independent software vendor (ISV) building an enterprise SaaS product, or if you are building an external facing website/portal/community for your customers and partners, then you need to look at supporting multiple IdPs. This is the typical use case for many SaaS ISVs that need to integrate with customers' corporate identity infrastructure. Depending on the architecture of your application, you need to think about ways to store the SAML configuration (Certificates or IdP sign-in URLs, for example) from each identity provider, as well as how to provide the necessary SP information for each.
+
+<div class="half">
+
+![Many IdPs](/img/saml/saml_guidance_many_idp.png)
+
+</div>
 
 A key consideration involves the ACS URL endpoint on the SP side where SAML responses are posted. It is possible to expose a single endpoint even when dealing with multiple IdPs. For a single-instance multi-tenant application where the tenancy isn't defined in the URL (such as when using a subdomain), this might be a simpler way to implement. However, you must then rely on additional information in the SAML response to determine which IdP is trying to authenticate (for example, using the IssuerID). If your application is set up in a multi-tenant fashion with domain information in the URL (for example, using either `https://domain1.example.com` or `https://www.example.com/domain1`), then having an ACS URL endpoint for each subdomain might be a good option since the URL itself identifies the domain.
 
-![SPs with Subdomains](/img/saml_guidance_many_idp_subdomain.png "SPs with Subdomains")
+<div class="three-quarter">
+
+![SPs with Subdomains](/img/saml/saml_guidance_many_idp_subdomain.png)
+
+</div>
 
 ### Understanding SP-initiated sign-in flow
 
@@ -111,13 +127,17 @@ In an SP-initiated flow, the user tries to access a protected resource directly 
 
 Another issue with SP-initiated sign-in flow is the support for deep links. Most applications support deep links. For example, you might receive a link to a document that resides on a content management system. Ideally, if you need to authenticate prior to accessing the document, you would like to be taken to the document immediately after authentication.
 
-SAML is an asynchronous protocol by design. The SP-initiated sign-in flow begins by generating a SAML Authentication Request that gets redirected to the IdP. At this point, the SP doesn't store any information about the request. When the SAML response comes back from the IdP, the SP wouldn't know anything about the initial deep-link that triggered the authentication request. Luckily, SAML supports this with a parameter called RelayState.
+SAML is an asynchronous protocol by design. The SP-initiated sign-in flow begins by generating a SAML authentication request that gets redirected to the IdP. At this point, the SP doesn't store any information about the request. When the SAML response comes back from the IdP, the SP wouldn't know anything about the initial deep-link that triggered the authentication request. Luckily, SAML supports this with a parameter called RelayState.
 
 A RelayState is an HTTP parameter that can be included as part of the SAML request and SAML response. In an SP-initiated sign-in flow, the SP can set the RelayState parameter in the SAML request with additional information about the request. A SAML IdP, after receiving the SAML request, takes the RelayState value and simply attaches it back as an HTTP parameter in the SAML response after the user has been authenticated. This way, when the round trip completes, the SP can use the RelayState information to get additional context about the initial SAML authentication request.
 
 In the case of a deep link, the SP sets the RelayState of the SAML request with the deep-link value. When the SAML response comes back, the SP can use the RelayState value and take the authenticated user to the right resource.
 
-![SP-initiated flow with Deep Link](/img/saml_guidance_deeplink.png "SP-initiated Login with Deep Link")
+<div class="full">
+
+![SP-initiated flow with Deep Link](/img/saml/saml_guidance_deeplink.png)
+
+</div>
 
 For instructions to construct a deep link for SAML IdPs, see [Redirecting with SAML Deep Links](/docs/reference/api/idps#redirecting-with-saml-deep-links).
 

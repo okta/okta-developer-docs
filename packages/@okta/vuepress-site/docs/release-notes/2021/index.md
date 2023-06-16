@@ -79,7 +79,7 @@ The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload Th
 
 #### User Types API and Mappings API support OAuth 2.0
 
-The [User Types API](/docs/reference/api/user-types/) and [Mappings API](/docs/reference/api/mappings/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
+The [User Types API](/docs/reference/api/user-types/) and [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
 
 #### Bugs fixed in 2021.12.0
 
@@ -109,7 +109,7 @@ When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threa
 
 #### Bugs fixed in 2021.11.2
 
-* Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
+* Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/#tag/CustomDomain/operation/upsertCertificate!path=certificateChain&t=request) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
 
 * Requests to [fetch the scopes for an authorization server](/docs/reference/api/authorization-servers/#get-all-scopes) with both `limit` and `after` pagination parameters (such as `GET /api/v1/authorizationServers/${authorizationServerId}/scopes?limit=${limitNum}&after=${scopeName}`) failed to return pagination results. (OKTA-405691)
 
@@ -120,7 +120,7 @@ When the [ThreatInsight configuration](/docs/reference/api/threat-insight/#threa
 | [Identity Providers API response includes ID token for generic OIDC provider](#identity-providers-api-response-includes-id-token-for-generic-oidc-provider) | November 3, 2021 |
 | [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
 | [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
-| [Event Hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
+| [Event hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
 | [Device Authorization grant type is now GA in Preview](#device-authorization-grant-type-is-now-ga-in-preview)                          | November 3, 2021          |
 | [Key pair additions to JWKS limited to 50 per client](#key-pair-additions-to-jwks-limited-to-50-per-client) | November 3, 2021 |
 | [Authentication API returns UD User Profile locale is GA in Production](#authentication-api-returns-ud-user-profile-locale-is-ga-in-production) | October 6, 2021 |
@@ -142,9 +142,9 @@ The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-o
 
 Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
 
-#### Event Hooks daily limit
+#### Event hooks daily limit
 
-The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+The maximum allowable daily limit of event hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of event hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
 
 #### Device Authorization grant type is now GA in Preview
 
@@ -288,7 +288,7 @@ Dynamic Issuer Mode helps with:
 
 #### The Subscriptions API is GA in Production
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications.
+The [Subscriptions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/) provides operations to manage email subscription settings for Okta administrator notifications.
 
 * Super Admins can manage the default admin notifications that each admin receives based on their role.
 * Individual admins can update their own notification preferences by subscribing or unsubscribing. <!--OKTA-411527-->
@@ -338,7 +338,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 - When a native SSO [token exchange](/docs/reference/api/oidc/#token) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
 
-- Registration Inline Hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
+- Registration inline hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
 
 ### Monthly release 2021.08.0
 
@@ -358,15 +358,15 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Brands API is Self-Service EA
 
-The Okta [Brands API](/docs/reference/api/brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted Sign-In Page, error pages, email templates, and the Okta End-User Dashboard. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes/). <!-- 414350-->
+The Okta [Brands API](/docs/reference/api/brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted sign-in page, error pages, email templates, and the Okta End-User Dashboard. <!-- 414350-->
 
 #### Risk Providers and Risk Events APIs are EA
 
-The Okta [Risk Providers API](/docs/reference/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/reference/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/). <!-- OKTA-415574 -->
+The Okta [Risk Providers API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskProvider/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/RiskEvent/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/). <!-- OKTA-415574 -->
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML Inline Hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-406633-->
+The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML inline hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-406633-->
 
 #### Support for Push Status using the Apps API is GA in Production
 
@@ -432,7 +432,7 @@ Additionally, you can set or update the Logo or notes fields for any of your Okt
 
 #### New Domains API response properties available
 
-The [Domains API](/docs/reference/api/domains) includes the new response object properties of `certificateSourceType` and `expiration`. The `certificateSourceType` is a required property that indicates whether the Certificate is provided by the user. The accepted value is `Manual`. The `expiration` property on the DNSRecord object is an optional property that defines the TXT record expiration. <!--OKTA-403600-->
+The [Domains API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/) includes the new response object properties of `certificateSourceType` and `expiration`. The `certificateSourceType` is a required property that indicates whether the Certificate is provided by the user. The accepted value is `Manual`. The `expiration` property on the DNSRecord object is an optional property that defines the TXT record expiration. <!--OKTA-403600-->
 
 #### Rate limit events for user and session user activity
 
@@ -446,13 +446,13 @@ The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#un
 
 You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/). <!--OKTA-406626-->
 
-#### Event Hook preview tab is now GA in Preview
+#### Event hook preview tab is now GA in Preview
 
-Event Hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
+Event hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).
 
 #### Bugs fixed in 2021.07.0
 
-- The IdP claim wasn't available in the `id_token` or included with the Token Inline Hook request. (OKTA-407459)
+- The IdP claim wasn't available in the `id_token` or included with the token inline hook request. (OKTA-407459)
 
 - When the Users lifecycle API `users/{{userId}}/lifecycle/reset_factors` was called to reset user factors, a status 403 error was received, even with a valid bearer token and scope (`okta.users.manage`). (OKTA-404613)
 
@@ -527,7 +527,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Domains API is GA in Production
 
-The [Domains API](/docs/reference/api/domains/) is now Generally Available in Production. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-395907-->
+The [Domains API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/) is now Generally Available in Production. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-395907-->
 
 #### Flexible Consent is GA in Preview
 
@@ -555,7 +555,7 @@ When OpenID Connect (OIDC) apps are created using the App Integration Wizard or 
 
 #### The Subscriptions API is GA in Preview
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) is now Generally Available in Preview. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.
+The [Subscriptions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/) is now Generally Available in Preview. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.
 
 * Super Admins can manage the default admin notifications that each admin receives based on their role.
 * Individual admins can update their own notification preferences by subscribing or unsubscribing.
@@ -656,11 +656,11 @@ The [Administrator Roles API](/docs/reference/api/roles/) has been updated to su
 
 #### Domains API is GA in Preview
 
-The [Domains API](/docs/reference/api/domains/) is now Generally Available in Preview. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-386752-->
+The [Domains API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/) is now Generally Available in Preview. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-386752-->
 
 #### Domains API supports OAuth 2.0
 
-The [Domains API](/docs/reference/api/domains/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-381286-->
+The [Domains API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-381286-->
 
 #### Okta Sign-In Widget, version 5.6.0
 
@@ -673,7 +673,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML Inline Hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
+The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML inline hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
 
 #### System Log API SCIM filter expression update
 
@@ -739,7 +739,7 @@ For details about this release, see the Okta [Sign-In Widget release notes](http
 
 #### Domains API is now in EA in Preview
 
-The [Domains API](/docs/reference/api/domains/) is now in Early Access in Preview.
+The [Domains API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/) is now in Early Access in Preview.
 
 #### Groups API extended search is now GA in Production
 
@@ -836,13 +836,13 @@ The Okta Org API is now available in Self-Service EA. This API allows you to man
 
 #### Automatically mark a flow hook as "VERIFIED"
 
-When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` for an [Event Hook](/docs/reference/api/event-hooks/) that has an Okta Workflows endpoint configured, the Event Hook is automatically marked as "VERIFIED". The verification step isn't required.<!--OKTA-364393-->
+When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` for an [Event hook](/docs/reference/api/event-hooks/) that has an Okta Workflows endpoint configured, the event hook is automatically marked as "VERIFIED". The verification step isn't required.<!--OKTA-364393-->
 
 #### Event Hook preview tab now in Early Access (EA)
 
-Event Hooks configured in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
+Event hooks configured in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the event hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
 
-Previewing the JSON body of the Event Hook assists developers or administrators create or troubleshoot the request syntax. The JSON body can also be edited for different request scenarios.
+Previewing the JSON body of the event hook assists developers or administrators create or troubleshoot the request syntax. The JSON body can also be edited for different request scenarios.
 
 See [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview).<!--OKTA-364119-->
 
@@ -912,7 +912,7 @@ ISVs and developers who want to create and submit a SCIM-only app integration to
 
 #### The Subscriptions API is now available in Self-Service Early Access (EA)
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) is now available in Self-Service EA. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.<!--OKTA-325794-->
+The [Subscriptions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Subscription/) is now available in Self-Service EA. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.<!--OKTA-325794-->
 
 #### New phone rate limits
 

@@ -77,7 +77,7 @@ Create a `src/config.js` file. Make sure to replace the `${...}` placeholders wi
 ```js
 const oktaAuthConfig = {
   // Note: If your app is configured to use the Implicit flow
-  // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
+  // instead of the Authorization Code with Proof Key for Code Exchange (PKCE)
   // you will need to add `pkce: false`
   issuer: 'https://${yourOktaDomain}/oauth2/default',
   clientId: '${clientId}',
@@ -90,7 +90,7 @@ const oktaSignInConfig = {
   redirectUri: window.location.origin + '/login/callback',
   authParams: {
     // If your app is configured to use the Implicit flow
-    // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
+    // instead of the Authorization Code with Proof Key for Code Exchange (PKCE)
     // you will need to uncomment the below line
     // pkce: false
   }
@@ -304,7 +304,3 @@ npm start
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
 
 <!-- Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa-redirect/react/main' data-proofer-ignore>React how to guide</a> to learn about protecting routes on your server, validating the `access_token`, and more! -->
-
-## Support
-
-Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

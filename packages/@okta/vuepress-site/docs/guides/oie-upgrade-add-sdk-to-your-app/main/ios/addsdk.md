@@ -11,4 +11,4 @@ dependencies: [
 
 ### Install dependency using CocoaPods
 
-Setup the Podfile with the Okta IDX SDK dependency and run `pod install`.
+Set up the Podfile with the Okta IDX SDK dependency and run `pod install`.

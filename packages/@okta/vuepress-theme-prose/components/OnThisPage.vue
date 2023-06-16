@@ -3,21 +3,29 @@
     <div v-show="showNavigation">
       <StackSelector v-if="$page.hasStackContent" />
       <div v-show="showOnthisPage">
-        <div class="title">On this page</div>
-        <ul class="links" v-if="items">
+        <div class="title">
+          On this page
+        </div>
+        <ul
+          v-if="items"
+          class="links"
+        >
           <OnThisPageItem
             v-for="(link, index) in items"
-            :link="link"
             :key="index"
-            :activeAnchor="activeAnchor"
+            :link="link"
+            :active-anchor="activeAnchor"
           />
         </ul>
-        <ul class="links" v-else>
+        <ul
+          v-else-if="$page.fullHeaders"
+          class="links"
+        >
           <OnThisPageItem
             v-for="(link, index) in $page.fullHeaders[0].children"
-            :link="link"
             :key="index"
-            :activeAnchor="activeAnchor"
+            :link="link"
+            :active-anchor="activeAnchor"
           />
         </ul>
       </div>
@@ -31,12 +39,12 @@ import AnchorHistory from "../mixins/AnchorHistory.vue";
 import _ from "lodash";
 export default {
   name: "OnThisPage",
-  mixins: [AnchorHistory],
-  inject: ["appContext"],
   components: {
     OnThisPageItem: () => import("../components/OnThisPageItem.vue"),
     StackSelector: () => import("../global-components/StackSelector.vue")
   },
+  mixins: [AnchorHistory],
+  inject: ["appContext"],
   props: ["items"],
   data() {
     return {
@@ -49,12 +57,22 @@ export default {
     showOnthisPage: function() {
       return (
         this.items ||
-        (this.$page.fullHeaders[0].children &&
+        (this.$page.fullHeaders &&
+          this.$page.fullHeaders[0].children &&
           this.$page.fullHeaders[0].children.length > 0)
       );
     },
     showNavigation: function() {
       return this.showOnthisPage || this.$page.hasStackContent;
+    }
+  },
+  watch: {
+    $page(to, from) {
+      if (from.title !== to.title) {
+        this.$nextTick(function() {
+          this.anchors = this.getOnThisPageAnchors();
+        });
+      }
     }
   },
   mounted() {
@@ -74,15 +92,6 @@ export default {
   beforeDestroy() {
     // window.removeEventListener("scroll", this.setAlwaysOnViewPosition);
     window.removeEventListener("scroll", this.setActiveAnchor);
-  },
-  watch: {
-    $page(to, from) {
-      if (from.title !== to.title) {
-        this.$nextTick(function() {
-          this.anchors = this.getOnThisPageAnchors();
-        });
-      }
-    }
   },
   methods: {
     setAlwaysOnViewPosition: _.debounce(function() {

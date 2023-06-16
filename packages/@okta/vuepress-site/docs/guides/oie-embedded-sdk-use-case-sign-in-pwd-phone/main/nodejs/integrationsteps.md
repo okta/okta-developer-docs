@@ -1,10 +1,15 @@
 ### 1: Build a sign-in page on the client and authenticate the user credentials
 
-Build a sign-in page that captures the username and password, as shown in the following example.
+Build a sign-in page that captures the username and password, similar to the following wireframe.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the sign-in page where the user enters their username and password for authentication.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![A sign-in form with fields for username and password, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
 
 </div>
 
@@ -24,11 +29,16 @@ After this response, you need to redirect the user to an authenticator list page
 
 ### 2: The user selects the phone factor from the authenticator list
 
-In this use case, only the **Phone** factor appears in the list of authenticators, as shown in the following example page:
+In this use case, only the **Phone** factor appears in the list of authenticators, similar to the following wireframe:
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a Select Authenticator page that includes a phone option and a Select button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-nodejs.png)
+![A choose your authenticator form with only a phone authenticator option and a next button](/img/wireframes/choose-authenticator-form-phone-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36858&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only
+ -->
 
 </div>
 
@@ -49,9 +59,14 @@ The next step is to redirect the user to a page to enter in the phone verificati
 
 Build the phone verification method entry page that accepts either SMS or voice verification that is used for authentication.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a Verify using phone authenticator page that includes an SMS option and a Next button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone-method-nodejs.png)
+![A choose your phone verification method form with SMS and Voice options and a next button](/img/wireframes/choose-phone-verification-method-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37129&t=vr9MuCR8C4rCt3hC-1 choose-phone-verification-method-form
+ -->
 
 </div>
 
@@ -73,9 +88,14 @@ status, // IdxStatus.PENDING
 
 Build a page that accepts the code sent to the user's phone number through SMS. Depending on your implementation, this page can be the same page that verifies the email code or a different page.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays a Challenge Authenticator page that includes a field for the code and a Verifiy button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-in-pwd-phone-verify-phone-code-nodejs.png)
+![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37154&t=vr9MuCR8C4rCt3hC-1 enter-verification-code-form-with-sms-message
+ -->
 
 </div>
 
@@ -85,4 +105,4 @@ Then, handle the response from `idx.authenticate`. If the phone code was valid, 
 
 ### 5 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after a successful sign in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#get-the-user-profile-information) for more details.
+Optionally, you can obtain basic user information after a successful sign in by making a request to the Okta OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#get-the-user-profile-information) for more details.

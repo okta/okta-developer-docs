@@ -1,0 +1,1 @@
+See the [Android Devices SDK sample app](https://github.com/okta/okta-devices-kotlin/tree/master/push-sample-app).

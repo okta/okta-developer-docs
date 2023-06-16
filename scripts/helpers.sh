@@ -112,17 +112,17 @@ function check_for_quickstart_pages_in_sitemap() {
     fi
 }
 
-function fold() {
+function group() {
     local name=$1
     local command="${@:2}"
-    echo -en "travis_fold:start:${name}\\r"
+    echo -en "::group::${name}\\r"
     echo "\$ ${command}"
     ${command}
-    echo -en "travis_fold:end:${name}\\r"
+    echo -en "::endgroup::${name}\\r"
 }
 
 function send_promotion_message() {
-    curl -H "Authorization: Bearer ${TESTSERVICE_SLAVE_JWT}" \
+    curl -H "x-aurm-token: ${AURM_TOKEN}" \
       -H "Content-Type: application/json" \
       -X POST -d "[{\"artifactId\":\"$1\",\"repository\":\"npm-release\",\"artifact\":\"$2\",\"version\":\"$3\",\"promotionType\":\"ARTIFACT\"}]" \
       -k "${APERTURE_BASE_URL}/v1/artifact-promotion/createPromotionEvent"

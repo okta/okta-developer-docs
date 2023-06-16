@@ -1,6 +1,5 @@
 For this tutorial, we create a sample API from scratch using the Visual Studio ASP.NET Core Web API project template.
 
-
 1. Launch Visual Studio 2022, select **New Project > ASP.NET Core Web API**, and click **Next**.
 2. Name your project and click **Next**.
 3. Select **Framework** as **.NET Core 3.1**, **Authentication** as **None** (Okta handles this part) and select **Configure for HTTPS**.

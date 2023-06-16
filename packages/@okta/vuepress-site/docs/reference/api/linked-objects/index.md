@@ -21,7 +21,7 @@ For each relationship:
 
 For details, see the [Linked Object object](#linked-object-object).
 
-The Expression Language function for [Linked Objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
+Okta Expression Language function for [Linked Objects](/docs/reference/okta-expression-language/#linked-object-function) provides access to the details about a linked user.
 
 > **Note:** The Linked Objects feature isn't available for OpenID Connect claims.
 
@@ -47,10 +47,10 @@ Thus, you can create chains of relationships (Jane > Bob > Joe > Frank) or termi
 
 Then, if you create another Linked Object relationship for scrum team membership, you could assign relationships to the same four users:
 
-* Bob is the scrum master for the Identity Scrum team.
+* Bob is the scrum lead for the Identity Scrum team.
 * Joe and Frank are both contributors to the team.
 
-Bob can be the `primary` for a Manager:Subordinate, an `associated` user for that same Linked Object definition, and also the `primary` for the Scrummaster:Contributor Linked Object definition.
+Bob can be the `primary` for a Manager:Subordinate, an `associated` user for that same Linked Object definition, and also the `primary` for the Scrumlead:Contributor Linked Object definition.
 
 To represent a relationship, create a Linked Object definition that specifies a `primary` (parent) relationship and an `associated` (child) relationship, and then add a link in which the appropriate user is assigned to each side of that link type.
 
@@ -115,8 +115,7 @@ curl -X POST \
 ##### Response example
 
 
-```bash
-HTTP/1.1 201 Created
+```json
 {
     "primary": {
         "name": "manager",
@@ -132,7 +131,7 @@ HTTP/1.1 201 Created
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
+            "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
         }
     }
 }
@@ -173,8 +172,6 @@ curl -X GET \
 
 
 ```json
-HTTP/1.1 200 OK
-
 {
     "primary": {
         "name": "manager",
@@ -190,7 +187,7 @@ HTTP/1.1 200 OK
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
+            "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
         }
     }
 }
@@ -246,7 +243,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
             }
         }
     },
@@ -265,7 +262,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/mother"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/mother"
             }
         }
     }
@@ -397,12 +394,12 @@ curl -v -X GET \
 ##### Response example
 
 
-```bash
+```json
 [
     {
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7"
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7"
             }
         }
     }
@@ -444,12 +441,12 @@ curl -v -X GET \
 ##### Response example
 
 
-```bash
+```json
 [
     {
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/users/00u5zex6ztMbOZhF50h7"
+                "href": "https://{yourOktaDomain}/api/v1/users/00u5zex6ztMbOZhF50h7"
             }
         }
     }
@@ -487,7 +484,7 @@ None
 
 
 ```bash
-curl -v -X GET \
+curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
@@ -505,7 +502,7 @@ HTTP/1.1 204 No Content
 
 The following object contains example values for each attribute.
 
-```bash
+```json
 {
     "primary": {
         "name": "manager",
@@ -521,7 +518,7 @@ The following object contains example values for each attribute.
     },
     "_links": {
           "self": {
-               "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
+               "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/linkedObjects/manager"
           }
     }
 }

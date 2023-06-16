@@ -6,7 +6,7 @@ and automatically displays the **Sign in with Facebook** button. If the Facebook
 make sure that you have completed all the steps in [Configuration Updates](#configuration-updates).
 The following Sign-In Widget displays the Facebook button:
 
-<div class="common-image-format">
+<div class="half">
 
 ![Displays the Sign-In Widget with the username, password, and Facebook button](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-idp-sign-in-page.png)
 
@@ -17,9 +17,9 @@ The following Sign-In Widget displays the Facebook button:
 When the user selects **Sign in with Facebook**, they are redirected to
 the Facebook sign-in page.
 
-<div class="common-image-format">
+<div class="half border">
 
-![Displays the Facebook sign-in page](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-fb-sign-in-page.png)
+![Displays the Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 
 </div>
 
@@ -42,7 +42,7 @@ See that guide for more details.
 ### 5: Get and store the tokens and redirect the user to the default sign-in page
 
 The next step is to get the tokens from the `/token` endpoint using the
-returned `interaction_code` and the PCKE parameters. After the tokens are fetched,
+returned `interaction_code` and the PKCE parameters. After the tokens are fetched,
 store them in session for later use. The code that fetches and stores these tokens
 is identical to the code described in
 [step 3](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/#_3-get-and-store-the-tokens-and-redirect-the-request-to-the-default-sign-in-page) in [Basic sign-in flow using the Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/).

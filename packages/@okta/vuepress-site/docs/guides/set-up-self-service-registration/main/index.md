@@ -6,9 +6,9 @@ meta:
 layout: Guides
 ---
 
-> **Note**: This document is written for Okta Classic Engine. If you are using Okta Identity Engine, see [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
+> **Note**: Self-Service Registration for Okta Classic Engine is deprecated. If you are using Okta Identity Engine, see [Self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/android/main/) for relevant guidance. See [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
 
-This guide explains how to set up Okta's self-service registration (SSR) functionality so that you can configure a custom app or the Okta homepage that allows users to self-register.
+This guide explains how to set up Okta's self-service registration (SSR) functionality with Okta Classic Engine so that you can configure a custom app or the Okta homepage that allows users to self-register.
 
 ---
 
@@ -26,11 +26,11 @@ This guide explains how to set up Okta's self-service registration (SSR) functio
 
 ---
 
-## About Okta's self-service registration
+## About Okta self-service registration
 
 A new user's first impression starts with the registration process, which makes it critical to get right. Since you're asking a user to provide information for the first time, you need to personalize and streamline the experience.
 
-Okta's self-service registration lets you configure a custom app or the Okta Homepage for use when users self-register. After you configure and enable your self-service registration policy, a sign-up link appears in the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/). Users who click this link are directed to a Create Account registration form that is based on your registration policy.
+Okta self-service registration lets you configure a custom app or the Okta Homepage for use when users self-register. After you configure and enable your self-service registration policy, a sign-up link appears in the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/). Users who click this link are directed to a Create Account registration form that is based on your registration policy.
 
 Self-service registration supports these registration workflows:
 
@@ -131,7 +131,7 @@ If you don't have any policies configured or your org doesn't allow you to disab
 
 If you left the [**Add to Sign-In Widget**](#enable-and-configure-a-self-service-registration-policy) check box clear when you configured the registration policy, then you need to configure a link using JavaScript in the **Customize Sign-In Page** HTML editor.
 
-> **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom URL domain](/docs/guides/custom-url-domain/) configured.
+> **Note:** To enable the Custom Sign-In Page HTML editor, you must configure a [custom domain](/docs/guides/custom-url-domain/).
 
 1. In the Admin Console, go to **Settings** > **Customization**.
 2. Click the **Custom Sign In** tab.

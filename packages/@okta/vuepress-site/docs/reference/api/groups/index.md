@@ -67,20 +67,20 @@ curl -v -X POST \
     "logo": [
       {
         "name": "medium",
-        "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+        "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
         "type": "image/png"
       },
       {
         "name": "large",
-        "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+        "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
         "type": "image/png"
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+      "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
     },
     "apps": {
-      "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+      "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
     }
   }
 }
@@ -136,20 +136,20 @@ curl -v -X GET \
     "logo": [
       {
         "name": "medium",
-        "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+        "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
         "type": "image/png"
       },
       {
         "name": "large",
-        "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+        "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
         "type": "image/png"
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+      "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
     },
     "apps": {
-      "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+      "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
     }
   }
 }
@@ -180,9 +180,12 @@ Enumerates Groups in your organization with pagination. A subset of Groups can b
 | q         | Finds a group that matches the `name` property                                               | Query     | String   | FALSE    |         |
 | expand        | If specified, it causes additional metadata to be included in the response. Possible values are `stats` and/or `app`.                                             | Query     | String   | FALSE    |         |
 | search | Searches for groups with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
+| sortBy      | Specifies field to sort by (for search queries only).                                                                                           | Search query | String     | FALSE    |
+| sortOrder   | Specifies sort order asc or desc (for search queries only).                                                                                     | Search query | String     | FALSE    |
 
 > **Notes:** The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).<br><br>
-Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.
+Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.<br><br>
+Results from the filter or query parameter are driven from an eventually consistent datasource. The synchronization lag is typically less than one second.
 
 ###### Filters
 
@@ -223,9 +226,7 @@ Okta Groups with Profile or memberships updated after 11/11/2015
 
     filter=type eq "OKTA_GROUP" and (lastUpdated gt "2015-11-11T00:00:00.000Z" or lastMembershipUpdated gt "2015-11-11T00:00:00.000Z")
 
-
 ##### Response parameters
-
 
 Array of [Groups](#group-object)
 
@@ -235,11 +236,12 @@ Enumerates all Groups in your organization
 
 Reminders about the `limit` query parameter and query timeouts:
 
-* If you don't specify a value for `limit` and don't specify a query, only 200 results are returned for most orgs.
-* If you don't specify any value for `limit` and do specify a query, a maximum of 10 results are returned.
-* The maximum value for `limit` is 200 for most orgs.
-* Don't write code that depends on the default or maximum value, as it may change.
-* If you receive an HTTP 500 status code, you have more than likely exceeded the request timeout. Retry your request with a smaller `limit` and [page the results](/docs/reference/core-okta-api/#pagination).
+- If you don't specify a value for `limit` and don't specify a query, only 200 results are returned for most orgs.
+- If you don't specify any value for `limit` and do specify a query, a maximum of 10 results are returned.
+- The maximum value for `limit` is 200 for most orgs.
+- Don't write code that depends on the default or maximum value, as it may change.
+- If you receive an HTTP 500 status code, you likely exceeded the request timeout. Retry your request with a smaller `limit` and [page the results](/docs/reference/core-okta-api/#pagination).
+- The Okta default Everyone group isn't returned for users with a Group Admin role.
 
 ##### Request example
 
@@ -274,20 +276,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
       }
     }
   },
@@ -318,23 +320,23 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/active_directory-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/active_directory-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/active_directory-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/active_directory-large.png",
           "type": "image/png"
         }
       ],
       "source": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oa2v0el0gP90aqjJ0g7"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oa2v0el0gP90aqjJ0g7"
       },
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00garwpuyxHaWOkdV0g4/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00garwpuyxHaWOkdV0g4/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00garwpuyxHaWOkdV0g4/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00garwpuyxHaWOkdV0g4/apps"
       }
     }
   }
@@ -360,7 +362,6 @@ curl -v -X GET \
 
 ##### Response example
 
-
 ```json
 [
   {
@@ -380,20 +381,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
       }
     }
   }
@@ -411,11 +412,10 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/groups?filter=type+eq+\"OKTA_GROUP\"&limit=200"
+"https://${yourOktaDomain}/api/v1/groups?filter=type+eq+%22OKTA_GROUP%22&limit=200"
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -436,20 +436,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
       }
     }
   },
@@ -470,20 +470,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/apps"
       }
     }
   }
@@ -501,7 +501,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/groups?filter=lastUpdated+gt+\"2015-10-01T00:00:00.000Z\"&limit=200"
+"https://${yourOktaDomain}/api/v1/groups?filter=lastUpdated+gt+%222015-10-01T00:00:00.000Z%22&limit=200"
 ```
 
 ##### Response example
@@ -525,20 +525,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
       }
     }
   }
@@ -556,7 +556,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/groups?filter=lastMembershipUpdated+gt+\"2015-10-01T00:00:00.000Z\"&limit=200"
+"https://${yourOktaDomain}/api/v1/groups?filter=lastMembershipUpdated+gt+%222015-10-01T00:00:00.000Z%22&limit=200"
 ```
 
 ##### Response example
@@ -580,20 +580,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
       }
     }
   },
@@ -614,20 +614,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/apps"
       }
     }
   }
@@ -645,7 +645,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/groups?filter=lastUpdated+gt+\"2015-10-01T00:00:00.000Z\"+or+lastMembershipUpdated+gt+\"2015-10-01T00:00:00.000Z\"&limit=200"
+"https://${yourOktaDomain}/api/v1/groups?filter=lastUpdated+gt+%222015-10-01T00:00:00.000Z%22+or+lastMembershipUpdated+gt+%222015-10-01T00:00:00.000Z%22&limit=200"
 ```
 
 ##### Response example
@@ -669,20 +669,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
       }
     }
   },
@@ -703,20 +703,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/apps"
       }
     }
   }
@@ -727,19 +727,24 @@ curl -v -X GET \
 
 Searches for groups based on the properties specified in the search parameter
 
-Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, and so on) and string values are case insensitive.
 
 This operation:
 
-* Supports [pagination](/docs/reference/core-okta-api/#pagination).
-* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
-For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`.
-Examples use cURL-style escaping instead of URL encoding to make them easier to read.
-Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
-* Searches many properties:
-   - Any group profile property, including imported app group profile properties.
-   - The top-level properties `id`, `created`, `lastMembershipUpdated`, `lastUpdated`, and `type`.
-   - The [source](#group-attributes) of groups with type of `APP_GROUP`, accessed as `source.id`.
+- Supports [pagination](/docs/reference/core-okta-api/#pagination).
+
+- Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`. Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
+
+- Searches many properties:
+  - Any group profile property, including imported app group profile properties.
+  - The top-level properties `id`, `created`, `lastMembershipUpdated`, `lastUpdated`, and `type`.
+  - The [source](#group-attributes) of groups with type of `APP_GROUP`, accessed as `source.id`.
+
+- Accepts `sortBy` and `sortOrder` parameters.
+  - `sortBy` can be any single property, for example `sortBy=profile.name`
+  - `sortOrder` is optional and defaults to ascending
+  - `sortOrder` is ignored if `sortBy` is not present
+  - Groups with the same value for the `sortBy` property will be ordered by `id`
 
 | Search Term Example                                       | Description                                                               |
 | :-------------------------------------------------------- | :------------------------------------------------------------------------ |
@@ -748,7 +753,7 @@ Use an ID lookup for records that you update to ensure your results contain the 
 | `id eq "00gak46y5hydV6NdM0g4"`                            | Groups with a specified `id`                                              |
 | `profile.name eq "West Coast Users"`                      | Groups that have a `name` of `West Coast Users`                           |
 | `profile.samAccountName sw "West Coast" `                 | Groups whose `samAccountName` starts with `West Coast`                    |
-| `source.id` eq `0oa2v0el0gP90aqjJ0g7`                     | Groups that have the source application with a specified `source.id`      |
+| `source.id eq "0oa2v0el0gP90aqjJ0g7"`                     | Groups that have the source application with a specified `source.id`      |
 
 ##### Search Examples
 
@@ -767,11 +772,10 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/groups?search=lastUpdated+gt+\"2015-10-01T00:00:00.000Z\"+or+lastMembershipUpdated+gt+\"2015-10-01T00:00:00.000Z\""
+"https://${yourOktaDomain}/api/v1/groups?search=lastUpdated+gt+%222015-10-01T00:00:00.000Z%22+or+lastMembershipUpdated+gt+%222015-10-01T00:00:00.000Z%22"
 ```
 
 ##### Response example
-
 
 ```json
 [
@@ -792,20 +796,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
       }
     }
   },
@@ -826,20 +830,20 @@ curl -v -X GET \
       "logo": [
         {
           "name": "medium",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
           "type": "image/png"
         },
         {
           "name": "large",
-          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/users"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/users"
       },
       "apps": {
-        "href": "https://${yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/apps"
+        "href": "https://{yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/apps"
       }
     }
   }
@@ -904,20 +908,20 @@ curl -v -X PUT \
     "logo": [
       {
         "name": "medium",
-        "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+        "href": "https://{yourOktaDomain}/img/logos/groups/okta-medium.png",
         "type": "image/png"
       },
       {
         "name": "large",
-        "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+        "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
         "type": "image/png"
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/groups/00ub0oNGTSWTBKOLGLNR/users"
+      "href": "https://{yourOktaDomain}/api/v1/groups/00ub0oNGTSWTBKOLGLNR/users"
     },
     "apps": {
-      "href": "https://${yourOktaDomain}/api/v1/groups/00ub0oNGTSWTBKOLGLNR/apps"
+      "href": "https://{yourOktaDomain}/api/v1/groups/00ub0oNGTSWTBKOLGLNR/apps"
     }
   }
 }
@@ -1023,7 +1027,7 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00u1f96ECLNVOKVMUSEA"
+        "href": "https://{yourOktaDomain}/api/v1/users/00u1f96ECLNVOKVMUSEA"
       }
     }
   },
@@ -1052,7 +1056,7 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00u1f9cMYQZFMPVXIDIZ"
+        "href": "https://{yourOktaDomain}/api/v1/users/00u1f9cMYQZFMPVXIDIZ"
       }
     }
   }
@@ -1065,8 +1069,8 @@ curl -v -X GET \
 
 Adds a [user](/docs/reference/api/users/#user-object) to a group of `OKTA_GROUP` type
 
-> **Notes:** You can modify only memberships for groups of `OKTA_GROUP` type.<br><br>
-Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
+> **Note:** You can modify only memberships for groups of `OKTA_GROUP` type. <br>
+> Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
 
 ##### Request parameters
 
@@ -1128,7 +1132,6 @@ curl -v -X DELETE \
 
 ##### Response example
 
-
 ```http
 HTTP/1.1 204 No Content
 ```
@@ -1146,22 +1149,21 @@ Creates a Group rule to dynamically add users to the specified Group if they mat
 ##### Request parameters
 
 
-| Parameter                           | Description                                             | ParamType | DataType                          | Required | Default |
-| ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
-| name                                | name of the Group                                       | Body      | String                            | TRUE     |         |
-| type                                | `group_rule`                                            | Body      | String                            | TRUE     |         |
-| conditions.expression.value         | Okta expression that would result in a boolean value    | Body      | String                            | TRUE     |         |
-| conditions.expression.type          | `urn:okta:expression:1.0`                               | Body      | String                            | TRUE     |         |
-| conditions.people.users.exclude     | userIds that would be excluded when rules are processed | Body      | String                            | FALSE    |         |
-| conditions.people.groups.exclude    | currently not supported                                 | Body      | String                            | FALSE    |         |
-| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added.        | Body      | String                            | TRUE     |         |
+| Parameter                           | Description                                             | ParamType | DataType                          | Required |
+| ----------------------------------- | ------------------------------------------------------- | --------- | --------------------------------- | -------- |
+| name                                | name of the Group rule (min character 1; max characters 50)                                  | Body      | String                            | TRUE     |         |
+| type                                | `group_rule`                                            | Body      | String                            | TRUE     |
+| conditions.expression.value         | Okta expression that would result in a boolean value    | Body      | String                            | TRUE     |
+| conditions.expression.type          | `urn:okta:expression:1.0`                               | Body      | String                            | TRUE     |
+| conditions.people.users.exclude     | userIds that would be excluded when rules are processed | Body      | String                            | FALSE    |
+| conditions.people.groups.exclude    | currently not supported                                 | Body      | String                            | FALSE    |
+| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added.        | Body      | String                            | TRUE     |
 
 ##### Response parameters
 
 Created [Rule](#rule-object)
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -1246,15 +1248,15 @@ You can't currently update the action section.
 ##### Request parameters
 
 
-| Parameter                           | Description                                    | ParamType | DataType                          | Required | Default |
-| ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- | ------- |
-| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added| Body      | String                            | TRUE     |         |
-| conditions.expression.type           | `urn:okta:expression:1.0 `                     | Body      | String                            | TRUE     |         |
-| conditions.expression.value          | okta expression that would result in a boolean value | Body      | String                     | TRUE     |         |
-| conditions.people.groups.exclude     | currently not supported                        | Body      | String                            | FALSE    |         |
+| Parameter                           | Description                                    | ParamType | DataType                          | Required |
+| ----------------------------------- | ---------------------------------------------- | --------- | --------------------------------- | -------- |
+| actions.assignUserToGroups.groupIds | Array of groupIds to which users would be added| Body      | String                            | TRUE     |
+| conditions.expression.type           | `urn:okta:expression:1.0 `                     | Body      | String                            | TRUE     |
+| conditions.expression.value          | okta expression that would result in a boolean value | Body      | String                     | TRUE     |
+| conditions.people.groups.exclude     | currently not supported                        | Body      | String                            | FALSE    |
 | conditions.people.users.exclude      | userIds that would be excluded when rules are processed | Body      | String                   | FALSE    |         |
-| id                                  | ID of the rule to be updated                   | URL       | String                            | TRUE     |         |
-| name                                | name of the Group                              | Body      | String                            | TRUE     |         |
+| id                                  | ID of the rule to be updated                   | URL       | String                            | TRUE     |
+| name                                | name of the Group rule (min character 1; max characters 50)                              | Body      | String                            | TRUE     |
 
 ##### Response parameters
 
@@ -1340,7 +1342,7 @@ curl -v -X PUT \
 
 Lists all Group rules for your organization
 
-> **Note:** If you don't specify any value for `limit`, a maximum of 50 results are returned. The maximum value for `limit` is 300.
+> **Note:** If you don't specify any value for `limit`, a maximum of 50 results are returned. The maximum value for `limit` is 200.
 
 ##### Request parameters
 
@@ -1575,7 +1577,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/groups/rules/0pr3f7zMZZHPgUoWO0g4/lifecycle/activate"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```http
@@ -1695,19 +1697,19 @@ curl -v -X GET \
         "_links": {
             "appLinks": [
                 {
-                    "href": "https://${yourOktaDomain}/home/template_basic_auth/0oafwvZDWJKVLDCUWUAC/1438",
+                    "href": "https://{yourOktaDomain}/home/template_basic_auth/0oafwvZDWJKVLDCUWUAC/1438",
                     "name": "login",
                     "type": "text/html"
                 }
             ],
             "users": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/users"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/users"
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/lifecycle/deactivate"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/lifecycle/deactivate"
             },
             "groups": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/groups"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/groups"
             }
         }
     },
@@ -1749,19 +1751,19 @@ curl -v -X GET \
         "_links": {
             "appLinks": [
                 {
-                    "href": "https://${yourOktaDomain}/home/bookmark/0oafxqCAJWWGELFTYASJ/1280",
+                    "href": "https://{yourOktaDomain}/home/bookmark/0oafxqCAJWWGELFTYASJ/1280",
                     "name": "login",
                     "type": "text/html"
                 }
             ],
             "users": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/users"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/users"
             },
             "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/lifecycle/deactivate"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/lifecycle/deactivate"
             },
             "groups": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/groups"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/groups"
             }
         }
     }
@@ -1790,20 +1792,20 @@ curl -v -X GET \
     "logo": [
       {
         "name": "medium",
-        "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+        "href": "https:/${yourOktaDomain}/img/logos/groups/okta-medium.png",
         "type": "image/png"
       },
       {
         "name": "large",
-        "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+        "href": "https://{yourOktaDomain}/img/logos/groups/okta-large.png",
         "type": "image/png"
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+      "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
     },
     "apps": {
-      "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+      "href": "https://{yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
     }
   }
 }

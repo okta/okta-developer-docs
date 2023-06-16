@@ -40,11 +40,16 @@ The following code from the sample app shows the loop of Identity Providers that
 
 #### Sample page for the sign-in with Facebook link
 
-The following sample shows the button to sign in with Facebook.
+The following wireframe shows a typical sign-in form with Facebook sign-in button.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays an example social sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link.png)
+![A sign-in form with fields for username and password, a next button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36701&t=wzNwSZkdctajVush-1 sign-in-form-username-password-facebook-google
+ -->
 
 </div>
 
@@ -56,7 +61,7 @@ The user clicks the sign-in link, which sends them initially to the Okta org. Th
 
 Next, the user enters their email and password, and clicks **Log in**. This page is hosted by Facebook. The user information that you enter originates from a test user that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to perform this step.
 
-<div class="common-image-format">
+<div class="half border">
 
 ![Displays an example Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 

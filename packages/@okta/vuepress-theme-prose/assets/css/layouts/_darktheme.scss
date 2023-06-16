@@ -1,4 +1,5 @@
 .dark-theme {
+  @import "../themes/dark/authorization";
   @import "../themes/dark/global";
   @import "../themes/dark/login";
   @import "../themes/dark/selectorTile";
@@ -7,7 +8,6 @@
   @import "../themes/dark/signUp";
   @import "../themes/dark/sideBar";
   @import "../themes/dark/content";
-  @import "../themes/dark/authorization";
   @import "../themes/dark/header";
   @import "../themes/dark/homepage";
   @import "../themes/dark/breadCrumb";
@@ -18,7 +18,12 @@
   @import "../themes/dark/search";
   @import "../themes/dark/companyLogos";
   @import "../themes/dark/footer";
-  @import "../themes/dark/liveWidget";
   @import "../themes/dark/stackSelector";
-  @import "../themes/dark/banner";
+  @import "../themes/dark/oie-embedded-sdk";
+  @import "../themes/dark/support";
+  @import "../themes/dark/workforce";
+  @import "../themes/dark/resources";
+  @import "../themes/dark/news";
+  @import "../themes/dark/typography";
+  @import "../themes/dark/headerNav";
 }

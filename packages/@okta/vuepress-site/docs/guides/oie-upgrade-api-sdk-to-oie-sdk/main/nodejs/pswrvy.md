@@ -2,7 +2,7 @@
 
 If your application uses the Classic Engine Authentication SDK methods to recover a password through Okta, you generally start the flow by calling a method (`authClient.forgotPassword`) and then calling verify on the returned transaction (`transaction.verify`) with a passcode. After this call, you check for a successful status (`transaction.status`), which completes the transaction. You then need to redirect back to Okta to get tokens (`session.setCookieAndRedirect`).
 
-> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Okta Identity Engine SDK.
+> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Identity Engine SDK.
 
 See the following code snippet for this example:
 
@@ -28,9 +28,9 @@ authClient.forgotPassword({
 });
 ```
 
-#### Okta Identity Engine SDK authentication flow for password recovery
+#### Identity Engine SDK authentication flow for password recovery
 
-For the Identity Engine SDK, you generally start the password recovery flow with a call to the `idx.recoverPassword` method on an OktaAuth object (for example, `authClient)`, using the parameters of username and authenticators or no parameters at all (although these parameters are required in subsequent calls). This call returns a status on the transaction object (`Idx.Status`), which must be handled by the application code. When finally successful (`IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response. There are other calls prior to that based on the password policy.
+For the Identity Engine SDK, you generally start the password recovery flow with a call to the `idx.recoverPassword` method on an `OktaAuth` object (for example, `authClient)`, using the parameters of username and authenticators or no parameters at all (although these parameters are required in subsequent calls). This call returns a status on the transaction object (`Idx.Status`) that the application code must handle. When finally successful (`IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response. There are other calls prior to that based on the password policy.
 
 See the following code snippet for this example that shows the last call that includes the user's confirmed new (recovered) password:
 

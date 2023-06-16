@@ -1,30 +1,3 @@
-.cm-s-neat {
-  span.cm-variable {
-    color: cv("text");
-  }
-  span.cm-comment {
-    color: cv("breadcrumb", "svg");
-  }
-  span.cm-property {
-    color: cv("code", "property");
-  }
-  span.cm-keyword {
-    color: cv("code", "keyword");
-  }
-  span.cm-string {
-    color: cv("code", "define");
-  }
-}
-
-.CodeMirror {
-  color: cv("text");
-  background-color: cv("code");
-  border-color: transparent;
-  &-gutters {
-    background-color: cv("code");
-  }
-}
-
 .token.function,
 .token.class-name {
   color: cv("code", "define");
@@ -58,21 +31,11 @@ pre[class*="language-"] {
   color: cv("code", "property");
 }
 
-.homepage--code-example {
-  background-color: cv("body");
-  border-color: transparent;
-  &--cm-wrapper .CodeMirror {
-    background-color: cv("body");
-    border-color: transparent;
-  }
+.api-uri-template {
+  border-color: cv("body");
+  background-color: cv("body", "obscure");
 }
 
-.api-uri {
-  &-template {
-    background-color: cv("body", "obscure");
-    border-color: cv("body");
-  }
-  &-put strong {
-    color: cv("link");
-  }
+.api-uri-put strong {
+  color: cv("link");
 }

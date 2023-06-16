@@ -8,27 +8,61 @@
         'page-body': true,
       }"
     >
-      <div class="content" v-if="$page.frontmatter.component">
+      <HeaderNav />
+
+
+      <div
+        v-if="$page.frontmatter.component"
+        class="content"
+      >
         <component :is="$page.frontmatter.component" />
       </div>
-      <div class="content" v-else>
+
+      <div
+        v-else-if="$page.frontmatter.customLandingPage"
+        class="content"
+      >
         <div
           :class="{
             'content--container': true,
             'navigation-only': appContext.isTreeNavMobileOpen
           }"
         >
-          <div class="sidebar-area">
-            <Sidebar />
+          <Sidebar />
+          <div class="content-area content-area-full col-xl-10 col-lg-10 col-md-12 col-sm-12">
+            <div class="content-custom">
+              <component
+                :is="currentCustomLanding"
+                v-if="currentCustomLanding"
+              />
+            </div>
           </div>
+        </div>
+      </div>
+
+      <div
+        v-else
+        class="content"
+      >
+        <div
+          :class="{
+            'content--container': true,
+            'navigation-only': appContext.isTreeNavMobileOpen
+          }"
+        >
+          <Sidebar />
           <div class="content-area col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <Breadcrumb />
             <StackSelector v-if="$page.hasStackContent" />
             <MobileOnThisPage />
             <PageTitle />
             <ContentPage />
-            <div class="edit-on-github">
-              <span class="fa fa-github"></span>
+            <GeneratedContent v-if="$page.frontmatter.generated" />
+            <div
+              v-if="!$page.frontmatter.generated"
+              class="edit-on-github"
+            >
+              <span class="fa fa-github" />
               <span>
                 <a
                   v-if="editLink"
@@ -37,8 +71,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   data-proofer-ignore
-                  >{{ editLinkText }}</a
-                >
+                >{{ editLinkText }}</a>
               </span>
             </div>
           </div>
@@ -64,24 +97,32 @@ export const endingSlashRE = /\/$/;
 export default {
   components: {
     Header: () => import("../components/Header.vue"),
+    HeaderNav: () => import("../components/HeaderNav.vue"),
     Sidebar: () => import("../components/Sidebar.vue"),
     OnThisPage: () => import("../components/OnThisPage.vue"),
     MobileOnThisPage: () => import("../components/MobileOnThisPage.vue"),
     PageTitle: () => import("../components/PageTitle.vue"),
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
+    GeneratedContent: () => import("../components/GeneratedContent.vue"),
     Footer: () => import("../components/Footer.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
-      import("../components/OktaIntegrationNetwork.vue"),
+      import("../custom-landings/OktaIntegrationNetwork/OktaIntegrationNetwork.vue"),
     Search: () => import("../components/Search.vue"),
     Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
-    LiveWidget: () => import('../components/LiveWidget.vue'),
     Errors: () => import("../components/Errors.vue"),
+    Copyright: () => import("../components/Copyright.vue"),
   },
   mixins: [SidebarItems],
+  provide() {
+    return {
+      appContext: this.appContext,
+      stackSelectorData: this.stackSelectorData,
+    };
+  },
   data() {
     return {
       appContext: {
@@ -94,40 +135,6 @@ export default {
         from: ''
       },
     };
-  },
-  provide() {
-    return {
-      appContext: this.appContext,
-      stackSelectorData: this.stackSelectorData,
-    };
-  },
-  mounted: function() {
-    import('../util/pendo');
-    let that = this;
-    that.appContext.treeNavDocs = this.getTreeNavDocs();
-    this.$on("toggle-tree-nav", event => {
-      that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
-    });
-    this.onResize();
-    window.addEventListener("resize", this.onResize);
-    this.redirIfRequired();
-  },
-  watch: {
-    $route(to, from) {
-      this.appContext.isTreeNavMobileOpen = false;
-      this.redirIfRequired();
-      
-      // On route change check if base path has changed.
-      // If true, re-render sidebar.
-      // We want to check if it's a 'real' route change (re-render sidebar) or just a page scroll
-      // where the hash fragment changes (do nothing)
-      if (from.path !== to.path) {
-        // Previously we tried to remove re-render logic but seems it
-        // caused additional bugs (https://oktainc.atlassian.net/browse/OKTA-419090, https://oktainc.atlassian.net/browse/OKTA-419134)
-        // See https://github.com/okta/okta-developer-docs/pull/2170 <-- PR that gets rid of re-render sidebar logic
-        this.appContext.treeNavDocs = this.getNavigationData();   
-      }
-    }
   },
   computed: {
     editLink() {
@@ -153,16 +160,59 @@ export default {
     },
     editLinkText() {
       return this.$site.themeConfig.editLink.editLinkText || `Edit this page`;
+    },
+    currentCustomLanding() {
+      const { frontmatter, title } = this.$page;
+      if (title && frontmatter.customLandingPage) {
+        return title.replace(/\s/g, '')
+      }
+      return ''
     }
+  },
+  watch: {
+    $route(to, from) {
+      this.appContext.isTreeNavMobileOpen = false;
+      this.redirIfRequired();
+
+      // On route change check if base path has changed.
+      // If true, re-render sidebar.
+      // We want to check if it's a 'real' route change (re-render sidebar) or just a page scroll
+      // where the hash fragment changes (do nothing)
+      if (from.path !== to.path) {
+        // Previously we tried to remove re-render logic but seems it
+        // caused additional bugs (https://oktainc.atlassian.net/browse/OKTA-419090, https://oktainc.atlassian.net/browse/OKTA-419134)
+        // See https://github.com/okta/okta-developer-docs/pull/2170 <-- PR that gets rid of re-render sidebar logic
+        this.appContext.treeNavDocs = this.getNavigationData();
+      }
+    }
+  },
+  mounted: function() {
+    import('../util/pendo');
+    let that = this;
+    that.appContext.treeNavDocs = this.getTreeNavDocs();
+    this.$on("toggle-tree-nav", event => {
+      that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
+    });
+    this.onResize();
+    window.addEventListener("resize", this.onResize);
+    this.redirIfRequired();
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
   },
   methods: {
     redirIfRequired() {
-      if (this.$page && this.$page.redir) {
-        let anchor = window.location.href.split("#")[1] || "";
-        if (anchor) {
-          this.$router.replace({ path: `${this.$page.redir}#${anchor}` });
-        } else {
-          this.$router.replace({ path: `${this.$page.redir}` });
+      if (this.$page) {
+        if (this.$page.redir) {
+          let anchor = window.location.href.split("#")[1] || "";
+          if (anchor) {
+            this.$router.replace({ path: `${this.$page.redir}#${anchor}` });
+          } else {
+            this.$router.replace({ path: `${this.$page.redir}` });
+          }
+        }
+        if (this.$page.path === '/okta-integration-network/') {
+          this.$router.replace({ path: `/docs/guides${this.$page.path}` });
         }
       }
     },
@@ -184,9 +234,6 @@ export default {
       this.appContext.treeNavDocs = this.appContext.treeNavDocs.length > 0 ? this.appContext.treeNavDocs : this.getNavigationData();
       return this.appContext.treeNavDocs;
     },
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.onResize);
   }
 };
 </script>

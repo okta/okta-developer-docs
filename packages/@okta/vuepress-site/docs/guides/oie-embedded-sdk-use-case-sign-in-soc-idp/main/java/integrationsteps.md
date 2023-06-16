@@ -18,16 +18,21 @@ You need to build a generic sign-in form with the social sign-in options availab
 ```html
 <div th:case="'FACEBOOK'">
     <a th:href="@{${idp.href}}" class="btn btn-lg btn-social btn-facebook" id="btn-facebook">
-        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+        <i class="fa fa-facebook fa-fw"></i> Sign in with Facebook
     </a>
 </div>
 ```
 
-The previous code snippet is rendered as the **Login with Facebook** button, as shown in the following image:
+The previous code snippet is rendered as a **Sign in with Facebook** button, as shown in the following wireframe.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the 'Login with Facebook' button in a sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link-java.png)
+![A sign-in form with fields for username and password, a next button, and also buttons for signing in with facebook or google](/img/wireframes/sign-in-form-username-password-facebook-google.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36701&t=wzNwSZkdctajVush-1 sign-in-form-username-password-facebook-google
+ -->
 
 </div>
 
@@ -50,4 +55,4 @@ AuthenticationResponse authenticationResponse =
 
 With the obtained access token, the user is successfully signed in, and can be sent to the default signed-in home page.
 
-> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect Authorization Server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/#get-the-user-profile-information) for details.
+> **Note:** You can obtain basic user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/#get-the-user-profile-information) for details.

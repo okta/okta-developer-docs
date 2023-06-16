@@ -1,18 +1,15 @@
-Use the `refreshToken()` method to get a new access token. Add the following code after checking for access token expiry, inside the `if (sessionClient.isAuthenticated())` block:
+Use the `refreshToken()` method to get a new access token.
 
-```java
-if (sessionClient.getTokens().isAccessTokenExpired()) {
-  // access_token expired hence refresh token
-  sessionClient.refreshToken(new RequestCallback<>() {
-    @Override
-    public void onSuccess(@NonNull Tokens result) {
-      logger.info("Token refreshed successfully");
+```kotlin
+if (CredentialBootstrap.defaultCredential().token != null && CredentialBootstrap.defaultCredential().getAccessTokenIfValid() == null) {
+  // The access_token expired, refresh the token.
+  when (val result = CredentialBootstrap.defaultCredential().refreshToken()) {
+    is OidcClientResult.Error -> {
+        // An error occurred. Access the error in `result.exception`.
     }
-
-    @Override
-    public void onError(String msg, AuthorizationException error) {
-      logger.severe(String.format("Error: %s : %s", error.error, error.errorDescription));
+    is OidcClientResult.Success -> {
+      // Token refreshed successfully.
     }
-  });
+  }
 }
 ```

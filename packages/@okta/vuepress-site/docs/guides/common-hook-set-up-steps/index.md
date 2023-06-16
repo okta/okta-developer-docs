@@ -1,6 +1,6 @@
 ---
-title: Common Hook Setup Steps
-excerpt: Overview and considerations when implementing an Event or Inline Hook
+title: Common hook setup steps
+excerpt: Overview and considerations when implementing an event or inline hook
 layout: Guides
 sections:
  - main

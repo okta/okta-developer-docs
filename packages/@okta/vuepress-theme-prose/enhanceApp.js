@@ -3,7 +3,6 @@ import pageComponents from '@internal/page-components'
 import 'bootstrap/dist/css/bootstrap-grid.css';
 import PortalVue from 'portal-vue';
 
-
 export default ({
   Vue,
   options,

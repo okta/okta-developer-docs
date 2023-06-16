@@ -19,9 +19,14 @@ if err != nil {
 
 Build a sign-in page that captures the user's name and password.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
 </div>
 
@@ -91,4 +96,4 @@ if lr.Token() != nil {
 
 ### 5 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after the user successfully signs in by making a request to Okta's Open ID Connect authorization server. See the next section for more information.
+Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect authorization server. See the next section for more information.

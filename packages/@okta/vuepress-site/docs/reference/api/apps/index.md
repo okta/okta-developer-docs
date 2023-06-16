@@ -112,16 +112,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafxqCAJWWGELFTYASJ/lifecycle/deactivate"
     }
   }
 }
@@ -209,16 +209,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/lifecycle/deactivate"
     }
   }
 }
@@ -322,35 +322,35 @@ curl -v -X POST \
   },
   "_links":{
     "help":{
-      "href":"https://${yourOktaDomain}/app/okta_org2org/0oawpacQMRQtvkxOf0g3/setup/help/SAML_2_0/external-doc",
+      "href":"https://{yourOktaDomain}/app/okta_org2org/0oawpacQMRQtvkxOf0g3/setup/help/SAML_2_0/external-doc",
       "type":"text/html"
     },
     "metadata":{
-      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/sso/saml/metadata",
+      "href":"https://{yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/sso/saml/metadata",
       "type":"application/xml"
     },
     "appLinks":[
       {
         "name":"login",
-        "href":"https://${yourOktaDomain}/home/okta_org2org/0oawpacQMRQtvkxOf0g3/1857",
+        "href":"https://{yourOktaDomain}/home/okta_org2org/0oawpacQMRQtvkxOf0g3/1857",
         "type":"text/html"
       }
     ],
     "groups":{
-      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/groups"
+      "href":"https://{yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/groups"
     },
     "logo":[
       {
         "name":"medium",
-        "href":"https://${yourOktaDomain}/assets/img/logos/okta-logo-admin.f5cef92fdcff9fbc3b1835def5de1314.png",
+        "href":"https://{yourOktaDomain}/assets/img/logos/okta-logo-admin.f5cef92fdcff9fbc3b1835def5de1314.png",
         "type":"image/png"
       }
     ],
     "users":{
-      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/users"
+      "href":"https://{yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/users"
     },
     "deactivate":{
-      "href":"https://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/lifecycle/deactivate"
+      "href":"https://{yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/lifecycle/deactivate"
     }
   }
 }
@@ -365,8 +365,10 @@ Adds a SAML 2.0 application instance
 
 | Parameter | Description                                     | DataType | Nullable | Unique | Validation                                |
 | --------- | ----------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
-| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |  |
-| destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |                                           |
+| attributeStatements   | Check [here](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html) for details | Array of [Attribute Statements](#attribute-statements-object) | TRUE     | FALSE  |  |
+| configuredAttributeStatements   | SAML attributes that are inherited from app metadata during app creation and are used to configure group attributes | Array of [Group Attribute Statements](#group-attribute-statements-object) | TRUE     | FALSE  |  |
+| destinationOverride   | Overrides the `destination` setting   | String  | FALSE     | FALSE  |  |
+| honorForceAuthn       | Set to `true` to prompt users for their credentials when a SAML request has the `ForceAuthn` attribute set to `true`. Users are prompted to enter their credentials, even if they normally sign in through Desktop SSO. Set this parameter to `false` to ignore the `ForceAuthn` attribute in the SAML request.       | Boolean   | FALSE    | FALSE  |  |
 | url       | The URL of the sign-in page for this app          | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
 ##### Request example
@@ -441,7 +443,7 @@ curl -X POST \
   "settings": {
     "app": {
       "acsURL": null,
-      "orgName": "${yourOktaDomain}"
+      "orgName": "{yourOktaDomain}"
     },
     "notifications": {
       "vpn": {
@@ -472,35 +474,35 @@ curl -X POST \
   },
   "_links": {
     "help": {
-      "href": "https://${yourOktaDomain}/app/cornerstone/0oaugbelRxD4cY31S0g3/setup/help/SAML_2_0/external-doc",
+      "href": "https://{yourOktaDomain}/app/cornerstone/0oaugbelRxD4cY31S0g3/setup/help/SAML_2_0/external-doc",
       "type": "text/html"
     },
     "metadata": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/sso/saml/metadata",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/sso/saml/metadata",
       "type": "application/xml"
     },
     "appLinks": [
       {
         "name": "login",
-        "href": "https://${yourOktaDomain}/home/cornerstone/0oaugbelRxD4cY31S0g3/165",
+        "href": "https://{yourOktaDomain}/home/cornerstone/0oaugbelRxD4cY31S0g3/165",
         "type": "text/html"
       }
     ],
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/groups"
     },
     "logo": [
       {
         "name": "medium",
-        "href": "https://${yourOktaDomain}/assets/img/logos/cornerstone.a63cddeecf3acc5aae6d4592dcfe8125.png",
+        "href": "https://{yourOktaDomain}/assets/img/logos/cornerstone.a63cddeecf3acc5aae6d4592dcfe8125.png",
         "type": "image/png"
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/users"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oaugbelRxD4cY31S0g3/lifecycle/deactivate"
     }
   }
 }
@@ -598,16 +600,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -710,16 +712,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -828,16 +830,16 @@ curl -v -X POST \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oafywQDNMXLYDBIHQTT/lifecycle/deactivate"
     }
   }
 }
@@ -984,9 +986,9 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 | destination           | Identifies the location where the SAML response is intended to be sent inside of the SAML assertion               | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | destinationOverride   | Overrides the `destination` setting                                                                               | String                                               | TRUE     | FALSE  |                                           |
 | digestAlgorithm       | Determines the digest algorithm used to digitally sign the SAML assertion and response                            | String                                               | FALSE    | FALSE  |                                           |
-| honorForceAuthn       | Prompt user to re-authenticate if SP asks for it                                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
+| honorForceAuthn       | Prompts the user to re-authenticate if the SAML request has the `ForceAuthn` attribute set to `true`. If this property is `false`, the `ForceAuthn` attribute in the SAML request is ignored. | Boolean                                              | FALSE    | FALSE  |                                           |
 | idpIssuer             | SAML Issuer ID                                                                                                    | String                                               | FALSE    | FALSE  |                                           |
-| inlineHooks           | Associates the application with SAML inline hooks. See the [SAML Assertion Inline Hook Reference](/docs/reference/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
+| inlineHooks           | Associates the application with SAML inline hooks. See the [SAML assertion inline hook reference](/docs/reference/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
 | recipient             | The location where the app may present the SAML assertion                                                         | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | recipientOverride     | Overrides the `recipient` setting                                                                                 | String                                               | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | requestCompressed     | Determines whether the SAML request is expected to be compressed or not                                           | Boolean                                              | FALSE    | FALSE  |                                           |
@@ -1010,7 +1012,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 
 * If Single Logout is supported by the application and the `slo` object is provided in the request, the `spCertificate` object must be present.
 * When you update an application, if you don't specify `slo` or `spCertificate` the existing configuration persists.
-* When you associate the application with `inlineHooks`, you should [create SAML Inline Hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created Inline Hook ID.
+* When you associate the application with `inlineHooks`, you should [create SAML inline hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created inline hook ID.
 
 ##### Supported values for custom SAML app
 
@@ -1229,7 +1231,7 @@ curl -v -X POST \
           "id": "${inlineHookId}",
           "_links": {
             "self": {
-              "href": "https://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
+              "href": "https://{yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
               "hints": {
                 "allow": [
                   "GET",
@@ -1328,39 +1330,43 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | client_id                    | Unique identifier for the client application. **Note:** When not specified, `client_id` and application `id` are the same. You can specify a `client_id`, if necessary. See the [OAuth Credential object](#oauth-credential-object) section for more details.   | String     |                       |
 | client_secret                | OAuth 2.0 client secret string (used for confidential clients)                                                                                      | String     |                       |
 | token_endpoint_auth_method   | Requested authentication method for the token endpoint. Valid values: `none`, `client_secret_post`, `client_secret_basic`, `client_secret_jwt`, or `private_key_jwt`   | String     | `client_secret_basic` |
+| pkce_required                | Require Proof Key for Code Exchange (PKCE) for additional verification | Boolean  | `true` for `browser` and `native` application types |
 
 ##### Settings
 
-
-| Parameter                                   | Description                                                                                                                                                                                                                | DataType                                                                                       | Nullable   | Unique   | Validation |
-| :------------------------------------------ | :--------------------------------------------------------------------------------------------                                                                                                                              | :--------------------------------------------------------------------------------------------- | :--------- | :------- | :--------- |
-| application_type                            | The type of client application                                                                                                                                                                                             | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE       |
-| client_uri                                  | URL string of a web page providing information about the client                                                                                                                                                            | String                                                                                         | TRUE       | FALSE    | FALSE      |
-| consent_method                              | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
-| grant_types                                 | Array of OAuth 2.0 grant type strings                                                                                                                                                                                      | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />   | FALSE      | FALSE    | TRUE       |
-| initiate_login_uri                          | URL string that a third party can use to initiate a sign in by the client                                                                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
-| issuer_mode                                 | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of the ID token for this client. See [Details](#details). | `CUSTOM_URL` or `ORG_URL` or `DYNAMIC`                                                            | TRUE       | FALSE    | TRUE       |
-| idp_initiated_login                         | The type of Idp-Initiated login that the client supports, if any                                                                                                                 |  [Idp-Initiated Login](#idp-initiated-login-object)                                                                     | TRUE       | FALSE    | TRUE       |
-| logo_uri                                    | URL string that references a logo for the client. This value is used with the client consent dialog box during the client consent flow. See [Details](#details).| URL                                                                                            | TRUE       | FALSE    | FALSE      |
-| policy_uri                                  | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
-| post_logout_redirect_uris                               | Array of redirection URI strings for relying party-initiated logouts                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | FALSE       |
-| redirect_uris                               | Array of redirection URI strings for use in redirect-based flows                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | TRUE       |
-| wildcard_redirect <ApiLifecycle access="ea" /> | Indicates if the client is allowed to use wildcard matching of `redirect_uris`. See [Details](#details) for matching rules.                                                                                                  | String                                                                                         | TRUE       | FALSE    | `DISABLED`, `SUBDOMAIN`. Default value is `DISABLED`.       |
-| response_types                              | Array of OAuth 2.0 response type strings                                                                                                                                                                                   | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | TRUE       |
-| tos_uri                                     | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
-| refresh_token <ApiLifecycle access="ea" />  | Refresh token configuration                                                                                                                                                                                                | [Refresh Token object](#refresh-token-object)                                                                                            | TRUE       | FALSE    | TRUE      |
-| jwks_uri <ApiLifecycle access="ea" />       | URL string that references a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                                                                                      | String                                                                                        | TRUE       | FALSE    | TRUE      |
+| Parameter                                                                                                 | Description                                                                                                                                                                                                                | DataType                                                                                       | Nullable   | Unique   | Validation |
+| :-------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------                                                                                                                              | :--------------------------------------------------------------------------------------------- | :--------- | :------- | :--------- |
+| application_type                                                                                          | The type of client application                                                                                                                                                                                             | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE       |
+| client_uri                                                                                                | URL string of a web page providing information about the client                                                                                                                                                            | String                                                                                         | TRUE       | FALSE    | FALSE      |
+| consent_method                                                                                            | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
+| grant_types                                                                                               | Array of OAuth 2.0 grant type strings                                                                                                                                                                                      | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`, `urn:ietf:params:oauth:grant-type:saml2-bearer`, `urn:openid:params:grant-type:ciba` <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | FALSE      | FALSE    | TRUE       |
+| initiate_login_uri                                                                                        | URL string that a third party can use to initiate a sign in by the client                                                                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
+| issuer_mode                                                                                               | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of the ID token for this client. See [Details](#details). | `CUSTOM_URL` or `ORG_URL` or `DYNAMIC`                                                            | TRUE       | FALSE    | TRUE       |
+| idp_initiated_login                                                                                       | The type of Idp-Initiated login that the client supports, if any                                                                                                                 |  [Idp-Initiated Login](#idp-initiated-login-object)                                                                     | TRUE       | FALSE    | TRUE       |
+| logo_uri                                                                                                  | URL string that references a logo for the client. This value is used with the client consent dialog box during the client consent flow. See [Details](#details).| URL                                                                                            | TRUE       | FALSE    | FALSE      |
+| policy_uri                                                                                                | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
+| post_logout_redirect_uris                                                                                 | Array of redirection URI strings for relying party-initiated logouts                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | FALSE       |
+| redirect_uris                                                                                             | Array of redirection URI strings for use in redirect-based flows                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | TRUE       |
+| wildcard_redirect                                                           | Indicates if the client is allowed to use wildcard matching of `redirect_uris`. See [Details](#details) for matching rules.                                                                                                  | String                                                                                         | TRUE       | FALSE    | `DISABLED`, `SUBDOMAIN`. Default value is `DISABLED`.       |
+| response_types                                                                                            | Array of OAuth 2.0 response type strings                                                                                                                                                                                   | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | TRUE       |
+| tos_uri                                                                                                   | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
+| refresh_token                                                               | Refresh token configuration                                                                                                                                                                                                | [Refresh Token object](#refresh-token-object)                                                                                            | TRUE       | FALSE    | TRUE      |
+| jwks_uri                                                                     | URL string that references a [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                                                                                      | String                                                                                        | TRUE       | FALSE    | TRUE      |
+| backchannel_token_delivery_mode <ApiLifecycle access="ie" />                 | The delivery mode for Client-Initiated Backchannel Authentication. Valid types include `poll`, `ping`, and `push`. Supported values: `poll`.                                                                  | String                                                                                        | TRUE       | FALSE    | TRUE      |
+| backchannel_authentication_request_signing_alg <ApiLifecycle access="ie" /> | The signing algorithm for Client-Initiated Backchannel Authentication signed requests. If this value isn't set and a signed request is sent, the request fails.                                                                     | String                                                                                        | TRUE       | FALSE    | TRUE      |
+| backchannel_custom_authenticator_id <ApiLifecycle access="ie" />             | The ID of the custom authenticator that authenticates the user.                                                                                                                                                        | String                                                                                        | TRUE       | FALSE    | TRUE      |
+| dpop_bound_access_tokens  <ApiLifecycle access="ea" />                                                    | Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If omitted, the default value is `false`. If `true`, the authorization server rejects token requests from this client that don't contain the DPoP header.  | Boolean  | TRUE       | FALSE    | TRUE      |
 
 ###### Details
 
 * `issuer_mode` is visible if the Custom URL Domain is configured or the Dynamic Issuer Mode feature is enabled. <br>
-If you have [configured a custom URL domain](/docs/guides/custom-url-domain/), the issuer is returned in the appropriate OpenID Connect token response. When a custom URL domain is configured, the default value for new apps is `CUSTOM_URL`. <br>
+If you have [configured a custom domain](/docs/guides/custom-url-domain/), the issuer is returned in the appropriate OpenID Connect token response. When a custom URL domain is configured, the default value for new apps is `CUSTOM_URL`. <br>
 If the Dynamic Issuer Mode feature is enabled, you can set `issuer_mode` to `DYNAMIC`. When you use `DYNAMIC`, the request for the ID token made from the custom domain has the custom URL as the issuer. The request for the ID token made from an Okta org has the Org URL as the issuer. When this feature is enabled, the default value for new apps is `DYNAMIC`.<br>
 You can change the `issuer_mode` value using the API or the Admin Console. To enable the Dynamic Issuer Mode feature, contact [Support](https://support.okta.com/help/open_case).
 
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`) or [Client Credentials](https://tools.ietf.org/html/rfc6749#section-4.4) flow (if `grant_types` contains the value `client_credentials`) then no redirect URI or response type is necessary. In these cases you can pass either null or an empty array for these attributes.
 
-* If `wildcard_redirect` <ApiLifecycle access="ea" /> is `DISABLED`, all redirect URIs must be absolute URIs and must not include a fragment component. If `wildcard_redirect` is `SUBDOMAIN`, then any configured redirect URIs may contain a single `*` character in the lowest-level domain (for example, `https://redirect-*-domain.example.com/oidc/redirect`) to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
+* If `wildcard_redirect` is `DISABLED`, all redirect URIs must be absolute URIs and must not include a fragment component. If `wildcard_redirect` is `SUBDOMAIN`, then any configured redirect URIs may contain a single `*` character in the lowest-level domain (for example, `https://redirect-*-domain.example.com/oidc/redirect`) to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
 
   * The wildcard can match any valid hostname characters, but can't span more than one domain. For example, if `https://redirect-*-domain.example.com/oidc/redirect` is configured as a redirect URI, then `https://redirect-1-domain.example.com/oidc/redirect` and `https://redirect-sub-domain.example.com/oidc/redirect` match, but `https://redirect-1.sub-domain.example.com/oidc/redirect` doesn't match.
 
@@ -1401,6 +1407,10 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
 
 > **Note:** The `refresh_token` <ApiLifecycle access="ea" /> parameter is visible only if the client has `refresh_token` defined as one of its allowed `grant_types`. See [Refresh token object](#refresh-token-object).
 
+> **Note:** The parameters `backchannel_token_delivery_mode`, `backchannel_authentication_request_signing_alg`, and `backchannel_custom_authenticator_id` appear only if the client has `urn:openid:params:grant-type:ciba` defined as one of its allowed `grant_types`. <ApiLifecycle access="ie" />
+
+> **Note:** If the `dpop_bound_access_tokens` parameter is set to `true`, then the `client_credentials` and `implicit` `grant_types` parameters aren't allowed. <ApiLifecycle access="ea" />
+
 **Notes:**
 
   * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
@@ -1408,8 +1418,55 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
   * The following properties can also be configured in the App Wizard and on the **General** tab in the Admin Console: `tos_uri`, `policy_uri`, and `logo_uri` and can be set using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
+  * After an app is created, you can't change the `application_type`.
 
+#### Create an app with a Profile object
 
+To include app-specific information that you want to reference later, such as in a token claim, add those parameters within the app [Profile object](#profile-object) when you create an app. An Profile object is a container for any valid JSON schema that you can reference from a request. You can only add the Profile object to OAuth 2.0 client applications.
+
+The following example shows how to add an app `label` parameter to the Profile object when creating an app.
+
+> **Note:** See [Update application level profile attributes](#update-application-level-profile-attributes) for an update example.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "name": "oidc_client",
+    "label": "Sample Client profile",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+      "oauthClient": {
+        "token_endpoint_auth_method": "client_secret_post"
+        }
+    },
+    "profile": {
+        "label": "oauth2 client app 1"
+        },
+    "settings": {
+      "oauthClient": {
+        "client_uri": "http://localhost:8080",
+        "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+        "redirect_uris": [
+          "https://example.com/oauth2/callback",
+          "myapp://callback"
+        ],
+        "response_types": [
+          "token",
+          "id_token",
+          "code"
+        ],
+        "grant_types": [
+          "implicit",
+          "authorization_code"
+        ],
+        "application_type": "native"
+      }
+    }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
 
 ### Get application
 
@@ -1484,7 +1541,7 @@ curl -v -X GET \
     },
     "signOn": {
       "defaultRelayState": "",
-      "ssoAcsUrl": "https://${yourOktaDomain}",
+      "ssoAcsUrl": "https://{yourOktaDomain}",
       "idpIssuer": "https://www.okta.com/${org.externalKey}",
       "audience": "https://example.com/tenant/123",
       "recipient": "https://recipient.okta.com",
@@ -1516,7 +1573,7 @@ curl -v -X GET \
           "id": "cal3ughy17pylLxQB357",
           "_links": {
             "self": {
-              "href": "https://${yourOktaDomain}/api/v1/inlineHooks/cal3ughy17pylLxQB357",
+              "href": "https://{yourOktaDomain}/api/v1/inlineHooks/cal3ughy17pylLxQB357",
               "hints": {
                 "allow": [
                   "GET",
@@ -1682,7 +1739,7 @@ curl -v -X GET \
       },
       "signOn": {
         "defaultRelayState": "",
-        "ssoAcsUrl": "https://${yourOktaDomain}",
+        "ssoAcsUrl": "https://{yourOktaDomain}",
         "idpIssuer": "http://www.okta.com/${org.externalKey}",
         "audience": "https://example.com/tenant/123",
         "recipient": "http://recipient.okta.com",
@@ -1714,7 +1771,7 @@ curl -v -X GET \
             "id": "${inlineHookId}",
             "_links": {
               "self": {
-                "href": "https://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
+                "href": "https://{yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
                 "hints": {
                   "allow": [
                     "GET",
@@ -1809,16 +1866,16 @@ curl -v -X GET \
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
       },
       "groups": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
       }
     }
   }
@@ -1889,7 +1946,7 @@ curl -v -X GET \
       },
       "signOn": {
         "defaultRelayState": "",
-        "ssoAcsUrl": "https://${yourOktaDomain}",
+        "ssoAcsUrl": "https://{yourOktaDomain}",
         "idpIssuer": "http://www.okta.com/${org.externalKey}",
         "audience": "https://example.com/tenant/123",
         "recipient": "http://recipient.okta.com",
@@ -1968,10 +2025,10 @@ curl -v -X GET \
         },
         "_links": {
           "app": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oabizCHPNYALCHDUIOD"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oabizCHPNYALCHDUIOD"
           },
           "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00ucw2RPGIUNTDQOYPOF"
+            "href": "https://{yourOktaDomain}/api/v1/users/00ucw2RPGIUNTDQOYPOF"
           }
         }
       }
@@ -2024,16 +2081,16 @@ curl -v -X GET \
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
       },
       "groups": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
       }
     },
     "_embedded": {
@@ -2054,10 +2111,10 @@ curl -v -X GET \
         },
         "_links": {
           "app": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
           },
           "user": {
-            "href": "https://${yourOktaDomain}/api/v1/users/00ucw2RPGIUNTDQOYPOF"
+            "href": "https://{yourOktaDomain}/api/v1/users/00ucw2RPGIUNTDQOYPOF"
           }
         }
       }
@@ -2131,16 +2188,16 @@ curl -v -X GET \
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
       },
       "groups": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
       }
     }
   }
@@ -2211,7 +2268,7 @@ curl -v -X GET \
       },
       "signOn": {
         "defaultRelayState": "",
-        "ssoAcsUrl": "https://${yourOktaDomain}",
+        "ssoAcsUrl": "https://{yourOktaDomain}",
         "idpIssuer": "http://www.okta.com/${org.externalKey}",
         "audience": "https://example.com/tenant/123",
         "recipient": "http://recipient.okta.com",
@@ -2594,16 +2651,16 @@ curl -v -X PUT \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -2708,16 +2765,16 @@ curl -v -X PUT \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -2822,16 +2879,16 @@ curl -v -X PUT \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -2936,16 +2993,16 @@ curl -v -X PUT \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -3056,16 +3113,16 @@ curl -v -X PUT \
       }
     ],
     "users": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
     },
     "groups": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
     }
   }
 }
@@ -3260,7 +3317,7 @@ curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
--d {
+-d '{
     "id": "0oap6nz61rKdsoyOY0h7",
     "name": "oidc_client",
     "label": "SampleClient",
@@ -3331,7 +3388,7 @@ curl -v -X PUT \
             "issuer_mode": "CUSTOM_URL"
         }
     }
-}`
+}' "https://${yourOktaDomain}/api/v1/apps/${appId}"
 ```
 
 ##### Response example
@@ -3419,12 +3476,12 @@ curl -v -X PUT \
         "appLinks": [
             {
                 "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
+                "href": "https://{yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
                 "type": "text/html"
             }
         ],
         "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
         },
         "logo": [
             {
@@ -3434,14 +3491,15 @@ curl -v -X PUT \
             }
         ],
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
         }
     }
 }
 ```
+
 #### Update application level profile attributes
 
 Updates the Application profile attributes
@@ -3455,7 +3513,7 @@ Updates the Application profile attributes
 
 ##### Response parameters
 
-[Application](#application-object) with updated `profile attributes`
+[Application](#application-object) with updated profile attributes
 
 ##### Request example
 
@@ -3476,7 +3534,7 @@ curl -v -X PUT \
     }
   },
   "profile": {
-    "label": "oauth2 client app 1"
+    "label": "oauth2 client app 2"
   },
   "settings": {
     "oauthClient": {
@@ -3626,6 +3684,7 @@ curl -v -X PUT \
   }
 }
 ```
+
 ### Delete application
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}" />
@@ -3681,9 +3740,13 @@ Content-Type: application/json
 
 ### Update application policy
 
+<ApiLifecycle access="ie" />
+
 <ApiOperation method="put" url="/api/v1/apps/${applicationId}/policies/${policyId}" />
 
 Assign an application to a specific policy. This un-assigns the application from its currently assigned policy.
+
+> **Note:** When you [merge duplicate authentication policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-merge-auth-policies), policy and mapping CRUD operations may be unavailable during the consolidation. When the consolidation is complete, you receive an email.
 
 ##### Request parameters
 
@@ -3842,10 +3905,10 @@ curl -v -X POST \
   "profile": {},
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oaq2rRZUQAKJIZYFIGM"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oaq2rRZUQAKJIZYFIGM"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL"
+      "href": "https://{yourOktaDomain}/api/v1/users/00u15s1KDETTQMQYABRL"
     }
   }
 }
@@ -3940,10 +4003,10 @@ curl -v -X POST \
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oa164zIYRQREYAAGGQR"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa164zIYRQREYAAGGQR"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u13okQOVWZJGDOAUVR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00u13okQOVWZJGDOAUVR"
     }
   }
 }
@@ -4007,10 +4070,10 @@ curl -v -X GET \
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oa164zIYRQREYAAGGQR"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa164zIYRQREYAAGGQR"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u13okQOVWZJGDOAUVR"
+      "href": "https://{yourOktaDomain}/api/v1/users/00u13okQOVWZJGDOAUVR"
     }
   }
 }
@@ -4030,6 +4093,8 @@ Enumerates all assigned [Application users](#application-user-object) for an app
 | applicationId | `id` of an [app](#application-object)                                        | URL        | String   | TRUE     |         |
 | limit         | Specifies the number of results per page (maximum 500)                      | Query      | Number   | FALSE    | 50      |
 | q             | Returns a filtered list of app users. The value of `q` is matched against an application user profile's `userName`, `firstName`, `lastName`, and `email`. **Note:** This operation only supports `startsWith` that matches what the string starts with to the query. | Query      | String   | FALSE    |         |
+
+> **Note:** For OIDC apps, the user's profile doesn't contain the `firstName` and `lastName` attributes. The `q` query parameter matches the provided string with only the beginning of the `userName` or `email` attributes.
 
 The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
@@ -4078,10 +4143,10 @@ curl -v -X GET \
     },
     "_links": {
       "app": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oajiqIRNXPPJBNZMGYL"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oajiqIRNXPPJBNZMGYL"
       },
       "user": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ui2sVIFZNCNKFFNBPM"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ui2sVIFZNCNKFFNBPM"
       }
     }
   },
@@ -4113,10 +4178,10 @@ curl -v -X GET \
     },
     "_links": {
       "app": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oajiqIRNXPPJBNZMGYL"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oajiqIRNXPPJBNZMGYL"
       },
       "user": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00ujsgVNDRESKKXERBUJ"
+        "href": "https://{yourOktaDomain}/api/v1/users/00ujsgVNDRESKKXERBUJ"
       }
     }
   }
@@ -4195,10 +4260,10 @@ curl -v -X POST \
   "profile": {},
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ud4tVDDXYVKPXKVLCO"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ud4tVDDXYVKPXKVLCO"
     }
   }
 }
@@ -4285,10 +4350,10 @@ curl -v -X POST \
   },
   "_links": {
     "app": {
-      "href": "https://example.com/api/v1/apps/0oad5lTSBOMUBOBVVQSC"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ud4tVDDXYVKPXKVLCO"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ud4tVDDXYVKPXKVLCO"
     }
   }
 }
@@ -4787,8 +4852,8 @@ YoEdncuy+GQGzE9yLOhC4HNfHQXpqp2tMPdRlw==</ds:X509Certificate>
         </md:KeyDescriptor>
         <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress</md:NameIDFormat>
         <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
-        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://${yourOktaDomain}/app/sample-app/exk39sivhuytV2D8H0h7/sso/saml"/>
-        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://${yourOktaDomain}/app/sample-app/exk39sivhuytV2D8H0h7/sso/saml"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://{yourOktaDomain}/app/sample-app/exk39sivhuytV2D8H0h7/sso/saml"/>
+        <md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://{yourOktaDomain}/app/sample-app/exk39sivhuytV2D8H0h7/sso/saml"/>
     </md:IDPSSODescriptor>
 </md:EntityDescriptor>
 ```
@@ -4864,7 +4929,7 @@ Returns CSR in PKCS#10 format
 
 ```http
 HTTP/1.1 201 Created
-Location: https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
+Location: https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
 Content-Type: application/pkcs10; filename=okta.p10
 Content-Transfer-Encoding: base64
 
@@ -4881,7 +4946,7 @@ Returns a [CSR object](#application-csr-object)
   "kty": "RSA",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
       "hints": {
         "allow": [
           "GET",
@@ -4890,7 +4955,7 @@ Returns a [CSR object](#application-csr-object)
       }
     },
     "publish": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
       "hints": {
         "allow": [
           "POST"
@@ -5064,7 +5129,7 @@ curl -v -X GET \
     "kty": "RSA",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
         "hints": {
           "allow": [
             "GET",
@@ -5073,7 +5138,7 @@ curl -v -X GET \
         }
       },
       "publish": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
         "hints": {
           "allow": [
             "POST"
@@ -5089,7 +5154,7 @@ curl -v -X GET \
     "kty": "RSA",
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg",
         "hints": {
           "allow": [
             "GET",
@@ -5098,7 +5163,7 @@ curl -v -X GET \
         }
       },
       "publish": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg/lifecycle/publish",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/-_-BFwAGoUYN-DDvsSKQFdx7OXaPZqrEPpFDO1hu-rg/lifecycle/publish",
         "hints": {
           "allow": [
             "POST"
@@ -5147,7 +5212,7 @@ curl -v -X GET \
   "kty": "RSA",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
       "hints": {
         "allow": [
           "GET",
@@ -5156,7 +5221,7 @@ curl -v -X GET \
       }
     },
     "publish": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
       "hints": {
         "allow": [
           "POST"
@@ -5211,7 +5276,7 @@ curl -v -X POST \
   "status": "ACTIVE",
   "_links" : {
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -5356,7 +5421,7 @@ curl -v -X GET \
     "status": "ACTIVE",
     "_links" : {
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -5373,7 +5438,7 @@ curl -v -X GET \
     "status": "ACTIVE",
     "_links" : {
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0j8/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0j8/lifecycle/deactivate",
         "hints": {
           "allow": [
             "POST"
@@ -5423,7 +5488,7 @@ curl -v -X GET \
   "status": "ACTIVE",
   "_links" : {
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -5483,7 +5548,7 @@ curl -v -X GET \
   "status": "ACTIVE",
   "_links" : {
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -5542,7 +5607,7 @@ curl -v -X GET \
   "status": "INACTIVE",
   "_links": {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -5550,7 +5615,7 @@ curl -v -X GET \
       }
     },
     "delete": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/secrets/ocsap6nz61rKdsoyOY0h7",
       "hints": {
         "allow": [
           "DELETE"
@@ -5615,6 +5680,7 @@ curl -v -X DELETE \
 ```
 
 ##### Response example
+
 ```http
 HTTP/1.1 204 No Content
 ```
@@ -5699,7 +5765,7 @@ curl -v -X POST \
   "created": "2022-01-01 21:51:14.0",
   "_links" : {
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -5818,7 +5884,7 @@ curl -v -X GET \
         "created": "2022-01-01 21:51:14.0",
         "_links" : {
           "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
             "hints": {
               "allow": [
                 "POST"
@@ -5839,7 +5905,7 @@ curl -v -X GET \
         "created": "2022-01-01 21:51:14.0",
         "_links" : {
           "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5ruuu/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5ruuu/lifecycle/deactivate",
             "hints": {
               "allow": [
                 "POST"
@@ -5852,6 +5918,7 @@ curl -v -X GET \
   }
 }
 ```
+
 ### Get JSON Web Key
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/credentials/jwks/{id}" />
@@ -5894,7 +5961,7 @@ curl -v -X GET \
   "created": "2022-01-01 21:51:14.0",
   "_links" : {
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -5958,7 +6025,7 @@ curl -v -X GET \
   "created": "2022-01-01 21:51:14.0",
   "_links" : {
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
@@ -6021,7 +6088,7 @@ curl -v -X GET \
   "created": "2022-01-01 21:51:14.0",
   "_links" : {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -6029,7 +6096,7 @@ curl -v -X GET \
       }
     },
     "delete": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/delete",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/jwks/pks055raeabcdef5rpg6/delete",
       "hints": {
         "allow": [
           "DELETE"
@@ -6186,8 +6253,8 @@ curl -v -X POST \
       "type":"User"
     },
    "lastUpdated":"2020-02-03T21:57:49.000Z",
-   "issuer":"${yourOktaDomain}",
-   "clientId":"${clientId}",
+   "issuer":"{yourOktaDomain}",
+   "clientId":"{clientId}",
    "scopeId":"okta.apps.manage",
    "source":"ADMIN",
    "_embedded":{
@@ -6197,11 +6264,11 @@ curl -v -X POST \
    },
    "_links":{
       "app":{
-         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
          "title":"Application Name"
       },
       "self":{
-         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
          "hints":{
             "allow":[
                "GET",
@@ -6210,7 +6277,7 @@ curl -v -X POST \
          }
       },
       "client":{
-         "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+         "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
          "title":"Application Name"
       }
    }
@@ -6254,17 +6321,17 @@ curl -v -X GET \
          "type":"User"
       },
       "lastUpdated":"2019-02-21T16:54:00.000Z",
-      "issuer":"${yourOktaDomain}",
-      "clientId":"${clientId}",
+      "issuer":"{yourOktaDomain}",
+      "clientId":"{clientId}",
       "scopeId":"okta.users.read",
       "source":"ADMIN",
       "_links":{
          "app":{
-            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
             "title":"Application Name"
          },
          "self":{
-            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oag91n9ruw3dsaXzP0h6",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oag91n9ruw3dsaXzP0h6",
             "hints":{
                "allow":[
                   "GET",
@@ -6273,7 +6340,7 @@ curl -v -X GET \
             }
          },
          "client":{
-            "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+            "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
             "title":"Application Name"
          }
       }
@@ -6287,17 +6354,17 @@ curl -v -X GET \
          "type":"User"
       },
       "lastUpdated":"2020-02-03T21:57:49.000Z",
-      "issuer":"${yourOktaDomain}",
-      "clientId":"${clientId}",
+      "issuer":"{yourOktaDomain}",
+      "clientId":"{clientId}",
       "scopeId":"okta.apps.manage",
       "source":"ADMIN",
       "_links":{
          "app":{
-            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
             "title":"Application Name"
          },
          "self":{
-            "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+            "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
             "hints":{
                "allow":[
                   "GET",
@@ -6306,7 +6373,7 @@ curl -v -X GET \
             }
          },
          "client":{
-            "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+            "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
             "title":"Application Name"
          }
       }
@@ -6352,8 +6419,8 @@ curl -v -X GET \
       "type":"User"
     },
    "lastUpdated":"2020-02-03T21:57:49.000Z",
-   "issuer":"${yourOktaDomain}",
-   "clientId":"${clientId}",
+   "issuer":"{yourOktaDomain}",
+   "clientId":"{clientId}",
    "scopeId":"okta.apps.manage",
    "source":"ADMIN",
    "_embedded":{
@@ -6363,11 +6430,11 @@ curl -v -X GET \
    },
    "_links":{
       "app":{
-         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}",
          "title":"Application Name"
       },
       "self":{
-         "href":"https://${yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
+         "href":"https://{yourOktaDomain}/api/v1/apps/${applicationId}/grants/oaghm3sh9ukdkvDmO0h6",
          "hints":{
             "allow":[
                "GET",
@@ -6376,7 +6443,7 @@ curl -v -X GET \
          }
       },
       "client":{
-         "href":"https://${yourOktaDomain}/oauth2/v1/clients/${clientId}",
+         "href":"https://{yourOktaDomain}/oauth2/v1/clients/{clientId}",
          "title":"Application Name"
       }
    }
@@ -6420,7 +6487,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens" />
 
-Lists all tokens for the application
+Lists all refresh tokens for the application
 
 #### Request parameters
 
@@ -6454,7 +6521,7 @@ curl -v -X GET \
     "created": "2018-03-09T03:18:06.000Z",
     "lastUpdated": "2018-03-09T03:18:06.000Z",
     "expiresAt": "2018-03-16T03:18:06.000Z",
-    "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+    "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
     "clientId": "0oabskvc6442nkvQO0h7",
     "userId": "00u5t60iloOHN9pBi0h7",
     "scopes": [
@@ -6463,14 +6530,14 @@ curl -v -X GET \
     ],
     "_links": {
       "app": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
         "title": "Native"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
       },
       "revoke": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+        "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
         "hints": {
           "allow": [
             "DELETE"
@@ -6478,15 +6545,15 @@ curl -v -X GET \
         }
       },
       "client": {
-        "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+        "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
         "title": "Example Client App"
       },
       "user": {
-        "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+        "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
         "title": "Saml Jackson"
       },
       "authorizationServer": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+        "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
         "title": "Example Authorization Server"
       }
     }
@@ -6498,7 +6565,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
-Gets a token for the specified application
+Gets a refresh token for the specified application
 
 #### Request parameters
 
@@ -6526,7 +6593,7 @@ curl -v -X GET \
   "created": "2018-03-09T03:18:06.000Z",
   "lastUpdated": "2018-03-09T03:18:06.000Z",
   "expiresAt": "2018-03-16T03:18:06.000Z",
-  "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
+  "issuer": "https://{yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
   "clientId": "0oabskvc6442nkvQO0h7",
   "userId": "00u5t60iloOHN9pBi0h7",
   "scopes": [
@@ -6541,7 +6608,7 @@ curl -v -X GET \
         "description": "Requests a refresh token by default, used to obtain more access tokens without re-prompting the user for authentication.",
         "_links": {
           "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scppb56cIl4GvGxy70g3",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scppb56cIl4GvGxy70g3",
             "title": "offline_access"
           }
         }
@@ -6553,7 +6620,7 @@ curl -v -X GET \
         "description": "Allows the user to drive a car.",
         "_links": {
           "scope": {
-            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scp142iq2J8IGRUCS0g4",
+            "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scp142iq2J8IGRUCS0g4",
             "title": "Drive car"
           }
         }
@@ -6562,14 +6629,14 @@ curl -v -X GET \
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7",
       "title": "Native"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"
     },
     "revoke": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3",
       "hints": {
         "allow": [
           "DELETE"
@@ -6577,15 +6644,15 @@ curl -v -X GET \
       }
     },
     "client": {
-      "href": "https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
+      "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7",
       "title": "Example Client App"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
+      "href": "https://{yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3",
       "title": "Saml Jackson"
     },
     "authorizationServer": {
-      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+      "href": "https://{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
       "title": "Example Authorization Server"
     }
   }
@@ -6666,7 +6733,7 @@ Update the logo for an application.
 | applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
 | file            | File containing logo                       | Body             | File       | TRUE     |
 
-The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+The file must be in PNG, JPG, SVG, or GIF format, and less than 1 MB in size. For best results, use an image with a transparent background and a square dimension of 200px by 200px to prevent upscaling.
 
 ##### Request example
 
@@ -6682,7 +6749,7 @@ curl -v -X POST \
 
 ``` http
 HTTP/1.1 201 Content Created
-Location: https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
+Location: https://{yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
 ```
 
 ## Application Provisioning Connection operations
@@ -6723,7 +6790,7 @@ curl -v -X GET \
     "status": "ENABLED",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
             "hints": {
                 "allow": [
                     "POST",
@@ -6732,7 +6799,7 @@ curl -v -X GET \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -6784,7 +6851,7 @@ curl -v -X POST \
     "status": "ENABLED",
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
             "hints": {
                 "allow": [
                     "POST",
@@ -6793,7 +6860,7 @@ curl -v -X POST \
             }
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
             "hints": {
                 "allow": [
                     "POST"
@@ -6834,7 +6901,7 @@ HTTP/1.1 204 No Content
 
 ### Deactivate default Provisioning Connection for application
 
-<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/lifecycle/deactivate" />
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate" />
 
 Deactivates the default Provisioning Connection for an application.
 
@@ -6923,7 +6990,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+                "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
                 "hints": {
                     "allow": [
                         "GET",
@@ -6991,7 +7058,7 @@ curl -v -X GET \
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",
@@ -7014,7 +7081,7 @@ Updates a Feature object for an application.
 | Parameter       | Description                                | Parameter Type   | DataType   | Required |
 | :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
 | applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
-| capabilities   | Capabilites of the feature                  | Body              | [Capabilites Object](#capabilties-object) | TRUE     |
+| capabilities   | Capabilities of the feature                  | Body              | [Capabilities Object](#capabilties-object) | TRUE     |
 | name   | Name of the feature                      | URL              | String     | TRUE     |
 
 ##### Reponse parameters
@@ -7095,7 +7162,7 @@ curl -v -X PUT \
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",
@@ -7110,9 +7177,10 @@ curl -v -X PUT \
 ## Models
 
 * [Idp-Initiated Login object](#idp-initiated-login-object)
+* [Refresh Token object](#refresh-token-object)
 * [Application object](#application-object)
 * [Application User object](#application-user-object)
-* [Appliction Group object](#application-group-object)
+* [Application Group object](#application-group-object)
 
 ### Idp-Initiated Login object
 
@@ -7125,7 +7193,10 @@ The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated 
 
 * When `mode` is `DISABLED`, the client doesn't support Idp-Initiated Login
 * When `mode` is `SPEC`, the client is redirected to the Relying Party's `initiate_login_uri` as defined in the [OpenID Connect spec](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
-* When `mode` is `OKTA`, the tokens are directly sent to the Relying Party. This corresponds the **Okta Simplified** option in the Admin Console.
+* When `mode` is `OKTA`, the tokens are directly sent to the Relying Party. This corresponds to the **Okta Simplified** option in the Admin Console.
+
+  > **Note:** For web and SPA app integrations, if the mode is `SPEC` or `OKTA`, you need to set `grant_types` to `authorization code`, `implicit`, or `interaction code`.
+
 * The client must have an `initiate_login_uri` registered to configure any `mode` besides `DISABLED`.
 
 #### Request example
@@ -7266,12 +7337,12 @@ curl -v -X POST \
         "appLinks": [
             {
                 "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
+                "href": "https://{yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
                 "type": "text/html"
             }
         ],
         "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
         },
         "logo": [
             {
@@ -7281,10 +7352,10 @@ curl -v -X POST \
             }
         ],
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
         }
     }
 }
@@ -7425,25 +7496,25 @@ curl -X POST \
         "appLinks": [
             {
                 "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
+                "href": "https://{yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
                 "type": "text/html"
             }
         ],
         "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
         },
         "logo": [
             {
                 "name": "medium",
-                "href": "https://${yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+                "href": "https://{yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
                 "type": "image/png"
             }
         ],
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
         }
     }
 }
@@ -7565,29 +7636,57 @@ curl -X POST \
         "appLinks": [
             {
                 "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
+                "href": "https://{yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
                 "type": "text/html"
             }
         ],
         "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
         },
         "logo": [
             {
                 "name": "medium",
-                "href": "https://${yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+                "href": "https://{yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
                 "type": "image/png"
             }
         ],
         "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
         },
         "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
+            "href": "https://{yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
         }
     }
 }
 ```
+
+### Refresh token object
+
+Determines the refresh token rotation configuration for the OAuth 2.0 client.
+
+| Property                   | Description                                                       | DataType | Nullable |
+| -------------------------- | ----------------------------------------------------------------- | -------- | -------- |
+| rotation_type              | The refresh token rotation mode for the OAuth 2.0 client          | `STATIC` or `ROTATE` | FALSE |
+| leeway                     | The leeway, in seconds, allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the specified period of time so clients can get the new token.                                           | Number               | TRUE |
+
+* When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties when you create an app integration, the default values are used. When you update an app integration, your previously configured values are used.
+
+* The default `rotation_type` value is `ROTATE` for Single-Page Applications (SPAs). For all other clients, the default is `STATIC`.
+
+* The `rotation_type` property is required if the request contains the `refresh_token` object.
+
+* The `leeway` property value can be between 0 and 60. The default value is `30`.
+
+```json
+{
+  "refresh_token": {
+    "rotation_type": "ROTATE",
+    "leeway": "20"
+  }
+}
+```
+
+> **Note:** A leeway of 0 doesn't necessarily mean that the previous token is immediately invalidated. The previous token is invalidated after the new token is generated and returned in the response.
 
 ### Application object
 
@@ -7737,7 +7836,7 @@ The catalog is currently not exposed via an API. While additional apps may be ad
 | bookmark            | [Add Bookmark application](#add-bookmark-application)                         |
 | oidc_client         | [Add OAuth 2.0 client application](#add-oauth-2-0-client-application)         |
 | okta_org2org        | [Add Okta Org2Org application](#add-okta-org2org-application)                 |
-| tempalte_sps        | [Add SWA application (no plugin)](#add-swa-application-no-plugin)             |
+| template_sps        | [Add SWA application (no plugin)](#add-swa-application-no-plugin)             |
 | template_basic_auth | [Add Basic Authentication application](#add-basic-authentication-application) |
 | template_swa        | [Add plugin SWA application](#add-plugin-swa-application)                     |
 | template_swa3field  | [Add plugin SWA (3 field) application](#add-plugin-swa-3-field-application)   |
@@ -7762,6 +7861,9 @@ An additional `notes` object can be passed within the `settings` object. The `no
 
 > **Note:** You can't currently manage app provisioning settings via the API. Use the administrator UI.
 
+###### Identity Store ID
+You can set an additional `identityStoreId` string parameter within the `settings` object if your application supports an identity store. The `identityStoreId` value must be a valid identity store application `id`. This identity store application must be created in the same org as your application.
+
 ##### Features
 
 Applications may support optional provisioning features on a per-app basis.
@@ -7776,10 +7878,10 @@ The list of provisioning features an app may support are:
 | IMPORT_NEW_USERS       | User Import                  | Creates or links a user in Okta to a user from the application                                                                                                                                                                              |
 | IMPORT_PROFILE_UPDATES | User Import                  | Updates a linked user's app profile during manual or scheduled imports                                                                                                                                                                      |
 | IMPORT_USER_SCHEMA     |                              | Discovers the profile schema for a user from the app automatically                                                                                                                                                                            |
-| PROFILE_MASTERING      | Profile Master               | Designates the app as the identity lifecycle and profile attribute authority for linked users. The user's profile in Okta is *read-only*                                                                                                     |
+| PROFILE_MASTERING      | Profile Sourcing               | Designates the app as the identity lifecycle and profile attribute authority for linked users. The user's profile in Okta is *read-only*                                                                                                     |
 | PUSH_NEW_USERS         | Create Users                 | Creates or links a user account in the application when assigning the app to a user in Okta                                                                                                                                                 |
 | PUSH_PASSWORD_UPDATES  | Sync Okta Password           | Updates the user's app password when their password changes in Okta                                                                                                                                                                          |
-| PUSH_PROFILE_UPDATES   | Update User Properties       | Updates a user's profile in the app when the user's profile changes in Okta (Profile Master)                                                                                                                                                |
+| PUSH_PROFILE_UPDATES   | Update User Properties       | Updates a user's profile in the app when the user's profile changes in Okta (the profile source)                                                                                                                                                |
 | PUSH_USER_DEACTIVATION | Deactivate Users             | Deactivates a user's account in the app when unassigned from the app in Okta or deactivated                                                                                                                                                 |
 | REACTIVATE_USERS       | Deactivate Users             | Reactivates an existing inactive user when provisioning a user to the app                                                                                                                                                                   |
 
@@ -7824,6 +7926,7 @@ Specifies access settings for the application
   }
 }
 ```
+> **Note:** The `loginRedirectUrl` property is deprecated in Identity Engine. This property is used with the custom app login feature. Orgs that actively use this feature can continue to do so. Orgs that don't use custom app login should use the [Okta-hosted sign-in experience](/docs/guides/redirect-authentication/) or [configure IdP routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-cfg-routing-rules) that redirect users to the appropriate app to sign in.
 
 ### Visibility object
 
@@ -7948,32 +8051,6 @@ Determines the [key](#application-key-credential-object) used for signing assert
 }
 ```
 
-#### Refresh token object
-
-Determines the refresh token rotation configuration for the OAuth 2.0 client.
-
-| Property                   | Description                                                       | DataType | Nullable |
-| -------------------------- | ----------------------------------------------------------------- | -------- | -------- |
-| rotation_type              | The refresh token rotation mode for the OAuth 2.0 client          | `STATIC` or `ROTATE` | FALSE |
-| leeway                     | The leeway allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the configured amount of time to allow clients to get the new token.                                           | Number               | TRUE |
-
-* When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties, the default values are used when you create an app and your previously configured values are used when you update an app.
-
-* The default `rotation_type` value is `ROTATE` for Single-Page Applications (SPAs). For all other clients, the default is `STATIC`.
-
-* The `rotation_type` property is required if the request contains the `refresh_token` object.
-
-* The `leeway` property value can be between 0 and 60. The default value is `30`.
-
-```json
-{
-  "refresh_token": {
-    "rotation_type": "ROTATE",
-    "leeway": "20"
-  }
-}
-```
-
 #### OAuth Credential object
 
 Determines how to authenticate the OAuth 2.0 client
@@ -7984,6 +8061,7 @@ Determines how to authenticate the OAuth 2.0 client
 | client_id                  | Unique identifier for the OAuth 2.0 client application                           | String   | TRUE     |
 | client_secret              | OAuth 2.0 client secret string                                                   | String   | TRUE     |
 | token_endpoint_auth_method | Requested authentication method for the token endpoint                           | String   | FALSE    |
+| pkce_required              | Require Proof Key for Code Exchange (PKCE) for additional verification           | Boolean  | TRUE     |
 
 * When you create an OAuth 2.0 client application, you can specify the `client_id`, or Okta sets it as the same value as the application ID. Thereafter, the `client_id` is immutable.
 
@@ -7993,13 +8071,16 @@ Determines how to authenticate the OAuth 2.0 client
 
 * If `autoKeyRotation` isn't specified, the client automatically opts in for Okta's [key rotation](/docs/concepts/key-rotation/). You can update this property via the API or via the administrator UI.
 
+* Use `pkce_required` to require PKCE for your confidential clients using the [Authorization Code flow](/docs/guides/implement-grant-type/authcodepkce/main/). If `token_endpoint_auth_method` is `none`, `pkce_required` needs to be `true`. If `pkce_required` isn't specified when adding a new application, Okta sets it to `true` by default for `browser` and `native` application types.
+
 ```json
 {
   "oauthClient": {
     "autoKeyRotation": false,
     "client_id": "0oa1hm4POxgJM6CPu0g4",
     "client_secret": "5jVbn2W72FOAWeQCg7-s_PA0aLqHWjHvUCt2xk-z",
-    "token_endpoint_auth_method": "client_secret_post"
+    "token_endpoint_auth_method": "client_secret_post",
+    "pkce_required": true
   }
 }
 ```
@@ -8097,7 +8178,7 @@ Specifies (optional) attribute statements for a SAML application
 | ---------- | -------------------------------------------------------------------------------------------- | ------------ | -------- |
 | name       | The reference name of the attribute statement                                                | String       | FALSE    |
 | namespace  | The name format of the attribute                                                             | String       | FALSE    |
-| type       | The type of attribute statements object                                                      | `EXPRESSION` | FALSE    |
+| type       | The type of attribute statements object. Supported value: `EXPRESSION`                       | String       | FALSE    |
 | values     | The values of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)   | Array        | FALSE    |
 
 ### Single Logout object
@@ -8196,7 +8277,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
 
 ### Profile object
 
-Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define an allow list of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
+Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define an allowlist of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
 Profile Requirements
 
@@ -8204,6 +8285,7 @@ Profile Requirements
 * The `profile` property doesn't limit the level of nesting in the JSON schema you created, but there is a practical size limit. We recommend a JSON schema size of 1 MB or less for best performance.
 
 > **Note:** Profile object is only available to OAuth 2.0 client applications.
+
 
 ### Application User object
 
@@ -8241,10 +8323,10 @@ The Application User object defines a user's app-specific profile and credential
   },
   "_links": {
     "app": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oabhnUQFYHMBNVSVXMV"
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oabhnUQFYHMBNVSVXMV"
     },
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00u11z6WHMYCGPCHCRFK"
+      "href": "https://{yourOktaDomain}/api/v1/users/00u11z6WHMYCGPCHCRFK"
     }
   }
 }
@@ -8299,7 +8381,7 @@ User provisioning in Okta is an asynchronous background job that is triggered du
     * Application user is assigned an `externalId` when successfully provisioned in the target application. The `externalId` should be immutable for the life of the assignment.
 3. If the background provisioning job completes with an error, the application user remains with the `STAGED` status, but has `syncState` as `ERROR`. A provisioning task is created in the administrator UI that must be resolved to retry the job.
 
-When the `PUSH_PROFILE_UPDATES` feature is enabled, updates to an upstream profile are pushed downstream to the application according to profile mastering priority.  The app user's `syncState` has the following values:
+When the `PUSH_PROFILE_UPDATES` feature is enabled, updates to an upstream profile are pushed downstream to the application according to profile sourcing priority.  The app user's `syncState` has the following values:
 
 | syncState    | Description                                                                                                                                                                               |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------     |
@@ -8352,13 +8434,21 @@ Application User profiles are app-specific, but may be customized by the Profile
 
 ##### Profile Editor
 
-![Profile Editor UI](/img/okta-admin-ui-profile-editor.png "Profile Editor UI")
+<div class="three-quarter border">
+
+![Profile Editor UI](/img/admin/okta-admin-ui-profile-editor.png)
+
+</div>
 
 > **Note:** Managing profiles for applications is restricted to specific editions and requires access to the Universal Directory <ApiLifecycle access="ea" /> feature.
 
 ##### Example application assignment
 
-![App Assignment UI](/img/okta-admin-ui-app-assignment.png "App Assignment UI")
+<div class="three-quarter">
+
+![App Assignment UI](/img/admin/okta-admin-ui-app-assignment.png)
+
+</div>
 
 ##### Example Profile object
 
@@ -8390,7 +8480,7 @@ Application User profiles are app-specific, but may be customized by the Profile
   "priority": 0,
   "_links": {
     "user": {
-      "href": "https://${yourOktaDomain}/api/v1/users/00ubgfEUVRPSHGWHAZRI"
+      "href": "https://{yourOktaDomain}/api/v1/users/00ubgfEUVRPSHGWHAZRI"
     }
   }
 }
@@ -8496,7 +8586,7 @@ The metadata for a CSR
 
 ### Application CSR object
 
-The application CSR object defines a certificate signing request for a signature or encryption credential for an application.
+The application CSR object defines a Certificate Signing Request for a signature or encryption credential for an application.
 
 #### Example
 
@@ -8508,7 +8598,7 @@ The application CSR object defines a certificate signing request for a signature
   "kty": "RSA",
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
       "hints": {
         "allow": [
           "GET",
@@ -8517,7 +8607,7 @@ The application CSR object defines a certificate signing request for a signature
       }
     },
     "publish": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50/lifecycle/publish",
       "hints": {
         "allow": [
           "POST"
@@ -8566,13 +8656,14 @@ Property details
 The provisioning connection object is a read only object that displays the method of authentication used for provisioning.
 
 #### Example
+
 ```json
 {
     "authScheme": "TOKEN",
     "status": "DISABLED",
     "_links": {
         "activate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/activate",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -8580,7 +8671,7 @@ The provisioning connection object is a read only object that displays the metho
             }
         },
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
             "hints": {
                 "allow": [
                     "POST",
@@ -8596,15 +8687,15 @@ The provisioning connection object is a read only object that displays the metho
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| authScheme              | Defines the method of authentication    | `TOKEN`, `OAUTH2` <ApiLifecycle access="ea" /> , `UNKNOWN`                                                           | FALSE    | FALSE  | TRUE    |           |
+| authScheme        | Defines the method of authentication                        | `TOKEN`, `OAUTH2`, `UNKNOWN`                                                | FALSE    | FALSE  | TRUE    |           |
 | _links            | Discoverable resources related to the connection            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE    | FALSE   | TRUE    |           |
-| status            | Status of the connection      | `ENABLED`, `DISABLED`, `UNKNOWN`  | FALSE    | FALSE   | TRUE    | `DISABLED` |
+| status            | Status of the connection                                    | `ENABLED`, `DISABLED`, `UNKNOWN`                                            | FALSE    | FALSE   | TRUE    | `DISABLED` |
 
 If the authScheme is `UNKNOWN`, then either the authentication scheme used by the application isn't supported or the the application doesn't support provisioning. An object with an `UNKNOWN` `authScheme` results in an `UNKNOWN` `status`.
 
 ### Provisioning Connection Profile object
 
-The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication <ApiLifecycle access="ea" /> are supported.
+The application provisioning connection profile is used to configure the method of authentication and the credentials. Currently, token-based and OAuth 2.0-based authentication are supported.
 
 #### Token-based Provisioning Connection Profile example
 ```json
@@ -8635,16 +8726,17 @@ The application provisioning connection profile is used to configure the method 
 
 #### OAuth 2.0-based Provisioning Connection Profile properties
 
-| Property                                | Description                                                   | DataType                               | Nullable | Unique | Readonly |
-| --------------------------------------- | ------------------------------------------------------------- | -------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| authScheme                              | Defines the method of authentication                          | `OAUTH2` <ApiLifecycle access="ea" />  | FALSE    | FALSE  | FALSE    |
-| clientId <ApiLifecycle access="ea" />   | Unique client identifier for the OAuth 2.0 service app from the target org | String                                 | FALSE    | FALSE  | FALSE    |
+| Property     | Description                                                   | DataType            | Nullable | Unique | Readonly |
+| -------------| ------------------------------------------------------------- | ---------------     | -------- | ------ | -------- | --------- | --------- | ---------- |
+| authScheme   | Defines the method of authentication                          | `OAUTH2`            | FALSE    | FALSE  | FALSE    |
+| clientId     | Unique client identifier for the OAuth 2.0 service app from the target org  | String    | FALSE    | FALSE  | FALSE    |
 
 ### Application Feature object
 
 The Feature object is used to configure settings of the application. For example, the `USER_PROVISIONING` Feature object is used to configure the ability to create, read, update users in Okta accounts, deprovision accounts for deactivated users, and synchronize user attributes.
 
 #### Application Feature example
+
 ```json
 {
     "name": "USER_PROVISIONING",
@@ -8672,7 +8764,7 @@ The Feature object is used to configure settings of the application. For example
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "href": "https://{yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
             "hints": {
                 "allow": [
                     "GET",
@@ -8821,7 +8913,7 @@ Okta updates a user's attributes in the application when the application is assi
   "status": "INACTIVE",
   "_links" : {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/secrets/0sap6nz61rKdsoyOY0h7/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/secrets/0sap6nz61rKdsoyOY0h7/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -8829,7 +8921,7 @@ Okta updates a user's attributes in the application when the application is assi
       }
     },
     "delete": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/secrets/0sap6nz61rKdsoyOY0h7",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/secrets/0sap6nz61rKdsoyOY0h7",
       "hints": {
         "allow": [
           "DELETE"
@@ -8904,7 +8996,7 @@ The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.
   "status": "INACTIVE",
   "_links" : {
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/jwks/pks055raeabcdef5rpg6/lifecycle/activate",
       "hints": {
         "allow": [
           "POST"
@@ -8912,7 +9004,7 @@ The application JSON Web Key object defines a [JSON Web Key](https://tools.ietf.
       }
     },
     "delete": {
-      "href": "https://${yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/jwks/pks055raeabcdef5rpg6",
+      "href": "https://{yourOktaDomain}/api/v1/apps/0oa11s8ONPmrGh5XB0g4/credentials/jwks/pks055raeabcdef5rpg6",
       "hints": {
         "allow": [
           "DELETE"

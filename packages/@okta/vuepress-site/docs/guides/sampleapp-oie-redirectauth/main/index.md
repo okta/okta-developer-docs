@@ -86,14 +86,14 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 > **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above. The steps may be different if you didn't.
 
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add Profile Enrollment Policy**.
 2. Give your Policy a **Name** and then click **Save**.
 3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
 4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
 5. Locate the <StackSnippet snippet="applang" inline /> app that you created earlier, click **Apply**, and then **Close**.
 6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+7. Click **Edit** in the **Profile Enrollment** section.
+8. Set **Self-service registration** to **Allowed**, and then click **Save**.
 
 > **Note:** See [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
@@ -101,20 +101,37 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 This section walks you through the self-service enrollment steps for a new user.
 
+<!-- >> **Note:** Enrollment uses the **Email Factor verification** email template that you can edit. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template). -->
+
 <StackSnippet snippet="tryenrollin" />
 
 3. In the Okta Sign-In Widget, click **Sign up** just below the **Forgot password?** link.
 4. Enter the requested information, and then click **Sign Up**.
-5. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. Set up the Email and Password authenticators. Don't set up any other authenticators.
 
     > **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget to manually verify the email address rather than using the **Verify Email Address** button.
 
 6. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
 7. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
+## Enable self-service password-optional enrollment
+
+To enable self-service password-optional enrollments in the Sign-In Widget, <StackSnippet snippet="setuppwdoptional" inline/>. After completing the setup, try a password-optional enrollment with the following steps:
+
+<StackSnippet snippet="tryenrollin" />
+
+3. In the Okta Sign-In Widget, click **Sign up**.
+4. Enter the email, first and last name, and then click **Sign Up**.
+5. Verify your email address by clicking **Verify Email Address** in the email sent by Okta.
+
+    > **Note:** Alternatively, you can verify your email address by copying the one-time passcode from the email into the Sign-In Widget.
+
+5. Click **Set up later** for all the optional authenticators. The app redirects you to the home page.
+6. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
+
 ## Add MFA with a mandatory second factor
 
-You can modify the Application's Sign-On Policy to require the user to have a second factor enabled for authentication. In this example, we use the Phone Authenticator.
+You can modify the application's authentication policy to require the user to have a second factor enabled for authentication. In this example, we use the Phone authenticator.
 
 > **Note:** Your Okta org may have different Authenticators enabled by default.
 
@@ -124,38 +141,65 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 
     If it isn't listed, add it:
     * Click **Add Authenticator**, and then click **Add** in the **Phone** authentication box.
-    * Leave **Authentication (MFA/SSO)** selected in the **Add Phone** dialog box, and click **Add**.
+    * Set **This authenticator can be used for** to **Authentication and recovery**, and click **Add**.
 
-2. From the side navigation, select **Applications** > **Applications** and then select the Okta OAuth app that you created to represent the <StackSnippet snippet="applang" inline /> app.
+2. From the side navigation, select **Applications** > **Applications** and then select the app integration that you created earlier.
 3. Select the **Sign On** tab.
-4. Scroll down to the **Sign On Policy** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-5. In the Edit Rule dialog box, scroll down to the **THEN** section and locate **AND User must authenticate with**.
-6. Select **Password + Another factor** and click **Save**.
+4. Scroll down to the **User authentication** section and click **Edit**.
+5. From the **Authentication policy** dropdown menu, select **Any two factors** and click **Save**.
 
 ### Try multifactor authentication
 
 <StackSnippet snippet="tryenrollin" />
 
-3. Enter the credentials of the user that you enrolled earlier. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone authenticator.
+3. Enter the credentials of the user that you enrolled with earlier. The Set up security methods page appears, prompting you to set up either the Okta Verify app or the Phone authenticator.
 4. Under **Phone**, click **Set up**.
-5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
-6. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
+5. Fill out the requested phone authentication information and verify your phone with a code.
+6. Under **Set up optional**, click **Set up later**. You are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
+7. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
-## Authenticator recovery
+## Self-service Password Recovery
 
-In your org, Password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
+<!-- >> **Note:** Self-service Password Recovery uses the **Forgot Password** email template that you can edit. See [Edit a default email template](/docs/guides/custom-email/main/#edit-a-default-email-template). -->
+
+### Password recovery with email magic link
+
+> **Note:** In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
+
+<!-- #### Understand the magic link flow
+
+Before integrating email magic links in your app, it's important to understand how your app's user journey starts and ends. An example user journey for a sign-in with email use case:
+
+1. Using the widget, a user submits their username and password. Next, an email is sent to the user and the widget displays an OTP input page.
+1. Using a new tab in the browser, the user opens their email and clicks the magic link.
+1. In a new tab, the link redirects the browser to the app and automatically signs the user in.
+
+The following diagram illustrates these steps:
+
+![Email magic link flow for redirect auth](/img/authenticators-email-magic-link-summary-redirect-flow-overview.png "Image title") -->
+
+Try the email magic link recovery flow:
+
+1. Select **Forgot password?** in the Sign-In Widget.
+1. Enter your email or username when prompted and click **Next**.
+1. Click **Send me an email**. A magic link is sent to your email address.
+1. Click **Sign In**. A new window opens and you are automatically signed in.
+
+### Password recovery with email OTP
+
+> **Note:** In your org, password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
 
 Try out the email password recovery flow:
 
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
-1. Click **Select** for the Email authenticator. An OTP code is sent to your email address.
-1. Manually copy the code from the email and paste it into the Sign-In Widget.
-1. After you paste the code, answer the security question that appears. You are then prompted to enter a new password.
-1. After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
+1. Click **Select** for the Email authenticator. An OTP code is sent to your email address. Manually copy the code from the email.
+1. In the widget, click **Enter a code from the email instead**, paste the code and click **Verify**.
+1. Enter a new password.
+1. After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in [Enable multifactor authentication](#enable-multifactor-authentication). Then, you are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
 1. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
-### Recovery with Okta Verify
+### Okta Verify recovery flow
 
 In addition to recovering your password with an email, you can add Okta Verify as a recovery option.
 
@@ -176,9 +220,9 @@ In addition to recovering your password with an email, you can add Okta Verify a
 
 ## Progressive Profiling
 
-> **Note:** To use Progressive Profiling, you must disable the `SELF_SERVICE_REGISTRATION` feature flag in your org. Contact [Support](https://support.okta.com/help/s/opencase) if you need help with that.
+> **Note:** To use Progressive Profiling, you must disable the Self-Service Registration feature. Contact [Support](https://support.okta.com/help/s/opencase) for help.
 
-Okta now gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, we add a required profile attribute, and the user we have already enrolled is asked for this information when they next authenticate.
+Okta gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, we add a required profile attribute, and the user we have already enrolled is asked for this information when they next authenticate.
 
 When we enrolled our test user, the user was only prompted for first and last name, as well as their email and a password. Now add an additional required property to the Profile Enrollment Policy.
 

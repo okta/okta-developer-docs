@@ -1,7 +1,7 @@
-The following graphic shows the steps for the sign in with password and email flow:
+The following summarizes the steps involved in a sign-in flow using password and email:
 
-<div class="common-image-format">
+<div class="full">
 
-![Displays the sequence of steps for the Java SDK sign-in with password and email flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-java.png)
+![Displays a sequence diagram of the sign-in with email and password flow](/img/oie-embedded-sdk/oie-embedded-android-sign-in-pwd-email-flow-diagram.png)
 
 </div>

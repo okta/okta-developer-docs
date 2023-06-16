@@ -4,7 +4,7 @@
       <img
         src="https://www.okta.com/sites/default/files/icon--welcome.svg"
         alt="mail icon"
-      />
+      >
       <h2>Verify Your Email Address</h2>
     </div>
     <p class="thank-you--description">

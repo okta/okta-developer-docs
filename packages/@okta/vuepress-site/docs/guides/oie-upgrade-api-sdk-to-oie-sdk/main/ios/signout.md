@@ -27,7 +27,7 @@ Sign the user out by calling `token.revoke`. Either call this method on a stored
 
 #### Revoke using stored token
 
-Call the `revoke` method on the stored `token` object. Once the revoke is complete, remove the token from local storage.
+Call the `revoke` method on the stored `token` object. After the revoke is complete, remove the token from local storage.
 
 ```swift
 let token = ..

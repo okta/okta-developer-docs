@@ -3,7 +3,7 @@
 [![Support](https://img.shields.io/badge/support-developer%20forum-blue.svg)](https://devforum.okta.com/)
 [![Build Status](https://travis-ci.org/okta/okta-developer-docs.svg?branch=master)](https://travis-ci.org/okta/okta-developer-docs)
 
-# Overview of Okta Developer Site
+# Overview of Okta Developer site
 
 The [Okta developer site](https://developer.okta.com) serves Okta's API documentation and guides, including:
 
@@ -13,10 +13,12 @@ The [Okta developer site](https://developer.okta.com) serves Okta's API document
 - [Guides](https://developer.okta.com/guides/)
 - [Developer Blog](https://developer.okta.com/blog/) (not published from this repo, see [oktadev/okta-blog](https://github.com/oktadev/okta-blog))
 
-## Building the site on your machine or contributing to the site 
-To build the site on your machine and/or to contribute content to the site, [view the instructions for Getting set up](https://github.com/okta/okta-developer-docs/wiki/Getting-set-up).  
+## Building the site on your machine or contributing to the site
+
+To build the site on your machine and/or to contribute content to the site, [view the instructions for Getting set up](https://github.com/okta/okta-developer-docs/wiki/Getting-set-up).
 
 ## Troubleshooting
+
 If you run into issues, [view the instructions for troubleshooting](https://github.com/okta/okta-developer-docs/wiki/Troubleshooting).
 
 ### Links:

@@ -1,6 +1,10 @@
 This section helps you build a basic password-only sign-in use case for your app. This use case is outlined in the following sequence diagram with your single-page app as the client:
 
-![Sequence diagram that displays the back and forth between the resource owner, sdk, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg "Auth JS + SPA password-only sign-in flow")
+<div class="full">
+
+![Sequence diagram that displays the back and forth between the resource owner, sdk, authorization server, and resource server for a basic SPA password sign-in flow.](/img/oie-embedded-sdk/password-only-spa-authjs-flow.svg)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 

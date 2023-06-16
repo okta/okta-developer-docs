@@ -8,17 +8,17 @@ excerpt:
 
 # Event Hooks Management API
 
-For general information on event hooks and how to create and use them, see [Event Hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Event Hooks.
+For general information on event hooks and how to create and use them, see [Event hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering event hooks.
 
-For a step-by-step guide on implementing an example Event Hook, see the [Event Hook](/docs/guides/event-hook-implementation/) guide.
+For a step-by-step guide on implementing an example event hook, see the [Event hook](/docs/guides/event-hook-implementation/) guide.
 
 ## Get started
 
-Explore the Event Hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2fdf75c2fb3319ef5e73)
+Explore the event hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2fdf75c2fb3319ef5e73)
 
-## Event Hook operations
+## Event hook operations
 
-### Create Event Hook
+### Create event hook
 
 <ApiOperation method="post" url="/api/v1/eventHooks" />
 
@@ -59,7 +59,8 @@ curl -v -X POST \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -97,7 +98,8 @@ curl -v -X POST \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter": null
     },
     "channel" : {
         "type" : "HTTP",
@@ -124,7 +126,7 @@ curl -v -X POST \
 
 > **Note:** The `channel.authScheme.value` property is not returned in the response. You set it in your request, but it is not exposed in any responses.
 
-### Get Event Hook
+### Get event hook
 
 <ApiOperation method="get" url="/api/v1/eventHooks/${id}" />
 
@@ -132,7 +134,7 @@ curl -v -X POST \
 
 | Parameter | Description             | Param Type | DataType | Required |
 |-----------|-------------------------|------------|----------|----------|
-| `id`      | A valid Event Hook ID | Path       | String   | TRUE     |
+| `id`      | A valid event hook ID | Path       | String   | TRUE     |
 
 ##### Response parameters
 
@@ -159,7 +161,8 @@ curl -v -X GET \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -184,7 +187,7 @@ curl -v -X GET \
 }
 ```
 
-### List Event Hooks
+### List event hooks
 
 <ApiOperation method="get" url="/api/v1/eventHooks" />
 
@@ -212,7 +215,8 @@ curl -v -X GET \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -238,7 +242,7 @@ curl -v -X GET \
 ]
 ```
 
-### Update Event Hook
+### Update event hook
 
 <ApiOperation method="put" url="/api/v1/eventHooks/${id}" />
 
@@ -270,7 +274,8 @@ curl -v -X PUT \
             "user.lifecycle.create",
             "user.lifecycle.activate",
             "user.lifecycle.deactivate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -307,7 +312,8 @@ curl -v -X PUT \
             "user.lifecycle.create",
             "user.lifecycle.activate",
             "user.lifecycle.deactivate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -331,9 +337,10 @@ curl -v -X PUT \
     "lastUpdated": "2018-05-15T01:23:08.000Z"
 }
 ```
+
 > **Note:** Updating the `channel` property requires you to verify an event hook again.
 
-### Verify Event Hook
+### Verify event hook
 
 <ApiOperation method="post" url="/api/v1/eventHooks/${id}/lifecycle/verify" />
 
@@ -341,12 +348,11 @@ curl -v -X PUT \
 |---------------------------------|--------------------------------------------------------|------------|----------|----------|
 | id                                   | ID of the event hook to verify                                                | Path       | String   | TRUE     |
 
-Verifies that the Event Hook matches the provided `eventHookId`. Your endpoint needs to be able to correctly send back information to Okta in JSON format, so that endpoint ownership can be verified. See [Event Hooks](/docs/concepts/event-hooks/) documentation for details.
+Verifies that the event hook matches the provided `eventHookId`. Your endpoint needs to be able to correctly send back information to Okta in JSON format, so that endpoint ownership can be verified. See [Event hooks](/docs/concepts/event-hooks/).
 
 Only `ACTIVE` and `VERIFIED` event hooks can receive events from Okta.
 
 A timeout of three seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
-
 
 ##### Request example
 
@@ -369,7 +375,8 @@ curl -v -X POST \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -395,7 +402,7 @@ curl -v -X POST \
 
 ```
 
-### Activate Event Hook
+### Activate event hook
 
 <ApiOperation method="post" url="/api/v1/eventHooks/${id}/lifecycle/activate" />
 
@@ -432,7 +439,8 @@ curl -v -X POST \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -457,7 +465,7 @@ curl -v -X POST \
 }
 ```
 
-### Deactivate Event Hook
+### Deactivate event hook
 
 <ApiOperation method="post" url="/api/v1/eventHooks/${id}/lifecycle/deactivate" />
 
@@ -494,7 +502,8 @@ curl -v -X POST \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -519,7 +528,7 @@ curl -v -X POST \
 }
 ```
 
-### Delete Event Hook
+### Delete event hook
 
 <ApiOperation method="delete" url="/api/v1/eventHooks/${id}" />
 
@@ -552,13 +561,13 @@ curl -v -X DELETE \
 | Property       | Description                                                                                       | DataType                          | Nullable | Unique | ReadOnly | Validation                                        |
 |----------------|---------------------------------------------------------------------------------------------------|-----------------------------------|----------|--------|----------|---------------------------------------------------|
 | channel object | Properties of the communications channel used to contact your external service                   | [Channel object](#channel-object) | FALSE    | FALSE  | FALSE    | Validation is determined by the specific channel. |
-| created        | Date of Event Hook creation                                                                   | String (Date)                     | TRUE     | FALSE  | TRUE     | System assigned                                          |
+| created        | Date of event hook creation                                                                   | String (Date)                     | TRUE     | FALSE  | TRUE     | System assigned                                          |
 | events           | Events subscribed by this hook                                                                 | [Events object](#events-object)                            | FALSE    | TRUE   | FALSE    | Validation is determined by the specific event object type.   |
-| id             | Unique key for the Event Hook                                                                  | String                            | FALSE    | TRUE   | TRUE     | System assigned                                          |
-| lastUpdated    | Date of Event Hook update                                                                      | String (Date)                     | TRUE     | FALSE  | TRUE     | System assigned                                          |
-| name           | Display name for the Event Hook                                                                 | String                            | FALSE    | TRUE   | FALSE    | Must be between one and 255 characters in length   |
-| status         | Status of the Event Hook. `INACTIVE` will not receive any events.                                       | String                            | FALSE    | FALSE  | FALSE    | System assigned. Will be either `ACTIVE` or `INACTIVE`.            |
-| verificationStatus         | Verification status of the Event Hook. `UNVERIFIED` will not receive any events.                                       | String                            | FALSE    | FALSE  | FALSE    | System assigned. Will be either `VERIFIED` or `UNVERIFIED`.            |
+| id             | Unique key for the event hook                                                                  | String                            | FALSE    | TRUE   | TRUE     | System assigned                                          |
+| lastUpdated    | Date of event hook update                                                                      | String (Date)                     | TRUE     | FALSE  | TRUE     | System assigned                                          |
+| name           | Display name for the event hook                                                                 | String                            | FALSE    | TRUE   | FALSE    | Must be between one and 255 characters in length   |
+| status         | Status of the event hook. `INACTIVE` doesn't receive any events.                                       | String                            | FALSE    | FALSE  | FALSE    | System assigned. Will be either `ACTIVE` or `INACTIVE`.            |
+| verificationStatus         | Verification status of the event hook. `UNVERIFIED` will not receive any events.                                       | String                            | FALSE    | FALSE  | FALSE    | System assigned. Will be either `VERIFIED` or `UNVERIFIED`.            |
 
 ```json
 {
@@ -570,7 +579,8 @@ curl -v -X DELETE \
         "items" : [
             "user.lifecycle.create",
             "user.lifecycle.activate"
-        ]
+        ],
+        "filter" : null
     },
     "channel" : {
         "type" : "HTTP",
@@ -603,7 +613,6 @@ curl -v -X DELETE \
 | type           | The channel type. Currently the only supported type is `HTTP`.   | string                      | FALSE      | FALSE    | TRUE       | Must match a valid channel type            |
 | version        | Version of the channel. The currently-supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number                |
 
-
 ### Config object
 
 | Property   | Description                                                                                                | DataType                                | Required | Unique | ReadOnly | Validation                                                                                                             |
@@ -628,9 +637,60 @@ To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value`
 |----------|------------------------------------------------------------------------------|----------|----------|----------|
 | type     | The events object type. Currently the only supported type is `EVENT_TYPE`.   | String   | TRUE     | FALSE    |
 | items    | The [event types](#supported-events-for-subscription) to subscribe to       | Array of String  | TRUE     | FALSE    |
+| filter    | The filter defined on a specific event type    | [filter object](#filter-object)  | FALSE     | FALSE    |
+
+##### Example of events object
+
+```json
+
+"events": {
+            "type": "EVENT_TYPE",
+            "items": [
+                "user.session.end",
+                "user.session.start"
+            ],
+            "filter": {
+                "type": "EXPRESSION_LANGUAGE",
+                "eventFilterMap": [
+                    {
+                        "event": "user.session.end",
+                        "condition": {
+                            "version": null,
+                            "expression": "event.eventType eq 'Admin' && event.eventType ne 'Bob'"
+                        }
+                    }
+                ]
+            }
+        }
+```
+
+#### Filter object
+
+| Property | Description                                                                  | DataType | Required | ReadOnly |
+|----------|------------------------------------------------------------------------------|----------|----------|----------|
+| type     | The type of filter. Okta only supports `EXPRESSION_LANGUAGE`   | String   | TRUE     | TRUE   |
+| eventFilterMap    | The object that maps the filter to the event type      | Array of [eventFilterMap objects](#event-filter-map-object)  | FALSE    | FALSE    |
+
+#### Event filter map object
+
+<ApiLifecycle access="ea" />
+
+<EventHookEANote/>
+
+Explore the event hooks API with filters: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/15901964-61517094-f0ed-45e9-982a-f7a6a2db1bab?action=collection%2Ffork&collection-url=entityId%3D15901964-61517094-f0ed-45e9-982a-f7a6a2db1bab%26entityType%3Dcollection%26workspaceId%3D9f1d6c8f-d027-4107-a5c5-20d963c2c9d8)
+
+| Property | Description                                                                  | DataType | Required | ReadOnly |
+|----------|------------------------------------------------------------------------------|----------|----------|----------|
+| event    | The filtered event type   | String   | TRUE     | FALSE   |
+| condition    | The object that defines the filter       | [condition object](#condition-object)  | TRUE    | FALSE    |
+
+#### Condition object
+
+| Property | Description                                                                  | DataType | Required | ReadOnly |
+|----------|------------------------------------------------------------------------------|----------|----------|----------|
+| version    | Internal field   | String   | TRUE     | TRUE   |
+| expression   | The Okta Expression language statement that filters the event type    | String  | TRUE    | FALSE    |
 
 ## Supported events for subscription
 
-When you register an event hook, you need to specify what events you want to subscribe to. To see the list of event types currently eligible for use in event hooks, query the Event Types catalog with the query parameter `event-hook-eligible`:
-
-<https://developer.okta.com/docs/reference/api/event-types/?q=event-hook-eligible>
+When you register an event hook, you need to specify what events you want to subscribe to. To see the list of event types currently eligible for use in event hooks, use the [Event Types catalog](/docs/reference/api/event-types/#catalog) and search with the parameter `event-hook-eligible`.

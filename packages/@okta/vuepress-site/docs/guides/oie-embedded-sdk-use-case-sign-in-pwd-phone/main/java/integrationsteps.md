@@ -2,9 +2,14 @@
 
 Build a sign-in form for your app that captures both the username and password.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the Java SDK sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-java.png)
+![A sign-in form with fields for username and password, a next button, and links to the sign-up and forgot your password forms](/img/wireframes/sign-in-form-username-password-sign-up-forgot-your-password-links.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36729&t=wzNwSZkdctajVush-1 sign-in-form-username-password-sign-up-forgot-your-password-links
+ -->
 
 </div>
 
@@ -33,11 +38,16 @@ If the password is validated, the `IDXAuthenticationWrapper.authenticate()` meth
 
 > **Note:** If the user already has the phone authenticator enrolled, then `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` is returned (instead of `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION`) and the user does not have to enroll the phone authenticator with a phone number, bypassing steps [3](#_3-the-user-selects-the-phone-authenticator), [4](#_4-the-user-enters-the-phone-number), and [4 (voice feature alternative)](#_4-voice-feature-alternative-the-user-enters-the-phone-number-and-selects-the-phone-factor-method).
 
-After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators to be enrolled, provide the user with a form to select the authenticator to enroll. In the following example, phone is the only authenticator:
+After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators to be enrolled, provide the user with a form to select the authenticator to enroll. In the following wireframe, phone is the only authenticator:
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the enroll phone authenticator selection form for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-enroll-phone-java.png)
+![A choose your authenticator form with only a phone authenticator option and a next button](/img/wireframes/choose-authenticator-form-phone-only.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36858&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only
+ -->
 
 </div>
 
@@ -53,11 +63,16 @@ authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedCon
 
 The response from this request is an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number.
 
-You need to build a form to capture the user's phone number in your app. For example:
+You need to build a form to capture the user's phone number in your app.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the Java SDK's phone number input form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-in-pwd-phone-numberscreen-java.png)
+![A form with a field for a phone number, formatting advice and a next button](/img/wireframes/enter-phone-number-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37078&t=2h5Mmz3COBLhqVzv-1 enter-phone-number-form
+ -->
 
 </div>
 
@@ -78,11 +93,16 @@ AuthenticationResponse authenticationResponse =
 
 The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
 
-You need to build a form to capture the user's SMS verification code. For example:
+You need to build a form to capture the user's SMS verification code.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the verification code input form for the Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-in-pwd-phone-verify-email-code-java.png)
+![A form with a field for a verification code, a note to find the code in a SMS and a submit button](/img/wireframes/enter-verification-code-form-with-sms-message.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37154&t=vr9MuCR8C4rCt3hC-1 enter-verification-code-form-with-sms-message
+ -->
 
 </div>
 
@@ -92,17 +112,27 @@ This step assumes that your org is enabled with the voice feature.
 
 You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the Java SDK's enroll phone number authenticator form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num-java.png)
+![A form with a field for a phone number, formatting advice and a next button](/img/wireframes/enter-phone-number-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37078&t=2h5Mmz3COBLhqVzv-1 enter-phone-number-form
+ -->
 
 </div>
 
 > **Note:** The Java SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the Java SDK's phone factor (SMS or voice) form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-mode-java.png)
+![A choose your phone verification method form with SMS and Voice options and a next button](/img/wireframes/choose-phone-verification-method-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3400%3A37129&t=vr9MuCR8C4rCt3hC-1 choose-phone-verification-method-form
+ -->
 
 </div>
 

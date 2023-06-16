@@ -1,6 +1,10 @@
 ### Authorization Code with PKCE flow
 
-![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png "Auth Code flow with PKCE")
+<div class="full">
+
+![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -33,11 +37,11 @@ app -> client: Response
 
     You need to register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can redirect the browser to Okta. See [Request an authorization code](#request-an-authorization-code).
 
-3. The Authorization Server (Okta) redirects the authentication prompt to the user.
+3. The authorization server (Okta) redirects the authentication prompt to the user.
 4. The user authenticates.
 
     For Okta to authenticate the user credentials, Okta needs user profile data.
-    See [Add a user using Console](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-add-users.htm), [Import Users](/docs/guides/password-import-inline-hook/), and the [Users API](/docs/reference/api/users/). Alternatively, you can [set up self-service registration](/docs/guides/set-up-self-service-registration/) to allow users to register their membership with the app.
+    See [Add a user using Console](https://help.okta.com/okta_help.htm?id=ext-usgp-add-users), [Import Users](/docs/guides/password-import-inline-hook/), and the [Users API](/docs/reference/api/users/). Alternatively, you can [set up self-service registration](/docs/guides/set-up-self-service-registration/) to allow users to register their membership with the app.
 
 5. Okta redirects back to your native application with an authorization code.
 6. Your application sends this code, along with the code verifier, to Okta. See [Exchange the code for tokens](#exchange-the-code-for-tokens).

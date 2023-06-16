@@ -1,5 +1,5 @@
 import queryString from "query-string";
-import moment from "moment-timezone";
+import { DateTime } from "luxon";
 import { deleteCookie, getCookie, setCookie } from "./cookies";
 
 const acceptedParams = [
@@ -49,9 +49,9 @@ function filterParams(params) {
   params = Object.assign(
     {
       utm_page: location.pathname,
-      utm_date: moment(moment.utc())
-        .tz("America/Los_Angeles")
-        .format("MM/DD/YYYY")
+      utm_date: DateTime.utc()
+        .setZone('America/Los_Angeles')
+        .toFormat('MM/dd/yyyy')
     },
     params
   );

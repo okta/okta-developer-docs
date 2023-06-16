@@ -1,28 +1,27 @@
 <template>
-<ul :class="['menu--items', 'menu--mobile', {'expanded': title_element && title_element.isOpened}]">
-  
-  <DocsMenuItem
-    v-if="title_element" 
-    :link="title_element"
-    :key="title_element.title"
-    :isOpened="title_element && title_element.isOpened"
-  />
+  <ul :class="['menu--items', 'menu--mobile', {'expanded': title_element && title_element.isOpened}]">
+    <DocsMenuItem
+      v-if="title_element" 
+      :key="title_element.title"
+      :link="title_element"
+      :is-opened="title_element && title_element.isOpened"
+    />
 
-  <DocsMenuItem
-    v-for="(link, index) in list"
-    :key="index"
-    :link="link"
-  />
-</ul>
+    <DocsMenuItem
+      v-for="(link, index) in list"
+      :key="index"
+      :link="link"
+    />
+  </ul>
 </template>
 
 <script>
 
 export default {
-  inject: ['appContext'],
   components: {
     DocsMenuItem: () => import("../components/DocsMenuItem.vue"),
   },
+  inject: ['appContext'],
   data() {
     return {
       'list': [],
@@ -85,7 +84,7 @@ export default {
 
     toggleLinkState: function(item) {
       if (!item) { return; }
-      item.isOpened = !Boolean(item.isOpened);
+      item.isOpened = !item.isOpened;
     },
 
     addIdToLink(link, parent_id = 0) {

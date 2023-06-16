@@ -34,10 +34,11 @@ A traditional web app that runs on the server.
 A JavaScript app that runs in the browser, for example a single-page app (SPA).
 
 <Cards>
+  <Card href="/docs/guides/auth-js-redirect/main/" :showHeaderIcon=true headerIcon="code-javascript">JavaScript</Card>
   <Card href="/docs/guides/sign-into-spa-redirect/react/main/" headerImage="/img/homepage/stackselectors/react.png">React</Card>
   <Card href="/docs/guides/sign-into-spa-redirect/angular/main/" headerImage="/img/homepage/stackselectors/angular.png">Angular</Card>
   <Card href="/docs/guides/sign-into-spa-redirect/vue/main/" headerImage="/img/homepage/stackselectors/vue.png">Vue</Card>
-  <Card href="#" headerImage="/img/homepage/stackselectors/dotnet.png">Blazor (coming soon)</Card>
+  <!--<Card href="#" headerImage="/img/homepage/stackselectors/dotnet.png">Blazor (coming soon)</Card>-->
 </Cards>
 
 ### Mobile/native app
@@ -47,7 +48,7 @@ A mobile or desktop app that runs natively on a device.
 <Cards>
   <Card href="/docs/guides/sign-into-mobile-app-redirect/ios/main/" headerImage="/img/homepage/stackselectors/ios.png">iOS</Card>
   <Card href="/docs/guides/sign-into-mobile-app-redirect/android/main/" headerImage="/img/homepage/stackselectors/android.png">Android</Card>
-  <Card href="#" headerImage="/img/homepage/stackselectors/react.png">React Native (coming soon)</Card>
+  <!-- <Card href="#" headerImage="/img/homepage/stackselectors/react.png">React Native (coming soon)</Card> -->
 </Cards>
 
 ## Protect your API

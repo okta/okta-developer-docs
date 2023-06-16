@@ -10,19 +10,18 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 
 #### Source the Sign-In Widget from the Okta CDN
 
-Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta CDN.
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
-```JavaScript
-<!-- okta-signin-widget assets are avilable on CDN -->
-<script src="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+```html
+<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
->**Note:** Ensure that you use or reference the latest Sign-In Widget for `siwVersion`. The latest version is available in the Okta Sign-In Widget [repository](https://github.com/okta/okta-signin-widget/releases/).
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 #### Initialize the Sign-In Widget
 
-When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the `useInteractionCodeFlow` option to `true` to enable Identity Engine features in the embedded Sign-In Widget.
+When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app.
 
 In this code sample, `widgetConfig` is referenced in the `login.js` file, which uses values defined in the `config.js` file:
 
@@ -37,7 +36,6 @@ In this code sample, `widgetConfig` is referenced in the `login.js` file, which 
           issuer: issuer,
           scopes: scopes,
         },
-        useInteractionCodeFlow: true,
         state,
         interactionHandle,
         codeChallenge,
@@ -45,9 +43,11 @@ In this code sample, `widgetConfig` is referenced in the `login.js` file, which 
       };
 ```
 
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in the configuration settings.
+
 Load the Widget in the sign-in page, similar to the following snippet:
 
-```JavaScript
+```html
 <div id="content" class="ui padded relaxed">
 
       {{>formMessages}}
@@ -60,6 +60,12 @@ Load the Widget in the sign-in page, similar to the following snippet:
           el: '#okta-signin-widget-container',
           ...widgetConfig
         });
+
+         // Search for URL Parameters to see if a user is being routed to the application to recover password
+         var searchParams = new URL(window.location.href).searchParams;
+         signIn.otp = searchParams.get('otp');
+         signIn.state = searchParams.get('state');
+
         signIn.showSignInAndRedirect()
           .catch(err => {
             console.log('Error happen in showSignInAndRedirect: ', err);

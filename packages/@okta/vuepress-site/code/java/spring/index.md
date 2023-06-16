@@ -23,7 +23,7 @@ meta:
 
 ## Get started with Spring + Okta
 
-New to Okta? Our resources walks you through adding user authentication to your Spring app in minutes.
+These resources walks you through adding user authentication to your Spring app in minutes.
 
 <ul class='language-ctas'>
 	<li>

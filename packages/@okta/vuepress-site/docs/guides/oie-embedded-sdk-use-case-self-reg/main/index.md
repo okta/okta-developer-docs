@@ -4,7 +4,11 @@ title: Self-service registration
 
 <ApiLifecycle access="ie" />
 
+> **Note:** In proxy model architectures, where a server-side application using the Embedded SDK is used as a proxy between client applications and Okta servers, a request context for the client applications is required. Security enforcement is expected to be based on the client request context’s IP address and user agent. However, since these values are currently being derived from the server application rather than the client, this enforcement is not available. As a result, network zones or behaviors that drive their conditions based on these request context values (geolocation, IP Address, or user agent) will not work until we can find a solution to the issue.
+
 This guide covers self-service registration, which allows users to sign up for the app themselves. In this use case, the user must register with a password, email, and/or phone factors. You must first enable the self-service registration option for your app in the Okta org and then build the self-service registration flow in your app.
+
+<StackSnippet snippet="pwdoptionalusecase" inline />
 
 ---
 
@@ -30,7 +34,7 @@ This guide covers self-service registration, which allows users to sign up for t
 
 Before you can build the self-registration flow in your app, you must configure the Okta org to accept self-registration with the password, email, and/or phone factors. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to set up the password, email, and phone factors in your Okta org.
 
-<div class="common-image-format">
+<div class="half">
 
 ![Password and email factors](/img/oie-embedded-sdk/factor-password-email-or-phone.png)
 
@@ -92,7 +96,7 @@ In this scenario, the org is set up in the following manner:
 
 1. The org is initially configured following the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
 
-2. The application's sign-on policy is updated for only the password factor. In the Admin Console, the **AND User must authenticate with** field is set to **Password**.
+2. The application's authentication policy is updated for only the password factor. In the Admin Console, the **AND User must authenticate with** field is set to **Password**.
 
 3. The **Email verification** field in the profile enrollment's Default Policy is set to **Required before access is granted**. You can find the profile enrollment configuration by navigating to **Security** > **Profile Enrollment**.
 

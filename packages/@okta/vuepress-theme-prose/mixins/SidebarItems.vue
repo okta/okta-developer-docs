@@ -33,11 +33,39 @@ export default {
         this.addStatesToLink(nav);     
         return nav;
       });
-      return this.navigation
+      return this.navigation;
     },
-    addStatesToLink(link) {
+
+    sanitizeTitle(el) {
+      if (el.guideName) {
+        return el.guideName;
+      }
+      return el.title.toLowerCase().replace(/ /ig, '-').replace(/\//ig, '-');
+    },
+
+    addStatesToLink(link, parent = null) {
       // Reset iHaveChildrenActive value.
       link.iHaveChildrenActive = false;
+      if (!link.path) {
+        link.path = parent.path + this.sanitizeTitle(link) + "/";
+        if (!link.guideName) {
+          const parentTitle = this.sanitizeTitle(parent);
+          let path = '';
+          if (parentTitle !== 'guides' && parent.path) {
+            const splittedPath = parent.path.split('/')
+            if (parent.path.indexOf(parentTitle) >= 0) {
+              path = parent.path.replace(parentTitle, this.sanitizeTitle(link));
+            } else if (parent.path == '/code/') { 
+              path = `/${splittedPath[1]}/${this.sanitizeTitle(link)}/`;
+            } else {
+              path = `/${splittedPath[1]}/${splittedPath[2]}/${this.sanitizeTitle(link)}/`;
+            }
+          } else {
+            path = parent.path + this.sanitizeTitle(link) + "/";
+          }
+          link.path = path;
+        }
+      }
 
       if (link.path) {
         // Add state to leaf link
@@ -47,15 +75,16 @@ export default {
         for (const subLink of link.subLinks) {
           // if link has active children - continue with the rest of its sublinks
           if (link.iHaveChildrenActive) {
-            this.addStatesToLink(subLink);
+            this.addStatesToLink(subLink, link);
           } else {
-            link.iHaveChildrenActive = this.addStatesToLink(subLink);
+            link.iHaveChildrenActive = this.addStatesToLink(subLink, link);
           }
         }
       }
 
       return link.iHaveChildrenActive;
     },
+
     getGuides() {
       const pages = this.$site.pages;
       const guidesInfo = getGuidesInfo({ pages });
@@ -79,7 +108,7 @@ export default {
               // Special value for guide that only has one section and should be
               // linked at the parent
               if (guide.sections.length === 1 && firstSection.name === 'main') {
-                current.title = firstSection.title;
+                current.title = current.title; // firstSection.title;
                 current.path = firstSection.makeLink(guide.frameworks.includes(framework) ? framework : guide.mainFramework);
                 current.frameworks = guide.frameworks;
               } else {

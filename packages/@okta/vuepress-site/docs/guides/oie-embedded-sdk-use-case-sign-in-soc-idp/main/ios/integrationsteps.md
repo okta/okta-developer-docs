@@ -7,7 +7,7 @@ interface into explicit authentication steps and automatically executes steps
 such, as the code-to-token exchange. The following diagram illustrates this call flow
 from your applications's UI to the sample code, SDK, and API.
 
-<div class="common-image-format">
+<div class="full">
 
  ![Displays a diagram of the integration flow of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png)
 
@@ -52,7 +52,7 @@ self.authHandler?.login(service: .facebook)
 #### 3: Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page
-after the user successfully signs in. Optionally, you can obtain basic user information after the user successfully signs in by making a request to Okta's Open ID Connect Authorization Server.
+after the user successfully signs in. Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect authorization server.
 See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
 
 ## Sample code
@@ -100,7 +100,7 @@ public class SocialLogin {
                     return
                 }
 
-                // Find the Social IDP remediation that matches the requested social auth service.
+                // Find the Social IdP remediation that matches the requested social auth service.
                 guard let remediation = response.remediations.first(where: { remediation in
                     let socialRemediation = remediation as? IDXClient.Remediation.SocialAuth
                     return socialRemediation?.service == service
@@ -128,7 +128,7 @@ public class SocialLogin {
             return
         }
 
-        // Create an ASWebAuthenticationSession to trigger the IDP OAuth2 flow.
+        // Create an ASWebAuthenticationSession to trigger the IdP OAuth2 flow.
         let session = ASWebAuthenticationSession(url: remediation.redirectUrl,
                                                  callbackURLScheme: scheme)
         { [weak self] (callbackURL, error) in

@@ -1,6 +1,6 @@
 ---
-title: Event Hook with ngrok
-excerpt: How to demonstrate an Event Hook using ngrok
+title: Event hook with ngrok
+excerpt: How to demonstrate an event hook using ngrok
 layout: Guides
 sections:
 - main

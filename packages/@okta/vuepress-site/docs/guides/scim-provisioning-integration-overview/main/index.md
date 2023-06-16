@@ -31,7 +31,7 @@ Whether you are an independent software vendor (ISV), an existing Okta customer,
 
 If you need more detail on the concepts behind lifecycle management with SCIM and Okta, see [Understanding SCIM](/docs/concepts/scim/).
 
-While many ISVs have custom APIs for managing user accounts, this guide assumes that you use the [System for Cross-domain Identity Management](http://www.simplecloud.info) (SCIM) protocol, an industry standard that supports all of the needed features for lifecycle provisioning. For more technical details on how you can take advantage of the SCIM API with Okta, see our [SCIM Protocol reference](/docs/reference/scim/).
+While many ISVs have custom APIs for managing user accounts, this guide assumes that you use the [System for Cross-domain Identity Management](https://scim.cloud) (SCIM) protocol, an industry standard that supports all of the needed features for lifecycle provisioning. For more technical details on how you can take advantage of the SCIM API with Okta, see our [SCIM Protocol reference](/docs/reference/scim/).
 
 Your Okta integration should use Single Sign-On (SSO) to initiate end-user authentication. Learn how to set up your integration with SSO in our [Build a Single Sign-On (SSO) integration](/docs/guides/build-sso-integration/) guide.
 
@@ -40,7 +40,7 @@ Your Okta integration should use Single Sign-On (SSO) to initiate end-user authe
 This guide series contains the following parts:
 
 * [Prepare your SCIM API service](/docs/guides/scim-provisioning-integration-prepare/): Prepare a SCIM-compliant API server to host your SCIM service, and test it to make sure it is working correctly.
-* [Connect your SCIM API service to Okta](/docs/guides/scim-provisioning-integration-connect/): Create and configure SCIM integrations, and check the attributes and their corresponding mappings in the Okta console.
+* [Configure Okta to your SCIM API service](/docs/guides/scim-provisioning-integration-connect/): Use Okta to make SCIM requests to your SCIM API service by creating and configuring an Okta SCIM integration from the Admin Console.
 * [Test your Okta SCIM integration](/docs/guides/scim-provisioning-integration-test/): Test that your SCIM application can handle actual requests to create, read, update, and delete (CRUD) user profile information, and run through our Okta Integration Network (OIN) quality assurance test cases.
 
 ## See also

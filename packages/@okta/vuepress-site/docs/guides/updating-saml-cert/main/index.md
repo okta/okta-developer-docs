@@ -97,7 +97,7 @@ Where:
 
 `<application id>` is the application ID you used in Step 1.
 
-> **Note:** Certificates downloaded with this method contain the Begin Certificate and End Certificate lines.
+> **Note:** Certificates downloaded with this method contain the **Begin Certificate** and **End Certificate** lines.
 
 ## Get the app info
 
@@ -244,7 +244,7 @@ curl -v -X PUT \
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select your app integration.
 1. Select **Sign-On Options**.
-1. Click **View Setup Instructions**, as shown below.<br/>![Accessing SAML Setup Instructions](/img/saml_setup_link.png)
+1. Click **View Setup Instructions**.
 1. Perform the setup for your app integration again by using the instructions provided. During this setup, you can upload the certificate in a specified format, the metadata, or the certificate fingerprint.
 
 ## Revert to a SHA1 certificate
@@ -263,7 +263,7 @@ Pass the app ID (`id`) that was collected in the previous step as the app ID (`a
 using the method described below. After determining which certificate is the SHA1 certificate, note the signing key id, `kid`.
 
 The certificate is contained in the element, `x5c` and is not in PEM format; that is, it does not
-contain *Begin Certificate* and *End Certificate* lines.  (The certificates shown in this how-to have been altered and are not valid.)
+contain **Begin Certificate** and **End Certificate** lines.  (The certificates shown in this how-to have been altered and are not valid.)
 
 In the sample response shown below, there are two certificates to check to find the SHA1 certificate.
 
@@ -318,7 +318,7 @@ This step is the same as
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select your app integration.
 1. Select **Sign-On Options**.
-1. Click **View Setup Instructions**, as shown below.<br/>![Accessing SAML Setup Instructions](/img/saml_setup_link.png)
+1. Click **View Setup Instructions**.
 1. Perform the setup for your app integration again by using the instructions provided. During this setup, you can upload the certificate in a specified format, the metadata, or the certificate fingerprint.
 
 ## See also

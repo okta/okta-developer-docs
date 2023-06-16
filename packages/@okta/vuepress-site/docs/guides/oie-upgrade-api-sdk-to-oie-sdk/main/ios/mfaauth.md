@@ -9,7 +9,7 @@ The Classic Engine Authentication SDK methods that support the multifactor sign-
 
 The following steps detail how to integrate the multifactor sign-in flow using the Classic Engine Authentication SDK.
 
-#### 1. Start sign-in
+#### 1. Start sign-in flow
 
 Start the sign-in flow by calling the `authenticate` type method on `OktaAuthSdk`. Pass your Okta org domain URL, username, password and a status change closure to the method.
 
@@ -56,7 +56,7 @@ func handleFactorRequired(factorRequiredStatus: OktaAuthStatusFactorRequired) {
 
 #### 3. Verify factor
 
-After `OktaAuthStatusFactorRequired.selectFactor` completes, the `handleStatus` closure is called and returns a status type of `MFAChallenge`.  This status type indicates that a code has been sent to email or SMS and is awaiting verification.
+After `OktaAuthStatusFactorRequired.selectFactor` completes, the `handleStatus` closure is called and returns a status type of `MFAChallenge`. This status type indicates that a code has been sent to either email or SMS and is awaiting verification.
 
 ```swift
 func handleStatus(status: OktaAuthStatus) {
@@ -129,9 +129,9 @@ The Identity Engine methods that support the multifactor authentication flow are
 
 The following steps detail how to integrate the multifactor authentication flow:
 
-#### 1. Setup the multifactor sign-in flow
+#### 1. Set up the multifactor sign-in flow
 
-First, set up logic that handles each step in the multifactor sign-in process. Create an instance of `MultifactorLogin` and pass in a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever application interaction is requested during the sign-in flow.  In this closure, build out the following multifactor sign-in steps:
+First, set up logic that handles each step in the multifactor sign-in process. Create an instance of `MultifactorLogin` and pass in a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever application interaction is requested during the sign-in flow. In this closure, build out the following multifactor sign-in steps:
 
 1. Choose the factor
 1. Verify the email or SMS factor

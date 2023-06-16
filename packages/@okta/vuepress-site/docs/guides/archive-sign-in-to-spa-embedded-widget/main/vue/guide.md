@@ -110,6 +110,8 @@ export { oktaAuth, oktaSignIn };
 
 Make sure to replace the `${...}` placeholders with values from your OIDC app on Okta.
 
+> **Note:** In Okta Sign-In Widget version 7+, [Okta Identity Engine](/docs/concepts/oie-intro) is enabled by default. If you are using version 7+ and want to use Okta Classic Engine rather than Identity Engine, you need to specify `useClassicEngine: true` in the [configuration options](https://github.com/okta/okta-signin-widget#configuration) passed into the `new OktaSignIn()` call.
+
 ## Create a Widget Wrapper
 
 To provide a fully-featured and customizable sign-in experience, the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) is available to handle User Lifecycle operations, MFA, and more. To render the Sign-In Widget in Vue, you must create a wrapper that allows us to treat it as a Vue component.
@@ -384,7 +386,3 @@ npm run serve
 ## Conclusion
 
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
-
-## Support
-
-Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

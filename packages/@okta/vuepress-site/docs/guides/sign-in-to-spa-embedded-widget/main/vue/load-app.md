@@ -4,7 +4,6 @@ Use the required [configuration settings](#okta-org-app-integration-configuratio
 
 * `clientId`: Your client ID &mdash; `${yourClientId}`
 * ` issuer`: The authorization server in your Okta org (for example, `https://${yourOktaDomain}/oauth2/default`)
-* `useInteractionCodeFlow`: Set this option to `true` to enable the [Interaction Code flow](/docs/concepts/interaction-code/#the-interaction-code-flow) in the widget for embedded authentication.
 * `pkce`: Set this option to `true` to enable PKCE in the widget. This is used for SPA apps that use the [Authentication Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/).
 * `scopes`: Set the OAuth 2.0 scopes that your app requires.
 * `redirectUri`: Set your callback redirect URI. This value must be configured in your Okta app **Sign-in redirect URIs** and the URI host must be in the **Trusted Origins** list.
@@ -19,10 +18,11 @@ export default {
     redirectUri: '${yourLocalAppDomain}/login/callback',
     scopes: ['openid', 'profile', 'email'],
     pkce: true,
-    useInteractionCodeFlow: true
   }
 }
 ```
+
+> **Important**: In Okta Sign-In Widget version 7+, Identity Engine is enabled by default. If you are using an earlier version than 7, you must explicitly enable Identity Engine features by setting `useInteractionCodeFlow: true` in the configuration settings shown above. If you are using version 7+ and you want to use Okta Classic Engine rather than Identity Engine, specify `useClassicEngine: true` in the configuration settings.
 
 > **Note:** The `baseUrl` configuration setting isn't required in the Sign-In Widget for OIDC applications as of [version 5.15.0](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.15.0). `['openid', 'profile', 'email']` are commonly used scopes. See [Scopes](/docs/reference/api/oidc/#scopes) for details on additional supported scopes.
 
@@ -76,7 +76,7 @@ export default {
   name: 'Login',
   mounted: function () {
     this.$nextTick(function () {
-      const { issuer, clientId, redirectUri, scopes, useInteractionCodeFlow } = sampleConfig.oidc
+      const { issuer, clientId, redirectUri, scopes } = sampleConfig.oidc
       this.widget = new OktaSignIn({
         clientId,
         redirectUri,
@@ -89,14 +89,18 @@ export default {
         authParams: {
           issuer,
           scopes,
-        },
-        useInteractionCodeFlow
+        }
       })
 
       const originalUri = this.$auth.getOriginalUri();
       if (!originalUri) {
         this.$auth.setOriginalUri('/');
       }
+
+      // Search for URL Parameters to see if a user is being routed to the application to recover password
+      var searchParams = new URL(window.location).searchParams;
+      this.widget.otp = searchParams.get('otp');
+      this.widget.state = searchParams.get('state');
 
       this.widget.showSignInToGetTokens({
         el: '#okta-signin-container',

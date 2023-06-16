@@ -1,1 +1,1 @@
- a URI that is appropriate for your app, or `http://localhost:8000` if you're using the sample app (in addition to the default redirect URI `http://localhost:8080/authorization-code/callback` that is already listed).
+ a URI that is appropriate for your app. For example, `http://localhost:8080` if you're using the sample app.

@@ -5,7 +5,7 @@ cd ${OKTA_HOME}/${REPO}
 export GENERATED_SITE_LOCATION=dist
 
 # Use latest version of Node
-setup_service node v12.22.7
+setup_service node v14.21.1
 
 if [[ -z "${BUILD_FAILURE}" ]]; then
     export BUILD_FAILURE=1
@@ -41,7 +41,7 @@ function interject() {
 }
 
 function send_promotion_message() {
-    curl -H "Authorization: Bearer ${TESTSERVICE_SLAVE_JWT}" \
+    curl -H "x-aurm-token: ${AURM_TOKEN}" \
       -H "Content-Type: application/json" \
       -X POST -d "[{\"artifactId\":\"$1\",\"repository\":\"$2\",\"artifact\":\"$3\",\"version\":\"$4\",\"promotionType\":\"ARTIFACT\"}]" \
       -k "${APERTURE_BASE_URL}/v1/artifact-promotion/createPromotionEvent"

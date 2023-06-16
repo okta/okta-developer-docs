@@ -5,12 +5,13 @@ category: management
 
 # Log Streaming API
 
-<ApiLifecycle access="ea" />
+The Log Streaming API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/#tag/LogStream).
 
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Log Streaming API Postman collection.
+
+<!--
 The Okta Log Streaming API provides operations to manage Log Stream configurations for an org.
 You can configure up to two Log Stream integrations per org.
-
-> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Feature Lifecycle Management](https://developer.okta.com/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
 
 ## Get started
 
@@ -25,8 +26,6 @@ The Log Streaming API has the following CRUD operations:
 * [Update a Log Stream](#update-a-log-stream)
 * [Delete a Log Stream](#delete-a-log-stream)
 ### Add a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams" />
 
@@ -79,11 +78,11 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4",
+      "href": "http://{yourOktaDomain}/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "http://${yourOktaDomain}/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4/lifecycle/deactivate",
+      "href": "http://{yourOktaDomain}/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }
@@ -91,8 +90,6 @@ curl -v -X POST \
 ```
 
 ### Get a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/logStreams/${logStreamId}" />
 
@@ -136,11 +133,11 @@ curl -v -X GET \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }
@@ -148,8 +145,6 @@ curl -v -X GET \
 ```
 
 ### List Log Streams
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/logStreams" />
 
@@ -176,7 +171,7 @@ The following filters are supported with the `filter` query parameter:
 
 | Filter                              | Description                                                                       |
 | ----------------------              | ------------------------------------------------------                            |
-| `type eq "${typeId}"`        | Filter Log Streams of type [`${typeId}`](#log-stream-type), such as `aws_eventbridge` |
+| `type eq "${typeId}"`        | Filter Log Streams of type [`${typeId}`](#log-stream-type), such as `aws_eventbridge` or `splunk_cloud_logstreaming` |
 | `status eq "ACTIVE"`                | Filter Log Streams with an `ACTIVE` status                                             |
 | `status eq "INACTIVE"`              | Filter Log Streams with an `INACTIVE` status                                           |
 
@@ -220,11 +215,33 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
         "method": "GET"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+        "method": "POST"
+      }
+    }
+  },
+  {
+    "id": "0oa129gzYyV6oWs1D0g4",
+    "type": "splunk_cloud_logstreaming",
+    "name": "Example Splunk Cloud",
+    "lastUpdated": "2021-11-30T15:16:09.000Z",
+    "created": "2021-11-30T15:16:09.000Z",
+    "status": "ACTIVE",
+    "settings": {
+      "edition": "aws",
+      "host": "acme.splunkcloud.com"
+    },
+    "_links": {
+      "self": {
+        "href": "http://{yourOktaDomain}/api/v1/logStreams/0oa129gzYyV6oWs1D0g4",
+        "method": "GET"
+      },
+      "deactivate": {
+        "href": "http://{yourOktaDomain}/api/v1/logStreams/0oa129gzYyV6oWs1D0g4/lifecycle/deactivate",
         "method": "POST"
       }
     }
@@ -244,7 +261,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/logStreams?filter=type+eq+\"aws_eventbridge\""
+"https://${yourOktaDomain}/api/v1/logStreams?filter=type+eq+%22aws_eventbridge%22"
 ```
 
 ##### Response example
@@ -265,11 +282,11 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
         "method": "GET"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
         "method": "POST"
       }
     }
@@ -290,7 +307,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/logStreams?filter=status+eq+\"ACTIVE\""
+"https://${yourOktaDomain}/api/v1/logStreams?filter=status+eq+%22ACTIVE%22"
 ```
 
 ##### Response example
@@ -311,11 +328,11 @@ curl -v -X GET \
     },
     "_links": {
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
         "method": "GET"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+        "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
         "method": "POST"
       }
     }
@@ -324,8 +341,6 @@ curl -v -X GET \
 ```
 
 ### Update a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="put" url="/api/v1/logStreams/${logStreamId}" />
 
@@ -378,19 +393,17 @@ curl -v -X PUT \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }
 }
 ```
 ### Delete a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/logStreams/${logStreamId}" />
 
@@ -430,8 +443,6 @@ The Log Streaming API has the following lifecycle operations:
 * [Deactivate a Log Stream](#deactivate-a-log-stream)
 
 ### Activate a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/activate" />
 
@@ -475,11 +486,11 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }
@@ -487,8 +498,6 @@ curl -v -X POST \
 ```
 
 ### Deactivate a Log Stream
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/deactivate" />
 
@@ -532,11 +541,11 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
       "method": "GET"
     },
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/activate",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/activate",
       "method": "POST"
     }
   }
@@ -563,11 +572,11 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
+      "href": "https://{yourOktaDomain}/api/v1/logStreams/0oa1orzg0CHSgPcjZ0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }
@@ -587,7 +596,7 @@ All Log Streams have the following properties:
 | name          | Unique name for the Log Stream                                  | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
 | status        | Status of the Log Stream                                          | `ACTIVE` or `INACTIVE`                                         | FALSE | FALSE | TRUE  |   |     |
 | type          | Type of Log Stream                                                  | [Log Stream type](#log-stream-type)            | FALSE    | FALSE  | FALSE    |           |           |
-| settings      | Log Stream type settings                                                  | [AWS EventBridge Settings](#aws-eventbridge-settings-object)            | FALSE    | FALSE  | TRUE    |           |           |
+| settings      | Log Stream type settings                                                  | [AWS EventBridge Settings](#aws-eventbridge-settings-object) or [Splunk Cloud Settings](#splunk-cloud-settings-object)      | FALSE    | FALSE  | TRUE    |           |           |
 
 #### Property details
 
@@ -610,6 +619,7 @@ The Log Stream type specifies the streaming provider used. Okta supports the fol
 | Type         | Description                                                                                                                                           |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `aws_eventbridge`      | [AWS EventBridge](https://aws.amazon.com/eventbridge/) Log Stream type                                                                      |
+| `splunk_cloud_logstreaming`      | [Splunk Cloud](https://www.splunk.com/en_us/software/splunk-cloud-platform.html) Log Stream type                                                                      |
 
 
 ### AWS EventBridge Settings object
@@ -645,11 +655,41 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 | us-east-1 | US East (N. Virginia) |
 | us-west-1 | US West (N. California) |
 | us-west-2 | US West (Oregon) |
+| ap-south-1 | Asia Pacific (Mumbai) |
+| ap-northeast-3 | Asia Pacific (Osaka) |
+| ap-northeast-2 | Asia Pacific (Seoul) |
+| ap-southeast-1 | Asia Pacific (Singapore) |
+| ap-southeast-2 | Asia Pacific (Sydney) |
+| ap-northeast-1 | Asia Pacific (Tokyo) |
 | ca-central-1 | Canada (Central) |
 | eu-central-1 | Europe (Frankfurt) |
 | eu-west-1 | Europe (Ireland) |
 | eu-west-2 | Europe (London) |
 | eu-west-3 | Europe (Paris) |
-| eu-south-1 | Europe (Milan) |
 | eu-north-1 | Europe (Stockholm) |
+| sa-east-1 | South America (São Paulo) |
 
+
+### Splunk Cloud Settings object
+
+The Splunk Cloud Settings object specifies the configuration for the `splunk_cloud_logstreaming` Log Stream type.
+
+#### Splunk Cloud Settings example
+
+```json
+{
+  "edition": "aws",
+  "host": "acme.splunkcloud.com",
+  "token": "11111111-1111-2222-2222-222222222222"
+}
+```
+
+#### Splunk Cloud Settings properties
+
+| Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
+| ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
+| edition       | The edition of the Splunk Cloud instance. Supported values: `aws`, `gcp`, or `aws_govcloud`     | String                                    | FALSE    | FALSE   | FALSE     |      -     |     -      |
+| host            | The domain name for your Splunk Cloud instance. Don't include `http` or `https` in the string. For example: `acme.splunkcloud.com`                                       | String                                                         | FALSE    | FALSE   | FALSE     |      17     |     116      |
+| token     | The HEC token for your Splunk Cloud HTTP Event Collector. The token value is set during object creation, but isn't returned.            | String (GUID format)  | FALSE | FALSE | FALSE  |  36 |  36   |
+
+-->

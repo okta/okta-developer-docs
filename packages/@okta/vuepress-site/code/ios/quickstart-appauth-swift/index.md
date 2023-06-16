@@ -5,6 +5,8 @@ icon: code-ios
 excerpt: Integrate Okta with an iOS native application using OktaAuth.
 ---
 
+> **Note:** This information is deprecated. See [Add user authentication to your iOS app](/code/ios/).
+
 This guide walks you through integrating authentication and authorization into a Swift iOS native application with Okta.
 
 ## Prerequisites
@@ -176,7 +178,3 @@ OktaAuth.userinfo() {
 ## Conclusion
 
 You have now successfully authenticated with Okta! Now what? With a user's `id_token`, you have basic claims for the user's identity. You can extend the set of claims by modifying the `scopes` to retrieve custom information about the user. This includes `locale`, `address`, `groups`, and [more](/docs/reference/api/oidc/).
-
-## Support
-
-Have a question or see a bug? Post your question on [Okta Developer Forum](https://devforum.okta.com/).

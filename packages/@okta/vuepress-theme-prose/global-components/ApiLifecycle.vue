@@ -1,21 +1,39 @@
 <template>
   <SmartLink :item="{ link }">
-    <span class="api-label api-label-beta" v-if="access === labelType.BETA">
-      <i class="fa fa-warning"></i> Beta
+    <span
+      v-if="access === labelType.BETA"
+      class="api-label api-label-beta"
+    >
+      <i class="fa fa-warning" /> Beta
     </span>
-    <span class="api-label api-label-ea" v-if="access === labelType.EARLY_ACCESS">
-      <i class="fa fa-flag"></i> Early Access
+    <span
+      v-if="access === labelType.EARLY_ACCESS"
+      class="api-label api-label-ea"
+    >
+      <i class="fa fa-flag" /> Early Access
     </span>
-    <span class="api-label api-label-deprecated" v-if="access === labelType.DEPRECATED">
-      <i class="fa fa-fire-extinguisher"></i> Deprecated
+    <span
+      v-if="access === labelType.DEPRECATED"
+      class="api-label api-label-deprecated"
+    >
+      <i class="fa fa-warning" /> Deprecated
     </span>
-    <span class="api-label api-label-ie" v-if="access === labelType.IDENTITY_ENGINE">
+    <span
+      v-if="access === labelType.IDENTITY_ENGINE"
+      class="api-label api-label-ie"
+    >
       Identity Engine
     </span>
-    <span class="api-label api-label-classic-engine" v-if="access === labelType.CLASSIC_ENGINE">
+    <span
+      v-if="access === labelType.CLASSIC_ENGINE"
+      class="api-label api-label-classic-engine"
+    >
       Classic Engine
     </span>
-    <span class="api-label api-label-limited-ga" v-if="access === labelType.LIMITED_GA">
+    <span
+      v-if="access === labelType.LIMITED_GA"
+      class="api-label api-label-limited-ga"
+    >
       Limited GA
     </span>
   </SmartLink>
@@ -23,7 +41,8 @@
 
 <script>
 const DEFAULT_LINK = "/docs/reference/releases-at-okta/";
-const IE_LINK = "/docs/guides/oie-intro/";
+const IE_LINK = "/docs/concepts/oie-intro/";
+const DEPRECATED_LINK = "/docs/reference/releases-at-okta/#deprecation";
 
 export default {
   name: "ApiLifecycle",
@@ -38,9 +57,13 @@ export default {
   },
   computed: {
     link() {
-      return this.access === this.labelType.IDENTITY_ENGINE ||
-             this.access === this.labelType.CLASSIC_ENGINE
-             ? IE_LINK : DEFAULT_LINK;
+      if(this.access === this.labelType.IDENTITY_ENGINE) {
+        return IE_LINK;
+      } else if(this.access === this.labelType.DEPRECATED) {
+        return DEPRECATED_LINK;
+      } else {
+        return DEFAULT_LINK;
+      }
     }
   },
   created() {

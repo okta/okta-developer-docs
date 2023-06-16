@@ -17,11 +17,16 @@ if err != nil {
 
 ### 2: Navigate to the sign-up page
 
-Build a sign-in page that captures the user's first name, last name, and email.
+Build a sign-up page that captures the user's first name, last name, and email.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays the sign-up page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-page.png)
+![A sign-up form with fields for first name, last name, and email address, and a create account button](/img/wireframes/sign-up-form-first-last-name-email.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36911&t=2h5Mmz3COBLhqVzv-1  sign-up-form-first-last-name-email
+ -->
 
 </div>
 
@@ -59,9 +64,14 @@ user should enter their password.
 
 Create a page for the user to enter their password.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays a password page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-pwd-page.png)
+![A set password form with two fields to enter and to confirm a password and a submit button](/img/wireframes/set-password-form-new-password-fields.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A36973&t=2h5Mmz3COBLhqVzv-1 set-password-form-new-password-fields
+ -->
 
 </div>
 
@@ -156,11 +166,16 @@ factor display and skip option.
   {{end}}
 ```
 
-An example of the page from the sample application is shown below:
+An example wireframe is shown below.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays the factor list page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-factor-list-page.png)
+![A choose your authenticator form with email and phone authenticator options and a next button](/img/wireframes/choose-authenticator-form-email-phone.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37020&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-email-phone
+ -->
 
 </div>
 
@@ -188,9 +203,14 @@ if err != nil {
 After `VerifyEmail` is called, redirect the user to a page that accepts the
 email confirmation code.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="half wireframe-border">
 
-![Displays the email verification page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-email-code-page.png)
+![A form with a field for a verification code and a submit button](/img/wireframes/enter-verification-code-form.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36808&t=2h5Mmz3COBLhqVzv-1 enter-verification-code-form
+ -->
 
 </div>
 
@@ -238,9 +258,14 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 }
 ```
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the phone factor with a Skip button in the Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-phone-factor-skip.png)
+![A choose your authenticator form with only a phone authenticator option, and next and skip buttons](/img/wireframes/choose-authenticator-form-phone-only-with-skip.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3399%3A37043&t=2h5Mmz3COBLhqVzv-1 choose-authenticator-form-phone-only-with-skip
+ -->
 
 </div>
 

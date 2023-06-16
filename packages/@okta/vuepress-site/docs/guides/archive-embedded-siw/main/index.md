@@ -12,9 +12,11 @@ The Okta Sign-In Widget is a JavaScript library that gives you a fully-featured 
 
 Okta uses the Widget as part of its normal sign-in page. If you would like to customize the Widget, then you will need to host it yourself. This guide will walk you through the [installation process](#installation) for the Widget, as well as [a few common use cases](#use-cases) for the Widget and how to implement them. The full Widget reference can be found [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget).
 
-> A version of the Widget that you can edit in real time can be found here: <https://developer.okta.com/live-widget/>
+<div class="half">
 
-<img src="/img/okta-signin.png" alt="Screenshot of basic Okta Sign-In Widget" width="400">
+![Screenshot of basic Okta Sign-In Widget](/img/siw/okta-sign-in-javascript.png)
+
+</div>
 
 ## Installation
 
@@ -22,24 +24,25 @@ The first step is to install the Widget. For this, you have two options: linking
 
 ### CDN
 
-To use the CDN, include this in your HTML:
+To use the CDN, include this in your HTML, replacing `${widgetVersion}` with the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the widget:
 
 ```html
 <!-- Latest CDN production JavaScript and CSS -->
-<script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${widgetVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-More info, including the latest published version, can be found in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-okta-cdn).
+See also [Using the Okta CDN](https://github.com/okta/okta-signin-widget#using-the-okta-cdn). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 ### npm
 
-```
-# Run this command in your project root folder.
-npm install @okta/okta-signin-widget@-=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+To install the [latest version of the Okta Sign-In Widget](https://github.com/okta/okta-signin-widget/releases) locally through `npm`, run the following command in your project root folder:
+
+```bash
+npm install @okta/okta-signin-widget@latest
 ```
 
-More info, including the latest published version, can be found in the [Widget Documentation](https://github.com/okta/okta-signin-widget#using-the-npm-module).
+See also [Using the npm module](https://github.com/okta/okta-signin-widget#using-the-npm-module). The latest version of the widget is -=OKTA_REPLACE_WITH_WIDGET_VERSION=-.
 
 #### Bundling the Widget
 
@@ -52,9 +55,9 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 > Loading CSS requires the css-loader plugin. You can find more information about it [here](https://github.com/webpack-contrib/css-loader#usage).
 
-### Enabling Cross-Origin Access
+### Enabling cross-origin access
 
-Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
+Because the Widget will be making cross-origin requests, you need to enable Cross-Origin Resource Sharing (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
 
 ## Usage
 
@@ -83,7 +86,7 @@ The code that initializes the Widget looks like this:
 </script>
 ```
 
-> **Note:** If you are working with an [Okta Identity Engine](/docs/guides/oie-intro)-enabled org and want to use Identity Engine features in your app, you'll need to set the `useInteractionCodeFlow` option to `true` in the configuration options passed in to the `new OktaSignIn()` call. See [Set up the Sign-In Widget and SDK for your own app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#set-up-the-sign-in-widget-and-sdk-for-your-own-app) for more details. 
+> **Note:** In Okta Sign-In Widget version 7+, [Okta Identity Engine](/docs/concepts/oie-intro) is enabled by default. If you are using version 7+ and want to use Okta Classic Engine rather than Identity Engine, you need to specify `useClassicEngine: true` in the [configuration options](https://github.com/okta/okta-signin-widget#configuration) passed into the `new OktaSignIn()` call.
 
 <DomainAdminWarning />
 
@@ -215,7 +218,7 @@ function success(res) {
 
 #### Sign In to Your Application
 
-If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom Authorization Server](/docs/guides/customize-authz-server/) in Okta.
+If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom authorization server](/docs/guides/customize-authz-server/) in Okta.
 
 #### Server-side Web Application using "authorization_code" flow
 
@@ -350,10 +353,10 @@ See the following examples:
 
 - Android:
     - [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
-    - [Custom Sign In Example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
+    - [Custom Sign In Example](https://github.com/okta/samples-android/tree/legacy-samples/custom-sign-in)
 - iOS:
     - [Authenticate a User](https://github.com/okta/okta-auth-swift#authenticate-a-user)
-    - [Okta iOS Custom Sign In Example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+    - [Okta iOS Custom Sign In Example](https://github.com/okta/samples-ios/tree/legacy-samples/custom-sign-in)
 
 <!--
 - React Native
@@ -369,3 +372,7 @@ You can also develop your mobile app with frameworks like Ionic and Flutter. We 
 ## Customizations
 
 The Okta Sign-In Widget is fully customizable through CSS and JavaScript. See [Style the Widget](/docs/guides/custom-widget/) for more information and multiple examples of customization options.
+
+## See also 
+
+[Identity Engine upgrade overview](/docs/guides/oie-upgrade-overview/)

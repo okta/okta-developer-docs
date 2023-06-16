@@ -32,7 +32,7 @@ try {
 }
 ```
 
-### Okta Identity Engine SDK authentication flow
+### Identity Engine SDK authentication flow
 
 > **Note:** Before you implement your embedded Android app with the Java Identity Engine SDK, ensure that you have all the prerequisites. See [Add the Identity Engine SDK to your app](https://developer.okta.com/docs/guides/oie-upgrade-add-sdk-to-your-app/android/main/).
 
@@ -53,3 +53,5 @@ AuthenticationResponse authenticationResponse =
 ```
 
 See [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/android/main/) for further details on the Identity Engine password authentication flow.
+
+

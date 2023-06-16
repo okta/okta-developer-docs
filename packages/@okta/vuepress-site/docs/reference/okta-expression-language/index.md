@@ -1,28 +1,36 @@
 ---
-title: Expression Language overview
+title: Okta Expression Language overview guide
 meta:
   - name: description
-    content: Learn more about the features and syntax of the Okta Expression Language, which can be used throughout the administrator UI and API.
+    content: Learn more about the features and syntax of Okta Expression Language, which you can use throughout the administrator UI and API.
 ---
 
-# Overview
+# Okta Expression Language overview
+
+This document details the features and syntax of the Okta Expression Language (EL). You can use this language throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
+
+> **Note:** If you're using the Okta Expression Language for the [Global session policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
+
+Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of the functionalities offered by SpEL.
 
 Expressions allow you to reference, transform, and combine attributes before you store them on a User Profile or before passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine the `firstName` and `lastName` attributes into a single `displayName` attribute.
 
-This document details the features and syntax of the Okta Expression Language, which you can use throughout the Okta Admin Console and API. Okta updates this document over time as new capabilities are added to the language. The Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of functionalities offered by SpEL.
+## Reference user attributes
 
-## Referencing user attributes
 When you create an Okta expression, you can reference any attribute that lives on an Okta User Profile or Application User Profile.
 
 ### Okta User Profile
-Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, just reference `user` and specify the attribute variable name.
 
+Every user has an Okta User Profile. The Okta User Profile is the central source of truth for the core attributes of a User. To reference an Okta User Profile attribute, specify `user.` and the attribute variable name. For a list of core User Profile attributes, see [Default Profile properties](/docs/reference/api/users/#default-profile-properties).
 
 | Syntax            | Definitions                                                                   | examples                                                       |
 | --------          | ----------                                                                    | ------------                                                   |
 | `user.$attribute` | `user` reference to the Okta User<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
 
+> **Note:** You can also access the User ID for each user with the following expression: `user.getInternalProperty("id")`.
+
 ### Application User Profile
+
 In addition to an Okta User Profile, all Users have a separate Application User Profile for each of their applications. Application User Profiles store application-specific information about Users, such as the application `userName` or user `role`. To reference an Application User Profile attribute, specify the application variable and the attribute variable in the user profile of the application. In specifying the application, you can either name the specific application you're referencing or use an implicit reference to an in-context application.
 
 | Syntax                | Definitions                                                                                | examples                                                              |
@@ -33,20 +41,21 @@ In addition to an Okta User Profile, all Users have a separate Application User 
 > **Note:** Explicit references to apps aren't supported for OAuth 2.0/OIDC custom claims. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
 >
 
-> **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`.  You can find the name of any specific app instance in the Profile Editor, where it appears in lighter text beneath the label of the app.
+> **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same application, the names of the subsequent instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`. You can find the name of any specific app instance in the Profile Editor, where it appears in lighter text beneath the label of the app.
 
 ### IdP User Profile
-In addition to an Okta User Profile, some users have separate IdP User Profiles for their external Identity Provider. These IdP User Profiles are used to store IdP-specific information about a user. You can use this data in an EL expression to transform an external user's username into the equivalent Okta username. To reference an IdP User Profile attribute, specify the IdP variable and the corresponding attribute variable for the IdP User Profile of that identity provider. This profile is only available when specifying the username transform used to generate an Okta username for the IdP user.
+
+In addition to an Okta User Profile, some users have separate IdP User Profiles for their external Identity Provider. These IdP User Profiles are used to store IdP-specific information about a user. You can use this data in an EL expression to transform an external user's username into the equivalent Okta username. To reference an IdP User Profile attribute, specify the IdP variable and the corresponding attribute variable for the IdP User Profile of that Identity Provider. This profile is only available when specifying the username transform used to generate an Okta username for the IdP user.
 
 | Syntax                 | Definitions                                                                                  | Examples          |
 | ---------------------- | -------------------------------------------------------------------------------------------- | ------------      |
 | `idpuser.$attribute`   | `idpuser` implicit reference to in-context IdP<br>`$attribute` the attribute variable name   | idpuser.firstName |
 
+> **Note:** In the Universal Directory, the base Okta User Profile has about 30 attributes. You can add any number of custom attributes. All Application User Profiles have a username attribute and possibly others depending on the application. To find a full list of Okta User and App User attributes and their variable names, in the Admin Console go to **People** > **Profile Editor**. If you're not using Universal Directory, contact your support or professional services team.
 
-> In Universal Directory, the base Okta User Profile has about 30 attributes. You can add any number of custom attributes. All Application User Profiles have a username attribute and possibly others depending on the application. To find a full list of Okta User and App User attributes and their variable names, in the Okta Admin Console go to **People** > **Profile Editor**. If you're not using Universal Directory, contact your Support or Professional Services team.
+## Reference application and organization properties
 
-## Referencing Application and Organization properties
-In addition to referencing user attributes, you can also reference Application properties and the properties of your Organization. To reference a particular attribute, just specify the appropriate binding and the attribute variable name. The binding for an Application is its name with `_app` appended. The App name can be found as described in [Application user profile attributes](#application-user-profile). Here are some examples:
+In addition to referencing user attributes, you can also reference application properties and the properties of your organization. To reference a particular attribute, specify the appropriate binding and the attribute variable name. The binding for an Application is its name with `_app` appended. The App name can be found as described in the [Application user profile attributes](#application-user-profile). Here are some examples:
 
 ### Application properties
 
@@ -56,7 +65,6 @@ In addition to referencing user attributes, you can also reference Application p
 | `app.$attribute`  | `app` implicit reference to in-context app instance<br>`$attribute` the attribute variable name | app.domain<br>app.companySubDomain                     |
 
 > **Note:** Explicit references to apps aren't supported for custom OAuth 2.0/OIDC claims.
->
 
 ### Organization properties
 
@@ -64,19 +72,19 @@ In addition to referencing user attributes, you can also reference Application p
 | --------         | ----------                                                              | ------------ |
 | `org.$attribute` | `org` reference to Okta org<br>`$attribute` the attribute variable name | org.name<br>org.subDomain   |
 
-## Referencing Session properties
+## Reference session properties
 
-In addition to referencing User, App, and Organization properties, you can also reference User Session properties. Session properties allow you to configure Okta to pass Dynamic Authentication Context to SAML apps through the assertion using custom SAML attributes. The App can then use that information to limit access to certain App-specific behaviors and calculate the risk profile for the signed-in user.
+In addition to referencing user, app, and organization properties, you can also reference user session properties. Session properties allow you to configure Okta to pass dynamic authentication context to SAML apps through the assertion using custom SAML attributes. The app can then use that information to limit access to certain app-specific behaviors and calculate the risk profile for the signed-in user.
 
 ### Session properties
 
 | Syntax            | Definitions                                                 | Evaluation example                                     |
 | ----------------- | ----------------------------------------------------------- | ------------------------------------------------------ |
-| `session.amr`     | `session` reference to a user's session<br> `amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]` &mdash; password used by the user for authentication<br>`["mfa", "pwd", "kba"]` &mdash; password and MFA security question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]` &mdash; password and MFA SMS used by the user for authentication |
+| `session.amr`     | `session` reference to a user's session<br> `amr` the attribute name that is resolvable to an array of [Authentication Method References](https://tools.ietf.org/html/rfc8176) | `["pwd"]`&mdash;password used by the user for authentication<br>`["mfa", "pwd", "kba"]`&mdash;password and MFA security question used by the user for authentication<br>`["mfa", "mca", "pwd", "sms"]`&mdash;password and MFA SMS used by the user for authentication |
 
 ## Functions
 
-Okta offers a variety of functions to manipulate attributes or properties to generate a desired output. You can combine and nest functions inside a single expression.
+Okta offers various functions to manipulate attributes or properties to generate a desired output. You can combine and nest functions inside a single expression.
 
 ### String functions
 
@@ -84,11 +92,12 @@ Okta offers a variety of functions to manipulate attributes or properties to gen
 | --------                 | -------------------------                                     | ----------- | -------                                                                                                       | ------         |
 | `String.append`          | (String str, String suffix)                                   | String      | `String.append("This is", " a test")`                                                                         | This is a test |
 | `String.join`            | (String separator, String... strings)                         | String      | `String.join(",", "This", "is", "a", "test")`                                                                 | This,is,a,test |
-|                          |                                                               |             | `String.join("", "This", "is", "a", "test")`                                                                   | Thisisatest    |
+|                          |                                                               |             | `String.join("", "This", "is", "a", "test")`                                                                  | Thisisatest    |
 | `String.len`             | (String input)                                                | Integer     | `String.len("This")`                                                                                          | 4              |
 | `String.removeSpaces`    | (String input)                                                | String      | `String.removeSpaces("This is a test")`                                                                       | Thisisatest    |
-| `String.replace`         | (String input, match, replacement)                            | String      | `String.replace("This is a test", "is", "at")`                                                                | That at a test |
-| `String.replaceFirst`    | (String input, match, replacement)                            | String      | `String.replaceFirst("This is a test", "is", "at")`                                                           | That is a test |
+| `String.replace`         | (String input, String match, String replacement)              | String      | `String.replace("This is a test", "is", "at")`                                                                | That at a test |
+| `String.replaceFirst`    | (String input, String match, String replacement)              | String      | `String.replaceFirst("This is a test", "is", "at")`                                                           | That is a test |
+| `String.startsWith`      | (String input, String starts)                                        | Boolean     | `String.startsWith("Kiss", "K")`                                                                              | true           |
 | `String.stringContains`  | (String input, String searchString)                           | Boolean     | `String.stringContains("This is a test", "test")`                                                             | true           |
 |                          |                                                               |             | `String.stringContains("This is a test", "doesn'tExist")`                                                     | false          |
 | `String.stringSwitch`    | (String input, String defaultString, String... keyValuePairs) | String      | `String.stringSwitch("This is a test", "default", "key1", "value1")`                                          | default        |
@@ -101,9 +110,7 @@ Okta offers a variety of functions to manipulate attributes or properties to gen
 | `String.toUpperCase`     | (String input)                                                | String      | `String.toUpperCase("This")`                                                                                  | THIS           |
 | `String.toLowerCase`     | (String input)                                                | String      | `String.toLowerCase("ThiS")`                                                                                  | this           |
 
-
-
-The following <ApiLifecycle access="deprecated" /> functions perform some of the same tasks as the ones in the above table.
+The following <ApiLifecycle access="deprecated" /> functions perform some of the same tasks as the ones in the previous table.
 
 | Function                          | Example                             | Input         | Output    |
 | --------                          | ---------                           | -------       | --------  |
@@ -121,7 +128,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 | `Arrays.remove(array, value)`    | Array                               | `Arrays.remove({10, 20, 30}, 20)`                   | `{10, 30}`         |
 | `Arrays.clear(array)`            | Array                               | `Arrays.clear({10, 20, 30})`                        | `{ }`              |
 | `Arrays.get(array, position)`    | -                                   | `Arrays.get({0, 1, 2}, 0)`                          | 0                  |
-| `Arrays.flatten(list of values)` | Array                               | `Arrays.flatten(10, {20, 30}, 40)`                  | `{10, 20, 30, 40}` |
+| `Arrays.flatten(list of values)` | Array                               | `Arrays.flatten(10, {20, 30}, 40)` <br>  `Arrays.flatten('10, 20, 30, 40')`               | `{10, 20, 30, 40}` |
 | `Arrays.contains(array, value)`  | Boolean                             | `Arrays.contains({10, 20, 30}, 10)`                 | true               |
 |                                  |                                     | `Arrays.contains({10, 20, 30}, 50)`                 | false              |
 | `Arrays.size(array)`             | Integer                             | `Arrays.size({10, 20, 30})`                         | 3                  |
@@ -130,6 +137,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 |                                  |                                     | `Arrays.isEmpty(NULL)`                              | true              |
 | `Arrays.toCsvString(array)`      | String                              | `Arrays.toCsvString({"This", "is", " a ", "test"})` | This,is, a ,test   |
 
+> **Note:** You can use comma-separated values (CSV) as an input parameter for all `Arrays*` functions. These values are converted into arrays.
 
 ### Conversion functions
 
@@ -142,8 +150,7 @@ The following <ApiLifecycle access="deprecated" /> functions perform some of the
 |                         |             |                      | `Double val = 123.6`   | 124      |
 | `Convert.toNum(string)` | Double      | `Convert.toNum(val)` | `String val = '3.141'` | 3.141    |
 
-**Note:**  `Convert.toInt(double)` rounds the passed numeric value either up or down to the nearest integer. Be sure to consider
-integer type range limitations when converting from a number to an integer with this function.
+> **Note:** The `Convert.toInt(double)` function rounds the passed numeric value either up or down to the nearest integer. Be sure to consider integer-type range limitations when converting from a number to an integer with this function.
 
 ##### Country code conversion functions
 
@@ -156,10 +163,9 @@ These functions convert between ISO 3166-1 2-character country codes (Alpha 2), 
 | `Iso3166Convert.toNumeric(string)` | String      | `Iso3166Convert.toNumeric("USA")` | 840    |
 | `Iso3166Convert.toName(string)`    | String      | `Iso3166Convert.toName("IN")`     | India  |
 
-**Note:**  All these functions take ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), and numeric country codes as input. The function determines the input type and returns the output in the format specified by the function name.
+> **Note:** All these functions take ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), and numeric country codes as input. The function determines the input type and returns the output in the format specified by the function name.
 
-For more information on these codes, see the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/).
-
+See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/).
 
 ### Group functions
 
@@ -179,27 +185,28 @@ Group functions return either an array of groups or **True** or **False**.
 | `isMemberOfGroupNameRegex`      | Boolean     | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
 
 > **Note:** The `Groups.contains`, `Groups.startsWith`, and `Groups.endsWith` group functions are designed to work only with group claims. You can't use these functions with property mappings.
->
 
 > **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
 
-For an example using group functions and for more information on using group functions for dynamic and static allow lists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
+> **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, app user profile attributes aren’t updated or reapplied when the user’s group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
 
-> **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the Group's email (for example, when using Google Workspace). If you are targeting groups that may have duplicate group names (such as Google Groups), use the `getFilteredGroups` Group function instead.
+For an example of using group functions, and for more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
+
+> **Important:** When you use `Groups.startWith`, `Groups.endsWith`, or `Groups.contains`, the `pattern` argument is matched and populated on the `name` attribute rather than the group's email (for example, when using Google workspace). If you're targeting groups that may have duplicate group names (such as Google groups), use the `getFilteredGroups` group function instead.
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
->See the Parameter examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+>See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists).
 
 ### Linked object function
 
-Use this function to retrieve the user identified with the specified `primary` relationship. You can then access properties of that user.
+Use this function to retrieve the user identified with the specified `primary` relationship. You can then access the properties of that user.
 
 * Function: `user.getLinkedObject($primaryName)`
     * Parameter: (String primaryName)
-    * Return Type: User
+    * Return type: User
     * Example: `user.getLinkedObject("manager").lastName`
-    * Example Result: `Gates`
+    * Example result: `Gates`
 
 ### Time functions
 
@@ -210,14 +217,14 @@ Use this function to retrieve the user identified with the specified `primary` r
 |                             |                                    |                  | `Time.now("EST", "YYYY-MM-dd HH:mm:ss")`                                                                           | 2015-07-31 13:36:48 (Specified time zone and format, military time)                                     |
 | `Time.fromWindowsToIso8601` | (String time)                      | String           | Windows timestamp time as a string (Windows/LDAP timestamp doc)                                                    | The passed-in time expressed in ISO 8601 format (specifically the RFC 3339 subset of the ISO standard). |
 | `Time.fromUnixToIso8601`    | (String time)                      | String           | Unix timestamp time as a string (Unix timestamp reference)                                                         | The passed-in time expressed in ISO 8601 format (specifically the RFC 3339 subset of the ISO standard). |
-| `Time.fromStringToIso8601`  | (String time, String format)       | String           | Timestamp time in a human-readable yet machine-parseable arbitrary format format (as defined by [Joda time pattern](https://www.joda.org/joda-time/key_format.html)) | The passed-in time expressed in ISO 8601 format (specifically the RFC 3339 subset of the ISO standard). |
+| `Time.fromStringToIso8601`  | (String time, String format)       | String           | Timestamp time in a human-readable yet machine-parseable arbitrary format (as defined by the [Joda time pattern](https://www.joda.org/joda-time/key_format.html)) | The passed-in time expressed in ISO 8601 format (specifically the RFC 3339 subset of the ISO standard). |
 | `Time.fromIso8601ToWindows` | (String time)                      | String           | ISO 8601 timestamp time as a string                                                                                | The passed-in time expressed in Windows timestamp format.                                               |
 | `Time.fromIso8601ToUnix`    | (String time)                      | String           | ISO 8601 timestamp time as a string                                                                                | The passed-in time expressed in Unix timestamp format.                                                  |
-| `Time.fromIso8601ToString`  | (String time, String format)       | String           | ISO 8601 timestamp time, to convert to format using the same [Joda time pattern](https://www.joda.org/joda-time/key_format.html) semantics as fromStringToIso8601     | The passed-in time expressed informat format.                                                           |
+| `Time.fromIso8601ToString`  | (String time, String format)       | String           | ISO 8601 timestamp time converted to format using the same [Joda time pattern](https://www.joda.org/joda-time/key_format.html) semantics as fromStringToIso8601     | The passed-in time expressed in Joda timestamp format.                                                           |
 
->Note: Both input parameters are optional for the Time.now function. The time zone ID supports both new and old style formats, listed below. The third example for the Time.now function shows how to specify the military time format.
+> **Note**: Both input parameters are optional for the Time.now function. The time zone ID supports both new and old style formats, listed previously. The third example for the Time.now function shows how to specify the military time format.
 
-Okta supports the use of the time zone IDs and aliases listed in [the Time Zone Codes table](#appendix-time-zone-codes).
+Okta supports the use of the time zone IDs and aliases listed in [the Time zone codes table](#appendix-time-zone-codes).
 
 ### Manager/assistant functions
 
@@ -230,9 +237,11 @@ Okta supports the use of the time zone IDs and aliases listed in [the Time Zone 
 
 The following should be noted about these functions:
 
-* Be sure to pass the correct App name for the `managerSource`, `assistantSource`, and `attributeSource` parameters.<br />
-* At this time, `active_directory` is the only supported value for `managerSource` and `assistantSource`.
+* Be sure to pass the correct App name for the `managerSource`, `assistantSource`, and `attributeSource` parameters.
+* Currently, `active_directory` is the only supported value for `managerSource` and `assistantSource`.
 * Calling the `getManagerUser("active_directory")` function doesn't trigger a user profile update after the manager is changed.
+* The manager and assistant functions aren't supported for user profiles sourced from multiple Active Directory instances.
+* The manager and assistant functions aren't supported for user profile attributes from multiple app instances. That is, the expression `getManagerUser("active_directory", "google").firstName` returns null if your org has two or more instances of a `google` app.
 
 ### Directory and Workday functions
 
@@ -243,7 +252,7 @@ The following should be noted about these functions:
 | `findDirectoryUser()` | Finds the Active Directory App user object and returns that object or null if the user has more than one or no Active Directory assignments |
 | `findWorkdayUser()`   | Finds the Workday App user object and returns that object or null if the user has more than one or no Active Directory assignments          |
 
-The functions above are often used in tandem to check whether a user has an AD or Workday assignment, and if so, return an AD or Workday attribute. See the 'Popular Expressions' table below for some examples.
+The previous functions are often used in tandem to check whether a user has an Active Directory or Workday assignment, and if so, return an Active Directory or Workday attribute. See the following 'Popular expressions' table for some examples.
 
 ## Constants and operators
 
@@ -260,18 +269,16 @@ The functions above are often used in tandem to check whether a user has an AD o
 
 ## Conditional expressions
 
-You can specify IF...THEN...ELSE statements with the Okta EL. The primary use of these expressions is profile mappings and group rules. Group rules do not usually specify an ELSE component.
+You can specify IF...THEN...ELSE statements with the Okta EL. The primary use of these expressions is profile mappings and group rules. Group rules don't usually specify an ELSE component.
 
-
-The format for conditional expressions is
+The format for conditional expressions is:
 <p><code>[Condition] ? [Value if TRUE] : [Value if FALSE]</code></p>
-
 
 <br>There are several rules for specifying the condition.
 
 * Expressions must have valid syntax.
 * Expressions must evaluate to Boolean.
-* Expressions cannot contain an assignment operator, such as `=`.
+* Expressions can't contain an assignment operator, such as `=`.
 * User attributes used in expressions can contain only available User or AppUser attributes.
 
 <br>The following functions are supported in conditions.
@@ -281,19 +288,19 @@ The format for conditional expressions is
 * The `OR` operator
 * The `!` operator to designate NOT
 * Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.
-* The `matches` operator to evaluate a String against a regular expression.
+* The `matches` operator to evaluate a string against a regular expression. <ApiLifecycle access="deprecated" />
 
-**Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
+> **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
-The following functions are not supported in conditions:
+The following functions aren't supported in conditions:
 
-- Convert
-- Array
-- Time
+* Convert
+* Array
+* Time
 
 ### Samples
 
-For these samples, assume that *user* has following attributes in Okta.
+For these samples, assume that the *user* has the following attributes in Okta.
 
 | Attribute       | Type    |
 | ---------       | ----    |
@@ -314,7 +321,7 @@ For these samples, assume that *user* has following attributes in Okta.
 
 The following samples are valid conditional expressions that apply to profile mapping. The attribute `courtesyTitle` is from another system being mapped to Okta.
 
-If the middle initial is not empty, include it as part of the full name, using just the first character and appending a period.<br>
+If the middle initial isn't empty, include it as part of the full name, using just the first character and appending a period.<br>
 `firstName + " " + (String.len(middleInitial) == 0 ? "" : (String.substring(middleInitial, 0, 1) + ". ")) + lastName`
 
 Include the honorific prefix in front of the full name, or use the courtesy title instead if it exists. If both are absent, don't use any title.<br>
@@ -323,7 +330,6 @@ Include the honorific prefix in front of the full name, or use the courtesy titl
 ##### Samples using group rules
 
 The following samples are valid conditional expressions. The actions in these cases are group assignments.
-
 
 | IF (Implicit) | Condition                                      | Assign to this Group Name if Condition is TRUE |
 | ---           | ---                                            | ---                                            |
@@ -335,14 +341,14 @@ The following samples are valid conditional expressions. The actions in these ca
 
 ##### Samples checking for null and blank attributes
 
-To catch User attributes that are null or blank, use the following valid conditional expression:<br>
+To catch user attributes that are null or blank, use the following valid conditional expression:<br>
 `user.employeeNumber != "" AND user.employeeNumber != null ? user.employeeNumber : user.nonEmployeeNumber`
 
 If a Profile attribute has never been populated, catch it with the following expression:<br>
-`user.employeeNumber != null`
+`user.employeeNumber == null`
 
 If a Profile attribute was populated in the past but the content is removed, it's no longer `null` but an empty string. To catch these empty strings, use the following expression:<br>
-`user.employeeNumber != ""`
+`user.employeeNumber == ""`
 
 ## Popular expressions
 
@@ -355,22 +361,25 @@ Sample user data:
 
 | Value to obtain                                                    | Expression                                                                                                                                               | Example output          | Explanation                                                                                                                                                                                                                                                                                                                                                                                            |
 | ----------                                                         | ----                                                                                                                                                     | -----                   | ---------------                                                                                                                                                                                                                                                                                                                                                                                        |
-| Firstname                                                          | `user.firstName`                                                                                                                                         | Winston                 | Obtain the value of users' firstname attribute.                                                                                                                                                                                                                                                                                                                                                        |
-| Firstname + Lastname                                               | `user.firstName + user.lastName`                                                                                                                         | WinstonChurchill        | Obtain Firstname and Lastname values and append each together.                                                                                                                                                                                                                                                                                                                                         |
+| Firstname                                                          | `user.firstName`                                                                                                                                         | Winston                 | Obtain the value of the users' Firstname attribute.                                                                                                                                                                                                                                                                                                                                                        |
+| Firstname + Lastname                                               | `user.firstName + user.lastName`                                                                                                                         | WinstonChurchill        | Obtain the Firstname and Lastname values and append each together.                                                                                                                                                                                                                                                                                                                                         |
 | Firstname + Lastname with Separator                                | `user.firstName + "." + user.lastName`                                                                                                                   | Winston.Churchill       | Obtain Firstname value, append a "." character. Obtain and append the Lastname value.                                                                                                                                                                                                                                                                                                                  |
-| First Initial + Lastname                                           | `substring(user.firstName, 0, 1) + user.lastName`                                                                                                        | WChurchill              | Obtain Firstname value. From result, retrieve characters greater than position 0 thru position 1, including position 1. Obtain and append the Lastname value.                                                                                                                                                                                                                                          |
-| First Initial + Lastname with Limit                                | `substring(user.firstName, 0, 1) + substring(user.lastName, 0, 6)`                                                                                       | WChurch                 | Obtain Firstname value. From result, retrieve 1 character starting at the beginning of the string. Obtain Lastname value. From result, retrieve characters greater than position 0 thru position 6, including position 6.                                                                                                                                                                              |
-| Lower Case First Initial + Lower Case Lastname with Separator      | `toLowerCase(substring( user.firstName, 0, 1)) + "." + toLowerCase(user.lastName)`                                                                       | w.churchhill            | Obtain Firstname value. From result, retrieve characters greater than position 0 thru position 1, including position 1. Convert result to lowercase. Append a "." character. Obtain the Lastname value. Convert to lowercase and append.                                                                                                                                                               |
-| Email Domain + Email Prefix with Separator                         | `toUpperCase(substringBefore( substringAfter(user.email, "@"), ".")) + "\" + substringBefore( user.email, "@")`                                          | GMAIL\winston.churchill | Obtain Email value. From result, parse everything after the "@ character". From result, parse everything before the "." character. Convert to uppercase. Append a backslash "\" character. Obtain the email value again. From result, parse for everything before the "@" character.                                                                                                                   |
-| Email Domain + Lowercase First Initial and Lastname with Separator | `toUpperCase(substringBefore( substringAfter(user.email, "@"), ".")) + "\" + toLowerCase(substring( user.firstName, 0, 1)) + toLowerCase(user.lastName)` | GMAIL\wchurchill        | Obtain Email value. From the result, parse everything after the "@ character". From result, parse everything before the "." character. Convert to uppercase. Append a backslash "\" character. Obtain the Firstname value. From the result, retrieve characters greater than position 0 thru position 1, including position 1. Convert it to lowercase. Obtain the Lastname value and convert it to lowercase. |
-| Static Domain + Email Prefix with Separator                        | `"XDOMAIN\" + toLowerCase(substring( user.firstName, 0, 1)) + toLowerCase(user.lastName)`                                                                | XDOMAIN\wchurchill      | Add "XDOMAIN" string. Append a backslash "\" character. Obtain the Firstname value. From result, retrieve characters greater than position 0 thru position 1, including position 1. Convert it to lowercase. Obtain the Lastname value. Convert it to lowercase.                                                                                                                                       |
-| Workday ID                                                         | `hasWorkdayUser() ? findWorkdayUser().employeeID : null`                                                                                                 | 123456                  | Check if user has a Workday assignment, and if so, return their Workday employee ID.                                                                                                                                                                                                                                                                                                                   |
-| Active Directory UPN                                               | `hasDirectoryUser() ? findDirectoryUser().managerUpn : null`                                                                                             | bob@okta.com            | Check if user has an Active Directory assignment, and if so, return their Active Directory manager UPN.                                                                                                                                                                                                                                                                                                |
+| First Initial + Lastname                                           | `substring(user.firstName, 0, 1) + user.lastName`                                                                                                        | WChurchill              | Obtain Firstname value. From the result, retrieve characters greater than position 0 through position 1, including position 1. Obtain and append the Lastname value.                                                                                                                                                                                                                                          |
+| First Initial + Lastname with Limit                                | `substring(user.firstName, 0, 1) + substring(user.lastName, 0, 6)`                                                                                       | WChurch                 | Obtain Firstname value. From the result, retrieve 1 character starting at the beginning of the string. Obtain Last name value. From the result, retrieve characters greater than position 0 through position 6, including position 6.                                                                                                                                                                              |
+| Lower Case First Initial + Lower Case Last name with Separator      | `toLowerCase(substring( user.firstName, 0, 1)) + "." + toLowerCase(user.lastName)`                                                                       | w.churchhill            | Obtain Firstname value. From the result, retrieve characters greater than position 0 through position 1, including position 1. Convert the result to lowercase. Append a "." character. Obtain the Lastname value. Convert to lowercase and append.                                                                                                                                                               |
+| Email Domain + Email Prefix with Separator                         | `toUpperCase(substringBefore( substringAfter(user.email, "@"), ".")) + "\" + substringBefore( user.email, "@")`                                          | GMAIL\winston.churchill | Obtain Email value. From the result, parse everything after the "@ character". From the result, parse everything before the "." character. Convert to uppercase. Append a backslash "\" character. Obtain the email value again. From the result, parse for everything before the "@" character.                                                                                                                   |
+| Email Domain + Lowercase First Initial and Lastname with Separator | `toUpperCase(substringBefore( substringAfter(user.email, "@"), ".")) + "\" + toLowerCase(substring( user.firstName, 0, 1)) + toLowerCase(user.lastName)` | GMAIL\wchurchill        | Obtain Email value. From the result, parse everything after the "@ character". From the result, parse everything before the "." character. Convert to uppercase. Append a backslash "\" character. Obtain the Firstname value. From the result, retrieve characters greater than position 0 through position 1, including position 1. Convert it to lowercase. Obtain the Lastname value and convert it to lowercase. |
+| Static Domain + Email Prefix with Separator                        | `"XDOMAIN\" + toLowerCase(substring( user.firstName, 0, 1)) + toLowerCase(user.lastName)`                                                                | XDOMAIN\wchurchill      | Add the `XDOMAIN` string. Append a backslash "\" character. Obtain the Firstname value. From the result, retrieve characters greater than position 0 through position 1, including position 1. Convert it to lowercase. Obtain the Lastname value. Convert it to lowercase.                                                                                                                                       |
+| Workday ID                                                         | `hasWorkdayUser() ? findWorkdayUser().employeeID : null`                                                                                                 | 123456                  | Check if the user has a Workday assignment, and if so, return their Workday employee ID.                                                                                                                                                                                                                                                                                                                   |
+| Active Directory UPN                                               | `hasDirectoryUser() ? findDirectoryUser().managerUpn : null`                                                                                             | bob@okta.com            | Check if the user has an Active Directory assignment, and if so, return their Active Directory manager UPN.                                                                                                                                                                                                                                                                                                |
 
 
 ## Expressions for OAuth 2.0/OIDC custom claims
 
 Okta provides a few expressions that you can only use with OAuth 2.0/OIDC custom claims.
+
+> **Note:** These expressions don't work for SAML 2.0 apps.
+
 * See [Create claims](/docs/guides/customize-authz-server/main/#create-claims).
 * See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim).
 
@@ -382,6 +391,7 @@ Okta provides a few expressions that you can only use with OAuth 2.0/OIDC custom
 ### Samples
 
 #### Sample using app attributes
+
 To include an app Profile label, use the following expression:<br>
 `app.profile.label`
 
@@ -394,6 +404,20 @@ In [API Access Management](/docs/concepts/api-access-management/) custom authori
 To include a granted scope array and convert it to a space-delimited string, use the following expression:<br>
 `String.replace(Arrays.toCsvString(access.scope),","," ")`
 
+## Expressions in group rules
+
+Group rule conditions only allow `String`, `Arrays`, and `user` expressions.
+
+For example, given the user profile has a base string attribute called `email`, and assuming the user profile has a custom Boolean attribute called `hasBadge` and a custom string attribute called `favoriteColor`, the following expressions are allowed in group rule conditions:
+
+* `user.hasBadge`
+* `String.stringContains(user.email, "@example.com")`
+* `Arrays.contains(user.favoriteColors, "blue")`
+
+The following expression isn't allowed in group rule conditions, even if the user profile has a custom integer
+attribute called `yearJoined`:
+
+* `Convert.toInt("2018") == user.yearJoined`
 
 ## Appendix: Time zone codes
 

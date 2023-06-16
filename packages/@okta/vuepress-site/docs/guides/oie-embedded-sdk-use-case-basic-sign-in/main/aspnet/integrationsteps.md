@@ -1,10 +1,15 @@
 ### 1: Build a sign-in page on the client
 
-Build a sign-in page that captures both the user's name and password.
+Build a sign-in page that captures the user's name and password.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Example sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
 </div>
 
@@ -66,4 +71,4 @@ switch (authnResponse?.AuthenticationStatus)
 
 ```
 
-In the previous code sample, the `AuthenticationHelper.GetIdentityFromAuthResponseAsync()` method gets the user profile information. Optionally, you can obtain basic user information after the user successfully signs in by making a request to Okta's Open ID Connect authorization server (see the next section).
+In the previous code sample, the `AuthenticationHelper.GetIdentityFromAuthResponseAsync()` method gets the user profile information. Optionally, you can obtain basic user information after the user successfully signs in by making a request to the Okta OpenID Connect authorization server (see the next section).

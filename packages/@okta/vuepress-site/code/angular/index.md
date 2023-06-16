@@ -10,7 +10,7 @@ meta:
 
 ## Get started with Angular + Okta
 
-New to Okta? Our resources walk you through adding user authentication to your Angular app in minutes.
+These resources walk you through adding user authentication to your Angular app in minutes.
 
 <ul class='language-ctas'>
 	<li>
@@ -41,7 +41,7 @@ Okta-hosted Sign-In Widget guide:
 
 Embedded SDK and Sign-In Widget sign-in guides:
 
-* [Sign in to your SPA with Auth JS](#) (coming soon)
+* [Sign in to your SPA with Auth JS](/docs/guides/sign-in-to-spa-authjs/angular/main/)
 * [Sign in to your SPA with the embedded Okta Sign-In Widget](/docs/guides/sign-in-to-spa-embedded-widget/angular/main/)
 
 Other guides:

@@ -34,7 +34,7 @@
       "method": "GET"
     }, 
     {
-      "body": "{\r\n  \"profile\": {\r\n    \"firstName\": \"{{okta_user_firstname}}\",\r\n    \"lastName\": \"{{okta_user_lastname}}\",\r\n    \"email\": \"{{okta_user_email}}\",\r\n    \"login\": \"{{okta_user_email}}\",\r\n    \"title\": \"{{okta_user_title}}\",\r\n    \"primaryPhone\": \"{{okta_user_primaryphone}}\"\r\n  },\r\n  \"credentials\": {\r\n    \"password\": {\"value\": \"Abcd1234\"},\r\n    \"recovery_question\": {\r\n      \"question\": \"Who's a major player in the cowboy scene?\",\r\n      \"answer\": \"okta\"\r\n    }\r\n  }\r\n}", 
+      "body": "{\r\n  \"profile\": {\r\n    \"firstName\": \"{{okta_user_firstname}}\",\r\n    \"lastName\": \"{{okta_user_lastname}}\",\r\n    \"email\": \"{{okta_user_email}}\",\r\n    \"login\": \"{{okta_user_email}}\",\r\n    \"title\": \"{{okta_user_title}}\",\r\n    \"primaryPhone\": \"{{okta_user_primaryphone}}\"\r\n  },\r\n  \"credentials\": {\r\n    \"password\": {\"value\": \"Kv7J2LEa\"},\r\n    \"recovery_question\": {\r\n      \"question\": \"Who's a major player in the cowboy scene?\",\r\n      \"answer\": \"okta\"\r\n    }\r\n  }\r\n}", 
       "skipped": false, 
       "form": {}, 
       "url": "{{oktaOrgUrl}}/api/v1/users?activate=true", 

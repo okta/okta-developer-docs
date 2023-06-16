@@ -5,6 +5,11 @@ category: asa
 
 # ASA Entitlements API
 
+The ASA Entitlements API reference is now available at the [Okta API reference portal](https://developer.okta.com/docs/api/openapi/asa/asa/tag/entitlements/).
+
+Explore the [Advanced Server Access Collection](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/collection/4920859-f91736f1-5ae0-4a0a-949d-abed2ada2c58) in the Okta Public API Collections workspace.
+
+<!--
 ## Get started
 
 The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is logically separate from the rest of the Okta APIs and uses a different API namespace:
@@ -46,7 +51,7 @@ This endpoint requires the `access_admin` role.
 | --------- | ------------- | -------- |
 | `count`   |  number | (Optional) The number of objects per page |
 | `descending`   |  boolean | (Optional) The object order |
-| `offset`   |  string | (Optional) The page offset |
+| `offset`   |  string | (Optional) The identifier used as an offset for pagination. This value is embedded in the URL of the Link header and is only used for requests that require [pagination](/docs/reference/api/asa/introduction/#pagination) support. |
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 
@@ -445,3 +450,4 @@ HTTP 204 No Content
 ```
 
 
+-->

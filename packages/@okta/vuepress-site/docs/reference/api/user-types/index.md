@@ -38,57 +38,49 @@ curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/m
 ```json
 [
   {
+    "id": "otyfnly5cQjJT9PnR0g4",
+    "displayName": "Nootype",
+    "name": "newtype",
+    "description": "Custom user type",
+    "createdBy": "00ufnlhzppWItClAI0g4",
+    "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
+    "created": "2019-04-10T02:00:01.000Z",
+    "lastUpdated": "2019-04-10T02:00:01.000Z",
+    "default": false,
     "_links": {
       "schema": {
-        "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
-        "method": "GET",
-        "rel": "schema"
+        "rel": "schema",
+        "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+        "method": "GET"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
-        "method": "GET",
-        "rel": "self"
+        "rel": "self",
+        "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+        "method": "GET"
       }
-    },
-    "created": "2019-04-10T02:00:01.000Z",
-    "createdBy": "00ufnlhzppWItClAI0g4",
-    "default": false,
-    "description": "Custom user type",
-    "displayName": "Nootype",
-    "id": "otyfnly5cQjJT9PnR0g4",
-    "lastUpdated": "2019-04-10T02:00:01.000Z",
-    "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
-    "name": "newtype",
-    "ref": {
-      "id": "otyfnly5cQjJT9PnR0g4",
-      "refClass": "com.saasure.db.dto.platform.entity.cvd.CVDType"
     }
   },
   {
+    "id": "otyfnjfba4ye7pgjB0g4",
+    "displayName": "User",
+    "name": "user",
+    "description": "Okta user profile template with default permission settings",
+    "createdBy": "00ufnlhzppWItClAI0g4",
+    "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
+    "created": "2019-04-10T01:48:27.000Z",
+    "lastUpdated": "2019-04-10T01:48:27.000Z",
+    "default": true,
     "_links": {
       "schema": {
-        "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4",
-        "method": "GET",
-        "rel": "schema"
+        "rel": "schema",
+        "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnjfba4ye7pgjB0g4",
+        "method": "GET"
       },
       "self": {
-        "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4",
-        "method": "GET",
-        "rel": "self"
+        "rel": "self",
+        "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnjfba4ye7pgjB0g4",
+        "method": "GET"
       }
-    },
-    "created": "2019-04-10T01:48:27.000Z",
-    "createdBy": "sprfniwUE2qTcNGP10g4",
-    "default": true,
-    "description": "Okta user profile template with default permission settings",
-    "displayName": "User",
-    "id": "otyfnjfba4ye7pgjB0g4",
-    "lastUpdated": "2019-04-10T01:48:27.000Z",
-    "lastUpdatedBy": "sprfniwUE2qTcNGP10g4",
-    "name": "user",
-    "ref": {
-      "id": "otyfnjfba4ye7pgjB0g4",
-      "refClass": "com.saasure.db.dto.platform.entity.cvd.CVDType"
     }
   }
 ]
@@ -118,30 +110,26 @@ curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/m
 
 ```json
 {
+  "id": "otyfnly5cQjJT9PnR0g4",
+  "displayName": "Nootype",
+  "name": "newtype",
+  "description": "Custom user type",
+  "createdBy": "00ufnlhzppWItClAI0g4",
+  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
+  "created": "2019-04-10T02:00:01.000Z",
+  "lastUpdated": "2019-04-10T02:00:01.000Z",
+  "default": false,
   "_links": {
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "schema"
+      "rel": "schema",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "method": "GET"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "self"
+      "rel": "self",
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "method": "GET"
     }
-  },
-  "created": "2019-04-10T02:00:01.000Z",
-  "createdBy": "00ufnlhzppWItClAI0g4",
-  "default": false,
-  "description": "Custom user type",
-  "displayName": "Nootype",
-  "id": "otyfnly5cQjJT9PnR0g4",
-  "lastUpdated": "2019-04-10T02:00:01.000Z",
-  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
-  "name": "newtype",
-  "ref": {
-    "id": "otyfnly5cQjJT9PnR0g4",
-    "refClass": "com.saasure.db.dto.platform.entity.cvd.CVDType"
   }
 }
 ```
@@ -156,9 +144,13 @@ Okta periodically updates the default schema template used for new orgs. New Use
 
 >**Note:** If you modified your default schema, those changes won't propagate into this new User Type.
 
-##### Request Parameters
+##### Request parameters
 
-The [User Type](#user-type-object) you want to create
+| Parameter    | Description                                                      | Param Type | DataType | Required |
+| ------------ | -----------------------------------------------------------------| ---------- | -------- | -------- |
+| displayName  | The display name for the type                                    | Body       | string   |  TRUE    |
+| name         | The name for the type. The name must start with A-Z or a-z and contain only A-Z, a-z, 0-9, or underscore (_) characters. This value becomes read-only after creation and can't be updated.     | Body       | string   |  TRUE    |
+| description  | A human-readable description of the type | Body       | string   |  FALSE    |
 
 ##### Response parameters
 
@@ -178,47 +170,46 @@ curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 
 ```json
 {
+  "id": "otyfnly5cQjJT9PnR0g4",
+  "displayName": "Display Name for UI",
+  "name": "aNewType",
+  "description": "Any description that means something useful to you",
+  "createdBy": "00ufnlhzppWItClAI0g4",
+  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
+  "created": "2019-04-10T02:00:01.000Z",
+  "lastUpdated": "2019-04-10T02:00:01.000Z",
+  "default": false,
   "_links": {
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "schema"
+      "rel": "schema",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "method": "GET"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "self"
+      "rel": "self",
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "method": "GET"
     }
-  },
-  "created": "2019-04-10T02:00:01.000Z",
-  "createdBy": "00ufnlhzppWItClAI0g4",
-  "default": false,
-  "description": "Any description that means something useful to you",
-  "displayName": "Display Name for UI",
-  "id": "otyfnly5cQjJT9PnR0g4",
-  "lastUpdated": "2019-04-10T02:00:01.000Z",
-  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
-  "name": "aNewType",
-  "ref": {
-    "id": "otyfnly5cQjJT9PnR0g4",
-    "refClass": "com.saasure.db.dto.platform.entity.cvd.CVDType"
   }
 }
 ```
 
-### Update User Type
+### Replace User Type
 
 <ApiOperation method="PUT" url="/api/v1/meta/types/user/${typeId}" />
 
-<ApiOperation method="POST" url="/api/v1/meta/types/user/${typeId}" />
-
-Updates an existing User Type. A PUT is a full replace operation; a POST is a partial update. Only the `displayName` and `description` elements can be changed; the `name` of an existing User Type can't be changed.
+Replaces an existing User Type. A PUT is a full replace operation. Only the `displayName` and `description` elements can be changed. The `name` of an existing User Type can't be changed.
 
 The schema associated with this type isn't editable with this API. If you want to edit the schema, use the [schema update API](/docs/reference/api/schemas/#add-property-to-user-profile-schema).
 
 ##### Request parameters
 
-The [User Type](#user-type-object) you want to update
+| Parameter    | Description                                                      | Param Type | DataType | Required |
+| ------------ | -----------------------------------------------------------------| ---------- | -------- | -------- |
+| typeId       | The ID of the user type you want to replace                      | Path       | string   |  TRUE    |
+| displayName  | The new display name for the type                                | Body       | string   |  TRUE    |
+| name         | The name of the existing type                                    | Body       | string   |  TRUE    |
+| description  | The new human-readable description of the type                   | Body       | string   |  TRUE    |
 
 ##### Response parameters
 
@@ -227,10 +218,10 @@ The updated [User Types](#user-type-object)
 ##### Request example
 
 ```bash
-curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4 -d '{
+curl -s -X PUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4 -d '{
 "description": "Updated description",
 "displayName": "Updated Name for UI",
-"name": "updatedTypeName"
+"name": "existingTypeName"
 }'
 ```
 
@@ -238,30 +229,82 @@ curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_
 
 ```json
 {
+  "id": "otyfnly5cQjJT9PnR0g4",
+  "displayName": "Updated Name for UI",
+  "name": "existingTypeName",
+  "description": "Updated description",
+  "createdBy": "00ufnlhzppWItClAI0g4",
+  "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
+  "created": "2019-04-10T02:00:01.000Z",
+  "lastUpdated": "2019-04-10T02:00:01.000Z",
+  "default": false,
   "_links": {
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "schema"
+      "rel": "schema",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "method": "GET"
     },
     "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
-      "method": "GET",
-      "rel": "self"
+      "rel": "self",
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "method": "GET"
     }
-  },
-  "created": "2019-04-10T02:00:01.000Z",
-  "createdBy": "00ufnlhzppWItClAI0g4",
-  "default": false,
-  "description": "Any description that means something useful to you",
-  "displayName": "TheDisplayName",
+  }
+}
+```
+
+### Update User Type
+
+<ApiOperation method="POST" url="/api/v1/meta/types/user/${typeId}" />
+
+Updates an existing User Type. A POST is a partial update. Only the `displayName` and `description` elements can be changed. The `name` of an existing User Type can't be changed.
+
+The schema associated with this type isn't editable with this API. If you want to edit the schema, use the [schema update API](/docs/reference/api/schemas/#add-property-to-user-profile-schema).
+
+##### Request parameters
+
+| Parameter    | Description                                                      | Param Type | DataType | Required |
+| ------------ | -----------------------------------------------------------------| ---------- | -------- | -------- |
+| typeId       | The ID of the user type you want to update                       | Path       | string   |  TRUE    |
+| displayName  | The new display name for the type                                | Body       | string   |  FALSE   |
+| description  | The new human-readable description of the type                   | Body       | string   |  FALSE   |
+
+##### Response parameters
+
+The updated [User Types](#user-type-object)
+
+##### Request example
+
+```bash
+curl -s -X POST -H "Content-Type: application/json" -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4 -d '{
+"displayName": "Updated Name for UI"
+}'
+```
+
+##### Response example
+
+```json
+{
   "id": "otyfnly5cQjJT9PnR0g4",
-  "lastUpdated": "2019-04-10T02:00:01.000Z",
+  "displayName": "Updated Name for UI",
+  "name": "existingTypeName",
+  "description": "Any description that means something useful to you",
+  "createdBy": "00ufnlhzppWItClAI0g4",
   "lastUpdatedBy": "00ufnlhzppWItClAI0g4",
-  "name": "aNewType",
-  "ref": {
-    "id": "otyfnly5cQjJT9PnR0g4",
-    "refClass": "com.saasure.db.dto.platform.entity.cvd.CVDType"
+  "created": "2019-04-10T02:00:01.000Z",
+  "lastUpdated": "2019-04-10T02:00:01.000Z",
+  "default": false,
+  "_links": {
+    "schema": {
+      "rel": "schema",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "method": "GET"
+    },
+    "self": {
+      "rel": "self",
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "method": "GET"
+    }
   }
 }
 ```
@@ -334,11 +377,15 @@ The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-t
   "created": "2013-07-02T21:36:25.344Z",
   "lastUpdated": "2013-07-02T21:36:25.344Z",
   "_links": {
-    "self": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4"
-    },
     "schema": {
-      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4"
+      "rel": "schema",
+      "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscfnly5cQjJT9PnR0g4",
+      "method": "GET"
+    },
+    "self": {
+      "rel": "schema",
+      "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otyfnly5cQjJT9PnR0g4",
+      "method": "GET"
     }
   }
 }

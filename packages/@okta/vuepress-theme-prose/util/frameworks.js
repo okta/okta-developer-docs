@@ -15,12 +15,16 @@ const COMMON_NAME_TO_FANCY_NAME = {
   javascript: 'JS',
   angular: 'Angular',
   amazon: 'Amazon',
+  discord: 'Discord',
   github: 'GitHub',
   gitlab: 'GitLab',
   paypal: 'Paypal',
   salesforce: 'Salesforce',
+  spotify: 'Spotify',
+  xero: 'Xero',
   yahoo: 'Yahoo!',
   yahoojp: 'Yahoo! Japan',
+  smartcard: 'Smart Card',
   react: 'React',
   preact: 'Preact',
   vue: 'Vue.js',
@@ -73,6 +77,11 @@ const COMMON_NAME_TO_FANCY_NAME = {
   ropassword: 'Resource Owner Password',
   saml2assert: 'SAML 2.0 Assertion',
   interactioncode: 'Interaction Code',
+  wfconnector: 'Workflows connector',
+  otp: 'OTP',
+  oob: 'OOB',
+  mfaoob: 'MFA OOB',
+  mfaotp: 'MFA OTP',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

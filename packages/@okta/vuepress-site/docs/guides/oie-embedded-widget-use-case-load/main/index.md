@@ -2,8 +2,6 @@
 title: Load the Widget
 ---
 
-<div class="oie-embedded-sdk">
-
 <ApiLifecycle access="ie" />
 
 This guide covers the use case to load the Widget, and provides a flow diagram and a sequence of integration steps.
@@ -37,5 +35,3 @@ Ensure that you've completed the steps to [download and configure the SDK, Sign-
 ## Integration steps
 
 <StackSnippet snippet="integrationsteps" />
-
-</div>

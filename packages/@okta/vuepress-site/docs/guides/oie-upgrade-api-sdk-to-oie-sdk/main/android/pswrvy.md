@@ -46,7 +46,7 @@ try {
 
 The user is authenticated after a successful response from `resetPassword()`.
 
-### Okta Identity Engine SDK authentication flow for password recovery
+### Identity Engine SDK authentication flow for password recovery
 
 To upgrade the previous Classic Engine password recovery flow, the recovery process is replaced with the Identity Engine remediation pattern of `[AuthenticationStatus -> selectAuthenticator()` -> `AuthenticationStatus` -> `verifyAuthenticator()` -> `AuthenticationStatus]`.
 
@@ -81,4 +81,4 @@ AuthenticationResponse authenticationResponse =
 
 * If the password update is successful, a response of `AuthenticationStatus=SUCCESS` is returned and the app calls `AuthenticationResponse.getTokenResponse()` to retrieve the required tokens for authenticated user activity.
 
-For further details on how the password recovery with email use case is implemented with the Java Identity Engine SDK , see [User password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/android/main/).
+For further details on how the password recovery with email use case is implemented with the Java Identity Engine SDK, see [User password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/android/main/).

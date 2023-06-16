@@ -13,15 +13,19 @@ When you are ready to start creating a SCIM integration, see our [Build a SCIM p
 
 ## What is SCIM for?
 
-SCIM, or the [System for Cross-domain Identity Management](http://www.simplecloud.info/) specification, is an open standard designed to manage user identity information. SCIM provides a defined schema for representing users and groups, and a RESTful API to run CRUD operations on those user and group resources.
+SCIM, or the [System for Cross-domain Identity Management](https://scim.cloud) specification, is an open standard designed to manage user identity information. SCIM provides a defined schema for representing users and groups, and a RESTful API to run CRUD operations on those user and group resources.
 
 The goal of SCIM is to securely automate the exchange of user identity data between your company's cloud applications and any service providers, such as enterprise SaaS applications.
 
 Managing user lifecycles in your organization is a fundamental business problem. Hiring new employees is just the first step - you also need to provision the applications that they need for their job, enforce the corporate security policies, and update their user accounts as they advance through their time with your company. At the end of their employment period, you need to make sure that all access is quickly and thoroughly revoked across all applications. Handling all of this can be a time-consuming and error-prone process if done manually.
 
-![SCIM Lifecycle](/img/oin/scim_lifecycle.png "User lifecycle diagram: 1 - new employee 2 - provision applications 3 - enforce security 4 - update user information 5 - off-board")
+<div class="three-quarter">
 
-As your company grows, the number of user accounts and provisioned software applications increases exponentially. Requests to add and remove users, reset passwords, change permissions, and add new types of accounts all take up valuable IT department time.
+![SCIM user lifecycle diagram](/img/oin/scim_lifecycle.png)
+
+</div>
+
+As your company grows, the number of user accounts and provisioned software applications increases. Requests to add and remove users, reset passwords, change permissions, and add new types of accounts all take up valuable IT department time.
 
 With the SCIM protocol, user data is stored in a consistent way and can be shared with different applications. Since data is transferred automatically, complex exchanges are simplified and the risk of error is reduced.
 
@@ -37,7 +41,7 @@ Adopting SCIM for domain management improves overall security for your company. 
 * Any profile updates - like department changes - populate automatically.
 * Inactive employees are automatically deactivated from their applications.
 
-> **Note**: Okta Event Hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org and allow them to take actions as a result — for example, provisioning external app access after a user account is created in Okta. As such, they are a flexible lightweight alternative to SCIM. See [Event Hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
+> **Note**: Okta event hooks provide a mechanism for outbound calls to notify your own systems of events occurring in your Okta org and allow them to take actions as a result — for example, provisioning external app access after a user account is created in Okta. As such, they are a flexible lightweight alternative to SCIM. See [Event hook implementation](/docs/guides/event-hook-implementation/nodejs/main/).
 
 ## How does SCIM work?
 
@@ -69,14 +73,14 @@ The deletion or deprovisioning of end-user profiles in SCIM operations depends o
 
    Deactivated end-user accounts lose access to their provisioned Okta integrations. Your application can run different actions after deprovisioning a user, such as changing user access permissions, removing a license, or completely disabling the user account.
 * If an admin deletes a deactivated end-user profile inside Okta, the user resource inside your SCIM application isn't changed. The initial deactivation step already set `active=false`. Okta doesn't send a request to delete the user resource inside the customer's SCIM application.
-* Conversely, if an end-user profile is marked with `active=false` inside your SCIM application, and the Okta integration is mastered by that SCIM application, then when an import from your SCIM application is run, the user's profile is marked as deactivated inside Okta.
-* Similarly, if an end-user profile is deleted from inside your SCIM application, and the end user is mastered by that SCIM application, then when an import from your SCIM application is run, the user's profile is deleted inside Okta.
+* Conversely, if an end-user profile is marked with `active=false` inside your SCIM application, and the Okta integration is sourced by that SCIM application, then when an import from your SCIM application is run, the user's profile is marked as deactivated inside Okta.
+* Similarly, if an end-user profile is deleted from inside your SCIM application, and the end user is sourced by that SCIM application, then when an import from your SCIM application is run, the user's profile is deleted inside Okta.
 
 ### Sync passwords
 
 Outside of the base CRUD operations, Okta supports additional provisioning features like syncing passwords.
 
-Password synchronization helps you coordinate Okta-mastered users to ensure that a user’s Active Directory (AD) password and their Okta password always match. With password synchronization, your users have a single password to access applications and devices.
+Password synchronization helps you coordinate Okta-sourced users to ensure that a user’s Active Directory (AD) password and their Okta password always match. With password synchronization, your users have a single password to access applications and devices.
 
 This option sets the user's password for your integration to match the Okta password or to be assigned a randomly generated password. For more information about this functionality and how to configure it in the Okta product, see [Synchronize passwords from Okta to Active Directory](https://help.okta.com/okta_help.htm?id=ext_Security_Using_Sync_Password).
 
@@ -88,15 +92,15 @@ After provisioning is enabled, you can set an application to be the "source" fro
 
 Okta uses a Profile Editor to map specific user attributes from the source application to the Okta user profile.
 
-## Lifecycle management using profile mastering
+## Lifecycle management using profile sourcing
 
-Profile mastering defines the flow and maintenance of user attributes. When a profile is mastered using a source outside of Okta (for example, an HR application, Active Directory, or LDAP), then the Okta user's attributes and lifecycle state are derived exclusively from that resource. The SCIM protocol is used to handle the secure exchange of user identity data between the profile master and Okta. In this scenario, the profile isn't editable in Okta by the user or an Okta admin.
+Profile sourcing defines the flow and maintenance of user attributes. When a profile is sourced from outside of Okta (for example, an HR application, Active Directory, or LDAP), then the Okta user's attributes and lifecycle state are derived exclusively from that resource. The SCIM protocol is used to handle the secure exchange of user identity data between the profile source and Okta. In this scenario, the profile isn't editable in Okta by the user or an Okta admin.
 
 For example, if the lifecycle state of the user is changed to "Disabled" in Active Directory, then on the next SCIM read operation, the linked Okta user profile is switched and given the corresponding lifecycle state of `active=false`.
 
-For more information about profile mastering and how to configure it in the Okta Admin Console, see:
+For more information about profile sourcing and how to configure it in the Okta Admin Console, see:
 
-* [Profile mastering](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters)
+* [Profile sourcing](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters)
 * [Provisioning and Deprovisioning](https://help.okta.com/okta_help.htm?id=ext_Provisioning_Deprovisioning_Overview)
 
 ## Provisioning use cases
@@ -122,11 +126,11 @@ If you want to read more about how to use the Okta Admin Console to set up provi
 * [SCIM Technical FAQs](/docs/concepts/scim/faqs/)
 * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview)
 * [Create a SCIM integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim)
-* [Provisioning Concepts](https://support.okta.com/help/s/article/Provisioning-Concepts-and-Methods)
-* [Configuring On-Premises Provisioning](https://support.okta.com/help/s/article/29448976-Configuring-On-Premises-Provisioning)
-* IETF [Overview and Specification of the SCIM Protocol](http://www.simplecloud.info/)
+* [Provisioning Concepts](https://support.okta.com/help/s/article/okta-provisioning?language=en_US)
+* [Configuring On-Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure)
+* IETF [Overview and Specification of the SCIM Protocol](https://scim.cloud)
 
-For setting up Active Directory or LDAP for profile mastering:
+For setting up Active Directory or LDAP for profile sourcing:
 
 * [Manage your Active Directory integration](https://help.okta.com/okta_help.htm?id=ext_okta_active_directory_agent)
 * [Manage your LDAP provisioning integration](https://help.okta.com/okta_help.htm?id=ext_LDAP_Provisioning)

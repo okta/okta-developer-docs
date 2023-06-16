@@ -1,0 +1,2 @@
+* [Okta Email (magic link/OTP) integration guide](/docs/guides/authenticators-okta-email/java/main/)
+* [Custom password recovery guide](/docs/guides/oie-embedded-sdk-use-case-custom-pwd-recovery-mfa/java/main/)

@@ -4,8 +4,6 @@ excerpt: Learn how to use a secondary device to complete sign-in to applications
 layout: Guides
 ---
 
-<ClassicDocOieVersionNotAvailable />
-
 This guide describes the Device Authorization feature, which allows users to sign in to input-constrained devices and devices without a browser.
 
 ---
@@ -31,8 +29,6 @@ The Device Authorization feature is an OAuth 2.0 grant type. It allows users to 
 
 The Device Authorization feature is available for both Okta Classic Engine and Okta Identity Engine orgs.
 
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
-
 ## Before you begin
 
 This guide assumes that you:
@@ -51,13 +47,13 @@ To create a Native OpenID Connect application and then configure it to support D
 
 > **Note:** Device Authorization is only supported for use with a native application.
 
-## Configure the Authorization Server policy rule for Device Authorization
+## Configure the authorization server policy rule for Device Authorization
 
-Both Org and Custom Authorization Servers support Device Authorization. Ensure that Device Authorization is enabled at the policy rule level if you're planning to use a Custom Authorization Server. If you're planning to use the Org Authorization Server, you can skip this step. Examples in this guide use the "default" Custom Authorization Server.
+Both org and custom authorization servers support Device Authorization. Ensure that Device Authorization is enabled at the policy rule level if you're planning to use a custom authorization server. If you're planning to use the org authorization server, you can skip this step. Examples in this guide use the "default" custom authorization server.
 
 To check that Device Authorization is enabled:
 
-1. In the left navigation pane of the Admin Console, go to **Security** > **API** and select the "default" Custom Authorization Server.
+1. In the left navigation pane of the Admin Console, go to **Security** > **API** and select the "default" custom authorization server.
 1. On the **Access Policies** tab, select the access policy that you want to configure Device Authorization for.
 1. Click the pencil icon for the Default Policy Rule.
 1. In the Edit Rule dialog box, select **Device Authorization** for the grant type and click **Update Rule**.
@@ -90,8 +86,8 @@ The device authorization request passes the following parameters:
 {
     "device_code": "4ebdb4de-1f8b-4497-be01-ddfaf83c4e9c",
     "user_code": "MHXTFRPK",
-    "verification_uri": "https://${yourOktaDomain}/activate",
-    "verification_uri_complete": "https://${yourOktaDomain}/activate?user_code=MHXTFRPK",
+    "verification_uri": "https://{yourOktaDomain}/activate",
+    "verification_uri_complete": "https://{yourOktaDomain}/activate?user_code=MHXTFRPK",
     "expires_in": 600,
     "interval": 5
 }
@@ -110,7 +106,11 @@ The `user_code` and `verification_uri` must appear on the smart device for the u
 
 #### Example of the display on a smart device
 
-![Verification on the smart device](/img/QRActivate.png)
+<div class="three-quarter border">
+
+![Verification on the smart device](/img/authorization/QRActivate.png)
+
+</div>
 
 ### Request access, ID, and refresh tokens
 

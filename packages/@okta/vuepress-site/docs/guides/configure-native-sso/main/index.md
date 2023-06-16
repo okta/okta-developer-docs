@@ -4,8 +4,6 @@ excerpt: Learn how to configure SSO for Native applications and understand the N
 layout: Guides
 ---
 
-<ClassicDocOieVersionNotAvailable />
-
 This guide provides a high-level overview of the Native SSO feature in Okta. It also provides a use case example of how to configure your org to use this feature.
 
 ---
@@ -31,18 +29,17 @@ This guide provides a high-level overview of the Native SSO feature in Okta. It 
 
 Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/) for more information on the OAuth 2.0 and OpenID Connect endpoints.
 
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
-
 ## Before you begin
 
-This guide assumes that you:
-
-* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the **OpenID Connect Native SSO** slider, and slide to enable.
+This guide assumes that you have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 
 ## Native SSO flow
 
-![Native SSO flow diagram](/img/native_SSO_flow.png)
+<div class="three-quarter">
+
+![Native SSO flow diagram](/img/sso/native_SSO_flow.png)
+
+</div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -73,9 +70,13 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 1. The authorization server returns the tokens (`id_token`, `refresh_token`, and `access_token`) and the `device_secret` in the response.
 1. Native app 2 makes a request for a `refresh_token` and `access_token`. The request contains the `id_token` and the `device_secret`.
 
-	Native app 2, and any other client that participates in the Native SSO flow, can use the `id_token` and the `device_secret` obtained from the initial client that authenticated (see the following diagram). To sign in automatically, the clients can use the `id_token` and `device_secret` and exchange them for tokens by making a `/token` request.
+	 Native app 2, and any other client that participates in the Native SSO flow, can use the `id_token` and the `device_secret` obtained from the initial client that authenticated (see the following diagram). To sign in automatically, the clients can use the `id_token` and `device_secret` and exchange them for tokens by making a `/token` request.
 
-	![ID token and device secret use](/img/nativeSSO_flow2.png)
+   <div class="three-quarter">
+
+	 ![ID token and device secret use](/img/sso/nativeSSO_flow2.png)
+
+   </div>
 
 8. The authorization server returns a new set of refresh and access tokens specifically for Native app 2. This key part in the Native SSO flow enables a user to be automatically signed in without requiring any user action.
 
@@ -106,14 +107,14 @@ To configure Native SSO, start by setting up your application. To walk through t
 
 ## Configure Native SSO for your Okta org
 
-Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this example, we are using the "default" Custom Authorization Server. The Org Authorization Server isn't supported.
+Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this example, we are using the "default" custom authorization server. The org authorization server isn't supported.
 
 > **Note:** You must have an authorization server policy and a rule set up to allow the scopes that you need. See [Create access policies](/docs/guides/customize-authz-server/main/#create-access-policies) and [Create rules for each access policy](/docs/guides/customize-authz-server/main/#create-rules-for-each-access-policy).
 
 To update the authorization server policy rule:
 
 1. From the left navigation pane in the Admin Console, go to **Security** > **API** to view your authorization servers.
-1. On the **Authorization Servers** tab, click the pencil icon for the "default" Custom Authorization Server.
+1. On the **Authorization Servers** tab, click the pencil icon for the "default" custom authorization server.
 1. On the **Scopes** tab, verify that `offline_access`, `device_sso`, and `openid` appear in the scopes table.
 1. In the Edit Rule dialog box, select **Token Exchange** as a grant type in the **IF Grant type is** section and click **Update Rule**.
 
@@ -125,17 +126,19 @@ Other refresh tokens (and other tokens) that are minted by using the device secr
 
 To generate a new set of tokens:
 
-* Use Auth Code with PKCE to obtain the authorization code for the first client.
+* Use Authorization Code flow with PKCE to obtain the authorization code for the first client.
 * Exchange the code for tokens.
 * Exchange the existing tokens from client 1 for new tokens for client 2.
 
 In this example, you want to SSO to multiple apps that are created by the same company. Each client represents one app, and you can register multiple clients for SSO. When a user signs in to one app, all the other apps that are registered are also automatically signed in.
 
+> **Note:** Performing Native SSO token exchange with an application that has a low assurance policy configured and another application that has a high assurance policy results in an error.
+
 ### Use Authorization Code with PKCE to obtain the authorization code for client 1
 
 Provide the `device_sso`, `openid`, and `offline_access` scopes in the first request to the `/authorize` endpoint using the Authorization Code with PKCE flow. All three scopes are required in the request. You must use `device_sso` with `openid` and `offline_access`. See [Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics) for information on the parameters that are being passed in this request.
 
-**Example Authorization Code with PKCE request**
+**Example Authorization Code flow with PKCE request**
 
 ```
   https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}&response_type=code&scope=openid device_sso offline_access&redirect_uri=${configuredRedirectUri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
@@ -296,14 +299,14 @@ To verify that the refresh and access tokens are also automatically invalidated 
 
 ## Request Logout
 
-When the user signs out of an application, the application sends a `/logout` request to the Okta Authorization Server, which revokes the device secret.
+When the user signs out of an application, the application sends a `/logout` request to the Okta authorization server, which revokes the device secret.
 
 ```bash
 curl --request GET \
   --url https://${yourOktaDomain}/oauth2/default/v1/logout?id_token_hint=${idToken}&device_secret=${deviceSecret}&post_logout_redirect_uris=${configuredPostLogoutRedirectUri}&state=2OwvFrEMTJg
 ```
 
-The Authorization Server invalidates the access and refresh tokens that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails.
+The authorization server invalidates the access and refresh tokens that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails.
 
 Okta returns a response to the `post_logout_redirect_uri`.
 

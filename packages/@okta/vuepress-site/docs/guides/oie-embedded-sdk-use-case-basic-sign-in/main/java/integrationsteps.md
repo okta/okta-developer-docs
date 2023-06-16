@@ -1,10 +1,15 @@
 ### 1: Build a sign-in form
 
-Build a sign-in form that captures both the username and password. For example:
+Build a sign-in form that captures both the username and password, similar to the following wireframe.
 
-<div class="common-image-format">
+<div class="half wireframe-border">
 
-![Displays the simple sign-in form for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-java.png)
+![A sign-in form with fields for username and password and a next button](/img/wireframes/sign-in-form-username-password.png)
+
+<!--
+
+Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3398%3A36678&t=wzNwSZkdctajVush-1 sign-in-form-username-password
+ -->
 
 </div>
 
@@ -32,7 +37,7 @@ The `IDXAuthenticationWrapper.authenticate()` method returns an [`Authentication
 
 If the Java SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS`, then the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
 
-> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](#get-the-user-profile-information).
+> **Note:** You can obtain basic user information after the user is authenticated by making a request to the Okta OpenID Connect authorization server. See [Get the user profile information](#get-the-user-profile-information).
 
 #### Other authentication statuses
 

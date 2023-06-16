@@ -5,8 +5,14 @@ category: management
 
 # Mappings API
 
+The Mappings API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/) as Profile Mappings.
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Profile Mappings API Postman collection.
+
+<!--
+
 The Okta Mappings API provides operations to manage the mapping of properties between an Okta User's and an App User's
-[Profile properties](/docs/reference/api/users/#profile-object) using [Expression Language](/docs/reference/okta-expression-language).
+[Profile properties](/docs/reference/api/users/#profile-object) using [Okta Expression Language](/docs/reference/okta-expression-language).
 More information on Okta User and App User Profiles can be found in
 Okta's [User profiles](/docs/concepts/user-profiles/#what-is-the-okta-universal-directory).
 
@@ -60,10 +66,10 @@ curl -v -X GET \
             "type": "user",
             "_links": {
                 "self": {
-                    "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                    "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
                 },
                 "schema": {
-                    "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                    "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
                 }
             }
         },
@@ -73,16 +79,16 @@ curl -v -X GET \
             "type": "appuser",
             "_links": {
                 "self": {
-                    "href": "https://${yourOktaDomain}/api/v1/apps/0oa1xz9cb7yt5SsZV0g4"
+                    "href": "https://{yourOktaDomain}/api/v1/apps/0oa1xz9cb7yt5SsZV0g4"
                 },
                 "schema": {
-                    "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1xz9cb7yt5SsZV0g4/default"
+                    "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1xz9cb7yt5SsZV0g4/default"
                 }
             }
         },
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/mappings/prm1k47ghydIQOTBW0g4"
+                "href": "https://{yourOktaDomain}/api/v1/mappings/prm1k47ghydIQOTBW0g4"
             }
         }
     },
@@ -94,10 +100,10 @@ curl -v -X GET \
             "type": "user",
             "_links": {
                 "self": {
-                    "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                    "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
                 },
                 "schema": {
-                    "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                    "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
                 }
             }
         },
@@ -107,16 +113,16 @@ curl -v -X GET \
             "type": "appuser",
             "_links": {
                 "self": {
-                    "href": "https://${yourOktaDomain}/api/v1/apps/0oa1ycesCAeQrbO3s0g4"
+                    "href": "https://{yourOktaDomain}/api/v1/apps/0oa1ycesCAeQrbO3s0g4"
                 },
                 "schema": {
-                    "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1ycesCAeQrbO3s0g4/default"
+                    "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1ycesCAeQrbO3s0g4/default"
                 }
             }
         },
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/mappings/prm1k48weFSOnEUnw0g4"
+                "href": "https://{yourOktaDomain}/api/v1/mappings/prm1k48weFSOnEUnw0g4"
             }
         }
     }
@@ -160,10 +166,10 @@ curl -v -X GET \
         "type": "user",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
             },
             "schema": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
             }
         }
     },
@@ -173,10 +179,10 @@ curl -v -X GET \
         "type": "appuser",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
             },
             "schema": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
             }
         }
     },
@@ -192,7 +198,7 @@ curl -v -X GET \
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
+            "href": "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
         }
     }
 }
@@ -254,10 +260,10 @@ curl -v -X POST \
         "type": "user",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
             },
             "schema": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
             }
         }
     },
@@ -267,10 +273,10 @@ curl -v -X POST \
         "type": "appuser",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
             },
             "schema": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
             }
         }
     },
@@ -286,7 +292,7 @@ curl -v -X POST \
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
+            "href": "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
         }
     }
 }
@@ -324,10 +330,10 @@ curl -v -X POST \
         "type": "user",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
             },
             "schema": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
             }
         }
     },
@@ -337,10 +343,10 @@ curl -v -X POST \
         "type": "appuser",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
             },
             "schema": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
             }
         }
     },
@@ -356,7 +362,7 @@ curl -v -X POST \
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
+            "href": "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
         }
     }
 }
@@ -391,10 +397,10 @@ curl -v -X POST \
         "type": "user",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
             },
             "schema": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
             }
         }
     },
@@ -404,10 +410,10 @@ curl -v -X POST \
         "type": "appuser",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
             },
             "schema": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
             }
         }
     },
@@ -419,7 +425,7 @@ curl -v -X POST \
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/mappings/${mappingId}"
+            "href": "https://{yourOktaDomain}/api/v1/mappings/${mappingId}"
         }
     }
 }
@@ -442,10 +448,10 @@ The Profile Mapping object describes a mapping between an Okta User's and an App
         "type": "appuser",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oa1qmn4LZQQEH0wZ0g4"
             },
             "schema": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/apps/0oa1qmn4LZQQEH0wZ0g4/default"
             }
         }
     },
@@ -455,10 +461,10 @@ The Profile Mapping object describes a mapping between an Okta User's and an App
         "type": "user",
         "_links": {
             "self": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
+                "href": "https://{yourOktaDomain}/api/v1/meta/types/user/otysbePhQ3yqt4cVv0g3"
             },
             "schema": {
-                "href": "https://${yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
+                "href": "https://{yourOktaDomain}/api/v1/meta/schemas/user/oscsbePhQ3yqt4cVv0g3"
             }
         }
     },
@@ -474,7 +480,7 @@ The Profile Mapping object describes a mapping between an Okta User's and an App
     },
     "_links": {
         "self": {
-            "href": "https://${yourOktaDomain}/api/v1/mappings/prm1xzjkHwo8uG77c0g4"
+            "href": "https://{yourOktaDomain}/api/v1/mappings/prm1xzjkHwo8uG77c0g4"
         }
     }
 }
@@ -524,7 +530,9 @@ Consists of a target property, in String form, that maps to a valid [JSON Schema
 
 | Property    | Description                                                                     | DataType                      | Nullable | Unique | Readonly | Validation  |
 |:------------|:--------------------------------------------------------------------------------|:------------------------------|:---------|:-------|:---------|:------------|
-| expression  | Combination or single source properties that are mapped to the target property  | [Expression Language object](/docs/reference/okta-expression-language/)| FALSE    | FALSE  | FALSE    |             |
+| expression  | Combination or single source properties that are mapped to the target property  | [Okta Expression Language object](/docs/reference/okta-expression-language/)| FALSE    | FALSE  | FALSE    |             |
 | pushStatus  | Indicates whether to update target properties on user create and update or just on create | `DONT_PUSH` or `PUSH`         | FALSE    | FALSE  | FALSE    |           |
 
 > **Note:** Having a pushStatus of `PUSH` causes properties in the target to be updated on create and update. Having a pushStatus of `DONT_PUSH` causes properties in the target to be updated only on create.
+
+-->

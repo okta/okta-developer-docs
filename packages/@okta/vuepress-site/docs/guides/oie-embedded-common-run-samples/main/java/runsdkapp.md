@@ -6,7 +6,8 @@
 
 1. From your command shell, locate the embedded authentication SDK sample app source files in the following path: `...\okta-idx-java\samples\embedded-auth-with-sdk`.
 
-1. Set the app-specific environment variables:<br>
+1. Set the app-specific environment variables:
+
    ```bash
    export OKTA_IDX_ISSUER=https://${yourOktaDomain}/oauth2/default
    export OKTA_IDX_CLIENTID=${clientId}
