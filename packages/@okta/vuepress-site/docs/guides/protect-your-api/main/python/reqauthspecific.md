@@ -1,4 +1,4 @@
-You can create a `@public_route` decorator to allow any route decorated by it to be accessed without `login`: 
+Create a `@public_route` decorator to mark any route accessible without `login`:
 
 ```python
 def public_route(decorated_function):
@@ -6,7 +6,7 @@ def public_route(decorated_function):
     return decorated_function
 ```
 
-For example, to make the default route (`/`) public, update that route as follows:
+For example, to make the default route (`/`) public, update it as follows:
 
 ```python
 @app.route("/")
