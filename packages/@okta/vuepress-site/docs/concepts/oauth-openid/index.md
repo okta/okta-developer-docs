@@ -115,7 +115,7 @@ If your client application is running on a server with no direct end user, then 
 
 If you own both the client application and the resource that it's accessing, then your application can be trusted to handle your end user's username and password. These types of apps are considered "high-trust". Because of the high degree of trust required, you should only use the [Resource Owner Password flow](#resource-owner-password-flow) if other flows aren't viable.
 
-If your app is not high-trust, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow.
+If your app is not high-trust, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/StuartSwitzman/) flow.
 
 ### Interaction Code flow
 
@@ -162,7 +162,7 @@ Authorization Code flow with Proof Key for Code Exchange (PKCE) is the recommend
 
 PKCE is an extension to the regular Authorization Code flow, so the flow is very similar, except that PKCE elements are included at various steps in the flow.
 
-> **Note:** See [Refresh access tokens](/docs/guides/refresh-tokens/main/) for implementing refresh tokens with SPAs and other browser-based apps.
+> **Note:** See [Refresh access tokens](/docs/guides/refresh-tokens/StuartSwitzman/) for implementing refresh tokens with SPAs and other browser-based apps.
 
 The PKCE-enhanced Authorization Code flow requires your application to generate a cryptographically random key called a "code verifier". A "code challenge" is then created from the verifier, and this challenge is passed along with the request for the authorization code.
 
@@ -200,7 +200,7 @@ app -> client: Response
 
 -->
 
-For information on how to set up your application to use this flow, see [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/).
+For information on how to set up your application to use this flow, see [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/StuartSwitzman/).
 
 ### Resource Owner Password flow
 
@@ -229,7 +229,7 @@ app -> client: Response
 
 -->
 
-For information on how to set up your application to use this flow, see [Implement the Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/).
+For information on how to set up your application to use this flow, see [Implement the Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/StuartSwitzman/).
 
 ### Client Credentials flow
 
@@ -258,7 +258,7 @@ app -> client: Response
 
 -->
 
-For information on how to set up your application to use this flow, see [Implement the Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/).
+For information on how to set up your application to use this flow, see [Implement the Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/StuartSwitzman/).
 
 ### SAML 2.0 Assertion flow
 
@@ -289,7 +289,7 @@ OClient -> rs: Makes a resource request with the access token to the resource se
 
 -->
 
-For information on how to set up your application to use this flow, see [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/).
+For information on how to set up your application to use this flow, see [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/StuartSwitzman/).
 
 ### Implicit flow
 
@@ -324,4 +324,4 @@ client -> app: Request with access token
 app -> client: Response
 -->
 
-For information on how to set up your application to use this flow, see [Implement the Implicit flow](/docs/guides/implement-grant-type/implicit/main/).
+For information on how to set up your application to use this flow, see [Implement the Implicit flow](/docs/guides/implement-grant-type/implicit/StuartSwitzman/).
