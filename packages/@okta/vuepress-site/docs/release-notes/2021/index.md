@@ -79,7 +79,7 @@ The Upload Logo for Org endpoint (`/org/logo`) is deprecated. Use the [Upload Th
 
 #### User Types API and Mappings API support OAuth 2.0
 
-The [User Types API](/docs/reference/api/user-types/) and [Profile Mappings API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ProfileMapping/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
+The [User Types API](/docs/reference/api/user-types/) and [Mappings API](/docs/reference/api/mappings/) have been updated to support OAuth 2.0. You can grant access to the User Types API by using the `okta.userTypes.manage` and `okta.userTypes.read` scopes. You can grant access to the Mappings API by using the `okta.profileMappings.manage` and `okta.profileMappings.read scopes`. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-436385-->
 
 #### Bugs fixed in 2021.12.0
 
