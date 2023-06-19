@@ -1855,7 +1855,7 @@ The My Password object has several properties:
 ```json
 {
   "profile": {
-      "phoneNumber" : "+15555555555"
+    "password": "Abcd1234"
   }
 }
 ```
