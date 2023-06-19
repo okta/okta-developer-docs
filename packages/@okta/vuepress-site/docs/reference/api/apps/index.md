@@ -7,6 +7,8 @@ category: management
 
 The Okta Application API provides operations to manage applications and/or assignments to users or groups for your organization.
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/febec0ced153d9cd3db1)
