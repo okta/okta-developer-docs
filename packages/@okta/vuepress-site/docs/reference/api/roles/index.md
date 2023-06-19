@@ -12,6 +12,8 @@ The Okta Administrator Roles API provides operations to manage both standard and
 
 This document includes the operations of the standard Roles API and the Custom Roles API, and where they intersect.
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/63c73546214177bae3bf)
