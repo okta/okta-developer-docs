@@ -288,7 +288,7 @@ To fix this, update your authorization server to use your custom domain:
 1. Locate the  **default** custom authorization server, and then click **Edit**.
 1. In the **Settings** section, click **Edit**.
 1. Change the **Issuer** to **Dynamic (based on request domain)**.
-1. Try `./well-known/openid-configuration` again. It should display your custom domain.
+1. Make another request to `./well-known/openid-configuration`. Your custom domain is returned.
 
 ## About custom email addresses
 
