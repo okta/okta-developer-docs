@@ -282,12 +282,13 @@ https://<id.domain.name>/oauth2/default/.well-known/openid-configuration
 
 You might notice that it has your Okta `dev-*` domain, rather than your custom domain name.
 
-You need to update your authorization server to use your custom domain to fix this:
+You need to update your authorization server to use your custom domain:
 
-1. Sign in to your Okta account and go to **API** > **Authorization Servers**.
-2. Select the  **default** custom authorization server, and then click **Edit**.
-3. Change the **Issuer** to use **Custom URL**.
-4. Try `./well-known/openid-configuration` again. It should now display your custom domain.
+1. Sign in to your Okta account and go to **Security** > **API** > **Authorization Servers**.
+1. Locate the  **default** custom authorization server, and then click **Edit**.
+1. In the **Settings** section, click **Edit**.
+1. Change the **Issuer** to **Custom URL** or **Dynamic (based on request domain)** (if enabled).
+1. Try `./well-known/openid-configuration` again. It should now display your custom domain.
 
 ## About custom email addresses
 
