@@ -287,7 +287,7 @@ To fix this, update your authorization server to use your custom domain:
 1. Sign in to your Okta account and go to **Security** > **API** > **Authorization Servers**.
 1. Locate the  **default** custom authorization server, and then click **Edit**.
 1. In the **Settings** section, click **Edit**.
-1. Change the **Issuer** to **Custom URL** or **Dynamic (based on request domain)** (if enabled).
+1. Change the **Issuer** to **Dynamic (based on request domain)**.
 1. Try `./well-known/openid-configuration` again. It should display your custom domain.
 
 ## About custom email addresses
