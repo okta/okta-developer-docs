@@ -5,6 +5,7 @@ guides:
  - archive-auth-js
  - archive-embedded-siw
  - archive-registration-inline-hook
+ - archive-set-up-self-service-registration
  - archive-sign-in-to-spa-authjs
  - archive-sign-in-to-spa-embedded-widget
  - archive-configure-signon-policy
@@ -75,7 +76,6 @@ guides:
  - saml-inline-hook
  - saml-tracer
  - session-cookie
- - set-up-self-service-registration
  - set-up-token-exchange
  - shared-sso-android-ios
  - sharing-cert
@@ -155,7 +155,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
-    * [Set up self-service registration](/docs/guides/set-up-self-service-registration/)
+    * [Set up self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/)
 
 2. Sign users in
 
