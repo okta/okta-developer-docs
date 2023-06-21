@@ -42,7 +42,7 @@ Select the OAuth 2.0 flow to use based on your app:
 
 * For single-page apps (SPA):
 
-   Okta recommends the [Authorization Code flow with a Proof Key for Code Exchange (PKCE)](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce) to control access between your SPA application and a resource server.
+   Okta recommends the [Authorization Code flow with a Proof Key for Code Exchange (PKCE)](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce) to control access between your SPA app and a resource server.
 
 > **Note:** Native and mobile app integrations aren't accepted as OIDC app integrations in the OIN. Set up your app to use an authentication flow that allows your client app to talk to your SaaS back end. Your SaaS back end can then securely communicate with Okta through trusted back-channel connections.
 
