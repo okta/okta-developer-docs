@@ -91,7 +91,7 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 
 You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). Custom scopes can't be configured.
 
-Okta utilizes access policies to decide whether the scopes can be granted. If any of the requested scopes are rejected by the access policies, the request is rejected.
+Okta uses access policies to decide whether to grant scopes. If any of the requested scopes are rejected by the access policies, Okta rejects the request.
 
 ### Uniform Resource Identifier (URI)
 
