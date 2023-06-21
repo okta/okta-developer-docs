@@ -22,7 +22,7 @@ Build your integration with these guidances.
 
 > **Note:** Quickstarts and example links are provided in the [Determine the OAuth 2.0 flow to use](#determine-the-oauth-2-0-flow-to-use) section. These links provide example OIDC implementations outside of the OIN.
 
-After you've build your integration, test your SSO integration with an Okta app integration instance. See [Create your integration in Okta](#create-your-integration-in-okta).
+After you've built your integration, test your SSO integration with an Okta app integration instance. See [Create your integration in Okta](#create-your-integration-in-okta).
 
 ### OIDC customer org credentials
 
