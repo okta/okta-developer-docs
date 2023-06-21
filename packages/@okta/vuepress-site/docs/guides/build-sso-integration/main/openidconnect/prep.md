@@ -68,7 +68,6 @@ For example, the following are the various `/authorize` request URLs for the dif
 Make sure you only use the **org authorization server** URL.
 
 > **Note:** The `refresh_token` option isn't supported for apps published in OIN.
-> * The `refresh_token` option isn't supported for apps published in OIN.
 
 ### Scopes
 
