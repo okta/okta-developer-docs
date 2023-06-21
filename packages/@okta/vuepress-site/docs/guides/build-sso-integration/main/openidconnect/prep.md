@@ -109,7 +109,7 @@ As OIN app integrations can't use custom authorization servers, you must use rem
 
 This remote validation incurs a network cost, but you can use it when you want to guarantee that the access token hasn't been revoked.
 
-> **Note:** The Okta SDKs can't be used for OIN app integration development if you need to validate access tokens with the org authorization server. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
+> **Note:** You can't use the Okta SDKs for OIN app integration development if you need to validate access tokens with the org authorization server. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
 
 ### Key rotation
 
