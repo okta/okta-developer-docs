@@ -6,6 +6,16 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## June
 
+### Weekly release 2023.06.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2023.06.1](#bug-fixed-in-2023-06-1) | June 22, 2023 |
+
+#### Bug fixed in 2023.06.1
+
+ID tokens retrieved using Direct Authentication grant types contained an incorrect AMR. (OKTA-616876)
+
 ### Monthly release 2023.06.0
 
 | Change | Expected in Preview Orgs |
