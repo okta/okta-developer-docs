@@ -1,6 +1,6 @@
 If you haven't built the OIDC service in your app yet, review the [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/).
 
-For OIDC integrations to be published in the OIN catalog, review the following implementation topics:
+For OIDC integrations that you want to publish in the OIN catalog, review the following implementation topics:
 
 1. [Determine a suitable OAuth 2.0 flow](#determine-the-oauth-2-0-flow-to-use) to use based on your app type.
 1. [Determine the scopes](#scopes) that you require for your OIDC client (your app).
