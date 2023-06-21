@@ -20,7 +20,7 @@ For OIDC integrations that you want to publish in the OIN catalog, review the fo
 
 Build your integration with these guidances.
 
-> **Note:** You can see quickstarts and example links provided in the [Determine the OAuth 2.0 flow to use](#determine-the-oauth-2-0-flow-to-use) section for example OIDC implementations outside of the OIN.
+> **Note:** Quickstarts and example links are provided in the [Determine the OAuth 2.0 flow to use](#determine-the-oauth-2-0-flow-to-use) section. These links provide example OIDC implementations outside of the OIN.
 
 After you've build your integration, test your SSO integration with an Okta app integration instance. See [Create your integration in Okta](#create-your-integration-in-okta).
 
