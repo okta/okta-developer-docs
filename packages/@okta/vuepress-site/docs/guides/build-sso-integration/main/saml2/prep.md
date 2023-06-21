@@ -1,4 +1,4 @@
-If you haven't built the SAML 2.0 service in your application yet, review the [SAML concept](/docs/concepts/saml/) first.
+If you haven't built the SAML 2.0 service in your app yet, review the [SAML concept](/docs/concepts/saml/) first.
 
 ### Use SAML toolkits
 
