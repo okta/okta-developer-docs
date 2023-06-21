@@ -55,7 +55,7 @@ Follow these guides to implement the OAuth 2.0 flows:
 > * [Sign in to SPA](/docs/guides/sign-into-spa-redirect/)
 > * [Sign in to web application](/docs/guides/sign-into-web-app-redirect/)
 
-When you follow these guides, one caveat is the use of the authorization server. Most of the examples show you how to make an `/authorize` or `/token` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+When you follow these guides, one caveat is the use of the authorization server. Most of the examples show you how to make an `/authorize` or `/token` request using a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server). To support the potentially large number of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server. This includes the `default` server. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
 For example, the following are the various `/authorize` request URLs for the different authorization servers:
 
