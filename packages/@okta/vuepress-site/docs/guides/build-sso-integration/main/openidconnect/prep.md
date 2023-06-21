@@ -73,7 +73,7 @@ Make sure you only use the **org authorization server** URL.
 
 Your OIDC client needs to use scope values to define the access privileges being requested with individual access tokens. The scopes associated with access tokens determine what resources are available when the tokens are used to access the protected endpoints. You can use scopes to request that specific sets of values be available as claim information about the end user.
 
-The only scope that must be declared is `openid`. When the authentication request is sent to Okta, the `openid` scope identifies the request as being an OIDC request.
+The only scope that you must declare is `openid`. When the authentication request is sent to Okta, the `openid` scope identifies the request as being an OIDC request.
 
 Other optional scopes available (these are returned from the `/userinfo` endpoint):
 
