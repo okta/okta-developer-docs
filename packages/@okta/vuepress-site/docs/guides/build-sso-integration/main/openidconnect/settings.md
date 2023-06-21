@@ -17,7 +17,7 @@
 * If you only want to support direct SSO to your application (so the integration isn't launched from the Okta End-User Dashboard), then:
   1. Enter one or more **Sign-in redirect URIs** values where Okta sends the OAuth responses.
   1. Set the **Sign-in initiated by** dropdown box to **App Only**.
-  1. Leave the remaining entries at their default values.
+  1. Leave the remaining default values.
 
 * If you want to support launching your application from the Okta dashboard:
   1. Enter one or more **Sign-in redirect URIs** values where Okta sends the OAuth responses.
