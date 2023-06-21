@@ -89,7 +89,7 @@ First, you must assign your integration to one or more test users in your org:
 
 1. Sign out of your Okta org. Click **Sign out** in the upper-right corner of the Admin Console.
 1. Sign in to the Okta End-User Dashboard as the regular user that was assigned the integration.
-1. Click the Okta tile for the integration and confirm that the user is signed in to your application.
+1. Click the Okta tile for the integration and confirm that the user is signed in to your app.
 
 <StackSnippet snippet="test" />
 
