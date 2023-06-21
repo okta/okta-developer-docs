@@ -38,7 +38,7 @@ Select the OAuth 2.0 flow to use based on your app:
 
 * For web apps:
 
-   Okta recommends the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). This flow is used for apps with a dedicated server-side back-end capable of securely storing a client secret. The app integration can also exchanging information with an authorization server through trusted back-channel connections.
+   Okta recommends the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). This flow is used for apps with a dedicated server-side backend capable of securely storing a client secret. The app integration can also exchange information with an authorization server through trusted back-channel connections.
 
 * For single-page apps (SPA):
 
