@@ -129,7 +129,7 @@ For org-wide rate limits, the following three headers are provided:
 * `X-Rate-Limit-Remaining`: The amount of requests left for the current rate-limit window
 * `X-Rate-Limit-Reset`: The time when the rate limit resets, specified in UTC epoch time
 
-To monitor org-wide rate limits, include code in your application to check the relevant headers in the response.
+To monitor org-wide rate limits, include code in your app to check the relevant headers in the response.
 
 For concurrent rate limits, the three headers behave a little differently:
 
