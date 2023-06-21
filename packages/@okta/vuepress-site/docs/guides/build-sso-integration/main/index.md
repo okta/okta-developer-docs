@@ -51,7 +51,7 @@ Okta recommends the redirect authentication deployment model if your situation m
 
 ## Create your integration in Okta
 
-This section assumes that you've built the SSO integration in your application.
+This section assumes that you've built the SSO integration in your app.
 
 After you've built your SSO integration, you can use the Application Integration Wizard (AIW) in the Admin Console to create your app integration instance. This instance provides you with client credentials or metadata for you to test your SSO flows.
 
