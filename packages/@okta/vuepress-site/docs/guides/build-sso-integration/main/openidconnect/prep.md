@@ -87,9 +87,7 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 
 > **Note**: The following scopes aren't supported for integrations published in the OIN:
 >   * `offline_access` scope (since refresh tokens aren't supported)
->   * Custom scopes (such as the `groups` scope)
-
-You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). Custom scopes can't be configured.
+>   * Custom scopes (such as the `groups` scope). You can only request the [OIDC scopes](/docs/reference/api/oidc/#scopes). You can't configure custom scopes.
 
 Okta uses access policies to decide whether to grant scopes. If any of the requested scopes are rejected by the access policies, Okta rejects the request.
 
