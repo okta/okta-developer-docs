@@ -33,7 +33,7 @@ To create an SSO integration for the OIN, first sign up for a free [Okta develop
 
 Okta recommends using OIDC for new SSO integrations.
 
-> **Note:** Not all Okta SSO features are supported in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations) for OIDC and SAML limitations.
+> **Note:** Not all Okta SSO features are supported in the OIN. See [OIN limitations](/docs/guides/submit-app-prereq/main/#oin-limitations).
 
 ### Deployment models
 
