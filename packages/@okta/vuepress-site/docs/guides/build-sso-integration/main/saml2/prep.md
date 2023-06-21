@@ -2,7 +2,7 @@ If you haven't built the SAML 2.0 service in your app yet, review the [SAML conc
 
 ### Use SAML toolkits
 
-The following open source and paid tool kits can help you implement SAML 2.0 for your existing application. These different language kits help you create the WebSSO Profile for Service Providers:
+The following open source and paid tool kits can help you implement SAML 2.0 for your existing app. These different language kits help you create the WebSSO Profile for Service Providers:
 
 * .NET Framework 4.5 or later: [Sustainsys.Saml2](https://github.com/Sustainsys/Saml2) (formerly Kentor Authentication Services)
 * .NET Framework 4.0 or earlier: [ComponentSpace SAML 2.0 for ASP.NET and ASP.NET Core](https://www.componentspace.com/) (paid software)
