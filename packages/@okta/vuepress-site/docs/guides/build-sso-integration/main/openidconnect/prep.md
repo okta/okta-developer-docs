@@ -7,7 +7,7 @@ For OIDC integrations that you want to publish in the OIN catalog, review the fo
 1. Consider how your app stores [customer client credentials](#oidc-customer-org-credentials).
 1. Understand how to [validate tokens](#token-validation) in your OIDC client.
 
-   > **Note:** The Okta SDKs can't be used to validate access tokens for apps in the OIN. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
+   > **Note:** You can't use the Okta SDKs to validate access tokens for apps in the OIN. This is due to the OIN restriction of using an org authorization server and the Authorization Code flow.
 
 1. Implement credential rotation in your app.
 
