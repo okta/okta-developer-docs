@@ -1,4 +1,4 @@
-If you haven't build the OIDC service in your application yet, review the [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/) concept.
+If you haven't built the OIDC service in your app yet, review the [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/).
 
 For OIDC integrations to be published in the OIN catalog, review the following implementation topics:
 
