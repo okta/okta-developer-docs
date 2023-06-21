@@ -18,7 +18,7 @@ The following open source and paid tool kits can help you implement SAML 2.0 for
 
 You need to obtain SAML integration fields before you create an app integration instance in Okta.
 
-In a SAML integration, Okta is the Identity Provider (IdP), and your application is the Service Provider (SP).
+In a SAML integration, Okta is the Identity Provider (IdP), and your app is the Service Provider (SP).
 
 1. Determine the default Assertion Consumer Service (ACS) URL for your integration. This is often referred to as the SP sign-in URL. This is the endpoint on your application where the SAML responses are posted.
 1. Find your Audience URI. This is sometimes referred to as the SP entity ID or the entity ID of your application.
