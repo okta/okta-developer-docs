@@ -53,7 +53,7 @@ As an example, `alice.doe@example.com` is a registered Okta user in both the Com
 
 Okta orgs host their interfaces through individual subdomains and each org is assigned a separate URL. The typical org URL is the tenant name (the subdomain) followed by the domain name. However, you can customize the domain name for your own domain and add individual aliases for each of your tenants.
 
-> **Note:** The process for specifying the variable app instance names in an OIDC application is explained in the [Publish an OIN integration: OIDC settings](/docs/guides/submit-app/openidconnect/main/#configure-protocol-or-tool-specific-settings).
+> **Note:** The process for specifying the variable app instance names in an OIDC app is explained in the [Publish an OIN integration: OIDC settings](/docs/guides/submit-app/openidconnect/main/#configure-protocol-or-tool-specific-settings).
 
 ## Use case examples
 
