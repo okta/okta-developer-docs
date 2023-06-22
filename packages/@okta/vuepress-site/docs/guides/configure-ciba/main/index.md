@@ -35,7 +35,7 @@ This guide uses the [Okta Authenticator Sample App](https://github.com/okta/okta
 
 Organizations are constantly looking for ways to strike a balance between offering a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses CIBA to provide customers with a simple and secure transaction verification solution.
 
-CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the OIDC application initiates the transaction is called the consumption device and the device where the user verifies the transaction is called the authentication device.
+CIBA extends OIDC to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device on which the OIDC application initiates the transaction is called the consumption device and the device where the user verifies the transaction is called the authentication device.
 
 ### CIBA grant-type flow
 
@@ -102,9 +102,9 @@ Create an Okta OIDC client app integration to represent the consumption device. 
 > **Note:** Web apps are currently the only application supported with the CIBA flow.
 
 1. In the Admin Console, go to **Applications** > **Applications**, and then click **Create App Integration**.
-2. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose which type of application that you want to integrate with Okta. In this example, select **Web Application**.
+2. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose the type of application that you want to integrate with Okta. In this example, select **Web Application**.
 3. Click **Next**, and then enter a name for your app integration.
-4. Select the **Client-initiated backchannel authentication flow (CIBA)** checkbox as a **Grant type**.
+4. Select **Client-initiated backchannel authentication flow (CIBA)** as a **Grant type**.
 5. Select the Custom Authenticator that you [previously configured using the Mobile SDK](https://github.com/okta/okta-mobile-swift) from the **Preferred authenticator for CIBA** dropdown list.
 6. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns the tokens after the user finishes authenticating. You can use the default URI for this exercise.
 
