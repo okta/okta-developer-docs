@@ -198,7 +198,7 @@ To run a test of your event hook:
 
 1. Review your Hookdeck terminal output for a line item reference to the specific call and a unique dashboard URL to the details on the call.
 
-1. Review the unique dashboard URL (for example, `https://dashboard.hookdeck.com/cli/events/evt_x3H5QdAL2JGvxMbvqcvwK8UF`). Scroll to the **Body** section and search for the **target** property. Your new user's name and id appear there.
+1. Review the unique dashboard URL (for example, `https://dashboard.hookdeck.com/cli/events/evt_x3H5QdAL2JGvxMbvqcvwK8UF`). Scroll to the **Body** section and search for the **target** property. Your new user's name and ID appear there.
 
 <div class="three-quarter border">
 
