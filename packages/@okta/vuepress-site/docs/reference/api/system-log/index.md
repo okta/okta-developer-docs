@@ -24,6 +24,8 @@ The System Log API isn't intended for use as a Database as a Service (DBaaS) or 
 
 See [Events API Migration](/docs/concepts/events-api-migration/) for information on migrating from the Events API to the System Log API.
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 The System Log API has one endpoint:

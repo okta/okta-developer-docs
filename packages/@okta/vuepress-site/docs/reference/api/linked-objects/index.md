@@ -64,6 +64,8 @@ Explore the Linked Objects API: [![Run in Postman](https://run.pstmn.io/button.s
 
 ## Link definition operations
 
+<ApiAuthMethodWarning />
+
 Link definition operations allow you to manage the creation and removal of the link definitions. If you remove a link definition, links based on that definition are unavailable.
 
 > **Note:** Links reappear if you recreate the definition. However, Okta is likely to change this behavior so that links don't reappear. Don't rely on this behavior in production environments.
