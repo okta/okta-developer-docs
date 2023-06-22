@@ -22,19 +22,19 @@ You can also modify an existing local application. Make sure to note the server 
 1. Review the `routes.js` file. This file contains the endpoint that receives Okta's response, `/okta-webhooks-endpoint`, and prints the response body to the application console.
 
     ```JavaScript
-    router.post("/okta-webhooks-endpoint", function(req, res) {
-    console.log(req.body);
-    res.send("Okta Event hook Successfully received");
-    });
+   router.post("/okta-webhooks-endpoint", bodyParser.raw({type: 'application/json'}), function(req, res) {
+   console.log(req.body);
+   res.send("Okta Event hook Successfully received");
+   });
     ```
 
 ### Run the sample application
 
-1. From the project directory:
+1. Run the following command in your terminal from the project directory:
 
-    ```bash
-    npm start
-    ```
+   ```shell
+   npm start
+   ```
 
 The console displays the message `Server running on localhost: 1337`.
 
