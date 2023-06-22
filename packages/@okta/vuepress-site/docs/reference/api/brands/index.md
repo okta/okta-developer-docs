@@ -16,6 +16,8 @@ The Okta Brands API allows you to customize the look and feel of pages and templ
 
 Each org starts off with Okta default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta default brand assets. You can then publish these assets directly to your pages and templates.
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Brands API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8cc47beb2a20dfe078eb)

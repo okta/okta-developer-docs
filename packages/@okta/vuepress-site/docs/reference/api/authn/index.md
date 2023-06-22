@@ -41,6 +41,8 @@ Trusted applications are backend applications that act as authentication broker 
 
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41c71ad6815e708b504a)
 
+<ApiAuthMethodWarning />
+
 ## Authentication operations
 
 ### Primary authentication
