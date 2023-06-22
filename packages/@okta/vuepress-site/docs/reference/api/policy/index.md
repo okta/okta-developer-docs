@@ -871,7 +871,7 @@ Each Policy may contain one or more Rules. Rules, like Policies, contain conditi
 
 ### Default Rules
 
- - Only the default Policy contains a default Rule. You can edit or delete the default Rule.
+ - Only the default Policy contains a default Rule. In Okta Classic Engine, you can't delete or edit default rules. In Okta Identity Engine, you can't delete default rules, but can edit them except in the case of the default rule on the Authenticator Enrollment policy and the Identity Provider Routing.
  - The default Rule is required and always is the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule.
  - The `system` attribute determines whether a Rule is created by a system or by a user. The default Rule is the only Rule that has this attribute.
 
