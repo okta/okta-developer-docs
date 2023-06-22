@@ -4059,6 +4059,7 @@ The following Factor types are supported:
 | `u2f`                 | Hardware Universal 2nd Factor (U2F) device                                           |
 | `web`                 | HTML inline frame (iframe) for embedding verification from a third party                                              |
 | `webauthn`            | Hardware WebAuthn device                                                  |
+| `signed_nonce`        | Okta Fastpass (device-bound authentication). This will show up in API responses listing factors if these conditions are met: the org is running on Okta Identity Engine and the org has users that enrolled for Okta Verify desktop or mobile while the org was using Okta Identity Engine. |
 
 #### Provider type
 
