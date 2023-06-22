@@ -397,6 +397,7 @@ export const guides = [
             ],
           },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
+          { title: "Single Logout", guideName: "single-logout" },
           {
             title: "Basics",
             subLinks: [
