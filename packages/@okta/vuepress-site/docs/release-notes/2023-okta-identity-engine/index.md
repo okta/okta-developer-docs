@@ -4,7 +4,103 @@ title: Okta Identity Engine API Products release notes 2023
 
 <ApiLifecycle access="ie" />
 
+## June
+
+### Weekly release 2023.06.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2023.06.1](#bug-fixed-in-2023-06-1) | June 22, 2023 |
+
+#### Bug fixed in 2023.06.1
+
+ID tokens retrieved using Direct Authentication grant types contained an incorrect AMR. (OKTA-616876)
+
+### Monthly release 2023.06.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [API service integration client secret rotation](#api-service-integration-client-secret-rotation) | June 14, 2023 |
+| [Multibrand customizations are GA in Production](#multibrand-customizations-are-ga-in-production) | February 8, 2023 |
+| [Pagination for the Brands API is GA in Production](#pagination-for-the-brands-api-is-ga-in-production) | June 14, 2023 |
+| [New custom authenticator for push notifications](#new-custom-authenticator-for-push-notifications) | June 14, 2023 |
+| [Unique refresh token ID added to token inline hook requests](#unique-refresh-token-id-added-to-token-inline-hook-requests) | June 14, 2023 |
+| [Transactional verification with CIBA is GA in Production](#transactional-verification-with-ciba-is-ga-in-production) | June 14, 2023 |
+| [Password hooks global availability is GA in Production](#password-hooks-global-availability-is-ga-in-production) | December 20, 2020 |
+| [Google Authenticator for account recovery is now EA in Preview](#google-authenticator-for-account-recovery-is-now-ea-in-preview) | June 14, 2023 |
+| [Policy Simulation API is EA in Preview](#policy-simulation-api-is-ea-in-preview) | June 14, 2023 |
+| [Universal Directory attribute and enum limits are GA in Production](#universal-directory-attribute-and-enum-limits-are-ga-in-production) | June 14, 2023 |
+| [Developer documentation update in 2023.06.0](#developer-documentation-update-in-2023-06-0) | June 14, 2023 |
+| [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
+
+#### API service integration client secret rotation
+
+New in this release is the ability to rotate client secrets for an API service integration through the API. Previously, if a customer wanted to update the client secret for an API service integration, they would have to reinstall the integration to obtain a new client ID and secret. There was no option to revoke the client secret while maintaining the client ID and API service integration instance in Okta. With this new feature, customers can generate a new secret, deactivate an old secret, and remove a deactivated secret from the API service integration instance. These functionalities help customers implement security best practices without service downtime. See [API Service Integration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/#tag/ApiServiceIntegrations/operation/createApiServiceIntegrationInstanceSecret) API references. <!-- OKTA-584715 -->
+
+#### Multibrand customizations are GA in Production
+
+Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures where customers create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which can be mapped to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the End-User Dashboard. See [Brands](/docs/concepts/brands/).  <!-- OKTA-568807 -->
+
+#### Pagination for the Brands API is GA in Production
+
+The Brands API now supports [pagination](/docs/reference/core-okta-api/#pagination) when returning lists of brands. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/). <!-- OKTA-574011 -->
+
+#### New custom authenticator for push notifications
+
+Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization's mobile apps. Your users are presented with a push and biometric experience within your organization's apps, with your organization's branding on it. They never have to leave your app, and they don't need to download a third-party app, such as Okta Verify, to complete their verification. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/) for [Android](/docs/guides/authenticators-custom-authenticator/android/main/) and [iOS](/docs/guides/authenticators-custom-authenticator/ios/main) instructions. <!-- OKTA-580039 -->
+
+#### Unique refresh token ID added to token inline hook requests
+
+A unique refresh token ID is now included in token inline hook requests. This ensures that the refresh token ID is persisted in the request to maintain seamless access and improve security. This feature is now GA in production. <!-- OKTA-576905 -->
+
+#### Transactional verification with CIBA is GA in Production
+
+Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-Initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
+
+CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device, and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba/main/). <!-- OKTA-584442 -->
+
+#### Password hooks global availability is GA in Production
+
+The [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!-- OKTA-604521 -->
+
+#### Google Authenticator for account recovery is now EA in Preview
+
+The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](/docs/reference/api/policy/#self-service-password-reset-action-object). <!-- OKTA-599821 -->
+
+#### Policy Simulation API is EA in Preview
+
+With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes will be achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user will be granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=csh-access-testing-tool). The`/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation/). <!--OKTA-593826-->
+
+#### Universal Directory attribute and enum limits are GA in Production
+
+Universal Directory now has limits to the number of attributes per org and the number of enums that can be defined for a single attribute. <!--OKTA-614625-->
+
+#### Developer documentation update in 2023.06.0
+
+A new policy testing guide is available to demonstrate a new Policy API endpoint used to test access policies. This feature is also available in the Admin Console > Reports as the Access Testing Tool. See the new [simulate endpoint](/docs/reference/api/policy/#policy-simulation-operations) in the API reference and [Test your policies with access simulations](/docs/guides/policy-simulation).
+
+#### Bugs fixed in 2023.06.0
+
+* Sometimes requests with an already used scope name didn't return appropriate error messages. (OKTA-570908)
+* Some customers received a 500 internal server error in response to a List all apps request. (OKTA-597493)
+* Unhelpful error messages appeared when the `NameIdPolicy` was unspecified in SAML client requests that required signed requests. (OKTA-607434)
+* When labels for Universal Directory properties on the profile enrollment form were customized, the sign-in page showed default content. (OKTA-397225)
+* The Identity Provider (IdP) AMR claims mapping feature ignored the IdP admin configuration for trusting AMR claims. (OKTA-615412)
+* The `max_age=0` property wasn't treated the same as `prompt=login` for OAuth 2.0 `/authorize` requests. (OKTA-588559)
+
 ## May
+
+### Weekly release 2023.05.3
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.05.3](#bugs-fixed-in-2023-05-3) | June 07, 2023 |
+
+#### Bugs fixed in 2023.05.3
+
+* Requests to the Email Domains API (DELETE /email-domains/{emailDomainId}) failed if the same domain name was used by multiple orgs. (OKTA-612312)
+* Some attributes previously added to user profiles from incoming SAML responses weren't cleared when the attribute was later omitted. (OKTA-609021)
+* The Begmati Nepal region (`NP`) was missing from the Dynamic Zone `locations` property. (OKTA-605016)
 
 ### Weekly release 2023.05.2
 

@@ -5,6 +5,12 @@ category: management
 
 # Devices API
 
+The Devices API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Devices API Postman collection.
+
+<!--
+
 <ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
@@ -1235,3 +1241,4 @@ For example, a device with a `CREATED` status has the following `_links`:
         }
     }
 ```
+-->

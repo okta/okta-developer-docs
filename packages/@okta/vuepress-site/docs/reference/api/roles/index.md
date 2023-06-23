@@ -1872,7 +1872,7 @@ curl -v -X GET \
 ```
 
 ##### Response example with IAM-based Standard Role
-<ApiLifecycle access="ea" />
+
 
 ```json
 [
@@ -2163,7 +2163,7 @@ curl -v -X POST \
 }
 ```
 #### Assign an IAM-based Standard Role to a User or Group
-<ApiLifecycle access="ea" />
+
 You can assign an IAM-based Standard Role like any other Standard Role.
 
 ##### Request example
@@ -3363,12 +3363,12 @@ See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Secur
 `API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature is enabled. See [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management) for a description of what the Role can do.
 
 ##### IAM-based Role types
-<ApiLifecycle access="ea" />
+
 Okta also supports the following IAM-based standard roles:
 | Role type                                               | Label                            | Permissions                                   |
 | :------------------------------------------------------ | :------------------------------- | :-------------------------------------------- |
-| `ACCESS_CERTIFICATIONS_ADMIN` <ApiLifecycle access="ea" /> | Access Certifications Administrator | `okta.governance.accessCertifications.manage` |
-| `ACCESS_REQUESTS_ADMIN`       <ApiLifecycle access="ea" /> | Access Requests Administrator       | `okta.governance.accessRequests.manage`       |
+| `ACCESS_CERTIFICATIONS_ADMIN`  | Access Certifications Administrator | `okta.governance.accessCertifications.manage` |
+| `ACCESS_REQUESTS_ADMIN`        | Access Requests Administrator       | `okta.governance.accessRequests.manage`       |
 
 #### Assignment types
 
@@ -3464,9 +3464,9 @@ User permissions are only effective regarding the Groups to which the admin is g
 | `okta.customizations.read`              | Allows the admin to read customizations                                                                                                             | All customizations |
 | `okta.customizations.manage`            | Allows the admin to manage customizations                                                                                                           | All customizations |
 | `okta.workflows.invoke`                 | Allows the admin to view and run delegated flows                                                                                                    | All Delegated Flows, a specific Delegated Flow |
-| `okta.governance.accessCertifications.manage` <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage access certification campaigns                                                                  | All Access Certifications |
-| `okta.governance.accessRequests.manage`  <br><ApiLifecycle access="ea" />  | Allows the admin to view and manage Access Requests                                                                                       | All Access Requests |
-| `okta.apps.manageFirstPartyApps`  <br><ApiLifecycle access="ea" />  | Allows the admin to manage first-party apps                                                                                       | All Access Requests |
+| `okta.governance.accessCertifications.manage`   | Allows the admin to view and manage access certification campaigns                                                                  | All Access Certifications |
+| `okta.governance.accessRequests.manage`    | Allows the admin to view and manage Access Requests                                                                                       | All Access Requests |
+| `okta.apps.manageFirstPartyApps`    | Allows the admin to manage first-party apps                                                                                       | All Access Requests |
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use these to create or update other roles.
 > **Note:** `okta.apps.manageFirstPartyApps` permission is only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use it to create or update other roles.
 
@@ -3527,8 +3527,8 @@ The following are the supported resources.
 |                         | All customizations                                                  | `orn:${partition}:idp:${yourOrgId}:customizations`                                    |                                                                                                                                                         |
 | Workflows               | All Delegated Flows                                                 | `orn:${partition}:workflow:${yourOrgId}:flows`                                       |                                                                                                                                                         |
 |                         | A specific Delegated Flow                                           | `orn:${partition}:workflow:${yourOrgId}:flows:${flowId}`                             |                                                                                                                                                         |
-| Governance              | All Access Certifications         <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:certifications`                                   |                                                                                                                                                         |
-|                         | All Access Requests               <br><ApiLifecycle access="ea" />  | `orn:$partition$:governance:$orgId$:requests`                                         |                                                                                                                                                         |
+| Governance              | All Access Certifications           | `orn:$partition$:governance:$orgId$:certifications`                                   |                                                                                                                                                         |
+|                         | All Access Requests                | `orn:$partition$:governance:$orgId$:requests`                                         |                                                                                                                                                         |
 
 The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 

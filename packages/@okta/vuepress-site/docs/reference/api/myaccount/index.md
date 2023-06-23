@@ -1850,12 +1850,12 @@ The My Password object has several properties:
 | ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
 | `profile`          | Object                                                            | The Profile object defines the password on the profile.|
 
-#### My Phone Request example
+#### My Password Request example
 
 ```json
 {
   "profile": {
-      "phoneNumber" : "+15555555555"
+    "password": "Abcd1234"
   }
 }
 ```

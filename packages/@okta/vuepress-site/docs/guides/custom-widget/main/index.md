@@ -17,7 +17,6 @@ This guide explains how to customize the sign-in page for both redirect and embe
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * (Redirect authentication): [Custom URL domain](/docs/guides/custom-url-domain/main/)
-* (Redirect authentication): A [customized Content Security Policy (CSP)](#content-security-policy-csp-for-your-custom-domain)
 * (Embedded authentication): [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget#embedded-self-hosted) installed into your project with configured authentication scenarios
 
 **Sample code**
@@ -87,14 +86,12 @@ Example:
 
 The **Custom Sign-In Page** offers basic and advanced customization options to transform the sign-in experience.
 
-> **Note:** Before you can customize for redirect authentication, you must customize your [Okta URL domain](/docs/guides/custom-url-domain/).
-
 ### Use the code editor
 
 Use the code editor to modify any HTML, CSS, or JavaScript on the sign-in page. See [Customization examples](#customization-examples) for snippets that you can update and use.
 
-1. In the Admin Console, go to **Customizations** > **Branding**. (If you enabled multibrand customization, go to **Customizations** > **Brands**, and then select the brand you want.)
-2. In the **Sign-in page** box, click **Edit**. (If you enabled multibrand customization, in the **Pages** tab, click **Configure** in the **Sign-in page** panel.)
+1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
+2. In the **Pages** tab, click **Configure** in the **Sign-in page** panel.
 3. To open the code editor, turn on the toggle next to **Code editor**.
 
    > **Note:** You can only enable the code editor if you configure a [custom domain](/docs/guides/custom-url-domain/).

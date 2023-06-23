@@ -40,45 +40,52 @@ If you already have Hookdeck installed, move on to [Run Hookdeck](#run-hookdeck)
 
 Some installation notes:
 
-* You don't need to have an account to install and run Hookdeck. However, a free account provides more features and API authentication.
+* You don't need to have an account to install and run Hookdeck. However, a free account provides more features in the Hookdeck Dashboard  and API authentication.
+* If you choose not to create an account, you'll use the Hookdeck Console rather than the Dashboard.
 
 ### Run Hookdeck
 
-After installing Hookdeck, start a session to forward your event hooks to a local port (1337 in this example). Run the following command in your terminal:
+1. After installing Hookdeck, if you created a Hookdeck account, run the following command in your terminal:
 
-```shell
-nodejs-webhook-server-example> hookdeck listen 1337
-```
+   ```shell
+   hookdeck login
+   ```
 
-Complete the following interactive session to define the information about the Hookdeck session:
+   Now start a session to forward your event hooks to a local port (`1337` in this example):
 
-* **What should your new source label be?**
+   ```shell
+   hookdeck listen 1337
+   ```
 
-    Enter: `okta`
+1. Complete the following interactive session to define the information about the Hookdeck session:
 
-* **What path should the webhooks be forwarded to (i.e.: /webhooks)?**
+   * **What should your new source label be?**
 
-    Enter: `/okta-webhooks-endpoint`
+      Enter: `okta`
 
-* **What's the connection label (i.e.: My API)?**
+   * **What path should the webhooks be forwarded to (i.e.: /webhooks)?**
 
-    Enter: `My Okta Response Server`
+      Enter: `/okta-webhooks-endpoint`
 
-With this data, Hookdeck creates a session and URL to use for sending requests. If you see the following content in your terminal, Hookdeck is running successfully:
+   * **What's the connection label (i.e.: My API)?**
 
-<div class="three-quarter">
+      Enter: `My Okta Response Server`
 
-![An image of a terminal that displays a Hookdeck session status. The session status contains urls that tunnel into the local port.](/img/hooks/hookdeck-and-event-hooks-session.png)
+   With this data, Hookdeck creates a session and URL to use for sending requests. If you see the following content in your terminal, Hookdeck is running successfully:
 
-</div>
+   <div class="three-quarter">
 
-> **Note:** Use the **Webhook URL** that is available from the Hookdeck terminal session when setting up your event hook. For example, `https://events.hookdeck.com/e/src_jHlvbIjGsgY2xhYZeCGxohK4`.
+   ![An image of a terminal that displays a Hookdeck session status. The session status contains urls that tunnel into the local port.](/img/hooks/hookdeck-webhookURL.png)
+
+   </div>
+
+> **Note:** Use the **Webhook URL** that is available from the Hookdeck terminal session when setting up your event hook. For example, `https://events.hookdeck.com/e/src_t3PYSHLdsgNr`.
 
 See [Hookdeck](https://hookdeck.com/) or their [Product docs](https://hookdeck.com/docs/introduction) for further information.
 
 ### Review Hookdeck dashboard
 
-The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [Browsing events](https://hookdeck.com/docs/browsing-event) for details on using this interface. With the Hookdeck utility running, use the guest account **Login URL** to access details on your hook calls. For example, your initial guest account URL appears similar to: `https://api.hookdeck.com/signin/guest?token=5sszlk2ndmkp5puy07uixrqtatkzvhwc13gctx9o3gmgczcrfu`.
+The Hookdeck dashboard provides an opportunity to review all calls to your local application. See [Browsing events](https://hookdeck.com/docs/browsing-event) for details on using this interface. Use the Dashboard link  provided by the Hookdeck utility to access details on your hook calls. For example, `http://dashboard..hookdeck.com?team_id=tm_DzF5wrNULyBG`. If you've not logged in to Hookdeck previously, you'll get a guest URL to Hookdeck Console instead.
 
 Each call to your local application appears in the dashboard and includes the response body, header, and other details:
 
@@ -108,7 +115,7 @@ Create the Okta event hook to work with your local application. Set up and verif
 
 4. In the **Name** field, add a unique name for the hook (in this example, "New user event hook").
 
-5. In the **URL** field, add your external service URL from Hookdeck. For this example, use the **Webhook URL** highlighted after running Hookdeck. See [Run Hookdeck](#run-hookdeck). For example, your URL should appear similar to: `https://events.hookdeck.com/e/src_s8lCGfojGBPj8L0lszAZl6fD`.
+5. In the **URL** field, add your external service URL from Hookdeck. For this example, use the **Webhook URL** highlighted after running Hookdeck. See [Run Hookdeck](#run-hookdeck). For example, your URL should appear similar to: `https://events.hookdeck.com/e/src_t3PYSHLdsgNr`.
 
     >**Note:** Hookdeck generates the URL when creating the session and incorporates the local application's hook endpoint as part of the unique URL. That is, the endpoint isn’t explicitly defined as part of the URL.
 
@@ -160,25 +167,19 @@ To run a preview call of your event hook:
 
    <div class="three-quarter">
 
-   ![An image of the application terminal with response body output to the console.](/img/hooks/hookdeck-application-console-output.png)
+   ![An image of the application terminal with response body output to the console.](/img/hooks/hookdeck-event-hook-body.png)
 
    </div>
 
 1. Review your Hookdeck terminal output for a line item reference to the specific call and a unique dashboard URL to the details on the call.
 
-   <div class="full">
+   <div class="three-quarter">
 
-   ![An image of the Hookdeck terminal with output to the console.](/img/hooks/hookdeck-terminal-output.png)
+   ![An image of the Hookdeck terminal with output to the console.](/img/hooks/hookdeck-dashboardURL.png)
 
    </div>
 
 1. Review your Hookdeck dashboard (`https://dashboard.hookdeck.com/cli/events`). Each call recorded by Hookdeck appears in the interface from which you can review the complete call response body, header, and other details.
-
-    <div class="half border">
-
-    ![An image of the Hookdeck dashboard that includes body details.](/img/hooks/hookdeck-dashboard-small.png)
-
-    </div>
 
 ### Test
 
@@ -197,11 +198,11 @@ To run a test of your event hook:
 
 1. Review your Hookdeck terminal output for a line item reference to the specific call and a unique dashboard URL to the details on the call.
 
-1. Review the unique dashboard URL (for example, `https://dashboard.hookdeck.com/cli/events/evt_x3H5QdAL2JGvxMbvqcvwK8UF`). Scroll to the **Body** section and open the **"Root"** > **"Data"** sections. Your new user's name and username appear under the **"target"** property.
+1. Review the unique dashboard URL (for example, `https://dashboard.hookdeck.com/cli/events/evt_x3H5QdAL2JGvxMbvqcvwK8UF`). Scroll to the **Body** section and search for the **target** property. Your new user's name and ID appear there.
 
-<div class="three-quarter">
+<div class="three-quarter border">
 
-![An image of the Hookdeck dashboard that includes body details.](/img/hooks/hookdeck-body-detail.png)
+![An image of the Hookdeck dashboard that includes body details.](/img/hooks/hookdeck-body-target-property.png)
 
 </div>
 

@@ -298,6 +298,222 @@ curl -v -X GET \
 HTTP 200:
 Array of [Application objects](/docs/reference/api/apps/#application-object)
 
+## Policy simulation operations
+<ApiLifecycle access="ie" />
+
+> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+
+### Access simulation
+The access simulation API is an admin API that evaluates policy and policy rules based on the existing policy rule configuration. The evaluation result simulates what the real world authentication flow is and what policy rules have been applied or matched to the authentication flow.
+
+<ApiOperation method="post" url="/api/v1/policies/simulate" />
+
+#### Request
+The section below explains the request parameters and the properties inside the request body.
+
+##### Request parameters
+| Parameter  | Type   | Description                                       |
+| ---------- | ------ | ------------------------------------------------- |
+| `expand` | String | (Optional) Use `expand=EVALUATED` to include a list of evaluated but not matched policy and policy rules. Use `expand=RULE` to include details about why a rule condition was (not) matched. |
+
+##### Request Body
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `policyTypes` | Array| (Optional) Supported PolicyTypes for simulation: OKTA_SIGN_ON, MFA_ENROLL, PROFILE_ENROLLMENT, ACCESS_POLICY. Default `null`, return all types|
+| `appInstance` | String | (Required) The appInstance ID for this simulation |
+| `policyContext.user.id` | String | (Required) The userId for this simulation. Only userId or groupIds allowed, not both  |
+| `policyContext.groups.ids` | Array | (Required) The groupIds for this simulation. Only userId or groupIds allowed, not both |
+| `policyContext.ip` | String | (Optional) The network rule condition, zone, or IP address. See [Network Condition](#network-condition-object) |
+| `policyContext.zones.ids` | String | (Optional) The zone ID under the network rule condition. See [Network Condition](#network-condition-object) |
+| `policyContext.risk` | String | (Optional) The risk rule condition: LOW, MEDIUM, HIGH. See [Risk Score Condition](#risk-score-condition-object)|
+| `policyContext.device.managed` | Boolean | (Optional) If the device is registered. See [Device Condition](#device-condition-object)|
+| `policyContext.device.registered` | Boolean | (Optional) If the device is managed. See [Device Condition](#device-condition-object)|
+| `policyContext.device.platform` |String | (Optional) The platform of the device, for example: IOS. See [Platform Condition](#platform-condition-object)|
+| `policyContext.device.assuranceId` | String | (Optional) The device assurance policy ID for the simulation|
+
+##### Request example
+
+> **Note:** You can only evaluate `user` or `groups` not both, and either `ip` or `zone.ids`, not both. Use the following payload for reference only.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '
+{
+    "policyTypes": ["OKTA_SIGN_ON", "MFA_ENROLL"],
+    "appInstance": "0oa4eroj3nYCIJIW70g7",
+    "policyContext": {
+        "groups": {
+            "ids": [
+              "00g4eralvekR5RLuS0g7", "00g4eralvekR5RLuS0g8"
+            ]
+        },
+        "risk": {
+            "level": "LOW"
+        },
+        "zones": {
+          "ids": [
+            "nzo4eralxcRnbIHYJ0g7"
+            ]
+        },
+        "device": {
+            "platform": "IOS",
+            "registered": true,
+            "managed": true
+        }
+    }
+}' "https://${yourOktaDomain}/api/v1/policies/simulate?expand=EVALUATED&expand=RULE"
+```
+
+#### Response
+
+The following response section explains the error responses and the response body.
+
+##### Response Body
+
+| Property | Type                     | Description                          |
+| -------- | -------------------------|--------------------------------------|
+| `policyType` | String| The policy type we are simulating|
+| `id` | String| ID of the specified policy/rule type|
+| `name` | String| Policy name or policy rule name|
+| `status` | 	ENUM (MATCH, NOT_MATCH, UNDEFINED)| The result of this entity evaluation|
+| `conditions` | Array | List of all condition that involved for this rule/policy evaluation|
+| `conditions.type` | String| The type of this condition|
+| `name` | String| Policy name or policy rule name|
+| `conditions.status` | ENUM(MATCH, NOT_MATCH, UNDEFINED) | The result of this condition evaluation|
+| `undefined` | Object | A list of undefined but not matched policy/rules |
+| `evaluated` | Object | A list of evaluated but not matched policy/rules |
+
+##### Response example
+
+HTTP 200:
+
+```json
+{
+    "evaluation": [
+        {
+            "status": null,
+            "policyType": "OKTA_SIGN_ON",
+            "result": {
+                "policies": [
+                    {
+                        "id": "00p4eromwukk6qUku0g7",
+                        "name": "test policy",
+                        "status": "MATCH",
+                        "conditions": [],
+                        "rules": [
+                            {
+                                "id": "0pr4erof85nGcyC7Y0g7",
+                                "name": "test rule",
+                                "status": "MATCH",
+                                "conditions": [
+                                    {
+                                        "type": "people.groups.include",
+                                        "status": "MATCH"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "undefined": {
+                "policies": []
+            },
+            "evaluated": {
+                "policies": []
+            }
+        },
+        {
+            "status": null,
+            "policyType": "MFA_ENROLL",
+            "result": {
+                "policies": [
+                    {
+                        "id": "00p4eram2kw1aLcrx0g7",
+                        "name": "Default Policy",
+                        "status": "MATCH",
+                        "conditions": [],
+                        "rules": [
+                            {
+                                "id": "0pr4eram2lMQT5FZF0g7",
+                                "name": null,
+                                "status": "MATCH",
+                                "conditions": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "undefined": {
+                "policies": []
+            },
+            "evaluated": {
+                "policies": []
+            }
+        },
+        {
+            "status": null,
+            "policyType": "ACCESS_POLICY",
+            "result": {
+                "policies": [
+                    {
+                        "id": "rst4eram06ZKZewEe0g7",
+                        "name": "Any two factors",
+                        "status": "MATCH",
+                        "conditions": [],
+                        "rules": [
+                            {
+                                "id": "rul4eram07VsWgybo0g7",
+                                "name": "Catch-all Rule",
+                                "status": "MATCH",
+                                "conditions": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "undefined": {
+                "policies": []
+            },
+            "evaluated": {
+                "policies": []
+            }
+        },
+        {
+            "status": null,
+            "policyType": "PROFILE_ENROLLMENT",
+            "result": {
+                "policies": [
+                    {
+                        "id": "rst4eram08ZSjPTOl0g7",
+                        "name": "Default Policy",
+                        "status": "MATCH",
+                        "conditions": [],
+                        "rules": [
+                            {
+                                "id": "rul4eram094PrQ2BX0g7",
+                                "name": "Catch-all Rule",
+                                "status": "MATCH",
+                                "conditions": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            "undefined": {
+                "policies": []
+            },
+            "evaluated": {
+                "policies": []
+            }
+        }
+    ]
+}
+```
+
 ## Rules operations
 
 ### Get Policy Rules
@@ -615,7 +831,7 @@ The Policy object defines several attributes:
 | Parameter   | Description                                                                                                                                          | Data Type                                         | Required | Default                |
 | ---------   | -----------                                                                                                                                          | ---------                                         | -------- | -------                |
 | id          | Identifier of the Policy                                                                                                                             | String                                            | No       | Assigned               |
-| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`.<br> [Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.  | String                                            | Yes      |                        |
+| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with the Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`.<br> [Contact support](mailto:dev-inquiries@okta.com) for more information on the Identity Engine.  | String                                            | Yes      |                        |
 | name        | Name of the Policy                                                                                                                                   | String                                            | Yes      |                        |
 | system      | This is set to `true` on system policies, which cannot be deleted.                                                                                   | Boolean                                           | No       | `false`                |
 | description | Description of the Policy.                                                                                                                           | String                                            | No       | Null                   |
@@ -655,7 +871,7 @@ Each Policy may contain one or more Rules. Rules, like Policies, contain conditi
 
 ### Default Rules
 
- - Only the default Policy contains a default Rule. You can edit or delete the default Rule.
+ - Only the default Policy contains a default Rule. In Okta Classic Engine, you can't delete or edit default rules. In Okta Identity Engine, you can't delete default rules, but can edit them except in the case of the default rule on the Authenticator Enrollment policy and the Identity Provider Routing.
  - The default Rule is required and always is the last Rule in the priority order. If you add Rules to the default Policy, they have a higher priority than the default Rule.
  - The `system` attribute determines whether a Rule is created by a system or by a user. The default Rule is the only Rule that has this attribute.
 
@@ -744,7 +960,7 @@ The Rules object defines several attributes:
 
 ### Actions objects
 
-Just as Policies contain settings, Rules contain "Actions" that typically specify actions to be taken, or operations that may be allowed, if the Rule conditions are satisfied. For example, in a Password Policy, Rule actions govern whether self-service operations such as reset password or unlock are permitted. Just as different Policy types have different settings, Rules have different actions depending on the type of Policy that they belong to.
+Just as Policies contain settings, Rules contain "Actions" that typically specify actions to be taken, or operations that may be allowed, if the Rule conditions are satisfied. For example, in a Password Policy, Rule actions govern whether self-service operations such as reset password or unlock are permitted (see [Password Rules Action data](#password-rules-action-data)). Just as different Policy types have different settings, Rules have different actions depending on the type of Policy that they belong to.
 
 ### Conditions object
 
@@ -1790,16 +2006,63 @@ In the final example, end users are required to verify two Authenticators before
 
 ##### Self Service Password Reset Action object
 
-> **Note:** The following indicated objects and properties are only available as a part of the Identity Engine. Please contact support for further information.
+This object enables or disables users to reset their own password and defines the authenticators and constraints needed to complete the reset.
 
-| Property                                                       | Data Type   | Description                                                                                 | Supported Values                | Required | Default
-| ---                                                            | ---         | ---                                                                                         | ---                             | ---      | ---
-| `access`                                                       | String      | Indicates if the action is permitted                                                        | `ALLOW`, `DENY`                 | No       | `DENY`
-| `requirement` <ApiLifecycle access="ie" />                     | Object      | JSON object that contains Authenticator methods required to be verified if `access` is `ALLOW`. If access is `ALLOW` and `requirement` isn't specified, `recovery.factors` from the parent policy object is used to determine recovery factors.                             | No       |
-| `requirement.primary.methods` <ApiLifecycle access="ie" />     | Array       | Authenticator methods that can be used by the End User to initiate a password recovery            | `EMAIL`, `SMS`, `VOICE`, `PUSH` | Yes |
-| `requirement.stepUp.required` <ApiLifecycle access="ie" />     | Boolean     | Indicates if any step-up verification is required to recover a password that follows a primary methods verification | `true`, `false` | Yes |
-| `requirement.stepUp.methods`  <ApiLifecycle access="ie" />     | Array       | If `requirement.stepUp.required` is `true`, a JSON object that contains Authenticator methods is required to be verified as a step up. If not specified, any enrolled Authenticator methods allowed for sign-on can be used as step up. | `null` or an array containing`SECURITY_QUESTION` | No
+> **Note:** The following indicated objects and properties are only available as a part of the Identity Engine. <ApiLifecycle access="ie" />
 
+| Property | Description | Data Type | Supported Values | Required | Default |
+| -------- | --------- | ----------- | ---------------- | -------- | ------- |
+| access | Indicates if the action is permitted | String | `ALLOW`, `DENY`  | No  | `DENY` |
+| type <ApiLifecycle access="ie" /> | Type of rule action | String | `selfServicePasswordReset` | No <br>(read only) | `selfServicePasswordReset` |
+| requirement <ApiLifecycle access="ie" /> | JSON object that contains Authenticator methods required to be verified if `access` is `ALLOW`. If access is `ALLOW` and `requirement` isn't specified, `recovery.factors` from the parent policy object is used to determine recovery factors. | [Self Service Password Reset Action Requirement object](#self-service-password-reset-action-requirement-object)  | | No |
+
+###### Self Service Password Reset Action Requirement object
+
+<ApiLifecycle access="ie" />
+
+Describes the initial and secondary (step-up) authenticator requirements a user needs to reset their password
+
+| Property | Description | Data Type | Required |
+| -------- | ----------- | --------- | -------- |
+| primary  | Defines the authenticators permitted for the initial authentication step of password recovery | [Self Service Password Reset Action Primary Requirement object](#self-service-password-reset-action-primary-requirement-object) | No |
+| stepUp  | Defines the authenticators permitted for the secondary authentication step of password recovery | [Self Service Password Reset Action Step-up Requirement object](#self-service-password-reset-action-step-up-requirement-object) | No |
+
+###### Self Service Password Reset Action Primary Requirement object
+
+<ApiLifecycle access="ie" />
+
+Defines the authenticators permitted for the initial authentication step of password recovery
+
+| Property | Description | Data Type | Supported Values | Required |
+| -------- | ----------- | --------- | ---------------- | -------- |
+| methodConstraints | Specifies an authenticator-specific constraint on the values in the `methods` array. Currently, Google OTP is the only accepted constraint for the `OTP` method. | Array of [Self Service Password Reset Action Primary Requirement Constraint object](#self-service-password-reset-action-primary-requirement-constraint-object) | `[ {"method": "otp", "allowedAuthenticators": [ { "key": "google_otp" } ] } ]` | No |
+| methods | Authenticator methods allowed for the initial authentication step of password recovery. The `OTP` method requires a constraint limiting it to the Google authenticator. | Array | `PUSH`, `SMS`, `VOICE`, `EMAIL`, and `OTP` | No |
+
+###### Self Service Password Reset Action Primary Requirement Constraint object
+
+<ApiLifecycle access="ie" />
+
+Constraints on the values specified in the `selfServicePasswordReset.requirement.primary.methods` array. Specifying a constraint limits methods to specific authenticators. Currently, Google OTP is the only accepted constraint.
+
+| Property | Description | Data Type | Supported Values | Required |
+| -------- | ----------- | --------- | ---------------- | -------- |
+| allowedAuthenticators | Limits the authenticators that can be used for a given method. Currently, only the `OTP` method supports constraints and Google authenticator is the only allowed authenticator. | Array of [authenticator keys](/docs/reference/api/authenticators-admin/#authenticator-properties) | `[ { "key": "google_otp" } ]` | No |
+| method  | Specifies the method that is limited to the specific authenticator in `allowedAuthenticators`. Currently, Google OTP is the only accepted constraint. | String | `OTP` | No |
+
+###### Self Service Password Reset Action Step-up Requirement object
+
+<ApiLifecycle access="ie" />
+
+Defines the secondary authenticators needed for password reset if `selfServicePasswordReset.requirement.stepUp.required` is true. The following are three valid configurations:
+
+* `required` = false
+* `required` = true with no methods to use any SSO authenticator
+* `required` = true with `security_question` as the method
+
+| Property | Description | Data Type | Supported Values | Required |
+| -------- | ----------- | --------- | ---------------- | -------- |
+| required  | Indicates if any step-up verification is required to recover a password that follows a primary methods verification | Boolean  |  `true`, `false` | No |
+| methods | Authenticator methods required for secondary authentication step of password recovery.  When `required` is true, the only supported secondary authentication method is `security_question`. | Array of strings | `[ "security_question" ]` | No |
 
 ##### Self Service Unlock Action object
 

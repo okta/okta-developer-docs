@@ -1,6 +1,6 @@
 {
-  "release" : "2023.05.1",
-  "build" : "2023.05.1-begin-167-gae1723149091",
+  "release" : "2023.06.1",
+  "build" : "2023.06.1-begin-134-g684e9522154f",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -1283,6 +1283,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Invalid value for 'prompt' parameter. Supported values: [{0}]"
   }, {
+    "title" : "Invalid prompt with zero max age",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_prompt_for_zero_max_age",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'prompt' parameter must not have the value 'none' for request with 'zero' as max_age."
+  }, {
     "title" : "Invalid user type",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1618,6 +1625,27 @@
     "internalErrorCode" : "direct_auth_invalid_as_id",
     "errorCode" : "invalid_request",
     "errorDescription" : "The authorization server id '{0}' in the url_path parameter does not match the authorization server id in the original request '{1}'. Use the original authorization server id and try again."
+  }, {
+    "title" : "Direct auth acr values changed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_acr_values_changed",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The acr_values '{0}' do not match the acr_values requested in the original request '{1}'. Use the originally requested acr_values and try again."
+  }, {
+    "title" : "Direct auth MFA attestation with other acrs",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_mfa_attestation_with_other_acrs",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "urn:okta:app:mfa:attestation can not be used with any other ACR values."
+  }, {
+    "title" : "Direct auth MFA attestation requires client credentials",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_mfa_attestation_requires_client_credentials",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Client authentication is required for MFA attestation requests."
   }, {
     "title" : "Invalid request object",
     "statusCode" : 400,

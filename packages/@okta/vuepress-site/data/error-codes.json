@@ -1,6 +1,6 @@
 {
-  "release" : "2023.05.1",
-  "build" : "2023.05.1-begin-167-gae1723149091",
+  "release" : "2023.06.1",
+  "build" : "2023.06.1-begin-134-g684e9522154f",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1602,14 +1602,6 @@
     "errorSummary" : "This endpoint has been deprecated.",
     "errorDescription" : null
   }, {
-    "title" : "Email domain in use with mail provider",
-    "includesExceptionMessage" : true,
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "errorCode" : "E0000216",
-    "errorSummary" : "Email domain cannot be deleted due to mail provider specific restrictions.",
-    "errorDescription" : null
-  }, {
     "title" : "Email domain invalid status exception",
     "includesExceptionMessage" : true,
     "statusCode" : 400,
@@ -1712,6 +1704,14 @@
     "statusReasonPhrase" : "Bad Request",
     "errorCode" : "E0000229",
     "errorSummary" : "Invalid Enrollment. Biometrics with Pin fallback required.",
+    "errorDescription" : null
+  }, {
+    "title" : "Idp for custom idp authenticator already in use exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000230",
+    "errorSummary" : "Another authenticator is already associated with idpId: {0}.",
     "errorDescription" : null
   } ]
 }
