@@ -55,7 +55,7 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 * If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted origins.
 * You can have a maximum of 20 URIs.
 * If you add a trusted origin URL that redirects to a different URL, you must include the redirect URL in the trusted origin list.
-
+<!-- nonce not supported yet
 ### Add a nonce reference
 
 Add a [`nonce`](https://content-security-policy.com/nonce/) reference to your HTML if you want to customize the Okta-hosted sign-in page or error pages. Without the `nonce` reference, your `script` and `style` tags don't run.
@@ -66,7 +66,7 @@ Example:
 
 ```html
 <style nonce="{{nonceValue}}">
-```
+```-->
 
 ### Customize the default CSP
 
