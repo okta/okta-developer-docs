@@ -1,0 +1,26 @@
+/* QUALTRICS FEEDBACK WIDGET */
+#feedback-tab {
+    position: fixed;
+    width: 36px;
+    height: 139px;
+    right: 0;
+    bottom: 158px;
+    background-color: rgb(36,36,36);
+}
+
+#feedback-link {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+#feedback-container {
+    transform: translate(0,70px);
+}
+
+#feedback-text {
+    transform: rotate(270deg);
+    color: white;
+    font-size: 1em;
+    font-family: arial, sans-serif;
+}
