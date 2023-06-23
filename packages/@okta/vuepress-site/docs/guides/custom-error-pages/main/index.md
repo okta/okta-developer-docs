@@ -50,8 +50,8 @@ To analyze and detect potentially malicious IP addresses that seek to bypass you
 
 ### Known limitations
 
-* Avoid using `meta` tags to customize the CSP. `meta` tags impact the overall policy. It's easier to control CSP customizations by adding trusted origin URLs in the Admin Console. See [Multiple content security policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#multiple_content_security_policies).
-* If you add too many trusted origins to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted origins.
+* Avoid using `meta` tags to customize the CSP. `meta` tags impact the overall policy. It's easier to control CSP customizations by adding trusted external resources in the Admin Console. See [Multiple content security policies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy#multiple_content_security_policies).
+* If you add too many trusted external resources to your custom CSP, the HTTP header size can exceed the limit allowed by some server software. Update the default server limits or reduce the number of trusted external resources.
 * You can have a maximum of 20 URIs.
 * If you add a trusted origin URL that redirects to a different URL, you must include the redirect URL in the trusted origin list.
 <!-- nonce not supported yet
