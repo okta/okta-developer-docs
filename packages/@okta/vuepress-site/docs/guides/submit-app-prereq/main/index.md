@@ -35,6 +35,8 @@ Before you submit your integration, ensure that your integration doesn't use Okt
 
 ## Logo guidelines
 
+A clear and well-designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission in the OIN manager, make sure you upload a customer-recognizable graphic.
+
 The app logo that you submit to the OIN Manager in the **General Settings** > **App icon** field must conform to the following:
 
 * Submit a logo file that's less than one MB.
@@ -362,14 +364,17 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 * **SWA apps:** Okta no longer publishes new Secure Web Authentication (SWA) integrations to the OIN catalog. The OIN team maintains existing SWA integrations.
 
-* **Custom authorization server:** An OIDC or API service integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the default server. You can only use the [Org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+* **Custom authorization server:** An OIDC or API service integration can't use a [custom authorization server](/docs/concepts/auth-servers/#custom-authorization-server), including the `default` server. You can only use the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
+
+* **Okta SDKs and validating access tokens:** You can't use the Okta SDKs to validate access tokens with the [org authorization server](/docs/concepts/auth-servers/#org-authorization-server).
 
 * **Refresh token:**  Refresh tokens aren't supported for integrations published in the OIN.
 
-* **Unsupported scopes:** <br>
-   * The `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
-   * Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
-   * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
+* **Unsupported scopes:**
+
+  * The `offline_access` scope isn't available because refresh tokens aren't supported for integrations published in the OIN.
+  * Custom scopes, such as the `groups` scope, aren't supported for integrations published in the OIN.
+  * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
 
 * **SAML encryption:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 

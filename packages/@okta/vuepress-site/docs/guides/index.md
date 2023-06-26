@@ -49,10 +49,6 @@ guides:
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
  - mobile-idx-sdk-overview
- - oin-oidc-overview
- - oin-oidc-best-practices
- - oin-oidc-multi-tenancy
- - oin-oidc-protocols
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
@@ -207,7 +203,9 @@ You can publish your integration in the Okta Integration Network (OIN) catalog t
 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 
-1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
+1. [OIN landing](/docs/guides/okta-integration-network/)
 1. [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/)
 1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
+1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
+1. [OIN submission requirements](/docs/guides/submit-app-prereq/)
 1. [Submit an app integration](/docs/guides/submit-app/)
