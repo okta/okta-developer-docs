@@ -42,6 +42,9 @@ class MainPage extends BasePage {
   getMobileMenu() {
     return cy.get('header .menu--slideout');
   }
+  getFeedbackWidget() {
+    return cy.get('#feedback-tab');
+  }
 }
 
 export default MainPage;
