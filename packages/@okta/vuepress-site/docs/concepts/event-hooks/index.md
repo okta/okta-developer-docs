@@ -65,6 +65,8 @@ Okta delivers events on a best-effort basis. Events are delivered at least once.
 
 There is no guarantee of maximum delay between event occurrence and delivery.
 
+> **Note:** Don't contact Okta support for event hook calls that are delayed for less than 60 minutes. In most cases, these delays are resolved before that time.
+
 ### Timeout and retry
 
 When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta attempts at most one retry. Responses with a 4xx status code aren't retried.
