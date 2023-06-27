@@ -1,12 +1,16 @@
 /* QUALTRICS FEEDBACK WIDGET */
 #feedback-tab {
   position: fixed;
-  width: 36px;
-  height: 139px;
+
   right: 0;
   bottom: 158px;
+
+  width: 36px;
+  height: 139px;
+
   overflow: hidden;
-  background-color: rgb(36,36,36);
+
+  background-color: #242424;
 }
 
 #feedback-link {
@@ -21,7 +25,8 @@
 
 #feedback-text {
   transform: rotate(270deg);
+
   font-size: 1em;
   font-family: "arial", sans-serif;
-  color: white;
+  color: #ffffff;
 }
