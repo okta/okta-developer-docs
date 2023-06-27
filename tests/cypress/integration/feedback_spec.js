@@ -1,6 +1,6 @@
 import MainPage from '../page-objects/MainPage';
 
-describe('header sanity check', () => {
+describe('feedback widget sanity check', () => {
   const mainPage = new MainPage();
 
   beforeEach( () => {
@@ -8,7 +8,12 @@ describe('header sanity check', () => {
   });
 
   it('validate feedback widget', () => {
-    mainPage.getFeedbackWidget().should('be.visible');
+    const widget = mainPage.getFeedbackWidget();
+    widget.should('be.visible');
+    widget.find('#feedback-link')
+      .should('have.attr', 'href')
+      .and('include', '#')
+      .and('not.contain', 'https://surveys.okta.com');
   });
 
 });
