@@ -35,7 +35,7 @@ In addition to an Okta User Profile, all Users have a separate Application User 
 
 | Syntax                | Definitions                                                                                | examples                                                              |
 | --------              | ----------                                                                                 | ------------                                                          |
-| `$appuser.$attribute` | `$appuser` explicit reference to specific app<br>`$attribute` the attribute variable name  | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
+| `$app.$attribute`     | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name for the app instance's user profile               | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
 
 > **Note:** Explicit references to apps aren't supported for OAuth 2.0/OIDC custom claims. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
