@@ -1005,7 +1005,7 @@ The masking algorithm now reveals fewer digits in API responses for shorter prof
 
 #### Error response updated for malicious IP address sign-in requests is GA in Production
 
-If you block suspicious traffic and [ThreatInsight](/docs/reference/api/threat-insight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user's perspective, the blocked request can't be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-454335-->
+If you block suspicious traffic and [ThreatInsight](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/) detects that the sign-in request comes from a malicious IP address, Okta automatically denies the user access to the organization. The user receives an error in response to the request. From the user's perspective, the blocked request can't be identified due to ThreatInsight having identified the IP address as malicious. <!--OKTA-454335-->
 
 #### Dynamic Issuer Mode is GA in Production
 

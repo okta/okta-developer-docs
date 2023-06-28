@@ -5,6 +5,11 @@ category: management
 
 # ThreatInsight configuration API
 
+The ThreatInsight API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the ThreatInsight API Postman collection.
+
+<!--
 [Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IP addresses that consistently exhibit malicious activity. Authentication requests that are associated with an IP in this list can be logged to the [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) and blocked. ThreatInsight also covers non-authentication requests in limited capacity depending on the attack patterns of these malicious IPs.
 
 The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
@@ -98,3 +103,4 @@ curl -X GET \
     }
 }
 ```
+-->
