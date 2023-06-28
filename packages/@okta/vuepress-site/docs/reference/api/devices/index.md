@@ -43,6 +43,7 @@ The Devices API has the following Device identity operations:
 * [Get Device](#get-device-by-id)
 * [List Devices](#list-devices)
 * [List all Users for a Device](#list-all-users-for-a-device)
+* [List all devices for a user](#list-all-devices-for-a-user)
 * [Delete Device](#delete-device)
 
 The following Device lifecycle operations:
