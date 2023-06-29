@@ -155,7 +155,7 @@ The way to tell Okta that the SMS or Voice (Call) message was successfully sent 
 
 ## Preview and test
 
-The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service using a telephony inline hook. In your Okta org, you can preview the request and response JSON right from the Admin Console. You can also test the code directly in your org.
+The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service using a telephony inline hook. In your Okta org, you can preview the request and response JSON directly from the Admin Console. You can also test the code directly in your org.
 
 ### Preview
 
@@ -167,10 +167,12 @@ To preview the telephony inline hook:
 1. Define a value for `data.userProfile` by selecting a user in your org from the **data.userProfile** dropdown list.
 1. Define a value for `requestType` by selecting the flow that you want to test. In this example, select **MFA Verification**.
 
-    > **Note:** If your user doesn't have a phone number in their profile, change the phone number to one that you want to test in the **Preview example inline hook request** section. Click **Edit** and then add a value for the `phoneNumber` in the `messageProfile` section of the request (for example, `"+15555551212"`).
+    > **Note**: If your user doesn't have a phone number in their profile, change the phone number to one that you want to test in the **Preview example inline hook request** section. Click **Edit** and then add a value for the `phoneNumber` in the `messageProfile` section of the request (for example, `"+15555551212"`).
 
 1. From the **Preview example inline hook request** section, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
-1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. If it’s a successful response, an SMS code or Voice (Call) message with the code is sent to the user that you specified. If there is an error, the error message appears in the response.
+1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. Upon a successful response, an SMS code or Voice (Call) message with the code is sent to the specified user. If there is an error, the error message appears in the response.
+
+    > **Note**: If the external service fails, an OTP is still delivered to the user through the default Okta telephony provider. If the failure happens when previewing the hook, Okta doesn't generate an OTP.
 
 ### Test
 
