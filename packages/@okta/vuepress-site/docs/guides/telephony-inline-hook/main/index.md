@@ -6,14 +6,14 @@ layout: Guides
 
 <ApiLifecycle access="ie" /><br>
 
-This guide provides a working example of an Okta telephony inline hook. It uses the web site [Glitch](https://glitch.com/) to act as an external service and uses Twilio as the telephony provider that receives and responds to SMS and voice inline hook calls.
+This guide provides an example of an Okta telephony inline hook. This example uses [Glitch](https://glitch.com/) as an external service and uses Twilio as the telephony provider that receives and responds to SMS and voice inline hook calls.
 
 ---
 
 **Learning outcomes**
 
 * Understand the Okta telephony inline hook calls and responses.
-* Implement a simple working example of a telephony inline hook using a Glitch.com project.
+* Implement a simple example of a telephony inline hook using a Glitch.com project.
 * Preview and test the telephony inline hook.
 
 **What you need**
@@ -47,7 +47,7 @@ This guide provides a working example of an Okta telephony inline hook. It uses 
 
 ## About telephony inline hook implementation
 
-You can customize a telephony service provider for your org by using an Okta telephony inline hook. A telephony inline hook allows you to integrate your own custom code into several of Okta's flows that send SMS or Voice (Call) messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the One-Time Passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and the external service responds with commands that indicate success or failure in delivering the OTP.
+You can customize a telephony Service Provider for your org by using an Okta telephony inline hook. A telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or Voice (Call) messages (except Okta Verify enrollment). You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the one-time passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and the external service responds with commands that indicate success or failure in delivering the OTP.
 
 > **Note:** An org can have only one active telephony inline hook.
 
@@ -56,9 +56,9 @@ In the following example, the external service code parses requests from Okta an
 At a high-level, the following workflow occurs:
 
 * A user attempts to sign in to Okta. The Okta org has an authentication requirement of a Phone authenticator. The user selects **Receive a code via SMS** or **Receive a voice call instead**.
-* Okta generates a One-Time Passcode (OTP) and looks up whether any telephony hooks are configured and active for the org.
+* Okta generates a one-time passcode (OTP) and looks up whether any telephony hooks are configured and active for the org.
 * A telephony inline hook is triggered and sends a request to the provider to have them deliver the OTP.
-* The external service evaluates the request, and if the request headers are valid, the Telephony provider(s) request is made.
+* The external service evaluates the request, and if the request headers are valid, a request is sent to the telephony provider.
 
     > **Note:** Although you can have only one active telephony inline hook in your org at a time, logic in the external web service can direct requests to different providers based on conditions that you specify. For example, you can send the request to different telephony providers based on the country where the request originates.
 
@@ -74,28 +74,28 @@ Verify that your org has the Phone authenticator added and enabled for **Authent
 1. Verify that **Authentication and recovery** is selected as how the Phone authenticator is used.
 1. Click **Save** if made any changes.
 
-> **Note:** If the Phone authentication isn't already added, click **Add Authenticator** and then click **Add** on the Phone tile and make sure that you select the options mentioned above and click **Add**.
+> **Note:** If the Phone authentication isn't already added, click **Add Authenticator** and then click **Add** on the Phone tile and make sure that you select the options mentioned earlier and click **Add**.
 
 ## Update an authentication policy
 
-In this section, you update a [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) with another rule. Before we make changes to the authentication policy, we first create a test group and add a test user for this use case example.
+In this section, you update a [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) with another rule. Before you change the authentication policy, you should first create a test group and add a test user for this use case example.
 
 ### Create a group and add a user
 
 1. In the Admin Console, go to **Directory** > **Groups**.
-1. Click **Add Group** , name it **Support**, and then click **Save**.
-1. Select the group that you just created and on the **People** tab, click **Assign People**.
-1. Add a user to the group for testing. Make sure that the user has a working phone number included in their profile.
+1. Click **Add Group**, name it **Support**, and then click **Save**.
+1. Select the group that you created and on the **People** tab, click **Assign People**.
+1. Add a user to the group for testing. Make sure that the user has a useable phone number included in their profile.
 1. Click **Save**.
 
 ### Add a rule to the policy
 
-Update the **Okta Dashboard** [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor by adding a rule for the Support group that you just created.
+Update the **Okta Dashboard** [preset authentication policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-preset-auth-policies) to include an additional factor by adding a rule for the Support group that you created.
 
 1. In the Admin Console, go to **Security** > **Authentication Policies**, and then select the **Okta Dashboard** preset policy.
 1. Click **Add Rule** and name the rule.
 1. In the **AND User's group membership includes** dropdown list, select **At least one of the following groups**.
-1. In the box that appears, start typing the group that you just created and select it when it appears.
+1. In the box that appears, start typing the group that you created and select it when it appears.
 1. In the **AND Possession factor constraints are** section, clear the **Device Bound (excludes phone and email)** checkbox.
 1. Verify that **Phone** is listed as an additional factor type in the **AND Access with Okta FastPass is granted** section.
 1. Click **Save**. Users signing in to Okta are then required to use both their password and the Phone authenticator to authenticate.
@@ -104,7 +104,7 @@ Update the **Okta Dashboard** [preset authentication policy](https://help.okta.c
 
 You must activate the telephony inline hook in your Okta org. Activating the telephony inline hook registers the hook with the Okta org and associates it with your external service.
 
-1. Navigate to the **Workflow** > **Inline Hooks** page.
+1. Go to the **Workflow** > **Inline Hooks** page.
 1. Click **Add Inline Hook** and select **Telephony** from the dropdown list.
 1. Add a name for the hook (in this example, **Twilio Telephony Hook**).
 1. Add the external service URL, including the endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/telephonyHook`.
@@ -131,7 +131,7 @@ Copy the account SID and auth token from your Twilio account and add them as var
 
 ## Parse the telephony inline hook request
 
-The external service in this scenario requires code to handle the telephony inline hook request from Okta. Use the [Okta Telephony Inline Hook](https://glitch.com/~okta-inlinehook-telephonyhook) Glitch example to either build or copy the code (re-mix on Glitch) that parses the telephony inline hook call.
+The external service in this scenario requires code to handle the telephony inline hook request from Okta. Use the [Okta Telephony Inline Hook](https://glitch.com/~okta-inlinehook-telephonyhook) Glitch example to either build or copy the code (remix on Glitch) that parses the telephony inline hook call.
 
 From the telephony inline hook request, the following code retrieves the value of the user’s phone number from the `data.messageProfile` object. The code parses the Okta request body for the value of `phoneNumber` and stores it in the variable `userPhoneNumber`.
 
@@ -170,14 +170,14 @@ To preview the telephony inline hook:
     > **Note**: If your user doesn't have a phone number in their profile, change the phone number to one that you want to test in the **Preview example inline hook request** section. Click **Edit** and then add a value for the `phoneNumber` in the `messageProfile` section of the request (for example, `"+15555551212"`).
 
 1. From the **Preview example inline hook request** section, click **Generate Request**. You should see the user's request information in JSON format that is sent to the external service.
-1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. Upon a successful response, an SMS code or Voice (Call) message with the code is sent to the specified user. If there is an error, the error message appears in the response.
+1. From the **View Service's Response** section, click **View Response**. You should see the response from your external service in JSON format. Upon a successful response, an SMS code or Voice (Call) message with the code is sent to the specified user. If there’s an error, the error message appears in the response.
 
     > **Note**: If the external service fails, an OTP is still delivered to the user through the default Okta telephony provider. If the failure happens when previewing the hook, Okta doesn't generate an OTP.
 
 ### Test
 
 To run a test of your telephony inline hook, go to your Okta org’s sign-in page and sign in as a user in your org.
-When you click **Sign in**, you are prompted for an additional factor to either receive a code through SMS or receive a voice call instead. Click whichever option that you want to test. The SMS or Voice Call is sent to your phone.
+When you click **Sign in**, you’re prompted for an additional factor to either receive a code through SMS or receive a voice call instead. Click whichever option that you want to test. The SMS or Voice Call is sent to your phone.
 
 ## Next steps
 

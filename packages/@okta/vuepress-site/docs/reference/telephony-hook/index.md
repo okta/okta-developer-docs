@@ -6,7 +6,7 @@ excerpt: Customizes Okta's flows that send SMS or voice messages
 
 # Telephony inline hook reference
 
-This page provides reference documentation for telephony inline hooks, one type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
+This page provides reference documentation for telephony inline hooks, a type of inline hook supported by Okta. It provides sample JSON objects that are contained in the outbound request from Okta to your external service, and sample JSON objects that you can include in your response.
 
 ## See also
 
@@ -18,7 +18,7 @@ This page provides reference documentation for telephony inline hooks, one type 
 
 ## About
 
-The Okta telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or voice (CALL) messages. You can integrate this hook with enrollment, authentication, and recovery flows that involve the Phone authenticator. While the one-time passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and your service can respond with commands that indicate success or failure in delivering the OTP.
+The Okta telephony inline hook allows you to integrate your own custom code into Okta flows that send SMS or voice (CALL) messages. You can integrate this hook with enrollment, authentication, and recovery flows that involve the phone authenticator. While the one-time passcode (OTP) is sent to the requester, Okta calls your external service to deliver the OTP, and your service can respond with commands that indicate success or failure in delivering the OTP.
 
 You can have only one active telephony inline hook per org.
 
@@ -210,16 +210,16 @@ After receiving the Okta request, if there’s a response timeout, the Okta proc
 
 ## Troubleshoot
 
-This section explains several common causes of telephony inline hooks failure.
+This section explains several common causes of failure for telephony inline hooks.
 
 > **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the inline hooks topic for details on events captured by the Okta System Log.
 
 |       Issue      |          Impact            |      Error Visibility       |
 |------------------|----------------------------|-----------------------------|
-| External service fails to communicate or times out                          | Inline hook operation is skipped,  OTP is sent to requester using an Okta telephony provider   | Administrators only                       |
-| External service responds with any HTTP status code besides `200`           | Inline hook operation is skipped,  OTP is sent to requester using an Okta telephony provider   | Administrators only                       |
-| External service returns an error object                                    | Inline hook operation fails, no OTP is delivered                                               | Administrators, developers, and end users |
-| Hook response is malformed or can't be mapped to the expected API response  | Inline hook operation is skipped                                                               | Administrators only                       |
-| Request header doesn't include an `authScheme`                              | Inline hook operation is skipped                                                               | Administrators only                       |
-| Response uses an invalid status                                             | Inline hook operation is skipped                                                               | Administrators only                       |
-| Operation adds an active telephony inline hook when one already exists      | Inline hook operation is skipped                                                               | Administrators only                       |
+| External service fails to communicate or times out                          | Inline hook operation is skipped, OTP is sent to the requester using an Okta telephony provider   | Administrators only                       |
+| External service responds with any HTTP status code besides `200`           | Inline hook operation is skipped, OTP is sent to the requester using an Okta telephony provider   | Administrators only                       |
+| External service returns an error object                                    | Inline hook operation fails, no OTP is delivered                                                  | Administrators, developers, and end users |
+| Hook response is malformed or can't be mapped to the expected API response  | Inline hook operation is skipped                                                                  | Administrators only                       |
+| Request header doesn't include an `authScheme`                              | Inline hook operation is skipped                                                                  | Administrators only                       |
+| Response uses an invalid status                                             | Inline hook operation is skipped                                                                  | Administrators only                       |
+| Operation adds an active telephony inline hook when a hook exists           | Inline hook operation is skipped                                                                  | Administrators only                       |
