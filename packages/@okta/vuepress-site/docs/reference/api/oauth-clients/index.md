@@ -19,6 +19,8 @@ Explore the Client Application API: [![Run in Postman](https://run.pstmn.io/butt
 
 ## Client Application operations
 
+<ApiAuthMethodWarning />
+
 ### Register new client
 
 <ApiOperation method="post" url="/oauth2/v1/clients" />

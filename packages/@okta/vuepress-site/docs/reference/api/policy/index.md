@@ -22,6 +22,8 @@ The Policy API supports the following **Rule operations**:
 * Create, read, update, and delete a Rule for a Policy
 * Activate and deactivate a Rule
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f443644517abb15117af)

@@ -26,6 +26,8 @@ Okta Identity Engine currently supports Authenticators for the following factors
 * Duo
 * Custom App <ApiLifecycle access="ea" />
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Authenticators Administration API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/836eb57018cba45da121)

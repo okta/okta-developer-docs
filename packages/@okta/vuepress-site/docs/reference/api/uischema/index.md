@@ -9,6 +9,8 @@ category: management
 
 The Okta UI Schema API allows you to control how inputs appear on an enrollment form.
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 The UI Schema API is only available as a part of Okta Identity Engine. If you’re using Okta Classic Engine, see [Identify your Okta solution](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) to determine your Okta version.
