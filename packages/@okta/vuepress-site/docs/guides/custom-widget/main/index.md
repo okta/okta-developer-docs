@@ -75,7 +75,7 @@ Example:
 
    - **Trusted external resources**: Add resources to the CSP. For example: mydomain.com, *.mydomain.com, or mydomain.com/images. Click **Add**.
      > **Note:** Okta adds these resources to all fetch-directives in the CSP.
-   - **Report UI**: Enter the URI to which you want to send violation report details. The URI entered here appears in the report-uri directive of the CSP.
+   - **Report URI**: Enter the URI to which you want to send violation report details. The URI entered here appears in the report-uri directive of the CSP.
    - **Enforcement**:
      - Select **Enforced** to block any resources that the CSP doesn't trust. The header is `content-security-policy`.
      - Use **Not enforced** to leave the customized CSP in the report-only header (`content-security-policy-report-only`). Use this option for testing and validation before turning on **Enforced** mode.
