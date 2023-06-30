@@ -40,16 +40,16 @@ For non-privileged access apps, such as a loyalty program catalog, sessions can 
 
 Local logout is the act of signing the user out of the app and terminating the application session. The user IdP session is still active, and other application sessions aren't affected by terminating a specific local application session. Local logout is managed by the app. If the user wants to access the app again, the user is automatically authenticated through the active IdP session into the app, and the app creates a new session for the user.
 
-See [Sign users out > Sign users out of your app](/docs/guides/sign-users-out/-/main/#sign-users-out-of-your-app) for a guide to implement local logout with Okta.
+See [Sign users out](/docs/guides/sign-users-out) for a guide to implement local logout with Okta.
 
-### Single logout
+### Single Logout (SLO)
 
-Single logout is the act of signing the user out of the IdP and signing out of all the apps with the same IdP credentials. This results in ending the IdP session and all the associated application sessions for the user.
+Single Logout (SLO) allows a user to sign out of an SLO participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO participating apps on other devices.
 
-Currently, Okta supports single logout initiated by an app, where the user signs out of an app and the Okta IdP, ending both the app and IdP sessions. However, other active application sessions for the user can still persist without the IdP session, depending on the restrictive nature of the apps. For non-privileged access apps, the user can still access the app within the scope of the application session. For example, a user can still browse through a catalog of vacation experiences and add to their cart. When this user is ready to check out and make a payment, the app can enforce a privileged access workflow and redirect the user to re-authenticate with Okta to secure an IdP session. For privileged access apps with short-lived sessions, the user is typically redirected to re-authenticate with Okta to start a new IdP session and an application session.
+Okta supports both Single Logout (SLO) initiated by an app (SP-initiated) and by the IdP (IdP-initiated). When a user clicks the sign-out button in an app, SP-initiated SLO allows third-party SAML 2.0 and OpenID Connect (OIDC) apps to direct the browser to Okta while making an logout request. This indicates to that the user wants to sign out of the app. IdP-initiated SLO begins when Okta determines other apps that the user is signed in to for the current session. Okta initiates logout requests to any downstream apps participating in SLO that didn't initiate the logout. Finally, Okta ends the user’s app and Okta session.
 
-See [Sign users out > Sign users out of Okta](/docs/guides/sign-users-out/-/main/#sign-users-out-of-okta) for a guide to implement Okta sign out. For Okta Admin Console app-initiated single logout configuration, see [Single Logout in applications](https://help.okta.com/okta_help.htm?id=ext_Apps_Single_Logout).
+However, other active app sessions for the user can still persist without the Okta session, depending on the restrictive nature of the apps. For non-privileged access apps, the user can still access the app within the scope of the app session. For example, a user can still browse through a catalog of vacation experiences and add to their cart. When this user is ready to check out and make a payment, the app can enforce a privileged access workflow and redirect the user to re-authenticate with Okta to secure an Okta session. For privileged access apps with short-lived sessions, the user is typically redirected to re-authenticate with Okta to start a new Okta session and app session.
 
-> **Note:** In the SAML world, app-initiated single logout is also known as Service Provider-initiated (SP-initiated) single logout (SLO).
+See [Single Logout](/docs/guides/single-logout) for a guide on configuring SLO for your apps.
 
 Explore [Okta quickstart sample apps](/docs/guides/quickstart/) for sample code with non-privileged access implementations.
