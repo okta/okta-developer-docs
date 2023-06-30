@@ -69,8 +69,8 @@ Example:
 
 ### Customize the default CSP
 
-1. In the Admin Console, go to **Customizations** > **Branding**.
-2. In the **Pages** panel, click **Edit** for **Error pages**.
+1. In the Admin Console, go to **Customizations** > **Brands**, and then select the brand you want.
+2. On the **Pages** tab in the **Error Pages** section, click **Configure**.
 3. Click **Settings**.
 4. In the **Content Security Policy** panel, click **Edit**. Set the following:
 
