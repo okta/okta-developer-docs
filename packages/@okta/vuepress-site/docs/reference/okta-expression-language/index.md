@@ -9,7 +9,7 @@ meta:
 
 This document details the features and syntax of the Okta Expression Language (EL). You can use this language throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
 
-> **Note:** If you're using the Okta Expression Language for the [Global session policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
+> **Note:** If you're using the Okta Expression Language for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
 
 Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of the functionalities offered by SpEL.
 
