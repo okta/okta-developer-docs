@@ -1123,7 +1123,7 @@ curl -v -X POST \
 }
 ```
 
-#### Request example with client application <ApiLifecycle access="beta" />
+#### Request example with client application
 
 ```bash
 curl -v -X POST \
@@ -1211,7 +1211,7 @@ curl -v -X PATCH \
 }
 ```
 
-#### Request example with client application <ApiLifecycle access="beta" />
+#### Request example with client application
 
 ```bash
 curl -v -X PATCH \
@@ -1305,7 +1305,7 @@ curl -v -X GET \
   }
 }
 ```
-#### Response example with client application <ApiLifecycle access="beta" />
+#### Response example with client application
 
 ```json
 {
@@ -2002,6 +2002,86 @@ curl -v -X GET \
 ]
 ```
 
+#### List Roles assigned to a Client Application
+
+
+<ApiOperation method="get" url="/oauth2/v1/clients/${clientId}/roles" />
+
+Lists all Roles assigned to an Client Application
+
+##### Request parameters
+
+
+| Parameter         | Description                                             | Param Type  | DataType  | Required  |
+| :---------------- | :------------------------------------------------------ | :---------- | :-------- | :-------- |
+| `clientId`           | ID of a Client Application                           | URL         | String    | TRUE      |
+
+##### Response parameters
+
+
+Array of [Roles](#role-object)
+
+##### Request example
+
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles"
+```
+
+###### Response example
+
+
+```json
+[
+    {
+        "id": "JBCUYUC7IRCVGS27IFCE2SKO",
+        "label": "Help Desk Administrator",
+        "type": "HELP_DESK_ADMIN",
+        "status": "ACTIVE",
+        "created": "2023-05-01T14:24:54.000Z",
+        "lastUpdated": "2023-05-01T14:24:54.000Z",
+        "assignmentType": "CLIENT",
+        "_links": {
+            "assignee": {
+                "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4"
+            }
+        }
+    },
+    {
+        "id": "irb4ey26fpFI3vQ8y0g7",
+        "label": "view_minimal",
+        "type": "CUSTOM",
+        "status": "ACTIVE",
+        "created": "2023-05-01T15:16:47.000Z",
+        "lastUpdated": "2023-05-01T15:16:47.000Z",
+        "assignmentType": "CLIENT",
+        "resource-set": "iam4cxy6z7hhaZCSk0g7",
+        "role": "cr04cxy6yzSCtNciD0g7",
+        "_links": {
+            "role": {
+              "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr04cxy6yzSCtNciD0g7"
+            },
+            "resource-set": {
+              "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iam4cxy6z7hhaZCSk0g7"
+            },
+            "permissions": {
+              "href": "https://{yourOktaDomain}/api/v1/iam/roles/cr04cxy6yzSCtNciD0g7/permissions"
+            },
+            "member": {
+              "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/iam4cxy6z7hhaZCSk0g7/bindings/cr04cxy6yzSCtNciD0g7/members/irb4ey26fpFI3vQ8y0g7"
+            },
+            "assignee": {
+              "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oa4ee9vgbIuqTUvd0g7"
+            }
+        }
+    }
+]
+```
+
 ### Assign a Role
 
 #### Assign a Role to a User
@@ -2096,7 +2176,56 @@ curl -v -X POST \
 }
 ```
 
-#### Assign a Custom Role to a User or Group
+#### Assign a Role to a Client Application
+
+<ApiOperation method="post" url="/oauth2/v1/clients/${clientId}/roles" />
+
+Assigns a Role to a Group
+
+##### Request parameters
+
+
+| Parameter       | Description                   | Param Type   | DataType                    | Required |
+| :-------------- | :---------------------------- | :----------- | :-------------------------- | :------- |
+| `clientId`         | ID of a Client Application | URL          | String                      | TRUE     |
+| `type`            | Type of Role to assign      | Body         | [Role Type](#role-types)    | TRUE     |
+
+##### Response parameters
+
+The assigned [Role](#role-object)
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+      "type": "HELP_DESK_ADMIN"
+}' "https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles"
+```
+
+###### Response example
+
+```json
+{ 
+    "id": "JBCUYUC7IRCVGS27IFCE2SKO",
+    "label": "Help Desk Administrator",
+    "type": "HELP_DESK_ADMIN",
+    "status": "ACTIVE",
+    "created": "2023-05-01T14:24:54.000Z",
+    "lastUpdated": "2023-05-01T14:24:54.000Z",
+    "assignmentType": "CLIENT",
+    "_links": {
+        "assignee": {
+            "href": "https://{yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4"
+        }
+    }
+}
+```
+
+#### Assign a Custom Role to a User, Group or Client Application
 
 The recommended way to assign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also assign a Custom Role using the following method:
 
@@ -2106,16 +2235,20 @@ Or to assign to a Group:
 
 <ApiOperation method="post" url="/api/v1/groups/${groupId}/roles" />
 
+Or to assign to a Client Application:
+
+<ApiOperation method="post" url="/oauth2/v1/clients/${clientId}/roles" />
+
 as long as the request body contains a Custom `role` ID and a `resource-set` ID. Also, `type` must be `CUSTOM`.
 
 ##### Request parameters
 
-| Parameter             | Description                 | Param Type   | DataType                    | Required |
-| :-------------------- | :-------------------------- | :----------- | :-------------------------- | :------- |
-| `userId` or `groupId` | User ID or Group ID         | URL          | String                      | TRUE     |
-| `type`                | Type of Role to assign      | Body         | String literal: `CUSTOM`    | TRUE     |
-| `role`                | ID of the Custom Role       | Body         | String                      | TRUE     |
-| `resource-set`        | ID of the Resource Set      | Body         | String                      | TRUE     |
+| Parameter                       | Description                 | Param Type   | DataType                    | Required |
+| :--------------------           | :-------------------------- | :----------- | :-------------------------- | :------- |
+| `userId`, `groupId`, `clientId` | User ID or Group ID         | URL          | String                      | TRUE     |
+| `type`                          | Type of Role to assign      | Body         | String literal: `CUSTOM`    | TRUE     |
+| `role`                          | ID of the Custom Role       | Body         | String                      | TRUE     |
+| `resource-set`                  | ID of the Resource Set      | Body         | String                      | TRUE     |
 
 ##### Response parameters
 
@@ -2164,11 +2297,11 @@ curl -v -X POST \
   }
 }
 ```
-#### Assign an IAM-based Standard Role to a User or Group
+#### Assign an IAM-based Standard Role to a User or Group or Client Application
 
-You can assign an IAM-based Standard Role like any other Standard Role.
+You can assign an IAM-based Standard Role like any other Standard Role using the appropriate url for the Principal.
 
-##### Request example
+##### Request example for Group
 
 ```bash
 curl -v -X POST \
@@ -2205,10 +2338,59 @@ curl -v -X POST \
     },
     "permissions": {
       "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_REQUESTS_ADMIN/permissions"
-    }
+    },
+    "member": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY/bindings/ACCESS_REQUESTS_ADMIN/members/irb4jlomnnDBuBDyJ0g7"
+    },
   }
 }
 ```
+
+##### Request example for Client Application
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+      "type": "ACCESS_REQUESTS_ADMIN"
+}' "https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles"
+```
+
+###### Response example
+
+```json
+{
+  "id": "irb4jlodtdN4yJ88b0g7",
+  "role": "ACCESS_REQUESTS_ADMIN",
+  "label": "Access Requests Administrator",
+  "type": "ACCESS_REQUESTS_ADMIN",
+  "status": "ACTIVE",
+  "created": "2023-07-06T21:52:48.000Z",
+  "lastUpdated": "2023-07-06T21:52:48.000Z",
+  "assignmentType": "CLIENT",
+  "resource-set": "ACCESS_CERTIFICATIONS_IAM_POLICY",
+  "_links": {
+    "assignee": {
+      "href": "https://{yourOktaDomain}/api/v1/groups/0oa5vymVNCe2cPEeZ0g4"
+    },
+    "resource-set": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY"
+    },
+    "role": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_REQUESTS_ADMIN"
+    },
+    "permissions": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/roles/ACCESS_REQUESTS_ADMIN/permissions"
+    },
+    "member": {
+      "href": "https://{yourOktaDomain}/api/v1/iam/resource-sets/ACCESS_CERTIFICATIONS_IAM_POLICY/bindings/ACCESS_REQUESTS_ADMIN/members/irb4jlodtdN4yJ88b0g7"
+    },
+  }
+}
+```
+
 ### Unassign a Role
 
 #### Unassign a Role from a User
@@ -2281,7 +2463,42 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-#### Unassign a Custom Role from a User or Group
+#### Unassign a Role from a Client Application
+
+<ApiOperation method="delete" url="/oauth2/v1/clients/${clientId}/roles/${roleId}" />
+
+Unassigns a Role from a Client Application
+
+##### Request parameters
+
+| Parameter       | Description                  | Param Type   | DataType   | Required |
+| :-------------- | :--------------------------- | :----------- | :--------- | :------- |
+| `clientId`      | ID of a Client Application   | URL          | String     | TRUE     |
+| `roleId`        | ID of a Role                 | URL          | String     | TRUE     |
+
+##### Response parameters
+
+```http
+HTTP/1.1 204 No Content
+```
+
+##### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles/JBCUYUC7IRCVGS27IFCE2SKO"
+```
+
+##### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
+#### Unassign a Custom Role from a User or Group or Client Application
 
 The recommended way to unassign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also unassign a Custom Role by using the following method:
 
@@ -2290,6 +2507,10 @@ The recommended way to unassign a Custom Role is by using one of the [Custom Rol
 Or to unassign from a Group:
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${bindingId}" />
+
+Or to unassign from a Client Application:
+
+<ApiOperation method="delete" url="/oauth2/v1/clients/${clientId}/roles/${bindingId}" />
 
 but note that instead of `${roleId}`, you must provide a `${bindingId}`.
 
@@ -2474,6 +2695,82 @@ curl -v -X GET \
 ]
 ```
 
+##### List Group targets for a group administrator role given to a client application
+
+<ApiOperation method="get" url="/oauth2/v1/clients/${clientId}/roles/${roleId}/targets/groups" />
+
+Lists all Group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Client Application
+
+###### Request parameters
+
+
+| Parameter       | Description                                                    | Param Type   | DataType   | Required |
+| :-------------- | :------------------------------------------------------------- | :----------- | :--------- | :------- |
+| `after`           | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
+| `clientId`        | ID of a Client Application                                     | URL          | String     | TRUE     |
+| `limit`           | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
+| `roleId`          | ID of a Role                                                 | URL          | String     | TRUE     |
+
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+
+###### Response parameters
+
+Array of [Groups](/docs/reference/api/groups/)
+
+If the Role isn't scoped to specific Group targets, an empty array `[]` is returned.
+
+###### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles/JBCUYUC7IRCVGS27IFCE2SKO/targets/groups"
+```
+
+###### Response example
+
+
+```json
+[
+    {
+        "id": "00gsrc96agspOaiP40g3",
+        "created": "2019-02-27T15:19:11.000Z",
+        "lastUpdated": "2019-02-27T15:19:11.000Z",
+        "lastMembershipUpdated": "2019-02-27T15:19:11.000Z",
+        "objectClass": [
+            "okta:user_group"
+        ],
+        "type": "OKTA_GROUP",
+        "profile": {
+            "name": "userGroup0",
+            "description": null
+        },
+        "_links": {
+            "logo": [
+                {
+                    "name": "medium",
+                    "href": "https://{yourOktaDomain}/assets/img/logos/groups/okta-medium.d7fb831bc4e7e1a5d8bd35dfaf405d9e.png",
+                    "type": "image/png"
+                },
+                {
+                    "name": "large",
+                    "href": "https://{yourOktaDomain}/assets/img/logos/groups/okta-large.511fcb0de9da185b52589cb14d581c2c.png",
+                    "type": "image/png"
+                }
+            ],
+            "users": {
+                "href": "https://{yourOktaDomain}/api/v1/groups/00gsrc96agspOaiP40g3/users"
+            },
+            "apps": {
+                "href": "https://{yourOktaDomain}/api/v1/groups/00gsrc96agspOaiP40g3/apps"
+            }
+        }
+    }
+]
+```
+
 #### Assign a Group target to a group administrator Role
 
 ##### Assign a Group target to a group administrator Role given to a User
@@ -2557,6 +2854,45 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
+##### Assign a Group target to a group administrator Role given to a Client Application
+
+<ApiOperation method="put" url="/oauth2/v1/clients/${clientId}/roles/${roleId}/targets/groups/${targetGroupId}" />
+
+Assigns a Group target to a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Client Application
+
+When you assign the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
+
+###### Request parameters
+
+
+| Parameter            | Description                                     | Param Type   | DataType   | Required |
+| :------------------- | :---------------------------------------------- | :----------- | :--------- | :------- |
+| `clientId`             | ID of an Client Application                   | URL          | String     | TRUE     |
+| `roleId`               | ID of a Role                                  | URL          | String     | TRUE     |
+| `targetGroupId`        | ID of the Group target to scope role assignment   | URL          | String     | TRUE     |
+
+###### Response parameters
+
+```http
+HTTP/1.1 204 No Content
+```
+
+###### Request example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles/JBCUYUC7IRCVGS27IFCE2SKO/targets/groups/00gsrhsUaRoUib0XQ0g3"
+```
+
+###### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
 #### Remove a Group target from a group administrator role
 
 ##### Remove a Group target from a group administrator role given to a user
@@ -2629,6 +2965,44 @@ curl -v -X DELETE \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3/roles/JBCUYUC7IRCVGS27IFCE2SKO/targets/groups/00gsrhsUaRoUib0XQ0g3"
+```
+
+###### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
+##### Remove a Group target from a group administrator role given to a Client Application
+
+<ApiOperation method="delete" url="/oauth2/v1/clients/${clientId}/roles/${roleId}/targets/groups/${targetGroupId}" />
+
+Removes a Group target from a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Client Application
+
+> **Note:** Don't remove the last Group target from a role assignment, as it causes an exception. If you need a role assignment that applies to all Groups, the API consumer should delete the `USER_ADMIN` role assignment and recreate it.
+
+###### Request parameters
+
+| Parameter       | Description                                | Param Type   | DataType   | Required |
+| :-------------- | :----------------------------------------- | :----------- | :--------- | :------- |
+| `clientId`        | ID of an Client Application              | URL          | String     | TRUE     |
+| `roleId`          | ID of a Role                             | URL          | String     | TRUE     |
+| `targetGroupId`   | ID of the Group target for role assignment   | URL          | String     | TRUE     |
+
+###### Response parameters
+
+```http
+HTTP/1.1 204 No Content
+```
+
+###### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles/JBCUYUC7IRCVGS27IFCE2SKO/targets/groups/00gsrhsUaRoUib0XQ0g3"
 ```
 
 ###### Response example
@@ -2852,6 +3226,84 @@ The example shows one application and one instance. The response for instances h
 ]
 ```
 
+##### List App targets for App administrator role given to a Client Application
+
+<ApiOperation method="get" url="/oauth2/v1/clients/${clientId}/roles/${roleId}/targets/catalog/apps" />
+
+Lists all the App targets for an `APP_ADMIN` Role assigned to a Client Application
+
+###### Request Parameters
+
+
+| Parameter   | Description                                                    | Param Type   | DataType   | Required |
+| :---------- | :------------------------------------------------------------- | :----------- | :--------- | :------- |
+| `after`       | Specifies the pagination cursor for the next page of targets | Query        | String     | FALSE    |
+| `clientId`     | ID of a Client Application                                  | URL          | String     | TRUE     |
+| `limit`       | Specifies the number of results for a page (default is 20)   | Query        | Number     | FALSE    |
+| `roleId`      | ID of a Role                                                 | URL          | String     | TRUE     |
+
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+
+###### Response parameters
+
+Array of catalog Apps
+
+If the Role isn't scoped to specific Apps in the catalog, an empty array `[]` is returned.
+
+###### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles/IFIFAX2BIRGUSTQ/targets/catalog/apps"
+```
+
+###### Response example
+
+The example shows one application and one instance. The response for instances has an `id` field.
+
+```json
+[
+    {
+        "name": "facebook",
+        "displayName": "Facebook",
+        "description": "Giving people the power to share and make the world more open and connected.",
+        "status": "ACTIVE",
+        "lastUpdated": "2017-07-19T23:37:37.000Z",
+        "category": "SOCIAL",
+        "verificationStatus": "OKTA_VERIFIED",
+        "website": "http://www.facebook.com/",
+        "signOnModes": [
+            "BROWSER_PLUGIN"
+        ],
+        "_links": {
+            "logo": [
+                {
+                    "name": "medium",
+                    "href": "https://{yourOktaDomain}/assets/img/logos/facebook.e8215796628b5eaf687ba414ae245659.png",
+                    "type": "image/png"
+                }
+            ],
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/catalog/apps/facebook"
+            }
+        }
+    },
+    {
+        "name": "24 Seven Office 0",
+        "status": "ACTIVE",
+        "id": "0oasrudLtMlzAsTxk0g3",
+        "_links": {
+            "self": {
+                "href": "https://{yourOktaDomain}/api/v1/apps/0oasrudLtMlzAsTxk0g3"
+            }
+        }
+    }
+]
+```
+
 #### Assign an App target to an App administrator Role
 
 ##### Assign an App target to an App administrator Role given to a User
@@ -2928,6 +3380,47 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3/roles/IFIFAX2BIRGUSTQ/targets/catalog/apps/amazon_aws"
+```
+
+###### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
+##### Assign an App target to an App administrator Role given to a Client Application
+
+<ApiOperation method="put" url="/oauth2/v1/clients/${clientId}/roles/${roleId}/targets/catalog/apps/${appName}" />
+
+Assigns an App target to an `APP_ADMIN` Role assigned to a Client Application
+
+When you assign the first App target, you reduce the scope of the role assignment. The Role no longer applies to all App targets but applies only to the specified target.
+
+An App target that is assigned overrides any existing instance targets of the app. For example, if someone is assigned to administer a specific Facebook instance, a call to this endpoint with `facebook` for `appName` would make that person the administrator for all Facebook instances.
+
+###### Request parameters
+
+
+| Parameter   | Description                                                  | Param Type   | DataType   | Required |
+| :---------- | :----------------------------------------------------------- | :----------- | :--------- | :------- |
+| `clientId`    | ID of a Client Application                                 | URL          | String     | TRUE     |
+| `roleId`      | ID of a Role                                               | URL          | String     | TRUE     |
+| `appName`     | Name of the App target from the catalog to scope role assignment   | URL          | String     | TRUE     |
+
+###### Response parameters
+
+```http
+HTTP/1.1 204 No Content
+```
+
+###### Request example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles/IFIFAX2BIRGUSTQ/targets/catalog/apps/amazon_aws"
 ```
 
 ###### Response example
@@ -3026,6 +3519,48 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
+##### Assign an App Instance target to an App administrator Role given to a Client Application
+
+<ApiOperation method="put" url="/oauth2/v1/clients/${clientId}/roles/${roleId}/targets/catalog/apps/${appName}/${appInstanceId}" />
+
+Assigns an App Instance target to an `APP_ADMIN` Role assigned to a Client Application
+
+When you assign the first App or App Instance target, you reduce the scope of the role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
+
+> **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all the instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all the instances of a Salesforce app and then also specific configurations of the Salesforce app.
+
+###### Request parameters
+
+
+| Parameter         | Description                                                  | Param Type   | DataType   | Required |
+| :---------------- | :----------------------------------------------------------- | :----------- | :--------- | :------- |
+| `appInstanceId`     | ID of the App Instance target to scope role assignment     | URL          | String     | TRUE     |
+| `appName`           | Name of the App target from the catalog to scope role assignment   | URL          | String     | TRUE     |
+| `clientId`          | ID of a Client Application                                 | URL          | String     | TRUE     |
+| `roleId`            | ID of a Role                                               | URL          | String     | TRUE     |
+
+###### Response parameters
+
+```http
+HTTP/1.1 204 No Content
+```
+
+###### Request example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles/IFIFAX2BIRGUSTQ/targets/catalog/apps/facebook/0oassqD8YkfwsJeV60g3"
+```
+
+###### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
 #### Remove an App target from an App administrator role
 
 ##### Remove an App target from an App administrator role given to a User
@@ -3105,6 +3640,45 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
+##### Remove an App target from an App administrator role given to a Client Application
+
+<ApiOperation method="delete" url="/oauth2/v1/clients/${clientId}/roles/${roleId}/targets/catalog/apps/${appName}" />
+
+Removes an App target from an `APP_ADMIN` Role assigned to a Client Application
+
+> **Note:** Don't remove the last App target from a role assignment, as it causes an exception. If you need a role assignment that applies to all the Apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
+
+###### Request parameters
+
+| Parameter   | Description                                | Param Type   | DataType   | Required |
+| :---------- | :----------------------------------------- | :----------- | :--------- | :------- |
+| `appName`     | Name of the App target for role assignment   | URL          | String     | TRUE     |
+| `clientId`    | ID of a Client Application               | URL          | String     | TRUE     |
+| `roleId`      | ID of a Role                             | URL          | String     | TRUE     |
+
+###### Response parameters
+
+```http
+HTTP/1.1 204 No Content
+```
+
+###### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles/IFIFAX2BIRGUSTQ/targets/catalog/apps/facebook"
+```
+
+###### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
+
 #### Remove an App instance target from an App administrator role
 
 ##### Remove an App instance target from an App administrator role given to a User
@@ -3179,6 +3753,46 @@ curl -v -X DELETE \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3/roles/IFIFAX2BIRGUSTQ/targets/catalog/apps/facebook/0oassqD8YkfwsJeV60g3"
+```
+
+###### Response example
+
+```http
+HTTP/1.1 204 No Content
+```
+
+##### Remove an App instance target from an App administrator role given to a Client Application
+
+<ApiOperation method="delete" url="/oauth2/v1/clients/${clientId}/roles/${roleId}/targets/catalog/apps/${appName}/${appInstanceId}" />
+
+Removes an App Instance target from an `APP_ADMIN` Role assigned to a Client Application
+
+> **Note:** Don't remove the last App target from a role assignment, as it causes an exception. If you need a role assignment that applies to all the Apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
+
+###### Request parameters
+
+
+| Parameter         | Description                                           | Param Type   | DataType   | Required |
+| :---------------- | :---------------------------------------------------- | :----------- | :--------- | :------- |
+| `appInstanceId`     | ID of the App Instance target for role assignment   | URL          | String     | TRUE     |
+| `appName`           | Name of the App target for role assignment              | URL          | String     | TRUE     |
+| `clientId`          | ID of a Client Application                                       | URL          | String     | TRUE     |
+| `roleId`            | ID of a Role                                        | URL          | String     | TRUE     |
+
+###### Response parameters
+
+```http
+HTTP/1.1 204 No Content
+```
+
+###### Request example
+
+```bash
+curl -v -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/oauth2/v1/clients/0oa5vymVNCe2cPEeZ0g4/roles/IFIFAX2BIRGUSTQ/targets/catalog/apps/facebook/0oassqD8YkfwsJeV60g3"
 ```
 
 ###### Response example
@@ -3702,7 +4316,7 @@ The ID of a Member is unique to the Binding, whereas the link that points to the
     }
 ```
 
-##### Client Application as member <ApiLifecycle access="beta" />
+##### Client Application as member
 
 ```json
     {
