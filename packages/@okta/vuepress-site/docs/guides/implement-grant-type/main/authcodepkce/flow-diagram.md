@@ -2,33 +2,12 @@
 
 <div class="full">
 
-![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
 
+   <!--
+     SOurce image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43878&mode=design&t=Me7qqw8odOmrLh6K-1 oauth-auth-code-pkce-grant-flow
+   -->
 </div>
-
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-@startuml
-skinparam monochrome true
-actor "Resource Owner (User)" as user
-participant "Client" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
-
-autonumber "<b>#."
-client -> client: Generate PKCE code verifier & challenge
-client -> okta: Authorization Code request + code_challenge to /authorize
-okta -> user: 302 redirect to authentication prompt
-user -> okta: Authentication & consent
-okta -> client: Authorization Code response
-client -> okta: Send authorization code + code_verifier to /token
-okta -> okta: Evaluates PKCE code
-okta -> client: Access token (and optionally refresh token)
-client -> app: Request with access token
-app -> client: Response
-@enduml
-
--->
 
  At a high-level, the flow has the following steps:
 

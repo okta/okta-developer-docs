@@ -121,39 +121,14 @@ If your app is not high-trust, you should use the [Authorization Code](/docs/gui
 
 The Interaction Code flow is an extension to the OAuth 2 and OIDC standard, and is available when using Identity Engine orgs. It requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta authorization server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
 
-<!--
-See http://www.plantuml.com/plantuml/uml/
-
-@startuml
-skinparam monochrome true
-actor "Resource Owner (User)" as user
-participant "Client" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
-
-user -> client: Start auth with user info
-client -> client: Generate PKCE code verifier & challenge
-client -> okta: Authorization request w/ code_challenge, client ID, scopes, and user info
-okta -> okta: Remediation required
-okta -> client: Send interaction_handle in response (for required interaction)
-client <-> okta: Remediation steps w/ interaction_handle
-user <-> client: Remediation
-note right: Possible multiple remediation steps required
-client -> okta: Complete remediation steps w/ interaction_handle
-okta -> client: Send interaction_code in response
-client -> okta: Send interaction_code, client ID, code_verifier to /token
-okta -> okta: Evaluates PKCE code
-okta -> client: Access token (and optionally refresh token)
-client -> app: Request with access token
-app -> client: Response
-@enduml
-
- -->
-
 <div class="full">
 
-![Interaction Code flow sequence diagram](/img/authorization/interaction-code-grant-flow-guide.png)
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Interaction Code flow](/img/authorization/oauth-interaction-code-grant-flow.png)
 
+   <!--
+      Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43899&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-interaction-code-grant-flow
+   -->
 </div>
 
 ### Authorization Code flow with PKCE
@@ -172,33 +147,12 @@ A rogue app could only intercept the authorization code, but it wouldn't have ac
 
 <div class="full">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
 
+   <!--
+     SOurce image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43878&mode=design&t=Me7qqw8odOmrLh6K-1 oauth-auth-code-pkce-grant-flow
+   -->
 </div>
-
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-@startuml
-
-skinparam monochrome true
-
-actor "Resource Owner (User)" as user
-participant "Client" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
-
-client -> client: Generate PKCE code verifier & challenge
-client -> okta: Authorization Code Request + code_challenge to /authorize
-okta -> user: 302 redirect to authentication prompt
-user -> okta: Authentication & consent
-okta -> client: Authorization Code Response
-client -> okta: Send authorization code + code_verifier to /token
-okta -> okta: Evaluates PKCE code
-okta -> client: Access token (and optionally Refresh Token)
-client -> app: Request with access token
-app -> client: Response
-
--->
 
 For information on how to set up your application to use this flow, see [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/).
 
@@ -208,26 +162,14 @@ The Resource Owner Password flow is intended for use cases where you control bot
 
 <div class="full">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Resource Owner Password flow](/img/authorization/oauth-password-grant-flow.png)
+   ![Sequence diagram that shows the back and forth between the resource owner, authorization server, and resource server for Resource Owner Password flow](/img/authorization/oauth-resource-owner-password-grant-flow.png)
+
+   <!--
+      Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43902&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-resource-owner-password-grant-flow
+   -->
 
 </div>
-
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-skinparam monochrome true
-
-actor "Resource Owner (User)" as user
-participant "Client" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
-
-user -> client: Authenticates
-client -> okta: Access token request to /token
-okta -> client: Access token (+optional Refresh Token) response
-client -> app: Request with access token
-app -> client: Response
-
--->
 
 For information on how to set up your application to use this flow, see [Implement the Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/).
 
@@ -239,24 +181,14 @@ The Client Credentials flow is intended for server-side ("confidential") client 
 
 <div class="three-quarter">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
+
+   <!--
+      Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43887&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-client-creds-grant-flow
+   -->
 
 </div>
-
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-skinparam monochrome true
-
-participant "Client + Resource Owner" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
-
-client -> okta: Access token request to /token
-okta -> client: Access token response
-client -> app: Request with access token
-app -> client: Response
-
--->
 
 For information on how to set up your application to use this flow, see [Implement the Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/).
 
@@ -268,26 +200,14 @@ To use a SAML 2.0 Assertion as an authorization grant, the client makes a SAML r
 
 <div class="full">
 
-![Flowchart that displays the back and forth between the resource owner, identity provider, authorization server, and resource server for the SAML 2.0 Assertion flow](/img/authorization/oauth-saml2-grant-flow.png)
+   ![Displays the sequence diagram for the SAML 2.0 Assertion flow that shows the back and forth between the resource owner, authorization server, Identity Provider and client"](/img/authorization/oauth-saml2-assertion-grant-flow.png)
+
+   <!--
+      source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43905&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-saml2-assertion-grant-flow
+   -->
 
 </div>
-
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-skinparam monochrome true
-
-participant "Client" as OClient
-participant "Identity Provider " as idp
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server" as rs
-
-OClient -> idp: Makes SAML request to the IdP
-idp -> OClient: Sends SAML 2.0 Assertion in response
-OClient -> okta: Sends Base64-encoded SAML 2.0 Assertion to /token
-okta -> OClient: Verifies assertion and sends access token (optionally ID token, refresh token)
-OClient -> rs: Makes a resource request with the access token to the resource server
-
--->
 
 For information on how to set up your application to use this flow, see [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/).
 
@@ -303,25 +223,12 @@ For information on how to set up your application to use this flow, see [Impleme
 
 <div class="full">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Implicit flow](/img/authorization/oauth-implicit-grant-flow.png)
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Implicit grant flow](/img/authorization/oauth-implicit-grant-flow.png)
 
+   <!--
+      Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43895&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-implicit-grant-flow
+   -->
 </div>
-
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-skinparam monochrome true
-
-actor "Resource Owner (User)" as user
-participant "Client" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
-
-client -> okta: Access token request to /authorize
-okta -> user: 302 redirect to authentication prompt
-user -> okta: Authentication & consent
-okta -> client: Access token response
-client -> app: Request with access token
-app -> client: Response
--->
 
 For information on how to set up your application to use this flow, see [Implement the Implicit flow](/docs/guides/implement-grant-type/implicit/main/).

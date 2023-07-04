@@ -2,27 +2,14 @@
 
 <div class="full">
 
-![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Implicit grant flow](/img/authorization/oauth-implicit-grant-flow.png)
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Implicit grant flow](/img/authorization/oauth-implicit-grant-flow.png)
 
+   <!--
+      Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43895&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-implicit-grant-flow
+   -->
 </div>
 
-<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
-
-skinparam monochrome true
-actor "Resource Owner (User)" as user
-participant "Client" as client
-participant "Authorization Server (Okta)" as okta
-participant "Resource Server (Your App)" as app
-
-autonumber "<b>#."
-client -> okta: Access token request to /authorize
-okta -> user: 302 redirect to authentication prompt
-user -> okta: Authentication & consent
-okta -> client: Access token response
-client -> app: Request with access token
-app -> client: Response
-
--->
 The Implicit flow contains the following interaction steps:
 
 1. The Client sends a request to the authorization server (Okta) for an access token.
