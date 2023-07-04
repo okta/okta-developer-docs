@@ -555,9 +555,9 @@ curl -X GET \
 
 #### List Trusted Origins with a filter
 
-Lists all Trusted Origins that match the filter criteria
+Lists all Trusted Origins that match the filter criteria. You can filter on the following properties: `name`, `origin`, `status`, and `type` (that is, the `type` of `scopes`).
 
-This operation requires [URL encoding](/docs/reference/core-okta-api/#filter). For example, `filter=(id eq "tosue7JvguwJ7U6kz0g3" or id eq "tos10hzarOl8zfPM80g4")` is encoded as `filter=%28id+eq+%22tosue7JvguwJ7U6kz0g3%22+or+id+eq+%22tos10hzarOl8zfPM80g4%22%29`.
+This operation requires [URL encoding](/docs/reference/core-okta-api/#filter). For example, `filter=(name eq "Example Trusted Origin" or name eq "Another Trusted Origin")` is encoded as `filter=%28id+eq+%22Example+Trusted+Origin%22+or+id+eq+%22Another+Trusted+Origin%22%29`.
 
 See [Filtering](/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
 
@@ -568,7 +568,7 @@ curl -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/trustedOrigins?limit=100&filter=%28id+eq+%22tosue7JvguwJ7U6kz0g3%22+or+id+eq+%22tos10hzarOl8zfPM80g4%22%29"
+"https://${yourOktaDomain}/api/v1/trustedOrigins?filter=%28name+eq+%22Example+Trusted+Origin%22+or+id+eq+%22Another+Trusted+Origin%22%29"
 ```
 
 ##### Response example
