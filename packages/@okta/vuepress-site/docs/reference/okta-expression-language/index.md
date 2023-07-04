@@ -174,9 +174,6 @@ Group functions return either an array of groups or **True** or **False**.
 | Function                        | Return type | Example                                                         |
 | ---------                       | ----------- | -------                                                         |
 | `getFilteredGroups`             | Array       | `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40)` |
-| `Groups.contains`               | Array       | `contains(app_type/app_instance_id, pattern, limit)`            |
-| `Groups.startsWith`             | Array       | `startsWith(app_type/app_instance_id, pattern, limit)`          |
-| `Groups.endsWith`               | Array       | `endsWith(app_type/app_instance_id, pattern, limit)`            |
 | `isMemberOfGroupName`           | Boolean     | `isMemberOfGroupName("group1")`                                 |
 | `isMemberOfGroup`               | Boolean     | `isMemberOfGroup("groupId")`                                    |
 | `isMemberOfAnyGroup`            | Boolean     | `isMemberOfAnyGroup("groupId1", "groupId2", "groupId3")`        |
@@ -184,10 +181,7 @@ Group functions return either an array of groups or **True** or **False**.
 | `isMemberOfGroupNameContains`   | Boolean     | `isMemberOfGroupNameContains("admin")`                          |
 | `isMemberOfGroupNameRegex`      | Boolean     | `isMemberOfGroupNameRegex("/.*admin.*")`                        |
 
-> **Note:** The `Groups.contains`, `Groups.startsWith`, and `Groups.endsWith` group functions are designed to work only with group claims. You can't use these functions with property mappings.
-
 > **Note:** The `isMemberOfGroupName`, `isMemberOfGroup`, `isMemberOfAnyGroup`, `isMemberOfGroupNameStartsWith`, `isMemberOfGroupNameContains`, `isMemberOfGroupNameRegex` group functions are designed to retrieve only an Okta user's group memberships. Don't use them to retrieve an app user's group memberships.
-
 > **Note:** When EL group functions (such as `isMemberOfGroup` or `isMemberOfGroupName`) are used for app assignments, app user profile attributes aren’t updated or reapplied when the user’s group membership changes. Okta only updates app user profile attributes when an app is assigned to a user or when mappings are applied.
 
 For an example of using group functions, and for more information on using group functions for dynamic and static allowlists, see [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/).
@@ -198,15 +192,25 @@ For an example of using group functions, and for more information on using group
 >
 >See the parameter examples section of [Use group functions for static group allowlists](/docs/guides/customize-tokens-static/main/#use-group-functions-for-static-group-allow-lists).
 
+### Group claim functions
+
+The following group functions are designed to work only with group claims. You can't use these functions with property mappings.
+
+| Function                        | Return type | Example                                                         |
+| ---------                       | ----------- | -------                                                         |
+| `Groups.contains`               | Array       | `contains(app_type/app_instance_id, pattern, limit)`            |
+| `Groups.startsWith`             | Array       | `startsWith(app_type/app_instance_id, pattern, limit)`          |
+| `Groups.endsWith`               | Array       | `endsWith(app_type/app_instance_id, pattern, limit)`            |
+
 ### Linked object function
 
 Use this function to retrieve the user identified with the specified `primary` relationship. You can then access the properties of that user.
 
 * Function: `user.getLinkedObject($primaryName)`
-    * Parameter: (String primaryName)
-    * Return type: User
-    * Example: `user.getLinkedObject("manager").lastName`
-    * Example result: `Gates`
+  * Parameter: (String primaryName)
+  * Return type: User
+  * Example: `user.getLinkedObject("manager").lastName`
+  * Example result: `Gates`
 
 ### Time functions
 
