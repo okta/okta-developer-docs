@@ -784,7 +784,7 @@ Client Applications have the following properties:
 | token_endpoint_auth_method              | Requested authentication method for the token endpoint. Default value: `client_secret_basic`  | `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`                    | TRUE       | FALSE    | FALSE     |
 | tos_uri                                 | URL string of a web page providing the client's terms of service document                                                    | URL                                                                                            | TRUE       | FALSE    | FALSE     |
 | frontchannel_logout_uri <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />  | URL where Okta sends the logout request   | URL    | TRUE   | FALSE    | FALSE   |
-| frontchannel_logout_session_required <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />  | Session details allow you to end a specific user session instead of all active user sessions   | Boolean    | TRUE   | FALSE    | FALSE   |
+| frontchannel_logout_session_required <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />  | Allows you to end a specific user session instead of all active user sessions   | Boolean    | TRUE   | FALSE    | FALSE   |
 
 Property details
 
