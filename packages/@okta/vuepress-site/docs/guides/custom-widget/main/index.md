@@ -68,8 +68,8 @@ Example:
 
 #### Configure the default CSP
 
-1. In the Admin Console, go to **Customizations** > **Branding**.
-2. In the **Pages** panel, click **Edit** for the **Sign-in page**.
+1. In the Admin Console, go to **Customizations** > **Brands**.
+2. In the **Pages** panel in the **Sign-in Page** section, click **Configure**.
 3. Click **Settings**.
 4. In the **Content Security Policy** panel, click **Edit**. Set the following:
 
