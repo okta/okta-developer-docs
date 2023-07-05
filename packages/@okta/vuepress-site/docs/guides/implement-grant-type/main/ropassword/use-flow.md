@@ -2,11 +2,11 @@ If implementing the Resource Owner Password flow is your only option, you need t
 
 ### Request for tokens
 
-Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the [default custom authorization server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
+Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the org authorization server, then your request would look something like this:
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'authorization: Basic MG9hYn...' \
   --header 'content-type: application/x-www-form-urlencoded' \
