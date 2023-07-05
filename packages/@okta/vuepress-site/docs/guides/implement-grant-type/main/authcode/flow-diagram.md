@@ -16,7 +16,7 @@ At a high level, this flow has the following steps:
 
     Before implementing this redirect request to the authorization server (Okta), you need to [set up your app](#set-up-your-app) in Okta. See [Request an authorization code](#request-an-authorization-code).
 
-2. Okta redirects the authentication prompt (Okta sign-in page) to the user.
+2. Okta redirects the user's browser to an authentication prompt (the Okta sign-in page).
 3. The user authenticates.
 
     For Okta to authenticate the user credentials, Okta needs user profile data.
