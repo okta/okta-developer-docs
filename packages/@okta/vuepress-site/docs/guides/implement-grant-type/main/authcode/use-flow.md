@@ -4,18 +4,18 @@ The following sections outline the main requests required to implement the Autho
 
 To get an authorization code, your app redirects the user to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you’re using the default custom authorization server, then your request URL would look something like this:
 
-```bash
+```url
 https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabucvy
 c38HLL1ef0h7&response_type=code&scope=openid&redirect_uri=https%3A%2F%2Fexample.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
 ```
 
 Note the parameters that are being passed:
 
-- `client_id` is the client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
-- `response_type` is `code`, indicating that you’re using the Authorization Code grant type.
-- `scope` is `openid`, which means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
-- `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
-- `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
+* `client_id` is the client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
+* `response_type` is `code`, indicating that you're using the Authorization Code grant type.
+* `scope` is `openid`, which means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+* `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
+* `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 
 See [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
 
@@ -44,9 +44,9 @@ curl --request POST \
 
 Note the parameters that are being passed:
 
-- `grant_type` is `authorization_code`, indicating that you’re using the Authorization Code grant type.
-- `redirect_uri` is the URI that was used to get the authorization code.
-- `code` is the authorization code that you got from the `/authorize` endpoint.
+* `grant_type` is `authorization_code`, indicating that you’re using the Authorization Code grant type.
+* `redirect_uri` is the URI that was used to get the authorization code.
+* `code` is the authorization code that you got from the `/authorize` endpoint.
 
 See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token) for more information on these parameters.
 

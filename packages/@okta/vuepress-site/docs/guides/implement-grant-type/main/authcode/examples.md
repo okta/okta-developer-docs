@@ -1,6 +1,6 @@
 ### Examples
 
-The following examples present web applications implementing the Authorization Code flow to authenticate an end user and then create a local session for them. These projects use popular web frameworks to handle the heavy lifting. Each project can be cloned and ran locally.
+The following examples present web applications implementing the Authorization Code flow to authenticate an end user and then create a local session for them. Each project can be cloned and run locally.
 
 |                                       | Framework    | Example repository                                             |
 | :-----------------------------------: | ------------ | -------------------------------------------------------------- |
