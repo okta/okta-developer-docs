@@ -7540,7 +7540,7 @@ curl -X POST \
             "application_type": "native",
             "consent_method": "TRUSTED",
             "issuer_mode": "CUSTOM_URL",
-            "participate_slo": false.
+            "participate_slo": false,
 	    "idp_initiated_login": {
               "mode": "DISABLED"
             }
