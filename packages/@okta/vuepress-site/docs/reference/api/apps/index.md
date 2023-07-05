@@ -997,9 +997,10 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 | responseSigned        | Determines whether the SAML authentication response message is digitally signed by the IDP or not                 | Boolean                                              | FALSE    | FALSE  |                                           |
 | signatureAlgorithm    | Determines the signing algorithm used to digitally sign the SAML assertion and response                           | String                                               | FALSE    | FALSE  |                                           |
 | slo                   | Determines if the application supports Single Logout                                                              | [Single Logout](#single-logout-object)               | TRUE     | FALSE  |
+| participateSlo <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />     | Determines if the application participates in Single Logout                                                              | [Participate Single Logout](#participate-single-logout-object)               | TRUE     | FALSE  |
 | ssoAcsUrl             | Single Sign-On URL                                                                                                | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | ssoAcsUrlOverride     | Overrides the `ssoAcsUrl` setting                                                                                 | String                                               | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
-| spCertificate         | The certificate that Okta uses to validate Single Logout (SLO) requests                                           | [SP Certificate](#service-provider-certificate)      | TRUE     | FALSE  |
+| spCertificate         | The certificate that Okta uses to validate Single Logout (SLO) and Participate Single Logout requests                                           | [SP Certificate](#service-provider-certificate)      | TRUE     | FALSE  |
 | subjectNameIdFormat   | Identifies the SAML processing rules                                                                             | String                                               | FALSE    | FALSE  |                                           |
 | subjectNameIdTemplate | Template for app user's username when a user is assigned to the app                                              | String                                               | FALSE    | FALSE  |                                           |
 
@@ -1013,7 +1014,8 @@ Adds a SAML 2.0 application. This application is only available to the org that 
     * In App Wizard SAML App, no override attributes are available.
 
 * If Single Logout is supported by the application and the `slo` object is provided in the request, the `spCertificate` object must be present.
-* When you update an application, if you don't specify `slo` or `spCertificate` the existing configuration persists.
+* If Participate Single Logout is supported by the application and the `participateSlo` object is provided in the request, the `spCertificate` object must be present.
+* When you update an application, if you don't specify `participateSlo` or `slo` or `spCertificate` the existing configuration persists.
 * When you associate the application with `inlineHooks`, you should [create SAML inline hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created inline hook ID.
 
 ##### Supported values for custom SAML app
@@ -1096,6 +1098,12 @@ curl -v -X POST \
         "enabled": true,
         "issuer": "https://testorgone.okta.com",
         "logoutUrl": "https://testorgone.okta.com/logout"
+      },
+      "participateSlo": {
+        "enabled": true,
+        "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+        "sessionIndexRequired": true,
+        "bindingType": "REDIRECT"
       },
       "spCertificate": {
         "x5c": [
@@ -1200,6 +1208,12 @@ curl -v -X POST \
         "enabled": true,
         "spIssuer": "https://testorgone.okta.com",
         "logoutUrl": "https://testorgone.okta.com/logout"
+      },
+      "participateSlo": {
+        "enabled": true,
+        "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+        "sessionIndexRequired": true,
+        "bindingType": "REDIRECT"
       },
       "spCertificate": {
         "x5c": [
@@ -1358,6 +1372,9 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | backchannel_authentication_request_signing_alg <ApiLifecycle access="ie" /> | The signing algorithm for Client-Initiated Backchannel Authentication signed requests. If this value isn't set and a signed request is sent, the request fails.                                                                     | String                                                                                        | TRUE       | FALSE    | TRUE      |
 | backchannel_custom_authenticator_id <ApiLifecycle access="ie" />             | The ID of the custom authenticator that authenticates the user.                                                                                                                                                        | String                                                                                        | TRUE       | FALSE    | TRUE      |
 | dpop_bound_access_tokens  <ApiLifecycle access="ea" />                                                    | Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If omitted, the default value is `false`. If `true`, the authorization server rejects token requests from this client that don't contain the DPoP header.  | Boolean  | TRUE       | FALSE    | TRUE      |
+| participate_slo <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | Determines if the application participates in Single Logout                      | Boolean  | TRUE       | FALSE    | TRUE      |
+| frontchannel_logout_uri <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | URL where Okta sends the logout request                            | Boolean  | TRUE       | FALSE    | TRUE      |
+| frontchannel_logout_session_required <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | Session details allow you to end a specific user session instead of all active user sessions    | Boolean  | TRUE       | FALSE    | TRUE      |
 
 ###### Details
 
@@ -1377,6 +1394,8 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
   > **Caution:** The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise great caution if you decide to include a wildcard redirect URI in your configuration.
 
 * When you create an app using the App Wizard in the UI, and you specify an app logo for the **Application logo** property, that value is stored as the `logo_uri` value and used as the logo on the application's tile for the dashboard as well as the client consent dialog box during the client consent flow. If you add or modify a `logo_uri` value later, that value is used only on the client consent dialog box during the client consent flow.
+
+* `participate_slo` can only be enabled for application types `web` and `browser`.
 
 * Different application types have different valid values for the corresponding grant type:
 
@@ -1464,7 +1483,8 @@ curl -v -X POST \
           "implicit",
           "authorization_code"
         ],
-        "application_type": "native"
+        "application_type": "native",
+        "participate_slo": false
       }
     }
 }' "https://${yourOktaDomain}/api/v1/apps"
@@ -1560,6 +1580,12 @@ curl -v -X GET \
         "enabled": true,
         "spIssuer": "http://testorgone.okta.com",
         "logoutUrl": "http://testorgone.okta.com/logout"
+      },
+      "participateSlo": {
+        "enabled": true,
+        "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+        "sessionIndexRequired": true,
+        "bindingType": "REDIRECT"
       },
       "spCertificate": {
         "x5c": [
@@ -1758,6 +1784,12 @@ curl -v -X GET \
           "enabled": true,
           "spIssuer": "https://testorgone.okta.com",
           "logoutUrl": "https://testorgone.okta.com/logout"
+        },
+        "participateSlo": {
+          "enabled": true,
+          "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+          "sessionIndexRequired": true,
+          "bindingType": "REDIRECT"
         },
         "spCertificate": {
           "x5c": [
@@ -1965,6 +1997,12 @@ curl -v -X GET \
           "enabled": true,
           "spIssuer": "https://testorgone.okta.com",
           "logoutUrl": "https://testorgone.okta.com/logout"
+        },
+        "participateSlo": {
+          "enabled": true,
+          "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+          "sessionIndexRequired": true,
+          "bindingType": "REDIRECT"
         },
         "spCertificate": {
           "x5c": [
@@ -2287,6 +2325,12 @@ curl -v -X GET \
           "enabled": true,
           "spIssuer": "https://testorgone.okta.com",
           "logoutUrl": "https://testorgone.com/logout"
+        },
+        "participateSlo": {
+          "enabled": true,
+          "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+          "sessionIndexRequired": true,
+          "bindingType": "REDIRECT"
         },
         "spCertificate": {
           "x5c": [
@@ -3387,7 +3431,8 @@ curl -v -X PUT \
             ],
             "application_type": "native",
             "consent_method": "TRUSTED",
-            "issuer_mode": "CUSTOM_URL"
+            "issuer_mode": "CUSTOM_URL",
+            "participate_slo": false
         }
     }
 }' "https://${yourOktaDomain}/api/v1/apps/${appId}"
@@ -3471,7 +3516,8 @@ curl -v -X PUT \
             "issuer_mode": "CUSTOM_URL",
             "idp_initiated_login": {
               "mode": "DISABLED"
-            }
+            },
+            "participate_slo": false
         }
     },
     "_links": {
@@ -3560,7 +3606,8 @@ curl -v -X PUT \
       "issuer_mode": "ORG_URL",
       "application_type": "native",
       "tos_uri": "",
-      "policy_uri": ""
+      "policy_uri": "",
+      "participate_slo": false
     }
   }
 }' "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
@@ -3645,7 +3692,8 @@ curl -v -X PUT \
       "idp_initiated_login": {
         "mode": "DISABLED",
         "default_scope": []
-      }
+      },
+      "participate_slo": false
     }
   },
   "profile": {
@@ -7246,7 +7294,8 @@ curl -v -X POST \
         "policy_uri":"https://example.com/client/policy",
         "idp_initiated_login": {
           "mode": "DISABLED"
-        }
+        },
+        "participate_slo": false
     }
   }
 }' "https://${yourOktaDomain}/api/v1/apps"
@@ -7332,7 +7381,8 @@ curl -v -X POST \
               "mode": "DISABLED"
             },
             "consent_method": "TRUSTED",
-            "issuer_mode": "CUSTOM_URL"
+            "issuer_mode": "CUSTOM_URL",
+            "participate_slo": false
         }
     },
     "_links": {
@@ -7395,6 +7445,7 @@ curl -X POST \
                 "authorization_code"
             ],
             "application_type": "native",
+            "participate_slo": false,
             "jwks": {
                 "keys": [
                     {
@@ -7489,6 +7540,7 @@ curl -X POST \
             "application_type": "native",
             "consent_method": "TRUSTED",
             "issuer_mode": "CUSTOM_URL",
+            "participate_slo": false.
 	    "idp_initiated_login": {
               "mode": "DISABLED"
             }
@@ -7554,6 +7606,7 @@ curl -X POST \
                 "authorization_code"
             ],
             "application_type": "native",
+            "participate_slo": false,
             "jwks_uri": "https://www.example-application.com/oauth2/jwks-uri"
         }
     }
@@ -7629,6 +7682,7 @@ curl -X POST \
             "application_type": "native",
             "consent_method": "TRUSTED",
             "issuer_mode": "CUSTOM_URL",
+            "participate_slo": false,
 	    "idp_initiated_login": {
               "mode": "DISABLED"
             }
@@ -8199,6 +8253,29 @@ Specifies the Single Logout (SLO) behavior for a Custom SAML application
     "enabled": true,
     "issuer": "https://testorgone.okta.com",
     "logoutUrl": "https://testorgone.okta.com/logout"
+  }
+}
+```
+
+### Participate Single Logout object
+
+Specifies the Participate Single Logout behavior for a Custom SAML application
+
+| Property  | Description                                                                  | Datatype | Nullable |
+| --------- | ---------------------------------------------------------------------------- | -------- | -------- |
+| enabled             | Whether the application supports participateSlo                    | Boolean  | FALSE    |
+| logoutRequestUrl    | URL where Okta sends the logout request                            | String   | TRUE     |
+| bindingType         | HTTP binding used to send an `<LogoutRequest>` message to the RP   | `POST` or `REDIRECT`   | TRUE     |
+| sessionIndexRequired | Session details allow you to end a specific user session instead of all active user sessions | String   | TRUE     |
+
+
+```json
+{
+  "participateSlo": {
+    "enabled": true,
+    "logoutRequestUrl": "https://testorgone.okta.com/logout/participate",
+    "sessionIndexRequired": true,
+    "bindingType": "REDIRECT"
   }
 }
 ```
