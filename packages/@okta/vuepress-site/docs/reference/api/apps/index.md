@@ -1395,7 +1395,7 @@ You can change the `issuer_mode` value using the API or the Admin Console. To en
 
 * When you create an app using the App Wizard in the UI, and you specify an app logo for the **Application logo** property, that value is stored as the `logo_uri` value and used as the logo on the application's tile for the dashboard as well as the client consent dialog box during the client consent flow. If you add or modify a `logo_uri` value later, that value is used only on the client consent dialog box during the client consent flow.
 
-* `participate_slo` can only be enabled for application types `web` and `browser`.
+* You can only enable `participate_slo` for application types `web` and `browser`.
 
 * Different application types have different valid values for the corresponding grant type:
 
