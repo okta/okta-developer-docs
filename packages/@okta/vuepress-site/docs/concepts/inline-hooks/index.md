@@ -36,7 +36,7 @@ Okta defines several different types of inline hooks. Each type of inline hook m
 
 ### Extension points
 
-The points in Okta process flows where inline hooks can be triggered are called extension points, because they’re where you can extend Okta functionality. Each type of inline hook is triggered at a particular extension point in a particular Okta process flow. At an extension point, if you’ve configured an inline hook, Okta calls your external service, and waits for a response. When the response is received, Okta resumes the process flow.
+The points in Okta process flows where inline hooks can be triggered are called extension points, because they're where you can extend Okta functionality. Each type of inline hook is triggered at a particular extension point in a particular Okta process flow. At an extension point, if you've configured an inline hook, Okta calls your external service, and waits for a response. When the response is received, Okta resumes the process flow.
 
 ### Inline hook call within an Okta process flow
 
@@ -102,7 +102,7 @@ Authorization: ${key}
 
 #### Authorization header
 
-The Authorization header (`Authorization: ${key}`) is a secret string that you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request. This string allows your code to check for its presence as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.) See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/#http-header-basic-authentication).
+The Authorization header (`Authorization: ${key}`) is a secret string that you provide to Okta when you register your external service. This string serves as an API access key for your service, and Okta provides it in every request. Your code can check if the string is present as a security measure. (This isn't an Okta authorization token, it's simply a text string you decide on.) See [HTTP header: Basic Authentication](/docs/guides/common-hook-set-up-steps/#http-header-basic-authentication).
 
 ### JSON request payload objects
 
@@ -110,11 +110,11 @@ The Okta JSON payload provides specific information about the process flow that'
 
 The objects providing this information are nested within a larger object called `data`.
 
-Always included is `data.context`, providing context information. In general, `data.context` encapsulates Okta objects that your external service can’t affect, while objects in `data` that are outside of `data.context` encapsulate objects that your external service does can affect, with commands it sends in its response.
+Always included is `data.context`, providing context information. In general, `data.context` encapsulates Okta objects that your external service can't affect, while objects in `data` that are outside of `data.context` encapsulate objects that your external service does can affect, with commands it sends in its response.
 
 ## The response
 
-Your service receives the request from Okta and needs to respond to it. The response needs to include an HTTP response code and and, usually, a JSON payload. In particular, you’ll typically include a `commands` object in the JSON payload to specify actions for Okta to execute or to communicate information back to Okta.
+Your service receives the request from Okta and needs to respond to it. The response needs to include an HTTP response code and and, usually, a JSON payload. In particular, you'll typically include a `commands` object in the JSON payload to specify actions for Okta to execute or to communicate information back to Okta.
 
 <HookResponseSize/>
 
@@ -124,7 +124,7 @@ Return an HTTP status code with your response. Typically, your service should re
 
 #### Don't use HTTP status code to return information
 
-Don't use the HTTP status code to return information to Okta regarding problems your service has detected in the data. Use an [error](#error) object sent in the JSON payload of the response. HTTP error codes shouldn’t be used unless your service couldn’t parse the request from Okta.
+Don't use the HTTP status code to return information to Okta regarding problems your service has detected in the data. Use an [error](#error) object sent in the JSON payload of the response. HTTP error codes shouldn't be used unless your service couldn't parse the request from Okta.
 
 ### JSON response payload objects
 
@@ -183,10 +183,10 @@ In the case of an inline hook time out or failure, the Okta process flow either 
 
 | Inline hook        | Inline hook failure behavior                             |
 |--------------------------------| ---------------------------------------------------------|
-| Password import inline hook | Okta process flow stops and user can't sign in. The password isn’t imported. Future attempts to sign in triggers the inline hook again. |
+| Password import inline hook | Okta process flow stops and user can't sign in. The password isn't imported. Future attempts to sign in triggers the inline hook again. |
 | Registration inline hook | Okta process flow stops and the registration or the profile update is denied. The user receives one of the following default UI messages:<ul><li>"There was an error creating your account. Please try registering again". (Self-service registration)</li><li>"There was an error updating your profile. Please try again later." (Progressive profile enrollment)</li></ul> |
 | SAML assertion inline hook | Okta process flow continues with the original SAML assertion returned. |
-| Telephony inline hook | Okta process to deliver the OTP continues and the OTP is sent using Okta’s providers. |
+| Telephony inline hook | Okta process to deliver the OTP continues and the OTP is sent using Okta's providers. |
 | Token inline hook | Okta process flow continues with the original token returned. |
 | User import inline hook | Okta import process continues and user is created. |
 
