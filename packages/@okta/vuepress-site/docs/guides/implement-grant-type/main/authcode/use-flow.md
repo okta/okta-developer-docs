@@ -4,9 +4,10 @@ The following sections outline the main requests required to implement the Autho
 
 To get an authorization code, your app redirects the user to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you’re using the default custom authorization server, then your request URL would look something like this:
 
-```url
-https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabucvy
-c38HLL1ef0h7&response_type=code&scope=openid&redirect_uri=https%3A%2F%2Fexample.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
+```uri
+https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabucvyc38HLL1ef0h7&
+   response_type=code&scope=openid&
+   redirect_uri=https%3A%2F%2Fexample.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
 ```
 
 Note the parameters that are being passed:
@@ -21,7 +22,7 @@ See [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more 
 
 If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, they arrive at the specified `redirect_uri` along with a `code`:
 
-```bash
+```uri
 http://localhost:8080/?code=P5I7mdxxdv13_JfXrCSq&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
 ```
 
@@ -40,7 +41,7 @@ curl --request POST \
   --data 'grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&code=P59yPm1_X1gxtdEOEZjn'
 ```
 
-> **Important:** The call to the `/token` endpoint requires authentication. In this case, it's Basic Authentication with the client ID and secret [Base64-encoded](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret). You can find the client ID and secret on your application's **General** tab. This requirement is why this call is only appropriate for applications that can guarantee the confidentiality of the client secret. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Important:** The call to the `/token` endpoint requires authentication. In this case, it's Basic Authentication with the client ID and secret [Base64-encoded](/docs/guides/implement-grant-type/clientcreds/main/#base64-encode-the-client-id-and-client-secret). You can find the client ID and secret on your app integration's **General** tab. This requirement is why this call is only appropriate for applications that can guarantee the confidentiality of the client secret. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
