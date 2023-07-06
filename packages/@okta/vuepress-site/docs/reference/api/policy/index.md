@@ -55,6 +55,8 @@ HTTP 200:
 
 <ApiOperation method="get" url="/api/v1/policies/${policyId}?expand=rules" />
 
+For Okta Classic Engine orgs only. Retrieves a policy and its associated rules. For Okta Identity Engine, see [List Policy Rules](#list-policy-rules). <!--OKTA-622770-->
+
 ##### Request parameters
 
 * The Policy ID described in the [Policy object](#policy-object) is required.
