@@ -83,7 +83,18 @@ Included as embedded objects, one or more [Policy Rules](#rules).
 
 ##### Request parameters
 
-The Policy type described in the [Policy object](#policy-object) is required.
+ is required.
+
+| Parameter | Description                                                        | Param Type | DataType | Required |
+| --------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
+| type      | The Policy `type` described in the [Policy object](#policy-object)   | URL        | String   | TRUE     |
+| status    | Refines the query by `status` of the policy: `ACTIVE` or `INACTIVE`  | URL        | String   | FALSE    |
+| q         | Refines the query by policy `name` prefix (`startWith` method)       | URL        | String   | FALSE    |
+| sortBy    | Refines the query by sorting on `name` in ascending order            | URL        | String   | FALSE    |
+| limit     | The number of policies returned, see [Limits and pagination](/docs/reference/user-query/#limits-and-pagination)                                      | URL        | String   | FALSE     |
+| after     | Supports pagination, see [Limits and pagination](/docs/reference/user-query/#limits-and-pagination)   | URL        | String   | FALSE     |
+
+[test](#)
 
 ##### Request example
 
@@ -275,6 +286,8 @@ HTTP 204:
 
 ### Get applications
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
+
+<ApiLifecycle access="deprecated" />
 
 Retrieves a list of applications mapped to a policy
 
