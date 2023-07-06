@@ -73,9 +73,11 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
-* If your org has configured any SAML or WS-Fed integrated apps, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
+* If you configure any SAML or WS-Fed integrated apps in your org, review the setup instructions for [SAML SSO](/docs/guides/build-sso-integration/saml2/main/) or [WS-Fed SSO](https://help.okta.com/okta_help.htm?id=ext_Apps_Configuring_WS_Federation). If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
 * If you sign a user in with your new custom domain and they try to SSO into previous OIDC integrations made with the org domain, your user is prompted to sign in again. To avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
+
+* If you configure the WebAuthn authenticator in your org and create a custom domain, your users need to re-enroll with WebAuthn. Update your app integration to use the new custom URL in the metadata. Okta prompts users to re-enroll.
 
 * When you implement a custom domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom domain to your users. One way to communicate the change is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
 
