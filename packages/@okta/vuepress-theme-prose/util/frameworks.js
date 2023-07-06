@@ -82,8 +82,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   oob: 'OOB',
   mfaoob: 'MFA OOB',
   mfaotp: 'MFA OTP',
-  openidconnect: 'OIDC',
-  saml2: 'SAML',
+  oidc: 'OIDC',
+  saml: 'SAML',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
@@ -121,6 +121,8 @@ const COMMON_NAME_TO_ICON_NAME = {
   reactnativedroid: 'code-react-32',
   reactnativeios: 'code-react-32',
   spring: 'code-spring-32',
+  saml: 'SAML',
+  oidc: 'OIDC',
 };
 
 const IDP_COMMON_NAME_TO_ICON_NAME = {
