@@ -404,7 +404,7 @@ A subset of Trusted Origins that match a supported filter expression or query cr
 
 | Parameter    | Description                                                                                                                                       | Param Type   | DataType   | Required |
 | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :----------- | :--------- | :------- |
-| filter       | [Filter](/docs/reference/core-okta-api/#filter) Trusted Origins with a supported expression for a subset of properties. You can filter on the following properties: `name`, `origin`, `status`, and `type` (that is, the `type` of `scopes`).   | Query        | String     | No       |
+| filter       | [Filter](/docs/reference/core-okta-api/#filter) Trusted Origins with a supported expression for a subset of properties. You can filter on the following properties: `name`, `origin`, `status`, and `type` (type of scopes).   | Query        | String     | No       |
 | limit        | Specifies the number of results. The maximum number of results returned is 200.                                                                                                          | Query        | Integer    | No       |
 
 ##### Response parameters
