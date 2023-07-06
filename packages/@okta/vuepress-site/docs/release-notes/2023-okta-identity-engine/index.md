@@ -6,6 +6,23 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## June
 
+### Weekly release 2023.06.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New IdP permissions for custom admin roles is EA in Preview](#new-idp-permissions-for-custom-admin-roles-is-ea-in-preview) | July 6, 2023 |
+| [Bugs fixed in 2023.06.2](#bugs-fixed-in-2023-06-2) | July 6, 2023 |
+
+#### New IdP permissions for custom admin roles is EA in Preview
+
+Admins can now leverage new Identity Provider management permissions when creating custom admin roles. These permissions allow more precise access control and reinforce the principle of least privilege. See [Roles](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Role/).
+
+#### Bugs fixed in 2023.06.2
+
+* The `max_age=0` property wasn't treated the same as `prompt=login` for OAuth 2.0 `/authorize` requests. (OKTA-588559)
+* A delete session request (/api/v1/sessions/me) didn't clear the session cookie (`sid`). (OKTA-620986)
+* When the List all Trusted Origins API was called with a `filter` on `status`, an error was returned. (OKTA-622646)
+
 ### Weekly release 2023.06.1
 
 | Change | Expected in Preview Orgs |
