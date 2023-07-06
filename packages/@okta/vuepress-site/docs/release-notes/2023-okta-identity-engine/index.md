@@ -20,7 +20,7 @@ Admins can now leverage new Identity Provider management permissions when creati
 #### Bugs fixed in 2023.06.2
 
 * The `max_age=0` property wasn't treated the same as `prompt=login` for OAuth 2.0 `/authorize` requests. (OKTA-588559)
-* A delete session request (/api/v1/sessions/me) didn't clear the session cookie (`sid`). (OKTA-620986)
+* A delete session request (`/api/v1/sessions/me`) didn't clear the session cookie (`sid`). (OKTA-620986)
 * When the List all Trusted Origins API was called with a `filter` on `status`, an error was returned. (OKTA-622646)
 
 ### Weekly release 2023.06.1
