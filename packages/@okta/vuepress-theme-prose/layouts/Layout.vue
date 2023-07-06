@@ -82,6 +82,7 @@
       </div>
     </div>
     <Footer />
+    <Feedback />
   </div>
 </template>
 
@@ -106,6 +107,7 @@ export default {
     ContentPage: () => import("../components/ContentPage.vue"),
     GeneratedContent: () => import("../components/GeneratedContent.vue"),
     Footer: () => import("../components/Footer.vue"),
+    Feedback: () => import("../components/Feedback.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>

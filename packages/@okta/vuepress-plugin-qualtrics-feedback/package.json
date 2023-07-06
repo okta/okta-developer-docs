@@ -1,9 +1,0 @@
-{
-    "name": "@okta/vuepress-plugin-qualtrics-feedback",
-    "version": "1.0.0",
-    "description": "qualtrics-feedback plugin for okta vuepress",
-    "main": "index.js",
-    "peerDependencies": {
-      "vuepress": "^1.2.0"
-    }
-}
