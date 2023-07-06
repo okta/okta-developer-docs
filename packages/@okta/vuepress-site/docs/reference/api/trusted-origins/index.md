@@ -404,7 +404,7 @@ A subset of Trusted Origins that match a supported filter expression or query cr
 
 | Parameter    | Description                                                                                                                                       | Param Type   | DataType   | Required |
 | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :----------- | :--------- | :------- |
-| filter       | [Filter](/docs/reference/core-okta-api/#filter) Trusted Origins with a supported expression for a subset of properties. You can filter on the following properties: `name`, `origin`, `status`, and `type` (that is, the `type` of `scopes`)   | Query        | String     | No       |
+| filter       | [Filter](/docs/reference/core-okta-api/#filter) Trusted Origins with a supported expression for a subset of properties. You can filter on the following properties: `name`, `origin`, `status`, and `type` (that is, the `type` of `scopes`).   | Query        | String     | No       |
 | limit        | Specifies the number of results. The maximum number of results returned is 200.                                                                                                          | Query        | Integer    | No       |
 
 ##### Response parameters
@@ -557,7 +557,7 @@ curl -X GET \
 
 Lists all Trusted Origins that match the filter criteria. You can filter on the following properties: `name`, `origin`, `status`, and `type` (that is, the `type` of `scopes`).
 
-his operation requires [URL encoding](/docs/reference/core-okta-api/#filter). For example, `filter=(name eq "Example Trusted Origin" or name eq "Another Trusted Origin")` is encoded as `filter=%28id+eq+%22Example+Trusted+Origin%22+or+id+eq+%22Another+Trusted+Origin%22%29`.
+This operation requires [URL encoding](/docs/reference/core-okta-api/#filter). For example, `filter=(name eq "Example Trusted Origin" or name eq "Another Trusted Origin")` is encoded as `filter=%28id+eq+%22Example+Trusted+Origin%22+or+id+eq+%22Another+Trusted+Origin%22%29`.
 
 See [Filtering](/docs/reference/core-okta-api/#filter) for more information on the expressions used in filtering.
 
