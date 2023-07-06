@@ -1,4 +1,4 @@
-* Add the `spCertificate` object. This is the signature certificate or CA in .pem format. Your app must sign the SLO request with the certificate.
+* Add the `spCertificate` object. This is the signature certificate or CA in `.pem` format. Your app must sign the SLO request with the certificate.
 * Update the `slo` object:
   * `enabled`: Set to `true` to enable SP-initiated single logout.
   * `issuer`: Enter the identifier for the SP app. This can be an ACS URL or the SP Entity ID. This value is included in the metadata sent in the SP-initiated SLO request.

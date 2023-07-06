@@ -44,9 +44,11 @@ See [Sign users out](/docs/guides/sign-users-out) for a guide to implement local
 
 ### Single Logout (SLO)
 
+> **Note:** IdP-initiated SLO is <ApiLifecycle access="ea" />.
+
 Single Logout (SLO) allows a user to sign out of an SLO participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO participating apps on other devices.
 
-Okta supports both Single Logout (SLO) initiated by an app (SP-initiated) and by the IdP (IdP-initiated). When a user clicks the sign-out button in an app, SP-initiated SLO allows third-party SAML 2.0 and OpenID Connect (OIDC) apps to direct the browser to Okta while making a logout request. This indicates to Okta that the user wants to sign out of the app. IdP-initiated SLO begins when Okta determines other apps that the user is signed in to for the current session. Okta initiates logout requests to any downstream apps participating in SLO that didn't initiate the logout. Finally, Okta ends the user’s app and Okta session.
+Okta supports both SLO initiated by an app (SP-initiated) and by the IdP (IdP-initiated). When a user clicks the sign-out button in an app, third-party SAML 2.0 and OpenID Connect (OIDC) apps direct the browser to Okta while making an SP-initiated logout request. This indicates to Okta that the user wants to sign out of the app. In response, Okta ends the user’s Okta session. Okta then determines other apps that the user is signed in to for the current session. Okta makes IdP-initiated logout requests to any downstream apps participating in SLO that didn't initiate the logout. Finally, Okta makes a GET or POST redirection request to original SP app that initiated SLO.
 
 Other active app sessions for the user can still persist without the Okta session, depending on the restrictive nature of the apps. For non-privileged access apps, the user can still access the app within the scope of the app session. For example, a user can still browse through a catalog of vacation experiences and add to their cart. When this user is ready to check out and make a payment, the app can enforce a privileged access workflow and redirect the user to re-authenticate with Okta to secure an Okta session. For privileged access apps with short-lived sessions, the user is typically redirected to re-authenticate with Okta to start a new Okta session and app session.
 
