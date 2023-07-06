@@ -4,7 +4,7 @@
     * **SLO initiation**: Select the checkbox to enable SP-initiated SLO for the app.
     * **Response URL**: Enter the URL where you want Okta to send the logout response at the end of SLO. For example: `http://myapp.exampleco.com/logout`
     * **SP Issuer**: Enter the identifier for the app. This is usually the Assertion Consumer Service (ACS) URL or the SP Entity ID. The ACS URL is most often the SAML Post URL location for the target app. The SP Entity ID is the unique identifier that is the intended audience of the SAML assertion. The **SP Issuer** value is included in the metadata sent in the SP-initiated inbound logout request from the app. For example: `https://myapp.exampleco.com`
-    * **SLO participation**: Select the checkbox to allow your SAML app to participate in IdP-initiated single logout. Users are signed out of the app when any other app, or Okta, initiates single logout.
+    * **SLO participation**: Select the checkbox to allow your SAML app to participate in IdP-initiated SLO. Users are signed out of the app when any other app, or Okta, initiates single logout.
     * **Request URL**: Enter the URL where you want Okta to send the IdP-initiated logout request. For example: `http://myapp.exampleco.com/saml/logout`
     * Select how your app expects Okta to send the IdP-initiated logout request:
         * **HTTP POST**: Send additional data in the request body
@@ -14,7 +14,7 @@
 
 #### Collect the SLO details for your app
 
-1. On the **Sign On** tab, click **View Setup Instructions** located in the instructional text along the side of the **Settings** section. The page that appears includes configuration information for your SAML app.
+1. On the **Sign On** tab, click **View Setup Instructions** in the instructional text along the side of the **Settings** section. The page that appears includes configuration information for your SAML app.
 1. Copy the **Identity Provider Single Logout URL**. This is the POST request URL that your app uses to initiate the logout request with Okta. For example:  `https://{yourOktaDomain}/app/{app}/{key}/slo/saml`
 
     * `yourOktaDomain`: Your Okta org URL

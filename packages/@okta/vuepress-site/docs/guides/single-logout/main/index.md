@@ -32,7 +32,7 @@ Okta currently supports SP-initiated SLO for third-party SAML 2.0 and OpenID Con
 
 The multiple device SLO feature supports outbound logout requests (IdP-initiated SLO) after the SP app makes the SP-initiated inbound logout request to Okta. Okta sends outbound logout requests to any other apps participating in SLO that didn't initiate the logout. This applies only to the downstream apps where the user has previously established a session. Requests are communicated from Okta to apps using front-channel logout, which means that the browser does the communicating.
 
-SLO is especially useful in scenarios where users share computers or use public kiosks. A user may sign in to a computer portal, and then open one app, and then another, and another, and so on. The signing in of the user for each app happens behind the scenes. In a perfect world, when the user wants to sign out, they should sign out of every single app to keep the next user from accessing their information. But, most users don’t do that. SLO logs the user out of everything at once.
+SLO is especially useful in scenarios where users share computers or use public kiosks. A user may sign in to a computer portal, and then open one app, and then another, and another, and so on. The signing in of the user for each app happens behind the scenes. In a perfect world, when the user wants to sign out, they should sign out of every app to keep the next user from accessing their information. But, most users don’t do that. SLO logs the user out of everything at once.
 
 ### Single Logout diagram
 
@@ -67,7 +67,7 @@ SLO is especially useful in scenarios where users share computers or use public 
 
 **Event 3**
 
-Because Apps 2 and 3 have sessions for the user in other browsers, and on other devices, these sessions may also be terminated by the apps from the server side. When the user tries to use these apps in the respective browsers, the user discovers that the apps have invalidated the user’s browser sessions.
+Because Apps 2 and 3 have sessions for the user in other browsers, and on other devices, the apps may terminate these sessions from the server side. When the user tries to use these apps in the respective browsers, the user discovers that the apps have invalidated the user’s browser sessions.
 
 Downstream SAML apps terminate a specific session associated with the user or terminate all sessions associated with the user. This depends on whether `sessionIndex` (SAML) is included in the IdP-initiated logout request. For OIDC apps, this depends on whether the session ID (`sid`) and issuer (`iss`) are included.
 
