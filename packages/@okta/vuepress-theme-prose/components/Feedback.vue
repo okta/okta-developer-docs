@@ -1,7 +1,11 @@
 <template>
   <div id="feedback-tab">
-    <a id="feedback-link" href="#" title="Submit feedback"
-      @click="openSurvey()">
+    <a
+      id="feedback-link"
+      href="#"
+      title="Submit feedback"
+      @click="openSurvey()"
+    >
       <div id="feedback-container">
         <p id="feedback-text">Feedback</p>
       </div>
