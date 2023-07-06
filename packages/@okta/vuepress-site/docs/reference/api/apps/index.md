@@ -8266,7 +8266,7 @@ Specifies the Participate Single Logout behavior for a Custom SAML application
 | enabled             | Indicates whether the application supports `participateSlo`                    | Boolean  | FALSE    |
 | logoutRequestUrl    | URL where Okta sends the logout request                            | URL      | TRUE     |
 | bindingType         | HTTP binding used to send a `<LogoutRequest>` message to the SP   | `POST` or `REDIRECT`   | TRUE     |
-| sessionIndexRequired | Determines whether Okta sends SessionIndex in the logout request  | Boolean   | TRUE     |
+| sessionIndexRequired | Determines whether Okta sends `<SessionIndex>` elements in the logout request  | Boolean   | TRUE     |
 
 
 ```json
