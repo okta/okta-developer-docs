@@ -92,7 +92,6 @@ Included as embedded objects, one or more [Policy Rules](#rules).
 | limit     | The number of policies returned, see [Pagination](/docs/reference/core-okta-api/#pagination)                                      | URL        | String   | FALSE     |
 | after     | End page cursor for pagination, see [Pagination](/docs/reference/core-okta-api/#pagination)   | URL        | String   | FALSE     |
 
-[test](#get-applications)
 ##### Request example
 
 ```bash
