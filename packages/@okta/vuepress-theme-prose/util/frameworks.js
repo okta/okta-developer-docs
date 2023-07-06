@@ -121,8 +121,6 @@ const COMMON_NAME_TO_ICON_NAME = {
   reactnativedroid: 'code-react-32',
   reactnativeios: 'code-react-32',
   spring: 'code-spring-32',
-  saml: 'SAML',
-  oidc: 'OIDC',
 };
 
 const IDP_COMMON_NAME_TO_ICON_NAME = {
