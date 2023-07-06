@@ -82,6 +82,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   oob: 'OOB',
   mfaoob: 'MFA OOB',
   mfaotp: 'MFA OTP',
+  openidconnect: 'OIDC',
+  saml2: 'SAML',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
