@@ -84,7 +84,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
   * The public key must use the RSA algorithm.
 
-  * The public key isn't a certificate authority's.
+  * The public key isn't a certificate authority's (CA's).
 
 
 * Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
