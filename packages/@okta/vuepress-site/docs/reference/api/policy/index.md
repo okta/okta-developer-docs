@@ -77,13 +77,11 @@ HTTP 200:
 
 Included as embedded objects, one or more [Policy Rules](#rules).
 
-### Get all Policies by type
+### List all Policies by type
 
 <ApiOperation method="get" url="/api/v1/policies?type=${type}" />
 
 ##### Request parameters
-
- is required.
 
 | Parameter | Description                                                        | Param Type | DataType | Required |
 | --------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
@@ -91,11 +89,10 @@ Included as embedded objects, one or more [Policy Rules](#rules).
 | status    | Refines the query by `status` of the policy: `ACTIVE` or `INACTIVE`  | URL        | String   | FALSE    |
 | q         | Refines the query by policy `name` prefix (`startWith` method)       | URL        | String   | FALSE    |
 | sortBy    | Refines the query by sorting on `name` in ascending order            | URL        | String   | FALSE    |
-| limit     | The number of policies returned, see [Limits and pagination](/docs/reference/user-query/#limits-and-pagination)                                      | URL        | String   | FALSE     |
-| after     | Supports pagination, see [Limits and pagination](/docs/reference/user-query/#limits-and-pagination)   | URL        | String   | FALSE     |
+| limit     | The number of policies returned, see [Pagination](/docs/reference/core-okta-api/#pagination)                                      | URL        | String   | FALSE     |
+| after     | End page cursor for pagination, see [Pagination](/docs/reference/core-okta-api/#pagination)   | URL        | String   | FALSE     |
 
-[test](#)
-
+[test](#get-applications)
 ##### Request example
 
 ```bash
@@ -284,7 +281,7 @@ HTTP 204:
 
 ## Policy mapping operations
 
-### Get applications
+### List applications
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
 
 <ApiLifecycle access="deprecated" />
@@ -313,7 +310,7 @@ Array of [Application objects](/docs/reference/api/apps/#application-object)
 
 ## Rules operations
 
-### Get Policy Rules
+### List Policy Rules
 
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/rules" />
 
