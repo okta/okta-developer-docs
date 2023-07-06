@@ -1374,7 +1374,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | dpop_bound_access_tokens  <ApiLifecycle access="ea" />                                                    | Indicates that the client application uses Demonstrating Proof-of-Possession (DPoP) for token requests. If omitted, the default value is `false`. If `true`, the authorization server rejects token requests from this client that don't contain the DPoP header.  | Boolean  | TRUE       | FALSE    | TRUE      |
 | participate_slo <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | Determines if the application participates in Single Logout                      | Boolean  | TRUE       | FALSE    | TRUE      |
 | frontchannel_logout_uri <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | URL where Okta sends the logout request                            | URL  | TRUE       | FALSE    | TRUE      |
-| frontchannel_logout_session_required <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | Allows you to end a specific user session instead of all active user sessions    | Boolean  | TRUE       | FALSE    | TRUE      |
+| frontchannel_logout_session_required <ApiLifecycle access="ie" /> <ApiLifecycle access="ea" />   | Determines whether Okta sends sid and iss in the logout request    | Boolean  | TRUE       | FALSE    | TRUE      |
 
 ###### Details
 
@@ -8266,7 +8266,7 @@ Specifies the Participate Single Logout behavior for a Custom SAML application
 | enabled             | Indicates whether the application supports `participateSlo`                    | Boolean  | FALSE    |
 | logoutRequestUrl    | URL where Okta sends the logout request                            | URL      | TRUE     |
 | bindingType         | HTTP binding used to send a `<LogoutRequest>` message to the SP   | `POST` or `REDIRECT`   | TRUE     |
-| sessionIndexRequired | Allows you to end a specific user session instead of all active user sessions | Boolean   | TRUE     |
+| sessionIndexRequired | Determines whether Okta sends sid and iss in the logout request  | Boolean   | TRUE     |
 
 
 ```json
