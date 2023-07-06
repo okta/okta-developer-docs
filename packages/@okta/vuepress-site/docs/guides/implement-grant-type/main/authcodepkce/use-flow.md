@@ -22,10 +22,15 @@ The `code_challenge` is a Base64URL-encoded SHA256 hash of the `code_verifier`. 
 
 ### Request an authorization code
 
-If you’re using the [default custom authorization server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request URL would look something like this:
+If you're using the org authorization server, then your request URL would look something like this:
 
-```url
-https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabygpxgk9lXaMgF0h7&response_type=code&scope=openid&redirect_uri=yourApp%3A%2Fcallback&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
+```uri
+https://${yourOktaDomain}/oauth2/v1/authorize?
+   client_id=0oabygpxgk9lXaMgF0h7&
+   response_type=code&scope=openid&
+   redirect_uri=yourApp%3A%2Fcallback&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&
+   code_challenge_method=S256&
+   code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
 ```
 
 Note the parameters that are being passed:
@@ -54,7 +59,7 @@ To exchange the authorization code for access and ID tokens, you pass it to your
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'cache-control: no-cache' \
   --header 'content-type: application/x-www-form-urlencoded' \

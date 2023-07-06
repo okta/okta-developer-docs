@@ -4,10 +4,10 @@ The following sections outline the main requests required to implement the Impli
 
 This flow is similar to the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/#authorization-code-flow), except that the `response_type` is `token` and/or `id_token` instead of `code`.
 
-To get the tokens, your app redirects the user to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you're using the default custom authorization server, then your request URL would look something like this:
+Your application redirects the user's browser to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the org authorization server, then your request URL would look something like this:
 
-```uri
-https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabv6kx4qq6h1U5l0h7&response_type=token&scope=openid&redirect_uri=&redirect_uri=https%3A%2F%2Fexample.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo'
+```bash
+https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oabv6kx4qq6h1U5l0h7&response_type=token&scope=openid&redirect_uri=&redirect_uri=https%3A%2F%2Fexample.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo'
 ```
 
 Note the parameters that are being passed:
