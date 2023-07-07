@@ -1,11 +1,11 @@
-1. Set **Application type** to **Native Application**, **Single-Page Application**, or **Web Application** (depending on the type of application that you're creating), then click **Next**.
-1. Specify the **App integration name**.
-1. Select **Interaction Code** and **Refresh Token** as the **Grant type**.
+1. For **Application type**, select **Native Application**, **Single-Page Application**, or **Web Application** (depending on the type of application that you're creating), then click **Next**.
+1. Enter an **App integration name**.
+1. Select **Interaction Code** and **Refresh Token** as allowed **Grant type**s.
 
    <VerifyICGrantType />
 
-1. Specify the **Sign-in redirect URIs** to redirect the user with their Interaction Code.
-1. Fill in the remaining details for your app integration, then click **Save**.
+1. Enter the **Sign-in redirect URIs** to redirect the user with their Interaction Code.
+1. Enter the remaining details for your app integration, then click **Save**.
 
 > **Note:**  Remember to add the appropriate path in your app for redirection.
 
