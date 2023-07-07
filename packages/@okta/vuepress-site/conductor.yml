@@ -496,7 +496,7 @@ redirects:
   - from: /docs/api/resources/users/index.html
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones/index.html
-    to: /docs/reference/api/zones/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /docs/how-to/add-user-consent-to-flow/index.html
     to: /docs/guides/request-user-consent/
   - from: /docs/how-to/byo_saml/index.html
@@ -802,7 +802,7 @@ redirects:
   - from: /docs/api/resources/users
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones
-    to: /docs/reference/api/zones/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /docs/api/resources/social_authentication
     to: /docs/guides/social-login/
   - from: /docs/api/resources/social_authentication/index.html
@@ -900,7 +900,7 @@ redirects:
   - from: /docs/api/resources/trusted-origins.html
     to: /docs/reference/api/trusted-origins/
   - from: /docs/api/resources/zones.html
-    to: /docs/reference/api/zones/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /guides/add-saml-idp/-/configure-oidc-client/index.html
     to: /docs/guides/add-saml-idp/-/configure-oidc-client/
   - from: /guides/add-saml-idp/-/configure-saml-idp/index.html

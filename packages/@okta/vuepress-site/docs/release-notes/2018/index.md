@@ -253,7 +253,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.40
 
-* Responses from the `/zones` [endpoint](/docs/reference/api/zones/#zones-api) included a duplicate of the `type` field. (OKTA-188605)
+* Responses from the `/zones` [endpoint](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) included a duplicate of the `type` field. (OKTA-188605)
 * The `/idps/credentials/keys` [endpoint](/docs/reference/api/idps/#add-x509-certificate-public-key) was requiring requests to include extra parameters. (OKTA-189780)
 
 #### Previously Released Early Access Features 2018.40 Update
@@ -525,7 +525,7 @@ The following features have already been released as Early Access. To enable the
 
 #### Bugs Fixed in 2018.29
 
-* Using the [Zones API](/docs/reference/api/zones/) to modify an existing zone that is blocked, removed the zone from the blocklist and converted it to a normal IP Zone. (OKTA-176610)
+* Using the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) to modify an existing zone that is blocked, removed the zone from the blocklist and converted it to a normal IP Zone. (OKTA-176610)
 * Using the [Applications API](/docs/reference/api/apps/) to create an OAuth client caused an error if the `credentials.oauthClient` property was not provided, even though it is not required. (OKTA-179275)
 * The System Log CSV report did not contain a value for `AuthenticationContext.issuer` for the event type `user.authentication.authenticate`. (OKTA-147165)
 
@@ -591,7 +591,7 @@ The [System Log API](/docs/reference/api/system-log/) is now Generally Available
 #### Bugs Fixed in 2018.27
 
 * Users who clicked an Activation Link for an [Okta Verify factor](/docs/reference/api/factors/#activate-push-factor) that had already been activated would get back an HTTP 500 error. (OKTA-146511)
-* Attempting to add more than the maximum number of zones via the [Zones API](/docs/reference/api/zones/) would result in an HTTP 500 error. (OKTA-175991)
+* Attempting to add more than the maximum number of zones via the [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) would result in an HTTP 500 error. (OKTA-175991)
 
 #### Previously Released Early Access Features 2018.27 Update
 

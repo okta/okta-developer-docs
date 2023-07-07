@@ -128,7 +128,7 @@ The [System Log API](/docs/reference/api/system-log/) `/logs` endpoint can now u
 
 #### Zones API includes `usage` property
 
-To help you manage zones in your organization, the Early Access [Zones API](/docs/reference/api/zones/) now includes the `usage` attribute. There are two types of zones: Policy Network Zones and Blocklist Network Zones. <!--OKTA-333653-->
+To help you manage zones in your organization, the Early Access [Zones API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone) now includes the `usage` attribute. There are two types of zones: Policy Network Zones and Blocklist Network Zones. <!--OKTA-333653-->
 
 #### Client-based rate limiting is now GA in Production
 
