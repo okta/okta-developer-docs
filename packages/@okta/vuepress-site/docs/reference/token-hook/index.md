@@ -133,6 +133,7 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 | groups         | access token      |
 | rpt            | access token      |
 | rsi            | access token      |
+| scp            | access token      |
 | uid            | access token      |
 | username       | access token      |
 | active         | ID token          |
