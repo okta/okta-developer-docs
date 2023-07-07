@@ -126,16 +126,15 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 
 | Claim name     | Token type        |
 |----------------|-------------------|
-| acr            | access token      |
-| amr            | access token      |
+| authorization_details | access token      |
 | as_uri         | access token      |
-| cid            | access token      |
-| groups         | access token      |
+| cnf (if DPoP enabled) | access token      |
 | rpt            | access token      |
 | rsi            | access token      |
 | scp            | access token      |
 | uid            | access token      |
 | username       | access token      |
+| amr            | ID token          |
 | active         | ID token          |
 | aid            | ID token          |
 | aud            | ID token          |
@@ -159,7 +158,6 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 | did            | ID token          |
 | dst            | ID token          |
 | group          | ID token          |
-| groups         | ID token         |
 | hotk           | ID token          |
 | idp            | ID token         |
 | idp_iss        | ID token          |
@@ -172,22 +170,26 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 | orig           | ID token          |
 | permissions    | ID token          |
 | purpose        | ID token          |
-| pwd_exp_days   |ID token           |
+| pwd_exp_days   | ID token           |
 | pwd_exp_time   | ID token          |
 | rid            | ID token          |
 | role           | ID token          |
 | scope          | ID token          |
 | scopes         | ID token          |
-| sid            | ID token          |
 | sub            | ID token          |
 | term           | ID token          |
 | user_ip        | ID token          |
+| acr            | access token & ID token |
+| cid            | access token & ID token |
+| exp            | access token & ID token |
+| groups         | access token & ID token |
+| iat            | access token & ID token |
 | iss            | access token & ID token |
 | jti            | access token & ID token |
+| sid            | access token & ID token |
 | token_type     | access token & ID token |
 | ver            | access token & ID token |
 | auth_time      | access token & ID token |
-
 
 ### error
 
