@@ -302,10 +302,12 @@ Array of [Application objects](/docs/reference/api/apps/#application-object)
 
 ## Policy simulation operations
 <ApiLifecycle access="ie" />
+<ApiLifecycle access="ea" />
 
-> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This self-service Early Access feature is only available as a part of the Identity Engine. To enable this feature, see [Early Access](/docs/reference/releases-at-okta/#early-access-ea). For information on the Identity Engine, [contact support](mailto:dev-inquiries@okta.com).
 
 ### Access simulation
+
 The access simulation API is an admin API that evaluates policy and policy rules based on the existing policy rule configuration. The evaluation result simulates what the real world authentication flow is and what policy rules have been applied or matched to the authentication flow.
 
 <ApiOperation method="post" url="/api/v1/policies/simulate" />
@@ -380,7 +382,7 @@ The following response section explains the error responses and the response bod
 | `policyType` | String| The policy type we are simulating|
 | `id` | String| ID of the specified policy/rule type|
 | `name` | String| Policy name or policy rule name|
-| `status` | 	ENUM (MATCH, NOT_MATCH, UNDEFINED)| The result of this entity evaluation|
+| `status` |     ENUM (MATCH, NOT_MATCH, UNDEFINED)| The result of this entity evaluation|
 | `conditions` | Array | List of all condition that involved for this rule/policy evaluation|
 | `conditions.type` | String| The type of this condition|
 | `name` | String| Policy name or policy rule name|
