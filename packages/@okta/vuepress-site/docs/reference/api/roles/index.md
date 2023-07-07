@@ -2018,7 +2018,6 @@ Lists all Roles assigned to an Client Application
 
 ##### Response parameters
 
-
 Array of [Roles](#role-object)
 
 ##### Request example
@@ -2180,7 +2179,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/oauth2/v1/clients/${clientId}/roles" />
 
-Assigns a Role to a Group
+Assigns a Role to a Client
 
 ##### Request parameters
 
@@ -2245,7 +2244,7 @@ as long as the request body contains a Custom `role` ID and a `resource-set` ID.
 
 | Parameter                       | Description                 | Param Type   | DataType                    | Required |
 | :--------------------           | :-------------------------- | :----------- | :-------------------------- | :------- |
-| `userId`, `groupId`, `clientId` | User ID or Group ID         | URL          | String                      | TRUE     |
+| `userId`, `groupId`, `clientId` | User ID, Group ID, or Client ID         | URL          | String                      | TRUE     |
 | `type`                          | Type of Role to assign      | Body         | String literal: `CUSTOM`    | TRUE     |
 | `role`                          | ID of the Custom Role       | Body         | String                      | TRUE     |
 | `resource-set`                  | ID of the Resource Set      | Body         | String                      | TRUE     |
