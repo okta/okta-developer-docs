@@ -4,6 +4,19 @@ title: Okta API Products release notes 2023
 
 ## June
 
+### Weekly release 2023.06.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.06.2](#bugs-fixed-in-2023-06-2) | July 6, 2023 |
+
+#### Bugs fixed in 2023.06.2
+
+* The system log didn't provide user information for an expired password during the Resource Owner Password grant type flow. (OKTA-581464)
+* The `max_age=0` property wasn't treated the same as `prompt=login` for OAuth 2.0 `/authorize` requests. (OKTA-588559)
+* A delete session request (`/api/v1/sessions/me`) didn't clear the session cookie (`sid`). (OKTA-620986)
+* When the List all Trusted Origins API was called with a `filter` on `status`, an error was returned. (OKTA-622646)
+
 ### Monthly release 2023.06.0
 
 | Change | Expected in Preview Orgs |
