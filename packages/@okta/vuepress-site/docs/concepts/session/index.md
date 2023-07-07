@@ -44,14 +44,14 @@ See [Sign users out](/docs/guides/sign-users-out) for a guide to implement local
 
 ### Single Logout (SLO)
 
-> **Note:** IdP-initiated SLO is <ApiLifecycle access="ea" />.
+Single logout is the act of signing the user out of the IdP and signing out of all the apps with the same IdP credentials. This results in ending the IdP session and all the associated application sessions for the user.
 
-Single Logout (SLO) allows a user to sign out of an SLO participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO participating apps on other devices.
+> **Note**: App-initiated single logout is also known as Service Provider-initiated (SP-initiated) single logout (SLO).
 
-Okta supports both SLO initiated by an app (SP-initiated) and by the IdP (IdP-initiated). When a user clicks the sign-out button in an app, third-party SAML 2.0 and OpenID Connect (OIDC) apps direct the browser to Okta while making an SP-initiated logout request. This indicates to Okta that the user wants to sign out of the app. In response, Okta ends the user’s Okta session. Okta then determines other apps that the user is signed in to for the current session. Okta makes IdP-initiated logout requests to any downstream apps participating in SLO that didn't initiate the logout. Finally, Okta makes a GET or POST redirection request to the original SP app that initiated SLO.
+Currently, Okta supports single logout initiated by an app, where the user signs out of an app and the Okta IdP, ending both the app and IdP sessions. However, other active application sessions for the user can still persist without the IdP session, depending on the restrictive nature of the apps. For non-privileged access apps, the user can still access the app within the scope of the application session. For example, a user can still browse through a catalog of vacation experiences and add to their cart. When this user is ready to check out and make a payment, the app can enforce a privileged access workflow and redirect the user to reauthenticate with Okta to secure an IdP session. For privileged access apps with short-lived sessions, the user is typically redirected to reauthenticate with Okta to start a new IdP session and an application session.
 
-Other active app sessions for the user can still persist without the Okta session, depending on the restrictive nature of the apps. For non-privileged access apps, the user can still access the app within the scope of the app session. For example, a user can still browse through a catalog of vacation experiences and add to their cart. When this user is ready to check out and make a payment, the app can enforce a privileged access workflow and redirect the user to reauthenticate with Okta to secure an Okta session. For privileged access apps with short-lived sessions, the user is typically redirected to reauthenticate with Okta to start a new Okta session and app session.
+See **Sign users out** > **Sign users out** for a guide to implement Okta sign out in Okta Classic Engine. For Okta Admin Console app-initiated SLO configuration, see [Configure Single Logout in app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Single_Logout).
 
-See [Single Logout](/docs/guides/single-logout) for guidance on configuring SLO for your apps.
+> **Note**: To configure SLO in Okta Identity Engine, see [Configure Single Logout](/docs/guides/single-logout/main/).
 
 Explore [Okta quickstart sample apps](/docs/guides/quickstart/) for sample code with non-privileged access implementations.
