@@ -304,7 +304,7 @@ Array of [Application objects](/docs/reference/api/apps/#application-object)
 <ApiLifecycle access="ie" />
 <ApiLifecycle access="ea" />
 
-> **Note:** This feature is only available as a part of the Identity Engine and is in self-service Early Access. To enable this feature, see [Early Access](/docs/reference/releases-at-okta/#early-access-ea). For information on the Identity Engine, [contact support](mailto:dev-inquiries@okta.com).
+> **Note:** This self-service Early Access feature is only available as a part of the Identity Engine. To enable this feature, see [Early Access](/docs/reference/releases-at-okta/#early-access-ea). For information on the Identity Engine, [contact support](mailto:dev-inquiries@okta.com).
 
 ### Access simulation
 
