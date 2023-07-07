@@ -128,7 +128,7 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 |----------------|-------------------|
 | authorization_details | access token      |
 | as_uri         | access token      |
-| cnf (if DPoP enabled) | access token      |
+| cnf (if [DPoP](/docs/guides/dpop/main) enabled) | access token      |
 | rpt            | access token      |
 | rsi            | access token      |
 | scp            | access token      |
