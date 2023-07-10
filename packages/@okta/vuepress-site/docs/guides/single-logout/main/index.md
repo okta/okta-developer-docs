@@ -28,11 +28,11 @@ This guide discusses how to configure Single Logout (SLO) for your apps.
 
 The Single Logout (SLO) feature allows a user to sign out of an SLO participating app on their device and end their Okta session. The user is then automatically signed out of all other SLO participating apps on other devices.
 
-Okta currently supports SP-initiated SLO for third-party SAML 2.0 and OpenID Connect (OIDC) apps. When an end user clicks the sign-out button in your app, the app directs the browser to Okta while making an inbound logout request. This indicates to Okta that the user wants to sign out of the app. In response, Okta ends the user’s Okta session.
+Okta currently supports Service Provider-initiated (SP-initiated) SLO for third-party SAML 2.0 and OpenID Connect (OIDC) apps. When an end user clicks the sign-out button in your app, the app directs the browser to Okta while making an inbound logout request. This indicates to Okta that the user wants to sign out of the app. In response, Okta ends the user’s Okta session.
 
 The multiple device SLO feature supports outbound logout requests (IdP-initiated SLO) after the SP app makes the SP-initiated inbound logout request to Okta. Okta sends outbound logout requests to any other apps participating in SLO that didn't initiate the logout. This applies only to the downstream apps where the user has previously established a session. Requests are communicated from Okta to apps using front-channel logout, which means that the browser does the communicating.
 
-SLO is especially useful in scenarios where users share computers or use public kiosks. A user may sign in to a computer portal, and then open one app, and then another, and another, and so on. The signing in of the user for each app happens behind the scenes. In a perfect world, when the user wants to sign out, they should sign out of every app to keep the next user from accessing their information. But, most users don’t do that. SLO logs the user out of everything at once.
+SLO is especially useful in scenarios where users share computers or use public kiosks. A user may sign in to a computer portal, and then open multiple apps. The user sign-in process for each app happens behind the scenes. In a perfect world, when the user wants to sign out, they should sign out of every app to keep the next user from accessing their information. But, most users don’t do that. SLO logs the user out of everything at once.
 
 ### Single Logout diagram
 
@@ -53,7 +53,7 @@ SLO is especially useful in scenarios where users share computers or use public 
 
 **Event 2**
 
-* Okta determines other apps that the user was signed in to in Okta Session 1, which are Apps 2 and 3.
+* Okta determines that Apps 2 and 3 were also part of Okta Session 1.
 * Okta initiates the outbound logout request (IdP-initiated) to the downstream apps (Apps 2 and 3) in an embedded IFrame that’s invisible to the user. For example:
 
     `POST https://myapp.exampleco.com/slo/logout`
