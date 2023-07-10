@@ -100,29 +100,6 @@ All paid orgs get a maximum of three custom domains. You can request up to 200 c
 
 Yes. Okta recommends this approach so customers never have to maintain any certificates.
 
-### Any limitations/assumptions to be aware of?
-
-#### Email domains
-
-Keep in mind the following when setting up domains for an org with branded emails:
-
-- If you don’t have any domains configured, or you have multiple domains configured, the emails use your org’s default brand. See [About subdomain brands versus custom domains](#about-subdomain-brands-and-custom-brands).
-- If there's only one domain configured, the emails use the brand associated with that domain.
-
-#### Email senders
-
-The main Okta email provider allows you to use each unique email sender (root domain, no-reply@company.com) only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
-
-#### Default brand sign-in page and error page
-
-With multibrand customizations enabled, you can't update the default brand's sign-in page or error page HTML content. The API returns a 403 HTTP status message. See [About subdomain brands and custom brands](#about-subdomain-brands-and-custom-brands).
-
-#### Data migrations
-
-- **Flag ON behavior:** Okta migrates any customizations (code, logos, labels) to a newly created brand. This is a one-time migration for only the first time that an org turns on multibrand.
-
-- **Flag ON/OFF/ON behavior:** Okta doesn't remigrate existing customizations made to the default brand so that customizations don’t overwrite the previously customized brand.
-
 ### How are apps assigned to brands?
 
 Users are routed to the desired app using the `client_id` in the custom domain as a URL parameter.
@@ -139,5 +116,33 @@ Access management to apps is controlled through app assignments, so any user can
 
 If a custom domain doesn’t contain a `client _id`, Okta routes the user to the default app.
 
+### Any limitations/assumptions to be aware of?
 
+#### Email domains
 
+Keep in mind the following when setting up domains for an org with branded emails:
+
+- If you don’t have any domains configured, or you have multiple domains configured, the emails use your org’s default brand. See [About subdomain brands versus custom domains](#about-subdomain-brands-and-custom-brands).
+- If there's only one domain configured, the emails use the brand associated with that domain.
+
+#### Email senders
+
+The main Okta email provider allows you to use each unique email sender (root domain, no-reply@company.com) only once in each cell. To bypass this limitation, use a subdomain to keep email senders unique (for example, no-reply@brandA.company.com and no-reply@brandB.company.com).
+
+#### User Activation email
+
+If you try to use the Admin Console to send a branded User Activation email, the default Okta branding is applied.
+
+To ensure that the activation email is branded, use the [Users API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser). In your request, change `subdomain.okta.com` to the custom domain associated with the brand. For example, `custom.domain.one`. See [Multibrand and custom domains](#multibrand-and-custom-domains).
+
+> **Note:** This solution works for Okta Workforce Identity Cloud customers. If you import users with Active Directory or Human Resources as a Service (HRaaS), it can be difficult to use the API.
+
+#### Default brand sign-in page and error page
+
+With multibrand customizations enabled, you can't update the default brand's sign-in page or error page HTML content. The API returns a 403 HTTP status message. See [About subdomain brands and custom brands](#about-subdomain-brands-and-custom-brands).
+
+#### Data migrations
+
+- **Flag ON behavior:** Okta migrates any customizations (code, logos, labels) to a newly created brand. This is a one-time migration for only the first time that an org turns on multibrand.
+
+- **Flag ON/OFF/ON behavior:** Okta doesn't remigrate existing customizations made to the default brand so that customizations don’t overwrite the previously customized brand.

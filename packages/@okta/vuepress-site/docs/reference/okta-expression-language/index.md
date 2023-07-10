@@ -9,7 +9,7 @@ meta:
 
 This document details the features and syntax of the Okta Expression Language (EL). You can use this language throughout the Okta Admin Console and API for the Okta Classic Engine and Okta Identity Engine.
 
-> **Note:** If you're using the Okta Expression Language for the [Global session policy and authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
+> **Note:** If you're using the Okta Expression Language for the [authentication policies](/docs/guides/configure-signon-policy/main/) of the Identity Engine, use the features and syntax of the [Okta Expression Language in Okta Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/).
 
 Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of the functionalities offered by SpEL.
 
@@ -35,7 +35,7 @@ In addition to an Okta User Profile, all Users have a separate Application User 
 
 | Syntax                | Definitions                                                                                | examples                                                              |
 | --------              | ----------                                                                                 | ------------                                                          |
-| `$appuser.$attribute` | `$appuser` explicit reference to specific app<br>`$attribute` the attribute variable name  | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
+| `$app.$attribute`     | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name for the app instance's user profile               | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
 
 > **Note:** Explicit references to apps aren't supported for OAuth 2.0/OIDC custom claims. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
@@ -92,11 +92,12 @@ Okta offers various functions to manipulate attributes or properties to generate
 | --------                 | -------------------------                                     | ----------- | -------                                                                                                       | ------         |
 | `String.append`          | (String str, String suffix)                                   | String      | `String.append("This is", " a test")`                                                                         | This is a test |
 | `String.join`            | (String separator, String... strings)                         | String      | `String.join(",", "This", "is", "a", "test")`                                                                 | This,is,a,test |
-|                          |                                                               |             | `String.join("", "This", "is", "a", "test")`                                                                   | Thisisatest    |
+|                          |                                                               |             | `String.join("", "This", "is", "a", "test")`                                                                  | Thisisatest    |
 | `String.len`             | (String input)                                                | Integer     | `String.len("This")`                                                                                          | 4              |
 | `String.removeSpaces`    | (String input)                                                | String      | `String.removeSpaces("This is a test")`                                                                       | Thisisatest    |
-| `String.replace`         | (String input, match, replacement)                            | String      | `String.replace("This is a test", "is", "at")`                                                                | That at a test |
-| `String.replaceFirst`    | (String input, match, replacement)                            | String      | `String.replaceFirst("This is a test", "is", "at")`                                                           | That is a test |
+| `String.replace`         | (String input, String match, String replacement)              | String      | `String.replace("This is a test", "is", "at")`                                                                | That at a test |
+| `String.replaceFirst`    | (String input, String match, String replacement)              | String      | `String.replaceFirst("This is a test", "is", "at")`                                                           | That is a test |
+| `String.startsWith`      | (String input, String starts)                                        | Boolean     | `String.startsWith("Kiss", "K")`                                                                              | true           |
 | `String.stringContains`  | (String input, String searchString)                           | Boolean     | `String.stringContains("This is a test", "test")`                                                             | true           |
 |                          |                                                               |             | `String.stringContains("This is a test", "doesn'tExist")`                                                     | false          |
 | `String.stringSwitch`    | (String input, String defaultString, String... keyValuePairs) | String      | `String.stringSwitch("This is a test", "default", "key1", "value1")`                                          | default        |

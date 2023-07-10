@@ -2,10 +2,10 @@ The following sections outline the main requests required to implement the Autho
 
 ### Request an authorization code
 
-To get an authorization code, your app redirects the user to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the default custom authorization server, then your request URL would look something like this:
+To get an authorization code, your app redirects the user to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the org authorization server, then your request URL would look something like this:
 
 ```bash
-https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabucvy
+https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oabucvy
 c38HLL1ef0h7&response_type=code&scope=openid&redirect_uri=https%3A%2F%2Fexample.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
 ```
 
@@ -29,11 +29,11 @@ This code remains valid for 300 seconds, during which it can be exchanged for to
 
 ### Exchange the code for tokens
 
-To exchange this code for access and ID tokens, you pass it to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the default custom authorization server, then your request would look something like this:
+To exchange this code for access and ID tokens, you pass it to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the org authorization server, then your request would look something like this:
 
 ```bash
 curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --url https://${yourOktaDomain}/oauth2/v1/token \
   --header 'accept: application/json' \
   --header 'authorization: Basic MG9hY...' \
   --header 'content-type: application/x-www-form-urlencoded' \

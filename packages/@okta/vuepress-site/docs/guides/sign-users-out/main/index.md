@@ -73,7 +73,7 @@ The steps required to end the app session vary depending on the type of app that
 
 You might want to configure self-service registration for your org:
 
-* [Configure self-service registration](/docs/guides/set-up-self-service-registration/)
+* [Configure self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/)
 
 Read more on customizing your org:
 

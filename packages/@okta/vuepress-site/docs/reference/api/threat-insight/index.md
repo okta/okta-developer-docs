@@ -16,7 +16,7 @@ The Okta ThreatInsight Configuration API provides operations to manage your Thre
 | Field Name  | Description	| Data Type   | Required      |
 | :---------- | :----------	| :---------- | :------------ |
 | action         | Specifies how Okta responds to authentication requests from suspicious IPs. Supported values:<br><ul><li>`none`: Indicates that ThreatInsight is disabled</li><li>`audit`: Indicates that Okta logs suspicious requests to the System Log</li><li>`block`:  Indicates that Okta logs suspicious requests to the System Log and blocks the requests</li></ul> | String (enums: `none`, `audit`, or `block`) | Yes |
-| excludeZones   | Accepts a list of [Network Zone](/docs/reference/api/zones/) IDs. IPs in the excluded network zones aren't logged or blocked. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. | List | No |
+| excludeZones   | Accepts a list of [Network Zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) IDs. IPs in the excluded network zones aren't logged or blocked. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. | List | No |
 
 ## ThreatInsight configuration API operations
 

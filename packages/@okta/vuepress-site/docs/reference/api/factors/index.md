@@ -7,6 +7,8 @@ category: management
 
 The Okta Factors API provides operations to enroll, manage, and verify factors for multifactor authentication (MFA). Manage both administration and end-user accounts, or verify an individual factor at any time.
 
+<ApiAuthMethodWarning />
+
 ## Get started with the Factors API
 
 Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/283a99e4b49ce7f5f54d)
@@ -4051,6 +4053,7 @@ The following Factor types are supported:
 | `email`               | Software OTP sent using email                                       |
 | `push`                | Out-of-band verification using push notification to a device and transaction verification with digital signature      |
 | `question`            | Additional knowledge-based security question                                                                        |
+| `signed_nonce`        | Okta Fastpass (device-bound authentication). This is available for OIE orgs if the org has users that have enrolled with Okta Verify after the org started using OIE. |
 | `sms`                 | Software OTP sent using SMS to a registered phone number            |
 | `token:hardware`      | Hardware OTP device                             |
 | `token:hotp`          | A custom [TOTP](https://www.ietf.org/rfc/rfc6238.txt)&nbsp;factor that uses an extension of the HMAC-based one-time passcode (HOTP) algorithm                     |

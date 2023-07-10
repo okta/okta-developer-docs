@@ -19,6 +19,8 @@ For Log Stream Schemas, Okta uses [JSON Schema Draft 2020-12](https://json-schem
 
 Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c85985861f9b277913ae)
 
+<ApiAuthMethodWarning />
+
 ## User Schema operations
 
 Each of the operations described here affects the Schema associated with a single [User Type](/docs/reference/api/user-types). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.

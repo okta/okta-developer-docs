@@ -39,7 +39,7 @@ If you're an independent software vendor (ISV), Okta customer, or IT system inte
 
 This guide covers submissions that use one or more of these protocols or tools:
 
-* [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/)
+* [System for Cross-domain Identity Management (SCIM)](https://scim.cloud)
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
 
     >**Note:** <br>
@@ -100,7 +100,7 @@ The OIN Manager shows the current status of your integration.
 
 The following flowchart outlines the entire process:
 
-<div class="three-quarter">
+<div class="three-quarters">
 
 ![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png)
 

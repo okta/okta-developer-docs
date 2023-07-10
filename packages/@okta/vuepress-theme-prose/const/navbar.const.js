@@ -322,6 +322,10 @@ export const guides = [
                 guideName: "authenticators-okta-verify"
               },
               {
+                title: "Custom authenticator",
+                guideName: "authenticators-custom-authenticator"
+              },
+              {
                 title: "Google authenticator",
                 guideName: "authenticators-google-authenticator",
               },
@@ -371,6 +375,10 @@ export const guides = [
             guideName: "configure-signon-policy"
           },
           {
+            title: "Test your access policies",
+            guideName: "policy-simulation"
+          },
+          {
             title: "Add an external Identity Provider",
             path: "/docs/guides/identity-providers/",
             subLinks: [
@@ -414,10 +422,6 @@ export const guides = [
               {
                 title: "Sign Okta certs with your own CA",
                 guideName: "sign-your-own-saml-csr",
-              },
-              {
-                title: "Set up self-service registration",
-                guideName: "set-up-self-service-registration",
               },
             ],
           },
@@ -489,6 +493,10 @@ export const guides = [
           {
             title: "Create an authorization server",
             guideName: "customize-authz-server",
+          },
+          {
+            title: "Transactional verification using CIBA",
+            guideName: "configure-ciba",
           },
           {
             title: "Configure SSO for native apps",
@@ -616,24 +624,6 @@ export const guides = [
               {
                 title: "Build an API service integration",
                 guideName: "build-api-integration",
-              },
-            ],
-          },
-          {
-            title: "Primer for OIN OIDC",
-            path: "/docs/guides/oin-oidc-overview/main/",
-            subLinks: [
-              {
-                title: "Protocol requirements",
-                path: "/docs/guides/oin-oidc-protocols/main/",
-              },
-              {
-                title: "Multi-tenancy",
-                path: "/docs/guides/oin-oidc-multi-tenancy/main/",
-              },
-              {
-                title: "Best practices",
-                path: "/docs/guides/oin-oidc-best-practices/main/",
               },
             ],
           },
@@ -795,6 +785,10 @@ export const guides = [
           {
             title: "Registration inline hook",
             guideName: "archive-registration-inline-hook"
+           },
+           {
+            title: "Set up self-service registration",
+            guideName: "archive-set-up-self-service-registration",
           },
           {
             title: "Mobile apps",
@@ -943,6 +937,7 @@ export const reference = [
                { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
                { title: "Org", path: "/docs/reference/api/org/" },
                { title: "Policy", path: "/docs/reference/api/policy/" },
+               { title: "Push Providers", path: "/docs/reference/api/push-providers/" },
                { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
                { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
                { title: "Schemas", path: "/docs/reference/api/schemas/" },

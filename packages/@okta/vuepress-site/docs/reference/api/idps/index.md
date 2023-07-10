@@ -7,6 +7,8 @@ category: management
 
 The Okta Identity Providers API provides operations to manage federations with external Identity Providers (IdP). For example, your app can support signing in with credentials from Apple, Facebook, Google, LinkedIn, Microsoft, an enterprise IdP using SAML 2.0, or an IdP using the OpenID Connect (`OIDC`) protocol.
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2635b07ecc5dc2435ade)
@@ -25,7 +27,7 @@ See [Add and external Identity Provider](/docs/guides/identity-providers/) for d
 
 <ApiOperation method="post" url="/api/v1/idps" />
 
-Adds a new IdP to your organization. See [Identity Provider type](#identity-provider-type) for the list of supported external IdPs.
+Adds an IdP to your organization. See [Identity Provider type](#identity-provider-type) for the list of supported external IdPs.
 
 ##### Request parameters
 
@@ -52,7 +54,7 @@ See [Identity Provider type](#identity-provider-type) for a list of all the supp
 
 #### Add Generic OpenID Connect Identity Provider
 
-Adds a new `OIDC` type IdP to your organization
+Adds an `OIDC` type IdP to your organization
 
 ##### Request example
 
@@ -131,6 +133,7 @@ curl -v -X POST \
         "action": "NONE"
       }
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 120000,
     "subject": {
       "userNameTemplate": {
@@ -221,6 +224,7 @@ curl -v -X POST \
             "matchType": "USERNAME",
             "matchAttribute": null
         },
+        "mapAMRClaims": false,
         "maxClockSkew": 0
     },
     "_links": {
@@ -247,7 +251,7 @@ curl -v -X POST \
 
 #### Add SAML 2.0 Identity Provider
 
-Adds a new `SAML2` type IdP to your organization
+Adds a `SAML2` type IdP to your organization
 
 > **Notes:** You must first add the IdP's signature certificate to the IdP key store before you can add a SAML 2.0 IdP with a `kid` credential reference. Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirect-with-saml-deep-links). Using `fromURI` isn't tested and not supported. For more information about using deep links when signing users in using an SP-initiated flow, see [Understanding SP-Initiated Login flow](/docs/concepts/saml/#understanding-sp-initiated-login-flow).
 
@@ -406,6 +410,7 @@ curl -v -X POST \
       "filter": "(\\S+@example\\.com)",
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -463,7 +468,7 @@ The deep link for the above three parts is:<br>
 
 #### Add Apple Identity Provider
 
-Adds a new `Apple` type IdP to your organization
+Adds an `Apple` type IdP to your organization
 
 ##### Request example
 
@@ -590,6 +595,7 @@ curl -v -X POST \
       "matchType": "USERNAME",
       "matchAttribute": null
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -616,7 +622,7 @@ curl -v -X POST \
 
 #### Add Facebook Identity Provider
 
-Adds a new `FACEBOOK` type IdP to your organization
+Adds a `FACEBOOK` type IdP to your organization
 
 ##### Request example
 
@@ -669,6 +675,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   }
 }' "https://${yourOktaDomain}/api/v1/idps"
@@ -735,6 +742,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -763,7 +771,7 @@ curl -v -X POST \
 
 #### Add Google Identity Provider
 
-Adds a new `Google` type IdP to your organization
+Adds a `Google` type IdP to your organization
 
 ##### Request example
 
@@ -817,6 +825,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   }
 }' "https://${yourOktaDomain}/api/v1/idps"
@@ -883,6 +892,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -911,7 +921,7 @@ curl -v -X POST \
 
 #### Add LinkedIn Identity Provider
 
-Adds a new `LINKEDIN` type IdP to your organization
+Adds a `LINKEDIN` type IdP to your organization
 
 ##### Request example
 
@@ -964,6 +974,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   }
 }' "https://${yourOktaDomain}/api/v1/idps"
@@ -1029,6 +1040,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -1057,7 +1069,7 @@ curl -v -X POST \
 
 #### Add Microsoft Identity Provider
 
-Adds a new `Microsoft` type IdP to your organization
+Adds a `Microsoft` type IdP to your organization
 
 ##### Request example
 
@@ -1107,6 +1119,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   }
 }' "https://${yourOktaDomain}/api/v1/idps"
@@ -1174,6 +1187,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -1202,7 +1216,7 @@ curl -v -X POST \
 
 #### Add Smart Card Identity Provider
 
-Adds a new Smart Card `X509` type IdP to your organization
+Adds a Smart Card `X509` type IdP to your organization
 
 ##### Request example
 
@@ -1245,6 +1259,7 @@ curl -v -X POST \
       "action":"DISABLED"
       }
     },
+    "mapAMRClaims": false,
     "maxClockSkew":120000,
     "subject": {
       "matchType": "EMAIL",
@@ -1306,6 +1321,7 @@ curl -v -X POST \
       "matchType": "EMAIL",
       "matchAttribute": null
     },
+    "mapAMRClaims": false,
     "maxClockSkew":120000
   },
   "_links": {
@@ -1425,6 +1441,7 @@ curl -v -X GET \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -1555,6 +1572,7 @@ curl -v -X GET \
         "filter": null,
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -1651,6 +1669,7 @@ curl -v -X GET \
         "filter": "(\\S+@example\\.com)",
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -1748,6 +1767,7 @@ curl -v -X GET \
         "filter": null,
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -1829,6 +1849,7 @@ curl -v -X GET \
         "filter": null,
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -1912,6 +1933,7 @@ curl -v -X GET \
         "filter": null,
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -2004,6 +2026,7 @@ curl -v -X GET \
               "matchType": "USERNAME",
               "matchAttribute": null
           },
+          "mapAMRClaims": false,
           "maxClockSkew": 0
       },
       "_links": {
@@ -2072,6 +2095,7 @@ curl -v -X GET \
       "matchType": "EMAIL",
       "matchAttribute": null
     },
+    "mapAMRClaims": false,
     "maxClockSkew":0
   },
   "_links": {
@@ -2197,6 +2221,7 @@ curl -v -X GET \
         "filter": "(\\S+@example\\.com)",
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -2330,6 +2355,7 @@ curl -v -X GET \
         "filter": "(\\S+@example\\.com)",
         "matchType": "USERNAME"
       },
+      "mapAMRClaims": false,
       "maxClockSkew": 0
     },
     "_links": {
@@ -2478,6 +2504,7 @@ curl -v -X PUT \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 120000
   },
   "_links": {
@@ -2646,6 +2673,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -2761,6 +2789,7 @@ curl -v -X POST \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -2825,7 +2854,7 @@ The response contains a Transaction ID. You can then use the Transaction ID to e
 
 If you aren't receiving a Transaction ID, check that:
 
-* The user that you are adding with JIT or linking doesn't already exist in the app. If they do, deactivate and delete.
+* The user that you're adding with JIT or linking doesn't exist in the app. If they do, deactivate and delete.
 * You don't have any sessions open for the IdP or the Okta org for the app.
 
 ### Get Identity Provider Transaction
@@ -2964,7 +2993,7 @@ Fetches the target transformed [Okta User Profile](/docs/reference/api/users/#pr
 
 ##### Response parameters
 
-[Trasformed Okta User Profile](/docs/reference/api/users/#profile-object)
+[Transformed Okta User Profile](/docs/reference/api/users/#profile-object)
 
 ##### Request example
 
@@ -3612,7 +3641,7 @@ HTTP/1.1 204 No Content
 
 ## Identity Provider signing key store operations
 
-> **Note:** EA feature constraint: Okta currently uses the same key for both request signing and decrypting SAML assertions that have been encrypted by the IdP. Changing your signing key also changes your decryption key.
+> **Note:** EA feature constraint: Okta currently uses the same key for both request signing and decrypting SAML assertions that the IdP encrypts. Changing your signing key also changes your decryption key.
 
 ### Generate new IdP signing Key Credential
 
@@ -3661,7 +3690,7 @@ curl -v -X POST \
 }
 ```
 
-> **Note:** If `validityYears` is out of range (2 - 10 years), you receive an error response.
+> **Note:** If `validityYears` is out of range (2 through 10 years), you receive an error response.
 
 ```json
 {
@@ -3848,7 +3877,7 @@ curl -v -X POST \
 
 Generates a new key pair and returns a Certificate Signing Request (CSR) for it.
 
-> **Note:** The private key isn't listed in the [Signing Key Credentials for IdP](#list-signing-key-credentials-for-idp) until it is published.
+> **Note:** The private key isn't listed in the [Signing Key Credentials for IdP](#list-signing-key-credentials-for-idp) until it's published.
 
 ##### Request parameters
 
@@ -3958,17 +3987,17 @@ Return a [CSR object](#identity-provider-csr-object):
 
 Updates the CSR with a signed X.509 certificate and adds it into the signing Key Credentials for the IdP.
 
-> **Note:** Publishing a certificate completes the lifecycle of the CSR, and it is no longer accessible.
+> **Note:** Publishing a certificate completes the lifecycle of the CSR, and it's no longer accessible.
 
 ##### Request parameters
 
 | Parameter     | Description                                                                     | Param Type | DataType                                                 | Required |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | ---------------------------------------------            | -------- |
-| certificate   | The signed X.509 certificate                                                    | Body       | X.509 certififcate in ``DER``, ``PEM`` or ``CER`` format | TRUE     |
+| certificate   | The signed X.509 certificate                                                    | Body       | X.509 certificate in ``DER``, ``PEM`` or ``CER`` format | TRUE     |
 | csrModelId    | `id` of the [CSR object](#identity-provider-csr-object)                               | URL        | String                                                   | TRUE     |
 | idpId         | `id` of the IdP                                                                 | URL        | String                                                   | TRUE     |
 
-For ``DER`` and ``CER`` formatted certificates, the client can either post in binary or base64 encoded. If the post is base64 encoded, set the ``Content-Transfer-Encoding`` header to ``base64``.
+For ``DER`` and ``CER`` formatted certificates, the client can either post in binary or Base64URL-encoded. If the post is Base64URL-encoded, set the ``Content-Transfer-Encoding`` header to ``base64``.
 
 ##### Response parameters
 
@@ -3976,7 +4005,7 @@ Returns the new [signing Key Credential](#identity-provider-key-credential-objec
 
 ##### Request example
 
-Publish with X.509 certificate in base64-encoded ``DER``:
+Publish with X.509 certificate in Base64URL-encoded ``DER``:
 
 ```bash
 curl -v -X POST \
@@ -4184,7 +4213,7 @@ Gets a specific [CSR object](#identity-provider-csr-object) by `id`
 
 ##### Response parameters
 
-Returns base64-encoded CSR in DER format if the ``Accept`` media type is ``application/pkcs10`` or a CSR object if the ``Accept`` media type is ``application/json``
+Returns Base64URL-encoded CSR in DER format if the ``Accept`` media type is ``application/pkcs10`` or a CSR object if the ``Accept`` media type is ``application/json``
 
 ##### Request example
 
@@ -4384,6 +4413,7 @@ curl -v -X GET \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 0
   },
   "_links": {
@@ -4738,6 +4768,7 @@ curl -v -X GET \
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 120000
   },
   "_links": {
@@ -4862,7 +4893,7 @@ The properties in the Identity Provider Properties object vary depending on the 
 | -------- | ------------------ | ------------ | -------------------- |
 | additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for Smart Card IdPs. <br> Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | `X509`    |
 | ialValue | The [type of identity verification](https://developers.login.gov/oidc/#ial-values) (IAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/).  | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
-| aalValue | The [authenication assurance level](https://developers.login.gov/oidc/#aal-values) (AAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/). | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
+| aalValue | The [authentication assurance level](https://developers.login.gov/oidc/#aal-values) (AAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/). | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
 
 > **Note:** The `additionalAmr` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Smart Card authenticator feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
@@ -5028,7 +5059,7 @@ The ACS endpoint is Okta's `SPSSODescriptor` endpoint where the IdP sends a SAML
 </md:EntityDescriptor>
 ```
 
-> **Note:** An organization-specific ACS endpoint enables multiple trusts from an IdP to a single ACS URL that may be required by specific IdP vendors.
+> **Note:** An organization-specific ACS endpoint enables multiple trusts from an IdP to a single ACS URL that specific IdP vendors may require.
 
 ##### SAML 2.0 Relay State object
 
@@ -5186,7 +5217,7 @@ Determines the [IdP Key Credential](#identity-provider-key-credential-object) us
 
 | Property | Description                                                                                                    | DataType | Nullable | Readonly  | Validation                                 |
 | -------- | -------------------------------------------------------------------------------------------------------------  | -------- | -------- | --------  | ------------------------------------------ |
-| kid      | [IdP Key Credential](#identity-provider-key-credential-object) reference to Okta's X.509 signature certificate  | String   | FALSE    | FALSE     | Valid Signing Key ID reference             |
+| kid      | [IdP Key Credential](#identity-provider-key-credential-object) reference to the Okta X.509 signature certificate  | String   | FALSE    | FALSE     | Valid Signing Key ID reference             |
 
 ```json
 {
@@ -5389,7 +5420,7 @@ Signature Algorithm settings for signing authorization requests sent to the IdP:
 
 ##### OAuth 2.0 and OpenID Connect endpoints object
 
-The `OAUTH2` and `OIDC` protocols support the `authorization` and `token` endpoints. Additionally, the `OIDC` protocol supports the `userInfo` and `jwks` endpoints.
+The `OAUTH2` and `OIDC` protocols support the `authorization` and `token` endpoints. Also, the `OIDC` protocol supports the `userInfo` and `jwks` endpoints.
 
 The IdP Authorization Server (AS) endpoints are currently defined as part of the [IdP provider](#identity-provider-type) and are read-only.
 
@@ -5511,7 +5542,7 @@ Determines the [IdP Key Credential](#identity-provider-key-credential-object) us
 
 | Property | Description                                                                                                    | DataType | Nullable | Readonly  | Validation                                 |
 | -------- | -------------------------------------------------------------------------------------------------------------  | -------- | -------- | --------  | ------------------------------------------ |
-| kid      | [IdP Key Credential](#identity-provider-key-credential-object) reference to Okta's X.509 signature certificate. | String   | TRUE    | FALSE     | Valid Signing Key ID reference             |
+| kid      | [IdP Key Credential](#identity-provider-key-credential-object) reference to the Okta X.509 signature certificate. | String   | TRUE    | FALSE     | Valid Signing Key ID reference             |
 | alg      |The algorithm used when generating the JWT from the private key for token endpoint authentication.  | `RS256`, `RS384`, `RS512`   | FALSE    | FALSE     | Valid date type             |
 
 > **Note:** The `kid` parameter is required for an UPDATE request. For a CREATE request, it can be `null`.
@@ -5663,12 +5694,13 @@ Certificate chain description for verifying assertions from the Smart Card.
 
 ### Policy Object
 
-| Property     | Description                                                                                    | DataType                                                  | Nullable | Readonly |
-| ------------ | ---------------------------------------------------------------                                | -------------------------------------------               | -------- | -------- |
-| accountLink  | Policy rules to link an IdP User to an existing Okta User                                      | [Account Link Policy object](#account-link-policy-object) | FALSE    | FALSE    |
-| maxClockSkew | Maximum allowable clock skew when processing messages from the IdP                             | Number                                                    | FALSE    | FALSE    |
-| provisioning | Policy rules to just-in-time (JIT) provision an IdP User as a new Okta User                    | [Provisioning Policy object](#provisioning-policy-object) | FALSE    | FALSE    |
-| subject      | Policy rules to select the Okta sign-in identifier for the IdP User and determine matching rules | [Subject Policy object](#subject-policy-object)           | FALSE    | FALSE    |
+| Property     | Description                                                                                    | DataType                                                  | Nullable | Readonly | Default |
+| ------------ | ---------------------------------------------------------------                                | -------------------------------------------               | -------- | -------- | ------- |
+| accountLink  | Policy rules to link an IdP User to an existing Okta User                                      | [Account Link Policy object](#account-link-policy-object) | FALSE    | FALSE    |         |
+| mapAMRClaims <ApiLifecycle access="ea" /> | Determines whether the IdP should map AMR claims from the IdP to the Okta session            | Boolean                                                   | TRUE     | FALSE    | FALSE   |
+| maxClockSkew | Maximum allowable clock skew when processing messages from the IdP                             | Number                                                    | FALSE    | FALSE    |         |
+| provisioning | Policy rules to just-in-time (JIT) provision an IdP User as a new Okta User                    | [Provisioning Policy object](#provisioning-policy-object) | FALSE    | FALSE    |         |
+| subject      | Policy rules to select the Okta sign-in identifier for the IdP User and determine matching rules | [Subject Policy object](#subject-policy-object)         | FALSE    | FALSE    |         |
 
 ```json
 {
@@ -5699,6 +5731,7 @@ Certificate chain description for verifying assertions from the Smart Card.
       "filter": null,
       "matchType": "USERNAME"
     },
+    "mapAMRClaims": false,
     "maxClockSkew": 120000
   }
 }

@@ -351,7 +351,7 @@ The Okta Mappings API provides operations to manage the mapping of properties be
 
 #### Missing type property now returns a 400 error code
 
-If you create an [IP network zone](/docs/reference/api/zones/#ip-zone-properties) without a `type` property for an IP field, PUT or POST requests made to the Zone API now return a 400 error code. <!-- OKTA-239170 -->
+If you create an [IP network zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) without a `type` property for an IP field, PUT or POST requests made to the Zone API now return a 400 error code. <!-- OKTA-239170 -->
 
 #### Bug Fixed in 2019.08.0
 

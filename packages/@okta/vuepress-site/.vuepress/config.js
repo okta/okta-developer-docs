@@ -313,8 +313,7 @@ module.exports = ctx => ({
           ]
         }
       ]
-    },
-    '@okta/vuepress-plugin-qualtrics-feedback': {}
+    }
   },
 
   extraWatchFiles: [
