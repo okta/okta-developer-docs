@@ -124,69 +124,70 @@ The `value` object is where you specify the specific operation to perform. It's 
 
 Okta defines various reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, don't use the following reserved claims:
 
-| Claim name     | Token type        |
-|----------------|-------------------|
-| acr            | access token      |
-| amr            | access token      |
-| as_uri         | access token      |
-| cid            | access token      |
-| groups         | access token      |
-| rpt            | access token      |
-| rsi            | access token      |
-| uid            | access token      |
-| username       | access token      |
-| active         | ID token          |
-| aid            | ID token          |
-| aud            | ID token          |
-| app_id         | ID token          |
-| app_type       | ID token          |
-| at_hash        | ID token          |
-| auth_time      | ID token          |
-| client_id      | ID token          |
-| client_ip      | ID token          |
-| client_req_id  | ID token          |
-| client_type    | ID token           |
-| client_user_agent |ID token        |
-| cnf            | ID token          |
-| c_hash         | ID token          |
-| device_compliance |ID token        |
-| device_id      | ID token          |
-| device_known   | ID token          |
-| device_managed | ID token          |
-| device_name    | ID token         |
-| device_trust   | ID token          |
-| did            | ID token          |
-| dst            | ID token          |
-| group          | ID token          |
-| groups         | ID token         |
-| hotk           | ID token          |
-| idp            | ID token         |
-| idp_iss        | ID token          |
-| mac_key        | ID token          |
-| may_act        | ID token          |
-| nonce          | ID token          |
-| oid            | ID token          |
-| okta_emailVerified | ID token      |
-| okta_lastUpdated | ID token        |
-| orig           | ID token          |
-| permissions    | ID token          |
-| purpose        | ID token          |
-| pwd_exp_days   |ID token           |
-| pwd_exp_time   | ID token          |
-| rid            | ID token          |
-| role           | ID token          |
-| scope          | ID token          |
-| scopes         | ID token          |
-| sid            | ID token          |
-| sub            | ID token          |
-| term           | ID token          |
-| user_ip        | ID token          |
-| iss            | access token & ID token |
-| jti            | access token & ID token |
-| token_type     | access token & ID token |
-| ver            | access token & ID token |
-| auth_time      | access token & ID token |
-
+| Claim name     | Token type              |
+|----------------|-------------------------|
+| acr            | ID token & access token |
+| active         | ID token |
+| aid            | ID token |
+| amr            | ID token |
+| app_id         | ID token |
+| app_type       | ID token |
+| as_uri         | access token |
+| at_hash        | ID token |
+| aud            | ID token |
+| auth_time      | ID token & access token |
+| authorization_details  | access token |
+| c_hash         | ID token |
+| cid            | ID token & access token|
+| client_id      | ID token |
+| client_ip      | ID token |
+| client_req_id  | ID token |
+| client_type    | ID token |
+| client_user_agent | ID token |
+| cnf            | ID token & access token (if [DPoP](/docs/guides/dpop/main) enabled) |
+| device_compliance | ID token |
+| device_id      | ID token |
+| device_known   | ID token |
+| device_managed | ID token |
+| device_name    | ID token |
+| device_trust   | ID token |
+| did            | ID token |
+| dst            | ID token |
+| exp            | ID token & access token |
+| group          | ID token |
+| groups         | ID token & access token |
+| hotk           | ID token |
+| iat            | ID token & access token |
+| idp            | ID token |
+| idp_iss        | ID token |
+| iss            | ID token & access token |
+| jti            | ID token & access token |
+| mac_key        | ID token |
+| may_act        | ID token |
+| nonce          | ID token |
+| oid            | ID token |
+| okta_emailVerified | ID token |
+| okta_lastUpdated | ID token |
+| orig           | ID token |
+| permissions    | ID token |
+| purpose        | ID token |
+| pwd_exp_days   | ID token |
+| pwd_exp_time   | ID token |
+| rid            | ID token |
+| role           | ID token |
+| rpt            | access token |
+| rsi            | access token |
+| scope          | ID token |
+| scopes         | ID token |
+| scp            | access token |
+| sid            | ID token & access token |
+| sub            | ID token |
+| term           | ID token |
+| token_type     | ID token & access token |
+| uid            | access token |
+| user_ip        | ID token |
+| username       | access token |
+| ver            | ID token & access token |
 
 ### error
 
