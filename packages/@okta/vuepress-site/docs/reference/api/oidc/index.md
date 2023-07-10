@@ -859,7 +859,7 @@ This redirects the browser to either the Okta sign-in page or the specified logo
 
 Returns a JSON Web Key Set (JWKS) that contains the public keys that can be used to verify the signatures of tokens that you receive from your authorization server.
 
-> **Note**: Looking for how to obtain the `jwks_uri` for your org or custom authorization server? See the [well-known OpenID metadata endpoint](#well-known-openid-configuration).
+> **Note**: Looking for how to obtain the `jwks_uri` for your org or custom authorization server? See the [well-known OpenID metadata endpoint](/docs/reference/api/oidc/#well-known-openid-configuration) and the [well-known OAuth 2.0 metadata endpoint](/docs/reference/api/oidc/#well-known-oauth-authorization-server).
 
 Any of the two or three keys listed are used to sign tokens. The order of keys in the result doesn't indicate which keys are used.
 
@@ -1019,7 +1019,7 @@ WWW-Authenticate: Bearer error="insufficient_scope", error_description="The acce
 
 > **Note:** This endpoint is only available on Custom Authorization Servers, so there are no distinct [base URLs](#composing-your-base-url).
 
-Returns OAuth 2.0 metadata related to your Custom Authorization Server. This information can be used by clients to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/main/#create-scopes). Custom claims are never returned.
+Returns OAuth 2.0 metadata related to your Custom Authorization Server. Clients can use this information to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/main/#create-scopes). Custom claims are never returned. This endpoint doesn't return Org Authorization Server metadata. See the [well-known OpenID metadata endpoint](/docs/reference/api/oidc/#well-known-openid-configuration).
 
 This API doesn't require any authentication.
 
@@ -1041,7 +1041,7 @@ curl -X GET \
 | device_authorization_endpoint                                     | URL of the custom authorization server's [device authorize endpoint](#device-authorize).                                                                                                                      | String   |
 | token_endpoint                                                    | URL of the custom authorization server's [token endpoint](#token).                                                                               | String  |
 | registration_endpoint                                             | URL of the custom authorization server's [Dynamic Client Registration endpoint](/docs/reference/api/oauth-clients/#register-new-client).         | String  |
-| jwks_uri                                                          | URL of the custom authorization server's [JSON Web Key Set](/docs/reference/api/authorization-servers/#certificate-json-web-key-object) document. | String  |
+| jwks_uri                                                          | URL of the custom authorization server's [JSON Web Key Set](/docs/reference/api/authorization-servers/#certificate-json-web-key-object) document. **Note**: The `jwks_uri` for an Org Authorization Server isn't returned using this endpoint. See the [well-known OpenID metadata endpoint](/docs/reference/api/oidc/#well-known-openid-configuration).| String  |
 | response_types_supported                                          | JSON array that contains a list of the `response_type` values that this authorization server supports. Can be a combination of `code`, `token`, and `id_token`.                                                                                                                                                                                                     | Array   |
 | response_modes_supported                                          | JSON array that containis a list of the `response_mode` values that this authorization server supports. More information in [parameter details](#parameter-details). | Array   |
 | grant_types_supported                                             | JSON array that contains a list of the `grant_type` values that this authorization server supports.                                       | Array   |
@@ -1195,9 +1195,9 @@ HTTP 404 Not Found
 
 ### /.well-known/openid-configuration
 
-<ApiOperation method="get" url="https://${yourOktaDomain}/.well-known/openid-configuration" />
+<ApiOperation method="get" url="https://${yourOktaDomain}/.well-known/openid-configuration" /> (Org Authorization Server)
 
-<ApiOperation method="get" url="https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration" />
+<ApiOperation method="get" url="https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration" /> (Custom Authorization Server)
 
 > **Note:** This endpoint's base URL varies depending on whether you are using the Org Authorization Server or a Custom Authorization Server. The Custom Authorization Server URL specifies an `authorizationServerId`. For example, the Custom Authorization Server automatically created for you by Okta has an `authorizationServerId` value of `default`.
 
