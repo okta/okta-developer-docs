@@ -1019,7 +1019,9 @@ WWW-Authenticate: Bearer error="insufficient_scope", error_description="The acce
 
 > **Note:** This endpoint is only available on Custom Authorization Servers, so there are no distinct [base URLs](#composing-your-base-url).
 
-Returns OAuth 2.0 metadata related to your Custom Authorization Server. Clients can use this information to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/main/#create-scopes). Custom claims are never returned. This endpoint doesn't return Org Authorization Server metadata. See the [well-known OpenID metadata endpoint](/docs/reference/api/oidc/#well-known-openid-configuration).
+Returns OAuth 2.0 metadata related to your Custom Authorization Server. Clients can use this information to programmatically configure their interactions with Okta. Custom scopes are returned only when they are [configured to be publicly discoverable](/docs/guides/customize-authz-server/main/#create-scopes). Custom claims are never returned.
+
+> **Note:** This endpoint doesn't return Org Authorization Server metadata. See the [well-known OpenID metadata endpoint](/docs/reference/api/oidc/#well-known-openid-configuration).
 
 This API doesn't require any authentication.
 
@@ -1195,9 +1197,11 @@ HTTP 404 Not Found
 
 ### /.well-known/openid-configuration
 
-<ApiOperation method="get" url="https://${yourOktaDomain}/.well-known/openid-configuration" /> (Org Authorization Server)
+**Org Authorization Server**
+<ApiOperation method="get" url="https://${yourOktaDomain}/.well-known/openid-configuration" />
 
-<ApiOperation method="get" url="https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration" /> (Custom Authorization Server)
+**Custom Authorization Server**
+<ApiOperation method="get" url="https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration" /> 
 
 > **Note:** This endpoint's base URL varies depending on whether you are using the Org Authorization Server or a Custom Authorization Server. The Custom Authorization Server URL specifies an `authorizationServerId`. For example, the Custom Authorization Server automatically created for you by Okta has an `authorizationServerId` value of `default`.
 
