@@ -62,11 +62,29 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * You must provide a subdomain for customizing the Okta org domain. Okta doesn't support the use of a root domain name.
 
-* If you use an Okta-managed TLS certificate, you don't need a [Certificate Authority Authorization (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, keep the following in mind:
+* If you use an Okta-managed TLS certificate, you don't need a [Certificate Authority Authorization (CAA)](https://datatracker.ietf.org/doc/html/rfc6844) record. However, if you do have a CAA record, consider the following:
 
-    * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
+  * If it's your first time setting up a custom domain with an Okta-managed certificate, you need to add `letsencrypt.org` to the issuers list or Okta can't get the TLS certificate. See [Let's Encrypt - Using CAA](https://letsencrypt.org/docs/caa/).
 
-    * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add `letsencrypt.org` to the issuers list or remove the CAA record.
+  * If you have an Okta-managed certificate and you later get a CAA record, Okta can't renew your certificate. You must either add `letsencrypt.org` to the issuers list or remove the CAA record.
+
+* If you use your own TLS certificate, consider the following:
+
+  * It should be signed with the SHA-256 hash algorithm.
+
+  * It must not be expired.
+
+  * Its start date must not be in the future.
+
+  * Its expiration date can't be further than 10 years from now.
+
+  * It mustn't be self-signed.
+
+  * It must be a certificate for the actual domain.
+
+  * The public key must use the RSA algorithm.
+
+  * The public key isn't from a certificate authority (CA).
 
 
 * Any DNS Text (`TXT`) and `CNAME` record names and values included in your domain configuration must be resolvable and contain the values provided by Okta. You can validate these names and values with a DNS query tool, such as [dig](https://bind9.readthedocs.io/en/latest/manpages.html?highlight=#dig-dns-lookup-utility).
