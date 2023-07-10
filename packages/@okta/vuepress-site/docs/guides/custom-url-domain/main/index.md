@@ -77,9 +77,9 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * If you sign a user in with your new custom domain and they try to SSO into previous OIDC integrations made with the org domain, your user is prompted to sign in again. To avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
-* When you implement a custom domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom domain to your users. One way to communicate the change is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
+* When you implement a custom domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom domain to your users.
 
-* If you configure the [FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) in your org and create a custom domain, your users need to re-enroll with WebAuthn. Communicate the new URL to your users so that Okta prompts them to re-enroll. Your users need to re-enroll for every domain they access because their each set of credentials is scoped to a separate domain.
+* If you configure the [FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) in your org and create a custom domain, your users need to re-enroll with WebAuthn. Communicate the new URL to your users so that Okta prompts them to re-enroll. Every domain a user accesses requires re-enrollment because each set of their credentials is scoped to a separate domain.
 
 * When an admin signs in to the custom domain and then accesses the Admin Console from their user dashboard, the org domain changes from the custom domain to the Okta domain.
 
