@@ -4891,11 +4891,9 @@ The properties in the Identity Provider Properties object vary depending on the 
 
 | Property | Description        | DataType     | Applies to IdP type |
 | -------- | ------------------ | ------------ | -------------------- |
-| additionalAmr <ApiLifecycle access="ea" /> | The additional Assurance Methods References (AMR) values for Smart Card IdPs. <br> Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | `X509`    |
+| additionalAmr | The additional Assurance Methods References (AMR) values for Smart Card IdPs. <br> Supported values: `sc` (smart card), `hwk` (hardware-secured key), `pin` (personal identification number), and `mfa` (multifactor authentication)  | Array of strings | `X509`    |
 | ialValue | The [type of identity verification](https://developers.login.gov/oidc/#ial-values) (IAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/).  | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
 | aalValue | The [authentication assurance level](https://developers.login.gov/oidc/#aal-values) (AAL) value for the Login.gov IdP. See [Add a Login.gov IdP](/docs/guides/add-logingov-idp/). | String | `LOGINGOV`, `LOGINGOV_SANDBOX`    |
-
-> **Note:** The `additionalAmr` property supports the [Early Access](/docs/reference/releases-at-okta/#early-access-ea) (Self-Service) Smart Card authenticator feature. Enable the feature for your org from the **Settings** > **Features** page in the Admin Console.
 
 ### Protocol object
 
