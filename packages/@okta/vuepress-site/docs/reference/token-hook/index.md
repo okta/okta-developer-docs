@@ -124,94 +124,27 @@ The `value` object is where you specify the specific operation to perform. It's 
 
 Okta defines various reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, don't use the following reserved claims:
 
-| Claim name     | Token type        |
-|----------------|-------------------|
-| authorization_details | access token |
-| as_uri         | access token      |
-| cnf (if [DPoP](/docs/guides/dpop/main) enabled) | access token |
-| rpt            | access token      |
-| rsi            | access token      |
-| scp            | access token      |
-| uid            | access token      |
-| username       | access token      |
-| amr            | ID token          |
-| active         | ID token          |
-| aid            | ID token          |
-| aud            | ID token          |
-| app_id         | ID token          |
-| app_type       | ID token          |
-| at_hash        | ID token          |
-| auth_time      | ID token          |
-| client_id      | ID token          |
-| client_ip      | ID token          |
-| client_req_id  | ID token          |
-| client_type    | ID token           |
-| client_user_agent |ID token        |
-| cnf            | ID token          |
-| c_hash         | ID token          |
-| device_compliance |ID token        |
-| device_id      | ID token          |
-| device_known   | ID token          |
-| device_managed | ID token          |
-| device_name    | ID token         |
-| device_trust   | ID token          |
-| did            | ID token          |
-| dst            | ID token          |
-| group          | ID token          |
-| hotk           | ID token          |
-| idp            | ID token         |
-| idp_iss        | ID token          |
-| mac_key        | ID token          |
-| may_act        | ID token          |
-| nonce          | ID token          |
-| oid            | ID token          |
-| okta_emailVerified | ID token      |
-| okta_lastUpdated | ID token        |
-| orig           | ID token          |
-| permissions    | ID token          |
-| purpose        | ID token          |
-| pwd_exp_days   | ID token           |
-| pwd_exp_time   | ID token          |
-| rid            | ID token          |
-| role           | ID token          |
-| scope          | ID token          |
-| scopes         | ID token          |
-| sub            | ID token          |
-| term           | ID token          |
-| user_ip        | ID token          |
-| acr            | access token & ID token |
-| cid            | access token & ID token |
-| exp            | access token & ID token |
-| groups         | access token & ID token |
-| iat            | access token & ID token |
-| iss            | access token & ID token |
-| jti            | access token & ID token |
-| sid            | access token & ID token |
-| token_type     | access token & ID token |
-| ver            | access token & ID token |
-| auth_time      | access token & ID token |
-
 | Claim name     | Token type              |
 |----------------|-------------------------|
-| acr            | access token & ID token |
+| acr            | <ul><li>access token</li><li>ID token</li></ul> |
 | active         | ID token |
 | aid            | ID token |
-| amr            | access token & ID token |
+| amr            | <ul><li>access token</li><li>ID token</li></ul> |
 | app_id         | ID token |
 | app_type       | ID token |
 | as_uri         | access token |
 | at_hash        | ID token |
 | aud            | ID token |
-| auth_time      | access token & ID token |
+| auth_time      | <ul><li>access token</li><li>ID token</li></ul> |
 | authorization_details  | access token |
 | c_hash         | ID token |
-| cid            | access token & ID token |
+| cid            | <ul><li>access token</li><li>ID token</li></ul> |
 | client_id      | ID token |
 | client_ip      | ID token |
 | client_req_id  | ID token |
 | client_type    | ID token |
 | client_user_agent | ID token |
-| cnf            | access tokent (if) and ID token |
+| cnf            | <ul><li>access token (if [DPoP](/docs/guides/dpop/main) enabled)</li><li>ID token</li></ul>|
 | device_compliance | ID token |
 | device_id      | ID token |
 | device_known   | ID token |
@@ -220,15 +153,15 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 | device_trust   | ID token |
 | did            | ID token |
 | dst            | ID token |
-| exp            | access token & ID token |
+| exp            | <ul><li>access token</li><li>ID token</li></ul> |
 | group          | ID token |
-| groups         | access token & ID token |
+| groups         | <ul><li>access token</li><li>ID token</li></ul> |
 | hotk           | ID token |
-| iat            | access token & ID token |
+| iat            | <ul><li>access token</li><li>ID token</li></ul> |
 | idp            | ID token |
 | idp_iss        | ID token |
-| iss            | access token & ID token |
-| jti            | access token & ID token |
+| iss            | <ul><li>access token</li><li>ID token</li></ul> |
+| jti            | <ul><li>access token</li><li>ID token</li></ul> |
 | mac_key        | ID token |
 | may_act        | ID token |
 | nonce          | ID token |
@@ -247,10 +180,10 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 | scope          | ID token |
 | scopes         | ID token |
 | scp            | access token |
-| sid            | access token & ID token |
+| sid            | <ul><li>access token</li><li>ID token</li></ul> |
 | sub            | ID token |
 | term           | ID token |
-| token_type     | access token & ID token |
+| token_type     | <ul><li>access token</li><li>ID token</li></ul> |
 | uid            | access token |
 | user_ip        | ID token |
 | username       | access token |
