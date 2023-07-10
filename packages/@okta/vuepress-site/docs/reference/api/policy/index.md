@@ -57,6 +57,8 @@ HTTP 200:
 
 <ApiOperation method="get" url="/api/v1/policies/${policyId}?expand=rules" />
 
+For Okta Classic Engine orgs only. Retrieves a policy and its associated rules. For Okta Identity Engine, see [List Policy Rules](#list-policy-rules). <!--OKTA-622770-->
+
 ##### Request parameters
 
 * The Policy ID described in the [Policy object](#policy-object) is required.
@@ -79,13 +81,20 @@ HTTP 200:
 
 Included as embedded objects, one or more [Policy Rules](#rules).
 
-### Get all Policies by type
+### List all Policies by type
 
 <ApiOperation method="get" url="/api/v1/policies?type=${type}" />
 
 ##### Request parameters
 
-The Policy type described in the [Policy object](#policy-object) is required.
+| Parameter | Description                                                        | Param Type | DataType | Required |
+| --------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
+| type      | The Policy `type` described in the [Policy object](#policy-object)   | URL        | String   | TRUE     |
+| status    | Refines the query by `status` of the policy: `ACTIVE` or `INACTIVE`  | URL        | String   | FALSE    |
+| q         | Refines the query by policy `name` prefix (`startWith` method)       | URL        | String   | FALSE    |
+| sortBy    | Refines the query by sorting on `name` in ascending order            | URL        | String   | FALSE    |
+| limit     | The number of policies returned, see [Pagination](/docs/reference/core-okta-api/#pagination)                                      | URL        | String   | FALSE     |
+| after     | End page cursor for pagination, see [Pagination](/docs/reference/core-okta-api/#pagination)   | URL        | String   | FALSE     |
 
 ##### Request example
 
@@ -275,8 +284,10 @@ HTTP 204:
 
 ## Policy mapping operations
 
-### Get applications
+### List applications
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/app" />
+
+<ApiLifecycle access="deprecated" />
 
 Retrieves a list of applications mapped to a policy
 
@@ -520,7 +531,7 @@ HTTP 200:
 
 ## Rules operations
 
-### Get Policy Rules
+### List Policy Rules
 
 <ApiOperation method="get" url="/api/v1/policies/${policyId}/rules" />
 
