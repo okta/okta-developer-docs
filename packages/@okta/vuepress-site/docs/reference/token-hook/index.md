@@ -129,7 +129,7 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 | acr            | <ul><li>access token</li><li>ID token</li></ul> |
 | active         | ID token |
 | aid            | ID token |
-| amr            | <ul><li>access token</li><li>ID token</li></ul> |
+| amr            | ID token |
 | app_id         | ID token |
 | app_type       | ID token |
 | as_uri         | access token |
