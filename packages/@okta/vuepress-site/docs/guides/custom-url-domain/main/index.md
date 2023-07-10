@@ -79,7 +79,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
 * When you implement a custom domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom domain to your users.
 
-* If you configure the [FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) in your org and create a custom domain, your users first need to re-enroll with another authenticator. For example, Okta Verify or email. Then, your users can re-enroll with WebAuthn. Communicate the new URL to your users so that Okta prompts them to re-enroll. Every domain a user accesses requires re-enrollment because each set of their credentials is scoped to a separate domain.
+* If you configure the [FIDO2 (WebAuthn) authenticator](https://help.okta.com/okta_help.htm?type=oie&id=csh-configure-webauthn) in your org and create a custom domain, your users first need to re-enroll with another authenticator (for example, Okta Verify or email). Then, your users can re-enroll with WebAuthn. Communicate the new URL to your users so that Okta prompts them to re-enroll. Every domain that a user accesses requires re-enrollment because each set of their credentials is scoped to a separate domain.
 
 * When an admin signs in to the custom domain and then accesses the Admin Console from their user dashboard, the org domain changes from the custom domain to the Okta domain.
 
