@@ -74,7 +74,7 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 
   * It shouldn't be expired.
 
-  * It's start date shouldn't be in the future.
+  * Its start date shouldn't be in the future.
 
   * It's expiration date can't be further than 10 years from now.
 
