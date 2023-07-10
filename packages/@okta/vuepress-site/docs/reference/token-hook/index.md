@@ -126,7 +126,7 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 
 | Claim name     | Token type              |
 |----------------|-------------------------|
-| acr            | <ul><li>access token</li><li>ID token</li></ul> |
+| acr            | ID token & access token |
 | active         | ID token |
 | aid            | ID token |
 | amr            | ID token |
@@ -135,16 +135,16 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 | as_uri         | access token |
 | at_hash        | ID token |
 | aud            | ID token |
-| auth_time      | <ul><li>access token</li><li>ID token</li></ul> |
+| auth_time      | ID token & access token |
 | authorization_details  | access token |
 | c_hash         | ID token |
-| cid            | <ul><li>access token</li><li>ID token</li></ul> |
+| cid            | ID token & access token|
 | client_id      | ID token |
 | client_ip      | ID token |
 | client_req_id  | ID token |
 | client_type    | ID token |
 | client_user_agent | ID token |
-| cnf            | <ul><li>access token (if [DPoP](/docs/guides/dpop/main) enabled)</li><li>ID token</li></ul>|
+| cnf            | ID token & access token (if [DPoP](/docs/guides/dpop/main) enabled) |
 | device_compliance | ID token |
 | device_id      | ID token |
 | device_known   | ID token |
@@ -153,15 +153,15 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 | device_trust   | ID token |
 | did            | ID token |
 | dst            | ID token |
-| exp            | <ul><li>access token</li><li>ID token</li></ul> |
+| exp            | ID token & access token |
 | group          | ID token |
-| groups         | <ul><li>access token</li><li>ID token</li></ul> |
+| groups         | ID token & access token |
 | hotk           | ID token |
-| iat            | <ul><li>access token</li><li>ID token</li></ul> |
+| iat            | ID token & access token |
 | idp            | ID token |
 | idp_iss        | ID token |
-| iss            | <ul><li>access token</li><li>ID token</li></ul> |
-| jti            | <ul><li>access token</li><li>ID token</li></ul> |
+| iss            | ID token & access token |
+| jti            | ID token & access token |
 | mac_key        | ID token |
 | may_act        | ID token |
 | nonce          | ID token |
@@ -180,14 +180,14 @@ Okta defines various reserved claims that can't be overridden. When you add a cu
 | scope          | ID token |
 | scopes         | ID token |
 | scp            | access token |
-| sid            | <ul><li>access token</li><li>ID token</li></ul> |
+| sid            | ID token & access token |
 | sub            | ID token |
 | term           | ID token |
-| token_type     | <ul><li>access token</li><li>ID token</li></ul> |
+| token_type     | ID token & access token |
 | uid            | access token |
 | user_ip        | ID token |
 | username       | access token |
-| ver            | <ul><li>access token</li><li>ID token</li></ul> |
+| ver            | ID token & access token |
 
 ### error
 
