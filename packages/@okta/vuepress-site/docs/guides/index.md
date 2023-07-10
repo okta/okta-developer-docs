@@ -5,6 +5,7 @@ guides:
  - archive-auth-js
  - archive-embedded-siw
  - archive-registration-inline-hook
+ - archive-set-up-self-service-registration
  - archive-sign-in-to-spa-authjs
  - archive-sign-in-to-spa-embedded-widget
  - archive-configure-signon-policy
@@ -48,10 +49,6 @@ guides:
  - migrate-to-okta-bulk
  - migrate-to-okta-password-hooks
  - mobile-idx-sdk-overview
- - oin-oidc-overview
- - oin-oidc-best-practices
- - oin-oidc-multi-tenancy
- - oin-oidc-protocols
  - scim-provisioning-integration-overview
  - scim-provisioning-integration-prepare
  - scim-provisioning-integration-connect
@@ -75,7 +72,6 @@ guides:
  - saml-inline-hook
  - saml-tracer
  - session-cookie
- - set-up-self-service-registration
  - set-up-token-exchange
  - shared-sso-android-ios
  - sharing-cert
@@ -139,6 +135,7 @@ guides:
  - pwd-optional-overview
  - build-api-integration
  - add-logingov-idp
+ - policy-simulation
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
@@ -154,7 +151,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
-    * [Set up self-service registration](/docs/guides/set-up-self-service-registration/)
+    * [Set up self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/)
 
 2. Sign users in
 
@@ -206,7 +203,9 @@ You can publish your integration in the Okta Integration Network (OIN) catalog t
 
 If you're creating an Okta integration for the first time, we recommend the following sequence of guides:
 
-1. [OIDC and the OIN: A Developer Primer](/docs/guides/oin-oidc-overview/)
+1. [OIN landing](/docs/guides/okta-integration-network/)
 1. [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/)
 1. [Overview of lifecycle management in the OIN](/docs/guides/oin-lifecycle-mgmt-overview/)
+1. [Overview of API service apps in the OIN](/docs/guides/oin-api-service-overview/)
+1. [OIN submission requirements](/docs/guides/submit-app-prereq/)
 1. [Submit an app integration](/docs/guides/submit-app/)

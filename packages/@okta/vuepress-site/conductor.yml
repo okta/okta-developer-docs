@@ -496,7 +496,7 @@ redirects:
   - from: /docs/api/resources/users/index.html
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones/index.html
-    to: /docs/reference/api/zones/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /docs/how-to/add-user-consent-to-flow/index.html
     to: /docs/guides/request-user-consent/
   - from: /docs/how-to/byo_saml/index.html
@@ -802,7 +802,7 @@ redirects:
   - from: /docs/api/resources/users
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones
-    to: /docs/reference/api/zones/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /docs/api/resources/social_authentication
     to: /docs/guides/social-login/
   - from: /docs/api/resources/social_authentication/index.html
@@ -900,7 +900,7 @@ redirects:
   - from: /docs/api/resources/trusted-origins.html
     to: /docs/reference/api/trusted-origins/
   - from: /docs/api/resources/zones.html
-    to: /docs/reference/api/zones/
+    to: https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/
   - from: /guides/add-saml-idp/-/configure-oidc-client/index.html
     to: /docs/guides/add-saml-idp/-/configure-oidc-client/
   - from: /guides/add-saml-idp/-/configure-saml-idp/index.html
@@ -2627,26 +2627,28 @@ redirects:
     to: /docs/guides/sign-your-own-saml-csr/main/#clone-the-certificate-optional
   - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/index.html
     to: /docs/guides/sign-your-own-saml-csr/main/#upload-the-new-certificate-to-the-isv
+  - from: /docs/guides/set-up-self-service-registration/
+    to: /docs/guides/archive-set-up-self-service-registration/
   - from: /docs/guides/set-up-self-service-registration/before-you-begin
-    to: /docs/guides/set-up-self-service-registration/
+    to: /docs/guides/archive-set-up-self-service-registration/
   - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy
-    to: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
+    to: /docs/guides/archive-set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
   - from: /docs/guides/set-up-self-service-registration/disable-security-image
-    to: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
+    to: /docs/guides/archive-set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
   - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget
-    to: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
+    to: /docs/guides/archive-set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
   - from: /docs/guides/set-up-self-service-registration/next-steps
-    to: /docs/guides/set-up-self-service-registration/main/#next-steps
+    to: /docs/guides/archive-set-up-self-service-registration/main/#next-steps
   - from: /docs/guides/set-up-self-service-registration/before-you-begin/index.html
-    to: /docs/guides/set-up-self-service-registration/
+    to: /docs/guides/archive-set-up-self-service-registration/
   - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/index.html
-    to: /docs/guides/set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
+    to: /docs/guides/archive-set-up-self-service-registration/main/#enable-and-configure-a-self-service-registration-policy
   - from: /docs/guides/set-up-self-service-registration/disable-security-image/index.html
-    to: /docs/guides/set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
+    to: /docs/guides/archive-set-up-self-service-registration/main/#disable-the-security-image-and-additional-self-service-recovery-options
   - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/index.html
-    to: /docs/guides/set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
+    to: /docs/guides/archive-set-up-self-service-registration/main/#configure-registration-in-the-okta-sign-in-widget
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
-    to: /docs/guides/set-up-self-service-registration/main/#next-steps
+    to: /docs/guides/archive-set-up-self-service-registration/main/#next-steps
   - from: /docs/guides/build-custom-ui-mobile/-/before-you-begin
     to: /docs/guides/build-custom-ui-mobile/
   - from: /docs/guides/build-custom-ui-mobile/-/create-an-okta-application
@@ -4684,29 +4686,47 @@ redirects:
   - from: /docs/guides/style-the-widget/next-steps/index.html
     to: /docs/guides/custom-widget/main/#see-also
   - from: /docs/guides/oin-oidc-guide/overview
-    to: /docs/guides/oin-oidc-overview/main/
+    to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/background
-    to: /docs/guides/oin-oidc-overview/main/#overview
+    to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements
-    to: /docs/guides/oin-oidc-protocols/main/
+    to: /docs/guides/build-sso-integration/openidconnect/main/#prepare-your-integration
   - from: /docs/guides/oin-oidc-guide/multi-tenancy
-    to: /docs/guides/oin-oidc-multi-tenancy/main/
+    to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
   - from: /docs/guides/oin-oidc-guide/integration-best-practices
-    to: /docs/guides/oin-oidc-best-practices/main/
+    to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/next-steps
-    to: /docs/guides/oin-oidc-best-practices/main/#next-steps
+    to: /docs/guides/oin-sso-overview/#next-steps
   - from: /docs/guides/oin-oidc-guide/overview/index.html
-    to: /docs/guides/oin-oidc-overview/main/
+    to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/background/index.html
-    to: /docs/guides/oin-oidc-overview/main/#overview
+    to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/protocol-level-requirements/index.html
-    to: /docs/guides/oin-oidc-protocols/main/
+    to: /docs/guides/build-sso-integration/openidconnect/main/#prepare-your-integration
   - from: /docs/guides/oin-oidc-guide/multi-tenancy/index.html
-    to: /docs/guides/oin-oidc-multi-tenancy/main/
+    to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
   - from: /docs/guides/oin-oidc-guide/integration-best-practices/index.html
-    to: /docs/guides/oin-oidc-best-practices/main/
+    to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/oin-oidc-guide/next-steps/index.html
-    to: /docs/guides/oin-oidc-best-practices/main/#next-steps
+    to: /docs/guides/oin-sso-overview/#next-steps
+  - from: /docs/guides/oin-oidc-best-practices/main
+    to: /docs/guides/oin-sso-overview/
+  - from: /docs/guides/oin-oidc-best-practices/main/index.html
+    to: /docs/guides/oin-sso-overview/
+  - from: /docs/guides/oin-oidc-best-practices/main/#rate-restrictions
+    to: /docs/guides/build-sso-integration/openidconnect/main/#rate-limit-considerations
+  - from: /docs/guides/oin-oidc-multi-tenancy/main
+    to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
+  - from: /docs/guides/oin-oidc-multi-tenancy/main/index.html
+    to: /docs/guides/oin-sso-overview/#okta-organization-and-multi-tenancy
+  - from: /docs/guides/oin-oidc-protocols/main
+    to: /docs/guides/build-sso-integration/openidconnect/main/#prepare-your-integration
+  - from: /docs/guides/oin-oidc-protocols/main/index.html
+    to: /docs/guides/build-sso-integration/openidconnect/main/#prepare-your-integration
+  - from: /docs/guides/oin-oidc-overview/main
+    to: /docs/guides/oin-sso-overview/
+  - from: /docs/guides/oin-oidc-overview/main/index.html
+    to: /docs/guides/oin-sso-overview/
   - from: /docs/guides/third-party-risk-integration/overview
     to: /docs/guides/third-party-risk-integration/
   - from: /docs/guides/third-party-risk-integration/overview/index.html

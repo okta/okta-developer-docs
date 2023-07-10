@@ -13,6 +13,8 @@ Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including ac
 * [Claim operations](#claim-operations)
 * [Key Store operations](#key-store-operations)
 
+<ApiAuthMethodWarning />
+
 ## Get started
 
 Explore the Authorization Servers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3db644315e549633361a)

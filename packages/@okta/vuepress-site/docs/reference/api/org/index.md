@@ -7,6 +7,8 @@ category: management
 
 The Okta Org API provides operations to manage your org account settings such as contact information, granting Okta Support access, and more.
 
+<ApiAuthMethodWarning />
+
 ## Getting Started
 
 Explore the Org API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2a73f5511943d1bd6611)

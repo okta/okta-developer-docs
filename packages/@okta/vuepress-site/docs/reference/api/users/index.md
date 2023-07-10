@@ -7,6 +7,8 @@ category: management
 
 The Okta User API provides operations to manage users in your organization.
 
+<ApiAuthMethodWarning />
+
 ## Getting started
 
 Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
@@ -2209,6 +2211,8 @@ This operation can only be performed on users with a `STAGED` or `DEPROVISIONED`
 - The user's status is `ACTIVE` when the activation process is complete.
 
 Users who don't have a password must complete the welcome flow by visiting the activation link to complete the transition to `ACTIVE` status.
+
+> **Note:** If you want to send a branded User Activation email, change the subdomain of your request to the custom domain that's associated with the brand. For example, change `subdomain.okta.com` to `custom.domain.one`. See [Multibrand and custom domains](/docs/concepts/brands/#multibrand-and-custom-domains).
 
 > **Note:** If you have Optional Password enabled, visiting the activation link is optional for users who aren't required to enroll a password. See [Create user with Optional Password enabled](#create-user-with-optional-password-enabled).
 >

@@ -4,7 +4,140 @@ title: Okta Identity Engine API Products release notes 2023
 
 <ApiLifecycle access="ie" />
 
+## June
+
+### Weekly release 2023.06.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [New IdP permissions for custom admin roles is EA in Preview](#new-idp-permissions-for-custom-admin-roles-is-ea-in-preview) | July 6, 2023 |
+| [Bugs fixed in 2023.06.2](#bugs-fixed-in-2023-06-2) | July 6, 2023 |
+
+#### New IdP permissions for custom admin roles is EA in Preview
+
+Admins can now leverage new Identity Provider management permissions when creating custom admin roles. These permissions allow more precise access control and reinforce the principle of least privilege. See [Roles](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Role/).
+
+#### Bugs fixed in 2023.06.2
+
+* The `max_age=0` property wasn't treated the same as `prompt=login` for OAuth 2.0 `/authorize` requests. (OKTA-588559)
+* A delete session request (`/api/v1/sessions/me`) didn't clear the session cookie (`sid`). (OKTA-620986)
+* When the List all Trusted Origins API was called with a `filter` on `status`, an error was returned. (OKTA-622646)
+
+### Weekly release 2023.06.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2023.06.1](#bug-fixed-in-2023-06-1) | June 22, 2023 |
+
+#### Bug fixed in 2023.06.1
+
+ID tokens retrieved using Direct Authentication grant types contained an incorrect AMR. (OKTA-616876)
+
+### Monthly release 2023.06.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [API service integration client secret rotation](#api-service-integration-client-secret-rotation) | June 14, 2023 |
+| [Multibrand customizations are GA in Production](#multibrand-customizations-are-ga-in-production) | February 8, 2023 |
+| [Pagination for the Brands API is GA in Production](#pagination-for-the-brands-api-is-ga-in-production) | June 14, 2023 |
+| [New custom authenticator for push notifications](#new-custom-authenticator-for-push-notifications) | June 14, 2023 |
+| [Unique refresh token ID added to token inline hook requests](#unique-refresh-token-id-added-to-token-inline-hook-requests) | June 14, 2023 |
+| [Transactional verification with CIBA is GA in Production](#transactional-verification-with-ciba-is-ga-in-production) | June 14, 2023 |
+| [Password hooks global availability is GA in Production](#password-hooks-global-availability-is-ga-in-production) | December 20, 2020 |
+| [Google Authenticator for account recovery is now EA in Preview](#google-authenticator-for-account-recovery-is-now-ea-in-preview) | June 14, 2023 |
+| [Policy Simulation API is EA in Preview](#policy-simulation-api-is-ea-in-preview) | June 14, 2023 |
+| [Universal Directory attribute and enum limits are GA in Production](#universal-directory-attribute-and-enum-limits-are-ga-in-production) | June 14, 2023 |
+| [Developer documentation update in 2023.06.0](#developer-documentation-update-in-2023-06-0) | June 14, 2023 |
+| [Bugs fixed in 2023.06.0](#bugs-fixed-in-2023-06-0) | June 14, 2023 |
+
+#### API service integration client secret rotation
+
+New in this release is the ability to rotate client secrets for an API service integration through the API. Previously, if a customer wanted to update the client secret for an API service integration, they would have to reinstall the integration to obtain a new client ID and secret. There was no option to revoke the client secret while maintaining the client ID and API service integration instance in Okta. With this new feature, customers can generate a new secret, deactivate an old secret, and remove a deactivated secret from the API service integration instance. These functionalities help customers implement security best practices without service downtime. See [API Service Integration](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ApiServiceIntegrations/#tag/ApiServiceIntegrations/operation/createApiServiceIntegrationInstanceSecret) API references. <!-- OKTA-584715 -->
+
+#### Multibrand customizations are GA in Production
+
+Multibrand customizations allow customers to use one org to manage multiple brands and multiple custom domains. This drastically simplifies multi-tenant architectures where customers create multiple orgs to satisfy branding requirements. Multibrand customizations allow orgs to create up to three custom domains (more upon request), which can be mapped to multiple sign-in pages, multiple sets of emails, error pages, and multiple versions of the End-User Dashboard. See [Brands](/docs/concepts/brands/).  <!-- OKTA-568807 -->
+
+#### Pagination for the Brands API is GA in Production
+
+The Brands API now supports [pagination](/docs/reference/core-okta-api/#pagination) when returning lists of brands. Previously, users would get a list of all brands in the org. With pagination, users receive 20 records per page. See [Customizations](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/). <!-- OKTA-574011 -->
+
+#### New custom authenticator for push notifications
+
+Before now, Okta Verify was the only solution for using push notifications and biometrics as part of your Okta user verification strategy. Now, we have the Devices SDK, which lets you embed push notifications and biometric verification inside your organization's mobile apps. Your users are presented with a push and biometric experience within your organization's apps, with your organization's branding on it. They never have to leave your app, and they don't need to download a third-party app, such as Okta Verify, to complete their verification. See the [Custom authenticator integration guide](/docs/guides/authenticators-custom-authenticator/) for [Android](/docs/guides/authenticators-custom-authenticator/android/main/) and [iOS](/docs/guides/authenticators-custom-authenticator/ios/main) instructions. <!-- OKTA-580039 -->
+
+#### Unique refresh token ID added to token inline hook requests
+
+A unique refresh token ID is now included in token inline hook requests. This ensures that the refresh token ID is persisted in the request to maintain seamless access and improve security. This feature is now GA in production. <!-- OKTA-576905 -->
+
+#### Transactional verification with CIBA is GA in Production
+
+Organizations are constantly looking for ways to offer a frictionless user experience without compromising security. It becomes even more challenging when the users try to perform sensitive transactions. Okta uses Client-Initiated Backchannel Authentication (CIBA) to provide customers with a simple and secure transaction verification solution.
+
+CIBA extends OpenID Connect to define a decoupled flow where the authentication or transaction flow is initiated on one device and verified on another. The device in which the transaction is initiated by the OIDC application is called the consumption device, and the device where the user verifies the transaction is called the authentication device. See [Transactional verification using CIBA](/docs/guides/configure-ciba/main/). <!-- OKTA-584442 -->
+
+#### Password hooks global availability is GA in Production
+
+The [Create User with password import inline hook](/docs/reference/api/users/#create-user-with-password-import-inline-hook) operation is now available for all users. Previously, password hooks required a user to be in the `STAGED` status. This change helps better support migration efforts from DelAuth to Okta. <!-- OKTA-604521 -->
+
+#### Google Authenticator for account recovery is now EA in Preview
+
+The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](/docs/reference/api/policy/#self-service-password-reset-action-object). <!-- OKTA-599821 -->
+
+#### Policy Simulation API is EA in Preview
+
+With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes will be achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user will be granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/okta_help.htm?type=oie&id=csh-access-testing-tool). The`/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation/). <!--OKTA-593826-->
+
+#### Universal Directory attribute and enum limits are GA in Production
+
+Universal Directory now has limits to the number of attributes per org and the number of enums that can be defined for a single attribute. <!--OKTA-614625-->
+
+#### Developer documentation update in 2023.06.0
+
+A new policy testing guide is available to demonstrate a new Policy API endpoint used to test access policies. This feature is also available in the Admin Console > Reports as the Access Testing Tool. See the new [simulate endpoint](/docs/reference/api/policy/#policy-simulation-operations) in the API reference and [Test your policies with access simulations](/docs/guides/policy-simulation).
+
+#### Bugs fixed in 2023.06.0
+
+* Sometimes requests with an already used scope name didn't return appropriate error messages. (OKTA-570908)
+* Some customers received a 500 internal server error in response to a List all apps request. (OKTA-597493)
+* Unhelpful error messages appeared when the `NameIdPolicy` was unspecified in SAML client requests that required signed requests. (OKTA-607434)
+* When labels for Universal Directory properties on the profile enrollment form were customized, the sign-in page showed default content. (OKTA-397225)
+* The Identity Provider (IdP) AMR claims mapping feature ignored the IdP admin configuration for trusting AMR claims. (OKTA-615412)
+* The `max_age=0` property wasn't treated the same as `prompt=login` for OAuth 2.0 `/authorize` requests. (OKTA-588559)
+
 ## May
+
+### Weekly release 2023.05.3
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.05.3](#bugs-fixed-in-2023-05-3) | June 07, 2023 |
+
+#### Bugs fixed in 2023.05.3
+
+* Requests to the Email Domains API (DELETE /email-domains/{emailDomainId}) failed if the same domain name was used by multiple orgs. (OKTA-612312)
+* Some attributes previously added to user profiles from incoming SAML responses weren't cleared when the attribute was later omitted. (OKTA-609021)
+* The Begmati Nepal region (`NP`) was missing from the Dynamic Zone `locations` property. (OKTA-605016)
+
+### Weekly release 2023.05.2
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [MyAccount API password update and 2FA support is EA in Preview](#myaccount-api-password-update-and-2fa-support-is-ea-in-preview) | May 24, 2023 |
+| [AMR Claims Mapping for IdPs is EA in Preview](#amr-claims-mapping-for-idps-is-ea-in-preview) | May 24, 2023 |
+| [Bug fixed in 2023.05.2](#bug-fixed-in-2023-05-2) | May 24, 2023 |
+
+#### MyAccount API password update and 2FA support is EA in Preview
+
+You can now use the [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Password/) to update passwords. Previously, you could only update non-authenticator attributes like first name or last name with the API. Also, Okta enforces 2FA for users that enroll any factor using the API. <!-- OKTA-612157 FF: IDP_MY_ACCOUNT_API_PASSWORD & IDP_MY_ACCOUNT_2FA_IF_POSSIBLE -->
+
+#### AMR Claims Mapping for IdPs is EA in Preview
+
+This feature allows admins to configure their org to accept Authentication Method Reference (AMR) claims from SAML or OpenID Connect IdPs during SSO. Mapping AMR claims for third-party IdPs eliminates duplicate factor challenges during user authentication. AMR claims provide important context to Okta during policy evaluation, enabling a better understanding of which factors were used by the external IdP to verify the user's identity. This creates a more seamless and secure user experience, reducing friction, and boosting productivity. See [Add an external Identity Provider](/docs/guides/add-an-external-idp/oktatookta/main/#create-an-identity-provider-in-okta). <!-- OKTA-612157 FF: IDP_AMR_CLAIMS_MAPPING -->
+
+#### Bug fixed in 2023.05.2
+
+Token inline hooks failed even when a URL claim name was correctly encoded with a JSON pointer. (OKTA-602794)
 
 ### Weekly release 2023.05.1
 
@@ -47,7 +180,7 @@ The [Create User with password import inline hook](/docs/reference/api/users/#cr
 
 #### Event hook filtering is EA in Preview
 
-You can now filter individual events of the same event type based on custom business logic hosted in Okta. These filters reduce the amount of events that trigger hooks, removing an unnecessary load on your external service.
+You can now filter individual events of the same event type based on custom business logic hosted in Okta. These filters reduce the number of events that trigger hooks, removing an unnecessary load on your external service.
 
 This feature includes an improved creation workflow for event hooks and a new **Filters** tab that you can use to create event filters with direct Expression Language statements or with a simple UI format.
 
@@ -55,7 +188,7 @@ Using event hook filters significantly reduces the amount of event hook requests
 
 #### The new Direct Authentication API is EA in Preview
 
-The [Direct Authentication API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) offers a new set of OAuth grants that give app developers greater control over the authentication process. When redirect authentication isn't an option, you can use this API to allow client apps to authenticate users directly, without relying on HTTP redirection through a web browser. This is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. By leveraging the Direct Authentication API, app developers can tailor the authentication experience to their specific use case, resulting in a smoother and more efficient authentication process. See [Implement by authorization by grant type](/docs/guides/implement-grant-type/otp/main/). <!--OKTA-585748--> <!--FF: DIRECT_AUTH-->
+The [Direct Authentication API](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) offers a new set of OAuth grants that give app developers greater control over the authentication process. When redirect authentication isn't an option, you can use this API to allow client apps to authenticate users directly, without relying on HTTP redirection through a web browser. This is beneficial in scenarios where there's a high degree of trust between the user and the app. It's also beneficial where browser-based flows aren't feasible, like with mobile apps. By using the Direct Authentication API, app developers can tailor the authentication experience to their specific use case, resulting in a smoother and more efficient authentication process. See [Implement by authorization by grant type](/docs/guides/implement-grant-type/otp/main/). <!--OKTA-585748--> <!--FF: DIRECT_AUTH-->
 
 #### Identity store property for the Applications API
 
@@ -207,7 +340,7 @@ The Identity Sources API bulk upsert operation accepted an empty profile payload
 
 #### Bugs fixed in 2023.03.2
 
-* In some cases, groups with a `status` of INACTIVE were synchronized with the reporting database as ACTIVE. (OKTA-589084)
+* Sometimes, groups with a `status` of INACTIVE were synchronized with the reporting database as ACTIVE. (OKTA-589084)
 
 * Requests to the Policies API (`PUT /policies/${defaultIdpPolicy}/rules/${IdpRule}`) with an empty `userIdentifier` parameter returned an HTTP 500 Internal Server error. (OKTA-565856)
 
@@ -265,7 +398,7 @@ A service-to-service app where a backend service or a daemon calls Okta manageme
 
 Many organizations use third-party systems to monitor, aggregate, and act on the event data in Okta System Log events.
 
-Log Streaming enables Okta admins to more easily and securely send System Log events to a specified systems, such as the Splunk Cloud or Amazon Eventbridge, in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it doesn't require a third-party system to store an Okta Admin API token. See [Log Streaming API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/). <!--OKTA-578532-->
+Log Streaming enables Okta admins to more easily and securely send System Log events to a specified system, such as the Splunk Cloud or Amazon Eventbridge, in near real time with simple, pre-built connectors. Log streaming scales well even with high event volume, and unlike many existing System Log event collectors, it doesn't require a third-party system to store an Okta Admin API token. See [Log Streaming API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/LogStream/). <!--OKTA-578532-->
 
 #### Optional consent for OAuth 2.0 scopes is GA in Production
 
@@ -343,7 +476,7 @@ When an admin used a group limit in an expression that was greater than 100 (for
 
 | Change | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview](#allow-list-for-fido2-webauthn-authenticators-is-self-service-ea-in-preview) | January 19, 2023 |
+| [Allowlist for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview](#allow-list-for-fido2-webauthn-authenticators-is-self-service-ea-in-preview) | January 19, 2023 |
 | [Applications API support for SAML metadata attributes](#applications-api-support-for-saml-metadata-attributes) | February 8, 2023 |
 | [Authenticator enrollment using the /authorize endpoint is GA in Preview](#authenticator-enrollment-using-the-authorize-endpoint-is-ga-in-preview) | November 3, 2022 |
 | [Custom app login is GA in Production](#custom-app-login-is-ga-in-production) | January 11, 2023 |
@@ -360,9 +493,9 @@ When an admin used a group limit in an expression that was greater than 100 (for
 | [Developer documentation updates in 2023.02.0](#developer-documentation-updates-in-2023-02-0) | February 8, 2023 |
 | [Bugs fixed in 2023.02.0](#bugs-fixed-in-2023-02-0) | February 8, 2023 |
 
-#### Allow list for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview
+#### Allowlist for FIDO2 (WebAuthn) authenticators is Self-Service EA in Preview
 
-Okta now enables you to mange which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments. This feature allows you to create an allow list of specific FIDO2 WebAuthn authenticators (based on FIDO Metadata Service) that can be used in enrollment policies. This allows admins to have greater control over which authenticators may be used in their orgs and determine which users may access them in a granular way.  See `settings.authenticators.constraints` in the `MFA_ENROLL` [Policies API](/docs/reference/api/policy/#policy-authenticator-object). <!--OKTA-559662-->
+Okta now enables you to manage which FIDO2 WebAuthn authenticators are allowed in your org for new enrollments. This feature allows you to create an allow list of specific FIDO2 WebAuthn authenticators (based on FIDO Metadata Service) that can be used in enrollment policies. This allows admins to have greater control over which authenticators may be used in their orgs and determine which users may access them in a granular way.  See `settings.authenticators.constraints` in the `MFA_ENROLL` [Policies API](/docs/reference/api/policy/#policy-authenticator-object). <!--OKTA-559662-->
 
 #### Applications API support for SAML metadata attributes
 

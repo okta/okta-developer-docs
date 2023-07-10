@@ -67,7 +67,7 @@ The following are step-by-step instructions to configure an Okta sign-on policy 
 
 3. For this use case example, leave the default of **Anywhere** in the **If User's IP is** drop-down box. For other use cases where you want to assign location parameters, you can specify what kind of location prompts authentication, for example, prompting a user for a factor when they aren't on the corporate network.
 
-    > **Note:** You can click the **Networks** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create networks zones using the [Zone API](/docs/reference/api/zones/).
+    > **Note:** You can click the **Networks** link to access the gateway settings that enable your choice of access. A [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) is a security perimeter used to limit or restrict access to a network based on a single IP address, one or more IP address ranges, or a list of geolocations. You can also create networks zones using the [Zone API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/).
 
 4. Leave the default of **Any** in the **And Authenticates via** drop-down box.
 
@@ -150,7 +150,7 @@ You should now understand how to add an Okta sign-on policy and an app sign-on p
 Next, take a look at the following:
 
 * [Sign Users Out](/docs/guides/sign-users-out/)
-* [Set up self-registration](/docs/guides/set-up-self-service-registration/)
+* [Set up self-registration](/docs/guides/archive-set-up-self-service-registration/)
 * [Configure an access policy](/docs/guides/configure-access-policy/)
 
 ## See also

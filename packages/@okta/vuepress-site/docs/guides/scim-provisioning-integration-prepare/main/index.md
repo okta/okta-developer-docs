@@ -128,7 +128,7 @@ There are numerous examples of how to implement SCIM servers and applications. H
 - [django-scim2](https://github.com/15five/django-scim2) &mdash; a SCIM 2.0 service provider implementation (for Django)
 - [go-scim](https://github.com/imulab/go-scim) &mdash; building blocks for servers implementing SCIM v2
 
-A full list of implementations, both open-source and proprietary, is available at [SimpleCloud.info](http://www.simplecloud.info/#Implementations2).
+A full list of implementations, both open-source and proprietary, is available at [SCIM 2.0 Implementations](https://scim.cloud/#Implementations2).
 
 ## SCIM facade
 

@@ -26,7 +26,6 @@
     "semver": "^7.3.8"
   },
   "dependencies": {
-    "@okta/vuepress-plugin-qualtrics-feedback": "^1.0.0",
     "bootstrap": "^4.6.1",
     "esm": "^3.0.0",
     "js-yaml": "^3.13.1",

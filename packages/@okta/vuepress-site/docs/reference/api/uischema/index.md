@@ -5,9 +5,16 @@ category: management
 
 # UI Schema API
 
-<ApiLifecycle access="ie" />
+The UI Schema API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/UISchema/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the UI Schema API Postman collection.
+
+<!--
+<<ApiLifecycle access="ie" />
 
 The Okta UI Schema API allows you to control how inputs appear on an enrollment form.
+
+<ApiAuthMethodWarning />
 
 ## Get started
 
@@ -746,3 +753,4 @@ The UI Schema Element Options object specifies how the input appears. The suppor
   "format": "select"
 }
 ```
+-->

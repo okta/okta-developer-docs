@@ -26,7 +26,7 @@ This guide provides working examples of an Okta registration inline hook for sel
 
 **Sample code**
 
-[Okta Registration Inline Hook Example](https://glitch.com/~okta-inlinehook-registrationhook-v2)
+[Okta Registration Inline Hook Example](https://glitch.com/~okta-registration-inline-hook-sample)
 
 ---
 
@@ -149,7 +149,7 @@ See the [request properties](/docs/reference/registration-hook/#objects-in-the-r
 
 The external service responds to Okta indicating whether to accept the end user's self-registration or profile update. The response returns a `commands` object in the body of the HTTPS response. This object contains specific syntax that indicates whether the user is allowed or denied to self-register or to update their profile with Okta.
 
-In our sample Glitch project, you can see this response in the [server.js](https://glitch.com/embed/#!/okta-inlinehook-registrationhook-v2?path=server.js%3A27%3A50) file.
+In our sample Glitch project, you can see this response in the [server.js](https://glitch.com/edit/#!/okta-registration-inline-hook-sample?path=server.js%3A1%3A0) file.
 
 See the [response properties](/docs/reference/registration-hook/#response-objects-that-you-send) of a registration inline hook for full details.
 
@@ -182,7 +182,7 @@ app.post('/registrationHook', async (request, response) => {
           {
             type: 'com.okta.action.update',
             value: {
-              registration: 'DENY',
+              'registration': 'DENY',
             },
           }
         ],
@@ -199,15 +199,15 @@ app.post('/registrationHook', async (request, response) => {
       };
     }
   } else {
-    console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " has registered!");
-    var emailRegistration = request.body.data.userProfile['email'];
-    if (emailRegistration.includes('example.com')) {
+    var emailRegistration = (request.body.data.userProfile['email']).split('@');
+    if (emailRegistration[1].includes('example.com')) {
+      console.log(request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email'] + " has registered!");
       returnValue = {
         'commands':[
           {
-            type: 'com.okta.user.profile.update',
+            type: 'com.okta.action.update',
             value: {
-              'login': emailRegistration,
+              'registration': 'ALLOW',
             }
           }
         ]
@@ -219,7 +219,7 @@ app.post('/registrationHook', async (request, response) => {
           {
             type: 'com.okta.action.update',
             value: {
-              registration: 'DENY',
+              'registration': 'DENY',
             },
           }
         ],

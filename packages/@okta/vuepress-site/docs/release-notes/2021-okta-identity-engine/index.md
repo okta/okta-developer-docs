@@ -98,7 +98,7 @@ Admins can't update a [Profile Enrollment policy](/docs/reference/api/policy/#pr
 
 #### Bug fixed in 2021.11.2
 
-Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
+Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/CustomDomain/#tag/CustomDomain/operation/upsertCertificate!path=certificateChain&t=request) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
 
 ### Weekly release 2021.11.1
 
@@ -126,7 +126,7 @@ The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-o
 
 #### New Devices API response property available
 
-Calls to the [List devices](/docs/reference/api/devices/#usage-example-expand-user) endpoint with an `expand=user` query now return the management status associated with each embedded user.<!--OKTA-431007-->
+Calls to the [List devices](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/#tag/Device/operation/listDevices) endpoint with an `expand=user` query now return the management status associated with each embedded user.<!--OKTA-431007-->
 
 #### New error page macros for themed templates
 
@@ -175,7 +175,7 @@ You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in 
 
 #### New Devices API
 
-The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single device or a list of devices from an org. The API also allows you to activate, deactivate, suspend, unsuspend, and delete a device by ID. You can access the OAuth 2.0 supported Devices API by using the `okta.devices.manage` and `okta.devices.read` [scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-424362-->
+The [Devices API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Device/) allows you to retrieve a single device or a list of devices from an org. The API also allows you to activate, deactivate, suspend, unsuspend, and delete a device by ID. You can access the OAuth 2.0 supported Devices API by using the `okta.devices.manage` and `okta.devices.read` [scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints). <!--OKTA-424362-->
 
 #### New Policy Authenticator settings are available in the Policy API
 

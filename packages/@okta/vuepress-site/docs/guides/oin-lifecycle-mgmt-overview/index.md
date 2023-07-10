@@ -7,7 +7,7 @@ meta:
 
 Lifecycle management refers to the process of provisioning and deprovisioning application access as a user moves through an organization. Onboarding, role change, transfer, and offboarding employee processes require provisioning user accounts in workforce applications and enforcing corporate security policies in a timely manner.
 
-<div class="half">
+<div class="three-quarters">
 
 ![Lifecycle management](/img/oin/scim_lifecycle.png "User lifecycle diagram: 1 - new employee 2 - provision applications 3 - enforce security 4 - update user information 5 - off-board")
 
@@ -30,7 +30,7 @@ After completing your Okta lifecycle management integration, publish it in the [
 
 | &nbsp; |  System for Cross-domain Identity Management (SCIM) |  Workflows Connector |
 | ------ | :------------------- | :----------------------- |
-| **Description** | [SCIM](http://www.simplecloud.info) is the industry standard protocol for managing users and groups in cloud-based systems. It handles basic operations like create, read, update, delete, and search. | [Okta Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) is a no-code, if-this-then-that logic builder that Okta customers can use to automate custom or complex employee onboarding and offboarding flows in your application. Publishing a Workflows Connector with Okta allows your customers to deeply integrate your product as part of their lifecycle management flows. |
+| **Description** | [SCIM](https://scim.cloud) is the industry standard protocol for managing users and groups in cloud-based systems. It handles basic operations like create, read, update, delete, and search. | [Okta Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) is a no-code, if-this-then-that logic builder that Okta customers can use to automate custom or complex employee onboarding and offboarding flows in your application. Publishing a Workflows Connector with Okta allows your customers to deeply integrate your product as part of their lifecycle management flows. |
 | **Technology** | <ul><li>JSON-based REST API server implementation</li> <li>Okta supports outbound SCIM requests to your SCIM API service</li> <li>See [SCIM Protocol](/docs/reference/scim/)</li></ul> | <ul><li>Low code development environment</li> <li>See [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf)</li></ul>|
 | **Benefits** | <ul><li>Covers the most common lifecycle management needs related to onboarding/offboarding</li> <li>SCIM standard is throughout the industry</li> </ul> | <ul><li>Customers can create highly custom automation with your product without writing code</li> <li>Your product is tightly integrated with Okta</li> </ul>|
 | **Get started** | [Build a SCIM Provisioning Integration](/docs/guides/scim-provisioning-integration-overview/) | [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder) |
