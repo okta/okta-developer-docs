@@ -10,6 +10,24 @@
    -->
 </div>
 
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+skinparam monochrome true
+actor "Resource Owner (User)" as user
+participant "Client" as client
+participant "Authorization Server (Okta)" as okta
+participant "Resource Server (Your App)" as app
+
+autonumber "<b>#."
+client -> okta: Access token request to /authorize
+okta -> user: 302 redirect to authentication prompt
+user -> okta: Authentication & consent
+okta -> client: Access token response
+client -> app: Request with access token
+app -> client: Response
+
+-->
+
 At a high level, this flow has the following steps:
 
 1. Your application sends a request to the authorization server (Okta) for an access token.

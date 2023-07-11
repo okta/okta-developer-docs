@@ -11,6 +11,23 @@
 
 </div>
 
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+@startuml
+skinparam monochrome true
+participant "Client + Resource Owner" as client
+participant "Authorization Server (Okta)" as okta
+participant "Resource Server (Your App)" as app
+
+autonumber "<b>#."
+client -> okta: Access token request to /token
+okta -> client: Access token response
+client -> app: Request with access token
+app -> client: Response
+@enduml
+
+-->
+
 At a high level, this flow has the following steps:
 
 1. Your client application (app) makes an authorization request to your Okta authorization server using its client credentials.

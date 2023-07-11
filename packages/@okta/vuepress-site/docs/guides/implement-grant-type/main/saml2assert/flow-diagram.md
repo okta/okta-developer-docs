@@ -11,6 +11,23 @@
 
 </div>
 
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+skinparam monochrome true
+participant "Client" as OClient
+participant "Identity Provider " as idp
+participant "Authorization Server (Okta)" as okta
+participant "Resource Server" as rs
+
+autonumber "<b>#."
+OClient -> idp: Makes SAML request to the IdP
+idp -> OClient: Sends SAML 2.0 Assertion in response
+OClient -> okta: Sends Base64-encoded SAML 2.0 Assertion to /token
+okta -> OClient: Verifies assertion and sends access token (optionally ID token, refresh token)
+OClient -> rs: Makes a resource request with the access token to the resource server
+
+-->
+
 The SAML 2.0 Assertion flow has the following steps:
 
 1. The client app makes a SAML request to the Identity Provider.
