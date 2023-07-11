@@ -1146,6 +1146,82 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
+## Org Thirdparty Admin Settings
+The Thirdparty Admin settings API has the following CRUD operation:
+
+* [Get Thirdparty Admin Settings](#get-thirdparty-admin-setting)
+* [Update Thirdparty Admin Settings](#update-thirdparty-admin-setting)
+
+### Get Thirdparty Admin setting
+
+<ApiOperation method="get" url="/api/v1/org/orgSettings/thirdPartyAdminSetting" />
+
+Gets the third party admin setting for the current org. The default value is false.
+
+#### Response body
+
+| Property | Type | Description |
+| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `thirdPartyAdmin` | boolean | The current third party admin setting for the org|
+
+
+#### Use example
+
+This request returns the third party admin setting for the current org
+
+##### Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/org/orgSettings/thirdPartyAdminSetting"
+```
+
+##### Response
+```http
+{
+    "thirdPartyAdmin": false,
+}
+```
+### Update Thirdparty Admin setting
+
+<ApiOperation method="post" url="/api/v1/org/orgSettings/thirdPartyAdminSetting" />
+
+updates the third party admin setting for the current org
+
+#### Response body
+
+| Property | Type | Description |
+| ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `thirdPartyAdmin` | boolean | The third party admin setting to update for the org|
+
+
+#### Use example
+
+This request updates the third party admin setting for the current org
+
+##### Request
+
+```bash
+curl --request POST \
+  --url https://${yourOktaDomain}/api/v1/org/orgSettings/thirdPartyAdminSetting \
+  --header 'Authorization: ' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "thirdPartyAdmin": true,
+}'
+```
+
+##### Response
+```http
+{
+    "thirdPartyAdmin": true,
+}
+```
+
+
 ## Org API objects
 
 ### Org Setting object
