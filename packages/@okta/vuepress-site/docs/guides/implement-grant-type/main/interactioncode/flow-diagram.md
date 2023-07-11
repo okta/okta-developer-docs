@@ -39,21 +39,21 @@ app -> client: Response
 
 -->
 
-The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow with PKCE](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce). All clients are required to pass a client ID and a Proof Key for Code Exchange (PKCE) in their authorization request to keep the flow secure. Confidential clients such as web apps must also pass a client secret.
+The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow with PKCE](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce). All clients are required to pass a client ID and a Proof Key for Code Exchange (PKCE) in their authorization request to keep the flow secure. Confidential clients such as web apps must also pass a client secret in the authorization request.
 
 1. The Interaction Code flow can start with minimal user information. For example, the user (resource owner) may only provide the client app with their username. Alternatively, the client can also begin the flow without any user information for a passwordless sign-in experience.
 1. The client app generates the PKCE code verifier & code challenge.
 
-   > **Note:** To use the Interaction Code flow, your org, app integration, and authorization server must have the Interaction Code grant type enabled. See [Verify that the interaction code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled).
+   > **Note:** To use the Interaction Code flow, you must enable the Interaction Code grant type for your org, app integration, and authorization server. See [Verify that the interaction code grant type is enabled](#verify-that-the-interaction-code-grant-type-is-enabled).
 
-1. The client app begins interaction with an [authorization server](/docs/concepts/auth-servers/), providing any context it may have, such as a sign-in hint, and sending the PKCE code challenge in a request for authorization of certain scopes to the authorization server.
+1. The client app begins interaction with an [authorization server](/docs/concepts/auth-servers/), providing any context it may have, such as a sign-in hint, as well as sending the PKCE code challenge in a request for authorization of certain scopes to the authorization server.
 
    > **Note:** A confidential client authenticates with the authorization server while a public client (like the Sign-In Widget) identifies itself to the authorization server. Both must provide the PKCE code challenge.
 
 1. Okta evaluates the sign-on policies for the app and authentication server and determines that remediation is required.
 1. The Identity Engine component of the authorization server sends the `interaction_handle` parameter in a response body to the client app.
 
-   > **Note:** The `interaction_handle` is used to continue the interaction directly with the Identity Engine. This is why the client, either confidential or public, needs to be registered with the Identity Engine to perform this direct interaction.
+   > **Note:** The `interaction_handle` is used to continue the interaction directly with the Identity Engine. This is why you need to register the client, either confidential or public, with the Identity Engine to perform this direct interaction.
 
 1. The client sends the `interaction_handle` to the Identity Engine and in return, the Identity Engine sends any required remediation steps back to the client.
 1. The client begins an interactive flow with the Identity Engine and the resource owner, handling any type of interaction required by the Identity Engine (the remedial information is provided by the user to the client).
@@ -67,6 +67,6 @@ The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow w
    > **Note:** The `interaction_code` indicates that the client (and user) went through all the necessary policy-driven remediation and received a successful response from the Identity Engine.
 
 1. The authorization server authenticates the client, evaluates the PKCE code, and validates the `interaction_code`.
-1. If the client ID, PKCE, and Interaction codes are valid, the authorization server sends the tokens (access, ID, and/or refresh) that were initially requested.
+1. If the client ID, PKCE, and interaction codes are valid, the authorization server sends the tokens (access, ID, and/or refresh) that were initially requested.
 1. The client makes a request with the access token to your app.
 1. Your app sends a response to the client.

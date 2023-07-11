@@ -1,6 +1,6 @@
 ## Verify that the Interaction Code grant type is enabled
 
-The Interaction Code grant type must be enabled for your org, [authorization server](/docs/concepts/auth-servers/), and app integration so you can use the Interaction Code flow.
+You must enable the Interaction Code grant type for your org, [authorization server](/docs/concepts/auth-servers/), and app integration so you can use the Interaction Code flow.
 
 ### Enable Interaction Code grant for your org
 
@@ -13,7 +13,7 @@ To access this setting:
 1. Open the [Admin Console](/docs/concepts/okta-organizations/#admin-console) for your org.
 1. Choose **Settings** > **Account** > **Embedded widget sign-in support**.
 1. Click **Edit**.
-1. Check the **Interaction code** checkbox to enable Interaction Code as a grant type.
+1. Select the **Interaction code** checkbox to enable Interaction Code as a grant type.
 1. Click **Save**.
 
 If you enable the Interaction Code grant type, the number of applications and authorization servers that use the Interaction Code grant type appear.
@@ -26,14 +26,14 @@ If you disable the Interaction Code grant type:
 
 ## Enable Interaction Code grant for your authorization server
 
-Once you have [enabled Interaction Code grant for your org](#enable-interaction-code-grant-for-your-org), it’s automatically configured in your [org authorization server](/docs/concepts/auth-servers/#org-authorization-server). If you're using a [custom authentication server](/docs/concepts/auth-servers/#custom-authorization-server), you need to enable Interaction Code grant for it in the Admin Console:
+After you [enable the Interaction Code grant for your org](#enable-interaction-code-grant-for-your-org), it’s automatically configured in your [org authorization server](/docs/concepts/auth-servers/#org-authorization-server). If you're using a [custom authentication server](/docs/concepts/auth-servers/#custom-authorization-server), you need to enable Interaction Code grant for it in the Admin Console:
 
 1. Open the **Admin Console** for your org.
 1. Choose **Security** > **API**.
 1. Select the **Authorization Servers** tab, and then select the pencil icon next to the custom authorization server that you want to update.
 1. Select the **Access Policies** tab.
 1. Select the pencil icon from the **Actions** column for the policy that applies to your app. For example, the **Default Policy Rule**.
-1. Locate the **Edit Rule** dialog box, and then check the **Interaction Code** checkbox.
+1. Locate the **Edit Rule** dialog box, and then select the **Interaction Code** checkbox.
 
      <VerifyICGrantType />
 

@@ -4,7 +4,7 @@ The following sections outline the main requests required to implement the Autho
 
 To get an authorization code, your app redirects the user to your [authorization server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you're using the org authorization server, then your request URL would look something like this:
 
-```uri
+```bash
 https://${yourOktaDomain}/oauth2/v1/authorize?
    client_id=0oabucvyc38HLL1ef0h7&
    response_type=code&scope=openid&
@@ -16,23 +16,23 @@ Note the parameters that are being passed:
 
 * `client_id` is the client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
 * `response_type` is `code`, indicating that you're using the Authorization Code grant type.
-* `scope` is `openid`, which means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+* `scope` is `openid`, which means that the `/token` endpoint returns an ID token. For custom scopes, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 * `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
 * `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 
 See [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
 
-If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, they arrive at the specified `redirect_uri` along with a `code`:
+If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, they arrive at the specified `redirect_uri` along with a `code`. For example:
 
-```uri
-http://localhost:8080/?code=P5I7mdxxdv13_JfXrCSq&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
+```bash
+http://www.example.com#code=P5I7mdxxdv13_JfXrCSq&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
 ```
 
 This code remains valid for 300 seconds, during which it can be exchanged for tokens.
 
 ### Exchange the code for tokens
 
-To exchange this code for access and ID tokens, you pass it to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you’re using the default custom authorization server, then your request would look something like this:
+To exchange this code for access and ID tokens, you pass it to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you’re using the org authorization server, then your request would look something like this:
 
 ```bash
 curl --request POST \

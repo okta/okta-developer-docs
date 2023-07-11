@@ -1,10 +1,10 @@
-1. For **Application type**, select **Native Application**, **Single-Page Application**, or **Web Application** (depending on the type of application that you're creating), then click **Next**.
-1. Enter an **App integration name**.
+5. For **Application type**, select **Native Application**, **Single-Page Application**, or **Web Application** (depending on the type of application that you're creating), then click **Next**.
+1. Enter the **App integration name**.
 1. Select **Interaction Code** and **Refresh Token** as allowed **Grant type**s.
 
    <VerifyICGrantType />
 
-1. Enter the **Sign-in redirect URIs** to redirect the user with their Interaction Code.
+1. In the **Sign-in redirect URIs** box, enter the callback location where Okta returns the browser (along with their Interaction Code).
 1. Enter the remaining details for your app integration, then click **Save**.
 
 > **Note:**  Remember to add the appropriate path in your app for redirection.

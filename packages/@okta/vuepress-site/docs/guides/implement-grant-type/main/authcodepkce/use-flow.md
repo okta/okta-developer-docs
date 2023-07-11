@@ -24,7 +24,7 @@ The `code_challenge` is a Base64URL-encoded SHA256 hash of the `code_verifier`. 
 
 If you're using the org authorization server, then your request URL would look something like this:
 
-```uri
+```bash
 https://${yourOktaDomain}/oauth2/v1/authorize?
    client_id=0oabygpxgk9lXaMgF0h7&
    response_type=code&scope=openid&
@@ -37,7 +37,7 @@ Note the parameters that are being passed:
 
 * `client_id` is the client ID of the app integration that you created earlier. Find it in the Admin Console on your app integration's **General** tab.
 * `response_type` is `code`, indicating that you're using the Authorization Code grant type.
-* `scope` is `openid`, which means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+* `scope` is `openid`, which means that the `/token` endpoint returns an ID token. For custom scopes, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 * `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This URI must match one of the **Sign-in redirect URIs** that you specified when you created your app integration earlier.
 * `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 * `code_challenge_method` is the hash method used to generate the challenge, which is always `S256`.
@@ -66,7 +66,7 @@ curl --request POST \
   --data 'grant_type=authorization_code&client_id=0oabygpxgk9lXaMgF0h7&redirect_uri=yourApp%3A%2Fcallback&code=CKA9Utz2GkWlsrmnqehz&code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
-> **Important:** Unlike the regular [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), this call doesn't require the authorization header with the client ID and secret. That is why this version of the Authorization Code flow is appropriate for mobile apps.
+> **Important:** Unlike the regular [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), this call doesn't require the HTTP Authorization header with the client ID and secret. That is why this version of the Authorization Code flow is appropriate for mobile apps.
 
 Note the parameters that are being passed:
 

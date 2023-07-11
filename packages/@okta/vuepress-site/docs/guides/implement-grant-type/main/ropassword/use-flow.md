@@ -2,7 +2,7 @@ If implementing the Resource Owner Password flow is your only option, you need t
 
 ### Request for tokens
 
-Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you’re using the org authorization server, then your request would look something like this:
+Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that's required is a single API call to the [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint. If you're using the org authorization server, then your request would look something like this:
 
 ```bash
 curl --request POST \
@@ -13,7 +13,7 @@ curl --request POST \
   --data 'grant_type=password&username=testuser1%40example.com&password=%7CmCovrlnU9oZU4qWGrhQSM%3Dyd&scope=openid'
 ```
 
-> **Important:** The call to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it’s a Basic Authentication digest of the client ID and secret. You can find the client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Important:** The call to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it's a Basic Authentication digest of the client ID and secret. You can find the client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 

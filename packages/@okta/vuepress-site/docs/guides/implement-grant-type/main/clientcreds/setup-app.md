@@ -1,5 +1,5 @@
-1. Click **Next**.
-1. Set the app integration name, then click **Save**.
+5. Click **Next**.
+1. Enter the app integration name, then click **Save**.
 
 On the **General** tab, the **Client Credentials** section contains the **Client ID** and **Client secret** for your app integration. Copy these to implement your authorization flow.
 

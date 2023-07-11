@@ -1,6 +1,6 @@
-1. Select **Native Application** for **Application type**, then click **Next**.
+5. Select **Native Application** for **Application type**, then click **Next**.
 1. Enter an **App integration name**.
-1. Enter the **Sign-in redirect URIs** box to redirect the user with their token.
+1. In the **Sign-in redirect URIs** box, enter the callback location where Okta returns the browser (along with the token).
 1. Fill in the remaining details for your app integration, then click **Save**.
 1. Locate the **General Settings** section on the **General** tab, and then click **Edit**.
 1. Select **Refresh Token** and **SAML 2.0 Assertion** as the **Allowed grant types**. These selections enable you to exchange an assertion for the access token and also request a refresh token.

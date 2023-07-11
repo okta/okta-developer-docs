@@ -43,7 +43,7 @@ Use this section to Base64-encode the client ID and secret. When you finish enco
 **If you're using macOS or Linux**:
 
 1. Open the **Admin Console** for your org.
-1. Choose **Applications > Applications** to show the available app integrations.
+1. Choose **Applications** > **Applications** to view the available app integrations.
 1. Select the application that you want to use, and then on the **General** tab, copy the **Client ID** and **Client secret**.
 1. Launch your preferred text editor and then paste the client ID and secret into a new file.
 1. Place the client ID and secret on the same line and insert a colon between them: `clientid:clientsecret`
@@ -59,7 +59,7 @@ Use this section to Base64-encode the client ID and secret. When you finish enco
 **If you're using Windows**:
 
 1. Open the **Admin Console** for your org.
-1. Choose **Applications > Applications** to show the available app integrations.
+1. Choose **Applications** > **Applications** to view the available app integrations.
 1. Select the application that you want to use, and then on the **General** tab, copy the **Client ID** and **Client secret**.
 1. Launch your preferred text editor and then paste the client ID and secret into a new file.
 1. Save the file to `C:\temp` and name the file `appCreds.txt`.

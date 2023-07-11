@@ -1,6 +1,6 @@
 ### Examples
 
-The following examples present mobile and single-page applications implementing the Authorization Code with PKCE flow to authenticate a user. These are complete example applications that show the entire experience. Each project can be cloned and run locally.
+The following examples present mobile and single-page applications implementing the Authorization Code with PKCE flow to authenticate a user. These are complete example applications that show the entire experience. You can clone each project and run them locally.
 
 |                                        | Environment | Example repository                                 |
 | :------------------------------------: | ----------- | -------------------------------------------------- |

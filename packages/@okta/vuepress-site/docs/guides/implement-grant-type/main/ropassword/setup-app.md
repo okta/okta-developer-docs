@@ -1,4 +1,4 @@
-1. For **Application type**, select **Native Application**, then click **Next**.
+5. For **Application type**, select **Native Application**, then click **Next**.
 1. Enter an **App integration name**.
 1. Select **Resource Owner Password** as an allowed **Grant type**.
 1. Enter the remaining details for your app integration, then click **Save**.
