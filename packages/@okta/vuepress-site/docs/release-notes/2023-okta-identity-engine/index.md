@@ -4,6 +4,41 @@ title: Okta Identity Engine API Products release notes 2023
 
 <ApiLifecycle access="ie" />
 
+## July
+
+### Monthly release 2023.07.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [xx](#xx) | July 12, 2023 |
+| [xx](#xx) | July 12, 2023 |
+| [xx](#xx) | July 12, 2023 |
+| [Developer documentation updates in 2023.07.0](#developer-documentation-update-in-2023070) | July 12, 2023 |
+| [Bugs fixed in 2023.07.0](#bugs-fixed-in-2023070) | July 12, 2023 |
+
+#### Developer documentation update in 2023.07.0
+
+#### Front-channel Single Logout is EA in Preview
+
+Front-channel Single Logout (SLO) allows a user to sign out of an SLO participating app on their device and end their Okta session. Okta then automatically sends a logout request to all other participating apps that the user accessed during their session. See [Configure Single Logout](/docs/guides/single-logout). <!-- OKTA-604441 SINGLE_LOGOUT_SUPPORT -->
+
+#### Okta-generated client secret length increase
+
+The length of Okta-generated client secrets has been increased from 40 to 64 characters.
+
+#### Google Authenticator for account recovery is GA in Production
+
+The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](/docs/reference/api/policy/#self-service-password-reset-action-object). <!-- OKTA-609191 OKTA-599821 IDX_SSPR_EXTENDED_PRIMARY_FACTORS-->
+
+#### ThreatInsight coverage on core Okta API endpoints is GA on Preview
+
+Okta ThreatInsight coverage is now available for core Okta API endpoints ([OIDC & OAuth 2.0, Okta Management, and MyAccount APIs]). Based on heuristics and machine learning models, ThreatInsight maintains an evolving list of IP addresses that consistently show malicious activity across Okta's customer base. Requests from these bad IP addresses can be blocked or elevated for further analysis when ThreatInsight is enabled for an Okta org. Previously, ThreatInsight coverage only applied to Okta authentication endpoints (including enrollment and recovery endpoints). With this release, Okta non-authentication management endpoints are also covered depending on endpoint attack patterns. There are no changes to the existing ThreatInsight configuration: you can still enable ThreatInsight with log and block mode, log mode, and exempt network zones. A new `Negative IP Reputation` reason is available for high `security.threat.detected` events. See [System Log events for Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-threatinsight-system-log). <!-- OKTA-572915 ENG_ENABLE_TI_BASED_ON_OKTA_IP_REPUTATION -->
+
+#### Bugs fixed in 2023.07.0
+
+* Sometimes HTTP response headers contained duplicate session ID references. (OKTA-621625)
+* Smart Card Authenticator responses returned multiple indistinguishable enrollments. (OKTA-556787)
+
 ## June
 
 ### Weekly release 2023.06.2
