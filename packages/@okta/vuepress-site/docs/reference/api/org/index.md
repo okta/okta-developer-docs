@@ -1146,28 +1146,28 @@ HTTP/1.1 400 Bad Request
 }
 ```
 
-## Org Thirdparty Admin Settings
-The Thirdparty Admin settings API has the following CRUD operation:
+## Org Third-Party Admin setting operations
+The Third-party Admin setting API has the following CRUD operations:
 
-* [Get Thirdparty Admin Settings](#get-thirdparty-admin-setting)
-* [Update Thirdparty Admin Settings](#update-thirdparty-admin-setting)
+* [Get the Third-party Admin setting](#get-the-thirdparty-admin-setting)
+* [Update the Third-party Admin Setting](#update-the-thirdparty-admin-setting)
 
-### Get Thirdparty Admin setting
+### Get the Third-party Admin setting
 
 <ApiOperation method="get" url="/api/v1/org/orgSettings/thirdPartyAdminSetting" />
 
-Gets the third party admin setting for the current org. The default value is false.
+Gets the Third-party Admin setting. The default value is `false`.
 
 #### Response body
 
 | Property | Type | Description |
 | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `thirdPartyAdmin` | boolean | The current third party admin setting for the org|
+| `thirdPartyAdmin` | boolean | The third-party admin setting |
 
 
 #### Use example
 
-This request returns the third party admin setting for the current org
+This request returns the third-party admin setting.
 
 ##### Request
 
@@ -1185,22 +1185,22 @@ curl -v -X GET \
     "thirdPartyAdmin": false,
 }
 ```
-### Update Thirdparty Admin setting
+### Update the Third-party Admin setting
 
 <ApiOperation method="post" url="/api/v1/org/orgSettings/thirdPartyAdminSetting" />
 
-updates the third party admin setting for the current org
+Updates the Third-Party Admin setting
 
 #### Response body
 
 | Property | Type | Description |
 | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `thirdPartyAdmin` | boolean | The third party admin setting to update for the org|
+| `thirdPartyAdmin` | boolean | The third-party admin setting |
 
 
 #### Use example
 
-This request updates the third party admin setting for the current org
+This request updates the third-party admin setting.
 
 ##### Request
 
