@@ -101,7 +101,7 @@ Account linking is configured at the Identity Provider level. When you create an
 * **Match Against**: Okta Username
 * **IdP Username**: idpuser.email
 
-With these defaults, when any validated OpenID Connect JWT is provided, Okta searches the Universal Directory for a user's profile where the `email` attribute value passed by the Identity Provider (the **IdP Username** value) matches the `username` attribute value (the **Match Against** value). If there's a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
+To enable account linking, select `Automatic` from the **Acount Link Policy** dropdown list. When any validated OpenID Connect JWT is provided, Okta searches the Universal Directory for a user's profile where the `email` attribute value passed by the Identity Provider (the **IdP Username** value) matches the `username` attribute value (the **Match Against** value). If there's a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
 
 > **Important:** After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalId` in the Identity Provider profile) is automatically mapped to the same user regardless of the content of the claims in the JWT or if the values for **IdP Username** and **Match Against** no longer result in a match.
 
