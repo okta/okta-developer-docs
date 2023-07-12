@@ -48,7 +48,7 @@ Single logout is the act of signing the user out of the IdP and signing out of a
 
 > **Note**: App-initiated single logout is also known as Service Provider-initiated (SP-initiated) single logout (SLO).
 
-Currently, Okta supports app-initiated single logout, where the user signs out of both an app and the Okta IdP to end both the app and IdP sessions. However, other app sessions for the user might persist without the IdP session, depending on the restrictive nature of the apps.
+Okta supports app-initiated single logout, where the user signs out of both an app and the Okta IdP to end both the app and IdP sessions. However, other app sessions for the user might persist without the IdP session, depending on the restrictive nature of the apps.
 
 For non-privileged access apps, the user can still access the app within the scope of the application session. For example, a user might browse through a catalog of vacation experiences and add one to their cart. When the user attempts to check out, the app might enforce a privileged access workflow and force the user to reauthenticate with Okta before it secures an IdP session. For privileged access apps with short-lived sessions, the user is typically redirected to reauthenticate with Okta to start a new IdP session and an application session.
 
