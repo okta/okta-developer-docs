@@ -24,7 +24,7 @@ Front-channel Single Logout (SLO) allows a user to sign out of an SLO participat
 
 #### Google Authenticator for account recovery is GA in Production
 
-The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](/docs/reference/api/policy/#self-service-password-reset-action-object). <!-- OKTA-609191 OKTA-599821 IDX_SSPR_EXTENDED_PRIMARY_FACTORS-->
+The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](/docs/reference/api/policy/#self-service-password-reset-action-object). <!-- OKTA-609191 IDX_SSPR_EXTENDED_PRIMARY_FACTORS-->
 
 #### Okta-generated client secret length increase
 
