@@ -13,7 +13,6 @@ title: Okta API Products release notes 2023
 | [Developer documentation update in 2023.07.0](#developer-documentation-update-in-2023-07-0) | July 12, 2023 |
 | [Bug fixed in 2023.07.0](#bug-fixed-in-2023-07-0) | July 12, 2023 |
 
-
 #### Okta-generated client secret length increase
 
 The length of Okta-generated client secrets has been increased from 40 to 64 characters.
@@ -25,7 +24,7 @@ Okta ThreatInsight coverage is now available for core Okta API endpoints ([OIDC 
 
 #### Developer documentation update in 2023.07.0
 
-The Primer for OIN OpenID Connect guides have been removed. Content for OIDC protocol requirements, multi-tenancy, and best practices have been updated and merged to the [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/) and [Build an SSO integration](/docs/guides/build-sso-integration/openidconnect/main/) guides. <!-- OKTA-447961 -->
+The guides within the Primer for OIN OpenID Connect section have been removed. Content for OIDC protocol requirements, multi-tenancy, and best practices have been updated and merged to the [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/) and [Build an SSO integration](/docs/guides/build-sso-integration/openidconnect/main/) guides. <!-- OKTA-447961 -->
 
 #### Bug fixed in 2023.07.0
 

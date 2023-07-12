@@ -10,7 +10,7 @@ title: Okta Identity Engine API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Front-channel Single Logout is EA in Preview](#front-channel-single-logout-is-ea-in-preview) | July 12, 2023 |
+| [Front-channel Single Logout is Self-Service EA in Preview](#front-channel-single-logout-is-self-service-ea-in-preview) | July 12, 2023 |
 | [Google Authenticator for account recovery is GA in Production](#google-authenticator-for-account-recovery-is-ga-in-production) | June 14, 2023 |
 | [Okta-generated client secret length increase](#okta-generated-client-secret-length-increase) | July 12, 2023 |
 | [Smart Card authenticator is Self-Service GA in Preview](#smart-card-authenticator-is-self-service-ga-in-preview) | January 19, 2023 |
@@ -18,7 +18,7 @@ title: Okta Identity Engine API Products release notes 2023
 | [Developer documentation update in 2023.07.0](#developer-documentation-update-in-2023-07-0) | July 12, 2023 |
 | [Bugs fixed in 2023.07.0](#bugs-fixed-in-2023-07-0) | July 12, 2023 |
 
-#### Front-channel Single Logout is EA in Preview
+#### Front-channel Single Logout is Self-Service EA in Preview
 
 Front-channel Single Logout (SLO) allows a user to sign out of an SLO participating app on their device and end their Okta session. Okta then automatically sends a logout request to all other participating apps that the user accessed during their session. See [Configure Single Logout](/docs/guides/single-logout). <!-- OKTA-604441 SINGLE_LOGOUT_SUPPORT -->
 
@@ -33,7 +33,7 @@ The length of Okta-generated client secrets has been increased from 40 to 64 cha
 
 #### Smart Card authenticator is Self-Service GA in Preview
 
-You can add a new Smart Card authenticator that enables PIV to be used in authentication policies. You can also restrict the authentication policies to use only Smart Card authenticator as MFA. See `properties.additionalAmr` in the updated [Identity Provider](https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes) attributes for `X509` Smart Card support.
+You can add a new Smart Card authenticator that enables Personal Identity Verification (PIV) to be used in authentication policies. You can also restrict the authentication policies to use only Smart Card authenticator as MFA. See `properties.additionalAmr` in the updated [Identity Provider](https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes) attributes for `X509` Smart Card support.
 <!-- OKTA-620437 X509_BASED_AUTHENTICATOR -->
 
 #### ThreatInsight coverage on core Okta API endpoints is GA in Preview
@@ -42,7 +42,7 @@ Okta ThreatInsight coverage is now available for core Okta API endpoints ([OIDC 
 
 #### Developer documentation update in 2023.07.0
 
-The Primer for OIN OpenID Connect guides have been removed. Content for OIDC protocol requirements, multi-tenancy, and best practices have been updated and merged to the [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/) and [Build an SSO integration](/docs/guides/build-sso-integration/openidconnect/main/) guides. <!-- OKTA-447961 -->
+The guides within the Primer for OIN OpenID Connect section have been removed. Content for OIDC protocol requirements, multi-tenancy, and best practices have been updated and merged to the [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/) and [Build an SSO integration](/docs/guides/build-sso-integration/openidconnect/main/) guides. <!-- OKTA-447961 -->
 
 #### Bugs fixed in 2023.07.0
 
