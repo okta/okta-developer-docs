@@ -1152,7 +1152,7 @@ The Third-party Admin setting API has the following CRUD operations:
 * [Get the Third-party Admin setting](#get-the-thirdparty-admin-setting)
 * [Update the Third-party Admin Setting](#update-the-thirdparty-admin-setting)
 
-### Get the Third-party Admin setting
+### Get the Third-Party Admin setting
 
 <ApiOperation method="get" url="/api/v1/org/orgSettings/thirdPartyAdminSetting" />
 
