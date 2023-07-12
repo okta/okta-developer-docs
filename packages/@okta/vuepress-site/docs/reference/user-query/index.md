@@ -379,7 +379,7 @@ The filter query parameter (`filter`) returns one or more users that match a fil
 
 > **Note:** For optimal performance, Okta recommends using a `search` parameter instead. See [Search users](#search-users).
 
-The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated after or before a specific date and time. You can combine multiple expressions using the logical operators `and` and `or`, as well as parentheses. See [List users with a filter](/docs/reference/api/users/#list-users-with-a-filter) for example expressions.
+The filter query parameter only uses the equal (`eq`) operator of the standard Okta API filtering semantics. The `lastUpdated` property, however, can also implement the inequality operators greater than (`gt`), greater than or equal to (`ge`), less than (`lt`), and less than or equal to (`le`). For example, you can use these operators to filter users updated after or before a specific date and time. You can combine multiple expressions using the logical operators `and` and `or`, and parentheses. The `not` operator isn't supported. See [List users with a filter](/docs/reference/api/users/#list-users-with-a-filter) for example expressions.
 
 The filter query parameter is case-sensitive and also supports the `limit` and `after` parameters, see [Limits and pagination](#limits-and-pagination).
 
