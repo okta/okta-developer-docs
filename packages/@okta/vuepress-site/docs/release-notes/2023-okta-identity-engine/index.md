@@ -47,7 +47,7 @@ The Primer for OIN OpenID Connect guides have been removed. Content for OIDC pro
 #### Bugs fixed in 2023.07.0
 
 * Sometimes HTTP response headers contained duplicate session ID references. (OKTA-621625)
-* Smart Card Authenticator responses returned multiple indistinguishable enrollments. (OKTA-556787)
+* Smart Card authenticator responses returned multiple indistinguishable enrollments. (OKTA-556787)
 
 ## June
 
