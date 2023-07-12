@@ -1156,7 +1156,7 @@ The Third-party Admin setting API has the following CRUD operations:
 
 <ApiOperation method="get" url="/api/v1/org/orgSettings/thirdPartyAdminSetting" />
 
-Gets the Third-party Admin setting. The default value is `false`.
+Gets the Third-Party Admin setting. The default value is `false`.
 
 #### Response body
 
