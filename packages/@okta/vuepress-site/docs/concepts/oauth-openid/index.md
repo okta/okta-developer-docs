@@ -121,6 +121,16 @@ If your app is not high-trust, you should use the [Authorization Code](/docs/gui
 
 The Interaction Code flow is an extension to the OAuth 2 and OIDC standard, and is available when using Identity Engine orgs. It requires clients to pass a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. The user can start the request with minimal information, relying on the client to facilitate the interactions with the Identity Engine component of the Okta authorization server to progressively authenticate the user. See [Interaction Code grant type](/docs/concepts/interaction-code/).
 
+<div class="three-quarter">
+
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Interaction Code flow](/img/authorization/oauth-interaction-code-grant-flow.png)
+
+   <!--
+      Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43899&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-interaction-code-grant-flow
+   -->
+</div>
+
 <!--
 See http://www.plantuml.com/plantuml/uml/
 
@@ -150,12 +160,6 @@ app -> client: Response
 
  -->
 
-<div class="full">
-
-![Interaction Code flow sequence diagram](/img/authorization/interaction-code-grant-flow-guide.png)
-
-</div>
-
 ### Authorization Code flow with PKCE
 
 Authorization Code flow with Proof Key for Code Exchange (PKCE) is the recommended flow for most applications whether server-side (web), native, or mobile. PKCE was originally designed to protect the authorization code flow in mobile apps, but its ability to prevent authorization code injection makes it useful for every type of OAuth client, even web apps that use a client secret. PKCE acts like a secret but isn't hard-coded, and keeps the Authorization Code flow secure.
@@ -170,10 +174,13 @@ When the authorization code is sent in the access token request, the code verifi
 
 A rogue app could only intercept the authorization code, but it wouldn't have access to the code challenge or verifier, since they are both sent over HTTPS.
 
-<div class="full">
+<div class="three-quarter">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png)
 
+   <!--
+     Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43878&mode=design&t=Me7qqw8odOmrLh6K-1 oauth-auth-code-pkce-grant-flow
+   -->
 </div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
@@ -206,9 +213,14 @@ For information on how to set up your application to use this flow, see [Impleme
 
 The Resource Owner Password flow is intended for use cases where you control both the client application and the resource that it is interacting with. It requires that the client can store a client secret and can be trusted with the resource owner's credentials, and so is most commonly found in clients made for online services, like the Facebook client applications that interact with the Facebook service. It doesn't require redirects like the Authorization Code or Implicit flows, and involves a single authenticated call to the `/token` endpoint.
 
-<div class="full">
+<div class="three-quarter">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Resource Owner Password flow](/img/authorization/oauth-password-grant-flow.png)
+   ![Sequence diagram that shows the back and forth between the resource owner, authorization server, and resource server for Resource Owner Password flow](/img/authorization/oauth-resource-owner-password-grant-flow.png)
+
+   <!--
+      Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43902&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-resource-owner-password-grant-flow
+   -->
 
 </div>
 
@@ -239,7 +251,12 @@ The Client Credentials flow is intended for server-side ("confidential") client 
 
 <div class="three-quarter">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Client Credentials flow](/img/authorization/oauth-client-creds-grant-flow.png)
+
+   <!--
+      Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43887&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-client-creds-grant-flow
+   -->
 
 </div>
 
@@ -266,9 +283,14 @@ The SAML 2.0 Assertion flow is intended for a client app that wants to use an ex
 
 To use a SAML 2.0 Assertion as an authorization grant, the client makes a SAML request to the Identity Provider and the Identity Provider sends the SAML 2.0 Assertion back in the response. The client then makes a request for an access token with the `urn:ietf:params:oauth:grant-type:saml2-bearer` grant type and includes the `assertion` parameter. The value of the `assertion` parameter is the SAML 2.0 assertion that is Base64-encoded. You can send only one SAML assertion in that request.
 
-<div class="full">
+<div class="three-quarter">
 
-![Flowchart that displays the back and forth between the resource owner, identity provider, authorization server, and resource server for the SAML 2.0 Assertion flow](/img/authorization/oauth-saml2-grant-flow.png)
+   ![Displays the sequence diagram for the SAML 2.0 Assertion flow that shows the back and forth between the resource owner, authorization server, Identity Provider and client"](/img/authorization/oauth-saml2-assertion-grant-flow.png)
+
+   <!--
+      source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43905&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-saml2-assertion-grant-flow
+   -->
 
 </div>
 
@@ -301,10 +323,14 @@ For information on how to set up your application to use this flow, see [Impleme
 
 > **Important:** For Single-Page Applications (SPA) running in modern browsers that support Web Crypto for PKCE, we recommend using the [Authorization Code flow with PKCE](#authorization-code-flow-with-pkce) instead of the Implicit flow for maximum security. If support for older browsers is required, the Implicit flow provides a working solution.
 
-<div class="full">
+<div class="three-quarter">
 
-![Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Implicit flow](/img/authorization/oauth-implicit-grant-flow.png)
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for the Implicit grant flow](/img/authorization/oauth-implicit-grant-flow.png)
 
+   <!--
+      Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43895&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-implicit-grant-flow
+   -->
 </div>
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/

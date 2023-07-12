@@ -34,6 +34,16 @@ The following table describes the parameters introduced for the Interaction Code
 
 The following sequence of steps is a typical Interaction Code flow:
 
+<div class="full">
+
+   ![Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Interaction Code flow](/img/authorization/oauth-interaction-code-grant-flow.png)
+
+   <!--
+      Source image: https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?type=design&node-id=4133%3A43899&mode=design&t=Me7qqw8odOmrLh6K-1
+      oauth-interaction-code-grant-flow
+   -->
+</div>
+
 <!--
 See http://www.plantuml.com/plantuml/uml/
 
@@ -62,9 +72,3 @@ app -> client: Response
 @enduml
 
  -->
-
-<div class="full">
-
-![Interaction Code flow sequence diagram](/img/authorization/interaction-code-grant-flow.png)
-
-</div>

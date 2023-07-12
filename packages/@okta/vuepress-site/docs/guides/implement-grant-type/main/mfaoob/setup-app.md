@@ -1,8 +1,8 @@
-4. Select **Native Application** as the **Application type**, then click **Next**.
-5. Specify the **App integration name**.
-6. Enable the **Resource Owner Password** and **MFA OOB** grant types in addition to the defaults.
-7. Select **Allow everyone in your organization to access**, then click **Save**.
-8. From the **General** tab of your app integration, copy and save the generated **Client ID** value to implement your authorization flow.
+5. Select **Native Application** as the **Application type**, then click **Next**.
+1. Specify the **App integration name**.
+1. Enable the **Resource Owner Password** and **MFA OOB** grant types in addition to the defaults.
+1. Select **Allow everyone in your organization to access**, then click **Save**.
+1. From the **General** tab of your app integration, copy and save the generated **Client ID** value to implement your authorization flow.
 
 ## Set up the authentication policy
 
