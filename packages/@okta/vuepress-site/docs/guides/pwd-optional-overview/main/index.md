@@ -41,7 +41,7 @@ Also, see the <StackSnippet snippet="bestpractices" inline/> guide to learn how 
 ## See also
 
 * [Okta Passwordless Authentication](https://www.okta.com/passwordless-authentication/)
-* [Let’s (finally) say goodbye to passwords](https://www.okta.com/go-passwordless/)
-<!--* [Passwordless authentication deployment guide](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/guides/pwa/pwa-main.htm) fyi, this guide will be removed from hoc; look to view on support site 2022.12.09 - BD-->
+* [Let's (finally) say goodbye to passwords](https://www.okta.com/go-passwordless/)
+* [Passwordless authentication deployment guide](https://support.okta.com/resource/Deploying_Passwordless_Authentication)
 
 </div>
