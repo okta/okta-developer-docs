@@ -1,0 +1,1 @@
+This includes adding the `participateSlo` object for IdP-initiated SLO.
