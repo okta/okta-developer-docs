@@ -1449,6 +1449,8 @@ HTTP/1.1 204 No Content
 * [Get Authorization Server Key](#get-authorization-server-key)
 * [Rotate Authorization Server Keys](#rotate-authorization-server-keys)
 
+> **Note**: Looking for how to obtain the `jwks_uri` for your org or custom authorization server? See the [well-known OpenID metadata endpoint](/docs/reference/api/oidc/#well-known-openid-configuration) and the [well-known OAuth 2.0 metadata endpoint](/docs/reference/api/oidc/#well-known-oauth-authorization-server).
+
 #### Credentials object
 
 When you use these API endpoints to create or modify a Credentials resource, the response looks like:
