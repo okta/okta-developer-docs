@@ -1185,7 +1185,7 @@ curl -v -X GET \
     "thirdPartyAdmin": false,
 }
 ```
-### Update the Third-party Admin setting
+### Update the Third-Party Admin setting
 
 <ApiOperation method="post" url="/api/v1/org/orgSettings/thirdPartyAdminSetting" />
 
