@@ -11,7 +11,7 @@ The **Embedded widget sign-in support** setting in your Admin Console enables or
 To access this setting:
 
 1. Open the [Admin Console](/docs/concepts/okta-organizations/#admin-console) for your org.
-1. Choose **Settings** > **Account** > **Embedded widget sign-in support**.
+1. Go to **Settings** > **Account** > **Embedded widget sign-in support**.
 1. Click **Edit**.
 1. Select the **Interaction code** checkbox to enable Interaction Code as a grant type.
 1. Click **Save**.
@@ -29,7 +29,7 @@ If you disable the Interaction Code grant type:
 After you [enable the Interaction Code grant for your org](#enable-interaction-code-grant-for-your-org), it’s automatically configured in your [org authorization server](/docs/concepts/auth-servers/#org-authorization-server). If you're using a [custom authentication server](/docs/concepts/auth-servers/#custom-authorization-server), you need to enable Interaction Code grant for it in the Admin Console:
 
 1. Open the **Admin Console** for your org.
-1. Choose **Security** > **API**.
+1. Go to **Security** > **API**.
 1. Select the **Authorization Servers** tab, and then select the pencil icon next to the custom authorization server that you want to update.
 1. Select the **Access Policies** tab.
 1. Select the pencil icon from the **Actions** column for the policy that applies to your app. For example, the **Default Policy Rule**.

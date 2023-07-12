@@ -5,7 +5,7 @@
 1. Enter the **App integration name**.
 1. Verify that **Authorization Code** is selected as a **Grant type**. In addition, select **Refresh Token**.
 
-    > **Note:** For mobile applications, **Authorization Code** is required.
+    > **Note:** For mobile applications and SPAs, **Authorization Code** is required.
 
 1. In the **Sign-in redirect URIs** box, enter the callback location where Okta returns the browser (along with their authorization code).
 1. Complete the remaining details for your app integration, then click **Save**.
