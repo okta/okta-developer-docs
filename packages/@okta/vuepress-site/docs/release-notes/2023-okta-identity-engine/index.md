@@ -33,7 +33,7 @@ The length of Okta-generated client secrets has been increased from 40 to 64 cha
 
 #### Smart Card authenticator is Self-Service GA in Preview
 
-You can add a new Smart Card authenticator that enables Personal Identity Verification (PIV) to be used in authentication policies. You can also restrict the authentication policies to use only Smart Card authenticator as MFA. See `properties.additionalAmr` in the updated [Identity Provider](https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes) attributes for `X509` Smart Card support.
+You can add a new Smart Card authenticator that enables Personal Identity Verification (PIV) to be used in authentication policies. You can also restrict the authentication policies to use only the Smart Card authenticator as MFA. See `properties.additionalAmr` in the updated [Identity Provider](https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes) attributes for `X509` Smart Card support.
 <!-- OKTA-620437 X509_BASED_AUTHENTICATOR -->
 
 #### ThreatInsight coverage on core Okta API endpoints is GA in Preview
