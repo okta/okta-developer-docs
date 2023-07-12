@@ -13,19 +13,11 @@ title: Okta API Products release notes 2023
 | [Developer documentation update in 2023.07.0](#developer-documentation-update-in-2023-07-0) | July 12, 2023 |
 | [Bug fixed in 2023.07.0](#bug-fixed-in-2023-07-0) | July 12, 2023 |
 
-#### Google Authenticator for account recovery is GA in Production
-
-The Policy API Self-Service Password Reset object can now use Google Authenticator to initiate recovery scenarios. Previously, the object could only use the Email, Phone, or Okta Verify authenticators to initiate recovery. This addition enhances the user experience by increasing the number of options available for recovery.  See [Policy API](/docs/reference/api/policy/#self-service-password-reset-action-object). <!-- OKTA-609191 OKTA-599821 IDX_SSPR_EXTENDED_PRIMARY_FACTORS-->
 
 #### Okta-generated client secret length increase
 
 The length of Okta-generated client secrets has been increased from 40 to 64 characters.
 <!-- OKTA-619134 -->
-
-#### Smart Card authenticator is Self-Service GA in Preview
-
-You can add a new Smart Card authenticator that enables PIV to be used in authentication policies. You can also restrict the authentication policies to use only Smart Card authenticator as MFA. See `properties.additionalAmr` in the updated [Identity Provider](https://developer.okta.com/docs/reference/api/idps/#identity-provider-attributes) attributes for `X509` Smart Card support.
-<!-- OKTA-620437 X509_BASED_AUTHENTICATOR -->
 
 #### ThreatInsight coverage on core Okta API endpoints is GA in Preview
 
