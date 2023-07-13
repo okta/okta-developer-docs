@@ -100,7 +100,7 @@ The OIN Manager shows the current status of your integration.
 
 The following flowchart outlines the entire process:
 
-<div class="three-quarters">
+<div class="three-quarter">
 
 ![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png)
 

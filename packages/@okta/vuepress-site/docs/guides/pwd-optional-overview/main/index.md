@@ -12,7 +12,7 @@ Most hacking-related breaches involve weak or stolen passwords and credential se
 
 Replace the password with a password-optional sign-in experience. Give your users the ability to authenticate with a fingerprint, YubiKey, email, phone, or another authenticator. These authenticators are all more secure &mdash; it's harder to steal a fingerprint than a password &mdash; and more convenient since users no longer have to memorize and manage their passwords.
 
-<div class="three-quarters">
+<div class="three-quarter">
 
 ![Diagram illustrating how password-optional authentication, when compared to other password authentications, is convenient and secure.](/img/pwd-optional/pwd-optional-overview-xy-diagram.png)
 
