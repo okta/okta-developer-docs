@@ -103,7 +103,7 @@ As a best practice, you should return the HTTP response immediately, rather than
 
 ### Rate limits
 
-Okta limits each org to 400,000 applicable events within a 24-hour period. After reaching this threshold, further event hooks aren't triggered. The system log receives a warning prior to hitting the event limit when the number of events hits 280,000. The event limit resets 24 hours after the first event is sent.
+Okta limits each org to 400,000 applicable events within a 24-hour period. After reaching this threshold, further event hooks aren't triggered. The system log receives a warning prior to hitting the event limit when the number of events hits 280,000. The event limit resets 24 hours after the first event is sent. <!-- This content also available on this help.okta.com page: https://help.okta.com/okta_help.htm?type=wf&id=ext-workflows-system-limits -->
 
 ### Debugging
 
