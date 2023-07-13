@@ -97,14 +97,14 @@ Stop the currently running containers and sign in to your Okta account.
    okta login
    ```
 
-   If you’re already signed in to Okta, a prompt similar to the following is returned. The current sign-in configuration is based on the Okta org URL and API token that you provided at your previous `okta login` command. If you want to use the existing configuration, answer **N** and skip steps a and b. Otherwise, answer **Y** and continue to steps a and b.
+   If you're already signed in to Okta, a prompt similar to the following is returned. The current sign-in configuration is based on the Okta org URL and API token that you provided at your previous `okta login` command. If you want to use the existing configuration, answer **N** and skip steps a and b. Otherwise, answer **Y** and continue to steps a and b.
 
    ```txt
    An existing Okta Organization (https://dev-133337.okta.com) was found in C:\mydirectory\.okta\okta.yaml
    Overwrite configuration file? [Y/n]
    ```
 
-   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you aren’t using an Okta developer account. To resolve this error, see [Okta developer account](/docs/reference/architecture-center/directory-coexistence/lab/#okta-developer-account).
+   If Okta CLI returns an error "Your Okta Org is missing a feature required to use the Okta CLI: API Access Management," you aren't using an Okta developer account. To resolve this error, see [Okta developer account](/docs/reference/architecture-center/directory-coexistence/lab/#okta-developer-account).
 
    {style="list-style-type:lower-alpha"}
    1. Enter your `${OKTA_DOMAIN}`. If you don't know your `${OKTA_DOMAIN}`, see [Values and variables](/docs/reference/architecture-center/directory-coexistence/lab/#values-and-variables).
@@ -220,7 +220,7 @@ First, make sure that the LDAP Agent is operational:
 
    </div>
 
-Now you can configure the details of the LDAP integration. Okta provides defaults, but if you’re using a different LDAP configuration, you may need to modify the configuration. For information on each setting, see [Configure LDAP integration settings](https://help.okta.com/en-us/Content/Topics/Directory/ldap-configure-integration-settings.htm).
+Now you can configure the details of the LDAP integration. Okta provides defaults, but if you're using a different LDAP configuration, you may need to modify the configuration. For information on each setting, see [Configure LDAP integration settings](https://help.okta.com/okta_help.htm?id=ext-ldap-config-intg-settings).
 
 1. Choose **Directory** > **Directory Integrations** to see the current directory integrations.
 1. Click **LDAP** to configure the user mappings.
@@ -233,7 +233,7 @@ Now you can configure the details of the LDAP integration. Okta provides default
 
 1. Set **LDAP Version** to **OpenLDAP**.
 
-   > **Note:** For additional information on which LDAP directories you can integrate with Okta, see [Supported LDAP directories](https://help.okta.com/en-us/Content/Topics/Directory/ldap-agent-supported-directories.htm).
+   > **Note:** For additional information on which LDAP directories you can integrate with Okta, see [Supported LDAP directories](https://help.okta.com/okta_help.htm?id=ext-ldap-agent-supported-directories).
 
 1. Set **User Search Base** to **ou=users,dc=example,dc=org**.
 1. Update the following **Group** values:
@@ -261,7 +261,7 @@ Choose **Directory** > **Directory Integrations** > **LDAP** > **Provisioning** 
 
 > **Note:** For more information on the LDAP to Okta integration settings, see [Configure LDAP to Okta provisioning settings](https://help.okta.com/okta_help.htm?topic=oie&id=ext_cofigure_ldap_okta_settings).
 
-You’re now ready to synchronize your LDAP users with Okta.
+You're now ready to synchronize your LDAP users with Okta.
 
 ### Import users and groups
 
@@ -307,11 +307,11 @@ The Okta LDAP Agent now connects the LDAP Server to Okta so you can import users
 
    </div>
 
-The selected LDAP users and groups are now imported, and you can assign them to any application that you’ve registered with your Okta org. Users can access those assigned applications through any protocol, such as LDAP Interface, OIDC, SAML, and so on.
+The selected LDAP users and groups are now imported, and you can assign them to any application that you've registered with your Okta org. Users can access those assigned applications through any protocol, such as LDAP Interface, OIDC, SAML, and so on.
 
 However, authentication of the LDAP user is delegated to the LDAP server through the Okta LDAP Agent. Delegated authentication is used when that user signs in to an assigned application in your Okta org.
 
-For this tutorial, there’s only one on-premises LDAP directory server. If you had LDAP directories running on other servers, you could install an Okta LDAP Agent for each LDAP server and import those LDAP users into Okta as well.
+For this tutorial, there's only one on-premises LDAP directory server. If you had LDAP directories running on other servers, you could install an Okta LDAP Agent for each LDAP server and import those LDAP users into Okta as well.
 
 To update an application to authenticate against Okta Universal Directory instead of the LDAP directory, you can either
 
@@ -341,7 +341,7 @@ The [Okta LDAP Interface](https://help.okta.com/okta_help.htm?topic=oie&id=ext_L
 1. Click **Edit** in the **LDAP Interface page** to edit this directory's configuration.
 1. Locate the **Groups section** and set **Configuration** to **Okta groups and app groups**.
 
-   > **Note**: See the [LDAP Groups settings](https://help.okta.com/en-us/Content/Topics/Directory/ldap-interface-expose-groups.htm).
+   > **Note**: See the [LDAP Groups settings](https://help.okta.com/okta_help.htm?&id=ext_expose_app_groups).
 
 1. Click **Save**.
 1. Choose **Directory** > **Directory Integrations > LDAP**. Make a note of the text after `/instance/` at the end of the browser URL. The text is your `${OKTA_LDAP_ID}`.
@@ -518,7 +518,7 @@ You can replace the Okta LDAP Interface by updating the application to use OIDC.
    docker compose up
    ```
 
-1. Open a private/incognito window and go to the same URL as before: `http://localhost:8080`. This time you’re redirected to Okta to sign in. Sign in with the user's email address and password: `user01@example.com` and `password1`. Okta connects back to the LDAP server for authentication to sign in to the `okta-reference-coexistence-ldap-example` application.
+1. Open a private/incognito window and go to the same URL as before: `http://localhost:8080`. This time you're redirected to Okta to sign in. Sign in with the user's email address and password: `user01@example.com` and `password1`. Okta connects back to the LDAP server for authentication to sign in to the `okta-reference-coexistence-ldap-example` application.
 
    A successful sign in flow displays the following dialog:
 

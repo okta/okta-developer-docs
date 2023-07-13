@@ -107,6 +107,6 @@ When you import users, you can create Okta rules to match any attribute currentl
 
 OAuth 2.0 and OIDC are the standard protocols on which Okta authentication and authorization solutions are based.
 
-Using Universal Directory as a single Identity Provider for your applications, you can already take advantage of [Okta Workflows](https://help.okta.com/wf/en-us/Content/Topics/Workflows/workflows-main.htm) to simplify onboarding and offboarding, user management, and reporting. To take full advantage of Okta's features and enable [Single Sign-On](https://www.okta.com/topic/single-sign-on/), multifactor authentication, passwordless access, and more, all your applications should use OIDC to authenticate users rather than SAML or another solution.
+Using Universal Directory as a single Identity Provider for your applications, you can already take advantage of [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf&id=ext-Okta-workflows) to simplify onboarding and offboarding, user management, and reporting. To take full advantage of Okta's features and enable [Single Sign-On](https://www.okta.com/topic/single-sign-on/), multifactor authentication, passwordless access, and more, all your applications should use OIDC to authenticate users rather than SAML or another solution.
 
 For a more in-depth introduction to the protocols and different authorization flows you can implement in your applications, see [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/).
