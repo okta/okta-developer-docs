@@ -4136,7 +4136,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 | saltOrder  | String   | Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms. |
 | iterationCount  | Number   | The number of iterations used when hashing passwords using PBKDF2. Must be >= 4096. Only required for PBKDF2 algorithm. |
 | keySize  | Number   | Size of the derived key in bytes. Only required for PBKDF2 algorithm. |
-| digestAlgorithm  | String   | Algorithm used to generate the key. Currently we support "SHA256_HMAC" and "SHA512_HMAC". Only required for PBKDF2 algorithm. |
+| digestAlgorithm  | String   | Algorithm used to generate the key. Currently we support "SHA256_HMAC" and "SHA512_HMAC". Only required for the PBKDF2 algorithm. |
 
 ###### BCRYPT Hashed Password object example
 
