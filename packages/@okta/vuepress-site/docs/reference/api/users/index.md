@@ -1180,7 +1180,7 @@ Searches for users based on the properties specified in the search parameter. Th
 
 > **Note:** Results from the Search API are computed from asynchronously indexed and eventually consistent data. The indexing delay is typically less than one second.
 
-Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.  Unlike in [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` will find `Isaac.Brock` but will not find a property whose value is `isáàc.bröck`.
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, and so on) and string values are case insensitive. Unlike with [user logins](#okta-login), diacritical marks are significant in search string values: a search for `isaac.brock` finds `Isaac.Brock`, but doesn't find a property whose value is `isáàc.bröck`.
 
 This operation:
 
@@ -1354,7 +1354,7 @@ This operation:
 - Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
 - Supports the following limited number of properties: `status`, `lastUpdated`, `id`, `profile.login`, `profile.email`, `profile.firstName`, and `profile.lastName`.
 - Supports only the equal `eq` operator from the standard Okta API filtering semantics, except in the case of the `lastUpdated` property. This property can also use the inequality operators (`gt`, `ge`, `lt`, and `le`).
-- Supports only the logical operators `and` and `or`.
+- Supports only the logical operators `and` and `or`. The `not` operator isn't supported.
 - Is case-sensitive for attribute names and query values, while attribute operators are case-insensitive.
 
 | Filter                                          | Description                                      |
@@ -2842,7 +2842,7 @@ Clears Okta sessions for the currently logged in user. By default, the current s
 
 | Parameter    | Description                                                  | Param Type | DataType | Required | Default |
 | ------------ | ------------------------------------------------------------ | ---------- | -------- | -------- | ------- |
-| keepCurrent  | Skip deleting user's current session when set to true	      | Body       | boolean  | FALSE    |  true   |
+| keepCurrent  | Skip deleting user's current session when set to true          | Body       | boolean  | FALSE    |  true   |
 
 
 ##### Response
@@ -4136,7 +4136,7 @@ Specifies a hashed password to import into Okta. This allows an existing passwor
 | saltOrder  | String   | Specifies whether salt was pre- or postfixed to the password before hashing. Only required for salted algorithms. |
 | iterationCount  | Number   | The number of iterations used when hashing passwords using PBKDF2. Must be >= 4096. Only required for PBKDF2 algorithm. |
 | keySize  | Number   | Size of the derived key in bytes. Only required for PBKDF2 algorithm. |
-| digestAlgorithm  | String   | Algorithm used to generate the key. Currently we support "SHA256_HMAC" and "SHA512_HMAC“. Only required for PBKDF2 algorithm. |
+| digestAlgorithm  | String   | Algorithm used to generate the key. Currently we support "SHA256_HMAC" and "SHA512_HMAC". Only required for the PBKDF2 algorithm. |
 
 ###### BCRYPT Hashed Password object example
 
