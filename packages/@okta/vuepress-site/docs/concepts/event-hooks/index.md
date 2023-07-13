@@ -103,7 +103,7 @@ As a best practice, you should return the HTTP response immediately, rather than
 
 ### Rate limits
 
-There is a limit of 400,000 applicable events, per org, per 24-hour period after which event hooks won't trigger. The system log receives a warning prior to hitting the event limit when the number of events hits 300,000. The event limit resets 24 hours after the first event is sent.
+There is a limit of 400,000 applicable events, per org, per 24-hour period after which event hooks won't trigger. The system log receives a warning prior to hitting the event limit when the number of events hits 280,000. The event limit resets 24 hours after the first event is sent.
 
 ### Debugging
 
