@@ -55,6 +55,7 @@ guides:
  - scim-provisioning-integration-test
  - sign-in-overview
  - secure-oauth-between-orgs
+ - single-logout
  - build-sso-integration
  - custom-sms-messaging
  - submit-app

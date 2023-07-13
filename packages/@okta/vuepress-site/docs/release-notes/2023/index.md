@@ -2,6 +2,34 @@
 title: Okta API Products release notes 2023
 ---
 
+## July
+
+### Monthly release 2023.07.0
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Okta-generated client secret length increase](#okta-generated-client-secret-length-increase) | July 12, 2023 |
+| [ThreatInsight coverage on core Okta API endpoints is GA in Preview](#threatinsight-coverage-on-core-okta-api-endpoints-is-ga-in-preview) | July 12, 2023 |
+| [Developer documentation update in 2023.07.0](#developer-documentation-update-in-2023-07-0) | July 12, 2023 |
+| [Bug fixed in 2023.07.0](#bug-fixed-in-2023-07-0) | July 12, 2023 |
+
+#### Okta-generated client secret length increase
+
+The length of Okta-generated client secrets has been increased from 40 to 64 characters.
+<!-- OKTA-619134 -->
+
+#### ThreatInsight coverage on core Okta API endpoints is GA in Preview
+
+Okta ThreatInsight coverage is now available for core Okta API endpoints ([OIDC & OAuth 2.0](https://developer.okta.com/docs/api/openapi/okta-oauth/guides/overview/), [Okta Management](https://developer.okta.com/docs/api/openapi/okta-management/guides/overview/), and [MyAccount APIs](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/)). Based on heuristics and machine learning models, ThreatInsight maintains an evolving list of IP addresses that consistently show malicious activity across Okta's customer base. Requests from these bad IP addresses can be blocked or elevated for further analysis when ThreatInsight is enabled for an Okta org. Previously, ThreatInsight coverage only applied to Okta authentication endpoints (including enrollment and recovery endpoints). With this release, Okta non-authentication management endpoints are also covered depending on endpoint attack patterns. There are no changes to the existing ThreatInsight configuration: you can still enable ThreatInsight with log and block mode, log mode, and exempt network zones. A new `Negative IP Reputation` reason is available for high `security.threat.detected` events. See [System Log events for Okta ThreatInsight](https://help.okta.com/okta_help.htm?type=oie&id=ext-configure-threatinsight-system-log). <!-- OKTA-572915 ENG_ENABLE_TI_BASED_ON_OKTA_IP_REPUTATION -->
+
+#### Developer documentation update in 2023.07.0
+
+The guides within the Primer for OIN OpenID Connect section have been removed. Content for OIDC protocol requirements, multi-tenancy, and best practices have been updated and merged to the [Overview of Single Sign-On in the OIN](/docs/guides/oin-sso-overview/) and [Build an SSO integration](/docs/guides/build-sso-integration/openidconnect/main/) guides. <!-- OKTA-447961 -->
+
+#### Bug fixed in 2023.07.0
+
+* Sometimes HTTP response headers contained duplicate session ID references. (OKTA-621625)
+
 ## June
 
 ### Weekly release 2023.06.2

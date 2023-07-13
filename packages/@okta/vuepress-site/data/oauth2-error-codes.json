@@ -1,6 +1,6 @@
 {
-  "release" : "2023.06.1",
-  "build" : "2023.06.1-begin-134-g684e9522154f",
+  "release" : "2023.07.1",
+  "build" : "2023.07.1-begin-153-ga889336f45b7",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -1647,6 +1647,20 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "Client authentication is required for MFA attestation requests."
   }, {
+    "title" : "Direct auth intent values changed",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_intent_values_changed",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The intent '{0}' does not match the intent requested in the original request '{1}'. Use the originally requested intent and try again."
+  }, {
+    "title" : "Direct auth invalid intent",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_intent",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'{0}' is an invalid intent."
+  }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1884,6 +1898,13 @@
     "internalErrorCode" : "direct_auth_scope_not_allowed",
     "errorCode" : "invalid_scope",
     "errorDescription" : "The 'scope' parameter is unsupported on this endpoint. Try again without this parameter."
+  }, {
+    "title" : "Direct auth invalid scope for intent",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "direct_auth_invalid_scope_for_intent",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "scope '{0}' cannot be requested with intent '{1}'."
   }, {
     "title" : "Invalid social token",
     "statusCode" : 400,
