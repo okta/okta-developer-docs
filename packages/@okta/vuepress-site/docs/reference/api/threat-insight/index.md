@@ -5,17 +5,23 @@ category: management
 
 # ThreatInsight configuration API
 
-[Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IPs that exhibit suspicious behaviors suggestive of malicious activity. Authentication requests associated with an IP in this list can be logged in [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) and blocked. The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
+The ThreatInsight API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/ThreatInsight/).
 
-In order to prevent abuse, Okta ThreatInsight works in a limited capacity for free trial editions. Please contact Okta support if fully functional Okta ThreatInsight is required.
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the ThreatInsight API Postman collection.
+
+<!--
+[Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) maintains a constantly evolving list of IP addresses that consistently exhibit malicious activity. Authentication requests that are associated with an IP in this list can be logged to the [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog) and blocked. ThreatInsight also covers non-authentication requests in limited capacity depending on the attack patterns of these malicious IPs.
+
+The Okta ThreatInsight Configuration API provides operations to manage your ThreatInsight configuration.
+
+> **Note:** To prevent abuse, Okta ThreatInsight works in a limited capacity for free trial edition orgs. Please contact Okta support if fully functional Okta ThreatInsight is required.
 
 ## ThreatInsight configuration object
 
-| Field Name     | Description                                                         	| Data Type                                     | Required      | Max Length    |
-| :------------- | :------------------------------------------------------------------	| :-------------------------------------------- | :------------ | :------------ |
-| action         | Specifies how Okta responds to authentication requests from suspicious IPs. Values are none, audit, or block. A value of none indicates that ThreatInsight is disabled. A value of audit indicates that Okta logs suspicious requests in the System Log. A value of block indicates that Okta logs suspicious requests in the System Log and blocks the requests. | String                                        | Yes		| N/A           |
-| excludeZones   | Accepts a list of [Network Zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) IDs. IPs in the excluded Network Zones aren't logged or blocked by Okta ThreatInsight and proceed to Sign On rules evaluation. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. | List	                                        | No		| N/A           |
-
+| Field Name  | Description	| Data Type   | Required      |
+| :---------- | :----------	| :---------- | :------------ |
+| action         | Specifies how Okta responds to authentication requests from suspicious IPs. Supported values:<br><ul><li>`none`: Indicates that ThreatInsight is disabled</li><li>`audit`: Indicates that Okta logs suspicious requests to the System Log</li><li>`block`:  Indicates that Okta logs suspicious requests to the System Log and blocks the requests</li></ul> | String (enums: `none`, `audit`, or `block`) | Yes |
+| excludeZones   | Accepts a list of [Network Zone](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/NetworkZone/) IDs. IPs in the excluded network zones aren't logged or blocked. This ensures that traffic from known, trusted IPs isn't accidentally logged or blocked. | List | No |
 
 ## ThreatInsight configuration API operations
 
@@ -97,3 +103,4 @@ curl -X GET \
     }
 }
 ```
+-->
