@@ -2,6 +2,8 @@
 title: OAuth 2.0 and OpenID Connect Overview
 ---
 
+# OAuth 2.0 and OpenID Connect Overview
+
 OAuth 2.0 and OpenID Connect (OIDC) are industry standard protocols for user authentication and authorization. Okta identity solutions are based on these standards.
 
 ---
