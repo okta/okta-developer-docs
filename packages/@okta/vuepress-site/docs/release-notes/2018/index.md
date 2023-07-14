@@ -1155,7 +1155,7 @@ To configure an authorization or authentication flow to include a user consent p
 
 #### Sessions API Supports HTTP Header Prefer
 
-Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](/docs/reference/api/sessions/#refresh-current-session). You can extend the session lifetime, but skip any processing work related to building the response body.
+Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in [the Sessions API for refreshing sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/refreshSession). You can extend the session lifetime, but skip any processing work related to building the response body.
 
 #### Example Request
 
