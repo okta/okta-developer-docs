@@ -103,7 +103,7 @@ As a best practice, you should return the HTTP response immediately, rather than
 
 ### Rate limits
 
-Event hooks aren't triggered after reaching a limit of 400,000 applicable events, per org, per day.
+Okta limits each org to 400,000 applicable events within a 24-hour period. After reaching this threshold, further event hooks aren't triggered. The system log receives a warning prior to hitting the event limit when the number of events hits 280,000. The event limit resets 24 hours after the first event is sent. <!-- This content also available on this help.okta.com page: https://help.okta.com/okta_help.htm?type=wf&id=ext-workflows-system-limits -->
 
 ### Debugging
 
@@ -124,7 +124,7 @@ The basic steps to register and verify a new event hook are as follows:
 
 For a working example of an end-to-end event hook setup, see the [Event hook guide](/docs/guides/event-hook-implementation).
 
-> **Note:** It may take several minutes before events are sent to the event hook after it’s created or updated.
+> **Note:** It may take several minutes before events are sent to the event hook after it's created or updated.
 
 ### Implement your service
 
