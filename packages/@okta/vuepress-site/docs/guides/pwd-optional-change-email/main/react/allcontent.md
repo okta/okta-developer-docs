@@ -21,7 +21,7 @@ Allowing a user to change their primary email is a critical task when they only 
 
 The SDK contains a series of [methods](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md) that update the user's primary email address and other profile information. These methods are secure and can be safely used in browser-based SPA applications. In this guide, you learn how to use these methods to integrate the change email functionality in your app.
 
->**Note**: These SDK methods use the [MyAccount API](/docs/reference/api/myaccount/) to update the user's profile information.
+>**Note**: These SDK methods use the [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/) to update the user's profile information.
 
 ## Update configurations
 
@@ -42,4 +42,4 @@ The following summarizes the steps involved when a user changes their primary em
 
 * [Okta Auth Javascript SDK](https://github.com/okta/okta-auth-js)
 * [MyAccount SDK interface specification](https://github.com/okta/okta-auth-js/blob/master/docs/myaccount/modules.md)
-* [MyAccount API reference](/docs/reference/api/myaccount/)
+* [MyAccount API reference](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/)

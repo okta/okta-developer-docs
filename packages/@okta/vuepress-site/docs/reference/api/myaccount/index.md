@@ -5,6 +5,12 @@ category: management
 
 # MyAccount API
 
+The MyAccount API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the MyAccount API Postman collection.
+
+<!--
+
 <ApiLifecycle access="ie" />
 
 > **Note:** This document provides reference material for an enhanced MyAccount API, accessible at `/idp/myaccount`. The `/api/v1/myaccount` endpoint is deprecated. See [MyAccount API (deprecated)](/docs/reference/api/archive-myaccount/) for the docs for the older version of the API.
@@ -1859,3 +1865,4 @@ The My Password object has several properties:
   }
 }
 ```
+-->

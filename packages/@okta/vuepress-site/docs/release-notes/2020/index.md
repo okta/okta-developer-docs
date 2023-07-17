@@ -152,7 +152,7 @@ For API requests that return a Group or a list of Groups, the Group object inclu
 
 #### MyAccount API is now in Early Access (EA)
 
-The [MyAccount API](/docs/reference/api/myaccount/) enables non-administrator end users to fetch their Okta user profiles. To enable this EA feature, contact [Support](https://support.okta.com/help/open_case). <!--OKTA-342090-->
+The [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Profile/) enables non-administrator end users to fetch their Okta user profiles. To enable this EA feature, contact [Support](https://support.okta.com/help/open_case). <!--OKTA-342090-->
 
 #### Bug fixed in 2020.11.0
 

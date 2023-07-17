@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="ie" />
 
-This guide describes how to migrate from the `v1` version to the `idp` version of the MyAccount API. See [MyAccount API](/docs/reference/api/myaccount/) for the reference documentation of the latest version.
+This guide describes how to migrate from the `v1` version to the `idp` version of the MyAccount API. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/) for the reference documentation of the latest version.
 
 ## OIE migration
 
@@ -96,4 +96,4 @@ The new version of the API comes with new error messages. Examples include:
 * invalid email ID
 * email operation not enabled in your org
 
-See [Update My User Profile - Error responses](/docs/reference/api/myaccount/#error-responses-8).
+See [Update My User Profile - Error responses](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Profile/).
