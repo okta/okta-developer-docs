@@ -584,6 +584,71 @@ If you aren't familiar with the Sign-In Widget, Okta recommends that you select 
 1. To make changes to the major and minor versions, select **Edit** in the **Okta Sign-In Widget Version** section header.
 2. Make your changes, and then click **Save** at the bottom of the page.
 
+## Limitations
+
+### Hide or suppress the sign-in page for redirect authentication
+
+#### Description
+
+The Okta Identity Engine uses a JavaScript method for redirect authentication. There are two main impacts of this method:
+
+- **Visual:** The end-user sees a flicker of the sign-in page during the pass-through.
+- **Programmatic:** The detection of an HTTP 302 error is hindered. All responses are HTTP 200 with a body.
+
+#### Workaround
+
+**Resolve the visual impact**
+
+- (Required) In the HTML header, add the following to remove the opacity of the `okta-login-container`:
+
+```html
+<style> #okta-login-container{ opacity:0; transition-delay:200ms; transition:opacity 500ms; -webkit-transition:opacity 500ms; /* Safari */ }</style>
+```
+
+- (Optional) In the HTML header as part of the JavaScript code block, the following allows for additional context that you could use for build-out:
+
+```javascript
+var myContext = {
+    isLoginHidden: true,
+}
+```
+
+- (Required) In the HTML body, add this content to access the query string in JavaScript and to toggle the display based on presence:
+
+```javascript
+// Get the login container.
+var loginContainer = document.getElementById("okta-login-container")
+
+// Utility: Get a Query String Parameters
+var urlParams = new URLSearchParams(window.location.search);
+
+// Detect the IDP param
+if (urlParams.has("idp")) {
+    console.log(urlParams.get('idp')); // just to capture... if additional logic needed
+    // Let the Default opacity remain;
+} else {
+    // Allow the login container to be seen;
+    loginContainer.style.opacity = 1;
+    myContext.isLoginHidden = false; // (OPTIONAL - if additional Logic needed (would not set opacity)
+}
+```
+
+- (Optional) In the HTML body, add the following if you need the additional context and there isn't any display of the sign-in page at the bottom of the page build-out:
+
+```javascript
+if (myContext.isLoginHidden) {
+    // Make sure the login is displayed by default
+    console.log('show the login!'); // Indicate login should not be hidden just in case it renders again.
+    myContext.isLoginHidden = false; // Show the login container;
+    loginContainer.style.opacity = 1;
+}
+```
+
+<!--
+**Resolve the programmatic impact**
+
+Alternative integration options may provide better logic within your application. Since the IdP is known, redirecting for IdP verification for all authentication flows, or leveraging the web finger API, however, there may be impacting limitations based on the context. -->
+
 ## See also
 
 For information about other Okta customization options:
