@@ -82,9 +82,9 @@ Make a custom admin role specific to a brand by using a customization resource t
 
 If you want to use the Admin Console to send a branded email, consider the following:
 
-- If your org has two or more brands (and custom domains) in addition to the default Okta subdomain, the default Okta branding is applied. Okta uses the request host in the URL to determine which brand to use, and the Admin Console only works with the Okta subdomain. You need to use an Okta API to trigger the email. For example, to send a User Activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint.
+- If your org has two or more brands (and custom domains) in addition to the default Okta subdomain, the default Okta branding is applied. You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand to use, and the console only works with the Okta subdomain. You need to use an Okta API to trigger the email. For example, to send a User Activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint.
 - If your org has one brand (and custom domain) in addition to the default Okta subdomain, your custom branding is applied. With a single custom domain, the Admin Console assumes that you want to send a branded email.
-- If your org doesn't have a custom brand (or custom domain), you can trigger Okta-branded email from the Admin Console.
+- If your org doesn't have a custom brand (or custom domain), you can trigger Okta-branded emails from the Admin Console.
 
 ### Multibrand and authorization servers
 
