@@ -11,18 +11,18 @@ OAuth 2.0 and OpenID Connect (OIDC) are industry standard protocols for user aut
 **Learning outcomes**
 
 * Learn how to implement flows based on OAuth 2.0 and OIDC using Okta.
-* Learn what flows and grant types are commonly used by different types of applications.
+* Learn which flows and grant types are commonly used by different types of applications.
 
 > **Note**: To learn about the Okta authentication deployment models built on top of OAuth 2.0 and OIDC, see [Okta deployment models](/docs/concepts/redirect-vs-embedded/).
 
-## OAuth 2.0 vs OpenID Connect
+## OAuth 2.0 vs. OpenID Connect
 
 OAuth 2.0 and OpenID Connect (OIDC) are complementary protocols, defining how users are authenticated by a server and then authorized to access resources:
 
 * [OAuth 2.0](/docs/reference/api/oidc/) controls and delgates authorization to access a protected resource, like your web app, native app, or API service. It provides API security through scoped access tokens.
-* [OIDC](/docs/reference/api/oidc/) extends OAuth 2.0 with user authentication and Single Sign-On (SSO) functionality. It also enables you to retrieve and store authentication information about your end users. It also defines several OAuth 2.0 scopes to enable applications to access user profile information.
+* [OIDC](/docs/reference/api/oidc/) extends OAuth 2.0 with user authentication and Single Sign-On (SSO) functionality. It enables you to retrieve and store authentication information about your end users. It also defines several OAuth 2.0 scopes to enable applications to access user profile information.
 
-Okta recommends using one of its authentication deployment models for your application's authentication needs. They each abstract over the OAuth 2.0 and OIDC protocols, so you don't have to use them directly. To get started and to find sample apps, see [Sign users in](/docs/guides/sign-in-overview/).
+Okta recommends using one of its authentication deployment models for your application's authentication needs. Each model abstracts over the OAuth 2.0 and OIDC protocols, so you don't have to use them directly. To get started and to find sample apps, see [Sign users in](/docs/guides/sign-in-overview/).
 
 > **Tip**: Use the [Authentication API](/docs/reference/api/authn/) if you require a custom app setup and workflow with direct access to your Okta org and app integrations. This API underpins both the Okta [redirect model](/docs/guides/sign-into-web-app-redirect/), [Embedded Sign-In Widget](/docs/guides/embedded-siw/), and [Auth JS](/docs/guides/auth-js/) SDKs.
 
@@ -32,10 +32,10 @@ OAuth 2.0 is a standard that apps use to provide client applications with access
 
 The OAuth 2.0 spec has four important roles:
 
-* **Client**: The application that wants to access some data.
-* **Resource Server**: The API or application that stores the data the client wants to access.
-* **Resource Owner**: The owner of the data in the resource server. For example, you are the owner of your Facebook profile.
-* **Authorization Server**: The server that manages access and issues access tokens. In this case Okta is the authorization server.
+* **client**: The application that wants to access some data.
+* **resource server**: The API or application that stores the data the client wants to access.
+* **resource owner**: The owner of the data on the resource server. For example, you're the owner of your Facebook profile.
+* **authorization server**: The server that manages access and issues access tokens. In this case, Okta is the authorization server.
 
 Other important terms:
 
@@ -91,7 +91,7 @@ The following table shows you which OAuth 2.0 flow to use for the type of applic
 | Trusted                 | [Interaction Code](#interaction-code-flow)            | &#9989;          | &#9989;      |
 | Service                 | [Client Credentials](#client-credentials-flow)                  | &#9989;          | &#10060;     |
 
-> **Note**: The OAuth 2.0 [SAML 2.0 Assertion flow](#saml-20-assertion-flow) is also available. This flow is intended for client applications that want to use an existing trust relationship without a direct user approval step at the authorization server. It supports access and ID tokens.
+> **Note**: There's also an OAuth 2.0 [SAML 2.0 Assertion flow](#saml-20-assertion-flow). This flow is intended for client applications that want to use an existing trust relationship without a direct user approval step at the authorization server. It supports access and ID tokens.
 
 ### What kind of client are you building?
 
@@ -121,7 +121,7 @@ If your client application runs on a server with no direct end user, then it can
 
 #### Is your app high-trust?
 
-Applications are **high-trust** if you own both them and the resource they access. Because you own them, you can trust them to handle your end users' usernames and passwords. In this case, and _only if other flows aren't viable_, you may use the [Resource Owner Password flow](#resource-owner-password-flow). However, it isn't possible to use this flow with multifactor authentication, so you will likely want to look at alternatives such as the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) or [Interaction Code flow](#interaction-code-flow).
+An application is **high-trust** if you own both it and the resource that it accesses. Because you own both, you can trust the application to handle your end users' usernames and passwords. In this case, and _only if other flows aren't viable_, you can use the [Resource Owner Password flow](#resource-owner-password-flow). However, it isn't possible to use this flow with multifactor authentication, so you'll want to look at alternatives such as the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) or [Interaction Code flow](#interaction-code-flow).
 
 If your app isn't high-trust, or if you want to take advantage of multifactor authentication, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow.
 
@@ -204,7 +204,7 @@ okta -> client: Send interaction_handle in response (for required interaction)
 client <-> okta: Remediation steps w/ interaction_handle
 user <-> client: Remediation
 note right: Possible multiple remediation steps required
-client -> okta: Complete remediation steps w/ interaction_handle
+client -> okta: Complete remediation steps with interaction_handle
 okta -> client: Send interaction_code in response
 client -> okta: Send interaction_code, client ID, code_verifier to /token
 okta -> okta: Evaluates PKCE code verifier
@@ -221,9 +221,9 @@ The Resource Owner Password flow is intended for use cases where:
 
 * You control both the client application and the resource that it's interacting with.
 * The client can store a client secret and can be trusted with the resource owner's credentials.
-* You do not need your users to use multifactor authentication.
+* You don't need your users to use multifactor authentication.
 
-It is most commonly found in first-party clients made for online services, like the Facebook client applications that interact with the Facebook service. It doesn't require redirects like the Authorization Code or Implicit flows, and involves a single authenticated call to the `/token` endpoint.
+It's most commonly found in first-party clients made for online services, like the Facebook client applications that interact with the Facebook service. It doesn't require redirects like the Authorization Code or Implicit flows, and involves a single authenticated call to the `/token` endpoint.
 
 <div class="three-quarter">
 
