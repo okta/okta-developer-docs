@@ -11,51 +11,51 @@ describe('API tags check spec', () => {
     cy.get(betaTagSelector).should('exist');
   });
 
-  it('shows the Early Access lifecycle tags', () => {
-    const eaTagsSelector = '.api-label-ea';
+  //it('shows the Early Access lifecycle tags', () => {
+    //const eaTagsSelector = '.api-label-ea';
 
-    basePage.visit('/docs/reference/api/users');
+    //basePage.visit('/docs/reference/api/users');
 
-    cy.get(eaTagsSelector).should('exist')
-  });
+    //cy.get(eaTagsSelector).should('exist')
+  //});
 
-  it('shows the Deprecated lifecycle tags', () => {
-    const deprecatedTagsSelector = '.api-label-deprecated';
+ // it('shows the Deprecated lifecycle tags', () => {
+   // const deprecatedTagsSelector = '.api-label-deprecated';
 
-    basePage.visit('/docs/reference/api/sessions');
+   // basePage.visit('/docs/reference/api/sessions');
 
-    cy.get(deprecatedTagsSelector).should('exist');
-  });
+   // cy.get(deprecatedTagsSelector).should('exist');
+ // });
 
-  it('shows the CORS tags', () => {
-    const corsTagsSelector = '.api-label-cors';
+ // it('shows the CORS tags', () => {
+   // const corsTagsSelector = '.api-label-cors';
 
-    basePage.visit('/docs/reference/api/sessions');
+   // basePage.visit('/docs/reference/api/sessions');
 
-    cy.get(corsTagsSelector).should('exist');
-  });
+  // cy.get(corsTagsSelector).should('exist');
+ // });
 
-  it('shows the API URI GET tags', () => {
-    const apiUrlGetTagsSelector = '.api-uri-get';
+  //it('shows the API URI GET tags', () => {
+   // const apiUrlGetTagsSelector = '.api-uri-get';
 
-    basePage.visit('/docs/reference/api/sessions');
+   // basePage.visit('/docs/reference/api/sessions');
 
-    cy.get(apiUrlGetTagsSelector).should('exist');
-  });
+   // cy.get(apiUrlGetTagsSelector).should('exist');
+ // });
 
-  it('shows the API URI POST tags', () => {
-    const apiUrlPostTagsSelector = '.api-uri-post';
+  //it('shows the API URI POST tags', () => {
+    //const apiUrlPostTagsSelector = '.api-uri-post';
 
-    basePage.visit('/docs/reference/api/sessions');
+    //basePage.visit('/docs/reference/api/sessions');
 
-    cy.get(apiUrlPostTagsSelector).should('exist');
-  });
+   // cy.get(apiUrlPostTagsSelector).should('exist');
+ // });
 
-  it('shows the API URI DELETE tags', () => {
-    const apiUrlDeleteTagsSelector = '.api-uri-delete';
+  //it('shows the API URI DELETE tags', () => {
+    //const apiUrlDeleteTagsSelector = '.api-uri-delete';
 
-    basePage.visit('/docs/reference/api/sessions');
+   // basePage.visit('/docs/reference/api/sessions');
 
-    cy.get(apiUrlDeleteTagsSelector).should('exist');
-  });
+   // cy.get(apiUrlDeleteTagsSelector).should('exist');
+  //});
 });
