@@ -151,7 +151,7 @@ To run the sample application and connect directly to the Okta sign-in dialog:
 
 1. Sign in with your Okta org account credentials. You should see the following:
 
-   <div class="original border">
+   <div class="border">
 
    ![Sign-in response with welcome home successful authentication response](/img/architecture/directory-coexistence/ad-to-okta-signin-response.png)
 

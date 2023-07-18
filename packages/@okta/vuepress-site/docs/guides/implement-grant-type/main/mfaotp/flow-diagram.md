@@ -1,6 +1,6 @@
 ### Direct Authentication MFA OTP flow
 
-<div class="original">
+<div class="three-quarter">
 
 ![Sequence diagram that displays the back and forth between the resource owner, client app, and authorization server for MFA OTP flow"](/img/authorization/oauth-mfaotp-grant-flow.png)
 

@@ -15,7 +15,7 @@ We release first to preview orgs and then production orgs. Dates for preview rel
 
 To verify the current release and Okta solution for an org (Identity Engine or Classic), check the footer of the Admin Console. The version number is appended with E for Identity Engine orgs and C for Classic Engine orgs. If necessary, click **Admin** to navigate to your Admin Console. <br>
 
-<div class="original">
+<div>
 
 ![Release Number in Footer](/img/release_notes/version_footer.png)
 

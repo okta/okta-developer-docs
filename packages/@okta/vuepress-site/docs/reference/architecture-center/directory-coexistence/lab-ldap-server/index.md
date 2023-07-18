@@ -74,7 +74,7 @@ Create the initial environment for the tutorial where an application authenticat
 
    The OpenLDAP directory contains three users defined in the `ldifs\users.ldif` file. At the prompt, sign in with username **user01** and password **password1**. The following dialog appears after successful authentication:
 
-   <div class="original border">
+   <div class="border">
 
    ![Sign-in response with welcome home successful authentication response](/img/architecture/directory-coexistence/ldap-to-okta-signin-response.png)
 

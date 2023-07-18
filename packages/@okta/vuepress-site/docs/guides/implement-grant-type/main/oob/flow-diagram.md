@@ -1,6 +1,6 @@
 ### Direct authentication OOB flow
 
-<div class="original">
+<div class="three-quarter">
 
 ![Sequence diagram that displays the back and forth between the resource owner, client app, and authorization server for OOB flow"](/img/authorization/oauth-oob-grant-flow.png)
 

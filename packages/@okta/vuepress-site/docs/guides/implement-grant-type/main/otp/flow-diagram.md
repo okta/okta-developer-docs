@@ -1,6 +1,6 @@
 ### Direct Authentication OTP flow
 
-<div class="original">
+<div class="three-quarter">
 
 ![Sequence diagram that displays the back and forth between the resource owner, client app, and authorization server for OTP flow"](/img/authorization/oauth-otp-grant-flow.png)
 
