@@ -52,21 +52,6 @@ You can only visit a branded touchpoint (such as a logo or color) after you map 
 
 Multibrand orgs have a non-deletable default brand called the subdomain brand. However, you can create several custom brands. The subdomain brand always appears at the Okta subdomain URL and can’t have a custom domain. You can swap out the logo and other assets, but you can’t edit custom code for the sign-in page or error pages. You can only use a custom domain and custom code for sign-in pages and error pages on custom brands.
 
-### Multibrand and resource sets
-
-Make a custom admin role specific to a brand by using a customization resource type. See:
-
-- [Create a resource set - Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-resource-set)
-- [Create a resource set - Okta Classic Engine](https://help.okta.com/okta_help.htm?id=ext-create-resource-set)
-
-### Multibrand and emails
-
-When an end user triggers an email, Okta bases its branding on the custom domain from which the end user initiated the flow.
-
-For example, you have a custom domain with branding for the "Widgets, Inc." app. An end user attempts to reset a password from the sign-in page. The sign-in triggers a Forgot Password email. The email has the branding associated with the custom domain for "Widgets, Inc.".
-
-See [Customize email notifications](/docs/guides/custom-email/main/).
-
 ### Use the Admin Console
 
 To use multibrand customization in the Admin Console, see [Branding](https://help.okta.com/okta_help.htm?type=oie&id=csh-branding).
@@ -85,6 +70,21 @@ There are public APIs and updates to existing APIs for multibrand customization:
 - [Default app for the Sign-In Widget](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/listBrands)
 - [Sign-out page](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/getSignOutPageSettings)
 - [Brand locale](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Customization/#tag/Customization/operation/listBrands)
+
+### Multibrand and resource sets
+
+Make a custom admin role specific to a brand by using a customization resource type. See:
+
+- [Create a resource set - Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-resource-set)
+- [Create a resource set - Okta Classic Engine](https://help.okta.com/okta_help.htm?id=ext-create-resource-set)
+
+### Multibrand and emails
+
+If you want to use the Admin Console to send a branded email, consider the following:
+
+- If your org has two or more brands (and custom domains) in addition to the default Okta subdomain, the default Okta branding is applied. You can't send branded emails from the Admin Console. Okta uses the request host in the URL to determine which brand to use, and the console only works with the Okta subdomain. Use an Okta API to trigger the email. For example, to send a User Activation email, send a request to the [Activate a User](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/User/#tag/User/operation/activateUser) endpoint.
+- If your org has one brand (and custom domain) in addition to the default Okta subdomain, your custom branding is applied. With a single custom domain, the Admin Console assumes that you want to send a branded email.
+- If your org doesn't have a custom brand (or custom domain), you can trigger Okta-branded emails from the Admin Console.
 
 ### Multibrand and authorization servers
 
