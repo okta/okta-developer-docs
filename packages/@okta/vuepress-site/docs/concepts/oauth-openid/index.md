@@ -69,7 +69,7 @@ Although OIDC extends OAuth 2.0, the [OIDC specification](https://openid.net/con
 * **OpenID provider**: The authorization server that issues the ID token. In this case Okta is the OpenID provider.
 * **end user**: The end user's information that is contained in the ID token.
 * **relying party**: The client application that requests the ID token from Okta.
-* **ID token**: The token issued by the OpenID provider and contains information about the end user in the form of claims.
+* **ID token**: The token issued by the OpenID provider that contains information about the end user in the form of claims.
 * **claim**: The claim is a piece of information about the end user.
 
 The high-level flow looks the same for both OpenID Connect and regular OAuth 2.0 flows. The primary difference is that an OpenID Connect flow results in an ID token, in addition to any access or refresh tokens.
@@ -117,21 +117,21 @@ If your client application is a SPA or a native application that redirects its a
 
 #### Does the client have an end user?
 
-If your client application runs on a server with no direct end user, then it can be trusted with its own credentials and use them responsibly. If your client application is only doing machine-to-machine interaction, then you should use the [Client Credentials flow](#client-credentials-flow).
+If your client application runs on a server with no direct end user, then it can be trusted with its own credentials and to use them responsibly. If your client application is only doing machine-to-machine interaction, then you should use the [Client Credentials flow](#client-credentials-flow).
 
 #### Is your app high-trust?
 
-An application is **high-trust** if you own both it and the resource that it accesses. Because you own both, you can trust the application to handle your end users' usernames and passwords. In this case, and _only if other flows aren't viable_, you can use the [Resource Owner Password flow](#resource-owner-password-flow). However, it isn't possible to use this flow with multifactor authentication, so you'll want to look at alternatives such as the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) or [Interaction Code flow](#interaction-code-flow).
+An application is **high-trust** if you own both it and the resource that it accesses. Because you own both, you can trust the application to handle your end users' usernames and passwords. In this case, and _only if other flows aren't viable_, you can use the [Resource Owner Password flow](#resource-owner-password-flow). However, it isn't possible to use this flow with multifactor authentication, so consider alternatives such as the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) or [Interaction Code flow](#interaction-code-flow).
 
 If your app isn't high-trust, or if you want to take advantage of multifactor authentication, you should use the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow.
 
 ### Authorization Code flow with PKCE
 
-Proof Key for Code Exchange (PKCE) was originally designed as an extension to protect the Authorization Code flow in mobile apps. However, its ability to prevent authorization code injection and keep the flow secure makes it optimal for every type of OAuth client. Okta recommends you use the Authorization Code flow with PKCE for your OAuth client if possible.
+Proof Key for Code Exchange (PKCE) was originally designed as an extension to protect the Authorization Code flow in mobile apps. However, its ability to prevent authorization code injection and keep the flow secure makes it optimal for every type of OAuth client. Okta recommends that you use the Authorization Code flow with PKCE for your OAuth client, if possible.
 
-The flow requires your application to generate a cryptographically random string called a **code verifier**. The code verifier is then hashed to create the **code challenge**, and this challenge is passed along with the request for the authorization code.
+The flow requires your application to generate a cryptographically random string called a **code verifier**. The code verifier is then hashed to create the **code challenge**, and this challenge is passed along with the request for the authorization code. The authorization server responds with an authorization code and associates the code challenge with the authorization code.
 
-After the application receives the authorization code, it sends the authorization code and the code verifier in a request for an access token. The authorization server recomputes the challenge from the verifier using the previously agreed-upon hash algorithm and then compares that. If the two code challenges and verifier match, the authorization server knows that the same client sent both requests.
+After the application receives the authorization code, it sends the authorization code and the code verifier in a request for an access token. The authorization server recomputes the challenge from the verifier using the previously agreed-upon hash algorithm and then compares the challenge with the one it associated with the authorization code in the previous step. If the two code challenges and verifier match, the authorization server knows that the same client sent both requests.
 
 > **Note:** For implementing refresh tokens with SPAs and other browser-based apps, see [Refresh access tokens](/docs/guides/refresh-tokens/main/).
 
@@ -329,7 +329,7 @@ For information on how to set up your application to use this flow, see [Impleme
 
  > **Note:** The Implicit flow is a legacy flow used only for SPAs that can't support PKCE.
 
-The Implicit flow was intended for browser-based applications that didn't support Cross-Origin Resource Sharing (CORS) and lacked modern cryptography APIs, and that couldn't protect a client secret. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token in the redirect from the `/authorize` endpoint. The client must be able to interact with the resource owner's user agent and to receive incoming requests (through redirection) from the authorization server.
+The Implicit flow was intended for browser-based applications that didn't support Cross-Origin Resource Sharing (CORS), lacked modern cryptography APIs, and that couldn't protect a client secret. In this flow, the client doesn't make a request to the `/token` endpoint, but instead receives the access token in the redirect from the `/authorize` endpoint. The client must be able to interact with the resource owner's user agent and to receive incoming requests (through redirection) from the authorization server.
 
 > **Note:** Because it was always intended for less-trusted clients, the Implicit flow doesn't support refresh tokens.
 
