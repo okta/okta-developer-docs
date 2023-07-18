@@ -590,7 +590,9 @@ If you aren't familiar with the Sign-In Widget, Okta recommends that you select 
 
 #### Description
 
-The Okta Identity Engine uses a JavaScript method for redirect authentication. There are two main impacts of this method:
+In Identity Engine, the sign-in page uses a JavaScript method for redirect authentication. Since the redirect doesn't use HTTP, the Okta sign-in page appears briefly during the transition. You might want to keep end-users from seeing Okta branding. To suppress the Okta sign-in page, use a custom domain and update some javaScript/CSS to only display the Widget in the event of user intervention.
+
+There are two main impacts of the JavaScript method that the sign-in page uses:
 
 - **Visual:** The end-user sees a flicker of the sign-in page during the pass-through.
 - **Programmatic:** The detection of an HTTP 302 error is hindered. All responses are HTTP 200 with a body.
