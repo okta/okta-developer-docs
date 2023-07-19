@@ -590,16 +590,19 @@ If you aren't familiar with the Sign-In Widget, Okta recommends that you select 
 
 #### Description
 
-In Identity Engine, the sign-in page uses a JavaScript method for redirect authentication. Since the redirect doesn't use HTTP, the Okta sign-in page appears briefly during the transition. You might want to keep end-users from seeing Okta branding. To suppress the Okta sign-in page, use a custom domain and update some javaScript/CSS to only display the Widget in the event of user intervention.
+In Identity Engine, the sign-in page uses a JavaScript method (instead of HTTP) for redirect authentication.
 
-There are two main impacts of the JavaScript method that the sign-in page uses:
+There are two main impacts:
 
-- **Visual:** The end-user sees a flicker of the sign-in page during the pass-through.
-- **Programmatic:** The detection of an HTTP 302 error is hindered. All responses are HTTP 200 with a body.
+* **Visual:** The Okta sign-in page appears briefly to end-users during the transition, breaking the custom branded experience.
+
+* **Programmatic:** Non-user (or back-end) authentication flows receive an `HTTP 200 OK` response with a body, instead of an `HTTP 302 Found` redirect status response. As a result, the JavaScript method always performs the redirect.
 
 #### Workaround
 
 **Resolve the visual impact**
+
+To suppress the brief appearance of the Okta sign-in page, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some javaScript/CSS to display the page only in the event of user intervention.
 
 - (Required) In the HTML header, add the following to remove the opacity of the `okta-login-container`:
 
@@ -646,10 +649,9 @@ if (myContext.isLoginHidden) {
 }
 ```
 
-<!--
 **Resolve the programmatic impact**
 
-Alternative integration options may provide better logic within your application. Since the IdP is known, redirecting for IdP verification for all authentication flows, or leveraging the web finger API, however, there may be impacting limitations based on the context. -->
+Consider alternative integrations within your application. Since the IdP is known, you can redirect for IdP verification for all authentication flows, or leverage the [Web Finger API](/docs/reference/api/webfinger/). However, your integration may be limited based on context.
 
 ## See also
 
