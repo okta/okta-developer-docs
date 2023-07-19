@@ -7,7 +7,7 @@ meta:
 
 Lifecycle management refers to the process of provisioning and deprovisioning application access as a user moves through an organization. Onboarding, role change, transfer, and offboarding employee processes require provisioning user accounts in workforce applications and enforcing corporate security policies in a timely manner.
 
-<div class="three-quarters">
+<div>
 
 ![Lifecycle management](/img/oin/scim_lifecycle.png "User lifecycle diagram: 1 - new employee 2 - provision applications 3 - enforce security 4 - update user information 5 - off-board")
 

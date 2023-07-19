@@ -63,7 +63,7 @@ Create the initial environment for the tutorial where an application authenticat
 
 1. Sign in with username **`user1@example.com`** and password **password**. The following dialog appears after successful authentication:
 
-   <div class="three-quarters border">
+   <div class="border">
 
    ![Sign-in response with welcome home successful authentication response](/img/architecture/directory-coexistence/db-to-okta-successful-signin.png)
 
@@ -194,7 +194,7 @@ Now that the users are mirrored in Universal Directory, you can reconfigure the 
 
    When the user is authenticated by Okta, the following appears:
 
-   <div class="three-quarters border">
+   <div class="border">
 
    ![Successful sign-in response](/img/architecture/directory-coexistence/db-to-okta-successful-signin.png)
 
