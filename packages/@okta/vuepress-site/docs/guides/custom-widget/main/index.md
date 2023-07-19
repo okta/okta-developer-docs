@@ -594,7 +594,7 @@ In Identity Engine, the sign-in page uses a JavaScript method (instead of HTTP) 
 
 There are two main impacts:
 
-* **Visual:** The Okta sign-in page appears briefly to end-users during the transition, breaking the custom branded experience.
+* **Visual:** The Okta sign-in page appears briefly to end users during the transition, breaking the custom branded experience.
 
 * **Programmatic:** Non-user (or back-end) authentication flows receive an `HTTP 200 OK` response with a body, instead of an `HTTP 302 Found` redirect status response. As a result, the JavaScript method always performs the redirect.
 
@@ -602,7 +602,7 @@ There are two main impacts:
 
 **Resolve the visual impact**
 
-To suppress the brief appearance of the Okta sign-in page, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some javaScript/CSS to display the page only in the event of user intervention.
+To suppress the brief appearance of the Okta sign-in page, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some javaScript/CSS:
 
 - (Required) In the HTML header, add the following to remove the opacity of the `okta-login-container`:
 
