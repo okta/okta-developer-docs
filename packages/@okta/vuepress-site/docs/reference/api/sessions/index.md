@@ -5,6 +5,12 @@ category: management
 
 # Sessions API
 
+The Sessions API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Sessions API Postman collection.
+
+<!--
+
 Okta uses a cookie-based authentication mechanism to maintain a user's authentication Session across web requests. The Okta Sessions API provides operations to create and manage authentication Sessions for users in your Okta organization.
 
 >**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [FAQ: How Blocked Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
@@ -545,7 +551,7 @@ If the Session is invalid, a `404 Not Found` response is returned.
 
 #### Option: Use the HTTP Header Prefer
 
-Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in the [Sessions API for refreshing Sessions](/docs/reference/api/sessions/#refresh-current-session). You can extend the Session lifetime, but skip any processing work that is related to building the response body.
+Okta now supports [the HTTP Header `Prefer`](https://tools.ietf.org/html/rfc7240#section-4.2) in the [Sessions API for refreshing Sessions](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/#tag/Session/operation/refreshSession). You can extend the Session lifetime, but skip any processing work that is related to building the response body.
 
 ##### Request example
 
@@ -730,3 +736,4 @@ Specifies the Identity Provider that is used to authenticate the user
   }
 }
 ```
+-->

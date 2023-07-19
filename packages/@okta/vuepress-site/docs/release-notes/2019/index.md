@@ -89,7 +89,7 @@ Multifactor (MFA) Enrollment Policy [objects](/docs/reference/api/policy/#multif
 
 #### Bug Fixed in 2019.11.1
 
-An incorrect status was returned in some cases when an admin checked another user's session information using the [Sessions API](/docs/reference/api/sessions/). (OKTA-245793)
+An incorrect status was returned in some cases when an admin checked another user's session information using the [Sessions API](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Session/). (OKTA-245793)
 
 
 ### Monthly Release 2019.11.0
