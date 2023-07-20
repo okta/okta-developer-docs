@@ -23,7 +23,7 @@ The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/a
 
 These experiences include fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/) and redirect authentication. Auth JS is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. It also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [Quickstart guides](/docs/guides/quickstart/).
 
-In this guide, you don’t need to use a specific server-side or front-end framework that Okta officially supports to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps, whether you're adding a centralized sign-in flow to a new app or retrofitting it to an existing app. To see examples of Auth JS with other front-end frameworks, go to [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/).
+In this guide, you don't need to use a specific server-side or front-end framework that Okta officially supports to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps, whether you're adding a centralized sign-in flow to a new app or retrofitting it to an existing app. To see examples of Auth JS with other front-end frameworks, go to [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/).
 
 If you'd like to explore the entire Auth JS SDK, see [Okta Auth JS JavaScript SDK](https://github.com/okta/okta-auth-js/#readme).
 
@@ -181,11 +181,11 @@ If your app isn't working, ensure that:
 * You've enabled a Trusted Origin for `http://localhost:9000`. See [About Trusted Origins](#about-trusted-origins).
 * If your app is bypassing the Okta Sign-In Widget, your user is already signed in. Use a new private or incognito browser window or optionally set the Authentication Policy for your app to always sign in. That is, **Re-authentication frequency is** set to **Every sign-in attempt**.
 
-## Enable self-service registration
+## Enable profile enrollment (self-service registration)
 
-The self-service registration feature provides a **Sign-up** link on the Sign-In Widget for end users to register and sign in to your app.
+The profile enrollment or self-service registration feature provides a **Sign-up** link on the Sign-In Widget for end users to register their user profile and sign in to your app.
 
-By default, self-service registration isn’t enabled for all apps. Use the following steps to understand the policy configurations and to make this feature only available to your application. See [Self-Service Registration](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr).
+By default, self-service registration isn't enabled for all apps. Use the following steps to understand the policy configurations and to make this feature only available to your application. See [Self-Service Registration](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-ssr).
 
 1. Ensure that your app is assigned to the Everyone group:
 
@@ -193,10 +193,10 @@ By default, self-service registration isn’t enabled for all apps. Use the foll
     {style="list-style-type:lower-alpha"}
     1. Click the **Assignments** tab.
     1. Click the **Groups** filter.
-    1. If the Everyone group isn’t assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
+    1. If the Everyone group isn't assigned, add it by clicking **Assign** > **Assign to Groups**, and assigning to the Everyone group.
 1. Go to **Security** > **Profile Enrollment** and edit the **Default Policy**.
-1. In the **Profile Enrollment** section, **Denied** is selected for **Self-service registration**. This setting removes the self-registration option for all apps assigned to the default policy.
-1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn’t appear under the Sign-In Widget.
+1. In the **Profile Enrollment** section, **Denied** is selected for **Self-service registration** by default. This setting removes the self-registration option for all apps assigned to the default policy.
+1. [Test your app](#test-your-app) and note that the **Sign-up** link doesn't appear under the Sign-In Widget.
 1. In the Admin Console, select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and then create a name for the policy (for example, "App self-service registration").
 1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
@@ -210,9 +210,29 @@ Based on other policy configurations, the self-service registration flow may be 
 
 > **Note:** All new users through the self-registration process receive a welcome email. This email activates user access to apps on your dev org and demonstrates ownership of the email authenticator. If you complete this process, ensure you're in the same browser window as the application sign-in tab.
 
+## Enable progressive profile enrollment
+
+Progressive profile enrollment provides a way to build out a user's profile incrementally during sign in. The profile enrollment policy is evaluated every time a user signs in. Based on the profile fields you want to build out, this data  is requested from users prior to signing in to your application. At least one field must be required to enable the progressive profile enrollment feature. If a user's profile already has the requested data, the user signs in directly.
+
+1. Go to **Security** > **Profile Enrollment** and click **Add Profile Enrollment Policy**.
+1. Create a name for the policy and **Save**.
+1. Click edit from the **Actions** column for your new policy.
+1. Click **Edit** in the policy and for **Self-service registration**, select the **Denied** option.
+1. For ease of testing, clear the **Email verification** checkbox.
+1. In the **Profile enrollment form**, add the additional user profile fields you want existing users to provide. In this example, add the city field:
+    1. Click **Add form input** and select the **City (city)** field. If the field is read only, you must change the attribute permission. See [Create a custom profile enrollment form](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-form.htm).<!--request and add alias-->
+    {style="list-style-type:lower-alpha"}
+    1. Repeat this step for the number of fields you want to add. At least one of these fields must be set as **Required**.
+1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
+1. [Test your app](#test-your-app). Sign in with a user that does not have a city added to their profile.
+    1. After entering the user's credentials, a new dialog appears requesting the required user profile data. In this scenario, the **City** field. Add a city to this user's profile and fill out any other required or optional fields that you configured.
+    {style="list-style-type:lower-alpha"}
+    1. After adding the data, the user is signed in as normal. Sign out of the sample app by clicking **Close Okta Session**.
+    1. Sign in again with the same user. With the data already added to the user's profile, the user is signed in directly.
+
 ## Add MFA with a mandatory second factor
 
-By default, your dev org isn’t configured for multifactor authentication. Use the following steps to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
+By default, your dev org isn't configured for multifactor authentication. Use the following steps to understand the policy configurations and set up this use case. This setup requires an end user to authenticate with a password and a phone authenticator.
 
 1. Go to **Security** > **Authenticators** and ensure that the phone authenticator is available in the **Authenticators** list on the **Setup** tab.
 
@@ -237,7 +257,7 @@ By default, your dev org isn’t configured for multifactor authentication. Use 
 
 1. From the **Authentication policy** dropdown menu, select your new authentication policy, **Mandatory MFA**. Click **Save**.
 
-1. Test the new configurations by signing into your app. If your test user doesn’t have a phone number enrolled, the user is prompted for the enrollment during the sign in. Enroll the test user, add the SMS code, and the user is signed-in to your sample app.
+1. Test the new configurations by signing into your app. If your test user doesn't have a phone number enrolled, the user is prompted for the enrollment during the sign in. Enroll the test user, add the SMS code, and the user is signed-in to your sample app.
 
 After your users have enrolled in the phone authenticator, future user sign-in flows require both a password and SMS code to access your app.
 
@@ -289,14 +309,14 @@ See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie
 
 ## Next steps
 
-Explain what Okta doesn't cover, for example, handling routes, authentication per route, and so on. Okta didn’t want to build our own SPA framework to show you how to do all this. Just basic sign-in. But point them to the other guides for plenty of examples of handling this.
+Explain what Okta doesn't cover, for example, handling routes, authentication per route, and so on. Okta didn't want to build our own SPA framework to show you how to do all this. Just basic sign-in. But point them to the other guides for plenty of examples of handling this.
 
 Sign-out - App vs Okta global session
 Sign-in policy
 Recovery
 Sign-up
 
-Talk about session management, and what happens when the page is refreshed. (To decide: app manages the session or uses the “built-in token manager”.-->
+Talk about session management, and what happens when the page is refreshed. (To decide: app manages the session or uses the "built-in token manager".-->
 
 ## See also
 
