@@ -230,7 +230,7 @@ Progressive profile enrollment builds out a user's profile incrementally during 
     1. Sign out of the sample app by clicking **Close Okta Session**.
     1. Sign in again with the same user. With the data already added to the user's profile, the user is signed in directly.
 
-> **Note:** You can also enable profile enrollment (self-service registration) and progressive profile enrollment. Select **Allowed** for the **Self-service registration option of your profile enrollment policy at the beginning of the previous procedure. New users can then enroll with the enhanced profile enrollment form. Existing users use progressive profile enrollment for any new required fields.
+> **Note:** You can also enable profile enrollment (self-service registration) and progressive profile enrollment with the same policy. Select **Allowed** for the **Self-service registration** option of your profile enrollment policy at the beginning of the previous procedure. New users can then enroll with the enhanced profile enrollment form. Existing users use progressive profile enrollment for any new required fields.
 
 ## Add MFA with a mandatory second factor
 
