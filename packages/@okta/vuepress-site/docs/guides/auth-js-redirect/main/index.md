@@ -200,7 +200,7 @@ By default, self-service registration isn't enabled for all apps. Use the follow
 1. Return to the Admin Console, and select **Back to all Profile Enrollment Policies** to return to the **Security** > **Profile Enrollment** page. Click **Add Profile Enrollment Policy**, and then create a name for the policy (for example, "App self-service registration").
 1. Edit the new policy and note that self-service registration is **Allowed** by default. For ease of testing and to allow your new user to sign in to the app immediately, clear the **Email verification** checkbox. Click **Save**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
-1. [Test your app](#test-your-app) again and note that the text **Don't have an account?** with a **Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user.
+1. [Test your app](#test-your-app) again and note that the text **Don't have an account? Sign up** link now appears for your app under the Sign-In Widget. Click the link to add a user.
     1. Enter a first name, last name, and email address and click **Sign up**.
     {style="list-style-type:lower-alpha"}
     1. Click **Set up** to add a new password. (Click **Set up later** for any other authenticators.)
@@ -220,7 +220,7 @@ Progressive profile enrollment builds out a user's profile incrementally during 
 1. Click **Edit** in the policy and for **Self-service registration**, select the **Denied** option.
 1. Clear the **Email verification** checkbox, for ease of testing.
 1. Add the additional user profile fields you want existing users to provide, in the **Profile enrollment form**. In this example, add the city field:
-    1. Click **Add form input** and select the **City (city)** field. If the field is read only, you must change the attribute permission. See [Create a custom profile enrollment form](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-form.htm).<!--request and add alias-->
+    1. Click **Add form input** and select the **City (city)** field. If the field is read only, you must change the attribute permission. See [Create a custom profile enrollment form](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-prof-enroll-form).
     {style="list-style-type:lower-alpha"}
     1. Repeat this step for the number of fields that you want to add. At least one of these fields must be set as **Required**.
 1. Click **Manage Apps** and then **Add an App to This Policy**. Add or apply your sample app to this new policy.
@@ -229,6 +229,8 @@ Progressive profile enrollment builds out a user's profile incrementally during 
     {style="list-style-type:lower-alpha"}
     1. Sign out of the sample app by clicking **Close Okta Session**.
     1. Sign in again with the same user. With the data already added to the user's profile, the user is signed in directly.
+
+> **Note:** You can also enable profile enrollment (self-service registration) and progressive profile enrollment. Select **Allowed** for the **Self-service registration option of your profile enrollment policy at the beginning of the previous procedure. New users can then enroll with the enhanced profile enrollment form. Existing users use progressive profile enrollment for any new required fields.
 
 ## Add MFA with a mandatory second factor
 
