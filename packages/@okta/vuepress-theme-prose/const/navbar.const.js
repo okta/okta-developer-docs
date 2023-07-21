@@ -708,7 +708,7 @@ export const guides = [
         ],
       },
       {
-        title: "Automate managing with Terraform",
+        title: "Automate org management with Terraform",
         guideName: "terraform-landing-page",
         subLinks: [
           {
