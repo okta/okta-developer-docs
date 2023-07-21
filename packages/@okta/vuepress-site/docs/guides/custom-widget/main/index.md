@@ -237,7 +237,7 @@ There are two main impacts:
 
 * **Programmatic:** Non-user (or back-end) authentication flows receive an `HTTP 200 OK` response with a body, instead of an `HTTP 302 Found` redirect status response. As a result, back-end coding doesn’t detect the status response and the JavaScript method performs the redirect.
 
-#### Resolve the visual impact
+**Resolve the visual impact**
 
 To suppress the brief appearance of the Sign-In Widget, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some javaScript/CSS:
 
@@ -247,7 +247,7 @@ To suppress the brief appearance of the Sign-In Widget, use a [custom domain](/d
 <style> #okta-login-container{ opacity:0; transition-delay:200ms; transition:opacity 500ms; -webkit-transition:opacity 500ms; /* Safari */ }</style>
 ```
 
-- (Optional) In the HTML header as part of the JavaScript code block, the following allows for additional context that you could use for build-out:
+- (Optional) In the HTML header as part of the JavaScript code block, add the following to allow for additional context that you could use for build-out:
 
 ```javascript
 var myContext = {
@@ -255,7 +255,7 @@ var myContext = {
 }
 ```
 
-- (Required) In the HTML body, add this content to access the query string in JavaScript and to toggle the display based on presence:
+- (Required) In the HTML body, add the following to access the query string in JavaScript and to toggle the display based on presence:
 
 ```javascript
 // Get the login container.
@@ -286,7 +286,7 @@ if (myContext.isLoginHidden) {
 }
 ```
 
-#### Resolve the programmatic impact
+**About the programmatic impact**
 
 Consider alternative integrations within your application. Since the IdP is known, you can redirect for IdP verification for all authentication flows, or leverage the [Web Finger API](/docs/reference/api/webfinger/). However, your integration may be limited based on context.
 
