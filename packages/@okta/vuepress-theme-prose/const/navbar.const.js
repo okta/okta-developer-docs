@@ -732,7 +732,7 @@ export const guides = [
             guideName: "terraform-manage-external-authenticators",
           },
           {
-            title: "Manager end-user experience",
+            title: "Customize end-user experience",
             guideName: "terraform-manage-end-user-experience",
           },
           {
