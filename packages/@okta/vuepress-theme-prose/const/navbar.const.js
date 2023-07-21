@@ -708,6 +708,44 @@ export const guides = [
         ],
       },
       {
+        title: "Automate org management with Terraform",
+        guideName: "terraform-landing-page",
+        subLinks: [
+          {
+            title: "Terraform overview",
+            guideName: "terraform-overview",
+          },
+          {
+            title: "Enable Terraform access",
+            guideName: "terraform-enable-org-access",
+          },
+          {
+            title: "Manage user access",
+            guideName: "terraform-manage-user-access",
+          },
+          {
+            title: "Manage groups",
+            guideName: "terraform-manage-groups",
+          },
+          {
+            title: "Manage authentication services",
+            guideName: "terraform-manage-external-authenticators",
+          },
+          {
+            title: "Customize end-user experience",
+            guideName: "terraform-manage-end-user-experience",
+          },
+          {
+            title: "Control Terraform access",
+            guideName: "terraform-design-access-security",
+          },
+          {
+            title: "Optimize Terraform access",
+          guideName: "terraform-design-rate-limits"
+          },
+        ],
+      },
+      {
         title: "Hooks",
         subLinks: [
           {
