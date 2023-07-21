@@ -227,6 +227,71 @@ Example:
  <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
 ```
 
+### Hide or suppress the transient sign-in page
+
+In Okta Identity Engine, the sign-in page uses a JavaScript redirect method (instead of HTTP 302).
+
+There are two main impacts:
+
+* **Visual:** The Okta sign-in page could appear briefly to end users during the transition, interrupting the custom branded experience.
+
+* **Programmatic:** Non-user (or back-end) authentication flows receive an `HTTP 200 OK` response with a body, instead of an `HTTP 302 Found` redirect status response. As a result, back-end coding doesn’t detect the status response and the JavaScript method performs the redirect.
+
+#### Resolve the visual impact
+
+To suppress the brief appearance of the Okta sign-in page, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some javaScript/CSS:
+
+- (Required) In the HTML header, add the following to remove the opacity of the `okta-login-container`:
+
+```html
+<style> #okta-login-container{ opacity:0; transition-delay:200ms; transition:opacity 500ms; -webkit-transition:opacity 500ms; /* Safari */ }</style>
+```
+
+- (Optional) In the HTML header as part of the JavaScript code block, the following allows for additional context that you could use for build-out:
+
+```javascript
+var myContext = {
+    isLoginHidden: true,
+}
+```
+
+- (Required) In the HTML body, add this content to access the query string in JavaScript and to toggle the display based on presence:
+
+```javascript
+// Get the login container.
+var loginContainer = document.getElementById("okta-login-container")
+
+// Utility: Get a Query String Parameters
+var urlParams = new URLSearchParams(window.location.search);
+
+// Detect the IDP param
+if (urlParams.has("idp")) {
+    console.log(urlParams.get('idp')); // just to capture... if additional logic needed
+    // Let the Default opacity remain;
+} else {
+    // Allow the login container to be seen;
+    loginContainer.style.opacity = 1;
+    myContext.isLoginHidden = false; // (OPTIONAL - if additional Logic needed (would not set opacity)
+}
+```
+
+- (Optional) In the HTML body, add the following if you need the additional context and there isn't any display of the sign-in page at the bottom of the page build-out:
+
+```javascript
+if (myContext.isLoginHidden) {
+    // Make sure the login is displayed by default
+    console.log('show the login!'); // Indicate login should not be hidden just in case it renders again.
+    myContext.isLoginHidden = false; // Show the login container;
+    loginContainer.style.opacity = 1;
+}
+```
+
+#### Resolve the programmatic impact
+
+Consider alternative integrations within your application. Since the IdP is known, you can redirect for IdP verification for all authentication flows, or leverage the [Web Finger API](/docs/reference/api/webfinger/). However, your integration may be limited based on context.
+
+> **Note:** The WebFinger API doesn't consider telemetry or the target application.
+
 ## Style for embedded authentication
 
 This section discusses the customization options that you have when you are self-hosting the sign-in page.
@@ -583,75 +648,6 @@ If you aren't familiar with the Sign-In Widget, Okta recommends that you select 
 
 1. To make changes to the major and minor versions, select **Edit** in the **Okta Sign-In Widget Version** section header.
 2. Make your changes, and then click **Save** at the bottom of the page.
-
-## Limitations
-
-### Hide or suppress the sign-in page for redirect authentication
-
-#### Description
-
-In Identity Engine, the sign-in page uses a JavaScript method (instead of HTTP) for redirect authentication.
-
-There are two main impacts:
-
-* **Visual:** The Okta sign-in page appears briefly to end users during the transition, breaking the custom branded experience.
-
-* **Programmatic:** Non-user (or back-end) authentication flows receive an `HTTP 200 OK` response with a body, instead of an `HTTP 302 Found` redirect status response. As a result, the JavaScript method always performs the redirect.
-
-#### Workaround
-
-**Resolve the visual impact**
-
-To suppress the brief appearance of the Okta sign-in page, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some javaScript/CSS:
-
-- (Required) In the HTML header, add the following to remove the opacity of the `okta-login-container`:
-
-```html
-<style> #okta-login-container{ opacity:0; transition-delay:200ms; transition:opacity 500ms; -webkit-transition:opacity 500ms; /* Safari */ }</style>
-```
-
-- (Optional) In the HTML header as part of the JavaScript code block, the following allows for additional context that you could use for build-out:
-
-```javascript
-var myContext = {
-    isLoginHidden: true,
-}
-```
-
-- (Required) In the HTML body, add this content to access the query string in JavaScript and to toggle the display based on presence:
-
-```javascript
-// Get the login container.
-var loginContainer = document.getElementById("okta-login-container")
-
-// Utility: Get a Query String Parameters
-var urlParams = new URLSearchParams(window.location.search);
-
-// Detect the IDP param
-if (urlParams.has("idp")) {
-    console.log(urlParams.get('idp')); // just to capture... if additional logic needed
-    // Let the Default opacity remain;
-} else {
-    // Allow the login container to be seen;
-    loginContainer.style.opacity = 1;
-    myContext.isLoginHidden = false; // (OPTIONAL - if additional Logic needed (would not set opacity)
-}
-```
-
-- (Optional) In the HTML body, add the following if you need the additional context and there isn't any display of the sign-in page at the bottom of the page build-out:
-
-```javascript
-if (myContext.isLoginHidden) {
-    // Make sure the login is displayed by default
-    console.log('show the login!'); // Indicate login should not be hidden just in case it renders again.
-    myContext.isLoginHidden = false; // Show the login container;
-    loginContainer.style.opacity = 1;
-}
-```
-
-**Resolve the programmatic impact**
-
-Consider alternative integrations within your application. Since the IdP is known, you can redirect for IdP verification for all authentication flows, or leverage the [Web Finger API](/docs/reference/api/webfinger/). However, your integration may be limited based on context.
 
 ## See also
 
