@@ -227,19 +227,19 @@ Example:
  <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
 ```
 
-### Hide or suppress the transient sign-in page
+### Hide or suppress the transient Sign-In Widget
 
 In Okta Identity Engine, the sign-in page uses a JavaScript redirect method (instead of HTTP 302).
 
 There are two main impacts:
 
-* **Visual:** The Okta sign-in page could appear briefly to end users during the transition, interrupting the custom branded experience.
+* **Visual:** The Okta Sign-In Widget could appear briefly to end users during the transition, interrupting the custom branded experience.
 
 * **Programmatic:** Non-user (or back-end) authentication flows receive an `HTTP 200 OK` response with a body, instead of an `HTTP 302 Found` redirect status response. As a result, back-end coding doesn’t detect the status response and the JavaScript method performs the redirect.
 
 #### Resolve the visual impact
 
-To suppress the brief appearance of the Okta sign-in page, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some javaScript/CSS:
+To suppress the brief appearance of the Sign-In Widget, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some javaScript/CSS:
 
 - (Required) In the HTML header, add the following to remove the opacity of the `okta-login-container`:
 
@@ -275,7 +275,7 @@ if (urlParams.has("idp")) {
 }
 ```
 
-- (Optional) In the HTML body, add the following if you need the additional context and there isn't any display of the sign-in page at the bottom of the page build-out:
+- (Optional) In the HTML body, add the following if you need the additional context and there isn't any display of the Sign-In Widget at the bottom of the page build-out:
 
 ```javascript
 if (myContext.isLoginHidden) {
