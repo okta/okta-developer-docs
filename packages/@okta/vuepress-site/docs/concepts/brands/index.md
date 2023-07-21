@@ -86,6 +86,15 @@ If you want to use the Admin Console to send a branded email, consider the follo
 - If your org has one brand (and custom domain) in addition to the default Okta subdomain, your custom branding is applied. With a single custom domain, the Admin Console assumes that you want to send a branded email.
 - If your org doesn't have a custom brand (or custom domain), you can trigger Okta-branded emails from the Admin Console.
 
+### Multibrand, custom domains, and URIs
+
+If your org has two or more brands (and custom domains), URIs that you use in the following settings revert to the Okta subdomain:
+
+- [SAML apps](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml)
+- [IdP settings - Redirect URI](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
+- Authorization Server settings
+
+
 ### Multibrand and authorization servers
 
 Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the domain from the authorize request as the domain for the redirect URI when returning the authentication response. The Admin Console UI displays the org's Okta subdomain when the org has multiple custom domains configured.
