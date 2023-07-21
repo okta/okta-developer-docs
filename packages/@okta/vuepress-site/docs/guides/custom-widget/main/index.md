@@ -656,4 +656,4 @@ For information about other Okta customization options:
 * [Customize domain and email address](/docs/guides/custom-url-domain/)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize SMS messages](/docs/guides/custom-sms-messaging)
-* [Customize email notifications and email domains](/docs/guides/custom-email/)
+* [Customize email notifications](/docs/guides/custom-email/)
