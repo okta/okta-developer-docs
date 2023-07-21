@@ -736,7 +736,7 @@ export const guides = [
             guideName: "terraform-manage-end-user-experience",
           },
           {
-            title: "Design secure Terraform access",
+            title: "Control Terraform access",
             guideName: "terraform-design-access-security",
           },
           {
