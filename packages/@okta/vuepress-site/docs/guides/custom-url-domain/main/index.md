@@ -52,6 +52,18 @@ You can create up to three custom domains with multibrand customizations and up 
 
 You can only preview or visit a branded page (such as viewing brand assets applied to the Okta-hosted sign-in page) after you map to a custom domain. After you create a brand, map it to a custom domain. Then you can make further customizations, preview them, and publish them.
 
+#### Redirect URIs
+
+Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the domain from the authorize request as the domain for the redirect URI when returning the authentication response. The Admin Console UI displays the org's Okta subdomain when the org has multiple custom domains configured.
+
+If your org has two or more brands (and custom domains), URIs that you use in the following settings revert to the Okta subdomain:
+
+- [SAML apps](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml)
+- [IdP settings - Redirect URI](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
+- [Authorization Server settings](/docs/guides/customize-authz-server/main/)
+
+You can replace the base path with a custom domain and Okta uses the brand associated with the domain.
+
 #### Branding and the Sign-In Widget third generation
 
 <ApiLifecycle access="ea" />
