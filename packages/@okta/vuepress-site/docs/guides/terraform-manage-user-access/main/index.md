@@ -274,7 +274,7 @@ Test the passwordless sign-in flow with the user that you created:
 
 Create and manage an authentication process that requires a password and Okta Verify for a user sign-in flow. Requiring users to verify their identity in two different ways increases org security. See [Multifactor authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-authenticators).
 
-This example configuration builds on the earlier configuration of a passwordless sign-in flow. It uses the same global session policy but adds new policies, rules, authenticators, groups, and test users. The example configuration uses the recommended techniques for managing priority order with multiple policies and rules of the same type. See [Manage priority order with Terraform](#manage-priority-order-with-terraform)
+This example configuration builds on the earlier configuration of a passwordless sign-in flow. It uses the same global session policy but adds new policies, rules, authenticators, groups, and test users. The example configuration uses the recommended techniques for managing priority order with multiple policies and rules of the same type. See [Manage priority order with Terraform](#manage-priority-order-with-terraform).
 
 If you want to configure a multifactor sign-in flow without following the passwordless sign-in example, adjust the priority values and create a global session policy.
 
