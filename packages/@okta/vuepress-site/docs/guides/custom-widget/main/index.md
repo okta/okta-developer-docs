@@ -286,11 +286,11 @@ if (myContext.isLoginHidden) {
 }
 ```
 
-**About the programmatic impact**
+**Solutions for the programmatic impact**
 
 Consider alternative integrations within your application. Since the IdP is known, you can redirect for IdP verification for all authentication flows, or leverage the [Web Finger API](/docs/reference/api/webfinger/). However, your integration may be limited based on context.
 
-> **Note:** The WebFinger API doesn't consider telemetry or the target application.
+> **Note:** In OIE, [authentication policy rules](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-auth-policy) include conditions about the device platform and the target application. The WebFinger API doesn't include device and application details in its responses.
 
 ## Style for embedded authentication
 
