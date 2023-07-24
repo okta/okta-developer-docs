@@ -1,5 +1,5 @@
 ---
-title: Manage groups of users with Terraform
+title: Manage groups with Terraform
 excerpt: Configure access to Okta applications and manage sign-in flows for groups of users.
 layout: Guides
 ---
@@ -16,9 +16,9 @@ Use Terraform to configure access to Okta applications and manage sign-in flows 
 
 **What you need**
 
-* Familiarity with the Terraform terms: configuration, resources, state, and commands. See [Terraform Overview](/docs/guides/terraform-overview).
+* Familiarity with the Terraform terms: configuration, resources, state, and commands. See [Terraform overview](/docs/guides/terraform-overview).
 * An [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization
-* A Terraform configuration that can access your Okta org. See [Enable Terraform access to your Okta org](/docs/guides/terraform-enable-org-access).
+* A Terraform configuration that can access your Okta org. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
 ---
 ## Overview
 

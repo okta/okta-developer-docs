@@ -1,5 +1,5 @@
 ---
-title: Manage external authentication services with Terraform
+title: Manage authentication services with Terraform
 excerpt: Enable users to sign in using a trusted external Identity Provider.
 layout: Guides
 ---
@@ -18,7 +18,7 @@ Enable users to sign in using a trusted external Identity Provider.
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
 * An [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization.
-* A Terraform configuration that can access your Okta org. See [Enable Terraform access to your Okta org](/docs/guides/terraform-enable-org-access).
+* A Terraform configuration that can access your Okta org. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
 * An account with [Google](https://accounts.google.com/signup).
 * Access to your [Google Admin Console](admin.google.com) for SAML IdP creation.
 ---

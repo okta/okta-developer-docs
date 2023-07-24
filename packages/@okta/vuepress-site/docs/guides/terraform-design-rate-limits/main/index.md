@@ -1,5 +1,5 @@
 ---
-title: Minimize Terraform rate limit errors
+title: Optimize Terraform access to Okta APIs
 excerpt: Optimize your configuration to reduce the number of API calls that Terraform makes, and set custom rate limits to stop Terraform before you reach your org’s rate limits.
 layout: Guides
 ---
@@ -59,7 +59,7 @@ Another example of configuration drift occurs when you assign priority values in
 1. When you run the configuration again, Terraform tries to assign the priority values that you specified in the configuration.
 1. Okta updates the priority values as it did in step 2.
 
-Terraform makes API calls to return your org to the conflicted state when Okta automatically adjusts policy priorities to resolve conflicts. You can avoid this situation by correctly assigning priority values. See [Manage priority order with Terraform](/docs/guides/terraform-manage-user-access#manage-priority-order-with-terraform) in [Manage user access with Terraform](/docs/guides/terraform-manage-user-access).
+Terraform makes API calls to return your org to the conflicted state when Okta automatically adjusts policy priorities to resolve conflicts. You can avoid this situation by correctly assigning priority values. See [Manage priority order with Terraform](/docs/guides/terraform-manage-user-access/main/#manage-priority-order-with-terraform).
 
 Use `terraform plan` to identify configuration drift. If a plan contains a change to a resource that you didn’t modify, you’ve found an instance where Okta is automatically changing your resources after you apply the configuration.
 

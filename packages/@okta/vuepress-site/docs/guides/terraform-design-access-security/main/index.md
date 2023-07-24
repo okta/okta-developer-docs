@@ -16,7 +16,7 @@ Okta offers multiple ways to authorize Terraform. Okta recommends using the most
 
 The OAuth 2.0 protocol provides a high level of security for authorizing Terraform. With OAuth 2.0, you can customize granular access to Okta resources, limit the time of access, and revoke access. These features give you control over your org’s security.
 
-See [OAuth 2.0 and OpenID Connect Overview](/docs/concepts/oauth-openid/).
+See [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/).
 
 ### API tokens
 
@@ -40,7 +40,7 @@ Use an Okta API service app for machine-to-machine communication with Terraform.
 
 With this flow, Terraform uses credentials to request access to your org. The service app verifies the credentials and authorizes Terraform access to Okta.
 
-The credentials used for this flow are a public/private key pair. Okta stores the public key in the service app, and Terraform uses the private key in the configuration. You can [generate the key pair](/docs/guides/implement-oauth-for-okta-serviceapp) in the Okta service app or with your own secure internal methods. See [Create access credentials](/docs/guides/terraform-enable-org-access#create-access-credentials) in [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
+The credentials used for this flow are a public/private key pair. Okta stores the public key in the service app, and Terraform uses the private key in the configuration. You can [generate the key pair](/docs/guides/implement-oauth-for-okta-serviceapp) in the Okta service app or with your own secure internal methods. See [Create access credentials](/docs/guides/terraform-enable-org-access/main/#create-access-credentials).
 
 > **Note:** The Okta Terraform Provider requires the private key to use PKCS#1 encoding.
 Okta recommends storing the private key in a separate and secure location and using a secrets and encryption management system, such as Hashicorp Vault. You can use input variables and environment variables to provide credentials to Terraform.
