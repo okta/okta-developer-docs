@@ -59,11 +59,11 @@ Configure Google as a social IdP in your Terraform configuration:
 
 1. In your `main.tf` configuration file, add a variable called `google_oidc_client_secret` that represents the client secret of the Google IdP:
 
-   ```hcl
-   variable "google_oidc_client_secret" {
-     type = string
-   }
-   ```
+    ```hcl
+    variable "google_oidc_client_secret" {
+      type = string
+    }
+    ```
 
 1. Add an `okta_idp_social` [resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/idp_social) to configure the Google social IdP. Set the arguments to the following values:
 
@@ -90,7 +90,6 @@ resource "okta_idp_social" "google_social_idp" {
   client_id = "${googleClientId}"
   client_secret     = var.google_oidc_client_secret
   scopes = [ "openid", "email", "profile" ]
-
   username_template = "idpuser.email"
   subject_match_type = "EMAIL"
   account_link_action = "AUTO"
@@ -119,11 +118,11 @@ Configure Google as an OIDC IdP in your Terraform configuration:
 
 1. In your `main.tf` configuration file, add a variable called `google_oidc_client_secret` that represents the client secret of the Google IdP.
 
-   ```hcl
-   variable "google_oidc_client_secret" {
- 	type = string
-   }
-   ```
+    ```hcl
+    variable "google_oidc_client_secret" {
+      type = string
+    }
+    ```
 
 1. Add an `okta_idp_oidc` [resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/idp_oidc) to create the Google OIDC IdP. Set the arguments to the following values:
 
@@ -196,19 +195,19 @@ Configure Google as a SAML IdP in your Terraform configuration:
 
 1. In your `main.tf` configuration file, add a variable called `saml_certificate` that represents the SAML certificate that you downloaded in a previous step. This variable lets you securely provide the SAML certificate when you run your configuration.
 
-   ```hcl
-   variable "saml_certificate" {
-     type = string
-   }
-   ```
+    ```hcl
+    variable "saml_certificate" {
+      type = string
+    }
+    ```
 
 1. Add an `okta_idp_saml_key` [resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/idp_saml_key) to upload the SAML certificate. Set the `x5c` argument to the SAML certificate variable. Don’t store your certificate as plain text in your configuration.
 
-   ```hcl
-   resource "okta_idp_saml_key" "google_saml_idp_key" {
-     x5c = [var.saml_certificate]
-   }
-   ```
+    ```hcl
+    resource "okta_idp_saml_key" "google_saml_idp_key" {
+      x5c = [var.saml_certificate]
+    }
+    ```
 
 1. Add an `okta_idp_saml` [resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/idp_saml) to create the Google SAML IdP. Set the arguments to the following values:
 
@@ -284,12 +283,12 @@ For example, create a routing rule that requires users with a specific email dom
 
 1. In your `main.tf` configuration file, add an `okta_policy` data source to get the policy ID for the IdP routing rules. You use this ID in the following step to create a rule.
 
-   ```hcl
-   data "okta_policy" "idp_discovery_policy" {
-     name = "Idp Discovery Policy"
-     type = "IDP_DISCOVERY"
-   }
-   ```
+    ```hcl
+    data "okta_policy" "idp_discovery_policy" {
+      name = "Idp Discovery Policy"
+      type = "IDP_DISCOVERY"
+    }
+    ```
 
 1. Add an `okta_policy_rule_idp_discovery` [resource](https://registry.terraform.io/providers/okta/okta/latest/docs/resources/policy_rule_idp_discovery) to create a routing rule for the IdPs in your org. Set the arguments to the following values:
 
