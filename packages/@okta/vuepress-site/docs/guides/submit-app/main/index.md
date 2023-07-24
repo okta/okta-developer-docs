@@ -1,8 +1,8 @@
 ---
-title: Publish an OIN integration
+title: Submit with OIN Manager
 meta:
   - name: description
-    content: Use this guide to learn how to submit your integration to Okta for publication in the Okta Integration Network.
+    content: Use this guide to learn how to submit your Okta integration for publication with the OIN Manager.
 layout: Guides
 ---
 

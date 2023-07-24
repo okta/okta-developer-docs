@@ -5,54 +5,14 @@ meta:
     content: Use this guide to understand the OIN submission process. There are variations to the submission process depending on the integration type.
 ---
 
-This guide walks you through the process of submitting a Workflows connector, OIDC, SAML 2.0, or SCIM integration to the Okta Integration Network (OIN). It also shows you how to update a previously published integration or delete a draft submission.
-
->**Note:** For submitting API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/).
-
----
-
-**Learning outcomes**
-
-* Understand how to submit a new integration to the OIN.
-* Understand how to update a previously published integration.
-* Understand how to delete a draft submission or delete a published integration.
-
-**What you need**
-
-A functional integration created and tested in accordance with one of our OIN guides:
-
-* [Build a Single-Sign On integration](/docs/guides/build-sso-integration/)
-* [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
-* [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
-
----
-
-## Overview
-
 The Okta Integration Network (OIN) is the identity industry’s broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. By adding your integration to the OIN, you can gain exposure to thousands of Okta customers who can discover your integration and deploy your application to millions of users. OIN integrations speed adoption by simplifying configuration steps and reducing friction for your customers.
 
-If you're an independent software vendor (ISV), Okta customer, or IT system integrator who wants to add their integration to the [Okta Integration Network](https://www.okta.com/integrations/), read this guide for instructions on how to submit your integration. Adding your integration to the Okta Integration Network is completely free.
+If you're an independent software vendor (ISV), Okta customer, or IT system integrator who wants to add their integration to the [Okta Integration Network](https://www.okta.com/integrations/), read this guide for instructions on how to submit your integration.
 
-### Protocols supported
+Adding your integration to the Okta Integration Network is completely free.
 
-This guide covers submissions that use one or more of these protocols or tools:
 
-* [System for Cross-domain Identity Management (SCIM)](https://scim.cloud)
-* [OpenID Connect (OIDC)](https://openid.net/connect/)
-
-    >**Note:** <br>
-    > * To support the potentially large numbers of Okta orgs accessing an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
-    > * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
-
-* [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
-
-    >**Note:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
-
-* [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf)
-
->**Note:** For submitting API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/).
-
-### Submission process
+## Submission process
 
 After you have built a functioning app integration, a few steps are required to submit it to Okta for review and publication in the OIN:
 
@@ -108,7 +68,26 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-### Submission support
+## Protocols supported
+
+This guide covers submissions that use one or more of these protocols or tools:
+
+* [System for Cross-domain Identity Management (SCIM)](https://scim.cloud)
+* [OpenID Connect (OIDC)](https://openid.net/connect/)
+
+    >**Note:** <br>
+    > * To support the potentially large numbers of Okta orgs accessing an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
+    > * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
+
+* [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
+
+    >**Note:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
+
+* [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf)
+
+>**Note:** For submitting API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/).
+
+## Submission support
 
 Getting your app integration in the OIN catalog involves two phases: creating a functional integration and submitting it through the OIN publication process. For each phase in the process, Okta has an associated support stream to assist you.
 
@@ -124,9 +103,14 @@ If you have questions or need additional support to publish your app integration
 
 >**Note:** All integrations in the OIN catalog are public. If you want to submit a request to create a private app integration for an application that uses SCIM 1.1 or Profile Sourcing, or for an application that uses a custom header expression for the Header Auth, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim) to create your integration and submit your app through the [OIN Manager](https://oinmanager.okta.com). The Okta OIN team works with you to create an internal-only integration that isn't included in the OIN.
 
-## Next Steps
+## Submit in the Admin Console
 
-Ready to get started? Choose which integration you need to submit for publication:
+New content link goes here for SAML
+
+
+## Submit with the OIN Manager
+
+Submit the following integrations with OIN Manager:
 
 <Cards>
 <Card href="/docs/guides/build-sso-integration/openidconnect/main/" headerImage="/img/idp-logos/oidc.png" cardTitle="OpenID Connect (OIDC)" :showFooter=false>Submit an OIDC SSO integration</Card>
@@ -140,3 +124,4 @@ Ready to get started? Choose which integration you need to submit for publicatio
 <Card href="/docs/guides/build-api-integration/" headerImage="/img/icons/icon--tool.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
 
 </Cards>
+

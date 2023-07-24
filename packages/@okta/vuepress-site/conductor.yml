@@ -4326,7 +4326,7 @@ redirects:
   - from: /docs/guides/validate-id-tokens/overview/index.html
     to: /docs/guides/validate-id-tokens/
   - from: /docs/guides/submit-app/-/overview
-    to: /docs/guides/submit-app/
+    to: /docs/guides/submit-app-overview/
   - from: /docs/guides/submit-app/-/create-guide
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/-/submission1-general
@@ -4346,7 +4346,7 @@ redirects:
   - from: /docs/guides/submit-app/-/submission2-specific/index.html
     to: /docs/guides/submit-app/-/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/-/submission3-process/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/-/update-submission/index.html
     to: /docs/guides/submit-app/-/main/#update-your-published-integration
   - from: /docs/guides/submit-app/openidconnect/overview
@@ -4358,13 +4358,13 @@ redirects:
   - from: /docs/guides/submit-app/openidconnect/submission2-specific
     to: /docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/openidconnect/submission3-process
-    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/openidconnect/update-submission
     to: /docs/guides/submit-app/openidconnect/main/#update-your-published-integration
   - from: /docs/guides/submit-app/faqs
     to: /docs/guides/submit-app/openidconnect/main/#see-also
   - from: /docs/guides/submit-app/openidconnect/overview/index.html
-    to: /docs/guides/submit-app/openidconnect/main
+    to: /docs/guides/submit-app-overview/
   - from: /docs/guides/submit-app/openidconnect/create-guide/index.html
     to: /docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines
   - from: /docs/guides/submit-app/openidconnect/submission1-general/index.html
@@ -4372,7 +4372,7 @@ redirects:
   - from: /docs/guides/submit-app/openidconnect/submission2-specific/index.html
     to: /docs/guides/submit-app/openidconnect/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/openidconnect/submission3-process/index.html
-    to: /docs/guides/submit-app/openidconnect/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/openidconnect/update-submission/index.html
     to: /docs/guides/submit-app/openidconnect/main/#update-your-published-integration
   - from: /docs/guides/submit-app/faqs/index.html
@@ -4386,7 +4386,7 @@ redirects:
   - from: /docs/guides/submit-app/saml2/submission2-specific
     to: /docs/guides/submit-app/saml2/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/saml2/submission3-process
-    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/saml2/update-submission
     to: /docs/guides/submit-app/saml2/main/#update-your-published-integration
   - from: /docs/guides/submit-app/saml2/overview/index.html
@@ -4398,7 +4398,7 @@ redirects:
   - from: /docs/guides/submit-app/saml2/submission2-specific/index.html
     to: /docs/guides/submit-app/saml2/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/saml2/submission3-process/index.html
-    to: /docs/guides/submit-app/saml2/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/saml2/update-submission/index.html
     to: /docs/guides/submit-app/saml2/main/#update-your-published-integration
   - from: /docs/guides/submit-app/scim/overview
@@ -4410,7 +4410,7 @@ redirects:
   - from: /docs/guides/submit-app/scim/submission2-specific
     to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/scim/submission3-process
-    to: /docs/guides/submit-app/scim/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission
     to: /docs/guides/submit-app/scim/main/#update-your-published-integration
   - from: /docs/guides/submit-app/scim/overview/index.html
@@ -4422,7 +4422,7 @@ redirects:
   - from: /docs/guides/submit-app/scim/submission2-specific/index.html
     to: /docs/guides/submit-app/scim/main/#configure-protocol-specific-settings
   - from: /docs/guides/submit-app/scim/submission3-process/index.html
-    to: /docs/guides/submit-app/scim/main/#understand-the-submission-review-process
+    to: /docs/guides/submit-app-overview/#understand-the-submission-review-process
   - from: /docs/guides/submit-app/scim/update-submission/index.html
     to: /docs/guides/submit-app/scim/main/#update-your-published-integration
   - from: /docs/guides/deploy-your-app/overview
