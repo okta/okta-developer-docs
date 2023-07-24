@@ -81,26 +81,26 @@ Configure the email authenticator and then create a group, global session policy
    1. Set `allowedFor` in the `settings` argument to `any`, which configures the email authenticator for authentication and recovery.
 
 
-   ```hcl
-   resource "okta_authenticator" "email_authenticator" {
-     name = "Email Authenticator"
-     key = "okta_email"
-     status = "ACTIVE"
-     settings = jsonencode(
-       {
-         "allowedFor" : "any"
-       }
-     )
-   }
-   ```
+    ```hcl
+    resource "okta_authenticator" "email_authenticator" {
+      name = "Email Authenticator"
+      key = "okta_email"
+      status = "ACTIVE"
+      settings = jsonencode(
+        {
+          "allowedFor" : "any"
+        }
+      )
+    }
+    ```
 
 1. Add an `okta_group` resource to create a group for passwordless users.
 
-   ```hcl
-   resource "okta_group" "passwordless_group" {
-     name = "Passwordless Group"
-   }
-   ```
+    ```hcl
+    resource "okta_group" "passwordless_group" {
+      name = "Passwordless Group"
+    }
+    ```
 
    > **Note:** Use groups to configure sign-in flows for users. This helps you control org security, and prevents you from locking yourself out of your org.
 
@@ -110,14 +110,14 @@ Configure the email authenticator and then create a group, global session policy
    1. Set `priority` to `1` if you don’t have existing global session policies. Otherwise, set the priority to a value that works for your existing priority order. See [Manage priority order with Terraform](#manage-priority-order-with-terraform).
    1. Set `groups_included` to the passwordless group ID.
 
-   ```hcl
-   resource "okta_policy_signon" "passwordless_global_session_policy" {
-     name = "Passwordless Global Session Policy"
-     status = "ACTIVE"
-     priority = 1
-     groups_included = [ okta_group.passwordless_group.id ]
-   }
-   ```
+    ```hcl
+    resource "okta_policy_signon" "passwordless_global_session_policy" {
+      name = "Passwordless Global Session Policy"
+      status = "ACTIVE"
+      priority = 1
+      groups_included = [ okta_group.passwordless_group.id ]
+    }
+    ```
 
 1. Add an `okta_policy_rule_signon` to create a rule for the global session policy.
 
@@ -126,16 +126,16 @@ Configure the email authenticator and then create a group, global session policy
    1. Set `access` to `ALLOW`.
    1. Set the `primary_factor` argument to `PASSWORD_IDP_ANY_FACTOR`. This allows users to establish a session with any factor that satisfies the authentication policy for the application they’re accessing.
 
-   ```hcl
-   resource "okta_policy_rule_signon" "passwordless_global_session_policy_rule" {
-     name = "Global Session Policy Rule"
-     policy_id = okta_policy_signon.passwordless_global_session_policy.id
-     priority = 1
-     status = "ACTIVE"
-     access = "ALLOW"
-     primary_factor = "PASSWORD_IDP_ANY_FACTOR"
-   }
-   ```
+    ```hcl
+    resource "okta_policy_rule_signon" "passwordless_global_session_policy_rule" {
+      name = "Global Session Policy Rule"
+      policy_id = okta_policy_signon.passwordless_global_session_policy.id
+      priority = 1
+      status = "ACTIVE"
+      access = "ALLOW"
+      primary_factor = "PASSWORD_IDP_ANY_FACTOR"
+    }
+    ```
 
 1. Add an `okta_policy_mfa` resource to create an authenticator enrollment policy.
 
@@ -145,19 +145,17 @@ Configure the email authenticator and then create a group, global session policy
    1. Set `okta_email` to `REQUIRED` to require users to enroll in the email authenticator.
    1. Set `okta_password` to `NOT_ALLOWED` to prevent users from enrolling in the password authenticator.
 
-
-
-   ```hcl
-   resource "okta_policy_mfa" "passwordless_authenticator_enrollment_policy" {
-     name = "Passwordless Authenticator Enrollment Policy"
-     status = "ACTIVE"
-     is_oie = true
-     groups_included = [ okta_group.passwordless_group.id ]
-     okta_password = {enroll = "NOT_ALLOWED"}
-     okta_email = {enroll = "REQUIRED"}
-     priority = 1
-   }
-   ```
+    ```hcl
+    resource "okta_policy_mfa" "passwordless_authenticator_enrollment_policy" {
+      name = "Passwordless Authenticator Enrollment Policy"
+      status = "ACTIVE"
+      is_oie = true
+      groups_included = [ okta_group.passwordless_group.id ]
+      okta_password = {enroll = "NOT_ALLOWED"}
+      okta_email = {enroll = "REQUIRED"}
+      priority = 1
+    }
+    ```
 
 1. Add an `okta_policy_rule_mfa` resource to configure a rule for the authenticator enrollment policy.
 
@@ -165,35 +163,35 @@ Configure the email authenticator and then create a group, global session policy
    1. Set `status` to `ACTIVE`.
    1. Set `enroll` to `LOGIN` to allow users to set up required or optional authenticators when signing in to your org.
 
-   ```hcl
-   resource "okta_policy_rule_mfa" "passwordless_authenticator_enrollment_policy_rule" {
-     name = "Passwordless Authenticator Enrollment Policy Rule"
-     policy_id = okta_policy_mfa.passwordless_authenticator_enrollment_policy.id
-     status = "ACTIVE"
-     enroll = "LOGIN"
-     priority = 1
-   }
-   ```
+    ```hcl
+    resource "okta_policy_rule_mfa" "passwordless_authenticator_enrollment_policy_rule" {
+      name = "Passwordless Authenticator Enrollment Policy Rule"
+      policy_id = okta_policy_mfa.passwordless_authenticator_enrollment_policy.id
+      status = "ACTIVE"
+      enroll = "LOGIN"
+      priority = 1
+    }
+    ```
 
 1. Add an `okta_user` resource to create a user for testing the passwordless sign-in flow. Use an email address that you can access. When you test the passwordless sign-in flow, you receive an email to sign in to Okta.
 
-   ```hcl
-   resource "okta_user" "passwordless_test_user" {
-     first_name = "Passwordless"
-     last_name = "TestUser"
-     login = "passwordlesstestuser@example.com"
-     email = "passwordlesstestuser@example.com"
-   }
-   ```
+    ```hcl
+    resource "okta_user" "passwordless_test_user" {
+      first_name = "Passwordless"
+      last_name = "TestUser"
+      login = "passwordlesstestuser@example.com"
+      email = "passwordlesstestuser@example.com"
+    }
+    ```
 
 1. Add an `okta_user_group_memberships` to assign the user to the group for passwordless users.
 
-   ```hcl
-   resource "okta_user_group_memberships" "passwordless_user_assignment" {
-     user_id = okta_user.passwordless_test_user.id
-     groups = [ okta_group.passwordless_group.id ]
-   }
-   ```
+    ```hcl
+    resource "okta_user_group_memberships" "passwordless_user_assignment" {
+      user_id = okta_user.passwordless_test_user.id
+      groups = [ okta_group.passwordless_group.id ]
+    }
+    ```
 
 Now that you’ve created policies that control access to your org, create an authentication policy that controls access to Okta apps. This example creates an authentication policy for the Okta End-User Dashboard, an application built into your Okta org that displays Okta apps to end users.
 
@@ -207,25 +205,25 @@ Configure a passwordless sign-in flow for the End-User Dashboard app:
 
 1. In your Terraform configuration, add an `okta_app` data source to get the attributes of the End-User Dashboard app. This data source contains the app ID of the End-User Dashboard for the next step.
 
-   ```hcl
-   data "okta_app" "okta_dashboard" {
-     label = "Okta Dashboard"
-   }
-   ```
+    ```hcl
+    data "okta_app" "okta_dashboard" {
+      label = "Okta Dashboard"
+    }
+    ```
 
 1. Add an `okta_app_signon_policy` data source to get the attributes of the authentication policy assigned to the End-User Dashboard app. This data source contains the policy ID for the End-User Dashboard for the next step.
 
    1. Set `app_id` to the End-User Dashboard ID using the data source that you created in the previous step.
    1. Set `depends_on` to the data source that you created in the previous step. This requires that Terraform creates the End-User Dashboard data source first.
 
-   ```hcl
-   data "okta_app_signon_policy" "okta_dashboard_authentication_policy" {
-     app_id = data.okta_app.okta_dashboard.id
-     depends_on = [
-       data.okta_app.dashboard
-     ]
-   }
-   ```
+    ```hcl
+    data "okta_app_signon_policy" "okta_dashboard_authentication_policy" {
+      app_id = data.okta_app.okta_dashboard.id
+      depends_on = [
+        data.okta_app.dashboard
+      ]
+    }
+    ```
 
 1. Add an `okta_app_signon_policy_rule` resource to create a rule for the End-User Dashboard authentication policy.
 
@@ -234,16 +232,16 @@ Configure a passwordless sign-in flow for the End-User Dashboard app:
    1. Set `factor_mode` to `1FA` to allow users to use any factor to sign in. Assign the group for passwordless users to the rule.
    1. Set `groups_included` to the passwordless group ID.
 
-   ```hcl
-   resource "okta_app_signon_policy_rule" "passwordless_authentication_policy_rule" {
-     name = "Passwordless Authentication Policy Rule"
-     policy_id = data.okta_app_signon_policy.okta_dashboard_authentication_policy.id
-     access = "ALLOW"
-     factor_mode = "1FA"
-     groups_included = [ okta_group.passwordless_group.id ]
-     priority = 1
-   }
-   ```
+    ```hcl
+    resource "okta_app_signon_policy_rule" "passwordless_authentication_policy_rule" {
+      name = "Passwordless Authentication Policy Rule"
+      policy_id = data.okta_app_signon_policy.okta_dashboard_authentication_policy.id
+      access = "ALLOW"
+      factor_mode = "1FA"
+      groups_included = [ okta_group.passwordless_group.id ]
+      priority = 1
+    }
+    ```
 
 Run the Terraform configuration to apply the changes to your org:
 
@@ -282,11 +280,11 @@ This example requires the same scopes as the passwordless sign-in example: `okta
 
 1. In the `main.tf` Terraform configuration file, add an `okta_group` resource to create a group for multifactor users.
 
-   ```hcl
-   resource "okta_group" "multifactor_group" {
-     name = "Multifactor Group"
-   }
-   ```
+    ```hcl
+    resource "okta_group" "multifactor_group" {
+      name = "Multifactor Group"
+    }
+    ```
 
    > **Note:** Use groups to configure sign-in flows for users. This helps you control org security and prevents you from locking yourself out of your org.
 
@@ -296,18 +294,18 @@ This example requires the same scopes as the passwordless sign-in example: `okta
    1. Set `status` to `ACTIVE`.
    1. Set the `allowedFor` field in the `settings` argument to `any`. This configures Okta Verify for both authentication and recovery.
 
-   ```hcl
-   resource "okta_authenticator" "okta_verify_authenticator" {
-     name = "Okta Verify Authenticator"
-     key = "okta_verify"
-     status = "ACTIVE"
-     settings = jsonencode(
-       {
-         "allowedFor" : "any"
-       }
-     )
-   }
-   ```
+    ```hcl
+    resource "okta_authenticator" "okta_verify_authenticator" {
+      name = "Okta Verify Authenticator"
+      key = "okta_verify"
+      status = "ACTIVE"
+      settings = jsonencode(
+        {
+          "allowedFor" : "any"
+        }
+      )
+    }
+    ```
 
 1. Add an `okta_policy_mfa` resource to create an authenticator enrollment policy.
 
@@ -319,51 +317,51 @@ This example requires the same scopes as the passwordless sign-in example: `okta
    1. Set `okta_password` to `OPTIONAL` to allow users to enroll in the password authenticator.
    1. Set `priority` and `depends_on` according to the guidelines in [Manage priority order with Terraform](#manage-priority-order-with-terraform).
 
-   ```hcl
-   resource "okta_policy_mfa" "multifactor_authenticator_enrollment_policy" {
-     name = "Multifactor Authenticator Enrollment Policy"
-     status = "ACTIVE"
-     is_oie = true
-     groups_included = [ okta_group.multifactor_group.id ]
-     okta_email = {enroll = "REQUIRED"}
-     okta_password = {enroll = "OPTIONAL"}
-     okta_verify = {enroll = "OPTIONAL"}
-     priority = 2
-     depends_on = [ okta_policy_mfa.passwordless_authenticator_enrollment_policy ]
-   }
-   ```
+    ```hcl
+    resource "okta_policy_mfa" "multifactor_authenticator_enrollment_policy" {
+      name = "Multifactor Authenticator Enrollment Policy"
+      status = "ACTIVE"
+      is_oie = true
+      groups_included = [ okta_group.multifactor_group.id ]
+      okta_email = {enroll = "REQUIRED"}
+      okta_password = {enroll = "OPTIONAL"}
+      okta_verify = {enroll = "OPTIONAL"}
+      priority = 2
+      depends_on = [ okta_policy_mfa.passwordless_authenticator_enrollment_policy ]
+    }
+    ```
 
 1. Add an `okta_policy_rule_mfa` resource to configure a rule for the authenticator enrollment policy.
 
-   ```hcl
-   resource "okta_policy_rule_mfa" "multifactor_authenticator_enrollment_policy_rule" {
-     name = "Multifactor Authenticator Enrollment Policy Rule"
-     policy_id = okta_policy_mfa.multifactor_authentication_enrollment_policy.id
-     status = "ACTIVE"
-     enroll = "LOGIN"
-     priority = 1
-   }
-   ```
+    ```hcl
+    resource "okta_policy_rule_mfa" "multifactor_authenticator_enrollment_policy_rule" {
+      name = "Multifactor Authenticator Enrollment Policy Rule"
+      policy_id = okta_policy_mfa.multifactor_authentication_enrollment_policy.id
+      status = "ACTIVE"
+      enroll = "LOGIN"
+      priority = 1
+    }
+    ```
 
 1. Add an `okta_user` resource to create a user for testing the multifactor sign-in flow. Use an email address that you can access. When you test the multifactor sign-in flow, you receive an email to activate your account.
 
-   ```hcl
-   resource "okta_user" "multifactor_user" {
-     first_name = "Multifactor"
-     last_name = "TestUser"
-     login = "multifactortestuser@example.com"
-     email = "multifactortestuser@example.com"
-   }
-   ```
+    ```hcl
+    resource "okta_user" "multifactor_user" {
+      first_name = "Multifactor"
+      last_name = "TestUser"
+      login = "multifactortestuser@example.com"
+      email = "multifactortestuser@example.com"
+    }
+    ```
 
 1. Add an `okta_user_group_memberships` to assign the user to the group of multifactor users.
 
-   ```hcl
-   resource "okta_user_group_memberships" "multifactor_user_assignment" {
-     user_id = okta_user.multifactor_user.id
-     groups = [ okta_group.multifactor_group.id ]
-   }
-   ```
+    ```hcl
+    resource "okta_user_group_memberships" "multifactor_user_assignment" {
+      user_id = okta_user.multifactor_user.id
+      groups = [ okta_group.multifactor_group.id ]
+    }
+    ```
 
 1. Add an `okta_app_signon_policy_rule` resource to create a rule for the End-User Dashboard authentication policy.
 
@@ -373,17 +371,17 @@ This example requires the same scopes as the passwordless sign-in example: `okta
    1. Set `groups_included` to the multifactor group ID.
    1. Set `priority` and `depends_on` according to the guidelines in [Manage priority order with Terraform](#manage-priority-order-with-terraform).
 
-   ```hcl
-   resource "okta_app_signon_policy_rule" "multifactor_authentication_policy_rule" {
-     name = "Multifactor Authentication Policy Rule"
-     policy_id = data.okta_app_signon_policy.okta_dashboard_authentication_policy.id
-     access = "ALLOW"
-     factor_mode = "2FA"
-     groups_included = [ okta_group.multifactor_group.id ]
-     priority = 2
-     depends_on = [ okta_policy_mfa.multifactor_authenticator_enrollment_policy ]
-   }
-   ```
+    ```hcl
+    resource "okta_app_signon_policy_rule" "multifactor_authentication_policy_rule" {
+      name = "Multifactor Authentication Policy Rule"
+      policy_id = data.okta_app_signon_policy.okta_dashboard_authentication_policy.id
+      access = "ALLOW"
+      factor_mode = "2FA"
+      groups_included = [ okta_group.multifactor_group.id ]
+      priority = 2
+      depends_on = [ okta_policy_mfa.multifactor_authenticator_enrollment_policy ]
+    }
+    ```
 
 Run the Terraform configuration to apply the changes to your org:
 

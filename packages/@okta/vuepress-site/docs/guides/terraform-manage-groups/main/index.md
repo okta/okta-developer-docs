@@ -36,11 +36,11 @@ Create a “Business Technology” group and a group rule that automatically ass
 
 1. In your `main.tf` Terraform configuration file, add an `okta_group` resource to create a group called “Business Technology”:
 
-   ```hcl
-   resource "okta_group" "business_technology_group" {
+    ```hcl
+    resource "okta_group" "business_technology_group" {
       name = "Business Technology"
-   }
-   ```
+    }
+    ```
 
 
 1. Add an `okta_group_rule` resource to create a group rule that automatically assigns users to the Business Technology group:
@@ -52,26 +52,26 @@ Create a “Business Technology” group and a group rule that automatically ass
 
    * Set `status` to `ACTIVE` to apply the rule to all users.
 
-   ```hcl
-   resource "okta_group_rule" "business_technology_group_rule" {
+    ```hcl
+    resource "okta_group_rule" "business_technology_group_rule" {
       name = "Business Technology Group Rule"
       status = "ACTIVE"
       group_assignments = [ okta_group.business_technology_group.id ]
       expression_value = "String.stringContains(user.department,\"Business Technology\")"
-   }
-   ```
+    }
+    ```
 
 1. Test the automatic assignment by adding an `okta_user` resource to create a user with a department value of `Business Technology`:
 
-   ```hcl
-   resource "okta_user" "business_technology_test_user_1" {
+    ```hcl
+    resource "okta_user" "business_technology_test_user_1" {
       first_name = "BusinessTechnology"
       last_name = "TestUser1"
       department = "Business Technology"
       login = "business_technology_user_1@example.com"
       email = "business_technology_user_1@example.com"
-   }
-   ```
+    }
+    ```
 
 Run the Terraform configuration to create the resources and test the group rule:
 
@@ -97,23 +97,23 @@ Add an `okta_group_memberships` resource to the previous example to assign an ex
 
 1. In your `main.tf` Terraform configuration file, add an `okta_user` resource to create a test user to manually assign to the Business Technology group. Don’t set the `department` attribute to `Business Technology`. Otherwise, Okta automatically assigns the user based on the group rule from the previous example.
 
-   ```hcl
-   resource "okta_user" "business_technology_test_user_2" {
+    ```hcl
+    resource "okta_user" "business_technology_test_user_2" {
       first_name = "BusinessTechnology"
       last_name = "TestUser2"
       login = "business_technology_user_2@example.com"
       email = "business_technology_user_2@example.com"
-   }
-   ```
+    }
+    ```
 
 1. Add an `okta_group_memberships` resource to assign the user to the Business Technology group:
 
-   ```hcl
-   resource "okta_group_memberships" "business_technology_group_membership" {
+    ```hcl
+    resource "okta_group_memberships" "business_technology_group_membership" {
       group_id = okta_group.business_technology_group.id
       users = [ okta_user.business_technology_test_user_2.id ]
-   }
-   ```
+    }
+    ```
 
 Run the Terraform configuration to create the resources:
 
@@ -134,28 +134,28 @@ Assign an example Okta app to the Business Technology group:
 
 1. In your `main.tf` Terraform configuration file, add an `okta_app_oauth` resource to create an example app in your org.
 
-   ```hcl
-   resource "okta_app_oauth" "example_app" {
+    ```hcl
+    resource "okta_app_oauth" "example_app" {
       label = "Example App"
       type = "web"
       grant_types = ["authorization_code"]
       redirect_uris = ["https://example.com/"]
       response_types = ["code"]
-   }
-   ```
+    }
+    ```
 
 1. Add an `okta_app_group_assignments` resource to assign the example OAuth app to the Business Technology group.
 1. Set `app_id` to the ID of the example app that you created.
 
-   ```hcl
-   resource "okta_app_group_assignments" "example_app_assignment" {
+    ```hcl
+    resource "okta_app_group_assignments" "example_app_assignment" {
       app_id = okta_app_oauth.example_app.id
       group {
-         id = okta_group.business_technology_group.id
-         priority = 1
+        id = okta_group.business_technology_group.id
+        priority = 1
       }
-   }
-   ```
+    }
+    ```
 
 Run the Terraform configuration to create the resources:
 

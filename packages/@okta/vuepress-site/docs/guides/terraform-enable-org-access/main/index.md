@@ -70,6 +70,7 @@ This guide uses Okta to generate the public/private key pair:
 1. In the Add a public key dialog, click **Generate new key**.
 1. In the **Private key** section, click **PEM**.
 1. Copy the PEM private key and save it as a `.key` file.
+
    > **Note:** The private key only appears in this dialog once. Losing the private key requires generating a new pair of keys.
 1. Click **Done**, **Save**, and then **Save** again.
 
@@ -93,27 +94,27 @@ Create a Terraform configuration that uses the credentials that you created earl
 1. In an empty directory on your computer, create a Terraform configuration file called `main.tf`.
 1. In the `main.tf` file, list Okta as a required Provider:
 
-   ```hcl
-   terraform {
-     required_providers {
-       okta = {
-         source = "okta/okta"
-       }
-     }
-   }
- ```
+    ```hcl
+    terraform {
+      required_providers {
+        okta = {
+          source = "okta/okta"
+        }
+      }
+    }
+    ```
 
 1. Add the Okta provider to the `main.tf` file:
 
-   ```hcl
-   provider "okta" {
- 	org_name = "${yourOktaOrg}"
- 	base_url = "okta.com"
- 	client_id   = "${yourClientID}"
- 	scopes = ["okta.groups.manage"]
- 	private_key = ${privateKey}
-   }
-   ```
+    ```hcl
+    provider "okta" {
+      org_name = "${yourOktaOrg}"
+      base_url = "okta.com"
+      client_id   = "${yourClientID}"
+      scopes = ["okta.groups.manage"]
+      private_key = ${privateKey}
+    }
+    ```
 
    In the previous code sample, add your values to the following fields:
 
@@ -131,11 +132,11 @@ Check whether Terraform can manage Okta objects by running a configuration. This
 
 1. Add the `okta_group` resource in the `main.tf` file:
 
-   ```hcl
-   resource "okta_group" "example_group" {
-     name = "Example Group"
-   }
-   ```
+    ```hcl
+    resource "okta_group" "example_group" {
+      name = "Example Group"
+    }
+    ```
 
 1. In a terminal, go to the directory that contains `main.tf`.
 1. Run `terraform init` to initialize the Terraform configuration.
@@ -165,7 +166,7 @@ The `terraform.tfstate` file in the Terraform configuration directory stores the
         },
         "sensitive_attributes": [],
         "private": "bnVsbA=="
-        }
+      }
     ]
   }
 ]

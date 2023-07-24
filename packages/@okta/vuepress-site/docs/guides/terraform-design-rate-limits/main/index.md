@@ -127,7 +127,7 @@ Test the `max_api_capacity` value in a development environment to find a balance
 
 ### Set a custom rate limit in the Okta service application
 
-Terminate Terraform execution when it reaches a custom rate limit. Use the **Application Rate Limits** tab in the OAuth 2.0 service app to set custom rate limits. If Terraform reaches one of the application rate limits, Okta returns an HTTP 429 error and Terraform stops running.
+Terminate Terraform execution when it reaches a custom rate limit. Use the **Application Rate Limits** tab in the OAuth 2.0 service app to set custom rate limits. If Terraform reaches one of the application rate limits, Okta returns an `HTTP 429` error and Terraform stops running.
 
 > **Note**: All client applications that the service app authorizes, including Terraform, share the application rate limit.
 

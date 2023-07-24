@@ -109,9 +109,9 @@ resource "okta_authenticator" "email_authenticator" {
   key = "okta_email"
   status = "ACTIVE"
   settings = jsonencode(
-	{
-  	"allowedFor" : "any"
-	}
+    {
+      "allowedFor" : "any"
+    }
   )
 }
 
@@ -132,7 +132,7 @@ data "okta_app_signon_policy" "okta_dashboard_authentication_policy" {
   app_id = data.okta_app.okta_dashboard.id
 
   depends_on = [
-	data.okta_app.okta_dashboard
+    data.okta_app.okta_dashboard
   ]
 }
 
