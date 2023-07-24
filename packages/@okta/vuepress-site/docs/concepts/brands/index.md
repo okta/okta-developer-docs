@@ -93,7 +93,7 @@ Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the doma
 URIs that you use in the following settings revert to the Okta subdomain:
 
 - [SAML apps](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml)
-- [IdP settings&#8212;redirect URI](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
+- [OIDC app integration settings&#8212;redirect URI](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
 - [Authorization server settings](/docs/guides/customize-authz-server/main/)
 
 You can replace the base path with a custom domain and Okta uses the brand associated with the domain.
