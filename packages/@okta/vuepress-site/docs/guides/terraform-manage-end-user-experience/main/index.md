@@ -41,7 +41,7 @@ There are two methods to import objects into your Terraform configuration:
 
 Use `import` blocks in your Terraform script to import existing brand and theme objects from your Okta org. This method adds existing resources to your Terraform state file and generates a corresponding resource block in your configuration with auto-filled argument values. Using Terraform to generate the resource blocks for imported resources simplifies the process and reduces the risk of accidental changes to your org.
 
-> **Note:** The `import` block and configuration generation are experimental Terraform features at the time that this article is published. Check the Terraform documentation for updated instructions and limitations. See [Import](https://developer.hashicorp.com/terraform/language/import).
+> **Note:** The `import` block and configuration generation are experimental Terraform features at the time that this article is published. Check the Terraform documentation for updated instructions and limitations. See [Import](https://developer.hashicorp.com/terraform/language/import) in the Terraform documentation.
 
 This example imports the existing default brand object and its associated theme object using `import` blocks. Importing objects into Terraform requires their respective IDs. First, use data sources to expose the IDs of the default brand and theme objects in your Terraform configuration:
 
@@ -82,7 +82,7 @@ Run your configuration, and use Terraform commands to get the IDs of the default
 
 1. In a terminal, go to your Terraform configuration directory.
 1. Run `terraform init` to initialize your configuration directory and to confirm that you’ve downloaded all required providers and modules.
-1. Run `terraform plan` to confirm that there are no planned changes. Adding data sources to your configuration doesn’t add, change, or destroy existing resources. If there are planned changes, see [Reduce automatic corrections to objects](/docs/guides/terraform-design-rate-limits#reduce-automatic-corrections-to-objects) in [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits).
+1. Run `terraform plan` to confirm that there are no planned changes. Adding data sources to your configuration doesn’t add, change, or destroy existing resources. If there are planned changes, see [Reduce automatic corrections to objects](/docs/guides/terraform-design-rate-limits/main/#reduce-automatic-corrections-to-objects).
 1. Run `terraform apply` and enter `yes` when prompted.
 1. Run `terraform show` to find the IDs of the default brand and its associated theme.
 
@@ -166,7 +166,7 @@ Run your configuration and use Terraform commands to get the IDs of the default 
 
 1. In a terminal, go to your Terraform configuration directory.
 1. Run `terraform init` to initialize your configuration directory and to confirm that you’ve downloaded all required providers and modules.
-1. Run `terraform plan` to confirm that there are no planned changes. Adding data sources to your configuration doesn’t add, change, or destroy existing resources. If there are planned changes, see [Reduce automatic corrections to objects](/docs/guides/terraform-design-rate-limits#reduce-automatic-corrections-to-objects) in [Minimize Terraform rate limit errors](/docs/guides/terraform-design-rate-limits).
+1. Run `terraform plan` to confirm that there are no planned changes. Adding data sources to your configuration doesn’t add, change, or destroy existing resources. If there are planned changes, see [Reduce automatic corrections to objects](/docs/guides/terraform-design-rate-limits/main/#reduce-automatic-corrections-to-objects).
 1. Run `terraform apply` and enter `yes` when prompted.
 1. Run `terraform show` to find the IDs of the default brand and its associated theme.
 
@@ -267,7 +267,7 @@ This example creates a default English email customization and a secondary Spani
    * Set `language` to `en` for English.
    * Set `is_default` to `true` to set the English email customization as the default for the User Activation email template.
    * Set `subject` to `Activate your new Okta account!` or a subject that you want to use for the email.
-   * Set `body` to the HTML included in the example or custom HTML that you want to use. Use heredoc syntax to use multiline HTML. See [Heredoc Strings](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings).
+   * Set `body` to the HTML included in the example or custom HTML that you want to use. Use heredoc syntax to use multiline HTML. See [Heredoc Strings](https://developer.hashicorp.com/terraform/language/expressions/strings#heredoc-strings) in the Terraform documentation.
 
    > **Note:** Use two dollar signs `$$` before any Okta variables in the HTML to escape the string interpolation in your configuration file. For example, `$${brand.theme.primaryColor}`. Otherwise with only one dollar sign `$`, Terraform tries to interpolate those variables.
 

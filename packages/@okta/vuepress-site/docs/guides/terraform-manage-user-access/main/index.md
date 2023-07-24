@@ -18,7 +18,7 @@ Automate the policies that control how end users authenticate to and access Okta
 
 * Familiarity with the Terraform terms: configuration, resources, state, and commands. See the [Terraform overview](/docs/guides/terraform-overview).
 * [Okta Developer Edition organization](https://developer.okta.com/signup) or an Okta Identity Engine organization
-* A Terraform configuration that can access your Okta org. See [Enable Terraform access to your Okta org](/docs/guides/terraform-enable-org-access).
+* A Terraform configuration that can access your Okta org. See [Enable Terraform access for your Okta org](/docs/guides/terraform-enable-org-access).
 ---
 ## Overview
 

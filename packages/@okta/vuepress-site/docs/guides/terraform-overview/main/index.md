@@ -1,5 +1,5 @@
 ---
-title: Terraform Overview
+title: Terraform overview
 excerpt: Automate managing your Okta org using scripts and the command line with Terraform instead of using the Admin Console.
 layout: Guides
 ---
@@ -50,13 +50,13 @@ See [State](https://developer.hashicorp.com/terraform/language/state) in the Ter
 
 Terraform includes a command-line interface (CLI) that you use to interact with and run your configuration. The CLI includes many useful commands, but there are three key commands that you use to run any configuration:
 
-* `terraform init`: Initializes your configuration’s directory by downloading the required provider plugins, installs modules used in the configuration, and configures the Terraform backend for storing state. See [Command: init](https://developer.hashicorp.com/terraform/cli/commands/init).
-* `terraform plan`: Generates a preview of the resources that Terraform creates, changes, and removes when you apply the configuration. See [Command: plan](https://developer.hashicorp.com/terraform/cli/commands/plan).
-* `terraform apply`: Creates, changes, and removes objects in your org according to the plan. See [Command: apply](https://developer.hashicorp.com/terraform/cli/commands/apply).
+* `terraform init`: Initializes your configuration’s directory by downloading the required provider plugins, installs modules used in the configuration, and configures the Terraform backend for storing state. See [Command: init](https://developer.hashicorp.com/terraform/cli/commands/init) in the Terraform documentation.
+* `terraform plan`: Generates a preview of the resources that Terraform creates, changes, and removes when you apply the configuration. See [Command: plan](https://developer.hashicorp.com/terraform/cli/commands/plan) in the Terraform documentation.
+* `terraform apply`: Creates, changes, and removes objects in your org according to the plan. See [Command: apply](https://developer.hashicorp.com/terraform/cli/commands/apply) in the Terraform documentation.
 
 You usually run the commands in the following order: `init`, `plan`, and `apply`. This order ensures that Terraform is ready to run and gives you an opportunity to preview the changes before Terraform makes them.
 
-See [Use the Command Line Interface](https://developer.hashicorp.com/terraform/tutorials/cli).
+See [Use the Command Line Interface](https://developer.hashicorp.com/terraform/tutorials/cli) in the Terraform documentation.
 
 ## Get started
 
