@@ -56,7 +56,7 @@ You can only preview or visit a branded page (such as viewing brand assets appli
 
 Multibrand orgs use dynamic issuer mode for IdP. As a result, Okta uses the domain from the authorize request as the domain for the redirect URI when returning the authentication response. The Admin Console UI displays the org's Okta subdomain when the org has multiple custom domains configured.
 
-If your org has two or more brands (and custom domains), URIs that you use in the following settings revert to the Okta subdomain:
+URIs that you use in the following settings revert to the Okta subdomain:
 
 - [SAML apps](https://help.okta.com/okta_help.htm?id=ext-apps-about-saml)
 - [IdP settings - Redirect URI](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc)
