@@ -239,7 +239,7 @@ There are two main impacts:
 
 **Resolve the visual impact**
 
-To suppress the brief appearance of the Sign-In Widget, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some javaScript/CSS:
+To suppress the brief appearance of the Sign-In Widget, use a [custom domain](/docs/guides/custom-url-domain/main/#about-okta-domain-customization) and update some JavaScript/CSS:
 
 - (Required) In the HTML header, add the following to remove the opacity of the `okta-login-container`:
 
