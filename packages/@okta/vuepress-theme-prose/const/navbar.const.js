@@ -629,12 +629,18 @@ export const guides = [
             ],
           },
           {
-            title: "OIN submission requirements",
-            guideName: "submit-app-prereq",
-          },
-          {
             title: "Publish an OIN integration",
-            guideName: "submit-app",
+            path: "/docs/guides/submit-app-overview/",
+            subLinks: [
+              {
+                title: "OIN submission requirements",
+                guideName: "submit-app-prereq",
+              },
+              {
+                title: "Submit an OIN integration",
+                guideName: "submit-app",
+              },
+            ]
           },
         ],
       },
