@@ -46,6 +46,8 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
 
+> **Note:** When you create a custom domain, the Okta domain (for example, `example.okta.com`) still works.
+
 ### Multibrand and custom domains
 
 You can create up to three custom domains with multibrand customizations and up to 200 custom domains by contacting support to increase your limit.
@@ -114,16 +116,6 @@ The third generation of the Okta Sign-In Widget doesn’t guarantee the stabilit
 * When an admin signs in to the custom domain and then accesses the Admin Console from their user dashboard, the org domain changes from the custom domain to the Okta domain.
 
 * If you disable a custom domain, the `issuerMode` for Identity Providers, authorization servers, and OpenID Connect apps is set back to `ORG_URL`.
-
-### Common questions
-
-**Q: Can I add more than one domain?**
-
-No. You can only set up one custom domain per Okta org.
-
-**Q: Does the existing Okta domain work?**
-
-Yes. When you turn the custom domain on, the Okta domain (for example, `example.okta.com`) still works.
 
 ## Use an Okta-managed certificate
 
