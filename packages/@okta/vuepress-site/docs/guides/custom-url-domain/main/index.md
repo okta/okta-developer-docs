@@ -46,7 +46,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 You can also [configure a custom email address](#about-custom-email-addresses) to present a branded experience to your end users.
 
-> **Note:** When you create a custom domain, the Okta domain (for example, `example.okta.com`) still works.
+> **Note:** When you create a custom domain, the Okta domain (for example, `company.okta.com`) still works.
 
 ### Multibrand and custom domains
 
