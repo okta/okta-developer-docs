@@ -5,16 +5,27 @@ meta:
     content: Use this guide to understand the OIN submission process. There are variations to the submission process depending on the integration type.
 ---
 
-The Okta Integration Network (OIN) is the identity industry’s broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. By adding your integration to the OIN, you can gain exposure to thousands of Okta customers who can discover your integration and deploy your application to millions of users. OIN integrations speed adoption by simplifying configuration steps and reducing friction for your customers.
+The Okta Integration Network (OIN) is the identity industry’s broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. Gain exposure to thousands of Okta customers who can discover your integration by adding it to the OIN. OIN integrations speed adoption by simplifying admin configuration steps and reducing friction for your customers. They can integrate your application to Okta with minimal effort on your part.
 
-If you're an independent software vendor (ISV), Okta customer, or IT system integrator who wants to add their integration to the [Okta Integration Network](https://www.okta.com/integrations/), read this guide for instructions on how to submit your integration.
+If you're an integrator, from an independent software vendor (ISV) or an existing Okta customer, who wants to add your integration to the OIN, use this guide to learn about the submission process. Adding your integration to the OIN and listing it publicly in the [OIN catalog](https://www.okta.com/integrations/) is completely free.
 
-Adding your integration to the Okta Integration Network is completely free.
-
+This guide assumes that you've created an app integration and are ready to submit it for OIN verification. See [Single Sign-On](/docs/guides/oin-sso-overview/), [Lifecycle management](/docs/guides/oin-lifecycle-mgmt-overview/), or [API service integrations](/docs/guides/oin-api-service-overview/) on how to create integrations for the OIN.
 
 ## Submission process
 
-After you have built a functioning app integration, a few steps are required to submit it to Okta for review and publication in the OIN:
+The following flowchart outlines the OIN submission and review process:
+
+<div>
+
+![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png)
+
+<!--
+Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3265%3A30940  isv_portal_submission_flow
+-->
+
+</div>
+
+Follow these steps if you've decided to make your integration publicly available to Okta customers in the OIN:
 
 1. Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the various items required during submission. See the following guidelines:
     * [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines)
@@ -56,17 +67,6 @@ The OIN Manager shows the current status of your integration.
 
 * Congratulations, your integration is published in the OIN!
 
-The following flowchart outlines the entire process:
-
-<div>
-
-![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png)
-
-<!--
-Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3265%3A30940  isv_portal_submission_flow
--->
-
-</div>
 
 ## Protocols supported
 
@@ -103,25 +103,20 @@ If you have questions or need additional support to publish your app integration
 
 >**Note:** All integrations in the OIN catalog are public. If you want to submit a request to create a private app integration for an application that uses SCIM 1.1 or Profile Sourcing, or for an application that uses a custom header expression for the Header Auth, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim) to create your integration and submit your app through the [OIN Manager](https://oinmanager.okta.com). The Okta OIN team works with you to create an internal-only integration that isn't included in the OIN.
 
-## Submit in the Admin Console
-
-New content link goes here for SAML
-
-
 ## Submit with the OIN Manager
 
 Submit the following integrations with OIN Manager:
 
 <Cards>
-<Card href="/docs/guides/build-sso-integration/openidconnect/main/" headerImage="/img/idp-logos/oidc.png" cardTitle="OpenID Connect (OIDC)" :showFooter=false>Submit an OIDC SSO integration</Card>
+<Card href="/docs/guides/submit-app/openidconnect/main/" headerImage="/img/idp-logos/oidc.png" cardTitle="OpenID Connect (OIDC)" :showFooter=false>Submit an OIDC SSO integration</Card>
 
-<Card href="/docs/guides/build-sso-integration/saml2/main/" headerImage="/img/idp-logos/saml.png" cardTitle="SAML" :showFooter=false>Submit a SAML SSO integration</Card>
+<Card href="/docs/guides/submit-app/saml2/main/" headerImage="/img/idp-logos/saml.png" cardTitle="SAML" :showFooter=false>Submit a SAML SSO integration</Card>
 
-<Card href="https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Workflows" :showFooter=false>Submit a Workflow Connector Builder integration</Card>
+<Card href="/docs/guides/submit-app/wfconnector/main/" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Workflows" :showFooter=false>Submit a Workflow Connector Builder integration</Card>
 
-<Card href="/docs/guides/scim-provisioning-integration-overview/" headerImage="/img/icons/scim.svg" cardTitle="SCIM" :showFooter=false>Submit a SCIM integration</Card>
+<Card href="/docs/guides/submit-app/scim/main/" headerImage="/img/icons/scim.svg" cardTitle="SCIM" :showFooter=false>Submit a SCIM integration</Card>
 
-<Card href="/docs/guides/build-api-integration/" headerImage="/img/icons/icon--tool.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
+<Card href="/docs/guides/build-api-integration/main/#register-your-api-service-integration" headerImage="/img/icons/icon--tool.svg" cardTitle="API service" :showFooter=false>Submit an API service integration</Card>
 
 </Cards>
 

@@ -6,10 +6,11 @@ meta:
 layout: Guides
 ---
 
+This guide walks you through the process of submitting a Workflows connector, OIDC, SAML 2.0, or SCIM integration to the Okta Integration Network (OIN) using the OIN Manager. It also shows you how to update a previously published integration or delete a draft submission.
 
-This guide walks you through the process of submitting a Workflows connector, OIDC, SAML 2.0, or SCIM integration to the Okta Integration Network (OIN). It also shows you how to update a previously published integration or delete a draft submission.
-
->**Note:** For submitting API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/).
+> **Note:**
+> * For submitting API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/).
+> * SWA app integrations are no longer accepted for publication in the OIN catalog.
 
 ---
 
@@ -21,19 +22,18 @@ This guide walks you through the process of submitting a Workflows connector, OI
 
 **What you need**
 
-A functional integration created and tested in accordance with one of our OIN guides:
+* A functional integration created and tested in accordance with one of our OIN guides:
+   * [Build a Single-Sign On integration](/docs/guides/build-sso-integration/)
+   * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
+   * [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
 
-* [Build a Single-Sign On integration](/docs/guides/build-sso-integration/)
-* [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
-* [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
+* Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the various items required during submission.
 
 ---
 
 ## Overview
 
-The Okta Integration Network (OIN) is the identity industry’s broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. By adding your integration to the OIN, you can gain exposure to thousands of Okta customers who can discover your integration and deploy your application to millions of users. OIN integrations speed adoption by simplifying configuration steps and reducing friction for your customers.
-
-If you're an independent software vendor (ISV), Okta customer, or IT system integrator who wants to add their integration to the [Okta Integration Network](https://www.okta.com/integrations/), read this guide for instructions on how to submit your integration. Adding your integration to the Okta Integration Network is completely free.
+The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that is connected to your developer org where you test and develop your Okta integration.
 
 ### Protocols supported
 
@@ -54,61 +54,7 @@ This guide covers submissions that use one or more of these protocols or tools:
 
 >**Note:** For submitting API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/).
 
-### Submission process
-
-After you have built a functioning app integration, a few steps are required to submit it to Okta for review and publication in the OIN:
-
-1. Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the various items required during submission. See the following guidelines:
-    * [Logo guidelines](/docs/guides/submit-app-prereq/main/#logo-guidelines)
-    * [App description guidelines](/docs/guides/submit-app-prereq/main/#app-description-guidelines)
-    * [Use case guidelines](/docs/guides/submit-app-prereq/main/#use-case-guidelines)
-    * [Customer support contact guidelines](/docs/guides/submit-app-prereq/main/#customer-support-contact-guidelines)
-    * [Test account guidelines](/docs/guides/submit-app-prereq/main/#test-account-guidelines)
-    * [Customer configuration document guidelines](/docs/guides/submit-app-prereq/main/#customer-configuration-document-guidelines)
-
-1. [Submit your integration](#submit-an-integration) to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol or tool-specific metadata that's required to create a customized integration for publication in the OIN.
-    >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact your Okta account team or post on our [forum](https://devforum.okta.com/) to request temporary activation of this capability when submitting a SCIM app integration.
-
-1. Work with the Okta OIN team to test your integration using your input and then get it published to the OIN Catalog.
-
-The Okta OIN team reviews all submissions on a best-case basis.
-
-If the Okta OIN team identifies any issues in the initial review and QA testing phases, you are sent an email with the specific details. At any point in the process, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
-
-  >**Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, existing SWA apps are still maintained by the OIN team.
-
-### Understand the submission review process
-
-The submission review process begins when you click **Submit for Review** in the [OIN Manager](https://oinmanager.okta.com). Okta sends you an email notification that your integration is now queued for review by the Okta OIN team, which includes the date that the initial review of the integration is expected to finish.
-
-The OIN Manager shows the current status of your integration.
-
-#### Step 1: Initial review
-
-* **Pending review by Okta**: The Okta OIN team is notified of your submission. Okta reviews the submission and notifies you by email when the submission review is complete.
-* **Action required**: Okta has reviewed your submission and found issues that require your attention. Check your email for results from the Okta initial review. Sign in to OIN Manager, update the requested details, and click **Submit for Review**. After the OIN team reviews your updated submission and verifies that the issues are resolved, your submission moves to step two for QA testing.
-
-#### Step 2: Code review
-
-* **Pending review by Okta**: The Okta OIN team conducts internal QA tests and notifies you by email when the QA review is complete. If the QA test is successful, your submission is automatically published in the OIN.
-* **Action required**: Okta has found QA issues that require your correction. Check your email for results from the Okta QA review. Make the requested changes as an update to your existing submission.
-* **Final review by Okta**: The Okta OIN team conducts a final internal QA test based on previously requested changes and notifies you by email when the final QA review is complete. If the review is successful, your submission is automatically published in the OIN.
-
-#### Step 3: Published
-
-* Congratulations, your integration is published in the OIN!
-
-The following flowchart outlines the entire process:
-
-<div>
-
-![ISV Submission process flow](/img/oin/isv-portal_submission_flow.png)
-
-<!--
-Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Updated-Diagrams-for-Dev-Docs?node-id=3265%3A30940  isv_portal_submission_flow
--->
-
-</div>
+>**Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, existing SWA apps are still maintained by the OIN team.
 
 ### Submission support
 
