@@ -4,6 +4,17 @@ title: Okta API Products release notes 2023
 
 ## July
 
+### Monthly release 2023.07.1
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.07.1](#bugs-fixed-in-2023-07-1) | July 26, 2023 |
+
+#### Bugs fixed in 2023.07.1
+
+* Admins with the `Manage users` permission couldn’t create users with WS-Federation IdPs. (OKTA-621284)
+* Requests to the `/authorize` endpoint failed when the request contained ASCII characters (`%00`) as the scope value. (OKTA-465695)
+* Users imported from Active Directory returned a `provisioned` status for API operations, but displayed an `active` status in the Admin Console. (OKTA-584683)
+
 ### Monthly release 2023.07.0
 
 | Change | Expected in Preview Orgs |
