@@ -1526,7 +1526,7 @@ Removes a specific Group rule by ID from your organization
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
 | `id`             | ID of a Group Rule                                           | URL        | String                            | TRUE     |   N/A     |
-| `removeUsers`             | Indicates whether to keep or remove users from groups assigned by this rule.                                         | query        | String                            | FALSE      |  FALSE       |
+| `removeUsers`             | Indicates whether to keep or remove users from groups assigned by this rule                                         | Query        | String                            | FALSE      |  FALSE       |
 
 ##### Response parameters
 
