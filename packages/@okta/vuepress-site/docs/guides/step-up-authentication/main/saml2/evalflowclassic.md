@@ -1,0 +1,1 @@
+In Okta Classic Engine when a user doesn't have a session, the Okta sign-on policy is evaluated first, then the application sign-on policy, and finally the `acr_values` parameter in the request. When a user already has a session, the application sign-on policy is always evaluated first. Then, the `acr_values` parameter in the request.

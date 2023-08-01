@@ -17,7 +17,7 @@ This guide explains how to include the `acr_values` parameter in your authorizat
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* An application that you want to configure `acr_values` for. You can [create a new app integration using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard) or use an existing one.
+* Existing OpenID Connect (OIDC) or SAML app integration that you want to configured `acr_values` for. See [Create SAML app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml) or [Create OIDC app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) if you don’t have an OIDC or SAML2 app configured.
 
 ---
 
@@ -39,7 +39,7 @@ Okta's [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment 
 
 In Okta Identity Engine, assurances from policies are always evaluated in order of factor verification, constraints, and re-authentication. The [global session policy](/docs/concepts/policies/#sign-on-policies) is evaluated first, then the authentication policy, and then the `acr_values` parameter in the request. The authentication policy is always evaluated before the `acr_values` parameter.
 
-In Okta Classic Engine when a user doesn't have a session, the more restrictive policy is evaluated first, such as the Okta sign-on policy or the application sign-on policy. Additionally, if an assurance requirement is more restrictive, such as an `acr_values` parameter, that is evaluated first. The second most restrictive policy or assurance requirement is then evaluated and so on. When a user already has a session, the application sign-on policy is always evaluated first. Then, the `acr_values` parameter in the request.
+In Okta Classic Engine when a user doesn't have a session, the Okta sign-on policy is evaluated first, then the application sign-on policy, and finally the `acr_values` parameter in the request. When a user already has a session, the application sign-on policy is always evaluated first. Then, the `acr_values` parameter in the request.
 
 In both Identity Engine and Classic Engine, if the user has a session, the previously satisfied authenticators are considered before prompting for factors that are required by the `acr_values` parameter in the request. Additionally, if the user is unable to satisfy the level of assurance, Okta returns an [error](https://openid.net/specs/openid-connect-unmet-authentication-requirements-1_0.html) (`error=unmet_authentication_requirements`) to the callback endpoint.
 
@@ -84,78 +84,13 @@ At a high-level, this flow has the following steps:
 
 ## Add the parameter value to the auth request
 
-The following is an example authorization request using the `urn:okta:loa:1fa:any` predefined `acr_values` parameter value. In this example, the Authorization Code [grant type](/docs/guides/implement-grant-type/authcode/main/) is used.
+The following is an example authorization request using the `urn:okta:loa:1fa:any` predefined `acr_values` parameter value.
 
-**Request**
-
-```bash
-https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
-&response_type=code
-&scope=openid
-&redirect_uri=https://${yourOktaDomain}/authorization-code/callback
-&state=296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
-&acr_values=urn:okta:loa:1fa:any
-```
-
-The authorization code is returned in the response. And then the request is made to the `/token` endpoint to exchange the authorization code for an ID token and an access token. See the [Authorization Code grant type](/docs/guides/implement-grant-type/authcode/main/#grant-type-flow) for a diagram of this flow.
+<StackSnippet snippet="addparamtorequest" />
 
 **Response**
 
-The tokens are truncated for brevity.
-
-```json
-{
-   "token_type": "Bearer",
-   "expires_in": 3600,
-   "access_token": "eyJraW…..vSqrH1Q",
-   "scope": "openid",
-   "id_token": "eyJraW…..WlB8Y9pQ"
-}
-```
-
-To check the returned ID token payload, copy the values and paste them into any JWT decoder (for example: `https://jwt.io/`). Using a JWT decoder, confirm that the token contains the `acr` claim.
-
-**ID token**
-
-```json
-{
-  "sub": "00u47ijy7sRLaeSdC0g7",
-  "ver": 1,
-  "iss": "https://{yourOktaDomain}/oauth2/default",
-  "aud": "0oa48e74ox4t7mQJX0g7",
-  "iat": 1661289624,
-  "exp": 1661293224,
-  "jti": "ID.dz6ibX-YnBNlt14huAtBULam_Z0_wPG0ig5SWCy8XQU",
-  "amr": [
-    "pwd"
-  ],
-  "acr": "urn:okta:loa:1fa:any",
-  "idp": "00o47ijbqfgnq5gj00g7",
-  "auth_time": 1661289603,
-  "at_hash": "w6BLQV3642TKWvaVwTAJuw"
-}
-```
-
-**Access token**
-
-```json
-{
-  "ver": 1,
-  "jti": "AT.NovJtQ_NrJ6cgy3h1-638ArovwYXWslu0teQ2M3Ux9c",
-  "iss": "https://{yourOktaDomain}/oauth2/default",
-  "aud": "api://default",
-  "iat": 1661289624,
-  "exp": 1661293224,
-  "acr": "urn:okta:loa:1fa:any",
-  "cid": "0oa48e74ox4t7mQJX0g7",
-  "uid": "00u47ijy7sRLaeSdC0g7",
-  "scp": [
-    "openid"
-  ],
-  "auth_time": 1661289603,
-  "sub": "joe.smith@example.com"
-}
-```
+<StackSnippet snippet="authresponse" />
 
 ### Refresh token behavior
 
