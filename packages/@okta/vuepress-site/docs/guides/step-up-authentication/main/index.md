@@ -17,7 +17,7 @@ This guide explains how to include the `acr_values` parameter in your authorizat
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* Existing OpenID Connect (OIDC) or SAML app integration that you want to configured `acr_values` for. See [Create SAML app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml) or [Create OIDC app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) if you don’t have an OIDC or SAML2 app configured.
+* Existing OpenID Connect (OIDC) or SAML app integration that you want to configure `acr_values` for. See [Create OIDC app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or [Create SAML app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml) if you don’t have an OIDC or SAML2 app configured.
 
 ---
 
@@ -33,13 +33,13 @@ Okta has created predefined `acr_values` that are described in the [Predefined p
 
 > **Note:** You can specify a `max_age` parameter value to require an elapsed time frame. Additionally, if you want to ignore the existing session and reauthenticate the user each time, pass `max_age=0` in the request. For Classic Engine, pass `max_age=1`. See the [Request parameters table](/docs/reference/api/oidc/#request-parameters) for the `/authorize` endpoint for more information on `max_age`.
 
-Okta's [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect application, such as web, native, or SPA, and it’s supported by both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/).
+Okta's [redirect and embedded](/docs/concepts/redirect-vs-embedded/) deployment models support the use of the `acr_values` parameter. The parameter works with any OpenID Connect application, such as web, native, or SPA. It also works with SAML2 applications and is supported by both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/).
 
 ### Evaluation flow
 
 In Okta Identity Engine, assurances from policies are always evaluated in order of factor verification, constraints, and re-authentication. The [global session policy](/docs/concepts/policies/#sign-on-policies) is evaluated first, then the authentication policy, and then the `acr_values` parameter in the request. The authentication policy is always evaluated before the `acr_values` parameter.
 
-In Okta Classic Engine when a user doesn't have a session, the Okta sign-on policy is evaluated first, then the application sign-on policy, and finally the `acr_values` parameter in the request. When a user already has a session, the application sign-on policy is always evaluated first. Then, the `acr_values` parameter in the request.
+<StackSnippet snippet="evalflowclassic" /><br>
 
 In both Identity Engine and Classic Engine, if the user has a session, the previously satisfied authenticators are considered before prompting for factors that are required by the `acr_values` parameter in the request. Additionally, if the user is unable to satisfy the level of assurance, Okta returns an [error](https://openid.net/specs/openid-connect-unmet-authentication-requirements-1_0.html) (`error=unmet_authentication_requirements`) to the callback endpoint.
 
@@ -70,7 +70,7 @@ The following predefined optional parameters are available for use in your autho
 
 </div>
 
-At a high-level, this flow has the following steps:
+At a high level, this flow has the following steps:
 
 1. Per your use case, include the `acr_values` predefined parameter value in the authentication request.
 
@@ -86,7 +86,7 @@ At a high-level, this flow has the following steps:
 
 The following is an example authorization request using the `urn:okta:loa:1fa:any` predefined `acr_values` parameter value.
 
-<StackSnippet snippet="addparamtorequest" />
+<StackSnippet snippet="addparamtorequest" /><br>
 
 **Response**
 

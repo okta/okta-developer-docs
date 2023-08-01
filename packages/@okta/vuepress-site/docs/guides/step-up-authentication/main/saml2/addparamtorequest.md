@@ -1,4 +1,4 @@
-Pass the `acr_value` in the `AuthnRequest` within the SAML request as an `AuthnContextClassRef`.
+Pass the `acr_value` in the `AuthnRequest` of the SAML request as an `AuthnContextClassRef` through the `/app/{app}/{key}/sso/saml` or `/app/{app}/saml` and `/app/{app}/sso/saml` endpoints.
 
 **Request**
 
