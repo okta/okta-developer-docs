@@ -10850,10 +10850,10 @@ robot-directives@~0.3.0:
     isbot "^2.0.0"
     useragent "^2.1.8"
 
-robots-txt-guard@~0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/robots-txt-guard/-/robots-txt-guard-0.1.1.tgz#0dedec2dc325338989bb14158bef1f8539b705d4"
-  integrity sha512-6+nGkE6c2dI9/dmhmNcoMKVwJxlA6sgN/XNo0rm6LLdA0hnj4YkpgrZdhMPl58gJkAqeiHlf4+8tJcLM1tv1Ew==
+robots-txt-guard@1.0.0, robots-txt-guard@~0.1.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/robots-txt-guard/-/robots-txt-guard-1.0.0.tgz#dc9d30178667905ffaa09de51d07b550d12b4990"
+  integrity sha512-k9sRuEx/ZMTpPxcOvnq4YIG/VHY5ynSc0YwWDoni2KEDLLmplWAdmVxXywUu+zw7QOXZvU7oOWb3V1dY46fqdA==
 
 robots-txt-parse@~0.0.4:
   version "0.0.4"

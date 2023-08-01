@@ -77,6 +77,7 @@
     "vuepress/**/unset-value": "^2.0.1",
     "vuepress/**/loader-utils": "^2.0.1",
     "string-replace-loader/loader-utils": "1.4.2",
-    "**/chalk/**/ansi-regex": "^3.0.1"
+    "**/chalk/**/ansi-regex": "^3.0.1",
+    "robots-txt-guard":"1.0.0"
   }
 }
