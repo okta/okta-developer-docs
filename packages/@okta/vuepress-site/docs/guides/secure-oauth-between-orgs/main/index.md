@@ -33,7 +33,7 @@ To secure API connections between orgs for a [multi-tenant solution](/docs/conce
 
 </div>
 
-In this OAuth 2.0 flow, the hub org acts as the resource server as well as the [authorization server](/docs/concepts/auth-servers/). Each spoke org is represented by a [service app in the hub org for the OAuth 2.0 client credentials flow](/docs/guides/implement-oauth-for-okta-serviceapp/main/). At the spoke org level, you need to create an Org2Org app to represent the OAuth 2.0 client. The Okta Org2Org app automatically generates a JSON Web Key Set (JWKS) used by the client to authenticate with the authorization server. For each Org2Org app, you need to extract the JWKS public key for each corresponding service app in the hub org. To limit access to the OAuth 2.0 clients, you need to grant the hub org service app with allowed [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/main/#scopes-and-supported-endpoints).
+In this OAuth 2.0 flow, the hub org acts as the resource server as well as the [authorization server](/docs/concepts/auth-servers/). Each spoke org is represented by a [service app in the hub org for the OAuth 2.0 client credentials flow](/docs/guides/implement-oauth-for-okta-serviceapp/main/). At the spoke org level, you need to create an Org2Org app to represent the OAuth 2.0 client. The Okta Org2Org app automatically generates a JSON Web Key Set (JWKS) used by the client to authenticate with the authorization server. For each Org2Org app, you need to extract the JWKS public key for each corresponding service app in the hub org. To limit access to the OAuth 2.0 clients, you need to grant the hub org service app with allowed [OAuth 2.0 scopes](https://developer.okta.com/docs/api/oauth2/#okta-admin-management).
 
 After the Org2Org OAuth 2.0 connection is configured, you can start to test your connection and push user data from the spoke orgs to the hub org. You can also create a [rotate keys](#key-rotation) schedule to update your credentials on a regular basis.
 
@@ -169,6 +169,28 @@ curl -X POST \
 ```
 
 > **Note**: You can copy the entire [response from the previous `GET /api/v1/apps/${id}/credentials/keys` request](#response-example) in to the `jwks.keys` array. The `created`, `lastUpdated`, and `expiresAt` properties are ignored in the POST request. Alternatively, you can remove them from the `jwks.keys` parameter body.
+
+#### Assign admin role to the OAuth 2.0 service app
+
+> **Note:** Prior to the **Assign admin roles to public client app** feature, the Super Administrator (`SUPER_ADMIN`) role was granted to service apps when they're created. You now have the ability to fine-tune the resources that a service app can access by assigning a specific admin role or a custom admin role. Ensure that the **Assign admin roles to public client app** Self-Service feature is enabled in your org for granular service app role assignment. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on the Okta Self-Service Feature Manager.
+
+You need to assign admin roles for every OAuth 2.0 service app you create in the hub org to access hub org resources. This action allows you to fine-tune the resource set permissions of a service app by creating a custom admin role. For the Org2Org provisioning connection, you need to assign the following admin roles:
+
+* "API_ACCESS_MANAGEMENT_ADMIN"
+* "GROUP_MEMBERSHIP_ADMIN"
+* "USER_ADMIN"
+
+The admin roles - assigns permissions and sets it while the API Scopes - are operations that can be performed on above permission/sets so the admin roles should have enough permissions for the scopes provided. The differences between API scopes and Admin tab is that API scopes determine the action that can be performed like manage users, read apps, etc.. while admin role determines which resources an action can be performed.
+
+ ```bash
+ curl --location -g --request POST 'https://{{yourHubOrgDomain}}/oauth2/v1/clients/{{client_Id}}/roles' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: SSWS {{hubApiToken}}' \
+--data-raw '  {
+    "type": "APP_ADMIN"
+  }'
+ ```
 
 ### Grant allowed scopes to the OAuth 2.0 client
 
