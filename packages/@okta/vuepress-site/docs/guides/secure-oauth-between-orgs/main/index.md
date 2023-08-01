@@ -174,7 +174,7 @@ curl -X POST \
 
 > **Note:** Prior to the **Assign admin roles to public client app** feature, the Super Administrator (`SUPER_ADMIN`) role was granted to service apps when they're created. You now have the ability to fine-tune the resources that a service app can access by assigning a specific admin role or a custom admin role. Ensure that the **Assign admin roles to public client app** Self-Service feature is enabled in your org for granular service app role assignment. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on the Okta Self-Service Feature Manager.
 
-You need to assign admin roles for every OAuth 2.0 service app you create in the hub org to access hub org resources. This action allows you to fine-tune the resource set permissions of a service app by creating a custom admin role. For the Org2Org provisioning connection, you need to assign the following admin roles:
+You need to assign admin roles for every OAuth 2.0 service app you create in the hub org. This action allows you to fine-tune the resource set permissions of a service app by assigning a custom admin role. See [Product docs]. For the Org2Org provisioning connection, you need to assign the following standard admin roles:
 
 * "API_ACCESS_MANAGEMENT_ADMIN"
 * "GROUP_MEMBERSHIP_ADMIN"
