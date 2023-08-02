@@ -68,7 +68,7 @@
                   Free Trial
                 </div>
                 <div class="signup__rate__text">
-                  Get access for 22 days
+                  Get access for 30 days
                 </div>
               </div>
               <div class="signup__content">
