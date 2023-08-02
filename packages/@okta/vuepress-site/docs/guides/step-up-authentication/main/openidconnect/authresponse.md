@@ -53,3 +53,7 @@ To check the returned ID token payload, copy the values and paste them into any 
   "sub": "joe.smith@example.com"
 }
 ```
+
+### Refresh token behavior
+
+When you use the refresh token to refresh access and ID tokens, the tokens reflect the `acr_values` parameter value sent in the original authentication request. Use the `auth_time` [parameter value](/docs/reference/api/oidc/#request-parameters) to validate when the original authentication occurred.

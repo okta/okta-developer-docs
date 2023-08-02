@@ -1,0 +1,1 @@
+The parameter works with any OpenID Connect application, such as web, native, or SPA, and is supported by both the [org authorization server and custom authorization servers](/docs/concepts/auth-servers/).
