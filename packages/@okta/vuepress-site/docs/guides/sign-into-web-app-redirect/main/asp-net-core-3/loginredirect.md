@@ -1,64 +1,82 @@
-1. By default, the redirect to the sign-in page happens automatically when users access a protected route. In Visual Studio, to create a universal sign-in link, expand **Views** > **Shared** and open your `_Layout.cshtml` file.
+Create a link for the user to start the sign-in process and be redirected to Okta.
 
-2. Insert the following code directly above `<ul class="navbar-nav flex-grow-1>`:
+1. Open the **Views** > **Shared** > **_Layout.cshtml** file.
+1. Add the code for a sign-in link directly above `<ul class="navbar-nav flex-grow-1>`:
 
-   ```csharp
+   ```razor
    @if (User.Identity.IsAuthenticated)
    {
-     <ul class="nav navbar-nav navbar-right">
-       <li><p class="navbar-text">Hello, @User.Identity.Name</p></li>
-       <li><a class="nav-link" asp-controller="Home" asp-action="Profile" id="profile-button">Profile</a></li>
-       <li>
-         <form class="form-inline" asp-controller="Account" asp-action="SignOut" method="post">
-           <button type="submit" class="nav-link btn btn-link text-dark" id="logout-button">Sign Out</button>
-         </form>
-       </li>
-     </ul>
+      <ul class="nav navbar-nav navbar-right">
+         <li>
+            <p class="navbar-text">Hello, @User.Identity.Name</p>
+         </li>
+         <li>
+            <a class="nav-link" asp-controller="Home" asp-action="Profile" id="profile-button">
+               Profile
+            </a>
+         </li>
+         <li>
+            <form class="form-inline" asp-controller="Account" asp-action="SignOut" method="post">
+               <button type="submit" class="nav-link btn btn-link text-dark" id="logout-button">
+                  Sign Out
+               </button>
+            </form>
+         </li>
+      </ul>
    }
-     else
+   else
    {
-     <ul class="nav navbar-nav navbar-right">
-       <li><a asp-controller="Account" asp-action="SignIn" id="login-button">Sign In</a></li>
-     </ul>
+      <ul class="nav navbar-nav navbar-right">
+         <li>
+            <a asp-controller="Account" asp-action="SignIn" id="login-button">
+               Sign In
+            </a>
+         </li>
+      </ul>
    }
    ```
 
-3. Now you need to handle the `Sign In` click. Create an empty MVC Controller named `AccountController` in the `Controllers` folder.
+1. Add code to handle the `Sign In` click.
+   1. Create an empty MVC Controller named `AccountController.cs` in the `Controllers` folder.
+      1. Right click the `Controllers` folder in **Solution Explorer** and select **Add** > **Controller...**
+      {style="list-style-type:lower-alpha"}
+      1. Select **MVC Controller - Empty**, and then click **Add**.
+      1. Enter the name `AccountController.cs`, and then click **Add**.
 
-4. Add the following `using` statements to the top of the controller:
+   1. Add the following `using` statements to the top of the controller:
 
-   ```csharp
-   using Microsoft.AspNetCore.Authentication;
-   using Microsoft.AspNetCore.Authentication.Cookies;
-   using Okta.AspNetCore;
-   ```
+      ```csharp
+      using Microsoft.AspNetCore.Authentication;
+      using Microsoft.AspNetCore.Authentication.Cookies;
+      using Okta.AspNetCore;
+      ```
 
-5. Add a new `IActionResult` for `SignIn`:
+   1. Add a new `IActionResult` for `SignIn`:
 
-   ```csharp
-   public IActionResult SignIn()
-   {
-     if (!HttpContext.User.Identity.IsAuthenticated)
-     {
-       return Challenge(OktaDefaults.MvcAuthenticationScheme);
-     }
+      ```csharp
+      public IActionResult SignIn()
+      {
+         if (!HttpContext.User.Identity.IsAuthenticated)
+         {
+            return Challenge(OktaDefaults.MvcAuthenticationScheme);
+         }
 
-     return RedirectToAction("Index", "Home");
-   }
-   ```
+         return RedirectToAction("Index", "Home");
+      }
+      ```
 
-6. Add another `IActionResult` right below it for `SignOut`:
+   1. Add another `IActionResult` right below it for `SignOut`:
 
-   ```csharp
-   [HttpPost]
-   public IActionResult SignOut()
-   {
-   return new SignOutResult(
-           new[]
-           {
-           OktaDefaults.MvcAuthenticationScheme,
-           CookieAuthenticationDefaults.AuthenticationScheme,
-           },
-           new AuthenticationProperties { RedirectUri = "/Home/" });
-   }
-   ```
+      ```csharp
+      [HttpPost]
+      public IActionResult SignOut()
+      {
+         return new SignOutResult(
+            new[]
+            {
+               OktaDefaults.MvcAuthenticationScheme,
+               CookieAuthenticationDefaults.AuthenticationScheme,
+            },
+            new AuthenticationProperties { RedirectUri = "/Home/" });
+      }
+      ```
