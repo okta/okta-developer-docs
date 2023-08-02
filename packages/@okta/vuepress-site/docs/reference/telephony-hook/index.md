@@ -218,7 +218,7 @@ This section explains several common causes of failure for telephony inline hook
 |------------------|----------------------------|-----------------------------|
 | External service fails to communicate or times out                          | Inline hook operation is skipped, OTP is sent to the requester using an Okta telephony provider   | Administrators only                       |
 | External service responds with any HTTP status code besides `200`           | Inline hook operation is skipped, OTP is sent to the requester using an Okta telephony provider   | Administrators only                       |
-| External service returns an error object                                    | Inline hook operation fails, no OTP is delivered                                                  | Administrators, developers, and end users |
+| External service returns an error object                                    | Inline hook operation fails, OTP is sent to the requester using an Okta telephony provider        | Administrators, developers, and end users |
 | Hook response is malformed or can't be mapped to the expected API response  | Inline hook operation is skipped                                                                  | Administrators only                       |
 | Request header doesn't include an `authScheme`                              | Inline hook operation is skipped                                                                  | Administrators only                       |
 | Response uses an invalid status                                             | Inline hook operation is skipped                                                                  | Administrators only                       |
