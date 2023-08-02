@@ -1147,10 +1147,10 @@ HTTP/1.1 400 Bad Request
 ```
 
 ## Org Third-Party Admin setting operations
-The Third-party Admin setting API has the following CRUD operations:
+The Third-Party Admin setting API has the following CRUD operations:
 
-* [Get the Third-party Admin setting](#get-the-thirdparty-admin-setting)
-* [Update the Third-party Admin Setting](#update-the-thirdparty-admin-setting)
+* [Get the Third-Party Admin setting](#get-the-thirdparty-admin-setting)
+* [Update the Third-Party Admin Setting](#update-the-thirdparty-admin-setting)
 
 ### Get the Third-Party Admin setting
 
