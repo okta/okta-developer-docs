@@ -1,1 +1,1 @@
-`http://localhost:44388/signout/callback`
+`http://localhost:3000`
