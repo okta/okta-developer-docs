@@ -172,22 +172,37 @@ curl -X POST \
 
 #### Assign admin roles to the OAuth 2.0 service app
 
-> **Note:** Prior to the **Assign admin roles to public client app** feature, the Super Administrator (`SUPER_ADMIN`) role was automatically assigned to service apps when they're created. You can now fine-tune the resources that a service app can access by assigning specific standard or custom admin roles. Ensure that the **Assign admin roles to public client app** Self-Service feature is enabled in your org for granular role assignment. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on the Okta Self-Service Feature Manager.
+> **Note:** Before the **Assign admin roles to public client apps** feature, the Super Administrator (`SUPER_ADMIN`) role was automatically assigned to service apps when they're created. You can now fine-tune the resources that a service app can access by assigning specific standard or custom admin roles. Ensure that the **Assign admin roles to public client apps** Self-Service feature is enabled in your org for granular role assignment. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on the Okta Self-Service Feature Manager.
 
-Assign admin roles for every OAuth 2.0 service app that you create in the hub org. Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role assignment. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks. You can assign the [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-standard-roles) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
+Assign admin roles for every OAuth 2.0 service app that you create in the hub org. Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks. You can assign the [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-standard-roles) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
 
-For the hub-and-spoke OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assign the following standard admin roles:
+For the hub-and-spoke OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assign the following [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-standard-roles):
 
-* "API_ACCESS_MANAGEMENT_ADMIN"
-* "GROUP_ADMINISTRATOR"
 * "USER_ADMIN"
+* "GROUP_ADMINISTRATOR"
+
+If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles), you require the following for the OAuth 2.0 Org2Org provisioning connection.
+
+Permissions required:
+
+* Manage users
+* Manage groups
+
+Resource sets recommended:
+
+* All Users
+* All Groups
+
+> **Note:** You can bind resource sets with specific user groups to a custom role. See [Custom Role assignment operations](/docs/reference/api/roles/#custom-role-assignment-operations).
 
 As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to the hub org with the following required parameters:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following example, the `${yourServiceAppId}` variable name is used instead of `client_id`.|
-| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles if you're not using a custom admin role. Make a request for each of these values: `USER_ADMIN`, `GROUP_ADMINISTRATOR`, `API_ACCESS_MANAGEMENT_ADMIN`.|
+| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_ADMINISTRATOR`) or a custom admin role (`CUSTOM`). |
+
+See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
 
 ##### Request example
 
@@ -201,7 +216,7 @@ As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` req
   }' "https://${yourHubOrgDomain}/oauth2/v1/clients/${yourServiceAppId}/roles" \
  ```
 
-> **Note:** The admin roles provide permission to resources, while the scopes provide operations that can be performed on the permissible resources. Therefore, the admin roles need to have enough permissions for the scopes provided. For example: the scopes determine the action that can be performed (manage users, read apps, and so on), while the admin role determines which resources the actions can be performed on (a specific group of users).
+> **Note:** The admin roles provide permission to resources, while the scopes provide operations that can be performed on the permissible resources. Therefore, the admin roles need to have enough permissions for the scopes provided. For example: scopes determine the action that can be performed (manage users, read apps, and so on), while admin roles determine which resources the actions can be performed on (a specific group of users).
 
 ### Grant allowed scopes to the OAuth 2.0 client
 
