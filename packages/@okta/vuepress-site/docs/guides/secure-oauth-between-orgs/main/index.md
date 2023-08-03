@@ -181,17 +181,15 @@ For the hub-and-spoke OAuth 2.0 Org2Org provisioning connection, Okta recommends
 * "USER_ADMIN"
 * "GROUP_ADMINISTRATOR"
 
-If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles), you require the following for the OAuth 2.0 Org2Org provisioning connection.
+If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles), you require the following for the OAuth 2.0 Org2Org provisioning connection:
 
-Permissions required:
+* Permissions required:
+  * Manage users
+  * Manage groups
 
-* Manage users
-* Manage groups
-
-Resource sets recommended:
-
-* All Users
-* All Groups
+* Resource sets recommended:
+  * All Users
+  * All Groups
 
 > **Note:** You can bind resource sets with specific user groups to a custom role. See [Custom Role assignment operations](/docs/reference/api/roles/#custom-role-assignment-operations).
 
