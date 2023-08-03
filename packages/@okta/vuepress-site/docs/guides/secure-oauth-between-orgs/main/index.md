@@ -195,7 +195,7 @@ Resource sets recommended:
 
 > **Note:** You can bind resource sets with specific user groups to a custom role. See [Custom Role assignment operations](/docs/reference/api/roles/#custom-role-assignment-operations).
 
-As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to the hub org with the following required parameters:
+As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
