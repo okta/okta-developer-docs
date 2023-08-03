@@ -19,7 +19,7 @@ Pass the `acr_value` in the `AuthnRequest` of the SAML request as an `AuthnConte
 </saml2p:AuthnRequest>
 ```
 
-The SAML response contains the `AuthnContext` and includes the following:
+The SAML assertion response contains the `AuthnContext` and includes the following:
 
 * The `acr` value from the request passed as `AuthnContextClassRef`
 * The factors (Authentication Method Reference (AMR) claims) used to authenticate the user passed as a list of `AuthnContextDecl`

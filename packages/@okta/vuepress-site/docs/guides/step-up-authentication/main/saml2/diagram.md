@@ -14,6 +14,4 @@ At a high level, this flow has the following steps:
 
 4. The Service Provider sends the `securitycontext` to the browser.
 
-5. The user agent requests access to the protected resource.
-
-6. The service provider responds with the requested resource.
+5. The user-agent requests access to the protected resource, and the Service Provider responds with the requested resource.
