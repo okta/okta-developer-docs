@@ -53,15 +53,14 @@
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.3.0",
     "eslint": "^8.33.0",
-    "eslint-plugin-vue": "^9.9.0"
-  },
-  "dependencies": {
+    "eslint-plugin-vue": "^9.9.0",
     "broken-link-checker": "^0.7.8",
     "serve-handler": "^6.1.5",
     "vuepress": "1.9.8",
     "vuepress-plugin-chunkload-redirect": "^1.0.3",
     "wait-for-localhost-cli": "^3.0.0"
   },
+  "dependencies": {},
   "resolutions": {
     "cypress/**/async": "3.2.4",
     "cypress/**/qs": "6.11.0",
