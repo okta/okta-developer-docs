@@ -1342,7 +1342,7 @@ Retrieves a Member of a Role in a Resource Set
 
 | Parameter      | Description                                     | Param Type   | DataType       | Required |
 | :------------- |:------------------------------------------------| :----------- | :------------- | :------- |
-| `resourceSetIdOrLabel`  | ID or label of the target Resource Set	  | URL          | String         | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the target Resource Set      | URL          | String         | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role to identify the Binding | URL          | String         | TRUE     |
 | `memberId`       | ID of the Member within the Binding             | URL          | String         | TRUE     |
 
@@ -1403,7 +1403,7 @@ Deletes a Member of a Role in a Resource Set
 
 | Parameter      | Description                                     | Param Type   | DataType       | Required |
 | :------------- |:------------------------------------------------| :----------- | :------------- | :------- |
-| `resourceSetIdOrLabel`  | ID or label of the target Resource Set	  | URL          | String         | TRUE     |
+| `resourceSetIdOrLabel`  | ID or label of the target Resource Set      | URL          | String         | TRUE     |
 | `roleIdOrLabel`         | ID or label of the Role to identify the Binding | URL          | String         | TRUE     |
 | `memberId`       | ID of the Member in the Binding                 | URL          | String         | TRUE     |
 
@@ -2541,7 +2541,7 @@ Role targets are a way of defining permissions for admin roles into a smaller su
 
 ### Group administrator role group targets
 
-Assigns a group admin role to a specific Group that grants the admin permission to manage only that Group. For example, you can assign an admin role to manage only the IT group. The permissions for specifically what an admin can do within that Group depends on the admin role that they’re assigned to. See [Administrators](https://help.okta.com/okta_help.htm?id=ext_Administrators).
+Assigns a group admin role to a specific Group that grants the admin permission to manage only that Group. For example, you can assign an admin role to manage only the IT group. The permissions for specifically what an admin can do within that Group depends on the admin role that they're assigned to. See [Administrators](https://help.okta.com/okta_help.htm?id=ext_Administrators).
 
 #### List Group targets for the group administrator role
 
@@ -4053,7 +4053,7 @@ User permissions are only effective regarding the Groups to which the admin is g
 | `okta.users.credentials.manage`         | Allows the admin to manage only credential lifecycle operations for a User                                                                           | All Users, all Users within a specific Group |
 | `okta.users.credentials.resetFactors`   | Allows the admin to reset MFA authenticators for users                                                                                               | All Users, all Users within a specific Group |
 | `okta.users.credentials.resetPassword`  | Allows the admin to reset passwords for users                                                                                                        | All Users, all Users within a specific Group |
-| `okta.users.credentials.expirePassword` | Allows the admin to expire a user’s password and set a new temporary password                                                                        | All Users, all Users within a specific Group |
+| `okta.users.credentials.expirePassword` | Allows the admin to expire a user's password and set a new temporary password                                                                        | All Users, all Users within a specific Group |
 | `okta.users.userprofile.manage`         | Allows the admin to only do operations on the User object, including hidden and sensitive attributes                                                 | All Users, all Users within a specific Group |
 | `okta.users.lifecycle.manage`           | Allows the admin to perform any User lifecycle operations                                                                                            | All Users, all Users within a specific Group |
 | `okta.users.lifecycle.activate`         | Allows the admin to activate user accounts                                                                                                           | All Users, all Users within a specific Group |
@@ -4061,7 +4061,7 @@ User permissions are only effective regarding the Groups to which the admin is g
 | `okta.users.lifecycle.suspend`          | Allows the admin to suspend user access to Okta. When a user is suspended, their user sessions are also cleared.                                      | All Users, all Users within a specific Group |
 | `okta.users.lifecycle.unsuspend`        | Allows the admin to restore user access to Okta                                                                                                      | All Users, all Users within a specific Group |
 | `okta.users.lifecycle.delete`           | Allows the admin to permanently delete user accounts                                                                                                 | All Users, all Users within a specific Group |
-| `okta.users.lifecycle.unlock`           |	Allows the admin to unlock users who have been locked out of Okta                                                                                    | All Users, all Users within a specific Group |
+| `okta.users.lifecycle.unlock`           |    Allows the admin to unlock users who have been locked out of Okta                                                                                    | All Users, all Users within a specific Group |
 | `okta.users.lifecycle.clearSessions`    | Allows the admin to clear all active Okta sessions and OAuth tokens for a user                                                                       | All Users, all Users within a specific Group |
 | `okta.users.groupMembership.manage`     | Allows the admin to manage a user's group membership (also need `okta.groups.members.manage` to assign to a specific Group)                          | All Users, all Users within a specific Group |
 | `okta.users.appAssignment.manage`       | Allows the admin to manage a user's app assignment (also need `okta.apps.assignment.manage` to assign to a specific App)                             | All Users, all Users within a specific Group |
@@ -4072,7 +4072,7 @@ User permissions are only effective regarding the Groups to which the admin is g
 | `okta.groups.appAssignment.manage`      | Allows the admin to manage a Group's app assignment (also need `okta.apps.assignment.manage` to assign to a specific App)                            | All Groups, a specific Group                 |
 | `okta.apps.read`                        | Allows the admin to only read information about Apps and their members in your Okta organization                                                     | All Apps, All apps of specific type, a specific App |
 | `okta.apps.manage`                      | Allows the admin to fully manage Apps and their members in your Okta organization                                                                    | All Apps, All apps of specific type, a specific App |
-| `okta.apps.assignment.manage`           | Allows the admin to only manage assignment operations of an App in your Okta org                                                                     | All Apps, All apps of specific type, a specific App |
+| `okta.apps.assignment.manage`           | Allows the admin to manage assignment operations of an App in your Okta org and view the following provisioning errors: Application assignment, Group push mapping, and Error Profile push updates.                                                                   | All Apps, All apps of specific type, a specific App |
 | `okta.profilesources.import.run`         | Allows the admin to run imports for apps with a profile source, such as HRaaS and AD/LDAP apps. Admins with this permission can create users through the import. | All Apps, All apps of specific type, a specific App |
 | `okta.authzServers.read`                | Allows the admin to read authorization servers                                                                                                      | All authorization servers, a specific authorization server |
 | `okta.authzServers.manage`              | Allows the admin to manage authorization servers                                                                                                    | All authorization servers, a specific authorization server |
@@ -4261,7 +4261,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
 
 ### Binding object
 
-A Binding represents the assignment of a [Custom Role](#custom-role-object) to a list of admins. Bindings are specific to a [Resource Set](#resource-set-object). There’s a maximum of one Binding object per Role in a Resource Set.
+A Binding represents the assignment of a [Custom Role](#custom-role-object) to a list of admins. Bindings are specific to a [Resource Set](#resource-set-object). There's a maximum of one Binding object per Role in a Resource Set.
 
 The admin list assigned to a Role is made of [Resource objects](#resource-object) that represent either of the following types of admin assignments:
 
