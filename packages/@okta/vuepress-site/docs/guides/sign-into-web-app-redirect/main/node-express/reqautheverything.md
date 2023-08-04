@@ -1,14 +1,19 @@
-> **Note:** See [Add packages](#add-packages) for the required dependencies that you need for using the Okta SDK with your web app.
+You can use a middleware function to protect every endpoint so only authenticated users can access antyhing.
 
-Add middleware to `app.js` to protect all the routes in your app:
+1. Open **app.js**.
+1. Add the middleware function:
 
-```js
-function ensureLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/login')
-}
+   ```js
+   function ensureSignedIn(req, res, next) {
+   if (req.isAuthenticated()) {
+      return next();
+   }
+   res.redirect('/signin')
+   }
+   ```
 
-app.use(ensureLoggedIn());
-```
+1. Add the following line into the view engine setup to enforce authentication.
+
+   ```js
+   app.use(ensureSignedIn());
+   ```

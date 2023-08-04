@@ -3,15 +3,15 @@ The Okta ASP.NET Core SDK configures and hosts both sign-in and sign-out callbac
 Check the redirect URIs of your Okta app integration match the development URLs that Visual Studio assigned to your app.
 
 1. Open the **Properties** > **launchSettings.json** file.
-1. Make a note of the **sslPort** settings under **iisExpress**. In the example below, that's `44388`.
+1. Make a note of the **sslPort** settings under **iisExpress**. In the example below, that's `44314`.
 
    ```json
    "iisSettings": {
      "windowsAuthentication": false,
      "anonymousAuthentication": true,
      "iisExpress": {
-       "applicationUrl": "http://localhost:23316",
-       "sslPort": 44388
+       "applicationUrl": "http://localhost:8080",
+       "sslPort": 44314
      }
    }
    ```
@@ -22,6 +22,6 @@ If this differs from the SSL port used as part of the callback URLs you set earl
 1. Go to **Applications** > **Applications** to view the current app integrations.
 1. Select the entry for your application integration.
 1. Go to the **General Settings** section on the **General** tab and click **Edit**.
-1. Update the **Sign-in redirect URIs** to use the **sslPort** that you made note of earlier. For example, `https://localhost:44388/authorization-code/callback`.
-1. Update the **Sign-out redirect URIs** to use the **sslPort** that you made note of earlier. For example, `https://localhost:44388/signout/callback`
+1. Update the **Sign-in redirect URIs** to use the **sslPort** that you made note of earlier. For example, `https://localhost:44314/authorization-code/callback`.
+1. Update the **Sign-out redirect URIs** to use the **sslPort** that you made note of earlier. For example, `https://localhost:44314/signout/callback`
 1. Click **Save**.

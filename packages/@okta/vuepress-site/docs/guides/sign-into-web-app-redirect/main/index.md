@@ -10,7 +10,7 @@ Add user sign-in to a server-side web application with Okta's [redirect model](h
 
 **Learning outcomes**
 
-* Implement a simple redirect sign-in using the Okta SDK
+* Implement a simple redirect to an Okta-hosted sign-in page
 * Configure a server-side web application to use Okta
 * Test that users can sign in and sign out
 * Define which parts of an application require authentication and which do not
@@ -64,7 +64,7 @@ To create an app integration for your application:
    {style="list-style-type:lower-alpha"}
    1. Enter <StackSnippet snippet="signoutredirecturi" inline /> for **Sign-out redirect URIs**.
 
-   > **Note:** The values suggested here are those used in the sample app. You define them for your application in [Define a callback route](#define-a-callback-route).
+   > **Note:** The values suggested here are those used in the sample app.
 
 1. Select **Allow everyone in your organization to access** for **Controlled access**.
 1. Click **Save** to create the app integration.

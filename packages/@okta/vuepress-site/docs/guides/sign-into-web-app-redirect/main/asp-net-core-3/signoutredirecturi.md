@@ -1,1 +1,1 @@
-`https://localhost:44388/signout/callback`
+`https://localhost:44314/signout/callback`

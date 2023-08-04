@@ -1,16 +1,7 @@
-Add middleware to `app.js` that protects a specific route, then add it to the specific routes that you want to protect:
+You can use the same middleware function to [require authentication for everything](#require-authentication-for-everything) to protect only specific routes. Add it as a new parameter to the route handler when required:
 
 ```js
-function ensureLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/login')
-}
-
-...
-
-app.use('/profile', ensureLoggedIn, (req, res) => {
+app.use('/profile', ensureSignedIn, (req, res) => {
   res.render('profile', { user: req.user });
 });
 ```

@@ -1,6 +1,6 @@
 1. Run the following command to start the go app:
 
-   ```shell
+   ```bash
    go run main.go
    ```
 
