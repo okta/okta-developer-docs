@@ -214,7 +214,7 @@ See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-
   }' "https://${yourHubOrgDomain}/oauth2/v1/clients/${yourServiceAppId}/roles" \
  ```
 
-> **Note:** The admin roles provide permission to resources, while the scopes provide operations that can be performed on the permissible resources. Therefore, the admin roles need to have enough permissions for the scopes provided. For example: scopes determine the action that can be performed (manage users, read apps, and so on), while admin roles determine which resources the actions can be performed on (a specific group of users).
+> **Note:** The admin roles provide permission to resources, while the scopes provide operations that can be performed on the permissible resources. Therefore, the admin roles need to have enough permissions for the scopes provided. For example: admin roles determine which resources the actions can be performed on (a specific group of users), while scopes determine the action that can be performed (manage users, read apps, and so on).
 
 ### Grant allowed scopes to the OAuth 2.0 client
 
