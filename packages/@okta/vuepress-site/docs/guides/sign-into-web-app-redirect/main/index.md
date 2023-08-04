@@ -20,7 +20,6 @@ Add user sign-in to a server-side web application with Okta's [redirect model](h
 * An [Okta developer edition org](https://developer.okta.com/signup/)
 * <StackSnippet snippet="whatyouneed" />
 
-
 **Sample code**
 
 <StackSnippet snippet="samplecode" />

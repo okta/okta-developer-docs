@@ -1,1 +1,1 @@
-* A copy of Visual Studio Community, Professional or Enterprise 2019 version 16.4 or later
+[Go 1.13+](https://go.dev/dl/)

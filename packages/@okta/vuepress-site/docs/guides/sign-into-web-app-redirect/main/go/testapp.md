@@ -4,8 +4,9 @@
    go run main.go
    ```
 
-2. Open a browser and navigate to `http://localhost:8080`.
+1. Open a browser and navigate to `http://localhost:8080`.
+1. Click **Sign In**. The browser redirects you to Okta to sign in using the Sign-In Widget.
+1. After you have signed in, click **Profile**. The profile page displays the user information returned by Okta.
+1. Click **Sign Out**. The browser returns you to the home page.
 
-3. Click the login link and you are redirected to Okta to sign in. When you return, it should display your user information.
-
-If you don't have any handlers mapped to `/`, you get a 404 after authentication in a brand new Gin app. You can use the code in the [Get info about the user](#get-info-about-the-user) section to display the user's information after sign in.
+> **Note**: If you are signed in as an administrator in the same browser already, it displays your name. You can open an incognito window and create a test user in the Admin Console to use if you want.
