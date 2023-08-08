@@ -340,7 +340,7 @@ Creates a Permission on an existing Role
 | :----------------| :------------------------------------| :----------- | :------------------------------------| :------- |
 | `roleIdOrLabel`  | `id` or `label` of the Role          | URL          | String                               | TRUE     |
 | `permissionType` | Permission to add to the Role        | URL          | [Permission](#permission-types) name | TRUE     |
-| `conditions` <ApiLifecycle access="beta" />      | Conditions for further restricting a permission     | Body         | [Condition](#condition-object) object | FALSE    |
+| `conditions` <ApiLifecycle access="ea" />      | Conditions for further restricting a permission     | Body         | [Condition](#condition-object) object | FALSE    |
 
 #### Response parameters
 
@@ -364,7 +364,7 @@ curl -v -X POST \
 HTTP/1.1 204 No Content
 ```
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 Returns an error if the permission exists
 
 ```http
@@ -372,7 +372,7 @@ HTTP/1.1 400 Bad Request
 ```
 
 ### Update permission
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 
 <ApiOperation method="put" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
@@ -456,7 +456,7 @@ Retrieves a permission from an existing Role
 #### Response parameters
 
 The requested Permission<br>
-<ApiLifecycle access="beta" />Includes the conditions on the permission (if applicable)
+<ApiLifecycle access="ea" />Includes the conditions on the permission (if applicable)
 
 #### Request example
 
@@ -487,7 +487,7 @@ curl -v -X GET \
 ```
 
 #### Response example with Conditions
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 
 ```json
 {
@@ -4335,7 +4335,7 @@ The ID of a Member is unique to the Binding, whereas the link that points to the
 ```
 
 ## Condition object
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 
 Use a Condition object to further restrict a permission in a Custom Admin Role. For example, you can restrict access to specific profile attributes.
 
