@@ -13,6 +13,7 @@ title: Okta Identity Engine API Products release notes 2023
 | [API validation of Agent Pools update requests](#api-validation-of-agent-pools-update-requests) | August 10, 2023 |
 | [Authentication challenge for redirects is GA in Preview](#authentication-challenge-for-redirects-is-ga-in-preview) | August 10, 2023 |
 | [Policy Simulation API is GA in Preview](#policy-simulation-api-is-ga-in-preview) | August 10, 2023 |
+| [Developer documentation update in 2023.08.0](#developer-documentation-update-in-2023-08-0) | August 10, 2023 |
 | [Bugs fixed in 2023.08.0](#bugs-fixed-in-2023-08-0) | August 10, 2023 |
 
 #### API validation of Agent Pools update requests
@@ -33,6 +34,10 @@ Users now receive an authentication challenge for each redirect sent to an Ident
 #### Policy Simulation API is GA in Preview
 
 With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
+
+#### Developer documentation update in 2023.08.0
+
+New multibrand content is available that describes the behaviour of [branded emails](/docs/concepts/brands/#multibrand-and-emails) when triggered from the Admin Console, and when to use APIs to trigger the emails.
 
 #### Bugs fixed in 2023.08.0
 
