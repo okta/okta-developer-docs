@@ -176,10 +176,10 @@ curl -X POST \
 
 Assign admin roles for every OAuth 2.0 service app that you create in the hub org. Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks. You can assign the [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-standard-roles) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
 
-For the hub-and-spoke OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assign the following [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-use-standard-roles):
+For the hub-and-spoke OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assign the following [standard admin roles](/docs/concepts/role-assignment/#standard-role-types):
 
-* "USER_ADMIN"
-* "GROUP_MEMBERSHIP_ADMIN"
+* "USER_ADMIN" (Group Administrator)
+* "GROUP_MEMBERSHIP_ADMIN" (Group Membership Administrator)
 
 If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) for the OAuth 2.0 Org2Org provisioning connection, you require the following:
 
