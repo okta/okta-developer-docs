@@ -1,6 +1,6 @@
 {
-  "release" : "2023.07.1",
-  "build" : "2023.07.1-begin-153-ga889336f45b7",
+  "release" : "2023.08.1",
+  "build" : "2023.08.1-begin-173-gf5c499091c49",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
