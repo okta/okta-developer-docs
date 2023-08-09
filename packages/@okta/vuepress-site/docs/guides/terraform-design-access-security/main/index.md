@@ -43,6 +43,7 @@ With this flow, Terraform uses credentials to request access to your org. The se
 The credentials used for this flow are a public/private key pair. Okta stores the public key in the service app, and Terraform uses the private key in the configuration. You can [generate the key pair](/docs/guides/implement-oauth-for-okta-serviceapp) in the Okta service app or with your own secure internal methods. See [Create access credentials](/docs/guides/terraform-enable-org-access/main/#create-access-credentials).
 
 > **Note:** The Okta Terraform Provider requires the private key to use PKCS#1 encoding.
+You may have to use the following command to convert the key to a 'traditional' RSA format `openssl pkey -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY} -traditional`
 Okta recommends storing the private key in a separate and secure location and using a secrets and encryption management system, such as Hashicorp Vault. You can use input variables and environment variables to provide credentials to Terraform.
 
 > **Note:** Don't store credentials as plain text in your Terraform configuration.
