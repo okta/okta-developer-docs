@@ -255,5 +255,7 @@ Standard resource sets are managed by Okta only and can't be updated or deleted.
 | `okta.devices.lifecycle.delete` <br><ApiLifecycle access="ea" />                              | Allows the admin to permanently delete devices                                                                                                 | All Devices
 | `okta.devices.read` <br><ApiLifecycle access="ea" />                              | Allows the admin to read device details                                                                                                 | All Devices
 > **Note:** Governance permissions are currently only supported as part of the [Standard IAM-based Roles](#iam-based-standard-role-types). You can't use these to create or update other roles.
+
 > **Note:** `okta.apps.manageFirstPartyApps` permission is currently only supported as part of some [Standard IAM-based Roles](/docs/concepts/role-assignment/#iam-based-standard-role-types). You can't use it to create or update other roles.
+
 > **Note:** `okta.devices.*` permissions are self-service Early Access. Turn on the **Enable custom admin roles for device permissions** feature from the **Settings** > **Feature** page in the Admin Console to access these permissions. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
