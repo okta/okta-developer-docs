@@ -85,7 +85,7 @@ Check that the generated private key is in PKCS#1 format, which is the format re
    * `ORIGINAL_PRIVATE_KEY`: The file that contains the key generated earlier.
    * `CONVERTED_PRIVATE_KEY`: The file that contains the converted key.
 
-> **Note:** The file that contains the converted private key must begin with `-----BEGIN RSA PRIVATE KEY-----`. If not, try step two again.
+> **Note:** The file that contains the converted private key must begin with `-----BEGIN RSA PRIVATE KEY-----`. You may have to use the following command to convert the key to a 'traditional' RSA format `openssl pkey -in {ORIGINAL_PRIVATE_KEY} -out {CONVERTED_PRIVATE_KEY} -traditional`
 
 ## Add credentials to Terraform
 
