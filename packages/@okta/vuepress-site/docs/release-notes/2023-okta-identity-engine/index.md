@@ -13,7 +13,7 @@ title: Okta Identity Engine API Products release notes 2023
 | [API validation of Agent Pools update requests](#api-validation-of-agent-pools-update-requests) | August 10, 2023 |
 | [Authentication challenge for redirects is GA in Preview](#authentication-challenge-for-redirects-is-ga-in-preview) | August 10, 2023 |
 | [Policy Simulation API is GA in Preview](#policy-simulation-api-is-ga-in-preview) | August 10, 2023 |
-| [Developer documentation updates in 2023.08.0](#developer-documentation-update-in-2023-08-0) | August 10, 2023 |
+| [Developer documentation updates in 2023.08.0](#developer-documentation-updates-in-2023-08-0) | August 10, 2023 |
 | [Bugs fixed in 2023.08.0](#bugs-fixed-in-2023-08-0) | August 10, 2023 |
 
 #### API validation of Agent Pools update requests
