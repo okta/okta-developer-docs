@@ -313,9 +313,8 @@ Array of [Application objects](/docs/reference/api/apps/#application-object)
 
 ## Policy simulation operations
 <ApiLifecycle access="ie" />
-<ApiLifecycle access="ea" />
 
-> **Note:** This self-service Early Access feature is only available as a part of the Identity Engine. To enable this feature, see [Early Access](/docs/reference/releases-at-okta/#early-access-ea). For information on the Identity Engine, [contact support](mailto:dev-inquiries@okta.com).
+> **Note:** This feature is only available as a part of the Identity Engine. For information on the Identity Engine, [contact support](mailto:dev-inquiries@okta.com).
 
 ### Access simulation
 

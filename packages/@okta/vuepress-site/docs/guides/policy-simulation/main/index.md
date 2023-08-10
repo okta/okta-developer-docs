@@ -4,8 +4,6 @@ excerpt: Provides documentation on testing your policies using the Policy APIs s
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" />
-
 This guide explains how to test your access policies by using the `/simulate` endpoint of the Policy API.
 
 ---
@@ -19,7 +17,6 @@ This guide explains how to test your access policies by using the `/simulate` en
 
 * [Okta Preview organization](https://developer.okta.com/login)
 * An app to test your access policies
-* The Early Access self-service Access Test Tool feature enabled on your org. See [Early Access](/docs/reference/releases-at-okta/#early-access-ea).
 
 **Sample code**
 

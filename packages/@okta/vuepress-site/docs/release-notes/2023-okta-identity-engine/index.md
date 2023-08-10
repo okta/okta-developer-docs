@@ -4,17 +4,60 @@ title: Okta Identity Engine API Products release notes 2023
 
 <ApiLifecycle access="ie" />
 
-## July
+## August
 
-### Monthly release 2023.07.1
+### Monthly release 2023.08.0
+
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2023.07.1](#bugs-fixed-in-2023-07-1) | July 26, 2023 |
+| [API validation of Agent Pools update requests](#api-validation-of-agent-pools-update-requests) | August 10, 2023 |
+| [Authentication challenge for redirects is GA in Preview](#authentication-challenge-for-redirects-is-ga-in-preview) | August 10, 2023 |
+| [Policy Simulation API is GA in Preview](#policy-simulation-api-is-ga-in-preview) | June 14, 2023 |
+| [Developer documentation updates in 2023.08.0](#developer-documentation-updates-in-2023-08-0) | August 10, 2023 |
+| [Bugs fixed in 2023.08.0](#bugs-fixed-in-2023-08-0) | August 10, 2023 |
 
-#### Bugs fixed in 2023.07.1
+#### API validation of Agent Pools update requests
 
-* Requests to the `/authorize` endpoint failed when the request contained ASCII characters (`%00`) as the scope value. (OKTA-465695)
-* Users imported from Active Directory returned a `provisioned` status for API operations, but displayed an `active` status in the Admin Console. (OKTA-584683)
+The following fields are required for Agent Pools update requests (`POST /api/v1/agentPools/{poolId}/updates` and
+`POST /api/v1/agentPools/{poolId}/updates/{updateId}`):
+
+- 'agent'
+- 'name'
+- 'agentType'
+
+An API validation exception occurs if any of these fields are missing from the request. <!-- OKTA-430657 -->
+
+#### Authentication challenge for redirects is GA in Preview
+
+Users now receive an authentication challenge for each redirect sent to an Identity Provider with **Factor only** configured, even if the IdP session is active. <!-- OKTA-628504 ENG_FORCE_AUTHN_FOR_FACTORS_IDPS -->
+
+#### Policy Simulation API is GA in Preview
+
+With the Policy API `/simulate` endpoint, you can quickly and easily test policies and validate whether your desired security outcomes are achieved. This endpoint allows you to simulate user access attributes, such as IP address, device, risk, and so on, to test whether the user is granted access to the specified application. This endpoint is implemented in the Admin Console as the [Access Testing Tool](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/access-testing-tool.htm). The `/simulate` endpoint helps you identify potential security risks and compliance issues before you implement a policy. See the [Policy API](/docs/reference/api/policy/#policy-simulation-operations) and [Test your policies with access simulations](/docs/guides/policy-simulation). <!-- OKTA-593826 POLICY_SIMULATION -->
+
+#### Developer documentation updates in 2023.08.0
+
+- New multibrand content is available that describes the behaviour of [branded emails](/docs/concepts/brands/#multibrand-and-emails) and when to trigger them from the Admin Console or from the APIs.
+
+- A new [Terraform section](/docs/guides/terraform-landing-page/main/) is available that includes content for using Terraform to automate the management of your Okta org. These guides range from a Terraform overview to optimizing Terraform access in your Okta org. Additionally, there is content for managing user access, groups, and authentication services, customizing the end-user experience, and controlling Terraform access to your Okta org.
+
+#### Bugs fixed in 2023.08.0
+
+- Custom Push Factors used the same `provider` and `vendorName` properties as Okta Verify. These factors now return the `provider` as `CUSTOM` and the `vendorName` as the name of the authenticator. (OKTA-598598)
+- Some of the endpoints of the [Resource Sets API](/docs/reference/api/roles/#resource-set-operations) didn't support `self` and `next` link relation types. (OKTA-571339)
+- The Users API didn't validate the `saltOrder` property when creating or updating users with salted hashed passwords. (OKTA-602124)
+
+## July
+
+### Weekly release 2023.07.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2023.07.1](#bug-fixed-in-2023-07-1) | July 26, 2023 |
+
+#### Bug fixed in 2023.07.1
+
+Requests to the `/authorize` endpoint failed when the request contained ASCII characters (`%00`) as the scope value. (OKTA-465695)
 
 ### Monthly release 2023.07.0
 
