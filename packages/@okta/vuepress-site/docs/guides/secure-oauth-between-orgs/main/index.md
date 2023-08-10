@@ -182,8 +182,8 @@ Assign admin roles for every OAuth 2.0 service app that you create in the hub or
 
 For the hub-and-spoke OAuth 2.0 Org2Org provisioning connection, Okta recommends that you assign the following [standard admin roles](/docs/concepts/role-assignment/#standard-role-types):
 
-* "USER_ADMIN" (Group Administrator)
-* "GROUP_MEMBERSHIP_ADMIN" (Group Membership Administrator)
+* `USER_ADMIN` (Group Administrator)
+* `GROUP_MEMBERSHIP_ADMIN` (Group Membership Administrator)
 
 <!-- Add this section when custom roles can be verified by the Integration Platform team at GA
 
@@ -205,7 +205,7 @@ As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` req
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `${yourServiceAppId}` variable name is used instead of `client_id`.|
-| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_ADMINISTRATOR`). |
+| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`). |
 
 See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
 
