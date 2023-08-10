@@ -44,9 +44,11 @@ After the Org2Org OAuth 2.0 connection is configured, you can start to test your
 You can use OAuth 2.0 to push user and group information from a spoke org to a centralized hub org by performing the following configuration:
 
 1. In each spoke org, [add an instance of the Org2Org app integration](#add-an-org2org-app-integration-in-a-spoke-org) and save the generated JWKS public key.
-2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key. [Grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client) to the hub org service apps (the OAuth 2.0 clients).
+2. In the hub org, [create an OAuth 2.0 service app](#create-an-oauth-2-0-service-app-in-the-hub-org) for each spoke org with the corresponding Org2Org app JWKS public key. For each hub org service app (the OAuth 2.0 client), [assign admin roles](#assign-admin-roles-to-the-oauth-2-0-service-app) and [grant allowed scopes](#grant-allowed-scopes-to-the-oauth-2-0-client).
 3. [Set and activate provisioning in the Org2Org apps](#enable-provisioning-in-the-org2org-app) from the Okta API.
 4. [Assign users and groups in the spoke Org2Org apps](#assign-users-and-groups-in-the-org2org-app) to synchronize with the hub org.
+
+---
 
 ### Add an Org2Org app integration in a spoke org
 
@@ -168,11 +170,11 @@ curl -X POST \
  }' "https://${yourHubOktaDomain}/oauth2/v1/clients"
 ```
 
-> **Note**: You can copy the entire [response from the previous `GET /api/v1/apps/${id}/credentials/keys` request](#response-example) in to the `jwks.keys` array. The `created`, `lastUpdated`, and `expiresAt` properties are ignored in the POST request. Alternatively, you can remove them from the `jwks.keys` parameter body.
+> **Note:** You can copy the entire [response from the previous `GET /api/v1/apps/${id}/credentials/keys` request](#response-example) in to the `jwks.keys` array. The `created`, `lastUpdated`, and `expiresAt` properties are ignored in the POST request. Alternatively, you can remove them from the `jwks.keys` parameter body.
 
-#### Assign admin roles to the OAuth 2.0 service app
+### Assign admin roles to the OAuth 2.0 service app
 
-> **Note** for Production orgs with the **Assign admin roles to public client apps** feature enabled and Preview orgs:<br>
+> **Note:** These instructions are for Production orgs with the **Assign admin roles to public client apps** feature enabled and Preview orgs.<br><br>
 > Before Okta provided the ability to assign admin roles to service apps, the Super Administrator (`SUPER_ADMIN`) role was automatically assigned to all service apps. You can now fine-tune the resources that a service app can access by assigning specific standard or custom admin roles. No role is automatically assigned, so you must assign a role before you use the service app.
 > If you have a Production org and want to turn on the **Assign admin roles to public client apps** feature, see [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
@@ -182,6 +184,8 @@ For the hub-and-spoke OAuth 2.0 Org2Org provisioning connection, Okta recommends
 
 * "USER_ADMIN" (Group Administrator)
 * "GROUP_MEMBERSHIP_ADMIN" (Group Membership Administrator)
+
+<!-- Add this section when custom roles can be verified by the Integration Platform team at GA
 
 If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) for the OAuth 2.0 Org2Org provisioning connection, you require the following:
 
@@ -194,6 +198,7 @@ If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=e
   * All Groups
 
 > **Note:** You can bind resource sets to many different types of resources, such as user groups, flows, authorization servers, and so on. You don't necessarily have use the All Groups resource set in this use case. You can specify permissions for a specific subset of users in a custom role. See [Custom role assignment](/docs/concepts/role-assignment/#custom-role-assignment) and the [Custom Role assignment API operations](/docs/reference/api/roles/#custom-role-assignment-operations).
+-->
 
 As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
 
@@ -213,7 +218,7 @@ See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-
  -H "Authorization: SSWS ${hubApiToken}" \
  -d '{
     "type": "USER_ADMIN"
-  }' "https://${yourHubOrgDomain}/oauth2/v1/clients/${yourServiceAppId}/roles" \
+  }' "https://${yourHubOrgDomain}/oauth2/v1/clients/${yourServiceAppId}/roles"
  ```
 
 > **Note:** The admin roles determine which resources the actions can be performed on (such as a specific group of users or a specific set of apps), while scopes determine the action that can be performed (such as manage users, read apps, and so on). Therefore, the admin roles need to have enough permissions for the scopes provided.
