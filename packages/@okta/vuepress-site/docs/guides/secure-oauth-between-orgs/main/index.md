@@ -185,7 +185,7 @@ For the hub-and-spoke OAuth 2.0 Org2Org provisioning connection, Okta recommends
 * `USER_ADMIN` (Group Administrator)
 * `GROUP_MEMBERSHIP_ADMIN` (Group Membership Administrator)
 
-<!-- Add this section when custom roles can be verified by the Integration Platform team at GA
+<!-- Consider adding this section when custom roles can be verified by the Integration Platform team at GA
 
 If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) for the OAuth 2.0 Org2Org provisioning connection, you require the following:
 
