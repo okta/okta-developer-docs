@@ -205,7 +205,7 @@ As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` req
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `${yourServiceAppId}` variable name is used instead of `client_id`.|
-| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_ADMINISTRATOR`) or a custom admin role (`CUSTOM`). |
+| `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_ADMINISTRATOR`). |
 
 See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
 
