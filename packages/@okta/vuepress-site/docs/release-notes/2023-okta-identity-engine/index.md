@@ -37,7 +37,7 @@ With the Policy API `/simulate` endpoint, you can quickly and easily test polici
 
 #### Developer documentation updates in 2023.08.0
 
-- New multibrand content is available that describes the behaviour of [branded emails](/docs/concepts/brands/#multibrand-and-emails) when triggered from the Admin Console, and when to use APIs to trigger the emails.
+- New multibrand content is available that describes the behaviour of [branded emails](/docs/concepts/brands/#multibrand-and-emails) and when to trigger them from the Admin Console or from the APIs.
 
 - A new [Terraform section](/docs/guides/terraform-landing-page/main/) is available that includes content for using Terraform to automate the management of your Okta org. These guides range from a Terraform overview to optimizing Terraform access in your Okta org. Additionally, there is content for managing user access, groups, and authentication services, customizing the end-user experience, and controlling Terraform access to your Okta org.
 
