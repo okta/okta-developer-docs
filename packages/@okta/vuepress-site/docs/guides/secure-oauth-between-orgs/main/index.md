@@ -174,7 +174,7 @@ curl -X POST \
 
 ### Assign admin roles to the OAuth 2.0 service app
 
-> **Note:** These instructions are for Production orgs with the **Assign admin roles to public client apps** feature enabled and Preview orgs.<br><br>
+> **Note:** These instructions are for Production orgs with the **Assign admin roles to public client apps** feature enabled as well as Preview orgs.<br><br>
 > Before Okta provided the ability to assign admin roles to service apps, the Super Administrator (`SUPER_ADMIN`) role was automatically assigned to all service apps. You can now fine-tune the resources that a service app can access by assigning specific standard or custom admin roles. No role is automatically assigned, so you must assign a role before you use the service app.
 > If you have a Production org and want to turn on the **Assign admin roles to public client apps** feature, see [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
 
