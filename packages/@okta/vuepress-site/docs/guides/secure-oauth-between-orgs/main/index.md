@@ -197,7 +197,7 @@ If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=e
   * All Users
   * All Groups
 
-> **Note:** You can bind resource sets to many different types of resources, such as user groups, flows, authorization servers, and so on. You don't necessarily have use the All Groups resource set in this use case. You can specify permissions for a specific subset of users in a custom role. See [Custom role assignment](/docs/concepts/role-assignment/#custom-role-assignment) and the [Custom Role assignment API operations](/docs/reference/api/roles/#custom-role-assignment-operations).
+> **Note:** You can bind resource sets to many different types of resources, such as user groups, flows, authorization servers, and so on. You don't necessarily have to use the All Groups resource set in this use case. You can specify permissions for a specific subset of users in a custom role. See [Custom role assignment](/docs/concepts/role-assignment/#custom-role-assignment) and the [Custom Role assignment API operations](/docs/reference/api/roles/#custom-role-assignment-operations).
 -->
 
 As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
