@@ -271,4 +271,4 @@ Returns an HTTP 201 status code response, with a location URL referring to the n
 
 ## See also
 
-* [MyAccount API](/docs/reference/api/myaccount/) reference documentation
+* [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/) reference documentation

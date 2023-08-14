@@ -581,7 +581,7 @@ You can now edit the secondary factor in the default rule of the global session 
 
 #### Improved error messages for MyAccount API
 
-The [MyAccount API](/docs/reference/api/myaccount/) includes improved error messages for end users to identify why email and phone operations couldn't be completed or accessed. <!-- OKTA-484080 -->
+The [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/) includes improved error messages for end users to identify why email and phone operations couldn't be completed or accessed. <!-- OKTA-484080 -->
 
 #### Developer documentation updates in 2022.08.0
 
@@ -675,7 +675,7 @@ You can now choose which origins can embed Okta sign-in pages and the Okta End-U
 
 #### User-scoped MyAccount API is GA in Production
 
-The MyAccount API now provides user-scoped endpoints that don't require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. Additionally, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/). <!-- OKTA-508478 -->
+The MyAccount API now provides user-scoped endpoints that don't require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. Additionally, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-508478 -->
 
 #### Developer documentation updates in 2022.07.0
 
@@ -821,7 +821,7 @@ While Okta provides out-of-the-box telephony functionality, many customers need 
 
 #### User-scoped MyAccount API is GA in Preview
 
-The MyAccount API now provides user-scoped endpoints that don't require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/). <!-- OKTA-496877 -->
+The MyAccount API now provides user-scoped endpoints that don't require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/). <!-- OKTA-496877 -->
 
 #### Bugs fixed in 2022.06.0
 
@@ -862,7 +862,7 @@ The MyAccount API now provides user-scoped endpoints that don't require admin to
 
 #### User-scoped MyAccount API is EA in Preview
 
-The MyAccount API now provides user-scoped endpoints that don't require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](/docs/reference/api/myaccount/).
+The MyAccount API now provides user-scoped endpoints that don't require admin tokens. The new endpoint is `/idp/myaccount`. End users only need a bearer token to update their email and phone authenticators. In addition, app developers can call the MyAccount API for active users outside of the authentication context. For example, after a user enrolls in the mandatory email factor and completes authentication, app developers can call the API to enroll the active user with the optional phone authenticator. See [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/guides/overview/).
 
 #### Progressive Enrollment is EA in Preview
 
