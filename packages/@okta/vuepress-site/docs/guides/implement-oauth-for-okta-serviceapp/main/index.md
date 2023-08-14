@@ -57,6 +57,40 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 5. Optional. Click the **Application rate limits** tab to adjust the rate-limit capacity percentage for this service application. By default, each new application sets this percentage at 50%.
 
+### Assign admin roles to the service app
+
+> **Note:** These instructions are for Production orgs with the **Assign admin roles to public client apps** feature enabled as well as Preview orgs.<br><br>
+> Before Okta provided the ability to assign admin roles to service apps, the Super Administrator (`SUPER_ADMIN`) role was automatically assigned to all service apps. You can now fine-tune the resources that a service app can access by assigning specific standard or custom admin roles. No role is automatically assigned, so you must assign a role before you use the service app.
+> If you have a Production org and want to turn on the **Assign admin roles to public client apps** feature, see [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features).
+
+Assign admin roles for every OAuth 2.0 service app that you create. Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks. You can assign the [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
+
+<!-- Check with Vasi about what roles, permissions, and resource sets are recommended -->
+
+
+As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to your org with the following required parameters to assign an admin role:
+
+| Parameter |  Description/Value   |
+| --------- |  ------------- |
+| `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `${yourServiceAppId}` variable name is used instead of `client_id`.|
+| `type`  |  Specify the admin role to assign to the service app. <!-- Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`). --> |
+
+See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
+
+#### Request example
+
+```bash
+curl -i -X POST \
+  'https://subdomain.okta.com/oauth2/v1/clients/{clientId}/roles' \
+  -H 'Authorization: YOUR_API_KEY_HERE' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "type": "********"
+  }'
+```
+
+> **Note:** The admin roles determine which resources the admin can perform the actions on (such as a specific group of users or a specific set of apps), while scopes determine the action that the admin can perform (such as manage users, read apps, and so on). Therefore, the admin roles need to have enough permissions for the scopes provided.
+
 ## Generate the JWK using the API
 
 The `private_key_jwt` client authentication method is the only supported method for OAuth service apps that want to get access tokens with Okta scopes.
