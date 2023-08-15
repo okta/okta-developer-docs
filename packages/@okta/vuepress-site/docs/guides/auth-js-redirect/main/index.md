@@ -303,6 +303,32 @@ Test the new configurations by recovering a password for a user of your sample a
 
 See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr).
 
+## Enable passwordless authentication
+
+xyz blurb. For full details and other passwordless options, see [Set up passwordless sign-in experience](https://help.okta.com).
+
+1. Go to **Directory** > **Groups** and click **Add group**. Give the group a name, for example, Passwordless Users, and click **Save**.
+1. Select your new group, and click **Assign people** from the **People** tab. Add one or more users to your new group.
+1. Go to **Security** > **Authenticators** and edit or ensure the **Email** authenticator is set to **Authentication and recovery**.
+1. Click the **Enrollment** tab and then click **Add a policy** to add a new enrollment policy targeted at your new group.
+1. Add a Policy name, for example, Passwordless Enrollment, assign to your new group, Passwordless Users, and set **Email** as **Required** and **Password** as **Disabled**. Click **Create Policy**.
+1. Add a rule name, for example, Passwordless Enrollment Rule, and click **Create rule** to complete the enrollment policy setup.
+1. Click **Authentication Policies** and assign your sample application to a one-factor authentication policy, if it's not already. In the policy, click **Add rule**, and make the following configurations and then click **Save**:
+    * **Rule name**: Any name for this rule, for example, Passwordless authentication rule
+    * **User's group membership includes**: Your new group, Passwordless Users
+    * **User must authenticate with**: Any 1 factor type
+1. Click **Global Session Policy** and click **Add policy**. Give the policy a name, for example, Global Passwordless Policy, and assign the policy to your new group, Passwordless Users. Click **Create policy and add rule**.
+1. Configure the following fields in the **Add rule** dialog and then click **Create rule**:
+    * **Rule name**: Any name for this rule, for example, Global Passwordless rule
+    * **Establish the session with**: Any factor used to meet the Authentication Policy requirements
+
+Test the new configurations by signing in to your sample app with a user added to your Passwordless Users group:
+
+1. Start your app. On the Sign-In Widget, add the email address of your test user. Notice there is no password field available in the widget.
+1. Add the email address for your test user and click **Next**.
+1. Click the **Send me an email** link to receive a verification email.
+1. Open the email and use either the verification code or email link to verify the user. The user is signed in to your sample application without a password.
+
 <!-- ## Use Cases - Review these headings for future content
 
 * Retrofitting
