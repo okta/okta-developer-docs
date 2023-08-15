@@ -5,6 +5,12 @@ category: management
 
 # Features API
 
+The Features API reference is now available at the new [Okta API reference portal](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Feature/).
+
+Explore the [Okta Public API Collections](https://www.postman.com/okta-eng/workspace/okta-public-api-collections/overview) workspace to get started with the Features API Postman collection.
+
+<!--
+
 The Okta Features API provides operations to manage self-service Early Access (EA) and Beta features in your org.
 
 > **Note:** Important background information for this API is available on the [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) page.
@@ -688,3 +694,4 @@ Here are some links that may be available on a Feature, as determined by your po
   }
 }
 ```
+-->
