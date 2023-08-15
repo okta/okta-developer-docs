@@ -90,8 +90,7 @@ First, you must assign your integration to one or more test users in your org:
 1. Sign out of your Okta org. Click **Sign out** in the upper-right corner of the Admin Console.
 1. Sign in to the Okta End-User Dashboard as the regular user that was assigned the integration.
 
-   You can access the Okta End-User Dashboard by removing the `-admin` part from your Admin Console URL in the browser. For example, if your Admin Console URL is `https://dev-12345678-admin.okta.com/`, go to `https://dev-12345678.okta.com/` to sign in as a non-admin user.
-   To access the End-User Dashboard from a mobile device, see [Okta End-User-Dashboard](https://help.okta.com/okta_help.htm?type=eu&id=ext_user_dashboard_overview).
+   > **Note:** If you sign in as a non-admin user to your Okta org from a browser, the End-User Dashboard appears. To access the End-User Dashboard from a mobile device, see [Okta End-User-Dashboard](https://help.okta.com/okta_help.htm?type=eu&id=ext_user_dashboard_overview).
 
 1. Click the Okta tile for the integration and confirm that the user is signed in to your app.
 
