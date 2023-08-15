@@ -310,8 +310,11 @@ xyz blurb. For full details and other passwordless options, see [Set up password
 1. Go to **Directory** > **Groups** and click **Add group**. Give the group a name, for example, Passwordless Users, and click **Save**.
 1. Select your new group, and click **Assign people** from the **People** tab. Add one or more users to your new group.
 1. Go to **Security** > **Authenticators** and edit or ensure the **Email** authenticator is set to **Authentication and recovery**.
-1. Click the **Enrollment** tab and then click **Add a policy** to add a new enrollment policy targeted at your new group.
-1. Add a Policy name, for example, Passwordless Enrollment, assign to your new group, Passwordless Users, and set **Email** as **Required** and **Password** as **Disabled**. Click **Create Policy**.
+1. Click the **Enrollment** tab and then click **Add a policy** to add a new enrollment policy targeted at your new group. Configure the following fields and then click **Create Policy**:
+    * **Policy name**: Any name for this policy, for example, Passwordles Enrollment
+    * **Assign to Groups**: Your new group, Passwordles Users
+    * **Email** authenticator: Set to required
+    * **Password** authenticator: Set to disabled
 1. Add a rule name, for example, Passwordless Enrollment Rule, and click **Create rule** to complete the enrollment policy setup.
 1. Click **Authentication Policies** and assign your sample application to a one-factor authentication policy, if it's not already. In the policy, click **Add rule**, and make the following configurations and then click **Save**:
     * **Rule name**: Any name for this rule, for example, Passwordless authentication rule
