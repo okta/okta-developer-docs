@@ -305,7 +305,7 @@ See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie
 
 ## Enable passwordless authentication
 
-xyz blurb. For full details and other passwordless options, see [Set up passwordless sign-in experience](https://help.okta.com).
+Enable passwordless authentication for your existing users by configuring your Okta org's authenticator enrollment policy, authentication policy, and global session policy. This example uses the email authenticator to authenticate your users instead of a password. For full details and other passwordless implementation options, see [Set up passwordless sign-in experience](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless).
 
 1. Go to **Directory** > **Groups** and click **Add group**. Give the group a name, for example, Passwordless Users, and click **Save**.
 1. Select your new group, and click **Assign people** from the **People** tab. Add one or more users to your new group.
