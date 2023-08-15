@@ -37,7 +37,7 @@ The following are the high-level steps required to perform the Client Credential
 1. Grant the required OAuth 2.0 scopes to the app.
 1. Create a JSON Web Token (JWT) and sign it using the private key for use as the client assertion when making the `/token` endpoint API call.
 
-> **Note:** OAuth for Okta works only with the APIs listed on the [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/) page.
+> **Note:** OAuth for Okta works only with allowed [OAuth 2.0 Scopes](https://developer.okta.com/docs/api/oauth2/#okta-admin-management).
 
 ## Create a service app integration
 
@@ -57,7 +57,7 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 5. Optional. Click the **Application rate limits** tab to adjust the rate-limit capacity percentage for this service application. By default, each new application sets this percentage at 50%.
 
-### Assign admin roles to the service app
+### Assign admin roles to the OAuth 2.0 service app
 
 > **Note:** These instructions are for Production orgs with the **Assign admin roles to public client apps** feature enabled as well as Preview orgs.<br><br>
 > Before Okta provided the ability to assign admin roles to service apps, the Super Administrator (`SUPER_ADMIN`) role was automatically assigned to all service apps. You can now fine-tune the resources that a service app can access by assigning specific standard or custom admin roles. No role is automatically assigned, so you must assign a role before you use the service app.
