@@ -78,7 +78,7 @@ See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-
 
 ```bash
 curl -i -X POST \
-  'https://subdomain.okta.com/oauth2/v1/clients/{clientId}/roles' \
+  'https://subdomain.okta.com/oauth2/v1/clients/${yourServiceAppId}/roles' \
   -H 'Authorization: YOUR_API_KEY_HERE' \
   -H 'Content-Type: application/json' \
   -d '{
