@@ -637,7 +637,11 @@ export const guides = [
                 guideName: "submit-app-prereq",
               },
               {
-                title: "Submit with OIN Manager",
+                title: "Submit an SSO integration",
+                guideName: "submit-sso-app",
+              },
+              {
+                title: "Submit an LCM integration",
                 guideName: "submit-app",
               },
             ]

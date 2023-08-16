@@ -1,31 +1,26 @@
 ---
-title: Submit an LCM integration
+title: Submit an SSO integration
 meta:
   - name: description
-    content: Use this guide to learn how to submit your Okta Lifecycle management integration for publication with the Okta Integration Network (OIN) Manager.
+    content: Use this guide to learn how to submit your Okta Single Sign-On (SSO) integration for publication with the Okta Integration Network (OIN) Manager.
 layout: Guides
 ---
 
-This guide walks you through the process of submitting a Workflows connector, OIDC, SAML 2.0, or SCIM integration to the Okta Integration Network (OIN) using the OIN Manager. It also shows you how to update a previously published integration or delete a draft submission.
+This guide walks you through the process of submitting a Single Sign-On (SSO) OIDC or SAML 2.0 integration to the Okta Integration Network (OIN) using the OIN Manager. It also shows you how to update a previously published integration or delete a draft submission.
 
-> **Note:**
-> * For submitting API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/).
-> * SWA app integrations are no longer accepted for publication in the OIN catalog.
+> **Note:** SWA app integrations are no longer accepted for publication in the OIN catalog.
 
 ---
 
 **Learning outcomes**
 
-* Understand how to submit a new integration to the OIN.
-* Understand how to update a previously published integration.
-* Understand how to delete a draft submission or delete a published integration.
+* Understand how to submit a new SSO integration to the OIN.
+* Understand how to update a previously published SSO integration.
+* Understand how to delete a draft SSO submission or delete a published integration.
 
 **What you need**
 
-* A functional integration created and tested in accordance with one of our OIN guides:
-   * [Build a Single-Sign On integration](/docs/guides/build-sso-integration/)
-   * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
-   * [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
+* A functional SSO integration created and tested in accordance the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 
 * Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the various items required during submission.
 
