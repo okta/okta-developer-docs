@@ -1,1 +1,1 @@
-* [SAML - Frequently Asked Questions](/docs/concepts/saml/faqs/)
+* [OAuth 2.0 vs. OpenID Connect](/docs/concepts/oauth-openid/#oauth-2-0-vs-openid-connect)
