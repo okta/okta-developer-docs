@@ -5,7 +5,7 @@
 1. Locate the **General Settings** section on the **General** tab, and then click **Edit**.
 1. Select **Refresh Token** and **SAML 2.0 Assertion** as the **Allowed grant types**. These selections enable you to exchange an assertion for the access token and also request a refresh token.
 
-   > **Note:** The refresh token lifetime depends on the assertion lifetime and the [API Access Management policies](#configure-the-authorization-server-policy). The lowest of these defined values is the refresh token max lifetime.
+   > **Note:** The refresh token lifetime depends on the assertion lifetime and the [API Access Management policies](#configure-the-authorization-server-policy). The assertion lifetime is based on the incoming assertion. The lowest of these defined values is the refresh token max lifetime. For example, the SAML assertion expiry is set to 30 days, and the refresh token expirty in your access policies is set to 180 days. This results in a refresh token lifetime of 30 days.
 
 1. Click **Save**.
 
