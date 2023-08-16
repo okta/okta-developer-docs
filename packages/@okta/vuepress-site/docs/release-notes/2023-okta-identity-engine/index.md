@@ -10,12 +10,12 @@ title: Okta Identity Engine API Products release notes 2023
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Custom admin roles with device permissions](#custom-admin-roles-with-device-permissions) | August 16, 2023 |
+| [Custom admin roles with device permissions is EA in Preview](#custom-admin-roles-with-device-permissions-is-ea-in-preview) | August 16, 2023 |
 | [Bugs fixed in 2023.08.1](#bugs-fixed-in-2023-08-1) | August 16, 2023 |
 
-#### Custom admin roles with device permissions
+#### Custom admin roles with device permissions is EA in Preview
 
-You can now create custom admin roles with permissions to view and manage devices. You can add the 'Devices' to your [resource set](https://developer.okta.com/docs/reference/api/roles/#supported-resources)&nbsp; and then specify [device permissions](https://developer.okta.com/docs/reference/api/roles/#permission-types)&nbsp; for your custom admin. <!-- OKTA-636437 CUSTOM_ADMIN_ROLE_DEVICES -->
+You can now create custom admin roles with permissions to view and manage devices. You can add the [Devices resource](/docs/reference/api/roles/#supported-resources)&nbsp;to your resource set and then specify [device permissions](/docs/reference/api/roles/#permission-types)&nbsp;for your custom admin. <!-- OKTA-636437 CUSTOM_ADMIN_ROLE_DEVICES -->
 
 #### Bugs fixed in 2023.08.1
 
@@ -23,7 +23,7 @@ You can now create custom admin roles with permissions to view and manage device
 * Federated users were unable to sign in to an app due to incorrect AMR value mapping when **Trust AMR claims from this Identity Provider** was enabled. (OKTA-604248)
 * Removing the `emailAuthenticationLink` variable from the email template didn't update the Sign-In Widget. (OKTA-627533)
 * OpenID Connect `/token` requests using the SAML 2.0 Assertion grant type flow failed if the SAML assertion expiry was greater than 30 days. (OKTA-632131)
-* The Access Testing Tool ([Policy simulation operations](https://developer.okta.com/docs/reference/api/policy/#policy-simulation-operations)) results showed an incorrect value for the profile enrollment self-service registration option. (OKTA-635787)
+* The Access Testing Tool ([Policy simulation operations](/docs/reference/api/policy/#policy-simulation-operations)) results showed an incorrect value for the profile enrollment self-service registration option. (OKTA-635787)
 
 ### Monthly release 2023.08.0
 
