@@ -1,0 +1,1 @@
+* [SAML - Frequently Asked Questions](/docs/concepts/saml/faqs/)

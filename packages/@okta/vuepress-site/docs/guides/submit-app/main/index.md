@@ -6,69 +6,55 @@ meta:
 layout: Guides
 ---
 
-This guide walks you through the process of submitting a Workflows connector, OIDC, SAML 2.0, or SCIM integration to the Okta Integration Network (OIN) using the OIN Manager. It also shows you how to update a previously published integration or delete a draft submission.
-
-> **Note:**
-> * For submitting API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/).
-> * SWA app integrations are no longer accepted for publication in the OIN catalog.
+This guide walks you through the process of submitting a Lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a SCIM or a Workflows Connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
 
 ---
 
 **Learning outcomes**
 
-* Understand how to submit a new integration to the OIN.
-* Understand how to update a previously published integration.
-* Understand how to delete a draft submission or delete a published integration.
+* Understand how to submit a new LCM integration to the OIN.
+* Understand how to update or delete a previously published integration.
 
 **What you need**
 
-* A functional integration created and tested in accordance with one of our OIN guides:
-   * [Build a Single-Sign On integration](/docs/guides/build-sso-integration/)
+* A functional LCM integration created and tested in accordance with one of the following guides:
    * [Build a SCIM provisioning integration](/docs/guides/scim-provisioning-integration-overview/)
    * [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
 
-* Review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the various items required during submission.
+* The various items necessary for submission in accordance to the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
 ---
 
 ## Overview
 
-The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that is connected to your developer org where you test and develop your Okta integration.
+The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that is connected to your developer org where you test and develop your Okta integration. Use this tool to submit your LCM app integration for verification and publishing in the public OIN catalog.
 
 ### Protocols supported
 
-This guide covers submissions that use one or more of these protocols or tools:
+This guide covers submissions that use one of these protocols or tools:
 
 * [System for Cross-domain Identity Management (SCIM)](https://scim.cloud)
-* [OpenID Connect (OIDC)](https://openid.net/connect/)
 
-    >**Note:** <br>
-    > * To support the potentially large numbers of Okta orgs accessing an authorization server through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
-    > * ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
-
-* [Security Assertion Markup Language (SAML)](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0.html)
-
-    >**Note:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
-
-* [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf)
-
->**Note:** For submitting API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/).
-
->**Note:** SWA app integrations are no longer accepted for publication in the OIN catalog. However, existing SWA apps are still maintained by the OIN team.
+* [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builder)
 
 ### Submission support
 
-Getting your app integration in the OIN catalog involves two phases: creating a functional integration and submitting it through the OIN publication process. For each phase in the process, Okta has an associated support stream to assist you.
+Getting your app integration in the OIN catalog involves two phases:
 
-When you're constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/).
+* creating a functional integration
+* submitting it through the OIN publication process
 
-If you need help during the submission process, use the Get Support section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
+For each phase in the process, Okta has an associated support stream to assist you.
 
-* OIN integration guides
-* Okta, OIDC, SAML, and SCIM concepts
-* A search tool to find articles in the Okta developer portal
+* When you're constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/).
 
-If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
+* If you need help during the submission process, use the Get Support section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
+
+  * OIN integration guides
+  * Okta, OIDC, SAML, and SCIM concepts
+  * A search tool to find articles in the Okta developer portal
+
+  If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
 >**Note:** All integrations in the OIN catalog are public. If you want to submit a request to create a private app integration for an application that uses SCIM 1.1 or Profile Sourcing, or for an application that uses a custom header expression for the Header Auth, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim) to create your integration and submit your app through the [OIN Manager](https://oinmanager.okta.com). The Okta OIN team works with you to create an internal-only integration that isn't included in the OIN.
 
@@ -130,11 +116,9 @@ The Okta OIN team requires a dedicated account on your application to run their 
 
 ### Configure protocol or tool-specific settings
 
-If your integration isn't a Workflows connector, then your application needs to support at least one protocol for interacting with Okta: OIDC or SAML for authentication, or SCIM for provisioning. For API service integrations, see [Build an API service integration](/docs/guides/build-api-integration/) for **API Service** tab descriptions.
+You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SCIM, you can create the submission with the SCIM protocol details. Later, when you add Workflows Connector capabilities to your application, you can return to your integration submission to include Workflows Connector support.
 
-You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SAML and SCIM, you can create the submission with the SAML and SCIM protocol details. At a later date, when you add OIDC support to your application, you can return to your integration submission, activate the OIDC support panel, and add in the details needed for Okta to enable OIDC support.
-
->**Note:** Select the **Instructions for** dropdown menu on this page for the protocol or tool tab descriptions in the following section.
+> **Note:** If you don't see the protocol or tool-specific settings you want in this section, select the **Instructions for** dropdown menu on this page.
 
 <StackSnippet snippet="protocol-name" />
 
@@ -150,7 +134,7 @@ You must include all required information before you can click **Submit for Revi
 
 If you need to make protocol changes to your integration that is already published in the OIN catalog, you can visit the [OIN Manager](https://oinmanager.okta.com/) and create an updated version of the integration.
 
-Similarly, when you enable a new capability in your application (for example, adding SCIM provisioning onto an existing published SAML application), you don't need to create an entirely new submission. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
+Similarly, when you enable a new capability in your application (for example, adding a new Workflows connector feature onto an existing published SCIM application), you don't need to create an entirely new submission. You can update your existing submission to enable and specify the settings for that protocol, then submit the updated integration.
 
 1. Sign in to the OIN Manager using the credentials for your original dev org.
     >**Note:** You must submit the updated integration using the same dev org that was used to make the original submission, otherwise the Okta OIN team rejects the update.
@@ -198,5 +182,4 @@ Finally, if you intend to remove your back-end application support for the Okta 
 
 ## See also
 
-* [SAML - Frequently Asked Questions](/docs/concepts/saml/faqs/)
-* [SCIM - Frequently Asked Questions](/docs/concepts/scim/faqs/)
+<StackSnippet snippet="see-also" />
