@@ -17,7 +17,7 @@ This guide explains how to include the `acr_values` parameter in your authorizat
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
-* Existing OpenID Connect (OIDC) or SAML app integration that you want to configure `acr_values` for. See [Create OIDC app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) or [Create SAML app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-saml) if you don’t have an OIDC or SAML2 app configured.
+* Existing OpenID Connect (OIDC) or SAML app integration that you want to configure `acr_values` for. See <StackSnippet snippet="createapp" inline />
 
 ---
 
