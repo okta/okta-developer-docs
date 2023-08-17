@@ -1,11 +1,9 @@
-The way that you protect every route is different depending on the framework you are using. In this example, with the minimal `switch` statement router, check for the ID token in the session before the router and show the log-in link if it's missing.
-
-This can be handled as follows:
+The framework that you are using will determine how to implement this. For example, with the minimal `switch` statement router, check for the ID token in the session before the router and show the sign-in link if it's missing:
 
 ```php
 if(empty($_SESSION['okta_id_token'])) {
   ?>
-    <a href="/login">Log In</a>
+    <a href="/signin">Sign In</a>
   <?php
   die();
 }

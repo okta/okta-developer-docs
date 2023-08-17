@@ -1,8 +1,8 @@
 1. Run the following command to start your app:
 
-```bash
-npm start
-```
+   ```bash
+   npm start
+   ```
 
 1. Open a browser and navigate to `http://localhost:3000`.
 1. Click **Sign In**. The browser redirects you to Okta to sign in using the Sign-In Widget.

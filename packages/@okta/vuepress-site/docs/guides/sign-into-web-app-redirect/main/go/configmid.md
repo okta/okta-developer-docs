@@ -1,9 +1,9 @@
 1. Create a `.env` file in the root of your project. Add the following, replacing the placeholders with your own values.
 
-   ```bash
-   CLIENT_ID={clientId}
-   CLIENT_SECRET={clientSecret}
-   ISSUER=https://{yourOktaDomain}/oauth2/default
+   ```properties
+   CLIENT_ID=${clientId}
+   CLIENT_SECRET=${clientSecret}
+   ISSUER=https://${yourOktaDomain}/oauth2/default
    ```
 
 1. Add a command to parse those values in your `main()` function in `main.go`:

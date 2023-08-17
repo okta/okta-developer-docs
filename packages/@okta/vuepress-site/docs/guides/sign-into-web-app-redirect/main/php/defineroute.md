@@ -1,6 +1,6 @@
-After the user signs in to Okta, Okta returns them to the redirect URL with an authorization code in the query string. Your app then exchanges that authorization code for an access token and optional refresh token and ID token.
+When you [created an app integration in the admin console](#create-an-app-integration-in-the-admin-console), you set the sign-in redirect URL to <StackSnippet snippet="signinredirecturi" inline /> and the sign-out redirect URL to <StackSnippet snippet="signoutredirecturi" inline />. In this sample, only the sign-in callback requires additional code.
 
-1. Inside your switch statement, define a new route equal to the redirect URL:
+1. Add a new route handler for the sign-in callback URI to the switch statement:
 
    ```php
      ...
@@ -10,7 +10,7 @@ After the user signs in to Okta, Okta returns them to the redirect URL with an a
      ...
    ```
 
-2. Near the bottom of the file, create the function `authorization_code_callback_handler` that is called when the user's browser visits that URL. In that function, you exchange the authorization code for tokens:
+2. Define the handler function `authorization_code_callback_handler()` at the end of the file. This reads the authorization code in the query string and then exchanges it for an access token and optional refresh token and ID token.
 
    ```php
    function authorization_code_callback_handler() {
@@ -24,7 +24,8 @@ After the user signs in to Okta, Okta returns them to the redirect URL with an a
      }
 
      if(empty($_GET['code'])) {
-       throw new Exception("this is unexpected, the authorization server redirected without a code or an  error");
+       throw new Exception("this is unexpected,
+         the authorization server redirected without a code or an error");
      }
 
      // Exchange the authorization code for an access token by making a request to the token endpoint
