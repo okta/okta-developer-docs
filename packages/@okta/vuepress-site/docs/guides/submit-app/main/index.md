@@ -39,22 +39,13 @@ This guide covers submissions that use one of these protocols or tools:
 
 ### Submission support
 
-Getting your app integration in the OIN catalog involves two phases:
+If you need help during the submission process, use the Get Support section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
 
-* creating a functional integration
-* submitting it through the OIN publication process
+* OIN integration guides
+* Okta, OIDC, SAML, and SCIM concepts
+* A search tool to find articles in the Okta developer portal
 
-For each phase in the process, Okta has an associated support stream to assist you.
-
-* When you're constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/).
-
-* If you need help during the submission process, use the Get Support section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
-
-  * OIN integration guides
-  * Okta, OIDC, SAML, and SCIM concepts
-  * A search tool to find articles in the Okta developer portal
-
-  If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
+If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
 >**Note:** All integrations in the OIN catalog are public. If you want to submit a request to create a private app integration for an application that uses SCIM 1.1 or Profile Sourcing, or for an application that uses a custom header expression for the Header Auth, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim) to create your integration and submit your app through the [OIN Manager](https://oinmanager.okta.com). The Okta OIN team works with you to create an internal-only integration that isn't included in the OIN.
 

@@ -8,8 +8,6 @@ layout: Guides
 
 This guide walks you through the process of submitting an SSO OIDC or SAML 2.0 integration to the Okta Integration Network (OIN) using the OIN Manager. It also shows you how to update a previously published integration or delete a draft submission.
 
-> **Note:** SWA app integrations are no longer accepted for publication in the OIN catalog.
-
 ---
 
 **Learning outcomes**
@@ -47,22 +45,13 @@ This guide covers submissions that use the following protocols:
 
 ### Submission support
 
-Getting your app integration in the OIN catalog involves two phases:
+If you need help during the submission process, use the Get Support section on the My App Integrations page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
 
-* creating a functional integration
-* submitting it through the OIN publication process
+* OIN integration guides
+* Okta, OIDC, SAML, and SCIM concepts
+* A search tool to find articles in the Okta developer portal
 
-For each phase in the process, Okta has an associated support stream to assist you.
-
-* When you're constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/).
-
-* If you need help during the submission process, use the Get Support section on the **My App Integrations** page after you sign in to the [OIN Manager](https://oinmanager.okta.com). This section provides the following resources from the [Okta developer portal](https://developer.okta.com/):
-
-  * OIN integration guides
-  * Okta, OIDC, SAML, and SCIM concepts
-  * A search tool to find articles in the Okta developer portal
-
-  If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
+If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
 ## Submit an integration
 
