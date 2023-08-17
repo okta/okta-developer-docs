@@ -71,10 +71,13 @@ As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` req
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the `client_id` value from the previous response when the service app was created. In the following role assignment example, the `${yourServiceAppId}` variable name is used instead of `client_id`.|
 | `type`  |  Specify the admin role to assign to the service app. |
+| `resource-set`  |  Custom role only. Specify the resource set ID. |
+| `role`  |  Custom role only. Specify the custom role ID. |
+
 
 See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
 
-#### Request example
+#### Request example - standard role
 
 ```bash
 curl -i -X POST \
@@ -83,6 +86,20 @@ curl -i -X POST \
   -H 'Content-Type: application/json' \
   -d '{
     "type": "${type}"
+  }'
+```
+
+#### Request example - custom role
+
+```bash
+curl -i -X POST \
+  'https://subdomain.okta.com/oauth2/v1/clients/{yourServiceAppId}/roles' \
+  -H 'Authorization: YOUR_API_KEY_HERE' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "type": "CUSTOM",
+    "role": "${role}",
+    "resource-set": "${resource-set}"
   }'
 ```
 
