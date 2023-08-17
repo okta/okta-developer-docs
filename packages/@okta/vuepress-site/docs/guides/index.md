@@ -17,6 +17,7 @@ guides:
  - client-secret-rotation-key
  - common-hook-set-up-steps
  - configure-access-policy
+ - configure-amr-claims-mapping
  - configure-ciba
  - configure-native-sso
  - configure-signon-policy

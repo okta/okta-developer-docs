@@ -396,6 +396,10 @@ export const guides = [
               },
             ],
           },
+          {
+            title: "Configure AMR claims mapping",
+            guideName: "configure-amr-claims-mapping"
+          },
           { title: "Sign users out", guideName: "oie-embedded-sdk-use-case-basic-sign-out" },
           { title: "Single Logout", guideName: "single-logout" },
           {
