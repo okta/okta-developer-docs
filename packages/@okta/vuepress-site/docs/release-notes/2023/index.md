@@ -4,6 +4,17 @@ title: Okta API Products release notes 2023
 
 ## August
 
+### Weekly release 2023.08.1
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bugs fixed in 2023.08.1](#bugs-fixed-in-2023-08-1) | August 16, 2023 |
+
+#### Bugs fixed in 2023.08.1
+
+* The Active Directory agent version returned by `/api/v1/agentPools/update` was in the format `x.y.z.a` instead of the expected `x.y.z`. (OKTA-597796)
+* OpenID Connect `/token` requests using the SAML 2.0 Assertion grant type flow failed if the SAML assertion expiry was greater than 30 days. (OKTA-632131)
+
 ### Monthly release 2023.08.0
 
 | Change | Expected in Preview Orgs |
@@ -54,7 +65,7 @@ A new [Terraform section](/docs/guides/terraform-landing-page/main/) is availabl
 
 #### Bugs fixed in 2023.07.1
 
-* Admins with the `Manage users` permission couldn’t create users with WS-Federation IdPs. (OKTA-621284)
+* Admins with the `Manage users` permission couldn't create users with WS-Federation IdPs. (OKTA-621284)
 * Requests to the `/authorize` endpoint failed when the request contained ASCII characters (`%00`) as the scope value. (OKTA-465695)
 
 ### Monthly release 2023.07.0
@@ -271,7 +282,7 @@ Admins saw Okta FastPass listed in the `GET /api/v1/users/{{userId}}/factors` re
 
 #### Bug fixed in 2023.04.1
 
-Orgs with Multibrand enabled couldn’t add the same custom email domain that they’d previously deleted. (OKTA-587938)
+Orgs with Multibrand enabled couldn't add the same custom email domain that they'd previously deleted. (OKTA-587938)
 
 ### Monthly release 2023.04.0
 
@@ -294,7 +305,7 @@ Okta now supports [Demonstrating Proof-of-Possession](/docs/guides/dpop/main/) f
 
 #### OAuth 2.0 authentication for inline hooks is GA in Production
 
-Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
+Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn't meet more stringent security requirements for various clients and industries.
 
 To improve the security of inline hooks, Okta now supports authentication with OAuth 2.0 access tokens. Tokens ensure secure calls to external web services.
 
@@ -304,7 +315,7 @@ Using the OAuth 2.0 framework provides better security than Basic Authentication
 
 #### API service integrations are GA in Production
 
-A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/main/). <!--OKTA-577514-->
+A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn't disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/main/). <!--OKTA-577514-->
 
 #### OIN Manager support for Workflow Connector submission is GA in Production
 
@@ -345,7 +356,7 @@ The Identity Sources API bulk upsert operation accepted an empty profile payload
 #### Bugs fixed in 2023.03.3
 
 * App sign-on events with usernames that exceeded 100 characters weren't always added to the System Log. (OKTA-585478)
-* CSV values that could trigger a computation weren’t escaped in the `User-Agent` string. (OKTA-452381)
+* CSV values that could trigger a computation weren't escaped in the `User-Agent` string. (OKTA-452381)
 * The groups count on the Admin Dashboard was incorrect. (OKTA-592512)
 * Some validations weren't enforced when requests were made to the Apps API. (OKTA-585354)
 
@@ -403,7 +414,7 @@ Previously, Okta only supported the use of client secret as the client authentic
 
 #### API service integrations are GA in Preview
 
-A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn’t disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/main/). <!--OKTA-577514-->
+A service-to-service app where a backend service or a daemon calls Okta management APIs for a tenant (Okta org) can be published in the Okta Integration Network (OIN) as an API service integration. This integration type allows your service app to access your customer Okta org through Okta management APIs using the OAuth 2.0 Client Credentials flow. API service integrations provide secure, reliable, and least-privilege scoped access to Okta APIs without being associated with a user, so service isn't disrupted when the user is no longer involved with service integration activities. See [API service integrations in the OIN](/docs/guides/oin-api-service-overview/). OIN Manager has been updated to support testing and submitting API service integrations. After your service integration is published in the OIN, workforce customers can discover and configure your integration with ease. See [Build an API service integration](/docs/guides/build-api-integration/main/). <!--OKTA-577514-->
 
 #### Log Streaming is GA in Production
 
@@ -417,7 +428,7 @@ OAuth 2.0 Optional consent provides an optional property that enables a user to 
 
 #### OAuth 2.0 authentication for inline hooks is GA in Preview
 
-Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn’t meet more stringent security requirements for various clients and industries.
+Okta inline hook calls to third-party external web services previously provided only header-based authentication for security. Although sent with SSL, the header or custom header authentication didn't meet more stringent security requirements for various clients and industries.
 
 To improve the security of inline hooks, Okta now supports authentication with OAuth 2.0 access tokens. Tokens ensure secure calls to external web services.
 
@@ -469,9 +480,9 @@ When an admin used a group limit in an expression that was greater than 100 (for
 
 * Case sensitivity caused usernames sent in SAML 2.0 IdP assertions not to match usernames in the destination org if a custom IdP factor was used and the name ID format was unspecified. (OKTA-565984)
 
-* Some users weren’t able to re-enroll an account in Okta Verify that was previously unenrolled with another mechanism that used the Factors API. (OKTA-573421)
+* Some users weren't able to re-enroll an account in Okta Verify that was previously unenrolled with another mechanism that used the Factors API. (OKTA-573421)
 
-* The YubiKey Report wasn’t generated when certain report filters were applied. (OKTA-561269)
+* The YubiKey Report wasn't generated when certain report filters were applied. (OKTA-561269)
 
 ### Monthly release 2023.02.0
 
