@@ -19,7 +19,7 @@ This guide walks you through the process of submitting an SSO OIDC or SAML 2.0 i
 
 **What you need**
 
-* A functional SSO integration created and tested in accordance the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
+* A functional SSO integration created and tested in accordance to the [Build a Single Sign-On integration](/docs/guides/build-sso-integration/) guide
 
 * The various items necessary for submission in accordance to the [OIN submission requirements](/docs/guides/submit-app-prereq/)
 
