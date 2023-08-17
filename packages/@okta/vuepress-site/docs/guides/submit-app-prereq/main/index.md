@@ -382,4 +382,4 @@ You can't publish integrations with the following Okta features in the OIN catal
 
 ## Next step
 
-Ready to submit your app? See [Publish an OIN integration](/docs/guides/submit-app/).
+Ready to submit your app? See [Publish an OIN integration](/docs/guides/submit-app-overview/).
