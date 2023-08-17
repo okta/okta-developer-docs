@@ -291,6 +291,8 @@ HTTP 204:
 
 Retrieves a list of applications mapped to a policy
 
+> **Note:** To retrieve a list of applications mapped to a policy, use [List all resources mapped to a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyMappings). If you need to assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+
 > **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
 
 ##### Request parameters
