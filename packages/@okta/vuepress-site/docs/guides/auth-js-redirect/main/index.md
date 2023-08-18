@@ -317,7 +317,7 @@ Enable passwordless authentication for your existing users by configuring your O
     * **Password** authenticator: Set to disabled
 1. Add a rule name, for example, Passwordless Enrollment Rule, and click **Create rule** to complete the enrollment policy setup.
 1. Click **Authentication Policies** and assign your sample application to a one-factor authentication policy, if it's not already. In the policy, click **Add rule**, and make the following configurations and then click **Save**:
-    * **Rule name**: Any name for this rule, for example, Passwordless authentication rule
+    * **Rule name**: Any name for this rule, for example, Passwordless Authentication rule
     * **User's group membership includes**: Your new group, Passwordless Users
     * **User must authenticate with**: Any 1 factor type / IdP
 1. Click **Global Session Policy** and click **Add policy**. Give the policy a name, for example, Global Passwordless Policy, and assign the policy to your new group, Passwordless Users. Click **Create policy and add rule**.
