@@ -2,7 +2,7 @@
 title: Publish an OIN integration
 meta:
   - name: description
-    content: Use this guide to understand the Okta Integration Network (OIN) submission process. There are variations to the submission process depending on the integration type.
+    content: Use this guide to understand the Okta Integration Network (OIN) submission process. The overview is common to all types of integration submissions.
 ---
 
 The Okta Integration Network (OIN) is the identity industry’s broadest and deepest set of pre-built cloud integrations to manage access management, authentication, and provisioning. Gain exposure to thousands of Okta customers who can discover your integration by adding it to the OIN. OIN integrations speed adoption by simplifying admin configuration steps and reducing friction for your customers. They can integrate your application to Okta with minimal effort on your part.
