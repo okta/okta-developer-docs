@@ -36,12 +36,12 @@ app -> client: Response
  At a high level, the flow has the following steps:
 
 1. Your application (app) generates a code verifier followed by a code challenge. See [Create the proof key for code exchange](#create-the-proof-key-for-code-exchange).
-2. Your app directs the browser to the Okta sign-in page, along with the generated code challenge.
+2. Your app requests an authorization code from the authorization server (Okta). The request contains the generated code challenge.
 
-   Before implementing this redirect request to the authorization server (Okta), you need to [set up your app](#set-up-your-app) in Okta. See [Request an authorization code](#request-an-authorization-code).
+   Before implementing this redirect request to the authorization server, you need to [set up your app](#set-up-your-app) in Okta. See [Request an authorization code](#request-an-authorization-code).
 
-3. The authorization server (Okta) redirects the authentication prompt to the user.
-4. The user authenticates.
+3. Okta presents an authentication prompt (the Okta sign-in page) to the user's browser.
+4. The user authenticates with the authorization server and provides consent.
 
     For Okta to authenticate the user credentials, Okta needs user profile data.
     See [Add a user using Console](https://help.okta.com/okta_help.htm?id=ext-usgp-add-users), [Import Users](/docs/guides/password-import-inline-hook/), and the [Users API](/docs/reference/api/users/). Alternatively, you can [set up self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/) to allow users to register their membership with the app.
