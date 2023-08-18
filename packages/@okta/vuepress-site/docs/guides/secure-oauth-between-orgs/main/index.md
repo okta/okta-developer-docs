@@ -200,7 +200,7 @@ If you're using [custom roles](https://help.okta.com/okta_help.htm?type=oie&id=e
 > **Note:** You can bind resource sets to many different types of resources, such as user groups, flows, authorization servers, and so on. You don't necessarily have to use the All Groups resource set in this use case. You can specify permissions for a specific subset of users in a custom role. See [Custom role assignment](/docs/concepts/role-assignment/#custom-role-assignment) and the [Custom Role assignment API operations](/docs/reference/api/roles/#custom-role-assignment-operations).
 -->
 
-As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
+As an Okta super admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to the hub org with the following required parameters to assign an admin role:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
@@ -208,6 +208,8 @@ As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` req
 | `type`  |  Specify the admin role to assign to the service app. Use the recommended standard admin roles (`USER_ADMIN`, `GROUP_MEMBERSHIP_ADMIN`). |
 
 See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
+
+> **Note:** Only Okta org [super admins](https://help.okta.com/okta_help.htm?type=oie&id=ext_superadmin) can assign roles.
 
 ##### Request example
 
