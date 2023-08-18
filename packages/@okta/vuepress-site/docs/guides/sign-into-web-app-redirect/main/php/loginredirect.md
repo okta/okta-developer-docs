@@ -5,15 +5,15 @@ Create a link for the user to start the sign-in process and be redirected to Okt
 
    ```php
    function index() {
-     if(empty($_SESSION['okta_id_token'])) {
-       ?>
-         <a href="/signin">Sign In</a>
-       <?php
-     } else {
-       ?>
-         Hello, <?= htmlspecialchars($_SESSION['name']) ?>
-       <?php
-     }
+       if(empty($_SESSION['okta_id_token'])) {
+           ?>
+           <a href="/signin">Sign In</a>
+           <?php
+       } else {
+           ?>
+           Hello, <?= htmlspecialchars($_SESSION['name']) ?>
+           <?php
+       }
    }
    ```
 
@@ -21,9 +21,12 @@ Create a link for the user to start the sign-in process and be redirected to Okt
 
    ```php
    switch($path) {
-     case '/':
-       index();
-       break;
+       case '/':
+           index();
+           break;
+      default:
+         echo 'not found';
+         die();
    }
    ```
 
@@ -35,8 +38,8 @@ Create a link for the user to start the sign-in process and be redirected to Okt
       ```php
       ...
       case '/signin':
-         start_oauth_flow();
-         break;
+          start_oauth_flow();
+          break;
       ...
       ```
 
@@ -44,26 +47,26 @@ Create a link for the user to start the sign-in process and be redirected to Okt
 
       ```php
       function start_oauth_flow() {
-      // Generate a random state parameter for CSRF security
-      $_SESSION['oauth_state'] = bin2hex(random_bytes(10));
+          // Generate a random state parameter for CSRF security
+          $_SESSION['oauth_state'] = bin2hex(random_bytes(10));
 
-      // Create the PKCE code verifier and code challenge
-      $_SESSION['oauth_code_verifier'] = bin2hex(random_bytes(50));
-      $hash = hash('sha256', $_SESSION['oauth_code_verifier'], true);
-      $code_challenge = rtrim(strtr(base64_encode($hash), '+/', '-_'), '=');
+          // Create the PKCE code verifier and code challenge
+          $_SESSION['oauth_code_verifier'] = bin2hex(random_bytes(50));
+          $hash = hash('sha256', $_SESSION['oauth_code_verifier'], true);
+          $code_challenge = rtrim(strtr(base64_encode($hash), '+/', '-_'), '=');
 
-      // Build the authorization URL by starting with the authorization endpoint
-      $authorization_endpoint = $_ENV['OKTA_OAUTH2_ISSUER'].'/v1/authorize';
-      $authorize_url = $authorization_endpoint.'?'.http_build_query([
-         'response_type' => 'code',
-         'client_id' => $_ENV['OKTA_OAUTH2_CLIENT_ID'],
-         'state' => $_SESSION['oauth_state'],
-         'redirect_uri' => $_ENV['OKTA_OAUTH2_REDIRECT_URI'],
-         'code_challenge' => $code_challenge,
-         'code_challenge_method' => 'S256',
-         'scope' => 'openid profile email',
-      ]);
+          // Build the authorization URL by starting with the authorization endpoint
+          $authorization_endpoint = $_ENV['OKTA_OAUTH2_ISSUER'].'/v1/authorize';
+          $authorize_url = $authorization_endpoint.'?'.http_build_query([
+              'response_type' => 'code',
+              'client_id' => $_ENV['OKTA_OAUTH2_CLIENT_ID'],
+              'state' => $_SESSION['oauth_state'],
+              'redirect_uri' => $_ENV['OKTA_OAUTH2_REDIRECT_URI'],
+              'code_challenge' => $code_challenge,
+              'code_challenge_method' => 'S256',
+              'scope' => 'openid profile email',
+          ]);
 
-      header('Location: '.$authorize_url);
+          header('Location: '.$authorize_url);
       }
       ```

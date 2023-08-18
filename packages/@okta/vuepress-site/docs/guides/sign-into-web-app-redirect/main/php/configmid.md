@@ -4,6 +4,7 @@
    OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/default
    OKTA_OAUTH2_CLIENT_ID=${clientId}
    OKTA_OAUTH2_CLIENT_SECRET=${clientSecret}
+   OKTA_OAUTH2_REDIRECT_URI=http://localhost:8080/authorization-code/callback
    ```
 
 1. Set up a basic router and load those values in `index.php`:
@@ -19,8 +20,9 @@
 
    $path = rawurldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
    switch($path) {
-
      // TODO: define routes here
-
+      default:
+         echo 'not found';
+         die();
    }
    ```

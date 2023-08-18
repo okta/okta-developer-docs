@@ -6,17 +6,18 @@ For example, once the user has signed in, you can extract the user's name from t
 
    ```php
    function index() {
-     if(empty($_SESSION['okta_id_token'])) {
-       ?>
-         <a href="/signin">Sign In</a>
-       <?php
-     } else {
-       ?>
-         Hello, <?= htmlspecialchars($_SESSION['name']) ?>
-         $claims = json_decode(base64_decode(explode('.', $_SESSION['okta_id_token'])[1]), true);
-         $_SESSION['name'] = $claims['name'];
-       <?php
-     }
+       if(empty($_SESSION['okta_id_token'])) {
+           ?>
+               <a href="/signin">Sign In</a>
+           <?php
+       } else {
+           $claims = json_decode(base64_decode(explode('.', $_SESSION['okta_id_token'])[1]), true);
+           $_SESSION['name'] = $claims['name'];
+
+           ?>
+               Hello, <?= htmlspecialchars($_SESSION['name']) ?>
+           <?php
+       }
    }
    ```
 

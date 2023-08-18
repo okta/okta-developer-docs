@@ -3,14 +3,14 @@ When you [created an app integration in the admin console](#create-an-app-integr
 1. Add a new route handler for the sign-in callback URI to the switch statement:
 
    ```php
-     ...
+   ...
    case '/authorization-code/callback':
-     authorization_code_callback_handler();
-     break;
-     ...
+       authorization_code_callback_handler();
+       break;
+   ...
    ```
 
-2. Define the handler function `authorization_code_callback_handler()` at the end of the file. This reads the authorization code in the query string and then exchanges it for an access token and optional refresh token and ID token.
+1. Define the handler function `authorization_code_callback_handler()` at the end of the file. This reads the authorization code in the query string and then exchanges it for an access token and optional refresh token and ID token.
 
    ```php
    function authorization_code_callback_handler() {
