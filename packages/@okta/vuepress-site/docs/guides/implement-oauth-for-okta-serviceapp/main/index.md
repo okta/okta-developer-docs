@@ -70,7 +70,7 @@ As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the client ID value from the response when the [service app was created](#create-a-service-app-integration).|
-| `type`  |  Specify the admin role to assign to the service app. |
+| `type`  |  Specify the admin role to assign to the service app. See [Role types](/docs/reference/api/roles/#role-types). |
 | `resource-set`  |  Custom role only. Specify the resource set ID. |
 | `role`  |  Custom role only. Specify the custom role ID. |
 
