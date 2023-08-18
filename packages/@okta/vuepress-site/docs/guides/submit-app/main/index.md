@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This guide walks you through the process of submitting a Lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a SCIM or a Workflows Connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
+This guide walks you through the process of submitting a Lifecycle management (LCM) integration to the Okta Integration Network (OIN) using the OIN Manager. You can submit a SCIM or a Workflows connector LCM integration. This guide also shows you how to update a previously published LCM integration or delete a draft submission.
 
 ---
 
@@ -27,7 +27,7 @@ This guide walks you through the process of submitting a Lifecycle management (L
 
 ## Overview
 
-The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that is connected to your developer org where you test and develop your Okta integration. Use this tool to submit your LCM app integration for verification and publishing in the public OIN catalog.
+The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that is connected to your developer org where you test and develop your Okta integration. Use this tool to submit your LCM app integration for verification and publication on the OIN catalog.
 
 ### Protocols supported
 
@@ -50,6 +50,8 @@ If you have questions or need additional support to publish your app integration
 >**Note:** All integrations in the OIN catalog are public. If you want to submit a request to create a private app integration for an application that uses SCIM 1.1 or Profile Sourcing, or for an application that uses a custom header expression for the Header Auth, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim) to create your integration and submit your app through the [OIN Manager](https://oinmanager.okta.com). The Okta OIN team works with you to create an internal-only integration that isn't included in the OIN.
 
 ## Submit an integration
+
+> **Note:** Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission.
 
 1. To start your integration submission, open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
@@ -107,7 +109,7 @@ The Okta OIN team requires a dedicated account on your application to run their 
 
 ### Configure protocol or tool-specific settings
 
-You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SCIM, you can create the submission with the SCIM protocol details. Later, when you add Workflows Connector capabilities to your application, you can return to your integration submission to include Workflows Connector support.
+You can submit protocol support details all together or asynchronously. For example, if your application currently only supports SCIM, you can create the submission with the SCIM protocol details. Later, when you add Workflows connector capabilities to your application, you can return to your integration submission to include Workflows connector support.
 
 > **Note:** If you don't see the protocol or tool-specific settings you want in this section, select the **Instructions for** dropdown menu on this page.
 

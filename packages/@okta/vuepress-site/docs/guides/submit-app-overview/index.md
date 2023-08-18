@@ -9,7 +9,7 @@ The Okta Integration Network (OIN) is the identity industry’s broadest and dee
 
 If you're an integrator, from an independent software vendor (ISV) or an existing Okta customer, who wants to add your integration to the OIN, use this guide to learn about the submission process. Adding your integration to the OIN and listing it publicly in the [OIN catalog](https://www.okta.com/integrations/) is free.
 
-This guide assumes that you've created an app integration and are ready to submit it for OIN verification. See [Single Sign-On](/docs/guides/oin-sso-overview/), [Lifecycle management](/docs/guides/oin-lifecycle-mgmt-overview/), or [API service integrations](/docs/guides/oin-api-service-overview/) for guidance on how to create integrations for the OIN.
+This guide assumes that you've created an app integration and want to make it public in the OIN catalog.
 
 ## Submission process
 
@@ -25,7 +25,7 @@ Source link : https://www.figma.com/file/YH5Zhzp66kGCglrXQUag2E/%F0%9F%93%8A-Upd
 
 </div>
 
-Before submitting your integration, review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the artifacts required during submission (such as the app logo, description, support contact, and configuration document).
+Before you submit your integration, review the [OIN submission requirements](/docs/guides/submit-app-prereq/) and prepare the artifacts required (such as the app logo, description, support contact, and configuration document).
 
 Submit your integration to Okta and work with the Okta OIN team as they test and review your submission. If the Okta OIN team identifies any issues in the review and QA testing phases, you’re sent an email with the specific details. At any point in the process, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
 
@@ -66,9 +66,9 @@ Okta accepts integrations that use the following protocols or tools into the OIN
 
     >**Note:** SAML integrations must use SHA256 encryption for security. If you're using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/).
 
-* [Okta Workflows](https://help.okta.com/okta_help.htm?type=wf)
-
 * [System for Cross-domain Identity Management (SCIM)](https://scim.cloud)
+
+* [Workflows Connector Builder](https://help.okta.com/okta_help.htm?type=wf&id=ext-connector-builderz)
 
 * [OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0) (for Okta management service apps, see [Build an API service integration](/docs/guides/build-api-integration/))
 
@@ -104,7 +104,7 @@ Ready to make your integration public? Submit an integration with the following 
 
 <Card href="/docs/guides/submit-sso-app/saml2/main/" headerImage="/img/idp-logos/saml.png" cardTitle="SAML" :showFooter=false>Submit a SAML SSO integration</Card>
 
-<Card href="/docs/guides/submit-app/wfconnector/main/" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Workflows" :showFooter=false>Submit a Workflow Connector Builder integration</Card>
+<Card href="/docs/guides/submit-app/wfconnector/main/" headerImage="/img/icons/WEB_Icon_Platform_Workflows_40x40.svg" cardTitle="Workflows" :showFooter=false>Submit a Workflow connector integration</Card>
 
 <Card href="/docs/guides/submit-app/scim/main/" headerImage="/img/icons/scim.svg" cardTitle="SCIM" :showFooter=false>Submit a SCIM integration</Card>
 

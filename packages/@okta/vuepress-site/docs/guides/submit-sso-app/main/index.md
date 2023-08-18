@@ -25,7 +25,7 @@ This guide walks you through the process of submitting an SSO OIDC or SAML 2.0 i
 
 ## Overview
 
-The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that is connected to your developer org where you test and develop your Okta integration. Use this tool to submit your SSO app integration for verification and publishing in the public OIN catalog.
+The [Okta Integration Network (OIN) Manager](https://oinmanager.okta.com) is a submission tool that is connected to your developer org where you test and develop your Okta integration. Use this tool to submit your SSO app integration for verification and publication on the OIN catalog.
 
 ### Protocols supported
 
@@ -54,6 +54,8 @@ If you need help during the submission process, use the Get Support section on t
 If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
 ## Submit an integration
+
+> **Note:** Review the [OIN submission requirements](/docs/guides/submit-app-prereq) before you start your submission.
 
 1. To start your integration submission, open the [OIN Manager](https://oinmanager.okta.com) and click **Start Submission Form**.
 
