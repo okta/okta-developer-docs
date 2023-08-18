@@ -71,8 +71,8 @@ As an [Okta super administrator](https://help.okta.com/okta_help.htm?type=oie&id
 | --------- |  ------------- |
 | `yourServiceAppId`  |  Specify the client ID value from the response when the [service app was created](#create-a-service-app-integration).|
 | `type`  |  Specify the admin role to assign to the service app. See [Role types](/docs/reference/api/roles/#role-types). |
-| `resource-set`  |  Custom role only. Specify the resource set ID. |
-| `role`  |  Custom role only. Specify the custom role ID. |
+| `resource-set`  |  Custom role only. Specify the resource set ID. See [Resource set object](/docs/reference/api/roles/#resource-set-object). |
+| `role`  |  Custom role only. Specify the custom role ID. See [Custom role object](/docs/reference/api/roles/#custom-role-object). |
 
 
 See [Assign a Role to a client application](/docs/reference/api/roles/#assign-a-role-to-a-client-application) in the Role Assignment API reference.
