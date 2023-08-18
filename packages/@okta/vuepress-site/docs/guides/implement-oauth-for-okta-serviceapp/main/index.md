@@ -65,7 +65,7 @@ Create an OAuth 2.0 service app integration using the Admin Console.
 
 Assign admin roles for every OAuth 2.0 service app that you create. Service apps with assigned admin roles are constrained to the permissions and resources that are included in the role. This improves security for an org since it ensures that service apps only have access to the resources that are needed to perform their tasks. You can assign the [standard admin roles](https://help.okta.com/okta_help.htm?type=oie&id=ext-administrators-admin-comparison) or a [custom admin role](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-creating-custom-admin-roles) with permissions to specific resource sets.
 
-As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to your org with the following required parameters to assign an admin role:
+As an Okta admin, make a `POST /oauth2/v1/clients/${yourServiceAppId}/roles` request to your org with the following parameters to assign an admin role:
 
 | Parameter |  Description/Value   |
 | --------- |  ------------- |
