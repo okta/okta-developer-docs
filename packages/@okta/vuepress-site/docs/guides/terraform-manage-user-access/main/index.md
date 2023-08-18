@@ -140,10 +140,10 @@ Configure the email authenticator and then create a group, global session policy
 1. Add an `okta_policy_mfa` resource to create an authenticator enrollment policy.
 
    1. Set `status` to `ACTIVE`.
-   1. Set `is_oie` to `true` if you’re using the Okta Identity Engine.
    1. Set `groups_included` to the passwordless group ID.
    1. Set `okta_email` to `REQUIRED` to require users to enroll in the email authenticator.
    1. Set `okta_password` to `NOT_ALLOWED` to prevent users from enrolling in the password authenticator.
+   1. Set `is_oie` to `true`. Okta Classic Engine supports only setting `okta_password` to `REQUIRED`.
 
     ```hcl
     resource "okta_policy_mfa" "passwordless_authenticator_enrollment_policy" {
@@ -310,11 +310,11 @@ This example requires the same scopes as the passwordless sign-in example: `okta
 1. Add an `okta_policy_mfa` resource to create an authenticator enrollment policy.
 
    1. Set `status` to `ACTIVE`.
-   1. Set `is_oie` to `true` if you’re using the Identity Engine.
    1. Set `groups_included` to the multifactor group ID.
    1. Set `okta_email` to `REQUIRED` to require users to enroll in the email authenticator.
    1. Set `okta_verify` to `OPTIONAL` to allow users to enroll in Okta Verify.
    1. Set `okta_password` to `OPTIONAL` to allow users to enroll in the password authenticator.
+   1. Set `is_oie` to `true`. Okta Classic supports only setting `okta_password` to `REQUIRED`.
    1. Set `priority` and `depends_on` according to the guidelines in [Manage priority order with Terraform](#manage-priority-order-with-terraform).
 
     ```hcl

@@ -1,6 +1,6 @@
 {
-  "release" : "2023.07.1",
-  "build" : "2023.07.1-begin-153-ga889336f45b7",
+  "release" : "2023.08.1",
+  "build" : "2023.08.1-begin-173-gf5c499091c49",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -73,6 +73,12 @@
   }, {
     "id" : "device-platform",
     "name" : "Device Platform"
+  }, {
+    "id" : "device-mfa",
+    "name" : "Device MFA"
+  }, {
+    "id" : "device-sso",
+    "name" : "Device SSO"
   }, {
     "id" : "directories",
     "name" : "Directories"
@@ -4960,7 +4966,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "app" ],
+      "tags" : [ "app", "event-hook-eligible" ],
       "mappings" : [ "app.app_instance.sign_on_policy.access_denied" ],
       "schema" : {
         "debugData" : "SystemDebugData",
@@ -9908,6 +9914,23 @@
       "beta" : false,
       "internal" : false,
       "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pki.cert.crl_download_failure",
+      "category" : "device-platform",
+      "description" : "A failure outcome indicates that there was an issue downloading the Certificate Revocation List (CRL) from the URL specified in the certificate and may require action to address it. When an administrator observes a pki.cert.lifecycle.crl_download_failure event with a failure outcome they should ensure that the CRL endpoint is up and running properly and has not been changed by the issuing Certificate Authority (CA). When fired, this event will include the URL of the CRL that is having an issue along with a corresponding HTTP error code.",
+      "info" : {
+        "created" : "2023-07-11",
+        "release" : "2023.07.2"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -15114,7 +15137,7 @@
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
         "actor" : null,
-        "targets" : [ "UserAuthenticationResourceDetails" ]
+        "targets" : [ "UserAuthenticationResourceDetails", "AuthenticatorEnrollmentResourceDetailsEx" ]
       }
     }, {
       "id" : "user.credential.enroll",
@@ -15483,7 +15506,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "mfa" ],
+      "tags" : [ "event-hook-eligible", "mfa" ],
       "mappings" : [ "core.user.factor.update" ],
       "schema" : {
         "debugData" : null,
@@ -15585,7 +15608,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "session", "user" ],
+      "tags" : [ "event-hook-eligible", "session", "user" ],
       "mappings" : [ "core.user_auth.session_clear" ],
       "schema" : {
         "debugData" : null,
@@ -16311,6 +16334,14 @@
       "AccessRequestDebugData" : {
         "name" : "AccessRequestDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -16572,6 +16603,14 @@
       "AdAgentDebugData" : {
         "name" : "AdAgentDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -16769,6 +16808,14 @@
       "AdAgentGenericDebugData" : {
         "name" : "AdAgentGenericDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -16942,6 +16989,14 @@
       "AdInstanceDebugData" : {
         "name" : "AdInstanceDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -17123,6 +17178,14 @@
       "AgentUpdateDebugData" : {
         "name" : "AgentUpdateDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -17328,6 +17391,14 @@
       "ApiTokenDebugData" : {
         "name" : "ApiTokenDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -17517,6 +17588,14 @@
       "AppExceptionsDebugData" : {
         "name" : "AppExceptionsDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -17698,6 +17777,14 @@
       "AppInstanceDebugData" : {
         "name" : "AppInstanceDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -17903,6 +17990,14 @@
       "AppInstanceKeyManagementDebugData" : {
         "name" : "AppInstanceKeyManagementDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -18124,6 +18219,14 @@
       "AppManagerDebugData" : {
         "name" : "AppManagerDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -18305,6 +18408,14 @@
       "AppManagerUserConfigDebugData" : {
         "name" : "AppManagerUserConfigDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -18566,6 +18677,14 @@
       "AppOauth2ClientRoleDebugData" : {
         "name" : "AppOauth2ClientRoleDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -18755,6 +18874,14 @@
       "AppSignOnPolicyRuleChangeDebugData" : {
         "name" : "AppSignOnPolicyRuleChangeDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -19152,6 +19279,14 @@
       "AuthenticatorDebugData" : {
         "name" : "AuthenticatorDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -19333,6 +19468,14 @@
       "AuthenticatorEnrollmentDebugData" : {
         "name" : "AuthenticatorEnrollmentDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -19501,6 +19644,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "timestamp" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2023-07-18T19:08:49.000Z" ]
+          },
           "matched_authenticator_groups" : {
             "type" : "String",
             "sensitive" : false,
@@ -19530,6 +19681,14 @@
       "AuthorizationServerDebugData" : {
         "name" : "AuthorizationServerDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -19711,6 +19870,14 @@
       "AutomationsDebugData" : {
         "name" : "AutomationsDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -19908,6 +20075,14 @@
       "BurstRateLimitDebugData" : {
         "name" : "BurstRateLimitDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -20145,6 +20320,14 @@
       "CSVImportUsersDebugData" : {
         "name" : "CSVImportUsersDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -20550,6 +20733,14 @@
       "CallDebugData" : {
         "name" : "CallDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -20771,6 +20962,14 @@
       "CallStatusDebugData" : {
         "name" : "CallStatusDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -21016,6 +21215,14 @@
       "ClientRateLimitDebugData" : {
         "name" : "ClientRateLimitDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -21261,6 +21468,14 @@
       "CommandDebugData" : {
         "name" : "CommandDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -21490,6 +21705,14 @@
       "ContinuousAccessEvaluationDebugData" : {
         "name" : "ContinuousAccessEvaluationDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -21684,6 +21907,14 @@
       "CustomPushNotificationDebugData" : {
         "name" : "CustomPushNotificationDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -21961,6 +22192,14 @@
       "DelAuthDebugData" : {
         "name" : "DelAuthDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -22206,6 +22445,14 @@
       "DeviceTrustDebugData" : {
         "name" : "DeviceTrustDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -22459,6 +22706,14 @@
       "DirectoryDebugData" : {
         "name" : "DirectoryDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -22656,6 +22911,14 @@
       "DirectoryLinkedObjectDebugData" : {
         "name" : "DirectoryLinkedObjectDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -22898,6 +23161,14 @@
       "EmailFactorChallengeDebugData" : {
         "name" : "EmailFactorChallengeDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -23103,6 +23374,14 @@
       "EmailFactorDebugData" : {
         "name" : "EmailFactorDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -23284,6 +23563,14 @@
       "EntitlementBundleUpdateDebugData" : {
         "name" : "EntitlementBundleUpdateDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -23481,6 +23768,14 @@
       "EntitlementUpdateDebugData" : {
         "name" : "EntitlementUpdateDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -23678,6 +23973,14 @@
       "FeatureToggleDebugData" : {
         "name" : "FeatureToggleDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -23875,6 +24178,14 @@
       "GrantDebugData" : {
         "name" : "GrantDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -24072,6 +24383,14 @@
       "GroupAppDebugData" : {
         "name" : "GroupAppDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -24253,6 +24572,14 @@
       "GroupProfileDebugData" : {
         "name" : "GroupProfileDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -24442,6 +24769,14 @@
       "GroupRoleDebugData" : {
         "name" : "GroupRoleDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -24631,6 +24966,14 @@
       "GroupRuleDebugData" : {
         "name" : "GroupRuleDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -24820,6 +25163,14 @@
       "IOSCommandDebugData" : {
         "name" : "IOSCommandDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -25057,6 +25408,14 @@
       "IdpAuthDebugData" : {
         "name" : "IdpAuthDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -25414,6 +25773,14 @@
       "IdpDebugData" : {
         "name" : "IdpDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -25595,6 +25962,14 @@
       "IgaCampaignDebugData" : {
         "name" : "IgaCampaignDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -25800,6 +26175,14 @@
       "IgaCampaignTemplateDebugData" : {
         "name" : "IgaCampaignTemplateDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -25989,6 +26372,14 @@
       "IgaReviewerDebugData" : {
         "name" : "IgaReviewerDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -26314,6 +26705,14 @@
       "InlineHookDebugData" : {
         "name" : "InlineHookDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -26511,6 +26910,14 @@
       "IwaSsoDebugData" : {
         "name" : "IwaSsoDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -26748,6 +27155,14 @@
       "LdapDebugData" : {
         "name" : "LdapDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -26945,6 +27360,14 @@
       "LdapInterfaceDebugData" : {
         "name" : "LdapInterfaceDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -27134,6 +27557,14 @@
       "LogStreamConfigDebugData" : {
         "name" : "LogStreamConfigDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -27315,6 +27746,14 @@
       "NetworkZoneDebugData" : {
         "name" : "NetworkZoneDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -27496,6 +27935,14 @@
       "OAuth2DebugData" : {
         "name" : "OAuth2DebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -27917,6 +28364,14 @@
       "OAuth2PlatformDebugData" : {
         "name" : "OAuth2PlatformDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -28122,6 +28577,14 @@
       "OAuth2RefreshTokenReuseDebugData" : {
         "name" : "OAuth2RefreshTokenReuseDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -28311,6 +28774,14 @@
       "OAuthAppRateLimitDebugData" : {
         "name" : "OAuthAppRateLimitDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -28516,6 +28987,14 @@
       "Office365DebugData" : {
         "name" : "Office365DebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -29001,6 +29480,14 @@
       "OktaELDebugData" : {
         "name" : "OktaELDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -29246,6 +29733,14 @@
       "OperationRateLimitDebugData" : {
         "name" : "OperationRateLimitDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -29475,6 +29970,14 @@
       "OrgLifecycleDebugData" : {
         "name" : "OrgLifecycleDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -29672,6 +30175,14 @@
       "OrgRateLimitDebugData" : {
         "name" : "OrgRateLimitDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -29925,6 +30436,14 @@
       "OrgStatusDebugData" : {
         "name" : "OrgStatusDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -30114,6 +30633,14 @@
       "PartnerRiskReportDebugData" : {
         "name" : "PartnerRiskReportDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -30295,6 +30822,14 @@
       "PluginDebugData" : {
         "name" : "PluginDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -30500,6 +31035,14 @@
       "PolicyDebugData" : {
         "name" : "PolicyDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -30937,6 +31480,14 @@
       "PolicyLifecycleDebugData" : {
         "name" : "PolicyLifecycleDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -31142,6 +31693,14 @@
       "PushNotificationDebugData" : {
         "name" : "PushNotificationDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -31331,6 +31890,14 @@
       "RadiusDebugData" : {
         "name" : "RadiusDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -31560,6 +32127,14 @@
       "RampResourceDebugData" : {
         "name" : "RampResourceDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -31749,6 +32324,14 @@
       "RichClientDebugData" : {
         "name" : "RichClientDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -31954,6 +32537,14 @@
       "RiskSignalDebugData" : {
         "name" : "RiskSignalDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -32167,6 +32758,14 @@
       "ScheduledActionDebugData" : {
         "name" : "ScheduledActionDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -32356,6 +32955,14 @@
       "SessionContextDebugData" : {
         "name" : "SessionContextDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -32524,6 +33131,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "source" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "OKTA" ]
+          },
           "ip_address" : {
             "type" : "String",
             "sensitive" : false,
@@ -32553,6 +33168,14 @@
       "SkuDebugData" : {
         "name" : "SkuDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -32742,6 +33365,14 @@
       "SmsDebugData" : {
         "name" : "SmsDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -32971,6 +33602,14 @@
       "SmsStatusDebugData" : {
         "name" : "SmsStatusDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -33237,6 +33876,14 @@
       "SuspiciousActivityDebugData" : {
         "name" : "SuspiciousActivityDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -33506,6 +34153,14 @@
       "SystemDebugData" : {
         "name" : "SystemDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -33679,6 +34334,14 @@
       "SystemImportDebugData" : {
         "name" : "SystemImportDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -34052,6 +34715,14 @@
       "UnconfiguredIdentifierDebugData" : {
         "name" : "UnconfiguredIdentifierDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -34265,6 +34936,14 @@
       "UserAccessDebugData" : {
         "name" : "UserAccessDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -34502,6 +35181,14 @@
       "UserAuthenticationDebugData" : {
         "name" : "UserAuthenticationDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -34723,6 +35410,14 @@
       "UserConfigDebugData" : {
         "name" : "UserConfigDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -34904,6 +35599,14 @@
       "UserDiffReportDebugData" : {
         "name" : "UserDiffReportDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -35085,6 +35788,14 @@
       "UserFactorDebugData" : {
         "name" : "UserFactorDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -35253,6 +35964,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "timestamp" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2023-07-18T19:08:49.000Z" ]
+          },
           "prompting_policy_types" : {
             "type" : "List",
             "sensitive" : false,
@@ -35298,6 +36017,14 @@
       "UserLifecycleDebugData" : {
         "name" : "UserLifecycleDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -35487,6 +36214,14 @@
       "UserProvisioningDebugData" : {
         "name" : "UserProvisioningDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -35684,6 +36419,14 @@
       "UserRoleDebugData" : {
         "name" : "UserRoleDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -35873,6 +36616,14 @@
       "UserSloDebugData" : {
         "name" : "UserSloDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -36062,6 +36813,14 @@
       "UserSsoAuthenticationDebugData" : {
         "name" : "UserSsoAuthenticationDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -36283,6 +37042,14 @@
       "UserTypeDebugData" : {
         "name" : "UserTypeDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -36472,6 +37239,14 @@
       "WebhooksDebugData" : {
         "name" : "WebhooksDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -36653,6 +37428,14 @@
       "YubikeyDebugData" : {
         "name" : "YubikeyDebugData",
         "properties" : {
+          "trace_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "c5a59a7f-9b50-4d33-9e1e-8b6cc4ade87c" ]
+          },
           "oag_app" : {
             "type" : "Boolean",
             "sensitive" : false,
@@ -36994,6 +37777,43 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "SMS", "VOICE", "EMAIL" ]
+          }
+        }
+      },
+      "AuthenticatorEnrollmentResourceDetailsEx" : {
+        "name" : "AuthenticatorEnrollmentResourceDetailsEx",
+        "properties" : {
+          "method_used_verified_properties" : {
+            "type" : "Set",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[USER_VERIFYING]", "[USER_PRESENCE]", "[USER_VERIFYING, USER_PRESENCE, HARDWARE_PROTECTED]" ]
+          },
+          "method_type_used" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "SMS", "VOICE", "EMAIL" ]
+          },
+          "authenticator_key" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "okta_verify", "webauthn" ]
+          },
+          "authenticator_method_verification_time" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "iso8601",
+            "examples" : [ "2020-08-05T09:30:41.000-05:00" ]
           }
         }
       },

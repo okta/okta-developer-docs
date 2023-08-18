@@ -291,6 +291,8 @@ HTTP 204:
 
 Retrieves a list of applications mapped to a policy
 
+> **Note:** To retrieve a list of applications mapped to a policy, use [List all resources mapped to a Policy](https://developer.okta.com/docs/api/openapi/okta-management/management/tag/Policy/#tag/Policy/operation/listPolicyMappings). If you need to assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
+
 > **Note:** To assign an application to a specific policy, use the [Update application policy](/docs/reference/api/apps/#update-application-policy) operation of the Apps API.
 
 ##### Request parameters
@@ -313,9 +315,8 @@ Array of [Application objects](/docs/reference/api/apps/#application-object)
 
 ## Policy simulation operations
 <ApiLifecycle access="ie" />
-<ApiLifecycle access="ea" />
 
-> **Note:** This self-service Early Access feature is only available as a part of the Identity Engine. To enable this feature, see [Early Access](/docs/reference/releases-at-okta/#early-access-ea). For information on the Identity Engine, [contact support](mailto:dev-inquiries@okta.com).
+> **Note:** This feature is only available as a part of the Identity Engine. For information on the Identity Engine, [contact support](mailto:dev-inquiries@okta.com).
 
 ### Access simulation
 

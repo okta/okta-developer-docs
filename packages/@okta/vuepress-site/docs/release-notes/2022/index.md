@@ -650,7 +650,7 @@ The `/factors` endpoint has a new optional request parameter for the [Reset Fact
 
 #### Bugs fixed in 2022.05.3
 
-* If the new `/idp` version of the [MyAccount API](/docs/reference/api/myaccount/) wasn't enabled, [Add My Phone](/docs/reference/api/myaccount/#add-my-phone) or [Challenge My Phone](/docs/reference/api/myaccount/#challenge-my-phone) operations performed on the `/idp/myaccount/` endpoint returned inconsistent exception errors. (OKTA-494004)
+* If the new `/idp` version of the [MyAccount API](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Profile/) wasn't enabled, [Add My Phone](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Phone/#tag/Phone/operation/createPhone) or [Challenge My Phone](https://developer.okta.com/docs/api/openapi/okta-myaccount/myaccount/tag/Phone/#tag/Phone/operation/sendPhoneChallenge) operations performed on the `/idp/myaccount/` endpoint returned inconsistent exception errors. (OKTA-494004)
 
 * Post calls to the Org API endpoint that creates an email bounces remove list (`/org/email/bounces/remove-list`) sometimes returned an HTTP 500 Internal Server Error. (OKTA-497859)
 
