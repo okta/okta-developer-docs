@@ -39,7 +39,8 @@ Use the [Okta Aerial API](link to redocly)-->
 
 ### Terminology
 
-Use dd and dt?
+:Aerial account
+::An Aerial account is the layer of organization and management around multiple orgs within Okta. The Aerial account lives outside of your orgs and has visibility and management over any production or preview org that the Aerial admin links to the Aerial account.
 
 ### Flow
 
