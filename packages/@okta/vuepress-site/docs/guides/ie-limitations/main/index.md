@@ -50,14 +50,6 @@ The following Event Types are available only in Identity Engine and can't be use
 
 ***
 
-### Personal Identity Verification
-
-**What Changed:** Not supported
-
-**Further Information:** [Learn more about PIV](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow)
-
-***
-
 ### Reset Factor API - email enrollment
 
 **What Changed:** With Identity Engine, a user’s verified `primaryEmail` is considered an email (authenticator) enrollment for the user. Therefore, the GET `/factors` API always returns the verified `primaryEmail` as an active email factor.
