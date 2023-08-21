@@ -23,12 +23,12 @@ This guide explains how to manage Orgs added to your company’s Aerial account.
 
 - An Okta Aerial Account
 - A parent org
-- Access to the Org Creator API and reference docs
-- Access to the Okta Aerial API and reference docs
+- Access to the Org creator API
+- Access to the Okta Aerial API
 
-<!--**Sample code**
+**Sample code**
 
-Use the [Okta Aerial API](link to redocly)-->
+Use the [Okta Aerial API](link to redocly)
 
 ---
 
@@ -37,10 +37,23 @@ Use the [Okta Aerial API](link to redocly)-->
 <!-- high-level description... perhaps FVM? -->
 
 
-### Terminology
+<dl>
+<dt><strong>Aerial account</strong></dt>
+<dd>An Aerial account is the layer of organization and management around multiple orgs within Okta. The Aerial account lives outside of your orgs and has visibility and management over any production or preview org that the Aerial admin links to the Aerial account.
+</dd>
+<dt><strong>Aerial admin org</strong></dt>
+<dd>An Aerial admin org serves as the authorization server to the Aerial account. You need to choose one org that serves as the Aerial admin org.</br>
+Super admins can create API clients in the Aerial admin org to access the Aerial account. The Aerial admin org also contains all system log events associated with Okta Aerial actions.</dd>
+<dt><strong>Products</strong></dt>
+<dd>Products are Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. Example products include SSO, AMFA, and LCM.</dd>
+<dt><strong>Features</strong></dt>
+<dd>Features are bundled within products but may also be offered separately, for example, Early Access features. Most features are pushed from parent to child org.</br>
+**Note:** Some features, such as Workflows, aren’t synced between parent and child orgs.</dd>
+<dt><strong>Okta objects</strong></dt>
+<dd>Okta objects can include policies, settings, apps, and groups. Configure Okta objects using either the Admin Console or Okta Management APIs.</br>
+**Note:** Configured Okta Objects aren’t synced between parent and child orgs.</dd>
 
-:Aerial account
-::An Aerial account is the layer of organization and management around multiple orgs within Okta. The Aerial account lives outside of your orgs and has visibility and management over any production or preview org that the Aerial admin links to the Aerial account.
+</dl>
 
 ### Flow
 
