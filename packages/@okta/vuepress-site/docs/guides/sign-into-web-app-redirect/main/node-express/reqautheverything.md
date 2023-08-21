@@ -1,4 +1,4 @@
-You can use a middleware function to protect every endpoint so only authenticated users can access antyhing.
+You can use a middleware function to protect every endpoint so only authenticated users can access anything.
 
 1. Open **app.js**.
 1. Add the middleware function:

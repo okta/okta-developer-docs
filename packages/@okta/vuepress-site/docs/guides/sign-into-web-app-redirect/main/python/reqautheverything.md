@@ -1,9 +1,9 @@
-To handle auth for all routes within a group, you can use some middleware or the `@before_request` decorator. We use the `@before_request` decorator; add the following to your main `app.py` file:
+You can use a middleware function or the `@before_request` decorator to protect every endpoint so only authenticated users can access anything. For example:
 
-```py
+```python
 @app.before_request
-def check_valid_login():
-    endpoint_group = ('/profile', '/logout')
+def check_valid_signin():
+    endpoint_group = ('/profile', '/signout')
     if request.endpoint in endpoint_group and not is_authenticated():
-            return render_template('login.html', next=request.endpoint)
+            return render_template('signin.html', next=request.endpoint)
 ```

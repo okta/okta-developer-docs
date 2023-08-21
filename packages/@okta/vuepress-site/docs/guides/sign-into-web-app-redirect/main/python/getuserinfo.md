@@ -1,12 +1,7 @@
-1. Add the following code to handle the `/profile` route in `app.py`. 
+After a user has signed in, the application now has ID and access tokens from Okta in session store. In this section, you'll create a simple profile page that uses an access token to query for and display a user's basic information.
 
-   ```py
-   @app.route("/profile")
-   def profile():
-       return render_template("profile.html", user=current_user)
-   ```
-
-2. Add a new file called `templates/profile.html` to render information on the logged in user. It should contain the follow body content:
+1. Create **templates**/**profile.html**.
+1. Add the code to display the user's name once signed in:
 
    ```html
    <div>
@@ -15,7 +10,8 @@
    </div>
    ```
 
-3. You need to define a custom user model. Create a `user.py` file in the root of your main app folder and add the following code to it:
+1. Create **user.py**.
+1. Add the code for a custom user model to store information about the signed-in user:
 
    ```py
    from flask_login import UserMixin
@@ -46,7 +42,16 @@
            USERS_DB[user_id] = User(user_id, name, email)
    ```
 
-4. Import the user model into the `app.py` file by adding the following code:
+1. Open `app.py`.
+1. Add a route handler for `/profile` to the end of the file:
+
+   ```py
+   @app.route("/profile")
+   def profile():
+       return render_template("profile.html", user=current_user)
+   ```
+
+1. Import the user model into the `app.py` file by adding the following code immediately above the route handler for `/`:
 
    ```py
    from user import User
