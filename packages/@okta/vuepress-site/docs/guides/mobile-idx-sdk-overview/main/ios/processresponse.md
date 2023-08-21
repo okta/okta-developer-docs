@@ -5,38 +5,51 @@ This example shows part of the implementation of the `InteractionCodeFlowDelegat
 import OktaIdx
 import AuthFoundation
 
-class SignInController: InteractionCodeFlowDelegate {
-   ...
+class SignInController: InteractionCodeFlowDelegate, ObservableObject {
+   static let shared = SignInController()
 
-   var currentResponse: Response? = nil
+   // Published properties for the main state information of the flow
+   @MainActor @Published var currentResponse: Response? = nil
+   @MainActor @Published var currentRemediation: Remediation? = nil
+   @MainActor @Published var currentMessage: Response.Message? = nil
+   @MainActor @Published var currentError: Error? = nil
 
-   ...
+   // Set to true after the user has signed in successfully.
+   @MainActor @Published var successfulSignIn: Bool = false
+
+   private var flow: InteractionCodeFlow?
+
+   private init() { }
+
+//   ...
 
    // Delegate function called for each sign-in step.
    func authentication<Flow>(flow: Flow, received response: Response) where Flow : InteractionCodeFlow {
-      currentResponse = response
-
       // Request a token from the server if the sign-in attempt is successful.
-      guard !response.isLoginSuccessful else {
+      if response.isLoginSuccessful {
          // Handle retrieving the access token.
-         return
+      } else {
+         DispatchQueue.main.async {
+            // Publish the new response for any listeners
+            self.currentResponse = response
+
+            // Check for messages, such as entering an incorrect code.
+            if let message = response.messages.allMessages.first {
+               // Publish the message for listners to update state,
+               // such as showing a message in the UI.
+               self.currentMessage = message
+               return
+            }
+
+
+            // If no remediations are present, abort the login process.
+            guard let remediation = self.currentResponse?.remediations.first else {
+               return
+            }
+            // Publish the new remediation.
+            self.currentRemediation = remediation
+         }
       }
-
-      // If no remediations are present, abort the login process.
-      guard let remediation = currentResponse?.remediations.first else {
-         // Handle the error and finish the sign-in flow.
-         return
-      }
-
-      // Check for messages, such as entering an incorrect code.
-      if let message = response.messages.allMessages.first {
-         // Handle the messages as appropriate.
-         return
-      }
-
-      // Build the UI using the information in the remediations and authenticators.
-
-      ...
    }
 
    // Delegate function called when a token is successfully exchanged.
@@ -56,14 +69,18 @@ class SignInController: InteractionCodeFlowDelegate {
 
    // Delegate functions called when errors occur
    func authentication<Flow>(flow: Flow, received error: InteractionCodeFlowError) where Flow : InteractionCodeFlow {
-      // Handle the error.
+      // Publish the error from the main thread.
+      DispatchQueue.main.async {
+         self.currentError = error
+      }
    }
 
    func authentication<Flow>(flow: Flow, received error: OAuth2Error) {
-      // Handle the error.
+      // Publish the error from the main thread.
+      DispatchQueue.main.async {
+         self.currentError = error
+      }
    }
-
-...
 }
 
 ```

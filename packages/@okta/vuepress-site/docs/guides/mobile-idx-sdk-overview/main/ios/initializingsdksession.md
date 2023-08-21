@@ -4,52 +4,49 @@ This example shows parts of a singleton class for managing the sign-in flow. It 
 import OktaIdx
 import AuthFoundation
 
-class SignInController {
-   var flowClient: InteractionCodeFlow?
-   var username: String?
+class SignInController: InteractionCodeFlowDelegate, ObservableObject {
+   static let shared = SignInController()
 
-   // Return the singleton controller, creating the instance on the first call.
-   static let shared: SignInController? = {
-      let instance = SignInController()
+   // Published properties for the main state information of the flow
+   @MainActor @Published var currentResponse: Response? = nil
+   @MainActor @Published var currentRemediation: Remediation? = nil
+   @MainActor @Published var currentMessage: Response.Message? = nil
+   @MainActor @Published var currentError: Error? = nil
 
-      return instance
-   }()
+   // Set to true after the user has signed in successfully.
+   @MainActor @Published var successfulSignIn: Bool = false
 
+   private var flow: InteractionCodeFlow?
 
-   ...
+   private init() { }
 
-   // Start the sign-in flow by entering a username and password
-   public func signIn(username: String,
-                      password: String,
-                      completion: @escaping (Result<SuccessResultType, LoginError>) -> Void) {
-      self.username =  username
-      // A completion handler is one way to separate the manager from the view model.
-      self.completion = completion
+// ...
 
-      // Initalize the SDK client if needed.
-      if flowClient == nil {
-         do {
-             try flowClient = InteractionCodeFlow()
-         } catch {
-             // An error occured inializating the SDK. Handle the error.
-         }
+   @MainActor
+   public func start() async throws {
+      do {
+         // Call the init method that loads the configuration information from Okta.plist.
+         try flow = InteractionCodeFlow()
+      } catch {
+         // An error occured inializating the SDK. Handle the error.
+         currentError = error
+         return
       }
 
-      // Set this controller as the delegate that's notified
-      // when responses or errors for the flow are returned.
-      flowClient?.add(delegate: self)
+      // Receive calls when responses or errors are returned.
+      flow!.add(delegate: self)
 
-      // Request the initial step in the flow
-      flowClient?.start() { result in
-         switch result {
-            case .success(let response):
-               self.currentResponse = response
-               // Handle the current response.
-            case .failure(let error):
-               // An error occured. Handle the error.
-         }
+      do {
+         // Request an initial response from the server.
+         // Responses call the appropriate InteractionCodeFlowDelegate function.
+         let response = try await flow!.start()
+         currentResponse = response
+      } catch {
+         currentError = error
       }
    }
-...
+
+// ...
 }
 ```
+

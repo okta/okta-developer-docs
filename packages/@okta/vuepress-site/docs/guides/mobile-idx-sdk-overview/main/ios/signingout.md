@@ -5,14 +5,14 @@ The code snippet below uses the `Credential` object of the `AuthFoundation` libr
 import OktaIdx
 import AuthFoundation
 
-class SignInController: InteractionCodeFlowDelegate {
-   ...
+class SignInController: InteractionCodeFlowDelegate, ObservableObject {
+//   ...
 
    // Sign out the current user.
    public func signOut() throws {
-      //
       try Credential.default?.remove()
    }
+}
 
 ```
 
