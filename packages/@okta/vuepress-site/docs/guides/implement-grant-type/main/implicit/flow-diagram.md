@@ -32,11 +32,10 @@ At a high level, this flow has the following steps:
 
 1. Your application sends a request to the authorization server (Okta) for an access token.
 
-    Before implementing this redirect request to the authorization server (Okta), you need to [set up your app](#set-up-your-app) in Okta. See [Request for tokens](#request-for-tokens).
+    Before implementing this redirect request to the authorization server, you need to [set up your app](#set-up-your-app) in Okta. See [Request for tokens](#request-for-tokens).
 
-2. The authorization server redirects the user's browser to an authentication prompt (the Okta sign-in page).
-
-3. The user authenticates with the authorization server (Okta) and provides consent.
+2. The authorization server presents an authentication prompt (the Okta sign-in page) to the user's browser.
+3. The user authenticates with the authorization server and provides consent.
 
     For Okta to authenticate the user credentials, Okta needs user profile data.
     See [Add a user using the Admin Console](https://help.okta.com/okta_help.htm?id=ext-usgp-add-users), [Import Users](/docs/guides/password-import-inline-hook/), and the [Users API](/docs/reference/api/users/). Alternatively, you can [set up self-service registration](/docs/guides/oie-embedded-sdk-use-case-self-reg/) to allow users to register their membership with the app.
