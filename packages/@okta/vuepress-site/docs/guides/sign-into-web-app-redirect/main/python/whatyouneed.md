@@ -1,1 +1,1 @@
-* A copy of Visual Studio Community, Professional or Enterprise 2019 version 16.4 or later
+A recent version of [Python](https://www.python.org/) and [pip](https://pypi.org/project/pip/) installed.
