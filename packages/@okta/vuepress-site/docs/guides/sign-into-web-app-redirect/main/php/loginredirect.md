@@ -17,7 +17,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
    }
    ```
 
-1. Replace of the `TODO: define routes here` placeholder with the following route handler for `/`:
+1. Replace the `TODO: define routes here` placeholder with the following route handler for `/`:
 
    ```php
    switch($path) {

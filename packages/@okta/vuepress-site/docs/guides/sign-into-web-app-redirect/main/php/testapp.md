@@ -9,3 +9,37 @@
 1. After you have signed in, check your user's name appears.
 
 > **Note**: If you are signed in as an administrator in the same browser already, it displays your name. You can open an incognito window and create a test user in the Admin Console to use if you want.
+
+### Troubleshooting
+
+When troubleshooting errors in `authorization_code_callback_handler()`, use `var_dump()` function to echo Okta's response to a token request to the screen. For example:
+
+```php
+if(isset($response['error'])) {
+    var_dump($response);
+    throw new Exception("token endpoint returned an error: ".$response['error']);
+}
+
+if(!isset($response['access_token'])) {
+    var_dump($response);
+    throw new Exception("token endpoint did not return an error or an access token");
+}
+```
+
+Use the [/token](/docs/reference/api/oidc/#token) reference docs to understand the issue. If the response is `NULL`, echo the response from the curl call to the screen:
+
+```php
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([
+    'grant_type' => 'authorization_code',
+    'code' => $_GET['code'],
+    'code_verifier' => $_SESSION['oauth_code_verifier'],
+    'redirect_uri' => $_ENV['OKTA_OAUTH2_REDIRECT_URI'],
+    'client_id' => $_ENV['OKTA_OAUTH2_CLIENT_ID'],
+    'client_secret' => $_ENV['OKTA_OAUTH2_CLIENT_SECRET'],
+]));
+$data = curl_exec($ch);
+var_dump($data);
+echo $token_endpoint."\n";
+echo curl_error($ch)."\n";
+$response = json_decode($data, true);
+```
