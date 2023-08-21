@@ -4,10 +4,13 @@
    ```bash
    cd okta-flask-quickstart
    python -m venv venv
-   . venv/bin/activate
+   . venv/scripts/activate  #linux or mac
+   venv/scripts/activate.bat  #windows
    ```
 
-1. Create an empty file inside the root folder called `app.py`.
+   Use the appropriate command for `activate` for your OS.
+
+1. Create **app.py** in your project's root folder.
 1. Add the following code to configure the app.
 
    ```python

@@ -56,7 +56,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
 
    ```py
    @app.route("/signout", methods=["GET", "POST"])
-   @signin_required
+   @login_required
    def signout():
        logout_user()
        return redirect(url_for("signin"))

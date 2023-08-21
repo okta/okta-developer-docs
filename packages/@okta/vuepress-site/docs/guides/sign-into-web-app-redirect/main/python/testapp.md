@@ -1,7 +1,6 @@
 1. Start your app with the Flask server:
 
    ```bash
-   export FLASK_APP=app
    flask run
    ```
 
