@@ -1,1 +1,1 @@
-[Spring Boot redirect login sample](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login)
+[Okta Spring Security & Okta-Hosted Login Page Example](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login)

@@ -4,20 +4,20 @@ The Okta Spring Boot starter is secure-by-default, meaning that all of your rout
 @EnableWebSecurity
 public class SecurityConfiguration {
 
-  @Bean
-  SecurityFilterChain oauth2SecurityFilterChain(HttpSecurity http) throws Exception {
-    http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
+    @Bean
+    SecurityFilterChain oauth2SecurityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeRequests((requests) -> requests.anyRequest().authenticated());
 
-    // enables OAuth redirect login
-    http.oauth2Login();
+        // enables OAuth redirect login
+        http.oauth2Login();
 
-    // enables OAuth Client configuration
-    http.oauth2Client();
+        // enables OAuth Client configuration
+        http.oauth2Client();
 
-    // enables REST API support for JWT bearer tokens
-    http.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
+        // enables REST API support for JWT bearer tokens
+        http.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
 
-    return http.build();
-  }
+        return http.build();
+    }
 }
 ```
