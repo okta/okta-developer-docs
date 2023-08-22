@@ -1,5 +1,7 @@
 This example shows part of the implementation of the `InteractionCodeFlowDelegate` protocol functions called by the SDK for different parts of the sign-in flow and for errors.
 
+The example publishes important state variables, such as the current response. A controller or SwiftUI view can subscribe to changes and update the UI. One advantage of this model is that you can reuse your sign-in controller in other apps.
+
 ```swift
 
 import OktaIdx

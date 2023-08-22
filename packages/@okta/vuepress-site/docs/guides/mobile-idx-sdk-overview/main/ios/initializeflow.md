@@ -2,7 +2,8 @@ You can provide the configuration information in a property list file or in the 
 
 #### Add configuration with a property list
 
-The `init()` function of `InteractionCodeFlow` looks for a property list called `Okta.plist`. You can also call `init(plist:)` to specify a file.
+The default `init()` function of `InteractionCodeFlow` looks for a property list called `Okta.plist`. You can specify a property list file by calling `init(plist:)`. Both of those options can result in a throws as they read from the file system. To specify the values in the call, use `init(
+    issuer:clientId:scopes:redirectUri:additionalParameters:)`.
 
 To use a property list first create a property list file, such as `Okta.plist`. Next, add key-value pairs with the configuration settings for your Application Integration. For example, in the following text version of a `plist`, substitute your issuer URL for `{yourIssuerUrl}`, the client ID of your Application Integration for `{yourClientId}`, and a URI that launches your app. Set the scopes based on the access required by your app.
 

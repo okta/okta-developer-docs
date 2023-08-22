@@ -59,7 +59,7 @@ The SDK represents the sign-in flow using a number of different objects:
 
 ## Manage the sign-in flow
 
-You add support in your app for the five areas of functionality in the sign-in flow:
+You add support in your app for the functionality in the sign-in flow:
 
 - Initialize the flow.
 - Start the flow.
