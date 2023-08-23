@@ -1,6 +1,6 @@
 When you [created an app integration in the admin console](#create-an-app-integration-in-the-admin-console), you set the sign-in redirect URL to <StackSnippet snippet="signinredirecturi" inline /> and the sign-out redirect URL to <StackSnippet snippet="signoutredirecturi" inline />. In this sample, only the sign-in callback requires additional code:
 
-1. Add a new route handler for `/authorization-code/callback` to `main()` in `main.go`:
+1. Add a route handler for `/authorization-code/callback` to `main()` in `main.go`:
 
    ```go
    http.HandleFunc("/authorization-code/callback", AuthCodeCallbackHandler)
@@ -83,7 +83,7 @@ When you [created an app integration in the admin console](#create-an-app-integr
    }
    ```
 
-1. The second helper function, `verifyToken()`, verifies that the tokens received are not fraudulent.
+1. The second helper function, `verifyToken()`, verifies that the tokens received aren’t fraudulent.
 
    ```go
    func verifyToken(t string) (*verifier.Jwt, error) {

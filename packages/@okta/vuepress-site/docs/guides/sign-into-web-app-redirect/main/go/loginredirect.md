@@ -22,7 +22,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
    ```
 
 1. Add code to handle the `Sign In` click.
-   1. Add a new route handler for `/signin` to `main()` in `main.go`:
+   1. Add a route handler for `/signin` to `main()` in `main.go`:
 
       ```go
       http.HandleFunc("/signin", SigninHandler)
@@ -75,7 +75,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
       ```
 
 1. Add code to handle the `Sign Out` click.
-   1. Add a new route handler for `/signout` to `main()` in `main.go`:
+   1. Add a route handler for `/signout` to `main()` in `main.go`:
 
       ```go
       http.HandleFunc("/signout", SignoutHandler)

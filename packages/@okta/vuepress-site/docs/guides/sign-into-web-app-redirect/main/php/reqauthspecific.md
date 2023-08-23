@@ -11,7 +11,7 @@
    }
    ```
 
-2. Call the `require_signin()` function from any specific route that you want protected. For example, call it from `index()` to protect the home page:
+1. Call the `require_signin()` function from any specific route that you want protected. For example, call it from `index()` to protect the home page:
 
    ```php
    function index() {

@@ -1,4 +1,4 @@
-After a user has signed in, the application now has ID and access tokens from Okta in session store. In this section, you'll create a simple profile page that uses an access token to query for and display a user's basic information.
+After a user signs in, the application has ID and access tokens from Okta in session store. In this section, you create a simple profile page that uses an access token to query for and display a user's basic information.
 
 1. Create **templates**/**profile.html**.
 1. Add the code to display the user's name once signed in:

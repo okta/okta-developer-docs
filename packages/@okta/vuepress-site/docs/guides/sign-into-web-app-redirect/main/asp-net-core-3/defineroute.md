@@ -3,7 +3,7 @@ The Okta ASP.NET Core SDK configures and hosts both sign-in and sign-out callbac
 Check the redirect URIs of your Okta app integration match the development URLs that Visual Studio assigned to your app.
 
 1. Open the **Properties** > **launchSettings.json** file.
-1. Make a note of the **sslPort** settings under **iisExpress**. In the example below, that's `44314`.
+1. Make a note of the **sslPort** settings under **iisExpress**. In the following code, that's `44314`.
 
    ```json
    "iisSettings": {
@@ -16,7 +16,7 @@ Check the redirect URIs of your Okta app integration match the development URLs 
    }
    ```
 
-If this differs from the SSL port used as part of the callback URLs you set earlier when [creating an app integration in the admin console](#create-an-app-integration-in-the-admin-console), you should update the URLs to match the SSL port:
+If this differs from the SSL port used as part of the callback URLs you set earlier when [creating an app integration in the admin console](#create-an-app-integration-in-the-admin-console), update the URLs to match the SSL port:
 
 1. Open the Admin Console for your org.
 1. Go to **Applications** > **Applications** to view the current app integrations.

@@ -1,4 +1,4 @@
-You can also use the `isAuthenticated()` method to check if a user is authenticated and show additional data within a page. For example, `home.gohtml` shows the **Sign in** and **Sign out** buttons according to the user's status.
+You can also use the `isAuthenticated()` method to check if a user is authenticated and show more data within a page. For example, `home.gohtml` shows **Sign in** or **Sign out** according to the user's status.
 
 ```html
 {{if .IsAuthenticated}}

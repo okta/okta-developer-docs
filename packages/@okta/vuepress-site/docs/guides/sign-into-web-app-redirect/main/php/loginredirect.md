@@ -1,7 +1,7 @@
 Create a link for the user to start the sign-in process and be redirected to Okta.
 
 1. Open **public** > **index.php**.
-1. Add `index()` to display a sign-in link if if there isn't an ID token in the session:
+1. Add `index()` to display a sign-in link if there isn't an ID token in the session:
 
    ```php
    function index() {
@@ -30,10 +30,10 @@ Create a link for the user to start the sign-in process and be redirected to Okt
    }
    ```
 
-   Note that it calls `index()` to check if it should display the sign-in link.
+   Note that the handler calls `index()` to check if it should display the sign-in link.
 
 1. Add code to handle the `Sign In` click.
-   1. Add a new route handler for `/signin` to the switch statement in the previous step:
+   1. Add a route handler for `/signin` to the switch statement in the previous step:
 
       ```php
       ...

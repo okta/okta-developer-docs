@@ -1,7 +1,7 @@
 When you [created an app integration in the admin console](#create-an-app-integration-in-the-admin-console), you set the sign-in redirect URL to <StackSnippet snippet="signinredirecturi" inline /> and the sign-out redirect URL to <StackSnippet snippet="signoutredirecturi" inline />.
 
 1. Open `app.py`.
-1. Add a new route handler for the sign-in callback handler URI to the end of the file:
+1. Add a route handler for the sign-in callback handler URI to the end of the file:
 
    ```py
    @app.route("/authorization-code/callback")

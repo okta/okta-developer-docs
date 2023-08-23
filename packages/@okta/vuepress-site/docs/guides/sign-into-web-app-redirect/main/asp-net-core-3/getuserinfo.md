@@ -1,4 +1,4 @@
-The user information that Okta returns in an ID token after a user has signed in is saved automatically in `HttpContext.User`. For example, you can check whether the user is signed in with `User.Identity.IsAuthenticated` in your actions or views and see all of the user's claims in `User.Claims`. In this section, you'll create a simple profile page that lists all the claims returned.
+The user information that Okta returns in an ID token after a user has signed in is saved automatically in `HttpContext.User`. For example, you can check whether the user is signed in with `User.Identity.IsAuthenticated` in your actions or views and see all the user's claims in `User.Claims`. In this section, you create a simple profile page that lists all the claims returned.
 
 1. Open the **Controllers** > **HomeController.cs** file.
 1. Add the following `using` statement to the top of the controller:
@@ -7,7 +7,7 @@ The user information that Okta returns in an ID token after a user has signed in
    using Microsoft.AspNetCore.Authorization;
    ```
 
-1. Add a new `IActionResult` called `Profile` to hand the claim data over to a new view you'll create next:
+1. Add an `IActionResult` called `Profile` to hand the claim data over to a new view you create next:
 
    ```csharp
    [Authorize]
@@ -17,8 +17,8 @@ The user information that Okta returns in an ID token after a user has signed in
    }
    ```
 
-1. Create a new Razor View called `Profile` to display the user claims.
-   1. Right click the **Views** > **Home** folder in **Solution Explorer** and select **Add** > **View...**
+1. Create a razor view called `Profile` to display the user claims.
+   1. Right-click the **Views** > **Home** folder in **Solution Explorer** and select **Add** > **View...**
    1. Select **Razor View - Empty**, and then click **Add**.
    1. Enter the name `Profile.cshtml`, and then click **Add**.
    1. Replace the contents of the new file with the following code:

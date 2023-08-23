@@ -4,15 +4,15 @@
    php -S 127.0.0.1:8080 -t public
    ```
 
-1. Open a browser and navigate to `http://localhost:8080`.
+1. Open a browser and go to `http://localhost:8080`.
 1. Click **Sign In**. The browser redirects you to Okta to sign in using the Sign-In Widget.
-1. After you have signed in, check your user's name appears.
+1. After you’ve signed in, check your user's name appears.
 
-> **Note**: If you are signed in as an administrator in the same browser already, it displays your name. You can open an incognito window and create a test user in the Admin Console to use if you want.
+> **Note**: If you’re signed in as an administrator in the same browser already, it displays your name. You can open an incognito window and create a test user in the Admin Console to use if you want.
 
 ### Troubleshooting
 
-When troubleshooting errors in `authorization_code_callback_handler()`, use `var_dump()` function to echo Okta's response to a token request to the screen. For example:
+When troubleshooting errors in `authorization_code_callback_handler()`, use `var_dump()` to echo the response to a token request to the page. For example:
 
 ```php
 if(isset($response['error'])) {
@@ -26,7 +26,7 @@ if(!isset($response['access_token'])) {
 }
 ```
 
-Use the [/token](/docs/reference/api/oidc/#token) reference docs to understand the issue. If the response is `NULL`, echo the response from the curl call to the screen:
+Use the [/token](/docs/reference/api/oidc/#token) reference docs to understand the issue. If the response is `NULL`, echo the response from the curl call to the page:
 
 ```php
 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query([

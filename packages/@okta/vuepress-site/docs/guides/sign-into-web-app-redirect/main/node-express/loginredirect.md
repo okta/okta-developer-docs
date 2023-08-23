@@ -1,6 +1,6 @@
 Create a link for the user to start the sign-in process and be redirected to Okta.
 
-1. Open **views** > **layout.pug** .
+1. Open **views** > **layout.pug**.
 1. Add the code for a sign-in and a sign-out link.
 
    ```pug

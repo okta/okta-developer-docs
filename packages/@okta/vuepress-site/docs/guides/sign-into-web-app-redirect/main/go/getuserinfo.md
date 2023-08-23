@@ -1,6 +1,6 @@
-After a user has signed in, the application now has ID and access tokens from Okta in session store. In this section, you'll create a simple profile page that uses an access token to query for and display a user's basic information.
+After a user has signed in, the application receives ID and access tokens from Okta and keeps them in session store. In this section, you create a simple profile page that uses an access token to query for and display a user's basic information.
 
-1. Add a new route handler for `/profile` to `main()` in `main.go`:
+1. Add a route handler for `/profile` to `main()` in `main.go`:
 
    ```go
    http.HandleFunc("/profile", ProfileHandler)
@@ -52,7 +52,7 @@ After a user has signed in, the application now has ID and access tokens from Ok
    }
    ```
 
-1. FInally, create `templates\profile.gohtml` to display the user's information:
+1. Finally, create `templates\profile.gohtml` to display the user's information:
 
    ```html
    {{template "header" .}}

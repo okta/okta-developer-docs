@@ -72,4 +72,4 @@
    }
    ```
 
-> **Note:** If the `.env` file doesn't exist, the code will search your global environment variables for alternate values.
+> **Note:** If the `.env` file doesn't exist, the code searches your global environment variables for alternate values.

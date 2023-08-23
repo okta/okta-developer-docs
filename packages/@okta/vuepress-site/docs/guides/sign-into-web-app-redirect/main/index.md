@@ -13,11 +13,11 @@ Add user sign-in to a server-side web application with Okta's [redirect model](h
 * Implement a simple redirect to an Okta-hosted sign-in page
 * Configure a server-side web application to use Okta
 * Test that users can sign in and sign out
-* Define which parts of an application require authentication and which do not
+* Define which parts of an application require authentication and which don’t
 
 **What you need**
 
-* An [Okta developer edition org](https://developer.okta.com/signup/)
+* An [Okta Developer Edition org](https://developer.okta.com/signup/)
 * <StackSnippet snippet="whatyouneed" />
 
 **Sample code**
@@ -28,7 +28,7 @@ Add user sign-in to a server-side web application with Okta's [redirect model](h
 
 ## Overview
 
-The easiest and most secure way to add user sign-in to your server-side web application is to use an Okta-hosted Sign-In Widget. When a user attempts to sign in, the application redirects them to the widget hosted on an Okta web page. After they've signed in succesfully, Okta redirects them back to the application. This is known as the [redirect authentication deployment model](/docs/concepts/redirect-vs-embedded/#redirect-authentication).
+The easiest and most secure way to add user sign-in to your server-side web application is to use an Okta-hosted Sign-In Widget. When a user attempts to sign in, the application redirects them to the widget hosted on an Okta web page. After they've signed in successfully, Okta redirects them back to the application. This is known as the [redirect authentication deployment model](/docs/concepts/redirect-vs-embedded/#redirect-authentication).
 
 > **Note**: To use the redirect model in a _single-page application (SPA)_, see [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/). To use the redirect model in a _mobile app_, see [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/).
 
@@ -39,7 +39,7 @@ In this quickstart, you'll:
 1. [Test that a user can sign in and sign out](#test-that-a-user-can-sign-in-and-sign-out).
 1. [Configure different levels of access for specific areas of the site](#configure-different-levels-of-access-for-specific-areas-of-the-site).
 
-> **Tip**: You'll need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
+> **Tip**: You need your Okta org domain to follow this tutorial. It looks like `dev-123456.okta.com`. See [Find your Okta domain](/docs/guides/find-your-domain/). Where you see `${yourOktaDomain}` in this guide, replace it with your Okta domain.
 
 ## Create an app integration in the Admin Console
 
@@ -50,15 +50,15 @@ To create an app integration for your application:
 1. Open the Admin Console for your org.
    1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
    {style="list-style-type:lower-alpha"}
-   1. Click the **Admin** button on the top right of the page.
+   1. Click **Admin** on the top right of the page.
 1. Go to **Applications** > **Applications** to view the current app integrations.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Web Application** as the **Application type**, then click **Next**.
 
-   > **Note:** If you choose an inappropriate application type, it can break the sign-in or sign-out flows by requiring the verification of a client secret, which is something that public clients don't have.
+   > **Note:** You can break the sign-in or sign-out flows for your application if you choose the wrong application type.
 
-1. Enter an **App integration name**. For example, *My First Web Application*.
+1. Enter an **App integration name**. For example, _My first web application_.
 1. Enter the callback URLs for the local development of your application.
    1. Enter <StackSnippet snippet="signinredirecturi" inline /> for **Sign-in redirect URIs**.
    {style="list-style-type:lower-alpha"}
@@ -75,7 +75,7 @@ The configuration pane for the new app integration now opens. Keep this pane ope
 
 ### Note your client ID and client secret
 
-Make a note of two values that you'll use to configure your web application. Both are in the configuration pane for the app integration you've just created:
+Make a note of two values that you use to configure your web application. Both are in the configuration pane for the app integration that you've created:
 
 * **Client ID**: Found on the **General** tab in the **Client Credentials** section.
 * **Client Secret**: Found on the **General** tab in the **Client Credentials** section.
@@ -86,12 +86,12 @@ Moving on, where you see `${clientId}` and `${clientSecret}` in this guide, repl
 
 Now the app integration has been created and configuration settings noted, you'll:
 
-* [Create a new web application](#create-a-new-web-application).
+* [Create a web application](#create-a-web-application).
 * [Add the required packages to your application](#add-the-required-packages-to-your-application)
 * [Configure your application to use Okta](#configure-your-application-to-use-okta)
 * [Add the pages and logic for a user to sign in and sign out](#add-the-pages-and-logic-for-a-user-to-sign-in-and-sign-out)
 
-### Create a new web application
+### Create a web application
 
 <StackSnippet snippet="createproject" />
 
@@ -107,9 +107,14 @@ Earlier you [noted the client ID and client secret](#note-your-client-id-and-cli
 
 ### Add the pages and logic for a user to sign in and sign out
 
-A user can start the sign-in process by either clicking a link or a button or by trying to access a protected page, such as their profile page. In both cases, the application redirects the browser to the Okta-hosted sign-in page. See [Redirect to the sign-in page](#redirect-to-the-sign-in-page).
+A user can start the sign-in process by:
 
-After the user signs in, Okta redirects the browser back to the sign-in redirect URI you entered earlier. Similarly, after a user signs out, Okta redirects the browser to the sign-out redirect URI. Both sign-in and sign-out redirect URI are also called **callback routes**. A callback route isn't seen by the user, and it's not the user's final destination. However, your application does need to implement the logic for both of them. See [Define a callback route](#define-a-callback-route).
+* Clicking a sign-in link or button
+* Trying to access a protected page, such as their profile page.
+
+In both cases, the application redirects the browser to the Okta-hosted sign-in page. See [Redirect to the sign-in page](#redirect-to-the-sign-in-page).
+
+After the user signs in, Okta redirects the browser to the sign-in redirect URI you entered earlier. Similarly, after a user signs out, Okta redirects the browser to the sign-out redirect URI. Both sign-in and sign-out redirect URIs are called **callback routes**. Users don't see callback routes, and they aren't the user's final destination. However, your application does need to implement them. See [Define a callback route](#define-a-callback-route).
 
 After the user signs in, Okta returns some of their profile information to your app. The default profile items (called **claims**) returned by Okta include the user's email address, name, and preferred username. These are sent in an [ID token](/docs/reference/api/oidc/#id-token-payload) as part of the redirect to the sign-in redirect URL. See [Get the user's information](#get-the-users-information).
 
@@ -131,7 +136,7 @@ After the user signs in, Okta returns some of their profile information to your 
 
 ## Test that a user can sign in and sign out
 
-Now your site has enough content to sign a user in with Okta, prove they have signed in, and sign them out. Test it out by starting your server and signing a user in.
+Now your site has enough content to sign a user in with Okta, prove they’ve signed in, and sign them out. Test it out by starting your server and signing a user in.
 
 <StackSnippet snippet="testapp" />
 

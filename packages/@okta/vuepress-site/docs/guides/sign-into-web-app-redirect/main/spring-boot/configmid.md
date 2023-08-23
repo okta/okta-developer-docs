@@ -1,5 +1,3 @@
-The sample application looks for three values in your environment variables which you will need to create.
-
 1. Open **src** > **main** > **resources** > **application.properties**.
 1. Add the following, replacing the placeholders with your own values.
 
