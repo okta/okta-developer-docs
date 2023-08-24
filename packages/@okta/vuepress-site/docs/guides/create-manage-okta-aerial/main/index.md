@@ -86,6 +86,7 @@ To register a new Okta Aerial API client:
 To authenticate with Okta Aerial, a client obtains an access token from the Aerial admin org. See [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token) for more information.
 
 1. Create a [JWT assertion](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) and use it to make a [token request](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) to the Aerial admin org. The Aerial admin org returns the access token:
+
 ```bash
 curl --location --request POST 'https://${adminOrgDomain}/oauth2/v1/token' \
     -H 'Accept: application/json' \
@@ -95,7 +96,9 @@ curl --location --request POST 'https://${adminOrgDomain}/oauth2/v1/token' \
     --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
     --data-urlencode 'client_assertion=${jwt_assertion}'
 ```
+
 1. Add the access token to the Authorization header of Okta Aerial API requests:
+
 ```bash
 Authorization: Bearer ${access_token}
 ```
