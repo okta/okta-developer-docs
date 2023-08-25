@@ -663,7 +663,7 @@ The following example expressions are supported for events with the `filter` que
 
 See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
 
-The following are examples of common filter expressions:
+The following are examples of filter expressions:
 
 * Events that are published for a target user
 ```javascript
@@ -693,6 +693,21 @@ filter=eventType eq "app.auth.sso" and target.id eq "00uxc78lMKUMVIHLTAXY" and t
 * Events that are published for a given IP address
 ```javascript
 filter=client.ipAddress eq "184.73.186.14"
+```
+
+* Events that start with event_hook
+```javascript
+filter=eventType sw "event_hook"
+```
+
+* Events that contain session
+```javascript
+filter=eventType co "session"
+```
+
+* Events that end with token
+```javascript
+filter=eventType ew "token"
 ```
 
 ###### Keyword filter

@@ -284,6 +284,16 @@ Most of the operators listed in the [SCIM Protocol Specification](https://www.rf
 
 > **Note:** All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
 
+> **Note:** The [System Log](/docs/reference/api/system-log#filtering-results) API can use the operators contains (`co`) and ends with (`ew`).
+
+> **Notes:**
+
+    * xyz
+
+    * xyz
+
+    * xyz
+
 #### Attribute operators
 
 | Operator | Description | Behavior                                                         |
