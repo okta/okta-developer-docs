@@ -84,7 +84,7 @@
               </div>
               <div class="signup__link">
                 <a 
-                  href="http://www.okta.com/free-trial" 
+                  href="https://okta.com/free-trial/workforce-identity" 
                   target="_blank"
                 >
                   <span>Try Workforce Identity Cloud <i>→</i></span>
