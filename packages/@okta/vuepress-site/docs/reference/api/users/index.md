@@ -773,7 +773,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 | Parameter | Description                                                        | Param Type | DataType | Required |
 | --------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
 | id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) | URL        | String   | TRUE     |
-| expand  <ApiLifecycle access="ie" />  | Valid value: `block`. If this parameter is specified, then account block details are included in the `_embedded` attribute. The [embedded object](/docs/reference/api/users/#user-block-object) lists information about how the account is blocked from access. | Query        | String   | FALSE     |
+| expand    | Valid value: `block`. If this parameter is specified, then account block details are included in the `_embedded` attribute. The [embedded object](/docs/reference/api/users/#user-block-object) lists information about how the account is blocked from access. | Query        | String   | FALSE     |
 
 > When fetching a user by `login` or `login shortname`, you should [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
 
