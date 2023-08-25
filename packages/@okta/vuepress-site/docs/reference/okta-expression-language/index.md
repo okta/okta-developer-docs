@@ -250,7 +250,7 @@ The following should be noted about these functions:
 | `hasDirectoryUser()`  | Checks whether the user has an Active Directory assignment and returns a boolean                                                            |
 | `hasWorkdayUser()`    | Checks whether the user has a Workday assignment and returns a boolean                                                                      |
 | `findDirectoryUser()` | Finds the Active Directory App user object and returns that object or null if the user has more than one or no Active Directory assignments |
-| `findWorkdayUser()`   | Finds the Workday App user object and returns that object or null if the user has more than one or no Active Directory assignments          |
+| `findWorkdayUser()`   | Finds the Workday App user object and returns that object or null if the user has more than one or no Workday assignments                   |
 
 The previous functions are often used in tandem to check whether a user has an Active Directory or Workday assignment, and if so, return an Active Directory or Workday attribute. See the following 'Popular expressions' table for some examples.
 
