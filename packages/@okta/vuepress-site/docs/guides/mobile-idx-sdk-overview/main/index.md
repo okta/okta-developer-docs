@@ -17,9 +17,9 @@ This guide is an overview of building your own user interface using the embedded
 
 ## Sign-in flow
 
-Okta supports many ways of authenticating the identity of a user during the sign-in flow. An Okta org administrator creates _policies_, different mixes of *authenticators*, or ways of verifying the identity of a user, and assigns them to apps, people, groups, and more. Policies also configure whether an authenticator is required or optional, as well as the minimum number of authenticators required for a successful sign-in. Responding to each authenticator is a step in the sign-in flow. Many flows require multiple *factors* (multifactor authentication), the category of an authenticator. Factors include biometrics, such as a fingerprint, knowledge, such as a password, and more. This effectively results in an infinite number of combinations of authenticators and the order in which they're presented.
+Okta supports many ways of authenticating the identity of a user during the sign-in flow. An Okta org administrator creates _policies_, different mixes of *authenticators*, or ways of verifying the identity of a user, and assigns them to apps, people, groups, and more. Policies also configure whether an authenticator is required or optional and the minimum number required to sign in successfully. Responding to each authenticator is a step in the sign-in flow. Many flows require multiple *factors* (multifactor authentication), the category of an authenticator. Factor types include biometrics, such as a fingerprint, knowledge, such as a password, and more. This effectively results in an infinite number of combinations of authenticators and the order in which they're presented.
 
-The Android and Swift Identity Engine SDKs represent the sign-in flow as a state machine. You initialize the machine with the details of your Okta org app integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
+The Android and Swift Identity Engine SDKs represent the sign-in flow as a state machine. The Swift SDK is used for iOS. You initialize the machine with the details of your Okta org app integration, request the initial step in the flow, and cycle through responding to steps until either the user signs in, cancels, or an error occurs.
 
 <div class="three-quarter">
 
@@ -44,27 +44,27 @@ The SDK represents the sign-in flow using a number of different objects:
 </div>
 
 - **Response:** The top-level object that represents a step and contains all the other objects. It includes a property that indicates a successful sign-in and functions for cancelling the sign-in flow, or retrieving the access token after the sign-in flow succeeds. A response may contain multiple authenticators and remediations.
-- **Remediation:** Represents the main user actions for a step, such as enrolling in an authenticator or entering an OTP. In the Swift SDK, it also includes the function for requesting the next step in the flow.
+- **Remediation:** Represents the main user actions for a step, such as enrolling in an authenticator or entering an OTP. In the Swift SDK for iOS, it also includes the function for requesting the next step in the flow.
 - **Authenticator:** Represents an authenticator that's used to verify the identity of a user, such as Okta Verify.
 - **Method:** Represents a channel for an authenticator, such as using SMS or voice for an authenticator that uses a phone. An authenticator may have zero or more methods.
 - **Capability:** A user action associated with a remediation, authenticator, or method, such as requesting a new OTP or a password reset.
 - **Field:** Represents a UI element, either a static item, such as a label, or user input, such as a selection list. It includes properties for state information, such as whether the associated value is required. Properties also store the current value of user input field, such as the string for an OTP or the selected choice. A lists of choices, or **Options**, are represented by a collection of fields. A field may contain a form that contains more fields.
 - **Form:** Contains the fields that represent the user action for a remediation.
-- **InteractionCodeFlow:** Represents the session during the sign-in flow. In the Kotlin SDK, it includes the function for requesting the next step in the flow.
+- **InteractionCodeFlow:** Represents the session during the sign-in flow. In the Android SDK, it includes the function for requesting the next step in the flow.
 
 
 ## Objects and the flow
 
 <StackSnippet snippet="objectsandflow" />
 
-## Manage the sign-in flow
+## Manage the flows
 
-You add support in your app for the functionality in the sign-in flow:
+Add support for the sign-in and sign-out flows to your app:
 
 - Initialize the flow.
 - Start the flow.
 - Process responses until the sign-in flow succeeds, results in an error, or the user cancels the flow.
-- Request a token for a successful sign-in flow.
+- Request a token object for a successful sign-in flow. The object contains access, ID, and refresh tokens.
 - Sign the user out.
 
 

@@ -1,5 +1,5 @@
 
-This example creates the flow in the viewmodel `launch` coroutine. Start by calling `CredentialBootstrap.oidcClient.createInteractionCodeFlow` and on success, request the first response by calling `resume()` on the result.
+This example creates the flow in the viewmodel `launch` coroutine. Start by calling `CredentialBootstrap.oidcClient.createInteractionCodeFlow` and on success, request the first response by calling `resume` on the result.
 
 ```kotlin
 import com.okta.authfoundation.client.OidcClientResult

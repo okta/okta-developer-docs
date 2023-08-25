@@ -1,9 +1,9 @@
 
-Initialize AuthFoundationBootstrap in your `Application` sublcass. This code shows loading the values from a property file in your project.
+The following example loads the configuration values for the flow from a property file in your project.
 
-First, create a property file, for example, `okta.properties` in the project root. Add the values for your Okta application integration to the file.
+First, create a property file, for example, `okta.properties` in the project root. Add the values for your Okta app integration to the file.
 
-```
+```properties
 discoveryUrl=https://{yourIssuerUrl}/oauth2/default/.well-known/openid-configuration
 clientId={yourClientId}
 redirectUri=com.okta.sample.android:/login
@@ -26,7 +26,7 @@ defaultConfig {
 }
 ```
 
-In your `Applicaiton` subclass, initialize `AuthFoundationBootstrap` from the `BuildConfig` by calling `initializeAuthFoundation` from `onCreate`.
+In your `Application` subclass, initialize `AuthFoundationBootstrap` from the `BuildConfig` by calling `initializeAuthFoundation` from `onCreate`.
 
 ```kotlin
 import com.okta.android.samples.authenticator.BuildConfig

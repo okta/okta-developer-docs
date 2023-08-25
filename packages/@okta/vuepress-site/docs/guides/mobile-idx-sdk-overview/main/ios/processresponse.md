@@ -70,7 +70,8 @@ class SignInController: InteractionCodeFlowDelegate, ObservableObject {
    }
 
    // Delegate functions called when errors occur
-   func authentication<Flow>(flow: Flow, received error: InteractionCodeFlowError) where Flow : InteractionCodeFlow {
+   func authentication<Flow>(flow: Flow, received error: InteractionCodeFlowError)
+                            where Flow : InteractionCodeFlow {
       // Publish the error from the main thread.
       DispatchQueue.main.async {
          self.currentError = error

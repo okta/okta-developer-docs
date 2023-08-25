@@ -8,7 +8,10 @@ import com.okta.authfoundationbootstrap.CredentialBootstrap
 fun logout() {
     viewModelScope.launch {
         // Revoking the refresh token also revokes the access token.
-        when (val revokeResult = CredentialBootstrap.defaultCredential().revokeToken(RevokeTokenType.REFRESH_TOKEN)) {
+        when (val revokeResult =
+                  CredentialBootstrap.defaultCredential().revokeToken(RevokeTokenType.REFRESH_TOKEN)
+             )
+        {
             is OidcClientResult.Error -> {
                 // Sign-out failed, handle the error.
             }

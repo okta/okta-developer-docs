@@ -8,7 +8,9 @@ private suspend fun handleResponse(response: IdxResponse) {
     // Check if the sign-in flow is successful.
     if (response.isLoginSuccessful) {
         // Exchange the sign-in session token for a token.
-        when (val exchangeCodesResult = flow?.exchangeInteractionCodeForTokens(response.remediations[ISSUE]!!)) {
+        when (val exchangeCodesResult =
+                  flow?.exchangeInteractionCodeForTokens(response.remediations[ISSUE]!!))
+        {
             is OidcClientResult.Error -> {
                 // Handle the error.
             }
