@@ -723,6 +723,9 @@ Content-Type: application/json;charset=UTF-8
     "error_description": "Invalid value for 'client_id' parameter."
 }
 ```
+## Role assignment operations
+
+Please check [here](/docs/reference/api/roles/#role-assignment-operations) for OAuth 2.0 client role assignment operations.
 
 ## Client Application object
 
