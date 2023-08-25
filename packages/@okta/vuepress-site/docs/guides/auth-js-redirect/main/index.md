@@ -21,7 +21,7 @@ The [Okta JavaScript Auth SDK](https://github.com/okta/okta-auth-js) (Auth JS) h
 
 The Okta Auth JS SDK builds on top of the [Authentication API](/docs/reference/api/authn/), the [OpenID Connect API](/docs/reference/api/oidc/), and the Identity Engine [interaction code](/docs/concepts/interaction-code/) flow. This SDK enables you to create various sign-in experiences.
 
-These experiences include fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/) and redirect authentication. Auth JS is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. It also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [Quickstart guides](/docs/guides/quickstart/).
+These experiences include fully branded embedded authentication, as with [Auth JS fundamentals](/docs/guides/auth-js/) and redirect authentication. Auth JS is used by the Okta [Sign-In Widget](https://github.com/okta/okta-signin-widget), which powers the default Okta sign-in page. Your application initializes the SDK, which automatically redirects you to this authentication page hosted by Okta and enforces the policies you configured for your sign-in experience. Auth JS also powers our other redirect SDKs that provide simple authentication for server-side web apps and single-page JavaScript apps (SPA). See the [Quickstart guides](/docs/guides/quickstart/).
 
 In this guide, you don't need to use an Okta-supported server-side or front-end framework to get access to redirect authentication. It's possible to use Auth JS to create a drop-in solution that works with most web apps, whether you're adding a centralized sign-in flow to a new app or retrofitting it to an existing app. To see examples of Auth JS with other front-end frameworks, go to [Sign in to SPA](/docs/guides/sign-into-spa-redirect/angular/main/).
 
@@ -302,6 +302,35 @@ Test the new configurations by recovering a password for a user of your sample a
 1. Create and verify a new password. Click **Reset Password**. Your test user is now signed in to your sample app with a new password.
 
 See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr).
+
+## Enable passwordless authentication
+
+Enable passwordless authentication for your existing users by configuring your Okta org's authenticator enrollment policy, authentication policy, and global session policy. This example uses the email authenticator to authenticate your users instead of a password. For full details and other passwordless implementation options, see [Set up passwordless sign-in experience](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless).
+
+1. Go to **Directory** > **Groups** and click **Add group**. Give the group a name, for example, Passwordless Users, and click **Save**.
+1. Select your new group, and click **Assign people** from the **People** tab. Add one or more users to your new group.
+1. Go to **Security** > **Authenticators** and edit or ensure the **Email** authenticator is set to **Authentication and recovery**.
+1. Click the **Enrollment** tab and then click **Add a policy** to add a new enrollment policy targeted at your new group. Configure the following fields and then click **Create Policy**:
+    * **Policy name**: Any name for this policy, for example, Passwordless Enrollment
+    * **Assign to Groups**: Your new group, Passwordles Users
+    * **Email** authenticator: Set to required
+    * **Password** authenticator: Set to disabled
+1. Add a rule name, for example, Passwordless Enrollment Rule, and click **Create rule** to complete the enrollment policy setup.
+1. Click **Authentication Policies** and assign your sample application to a one-factor authentication policy, if it's not already. In the policy, click **Add rule**, and make the following configurations and then click **Save**:
+    * **Rule name**: Any name for this rule, for example, Passwordless Authentication rule
+    * **User's group membership includes**: Your new group, Passwordless Users
+    * **User must authenticate with**: Any 1 factor type / IdP
+1. Click **Global Session Policy** and click **Add policy**. Give the policy a name, for example, Global Passwordless Policy, and assign the policy to your new group, Passwordless Users. Click **Create policy and add rule**.
+1. Configure the following fields in the **Add rule** dialog and then click **Create rule**:
+    * **Rule name**: Any name for this rule, for example, Global Passwordless rule
+    * **Establish the session with**: Any factor used to meet the Authentication Policy requirements
+
+Test the new configurations by signing in to your sample app with a user added to your Passwordless Users group:
+
+1. Start your app. On the Okta sign-in page, add the email address of your test user. Notice there is no password field available in the page.
+1. Add the email address for your test user and click **Next**.
+1. Click the **Send me an email** link to receive a verification email.
+1. Open the email and use either the verification code or email link to verify the user. The user is signed in to your sample application without a password.
 
 <!-- ## Use Cases - Review these headings for future content
 
