@@ -2450,7 +2450,7 @@ The following table shows the possible relationships between all the authenticat
         ]
       },
       "possession": {
-        "types": [
+        "methods": [
           "SMS"
         ]
       }
