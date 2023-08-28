@@ -725,7 +725,7 @@ Content-Type: application/json;charset=UTF-8
 ```
 ## Role assignment operations
 
-Please check [here](/docs/reference/api/roles/#role-assignment-operations) for OAuth 2.0 client role assignment operations.
+See [Role assignment operations](/docs/reference/api/roles/#role-assignment-operations).
 
 ## Client Application object
 
