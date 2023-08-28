@@ -6260,7 +6260,7 @@ If the delete request is received for an active JSON Web Key, you receive an err
 
 ## Application OAuth 2.0 role assignment operations
 
-Please check [here](/docs/reference/api/roles/#role-assignment-operations) for OAuth 2.0 client application role assignment operations.
+See [Role assignment operations](/docs/reference/api/roles/#role-assignment-operations).
 
 ## Application OAuth 2.0 scope consent grant operations
 
