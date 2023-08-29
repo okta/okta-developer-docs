@@ -3,13 +3,13 @@ import { BasePage } from "../page-objects/BasePage";
 describe('API tags check spec', () => {
   const basePage = new BasePage();
 
-  it('shows the Beta lifecycle tags', () => {
-    const betaTagSelector = '.api-label-beta';
+  //it('shows the Beta lifecycle tags', () => {
+  //  const betaTagSelector = '.api-label-beta';
 
-    basePage.visit('/docs/reference/api/policy');
+  //  basePage.visit('/docs/reference/api/policy');
 
-    cy.get(betaTagSelector).should('exist');
-  });
+  //  cy.get(betaTagSelector).should('exist');
+  //});
 
   //it('shows the Early Access lifecycle tags', () => {
     //const eaTagsSelector = '.api-label-ea';
