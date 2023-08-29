@@ -2449,6 +2449,9 @@ The following table shows the possible relationships between all the authenticat
       },
       "possession": {
         "types": [
+          "PHONE"
+        ],
+        "methods": [
           "SMS"
         ]
       }
