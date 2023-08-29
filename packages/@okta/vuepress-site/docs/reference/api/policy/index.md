@@ -1415,7 +1415,6 @@ You can apply the following conditions to the Rules associated with a global ses
 <ApiLifecycle access="ie" />
 
 > **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to authenticator enrollment policy. The policy type of `MFA_ENROLL` remains unchanged, however, the `settings` data is updated for authenticators. For Classic Engine, see [Multifactor (MFA) Enrollment Policy](#multifactor-mfa-enrollment-policy).
-> The authenticator enrollment policy is a <ApiLifecycle access="beta" /> release.
 
 The authenticator enrollment policy controls which authenticators are available for a User, as well as when a User may enroll in a particular authenticator.
 
@@ -1455,9 +1454,9 @@ The authenticator enrollment policy controls which authenticators are available 
 | factors                                                                          | Factor policy settings. This parameter is for Classic Engine MFA Enrollment policies that have migrated to Identity Engine but haven't converted to using authenticators yet. Factors and authenticators are mutually exclusive in an authenticator enrollment policy. When a policy is updated to use authenticators, the factors are removed.               | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
 | type            | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
-> **Note:** The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
-
-> **Note:** For orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta contains the `authenticators` property in the policy settings. Existing default authenticator enrollment policies from a migrated Classic Engine org remain unchanged and still use the `factors` property in their policy settings.
+> **Notes:**
+> * The `authenticators` parameter allows you to configure all available authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
+> * For orgs with the Authenticator enrollment policy feature enabled, the new default authenticator enrollment policy created by Okta contains the `authenticators` property in the policy settings. Existing default authenticator enrollment policies from a migrated Classic Engine org remain unchanged and still use the `factors` property in their policy settings.
 
 #### Policy Authenticator object
 
@@ -1548,7 +1547,7 @@ You can apply the following conditions to the Rules associated with the authenti
 
 ## Multifactor (MFA) Enrollment Policy
 
-> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](#authenticator-enrollment-policy). In Classic Engine, the Multifactor Enrollment Policy type remains unchanged and is a <ApiLifecycle access="beta" /> release.
+> **Note:** In Identity Engine, the Multifactor (MFA) Enrollment Policy name has changed to [authenticator enrollment policy](#authenticator-enrollment-policy). In Classic Engine, the Multifactor Enrollment Policy type remains unchanged.
 
 The Multifactor (MFA) Enrollment Policy controls which MFA methods are available for a User, as well as when a User may enroll in a particular Factor.
 
@@ -1562,17 +1561,11 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
        "okta_question": {
          "enroll": {
            "self": "OPTIONAL"
-         },
-         "consent": {
-           "type": "NONE"
          }
        },
        "okta_sms": {
          "enroll": {
            "self": "REQUIRED"
-         },
-         "consent": {
-           "type": "NONE"
          }
        }
      }
@@ -1612,15 +1605,19 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 
 | Parameter | Description                            | Data Type                                                     | Required |
 | ---       | ---                                    | ---                                                           | ---      |
-| consent   | Consent requirements for the Factor    | [Policy Factor Consent object](#policy-factor-consent-object) | No       |
 | enroll    | Enrollment requirements for the Factor | [Policy Factor Enroll object](#policy-factor-enroll-object)   | No       |
 
+<!-- # Consent object isn't used. This object is returned for backward compatibility.
+| consent   | Consent requirements for the Factor    | [Policy Factor Consent object](#policy-factor-consent-object) | No       |
+-->
 
 #### Policy Factor Enroll object
 
 | Parameter | Description                               | Data Type                               | Required | Default       |
 | ---       | ---                                       | ---                                     | ---      | ---           |
 | self      | Requirements for User-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL` or `REQUIRED` | No       | `NOT_ALLOWED` |
+
+<!-- # Consent object isn't used. This object is returned for backward compatibility.
 
 #### Policy Factor Consent object
 
@@ -1639,6 +1636,7 @@ Currently, the Policy Factor Consent terms settings are ignored.
 | ---       | ---                                               | ---                                | ---      | ---     |
 | format    | The format of the Consent dialog box to be presented. | `TEXT`, `RTF`, `MARKDOWN` or `URL` | No       | N/A     |
 | value     | The contents of the Consent dialog box.               | String                             | No       | N/A     |
+-->
 
 ### Policy conditions
 
