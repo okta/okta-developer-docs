@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  general-platform-helpers: okta/general-platform-helpers@1.7.6
+  general-platform-helpers: okta/general-platform-helpers@1.8.11
 
 
 workflows:
