@@ -8791,10 +8791,10 @@ The application provisioning connection profile is used to configure the method 
 
 #### Token-based Provisioning Connection Profile properties
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| authScheme              | Defines the method of authentication     | `TOKEN` | FALSE    | FALSE  | FALSE    |
-| token            | Token used to authenticate with application      | String | FALSE    | FALSE   | FALSE    |
+| Property | Description | DataType | Nullable | Unique | Readonly |
+| -------- | ----------- | -------- | -------- | ------ | -------- |
+| authScheme | Defines the method of authentication | `TOKEN` | FALSE    | FALSE  | FALSE    |
+| token | Token used to authenticate with application | String | FALSE    | FALSE   | FALSE    |
 
 #### OAuth 2.0-based Provisioning Connection Profile example
 ```json
@@ -8808,10 +8808,10 @@ The application provisioning connection profile is used to configure the method 
 
 #### OAuth 2.0-based Provisioning Connection Profile properties
 
-| Property     | Description                                                   | DataType            | Nullable | Unique | Readonly |
-| -------------| ------------------------------------------------------------- | ---------------     | -------- | ------ | -------- | --------- | --------- | ---------- |
-| authScheme   | Defines the method of authentication                          | `OAUTH2`            | FALSE    | FALSE  | FALSE    |
-| clientId     | Unique client identifier for the OAuth 2.0 service app from the target org  | String    | FALSE    | FALSE  | FALSE    |
+| Property | Description | DataType  | Nullable | Unique | Readonly |
+| ---------| ----------- | --------  | -------- | ------ | -------- |
+| authScheme   | Defines the method of authentication  | `OAUTH2` | FALSE    | FALSE  | FALSE    |
+| clientId     | Unique client identifier for the OAuth 2.0 service app from the target org  | String  | FALSE    | FALSE  | FALSE    |
 
 ### Application Feature object
 
