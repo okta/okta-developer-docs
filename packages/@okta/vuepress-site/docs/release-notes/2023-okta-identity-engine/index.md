@@ -6,13 +6,25 @@ title: Okta Identity Engine API Products release notes 2023
 
 ## August
 
+### Weekly release 2023.08.3
+
+| Change | Expected in Preview Orgs |
+| ------ | ------------------------ |
+| [Bug fixed in 2023.08.3](#bug-fixed-in-2023-08-3) | August 30, 2023 |
+
+#### Bug fixed in 2023.08.3
+
+The Access Simulation endpoint of the Policy API returned access to applications even though the authenticator enrollment was denied. (OKTA-622753)
+
 ### Weekly release 2023.08.2
 
 | Change | Expected in Preview Orgs |
 | ------ | ------------------------ |
-| [Bugs fixed in 2023.08.2](#bugs-fixed-in-2023-08-2) | August 29, 2023 |
+| [Bug fixed in 2023.08.2](#bug-fixed-in-2023-08-2) | August 29, 2023 |
 
-* When configuring an API Service Integration (either through the Admin Console or using APIs), you could set a JWKS URL using HTTP instead of HTTPS. (OKTA-601623)
+#### Bug fixed in 2023.08.2
+
+When configuring an API Service Integration (either through the Admin Console or using APIs), you could set a JWKS URL using HTTP instead of HTTPS. (OKTA-601623)
 
 ### Weekly release 2023.08.1
 
