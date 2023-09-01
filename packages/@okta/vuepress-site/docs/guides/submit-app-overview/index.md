@@ -80,7 +80,7 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
 1. Create an integration phase
 
-   * When you're constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/).
+   * When you're constructing your Okta integration, you can post a question on the [Okta Developer Forum](https://devforum.okta.com/) or submit your question to <developers@okta.com>.
 
 1. Submit an integration phase
 
@@ -92,7 +92,11 @@ Getting your app integration in the OIN catalog involves two phases: creating a 
 
 If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
->**Note:** All integrations in the OIN catalog are public. If you want to submit a request to create a private app integration for an application that uses SCIM 1.1 or Profile Sourcing, or for an application that uses a custom header expression for the Header Auth, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim) to create your integration and submit your app through the [OIN Manager](https://oinmanager.okta.com). The Okta OIN team works with you to create an internal-only integration that isn't included in the OIN.
+> **Note:** All integrations in the OIN catalog are public. If you want to submit a request to create a private app integration for an application that uses SCIM, then use the [SCIM App Integration Wizard](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-scim) to create your integration and submit your app through the [OIN Manager](https://oinmanager.okta.com). The Okta OIN team works with you to create an internal-only integration that isn't included in the OIN.<br>
+> You can also use the following verified integrations from the OIN if they meet your app SCIM capabilities:
+> * [SCIM 1.1 test apps](https://www.okta.com/integrations/?search=SCIM%201.1%20test%20app) for SCIM 1.1
+> * [SCIM 2.0 test apps](https://www.okta.com/integrations/?search=SCIM%202.0%20Test%20App) for SCIM 2.0
+> * [SCIM 2.0 Test App(Header Auth)](https://www.okta.com/integrations/scim-2-0-test-app-header-auth/) for apps that use custom header expression for Header Auth
 
 ## Next steps
 
