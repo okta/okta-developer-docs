@@ -8939,8 +8939,8 @@ Deactivates a user's application account when it is unassigned in Okta or if the
 
 Ensures users' app passwords are always the same as their Okta passwords or allows Okta to generate a unique password for the user.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| Property | Description | DataType | Nullable | Unique | Readonly | Default |
+| -------- | ----------- | -------- | -------- | ------ | -------- | ------- |
 | change | Determines whether a change in a users password will also update the password in the application.   | `KEEP_EXISTING`, `CHANGE` | TRUE  | FALSE   | FALSE    | `KEEP_EXISTING` |
 | seed | Determines whether the generated password is the users Okta password or a randomly generated password.   | `OKTA`, `RANDOM`  | TRUE  | FALSE | FALSE  |  `RANDOM`  |
 | status | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE  | FALSE  |  `DISABLED` |
@@ -8959,9 +8959,9 @@ Ensures users' app passwords are always the same as their Okta passwords or allo
 
 Okta updates a user's attributes in the application when the application is assigned. Future changes made to the Okta user's profile automatically overwrite the corresponding attribute value in the application.
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
-| status   | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
+| Property | Description | DataType | Nullable | Unique | Readonly | Default |
+| -------- | ----------- | -------- | -------- | ------ | -------- | ------- |
+| status   | Status of the setting | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
 
 ### Client Secret Request object
 
