@@ -72,6 +72,12 @@ You can also do the following:
 - [Enable a product in an Org](#enable-a-product-in-an-org)
 - [Disable a product from an Org](#disable-a-product-from-an-org)
 
+<div class="three-quarter">
+
+![Okta Aerial - Summary of steps](/img/aerial-steps-summary.png)
+
+</div>
+
 ## Register an Okta Aerial API client
 
 Use an Aerial API client to add orgs to the Aerial account and to modify products.
