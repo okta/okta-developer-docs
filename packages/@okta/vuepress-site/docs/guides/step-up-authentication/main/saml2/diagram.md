@@ -15,3 +15,23 @@ At a high level, this flow has the following steps:
 7. The SP sends the `securitycontext` to the browser.
 8. The browser requests access to the resource from the SP.
 9. The SP responds with the requested resource.
+
+<!-- @startuml Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+skinparam monochrome true
+participant "Browser (User Agent)" as browser
+participant "Service Provider" as sp
+participant "Okta (Identity Provider)" as okta
+
+autonumber "<b>#."
+browser -> sp: Sends auth request with `acr_values` predefined parameter value
+sp -> browser: Generates SAML assertion, sends SAML request
+browser -> okta: Relays SAML request to Okta
+okta <-> browser: Performs required authn per `acr_values` parameter value
+okta -> browser: Generates, sends SAML assertion with `acr` value and factors
+browser -> sp: Relays SAML assertion to SP
+sp -> browser: Sends `securitycontext`
+browser -> sp: Requests access to the resource
+sp -> browser: Responds with requested resource
+@enduml
+-->
