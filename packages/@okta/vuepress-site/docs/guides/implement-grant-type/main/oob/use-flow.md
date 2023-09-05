@@ -1,8 +1,8 @@
-The following sections outline the requests required to implement the OOB flow using direct calls to the Okta OpenID Connect & OAuth 2.0 API.
+The following sections outline the requests required to implement the out-of-band (OOB) flow using direct calls to the Okta OpenID Connect & OAuth 2.0 API.
 
 ### Request for out-of-band authentication
 
-Before you can begin this flow, collect the username from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/oob-authenticate` endpoint. Use this endpoint to initiate an authentication flow with an out-of-band (OOB) factor as the primary factor. Your request should look something like this:
+Before you can begin this flow, collect the username from the user in a manner of your choosing. Then, make an API call to the Okta [authorization server](/docs/concepts/auth-servers/) `/oob-authenticate` endpoint. Use this endpoint to initiate an authentication flow with an out-of-band factor as the primary factor. Your request should look something like this:
 
 > **Note:** The `/oob-authenticate` endpoint doesn't support multifactor authentication.
 
@@ -55,12 +55,12 @@ In an HTTP 200 response, Okta returns the following parameters:
 
 Note the parameters included:
 
-- `oob_code`: An identifier of a single out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, this code is used to identify the factor transaction.
+- `oob_code`: An identifier of a single out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
 - `expires_in`: The time, in seconds, until the `oob_code` expires
 - `interval`: The frequency, in seconds, at which the client needs to poll Okta to check if the out-of-band factor is completed. This is only relevant to polling factors such as Okta Verify Push.
 - `channel`: The type of out-of-band channel used. Okta currently only supports Okta Verify Push.<!-- need to update this when phase 2 is complete -->
-- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`. The `transfer` value is used with the number challenge for Okta Verify Push.
-- `binding_code`: The end-user verification code used to bind the authorization operation on the secondary channel with the primary channel. This parameter appears only if `binding_method=transfer`.
+- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`.
+- `binding_code`: The end user verification code used to bind the authorization operation on the secondary channel with the primary channel. This parameter appears only if `binding_method=transfer`.
 
 ### Poll the Okta authorization server
 
@@ -78,8 +78,8 @@ Note the parameters that are passed:
 
 - `client_id`: Matches the client ID of the native application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
 - `scope`: Must be at least `openid`. See the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
-- `grant_type`: `urn:okta:params:oauth:grant-type:oob`, which indicates that you are using the direct authentication OOB grant type. Use this grant type for OOB factors that you want to use as a primary factor.
-- `oob_code`: An identifier of a single out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, this code is used to identify the factor transaction.
+- `grant_type`: `urn:okta:params:oauth:grant-type:oob`, which indicates that you're using the direct authentication OOB grant type. Use this grant type for OOB factors that you want to use as a primary factor.
+- `oob_code`: An identifier of a single out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
 
 For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 

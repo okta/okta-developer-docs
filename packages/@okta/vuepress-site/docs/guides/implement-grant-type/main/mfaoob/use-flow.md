@@ -97,12 +97,12 @@ In an HTTP 200 response, Okta returns the following parameters:
 Note the parameters included:
 
 - `challenge_type`: The challenge type used for authentication. This must be one of the `challenge_types_supported` from the request body. The MFA OOB flow supports only `http://auth0.com/oauth/grant-type/mfa-oob`.
-- `oob_code`: An identifier of an out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, this code is used to identify the factor transaction.
+- `oob_code`: An identifier of an out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
 - `expires_in`: The time, in seconds, until the `oob_code` expires
 - `interval`: The frequency, in seconds, at which the client should poll to check if the out-of-band factor is complete. This is only relevant to polling factors such as Okta Verify Push.
 - `channel`: The type of out-of-band channel used. Okta currently only supports Okta Verify Push.<!-- need to update this when phase 2 is complete -->
-- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`. The `transfer` value is used with the number challenge for Okta Verify Push.
-- `binding_code`: The end-user verification code used to bind the authorization operation on the secondary channel with the primary channel. This parameter appears only if `binding_method=transfer`.
+- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`.
+- `binding_code`: The end user verification code used to bind the authorization operation on the secondary channel with the primary channel. This parameter appears only if `binding_method=transfer`.
 
 ### Poll the Okta authorization server
 
@@ -118,11 +118,11 @@ curl --request POST \
 
 Note the parameters that are passed:
 
-- `client_id` matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
-- `scope` must be at least `openid`. If you're using a custom authorization server, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
-- `grant_type` is `http://auth0.com/oauth/grant-type/mfa-oob`, indicating that you're using the direct authentication MFA OOB grant type. Use this grant type for MFA OOB factors that you want to use as a secondary factor.
-- `oob_code` is an identifier of an out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, this code is used to identify the factor transaction.
-- `mfa_token` is a unique token used for identifying multifactor authentication flows to link the request to the original authentication flow.
+- `client_id`: Matches the client ID of the application that you created in the [Set up your app](#set-up-your-app) section. You can find it at the top of your app's **General** tab.
+- `scope`: Must be at least `openid`. If you're using a custom authorization server, see the **Create Scopes** section of the [Create an authorization server guide](/docs/guides/customize-authz-server/main/#create-scopes).
+- `grant_type`: `http://auth0.com/oauth/grant-type/mfa-oob`, which indicates that you're using the direct authentication MFA OOB grant type. Use this grant type for MFA OOB factors that you want to use as a secondary factor.
+- `oob_code`: An identifier of an out-of-band factor transaction. To respond to or check on the status of an out-of-band factor, use this code to identify the factor transaction.
+- `mfa_token`: A unique token used for identifying multifactor authentication flows to link the request to the original authentication flow.
 
 For more information on these parameters, see the `/token` [endpoint](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token).
 
