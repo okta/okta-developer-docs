@@ -13,13 +13,13 @@ This guide explains how to configure an OpenID Connect Identity Provider to send
 **Learning outcomes**
 
 * Know the purpose of AMR claims
-* Configure your OpenId Connect Identity Provider (IdP) to send AMR claims during Single Sign-On (SSO)
+* Configure your OpenID Connect Identity Provider (IdP) to send AMR claims during SSO
 
 **What you need**
 
 * [Okta Developer Edition organization](https://developer.okta.com/signup)
 * An existing OpenID Connect Identity Provider (IdP) that’s able to send AMR claims to Okta. This can be another Okta org (org2org) or a third party IdP.
-* The IdP AMR Claims Mapping feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate **Trust AMR claims from external IdPs** and enable.
+* The IdP AMR Claims Mapping feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate **Trust AMR claims from external IdPs**, and enable.
 
 ---
 
@@ -33,7 +33,7 @@ AMR claims provide important context to Okta during policy evaluation. For examp
 
 <div class="three-quarter">
 
-![Flow diagram that displays the back and forth between the user, user agent, authorization server, and the identity provider](/img/auth/amr-claims-mapping-oidc.png)
+![Flow diagram that displays the back and forth between the user, user agent, authorization server, and the Identity Provider](/img/auth/amr-claims-mapping-oidc.png)
 
 </div>
 
@@ -51,7 +51,7 @@ AMR claims provide important context to Okta during policy evaluation. For examp
 
 ## Configure the IdP for AMR claims
 
-Before you configure Okta to accept AMR claims, it’s important to first configure the IdP to send the claims correctly. Every IdP is different. Okta expects the IdP to pass the AMR claims in a very specific way, depending on the supported federation protocol.
+Before you configure Okta to accept AMR claims, it’s important to first configure the IdP to send the claims correctly. Every IdP is different. Okta expects the IdP to pass the AMR claims in a specific way, depending on the supported federation protocol.
 
 ### OpenID Connect Identity Provider
 
@@ -99,11 +99,11 @@ Okta-to-Okta (org2org), also known as hub and spoke, refers to a deployment mode
 
 ### Custom OpenID Connect apps
 
-If you are using a custom OpenID Connect app in the Okta IdP org, `amr` claims are sent to the SP by default and no additional configuration is required.
+If you're using a custom OpenID Connect app in the Okta IdP org, `amr` claims are sent to the SP by default and no additional configuration is required.
 
 ## Configure Okta
 
-Configuring an Okta org to receive AMR claims from an external IdP is similar across all IdP types. When you create an IdP in Okta, select **Trust AMR claims from this identity provider** to have Okta evaluate that AMR claims sent in the IdP response meet sign-on policy requirements.
+Configuring an Okta org to receive AMR claims from an external IdP is similar across all IdP types. When you create an IdP in Okta, select **Trust AMR claims from this identity provider**. This enables Okta to evaluate that AMR claims sent in the IdP response meet sign-on policy requirements.
 
 Use one of the following enterprise Identity Provider guides to configure an external IdP:
 
@@ -114,11 +114,11 @@ Use one of the following enterprise Identity Provider guides to configure an ext
 
 ## Troubleshoot
 
-An **Access denied** error is caused by one of the following:
+An **Access denied** error occurs because of:
 
 * Improper policy configuration
-* Improperly formatted attribute/claim from the IdP
-* Improperly configured IdP (the IdP didn’t challenge a factor that’s required by the sign-on policy.)
+* Improper attribute/claim format from the IdP
+* Improper IdP configuration (the IdP didn’t challenge a factor that the sign-on policy requires.)
 
 ## Limitations
 
