@@ -149,6 +149,10 @@ Authorization: Bearer ${access_token}
 
 ### Response example
 
+<!-- We have this note in the Google doc. What to do? 
+
+Note: this API is still in development. We will update the documentation with more accurate examples as we progress in development. -->
+
 The id of this record is the `orgId` to use in the URL for enabling Products:
 
 ```json
@@ -167,16 +171,49 @@ The id of this record is the `orgId` to use in the URL for enabling Products:
 
 ## Enable products in the Org
 
+<!-- should add a bit of concept content here -->
 
-### Request example
+<ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
 
+### Request and response example
 
-### Response example
-
+```json
+{
+  "accountId": "string",
+  "name": "string",
+  "region": "string",
+  "cell": "string",
+  "domain": "string",
+  "status": "string",
+  "createdDate": "string",
+  "createdBy": "string",
+  "id": "string"
+}
+```
 
 ## Configure the Org
 
+To preconfigure groups, apps, and policies in each org, the API client can use the domain of the new org and the API token returned by the Org creator API.
+
 #### Request example
+
+```bash
+curl --location --request POST 'https://${newOrgDomain}/api/v1/apps \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "bookmark",
+  "label": "Sample Bookmark App",
+  "signOnMode": "BOOKMARK",
+  "settings": {
+    "app": {
+      "requestIntegration": false,
+      "url": "https://example.com/bookmark.htm"
+    }
+  }
+}'
+```
 
 
 ## Manage an Org's status
