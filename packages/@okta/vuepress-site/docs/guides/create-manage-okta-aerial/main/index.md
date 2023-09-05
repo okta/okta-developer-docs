@@ -44,9 +44,11 @@ Okta Aerial introduces a few terms to the Okta ecosystem:
 <dt><strong>Aerial account</strong></dt>
 <dd>An Aerial account is the layer of organization and management around multiple orgs within Okta. The Aerial account lives outside of your orgs and has visibility and management over any production or preview org that the Aerial admin links to the Aerial account.
 </dd>
+</br>
 <dt><strong>Aerial admin org</strong></dt>
-<dd>An Aerial admin org serves as the authorization server to the Aerial account. You need to choose one org that serves as the Aerial admin org.</br>
+<dd>An Aerial admin org serves as the authorization server to the Aerial account. You need to choose one org that serves as the Aerial admin org.</br></br>
 Super admins can create API clients in the Aerial admin org to access the Aerial account. The Aerial admin org also contains all system log events associated with Okta Aerial actions.</dd>
+</br>
 <dt><strong>Products</strong></dt>
 <dd>Products are Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. Example products include SSO, AMFA, and LCM.</dd>
 <!--<dt><strong>Features</strong></dt>
@@ -57,7 +59,7 @@ Super admins can create API clients in the Aerial admin org to access the Aerial
 
 ### Summary of steps
 
-Follow these steps to create and configure new orgs in your Aerial account. This guide also escribes how to manage an org's status, and enable or disable products in an org.
+Follow these steps to create and configure new orgs in your Aerial account. This guide also describes how to manage an org's status, and enable or disable products in an org.
 
 1. [Authenticate with Okta Aerial](#authenticate-with-okta-aerial): Configure an API client in the Aerial admin org to call the Okta Aerial API.
 1. [Create and configure a new child org](#create-a-new-child-org): Create a new child org based on the parent org using the Org creator API.
@@ -72,7 +74,7 @@ You can also do the following:
 - [Enable a product in an Org](#enable-a-product-in-an-org)
 - [Disable a product from an Org](#disable-a-product-from-an-org)
 
-<div class="three-quarter">
+<div class="half">
 
 ![Okta Aerial - Summary of steps](/img/aerial-steps-summary.png)
 
@@ -266,7 +268,7 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 }
 ```
 
-### List the configured Products
+## List the configured Products
 
 <ApiOperation method="get" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
 
