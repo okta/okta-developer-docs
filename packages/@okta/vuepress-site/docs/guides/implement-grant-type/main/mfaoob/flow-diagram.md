@@ -46,14 +46,14 @@ At a high level, this flow has the following steps:
    >**Note:** For Okta Verify prompts with [number challenge](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-okta-verify-options), `binding_method=transfer` and `binding_code` are also returned. See the [challenge response example](#challenge-response).
 
 1. Okta sends a push notification to the user.
-1. Per configured authenticator options, more interaction may occur:
+1. Per configured authenticator options, more interaction may occur.
 
    >**Note:** For Okta Verify prompts with number challenge, the client displays the `binding_code` to the user.
 
 1. Your app polls the Okta `/token` endpoint at the set `interval`. The `oob_code`, `mfa_token`, and [MFA OOB grant type](https://developer.okta.com/docs/api/openapi/okta-oauth/oauth/tag/OrgAS/#tag/OrgAS/operation/token) (`grant_type=http://auth0.com/oauth/grant-type/mfa-oob`) are included in the requests.
 1. Okta responds with an HTTP 400 `authorization_pending` error.
 1. The user opens the Okta Verify app and taps **Yes it's me**.
-1. Per configured authenticator options, more interaction may occur:
+1. Per configured authenticator options, more interaction may occur.
 
    >**Note:** For Okta Verify prompts with number challenge, three number options display in Okta Verify. The user then taps the number that matches the binding code sent by the client in step 8.
 
