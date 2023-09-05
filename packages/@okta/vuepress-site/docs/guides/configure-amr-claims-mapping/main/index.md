@@ -57,7 +57,7 @@ Before you configure Okta to accept AMR claims, it’s important to first config
 
 At the OpenID Connect IdP, verify that the client app that you use for authenticating and authorizing users sends an `amr` array with the AMR claims in the OpenID Connect ID token (`id_token`).
 
-The `amr` property is a JSON array of strings that are identifiers for [authentication methods](https://www.rfc-editor.org/rfc/rfc8176.html) used in the authentication. Supported values include "pwd", "mfa", "otp", "kba", "sms", "swk", and "hwk".
+The `amr` property is a JSON array of strings that are identifiers for [authentication methods](https://www.rfc-editor.org/rfc/rfc8176.html) used in the authentication. <!-- Supported values include "pwd", "mfa", "otp", "kba", "sms", "swk", and "hwk". Get Venkat input on listing all supported values in the next update of this doc -->
 
 #### Example ID token with AMR claims
 
