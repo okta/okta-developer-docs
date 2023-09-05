@@ -278,11 +278,11 @@ Most of the operators listed in the [SCIM Protocol Specification](https://www.rf
 | `pr`       | present (has value)   | If the attribute has a non-empty value or if it contains a non-empty node for complex attributes, there is a match.                                                                                                                                                           |
 | `sw`       | starts with           | The entire operand value must be a substring of the attribute value that starts at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.                                                                                         |
 
-> **Note:** Some objects don't support all the listed operators.
-
-> **Note:** The `ne` (not equal) operator isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
-
-> **Note:** All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
+> **Notes:**
+> * Some objects don't support all the listed operators.
+> * The `ne` (not equal) operator isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
+> * All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
+> * The [System Log API](/docs/reference/api/system-log/#filtering-results) supports the operators contains (`co`) and ends with (`ew`).
 
 #### Attribute operators
 
