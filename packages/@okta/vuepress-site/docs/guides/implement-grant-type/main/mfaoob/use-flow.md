@@ -101,7 +101,7 @@ Note the parameters included:
 - `expires_in`: The time, in seconds, until the `oob_code` expires
 - `interval`: The frequency, in seconds, at which the client should poll to check if the out-of-band factor is complete. This is only relevant to polling factors such as Okta Verify Push.
 - `channel`: The type of out-of-band channel used. Okta currently only supports Okta Verify Push.<!-- need to update this when phase 2 is complete -->
-- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`. Use `transfer` when you configure the number challenge for Okta Verify Push.
+- `binding_method`: The method used to bind the out-of-band channel with the primary channel. Supported values: `none`, `transfer`. The `transfer` value is used with the number challenge for Okta Verify Push.
 - `binding_code`: The end-user verification code used to bind the authorization operation on the secondary channel with the primary channel. This parameter appears only if `binding_method=transfer`.
 
 ### Poll the Okta authorization server

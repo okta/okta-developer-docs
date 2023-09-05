@@ -43,7 +43,7 @@ At a high level, this flow has the following steps:
 1. Your app sends a `/challenge` request with the `mfa_token` value and the `challenge_types_supported` (`http://auth0.com/oauth/grant-type/mfa-oob`) to the Okta authorization server.
 1. Okta responds with a `challenge_type`, `oob_code`, `interval` in seconds to poll (default is `5`), and any other parameters required by the configured authenticator.
 
-  >**Note:** For Okta Verify prompts with [number challenge](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-okta-verify-options), `binding_method=transfer` and `binding_code` are also returned. See the [challenge response example](#challenge-response).
+   >**Note:** For Okta Verify prompts with [number challenge](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-okta-verify-options), `binding_method=transfer` and `binding_code` are also returned. See the [challenge response example](#challenge-response).
 
 1. Okta sends a push notification to the user.
 1. Per configured authenticator options, more interaction may occur:
