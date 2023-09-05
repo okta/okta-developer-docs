@@ -10,7 +10,7 @@ class SignInController: InteractionCodeFlowDelegate, ObservableObject {
 
    // Sign out the current user.
    public func signOut() throws {
-      try Credential.default?.remove()
+      try await Credential.default?.revoke()
    }
 }
 

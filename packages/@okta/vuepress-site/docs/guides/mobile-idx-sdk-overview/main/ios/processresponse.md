@@ -26,7 +26,8 @@ class SignInController: InteractionCodeFlowDelegate, ObservableObject {
 //   ...
 
    // Delegate function called for each sign-in step.
-   func authentication<Flow>(flow: Flow, received response: Response) where Flow : InteractionCodeFlow {
+   func authentication<Flow>(flow: Flow, received response: Response)
+                            where Flow : InteractionCodeFlow {
       // Request a token from the server if the sign-in attempt is successful.
       if response.isLoginSuccessful {
          // Handle retrieving the access token.

@@ -47,7 +47,7 @@ The SDK represents the sign-in flow using a number of different objects:
 - **Remediation:** Represents the main user actions for a step, such as enrolling in an authenticator or entering an OTP. In the Swift SDK for iOS, it also includes the function for requesting the next step in the flow.
 - **Authenticator:** Represents an authenticator that's used to verify the identity of a user, such as Okta Verify.
 - **Method:** Represents a channel for an authenticator, such as using SMS or voice for an authenticator that uses a phone. An authenticator may have zero or more methods.
-- **Capability:** A user action associated with a remediation, authenticator, or method, such as requesting a new OTP or a password reset.
+- **Capability:** A user action or additional information that is associated with a remediation, authenticator, or method, such as requesting a new OTP or a redacted email.
 - **Field:** Represents a UI element, either a static item, such as a label, or user input, such as a selection list. It includes properties for state information, such as whether the associated value is required. Properties also store the current value of user input field, such as the string for an OTP or the selected choice. A lists of choices, or **Options**, are represented by a collection of fields. A field may contain a form that contains more fields.
 - **Form:** Contains the fields that represent the user action for a remediation.
 - **InteractionCodeFlow:** Represents the session during the sign-in flow. In the Android SDK, it includes the function for requesting the next step in the flow.
