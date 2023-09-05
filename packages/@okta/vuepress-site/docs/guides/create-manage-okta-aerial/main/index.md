@@ -8,7 +8,7 @@ sections:
 
 This guide explains how to manage Orgs added to your company’s Aerial account.
 
-<!-- Insert SKU note here -->
+> **Note:** API access to this feature requires an additional product to be present. Ensure that your Okta account team has enabled your access to the Okta Aerial API.
 
 ---
 
@@ -103,7 +103,7 @@ curl --location --request POST 'https://${adminOrgDomain}/oauth2/v1/token' \
 Authorization: Bearer ${access_token}
 ```
 
-<!-- our docs rely on Postman for this step. need something in the interim until Postman is ready -->
+<!-- our OAuth docs for service apps rely on Postman for this step. need something in the interim until Postman is ready -->
 
 
 ## Create a new Org
@@ -215,15 +215,35 @@ curl --location --request POST 'https://${newOrgDomain}/api/v1/apps \
 }'
 ```
 
-
 ## Manage an Org's status
 
+<ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/status" />
+
+Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t count toward billing. Users in that org can’t use Okta’s services or sign-in to Okta.
+
+<div class="three-quarter">
+
+![Deactivate an Org](/img/org-status.png)
+
+</div>
 
 ### Request example
 
+```bash
+{
+   "status": "INACTIVE"
+}
+```
 
 ### Response example
 
+```bash
+{
+  "id": "00o133mJ27DoonJz50g4",
+  "status": "INACTIVE",
+  ...
+}
+```
 
 ### List the configured Products
 
