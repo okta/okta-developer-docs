@@ -247,22 +247,85 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 
 ### List the configured Products
 
+<ApiOperation method="get" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
+
+This response is assumed to be the state of the org for the PUT call examples below.
+
 ### Response example
 
+```bash
+[
+  {
+    "id": "P000052",
+    "name": "IT Products - SSO"
+  },
+  {
+    "id": "P000131",
+    "name": "IT Products - MFA"
+  }
+]
+```
 
 ## Enable a Product in an Org
 
-### Request example
+<ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
 
-### Response example
+Enables a product with ID P000139 in the org (IT Products - Lifecycle Management with 1 OIN App)
 
+> **Note:** The `name` property is ignored, and can be included to simplify the client implementation.
+
+<div class="three-quarter">
+
+![Enable a Product in an Org](/img/enable-product.png)
+
+</div>
+
+### Request and response example
+
+```json
+[
+  {
+    "id": "P000052",
+    "name": "IT Products - SSO"
+  },
+  {
+    "id": "P000139",
+    "name": "IT Products - MFA"
+  },
+  {
+    "id": "P000131",
+    "name": "IT Products - Lifecycle Management with 1 OIN App"
+  }
+]
+```
 
 ## Disable a Product from an Org
 
-### Request example
+<ApiOperation method="put" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
 
-### Response example
+Enables a product with ID P000139 in the org (IT Products - Lifecycle Management with 1 OIN App)
 
+> **Note:** The `name` property is ignored, and can be included to simplify the client implementation.
 
+<div class="three-quarter">
 
-## See also/next
+![Disable a Product in an Org](/img/disable-product.png)
+
+</div>
+
+### Request and response example
+
+```json
+[
+  {
+    "id": "P000052",
+    "name": "IT Products - SSO"
+  }
+]
+```
+
+## See also
+
+- Okta Aerial API documentation
+- Org creation API documentation
+- 
