@@ -36,7 +36,7 @@ Use the [Okta Aerial API](link to redocly)
 
 An Okta Aerial Account is the layer of organization and management around multiple orgs. The Aerial account simplifies org management by allowing Aerial Admins to link, list, toggle products on and activate / deactivate production or preview orgs that the Aerial Admin links to the Aerial account.
 
-<!--
+
 <dl>
 <dt><strong>Aerial account</strong></dt>
 <dd>An Aerial account is the layer of organization and management around multiple orgs within Okta. The Aerial account lives outside of your orgs and has visibility and management over any production or preview org that the Aerial admin links to the Aerial account.
@@ -47,14 +47,11 @@ Super admins can create API clients in the Aerial admin org to access the Aerial
 <dt><strong>Products</strong></dt>
 <dd>Products are Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. Example products include SSO, AMFA, and LCM.</dd>
 <dt><strong>Features</strong></dt>
-<dd>Features are bundled within products but may also be offered separately, for example, Early Access features. Most features are pushed from parent to child org.</br>
-**Note:** Some features, such as Workflows, aren’t synced between parent and child orgs.</dd>
+<dd>Features are bundled within products but may also be offered separately, for example, Early Access features. Most features are pushed from parent to child org.</dd>
 <dt><strong>Okta objects</strong></dt>
-<dd>Okta objects can include policies, settings, apps, and groups. Configure Okta objects using either the Admin Console or Okta Management APIs.</br>
-**Note:** Configured Okta Objects aren’t synced between parent and child orgs.</dd>
-
+<dd>Okta objects can include policies, settings, apps, and groups. Configure Okta objects using either the Admin Console or Okta Management APIs.</dd>
 </dl>
--->
+
 
 
 ## Register an Okta Aerial API client
@@ -326,6 +323,7 @@ Enables a product with ID P000139 in the org (IT Products - Lifecycle Management
 
 ## See also
 
-- Okta Aerial API documentation
-- Org creation API documentation
+- [Okta Aerial API documentation]()
+- [Org creation API documentation]()
+- [Create an API token](/docs/guides/create-an-api-token/main/)
 - 
