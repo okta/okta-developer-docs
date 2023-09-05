@@ -18,6 +18,7 @@ At a high level, this flow has the following steps:
 
 <!-- @startuml Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
+@startuml
 skinparam monochrome true
 participant "Browser (User Agent)" as browser
 participant "Service Provider" as sp
@@ -34,4 +35,5 @@ sp -> browser: Sends `securitycontext`
 browser -> sp: Requests access to the resource
 sp -> browser: Responds with requested resource
 @enduml
+
 -->
