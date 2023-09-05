@@ -34,7 +34,7 @@ Use the [Okta Aerial API](link to redocly)
 
 ## About Okta Aerial
 
-<!-- high-level description... perhaps FVM? -->
+An Okta Aerial Account is the layer of organization and management around multiple orgs. The Aerial account simplifies org management by allowing Aerial Admins to link, list, toggle products on and activate / deactivate production or preview orgs that the Aerial Admin links to the Aerial account.
 
 <!--
 <dl>
@@ -103,22 +103,67 @@ curl --location --request POST 'https://${adminOrgDomain}/oauth2/v1/token' \
 Authorization: Bearer ${access_token}
 ```
 
-
+<!-- our docs rely on Postman for this step. need something in the interim until Postman is ready -->
 
 
 ## Create a new Org
 
+Create an org using the Org Creator API credentials in the parent org. This will create a new child org with features synced from the parent org. In the API response, you receive an API token tied to the Super Administrator that you can use to provision more resources on the newly created child org (for example, configure policies, apps, groups, and so on).
+
+This isn't the token that is used for Okta Aerial. See the [Org Creator API](). The API token that the Org Creator API creates has the same automatic expiration and deactivation as API tokens created using the [Okta Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation). However, the Org Creator API token doesn’t appear in the Admin Console, so you can’t revoke the token using the console. If you deactivate the Super admin (the first admin created during org creation), the token is deactivated.
+
+If this API token auto-expires or you otherwise lose the token, you must login to the Okta Admin Console as the Super Admin and [create a new API token](/docs/guides/create-an-api-token/main/#create-the-token).
+
 
 ## Link the Org to the Aerial account
 
+Before products can be enabled in an org, the org must first be added to the Aerial account. Only orgs that are associated with your Okta contracts can be added to your Aerial account.
+
+To link the org to Okta Aerial, you need to call the POST method of the Orgs endpoint in the Okta Aerial API. The response contains the fields of the newly created org record including the ID for use in enabling Products.
+
 ### Use `orgId`
 
+<ApiOperation method="post" url="https://aerial-{region}/{accountId}/api/v1/orgs" />
+
+```bash
+Authorization: Bearer ${access_token}
+
+{
+  "orgId": "00oy0itaI2Yi7XGGE0g3",
+  "cell": "OK1"
+}
+```
 
 ### Use `domain`
 
+<ApiOperation method="post" url="https://aerial-{region}/{accountId}/api/v1/orgs" />
+
+```bash
+Authorization: Bearer ${access_token}
+
+{
+  "domain": "${yourOktaDomain}",
+  "cell": "OK1"
+}
+```
 
 ### Response example
 
+The id of this record is the `orgId` to use in the URL for enabling Products:
+
+```json
+{
+  "accountId": "string",
+  "name": "string",
+  "region": "string",
+  "cell": "string",
+  "domain": "string",
+  "status": "string",
+  "createdDate": "string",
+  "createdBy": "string",
+  "id": "string"
+}
+```
 
 ## Enable products in the Org
 
