@@ -14,7 +14,7 @@ This guide explains how to manage Orgs added to your company’s Aerial account.
 
 **Learning outcomes**
 
-- Learn the terms related to Okta Aerial orgs.
+- Authenticate an Aerial API client with Okta Aerial.
 - Link an org to your Aerial account.
 - Enable products in the Aerial linked org.
 - Configure the Aerial admin org.
