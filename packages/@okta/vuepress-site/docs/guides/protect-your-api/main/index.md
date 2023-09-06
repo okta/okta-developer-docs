@@ -6,6 +6,8 @@ layout: Guides
 
 Add authorization using Okta to protect your APIs. When you finish, you have a secure REST API application that validates incoming requests.
 
+This tutorial uses the **default** custom authorization server to secure your protected API. You can create your own custom authorization server for this purpose. The [Okta Developer Edition](https://developer.okta.com/signup/) makes most key developer features available by default for testing purposes. The [Okta API Access Management product](/docs/concepts/api-access-management/) &mdash; a requirement to use [Custom Authorization Servers](/docs/concepts/auth-servers/#custom-authorization-server) &mdash; is an optional add-on in production environments.
+
 ---
 
 **Learning outcomes**
