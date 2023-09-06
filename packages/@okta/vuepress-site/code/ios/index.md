@@ -35,6 +35,8 @@ This method works with both Okta Identity Engine and Okta Classic Engine.
 
 SDK: [Okta Mobile SDK for Swift](https://github.com/okta/okta-mobile-swift).
 
+Guide: [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/ios/main/)
+
 Example: [Browser sign-in](https://github.com/okta/samples-ios/tree/master/browser-sign-in).
 
 
@@ -48,17 +50,7 @@ Example: [iOS embedded authentication with SDK sample app](https://github.com/ok
 
 ## Recommended guides
 
-Okta-hosted Sign-In Widget guide:
-
-[Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/ios/main/)
-
-Embedded SDK and Sign-In Widget sign-in guide:
-
 - [Overview of the mobile Identity Engine SDK](/docs/guides/mobile-idx-sdk-overview/ios/main/)
-- [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/ios/main/)
-
-Other guides:
-
 - [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 - [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)

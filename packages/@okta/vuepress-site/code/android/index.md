@@ -36,6 +36,8 @@ This method works with both Okta Identity Engine and Okta Classic Engine.
 
 SDK: [Okta Mobile SDK for Kotlin](https://github.com/okta/okta-mobile-kotlin).
 
+Guide: [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/android/main/)
+
 Example: [Browser sign-in](https://github.com/okta/samples-android/tree/master/browser-sign-in).
 
 
@@ -49,16 +51,7 @@ Example: [Android dynamic authentication example](https://github.com/okta/okta-i
 
 ## Recommended guides
 
-Okta-hosted Sign-In Widget guide::
-
-* [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/android/main/)
-
-Embedded SDK and Sign-In Widget sign-in guides:
-
-* [Get set up with Identity Engine sample apps and embedded use cases](/docs/guides/oie-embedded-common-org-setup/android/main/)
-
-Other guides:
-
+* [Overview of the mobile Identity Engine SDK](docs/guides/mobile-idx-sdk-overview/android/main/)
 * [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 * [Add an identity provider (includes social login)](/docs/guides/identity-providers/)
 * [Validate access tokens](/docs/guides/validate-access-tokens)

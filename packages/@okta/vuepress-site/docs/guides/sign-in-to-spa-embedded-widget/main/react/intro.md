@@ -4,7 +4,7 @@ If you want to deploy a React single-page app (SPA) in the [embedded authenticat
 
 This guide explains how to build a password-only sign-in flow for your React app. Before you build or integrate your React app, ensure that you:
 
-* [enable the Interaction Code grant on your default custom authorization server](/docs/guides/oie-embedded-common-org-setup/android/main/#update-the-default-custom-authorization-server)
+* [enable the Interaction Code grant on your default custom authorization server](/docs/guides/oie-embedded-common-org-setup/main/#update-the-default-custom-authorization-server)
 * register your React app in Okta by [creating an app integration](#create-an-okta-app-integration)
 
 If you don't have an existing React app, you can [create a new basic React app](#create-a-react-app-optional) from the Create React App command.
