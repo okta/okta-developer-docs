@@ -1,1 +1,0 @@
-a URI that is appropriate for your app. For example, `com.embeddedauth://callback` if you're using the sample app. Regardless of the value that you use, the **Sign-in redirect URI** value must match the redirect URI that is configured in your app.

@@ -1,1 +1,0 @@
-<!-- The embedded Sign-In Widget is not applicable for Android. -->

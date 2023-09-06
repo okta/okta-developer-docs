@@ -1,1 +1,0 @@
-Use a redirect URI that is appropriate for your app or `com.okta.sample.android:/login` if you're using the sample app.

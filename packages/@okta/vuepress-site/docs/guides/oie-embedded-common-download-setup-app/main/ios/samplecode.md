@@ -1,1 +1,0 @@
-[Identity Engine iOS SDK (okta-idx-swift)](https://github.com/okta/okta-idx-swift)

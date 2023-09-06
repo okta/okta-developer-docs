@@ -20,6 +20,8 @@ This guide shows you how to download and configure the Identity Engine SDKs, Sig
 * [Software requirements](#software-requirements)
 ---
 
+> Note: Sign-In Widget isn't supported on mobile. To add sign-in to your mobile app, see [Overview of the mobile Identity Engine SDK](https://developer.okta.com/docs/guides/mobile-idx-sdk-overview/main/)
+
 ## Software requirements
 
 Before you download the SDK, Widget, and sample apps, you need the following:
