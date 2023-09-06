@@ -6,7 +6,7 @@
    go get github.com/okta/samples-golang/okta-hosted-login/utils
    ```
 
-1. Add these to the `import` statement in `main.go`;
+1. Add these to the `import` statement in `main.go`:
 
    ```go
    import (

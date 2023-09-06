@@ -1,4 +1,4 @@
-After a user has signed in, the application receives ID and access tokens from Okta and keeps them in session store. In this section, you create a simple profile page that uses an access token to query for and display a user's basic information.
+After a user has signed in, the application receives ID and access tokens from Okta and keeps them in session storage. In this section, you create a simple profile page that uses an access token to query for and display a user's basic information.
 
 1. Add a route handler for `/profile` to `main()` in `main.go`:
 

@@ -4,9 +4,9 @@ Create a sample app using the Okta Spring Boot starter and Spring Initializr.
 1. Select **Spring Web** and **Okta** for **Dependencies**.
 1. Select **Maven** for **Project**.
 1. Select **3.1.2** for **Spring Boot**.
-1. Ensure that **Java** matches the version of Java you’ve installed.
+1. Ensure that **Java** matches the version of Java you've installed.
 
    > **Note**: Use [this link](https://start.spring.io/#!type=maven-project&language=java&packaging=jar&jvmVersion=11&groupId=com.example&artifactId=demo&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo&dependencies=web,okta) to create a project with these settings.
 
-1. Press **Generate**.
-1. Unzip the resulting downloaded demo archive into a suitable location ready to start working on.
+1. Click **Generate**.
+1. Unzip the resulting downloaded demo archive into a suitable location.

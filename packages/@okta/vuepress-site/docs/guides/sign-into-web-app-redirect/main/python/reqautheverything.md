@@ -1,4 +1,4 @@
-You can use a middleware function or the `@before_request` decorator to protect every endpoint so only authenticated users can access anything. For example:
+You can use a middleware function or the `@before_request` decorator to protect every endpoint so that only authenticated users have access. For example:
 
 ```python
 @app.before_request

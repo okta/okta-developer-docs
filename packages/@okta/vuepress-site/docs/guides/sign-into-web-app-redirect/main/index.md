@@ -4,7 +4,7 @@ excerpt: Configure your Okta org and your web app to use Okta's redirect sign-in
 layout: Guides
 ---
 
-Add user sign-in to a server-side web application with Okta's [redirect model](https://developer.okta.com/docs/concepts/redirect-vs-embedded/#redirect-authentication).
+Add a user sign-in flow to a server-side web application with Okta's [redirect model](https://developer.okta.com/docs/concepts/redirect-vs-embedded/#redirect-authentication).
 
 ---
 
@@ -13,7 +13,7 @@ Add user sign-in to a server-side web application with Okta's [redirect model](h
 * Implement a simple redirect to an Okta-hosted sign-in page
 * Configure a server-side web application to use Okta
 * Test that users can sign in and sign out
-* Define which parts of an application require authentication and which don’t
+* Define which parts of an application require authentication and which don't
 
 **What you need**
 
@@ -28,11 +28,11 @@ Add user sign-in to a server-side web application with Okta's [redirect model](h
 
 ## Overview
 
-The easiest and most secure way to add user sign-in to your server-side web application is to use an Okta-hosted Sign-In Widget. When a user attempts to sign in, the application redirects them to the widget hosted on an Okta web page. After they've signed in successfully, Okta redirects them back to the application. This is known as the [redirect authentication deployment model](/docs/concepts/redirect-vs-embedded/#redirect-authentication).
+The easiest and most secure way to add a user sign-in flow to your server-side web application is to use an Okta-hosted Sign-In Widget. When a user attempts to sign in, the application redirects them to the widget hosted on an Okta web page. After they've signed in successfully, Okta redirects them back to the application. This is known as the [redirect authentication deployment model](/docs/concepts/redirect-vs-embedded/#redirect-authentication).
 
 > **Note**: To use the redirect model in a _single-page application (SPA)_, see [Sign users in to your SPA using the redirect model](/docs/guides/sign-into-spa-redirect/). To use the redirect model in a _mobile app_, see [Sign users in to your mobile app using the redirect model](/docs/guides/sign-into-mobile-app-redirect/).
 
-In this quickstart, you'll:
+In this quickstart, you:
 
 1. [Create an app integration in the Admin Console](#create-an-app-integration-in-the-admin-console).
 1. [Create and configure a new web application to use Okta](#create-and-configure-a-new-web-application-to-use-okta).
@@ -50,7 +50,7 @@ To create an app integration for your application:
 1. Open the Admin Console for your org.
    1. [Sign in to your Okta organization](https://developer.okta.com/login) with your administrator account.
    {style="list-style-type:lower-alpha"}
-   1. Click **Admin** on the top right of the page.
+   1. Click **Admin** in the upper-right corner of the page.
 1. Go to **Applications** > **Applications** to view the current app integrations.
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
@@ -58,7 +58,7 @@ To create an app integration for your application:
 
    > **Note:** You can break the sign-in or sign-out flows for your application if you choose the wrong application type.
 
-1. Enter an **App integration name**. For example, _My first web application_.
+1. Enter an **App integration name**. For example, **My first web application**.
 1. Enter the callback URLs for the local development of your application.
    1. Enter <StackSnippet snippet="signinredirecturi" inline /> for **Sign-in redirect URIs**.
    {style="list-style-type:lower-alpha"}
@@ -69,7 +69,7 @@ To create an app integration for your application:
 1. Select **Allow everyone in your organization to access** for **Controlled access**.
 1. Click **Save** to create the app integration.
 
-The configuration pane for the new app integration now opens. Keep this pane open.
+The configuration page for the new app integration appears. Keep this page open.
 
 > **Note:** For a complete guide to all the options not explained in this guide, see [Create OIDC app integrations](https://help.okta.com/oie/en-us/Content/Topics/Apps/Apps_App_Integration_Wizard_OIDC.htm).
 
@@ -84,7 +84,7 @@ Moving on, where you see `${clientId}` and `${clientSecret}` in this guide, repl
 
 ## Create and configure a new web application to use Okta
 
-Now the app integration has been created and configuration settings noted, you'll:
+Now that you have created the app integration and noted the configuration settings noted, you:
 
 * [Create a web application](#create-a-web-application).
 * [Add the required packages to your application](#add-the-required-packages-to-your-application)
@@ -136,7 +136,7 @@ After the user signs in, Okta returns some of their profile information to your 
 
 ## Test that a user can sign in and sign out
 
-Now your site has enough content to sign a user in with Okta, prove they’ve signed in, and sign them out. Test it out by starting your server and signing a user in.
+Your site now has enough content to sign a user in with Okta, prove they've signed in, and sign them out. Test it by starting your server and signing a user in.
 
 <StackSnippet snippet="testapp" />
 

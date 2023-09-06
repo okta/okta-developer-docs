@@ -1,4 +1,4 @@
-When you [created an app integration in the admin console](#create-an-app-integration-in-the-admin-console), you set the sign-in redirect URL to <StackSnippet snippet="signinredirecturi" inline /> and the sign-out redirect URL to <StackSnippet snippet="signoutredirecturi" inline />. In this sample, only the sign-in callback requires additional code:
+When you [created an app integration in the Admin Console](#create-an-app-integration-in-the-admin-console), you set the sign-in redirect URL to <StackSnippet snippet="signinredirecturi" inline /> and the sign-out redirect URL to <StackSnippet snippet="signoutredirecturi" inline />. In this sample, only the sign-in callback requires additional code:
 
 1. Add a route handler for `/authorization-code/callback` to `main()` in `main.go`:
 
@@ -12,12 +12,12 @@ When you [created an app integration in the admin console](#create-an-app-integr
    func AuthCodeCallbackHandler(w http.ResponseWriter, r *http.Request) {
       // Check the state that was returned in the query string is the same as the above state
       if r.URL.Query().Get("state") != state {
-         fmt.Fprintln(w, "The state was not as expected")
+         fmt.Fprintln(w, "The state wasn't as expected")
          return
       }
       // Make sure the code was provided
       if r.URL.Query().Get("code") == "" {
-         fmt.Fprintln(w, "The code was not returned or is not accessible")
+         fmt.Fprintln(w, "The code wasn't returned or isn't accessible")
          return
       }
 
@@ -83,7 +83,7 @@ When you [created an app integration in the admin console](#create-an-app-integr
    }
    ```
 
-1. The second helper function, `verifyToken()`, verifies that the tokens received aren’t fraudulent.
+1. The second helper function, `verifyToken()`, verifies that the tokens received aren't fraudulent.
 
    ```go
    func verifyToken(t string) (*verifier.Jwt, error) {

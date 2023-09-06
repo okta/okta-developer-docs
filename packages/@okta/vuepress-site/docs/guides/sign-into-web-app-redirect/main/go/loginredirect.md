@@ -67,7 +67,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
          nonceBytes := make([]byte, 32)
          _, err := rand.Read(nonceBytes)
          if err != nil {
-            return "", fmt.Errorf("could not generate nonce")
+            return "", fmt.Errorf("couldn't generate nonce")
          }
 
          return base64.URLEncoding.EncodeToString(nonceBytes), nil
@@ -81,7 +81,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
       http.HandleFunc("/signout", SignoutHandler)
       ```
 
-   1. Add the handler function. To sign a user out, the function must delete the ID and access tokens Okta issued when the user signed in:
+   1. Add the handler function. To sign a user out, the function must delete the ID and access tokens that Okta issued when the user signed in:
 
       ```go
       func SignoutHandler(w http.ResponseWriter, r *http.Request) {

@@ -8,7 +8,7 @@
    venv/scripts/activate.bat  #windows
    ```
 
-   Use the appropriate command for `activate` for your OS.
+   Use the appropriate `activate` command for your OS.
 
 1. Create **app.py** in your project's root folder.
 1. Add the following code to configure the app.

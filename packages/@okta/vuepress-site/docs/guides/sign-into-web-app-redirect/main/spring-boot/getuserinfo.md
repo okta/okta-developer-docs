@@ -1,6 +1,6 @@
 Since you requested the scopes `openid profile email`, Okta also returns an ID token along with the access token. You can parse out the claims in the ID token to find the user's profile information.
 
-For example, once the user has signed in, you can extract the user's name from the ID token and show it in the app:
+For example, after the user signs in, you can extract the user's name from the ID token and show it in the app:
 
 1. Open **src** > **main** > **java** > **com** > **example** > **demo** > **DemoApplication.java**.
 1. Add the following import statements at the top of the file:

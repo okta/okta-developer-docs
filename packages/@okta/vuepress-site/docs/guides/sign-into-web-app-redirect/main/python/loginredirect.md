@@ -50,7 +50,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
        return redirect(request_uri)
    ```
 
-   Your sign-in handler generates the link URI and redirects the user to an Okta-hosted sign-in page. After they sign in, they’re redirected back to your app.
+   Your sign-in handler generates the link URI and redirects the user to an Okta-hosted sign-in page. After they sign in, they're redirected back to your app.
 
 1. Add a route handler for the sign-out functionality:
 

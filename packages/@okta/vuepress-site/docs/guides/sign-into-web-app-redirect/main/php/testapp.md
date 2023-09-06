@@ -6,9 +6,9 @@
 
 1. Open a browser and go to `http://localhost:8080`.
 1. Click **Sign In**. The browser redirects you to Okta to sign in using the Sign-In Widget.
-1. After you’ve signed in, check your user's name appears.
+1. After you've signed in, check that your user's name appears.
 
-> **Note**: If you’re signed in as an administrator in the same browser already, it displays your name. You can open an incognito window and create a test user in the Admin Console to use if you want.
+> **Note**: If you're signed in as an administrator in the same browser already, it displays your name. You can open an incognito window and create a test user in the Admin Console to use.
 
 ### Troubleshooting
 
@@ -22,7 +22,7 @@ if(isset($response['error'])) {
 
 if(!isset($response['access_token'])) {
     var_dump($response);
-    throw new Exception("token endpoint did not return an error or an access token");
+    throw new Exception("token endpoint didn't return an error or an access token");
 }
 ```
 

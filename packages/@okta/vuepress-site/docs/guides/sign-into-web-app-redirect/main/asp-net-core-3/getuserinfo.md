@@ -7,7 +7,7 @@ The user information that Okta returns in an ID token after a user has signed in
    using Microsoft.AspNetCore.Authorization;
    ```
 
-1. Add an `IActionResult` called `Profile` to hand the claim data over to a new view you create next:
+1. Add an `IActionResult` called `Profile` to hand the claim data over to a new view that you create next:
 
    ```csharp
    [Authorize]
@@ -18,7 +18,7 @@ The user information that Okta returns in an ID token after a user has signed in
    ```
 
 1. Create a razor view called `Profile` to display the user claims.
-   1. Right-click the **Views** > **Home** folder in **Solution Explorer** and select **Add** > **View...**
+   1. Right-click the **Views** > **Home** folder in the **Solution Explorer** and select **Add** > **View...**
    1. Select **Razor View - Empty**, and then click **Add**.
    1. Enter the name `Profile.cshtml`, and then click **Add**.
    1. Replace the contents of the new file with the following code:

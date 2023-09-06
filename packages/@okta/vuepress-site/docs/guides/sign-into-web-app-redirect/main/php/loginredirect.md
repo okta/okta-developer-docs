@@ -34,6 +34,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
 
 1. Add code to handle the `Sign In` click.
    1. Add a route handler for `/signin` to the switch statement in the previous step:
+   {style="list-style-type:lower-alpha"}
 
       ```php
       ...
@@ -43,7 +44,7 @@ Create a link for the user to start the sign-in process and be redirected to Okt
       ...
       ```
 
-   1. Add the code for `start_oauth_flow()` to the end of `index.php`. This starts the [OAuth Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce) and redirects the user to Okta:
+   1. Add the code for `start_oauth_flow()` to the end of `index.php`. This starts the [OAuth Authorization Code with PKCE flow](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce) and redirects the user to Okta:
 
       ```php
       function start_oauth_flow() {
