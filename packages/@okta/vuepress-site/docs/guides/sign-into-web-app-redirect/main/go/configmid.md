@@ -1,4 +1,4 @@
-1. Create a `.env` file in the root of your project. Add the following, replacing the placeholders with your own values.
+1. Create an `.env` file in the root of your project. Add the following, replacing the placeholders with your own values.
 
    ```properties
    CLIENT_ID=${clientId}
