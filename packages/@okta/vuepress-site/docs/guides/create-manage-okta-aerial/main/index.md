@@ -34,12 +34,12 @@ Use the [Okta Aerial API](link to redocly)
 
 ## About Okta Aerial
 
-An Okta Aerial account is the layer of organization and management around multiple orgs. The Aerial account simplifies org management by allowing Aerial Admins to:
+An Okta Aerial account is the layer of organization and management around multiple orgs. The Aerial account simplifies org management, allowing Aerial Admins to:
 
-- Link
-- List
-- Toggle products on
-- Activate / deactivate production or preview orgs that the Aerial Admin links to the Aerial account
+- Link orgs to the Aerial account.
+- List configured products in the org.
+- Enable products in the org.
+- Enable or disable production or preview orgs linked to the Aerial account.
 
 ### Key terms
 
@@ -52,7 +52,7 @@ Okta Aerial introduces a few terms to the Okta ecosystem:
 </br>
 <dt><strong>Aerial admin org</strong></dt>
 <dd>An Aerial admin org serves as the authorization server to the Aerial account. Choose one org that serves as the Aerial admin org.</br></br>
-Super admins can create API clients in the Aerial admin org to access the Aerial account. The Aerial admin org also contains all system log events associated with Okta Aerial actions.</dd>
+Super admins can create API clients in the Aerial admin org to access the Aerial account. The Aerial admin org contains all Aerial action System Log events.</dd>
 </br>
 <dt><strong>Products</strong></dt>
 <dd>Products are Okta-determined sets of features. With the Okta Aerial API, you can view subscribed products for an Aerial account and enable a subset of products to orgs. Example products include SSO, AMFA, and LCM.</dd>
@@ -64,7 +64,7 @@ Super admins can create API clients in the Aerial admin org to access the Aerial
 
 ### Summary of steps
 
-Follow these steps to create and configure new orgs in your Aerial account. This guide also describes how to manage an org's status, and enables or disable products in an org.
+Follow these steps to create and configure new orgs in your Aerial account:
 
 1. [Authenticate with Okta Aerial](#authenticate-with-okta-aerial): Configure an API client in the Aerial admin org to call the Okta Aerial API.
 1. [Create and configure a child org](#create-a-child-org): Create a new child org based on the parent org using the Org creator API.
@@ -72,7 +72,7 @@ Follow these steps to create and configure new orgs in your Aerial account. This
 1. [Enable products in the org](#enable-products-in-the-org): Enable Products in the Org using the Aerial API.
 1. [Configure the org](#configure-the-org): Configure the org using Okta objects in the Aerial API.
 
-You can also do the following:
+You can also manage an org's status, and enable or disable products in an org:
 
 - [Manage an org's status](#manage-an-orgs-status)
 - [List the configured products in the Org](#list-the-configured-products)
@@ -89,31 +89,34 @@ You can also do the following:
 
 Use an Aerial API client to add orgs to the Aerial account and to modify products.
 
-Only a super admin in your Aerial admin org can grant scopes to the client. You only need to configure scopes once per API client.
+Only a super admin in your Aerial admin org can grant scopes to the client. You need to configure scopes once per API client.
 
-To register a new Okta Aerial API client:
+In your Aerial admin org, create an API client:
 
-1. In your Aerial admin org, create an API client:
-  1. In the **Admin Console**, go to **Applications** > **Applications**, and then click **Create App Integration**.
-  1. Select **API Services** as the sign-in method, and click **Next**.
-  1. Enter a name for your client and click **Save**.
-1. Configure the signing keys for the client:
-  1. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
-  1. Select **Public key/Private key** as the client authentication method.
-  1. Choose either **Save keys in Okta** or **Use a URL to fetch keys dynamically**:
-    - If you want to save keys in Okta, click **Add key**.
-    - If you want to use a URL to fetch keys dynamically, you need to provide a URL that returns the [JWKS documents](https://www.rfc-editor.org/rfc/rfc7517#section-5).
-1. Grant scopes to the client:
-  1. Select the **Okta API Scopes** tab.
-  1. To access Okta Aerial, click **Grant** on the following scopes:
-    - `okta.accounts.manage`: read/write operations
-    - `okta.accounts.read`: read-only operations
+1. In the **Admin Console**, go to **Applications** > **Applications**, and then click **Create App Integration**.
+1. Select **API Services** as the sign-in method, and click **Next**.
+1. Enter a name for your client and click **Save**.
+
+Configure the signing keys for the client:
+
+1. In the **Client Credentials** section of the **General** tab, click **Edit** to change the client authentication method.
+1. Select **Public key/Private key** as the client authentication method.
+1. Choose either **Save keys in Okta** or **Use a URL to fetch keys dynamically**:
+   - If you want to save keys in Okta, click **Add key**.
+   - If you want to use a URL to fetch keys dynamically, you need to provide a URL that returns the [JWKS documents](https://www.rfc-editor.org/rfc/rfc7517#section-5).
+
+Grant scopes to the client:
+
+1. Select the **Okta API Scopes** tab.
+1. To access Okta Aerial, click **Grant** on the following scopes:
+  - `okta.accounts.manage`: read/write operations
+  - `okta.accounts.read`: read-only operations
 
 ## Authenticate with Okta Aerial
 
 To authenticate with Okta Aerial, a client obtains an access token from the Aerial admin org. See [Implement OAuth for Okta with a service app](/docs/guides/implement-oauth-for-okta-serviceapp/main/#get-an-access-token) for more information.
 
-1. Create a [JWT assertion](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) and use it to make a [token request](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) to the Aerial admin org. The Aerial admin org returns the access token:
+Create a [JWT assertion](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) and use it to make a [token request](/docs/guides/implement-oauth-for-okta-serviceapp/main/#create-and-sign-the-jwt) to the Aerial admin org. The Aerial admin org returns the access token:
 
 ```bash
 curl --location --request POST 'https://${adminOrgDomain}/oauth2/v1/token' \
@@ -125,29 +128,29 @@ curl --location --request POST 'https://${adminOrgDomain}/oauth2/v1/token' \
     --data-urlencode 'client_assertion=${jwt_assertion}'
 ```
 
-1. Add the access token to the Authorization header of Okta Aerial API requests:
+Add the access token to the Authorization header of Okta Aerial API requests:
 
 ```bash
 Authorization: Bearer ${access_token}
 ```
-
 <!-- our OAuth docs for service apps rely on Postman for this step. need something in the interim until Postman is ready -->
-
 
 ## Create a child Org
 
-Create a child org using the Org creator API credentials in the parent org. This creates a new child org with features synced from the parent org. In the API response, you receive an API token tied to the Super Administrator. Use the token to provision more resources on the newly created child org, like policies, apps, or groups.
+Create a child org using the Org creator API credentials in the parent org. This creates a child org with features synced from the parent org. In the API response, you receive an API token tied to the Super Administrator. Use the token to provision more resources on the newly created child org, like policies, apps, or groups.
 
-This isn't the token that is used for Okta Aerial. See the [Org Creator API](). The API token that the Org Creator API creates has the same automatic expiration and deactivation as API tokens created using the [Okta Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation). However, the Org Creator API token doesn’t appear in the Admin Console, so you can’t revoke the token using the console. If you deactivate the Super admin (the first admin created during org creation), the token is deactivated.
+This isn't the token that is used for Okta Aerial. See the [Org Creator API](). The API token that the Org Creator API creates has the same automatic expiration and deactivation as API tokens created using the [Admin Console](/docs/guides/create-an-api-token/main/#token-expiration-and-deactivation).
 
-If you lose this token or it auto-expires, you must log in to the Admin Console as a Super Admin and [create a new token](/docs/guides/create-an-api-token/main/#create-the-token).
+However, the Org Creator API token doesn’t appear in the Admin Console. You can’t use the console to revoke the token. If you deactivate the super admin (the first admin created during org creation), the token is deactivated.
+
+If you lose this token or it auto-expires, you must log in to the Admin Console as a Super Admin and [create a token](/docs/guides/create-an-api-token/main/#create-the-token).
 
 
 ## Link the new Org to the Aerial account
 
-Before products can be enabled in an org, the org must first be added to the Aerial account. Only orgs that are associated with your Okta contracts can be added to your Aerial account.
+To enable products in an org, add the org to your Aerial account. You can only add orgs to your Aerial account that are associated with your Okta contracts.
 
-To link the org to Okta Aerial, you need to call the POST method of the Orgs endpoint in the Okta Aerial API. The response contains the fields of the newly created org record including the ID for use in enabling Products.
+To link the org to Okta Aerial, send a `POST` request to the `/api/va/orgs` endpoint of the Aerial API. The response contains the new org object including the `orgId` to use to enable Products.
 
 ### Use `orgId`
 
@@ -221,7 +224,10 @@ The id of this record is the `orgId` to use in the URL for enabling Products:
 
 ## Configure the Org
 
-To preconfigure groups, apps, and policies in each org, the API client can use the domain of the new org and the API token returned by the Org creator API.
+To pre-configure groups, apps, and policies in each org, the Aerial API client needs the following:
+
+- The domain of the new org
+- The API token returned by the Org creator API
 
 #### Request example
 
@@ -276,8 +282,6 @@ Deactivate an org by calling the `/status` endpoint. Deactivated orgs don’t co
 ## List the configured Products
 
 <ApiOperation method="get" url="https://aerial-{region}/{accountId}/api/v1/orgs/{orgId}/products" />
-
-This response is assumed to be the state of the org for the PUT call examples below.
 
 ### Response example
 
